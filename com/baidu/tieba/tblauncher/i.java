@@ -1,25 +1,23 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements a.b {
-    final /* synthetic */ MainTabActivity this$0;
+class i implements a.b {
+    final /* synthetic */ g fGJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
+    public i(g gVar) {
+        this.fGJ = gVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        try {
-            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-            aVar.dismiss();
-        } catch (Exception e) {
-            this.this$0.showToast(r.j.goto_developActivity_error_toast);
+        String string = com.baidu.tbadk.core.sharedPref.b.um().getString("across_forum_theme_id", "");
+        if (!StringUtils.isNull(string)) {
+            TbadkCoreApplication.m9getInst().setUsedTheme(com.baidu.adp.lib.h.b.g(string, 0), 0);
         }
+        aVar.dismiss();
     }
 }

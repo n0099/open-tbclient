@@ -3,21 +3,21 @@ package com.baidu.tieba.card;
 import android.view.View;
 /* loaded from: classes.dex */
 class ax implements View.OnClickListener {
-    final /* synthetic */ aw bax;
+    final /* synthetic */ aw bdG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(aw awVar) {
-        this.bax = awVar;
+        this.bdG = awVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.card.data.m mVar;
-        if (this.bax.getOnSubCardOnClickListenner() != null) {
-            cd<com.baidu.tieba.card.data.m> onSubCardOnClickListenner = this.bax.getOnSubCardOnClickListenner();
-            mVar = this.bax.bal;
+        if (this.bdG.getOnSubCardOnClickListenner() != null) {
+            bz<com.baidu.tieba.card.data.m> onSubCardOnClickListenner = this.bdG.getOnSubCardOnClickListenner();
+            mVar = this.bdG.bdv;
             onSubCardOnClickListenner.a(view, mVar);
         }
-        this.bax.Of();
+        this.bdG.Ph();
     }
 }

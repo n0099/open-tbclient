@@ -3,9 +3,9 @@ package com.baidu.tbadk.mvc.f.a;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
 public class b {
-    private int aAf;
-    private FragmentTabIndicator.a aAg;
-    private String aAh;
+    private int aAX;
+    private FragmentTabIndicator.a aAY;
+    private String aAZ;
     private int tabType;
     private String title;
 
@@ -17,31 +17,31 @@ public class b {
         this.title = str;
     }
 
-    public int Fp() {
-        return this.aAf;
+    public int Fu() {
+        return this.aAX;
     }
 
-    public FragmentTabIndicator.a Fq() {
-        return this.aAg;
+    public FragmentTabIndicator.a Fv() {
+        return this.aAY;
     }
 
     public void a(FragmentTabIndicator.a aVar) {
-        this.aAg = aVar;
+        this.aAY = aVar;
     }
 
-    public String Fr() {
-        return this.aAh;
+    public String Fw() {
+        return this.aAZ;
     }
 
-    public void gg(String str) {
-        this.aAh = str;
+    public void gj(String str) {
+        this.aAZ = str;
     }
 
-    public int Fs() {
+    public int Fx() {
         return this.tabType;
     }
 
-    public void eU(int i) {
+    public void eX(int i) {
         this.tabType = i;
     }
 }

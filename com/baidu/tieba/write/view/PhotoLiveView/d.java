@@ -13,15 +13,15 @@ import java.io.File;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    private final /* synthetic */ ViewGroup avj;
-    final /* synthetic */ a geO;
-    private final /* synthetic */ boolean geP;
+    private final /* synthetic */ ViewGroup awd;
+    final /* synthetic */ a gms;
+    private final /* synthetic */ boolean gmt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, ViewGroup viewGroup, boolean z) {
-        this.geO = aVar;
-        this.avj = viewGroup;
-        this.geP = z;
+        this.gms = aVar;
+        this.awd = viewGroup;
+        this.gmt = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -40,29 +40,29 @@ class d implements View.OnClickListener {
         LinkedList linkedList4;
         LinkedList linkedList5;
         LinkedList linkedList6;
-        int indexOfChild = this.avj.indexOfChild(view);
+        int indexOfChild = this.awd.indexOfChild(view);
         if (indexOfChild >= 0) {
-            if (this.geP) {
-                baseActivity2 = this.geO.bDL;
+            if (this.gmt) {
+                baseActivity2 = this.gms.bGF;
                 if (baseActivity2 instanceof WriteActivity) {
-                    linkedList2 = this.geO.chosedFiles;
+                    linkedList2 = this.gms.chosedFiles;
                     if (linkedList2 != null) {
-                        linkedList4 = this.geO.chosedFiles;
+                        linkedList4 = this.gms.chosedFiles;
                         if (linkedList4.size() > 0) {
-                            linkedList5 = this.geO.chosedFiles;
-                            linkedList6 = this.geO.chosedFiles;
+                            linkedList5 = this.gms.chosedFiles;
+                            linkedList6 = this.gms.chosedFiles;
                             linkedList5.remove(linkedList6.size() - 1);
                         }
                     }
-                    baseActivity3 = this.geO.bDL;
-                    linkedList3 = this.geO.chosedFiles;
+                    baseActivity3 = this.gms.bGF;
+                    linkedList3 = this.gms.chosedFiles;
                     ((WriteActivity) baseActivity3).o(linkedList3);
-                    baseActivity4 = this.geO.bDL;
+                    baseActivity4 = this.gms.bGF;
                     ((WriteActivity) baseActivity4).d((com.baidu.tbadk.editortools.a) null);
                     return;
                 }
             }
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.geO.getItem(indexOfChild);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.gms.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
@@ -70,19 +70,19 @@ class d implements View.OnClickListener {
                 z = file.exists() && file.length() != 0;
             }
             if (!z) {
-                context = this.geO.mContext;
+                context = this.gms.mContext;
                 k.d(context, r.j.editor_mutiiamge_image_error);
                 return;
             }
-            lVar = this.geO.atv;
+            lVar = this.gms.aup;
             if (lVar != null) {
-                if (this.geO.btb()) {
-                    this.geO.btc();
+                if (this.gms.bvw()) {
+                    this.gms.bvx();
                 }
-                baseActivity = this.geO.bDL;
-                linkedList = this.geO.chosedFiles;
+                baseActivity = this.gms.bGF;
+                linkedList = this.gms.chosedFiles;
                 ((WriteActivity) baseActivity).o(linkedList);
-                lVar2 = this.geO.atv;
+                lVar2 = this.gms.aup;
                 lVar2.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
             }
         }

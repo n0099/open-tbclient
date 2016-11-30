@@ -1,14 +1,24 @@
 package com.baidu.tieba.QuickPlayer;
-
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements CustomMessageTask.CustomRunnable<com.baidu.tieba.play.f> {
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tieba.play.f> run(CustomMessage<com.baidu.tieba.play.f> customMessage) {
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, new n());
+public class o implements Runnable {
+    final /* synthetic */ m aMk;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(m mVar) {
+        this.aMk = mVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        Runnable runnable;
+        z = this.aMk.aMh;
+        if (!z) {
+            this.aMk.Jr();
+            com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
+            runnable = this.aMk.aMj;
+            eG.postDelayed(runnable, 1000L);
+        }
     }
 }

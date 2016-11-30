@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +22,19 @@ public class v {
             boolean z2 = MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null;
             int i3 = 0;
             while (i3 < list.size()) {
-                if (list.get(i3) instanceof com.baidu.tbadk.core.data.af) {
+                if (list.get(i3) instanceof com.baidu.tbadk.core.data.ah) {
                     if (z2) {
-                        if (!((com.baidu.tbadk.core.data.af) list.get(i3)).isValid()) {
-                            ((com.baidu.tbadk.core.data.af) list.get(i3)).qo();
+                        if (!((com.baidu.tbadk.core.data.ah) list.get(i3)).isValid()) {
+                            ((com.baidu.tbadk.core.data.ah) list.get(i3)).qq();
                         }
-                        if (((com.baidu.tbadk.core.data.af) list.get(i3)).isValid()) {
-                            ICardInfo qp = ((com.baidu.tbadk.core.data.af) list.get(i3)).qp();
-                            int viewCount = qp.getViewCount();
+                        if (((com.baidu.tbadk.core.data.ah) list.get(i3)).isValid()) {
+                            ICardInfo qr = ((com.baidu.tbadk.core.data.ah) list.get(i3)).qr();
+                            int viewCount = qr.getViewCount();
                             ArrayList arrayList = new ArrayList();
                             for (int i4 = 0; i4 < viewCount; i4++) {
-                                ICardInfo viewItem = qp.getViewItem(i4, i);
+                                ICardInfo viewItem = qr.getViewItem(i4, i);
                                 if (viewItem != null) {
-                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dBU.get(viewItem.getCardType()));
+                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dHz.get(viewItem.getCardType()));
                                     arrayList.add(viewItem);
                                 }
                             }
@@ -82,7 +82,7 @@ public class v {
                         for (int i4 = 0; i4 < viewCount; i4++) {
                             ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dBU.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dHz.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -111,16 +111,16 @@ public class v {
         }
     }
 
-    public static ArrayList<BdUniqueId> biS() {
-        int size = com.baidu.tieba.lego.card.e.dBU.size();
+    public static ArrayList<BdUniqueId> bls() {
+        int size = com.baidu.tieba.lego.card.e.dHz.size();
         ArrayList<BdUniqueId> arrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            arrayList.add(com.baidu.tieba.lego.card.e.dBU.valueAt(i));
+            arrayList.add(com.baidu.tieba.lego.card.e.dHz.valueAt(i));
         }
         return arrayList;
     }
 
-    public static String rb(String str) {
+    public static String rv(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -135,7 +135,7 @@ public class v {
         }
     }
 
-    public static String rc(String str) {
+    public static String rw(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -150,7 +150,7 @@ public class v {
         }
     }
 
-    public static int rd(String str) {
+    public static int rx(String str) {
         if (TextUtils.isEmpty(str)) {
             return 2;
         }
@@ -169,7 +169,7 @@ public class v {
         }
     }
 
-    public static int re(String str) {
+    public static int ry(String str) {
         if (TextUtils.isEmpty(str)) {
             return 30;
         }
@@ -188,7 +188,7 @@ public class v {
         }
     }
 
-    public static boolean rf(String str) {
+    public static boolean rz(String str) {
         return str != null && str.startsWith("tieba://deeplink?");
     }
 
@@ -208,10 +208,10 @@ public class v {
 
     private static boolean k(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        if (bh.vL().dN(str)) {
-            bh.vL().a(tbPageContext, strArr, true);
+        if (bf.vP().dP(str)) {
+            bf.vP().a(tbPageContext, strArr, true);
             return true;
         }
-        return bh.vL().c(tbPageContext, strArr);
+        return bf.vP().c(tbPageContext, strArr);
     }
 }

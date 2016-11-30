@@ -1,14 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import tbclient.FrsPage.FrsPageResIdl;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw extends BdAsyncTask<Void, Void, Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.z.a(com.baidu.tieba.tbadkCore.n.WIRE, FrsPageResIdl.class);
-        return null;
+public class aw implements Runnable {
+    final /* synthetic */ au bUk;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aw(au auVar) {
+        this.bUk = auVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        ViewStub viewStub;
+        FrameLayout frameLayout;
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        viewStub = this.bUk.bTD;
+        if (viewStub != null) {
+            frameLayout = this.bUk.bTE;
+            frameLayout.setVisibility(0);
+            tbImageView = this.bUk.bTG;
+            tbImageView.setVisibility(0);
+            tbImageView2 = this.bUk.bTF;
+            tbImageView2.setVisibility(8);
+        }
     }
 }

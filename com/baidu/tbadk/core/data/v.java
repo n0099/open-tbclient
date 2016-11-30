@@ -1,37 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.HeadSdk;
+import java.util.ArrayList;
+import tbclient.ForumPresentInfo;
+import tbclient.UserRankPresentInfo;
 /* loaded from: classes.dex */
 public class v {
-    private String QM;
-    private String QN;
-    private String QO;
-    private String QP;
-    private int QR;
+    public String QY;
+    public ArrayList<a> users;
 
-    public void a(HeadSdk headSdk) {
-        if (headSdk != null) {
-            this.QM = headSdk.head_pic;
-            this.QN = headSdk.head_text;
-            this.QO = headSdk.sdk_name;
-            this.QP = headSdk.sdk_params;
-            this.QR = headSdk.head_type.intValue();
+    public void a(ForumPresentInfo forumPresentInfo) {
+        if (forumPresentInfo != null) {
+            this.QY = forumPresentInfo.content;
+            this.users = new ArrayList<>();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < forumPresentInfo.user_list.size()) {
+                    this.users.add(new a(forumPresentInfo.user_list.get(i2)));
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
         }
     }
 
-    public String pT() {
-        return this.QM;
-    }
+    /* loaded from: classes.dex */
+    public class a {
+        public Integer QZ;
+        public String userName;
+        public String userPortrait;
 
-    public String pU() {
-        return this.QN;
-    }
-
-    public String pV() {
-        return this.QP;
-    }
-
-    public int pW() {
-        return this.QR;
+        public a(UserRankPresentInfo userRankPresentInfo) {
+            if (userRankPresentInfo != null) {
+                this.QZ = userRankPresentInfo.user_id;
+                this.userName = userRankPresentInfo.user_name;
+                this.userPortrait = userRankPresentInfo.portrait;
+            }
+        }
     }
 }

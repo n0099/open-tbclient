@@ -1,33 +1,22 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
-    final /* synthetic */ m this$0;
+public class af extends CustomMessageListener {
+    final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(m mVar) {
-        this.this$0 = mVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public af(n nVar, int i) {
+        super(i);
+        this.this$0 = nVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        BdTypeListView bdTypeListView3;
-        this.this$0.hideTip();
-        i = this.this$0.cFz;
-        if (i == 1) {
-            bdTypeListView = this.this$0.bCe;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.this$0.bCe;
-                bdTypeListView2.setSelection(0);
-                bdTypeListView3 = this.this$0.bCe;
-                bdTypeListView3.kv();
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.this$0.fq(false);
     }
 }

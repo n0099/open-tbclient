@@ -1,22 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fa implements Runnable {
-    final /* synthetic */ ex ewH;
-    private final /* synthetic */ boolean ewI;
+    final /* synthetic */ ey eCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fa(ex exVar, boolean z) {
-        this.ewH = exVar;
-        this.ewI = z;
+    public fa(ey eyVar) {
+        this.eCT = eyVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        BdTypeListView bdTypeListView;
-        bdTypeListView = this.ewH.bCe;
-        bdTypeListView.setEnabled(this.ewI);
+        LinearLayout linearLayout;
+        ViewStub viewStub;
+        linearLayout = this.eCT.eBb;
+        if (linearLayout == null) {
+            this.eCT.aRP();
+        }
+        viewStub = this.eCT.eAA;
+        viewStub.setVisibility(0);
     }
 }

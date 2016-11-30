@@ -14,11 +14,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean bcx() {
+    public static boolean beY() {
         return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage rA(String str) {
+    public static RemindRecommendMessage rW(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,7 +52,7 @@ public class a {
         }
     }
 
-    public static long cT(long j) {
+    public static long cW(long j) {
         int i;
         int i2;
         int i3;
@@ -97,11 +97,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long blJ() {
-        return cT(System.currentTimeMillis());
+    public static long bob() {
+        return cW(System.currentTimeMillis());
     }
 
-    public static boolean cU(long j) {
+    public static boolean cX(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -111,7 +111,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean blK() {
-        return com.baidu.tbadk.core.sharedPref.b.uh().getInt("sync_local_dialog", 1) == 1;
+    public static boolean boc() {
+        return com.baidu.tbadk.core.sharedPref.b.um().getInt("sync_local_dialog", 1) == 1;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.h;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.a.j;
-import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.ad;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 import java.util.Map;
@@ -112,8 +112,8 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = j.getNetType();
         if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.xu().xv()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xu().xw()));
+            if (com.baidu.tbadk.coreExtra.b.a.xz().xA()) {
+                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xz().xB()));
             }
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m9getInst().getKeepaliveWifi() == 1) {
@@ -161,18 +161,18 @@ public class a extends com.baidu.adp.framework.a.d {
     }
 
     private void e(HttpMessage httpMessage) {
-        af.a vc = af.vc();
-        if (vc != null) {
-            httpMessage.addParam("stTime", String.valueOf(vc.mTime));
-            httpMessage.addParam("stSize", String.valueOf(vc.aaQ));
-            httpMessage.addParam("stTimesNum", String.valueOf(vc.aaR));
-            httpMessage.addParam("stMode", String.valueOf(vc.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(vc.aaP));
+        ad.a vg = ad.vg();
+        if (vg != null) {
+            httpMessage.addParam("stTime", String.valueOf(vg.mTime));
+            httpMessage.addParam("stSize", String.valueOf(vg.abo));
+            httpMessage.addParam("stTimesNum", String.valueOf(vg.abp));
+            httpMessage.addParam("stMode", String.valueOf(vg.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(vg.abn));
         }
-        int cE = af.cE(0);
-        if (cE == 0 && vc != null) {
-            cE = vc.aaR;
+        int cF = ad.cF(0);
+        if (cF == 0 && vg != null) {
+            cF = vg.abp;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cE));
+        httpMessage.addParam("stErrorNums", String.valueOf(cF));
     }
 }

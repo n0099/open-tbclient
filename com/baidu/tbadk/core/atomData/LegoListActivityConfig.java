@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class LegoListActivityConfig extends IntentConfig {
+    public static final String IS_IMMERSIVE = "is_immersive";
     public static final String ITEM_ID = "item_id";
     public static final String PAGE_ID = "page_id";
     public static final int PAGE_LIST = 2;
@@ -21,14 +22,15 @@ public class LegoListActivityConfig extends IntentConfig {
         this.mContext = context;
     }
 
-    public LegoListActivityConfig createNormalCfg(long j, int i, String str, int i2, String str2) {
+    public LegoListActivityConfig createNormalCfg(long j, int i, String str, int i2, int i3, String str2) {
         Intent intent = getIntent();
         intent.putExtra("page_id", j);
         intent.putExtra("page_type", i);
         if (!TextUtils.isEmpty(str)) {
             intent.putExtra(ITEM_ID, str);
         }
-        intent.putExtra(RN, i2);
+        intent.putExtra(IS_IMMERSIVE, i2);
+        intent.putExtra(RN, i3);
         intent.putExtra(PARAMS, str2);
         if (!(this.mContext instanceof Activity)) {
             intent.addFlags(268435456);

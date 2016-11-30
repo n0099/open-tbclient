@@ -18,19 +18,19 @@ public class a {
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0056a {
-        void NQ();
+        void OT();
     }
 
-    public static boolean NO() {
+    public static boolean OR() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.m9getInst(), "com.baidu.tiebabz");
     }
 
-    public static void NP() {
-        com.baidu.tbadk.download.b.Cv().a("160802", "https://downpack.baidu.com/tbbazhu_AndroidPhone_1017265l.apk", "贴吧吧主版", null);
+    public static void OS() {
+        com.baidu.tbadk.download.b.CD().a("160802", "https://downpack.baidu.com/tbbazhu_AndroidPhone_1017265l.apk", "贴吧吧主版", null);
     }
 
     public static void a(h<?> hVar, int i, int i2) {
-        if (!NO()) {
+        if (!OR()) {
             String str = "";
             switch (i2) {
                 case 1:
@@ -54,18 +54,18 @@ public class a {
     }
 
     public static void a(h<?> hVar, int i, String str) {
-        if (!NO()) {
+        if (!OR()) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(hVar.getPageActivity());
-            aVar.cD(str);
+            aVar.cF(str);
             aVar.a(r.j.download, new b(i));
             aVar.b(r.j.cancel, new c(i));
             aVar.b(hVar);
-            aVar.tm();
+            aVar.tq();
         }
     }
 
     public static void a(h<?> hVar, String str, String str2, InterfaceC0056a interfaceC0056a) {
-        if (!NO() || !e(hVar.getPageActivity(), str, str2)) {
+        if (!OR() || !e(hVar.getPageActivity(), str, str2)) {
             if (i.gm()) {
                 if (i.gn()) {
                     a(hVar, 1, hVar.getString(r.j.bawu_center_wifi_tips));
@@ -209,10 +209,10 @@ public class a {
 
     private static void a(h<?> hVar, InterfaceC0056a interfaceC0056a) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(hVar.getPageActivity());
-        aVar.cD(hVar.getString(r.j.bawu_center_3g_tips));
+        aVar.cF(hVar.getString(r.j.bawu_center_3g_tips));
         aVar.a(r.j.download, new d());
         aVar.b(r.j.continue_forward, new e(interfaceC0056a));
         aVar.b(hVar);
-        aVar.tm();
+        aVar.tq();
     }
 }

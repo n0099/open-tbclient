@@ -60,6 +60,7 @@ import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.utils.f;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.huawei.hwid.openapi.OpenHwID;
@@ -2624,7 +2625,7 @@ public final class SapiWebView extends WebView {
             sapiAccount.k = socialResponse.ptoken;
             sapiAccount.app = SapiUtils.getAppName(getContext());
             sapiAccount.a(socialResponse.socialType, socialResponse.socialPortraitUrl);
-            sapiAccount.a("account_type", Integer.valueOf(socialResponse.accountType.getType()));
+            sapiAccount.a(GiftTabActivityConfig.ACCOUNT_TYPE, Integer.valueOf(socialResponse.accountType.getType()));
             if (!socialResponse.tplStokenMap.isEmpty()) {
                 sapiAccount.a("stoken_list", new JSONObject(socialResponse.tplStokenMap));
             }

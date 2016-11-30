@@ -8,13 +8,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h eJA;
+    final /* synthetic */ h ePZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(h hVar, int i) {
         super(i);
-        this.eJA = hVar;
+        this.ePZ = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,15 +28,15 @@ public class j extends com.baidu.adp.framework.listener.e {
             String errorString = responseDeleteFriendMessage.getErrorString();
             if (error != 0) {
                 if (StringUtils.isNull(responseDeleteFriendMessage.getErrorString())) {
-                    tbPageContext = this.eJA.GM;
+                    tbPageContext = this.ePZ.GO;
                     errorString = tbPageContext.getResources().getString(r.j.neterror);
                 } else {
                     errorString = responseDeleteFriendMessage.getErrorString();
                 }
             } else {
-                this.eJA.iR(false);
+                this.ePZ.jr(false);
             }
-            tbPageContext2 = this.eJA.GM;
+            tbPageContext2 = this.ePZ.GO;
             tbPageContext2.showToast(errorString);
         }
     }

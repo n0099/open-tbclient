@@ -1,13 +1,13 @@
 package com.baidu.tbadk.editortools;
 /* loaded from: classes.dex */
 public abstract class f {
-    private l atv;
+    private l aup;
 
     public f(l lVar) {
-        this.atv = lVar;
+        this.aup = lVar;
     }
 
-    public l CG() {
-        return this.atv;
+    public l CO() {
+        return this.aup;
     }
 }

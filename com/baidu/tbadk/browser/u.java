@@ -1,37 +1,24 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.tbadk.TbConfig;
-import org.json.JSONObject;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-class u extends com.baidu.tbadk.core.c.p {
-    final /* synthetic */ TbWebViewActivity MH;
+class u implements Runnable {
+    final /* synthetic */ TbWebViewActivity MG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.n nVar) {
-        super(nVar);
-        this.MH = tbWebViewActivity;
+    public u(TbWebViewActivity tbWebViewActivity) {
+        this.MG = tbWebViewActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.c.p
-    public String nP() {
-        return "TBHY_COMMON_UISwitch";
-    }
-
-    @com.baidu.tbadk.core.c.q(tV = false, value = "viewHideSwitch")
-    private void viewHideSwitch(JSONObject jSONObject) {
-        boolean z;
-        if (jSONObject != null) {
-            String optString = jSONObject.optJSONObject(TbConfig.TMP_SHARE_DIR_NAME).optString("value");
-            if ("1".equals(optString)) {
-                this.MH.mShowShareItem = true;
-            } else if ("0".equals(optString)) {
-                this.MH.mShowShareItem = false;
+    @Override // java.lang.Runnable
+    public void run() {
+        try {
+            if (this.MG.mWebView != null) {
+                this.MG.mWebView.destroy();
+                this.MG.mWebView = null;
             }
-            x xVar = this.MH.mView;
-            z = this.MH.mShowShareItem;
-            xVar.af(z);
+        } catch (Throwable th) {
+            BdLog.e(th);
         }
     }
 }

@@ -5,16 +5,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
-    private List<TagInfo> cDu = new ArrayList();
-    private final int cDv;
+    private List<TagInfo> cIH = new ArrayList();
+    private final int cII;
     private Context mContext;
     private int padding;
     private int textSize;
@@ -25,30 +25,30 @@ public class q extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(r.e.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(r.e.ds16);
-        this.cDv = i;
+        this.cII = i;
     }
 
-    public void bs(List<TagInfo> list) {
-        this.cDu.clear();
+    public void bu(List<TagInfo> list) {
+        this.cIH.clear();
         if (list != null && list.size() > 0) {
-            this.cDu.addAll(list);
+            this.cIH.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.cDu.size();
+        return this.cIH.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jY */
+    /* renamed from: kf */
     public TagInfo getItem(int i) {
-        if (i < 0 || i >= this.cDu.size()) {
+        if (i < 0 || i >= this.cIH.size()) {
             return null;
         }
-        return this.cDu.get(i);
+        return this.cIH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -67,17 +67,17 @@ public class q extends BaseAdapter {
             textView.setTextSize(0, this.textSize);
             textView.setPadding(0, this.padding, 0, this.padding);
         }
-        TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.y.c(this.cDu, i);
+        TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.x.c(this.cIH, i);
         if (tagInfo == null) {
             return null;
         }
-        textView.setText(az.d(tagInfo.tag_name, 8, null));
-        av.c(textView, r.d.cp_cont_f, 1);
-        if (i == this.cDv) {
-            av.k(textView, r.f.btn_label_white_s);
+        textView.setText(ax.d(tagInfo.tag_name, 8, null));
+        at.c(textView, r.d.cp_cont_f, 1);
+        if (i == this.cII) {
+            at.k(textView, r.f.btn_label_white_s);
             return textView;
         }
-        av.k(textView, r.f.rec_frs_btn_more_item);
+        at.k(textView, r.f.rec_frs_btn_more_item);
         return textView;
     }
 }

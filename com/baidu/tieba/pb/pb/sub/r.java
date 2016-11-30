@@ -1,45 +1,34 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.view.View;
-import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tbadk.core.dialog.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements com.baidu.adp.lib.f.c<View> {
-    final /* synthetic */ NewSubPbActivity exF;
+public class r implements c.b {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(NewSubPbActivity newSubPbActivity) {
-        this.exF = newSubPbActivity;
+        this.eEs = newSubPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: ajX */
-    public View ez() {
-        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.exF.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
-        playVoiceBntNew.setPlayTimeTextView(r.e.fontsize28);
-        return playVoiceBntNew;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: al */
-    public void o(View view) {
-        ((PlayVoiceBntNew) view).reset();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: am */
-    public View p(View view) {
-        return view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: an */
-    public View q(View view) {
-        ((PlayVoiceBntNew) view).reset();
-        return view;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        bc bcVar;
+        bc bcVar2;
+        cVar.dismiss();
+        com.baidu.tieba.tbadkCore.data.q qVar = null;
+        bcVar = this.eEs.eEb;
+        if (bcVar.aTA() != null) {
+            bcVar2 = this.eEs.eEb;
+            qVar = bcVar2.aTA().aOG();
+        }
+        if (qVar != null) {
+            if (i == 0) {
+                qVar.bt(this.eEs.getPageContext().getPageActivity());
+            } else if (i == 1) {
+                this.eEs.e(qVar);
+            }
+        }
     }
 }

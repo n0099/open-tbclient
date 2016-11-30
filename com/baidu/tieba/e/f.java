@@ -6,11 +6,11 @@ import com.baidu.tieba.e.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ c bJB;
+    final /* synthetic */ c bMu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.bJB = cVar;
+        this.bMu = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -28,17 +28,17 @@ public class f implements Animation.AnimationListener {
         View view3;
         c.a aVar;
         c.a aVar2;
-        view = this.bJB.bJv;
+        view = this.bMu.bMo;
         if (view != null) {
-            view2 = this.bJB.bJv;
+            view2 = this.bMu.bMo;
             view2.clearAnimation();
-            view3 = this.bJB.bJv;
+            view3 = this.bMu.bMo;
             view3.setVisibility(0);
-            this.bJB.dr(false);
-            aVar = this.bJB.bJs;
+            this.bMu.dw(false);
+            aVar = this.bMu.bMl;
             if (aVar != null) {
-                aVar2 = this.bJB.bJs;
-                aVar2.ds(true);
+                aVar2 = this.bMu.bMl;
+                aVar2.dx(true);
             }
         }
     }

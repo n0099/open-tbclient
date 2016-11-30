@@ -4,10 +4,10 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
-    private boolean jK;
     private boolean jL;
     private boolean jM;
-    private DupLicateMode jN;
+    private boolean jN;
+    private DupLicateMode jO;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
 
     /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_WAITING,
         REMOVE_ALL;
 
-        /* JADX DEBUG: Replace access to removed values field (jO) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (jP) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DupLicateMode[] valuesCustom() {
             DupLicateMode[] valuesCustom = values();
@@ -30,10 +30,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.jK = false;
         this.jL = false;
-        this.jM = true;
-        this.jN = DupLicateMode.NONE;
+        this.jM = false;
+        this.jN = true;
+        this.jO = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -42,19 +42,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void l(boolean z) {
-        this.jK = z;
+        this.jL = z;
     }
 
     public boolean cs() {
-        return this.jK;
-    }
-
-    public boolean ct() {
         return this.jL;
     }
 
+    public boolean ct() {
+        return this.jM;
+    }
+
     public void m(boolean z) {
-        this.jL = z;
+        this.jM = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -66,18 +66,18 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean cu() {
-        return this.jM;
-    }
-
-    public void n(boolean z) {
-        this.jM = z;
-    }
-
-    public DupLicateMode cv() {
         return this.jN;
     }
 
+    public void n(boolean z) {
+        this.jN = z;
+    }
+
+    public DupLicateMode cv() {
+        return this.jO;
+    }
+
     public void a(DupLicateMode dupLicateMode) {
-        this.jN = dupLicateMode;
+        this.jO = dupLicateMode;
     }
 }

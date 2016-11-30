@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
 class d implements c.b {
-    final /* synthetic */ c aSO;
+    final /* synthetic */ c aUP;
     private final /* synthetic */ View val$v;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view) {
-        this.aSO = cVar;
+        this.aUP = cVar;
         this.val$v = view;
     }
 
@@ -23,14 +23,14 @@ class d implements c.b {
             switch (i) {
                 case 0:
                     if (accountData != null) {
-                        accountActivity2 = this.aSO.aSN;
+                        accountActivity2 = this.aUP.aUO;
                         accountActivity2.a(false, accountData);
                         break;
                     }
                     break;
                 case 1:
                     if (accountData != null) {
-                        accountActivity = this.aSO.aSN;
+                        accountActivity = this.aUP.aUO;
                         accountActivity.a(true, accountData);
                         break;
                     }

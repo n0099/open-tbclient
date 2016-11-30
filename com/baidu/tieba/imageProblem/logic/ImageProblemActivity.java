@@ -8,41 +8,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
-    ImageProblemView dwU;
-    ImageProblemAssistant dwV;
-    CheckTask dwW;
+    CheckTask dCA;
+    ImageProblemView dCy;
+    ImageProblemAssistant dCz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dwV = new ImageProblemAssistant(getPageContext().getPageActivity());
-        this.dwU = new ImageProblemView(this, this.dwV);
+        this.dCz = new ImageProblemAssistant(getPageContext().getPageActivity());
+        this.dCy = new ImageProblemView(this, this.dCz);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dwW != null) {
-            this.dwW.cancel();
-            this.dwW = null;
+        if (this.dCA != null) {
+            this.dCA.cancel();
+            this.dCA = null;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dwU.getCheckButton()) {
-            if (this.dwW == null) {
-                this.dwU.getCheckButton().setText(getResources().getText(r.j.stop));
-                this.dwW = new CheckTask(this, null);
-                this.dwW.execute(new Object[0]);
+        if (view == this.dCy.getCheckButton()) {
+            if (this.dCA == null) {
+                this.dCy.getCheckButton().setText(getResources().getText(r.j.stop));
+                this.dCA = new CheckTask(this, null);
+                this.dCA.execute(new Object[0]);
                 return;
             }
-            this.dwU.getCheckButton().setText(getResources().getText(r.j.diagnose));
-            if (this.dwW != null) {
-                this.dwW.cancel();
-                this.dwW = null;
+            this.dCy.getCheckButton().setText(getResources().getText(r.j.diagnose));
+            if (this.dCA != null) {
+                this.dCA.cancel();
+                this.dCA = null;
             }
         }
     }
@@ -50,7 +50,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.dwU.onChangeSkinType(i);
+        this.dCy.onChangeSkinType(i);
     }
 
     /* loaded from: classes.dex */
@@ -65,7 +65,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ImageProblemActivity.this.dwU.start();
+            ImageProblemActivity.this.dCy.start();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,19 +74,19 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: e */
         public BdStatSwitchData doInBackground(Object... objArr) {
             publishProgress(0);
-            ImageProblemActivity.this.dwV.networkCheck();
+            ImageProblemActivity.this.dCz.networkCheck();
             publishProgress(1);
-            ImageProblemActivity.this.dwV.checkDNSIP();
+            ImageProblemActivity.this.dCz.checkDNSIP();
             publishProgress(2);
-            ImageProblemActivity.this.dwV.checkProxyIP();
+            ImageProblemActivity.this.dCz.checkProxyIP();
             publishProgress(3);
-            ImageProblemActivity.this.dwV.networkTest();
+            ImageProblemActivity.this.dCz.networkTest();
             publishProgress(4);
-            ImageProblemActivity.this.dwV.checkSetting();
+            ImageProblemActivity.this.dCz.checkSetting();
             publishProgress(5);
-            ImageProblemActivity.this.dwV.checkLoadImg();
+            ImageProblemActivity.this.dCz.checkLoadImg();
             publishProgress(6);
-            ImageProblemActivity.this.dwV.fix();
+            ImageProblemActivity.this.dCz.fix();
             publishProgress(7);
             return null;
         }
@@ -97,7 +97,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: b */
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate(numArr);
-            ImageProblemActivity.this.dwU.setValue(numArr[0].intValue(), ImageProblemActivity.this.dwV.dwZ);
+            ImageProblemActivity.this.dCy.setValue(numArr[0].intValue(), ImageProblemActivity.this.dCz.dCD);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -106,9 +106,9 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: a */
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
             super.onPostExecute(bdStatSwitchData);
-            ImageProblemActivity.this.dwU.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(r.j.diagnose));
-            ImageProblemActivity.this.dwU.complete();
-            ImageProblemActivity.this.dwW = null;
+            ImageProblemActivity.this.dCy.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(r.j.diagnose));
+            ImageProblemActivity.this.dCy.complete();
+            ImageProblemActivity.this.dCA = null;
         }
     }
 }

@@ -17,6 +17,8 @@ public interface BdSocialShareSdkDelegate {
         void shareCallback(boolean z);
     }
 
+    void shareToQQFriend(String str, String str2, String str3, Uri uri, Location location, Context context, boolean z, ShareCallback shareCallback);
+
     void shareToQQWeibo(String str, String str2, String str3, Uri uri, Location location, Context context, boolean z, ShareCallback shareCallback);
 
     void shareToQZone(String str, String str2, String str3, Uri uri, Location location, Context context, boolean z, ShareCallback shareCallback);

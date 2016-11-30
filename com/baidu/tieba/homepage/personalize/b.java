@@ -1,109 +1,59 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
+import android.widget.CompoundButton;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.personalize.m;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.view.o;
 import com.baidu.tieba.r;
-import java.util.List;
-import tbclient.Personalized.TagInfo;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements m.a {
-    final /* synthetic */ a cFs;
+public class b implements o.a {
+    final /* synthetic */ a cKG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cFs = aVar;
+        this.cKG = aVar;
     }
 
-    @Override // com.baidu.tieba.homepage.personalize.m.a
-    public void az(int i, int i2) {
-        com.baidu.tieba.homepage.framework.c cVar;
-        boolean amx;
-        TagInfo tagInfo;
-        com.baidu.tieba.homepage.framework.c cVar2;
-        TagInfo tagInfo2;
-        com.baidu.tieba.homepage.framework.c cVar3;
-        TagInfo tagInfo3;
-        cVar = this.cFs.cFl;
-        if (cVar == null) {
-            this.cFs.showNetRefreshView(this.cFs, TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
-            this.cFs.JE();
-            return;
-        }
-        amx = this.cFs.amx();
-        this.cFs.JJ();
-        if (amx) {
-            this.cFs.j(true, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds520));
-        }
-        tagInfo = this.cFs.cFi;
-        if (tagInfo != null) {
-            tagInfo2 = this.cFs.cFi;
-            if (tagInfo2.tag_code != null) {
-                cVar3 = this.cFs.cFl;
-                tagInfo3 = this.cFs.cFi;
-                cVar3.u(tagInfo3.tag_code.intValue(), i, i2);
-                return;
-            }
-        }
-        cVar2 = this.cFs.cFl;
-        cVar2.u(0, i, i2);
-    }
-
-    @Override // com.baidu.tieba.homepage.personalize.m.a
-    public void v(int i, int i2, int i3) {
-        com.baidu.tieba.homepage.framework.c cVar;
-        TagInfo tagInfo;
-        TagInfo tagInfo2;
-        com.baidu.tieba.homepage.framework.c cVar2;
-        TagInfo tagInfo3;
-        cVar = this.cFs.cFl;
+    @Override // com.baidu.tbadk.core.view.o.a
+    public void a(com.baidu.tieba.card.data.c cVar) {
         if (cVar != null) {
-            tagInfo = this.cFs.cFi;
-            if (tagInfo != null) {
-                tagInfo2 = this.cFs.cFi;
-                if (tagInfo2.tag_code != null) {
-                    cVar2 = this.cFs.cFl;
-                    tagInfo3 = this.cFs.cFi;
-                    cVar2.k(tagInfo3.tag_code.intValue(), i, i2, i3);
+            TiebaStatic.log(new av("c11693").ab("obj_locate", "1").ab("tid", cVar.TY).ab("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.o.a
+    public void a(com.baidu.tieba.card.data.c cVar, CompoundButton compoundButton, boolean z) {
+    }
+
+    @Override // com.baidu.tbadk.core.view.o.a
+    public void a(ArrayList<Integer> arrayList, com.baidu.tieba.card.data.c cVar) {
+        String str;
+        if (arrayList != null && cVar != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < arrayList.size()) {
+                    int intValue = arrayList.get(i2).intValue();
+                    if (intValue == r.g.reason_checkbox1) {
+                        str = "2";
+                    } else if (intValue == r.g.reason_checkbox2) {
+                        str = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+                    } else {
+                        str = intValue == r.g.reason_checkbox3 ? "4" : "";
+                    }
+                    if (!"".equals(str)) {
+                        TiebaStatic.log(new av("c11693").ab("obj_locate", str).ab("tid", cVar.TY).ab("uid", TbadkCoreApplication.getCurrentAccount()));
+                    }
+                    i = i2 + 1;
+                } else {
+                    TiebaStatic.log(new av("c11693").ab("obj_locate", "5").ab("tid", cVar.TY).ab("uid", TbadkCoreApplication.getCurrentAccount()));
+                    return;
                 }
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.homepage.personalize.m.a
-    public void onError(int i, String str) {
-        BdTypeListView bdTypeListView;
-        TbPageContext tbPageContext;
-        this.cFs.JE();
-        if (i != 1) {
-            bdTypeListView = this.cFs.cFj;
-            bdTypeListView.setVisibility(8);
-            this.cFs.showNetRefreshView(this.cFs, str, true);
-        } else if (com.baidu.adp.lib.util.i.gm()) {
-            tbPageContext = this.cFs.pageContext;
-            tbPageContext.showToast(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.homepage.personalize.m.a
-    public void onSuccess() {
-        BdTypeListView bdTypeListView;
-        this.cFs.JE();
-        this.cFs.JJ();
-        bdTypeListView = this.cFs.cFj;
-        bdTypeListView.setVisibility(0);
-    }
-
-    @Override // com.baidu.tieba.homepage.personalize.m.a
-    public void bu(List<TagInfo> list) {
-        com.baidu.tieba.homepage.framework.c cVar;
-        com.baidu.tieba.homepage.framework.c cVar2;
-        cVar = this.cFs.cFl;
-        if (cVar != null) {
-            cVar2 = this.cFs.cFl;
-            cVar2.bo(list);
         }
     }
 }

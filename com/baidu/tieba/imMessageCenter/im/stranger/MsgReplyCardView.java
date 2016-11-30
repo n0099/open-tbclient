@@ -13,11 +13,11 @@ import com.baidu.tieba.imMessageCenter.im.stranger.c;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class MsgReplyCardView extends as {
-    private LinearLayout dsX;
-    private TextView dsY;
-    private TextView dsZ;
-    private TextView dta;
-    private TextView dtb;
+    private LinearLayout dyC;
+    private TextView dyD;
+    private TextView dyE;
+    private TextView dyF;
+    private TextView dyG;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, r.h.msg_reply_card_view);
@@ -25,57 +25,57 @@ public class MsgReplyCardView extends as {
     }
 
     private void init() {
-        this.dsX = (LinearLayout) findViewById(r.g.reply_card);
-        this.dsY = (TextView) findViewById(r.g.reply_title);
-        this.dsZ = (TextView) findViewById(r.g.reply_content);
-        this.dta = (TextView) findViewById(r.g.reply_quote_content);
-        this.dtb = (TextView) findViewById(r.g.reply_frs_name);
-        this.dsX.setOnClickListener(new a(this));
+        this.dyC = (LinearLayout) findViewById(r.g.reply_card);
+        this.dyD = (TextView) findViewById(r.g.reply_title);
+        this.dyE = (TextView) findViewById(r.g.reply_content);
+        this.dyF = (TextView) findViewById(r.g.reply_quote_content);
+        this.dyG = (TextView) findViewById(r.g.reply_frs_name);
+        this.dyC.setOnClickListener(new a(this));
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            c.a mK = c.mK(chatMessage.getContent());
+            c.a mX = c.mX(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.dsY.setText(a(mK, valueOf));
-            this.dsZ.setText(mK.dsE);
-            this.dta.setText(b(mK, valueOf));
-            this.dtb.setText(String.valueOf(mK.dtk) + this.mContext.getString(r.j.bar));
+            this.dyD.setText(a(mX, valueOf));
+            this.dyE.setText(mX.dyj);
+            this.dyF.setText(b(mX, valueOf));
+            this.dyG.setText(String.valueOf(mX.dyP) + this.mContext.getString(r.j.bar));
         }
     }
 
     private String a(c.a aVar, String str) {
         String string;
-        String mr;
+        String mz;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = mr(aVar.dte);
-            mr = this.mContext.getString(r.j.you);
+            string = mz(aVar.dyJ);
+            mz = this.mContext.getString(r.j.you);
         } else {
             string = this.mContext.getString(r.j.you);
-            mr = mr(aVar.dte);
+            mz = mz(aVar.dyJ);
         }
-        return String.format(this.mContext.getString(r.j.add_friend_card_title), string, getType(aVar.type), mr);
+        return String.format(this.mContext.getString(r.j.add_friend_card_title), string, getType(aVar.type), mz);
     }
 
     private String b(c.a aVar, String str) {
-        String mr;
+        String mz;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            mr = this.mContext.getString(r.j.me);
+            mz = this.mContext.getString(r.j.me);
         } else {
-            mr = mr(aVar.dte);
+            mz = mz(aVar.dyJ);
         }
         if (aVar.type == 1) {
-            sb.append(String.format(this.mContext.getString(r.j.add_friend_card_quote_comment), mr));
-            sb.append(aVar.dti);
+            sb.append(String.format(this.mContext.getString(r.j.add_friend_card_quote_comment), mz));
+            sb.append(aVar.dyN);
         } else {
-            sb.append(String.format(this.mContext.getString(r.j.add_friend_card_quote_thread), mr));
+            sb.append(String.format(this.mContext.getString(r.j.add_friend_card_quote_thread), mz));
             sb.append(aVar.title);
         }
         return sb.toString();
     }
 
-    private String mr(int i) {
+    private String mz(int i) {
         if (i == 1) {
             return this.mContext.getResources().getString(r.j.he);
         }

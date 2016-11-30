@@ -4,50 +4,50 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class ba extends CustomMessageListener {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ba(PbActivity pbActivity, int i) {
         super(i);
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        dh dhVar;
-        ex exVar;
-        ex exVar2;
-        ex exVar3;
-        ex exVar4;
-        dh dhVar2;
-        ex exVar5;
-        dh dhVar3;
-        dh dhVar4;
-        dh dhVar5;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-            dhVar = this.eqa.eov;
-            dhVar.a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
-            exVar = this.eqa.epe;
-            if (exVar != null) {
-                dhVar2 = this.eqa.eov;
-                if (dhVar2 != null) {
-                    exVar5 = this.eqa.epe;
-                    dhVar3 = this.eqa.eov;
-                    com.baidu.tieba.pb.data.h pbData = dhVar3.getPbData();
-                    dhVar4 = this.eqa.eov;
-                    boolean aOw = dhVar4.aOw();
-                    dhVar5 = this.eqa.eov;
-                    exVar5.c(pbData, aOw, dhVar5.aOL());
+        dj djVar;
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
+        ey eyVar4;
+        dj djVar2;
+        ey eyVar5;
+        dj djVar3;
+        dj djVar4;
+        dj djVar5;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.k)) {
+            djVar = this.evL.euf;
+            djVar.a((com.baidu.tbadk.data.k) customResponsedMessage.getData());
+            eyVar = this.evL.euP;
+            if (eyVar != null) {
+                djVar2 = this.evL.euf;
+                if (djVar2 != null) {
+                    eyVar5 = this.evL.euP;
+                    djVar3 = this.evL.euf;
+                    com.baidu.tieba.pb.data.h pbData = djVar3.getPbData();
+                    djVar4 = this.evL.euf;
+                    boolean aQp = djVar4.aQp();
+                    djVar5 = this.evL.euf;
+                    eyVar5.d(pbData, aQp, djVar5.aQE());
                 }
             }
-            exVar2 = this.eqa.epe;
-            if (exVar2 != null) {
-                exVar3 = this.eqa.epe;
-                if (exVar3.aPS() != null) {
-                    exVar4 = this.eqa.epe;
-                    exVar4.aPS().notifyDataSetChanged();
+            eyVar2 = this.evL.euP;
+            if (eyVar2 != null) {
+                eyVar3 = this.evL.euP;
+                if (eyVar3.aRW() != null) {
+                    eyVar4 = this.evL.euP;
+                    eyVar4.aRW().notifyDataSetChanged();
                 }
             }
         }

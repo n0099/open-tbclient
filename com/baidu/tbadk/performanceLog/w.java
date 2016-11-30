@@ -1,104 +1,104 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class w extends z {
-    public static int aCf = 100;
-    public static int aCg = 10;
+    public static int aCW = 100;
+    public static int aCX = 10;
 
-    public static void Gm() {
-        if (aa.Go().Gp()) {
-            if (b.aCk > aCg) {
-                b.Gg();
+    public static void Gs() {
+        if (aa.Gu().Gv()) {
+            if (b.aDb > aCX) {
+                b.Gm();
             }
-            if (a.aCh > aCg) {
-                a.Gg();
+            if (a.aCY > aCX) {
+                a.Gm();
             }
         }
     }
 
     public static void b(boolean z, boolean z2, boolean z3) {
-        a.aCh++;
+        a.aCY++;
         if (z2) {
-            a.aCi++;
+            a.aCZ++;
         } else if (z3) {
-            a.aCj++;
+            a.aDa++;
         }
-        if (a.aCh > aCf) {
-            a.Gg();
+        if (a.aCY > aCW) {
+            a.Gm();
         }
     }
 
     public void c(p pVar) {
-        if (aa.Go().Gp()) {
-            if (b.aCk < aCf) {
-                b.aCl += pVar.nU;
-                b.aCm += pVar.yU;
-                b.aCn += pVar.aBB;
-                b.aCo += pVar.aBC;
-                b.aCq += pVar.AA;
-                b.aCp += pVar.aBs;
-                b.aCk++;
+        if (aa.Gu().Gv()) {
+            if (b.aDb < aCW) {
+                b.aDc += pVar.nV;
+                b.aDd += pVar.yU;
+                b.aDe += pVar.aCs;
+                b.aDf += pVar.aCt;
+                b.aDh += pVar.AA;
+                b.aDg += pVar.aCj;
+                b.aDb++;
                 return;
             }
-            b.Gg();
+            b.Gm();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int aCh;
-        public static int aCi;
-        public static int aCj;
+        public static int aCY;
+        public static int aCZ;
+        public static int aDa;
 
-        public static void Gg() {
+        public static void Gm() {
             com.baidu.adp.lib.stats.d eB = w.eB();
             eB.q("action", "imbusy");
-            eB.q("totalNum", String.valueOf(aCh));
-            eB.q("tfailNum", String.valueOf(aCi));
-            eB.q("qfailNum", String.valueOf(aCj));
+            eB.q("totalNum", String.valueOf(aCY));
+            eB.q("tfailNum", String.valueOf(aCZ));
+            eB.q("qfailNum", String.valueOf(aDa));
             com.baidu.adp.lib.stats.a.eI().a("im", eB);
             resetData();
         }
 
         public static void resetData() {
-            aCh = 0;
-            aCi = 0;
-            aCj = 0;
+            aCY = 0;
+            aCZ = 0;
+            aDa = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int aCk;
-        public static long aCl;
-        public static long aCm;
-        public static long aCn;
-        public static int aCo;
-        public static int aCp;
-        public static long aCq;
+        public static int aDb;
+        public static long aDc;
+        public static long aDd;
+        public static long aDe;
+        public static int aDf;
+        public static int aDg;
+        public static long aDh;
 
-        public static void Gg() {
+        public static void Gm() {
             com.baidu.adp.lib.stats.d eB = w.eB();
             eB.q("action", "imcost");
-            eB.q("dect", String.valueOf(aCl));
-            eB.q("dlsize", String.valueOf(aCm));
-            eB.q("dbt", String.valueOf(aCn));
-            eB.q("pnum", String.valueOf(aCo));
-            eB.q("reqcost", String.valueOf(aCq));
-            eB.q("cpu", String.valueOf(aCp));
-            eB.q("totalNum", String.valueOf(aCk));
+            eB.q("dect", String.valueOf(aDc));
+            eB.q("dlsize", String.valueOf(aDd));
+            eB.q("dbt", String.valueOf(aDe));
+            eB.q("pnum", String.valueOf(aDf));
+            eB.q("reqcost", String.valueOf(aDh));
+            eB.q("cpu", String.valueOf(aDg));
+            eB.q("totalNum", String.valueOf(aDb));
             com.baidu.adp.lib.stats.a.eI().a("im", eB);
-            Gn();
+            Gt();
         }
 
-        public static void Gn() {
-            aCk = 0;
-            aCl = 0L;
-            aCm = 0L;
-            aCn = 0L;
-            aCo = 0;
-            aCp = 0;
+        public static void Gt() {
+            aDb = 0;
+            aDc = 0L;
+            aDd = 0L;
+            aDe = 0L;
+            aDf = 0;
+            aDg = 0;
         }
     }
 }

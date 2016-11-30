@@ -6,51 +6,51 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c extends y.a {
-    public View aAy;
-    private View.OnClickListener ahN;
-    public ImageView eEJ;
-    public TextView eEK;
-    private v eEL;
+    public View aBq;
+    private View.OnClickListener aNB;
+    public ImageView eLi;
+    public TextView eLj;
+    private v eLk;
     private int mSkinType;
 
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.aAy = view.findViewById(r.g.add_pic_root);
-        this.eEJ = (ImageView) view.findViewById(r.g.add_image_view);
-        this.eEK = (TextView) view.findViewById(r.g.tip_left_count_view);
+        this.aBq = view.findViewById(r.g.add_pic_root);
+        this.eLi = (ImageView) view.findViewById(r.g.add_image_view);
+        this.eLj = (TextView) view.findViewById(r.g.tip_left_count_view);
     }
 
-    public void c(v vVar) {
+    public void d(v vVar) {
         if (vVar instanceof com.baidu.tieba.person.data.a) {
-            this.eEL = vVar;
+            this.eLk = vVar;
             com.baidu.tieba.person.data.a aVar = (com.baidu.tieba.person.data.a) vVar;
-            av.c(this.eEJ, r.f.icon_mine_pic_add);
-            if (aVar.aSD() > 0) {
-                this.eEK.setText(String.format(TbadkCoreApplication.m9getInst().getString(r.j.have_left_some_picture_upload), Integer.valueOf(aVar.aSD())));
+            at.c(this.eLi, r.f.icon_mine_pic_add);
+            if (aVar.aUK() > 0) {
+                this.eLj.setText(String.format(TbadkCoreApplication.m9getInst().getString(r.j.have_left_some_picture_upload), Integer.valueOf(aVar.aUK())));
             }
-            getView().setOnClickListener(this.ahN);
+            getView().setOnClickListener(this.aNB);
             onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            av.c(this.eEK, r.d.cp_cont_e, 1);
-            av.l(getView(), r.d.cp_bg_line_e);
+            at.c(this.eLj, r.d.cp_cont_e, 1);
+            at.l(getView(), r.d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
-    public v wV() {
-        return this.eEL;
+    public v wX() {
+        return this.eLk;
     }
 
-    public void G(View.OnClickListener onClickListener) {
-        this.ahN = onClickListener;
+    public void x(View.OnClickListener onClickListener) {
+        this.aNB = onClickListener;
     }
 }

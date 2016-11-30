@@ -10,12 +10,12 @@ public class g extends NetModel<h, i, bf> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int lT() {
+    protected int lW() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String lU() {
+    protected String lX() {
         return "c/u/feed/atme";
     }
 
@@ -25,7 +25,7 @@ public class g extends NetModel<h, i, bf> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int lV() {
+    protected int lY() {
         return 0;
     }
 }

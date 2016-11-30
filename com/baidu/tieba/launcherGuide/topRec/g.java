@@ -6,11 +6,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Animation.AnimationListener {
-    final /* synthetic */ e dAC;
+    final /* synthetic */ e dGg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.dAC = eVar;
+        this.dGg = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,19 +22,19 @@ public class g implements Animation.AnimationListener {
         Button button3;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.dAC.dAy;
+        i = this.dGg.dGc;
         if (i < 100) {
-            button3 = this.dAC.dAt;
-            topRecActivity2 = this.dAC.dAk;
+            button3 = this.dGg.dFX;
+            topRecActivity2 = this.dGg.dFO;
             StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(r.j.done))).append("(");
-            i2 = this.dAC.dAy;
+            i2 = this.dGg.dGc;
             button3.setText(append.append(i2).append(")").toString());
         } else {
-            button = this.dAC.dAt;
-            topRecActivity = this.dAC.dAk;
+            button = this.dGg.dFX;
+            topRecActivity = this.dGg.dFO;
             button.setText(String.valueOf(topRecActivity.getPageContext().getString(r.j.done)) + "(99+)");
         }
-        button2 = this.dAC.dAt;
+        button2 = this.dGg.dFX;
         button2.invalidate();
     }
 

@@ -6,11 +6,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c sS;
+    final /* synthetic */ c sT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.sS = cVar;
+        this.sT = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -23,28 +23,28 @@ public class d implements Runnable {
         int i2;
         Handler handler3;
         AudioTrack audioTrack2;
-        audioTrack = this.sS.sK;
+        audioTrack = this.sT.sL;
         if (audioTrack != null) {
             try {
-                audioTrack2 = this.sS.sK;
+                audioTrack2 = this.sT.sL;
                 if (audioTrack2.getPlayState() != 3) {
                     return;
                 }
             } catch (NullPointerException e) {
             }
-            int gQ = this.sS.gQ() + 0;
-            i = this.sS.mElapsedTime;
+            int gQ = this.sT.gQ() + 0;
+            i = this.sT.mElapsedTime;
             if (gQ != i) {
-                this.sS.mElapsedTime = gQ;
-                handler2 = this.sS.mHandler;
+                this.sT.mElapsedTime = gQ;
+                handler2 = this.sT.mHandler;
                 Message obtainMessage = handler2.obtainMessage(6);
-                i2 = this.sS.mElapsedTime;
+                i2 = this.sT.mElapsedTime;
                 obtainMessage.arg1 = i2;
-                handler3 = this.sS.mHandler;
+                handler3 = this.sT.mHandler;
                 handler3.sendMessage(obtainMessage);
             }
-            handler = this.sS.sP;
-            runnable = this.sS.mPlayTimeThread;
+            handler = this.sT.sQ;
+            runnable = this.sT.mPlayTimeThread;
             handler.postDelayed(runnable, 100L);
         }
     }

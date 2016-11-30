@@ -4,17 +4,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g implements v {
-    public static final BdUniqueId eDO = BdUniqueId.gen();
+    public static final BdUniqueId eKn = BdUniqueId.gen();
     private boolean isSelf;
     private List<v> mPhotoAlbum;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eDO;
+        return eKn;
     }
 
     public List<v> getPhotoAlbum() {
@@ -33,21 +33,21 @@ public class g implements v {
                 this.isSelf = false;
             }
             setPhotoAlbum(userData.getPhotoAlbum());
-            if (this.isSelf && getPhotoAlbum() != null && !cy(getPhotoAlbum()) && getPhotoAlbum().size() < 9) {
+            if (this.isSelf && getPhotoAlbum() != null && !cA(getPhotoAlbum()) && getPhotoAlbum().size() < 9) {
                 com.baidu.tieba.person.data.a aVar = new com.baidu.tieba.person.data.a();
-                aVar.oS(9 - getPhotoAlbum().size());
+                aVar.pf(9 - getPhotoAlbum().size());
                 getPhotoAlbum().add(aVar);
             }
         }
     }
 
-    private boolean cy(List<v> list) {
-        int s = y.s(list);
+    private boolean cA(List<v> list) {
+        int s = x.s(list);
         if (s == 0) {
             return false;
         }
         for (int i = s - 1; i >= 0; i--) {
-            v vVar = (v) y.c(list, i);
+            v vVar = (v) x.c(list, i);
             if (vVar != null && (vVar instanceof com.baidu.tieba.person.data.a)) {
                 return true;
             }

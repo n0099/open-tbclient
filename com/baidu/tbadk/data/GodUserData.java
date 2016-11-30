@@ -16,10 +16,6 @@ public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializ
     private String mRecommendReason;
     private int type;
 
-    public int getFollowed() {
-        return this.followed;
-    }
-
     public long getFid() {
         return this.fid;
     }
@@ -48,10 +44,6 @@ public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializ
         return this.mRecommendReason;
     }
 
-    public void setFollowed(int i) {
-        this.followed = i;
-    }
-
     public void setFid(long j) {
         this.fid = j;
     }
@@ -66,6 +58,18 @@ public class GodUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializ
 
     public void setId(Long l) {
         this.id = l;
+    }
+
+    public boolean getIsLike() {
+        return this.followed == 1;
+    }
+
+    public void setIsLike(boolean z) {
+        this.followed = z ? 1 : 0;
+    }
+
+    public boolean isGod() {
+        return this.type == 2;
     }
 
     public void setIsFromNetWork(boolean z) {

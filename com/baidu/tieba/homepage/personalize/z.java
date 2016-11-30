@@ -1,28 +1,34 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import tbclient.Personalized.DataRes;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.tbadk.util.t<Object> {
-    private final /* synthetic */ DataRes.Builder cGf;
-    final /* synthetic */ m this$0;
+public class z implements View.OnTouchListener {
+    final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(m mVar, DataRes.Builder builder) {
-        this.this$0 = mVar;
-        this.cGf = builder;
+    public z(n nVar) {
+        this.this$0 = nVar;
     }
 
-    @Override // com.baidu.tbadk.util.t
-    public Object doInBackground() {
-        try {
-            com.baidu.tbadk.core.b.a.ti().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", this.cGf.build(true).toByteArray());
-            return null;
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        View.OnTouchListener onTouchListener;
+        com.baidu.tieba.d.a aVar;
+        com.baidu.tieba.d.a aVar2;
+        View.OnTouchListener onTouchListener2;
+        onTouchListener = this.this$0.cKW;
+        if (onTouchListener != null) {
+            onTouchListener2 = this.this$0.cKW;
+            onTouchListener2.onTouch(view, motionEvent);
         }
+        aVar = this.this$0.aMN;
+        if (aVar != null) {
+            aVar2 = this.this$0.aMN;
+            aVar2.onTouchEvent(motionEvent);
+            return false;
+        }
+        return false;
     }
 }

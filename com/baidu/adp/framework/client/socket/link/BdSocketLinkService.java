@@ -59,7 +59,7 @@ public class BdSocketLinkService extends BdBaseService {
         try {
             return com.baidu.adp.lib.webSocket.h.ha().hb();
         } catch (Throwable th) {
-            connCallback.e(-1001, "open error");
+            connCallback.d(-1001, "open error");
             BdLog.e(th.getMessage());
             return false;
         }
@@ -122,11 +122,11 @@ public class BdSocketLinkService extends BdBaseService {
                 intent.putExtra(RE_OPEN, z);
                 intent.putExtra(REASON, str);
                 if (BdBaseApplication.getInst().getApp().startService(intent) == null) {
-                    connCallback.e(LINK_ERROR_CODE_SERVICE, "startService error");
+                    connCallback.d(LINK_ERROR_CODE_SERVICE, "startService error");
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                connCallback.e(LINK_ERROR_CODE_SERVICE, "startService error");
+                connCallback.d(LINK_ERROR_CODE_SERVICE, "startService error");
                 k.a(MODULE_NAME, 0, 0, "startService_exception", START_SERVICE_ERROR, e.getMessage());
             }
         }

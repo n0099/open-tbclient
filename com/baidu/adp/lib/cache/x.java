@@ -5,18 +5,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class x extends c<String> {
-    private String lP;
+    private String lQ;
 
     public x(com.baidu.adp.base.a.b bVar, String str) {
         super(bVar);
-        this.lP = str;
+        this.lQ = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public String G(String str) {
-        this.lQ.x("CREATE TABLE IF NOT EXISTS " + this.lP + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        this.lQ.x("CREATE INDEX if not exists idx_mi_ns ON " + this.lP + "(m_ns)");
-        return this.lP;
+        this.lR.x("CREATE TABLE IF NOT EXISTS " + this.lQ + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.lR.x("CREATE INDEX if not exists idx_mi_ns ON " + this.lQ + "(m_ns)");
+        return this.lQ;
     }
 
     @Override // com.baidu.adp.lib.cache.c
@@ -35,16 +35,16 @@ public class x extends c<String> {
         Throwable th;
         h<String> hVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.lR + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.lS + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
                     hVar = new h<>();
-                    hVar.mc = cursor.getString(0);
-                    hVar.md = cursor.getString(1);
-                    hVar.mf = cursor.getLong(2);
-                    hVar.mg = cursor.getLong(3);
-                    hVar.mh = cursor.getLong(4);
-                    hVar.lo = cursor.getString(5);
+                    hVar.md = cursor.getString(0);
+                    hVar.mf = cursor.getString(1);
+                    hVar.mg = cursor.getLong(2);
+                    hVar.mh = cursor.getLong(3);
+                    hVar.mi = cursor.getLong(4);
+                    hVar.lp = cursor.getString(5);
                     com.baidu.adp.lib.h.a.a(cursor);
                 } else {
                     com.baidu.adp.lib.h.a.a(cursor);
@@ -64,27 +64,27 @@ public class x extends c<String> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(h<String> hVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", hVar.mc);
-        contentValues.put("m_ns", hVar.md);
-        contentValues.put("m_value", hVar.lo);
-        contentValues.put("saveTime", Long.valueOf(hVar.mf));
-        contentValues.put("lastHitTime", Long.valueOf(hVar.mg));
-        contentValues.put("timeToExpire", Long.valueOf(hVar.mh));
+        contentValues.put("m_key", hVar.md);
+        contentValues.put("m_ns", hVar.mf);
+        contentValues.put("m_value", hVar.lp);
+        contentValues.put("saveTime", Long.valueOf(hVar.mg));
+        contentValues.put("lastHitTime", Long.valueOf(hVar.mh));
+        contentValues.put("timeToExpire", Long.valueOf(hVar.mi));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.lR + " where m_ns = ?", new String[]{str});
+        return sQLiteDatabase.rawQuery("select * from " + this.lS + " where m_ns = ?", new String[]{str});
     }
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean H(String str) {
         try {
-            this.lQ.aZ().delete(this.lR, "m_ns = ?", new String[]{str});
+            this.lR.aZ().delete(this.lS, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.lQ.d(th, "clearData");
+            this.lR.a(th, "clearData");
             return false;
         }
     }

@@ -1,16 +1,26 @@
 package com.baidu.tieba.screenlocknotify;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements Runnable {
-    final /* synthetic */ f ffC;
+public class l extends CustomMessageListener {
+    final /* synthetic */ i fmR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(f fVar) {
-        this.ffC = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(i iVar, int i) {
+        super(i);
+        this.fmR = iVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.ffC.fft.bcF();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() == 2012125 || customResponsedMessage.getCmd() == 2012121 || customResponsedMessage.getCmd() == 2012123) {
+                this.fmR.processServerMsg(customResponsedMessage);
+            }
+        }
     }
 }

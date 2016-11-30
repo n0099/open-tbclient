@@ -1,37 +1,30 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
 import com.baidu.tbadk.BaseActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class bm implements Runnable {
-    final /* synthetic */ bl ghL;
+public class bm {
+    private BaseActivity<?> aTb;
+    private com.baidu.tbadk.editortools.l auI;
+    private com.baidu.tbadk.editortools.j gpu;
+    private boolean gpv = false;
+    private boolean gpw = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bl blVar) {
-        this.ghL = blVar;
+    public bm(BaseActivity<?> baseActivity, com.baidu.tbadk.editortools.l lVar) {
+        this.aTb = baseActivity;
+        this.auI = lVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.l lVar;
-        com.baidu.tbadk.editortools.l lVar2;
-        com.baidu.tbadk.editortools.j jVar2;
-        BaseActivity baseActivity;
-        jVar = this.ghL.ghI;
-        if (jVar != null) {
-            lVar = this.ghL.atO;
-            if (lVar != null) {
-                lVar2 = this.ghL.atO;
-                com.baidu.tbadk.editortools.s ew = lVar2.ew(24);
-                if (ew instanceof View) {
-                    jVar2 = this.ghL.ghI;
-                    baseActivity = this.ghL.aRd;
-                    jVar2.d(baseActivity.getPageContext().getPageActivity(), (View) ew);
-                }
-                this.ghL.ghJ = true;
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (this.gpv) {
+            if (this.gpu != null) {
+                this.gpu.CU();
+                this.gpu = null;
             }
+        } else if (!this.gpw && z) {
+            this.gpw = true;
+            this.gpu = new com.baidu.tbadk.editortools.j(this.aTb.getResources().getString(r.j.graffiti_write_tips), "graffiti_write_tip_show", 24, 24);
+            this.aTb.getSafeHandler().postDelayed(new bn(this), 500L);
         }
     }
 }

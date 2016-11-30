@@ -1,37 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.r;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ff implements View.OnClickListener {
-    final /* synthetic */ ex ewH;
+public class ff implements Animation.AnimationListener {
+    final /* synthetic */ ey eCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ff(ex exVar) {
-        this.ewH = exVar;
+    public ff(ey eyVar) {
+        this.eCT = eyVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.ewH.evf;
-        if (dialog != null) {
-            dialog2 = this.ewH.evf;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.ewH.evf;
-                pbActivity = this.ewH.eow;
-                com.baidu.adp.lib.h.j.b(dialog3, pbActivity.getPageContext());
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.l lVar;
+        com.baidu.tbadk.editortools.l lVar2;
+        View view;
+        boolean z2;
+        z = this.eCT.eBU;
+        if (!z) {
+            lVar = this.eCT.EL;
+            if (lVar != null) {
+                lVar2 = this.eCT.EL;
+                lVar2.lz();
+                return;
+            }
+            return;
+        }
+        view = this.eCT.eBP;
+        if (view != null) {
+            z2 = this.eCT.dEi;
+            if (z2 && !this.eCT.aSF()) {
+                this.eCT.gZ(false);
+            } else {
+                this.eCT.ha(false);
             }
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.ewH.a(((Integer) sparseArray.get(r.g.tag_del_post_type)).intValue(), (String) sparseArray.get(r.g.tag_del_post_id), ((Integer) sparseArray.get(r.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(r.g.tag_del_post_is_self)).booleanValue());
-        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -15,14 +15,14 @@ public class b extends com.baidu.adp.framework.listener.a {
         com.baidu.tieba.enterForum.c.c cVar2;
         com.baidu.tieba.enterForum.c.c cVar3;
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            cVar = CoreSearchRequestStatic.bGG;
+            cVar = CoreSearchRequestStatic.bJA;
             if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    cVar3 = CoreSearchRequestStatic.bGG;
+                    cVar3 = CoreSearchRequestStatic.bJA;
                     cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    cVar2 = CoreSearchRequestStatic.bGG;
+                    cVar2 = CoreSearchRequestStatic.bJA;
                     cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }

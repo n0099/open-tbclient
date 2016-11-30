@@ -16,39 +16,39 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private String YC = null;
-    private SharedPreferences YD = null;
-    private String YE = null;
-    private String YG = null;
-    private static b YA = null;
+    private String Za = null;
+    private SharedPreferences Zb = null;
+    private String Zc = null;
+    private String Ze = null;
+    private static b YY = null;
     private static ContentResolver mContentResolver = null;
-    public static boolean YB = true;
-    private static HashMap<String, String> YF = null;
+    public static boolean YZ = true;
+    private static HashMap<String, String> Zd = null;
 
     private b() {
-        YF = new HashMap<>();
-        YF.put(a.Yp, TbConfig.SETTINGFILE);
-        YF.put(a.Yq, "remote_settings");
-        YF.put(a.Yr, "bdservice_settings");
-        YF.put(a.Ys, a.Yv);
-        YF.put(a.Yt, a.Yw);
-        YF.put(a.Yu, a.Yx);
+        Zd = new HashMap<>();
+        Zd.put(a.YN, TbConfig.SETTINGFILE);
+        Zd.put(a.YO, "remote_settings");
+        Zd.put(a.YP, "bdservice_settings");
+        Zd.put(a.YQ, a.YT);
+        Zd.put(a.YR, a.YU);
+        Zd.put(a.YS, a.YV);
         mContentResolver = TbadkCoreApplication.m9getInst().getContentResolver();
     }
 
-    public static synchronized b uh() {
+    public static synchronized b um() {
         b bVar;
         synchronized (b.class) {
-            if (YA == null) {
-                YA = new b();
+            if (YY == null) {
+                YY = new b();
             }
-            bVar = YA;
+            bVar = YY;
         }
         return bVar;
     }
 
     public boolean getBoolean(String str, boolean z) {
-        if (cN(str)) {
+        if (cP(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -60,8 +60,8 @@ public class b {
             }
             return z;
         }
-        this.YD = getSharedPreferences();
-        return this.YD.getBoolean(str, z);
+        this.Zb = getSharedPreferences();
+        return this.Zb.getBoolean(str, z);
     }
 
     public boolean h(String str, boolean z) {
@@ -78,7 +78,7 @@ public class b {
     }
 
     public int getInt(String str, int i) {
-        if (cN(str)) {
+        if (cP(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -90,12 +90,12 @@ public class b {
             }
             return i;
         }
-        this.YD = getSharedPreferences();
-        return this.YD.getInt(str, i);
+        this.Zb = getSharedPreferences();
+        return this.Zb.getInt(str, i);
     }
 
     public long getLong(String str, long j) {
-        if (cN(str)) {
+        if (cP(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -107,26 +107,26 @@ public class b {
             }
             return j;
         }
-        this.YD = getSharedPreferences();
-        return this.YD.getLong(str, j);
+        this.Zb = getSharedPreferences();
+        return this.Zb.getLong(str, j);
     }
 
     public String getString(String str, String str2) {
-        if (cN(str)) {
+        if (cP(str)) {
             String value = getValue(str);
             return value != null ? value : str2;
         }
-        this.YD = getSharedPreferences();
-        return this.YD.getString(str, str2);
+        this.Zb = getSharedPreferences();
+        return this.Zb.getString(str, str2);
     }
 
     public void putBoolean(String str, boolean z) {
-        if (cN(str)) {
+        if (cP(str)) {
             j(str, z);
             return;
         }
-        this.YD = getSharedPreferences();
-        EditorHelper.putBoolean(this.YD, str, z);
+        this.Zb = getSharedPreferences();
+        EditorHelper.putBoolean(this.Zb, str, z);
     }
 
     public void i(String str, boolean z) {
@@ -134,48 +134,48 @@ public class b {
     }
 
     public void putString(String str, String str2) {
-        if (cN(str)) {
+        if (cP(str)) {
             U(str, str2);
             return;
         }
-        this.YD = getSharedPreferences();
-        EditorHelper.putString(this.YD, str, str2);
+        this.Zb = getSharedPreferences();
+        EditorHelper.putString(this.Zb, str, str2);
     }
 
     public void putInt(String str, int i) {
-        if (cN(str)) {
+        if (cP(str)) {
             q(str, i);
             return;
         }
-        this.YD = getSharedPreferences();
-        EditorHelper.putInt(this.YD, str, i);
+        this.Zb = getSharedPreferences();
+        EditorHelper.putInt(this.Zb, str, i);
     }
 
     public void putLong(String str, long j) {
-        if (cN(str)) {
+        if (cP(str)) {
             f(str, j);
             return;
         }
-        this.YD = getSharedPreferences();
-        EditorHelper.putLong(this.YD, str, j);
+        this.Zb = getSharedPreferences();
+        EditorHelper.putLong(this.Zb, str, j);
     }
 
     public void remove(String str) {
-        if (cN(str)) {
+        if (cP(str)) {
             removeValue(str);
             return;
         }
-        this.YD = getSharedPreferences();
-        EditorHelper.remove(this.YD, str);
+        this.Zb = getSharedPreferences();
+        EditorHelper.remove(this.Zb, str);
     }
 
-    private boolean cN(String str) {
-        if (str == null || str.length() == 0 || !YB) {
+    private boolean cP(String str) {
+        if (str == null || str.length() == 0 || !YZ) {
             return false;
         }
-        int length = a.Yy.length;
+        int length = a.YW.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.Yy[i])) {
+            if (str.equals(a.YW[i])) {
                 return true;
             }
         }
@@ -183,53 +183,53 @@ public class b {
     }
 
     private String getValue(String str) {
-        return c(Uri.parse(String.valueOf(uk()) + str));
+        return c(Uri.parse(String.valueOf(uo()) + str));
     }
 
     private void U(String str, String str2) {
-        Uri parse = Uri.parse(String.valueOf(uk()) + str);
+        Uri parse = Uri.parse(String.valueOf(uo()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, str2);
         a(parse, contentValues);
     }
 
     private void q(String str, int i) {
-        Uri parse = Uri.parse(String.valueOf(uk()) + str);
+        Uri parse = Uri.parse(String.valueOf(uo()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(i));
         a(parse, contentValues);
     }
 
     private void f(String str, long j) {
-        Uri parse = Uri.parse(String.valueOf(uk()) + str);
+        Uri parse = Uri.parse(String.valueOf(uo()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(j));
         a(parse, contentValues);
     }
 
     private void j(String str, boolean z) {
-        Uri parse = Uri.parse(String.valueOf(uk()) + str);
+        Uri parse = Uri.parse(String.valueOf(uo()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
         a(parse, contentValues);
     }
 
     private void removeValue(String str) {
-        d(Uri.parse(String.valueOf(uk()) + str));
+        d(Uri.parse(String.valueOf(uo()) + str));
     }
 
     private synchronized SharedPreferences getSharedPreferences() {
-        if (this.YE == null || this.YE.length() == 0) {
-            if (this.YC == null || this.YC.length() == 0) {
-                this.YC = eO();
+        if (this.Zc == null || this.Zc.length() == 0) {
+            if (this.Za == null || this.Za.length() == 0) {
+                this.Za = eO();
             }
-            if (YF.containsKey(this.YC)) {
-                this.YE = YF.get(this.YC);
+            if (Zd.containsKey(this.Za)) {
+                this.Zc = Zd.get(this.Za);
             } else {
-                this.YE = TbConfig.SETTINGFILE;
+                this.Zc = TbConfig.SETTINGFILE;
             }
         }
-        return TbadkCoreApplication.m9getInst().getSharedPreferences(this.YE, 0);
+        return TbadkCoreApplication.m9getInst().getSharedPreferences(this.Zc, 0);
     }
 
     private String eO() {
@@ -251,44 +251,44 @@ public class b {
                 }
             }
         }
-        return a.Yp;
+        return a.YN;
     }
 
-    public void uj() {
+    public void un() {
         SharedPreferences sharedPreferences = TbadkCoreApplication.m9getInst().getSharedPreferences(TbConfig.SETTINGFILE, 0);
         String string = sharedPreferences.getString("lase_version", "");
         String version = TbConfig.getVersion();
         if (string != null && string.length() != 0 && version != null && version.length() != 0 && !string.equals(version) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(version) <= 0) {
-            uh().putInt("skin_" + TbadkCoreApplication.getCurrentAccount(), sharedPreferences.getInt("skin_" + TbadkCoreApplication.getCurrentAccount(), 0));
+            um().putInt("skin_" + TbadkCoreApplication.getCurrentAccount(), sharedPreferences.getInt("skin_" + TbadkCoreApplication.getCurrentAccount(), 0));
             String string2 = sharedPreferences.getString("from_id", null);
             if (string2 != null && string2.length() > 0) {
-                uh().putString("from_id", string2);
+                um().putString("from_id", string2);
             }
             String string3 = sharedPreferences.getString("install_other_app_file_name", null);
             if (string3 != null && string3.length() > 0) {
-                uh().putString("install_other_app_file_name", string3);
+                um().putString("install_other_app_file_name", string3);
             }
             String string4 = sharedPreferences.getString(SocialConstants.PARAM_CUID, null);
             if (string4 != null && string4.length() > 0) {
-                uh().putString(SocialConstants.PARAM_CUID, string4);
+                um().putString(SocialConstants.PARAM_CUID, string4);
             }
             String string5 = sharedPreferences.getString("client_id", null);
             if (string5 != null && string5.length() > 0) {
-                uh().putString("client_id", string5);
+                um().putString("client_id", string5);
             }
         }
     }
 
-    protected String uk() {
-        if (this.YG == null) {
+    protected String uo() {
+        if (this.Ze == null) {
             String packageName = TbadkCoreApplication.m9getInst().getContext().getPackageName();
             if (TbConfig.MAIN_PACKAGE_NAME.equals(packageName)) {
-                this.YG = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                this.Ze = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
-                this.YG = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                this.Ze = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
             }
         }
-        return this.YG;
+        return this.Ze;
     }
 
     protected void a(Uri uri, ContentValues contentValues) {
@@ -334,7 +334,7 @@ public class b {
         }
     }
 
-    public static String cO(String str) {
+    public static String cQ(String str) {
         return String.valueOf(str) + "_" + TbadkCoreApplication.getCurrentAccount();
     }
 }

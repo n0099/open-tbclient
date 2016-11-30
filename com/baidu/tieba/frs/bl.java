@@ -1,63 +1,35 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl extends y.a {
-    public TextView aVJ;
-    public TextView aVK;
-    public TextView aVL;
-    public TextView aVM;
-    public TbImageView aVN;
-    public TbImageView aVO;
-    public TbImageView aVP;
-    public LinearLayout aVQ;
-    public LinearLayout aVR;
-    public LinearLayout bRd;
-    public LinearLayout bRe;
-    public a bRf;
-    public View bRg;
+public class bl implements View.OnClickListener {
+    final /* synthetic */ bj bUR;
+    private final /* synthetic */ com.baidu.tbadk.core.data.az bUS;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public TextView aUn;
-        public HeadImageView aVS;
-        public UserIconBox aVT;
-        public TextView aVU;
-        public TextView aVV;
-        public TextView aVY;
-        public ImageView aVZ;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bl(bj bjVar, com.baidu.tbadk.core.data.az azVar) {
+        this.bUR = bjVar;
+        this.bUS = azVar;
     }
 
-    public bl(View view) {
-        super(view);
-        this.bRd = (LinearLayout) view.findViewById(r.g.frs_recommend_friend_item_root);
-        this.bRe = (LinearLayout) view.findViewById(r.g.frs_recommend_friend_item_top);
-        this.bRg = view.findViewById(r.g.line_3);
-        this.bRf = new a();
-        View findViewById = view.findViewById(r.g.recommend_similar_top);
-        this.bRf.aVS = (HeadImageView) findViewById.findViewById(r.g.recommend_new_head);
-        this.bRf.aVT = (UserIconBox) findViewById.findViewById(r.g.recommend_new_crown);
-        this.bRf.aVU = (TextView) findViewById.findViewById(r.g.recommend_new_user_name);
-        this.bRf.aVV = (TextView) findViewById.findViewById(r.g.recommend_new_introduce);
-        this.bRf.aUn = (TextView) findViewById.findViewById(r.g.recommond_detail_info_distance);
-        this.bRf.aVY = (TextView) findViewById.findViewById(r.g.recommend_new_add_friend);
-        this.bRf.aVZ = (ImageView) view.findViewById(r.g.recommend_new_user_sex);
-        this.aVJ = (TextView) view.findViewById(r.g.recommend_similar_bar_names);
-        this.aVK = (TextView) view.findViewById(r.g.recommend_similar_bar_desc);
-        this.aVN = (TbImageView) view.findViewById(r.g.recommend_similar_pic_one);
-        this.aVO = (TbImageView) view.findViewById(r.g.recommend_similar_pic_two);
-        this.aVP = (TbImageView) view.findViewById(r.g.recommend_similar_pic_thr);
-        this.aVL = (TextView) view.findViewById(r.g.recommend_similar_forum);
-        this.aVM = (TextView) view.findViewById(r.g.recommend_similar_common_conern);
-        this.aVQ = (LinearLayout) view.findViewById(r.g.recommend_similar_forum_container);
-        this.aVR = (LinearLayout) view.findViewById(r.g.recommend_similar_commom_conern_container);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        com.baidu.tbadk.core.data.bb qR = this.bUS.qR();
+        if (com.baidu.adp.lib.util.i.gm()) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.bUR.mContext;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(qR.getUserId()), qR.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
+            return;
+        }
+        this.bUR.aTb.showToast(r.j.im_error_default);
     }
 }

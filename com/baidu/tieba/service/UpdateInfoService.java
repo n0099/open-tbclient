@@ -2,10 +2,8 @@ package com.baidu.tieba.service;
 
 import android.content.Intent;
 import android.os.IBinder;
-import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.e.a;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class UpdateInfoService extends BdBaseService {
     private a.InterfaceC0005a locationCallBack = new h(this);
@@ -20,7 +18,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new com.baidu.tieba.model.e(null);
-        this.mModel.aIh();
+        this.mModel.aKc();
         this.mModel.cr(540000L);
         this.mModel.a(new i(this));
     }
@@ -28,7 +26,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m9getInst().getLocationShared() && this.mModel.aIf()) {
+        if (this.mModel.aKa()) {
             findLocationFromLocal();
         }
     }

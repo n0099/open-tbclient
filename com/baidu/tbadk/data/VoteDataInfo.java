@@ -129,14 +129,14 @@ public class VoteDataInfo implements v, Serializable {
                 this.mTotalPoll = j;
                 for (PollOption pollOption2 : list) {
                     if (pollOption2 != null) {
-                        l lVar = new l(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
+                        m mVar = new m(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
                         if (this.mTotalPoll > 0) {
-                            lVar.setPercent((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
+                            mVar.setPercent((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
                         }
                         if (a(strArr, String.valueOf(pollOption2.id))) {
-                            lVar.setSelected(true);
+                            mVar.setSelected(true);
                         }
-                        this.mOptions.add(lVar);
+                        this.mOptions.add(mVar);
                     }
                 }
             }
@@ -157,6 +157,6 @@ public class VoteDataInfo implements v, Serializable {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return q.fvi;
+        return q.fCt;
     }
 }

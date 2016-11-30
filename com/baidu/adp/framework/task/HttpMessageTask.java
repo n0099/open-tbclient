@@ -18,7 +18,7 @@ public class HttpMessageTask extends MessageTask {
         GET,
         POST;
 
-        /* JADX DEBUG: Replace access to removed values field (jH) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (jI) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HTTP_METHOD[] valuesCustom() {
             HTTP_METHOD[] valuesCustom = values();
@@ -106,8 +106,8 @@ public class HttpMessageTask extends MessageTask {
 
     /* loaded from: classes.dex */
     public static class a {
-        private String jI;
-        private boolean jJ;
+        private String jJ;
+        private boolean jK;
         private int mCmd;
 
         public int getCmd() {
@@ -115,11 +115,11 @@ public class HttpMessageTask extends MessageTask {
         }
 
         public String cq() {
-            return this.jI;
+            return this.jJ;
         }
 
         public boolean cr() {
-            return this.jJ;
+            return this.jK;
         }
     }
 }

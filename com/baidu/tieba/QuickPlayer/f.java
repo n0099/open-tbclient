@@ -1,31 +1,28 @@
 package com.baidu.tieba.QuickPlayer;
 
-import android.os.RemoteException;
-import tv.danmaku.ijk.media.player.IMediaPlayer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.HandlerThread;
+import android.os.Looper;
 /* loaded from: classes.dex */
-public class f implements IMediaPlayer.OnPreparedListener {
-    final /* synthetic */ e aLo;
+public class f {
+    private static f aLY;
+    private HandlerThread aLZ = new HandlerThread("PlayerHandlerThread");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.aLo = eVar;
+    private f() {
+        this.aLZ.start();
     }
 
-    @Override // tv.danmaku.ijk.media.player.IMediaPlayer.OnPreparedListener
-    public void onPrepared(IMediaPlayer iMediaPlayer) {
-        b bVar;
-        b bVar2;
-        int i;
-        try {
-            bVar = this.aLo.aLk;
-            if (bVar != null) {
-                bVar2 = this.aLo.aLk;
-                i = this.aLo.aLl;
-                bVar2.fF(i);
+    public static f Jn() {
+        if (aLY == null) {
+            synchronized (f.class) {
+                if (aLY == null) {
+                    aLY = new f();
+                }
             }
-        } catch (RemoteException e) {
-            e.printStackTrace();
         }
+        return aLY;
+    }
+
+    public Looper getLooper() {
+        return this.aLZ.getLooper();
     }
 }

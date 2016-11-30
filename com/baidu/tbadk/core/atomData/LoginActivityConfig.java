@@ -13,6 +13,7 @@ public class LoginActivityConfig extends IntentConfig {
     public static final String TYPE_LOGIN = "type_login";
     public static final int TYPE_LOGIN_MOBILE = 1;
     public static final int TYPE_LOGIN_NORMAL = 0;
+    public static final String USER_INFO_CHANGED = "user_info_changed";
 
     public LoginActivityConfig(Context context, int i, String str, int i2) {
         super(context);

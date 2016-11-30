@@ -1,20 +1,24 @@
 package com.baidu.tieba.screenlocknotify;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m extends BroadcastReceiver {
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("android.intent.action.SCREEN_ON")) {
-            f.bcw().ffu = 1;
-        } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-            f.bcw().ffu = 1;
-            f.bcw().fft.bcE();
-        } else if (action.equals("android.intent.action.USER_PRESENT")) {
-            f.bcw().ffu = 0;
+public class m extends CustomMessageListener {
+    final /* synthetic */ i fmR;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(i iVar, int i) {
+        super(i);
+        this.fmR = iVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            this.fmR.release();
         }
     }
 }

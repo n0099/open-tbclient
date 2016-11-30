@@ -7,13 +7,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ r aZW;
+    final /* synthetic */ r bde;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(r rVar, int i) {
         super(i);
-        this.aZW = rVar;
+        this.bde = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,19 +27,19 @@ public class ae extends CustomMessageListener {
         TextView textView2;
         com.baidu.tieba.card.data.o oVar5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            oVar = this.aZW.aZM;
+            oVar = this.bde.bcW;
             if (oVar != null) {
-                oVar2 = this.aZW.aZM;
-                if (oVar2.bbU != null) {
-                    oVar3 = this.aZW.aZM;
-                    if (oVar3.bbU.getTid() != null) {
-                        textView = this.aZW.mTextTitle;
+                oVar2 = this.bde.bcW;
+                if (oVar2.beS != null) {
+                    oVar3 = this.bde.bcW;
+                    if (oVar3.beS.getTid() != null) {
+                        textView = this.bde.mTextTitle;
                         if (textView != null) {
-                            oVar4 = this.aZW.aZM;
-                            if (((String) customResponsedMessage.getData()).equals(oVar4.bbU.getTid())) {
-                                textView2 = this.aZW.mTextTitle;
-                                oVar5 = this.aZW.aZM;
-                                an.a(textView2, oVar5.bbU.getId(), r.d.cp_cont_c, r.d.cp_cont_d);
+                            oVar4 = this.bde.bcW;
+                            if (((String) customResponsedMessage.getData()).equals(oVar4.beS.getTid())) {
+                                textView2 = this.bde.mTextTitle;
+                                oVar5 = this.bde.bcW;
+                                an.a(textView2, oVar5.beS.getId(), r.d.cp_cont_c, r.d.cp_cont_d);
                             }
                         }
                     }

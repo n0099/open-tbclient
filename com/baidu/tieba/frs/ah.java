@@ -1,23 +1,14 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
-class ah implements Runnable {
-    final /* synthetic */ ag bQn;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ag agVar) {
-        this.bQn = agVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        FrsActivity frsActivity;
-        bm bmVar;
-        FrsActivity frsActivity2;
-        frsActivity = this.bQn.bQi;
-        bmVar = frsActivity.bPi;
-        if (bmVar.ace()) {
-            frsActivity2 = this.bQn.bQi;
-            frsActivity2.abm();
-        }
+class ah extends BdAsyncTask<Void, Void, Void> {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        com.baidu.tbadk.util.y.a(com.baidu.tieba.tbadkCore.n.WIRE, FrsPageResIdl.class);
+        return null;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -36,6 +36,7 @@ public class IntentConfig extends i {
     public static final String FRS_MANAGER = "frs_manager";
     public static final String GROUP_ID = "group_id";
     public static final String GROUP_NAME = "group_name";
+    public static final String HOT_TOPIC_CHANGE_FOURM = "hot_topic_change_fourm";
     public static final int IMAGE_DETAIL_FROM_FORUM = 1;
     public static final int IMAGE_DETAIL_FROM_GCHAT = 3;
     public static final int IMAGE_DETAIL_FROM_PCHAT = 2;
@@ -109,7 +110,7 @@ public class IntentConfig extends i {
             } else {
                 arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) B).getNextPageSourceKeyList();
             }
-            if (!y.t(arrayList)) {
+            if (!x.t(arrayList)) {
                 this.mIntent.putStringArrayListExtra("obj_source", arrayList);
             }
         }

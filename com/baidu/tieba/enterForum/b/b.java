@@ -5,23 +5,23 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private boolean ayr;
-    private i bGo;
-    private int bGr;
-    private int bGs;
-    private int bGt;
-    private String bGu;
-    private d bGv;
+    private boolean azj;
+    private i bJi;
+    private int bJl;
+    private int bJm;
+    private int bJn;
+    private String bJo;
+    private d bJp;
     private int isMem;
     private boolean vS;
     private int time = 0;
-    private e bGm = new e();
-    private i bGn = new i();
-    private h bGp = new h();
-    private c bGq = new c();
+    private e bJg = new e();
+    private i bJh = new i();
+    private h bJj = new h();
+    private c bJk = new c();
 
-    public void di(boolean z) {
-        this.ayr = z;
+    public void dn(boolean z) {
+        this.azj = z;
     }
 
     public b() {
@@ -33,44 +33,44 @@ public class b {
         this.time = i;
     }
 
-    public void hp(int i) {
-        this.bGt = i;
+    public void hq(int i) {
+        this.bJn = i;
     }
 
     public void setIsMem(int i) {
         this.isMem = i;
     }
 
-    public void hq(int i) {
-        this.bGr = i;
-    }
-
     public void hr(int i) {
-        this.bGs = i;
+        this.bJl = i;
     }
 
-    public void jr(String str) {
-        this.bGu = str;
+    public void hs(int i) {
+        this.bJm = i;
+    }
+
+    public void jv(String str) {
+        this.bJo = str;
     }
 
     public void a(h hVar) {
-        this.bGp = hVar;
+        this.bJj = hVar;
     }
 
-    public h Xt() {
-        return this.bGp;
+    public h Yv() {
+        return this.bJj;
     }
 
-    public c Xu() {
-        return this.bGq;
+    public c Yw() {
+        return this.bJk;
     }
 
     public void a(c cVar) {
-        this.bGq = cVar;
+        this.bJk = cVar;
     }
 
     public d getHotSearchInfoData() {
-        return this.bGv;
+        return this.bJp;
     }
 
     public void a(DataRes dataRes) {
@@ -82,28 +82,28 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                hq(dataRes.msign_valid.intValue());
-                hr(dataRes.msign_level.intValue());
-                hp(dataRes.is_login.intValue());
-                jr(dataRes.msign_text);
+                hr(dataRes.msign_valid.intValue());
+                hs(dataRes.msign_level.intValue());
+                hq(dataRes.is_login.intValue());
+                jv(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.bGm.setLevel(this.bGs);
+                this.bJg.setLevel(this.bJm);
                 if (dataRes.like_forum != null) {
-                    this.bGm.ah(dataRes.like_forum);
+                    this.bJg.ai(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.bGn.ah(dataRes.banner);
+                    this.bJh.ai(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.bGp.ag(dataRes.recommend_forum_info);
+                    this.bJj.ah(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.bGv = new d();
-                    this.bGv.a(dataRes.hot_search);
+                    this.bJp = new d();
+                    this.bJp.a(dataRes.hot_search);
                 }
                 if (dataRes.frequently_forum_info != null) {
-                    this.bGq.ag(dataRes.frequently_forum_info);
+                    this.bJk.ah(dataRes.frequently_forum_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -111,31 +111,31 @@ public class b {
         }
     }
 
-    public i Xv() {
-        return this.bGn;
+    public i Yx() {
+        return this.bJh;
     }
 
     public void a(i iVar) {
-        this.bGn = iVar;
+        this.bJh = iVar;
     }
 
-    public i Xw() {
-        return this.bGo;
+    public i Yy() {
+        return this.bJi;
     }
 
     public void b(i iVar) {
-        this.bGo = iVar;
+        this.bJi = iVar;
     }
 
-    public e Xx() {
-        return this.bGm;
+    public e Yz() {
+        return this.bJg;
     }
 
     public void a(e eVar) {
-        this.bGm = eVar;
+        this.bJg = eVar;
     }
 
-    public void ax(boolean z) {
+    public void aA(boolean z) {
         this.vS = z;
     }
 
@@ -143,11 +143,11 @@ public class b {
         return this.vS;
     }
 
-    public boolean Xy() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.d.arZ.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.arZ.longValue();
+    public boolean YA() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.d.asT.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.asT.longValue();
     }
 
     public void a(d dVar) {
-        this.bGv = dVar;
+        this.bJp = dVar;
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.VideoCache;
 
+import com.baidu.tieba.play.aw;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,14 +14,14 @@ import java.util.Collections;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ d aOb;
+    final /* synthetic */ d aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.aOb = dVar;
+        this.aQh = dVar;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:129:0x04f8 */
+    /* JADX WARN: Incorrect condition in loop: B:129:0x050d */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -87,71 +88,73 @@ public class e implements Runnable {
         String str23;
         String str24;
         byte[] bArr;
+        String str25;
+        long j21;
         boolean z11;
         byte[] bArr2;
-        long j21;
+        long j22;
         Object obj3;
         Object obj4;
-        String str25;
-        boolean z12;
-        long j22;
         String str26;
+        boolean z12;
         long j23;
+        String str27;
+        long j24;
         boolean z13;
         long parseInt;
         boolean z14;
-        long j24;
         long j25;
+        long j26;
         boolean z15;
-        String str27;
-        boolean z16;
         String str28;
+        boolean z16;
         String str29;
+        String str30;
         str = d.TAG;
-        m.log(str, "test run in " + this.aOb);
-        while (g.Kk().t(this.aOb)) {
-            g Kk = g.Kk();
-            str27 = this.aOb.aNM;
-            Kk.gU(str27);
+        m.log(str, "test run in " + this.aQh);
+        while (g.KO().t(this.aQh)) {
+            g KO = g.KO();
+            str28 = this.aQh.aPS;
+            KO.gV(str28);
             try {
-                str28 = d.TAG;
-                m.log(str28, "mDownloadRunnable sleep in..." + this.aOb);
-                Thread.sleep(100L);
                 str29 = d.TAG;
-                m.log(str29, "mDownloadRunnable sleep out..." + this.aOb);
+                m.log(str29, "mDownloadRunnable sleep in..." + this.aQh);
+                Thread.sleep(100L);
+                str30 = d.TAG;
+                m.log(str30, "mDownloadRunnable sleep out..." + this.aQh);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            z16 = this.aOb.aNT;
+            z16 = this.aQh.aPZ;
             if (z16) {
                 break;
             }
         }
-        z = this.aOb.aNT;
+        z = this.aQh.aPZ;
         if (!z) {
-            g.Kk().r(this.aOb);
+            g.KO().r(this.aQh);
         }
         while (true) {
-            z2 = this.aOb.aNT;
+            z2 = this.aQh.aPZ;
             if (z2) {
                 break;
             }
             str3 = d.TAG;
-            m.log(str3, "download in " + this.aOb);
-            str4 = this.aOb.aNY;
-            long hd = q.hd(str4);
-            j = this.aOb.ajy;
-            if (hd <= j) {
-                this.aOb.aNW = -1L;
-                str7 = this.aOb.aNU;
+            m.log(str3, "download in " + this.aQh);
+            str4 = this.aQh.aQe;
+            long he = q.he(str4);
+            j = this.aQh.akq;
+            if (he <= j) {
+                this.aQh.aQc = -1L;
+                str7 = this.aQh.aQa;
                 File file2 = new File(str7);
-                j2 = this.aOb.aNP;
-                j3 = this.aOb.aNO;
+                j2 = this.aQh.aPV;
+                j3 = this.aQh.aPU;
                 File[] listFiles = file2.listFiles();
                 ArrayList arrayList = new ArrayList();
                 if (listFiles != null) {
                     for (File file3 : listFiles) {
-                        z15 = this.aOb.aNT;
+                        z15 = this.aQh.aPZ;
                         if (z15) {
                             break;
                         }
@@ -170,7 +173,7 @@ public class e implements Runnable {
                         }
                     }
                 }
-                z3 = this.aOb.aNT;
+                z3 = this.aQh.aPZ;
                 if (z3) {
                     break;
                 }
@@ -194,11 +197,11 @@ public class e implements Runnable {
                     int i3 = 0;
                     while (true) {
                         if (i3 < fileArr.length) {
-                            z14 = this.aOb.aNT;
+                            z14 = this.aQh.aPZ;
                             if (z14) {
                                 j4 = 0;
                                 j5 = 0;
-                                j23 = j2;
+                                j24 = j2;
                                 file = null;
                                 break;
                             }
@@ -206,13 +209,13 @@ public class e implements Runnable {
                             try {
                                 long parseInt2 = Integer.parseInt(file4.getName());
                                 long fileSize = q.getFileSize(file4);
-                                long j26 = (parseInt2 + fileSize) - 1;
-                                j24 = this.aOb.aNP;
-                                if (j24 >= parseInt2) {
-                                    j25 = this.aOb.aNP;
-                                    if (j25 <= j26) {
+                                long j27 = (parseInt2 + fileSize) - 1;
+                                j25 = this.aQh.aPV;
+                                if (j25 >= parseInt2) {
+                                    j26 = this.aQh.aPV;
+                                    if (j26 <= j27) {
                                         file = file4;
-                                        j23 = parseInt2 + fileSize;
+                                        j24 = parseInt2 + fileSize;
                                         j4 = parseInt2;
                                         j5 = fileSize;
                                         break;
@@ -226,7 +229,7 @@ public class e implements Runnable {
                         } else {
                             j4 = 0;
                             j5 = 0;
-                            j23 = j2;
+                            j24 = j2;
                             file = null;
                             break;
                         }
@@ -234,13 +237,13 @@ public class e implements Runnable {
                     int i4 = 0;
                     while (true) {
                         if (i4 >= fileArr.length) {
-                            j2 = j23;
+                            j2 = j24;
                             j6 = j3;
                             break;
                         }
-                        z13 = this.aOb.aNT;
+                        z13 = this.aQh.aPZ;
                         if (z13) {
-                            j2 = j23;
+                            j2 = j24;
                             j6 = j3;
                             break;
                         }
@@ -248,23 +251,23 @@ public class e implements Runnable {
                             parseInt = Integer.parseInt(fileArr[i4].getName());
                         } catch (Exception e4) {
                         }
-                        if (parseInt < j23) {
+                        if (parseInt < j24) {
                             i4++;
                         } else {
-                            j2 = j23;
+                            j2 = j24;
                             j6 = parseInt - 1;
                             break;
                         }
                     }
                 }
-                z4 = this.aOb.aNT;
+                z4 = this.aQh.aPZ;
                 if (z4) {
                     break;
                 }
                 if (file == null) {
-                    str8 = this.aOb.aNU;
+                    str8 = this.aQh.aQa;
                     StringBuilder append = new StringBuilder(String.valueOf(str8)).append("/");
-                    j7 = this.aOb.aNP;
+                    j7 = this.aQh.aPV;
                     sb = append.append(j7).toString();
                     try {
                         new File(sb).createNewFile();
@@ -298,34 +301,34 @@ public class e implements Runnable {
                     }
                 }
                 try {
-                    this.aOb.aNS = new FileInputStream(str9);
+                    this.aQh.aPY = new FileInputStream(str9);
                     if (file != null) {
                         try {
-                            fileInputStream = this.aOb.aNS;
-                            j9 = this.aOb.aNP;
+                            fileInputStream = this.aQh.aPY;
+                            j9 = this.aQh.aPV;
                             fileInputStream.skip(j9 - j4);
                         } catch (Exception e6) {
                             e6.printStackTrace();
                         }
                     }
                     if (file != null) {
-                        this.aOb.aNR = j4 + j5;
+                        this.aQh.aPX = j4 + j5;
                     }
-                    this.aOb.aNV = true;
-                    obj = this.aOb.mLock;
+                    this.aQh.aQb = true;
+                    obj = this.aQh.mLock;
                     synchronized (obj) {
-                        obj2 = this.aOb.mLock;
+                        obj2 = this.aQh.mLock;
                         obj2.notify();
                     }
                     if (file != null) {
-                        j22 = this.aOb.aNO;
-                        if (j2 > j22) {
-                            str26 = d.TAG;
-                            m.log(str26, "do not download, return " + this.aOb);
+                        j23 = this.aQh.aPU;
+                        if (j2 > j23) {
+                            str27 = d.TAG;
+                            m.log(str27, "do not download, return " + this.aQh);
                             break;
                         }
                     }
-                    z6 = this.aOb.aNT;
+                    z6 = this.aQh.aPZ;
                     if (z6) {
                         break;
                     }
@@ -333,23 +336,23 @@ public class e implements Runnable {
                     m.log(str10, "download range is " + j2 + "-" + j8);
                     if (j2 <= j8 && !z5) {
                         try {
-                            str17 = this.aOb.aNM;
+                            str17 = this.aQh.aPS;
                             URL url = new URL(str17);
                             str18 = d.TAG;
-                            m.log(str18, "url opt 1 " + this.aOb);
+                            m.log(str18, "url opt 1 " + this.aQh);
                             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                             str19 = d.TAG;
-                            m.log(str19, "url opt 2 " + this.aOb);
+                            m.log(str19, "url opt 2 " + this.aQh);
                             httpURLConnection.setRequestProperty("Range", "bytes=" + j2 + "-" + j8);
                             httpURLConnection.setConnectTimeout(5000);
                             httpURLConnection.setReadTimeout(5000);
                             str20 = d.TAG;
-                            m.log(str20, "url opt 3 " + this.aOb);
+                            m.log(str20, "url opt 3 " + this.aQh);
                             InputStream inputStream = httpURLConnection.getInputStream();
                             while (inputStream == null) {
-                                str25 = d.TAG;
-                                m.log(str25, "conn input is null " + this.aOb);
-                                z12 = this.aOb.aNT;
+                                str26 = d.TAG;
+                                m.log(str26, "conn input is null " + this.aQh);
+                                z12 = this.aQh.aPZ;
                                 if (z12) {
                                     break;
                                 }
@@ -361,54 +364,59 @@ public class e implements Runnable {
                                 inputStream = httpURLConnection.getInputStream();
                             }
                             str21 = d.TAG;
-                            m.log(str21, "got conn input " + this.aOb);
+                            m.log(str21, "got conn input " + this.aQh);
                             str22 = d.TAG;
-                            m.log(str22, "url opt 4 " + this.aOb);
+                            m.log(str22, "url opt 4 " + this.aQh);
+                            int i5 = 0;
                             FileOutputStream fileOutputStream = new FileOutputStream(str9, true);
                             str23 = d.TAG;
-                            m.log(str23, "read start ..." + this.aOb);
+                            m.log(str23, "read start ..." + this.aQh);
                             while (true) {
                                 try {
-                                    bArr = this.aOb.aNZ;
+                                    bArr = this.aQh.aQf;
                                     int read = inputStream.read(bArr);
                                     if (read == -1) {
                                         break;
                                     }
-                                    z11 = this.aOb.aNT;
+                                    z11 = this.aQh.aPZ;
                                     if (z11) {
                                         break;
                                     }
-                                    bArr2 = this.aOb.aNZ;
+                                    bArr2 = this.aQh.aQf;
                                     fileOutputStream.write(bArr2, 0, read);
-                                    d dVar = this.aOb;
-                                    j21 = dVar.aNR;
-                                    dVar.aNR = j21 + read;
-                                    obj3 = this.aOb.mLock;
+                                    d dVar = this.aQh;
+                                    j22 = dVar.aPX;
+                                    dVar.aPX = j22 + read;
+                                    i5 += read;
+                                    obj3 = this.aQh.mLock;
                                     synchronized (obj3) {
-                                        obj4 = this.aOb.mLock;
+                                        obj4 = this.aQh.mLock;
                                         obj4.notify();
                                     }
                                 } catch (Exception e8) {
                                     e8.printStackTrace();
                                 }
                             }
+                            str25 = this.aQh.aPS;
+                            j21 = this.aQh.akq;
+                            aw.i(str25, i5, (int) j21);
                             str24 = d.TAG;
-                            m.log(str24, "read end ..." + this.aOb);
+                            m.log(str24, "read end ..." + this.aQh);
                             fileOutputStream.close();
-                            n.Ks().n(inputStream);
-                            this.aOb.aNW = j8;
-                        } catch (IOException e9) {
+                            n.KW().n(inputStream);
+                            this.aQh.aQc = j8;
+                        } catch (Exception e9) {
                             str16 = d.TAG;
-                            m.log(str16, "download exception " + this.aOb);
+                            m.log(str16, "download exception " + this.aQh);
                             e9.printStackTrace();
                         }
                     } else {
-                        this.aOb.aNW = (j4 + j5) - 1;
+                        this.aQh.aQc = (j4 + j5) - 1;
                     }
                     str11 = d.TAG;
-                    m.log(str11, "download out " + this.aOb);
+                    m.log(str11, "download out " + this.aQh);
                     while (j10 < j11) {
-                        z9 = this.aOb.aNT;
+                        z9 = this.aQh.aPZ;
                         if (z9) {
                             break;
                         }
@@ -417,39 +425,39 @@ public class e implements Runnable {
                         } catch (InterruptedException e10) {
                             e10.printStackTrace();
                         }
-                        z10 = this.aOb.aNT;
+                        z10 = this.aQh.aPZ;
                         if (z10) {
                             break;
                         }
                     }
-                    z7 = this.aOb.aNT;
+                    z7 = this.aQh.aPZ;
                     if (z7) {
                         break;
                     }
-                    j12 = this.aOb.aNQ;
-                    int i5 = 0;
-                    for (int i6 = 0; i6 < fileArr.length; i6++) {
-                        z8 = this.aOb.aNT;
+                    j12 = this.aQh.aPW;
+                    int i6 = 0;
+                    for (int i7 = 0; i7 < fileArr.length; i7++) {
+                        z8 = this.aQh.aPZ;
                         if (z8) {
                             break;
                         }
-                        int length2 = (fileArr.length - 1) - i6;
+                        int length2 = (fileArr.length - 1) - i7;
                         File file5 = fileArr[length2];
                         if (file5 != null && file5.exists()) {
-                            if (this.aOb.aNX) {
+                            if (this.aQh.aQd) {
                                 if (length2 != 0) {
                                     file5.delete();
                                     str15 = d.TAG;
-                                    m.log(str15, "release some cached slices " + this.aOb);
+                                    m.log(str15, "release some cached slices " + this.aQh);
                                 }
                             } else {
                                 long fileSize2 = q.getFileSize(file5);
-                                if ((Integer.parseInt(file5.getName()) + fileSize2) - 1 < j12 && (i5 = (int) (i5 + fileSize2)) > 31457280) {
-                                    this.aOb.aNX = true;
+                                if ((Integer.parseInt(file5.getName()) + fileSize2) - 1 < j12 && (i6 = (int) (i6 + fileSize2)) > 31457280) {
+                                    this.aQh.aQd = true;
                                     if (length2 != 0) {
                                         file5.delete();
                                         str14 = d.TAG;
-                                        m.log(str14, "release some cached slices " + this.aOb);
+                                        m.log(str14, "release some cached slices " + this.aQh);
                                     }
                                 }
                             }
@@ -457,50 +465,50 @@ public class e implements Runnable {
                     }
                     str12 = d.TAG;
                     StringBuilder sb2 = new StringBuilder("mLastRequestRangeEnd ");
-                    j13 = this.aOb.aNW;
+                    j13 = this.aQh.aQc;
                     StringBuilder append2 = sb2.append(j13).append(" mReadPosition ");
-                    j14 = this.aOb.aNQ;
-                    m.log(str12, append2.append(j14).append(" ").append(" ").append(this.aOb).toString());
-                    j15 = this.aOb.aNW;
+                    j14 = this.aQh.aPW;
+                    m.log(str12, append2.append(j14).append(" ").append(" ").append(this.aQh).toString());
+                    j15 = this.aQh.aQc;
                     if (j15 == -1) {
                         break;
                     }
-                    j16 = this.aOb.aNQ;
-                    j17 = this.aOb.aNW;
+                    j16 = this.aQh.aPW;
+                    j17 = this.aQh.aQc;
                     if (j16 <= j17) {
                         break;
                     }
-                    j18 = this.aOb.aNW;
-                    j19 = this.aOb.aNO;
+                    j18 = this.aQh.aQc;
+                    j19 = this.aQh.aPU;
                     if (j18 >= j19) {
                         break;
                     }
                     try {
-                        fileInputStream2 = this.aOb.aNS;
+                        fileInputStream2 = this.aQh.aPY;
                         fileInputStream2.close();
                     } catch (Exception e11) {
                         e11.printStackTrace();
                     }
-                    this.aOb.aNV = false;
-                    d dVar2 = this.aOb;
-                    j20 = this.aOb.aNW;
-                    dVar2.aNP = j20 + 1;
+                    this.aQh.aQb = false;
+                    d dVar2 = this.aQh;
+                    j20 = this.aQh.aQc;
+                    dVar2.aPV = j20 + 1;
                     str13 = d.TAG;
-                    m.log(str13, "continue to download... " + this.aOb);
+                    m.log(str13, "continue to download... " + this.aQh);
                 } catch (FileNotFoundException e12) {
                     e12.printStackTrace();
                 }
             } else {
-                StringBuilder sb3 = new StringBuilder(String.valueOf(l.aOv));
-                str5 = this.aOb.aNY;
+                StringBuilder sb3 = new StringBuilder(String.valueOf(l.aQB));
+                str5 = this.aQh.aQe;
                 q.w(new File(sb3.append(str5).append("/").append("segments").toString()));
                 str6 = d.TAG;
                 m.log(str6, "cache error !");
                 break;
             }
         }
-        g.Kk().s(this.aOb);
+        g.KO().s(this.aQh);
         str2 = d.TAG;
-        m.log(str2, "test run out ***************************************************************" + this.aOb);
+        m.log(str2, "test run out ***************************************************************" + this.aQh);
     }
 }

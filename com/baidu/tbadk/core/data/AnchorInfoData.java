@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.atomData.LiveGroupLikeListActivityConfig;
 import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
@@ -138,7 +137,7 @@ public class AnchorInfoData extends com.baidu.adp.lib.a.b.a.a.i implements Seria
                 this.authorId = jSONObject.getLong("author_id");
                 this.authorName = jSONObject.getString("author_name");
                 this.listeners = jSONObject.getInt("listeners");
-                this.likers = jSONObject.getInt(LiveGroupLikeListActivityConfig.LIKERS);
+                this.likers = jSONObject.getInt("likers");
                 this.group_id = jSONObject.getInt("group_id");
                 this.intro = jSONObject.getString("intro");
                 this.publisherPortrait = jSONObject.getString("publisherPortrait");

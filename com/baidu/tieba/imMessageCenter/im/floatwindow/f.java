@@ -5,65 +5,65 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f extends g {
-    private HeadImageView aVS;
-    private e dqf;
-    private TextView dqg;
+    private HeadImageView aYe;
+    private e dvM;
+    private TextView dvN;
 
     public f() {
         super(LayoutInflater.from(TbadkCoreApplication.m9getInst()).inflate(r.h.im_float_head_view, (ViewGroup) null));
-        this.dqf = new e();
-        this.aVS = (HeadImageView) this.dqm.findViewById(r.g.im_float_head_view_head);
-        this.dqg = (TextView) this.dqm.findViewById(r.g.im_float_head_view_text);
-        this.aVS.setIsRound(true);
+        this.dvM = new e();
+        this.aYe = (HeadImageView) this.dvT.findViewById(r.g.im_float_head_view_head);
+        this.dvN = (TextView) this.dvT.findViewById(r.g.im_float_head_view_text);
+        this.aYe.setIsRound(true);
     }
 
     public void b(int i, int i2, String str, int i3) {
-        bb(i, i2);
-        ayb();
-        this.aVS.c(str, 12, false);
-        this.aVS.setUrl(str);
-        mg(i3);
-        this.aVS.requestFocusFromTouch();
+        bc(i, i2);
+        azY();
+        this.aYe.c(str, 12, false);
+        this.aYe.setUrl(str);
+        mo(i3);
+        this.aYe.requestFocusFromTouch();
     }
 
     public void ao(String str, int i) {
-        if (TextUtils.equals(str, this.aVS.getUrl())) {
-            mg(i);
+        if (TextUtils.equals(str, this.aYe.getUrl())) {
+            mo(i);
         }
     }
 
-    private void mg(int i) {
+    private void mo(int i) {
         int i2;
         if (i <= 0) {
-            this.dqg.setVisibility(8);
+            this.dvN.setVisibility(8);
             return;
         }
-        this.dqg.setVisibility(0);
-        av.c(this.dqg, r.d.cp_cont_i, 1);
+        this.dvN.setVisibility(0);
+        at.c(this.dvN, r.d.cp_cont_i, 1);
         if (i < 10) {
-            this.dqg.setText(String.valueOf(i));
+            this.dvN.setText(String.valueOf(i));
             i2 = r.f.icon_news_head_prompt_one;
         } else if (i < 100) {
-            this.dqg.setText(String.valueOf(i));
+            this.dvN.setText(String.valueOf(i));
             i2 = r.f.icon_news_head_prompt_two;
         } else {
-            this.dqg.setText("   ");
+            this.dvN.setText("   ");
             i2 = r.f.icon_news_head_prompt_more;
         }
-        av.k(this.dqg, i2);
+        at.k(this.dvN, i2);
     }
 
-    public e axY() {
-        this.dqf.aJ(this.dqm);
-        return this.dqf;
+    public e azV() {
+        this.dvM.aI(this.dvT);
+        return this.dvM;
     }
 
-    public void aZ(int i, int i2) {
-        bb(i, i2);
+    public void ba(int i, int i2) {
+        bc(i, i2);
     }
 }

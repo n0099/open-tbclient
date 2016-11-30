@@ -4,12 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.s;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.card.data.b implements s {
-    public static final BdUniqueId Ru = BdUniqueId.gen();
+    public static final BdUniqueId RQ = BdUniqueId.gen();
     public long mTimeStamp;
+    public boolean showBottomDivider = false;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Ru;
+        return RQ;
     }
 
     @Override // com.baidu.tieba.card.data.s
@@ -18,15 +19,16 @@ public class e extends com.baidu.tieba.card.data.b implements s {
     }
 
     @Override // com.baidu.tieba.card.data.s
-    public boolean Op() {
+    public boolean Ps() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.s
-    public void ct(boolean z) {
+    public void cy(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.s
-    public void cu(boolean z) {
+    public void cz(boolean z) {
+        this.showBottomDivider = z;
     }
 }

@@ -2,165 +2,82 @@ package com.baidu.tieba.tbadkCore.imgView;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Bundle;
-import android.os.Vibrator;
-import android.support.v4.view.MotionEventCompat;
-import android.view.MotionEvent;
+import android.util.AttributeSet;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.Scroller;
 /* loaded from: classes.dex */
-public class a {
-    public float crh;
-    private int fwA;
-    private int fwB;
-    private DragLayer fws;
-    private Vibrator fwt;
-    private f fwu;
-    private e fwv;
-    public boolean fww;
-    private float fwx;
-    private d fwy;
-    private Rect fwz;
-    private Context mContext;
-    private Rect mTempRect = new Rect();
+public class a extends LinearLayout {
+    private Bitmap aGn;
+    private final int delay;
+    private Scroller mScroller;
+    private Rect mTempRect;
+    private View view;
 
     public a(Context context) {
-        this.mContext = context;
-        this.fwt = (Vibrator) context.getSystemService("vibrator");
-        this.fwx = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
+        super(context);
+        this.mTempRect = new Rect();
+        this.delay = 16;
+        init(context);
     }
 
-    public void a(DragLayer dragLayer) {
-        this.fws = dragLayer;
-        dragLayer.setDragController(this);
-        this.fwA = this.fws.getPaddingLeft();
-        this.fwB = this.fws.getPaddingRight();
+    public a(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mTempRect = new Rect();
+        this.delay = 16;
+        init(context);
     }
 
-    public void a(View view, Bundle bundle) {
-        if (this.fws != null && view != null && view.getDrawingCache() != null) {
-            this.fww = true;
-            this.fwy = new d(this.mContext);
-            Rect rect = new Rect();
-            view.getDrawingRect(rect);
-            this.fws.offsetDescendantRectToMyCoords(view, rect);
-            view.setDrawingCacheEnabled(true);
-            view.buildDrawingCache();
-            this.fwy.aFx = Bitmap.createBitmap(view.getDrawingCache());
-            view.destroyDrawingCache();
-            view.setDrawingCacheEnabled(false);
-            this.fwy.rect = rect;
-            this.fwy.fxc = bundle;
-            view.setVisibility(4);
-            a(this.fwy);
-            this.fws.setDragObject(this.fwy);
-            this.fwt.vibrate(300L);
+    private void init(Context context) {
+        this.mScroller = new Scroller(context);
+    }
+
+    public void bo(View view) {
+        this.view = view;
+        view.setDrawingCacheEnabled(true);
+        view.buildDrawingCache();
+        Bitmap drawingCache = view.getDrawingCache();
+        if (drawingCache != null) {
+            this.aGn = Bitmap.createBitmap(drawingCache);
         }
+        view.destroyDrawingCache();
+        view.setDrawingCacheEnabled(false);
+        view.getDrawingRect(this.mTempRect);
+        offsetDescendantRectToMyCoords(view, this.mTempRect);
+        this.mScroller.startScroll(this.mTempRect.top, 0, getHeight() - this.mTempRect.top, 0, 800);
+        invalidate();
     }
 
-    public void endDrag() {
-        if (this.fww) {
-            this.fww = false;
-            this.fwy = null;
-            this.fwu.bkq();
-            this.fwu.bkr();
-            this.fws.bkt();
-            this.fws.invalidate();
-        }
-    }
-
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
-            case 0:
-                this.crh = motionEvent.getX(0);
-                break;
-            case 1:
-            case 3:
-            case 4:
-            case 6:
-                endDrag();
-                break;
-        }
-        return this.fww;
-    }
-
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.fww) {
-            if (this.fwz == null) {
-                this.fwz = new Rect();
-                this.fws.getDrawingRect(this.fwz);
-                Rect rect = this.fwz;
-                rect.top = (int) (rect.top - this.fwx);
-                Rect rect2 = this.fwz;
-                rect2.bottom = (int) (rect2.bottom + this.fwx);
+    @Override // android.view.ViewGroup, android.view.View
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        if (this.view != null) {
+            if (this.mScroller.computeScrollOffset() && this.aGn != null) {
+                canvas.save();
+                canvas.drawBitmap(this.aGn, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.restore();
+                postInvalidateDelayed(16L);
+                return;
             }
-            switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
-                case 0:
-                    this.crh = motionEvent.getX(0);
-                    break;
-                case 1:
-                case 3:
-                case 4:
-                case 6:
-                    endDrag();
-                    break;
-                case 2:
-                    float x = motionEvent.getX(0);
-                    this.crh = x;
-                    this.fwy.rect.offset((int) (x - this.crh), 0);
-                    a(this.fwy);
-                    bkm();
-                    break;
+            if (this.aGn != null) {
+                this.aGn.recycle();
             }
-            return true;
-        }
-        return false;
-    }
-
-    public void bkm() {
-        this.mTempRect.set(this.fwy.rect);
-        this.fws.offsetRectIntoDescendantCoords((View) this.fwu, this.mTempRect);
-        this.fwu.d(this.mTempRect);
-        this.fws.invalidate();
-        if (this.fwy.fxd) {
-            this.fwu.bko();
-        } else if (this.fwy.fxe) {
-            this.fwu.bkp();
-        } else {
-            this.fwu.bkq();
+            this.aGn = null;
+            this.view = null;
         }
     }
 
-    private void a(d dVar) {
-        dVar.fxd = false;
-        dVar.fxe = false;
-        Rect rect = dVar.rect;
-        int width = rect.width();
-        int width2 = (this.fws.getWidth() - this.fwA) - this.fwB;
-        if (rect.left < this.fwA) {
-            rect.left = this.fwA;
-            rect.right = rect.left + width;
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.mScroller.forceFinished(true);
+        if (this.aGn != null) {
+            this.aGn.recycle();
         }
-        if (rect.right > this.fwA + width2) {
-            rect.right = this.fwA + width2;
-            rect.left = rect.right - width;
-        }
-        if (rect.left < this.fwA + this.fwx) {
-            dVar.fxd = true;
-            dVar.fxe = false;
-        }
-        if (rect.right > (this.fwA + width2) - this.fwx) {
-            dVar.fxd = false;
-            dVar.fxe = true;
-        }
-    }
-
-    public void a(f fVar) {
-        this.fwu = fVar;
-    }
-
-    public void a(e eVar) {
-        this.fwv = eVar;
-        this.fwv.setDragController(this);
+        this.aGn = null;
+        this.view = null;
     }
 }

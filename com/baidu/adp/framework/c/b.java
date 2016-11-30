@@ -1,28 +1,28 @@
 package com.baidu.adp.framework.c;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b jC = null;
-    private e jD;
+    private static b jD = null;
+    private e jE;
 
     public static b cl() {
-        if (jC == null) {
+        if (jD == null) {
             synchronized (b.class) {
-                if (jC == null) {
-                    jC = new b();
+                if (jD == null) {
+                    jD = new b();
                 }
             }
         }
-        return jC;
+        return jD;
     }
 
     private b() {
-        this.jD = null;
-        this.jF = new e(28000, 18000, 10000);
-        this.jD = new e(18000, 10000, 5000);
+        this.jE = null;
+        this.jG = new e(28000, 18000, 10000);
+        this.jE = new e(18000, 10000, 5000);
         this.mRetryCount = 5;
     }
 
     public e cm() {
-        return this.jD;
+        return this.jE;
     }
 }

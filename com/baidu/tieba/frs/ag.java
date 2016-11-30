@@ -1,17 +1,24 @@
 package com.baidu.tieba.frs;
 
-import java.util.ArrayList;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.h.b;
 /* loaded from: classes.dex */
-class ag implements dh {
-    final /* synthetic */ FrsActivity bQi;
-
+class ag extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(FrsActivity frsActivity) {
-        this.bQi = frsActivity;
+    public ag(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tieba.frs.dh
-    public void a(int i, int i2, dq dqVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        com.baidu.adp.lib.h.h.eG().post(new ah(this));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            int g = b.g(customResponsedMessage.getData().toString(), 1);
+            if (g == 1 || g == 0) {
+                FrsActivityStatic.bTh = false;
+                FrsActivityStatic.bTg = false;
+            }
+        }
     }
 }

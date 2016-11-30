@@ -7,47 +7,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    private static e mV = null;
-    private HashMap<String, d> mW;
+    private static e mW = null;
+    private HashMap<String, d> mZ;
 
     private e() {
-        this.mW = null;
-        this.mW = new HashMap<>();
+        this.mZ = null;
+        this.mZ = new HashMap<>();
     }
 
     public static synchronized e dN() {
         e eVar;
         synchronized (e.class) {
-            if (mV == null) {
-                mV = new e();
+            if (mW == null) {
+                mW = new e();
             }
-            eVar = mV;
+            eVar = mW;
         }
         return eVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !this.mW.containsKey(cVar.getName())) {
-            this.mW.put(cVar.getName(), new d(cVar));
+        if (cVar != null && !this.mZ.containsKey(cVar.getName())) {
+            this.mZ.put(cVar.getName(), new d(cVar));
         }
     }
 
     public void crash(String str) {
-        Iterator<d> it = this.mW.values().iterator();
+        Iterator<d> it = this.mZ.values().iterator();
         while (it.hasNext() && !it.next().ab(str)) {
         }
     }
 
     public boolean d(String str, int i) {
         d dVar;
-        if (i >= 0 && (dVar = this.mW.get(str)) != null) {
+        if (i >= 0 && (dVar = this.mZ.get(str)) != null) {
             return dVar.Y(i);
         }
         return false;
     }
 
     public int ac(String str) {
-        d dVar = this.mW.get(str);
+        d dVar = this.mZ.get(str);
         if (dVar != null) {
             return dVar.getType();
         }
@@ -55,13 +55,13 @@ public class e {
     }
 
     public void clear() {
-        if (this.mW != null) {
+        if (this.mZ != null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (d dVar : this.mW.values()) {
+            for (d dVar : this.mZ.values()) {
                 if (dVar != null) {
                     dVar.ab(0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.mP, 0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.mQ, dVar.getDefaultType());
+                    edit.putInt(String.valueOf(dVar.getName()) + d.mQ, 0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.mS, dVar.getDefaultType());
                 }
             }
             edit.commit();

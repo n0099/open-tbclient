@@ -5,22 +5,22 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.framework.client.socket.link.e {
-    final /* synthetic */ b dke;
+    final /* synthetic */ b dpO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.dke = bVar;
+        this.dpO = bVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
-    public boolean d(int i, String str) {
-        this.dke.stop();
+    public boolean c(int i, String str) {
+        this.dpO.stop();
         return false;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
     public void d(Map<String, String> map) {
-        this.dke.start();
+        this.dpO.start();
         com.baidu.adp.framework.client.socket.g.bH().c(map);
     }
 

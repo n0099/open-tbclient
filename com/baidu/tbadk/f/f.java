@@ -8,22 +8,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f extends a {
     private Runnable CI;
-    private TextView aqq;
-    private ImageView ayN;
-    private String[] ayO;
-    private TextView ayP;
-    private final int ayQ;
+    private TextView ark;
+    private ImageView azF;
+    private String[] azG;
+    private TextView azH;
+    private final int azI;
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Ex() {
+    public int EC() {
         this.currentIndex++;
-        if (this.currentIndex >= this.ayQ) {
+        if (this.currentIndex >= this.azI) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -37,77 +37,77 @@ public class f extends a {
         super(LayoutInflater.from(context).inflate(r.h.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
         this.CI = new g(this);
-        this.ayN = (ImageView) this.ayL.findViewById(r.g.loading_animate_view);
+        this.azF = (ImageView) this.azD.findViewById(r.g.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.ayN.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.azF.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.ayN.setLayoutParams(marginLayoutParams);
+                this.azF.setLayoutParams(marginLayoutParams);
             }
         }
-        this.aqq = (TextView) this.ayL.findViewById(r.g.loading_anim_ellipsis);
-        this.ayP = (TextView) this.ayL.findViewById(r.g.loading_text);
-        this.ayO = context.getResources().getStringArray(r.b.loading_anim_text_array);
-        this.ayQ = this.ayO.length;
+        this.ark = (TextView) this.azD.findViewById(r.g.loading_anim_ellipsis);
+        this.azH = (TextView) this.azD.findViewById(r.g.loading_text);
+        this.azG = context.getResources().getStringArray(r.b.loading_anim_text_array);
+        this.azI = this.azG.length;
     }
 
-    private void Ey() {
-        if (this.ayN != null && (this.ayN.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.ayN.getBackground()).start();
+    private void ED() {
+        if (this.azF != null && (this.azF.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.azF.getBackground()).start();
         }
     }
 
-    private void Ez() {
-        if (this.ayN != null && (this.ayN.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.ayN.getBackground()).stop();
+    private void EE() {
+        if (this.azF != null && (this.azF.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.azF.getBackground()).stop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.f.a
-    public void Ev() {
-        av.k(this.ayN, r.f.loading_animation);
-        Ey();
-        av.c(this.aqq, r.d.cp_cont_c, 1);
-        av.c(this.ayP, r.d.cp_cont_c, 1);
-        av.l(this.ayL, r.d.cp_bg_line_d);
-        this.aqq.setText(this.ayO[0]);
+    public void EA() {
+        at.k(this.azF, r.f.loading_animation);
+        ED();
+        at.c(this.ark, r.d.cp_cont_c, 1);
+        at.c(this.azH, r.d.cp_cont_c, 1);
+        at.l(this.azD, r.d.cp_bg_line_d);
+        this.ark.setText(this.azG[0]);
         TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.CI);
         TbadkCoreApplication.m9getInst().handler.postDelayed(this.CI, 200L);
-        this.ayL.setClickable(true);
+        this.azD.setClickable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.f.a
-    public void Ew() {
-        Ez();
+    public void EB() {
+        EE();
         TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.CI);
-        this.ayN.setBackgroundResource(0);
+        this.azF.setBackgroundResource(0);
     }
 
-    public void tx() {
-        if (Eu()) {
-            av.k(this.ayN, r.f.loading_animation);
-            Ey();
-            av.c(this.aqq, r.d.cp_cont_c, 1);
-            av.c(this.ayP, r.d.cp_cont_c, 1);
-            av.l(this.ayL, r.d.cp_bg_line_d);
+    public void tB() {
+        if (Ez()) {
+            at.k(this.azF, r.f.loading_animation);
+            ED();
+            at.c(this.ark, r.d.cp_cont_c, 1);
+            at.c(this.azH, r.d.cp_cont_c, 1);
+            at.l(this.azD, r.d.cp_bg_line_d);
         }
     }
 
-    public View EA() {
-        return this.ayL;
+    public View EF() {
+        return this.azD;
     }
 
     public void setTextColor(int i) {
-        this.aqq.setTextColor(i);
-        this.ayP.setTextColor(i);
+        this.ark.setTextColor(i);
+        this.azH.setTextColor(i);
     }
 
-    public void df(int i) {
-        if (this.ayL != null) {
-            this.ayL.setBackgroundColor(i);
+    public void dg(int i) {
+        if (this.azD != null) {
+            this.azD.setBackgroundColor(i);
         }
     }
 }

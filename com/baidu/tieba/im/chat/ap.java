@@ -9,13 +9,13 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected TbPageContext<MsglistActivity<?>> GM;
-    protected com.baidu.adp.lib.d.a cUE;
-    protected com.baidu.adp.lib.d.b cUF;
-    private boolean cUL;
-    private boolean cUM;
-    protected int cUN;
-    protected long mCurrentTime;
+    protected TbPageContext<MsglistActivity<?>> GO;
+    protected com.baidu.adp.lib.d.a dam;
+    protected com.baidu.adp.lib.d.b dan;
+    protected long dau;
+    private boolean dav;
+    private boolean daw;
+    protected int dax;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
     @Override // com.baidu.adp.widget.ListView.a
@@ -25,44 +25,44 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
 
     public ap(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cUE = null;
-        this.cUF = null;
-        this.mCurrentTime = 0L;
-        this.cUL = false;
-        this.cUM = false;
-        this.GM = tbPageContext;
+        this.dam = null;
+        this.dan = null;
+        this.dau = 0L;
+        this.dav = false;
+        this.daw = false;
+        this.GO = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.d.a aVar) {
-        this.cUE = aVar;
+        this.dam = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.d.b bVar) {
-        this.cUF = bVar;
+        this.dan = bVar;
     }
 
-    private void aqz() {
-        this.mCurrentTime = System.currentTimeMillis() / 1000;
+    private void asw() {
+        this.dau = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aqA() {
-        return this.cUL;
+    public boolean asx() {
+        return this.dav;
     }
 
-    public void fq(boolean z) {
-        this.cUL = z;
+    public void fK(boolean z) {
+        this.dav = z;
     }
 
-    public boolean aqB() {
-        return this.cUM;
+    public boolean asy() {
+        return this.daw;
     }
 
-    public void fr(boolean z) {
-        this.cUM = z;
+    public void fL(boolean z) {
+        this.daw = z;
     }
 
-    public void lh(int i) {
-        this.cUN = i;
+    public void lp(int i) {
+        this.dax = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,21 +70,21 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aqz();
+        asw();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends y.a {
-        private T cUO;
+        private T daz;
 
         public a(View view, T t) {
             super(view);
-            this.cUO = t;
+            this.daz = t;
         }
 
-        public T aqC() {
-            return this.cUO;
+        public T asz() {
+            return this.daz;
         }
     }
 }

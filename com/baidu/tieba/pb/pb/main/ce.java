@@ -1,43 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tieba.tbadkCore.f.a;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ce extends CustomMessageListener {
-    final /* synthetic */ PbActivity eqa;
+public class ce implements a.b {
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ce(PbActivity pbActivity, int i) {
-        super(i);
-        this.eqa = pbActivity;
+    public ce(PbActivity pbActivity) {
+        this.evL = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            com.baidu.tieba.pb.e eVar = (com.baidu.tieba.pb.e) customResponsedMessage.getData();
-            switch (eVar.getType()) {
-                case 0:
-                    this.eqa.b((com.baidu.tieba.pb.data.n) eVar.getData());
-                    return;
-                case 1:
-                    this.eqa.a((a.b) eVar.getData(), false);
-                    return;
-                case 2:
-                    if (eVar.getData() == null) {
-                        this.eqa.a(false, (MarkData) null);
-                        return;
-                    } else {
-                        this.eqa.a(true, (MarkData) eVar.getData());
-                        return;
-                    }
-                default:
-                    return;
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

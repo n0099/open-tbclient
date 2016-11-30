@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.cy;
+import com.baidu.tieba.frs.bw;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,182 +20,176 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private ViewGroup VJ;
-    private String aPG;
-    private FrsActivity bWR;
-    private TextView bWS;
-    private List<cy> bWT;
-    private com.baidu.tieba.frs.entelechy.c.a.a.a bWU;
-    private int bWV = -1;
-    private boolean bWW = false;
-    private View.OnClickListener bWX = new b(this);
-    private c.b bWY = new c(this);
+    private ViewGroup Wh;
+    private String aRN;
+    private FrsActivity cai;
+    private TextView caj;
+    private List<bw> cak;
+    private com.baidu.tieba.frs.entelechy.c.a.a.a cal;
+    private int cam = -1;
+    private boolean can = false;
+    private View.OnClickListener cao = new b(this);
+    private c.b cap = new c(this);
+
+    public void setFid(String str) {
+        this.aRN = str;
+    }
+
+    public TextView aeU() {
+        return this.caj;
+    }
+
+    public void kb(String str) {
+        this.caj.setText(str);
+    }
+
+    public int aeV() {
+        return this.cam;
+    }
+
+    public void ii(int i) {
+        this.cam = i;
+    }
 
     public a(FrsActivity frsActivity, ViewGroup viewGroup) {
         if (frsActivity != null && viewGroup != null) {
-            this.bWR = frsActivity;
-            this.VJ = viewGroup;
-            this.bWS = new TextView(frsActivity.getActivity());
+            this.cai = frsActivity;
+            this.Wh = viewGroup;
+            this.caj = new TextView(frsActivity.getActivity());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             int e = k.e(frsActivity.getActivity(), r.e.ds30);
-            this.bWS.setPadding(e, 0, e, 0);
-            this.bWS.setGravity(17);
-            this.bWS.setTextSize(0, k.e(frsActivity.getActivity(), r.e.ds28));
-            this.bWS.setCompoundDrawablePadding(k.e(frsActivity.getActivity(), r.e.ds20));
-            this.bWS.setLayoutParams(layoutParams);
-            this.bWS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, av.getDrawable(r.f.icon_frs_arrow_selector), (Drawable) null);
-            this.bWS.setOnClickListener(this.bWX);
-            this.VJ.addView(this.bWS);
+            this.caj.setPadding(e, 0, e, 0);
+            this.caj.setGravity(17);
+            this.caj.setTextSize(0, k.e(frsActivity.getActivity(), r.e.ds28));
+            this.caj.setCompoundDrawablePadding(k.e(frsActivity.getActivity(), r.e.ds20));
+            this.caj.setLayoutParams(layoutParams);
+            this.caj.setOnClickListener(this.cao);
+            this.Wh.addView(this.caj);
             onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    public int adC() {
-        return this.bWV;
-    }
-
-    public void ii(int i) {
-        this.bWV = i;
-    }
-
     public void onChangeSkinType(int i) {
-        if (this.bWS != null) {
-            av.j((View) this.bWS, r.d.cp_cont_c);
-            av.l(this.bWS, r.d.cp_bg_line_d);
-            this.bWS.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, av.getDrawable(r.f.icon_frs_arrow_selector), (Drawable) null);
+        if (this.caj != null) {
+            at.j((View) this.caj, r.d.cp_cont_c);
+            at.l(this.caj, r.d.cp_bg_line_d);
+            this.caj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, at.getDrawable(r.f.icon_frs_arrow_selector), (Drawable) null);
         }
     }
 
     public void i(List<FrsTabInfo> list, int i) {
-        if (y.t(list)) {
-            adE();
-        } else if (this.bWR != null && this.bWR.abi() != null && this.bWR.abi().afb()) {
-            adD();
+        if (x.t(list)) {
+            aeX();
+        } else if (this.cai != null && this.cai.abS() != null && this.cai.abS().agt()) {
+            aeW();
             ArrayList arrayList = new ArrayList(list);
-            if (arrayList != null) {
-                Iterator<FrsTabInfo> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    FrsTabInfo next = it.next();
-                    if (next != null && next.tab_id.intValue() == 6) {
-                        it.remove();
-                    }
+            Iterator<FrsTabInfo> it = arrayList.iterator();
+            while (it.hasNext()) {
+                FrsTabInfo next = it.next();
+                if (next != null && next.tab_id.intValue() == 6) {
+                    it.remove();
                 }
             }
-            if (!ax(arrayList)) {
-                if (!this.bWW) {
+            if (!ay(arrayList)) {
+                if (!this.can) {
                     ij(i);
                     return;
                 }
                 return;
             }
-            this.bWT = new ArrayList();
+            this.cak = new ArrayList();
             for (FrsTabInfo frsTabInfo : arrayList) {
                 if (frsTabInfo != null && frsTabInfo.tab_id != null && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    cy cyVar = new cy();
-                    cyVar.bTi = frsTabInfo.tab_id.intValue();
-                    cyVar.name = frsTabInfo.tab_name;
-                    this.bWT.add(cyVar);
+                    bw bwVar = new bw();
+                    bwVar.bVo = frsTabInfo.tab_id.intValue();
+                    bwVar.name = frsTabInfo.tab_name;
+                    this.cak.add(bwVar);
                 }
             }
-            if (!this.bWW) {
+            if (!this.can) {
                 ij(i);
             }
         } else {
-            adE();
+            aeX();
         }
     }
 
     private void ij(int i) {
-        cy cyVar;
+        bw bwVar;
         boolean z;
-        cy cyVar2 = null;
+        bw bwVar2 = null;
         if (i <= 0) {
-            cy cyVar3 = this.bWT.get(0);
-            if (cyVar3 != null) {
-                ii(cyVar3.bTi);
-                jX(cyVar3.name);
-                if (this.bWR != null && this.bWR.abi() != null) {
-                    this.bWR.abi().iu(cyVar3.bTi);
-                    this.bWR.abi().hY(cyVar3.bTi);
+            bw bwVar3 = this.cak.get(0);
+            if (bwVar3 != null) {
+                ii(bwVar3.bVo);
+                kb(bwVar3.name);
+                if (this.cai != null && this.cai.abS() != null) {
+                    this.cai.abS().iw(bwVar3.bVo);
                     return;
                 }
                 return;
             }
             return;
         }
-        int size = this.bWT.size();
+        int size = this.cak.size();
         int i2 = 0;
         while (true) {
             if (i2 >= size) {
-                cyVar = cyVar2;
+                bwVar = bwVar2;
                 z = false;
                 break;
             }
-            cyVar2 = this.bWT.get(i2);
-            if (cyVar2 == null || cyVar2.bTi != i) {
+            bwVar2 = this.cak.get(i2);
+            if (bwVar2 == null || bwVar2.bVo != i) {
                 i2++;
             } else {
-                cyVar = cyVar2;
+                bwVar = bwVar2;
                 z = true;
                 break;
             }
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                jX(TbadkCoreApplication.m9getInst().getResources().getString(r.j.attention_users_thread));
+                kb(TbadkCoreApplication.m9getInst().getResources().getString(r.j.attention_users_thread));
                 return;
             }
-            cy cyVar4 = this.bWT.get(0);
-            if (cyVar4 != null) {
-                ii(cyVar4.bTi);
-                jX(cyVar4.name);
-                if (this.bWR != null && this.bWR.abi() != null) {
-                    this.bWR.abi().iu(cyVar4.bTi);
-                    this.bWR.abi().hY(cyVar4.bTi);
+            bw bwVar4 = this.cak.get(0);
+            if (bwVar4 != null) {
+                ii(bwVar4.bVo);
+                kb(bwVar4.name);
+                if (this.cai != null && this.cai.abS() != null) {
+                    this.cai.abS().iw(bwVar4.bVo);
                 }
             }
-        } else if (cyVar != null) {
-            ii(cyVar.bTi);
-            jX(cyVar.name);
-            if (this.bWR != null && this.bWR.abi() != null) {
-                this.bWR.abi().iu(cyVar.bTi);
-                this.bWR.abi().hY(cyVar.bTi);
+        } else if (bwVar != null) {
+            ii(bwVar.bVo);
+            kb(bwVar.name);
+            if (this.cai != null && this.cai.abS() != null) {
+                this.cai.abS().iw(bwVar.bVo);
             }
         }
     }
 
-    private void jX(String str) {
-        this.bWS.setText(str);
-    }
-
-    private boolean ax(List<FrsTabInfo> list) {
-        if (!y.t(this.bWT) && y.s(list) == y.s(this.bWT)) {
+    private boolean ay(List<FrsTabInfo> list) {
+        if (!x.t(this.cak) && x.s(list) == x.s(this.cak)) {
             int i = 0;
             while (i < list.size()) {
-                i = (list.get(i) != null && this.bWT.get(i) == null) ? i + 1 : i + 1;
+                i = (list.get(i) != null && this.cak.get(i) == null) ? i + 1 : i + 1;
             }
             return false;
         }
         return true;
     }
 
-    public void adD() {
-        if (this.bWS != null) {
-            this.bWS.setVisibility(0);
+    public void aeW() {
+        if (this.caj != null) {
+            this.caj.setVisibility(0);
         }
     }
 
-    public void adE() {
-        if (this.bWS != null) {
-            this.bWS.setVisibility(8);
+    public void aeX() {
+        if (this.caj != null) {
+            this.caj.setVisibility(8);
         }
-    }
-
-    public View adw() {
-        return this.bWS;
-    }
-
-    public void setFid(String str) {
-        this.aPG = str;
     }
 }

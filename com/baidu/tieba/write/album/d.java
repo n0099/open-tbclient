@@ -5,7 +5,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 public class d {
     private String albumId;
     private String count;
-    private ImageFileInfo gcn;
+    private ImageFileInfo gjS;
     private String name;
 
     public String getAlbumId() {
@@ -24,19 +24,19 @@ public class d {
         this.name = str;
     }
 
-    public String bsn() {
+    public String buI() {
         return this.count;
     }
 
-    public void su(String str) {
+    public void sQ(String str) {
         this.count = str;
     }
 
-    public ImageFileInfo bso() {
-        return this.gcn;
+    public ImageFileInfo buJ() {
+        return this.gjS;
     }
 
     public void g(ImageFileInfo imageFileInfo) {
-        this.gcn = imageFileInfo;
+        this.gjS = imageFileInfo;
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ b aAP;
+    final /* synthetic */ b aBG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i, int i2) {
         super(i, i2);
-        this.aAP = bVar;
+        this.aBG = bVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -22,7 +22,7 @@ class c extends com.baidu.adp.framework.listener.a {
         boolean checkMessageIsBelongToCurPage;
         a aVar;
         a aVar2;
-        checkMessageIsBelongToCurPage = this.aAP.checkMessageIsBelongToCurPage(responsedMessage);
+        checkMessageIsBelongToCurPage = this.aBG.checkMessageIsBelongToCurPage(responsedMessage);
         if (checkMessageIsBelongToCurPage) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
@@ -30,18 +30,18 @@ class c extends com.baidu.adp.framework.listener.a {
                 if (!StringUtils.isNull(errorString)) {
                     string = errorString;
                 }
-                aVar = this.aAP.aAN;
+                aVar = this.aBG.aBE;
                 if (aVar != null) {
-                    aVar2 = this.aAP.aAN;
+                    aVar2 = this.aBG.aBE;
                     aVar2.onError(string);
                 }
             } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
                 if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
                     return;
                 }
-                this.aAP.b(((ClientConfigSocketResponse) responsedMessage).getData());
+                this.aBG.b(((ClientConfigSocketResponse) responsedMessage).getData());
             } else {
-                this.aAP.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                this.aBG.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
             }
         }
     }

@@ -28,8 +28,7 @@ public abstract class a {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void addToManager() {
+    protected void addToManager() {
         c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
         cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
         cVar.g(getSwitchLibs());

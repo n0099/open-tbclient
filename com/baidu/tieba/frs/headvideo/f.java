@@ -1,51 +1,42 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.frs.headvideo.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ e cbD;
+public class f extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ e cfd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.cbD = eVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(e eVar, int i, int i2) {
+        super(i, i2);
+        this.cfd = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        int i;
-        com.baidu.tieba.play.s sVar;
-        com.baidu.tieba.play.s sVar2;
-        QuickVideoView quickVideoView;
-        com.baidu.tieba.play.s sVar3;
-        com.baidu.tieba.play.s sVar4;
-        int id = view.getId();
-        imageView = this.cbD.aMJ;
-        if (id == imageView.getId()) {
-            i = this.cbD.cbz;
-            if (i == 2) {
-                quickVideoView = this.cbD.aMF;
-                if (quickVideoView.isPlaying()) {
-                    this.cbD.pausePlay();
-                    return;
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        String MC;
+        e.a aVar;
+        e.a aVar2;
+        this.cfd.aAG = false;
+        if (responsedMessage != null) {
+            if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
+                String errorString = responsedMessage.getErrorString();
+                MC = this.cfd.MC();
+                if (!StringUtils.isNull(errorString)) {
+                    MC = errorString;
                 }
-                this.cbD.Js();
-                sVar3 = this.cbD.aLZ;
-                if (sVar3 != null) {
-                    sVar4 = this.cbD.aLZ;
-                    sVar4.qv("2");
-                    return;
+                aVar = this.cfd.cfb;
+                if (aVar != null) {
+                    aVar2 = this.cfd.cfb;
+                    aVar2.fN(MC);
                 }
-                return;
-            }
-            this.cbD.Js();
-            sVar = this.cbD.aLZ;
-            if (sVar != null) {
-                sVar2 = this.cbD.aLZ;
-                sVar2.qv("2");
+            } else if (responsedMessage instanceof ForumHeadVideoListHttpResponseMessage) {
+                this.cfd.a(((ForumHeadVideoListHttpResponseMessage) responsedMessage).getData());
+            } else if (responsedMessage instanceof ForumHeadVideoListSocketResponseMessage) {
+                this.cfd.a(((ForumHeadVideoListSocketResponseMessage) responsedMessage).getData());
             }
         }
     }

@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
 import com.baidu.tbadk.core.atomData.MangaCoverActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ BookShelfItemView eEI;
+    final /* synthetic */ BookShelfItemView eLh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BookShelfItemView bookShelfItemView) {
-        this.eEI = bookShelfItemView;
+        this.eLh = bookShelfItemView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,27 +33,27 @@ class b implements View.OnClickListener {
         com.baidu.tieba.personInfo.b bVar4;
         TbPageContext tbPageContext4;
         if (view != null) {
-            bVar = this.eEI.eEE;
+            bVar = this.eLh.eLd;
             if (bVar != null) {
-                TiebaStatic.log(new ax("c11390").s("obj_type", 1));
-                bVar2 = this.eEI.eEE;
-                if (bVar2.PY == 3) {
+                TiebaStatic.log(new av("c11390").s("obj_type", 1));
+                bVar2 = this.eLh.eLd;
+                if (bVar2.Qq == 3) {
                     if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
-                        tbPageContext4 = this.eEI.GM;
+                        tbPageContext4 = this.eLh.GO;
                         k.showToast(tbPageContext4.getPageActivity(), r.j.manga_plugin_not_install_tip);
                         return;
                     }
-                    tbPageContext3 = this.eEI.GM;
+                    tbPageContext3 = this.eLh.GO;
                     Activity pageActivity = tbPageContext3.getPageActivity();
-                    bVar4 = this.eEI.eEE;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaCoverActivityConfig(pageActivity, bVar4.eIO)));
+                    bVar4 = this.eLh.eLd;
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaCoverActivityConfig(pageActivity, bVar4.ePn)));
                 } else if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    tbPageContext2 = this.eEI.GM;
+                    tbPageContext2 = this.eLh.GO;
                     k.showToast(tbPageContext2.getPageActivity(), r.j.book_plugin_not_install_tip);
                 } else {
-                    tbPageContext = this.eEI.GM;
+                    tbPageContext = this.eLh.GO;
                     Activity pageActivity2 = tbPageContext.getPageActivity();
-                    bVar3 = this.eEI.eEE;
+                    bVar3 = this.eLh.eLd;
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BookCoverActivityConfig(pageActivity2, bVar3.bookId)));
                 }
             }

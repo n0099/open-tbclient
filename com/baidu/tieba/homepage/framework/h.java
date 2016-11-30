@@ -1,21 +1,21 @@
 package com.baidu.tieba.homepage.framework;
 /* loaded from: classes.dex */
 class h extends com.baidu.tbadk.pageStayDuration.b {
-    final /* synthetic */ RecommendFrsControlFragment cCw;
+    final /* synthetic */ RecommendFrsControlFragment cHJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cCw = recommendFrsControlFragment;
+        this.cHJ = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean FF() {
+    public boolean FJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b
-    public int FG() {
-        return com.baidu.tbadk.pageStayDuration.e.FL().FN();
+    public int FK() {
+        return com.baidu.tbadk.pageStayDuration.e.FP().FR();
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b

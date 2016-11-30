@@ -1,23 +1,23 @@
 package com.baidu.tieba.graffiti;
 
-import com.baidu.tbadk.core.data.ac;
+import com.baidu.tbadk.core.data.ae;
 /* loaded from: classes.dex */
 public class k {
     private String forumId;
-    private ac mGraffitiInfo;
+    private ae mGraffitiInfo;
     private String threadId;
 
-    public k(String str, String str2, ac acVar) {
+    public k(String str, String str2, ae aeVar) {
         this.forumId = str;
         this.threadId = str2;
-        this.mGraffitiInfo = acVar;
+        this.mGraffitiInfo = aeVar;
     }
 
     public String getThreadId() {
         return this.threadId;
     }
 
-    public ac getGraffitiInfo() {
+    public ae getGraffitiInfo() {
         return this.mGraffitiInfo;
     }
 }

@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
 public class a implements v {
-    public static final BdUniqueId eDZ = BdUniqueId.gen();
-    private int eEa = 0;
+    public static final BdUniqueId eKy = BdUniqueId.gen();
+    private int eKz = 0;
 
-    public int aSD() {
-        return this.eEa;
+    public int aUK() {
+        return this.eKz;
     }
 
-    public void oS(int i) {
-        this.eEa = i;
+    public void pf(int i) {
+        this.eKz = i;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eDZ;
+        return eKy;
     }
 }

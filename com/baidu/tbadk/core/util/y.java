@@ -1,66 +1,74 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.List;
+import android.content.Context;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-public class y {
-    public static <T> void r(List<T> list) {
-        if (list != null) {
-            list.clear();
+public class y implements MediaScannerConnection.MediaScannerConnectionClient {
+    private MediaScannerConnection aaN;
+    private String aaO;
+    private String[] aaP;
+    private String[] aaQ;
+    private boolean aaR;
+    private a aaS;
+    private int length;
+    private Context mContext;
+    private String mPath;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void uU();
+    }
+
+    public y(Context context) {
+        this.mContext = context;
+        this.aaN = new MediaScannerConnection(this.mContext, this);
+    }
+
+    public void dr(String str) {
+        this.mPath = str;
+        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
+        this.aaO = "image/jpeg";
+        if (substring.equals(".gif")) {
+            this.aaO = "image/gif";
+        }
+        this.aaN.connect();
+    }
+
+    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
+    public void onMediaScannerConnected() {
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aaO)) {
+            this.aaN.scanFile(this.mPath, this.aaO);
+        }
+        if (this.aaP != null && this.aaQ != null && this.aaP.length == this.aaQ.length) {
+            int length = this.aaP.length;
+            for (int i = 0; i < length; i++) {
+                this.aaN.scanFile(this.aaP[i], this.aaQ[i]);
+            }
         }
     }
 
-    public static <T> int s(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            return 0;
+    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+    public void onScanCompleted(String str, Uri uri) {
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aaO) && str.equals(this.mPath)) {
+            this.aaN.disconnect();
+            this.mPath = null;
+            this.aaO = null;
+            this.aaR = true;
+        } else if (this.aaP != null && this.aaQ != null && this.aaP.length == this.aaQ.length) {
+            this.length--;
+            if (this.length == 0) {
+                this.aaN.disconnect();
+                this.aaP = null;
+                this.aaQ = null;
+                this.aaR = true;
+            } else {
+                this.aaR = false;
+            }
         }
-        return list.size();
-    }
-
-    public static <T> T c(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
+        if (this.aaR && this.aaS != null) {
+            this.aaS.uU();
         }
-        return list.get(i);
-    }
-
-    public static <T> int a(List<T> list, T t) {
-        if (list == null || list.isEmpty() || t == null) {
-            return -1;
-        }
-        return list.indexOf(t);
-    }
-
-    public static List<String> a(List<String> list, int i, int i2) {
-        int s = s(list);
-        if (s > 0 && i >= 0 && i2 <= s) {
-            return list.subList(i, i2);
-        }
-        return null;
-    }
-
-    public static <T> boolean t(List<T> list) {
-        return s(list) <= 0;
-    }
-
-    public static <T> T d(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return list.remove(i);
-    }
-
-    public static <T> boolean b(List<T> list, T t) {
-        if (list == null) {
-            return false;
-        }
-        return list.add(t);
-    }
-
-    public static <T> boolean a(List<T> list, int i, T t) {
-        if (list == null || i > list.size() || i < 0) {
-            return false;
-        }
-        list.add(i, t);
-        return true;
     }
 }

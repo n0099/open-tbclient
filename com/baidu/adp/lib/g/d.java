@@ -1,13 +1,13 @@
 package com.baidu.adp.lib.g;
 /* loaded from: classes.dex */
 public class d {
-    private static int pl = 0;
     private static int po = 0;
     private static int pp = 0;
     private static int pq = 0;
     private static int pr = 0;
     private static int ps = 0;
-    private static Object pt = new Object();
+    private static int pt = 0;
+    private static Object pu = new Object();
 
     public static com.baidu.adp.lib.stats.d eB() {
         return com.baidu.adp.lib.stats.a.eI().ao("dbg");
@@ -15,16 +15,16 @@ public class d {
 
     public static void a(com.baidu.adp.lib.stats.d dVar, com.baidu.adp.lib.stats.d dVar2) {
         if (dVar != null || dVar2 != null) {
-            synchronized (pt) {
+            synchronized (pu) {
                 if (dVar != null) {
-                    pp = (int) (pp + dVar.eZ());
+                    pq = (int) (pq + dVar.eZ());
                 }
                 if (dVar2 != null) {
-                    po = (int) (po + dVar2.eZ());
+                    pp = (int) (pp + dVar2.eZ());
                 }
-                int i = pl + 1;
-                pl = i;
-                if (i + pq > 100) {
+                int i = po + 1;
+                po = i;
+                if (i + pr > 100) {
                     eC();
                 }
             }
@@ -33,16 +33,16 @@ public class d {
 
     public static void b(com.baidu.adp.lib.stats.d dVar, com.baidu.adp.lib.stats.d dVar2) {
         if (dVar != null || dVar2 != null) {
-            synchronized (pt) {
+            synchronized (pu) {
                 if (dVar != null) {
-                    ps = (int) (ps + dVar.eZ());
+                    pt = (int) (pt + dVar.eZ());
                 }
                 if (dVar2 != null) {
-                    pr = (int) (pr + dVar2.eZ());
+                    ps = (int) (ps + dVar2.eZ());
                 }
-                int i = pq + 1;
-                pq = i;
-                if (i + pl > 100) {
+                int i = pr + 1;
+                pr = i;
+                if (i + po > 100) {
                     eC();
                 }
             }
@@ -50,23 +50,23 @@ public class d {
     }
 
     public static void eC() {
-        if (pl + pq > 10) {
+        if (po + pr > 10) {
             com.baidu.adp.lib.stats.d eB = eB();
             eB.q("act", "allStat");
-            eB.q("diskTaskCostTime", String.valueOf(pp));
-            eB.q("diskCostTime", String.valueOf(po));
-            eB.q("diskNum", String.valueOf(pl));
-            eB.q("netTaskCostTime", String.valueOf(ps));
-            eB.q("netCostTime", String.valueOf(pr));
-            eB.q("netNum", String.valueOf(pq));
+            eB.q("diskTaskCostTime", String.valueOf(pq));
+            eB.q("diskCostTime", String.valueOf(pp));
+            eB.q("diskNum", String.valueOf(po));
+            eB.q("netTaskCostTime", String.valueOf(pt));
+            eB.q("netCostTime", String.valueOf(ps));
+            eB.q("netNum", String.valueOf(pr));
             eB.q("isWifi", "1");
             com.baidu.adp.lib.stats.a.eI().b("img", eB);
+            pp = 0;
             po = 0;
-            pl = 0;
+            ps = 0;
             pr = 0;
             pq = 0;
-            pp = 0;
-            ps = 0;
+            pt = 0;
         }
     }
 }

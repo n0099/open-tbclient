@@ -1,37 +1,29 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
+import android.widget.PopupWindow;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ NavigationBar afC;
+public class t extends CustomMessageListener {
+    final /* synthetic */ o agb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(NavigationBar navigationBar) {
-        this.afC = navigationBar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(o oVar, int i) {
+        super(i);
+        this.agb = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        Activity activity;
-        Activity activity2;
-        z = this.afC.mClickIsVaild;
-        if (z) {
-            int id = view.getId();
-            if (id == r.g.navigationBarGoBack) {
-                activity2 = this.afC.mCurrentActivity;
-                activity2.finish();
-            } else if (id == r.g.navigationBarHome) {
-                MessageManager messageManager = MessageManager.getInstance();
-                activity = this.afC.mCurrentActivity;
-                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, activity));
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        PopupWindow popupWindow;
+        PopupWindow popupWindow2;
+        popupWindow = this.agb.afM;
+        if (popupWindow != null) {
+            popupWindow2 = this.agb.afM;
+            popupWindow2.dismiss();
         }
     }
 }

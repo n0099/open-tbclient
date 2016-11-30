@@ -1,57 +1,46 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.widget.ForeDrawableImageView;
+import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.tieba.play.ah;
+import com.baidu.tieba.r;
+import com.baidu.tieba.view.AudioAnimationView;
 /* loaded from: classes.dex */
-public class t extends CustomMessageListener {
-    final /* synthetic */ e emY;
+public class t extends y.a {
+    public ah aNT;
+    public QuickVideoView aOE;
+    public TextView aOO;
+    public ImageView bcV;
+    public ForeDrawableImageView cWB;
+    public ImageView cWF;
+    public ProgressBar ceN;
+    public View etd;
+    public AudioAnimationView ete;
+    public View etf;
+    public View mRootView;
+    public int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(e eVar, int i) {
-        super(i);
-        this.emY = eVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.pb.data.h hVar;
-        com.baidu.tieba.pb.data.h hVar2;
-        com.baidu.tieba.pb.data.h hVar3;
-        v vVar;
-        boolean a;
-        com.baidu.tieba.pb.data.h hVar4;
-        com.baidu.tieba.pb.data.h hVar5;
-        if (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.r) {
-            hVar = this.emY.emS;
-            if (hVar != null) {
-                com.baidu.tieba.graffiti.r rVar = (com.baidu.tieba.graffiti.r) customResponsedMessage.getData();
-                if (rVar.threadId != null) {
-                    String str = rVar.threadId;
-                    hVar2 = this.emY.emS;
-                    if (str.equals(hVar2.getThreadId())) {
-                        UserData userData = new UserData();
-                        userData.setName_show(TbadkCoreApplication.getCurrentAccountName());
-                        hVar3 = this.emY.emS;
-                        if (hVar3.aMp() != null) {
-                            hVar4 = this.emY.emS;
-                            if (hVar4.aMp().qg() != null) {
-                                hVar5 = this.emY.emS;
-                                hVar5.aMp().qg().add(0, userData);
-                            }
-                        }
-                        e eVar = this.emY;
-                        e eVar2 = this.emY;
-                        vVar = this.emY.emT;
-                        a = eVar2.a(vVar, userData);
-                        eVar.hU(a);
-                    }
-                }
-            }
-        }
+    public t(View view) {
+        super(view);
+        this.mSkinType = 3;
+        this.mRootView = view.findViewById(r.g.pb_layout_video_view);
+        this.cWB = (ForeDrawableImageView) view.findViewById(r.g.pb_list_video_item_thumbnail);
+        this.etd = view.findViewById(r.g.pb_video_black_mask);
+        this.aOE = (QuickVideoView) view.findViewById(r.g.pb_videoview);
+        this.aNT = new ah(view.getContext());
+        this.aOE.setBusiness(this.aNT);
+        this.bcV = (ImageView) view.findViewById(r.g.pb_loading_image);
+        this.ceN = (ProgressBar) view.findViewById(r.g.pb_loading_progress);
+        this.ete = (AudioAnimationView) view.findViewById(r.g.pb_video_play_state);
+        this.ete.setCertainColumnCount(4);
+        this.ete.setColumnColor(r.d.cp_cont_i);
+        this.cWF = (ImageView) view.findViewById(r.g.pb_img_pause_play);
+        this.aOO = (TextView) view.findViewById(r.g.pb_video_error_tips);
+        this.etf = view.findViewById(r.g.pb_video_error_background);
     }
 }

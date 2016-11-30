@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.person.ProfileRequestMessage;
 /* loaded from: classes.dex */
 public class b extends e<BaseFragmentActivity> {
-    private a eFL;
-    private final com.baidu.adp.framework.listener.a eFM;
+    private a eMk;
+    private final com.baidu.adp.framework.listener.a eMl;
 
     public b(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.eFM = new c(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        registerListener(this.eFM);
+        this.eMl = new c(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        registerListener(this.eMl);
     }
 
     public void a(a aVar) {
-        this.eFL = aVar;
+        this.eMk = aVar;
     }
 
-    public boolean Fa() {
+    public boolean Ff() {
         return LoadData();
     }
 

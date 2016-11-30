@@ -1,14 +1,14 @@
 package com.baidu.adp.lib.a.b.a.d;
 /* loaded from: classes.dex */
 public class o implements h {
-    private Object lo;
+    private Object lp;
 
     public o(Object obj) {
-        this.lo = obj;
+        this.lp = obj;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.lo;
+        return this.lp;
     }
 }

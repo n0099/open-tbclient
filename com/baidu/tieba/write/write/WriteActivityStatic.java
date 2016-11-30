@@ -16,20 +16,20 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 /* loaded from: classes.dex */
 public class WriteActivityStatic {
-    private static int ghG = 11;
-    private static int ghH = 18;
+    private static int gps = 11;
+    private static int gpt = 18;
 
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteVideoActivityConfig.class, WriteVideoActivity.class);
-        com.baidu.tieba.tbadkCore.location.d.bkA();
-        com.baidu.tbadk.core.util.bh.vL().a("feedback:", new bk());
+        com.baidu.tieba.tbadkCore.location.d.bmQ();
+        com.baidu.tbadk.core.util.bf.vP().a("feedback:", new bl());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void G(TbPageContext<?> tbPageContext) {
         com.baidu.adp.lib.stats.a.eI().eR();
-        if (Build.VERSION.SDK_INT <= ghH && Build.VERSION.SDK_INT >= ghG) {
+        if (Build.VERSION.SDK_INT <= gpt && Build.VERSION.SDK_INT >= gps) {
             H(tbPageContext);
         } else {
             I(tbPageContext);

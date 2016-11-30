@@ -12,28 +12,28 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public JSONArray cFb;
-    private HttpMessageListener cFc;
-    private BdUniqueId cFd = BdUniqueId.gen();
-    private BdUniqueId cFe = BdUniqueId.gen();
-    private CustomMessageListener cFf = new b(this, 2000994);
-    private CustomMessageListener cFg = new c(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
+    public JSONArray cKo;
+    private HttpMessageListener cKp;
+    private BdUniqueId cKq = BdUniqueId.gen();
+    private BdUniqueId cKr = BdUniqueId.gen();
+    private CustomMessageListener cKs = new b(this, 2000994);
+    private CustomMessageListener cKt = new c(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
 
     public a() {
-        if (this.cFc == null) {
-            this.cFc = new d(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
+        if (this.cKp == null) {
+            this.cKp = new d(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
         }
-        this.cFc.setTag(this.cFe);
-        MessageManager.getInstance().registerListener(this.cFc);
-        MessageManager.getInstance().registerListener(this.cFf);
-        MessageManager.getInstance().registerListener(this.cFg);
+        this.cKp.setTag(this.cKr);
+        MessageManager.getInstance().registerListener(this.cKp);
+        MessageManager.getInstance().registerListener(this.cKs);
+        MessageManager.getInstance().registerListener(this.cKt);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cFc);
-        MessageManager.getInstance().unRegisterListener(this.cFf);
-        MessageManager.getInstance().unRegisterListener(this.cFg);
-        this.cFb = null;
+        MessageManager.getInstance().unRegisterListener(this.cKp);
+        MessageManager.getInstance().unRegisterListener(this.cKs);
+        MessageManager.getInstance().unRegisterListener(this.cKt);
+        this.cKo = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -42,14 +42,14 @@ public class a {
             if (i.fZ()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.cFd);
+                a(jSONArray, this.cKq);
                 return;
             }
-            if (this.cFb == null) {
-                this.cFb = new JSONArray();
+            if (this.cKo == null) {
+                this.cKo = new JSONArray();
             }
-            if (this.cFb.length() <= 100) {
-                this.cFb.put(jSONObject);
+            if (this.cKo.length() <= 100) {
+                this.cKo.put(jSONObject);
             }
         }
     }

@@ -5,6 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
@@ -15,9 +16,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tbadk.data.k;
+import com.baidu.tbadk.data.l;
 import com.baidu.tieba.personPolymeric.b.ab;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -29,14 +31,14 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.e.a {
-    private ab eIS;
+    private ab ePr;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void c(ab abVar) {
-        this.eIS = abVar;
+        this.ePr = abVar;
     }
 
     @Override // com.baidu.tieba.e.a, com.baidu.tieba.view.m
@@ -46,17 +48,17 @@ public class b extends com.baidu.tieba.e.a {
         String str = null;
         super.a(view, bVar);
         if (bVar != null) {
-            UserData userData = bVar.bJr != null ? (UserData) bVar.bJr.getSerializable(UserData.TYPE_USER) : null;
-            switch (bVar.bJq) {
+            UserData userData = bVar.bMk != null ? (UserData) bVar.bMk.getSerializable(UserData.TYPE_USER) : null;
+            switch (bVar.bMj) {
                 case 1:
                     if (userData != null) {
-                        k kVar = new k();
-                        kVar.fg(userData.getPortraitH());
-                        kVar.fh(userData.getPortrait());
-                        kVar.br(true);
+                        l lVar = new l();
+                        lVar.fj(userData.getPortraitH());
+                        lVar.fk(userData.getPortrait());
+                        lVar.bv(true);
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(kVar);
-                        this.eIS.aTW().a((v) kVar, (List<v>) arrayList, 0);
+                        arrayList.add(lVar);
+                        this.ePr.aWd().a((v) lVar, (List<v>) arrayList, 0);
                         return;
                     }
                     return;
@@ -69,11 +71,11 @@ public class b extends com.baidu.tieba.e.a {
                 default:
                     return;
                 case 8:
-                    this.GM.getPageActivity().finish();
+                    this.GO.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.eIS != null && this.eIS.aTX() != null) {
-                        this.eIS.aTX().aTM();
+                    if (this.ePr != null && this.ePr.aWe() != null) {
+                        this.ePr.aWe().aVT();
                         return;
                     }
                     return;
@@ -83,7 +85,7 @@ public class b extends com.baidu.tieba.e.a {
                         String userId = userData.getUserId();
                         str = userData.getBg_pic();
                         try {
-                            i = com.baidu.adp.lib.h.b.g(pN(str).get("props_id"), -1);
+                            i = com.baidu.adp.lib.h.b.g(qa(str).get("props_id"), -1);
                             str2 = userId;
                         } catch (URISyntaxException e) {
                             i = -1;
@@ -93,7 +95,7 @@ public class b extends com.baidu.tieba.e.a {
                         i = -1;
                     }
                     if (i == -1 || str2.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(this.GM.getPageActivity())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(this.GO.getPageActivity())));
                         return;
                     }
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
@@ -103,11 +105,11 @@ public class b extends com.baidu.tieba.e.a {
                         } else if (str.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
                             i2 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.GM.getPageActivity(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.GO.getPageActivity(), i, i2)));
                         return;
                     }
                     i2 = 0;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.GM.getPageActivity(), i, i2)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(this.GO.getPageActivity(), i, i2)));
                     return;
                 case 11:
                     if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
@@ -118,22 +120,25 @@ public class b extends com.baidu.tieba.e.a {
                             personChangeData.setSex(userData.getSex());
                             personChangeData.setIntro(userData.getIntro());
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.GM.getPageActivity(), 101, personChangeData, false)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.GO.getPageActivity(), 101, personChangeData, false)));
                         return;
                     }
                     return;
                 case 12:
                     TiebaStatic.log("igift_icon_ck");
-                    if (bm.ak(this.GM.getPageActivity())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(this.GM.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001)));
+                    if (bk.ak(this.GO.getPageActivity())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(this.GO.getPageActivity(), userData.getUserIdLong(), userData.getUserName(), GiftTabActivityConfig.FROM_PERSON_CENTER, 24001)));
                         return;
                     }
+                    return;
+                case 13:
+                    bf.vP().c(this.GO, new String[]{TbConfig.WEB_URL_FANS});
                     return;
             }
         }
     }
 
-    private Map<String, String> pN(final String str) throws URISyntaxException {
+    private Map<String, String> qa(final String str) throws URISyntaxException {
         return new HashMap<String, String>(str) { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController$1
             /* JADX INFO: Access modifiers changed from: package-private */
             {

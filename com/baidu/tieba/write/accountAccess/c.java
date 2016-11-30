@@ -15,24 +15,24 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c {
-    private BaseActivity avO;
-    private float gbV;
-    private a gbQ = null;
-    private View czu = null;
+    private BaseActivity awH;
+    private float gjA;
+    private a gjv = null;
+    private View cEE = null;
     private BaseWebView mWebView = null;
-    private View czv = null;
-    private TextView czw = null;
-    private com.baidu.tbadk.core.view.a czx = null;
-    private com.baidu.tbadk.core.view.h gbW = null;
-    private boolean czI = false;
-    private float dP = 1.2631578f;
-    private Runnable czJ = new d(this);
-    private Runnable gbX = new e(this);
+    private View cEF = null;
+    private TextView cEG = null;
+    private com.baidu.tbadk.core.view.a cEH = null;
+    private com.baidu.tbadk.core.view.h gjB = null;
+    private boolean cES = false;
+    private float dQ = 1.2631578f;
+    private Runnable cET = new d(this);
+    private Runnable gjC = new e(this);
 
     public c(AccountAccessActivity accountAccessActivity) {
-        this.avO = null;
+        this.awH = null;
         if (accountAccessActivity != null) {
-            this.avO = accountAccessActivity;
+            this.awH = accountAccessActivity;
             if (!a(accountAccessActivity)) {
                 accountAccessActivity.finish();
             }
@@ -40,25 +40,25 @@ public class c {
     }
 
     public void c(a aVar) {
-        this.gbQ = aVar;
+        this.gjv = aVar;
     }
 
     private boolean a(AccountAccessActivity accountAccessActivity) {
         accountAccessActivity.setActivityBgTransparent();
         accountAccessActivity.setSwipeBackEnabled(false);
         accountAccessActivity.setContentView(r.h.account_access_activity);
-        this.czu = accountAccessActivity.findViewById(r.g.account_access_black_layout);
-        this.czu.setOnClickListener(new f(this));
-        this.czv = accountAccessActivity.findViewById(r.g.aa_post_thread_loading_view);
-        this.czw = (TextView) this.czv.findViewById(r.g.custom_loading_text);
-        this.czw.setText(accountAccessActivity.getResources().getString(r.j.sending));
-        this.gbW = new com.baidu.tbadk.core.view.h();
-        this.gbW.aeT = 1000L;
-        this.gbV = k.K(accountAccessActivity.getBaseContext()) / k.L(accountAccessActivity.getBaseContext());
+        this.cEE = accountAccessActivity.findViewById(r.g.account_access_black_layout);
+        this.cEE.setOnClickListener(new f(this));
+        this.cEF = accountAccessActivity.findViewById(r.g.aa_post_thread_loading_view);
+        this.cEG = (TextView) this.cEF.findViewById(r.g.custom_loading_text);
+        this.cEG.setText(accountAccessActivity.getResources().getString(r.j.sending));
+        this.gjB = new com.baidu.tbadk.core.view.h();
+        this.gjB.afr = 1000L;
+        this.gjA = k.K(accountAccessActivity.getBaseContext()) / k.L(accountAccessActivity.getBaseContext());
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) accountAccessActivity.findViewById(r.g.account_access_webview);
-                UtilHelper.setSupportHeight(accountAccessActivity.getPageContext().getPageActivity(), this.mWebView, this.dP);
+                UtilHelper.setSupportHeight(accountAccessActivity.getPageContext().getPageActivity(), this.mWebView, this.dQ);
                 this.mWebView.setBackgroundColor(accountAccessActivity.getResources().getColor(17170443));
                 this.mWebView.setWebViewClient(new g(this));
                 return true;
@@ -72,11 +72,11 @@ public class c {
     }
 
     public void showPostThreadLoadingView(boolean z) {
-        if (this.czv != null) {
+        if (this.cEF != null) {
             if (z) {
-                this.czv.setVisibility(0);
+                this.cEF.setVisibility(0);
             } else {
-                this.czv.setVisibility(8);
+                this.cEF.setVisibility(8);
             }
         }
     }
@@ -86,20 +86,20 @@ public class c {
     }
 
     public void onDestory() {
-        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.czJ);
-        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.gbX);
-        this.czx = null;
+        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.cET);
+        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.gjC);
+        this.cEH = null;
     }
 
     public BaseActivity getContext() {
-        return this.avO;
+        return this.awH;
     }
 
     public void showToast(boolean z, String str) {
         if (z) {
-            this.gbW.c(str);
+            this.gjB.c(str);
         } else {
-            this.gbW.d(str);
+            this.gjB.d(str);
         }
     }
 
@@ -114,31 +114,31 @@ public class c {
     }
 
     public void showWebViewDelay(int i) {
-        com.baidu.adp.lib.h.h.eG().postDelayed(this.czJ, i);
+        com.baidu.adp.lib.h.h.eG().postDelayed(this.cET, i);
     }
 
-    public void lI(boolean z) {
-        if (this.czx == null) {
-            this.czx = new com.baidu.tbadk.core.view.a(this.avO.getPageContext());
-            this.czx.c(new h(this));
+    public void mh(boolean z) {
+        if (this.cEH == null) {
+            this.cEH = new com.baidu.tbadk.core.view.a(this.awH.getPageContext());
+            this.cEH.c(new h(this));
         }
-        this.czx.aF(z);
+        this.cEH.aI(z);
     }
 
     public void setRatio(float f) {
-        this.dP = f;
-        UtilHelper.setSupportHeight(this.avO.getPageContext().getPageActivity(), this.mWebView, f);
+        this.dQ = f;
+        UtilHelper.setSupportHeight(this.awH.getPageContext().getPageActivity(), this.mWebView, f);
     }
 
     public float ad() {
-        return this.dP;
+        return this.dQ;
     }
 
-    public float brY() {
-        return this.gbV;
+    public float but() {
+        return this.gjA;
     }
 
-    public void w(int i, int i2, int i3, int i4) {
+    public void v(int i, int i2, int i3, int i4) {
         if (this.mWebView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mWebView.getLayoutParams();
             marginLayoutParams.setMargins(i, i2, i3, i4);
@@ -153,11 +153,11 @@ public class c {
         return translateAnimation;
     }
 
-    public void brZ() {
-        if (this.avO != null) {
-            if (this.dP == this.gbV) {
-                this.mWebView.startAnimation(k(k.L(this.avO.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
-                com.baidu.adp.lib.h.h.eG().postDelayed(this.gbX, 800L);
+    public void buu() {
+        if (this.awH != null) {
+            if (this.dQ == this.gjA) {
+                this.mWebView.startAnimation(k(k.L(this.awH.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
+                com.baidu.adp.lib.h.h.eG().postDelayed(this.gjC, 800L);
                 return;
             }
             this.mWebView.startAnimation(k(this.mWebView.getHeight(), 0.0f));

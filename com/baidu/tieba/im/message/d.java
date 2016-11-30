@@ -9,40 +9,40 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class d implements a.b {
-    final /* synthetic */ ResponsePullMessage djL;
-    private final /* synthetic */ ImMessageCenterPojo djM;
+    final /* synthetic */ ResponsePullMessage dpv;
+    private final /* synthetic */ ImMessageCenterPojo dpw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-        this.djL = responsePullMessage;
-        this.djM = imMessageCenterPojo;
+        this.dpv = responsePullMessage;
+        this.dpw = imMessageCenterPojo;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         int i2 = 2;
         if (imMessageCenterPojo != null) {
-            i.asN().a(imMessageCenterPojo, 2);
-            if (imMessageCenterPojo.getIsFriend() == 0 && this.djM != null) {
-                this.djM.setGid(String.valueOf("-1001"));
-                this.djM.setCustomGroupType(-7);
+            i.auK().a(imMessageCenterPojo, 2);
+            if (imMessageCenterPojo.getIsFriend() == 0 && this.dpw != null) {
+                this.dpw.setGid(String.valueOf("-1001"));
+                this.dpw.setCustomGroupType(-7);
                 if (i == 0) {
-                    this.djM.setUnread_count(0);
+                    this.dpw.setUnread_count(0);
                 } else if (i == 1) {
-                    this.djM.setUnread_count(1);
+                    this.dpw.setUnread_count(1);
                 } else {
                     i2 = 1;
                 }
                 if (z) {
-                    this.djM.setIs_hidden(0);
+                    this.dpw.setIs_hidden(0);
                 }
-                i.asN().a(this.djM, i2);
+                i.auK().a(this.dpw, i2);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void f(String str, List<CommonMsgPojo> list) {
-        l.asT().a(b.c(str, 0L), list, true);
+        l.auQ().a(b.c(str, 0L), list, true);
     }
 }

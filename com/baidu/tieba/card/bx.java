@@ -1,24 +1,86 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class bx implements View.OnClickListener {
-    final /* synthetic */ bp bbs;
+public class bx {
+    private static bx beJ;
+    private List<com.baidu.tbadk.core.util.av> beI;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bp bpVar) {
-        this.bbs = bpVar;
+    public static bx Pl() {
+        if (beJ == null) {
+            synchronized (bx.class) {
+                if (beJ == null) {
+                    beJ = new bx();
+                }
+            }
+        }
+        return beJ;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        CardPersonDynamicThreadData cardPersonDynamicThreadData;
-        if (this.bbs.getOnSubCardOnClickListenner() != null) {
-            cd<CardPersonDynamicThreadData> onSubCardOnClickListenner = this.bbs.getOnSubCardOnClickListenner();
-            cardPersonDynamicThreadData = this.bbs.bbe;
-            onSubCardOnClickListenner.a(view, cardPersonDynamicThreadData);
+    public void a(com.baidu.tbadk.core.util.av avVar) {
+        if (avVar != null) {
+            if (this.beI == null) {
+                this.beI = new ArrayList();
+            }
+            if (this.beI != null) {
+                this.beI.add(avVar);
+            }
+        }
+    }
+
+    public void hU(String str) {
+        if (str != null) {
+            if (this.beI == null) {
+                this.beI = new ArrayList();
+            }
+            if (this.beI != null) {
+                this.beI.add(new com.baidu.tbadk.core.util.av(str));
+            }
+        }
+    }
+
+    public void cw(boolean z) {
+        if (com.baidu.tbadk.core.util.x.s(this.beI) != 0) {
+            for (com.baidu.tbadk.core.util.av avVar : this.beI) {
+                if (avVar != null) {
+                    int i = 0;
+                    if (z) {
+                        i = 1;
+                    }
+                    avVar.s("obj_param2", i);
+                    TiebaStatic.log(avVar);
+                }
+            }
+            this.beI.clear();
+        }
+    }
+
+    public void cx(boolean z) {
+        if (com.baidu.tbadk.core.util.x.s(this.beI) != 0) {
+            for (com.baidu.tbadk.core.util.av avVar : this.beI) {
+                if (avVar != null) {
+                    int i = 0;
+                    if (z) {
+                        i = 1;
+                    }
+                    avVar.s("obj_type", i);
+                    TiebaStatic.log(avVar);
+                }
+            }
+            this.beI.clear();
+        }
+    }
+
+    public void Pm() {
+        if (com.baidu.tbadk.core.util.x.s(this.beI) != 0) {
+            for (com.baidu.tbadk.core.util.av avVar : this.beI) {
+                if (avVar != null) {
+                    TiebaStatic.log(avVar);
+                }
+            }
+            this.beI.clear();
         }
     }
 }

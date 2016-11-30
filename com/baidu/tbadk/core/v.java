@@ -1,12 +1,14 @@
 package com.baidu.tbadk.core;
 
-import android.location.Address;
-import android.text.TextUtils;
-import com.baidu.adp.lib.e.a;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements a.InterfaceC0005a {
+public class v implements k.a {
     final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,20 +16,22 @@ public class v implements a.InterfaceC0005a {
         this.this$0 = tbadkCoreApplication;
     }
 
-    @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
-    public void b(int i, String str, Address address) {
-        if (i == 0 && address != null) {
-            try {
-                String valueOf = String.valueOf(address.getLatitude());
-                String valueOf2 = String.valueOf(address.getLongitude());
-                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    this.this$0.setLocationLat(valueOf);
-                    this.this$0.setLocationLng(valueOf2);
-                    this.this$0.setLocationPos(address.getAddressLine(0));
-                }
-            } catch (IllegalStateException e) {
-                BdLog.e(e.getMessage());
-            }
+    @Override // com.baidu.adp.lib.util.k.a
+    public void aT(String str) {
+        if (gJ() instanceof TextView) {
+            ((TextView) gJ()).setText(str);
         }
+    }
+
+    @Override // com.baidu.adp.lib.util.k.a
+    public View gJ() {
+        View view;
+        View view2;
+        view = this.this$0.mCustomToastView;
+        if (view == null) {
+            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m9getInst()).inflate(r.h.custom_toast_textview, (ViewGroup) null);
+        }
+        view2 = this.this$0.mCustomToastView;
+        return view2;
     }
 }

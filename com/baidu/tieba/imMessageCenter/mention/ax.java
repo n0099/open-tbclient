@@ -7,7 +7,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int duv;
+    private int dAa;
     private String ids;
     private int mPn = 1;
 
@@ -19,25 +19,25 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.duv = 4;
+        this.dAa = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.duv = 1;
+        this.dAa = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.duv;
+        return this.dAa;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> lY() {
+    public HashMap<String, Object> mb() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.duv == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.dAa == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -50,7 +50,7 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
             builder.pn = Integer.valueOf(this.mPn);
             builder.ids = this.ids;
             if (z) {
-                com.baidu.tbadk.util.o.a(builder, true);
+                com.baidu.tbadk.util.n.a(builder, true);
             }
             ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -66,12 +66,12 @@ public class ax implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String EI() {
+    public String EN() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean EJ() {
+    public boolean EO() {
         return true;
     }
 

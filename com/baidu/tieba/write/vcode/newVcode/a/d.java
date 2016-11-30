@@ -14,37 +14,37 @@ import com.baidu.tieba.tbadkCore.writeModel.b;
 import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* loaded from: classes.dex */
 public class d implements c {
-    private String czA;
-    private String czB;
-    private final com.baidu.tieba.tbadkCore.writeModel.b gbT;
-    private final NewVcodeView gdX;
-    private boolean geb = false;
-    private String gec = null;
-    private Runnable ged = new e(this);
-    private final b.d avZ = new f(this);
+    private String cEK;
+    private String cEL;
+    private final com.baidu.tieba.tbadkCore.writeModel.b gjy;
+    private final NewVcodeView glB;
+    private boolean glF = false;
+    private String glG = null;
+    private Runnable glH = new e(this);
+    private final b.d awS = new f(this);
 
     public d(NewVcodeView newVcodeView, com.baidu.tieba.tbadkCore.writeModel.b bVar) {
-        this.gdX = newVcodeView;
-        this.gbT = bVar;
-        this.gbT.b(this.avZ);
+        this.glB = newVcodeView;
+        this.gjy = bVar;
+        this.gjy.b(this.awS);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public boolean b(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
-            this.czA = com.baidu.tbadk.j.a.gF(str);
-            if (this.czA != null && this.gbT.bfE() != null) {
-                this.gdX.runJsMethod(this.czA, "'" + this.gbT.bfE().getVcodeUrl() + "'");
+            this.cEK = com.baidu.tbadk.j.a.gF(str);
+            if (this.cEK != null && this.gjy.bia() != null) {
+                this.glB.runJsMethod(this.cEK, "'" + this.gjy.bia().getVcodeUrl() + "'");
                 return true;
             }
             return false;
         } else if (str.equals("objc:jumpToFeedback()")) {
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.gdX.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.glB.getContext().getActivity(), 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, null, 13003, true, false, null, false, false, null, null, null, 0);
             writeActivityConfig.setIsVcodeFeedBack();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             return true;
         } else if (str.contains("objc:jsSubmit")) {
-            return kN(com.baidu.tbadk.j.a.gF(str));
+            return kY(com.baidu.tbadk.j.a.gF(str));
         } else {
             return false;
         }
@@ -52,34 +52,34 @@ public class d implements c {
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public void onPageFinished(WebView webView, String str) {
-        if (this.gdX != null) {
-            this.gdX.showWebViewDelay(500);
-            if (this.geb) {
-                h.eG().postDelayed(this.ged, 500L);
+        if (this.glB != null) {
+            this.glB.showWebViewDelay(500);
+            if (this.glF) {
+                h.eG().postDelayed(this.glH, 500L);
             }
         }
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void o(boolean z, String str) {
-        this.geb = z;
-        this.gec = str;
+    public void p(boolean z, String str) {
+        this.glF = z;
+        this.glG = str;
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void lN(boolean z) {
-        this.gdX.setRatio(1.2631578f);
-        this.gdX.showWebView(false);
+    public void mm(boolean z) {
+        this.glB.setRatio(1.2631578f);
+        this.glB.showWebView(false);
         String str = String.valueOf(TbConfig.SERVER_ADDRESS_WEB_VIEW) + "mo/q/captcha";
         if (z) {
             str = String.valueOf(str) + "?feedback=1";
         }
-        this.gdX.getWebView().loadUrl(str);
+        this.glB.getWebView().loadUrl(str);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
     public void onDestroy() {
-        h.eG().removeCallbacks(this.ged);
+        h.eG().removeCallbacks(this.glH);
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
@@ -87,38 +87,38 @@ public class d implements c {
     }
 
     @Override // com.baidu.tieba.write.vcode.newVcode.a.c
-    public void brW() {
-        this.gdX.showPostThreadLoadingView(false);
-        this.gbT.cancelLoadData();
+    public void bur() {
+        this.glB.showPostThreadLoadingView(false);
+        this.gjy.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void akW() {
-        this.gdX.runJsMethod(this.czB, "'" + this.gbT.bfE().getVcodeUrl() + "'");
+    public void amR() {
+        this.glB.runJsMethod(this.cEL, "'" + this.gjy.bia().getVcodeUrl() + "'");
     }
 
-    private boolean kN(String str) {
+    private boolean kY(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
             return false;
         }
-        this.czB = split[0];
-        sz(split[1]);
+        this.cEL = split[0];
+        sV(split[1]);
         return true;
     }
 
-    private void sz(String str) {
+    private void sV(String str) {
         if (!k.gD()) {
-            this.gdX.getContext().showToast(r.j.neterror);
-            this.gdX.getContext().finish();
+            this.glB.getContext().showToast(r.j.neterror);
+            this.glB.getContext().finish();
         } else if (!StringUtils.isNull(str)) {
-            this.gdX.showPostThreadLoadingView(true);
-            this.gbT.bfE().setVcode(str);
-            this.gbT.bfE().setVcodeType("4");
-            this.gbT.bkY();
+            this.glB.showPostThreadLoadingView(true);
+            this.gjy.bia().setVcode(str);
+            this.gjy.bia().setVcodeType("4");
+            this.gjy.bno();
         } else {
-            this.gdX.getContext().showToast(r.j.neterror);
-            this.gdX.getContext().finish();
+            this.glB.getContext().showToast(r.j.neterror);
+            this.glB.getContext().finish();
         }
     }
 }

@@ -36,7 +36,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         RUNNING,
         FINISHED;
 
-        /* JADX DEBUG: Replace access to removed values field (lx) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ly) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static BdAsyncTaskStatus[] valuesCustom() {
             BdAsyncTaskStatus[] valuesCustom = values();
@@ -260,10 +260,10 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.lw.finish(aVar.mData[0]);
+                    aVar.lx.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.lw.onProgressUpdate(aVar.mData);
+                    aVar.lx.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;
@@ -288,11 +288,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<Data> {
-        final BdAsyncTask lw;
+        final BdAsyncTask lx;
         final Data[] mData;
 
         a(BdAsyncTask bdAsyncTask, Data... dataArr) {
-            this.lw = bdAsyncTask;
+            this.lx = bdAsyncTask;
             this.mData = dataArr;
         }
     }

@@ -1,43 +1,51 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes.dex */
-public class ag extends ImageSpan {
-    private int offset;
-    private WeakReference<Drawable> zl;
+class ag extends CustomMessageListener {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ahJ;
 
-    public ag(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, int i) {
+        super(i);
+        this.ahJ = threadCommentAndPraiseInfoLayout;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable jy = jy();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - jy.getBounds().height()) / 2) + this.offset);
-        jy.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable jy() {
-        WeakReference<Drawable> weakReference = this.zl;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bk bkVar;
+        bk bkVar2;
+        bk bkVar3;
+        bk bkVar4;
+        bk bkVar5;
+        bk bkVar6;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bk)) {
+            bkVar = this.ahJ.aeu;
+            if (bkVar != null) {
+                bkVar2 = this.ahJ.aeu;
+                if (bkVar2.getId() != null) {
+                    bk bkVar7 = (bk) customResponsedMessage.getData();
+                    if (!TextUtils.isEmpty(bkVar7.getId()) && bkVar7.rH() != null) {
+                        String id = bkVar7.getId();
+                        bkVar3 = this.ahJ.aeu;
+                        if (id.equals(bkVar3.getId())) {
+                            bkVar4 = this.ahJ.aeu;
+                            if (bkVar4.rH() != null) {
+                                bkVar6 = this.ahJ.aeu;
+                                bkVar6.rH().setNum(bkVar7.rH().getNum());
+                            }
+                            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.ahJ;
+                            bkVar5 = this.ahJ.aeu;
+                            threadCommentAndPraiseInfoLayout.b(bkVar5);
+                        }
+                    }
+                }
+            }
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.zl = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
     }
 }

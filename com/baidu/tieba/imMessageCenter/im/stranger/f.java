@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class f extends CustomMessageListener {
-    final /* synthetic */ StrangerListActivity dtr;
+    final /* synthetic */ StrangerListActivity dyW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(StrangerListActivity strangerListActivity, int i) {
         super(i);
-        this.dtr = strangerListActivity;
+        this.dyW = strangerListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,17 +26,17 @@ class f extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            strangerListModel = this.dtr.dtm;
-                            aVar = this.dtr.cXD;
+                            strangerListModel = this.dyW.dyR;
+                            aVar = this.dyW.ddp;
                             strangerListModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            iVar = this.dtr.dtl;
+                            iVar = this.dyW.dyQ;
                             if (iVar != null) {
-                                iVar2 = this.dtr.dtl;
-                                if (iVar2.azn() != null) {
-                                    iVar3 = this.dtr.dtl;
-                                    iVar3.azn().notifyDataSetChanged();
+                                iVar2 = this.dyW.dyQ;
+                                if (iVar2.aBk() != null) {
+                                    iVar3 = this.dyW.dyQ;
+                                    iVar3.aBk().notifyDataSetChanged();
                                     return;
                                 }
                                 return;
@@ -46,13 +46,13 @@ class f extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.dtr.g(customResponsedMessage);
+                    this.dyW.g(customResponsedMessage);
                     return;
                 }
-                this.dtr.f(customResponsedMessage);
+                this.dyW.f(customResponsedMessage);
                 return;
             }
-            this.dtr.e(customResponsedMessage);
+            this.dyW.e(customResponsedMessage);
         }
     }
 }

@@ -17,7 +17,7 @@ public class DealInfoIMData implements Serializable {
     public String url;
 
     public static DealInfoIMData parseData(String str) {
-        if (str == null || (TextUtils.isEmpty(str) && !EcommSwitchStatic.GK())) {
+        if (str == null || (TextUtils.isEmpty(str) && !EcommSwitchStatic.GN())) {
             return null;
         }
         try {

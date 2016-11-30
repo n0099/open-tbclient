@@ -1,54 +1,43 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class ar extends Thread {
-    private boolean abA;
-    private String abz;
-    private String mObjTp;
-    private String mParam;
-    private String mType;
+public class ar {
+    private static final ar abZ = new ar();
+    private final HashMap<Class<?>, Class<?>> aca = new HashMap<>();
 
-    public ar(String str, boolean z) {
-        this.mType = null;
-        this.mParam = null;
-        this.abz = null;
-        this.mObjTp = null;
-        this.abA = false;
-        this.mType = str;
-        this.abA = z;
+    public static final ar vu() {
+        return abZ;
     }
 
-    public ar(String str, String str2) {
-        this.mType = null;
-        this.mParam = null;
-        this.abz = null;
-        this.mObjTp = null;
-        this.abA = false;
-        this.mType = str;
-        this.mParam = str2;
+    private ar() {
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String str;
-        super.run();
-        if (this.abA) {
-            str = TbConfig.IN_PV_ADDRESS;
+    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
+        this.aca.put(cls, cls2);
+    }
+
+    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
+        if (!this.aca.containsKey(cls)) {
+            this.aca.put(cls, cls2);
         } else {
-            str = TbConfig.LOAD_REG_PV_ADDRESS;
+            BdLog.e("register Intent failed, " + cls.getName() + " exist");
         }
-        ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-        abVar.n("st_type", this.mType);
-        if (this.mParam != null) {
-            abVar.n("st_param", this.mParam);
+    }
+
+    public boolean appResponseToIntentClass(Class<?> cls) {
+        return getIntentClass(cls) != null;
+    }
+
+    public int vv() {
+        return this.aca.size();
+    }
+
+    public Class<?> getIntentClass(Class<?> cls) {
+        if (this.aca != null) {
+            return this.aca.get(cls);
         }
-        if (this.abz != null) {
-            abVar.n("obj", this.abz);
-        }
-        if (this.mObjTp != null) {
-            abVar.n("obj_tp", this.mObjTp);
-        }
-        abVar.uu();
+        return null;
     }
 }

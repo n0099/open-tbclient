@@ -1,36 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr implements a.b {
-    private final /* synthetic */ FrsActivity bSP;
-    private final /* synthetic */ com.baidu.tieba.frs.view.n bSQ;
-    private final /* synthetic */ ShareFromFrsMsgData bST;
-    private final /* synthetic */ int bSU;
-    private final /* synthetic */ String bSV;
-    private final /* synthetic */ long bSW;
+public class cr implements BdSwitchView.a {
+    final /* synthetic */ cq bWf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(FrsActivity frsActivity, com.baidu.tieba.frs.view.n nVar, int i, String str, long j, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.bSP = frsActivity;
-        this.bSQ = nVar;
-        this.bSU = i;
-        this.bSV = str;
-        this.bSW = j;
-        this.bST = shareFromFrsMsgData;
+    public cr(cq cqVar) {
+        this.bWf = cqVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(a aVar) {
-        this.bSP.HidenSoftKeyPad((InputMethodManager) this.bSP.getSystemService("input_method"), this.bSQ.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.bSP.getPageContext().getPageActivity(), this.bSU, this.bSV, this.bSW, "from_share", this.bSQ.getLeaveMsg(), this.bST.toChatMessageContent())));
-        aVar.dismiss();
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        com.baidu.adp.base.h hVar3;
+        com.baidu.adp.base.h hVar4;
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            hVar3 = this.bWf.mContext;
+            StringBuilder sb = new StringBuilder(String.valueOf(hVar3.getString(r.j.image_show_setting)));
+            hVar4 = this.bWf.mContext;
+            view.setContentDescription(sb.append(hVar4.getString(r.j.now_state_on)).toString());
+            com.baidu.tbadk.core.l.oJ().bD(0);
+            com.baidu.tbadk.core.l.oJ().ak(true);
+        } else {
+            hVar = this.bWf.mContext;
+            StringBuilder sb2 = new StringBuilder(String.valueOf(hVar.getString(r.j.image_show_setting)));
+            hVar2 = this.bWf.mContext;
+            view.setContentDescription(sb2.append(hVar2.getString(r.j.now_state_off)).toString());
+            com.baidu.tbadk.core.l.oJ().ak(false);
+        }
+        TiebaStatic.log("c11672");
+        this.bWf.bWc = true;
     }
 }

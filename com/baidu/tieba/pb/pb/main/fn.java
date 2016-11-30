@@ -1,35 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fn implements View.OnClickListener {
-    final /* synthetic */ ex ewH;
-    private final /* synthetic */ String val$url;
+    final /* synthetic */ ey eCT;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.q eCW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fn(ex exVar, String str) {
-        this.ewH = exVar;
-        this.val$url = str;
+    public fn(ey eyVar, com.baidu.tieba.tbadkCore.data.q qVar) {
+        this.eCT = eyVar;
+        this.eCW = qVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.k.gD()) {
-            pbActivity = this.ewH.eow;
-            pbActivity.showToast(r.j.neterror);
-            return;
+        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10630").ab("obj_id", this.eCW.getAuthor().getUserId()));
+        pbActivity = this.eCT.eug;
+        if (pbActivity.euQ.eDj != null) {
+            pbActivity2 = this.eCT.eug;
+            pbActivity2.euQ.eDj.onClick(view);
         }
-        com.baidu.tbadk.core.util.bh vL = com.baidu.tbadk.core.util.bh.vL();
-        pbActivity2 = this.ewH.eow;
-        vL.c(pbActivity2.getPageContext(), new String[]{this.val$url});
-        pbActivity3 = this.ewH.eow;
-        pbActivity3.finish();
     }
 }

@@ -22,7 +22,7 @@ public class i {
         this.num = i;
     }
 
-    public void fi(int i) {
+    public void fl(int i) {
         this.myItem = i;
     }
 }

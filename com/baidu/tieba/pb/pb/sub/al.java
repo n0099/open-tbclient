@@ -1,34 +1,21 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public class al implements Runnable {
-    private final /* synthetic */ int Wf;
-    final /* synthetic */ ag eyq;
-    private final /* synthetic */ View so;
+class al implements TbRichTextView.d {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ag agVar, View view, int i) {
-        this.eyq = agVar;
-        this.so = view;
-        this.Wf = i;
+    public al(NewSubPbActivity newSubPbActivity) {
+        this.eEs = newSubPbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.editortools.e.p pVar;
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (this.so != null) {
-            int[] iArr = new int[2];
-            pVar = this.eyq.duz;
-            pVar.CG().getLocationInWindow(iArr);
-            bdListView = this.eyq.Cj;
-            bdListView.setSelectionFromTop(this.Wf + 1, iArr[1] - this.so.getHeight());
-            bdListView2 = this.eyq.Cj;
-            bdListView2.invalidate();
-        }
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.d
+    public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
+        this.eEs.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_EMOTIONIMAGE, new EmotionImageActivityConfig(this.eEs.getPageContext().getPageActivity(), str, str2, str3, str4, str5, str6, 1, i, i2)));
     }
 }

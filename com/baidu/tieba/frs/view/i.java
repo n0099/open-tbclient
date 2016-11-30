@@ -3,17 +3,21 @@ package com.baidu.tieba.frs.view;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import com.baidu.tbadk.TbPageContextSupport;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements Animation.AnimationListener {
-    private final /* synthetic */ float cgZ;
-    final /* synthetic */ h cha;
-    private final /* synthetic */ View so;
+public class i implements Animation.AnimationListener {
+    final /* synthetic */ c cme;
+    private final /* synthetic */ TbPageContextSupport cmf;
+    private final /* synthetic */ float cmg;
+    private final /* synthetic */ View sq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar, float f, View view) {
-        this.cha = hVar;
-        this.cgZ = f;
-        this.so = view;
+    public i(c cVar, TbPageContextSupport tbPageContextSupport, View view, float f) {
+        this.cme = cVar;
+        this.cmf = tbPageContextSupport;
+        this.sq = view;
+        this.cmg = f;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,9 +30,9 @@ class i implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.cgZ, 1.0f, 1.0f);
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f);
         scaleAnimation.setFillAfter(true);
         scaleAnimation.setDuration(300L);
-        this.so.startAnimation(scaleAnimation);
+        com.baidu.tieba.tbadkCore.a.a(this.cmf, this.sq, scaleAnimation, new j(this, this.cmg, this.sq));
     }
 }

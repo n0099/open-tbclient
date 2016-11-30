@@ -1,47 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.pb.pb.main.dh;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.ei;
 /* loaded from: classes.dex */
-class gl implements dh.a {
-    final /* synthetic */ ReaderPbService ewO;
+class gl extends CustomMessageListener {
+    final /* synthetic */ ReaderPbService eDb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gl(ReaderPbService readerPbService) {
-        this.ewO = readerPbService;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gl(ReaderPbService readerPbService, int i) {
+        super(i);
+        this.eDb = readerPbService;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.dh.a
-    public void c(com.baidu.tieba.pb.data.h hVar) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.dh.a
-    public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.dh.a
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.h hVar, String str, int i4) {
-        boolean z2;
-        eh ehVar;
-        ek ekVar;
-        eh ehVar2;
-        ek ekVar2;
-        ek ekVar3;
-        ek ekVar4;
-        z2 = this.ewO.isAlive;
-        if (!z2) {
-            ehVar = this.ewO.mReaderManager;
-            if (ehVar != null) {
-                ekVar = this.ewO.mReaderModel;
-                if (ekVar != null) {
-                    ehVar2 = this.ewO.mReaderManager;
-                    ekVar2 = this.ewO.mReaderModel;
-                    com.baidu.tieba.pb.data.h pbData = ekVar2.getPbData();
-                    ekVar3 = this.ewO.mReaderModel;
-                    boolean aPx = ekVar3.aPx();
-                    ekVar4 = this.ewO.mReaderModel;
-                    ehVar2.b(pbData, aPx, i2, ekVar4.aPy());
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ei.a aVar;
+        ei.a aVar2;
+        ei eiVar;
+        ei eiVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            if (intValue == 1) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10833").ab("obj_locate", "1"));
+                aVar2 = this.eDb.mRefreshCallback;
+                eiVar = this.eDb.mReaderManager;
+                int i = eiVar.ezP;
+                eiVar2 = this.eDb.mReaderManager;
+                aVar2.bl(i, eiVar2.aRt());
+            } else if (intValue == 2) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10833").ab("obj_locate", "2"));
+                aVar = this.eDb.mRefreshCallback;
+                aVar.aRw();
             }
         }
     }

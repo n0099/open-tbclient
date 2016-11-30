@@ -11,74 +11,74 @@ import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends y.a {
-    private BookShelfItemView eEA;
-    private BookShelfItemView eEB;
-    private LinearLayout eEC;
-    private View eED;
-    private RelativeLayout eEu;
-    private ImageView eEv;
-    private TextView eEw;
-    private TextView eEx;
-    private BookShelfItemView eEy;
-    private BookShelfItemView eEz;
+    private RelativeLayout eKT;
+    private ImageView eKU;
+    private TextView eKV;
+    private TextView eKW;
+    private BookShelfItemView eKX;
+    private BookShelfItemView eKY;
+    private BookShelfItemView eKZ;
+    private BookShelfItemView eLa;
+    private LinearLayout eLb;
+    private View eLc;
 
     public a(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.eEu = (RelativeLayout) view.findViewById(r.g.book_info);
-        this.eEv = (ImageView) view.findViewById(r.g.person_book_icon);
-        this.eEw = (TextView) view.findViewById(r.g.book_title);
-        this.eEx = (TextView) view.findViewById(r.g.book_hint);
-        this.eED = view.findViewById(r.g.book_divider);
-        this.eEC = (LinearLayout) view.findViewById(r.g.book_items);
-        this.eEy = (BookShelfItemView) view.findViewById(r.g.book_1);
-        this.eEz = (BookShelfItemView) view.findViewById(r.g.book_2);
-        this.eEA = (BookShelfItemView) view.findViewById(r.g.book_3);
-        this.eEB = (BookShelfItemView) view.findViewById(r.g.book_4);
+        this.eKT = (RelativeLayout) view.findViewById(r.g.book_info);
+        this.eKU = (ImageView) view.findViewById(r.g.person_book_icon);
+        this.eKV = (TextView) view.findViewById(r.g.book_title);
+        this.eKW = (TextView) view.findViewById(r.g.book_hint);
+        this.eLc = view.findViewById(r.g.book_divider);
+        this.eLb = (LinearLayout) view.findViewById(r.g.book_items);
+        this.eKX = (BookShelfItemView) view.findViewById(r.g.book_1);
+        this.eKY = (BookShelfItemView) view.findViewById(r.g.book_2);
+        this.eKZ = (BookShelfItemView) view.findViewById(r.g.book_3);
+        this.eLa = (BookShelfItemView) view.findViewById(r.g.book_4);
         if (onClickListener != null) {
-            this.eEu.setOnClickListener(onClickListener);
+            this.eKT.setOnClickListener(onClickListener);
         }
     }
 
     public void a(com.baidu.tieba.person.data.b bVar) {
         if (bVar != null) {
-            this.eEw.setText(bVar.eEc);
-            if (bVar.eEg > 0) {
-                this.eEx.setText(String.valueOf(bVar.eEg));
-            } else if (!StringUtils.isNull(bVar.eEf)) {
-                this.eEx.setText(bVar.eEf);
+            this.eKV.setText(bVar.eKB);
+            if (bVar.eKF > 0) {
+                this.eKW.setText(String.valueOf(bVar.eKF));
+            } else if (!StringUtils.isNull(bVar.eKE)) {
+                this.eKW.setText(bVar.eKE);
             }
-            if (bVar.eEh != null && bVar.eEh.size() > 0) {
-                this.eEC.setVisibility(0);
-                this.eED.setVisibility(0);
-                List<com.baidu.tieba.personInfo.b> list = bVar.eEh;
+            if (bVar.eKG != null && bVar.eKG.size() > 0) {
+                this.eLb.setVisibility(0);
+                this.eLc.setVisibility(0);
+                List<com.baidu.tieba.personInfo.b> list = bVar.eKG;
                 if (list.size() > 0) {
-                    this.eEy.a(list.get(0));
-                    this.eEy.setVisibility(0);
+                    this.eKX.a(list.get(0));
+                    this.eKX.setVisibility(0);
                 } else {
-                    this.eEy.setVisibility(4);
+                    this.eKX.setVisibility(4);
                 }
                 if (list.size() > 1) {
-                    this.eEz.a(list.get(1));
-                    this.eEz.setVisibility(0);
+                    this.eKY.a(list.get(1));
+                    this.eKY.setVisibility(0);
                 } else {
-                    this.eEz.setVisibility(4);
+                    this.eKY.setVisibility(4);
                 }
                 if (list.size() > 2) {
-                    this.eEA.a(list.get(2));
-                    this.eEA.setVisibility(0);
+                    this.eKZ.a(list.get(2));
+                    this.eKZ.setVisibility(0);
                 } else {
-                    this.eEA.setVisibility(4);
+                    this.eKZ.setVisibility(4);
                 }
                 if (list.size() > 3) {
-                    this.eEB.a(list.get(3));
-                    this.eEB.setVisibility(0);
+                    this.eLa.a(list.get(3));
+                    this.eLa.setVisibility(0);
                     return;
                 }
-                this.eEB.setVisibility(4);
+                this.eLa.setVisibility(4);
                 return;
             }
-            this.eEC.setVisibility(8);
-            this.eED.setVisibility(8);
+            this.eLb.setVisibility(8);
+            this.eLc.setVisibility(8);
         }
     }
 }

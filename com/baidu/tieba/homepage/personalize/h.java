@@ -1,18 +1,20 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements BdListView.e {
-    final /* synthetic */ a cFs;
+public class h implements z.b {
+    final /* synthetic */ a cKG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.cFs = aVar;
+        this.cKG = aVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void kx() {
-        this.cFs.abm();
+    @Override // com.baidu.tbadk.core.view.z.b
+    public void aL(boolean z) {
+        n nVar;
+        nVar = this.cKG.cKz;
+        nVar.update();
     }
 }

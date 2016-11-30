@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 /* loaded from: classes.dex */
 public class g extends a {
-    private int abe;
+    private int abD;
 
     public g(int i) {
-        this.abe = 0;
-        this.abe = i;
+        this.abD = 0;
+        this.abD = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -24,12 +24,12 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wa() {
+    public boolean we() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wb() {
+    public boolean wf() {
         return false;
     }
 
@@ -39,7 +39,7 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int wc() {
-        return this.abe;
+    public int wg() {
+        return this.abD;
     }
 }

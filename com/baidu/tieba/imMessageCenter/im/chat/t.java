@@ -7,17 +7,17 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements Animation.AnimationListener {
-    private final /* synthetic */ String cUI;
-    final /* synthetic */ PersonalChatView doN;
-    private final /* synthetic */ Animation doO;
-    private final /* synthetic */ String doP;
+    private final /* synthetic */ String daq;
+    final /* synthetic */ PersonalChatView duv;
+    private final /* synthetic */ Animation duw;
+    private final /* synthetic */ String dux;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.doN = personalChatView;
-        this.cUI = str;
-        this.doP = str2;
-        this.doO = animation;
+        this.duv = personalChatView;
+        this.daq = str;
+        this.dux = str2;
+        this.duw = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class t implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.doN.doG;
+        linearLayout = this.duv.duo;
         linearLayout.clearAnimation();
-        textView = this.doN.doH;
-        personalChatActivity = this.doN.doE;
-        textView.setText(personalChatActivity.getResources().getString(r.j.add_friend_agree_title, this.cUI));
-        textView2 = this.doN.doI;
-        textView2.setText(this.doP);
-        linearLayout2 = this.doN.doG;
-        linearLayout2.setAnimation(this.doO);
+        textView = this.duv.dup;
+        personalChatActivity = this.duv.dum;
+        textView.setText(personalChatActivity.getResources().getString(r.j.add_friend_agree_title, this.daq));
+        textView2 = this.duv.duq;
+        textView2.setText(this.dux);
+        linearLayout2 = this.duv.duo;
+        linearLayout2.setAnimation(this.duw);
     }
 }

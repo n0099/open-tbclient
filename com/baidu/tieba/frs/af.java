@@ -1,25 +1,27 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-class af extends com.baidu.adp.base.g {
-    final /* synthetic */ FrsActivity bQi;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+/* loaded from: classes.dex */
+class af extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(FrsActivity frsActivity) {
-        this.bQi = frsActivity;
+    public af(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.base.g
-    public void g(Object obj) {
-        com.baidu.tieba.frs.i.aa aaVar;
-        boolean z = false;
-        if (obj instanceof Boolean) {
-            z = ((Boolean) obj).booleanValue();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
+                FrsActivityStatic.bTh = true;
+                FrsActivityStatic.bTg = true;
+                return;
+            }
+            FrsActivityStatic.bTh = false;
+            FrsActivityStatic.bTg = false;
         }
-        if (z) {
-            aaVar = this.bQi.bPv;
-            aaVar.ei(true);
-            return;
-        }
-        this.bQi.refresh();
     }
 }

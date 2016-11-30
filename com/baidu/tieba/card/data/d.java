@@ -4,125 +4,128 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends b implements s {
-    public String aPG;
-    public com.baidu.tbadk.core.data.b bbS;
+    public String aRN;
+    public com.baidu.tbadk.core.data.c beQ;
     public String mPageType;
     public int mPn;
 
-    public d(com.baidu.tbadk.core.data.b bVar) {
-        this.aPG = "";
+    public d(com.baidu.tbadk.core.data.c cVar) {
+        this.aRN = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.bbS = bVar;
+        this.beQ = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d() {
-        this.aPG = "";
+        this.aRN = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.bbS = null;
+        this.beQ = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.bbS != null && this.bbS.Pp != null) {
-            return com.baidu.tbadk.core.data.b.OX;
+        if (this.beQ != null && this.beQ.PC != null) {
+            return com.baidu.tbadk.core.data.c.Pk;
         }
-        if (this.bbS != null && this.bbS.getType() == com.baidu.tbadk.core.data.b.OR) {
-            return com.baidu.tbadk.core.data.b.OW;
+        if (this.beQ != null && this.beQ.getType() == com.baidu.tbadk.core.data.c.OY) {
+            return com.baidu.tbadk.core.data.c.Ph;
         }
-        return com.baidu.tbadk.core.data.b.OV;
+        if (this.beQ != null && this.beQ.getType() == com.baidu.tbadk.core.data.c.Pc) {
+            return com.baidu.tbadk.core.data.c.Pj;
+        }
+        return com.baidu.tbadk.core.data.c.Pi;
     }
 
     @Override // com.baidu.tieba.card.data.s
     public int getPosition() {
-        return com.baidu.adp.lib.h.b.g(this.bbS != null ? this.bbS.adPosition : "-1", -1);
+        return com.baidu.adp.lib.h.b.g(this.beQ != null ? this.beQ.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.s
-    public boolean Op() {
+    public boolean Ps() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.s
-    public void ct(boolean z) {
+    public void cy(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.s
-    public void cu(boolean z) {
+    public void cz(boolean z) {
     }
 
-    public String Oq() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+    public String Pt() {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.userPortrait;
+        return this.beQ.Pz.userPortrait;
     }
 
     public String getUserName() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.userName;
+        return this.beQ.Pz.userName;
     }
 
-    public String Or() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+    public String Pu() {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.Pr;
+        return this.beQ.Pz.PK;
     }
 
-    public String Os() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+    public String Pv() {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.Ps;
+        return this.beQ.Pz.PM;
     }
 
-    public String Ot() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+    public String Pw() {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.buttonText;
+        return this.beQ.Pz.buttonText;
     }
 
-    public String Ou() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+    public String Px() {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.Py;
+        return this.beQ.Pz.PT;
     }
 
-    public String Ov() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+    public String Py() {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.Pt;
+        return this.beQ.Pz.PN;
     }
 
-    public List<String> Ow() {
-        if (this.bbS == null || this.bbS.Pn == null) {
+    public List<String> Pz() {
+        if (this.beQ == null || this.beQ.Pz == null) {
             return null;
         }
-        return this.bbS.Pn.Pz;
+        return this.beQ.Pz.PU;
     }
 
-    public com.baidu.tbadk.core.data.b Ox() {
-        return this.bbS;
+    public com.baidu.tbadk.core.data.c PA() {
+        return this.beQ;
     }
 
-    public boolean pj() {
-        if (this.bbS != null) {
-            return this.bbS.pj();
+    public boolean pl() {
+        if (this.beQ != null) {
+            return this.beQ.pl();
         }
         return false;
     }
 
-    public boolean pi() {
-        if (this.bbS != null) {
-            return this.bbS.pi();
+    public boolean pk() {
+        if (this.beQ != null) {
+            return this.beQ.pk();
         }
         return false;
     }

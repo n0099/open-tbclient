@@ -8,8 +8,8 @@ import com.baidu.adp.lib.h.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean WK = false;
-    private static Handler hi = new a();
+    private static boolean Xi = false;
+    private static Handler hj = new a();
 
     static {
         MessageManager.getInstance().registerListener(new b(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
@@ -24,7 +24,7 @@ public class ImagesInvalidServiceStatic {
         i.d(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void ax(boolean z) {
-        WK = z;
+    public static void aA(boolean z) {
+        Xi = z;
     }
 }

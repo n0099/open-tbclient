@@ -11,109 +11,109 @@ import com.baidu.tbadk.performanceLog.j;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends t {
-    private static CustomMessageTask aBp = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new h());
-    private ArrayList<String> aBe;
-    private ArrayList<String> aBf;
-    private ArrayList<String> aBg;
-    private j aBk;
-    private com.baidu.tbadk.performanceLog.a aBl;
-    private int aBm;
-    private int aBh = 0;
-    private int aBi = 3;
-    private int aBj = 0;
-    private int aBn = 0;
-    private j.a aBo = new f(this);
-    private a.InterfaceC0048a aAT = new g(this);
+    private static CustomMessageTask aCg = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new h());
+    private ArrayList<String> aBV;
+    private ArrayList<String> aBW;
+    private ArrayList<String> aBX;
+    private j aCb;
+    private com.baidu.tbadk.performanceLog.a aCc;
+    private int aCd;
+    private int aBY = 0;
+    private int aBZ = 3;
+    private int aCa = 0;
+    private int aCe = 0;
+    private j.a aCf = new f(this);
+    private a.InterfaceC0048a aBK = new g(this);
     private CustomMessageListener customNormalListener = new i(this, CmdConfigCustom.CMD_PERF_SAMPLE);
 
     public e() {
-        FW();
+        Gc();
     }
 
     public void onDestroy() {
-        if (this.aBk != null) {
-            this.aBk.a((j.a) null);
+        if (this.aCb != null) {
+            this.aCb.a((j.a) null);
         }
-        if (this.aBl != null) {
-            this.aBl.a((a.InterfaceC0048a) null);
+        if (this.aCc != null) {
+            this.aCc.a((a.InterfaceC0048a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void FV() {
-        if (this.aBh < this.aBi) {
-            this.aBh++;
-            FX();
-            if (this.aBk == null) {
-                this.aBk = new j();
-                this.aBk.a(this.aBo);
-                this.aBk.start();
+    public void Gb() {
+        if (this.aBY < this.aBZ) {
+            this.aBY++;
+            Gd();
+            if (this.aCb == null) {
+                this.aCb = new j();
+                this.aCb.a(this.aCf);
+                this.aCb.start();
             }
-            if (this.aBl == null) {
-                this.aBl = new com.baidu.tbadk.performanceLog.a(TbadkCoreApplication.m9getInst().getContext());
-                this.aBl.a(this.aAT);
-                this.aBl.start();
+            if (this.aCc == null) {
+                this.aCc = new com.baidu.tbadk.performanceLog.a(TbadkCoreApplication.m9getInst().getContext());
+                this.aCc.a(this.aBK);
+                this.aCc.start();
             }
         }
     }
 
-    private void FW() {
+    private void Gc() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void FX() {
+    private void Gd() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fb(int i) {
+    public void fe(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aBe == null) {
-            this.aBe = new ArrayList<>();
+        if (this.aBV == null) {
+            this.aBV = new ArrayList<>();
         }
-        this.aBe.add(valueOf);
+        this.aBV.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gk(String str) {
-        if (this.aBf == null) {
-            this.aBf = new ArrayList<>();
+    public void gn(String str) {
+        if (this.aBW == null) {
+            this.aBW = new ArrayList<>();
         }
         if (str != null) {
-            this.aBf.add(str);
+            this.aBW.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fc(int i) {
+    public void ff(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aBg == null) {
-            this.aBg = new ArrayList<>();
+        if (this.aBX == null) {
+            this.aBX = new ArrayList<>();
         }
-        this.aBg.add(valueOf);
+        this.aBX.add(valueOf);
     }
 
-    public String FY() {
-        return r(this.aBe);
+    public String Ge() {
+        return s(this.aBV);
     }
 
-    public String FZ() {
-        return String.valueOf(this.aBm);
+    public String Gf() {
+        return String.valueOf(this.aCd);
     }
 
-    public String Ga() {
-        return r(this.aBf);
+    public String Gg() {
+        return s(this.aBW);
     }
 
-    public String Gb() {
-        return r(this.aBg);
+    public String Gh() {
+        return s(this.aBX);
     }
 
-    private String r(ArrayList<String> arrayList) {
+    private String s(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return "()";
         }
@@ -133,22 +133,22 @@ public class e extends t {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Gc() {
+    public void Gi() {
         ac acVar;
-        if (this.aBj == this.aBi && this.aBi == this.aBn && (acVar = (ac) aa.Go().ff(this.aBK)) != null) {
+        if (this.aCa == this.aBZ && this.aBZ == this.aCe && (acVar = (ac) aa.Gu().fi(this.aCB)) != null) {
             acVar.g(this);
         }
     }
 
     static {
-        aBp.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(aBp);
+        aCg.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(aCg);
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String aBr;
-        public int aBs;
+        public String aCi;
+        public int aCj;
 
         public a() {
         }

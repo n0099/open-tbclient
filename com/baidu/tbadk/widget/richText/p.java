@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aJH;
+    final /* synthetic */ TbRichTextView aKA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(TbRichTextView tbRichTextView) {
-        this.aJH = tbRichTextView;
+        this.aKA = tbRichTextView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,8 +18,8 @@ class p implements View.OnClickListener {
         TbRichTextView.e eVar;
         String str;
         TbRichTextView.e eVar2;
-        boolean P;
-        eVar = this.aJH.aJh;
+        boolean Q;
+        eVar = this.aKA.aJZ;
         if (eVar != null && (view instanceof ImageView)) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof String)) {
@@ -29,19 +29,19 @@ class p implements View.OnClickListener {
             } else {
                 str = ((TbImageView) view).getUrl();
             }
-            int childCount = this.aJH.getChildCount();
+            int childCount = this.aKA.getChildCount();
             int i = -1;
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.aJH.getChildAt(i2);
-                P = this.aJH.P(childAt);
-                if (P) {
+                View childAt = this.aKA.getChildAt(i2);
+                Q = this.aKA.Q(childAt);
+                if (Q) {
                     i++;
                 }
                 if (view == childAt) {
                     break;
                 }
             }
-            eVar2 = this.aJH.aJh;
+            eVar2 = this.aKA.aJZ;
             eVar2.a(view, str, i);
         }
     }

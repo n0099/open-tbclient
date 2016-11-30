@@ -8,16 +8,16 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
 
     /* loaded from: classes.dex */
     public class a {
-        private int akG = 0;
-        private int akH = 0;
-        private int akI = 0;
-        private int akK = 0;
-        private int akJ = 0;
-        private int akL = 0;
-        private int asv = 0;
-        private int asw = 0;
-        private int akM = 0;
-        private int asx = 0;
+        private int alA = 0;
+        private int alB = 0;
+        private int alC = 0;
+        private int alE = 0;
+        private int alD = 0;
+        private int alF = 0;
+        private int atp = 0;
+        private int atq = 0;
+        private int alG = 0;
+        private int atr = 0;
 
         public a() {
         }
@@ -31,91 +31,91 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public NewsNotifyMessage(int i, int i2, int i3, int i4, int i5, int i6) {
         super(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
         this.mData = new a();
-        this.mData.akG = i;
-        this.mData.akH = i2;
-        this.mData.akI = i3;
-        this.mData.akJ = i4;
-        this.mData.akL = i5;
-        this.mData.asv = i6;
+        this.mData.alA = i;
+        this.mData.alB = i2;
+        this.mData.alC = i3;
+        this.mData.alD = i4;
+        this.mData.alF = i5;
+        this.mData.atp = i6;
     }
 
     public int getMsgReplyme() {
-        return this.mData.akG;
+        return this.mData.alA;
     }
 
     public void setMsgReplyme(int i) {
-        this.mData.akG = i;
+        this.mData.alA = i;
     }
 
     public int getMsgAtme() {
-        return this.mData.akH;
+        return this.mData.alB;
     }
 
     public void setMsgAtme(int i) {
-        this.mData.akH = i;
+        this.mData.alB = i;
     }
 
     public int getMsgChat() {
-        return this.mData.akI;
+        return this.mData.alC;
     }
 
     public void setMsgChat(int i) {
-        this.mData.akI = i;
+        this.mData.alC = i;
     }
 
     public void setMsgFans(int i) {
-        this.mData.akK = i;
+        this.mData.alE = i;
     }
 
     public int getMsgFans() {
-        return this.mData.akK;
+        return this.mData.alE;
     }
 
     public int getMsgBookmark() {
-        return this.mData.akJ;
+        return this.mData.alD;
     }
 
     public void setMsgBookmark(int i) {
-        this.mData.akJ = i;
+        this.mData.alD = i;
     }
 
     public int getMsgGiftNum() {
-        return this.mData.akL;
+        return this.mData.alF;
     }
 
     public void setMsgGiftNum(int i) {
-        this.mData.akL = i;
+        this.mData.alF = i;
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.asv = i;
+        this.mData.atp = i;
     }
 
     public int getMsgPrivateChat() {
-        return this.mData.asv;
+        return this.mData.atp;
     }
 
     public void setMsgStrangerChat(int i) {
-        this.mData.asw = i;
+        this.mData.atq = i;
     }
 
     public int getMsgStrangerChat() {
-        return this.mData.asw;
+        return this.mData.atq;
     }
 
     public void setMsgLiveVip(int i) {
-        this.mData.akM = i;
+        this.mData.alG = i;
     }
 
     public int getMsgLiveVip() {
-        return this.mData.akM;
+        return this.mData.alG;
     }
 
     public void setMsgOfficialMerge(int i) {
-        this.mData.asx = i;
+        this.mData.atr = i;
     }
 
     public int getMsgOfficialMerge() {
-        return this.mData.asx;
+        return this.mData.atr;
     }
 }

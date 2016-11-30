@@ -11,48 +11,48 @@ import org.apache.http.message.BasicNameValuePair;
 public class d {
     private long mStartTime;
     public String mType;
-    public long pL;
-    boolean pM;
-    private ArrayList<BasicNameValuePair> pN;
-    private StringBuilder pO;
+    public long pM;
+    boolean pN;
+    private ArrayList<BasicNameValuePair> pO;
+    private StringBuilder pP;
     public long sequenceID;
 
     public d(String str) {
-        this.pL = 1L;
+        this.pM = 1L;
         this.sequenceID = -1L;
-        this.pM = false;
+        this.pN = false;
         this.mType = null;
-        this.pO = new StringBuilder(100);
+        this.pP = new StringBuilder(100);
         this.mType = str;
-        this.pM = false;
-        this.pL = -1L;
+        this.pN = false;
+        this.pM = -1L;
         this.sequenceID = -1L;
     }
 
     public d() {
-        this.pL = 1L;
+        this.pM = 1L;
         this.sequenceID = -1L;
-        this.pM = false;
+        this.pN = false;
         this.mType = null;
-        this.pO = new StringBuilder(100);
+        this.pP = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.pN == null) {
-                this.pN = new ArrayList<>();
+            if (this.pO == null) {
+                this.pO = new ArrayList<>();
             }
-            this.pN.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.pO.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.pO.length() > 0) {
-            sb.append((CharSequence) this.pO);
+        if (this.pP.length() > 0) {
+            sb.append((CharSequence) this.pP);
         }
-        if (this.pN != null) {
-            Iterator<BasicNameValuePair> it = this.pN.iterator();
+        if (this.pO != null) {
+            Iterator<BasicNameValuePair> it = this.pO.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -88,16 +88,16 @@ public class d {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.pO.length() > 0) {
-                this.pO.append('&');
+            if (this.pP.length() > 0) {
+                this.pP.append('&');
             }
-            this.pO.append(str);
-            this.pO.append("=");
+            this.pP.append(str);
+            this.pP.append("=");
             try {
-                this.pO.append(URLEncoder.encode(ap(str2), "utf-8"));
+                this.pP.append(URLEncoder.encode(ap(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.pO.append(ap(str2));
+                this.pP.append(ap(str2));
             }
         }
     }

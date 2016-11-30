@@ -2,54 +2,59 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cl extends CustomMessageListener {
-    final /* synthetic */ cj eqG;
+    final /* synthetic */ ck ewv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cl(cj cjVar, int i) {
+    public cl(ck ckVar, int i) {
         super(i);
-        this.eqG = cjVar;
+        this.ewv = ckVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        com.baidu.tieba.pb.data.h hVar;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        List list2;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
         PbActivity pbActivity;
-        List<DownloadData> data;
-        boolean z;
-        if (customResponsedMessage != null) {
-            hVar = this.eqG.emS;
-            if (hVar != null) {
-                pbActivity = this.eqG.eow;
-                if (!com.baidu.adp.base.l.A(pbActivity.getActivity()).isScroll() && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-                    Iterator<DownloadData> it = data.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            z = false;
-                            break;
-                        } else if (it.next().getStatus() == 0) {
-                            z = true;
-                            break;
-                        }
+        ArrayList arrayList;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.d)) {
+            AbsDelegateAdapterList blI = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).blI();
+            Iterator it = blI.iterator();
+            while (it.hasNext()) {
+                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
+                if (aVar instanceof ct) {
+                    pbActivity = this.ewv.eug;
+                    ((ct) aVar).aa(pbActivity);
+                    if (aVar instanceof com.baidu.tieba.pb.pb.a.a) {
+                        arrayList = this.ewv.ewp;
+                        arrayList.add((com.baidu.tieba.pb.pb.a.a) aVar);
                     }
-                    if (z) {
-                        com.baidu.adp.lib.h.h.eG().postDelayed(new cm(this), TimeUnit.SECONDS.toMillis(2L));
+                    if (aVar instanceof com.baidu.tieba.pb.pb.a.b) {
+                        this.ewv.ewk = (com.baidu.tieba.pb.pb.a.b) aVar;
                     }
                 }
+            }
+            ArrayList arrayList2 = new ArrayList();
+            arrayList2.addAll(blI);
+            list = this.ewv.ewt;
+            list.clear();
+            list2 = this.ewv.ewt;
+            list2.addAll(arrayList2);
+            bdTypeListView = this.ewv.aML;
+            if (bdTypeListView != null) {
+                bdTypeListView2 = this.ewv.aML;
+                bdTypeListView2.g(arrayList2);
             }
         }
     }

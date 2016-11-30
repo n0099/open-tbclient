@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.homepage.personalize.b.u;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements AdapterView.OnItemClickListener {
-    final /* synthetic */ u.a cGR;
+    final /* synthetic */ u.a cMc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u.a aVar) {
-        this.cGR = aVar;
+        this.cMc = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -31,14 +31,14 @@ public class v implements AdapterView.OnItemClickListener {
             com.baidu.adp.lib.util.k.showToast(context, r.j.neterror);
             return;
         }
-        tVar = this.cGR.cGO;
+        tVar = this.cMc.cLZ;
         com.baidu.tieba.homepage.personalize.data.i item = tVar.getItem(i);
-        item.cHD = !item.cHD;
-        tVar2 = this.cGR.cGO;
+        item.cMQ = !item.cMQ;
+        tVar2 = this.cMc.cLZ;
         tVar2.notifyDataSetChanged();
         uVar = u.this;
-        tVar3 = this.cGR.cGO;
-        uVar.b(tVar3.amT());
-        TiebaStatic.log(new ax("c10986").ab("obj_name", item.PC));
+        tVar3 = this.cMc.cLZ;
+        uVar.b(tVar3.aoN());
+        TiebaStatic.log(new av("c10986").ab("obj_name", item.PW));
     }
 }

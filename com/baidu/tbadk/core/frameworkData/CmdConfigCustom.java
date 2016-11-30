@@ -15,6 +15,9 @@ public class CmdConfigCustom {
     public static final int CLOSE_SELECT_LOCATION_ACTIVITY = 2002013;
     public static final int CMD_ACCESS_TOKEN_UPDATED = 2001164;
     public static final int CMD_ACCOUT_LOGIN_HELPER = 2001300;
+    public static final int CMD_ACROSS_FORUM_THEME_INFO_GET = 2016504;
+    public static final int CMD_ACROSS_FORUM_THEME_SHOW = 2016505;
+    public static final int CMD_ACROSS_FORUM_VR_OPEN = 2016500;
     public static final int CMD_ADDRESSLIST_PLUGIN_INSTALL_SUCCESS = 2902090;
     public static final int CMD_ADDRESS_LIST_RES_TOOL = 2001329;
     public static final int CMD_ADD_HISTORY = 2001285;
@@ -26,6 +29,7 @@ public class CmdConfigCustom {
     public static final int CMD_ADVERT_SDK_RELOAD_BANNER = 2016312;
     public static final int CMD_ADVERT_SDK_SPLASH_CLICK = 2016311;
     public static final int CMD_AD_BANNER_NO_AD = 2001398;
+    public static final int CMD_AD_FRS_THREAD_CLICKED = 2016495;
     public static final int CMD_AD_KILLER_SUBMIT_SUCCESS = 2001395;
     public static final int CMD_AD_KILLER_TIP_SHOW = 2001396;
     public static final int CMD_APPLIST = 2001377;
@@ -66,6 +70,7 @@ public class CmdConfigCustom {
     public static final int CMD_CACHE_ORDER_REQUEST_SEARCH_GROUP = 2001213;
     public static final int CMD_CACHE_PERSONINFO = 2001235;
     public static final int CMD_CACHE_REQUEST_SEARCH_GROUP = 2001211;
+    public static final int CMD_CALL_STATE_CHANGED = 2016503;
     public static final int CMD_CANCEL_FILE_DOWNLOAD = 2001144;
     public static final int CMD_CANCLE_LIKE_FRS = 2003004;
     public static final int CMD_CDN_IP_DIRECT_CONNECT = 2016102;
@@ -77,6 +82,7 @@ public class CmdConfigCustom {
     public static final int CMD_CHOSEN_PB_READ_CACHE = 2001321;
     public static final int CMD_CHOSEN_POST_READ_CACHE = 2001319;
     public static final int CMD_CHOSEN_POST_WRITE_CACHE = 2001320;
+    public static final int CMD_CLEAN_SMART_FRS_COOKIE = 2016501;
     public static final int CMD_CLEAR_ADDRESSLIST_TIP = 2001189;
     public static final int CMD_CLEAR_GROUP_INFO = 2001117;
     public static final int CMD_CLEAR_LIVE_STATUS = 2001261;
@@ -145,6 +151,7 @@ public class CmdConfigCustom {
     public static final int CMD_FRS_ADD_ADAPTER = 2003008;
     public static final int CMD_FRS_ADD_MODEL = 2003011;
     public static final int CMD_FRS_DISMISS_DIVIDER_BOTTOM_HEADER = 2003021;
+    public static final int CMD_FRS_EXIT_STICKY_MODE = 2016506;
     public static final int CMD_FRS_EXPERIENCE_TIP = 2001359;
     public static final int CMD_FRS_EXTRA_LOADED = 2003017;
     public static final int CMD_FRS_GROUP_MENU = 2003013;
@@ -251,6 +258,7 @@ public class CmdConfigCustom {
     public static final int CMD_INIT_TTS_MODEL = 2016424;
     public static final int CMD_INSERT_CONTACT = 2001183;
     public static final int CMD_INSERT_SKINT_DATA_TO_DB = 2001367;
+    public static final int CMD_KV_CACHE_SUCC = 2001012;
     public static final int CMD_LEAKCANARY_INSTALL = 2010003;
     public static final int CMD_LEFT_NAVI_SCAN = 2001309;
     public static final int CMD_LEFT_NAV_DRESSUP_CENTER_TIP = 2001372;
@@ -308,7 +316,7 @@ public class CmdConfigCustom {
     public static final int CMD_MY_HISTORY_RES_TOOL = 2001303;
     public static final int CMD_MY_LIVE_RES_TOOL = 2001304;
     public static final int CMD_MY_WALLET = 2001358;
-    public static final int CMD_NEG_FEED_BACK_DISMISS_WINDOW = 2016493;
+    public static final int CMD_NEG_FEED_BACK_DISMISS_WINDOW = 2016496;
     public static final int CMD_NEIGHBORS = 2902001;
     public static final int CMD_NEW_FRIEND_ACTION_ADD_LOCAL = 2001173;
     public static final int CMD_NEW_FRIEND_ACTION_DELETE_LOCAL = 2001174;
@@ -333,6 +341,7 @@ public class CmdConfigCustom {
     public static final int CMD_PASSED_NEW_FRIEND_LOCAL = 2001177;
     public static final int CMD_PASS_MANAGER = 2001275;
     public static final int CMD_PAYMENT_CONFIRM_SUCCESS = 2001374;
+    public static final int CMD_PB_VIDEO_PALY_ADD_COUNT = 2016502;
     public static final int CMD_PERF_LIVE_SAMPLE = 2016103;
     public static final int CMD_PERF_SAMPLE = 2016100;
     public static final int CMD_PERSONAL_CHAT_INITED = 2001316;
@@ -442,7 +451,7 @@ public class CmdConfigCustom {
     public static final int CMD_SQUARE_FORUM_SQUARE = 2902023;
     public static final int CMD_SQUARE_FORUM_WEEKLY = 2902029;
     public static final int CMD_START_FRS_GOOD_ACTIVITY = 2003010;
-    public static final int CMD_START_HOT_TOPIC_ACTIVITY = 2016492;
+    public static final int CMD_START_HOT_TOPIC_ACTIVITY = 2016493;
     public static final int CMD_START_PLAY = 2001605;
     public static final int CMD_START_TRAFFICSTATSSERVICE = 2905001;
     public static final int CMD_START_USER_MUTE_LIST_ACTIVITY = 2016302;
@@ -476,6 +485,7 @@ public class CmdConfigCustom {
     public static final int CMD_UPDATA_APP_ENTRANCE_CACHE = 2016317;
     public static final int CMD_UPDATES_ICON = 2001293;
     public static final int CMD_UPDATES_MODEL = 2001305;
+    public static final int CMD_UPDATE_ADCARD = 2016492;
     public static final int CMD_UPDATE_ATTENTION = 2001118;
     public static final int CMD_UPDATE_FRS_LIKE_STATUS = 2001273;
     public static final int CMD_UPDATE_INSTALL_STATUS = 2001513;
@@ -484,6 +494,7 @@ public class CmdConfigCustom {
     public static final int CMD_UPDATE_VERSION_MSG = 2001515;
     public static final int CMD_UPLOAD_FAIL = 2001221;
     public static final int CMD_UPLOAD_STAT = 2001327;
+    public static final int CMD_USER_INFO_CHANGED = 2016494;
     public static final int CMD_USER_MUTE_ADD = 2001506;
     public static final int CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK = 2001509;
     public static final int CMD_USER_MUTE_ADD_DEL_REGISTER_LISTENER = 2001510;
@@ -510,8 +521,9 @@ public class CmdConfigCustom {
     public static final int CMD_VOICE_USE = 2001326;
     public static final int CMD_VR_GET_PAGE_TIME = 2016482;
     public static final int CMD_VR_GL_ERROR = 2016487;
+    public static final int CMD_VR_LOGO_CAN_OPEN = 2016481;
     public static final int CMD_VR_LOGO_DOWNLAOD = 2016480;
-    public static final int CMD_VR_LOGO_OPEN = 2016481;
+    public static final int CMD_VR_LOGO_OPEN = 2016499;
     public static final int CMD_WEBVIEW_PROXY = 2001315;
     public static final int CMD_WRITE_PB_HISTORY = 2001191;
     public static final int CMD_WRITE_SEARCHPERSON_HISTORY = 2001194;
@@ -526,7 +538,6 @@ public class CmdConfigCustom {
     public static final int DAILY_RECOMMEND_CUSTOM_CMD = 2010020;
     public static final int DEAL_INTENT = 2012000;
     public static final int DEAL_YY_NOTIFICATION = 2012100;
-    public static final int DISCOVER_FRIEND_FEED_NEW = 2012119;
     public static final int ECOMM_PB_ADAPTER = 2016471;
     public static final int ECOMM_PB_VIEW = 2016472;
     public static final int EDITOR_COLLECT_TOOL = 2010044;
@@ -543,6 +554,7 @@ public class CmdConfigCustom {
     public static final int GET_ALL_SEARCH_BAR_DATA = 2009002;
     public static final int GET_ALL_SEARCH_POST_DATA = 2009001;
     public static final int GROUP_MSG_LIST = 2001100;
+    public static final int HOT_TOPIC_CUSTOM = 2016497;
     public static final int IMAGE_VIEWER_CUSTOM_CMD = 2010000;
     public static final int IM_APPLE_JOIN_GROUP_ACTIVITY_START = 2008014;
     public static final int IM_CLEAR_MSG = 2008016;
@@ -581,6 +593,7 @@ public class CmdConfigCustom {
     public static final int MAINTAB_TAB_REFRESH_TABS = 2007013;
     public static final int MAINTAB_TAB_RESET_TABS = 2007008;
     public static final int MAINTAB_TAB_SLIDINGMENU_CLOSED = 2007012;
+    public static final int MEMBER_CENTER_UPDATE_ACTIVE_SCORES = 2016498;
     public static final int MEMORY_CHANGED = 2016004;
     public static final int MEMORY_CLEAR = 2016001;
     public static final int MEMORY_COMMIT_MSG_ACK = 2016012;
@@ -602,17 +615,17 @@ public class CmdConfigCustom {
     public static final int MEMORY_UPDATE_ITEM_ENTER_CHAT_ROOM = 2016019;
     public static final int MEMORY_UPDATE_ITEM_JOIN_LIVE = 2016018;
     public static final int MEMORY_UPDATE_PULL_MSG_ID = 2016020;
-    public static final int MESSAGE_LIST_BASE_CMD = 2013000;
-    public static final int MESSAGE_LIST_GROUP_CMD = 2013006;
-    public static final int MESSAGE_LIST_LIVE_CMD = 2013008;
-    public static final int MESSAGE_LIST_NOTIFY_CMD = 2013005;
-    public static final int MESSAGE_LIST_OFFICIAL_CMD = 2013004;
-    public static final int MESSAGE_LIST_OFFICIAL_GROUP_CMD = 2013010;
-    public static final int MESSAGE_LIST_PERSONAL_CMD = 2013002;
-    public static final int MESSAGE_LIST_PERSONAL_GROUP_CMD = 2013009;
-    public static final int MESSAGE_LIST_SNAP_CMD = 2013003;
-    public static final int MESSAGE_LIST_SYSTEM_CMD = 2013001;
-    public static final int MESSAGE_LIST_YY_CMD = 2013007;
+    public static final int MESSAGE_LIST_BASE_CMD = 2012119;
+    public static final int MESSAGE_LIST_GROUP_CMD = 2012125;
+    public static final int MESSAGE_LIST_LIVE_CMD = 2012127;
+    public static final int MESSAGE_LIST_NOTIFY_CMD = 2012124;
+    public static final int MESSAGE_LIST_OFFICIAL_CMD = 2012123;
+    public static final int MESSAGE_LIST_OFFICIAL_GROUP_CMD = 2012129;
+    public static final int MESSAGE_LIST_PERSONAL_CMD = 2012121;
+    public static final int MESSAGE_LIST_PERSONAL_GROUP_CMD = 2012128;
+    public static final int MESSAGE_LIST_SNAP_CMD = 2012122;
+    public static final int MESSAGE_LIST_SYSTEM_CMD = 2012120;
+    public static final int MESSAGE_LIST_YY_CMD = 2012126;
     public static final int METHOD_ACCOUNT_CHANGE = 2005016;
     public static final int METHOD_ACCOUNT_CHANGE_FOR_IM = 2005018;
     public static final int METHOD_IM_MESSAGE_CACHE_INITED = 2005014;

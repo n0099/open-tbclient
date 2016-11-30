@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
@@ -23,52 +23,52 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    public static final boolean a(Context context, com.baidu.tbadk.core.data.b bVar, int i, DownloadStaticsData downloadStaticsData) {
-        if (context == null || bVar == null) {
+    public static final boolean a(Context context, com.baidu.tbadk.core.data.c cVar, int i, DownloadStaticsData downloadStaticsData) {
+        if (context == null || cVar == null) {
             return false;
         }
-        String str = bVar.Pa;
-        if (StringUtils.isNull(str) && bVar.Pn != null) {
-            str = bVar.Pn.userName;
+        String str = cVar.Pn;
+        if (StringUtils.isNull(str) && cVar.Pz != null) {
+            str = cVar.Pz.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
         }
-        return a(context, bVar, i, str, downloadStaticsData);
+        return a(context, cVar, i, str, downloadStaticsData);
     }
 
-    public static final boolean a(Context context, com.baidu.tbadk.core.data.b bVar, int i, String str) {
-        return a(context, bVar, i, str, null);
+    public static final boolean a(Context context, com.baidu.tbadk.core.data.c cVar, int i, String str) {
+        return a(context, cVar, i, str, null);
     }
 
-    public static final boolean a(Context context, com.baidu.tbadk.core.data.b bVar, int i, String str, DownloadStaticsData downloadStaticsData) {
-        if (context == null || bVar == null) {
+    public static final boolean a(Context context, com.baidu.tbadk.core.data.c cVar, int i, String str, DownloadStaticsData downloadStaticsData) {
+        if (context == null || cVar == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.Cp().a(bVar);
-        String str2 = bVar.Pa;
+        com.baidu.tbadk.distribute.a.Cx().b(cVar);
+        String str2 = cVar.Pn;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.b.a.bbX().a(bVar.Pg, bVar.Pe, str2, i, com.baidu.tieba.recapp.b.a.qF(bVar.Pg).intValue(), null, true, false, true, bVar.Pn.userPortrait, downloadStaticsData, bVar.Pn.userName);
+        com.baidu.tieba.recapp.b.a.beu().a(cVar.Ps, cVar.Pq, str2, i, com.baidu.tieba.recapp.b.a.qU(cVar.Ps).intValue(), null, true, false, true, cVar.Pz.userPortrait, downloadStaticsData, cVar.Pz.userName);
         return true;
     }
 
-    public static final void d(com.baidu.tbadk.core.data.b bVar) {
-        com.baidu.tieba.recapp.b.a.bbX().h(bVar.Pe, bVar.Pg, true);
+    public static final void e(com.baidu.tbadk.core.data.c cVar) {
+        com.baidu.tieba.recapp.b.a.beu().h(cVar.Pq, cVar.Ps, true);
     }
 
-    public static final void Q(Context context, String str) {
+    public static final void R(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             k.showToast(context, r.j.pb_app_error);
             return;
         }
-        File cW = m.cW(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cW != null) {
+        File cY = m.cY(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cY != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cW), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(cY), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
@@ -98,14 +98,14 @@ public class g {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean ae = ag.ae(activity);
+        boolean ae = ae.ae(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
         return ae;
     }
 
-    public static List<String> bb(Context context) {
+    public static List<String> bp(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -143,6 +143,7 @@ public class g {
                     tbImageView.setAlpha(0.8f);
                 }
             }
+            tbImageView.setVisibility(0);
         }
     }
 
@@ -160,11 +161,11 @@ public class g {
         }
     }
 
-    public static void sendFRS(String str, String str2, String str3, List<a.b> list, String str4) {
-        e.bbV().sendFRS(str, str2, str3, list, str4);
+    public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
+        e.bes().sendFRS(z, str, str2, str3, list, str4);
     }
 
-    public static void sendPB(String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        e.bbV().a(str, str2, str3, str4, list, str5);
+    public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
+        e.bes().a(z, str, str2, str3, str4, list, str5);
     }
 }

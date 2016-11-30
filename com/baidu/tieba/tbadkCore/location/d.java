@@ -14,65 +14,65 @@ import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.tbadkCore.location.a;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e {
-    private a fxh;
-    private b fxi;
-    private BdBaseActivity fxj;
-    private HttpMessageListener fxl;
-    private com.baidu.adp.framework.listener.e fxm;
-    private a.InterfaceC0005a fxn;
-    private CustomMessageListener fxo;
+    private a fEn;
+    private b fEo;
+    private BdBaseActivity fEp;
+    private HttpMessageListener fEq;
+    private com.baidu.adp.framework.listener.e fEr;
+    private a.InterfaceC0005a fEs;
+    private CustomMessageListener fEt;
 
     /* loaded from: classes.dex */
     public interface a {
-        void DG();
+        void DL();
 
         void a(com.baidu.tieba.tbadkCore.location.a aVar);
 
-        void fK(String str);
+        void fN(String str);
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void DH();
+        void DM();
 
-        void fL(String str);
+        void fO(String str);
     }
 
-    private void bkw() {
-        this.fxl = new h(this, CmdConfigHttp.SET_PRIVATE_CMD);
+    private void bmM() {
+        this.fEq = new h(this, CmdConfigHttp.SET_PRIVATE_CMD);
     }
 
-    public void bkx() {
-        if (bkz()) {
-            if (this.fxh != null) {
-                this.fxh.a(c.bkv().getLocationData());
+    public void bmN() {
+        if (bmP()) {
+            if (this.fEn != null) {
+                this.fEn.a(c.bmL().getLocationData());
             }
         } else if (i.gm()) {
-            if (ag.Y(this.fxj.getActivity())) {
-                com.baidu.adp.lib.e.a.dU().a(true, this.fxn);
+            if (ae.Y(this.fEp.getActivity())) {
+                com.baidu.adp.lib.e.a.dU().a(true, this.fEs);
             }
-        } else if (this.fxh != null) {
-            this.fxh.DG();
+        } else if (this.fEn != null) {
+            this.fEn.DL();
         }
     }
 
     public d(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.fxm = new e(this, 303017, true);
-        this.fxn = new f(this);
-        this.fxo = new g(this, CmdConfigCustom.CMD_SELECT_LOCATION);
+        this.fEr = new e(this, 303017, true);
+        this.fEs = new f(this);
+        this.fEt = new g(this, CmdConfigCustom.CMD_SELECT_LOCATION);
         BdLog.addLogPackage(d.class.getPackage().getName());
-        this.fxj = baseActivity;
-        registerListener(this.fxm);
-        registerListener(this.fxo);
+        this.fEp = baseActivity;
+        registerListener(this.fEr);
+        registerListener(this.fEt);
     }
 
-    public void bU(String str, String str2) {
+    public void bW(String str, String str2) {
         LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
         locationSocketRequestMessage.setLat(str2);
         locationSocketRequestMessage.setLng(str);
@@ -82,22 +82,22 @@ public class d extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.tbadkCore.location.a aVar) {
         if (aVar == null) {
-            if (this.fxh != null) {
-                this.fxh.fK(null);
+            if (this.fEn != null) {
+                this.fEn.fN(null);
                 return;
             }
             return;
         }
         d(aVar);
-        c.bkv().setTimeStamp(System.currentTimeMillis());
-        c.bkv().b(aVar);
-        if (this.fxh != null) {
-            this.fxh.a(aVar);
+        c.bmL().setTimeStamp(System.currentTimeMillis());
+        c.bmL().b(aVar);
+        if (this.fEn != null) {
+            this.fEn.a(aVar);
         }
     }
 
     private void d(com.baidu.tieba.tbadkCore.location.a aVar) {
-        List<a.C0081a> poi_info;
+        List<a.C0082a> poi_info;
         int i;
         int i2;
         if (aVar != null && (poi_info = aVar.getPoi_info()) != null && !poi_info.isEmpty()) {
@@ -127,49 +127,49 @@ public class d extends com.baidu.adp.base.e {
                 }
                 return;
             }
-            for (a.C0081a c0081a : poi_info) {
-                if (aVar.getFormatted_address().equals(c0081a.getName())) {
-                    aVar.setSn(c0081a.getSn());
+            for (a.C0082a c0082a : poi_info) {
+                if (aVar.getFormatted_address().equals(c0082a.getName())) {
+                    aVar.setSn(c0082a.getSn());
                     return;
                 }
             }
         }
     }
 
-    public boolean bky() {
-        return System.currentTimeMillis() - c.bkv().getTimeStamp() > 300000;
+    public boolean bmO() {
+        return System.currentTimeMillis() - c.bmL().getTimeStamp() > 300000;
     }
 
-    public boolean bkz() {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.bkv().getLocationData();
-        return (bky() || locationData == null || StringUtils.isNull(locationData.getFormatted_address())) ? false : true;
+    public boolean bmP() {
+        com.baidu.tieba.tbadkCore.location.a locationData = c.bmL().getLocationData();
+        return (bmO() || locationData == null || StringUtils.isNull(locationData.getFormatted_address())) ? false : true;
     }
 
-    public void kO(boolean z) {
-        c.bkv().setNoLongerShowAddress(z);
-        com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("no_longer_show_address", c.bkv().isNoLongerShowAddress());
+    public void ln(boolean z) {
+        c.bmL().setNoLongerShowAddress(z);
+        com.baidu.tbadk.core.sharedPref.b.um().putBoolean("no_longer_show_address", c.bmL().isNoLongerShowAddress());
     }
 
-    public void bV(String str, String str2) {
-        com.baidu.tieba.tbadkCore.location.a locationData = c.bkv().getLocationData();
+    public void bX(String str, String str2) {
+        com.baidu.tieba.tbadkCore.location.a locationData = c.bmL().getLocationData();
         if (locationData != null) {
             locationData.setFormatted_address(str);
             locationData.setSn(str2);
         }
     }
 
-    public static void bkA() {
+    public static void bmQ() {
         com.baidu.tieba.tbadkCore.a.a.a(303017, LocationSocketResponsedMessage.class, false, false);
     }
 
-    public boolean bkB() {
-        if (!UtilHelper.isSystemLocationProviderEnabled(this.fxj.getPageContext().getPageActivity())) {
+    public boolean bmR() {
+        if (!UtilHelper.isSystemLocationProviderEnabled(this.fEp.getPageContext().getPageActivity())) {
             BdLog.i("canDoLocationRequest:system location not enabled!");
             return false;
         } else if (!TbadkCoreApplication.m9getInst().getLocationShared()) {
             BdLog.i("canDoLocationRequest:location setting is not shared!");
             return false;
-        } else if (c.bkv().isNoLongerShowAddress()) {
+        } else if (c.bmL().isNoLongerShowAddress()) {
             BdLog.i("canDoLocationRequest:no longer show address!");
             return false;
         } else {
@@ -177,10 +177,10 @@ public class d extends com.baidu.adp.base.e {
         }
     }
 
-    public void bkC() {
-        if (this.fxl == null) {
-            bkw();
-            registerListener(this.fxl);
+    public void bmS() {
+        if (this.fEq == null) {
+            bmM();
+            registerListener(this.fEq);
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", ThActivityDetailActivityConfig.LOCATION);
@@ -189,11 +189,11 @@ public class d extends com.baidu.adp.base.e {
     }
 
     public void a(a aVar) {
-        this.fxh = aVar;
+        this.fEn = aVar;
     }
 
     public void a(b bVar) {
-        this.fxi = bVar;
+        this.fEo = bVar;
     }
 
     @Override // com.baidu.adp.base.e

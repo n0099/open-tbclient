@@ -11,27 +11,27 @@ public class a extends com.baidu.tbadk.mvc.model.a<c, BaseFragmentActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<c> EW() {
+    public Class<c> Fb() {
         return c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String EI() {
+    public String EN() {
         return "RecommendFrsCache";
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int EX() {
+    public int Fc() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int EY() {
+    public int Fd() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_WRITE_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean EP() {
+    protected boolean EU() {
         return false;
     }
 }

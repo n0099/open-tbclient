@@ -1,32 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.pb.a.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class gb implements a.InterfaceC0073a {
-    final /* synthetic */ ex ewH;
+class gb implements a.b {
+    final /* synthetic */ ey eCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gb(ex exVar) {
-        this.ewH = exVar;
+    public gb(ey eyVar) {
+        this.eCT = eyVar;
     }
 
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0073a
-    public void acr() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.ewH.bCe;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.ewH.bCe;
-            bdTypeListView2.setSelection(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0073a
-    public void acq() {
-        PbActivity pbActivity;
-        pbActivity = this.ewH.eow;
-        pbActivity.abd();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

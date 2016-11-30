@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String fuT;
-    private int fuU;
-    private String fuV;
-    private String fuW;
-    private String fuX;
+    private String fCf;
+    private int fCg;
+    private String fCh;
+    private String fCi;
+    private String fCj;
     private int height;
     private String subTitle;
     private int width;
 
     public k(Timgs timgs) {
-        this.fuT = null;
-        this.fuU = 0;
-        this.fuV = null;
-        this.fuW = null;
-        this.fuX = null;
+        this.fCf = null;
+        this.fCg = 0;
+        this.fCh = null;
+        this.fCi = null;
+        this.fCj = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.fuT = timgs.img_url;
-            this.fuU = timgs.flag.intValue();
-            this.fuV = timgs.url;
-            this.fuW = timgs.big_cdn_url;
-            this.fuX = timgs.des_main;
+            this.fCf = timgs.img_url;
+            this.fCg = timgs.flag.intValue();
+            this.fCh = timgs.url;
+            this.fCi = timgs.big_cdn_url;
+            this.fCj = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,16 +50,20 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.fuT;
+        return this.fCf;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicLinkUrl() {
-        return this.fuV;
+        return this.fCh;
     }
 
-    public String bjx() {
-        return this.fuX;
+    public String blS() {
+        return this.fCf;
+    }
+
+    public String blT() {
+        return this.fCj;
     }
 
     public String getSubTitle() {
@@ -74,7 +78,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String bjy() {
-        return this.fuW;
+    public String blU() {
+        return this.fCi;
     }
 }

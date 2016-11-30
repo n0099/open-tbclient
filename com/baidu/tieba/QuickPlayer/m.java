@@ -1,54 +1,51 @@
 package com.baidu.tieba.QuickPlayer;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.play.e;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.RemoteException;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class m implements Handler.Callback {
-    final /* synthetic */ j aLC;
+public class m {
+    private static m aMg;
+    private d aMi;
+    private Context mContext = TbadkCoreApplication.m9getInst();
+    private boolean aMh = false;
+    private ServiceConnection mServiceConnection = new n(this);
+    private Runnable aMj = new o(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.aLC = jVar;
+    private m() {
+        Jr();
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        e.c cVar;
-        e.c cVar2;
-        e.b bVar;
-        e.b bVar2;
-        e.a aVar;
-        e.a aVar2;
-        e.d dVar;
-        e.d dVar2;
-        if (message.what == 6) {
-            dVar = this.aLC.aLr;
-            if (dVar != null) {
-                dVar2 = this.aLC.aLr;
-                dVar2.onPrepared(this.aLC);
-            }
-        } else if (message.what == 7) {
-            aVar = this.aLC.aLq;
-            if (aVar != null) {
-                aVar2 = this.aLC.aLq;
-                aVar2.onCompletion(this.aLC);
-            }
-        } else if (message.what == 8) {
-            bVar = this.aLC.aLs;
-            if (bVar != null) {
-                bVar2 = this.aLC.aLs;
-                if (bVar2.onError(this.aLC, message.arg1, message.arg2)) {
+    public static m Jq() {
+        if (aMg == null) {
+            synchronized (m.class) {
+                if (aMg == null) {
+                    aMg = new m();
                 }
             }
-        } else if (message.what == 9) {
-            cVar = this.aLC.aLt;
-            if (cVar != null) {
-                cVar2 = this.aLC.aLt;
-                cVar2.a(this.aLC, message.arg1, message.arg2);
+        }
+        return aMg;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Jr() {
+        try {
+            this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public b Jm() {
+        if (this.aMh && this.aMi != null) {
+            try {
+                return this.aMi.Jm();
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         }
-        return true;
+        return null;
     }
 }

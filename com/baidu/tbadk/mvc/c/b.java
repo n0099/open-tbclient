@@ -5,60 +5,60 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int azp;
-    private boolean azq = true;
-    private com.baidu.tbadk.mvc.b.a azr;
-    private com.baidu.tbadk.mvc.d.b azs;
-    private com.baidu.tbadk.mvc.a.a azt;
-    private int azu;
-    private Object azv;
-    private WeakReference<View> azw;
+    private int aAh;
+    private boolean aAi = true;
+    private com.baidu.tbadk.mvc.b.a aAj;
+    private com.baidu.tbadk.mvc.d.b aAk;
+    private com.baidu.tbadk.mvc.a.a aAl;
+    private int aAm;
+    private Object aAn;
+    private WeakReference<View> aAo;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.azp = i;
-        this.azr = aVar;
-        this.azs = bVar;
-        this.azt = aVar2;
+        this.aAh = i;
+        this.aAj = aVar;
+        this.aAk = bVar;
+        this.aAl = aVar2;
     }
 
-    public int EL() {
-        return this.azp;
+    public int EQ() {
+        return this.aAh;
     }
 
-    public com.baidu.tbadk.mvc.b.a EM() {
-        return this.azr;
+    public com.baidu.tbadk.mvc.b.a ER() {
+        return this.aAj;
     }
 
     public Object getExtra() {
-        return this.azv;
+        return this.aAn;
     }
 
     public void setExtra(Object obj) {
-        this.azv = obj;
+        this.aAn = obj;
     }
 
     public View getView() {
-        if (this.azw != null) {
-            return this.azw.get();
+        if (this.aAo != null) {
+            return this.aAo.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.azw = new WeakReference<>(view);
+        this.aAo = new WeakReference<>(view);
     }
 
-    public int EN() {
-        return this.azu;
+    public int ES() {
+        return this.aAm;
     }
 
-    public void eT(int i) {
-        this.azu = i;
+    public void eW(int i) {
+        this.aAm = i;
     }
 
-    public boolean EO() {
-        return this.azq;
+    public boolean ET() {
+        return this.aAi;
     }
 
     public BdUniqueId getUniqueId() {

@@ -6,17 +6,17 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.tbadk.util.i {
-    final /* synthetic */ l fvc;
+public class n extends com.baidu.tbadk.util.h {
+    final /* synthetic */ l fCo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(l lVar, Context context) {
         super(context);
-        this.fvc = lVar;
+        this.fCo = lVar;
     }
 
-    @Override // com.baidu.tbadk.util.i, android.text.style.ClickableSpan
+    @Override // com.baidu.tbadk.util.h, android.text.style.ClickableSpan
     public void onClick(View view) {
         Pattern pattern;
         String str;
@@ -24,7 +24,7 @@ public class n extends com.baidu.tbadk.util.i {
         String str2;
         String str3;
         pattern = l.pbPattern0;
-        str = this.fvc.link;
+        str = this.fCo.link;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
@@ -35,8 +35,8 @@ public class n extends com.baidu.tbadk.util.i {
                 e.printStackTrace();
             }
         }
-        pattern2 = l.fvb;
-        str2 = this.fvc.link;
+        pattern2 = l.fCn;
+        str2 = this.fCo.link;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
@@ -47,7 +47,7 @@ public class n extends com.baidu.tbadk.util.i {
                 e2.printStackTrace();
             }
         }
-        str3 = this.fvc.link;
+        str3 = this.fCo.link;
         gu(str3);
     }
 }

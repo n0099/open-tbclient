@@ -4,15 +4,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f extends a {
-    private int abe;
+    private int abD;
     private int height;
     private int width;
 
     public f(boolean z, int i) {
         this.width = 0;
         this.height = 0;
-        this.abe = 0;
-        this.abe = i;
+        this.abD = 0;
+        this.abD = i;
         if (z) {
             this.width = TbadkCoreApplication.m9getInst().getApp().getResources().getDimensionPixelSize(r.e.ds176);
             this.height = this.width;
@@ -52,17 +52,17 @@ public class f extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wa() {
+    public boolean we() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wb() {
+    public boolean wf() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int wc() {
-        return this.abe;
+    public int wg() {
+        return this.abD;
     }
 }

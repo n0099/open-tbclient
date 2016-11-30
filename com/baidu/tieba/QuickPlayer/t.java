@@ -1,18 +1,20 @@
 package com.baidu.tieba.QuickPlayer;
 
-import android.media.MediaPlayer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
-public class t implements MediaPlayer.OnVideoSizeChangedListener {
-    final /* synthetic */ p aLK;
-
+class t extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(p pVar) {
-        this.aLK = pVar;
+    public t(int i) {
+        super(i);
     }
 
-    @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
-        this.aLK.notifyOnVideoSizeChanged(i, i2, 0, 0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            QuickPlayerStatic.Ju();
+        }
     }
 }

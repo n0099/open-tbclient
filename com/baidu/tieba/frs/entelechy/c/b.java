@@ -6,109 +6,111 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.dg;
-import com.baidu.tieba.frs.dh;
-import com.baidu.tieba.frs.dn;
+import com.baidu.tieba.frs.ce;
+import com.baidu.tieba.frs.cf;
+import com.baidu.tieba.frs.cm;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
 import com.baidu.tieba.r;
 import java.net.URI;
 import java.net.URISyntaxException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements dg {
-    final /* synthetic */ a bWQ;
+public class b implements ce {
+    final /* synthetic */ a cah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bWQ = aVar;
+        this.cah = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.dg
-    public void a(dh dhVar) {
+    @Override // com.baidu.tieba.frs.ce
+    public void a(cf cfVar) {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tieba.frs.FrsActivity */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.frs.dg
-    public void a(int i, int i2, dn dnVar) {
+    @Override // com.baidu.tieba.frs.ce
+    public void a(int i, int i2, cm cmVar) {
         FrsActivity frsActivity;
         com.baidu.tieba.frs.entelechy.c.a.a aVar;
-        dg dgVar;
+        ce ceVar;
         com.baidu.tieba.frs.entelechy.c.a.a aVar2;
-        dg dgVar2;
-        dg dgVar3;
+        ce ceVar2;
+        ce ceVar3;
         com.baidu.tieba.frs.entelechy.c.a.a aVar3;
         FrsActivity frsActivity2;
         FrsActivity frsActivity3;
         URI uri;
         if (i > 100) {
-            if (dnVar != null && (dnVar.bTy instanceof String)) {
+            if (cmVar != null && (cmVar.bVI instanceof String)) {
                 try {
-                    uri = new URI((String) dnVar.bTy);
+                    uri = new URI((String) cmVar.bVI);
                 } catch (URISyntaxException e) {
                     BdLog.e(e);
                     uri = null;
                 }
                 if (uri != null) {
                     String host = uri.getHost();
-                    ax axVar = new ax("c10079");
-                    axVar.ab("obj_type", host);
-                    TiebaStatic.log(axVar);
+                    av avVar = new av("c10079");
+                    avVar.ab("obj_type", host);
+                    TiebaStatic.log(avVar);
                 }
             }
         } else {
-            ax axVar2 = new ax("c10074");
-            axVar2.s("obj_type", i);
-            frsActivity = this.bWQ.bWH;
-            axVar2.ab("fid", frsActivity.getForumId());
-            TiebaStatic.log(axVar2);
+            av avVar2 = new av("c10074");
+            avVar2.s("obj_type", i);
+            frsActivity = this.cah.bZY;
+            avVar2.ab("fid", frsActivity.getForumId());
+            TiebaStatic.log(avVar2);
             if (i == 99) {
-                TiebaStatic.log(new ax("c11500").ab("obj_param1", "2").ab("obj_param2", "1"));
+                av avVar3 = new av("c11500");
+                avVar3.ab("obj_param1", "2").ab("obj_param2", "1");
+                TiebaStatic.log(avVar3);
             }
         }
-        if (HorizontalTabView.iz(i) && dnVar != null) {
-            String str = (String) dnVar.bTy;
+        if (HorizontalTabView.iE(i) && cmVar != null) {
+            String str = (String) cmVar.bVI;
             if (!StringUtils.isNull(str)) {
                 if ((str.contains("nohead:url") || str.contains("booktown")) && !TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    frsActivity2 = this.bWQ.bWH;
+                    frsActivity2 = this.cah.bZY;
                     k.showToast(frsActivity2.getPageContext().getPageActivity(), r.j.book_plugin_not_install_tip);
                     return;
                 }
-                bh vL = bh.vL();
-                frsActivity3 = this.bWQ.bWH;
-                vL.c(frsActivity3.getPageContext(), new String[]{str});
+                bf vP = bf.vP();
+                frsActivity3 = this.cah.bZY;
+                vP.c(frsActivity3.getPageContext(), new String[]{str});
                 return;
             }
             return;
         }
         if (i == 1) {
-            aVar3 = this.bWQ.bWJ;
-            aVar3.adD();
+            aVar3 = this.cah.caa;
+            aVar3.aeW();
         } else {
-            aVar = this.bWQ.bWJ;
-            aVar.adE();
+            aVar = this.cah.caa;
+            aVar.aeX();
         }
-        dgVar = this.bWQ.bWK;
-        if (dgVar != null) {
-            aVar2 = this.bWQ.bWJ;
-            if (aVar2.adC() != 4 || i != 1) {
-                dgVar2 = this.bWQ.bWK;
-                dgVar2.a(i, i2, dnVar);
+        ceVar = this.cah.cab;
+        if (ceVar != null) {
+            aVar2 = this.cah.caa;
+            if (aVar2.aeV() != 4 || i != 1) {
+                ceVar2 = this.cah.cab;
+                ceVar2.a(i, i2, cmVar);
                 return;
             }
-            dgVar3 = this.bWQ.bWK;
-            dgVar3.a(2, i2, dnVar);
+            ceVar3 = this.cah.cab;
+            ceVar3.a(2, i2, cmVar);
         }
     }
 
-    @Override // com.baidu.tieba.frs.dg
+    @Override // com.baidu.tieba.frs.ce
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.dg
-    public void aat() {
+    @Override // com.baidu.tieba.frs.ce
+    public void abv() {
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 /* loaded from: classes.dex */
 public class f extends c {
-    public static final BdUniqueId bbT = BdUniqueId.gen();
-    public bi bbU;
+    public static final BdUniqueId beR = BdUniqueId.gen();
+    public bk beS;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return bbT;
+        return beR;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bi Jv() {
-        return this.bbU;
+    public bk Jz() {
+        return this.beS;
     }
 }

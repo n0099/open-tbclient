@@ -424,8 +424,9 @@ public class BdListView extends ListView {
         this.Cb = cVar;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int lastVisiblePosition = getLastVisiblePosition();
         try {
             super.onLayout(z, i2, i3, i4, i5);

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class TbJsBridge {
@@ -25,7 +25,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!az.isEmpty(str)) {
+        if (!ax.isEmpty(str)) {
             Toast.makeText(this.mTbPageContext.getPageActivity(), str, 0).show();
         }
         this.mTbPageContext.getPageActivity().finish();
@@ -42,7 +42,7 @@ public class TbJsBridge {
         fVar.title = str;
         fVar.content = str2;
         fVar.linkUrl = str4;
-        if (!az.isEmpty(str3)) {
+        if (!ax.isEmpty(str3)) {
             fVar.imageUri = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), fVar, true)));

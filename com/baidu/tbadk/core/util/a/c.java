@@ -4,22 +4,22 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    public int acD;
+    public int adb;
     public String mErrorString;
-    public int oE;
-    public String acE = null;
-    public boolean kK = false;
+    public int oF;
+    public String adc = null;
+    public boolean kL = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean uV() {
-        return this.oE == 200;
+    public boolean uZ() {
+        return this.oF == 200;
     }
 
-    public boolean oF() {
-        return this.oE == 200 && this.acD == 0;
+    public boolean oH() {
+        return this.oF == 200 && this.adb == 0;
     }
 
     public boolean eh() {
-        return this.oE == 200 || this.oE == 206;
+        return this.oF == 200 || this.oF == 206;
     }
 }

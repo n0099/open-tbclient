@@ -1,15 +1,17 @@
 package com.baidu.tieba.tblauncher;
+
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class h implements Runnable {
-    final /* synthetic */ MainTabActivity this$0;
+class h implements a.b {
+    final /* synthetic */ g fGJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
+    public h(g gVar) {
+        this.fGJ = gVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.this$0.fzg = true;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class ay extends CustomMessageListener {
-    final /* synthetic */ aw bax;
+    final /* synthetic */ aw bdG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ay(aw awVar, int i) {
         super(i);
-        this.bax = awVar;
+        this.bdG = awVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,31 +24,31 @@ class ay extends CustomMessageListener {
         TextView textView;
         TextView textView2;
         com.baidu.tieba.card.data.m mVar4;
-        boolean NW;
+        boolean Pa;
         TextView textView3;
         com.baidu.tieba.card.data.m mVar5;
         TextView textView4;
         com.baidu.tieba.card.data.m mVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            mVar = this.bax.bal;
+            mVar = this.bdG.bdv;
             if (mVar != null) {
-                mVar2 = this.bax.bal;
+                mVar2 = this.bdG.bdv;
                 if (mVar2.threadData != null) {
-                    mVar3 = this.bax.bal;
+                    mVar3 = this.bdG.bdv;
                     if (mVar3.threadData.getTid() != null) {
-                        textView = this.bax.aMI;
+                        textView = this.bdG.aOH;
                         if (textView != null) {
-                            textView2 = this.bax.aYP;
+                            textView2 = this.bdG.bbY;
                             if (textView2 != null) {
-                                mVar4 = this.bax.bal;
+                                mVar4 = this.bdG.bdv;
                                 if (((String) customResponsedMessage.getData()).equals(mVar4.threadData.getTid())) {
-                                    NW = this.bax.NW();
-                                    if (!NW) {
-                                        textView3 = this.bax.aMI;
-                                        mVar5 = this.bax.bal;
-                                        an.a(textView3, mVar5.Jv().getId(), r.d.cp_cont_b, r.d.cp_cont_d);
-                                        textView4 = this.bax.aYP;
-                                        mVar6 = this.bax.bal;
+                                    Pa = this.bdG.Pa();
+                                    if (!Pa) {
+                                        textView3 = this.bdG.aOH;
+                                        mVar5 = this.bdG.bdv;
+                                        an.a(textView3, mVar5.Jz().getId(), r.d.cp_cont_b, r.d.cp_cont_d);
+                                        textView4 = this.bdG.bbY;
+                                        mVar6 = this.bdG.bdv;
                                         an.a(textView4, mVar6.threadData.getId(), r.d.cp_cont_j, r.d.cp_cont_d);
                                     }
                                 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
@@ -32,8 +32,8 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
     }
 
     private void init() {
-        av.k(this, r.f.btn_home_neg_feedback_reason_selector);
-        av.c(this, r.f.text_home_neg_feedback_reason_selector, 4);
+        at.k(this, r.f.btn_home_neg_feedback_reason_selector);
+        at.c(this, r.f.text_home_neg_feedback_reason_selector, 4);
         int e = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds32);
         setPadding(e, 0, e, 0);
         setButtonDrawable((Drawable) null);

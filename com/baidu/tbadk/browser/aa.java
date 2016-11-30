@@ -1,22 +1,18 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.tbadk.core.view.j;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements j.a {
-    final /* synthetic */ x Na;
+public class aa implements View.OnClickListener {
+    final /* synthetic */ y Nc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(x xVar) {
-        this.Na = xVar;
+    public aa(y yVar) {
+        this.Nc = yVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void od() {
-        this.Na.oa();
-    }
-
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void oe() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.Nc.oc();
     }
 }

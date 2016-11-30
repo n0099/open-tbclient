@@ -1,67 +1,41 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.d.a;
+import com.baidu.adp.framework.listener.a;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class j implements a.InterfaceC0058a {
-    final /* synthetic */ FrsActivity bQi;
-    final int bQj;
+class j extends a {
+    final /* synthetic */ FrsActivity bTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(FrsActivity frsActivity) {
-        this.bQi = frsActivity;
-        this.bQj = (int) frsActivity.getResources().getDimension(r.e.ds98);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(FrsActivity frsActivity, int i, int i2) {
+        super(i, i2);
+        this.bTa = frsActivity;
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0058a
-    public void O(int i, int i2) {
-        bm bmVar;
-        bm bmVar2;
-        dj djVar;
-        dj djVar2;
-        dj djVar3;
-        if (af(i2)) {
-            djVar = this.bQi.bPB;
-            if (djVar != null) {
-                djVar2 = this.bQi.bPB;
-                djVar2.dq(false);
-                djVar3 = this.bQi.bPB;
-                djVar3.Zd();
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        com.baidu.tieba.frs.j.af afVar;
+        com.baidu.tieba.frs.j.af afVar2;
+        if (responsedMessage instanceof ResponseSetCommForumStateHttpMessage) {
+            if (((ResponseSetCommForumStateHttpMessage) responsedMessage).getError() == 0) {
+                this.bTa.bRX.rV(1 - this.bTa.bRX.bkg());
+                com.baidu.tieba.frs.utils.u.h(this.bTa.bRX);
+            } else {
+                this.bTa.showToast(r.j.setdefualt_error);
             }
-        }
-        bmVar = this.bQi.bPi;
-        if (bmVar != null) {
-            bmVar2 = this.bQi.bPi;
-            bmVar2.dN(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.d.a.InterfaceC0058a
-    public void P(int i, int i2) {
-        bm bmVar;
-        bm bmVar2;
-        dj djVar;
-        dj djVar2;
-        dj djVar3;
-        if (af(i2)) {
-            djVar = this.bQi.bPB;
-            if (djVar != null) {
-                djVar2 = this.bQi.bPB;
-                djVar2.dq(true);
-                if (Math.abs(i2) > this.bQj) {
-                    djVar3 = this.bQi.bPB;
-                    djVar3.Zc();
-                }
+            afVar2 = this.bTa.bSj;
+            afVar2.ey(this.bTa.bRX.bkg() == 1);
+        } else if (responsedMessage instanceof ResponseSetCommForumStateSocketMessage) {
+            if (((ResponseSetCommForumStateSocketMessage) responsedMessage).getError() == 0) {
+                this.bTa.bRX.rV(1 - this.bTa.bRX.bkg());
+                com.baidu.tieba.frs.utils.u.h(this.bTa.bRX);
+            } else {
+                this.bTa.showToast(r.j.setdefualt_error);
             }
+            afVar = this.bTa.bSj;
+            afVar.ey(this.bTa.bRX.bkg() == 1);
         }
-        bmVar = this.bQi.bPi;
-        if (bmVar != null) {
-            bmVar2 = this.bQi.bPi;
-            bmVar2.dN(false);
-        }
-    }
-
-    private boolean af(float f) {
-        return Math.abs(f) >= 1.0f;
     }
 }

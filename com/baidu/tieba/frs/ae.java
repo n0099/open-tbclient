@@ -1,19 +1,22 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
-class ae extends com.baidu.adp.base.g {
-    final /* synthetic */ FrsActivity bQi;
+class ae implements Runnable {
+    final /* synthetic */ FrsActivity.a bTe;
+    private final /* synthetic */ String bTf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(FrsActivity frsActivity) {
-        this.bQi = frsActivity;
+    public ae(FrsActivity.a aVar, String str) {
+        this.bTe = aVar;
+        this.bTf = str;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void g(Object obj) {
-        com.baidu.tieba.frs.i.aa aaVar;
-        if (obj instanceof Boolean ? ((Boolean) obj).booleanValue() : false) {
-            aaVar = this.bQi.bPv;
-            aaVar.ei(false);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(this.bTf);
+        zVar.uW().vR().mIsNeedAddCommenParam = false;
+        zVar.uW().vR().mIsUseCurrentBDUSS = false;
+        zVar.uz();
     }
 }

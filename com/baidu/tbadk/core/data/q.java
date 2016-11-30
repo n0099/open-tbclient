@@ -1,73 +1,41 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.ForumBookInfo;
+import java.util.ArrayList;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class q {
-    private int PY;
-    private String Qk;
-    private String Ql;
-    private String Qm;
-    private String Qn;
-    private String Qo;
-    private String Qp;
-    private long Qq;
-    private long Qr;
-    private long Qs;
-    private long Qt;
-    private long Qu;
-    private long Qv;
-    private String author;
-    private String bookId;
+    private int QA;
+    private ArrayList<s> QB = new ArrayList<>();
+    private String Qz;
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public String getBookId() {
-        return this.bookId;
+    public ArrayList<s> pz() {
+        return this.QB;
     }
 
-    public int py() {
-        return this.PY;
-    }
-
-    public String pz() {
-        return this.Ql;
+    public void g(ArrayList<s> arrayList) {
+        this.QB = arrayList;
     }
 
     public String pA() {
-        return this.author;
+        return this.obj_id;
     }
 
-    public long pB() {
-        return this.Qq;
-    }
-
-    public String pC() {
-        return this.Qp;
-    }
-
-    public String pD() {
-        return this.Qo;
-    }
-
-    public String pE() {
-        return this.Qn;
-    }
-
-    public void a(ForumBookInfo forumBookInfo) {
-        if (forumBookInfo != null) {
-            this.bookId = forumBookInfo.book_id;
-            this.PY = forumBookInfo.book_type.intValue();
-            this.Qk = forumBookInfo.book_title;
-            this.Ql = forumBookInfo.book_cover;
-            this.author = forumBookInfo.author;
-            this.Qm = forumBookInfo.forum_pic;
-            this.Qn = forumBookInfo.show_chapter_id;
-            this.Qo = forumBookInfo.show_chapter_no;
-            this.Qp = forumBookInfo.show_chapter_title;
-            this.Qq = forumBookInfo.history_page_id.longValue();
-            this.Qr = forumBookInfo.history_paragraph_id.longValue();
-            this.Qs = forumBookInfo.history_word_id.longValue();
-            this.Qt = forumBookInfo.history_percent.longValue();
-            this.Qu = forumBookInfo.show_page_id.longValue();
-            this.Qv = forumBookInfo.show_paragraph_id.longValue();
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.QA = activityHead.activity_type.intValue();
+            this.Qz = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                s sVar = new s();
+                sVar.a(headImgs);
+                this.QB.add(sVar);
+            }
         }
     }
 }

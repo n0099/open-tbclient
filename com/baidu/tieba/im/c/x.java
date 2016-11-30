@@ -9,18 +9,18 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.util.g<LinkedHashMap<String, String>> {
-    final /* synthetic */ a dlX;
-    private final /* synthetic */ ad dmi;
+public class x implements com.baidu.tbadk.util.f<LinkedHashMap<String, String>> {
+    final /* synthetic */ a drH;
+    private final /* synthetic */ ad drS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(a aVar, ad adVar) {
-        this.dlX = aVar;
-        this.dmi = adVar;
+        this.drH = aVar;
+        this.drS = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.g
+    @Override // com.baidu.tbadk.util.f
     /* renamed from: b */
     public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
         LinkedHashMap<String, String> linkedHashMap2 = new LinkedHashMap<>();
@@ -48,6 +48,6 @@ public class x implements com.baidu.tbadk.util.g<LinkedHashMap<String, String>> 
                 }
             }
         }
-        this.dmi.a(linkedHashMap2, hashMap);
+        this.drS.a(linkedHashMap2, hashMap);
     }
 }

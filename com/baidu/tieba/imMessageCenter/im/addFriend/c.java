@@ -5,20 +5,20 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ AddFriendActivity doo;
+    final /* synthetic */ AddFriendActivity dtW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AddFriendActivity addFriendActivity) {
-        this.doo = addFriendActivity;
+        this.dtW = addFriendActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        editText = this.doo.doj;
+        editText = this.dtW.dtR;
         if (editText != null) {
-            editText2 = this.doo.doj;
+            editText2 = this.dtW.dtR;
             editText2.setText("");
         }
     }

@@ -3,105 +3,105 @@ package com.baidu.tbadk.performanceLog;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class v extends t {
-    public long aBM;
-    public long aBN;
-    public long aBO;
-    public long aBP;
-    public long aBQ;
-    public long aBR;
-    public long aBS;
-    public long aBT;
-    public long aBU;
-    public long aBV;
-    public long aBW;
-    public long aBX;
-    public long aBY;
-    public long aBZ;
-    public boolean aCa;
-    public long aCb;
-    public long aCc;
-    public boolean aCd;
-    public long aCe;
+    public long aCD;
+    public long aCE;
+    public long aCF;
+    public long aCG;
+    public long aCH;
+    public long aCI;
+    public long aCJ;
+    public long aCK;
+    public long aCL;
+    public long aCM;
+    public long aCN;
+    public long aCO;
+    public long aCP;
+    public long aCQ;
+    public boolean aCR;
+    public long aCS;
+    public long aCT;
+    public boolean aCU;
+    public long aCV;
     public int errCode;
-    public long hr;
     public long hs;
+    public long ht;
     public boolean isSuccess;
     public long sequenceID;
     public long socketCostTime;
     public int socketErrNo;
 
     public v() {
-        this.hr = 0L;
         this.hs = 0L;
-        this.aBT = 0L;
-        this.aBV = 0L;
-        this.aBY = 0L;
-        this.aBZ = 0L;
-        this.aCb = 0L;
-        this.aCc = 0L;
-        this.aCd = false;
+        this.ht = 0L;
+        this.aCK = 0L;
+        this.aCM = 0L;
+        this.aCP = 0L;
+        this.aCQ = 0L;
+        this.aCS = 0L;
+        this.aCT = 0L;
+        this.aCU = false;
     }
 
     public v(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        this.hr = 0L;
         this.hs = 0L;
-        this.aBT = 0L;
-        this.aBV = 0L;
-        this.aBY = 0L;
-        this.aBZ = 0L;
-        this.aCb = 0L;
-        this.aCc = 0L;
-        this.aCd = false;
+        this.ht = 0L;
+        this.aCK = 0L;
+        this.aCM = 0L;
+        this.aCP = 0L;
+        this.aCQ = 0L;
+        this.aCS = 0L;
+        this.aCT = 0L;
+        this.aCU = false;
         if (responsedMessage != null) {
-            this.aBK = i;
-            this.aCa = z;
-            if (this.aCa) {
-                this.aBZ = responsedMessage.getDownSize();
-                this.aCe = responsedMessage.getOrginalMessage().getClientLogID();
+            this.aCB = i;
+            this.aCR = z;
+            if (this.aCR) {
+                this.aCQ = responsedMessage.getDownSize();
+                this.aCV = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.aCb = responsedMessage.performanceData.jz;
-                this.aCc = responsedMessage.performanceData.jA;
-                this.socketErrNo = responsedMessage.performanceData.jx;
-                this.socketCostTime = responsedMessage.performanceData.jy;
+                this.aCS = responsedMessage.performanceData.jA;
+                this.aCT = responsedMessage.performanceData.jB;
+                this.socketErrNo = responsedMessage.performanceData.jy;
+                this.socketCostTime = responsedMessage.performanceData.jz;
             } else {
-                this.aBY = responsedMessage.getDownSize();
+                this.aCP = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.aBM = j;
-            this.aBN = j2;
-            this.aBU = j3;
+            this.aCD = j;
+            this.aCE = j2;
+            this.aCL = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.aBO = responsedMessage.performanceData.jp;
-            this.aBP = responsedMessage.performanceData.jq;
-            this.aBQ = responsedMessage.performanceData.jr;
-            this.hr = responsedMessage.performanceData.js;
+            this.aCF = responsedMessage.performanceData.jq;
+            this.aCG = responsedMessage.performanceData.jr;
+            this.aCH = responsedMessage.performanceData.js;
             this.hs = responsedMessage.performanceData.jt;
-            this.aBR = responsedMessage.performanceData.ju;
-            this.aBS = responsedMessage.performanceData.jv;
-            this.aBT = responsedMessage.performanceData.jw;
-            this.aBT += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.ht = responsedMessage.performanceData.ju;
+            this.aCI = responsedMessage.performanceData.jv;
+            this.aCJ = responsedMessage.performanceData.jw;
+            this.aCK = responsedMessage.performanceData.jx;
+            this.aCK += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.aCd = z2;
-            this.aBV = j4;
+            this.aCU = z2;
+            this.aCM = j4;
         }
     }
 
-    public void Gj() {
-        ac acVar = (ac) aa.Go().ff(this.aBK);
+    public void Gp() {
+        ac acVar = (ac) aa.Gu().fi(this.aCB);
         if (acVar != null) {
             acVar.a(this);
         }
     }
 
-    public void Gk() {
+    public void Gq() {
         ac acVar;
-        if (aa.Go().Gp() && (acVar = (ac) aa.Go().ff(this.aBK)) != null) {
+        if (aa.Gu().Gv() && (acVar = (ac) aa.Gu().fi(this.aCB)) != null) {
             acVar.b(this);
         }
     }
 
-    public void Gl() {
-        ac acVar = (ac) aa.Go().ff(this.aBK);
+    public void Gr() {
+        ac acVar = (ac) aa.Gu().fi(this.aCB);
         if (acVar != null) {
             acVar.c(this);
         }

@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.t;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tieba.r;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,24 +20,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e ati = new e();
-    private static DownloadData atj = null;
-    private static List<DownloadData> atb = new LinkedList();
-    private a atk = null;
+    private static e auc = new e();
+    private static DownloadData aud = null;
+    private static List<DownloadData> mTaskList = new LinkedList();
+    private a aue = null;
     private int max = 20;
-    private Handler atl = new f(this, Looper.getMainLooper());
+    private Handler auf = new f(this, Looper.getMainLooper());
 
     private e() {
     }
 
-    public static e Cy() {
-        return ati;
+    public static e CG() {
+        return auc;
     }
 
     public void a(DownloadData downloadData, int i) {
         int type = downloadData.getType();
         int i2 = 0;
-        for (DownloadData downloadData2 : atb) {
+        for (DownloadData downloadData2 : mTaskList) {
             if (downloadData2.getType() == type) {
                 i2++;
             }
@@ -70,8 +70,8 @@ public class e {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < atb.size()) {
-                    DownloadData downloadData2 = atb.get(i2);
+                if (i2 < mTaskList.size()) {
+                    DownloadData downloadData2 = mTaskList.get(i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -79,8 +79,8 @@ public class e {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    atb.add(downloadData);
-                    Cz();
+                    mTaskList.add(downloadData);
+                    CH();
                     return;
                 }
             }
@@ -88,32 +88,32 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cz() {
-        if (atj == null && !atb.isEmpty()) {
-            atj = atb.get(0);
-            if (atj != null) {
-                this.atk = new a();
-                this.atk.execute(atj);
+    public void CH() {
+        if (aud == null && !mTaskList.isEmpty()) {
+            aud = mTaskList.get(0);
+            if (aud != null) {
+                this.aue = new a();
+                this.aue.execute(aud);
             }
         }
     }
 
-    public void fm(String str) {
+    public void fp(String str) {
         t(str, false);
     }
 
     public void t(String str, boolean z) {
-        if (atj != null && atj.getUrl().equals(str)) {
+        if (aud != null && aud.getUrl().equals(str)) {
             if (z) {
-                this.atk.CC();
+                this.aue.CK();
                 return;
             } else {
-                this.atk.cancel(true);
+                this.aue.cancel(true);
                 return;
             }
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = atb.iterator();
+        Iterator<DownloadData> it = mTaskList.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -128,17 +128,17 @@ public class e {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            atb.remove(downloadData);
+            mTaskList.remove(downloadData);
         }
     }
 
     public void y(String str, int i) {
-        if (atj != null && atj.getId().equals(str) && atj.getType() == i) {
-            this.atk.cancel(true);
+        if (aud != null && aud.getId().equals(str) && aud.getType() == i) {
+            this.aue.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = atb.iterator();
+        Iterator<DownloadData> it = mTaskList.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -154,16 +154,16 @@ public class e {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            atb.remove(downloadData);
+            mTaskList.remove(downloadData);
         }
     }
 
-    public void er(int i) {
-        if (atj != null && atj.getType() == i) {
-            this.atk.cancel(true);
+    public void eu(int i) {
+        if (aud != null && aud.getType() == i) {
+            this.aue.cancel(true);
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        for (DownloadData downloadData : atb) {
+        for (DownloadData downloadData : mTaskList) {
             if (downloadData.getType() == i) {
                 downloadData.setStatus(4);
                 downloadData.setStatusMsg(null);
@@ -174,25 +174,25 @@ public class e {
             }
         }
         for (DownloadData downloadData2 : linkedList) {
-            atb.remove(downloadData2);
+            mTaskList.remove(downloadData2);
         }
     }
 
     public List<DownloadData> iV() {
-        return atb;
+        return mTaskList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private ab NY = new ab();
+        private z Ob = new z();
 
         a() {
         }
 
-        public void CC() {
-            if (this.NY != null) {
-                this.NY.ej();
+        public void CK() {
+            if (this.Ob != null) {
+                this.Ob.ej();
             }
             cancel(true);
         }
@@ -201,18 +201,18 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.NY.ej();
-            if (e.atj != null) {
-                e.atj.setStatus(4);
-                e.atj.setStatusMsg(null);
-                if (e.atj.getCallback() != null) {
-                    e.atj.getCallback().b(e.atj);
+            this.Ob.ej();
+            if (e.aud != null) {
+                e.aud.setStatus(4);
+                e.aud.setStatusMsg(null);
+                if (e.aud.getCallback() != null) {
+                    e.aud.getCallback().b(e.aud);
                 }
-                if (!e.atb.isEmpty()) {
-                    e.atb.remove(0);
+                if (!e.mTaskList.isEmpty()) {
+                    e.mTaskList.remove(0);
                 }
-                e.atj = null;
-                e.this.Cz();
+                e.aud = null;
+                e.this.CH();
             }
         }
 
@@ -238,22 +238,22 @@ public class e {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.NY.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.NY.a(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp", e.this.atl, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
+                    this.Ob.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.Ob.a(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp", e.this.auf, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                         return 3;
                     }
-                    File cW = m.cW(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
-                    if (cW == null) {
+                    File cY = m.cY(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
+                    if (cY == null) {
                         return 1;
                     }
                     try {
-                        String parent = cW.getParent();
+                        String parent = cY.getParent();
                         String parent2 = file.getParent();
                         if (parent.equals(parent2)) {
-                            cW.renameTo(new File(parent2, file.getName()));
+                            cY.renameTo(new File(parent2, file.getName()));
                         } else {
-                            com.baidu.adp.lib.util.e.b(cW, file);
-                            com.baidu.adp.lib.util.e.f(cW);
+                            com.baidu.adp.lib.util.e.b(cY, file);
+                            com.baidu.adp.lib.util.e.f(cY);
                         }
                     } catch (IOException e) {
                         try {
@@ -264,7 +264,7 @@ public class e {
                         return 7;
                     }
                 }
-                if (!az.isEmpty(downloadDataArr[0].getCheck())) {
+                if (!ax.isEmpty(downloadDataArr[0].getCheck())) {
                     try {
                         fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
                         try {
@@ -338,14 +338,14 @@ public class e {
         public void onPostExecute(Integer num) {
             String string;
             super.onPostExecute((a) num);
-            if (e.atj != null) {
+            if (e.aud != null) {
                 if (num.intValue() == 0) {
-                    e.atj.setStatus(0);
-                    if (e.atj.getCallback() != null) {
-                        e.atj.getCallback().b(e.atj);
+                    e.aud.setStatus(0);
+                    if (e.aud.getCallback() != null) {
+                        e.aud.getCallback().b(e.aud);
                     }
-                    if (e.atj.getCallback() != null) {
-                        e.atj.getCallback().d(e.atj);
+                    if (e.aud.getCallback() != null) {
+                        e.aud.getCallback().d(e.aud);
                     }
                 } else {
                     switch (num.intValue()) {
@@ -372,20 +372,20 @@ public class e {
                             string = TbadkCoreApplication.m9getInst().getApp().getString(r.j.download_fail);
                             break;
                     }
-                    e.atj.setStatusMsg(string);
-                    e.atj.setErrorCode(num.intValue());
-                    e.atj.setStatus(2);
-                    if (e.atj.getCallback() != null) {
-                        e.atj.getCallback().b(e.atj);
+                    e.aud.setStatusMsg(string);
+                    e.aud.setErrorCode(num.intValue());
+                    e.aud.setStatus(2);
+                    if (e.aud.getCallback() != null) {
+                        e.aud.getCallback().b(e.aud);
                     }
-                    if (e.atj.getCallback() != null) {
-                        e.atj.getCallback().a(e.atj, num.intValue(), string);
+                    if (e.aud.getCallback() != null) {
+                        e.aud.getCallback().a(e.aud, num.intValue(), string);
                     }
                 }
-                e.atj = null;
-                if (!e.atb.isEmpty()) {
-                    e.atb.remove(0);
-                    e.this.Cz();
+                e.aud = null;
+                if (!e.mTaskList.isEmpty()) {
+                    e.mTaskList.remove(0);
+                    e.this.CH();
                 }
             }
         }

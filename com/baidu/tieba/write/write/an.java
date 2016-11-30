@@ -1,41 +1,46 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
+import com.baidu.tieba.r;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements View.OnClickListener {
-    final /* synthetic */ WriteActivity ghD;
+public class an extends com.baidu.adp.base.g {
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        com.baidu.tieba.write.b bVar;
-        com.baidu.tbadk.editortools.l lVar;
-        InputMethodManager inputMethodManager;
-        EditText bug;
-        InputMethodManager inputMethodManager2;
-        EditText buf;
-        textView = this.ghD.flJ;
-        textView.setSelected(true);
-        bVar = this.ghD.flK;
-        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.ghD.getPageContext().getPageActivity(), 1.0f));
-        lVar = this.ghD.atO;
-        lVar.AV();
-        WriteActivity writeActivity = this.ghD;
-        inputMethodManager = this.ghD.mInputManager;
-        bug = this.ghD.bug();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, bug);
-        WriteActivity writeActivity2 = this.ghD;
-        inputMethodManager2 = this.ghD.mInputManager;
-        buf = this.ghD.buf();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, buf);
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.base.g
+    public void g(Object obj) {
+        FeedBackTopListView feedBackTopListView;
+        View view;
+        FeedBackTopListView feedBackTopListView2;
+        View view2;
+        FeedBackTopListView feedBackTopListView3;
+        this.gpp.hideProgressBar();
+        if (obj == null || !(obj instanceof p)) {
+            feedBackTopListView = this.gpp.goi;
+            feedBackTopListView.setVisibility(8);
+            view = this.gpp.goj;
+            view.setVisibility(8);
+            this.gpp.showToast(r.j.neterror);
+            return;
+        }
+        p pVar = (p) obj;
+        if (pVar.getErrCode() != 0) {
+            feedBackTopListView2 = this.gpp.goi;
+            feedBackTopListView2.setVisibility(8);
+            view2 = this.gpp.goj;
+            view2.setVisibility(8);
+            return;
+        }
+        ArrayList<com.baidu.tbadk.core.data.bk> bwb = pVar.bwb();
+        feedBackTopListView3 = this.gpp.goi;
+        feedBackTopListView3.a(bwb, this.gpp.getPageContext());
     }
 }

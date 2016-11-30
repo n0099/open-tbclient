@@ -1,27 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import com.baidu.tieba.tbadkCore.b.a;
 /* loaded from: classes.dex */
-class w implements TextWatcher {
-    final /* synthetic */ WriteActivity ghD;
+class w implements a.InterfaceC0078a {
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.ghD.a(charSequence, i, i3, "from_content");
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.ghD.bfL();
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0078a
+    public void kj() {
+        com.baidu.tbadk.editortools.l lVar;
+        this.gpp.dUK = null;
+        this.gpp.mq(false);
+        lVar = this.gpp.auI;
+        lVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
     }
 }

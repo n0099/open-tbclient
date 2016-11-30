@@ -8,71 +8,73 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class h {
-    private static h tl = null;
-    private String[] tq;
-    private g.a tu;
-    private String tm = null;
-    private List<BasicNameValuePair> tp = null;
-    private String tr = null;
-    private j ts = null;
-    private ArrayList<g.a> tt = new ArrayList<>();
+    private static h tm = null;
+    private String[] tr;
+
+    /* renamed from: tv  reason: collision with root package name */
+    private g.a f1tv;
+    private String tp = null;
+    private List<BasicNameValuePair> tq = null;
+    private String ts = null;
+    private j tt = null;
+    private ArrayList<g.a> tu = new ArrayList<>();
 
     public static h ha() {
-        if (tl == null) {
+        if (tm == null) {
             synchronized (h.class) {
-                if (tl == null) {
-                    tl = new h();
+                if (tm == null) {
+                    tm = new h();
                 }
             }
         }
-        return tl;
+        return tm;
     }
 
     public void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        this.tm = str;
-        this.tr = str2;
-        this.tq = strArr;
-        this.tp = list;
+        this.tp = str;
+        this.ts = str2;
+        this.tr = strArr;
+        this.tq = list;
         hf();
     }
 
     private h() {
-        this.tu = null;
-        this.tu = new i(this);
+        this.f1tv = null;
+        this.f1tv = new i(this);
     }
 
     public boolean hb() {
         if (hf()) {
             com.baidu.adp.lib.util.k.gB();
         }
-        if (this.ts != null) {
-            if (this.ts.he() || this.ts.isOpen()) {
+        if (this.tt != null) {
+            if (this.tt.he() || this.tt.isOpen()) {
                 hf();
                 return true;
             }
-            this.ts.close(1, null);
-            this.ts = null;
+            this.tt.close(1, null);
+            this.tt = null;
         }
-        this.ts = new j();
+        this.tt = new j();
         try {
             n nVar = new n();
-            nVar.aX(this.tr);
-            this.ts.a(this.tm, this.tq, this.tu, nVar, this.tp);
+            nVar.aX(this.ts);
+            this.tt.a(this.tp, this.tr, this.f1tv, nVar, this.tq);
             return true;
         } catch (WebSocketException e) {
-            this.ts = null;
+            this.tt = null;
             return false;
         }
     }
 
     public void close(int i, String str) {
-        if (this.ts != null) {
-            j jVar = this.ts;
-            this.ts = null;
+        if (this.tt != null) {
+            j jVar = this.tt;
+            this.tt = null;
             jVar.close(i, str);
-            if (this.ts != null) {
+            if (this.tt != null) {
                 BdLog.e("close is opened and thread is leaded!!!");
-                this.ts = null;
+                this.tt = null;
             }
         }
     }
@@ -81,21 +83,21 @@ public class h {
         if (hf()) {
             com.baidu.adp.lib.util.k.gB();
         }
-        return (this.ts == null || !this.ts.isOpen() || this.ts.hm()) ? false : true;
+        return (this.tt == null || !this.tt.isOpen() || this.tt.hm()) ? false : true;
     }
 
     public boolean hd() {
         if (hf()) {
             com.baidu.adp.lib.util.k.gB();
         }
-        return this.ts != null && this.ts.isOpen();
+        return this.tt != null && this.tt.isOpen();
     }
 
     public boolean he() {
         if (hf()) {
             com.baidu.adp.lib.util.k.gB();
         }
-        return this.ts != null && this.ts.he();
+        return this.tt != null && this.tt.he();
     }
 
     public synchronized boolean sendMessage(c cVar) {
@@ -103,8 +105,8 @@ public class h {
         synchronized (this) {
             if (cVar != null) {
                 com.baidu.adp.lib.util.k.gB();
-                if (this.ts != null) {
-                    z = this.ts.sendMessage(cVar);
+                if (this.tt != null) {
+                    z = this.tt.sendMessage(cVar);
                 } else if (cVar != null) {
                     cVar.N(1);
                 }
@@ -116,8 +118,8 @@ public class h {
     public boolean a(g.a aVar) {
         if (aVar != null) {
             synchronized (h.class) {
-                if (!this.tt.contains(aVar)) {
-                    return this.tt.add(aVar);
+                if (!this.tu.contains(aVar)) {
+                    return this.tu.add(aVar);
                 }
             }
         }
@@ -129,67 +131,67 @@ public class h {
     }
 
     public void hg() {
-        if (this.ts != null) {
-            this.ts.hg();
+        if (this.tt != null) {
+            this.tt.hg();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.ts != null) {
-            return this.ts.getUpFlowSize();
+        if (this.tt != null) {
+            return this.tt.getUpFlowSize();
         }
         return -1L;
     }
 
     public void hh() {
-        if (this.ts != null) {
-            this.ts.hh();
+        if (this.tt != null) {
+            this.tt.hh();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.ts != null) {
-            return this.ts.getDownFlowSize();
+        if (this.tt != null) {
+            return this.tt.getDownFlowSize();
         }
         return -1L;
     }
 
     public long gX() {
-        if (this.ts != null) {
-            return this.ts.hn();
+        if (this.tt != null) {
+            return this.tt.hn();
         }
         return -1L;
     }
 
     public String gW() {
-        if (this.ts != null) {
-            return this.ts.ho();
+        if (this.tt != null) {
+            return this.tt.ho();
         }
         return null;
     }
 
     public long hi() {
-        if (this.ts != null) {
-            return this.ts.hp();
+        if (this.tt != null) {
+            return this.tt.hp();
         }
         return -1L;
     }
 
     public String gE() {
-        if (this.ts != null) {
-            return this.ts.gE();
+        if (this.tt != null) {
+            return this.tt.gE();
         }
         return null;
     }
 
     public String gF() {
-        if (this.ts != null) {
-            return this.ts.gF();
+        if (this.tt != null) {
+            return this.tt.gF();
         }
         return null;
     }
 
     public String getUrl() {
-        return this.tm;
+        return this.tp;
     }
 }

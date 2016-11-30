@@ -1,29 +1,28 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.os.Handler;
-import com.baidu.tieba.play.e;
+import com.baidu.tieba.play.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements e.d {
-    final /* synthetic */ a bXh;
+public class h implements t.d {
+    final /* synthetic */ a cax;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.bXh = aVar;
+        this.cax = aVar;
     }
 
-    @Override // com.baidu.tieba.play.e.d
-    public void onPrepared(com.baidu.tieba.play.e eVar) {
+    @Override // com.baidu.tieba.play.t.d
+    public void onPrepared(com.baidu.tieba.play.t tVar) {
         Handler handler;
-        if (eVar != null) {
+        if (tVar != null) {
             try {
-                eVar.setVolume(0.0f, 0.0f);
-                eVar.setLooping(true);
-                eVar.start();
+                tVar.setVolume(0.0f, 0.0f);
+                tVar.start();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            handler = this.bXh.aZR;
+            handler = this.cax.aPa;
             handler.sendEmptyMessageDelayed(202, 0L);
         }
     }

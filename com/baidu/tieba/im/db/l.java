@@ -9,28 +9,28 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static a daI;
-    public static String dar = "tb_private_msg_";
+    public static String dgf = "tb_private_msg_";
+    private static a dgu;
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l asT() {
+    public static synchronized l auQ() {
         l lVar;
         synchronized (l.class) {
-            if (daI == null) {
-                daI = new l();
+            if (dgu == null) {
+                dgu = new l();
             }
-            lVar = (l) daI;
+            lVar = (l) dgu;
         }
         return lVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [81=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0165 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0167 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0169 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0162 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0164 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0166 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x001b */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.String] */
@@ -47,10 +47,10 @@ public class l extends a {
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? valueOf = String.valueOf(dar);
+            ?? valueOf = String.valueOf(dgf);
             try {
                 try {
-                    cursor = g.asI().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.auF().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -80,7 +80,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        lB(str);
+                        lO(str);
                         com.baidu.adp.lib.util.o.a(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;

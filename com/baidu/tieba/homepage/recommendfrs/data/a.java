@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.recommendfrs.data;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
-import com.baidu.tbadk.core.data.af;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tieba.card.data.g;
 import com.baidu.tieba.card.data.h;
 import com.baidu.tieba.lego.card.model.ICardInfo;
@@ -16,22 +16,22 @@ import tbclient.Personalized.TagInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private DataRes cIA;
-    private int cIB;
-    private String cIE;
-    private com.baidu.tieba.card.data.b cIF;
-    private final TagInfo cIz;
+    private final TagInfo cNO;
+    private DataRes cNP;
+    private int cNQ;
+    private String cNT;
+    private com.baidu.tieba.card.data.b cNU;
     private boolean hasMore;
     private int pn;
-    private List<Object> aAk = new ArrayList();
-    private boolean cwq = false;
-    private boolean cIC = false;
-    private boolean cID = false;
+    private List<Object> aBc = new ArrayList();
+    private boolean cBz = false;
+    private boolean cNR = false;
+    private boolean cNS = false;
     private int dataType = 1;
-    private long cEH = 0;
+    private long cJU = 0;
 
     public a(TagInfo tagInfo) {
-        this.cIz = tagInfo;
+        this.cNO = tagInfo;
     }
 
     public int getPn() {
@@ -39,31 +39,31 @@ public class a {
     }
 
     public void c(DataRes dataRes) {
-        this.cIA = dataRes;
+        this.cNP = dataRes;
     }
 
-    public void ko(int i) {
-        this.cIB = i;
+    public void kv(int i) {
+        this.cNQ = i;
     }
 
-    public int anc() {
-        return this.cIB;
+    public int aoW() {
+        return this.cNQ;
     }
 
-    public boolean and() {
-        return this.cIC;
+    public boolean aoX() {
+        return this.cNR;
     }
 
-    public boolean ane() {
-        return this.cID;
+    public boolean aoY() {
+        return this.cNS;
     }
 
-    public TagInfo anf() {
-        return this.cIz;
+    public TagInfo aoZ() {
+        return this.cNO;
     }
 
-    public String ang() {
-        return this.cIE;
+    public String apa() {
+        return this.cNT;
     }
 
     public boolean hasMore() {
@@ -72,21 +72,21 @@ public class a {
 
     public void a(boolean z, c cVar, boolean z2) {
         if (z) {
-            this.cID = true;
+            this.cNS = true;
         } else {
-            this.cIC = true;
+            this.cNR = true;
         }
         if (cVar != null) {
             this.pn = cVar.getPn();
             this.hasMore = cVar.getHasMore();
             if (cVar instanceof com.baidu.tieba.homepage.mygod.data.d) {
-                this.cEH = ((com.baidu.tieba.homepage.mygod.data.d) cVar).amu();
+                this.cJU = ((com.baidu.tieba.homepage.mygod.data.d) cVar).aop();
             }
             List<Object> a = a(z2, cVar);
             if (z2) {
-                this.aAk.addAll(a);
+                this.aBc.addAll(a);
             } else {
-                this.aAk = a;
+                this.aBc = a;
             }
         }
     }
@@ -115,7 +115,7 @@ public class a {
             }
             int size = list.size();
             if (size > 0) {
-                this.cIE = ((ICardInfo) list.get(size - 1)).getFlipId();
+                this.cNT = ((ICardInfo) list.get(size - 1)).getFlipId();
             }
         }
     }
@@ -127,8 +127,8 @@ public class a {
                 if ((obj instanceof ExcellentThreadInfo) && (!z || !a((ExcellentThreadInfo) obj))) {
                     e eVar = new e();
                     eVar.b((ExcellentThreadInfo) obj);
-                    eVar.setShowImage(cVar.Wz());
-                    if (eVar.ano() != 33) {
+                    eVar.setShowImage(cVar.XB());
+                    if (eVar.api() != 33) {
                         list.add(eVar);
                     } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                         list.add(eVar);
@@ -141,36 +141,36 @@ public class a {
     private void c(List<Object> list, c cVar, boolean z) {
         if (list != null && cVar != null && cVar.getThreadList() != null && cVar.getThreadList().size() != 0) {
             if (!z) {
-                this.cIF = null;
+                this.cNU = null;
             }
             this.dataType = 2;
             for (Object obj : cVar.getThreadList()) {
                 if ((obj instanceof ThreadInfo) && (!z || !d((ThreadInfo) obj))) {
-                    bi biVar = new bi();
-                    biVar.a((ThreadInfo) obj);
+                    bk bkVar = new bk();
+                    bkVar.a((ThreadInfo) obj);
                     g gVar = new g();
-                    gVar.threadData = biVar;
-                    if (!TextUtils.isEmpty(biVar.sH())) {
-                        af afVar = new af();
-                        afVar.cn(biVar.sH());
-                        this.cIF = afVar;
-                    } else if (biVar.TQ == 1) {
+                    gVar.threadData = bkVar;
+                    if (!TextUtils.isEmpty(bkVar.sJ())) {
+                        ah ahVar = new ah();
+                        ahVar.cp(bkVar.sJ());
+                        this.cNU = ahVar;
+                    } else if (bkVar.Um == 1) {
                         h hVar = new h();
-                        hVar.bbV = gVar;
+                        hVar.beT = gVar;
                         a(hVar);
-                        this.cIF = hVar;
+                        this.cNU = hVar;
                     } else {
                         a(gVar);
-                        this.cIF = gVar;
+                        this.cNU = gVar;
                     }
-                    list.add(this.cIF);
+                    list.add(this.cNU);
                 }
             }
             if (cVar instanceof com.baidu.tieba.homepage.mygod.data.d) {
                 com.baidu.tieba.homepage.mygod.data.d dVar = (com.baidu.tieba.homepage.mygod.data.d) cVar;
-                if (this.pn == 1 && dVar.amw() != null) {
-                    list.add(0, new com.baidu.tieba.homepage.mygod.data.a(dVar.amw()));
-                } else if (this.pn == 1 && dVar.amv() == 0) {
+                if (this.pn == 1 && dVar.aor() != null) {
+                    list.add(0, new com.baidu.tieba.homepage.mygod.data.a(dVar.aor()));
+                } else if (this.pn == 1 && dVar.aoq() == 0) {
                     list.add(0, new com.baidu.tieba.homepage.mygod.data.b());
                 }
             }
@@ -179,18 +179,18 @@ public class a {
 
     private void a(com.baidu.tieba.card.data.b bVar) {
         if (bVar != null && bVar.getType() != null) {
-            if (this.cIF == null) {
-                bVar.bbL = false;
-            } else if (this.cIF.getType() == null) {
-                bVar.bbL = false;
-            } else if (this.cIF instanceof g) {
+            if (this.cNU == null) {
+                bVar.needTopMargin = false;
+            } else if (this.cNU.getType() == null) {
+                bVar.needTopMargin = false;
+            } else if (this.cNU instanceof g) {
                 if (bVar instanceof g) {
-                    bVar.bbL = false;
+                    bVar.needTopMargin = false;
                 } else {
-                    bVar.bbL = true;
+                    bVar.needTopMargin = true;
                 }
             } else {
-                bVar.bbL = true;
+                bVar.needTopMargin = true;
             }
         }
     }
@@ -199,12 +199,12 @@ public class a {
         if (excellentThreadInfo == null || excellentThreadInfo.excid == null) {
             return false;
         }
-        int size = this.aAk.size();
+        int size = this.aBc.size();
         if (size <= 0) {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            Object obj = this.aAk.get(i);
+            Object obj = this.aBc.get(i);
             if ((obj instanceof ExcellentThreadInfo) && excellentThreadInfo.excid.equals(((ExcellentThreadInfo) obj).excid)) {
                 return true;
             }
@@ -216,12 +216,12 @@ public class a {
         if (threadInfo == null || threadInfo.id == null) {
             return false;
         }
-        int size = this.aAk.size();
+        int size = this.aBc.size();
         if (size <= 0) {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            Object obj = this.aAk.get(i);
+            Object obj = this.aBc.get(i);
             if ((obj instanceof ThreadInfo) && threadInfo.id.equals(((ThreadInfo) obj).id)) {
                 return true;
             }
@@ -229,23 +229,23 @@ public class a {
         return false;
     }
 
-    public List<Object> anh() {
-        return this.aAk;
+    public List<Object> apb() {
+        return this.aBc;
     }
 
-    public void bz(List<Object> list) {
-        this.aAk = list;
+    public void bC(List<Object> list) {
+        this.aBc = list;
     }
 
-    public void ff(boolean z) {
-        this.cwq = z;
+    public void fu(boolean z) {
+        this.cBz = z;
     }
 
     public int getDataType() {
         return this.dataType;
     }
 
-    public long amu() {
-        return this.cEH;
+    public long aop() {
+        return this.cJU;
     }
 }

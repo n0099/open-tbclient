@@ -1,61 +1,43 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tieba.frs.headvideo.u;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class j implements View.OnTouchListener {
-    final /* synthetic */ i cbM;
-    private float mLastX;
-    private float mLastY;
+class j extends u.a {
+    final /* synthetic */ ForumHeadVideoView cfB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.cbM = iVar;
+    public j(ForumHeadVideoView forumHeadVideoView) {
+        this.cfB = forumHeadVideoView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        GestureDetector gestureDetector;
-        ForumHeadVideoView forumHeadVideoView;
-        boolean z;
-        ForumHeadVideoView forumHeadVideoView2;
-        GestureDetector gestureDetector2;
-        ForumHeadVideoView forumHeadVideoView3;
-        gestureDetector = this.cbM.cbJ;
-        if (gestureDetector != null) {
-            forumHeadVideoView = this.cbM.cbI;
-            if (forumHeadVideoView != null) {
-                z = this.cbM.cbK;
-                if (z) {
-                    forumHeadVideoView3 = this.cbM.cbI;
-                    forumHeadVideoView3.requestDisallowInterceptTouchEvent(true);
+    @Override // com.baidu.tieba.frs.headvideo.u.a
+    public boolean ag(View view) {
+        boolean p;
+        if (!com.baidu.adp.lib.util.i.gm()) {
+            com.baidu.adp.lib.util.k.m(this.cfB.getContext(), this.cfB.getContext().getString(r.j.neterror));
+        } else {
+            c currentVideoItemView = this.cfB.getCurrentVideoItemView();
+            if (currentVideoItemView != null && currentVideoItemView.getThreadInfo() != null) {
+                bk threadInfo = currentVideoItemView.getThreadInfo();
+                p = this.cfB.p(threadInfo);
+                if (p) {
+                    com.baidu.adp.lib.util.k.showToast(this.cfB.getContext(), r.j.data_illegal);
+                } else {
+                    currentVideoItemView.pausePlay();
+                    this.cfB.q(threadInfo);
                 }
-                switch (motionEvent.getAction()) {
-                    case 0:
-                        this.mLastY = motionEvent.getY();
-                        this.mLastX = motionEvent.getX();
-                        break;
-                    case 1:
-                    case 3:
-                        this.mLastY = 0.0f;
-                        this.mLastX = 0.0f;
-                        break;
-                    case 2:
-                        float y = this.mLastY - motionEvent.getY();
-                        if (3.0f * Math.abs(y) > Math.abs(this.mLastX - motionEvent.getX()) && y >= 0.0f) {
-                            forumHeadVideoView2 = this.cbM.cbI;
-                            forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
-                            break;
-                        }
-                        break;
-                }
-                gestureDetector2 = this.cbM.cbJ;
-                gestureDetector2.onTouchEvent(motionEvent);
-                return true;
             }
         }
-        return false;
+        return super.ag(view);
+    }
+
+    @Override // com.baidu.tieba.frs.headvideo.u.a
+    public boolean ah(View view) {
+        this.cfB.afX();
+        this.cfB.agc();
+        return super.ah(view);
     }
 }

@@ -1,36 +1,22 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.ax;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.base.BdBaseService;
+import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
-public class z implements CustomMessageTask.CustomRunnable<IntentConfig> {
-    final /* synthetic */ TbadkCoreApplication this$0;
+class z implements c.a {
+    final /* synthetic */ y Ou;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(TbadkCoreApplication tbadkCoreApplication) {
-        this.this$0 = tbadkCoreApplication;
+    public z(y yVar) {
+        this.Ou = yVar;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<IntentConfig> run(CustomMessage<IntentConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            IntentConfig data = customMessage.getData();
-            Class<?> intentClass = this.this$0.getIntentClass(data.getClass());
-            if (this.this$0.getIntentClass(AlbumActivityConfig.class) == null) {
-                TiebaStatic.log(new ax("inter_config_disappear").s("obj_param1", at.vq().vr()));
-            }
-            if (intentClass != null) {
-                data.setComponentClass(intentClass);
-                data.run();
-            }
+    @Override // com.baidu.tbadk.util.c.a
+    public void am(boolean z) {
+        if (z) {
+            BdBaseService.serviceStartFlag = 2;
+        } else {
+            BdBaseService.serviceStartFlag = 1;
         }
-        return null;
     }
 }

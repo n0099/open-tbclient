@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.editortools.ab;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
@@ -19,10 +19,10 @@ public class c {
             return null;
         }
         multiImgToolView.setAsyncLocalImageLoader(bVar);
-        com.baidu.tieba.tbadkCore.imgView.a aVar = new com.baidu.tieba.tbadkCore.imgView.a(context);
-        aVar.a(multiImgToolView.getDragLayer());
-        aVar.a((com.baidu.tieba.tbadkCore.imgView.f) multiImgToolView.getDragHorizonScrollView());
-        aVar.a((com.baidu.tieba.tbadkCore.imgView.e) multiImgToolView.getDragHorizonScrollView());
+        com.baidu.tieba.tbadkCore.imgView.b bVar2 = new com.baidu.tieba.tbadkCore.imgView.b(context);
+        bVar2.a(multiImgToolView.getDragLayer());
+        bVar2.a((com.baidu.tieba.tbadkCore.imgView.g) multiImgToolView.getDragHorizonScrollView());
+        bVar2.a((com.baidu.tieba.tbadkCore.imgView.f) multiImgToolView.getDragHorizonScrollView());
         if (i > 1) {
             multiImgToolView.getDragHorizonScrollView().setAddView(a(context, multiImgToolView));
         } else {
@@ -30,13 +30,13 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        av.c(multiImgToolView.getMutiImageTips(), r.d.cp_cont_c, 1);
+        at.c(multiImgToolView.getMutiImageTips(), r.d.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, ab abVar) {
         ImageView imageView = new ImageView(context);
-        av.c(imageView, r.f.btn_add_photo_selector);
+        at.c(imageView, r.f.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(r.j.add));

@@ -10,7 +10,7 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void e(int i, String str) {
+    public void d(int i, String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

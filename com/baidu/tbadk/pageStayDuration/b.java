@@ -3,44 +3,44 @@ package com.baidu.tbadk.pageStayDuration;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean aAD = com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("page_stay_duration_switch", false);
+    private boolean aBu = com.baidu.tbadk.core.sharedPref.b.um().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean FF();
+    public abstract boolean FJ();
 
-    public abstract int FG();
+    public abstract int FK();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.FK()) {
+        if (dVar == null || dVar.FO()) {
             return false;
         }
-        if (dVar.aAE) {
-            dVar.D(c.e(dVar.FI(), 6));
+        if (dVar.aBv) {
+            dVar.D(c.e(dVar.FM(), 6));
         } else {
-            int FN = FG() > e.FL().FN() ? e.FL().FN() : FG();
-            dVar.D(c.e(dVar.FI(), FN <= 5 ? FN : 5));
+            int FR = FK() > e.FP().FR() ? e.FP().FR() : FK();
+            dVar.D(c.e(dVar.FM(), FR <= 5 ? FR : 5));
         }
         return true;
     }
 
-    private void bR(boolean z) {
-        if (this.aAD != z) {
-            com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("page_stay_duration_switch", true);
-            this.aAD = z;
+    private void bV(boolean z) {
+        if (this.aBu != z) {
+            com.baidu.tbadk.core.sharedPref.b.um().putBoolean("page_stay_duration_switch", true);
+            this.aBu = z;
         }
     }
 
-    public boolean FH() {
+    public boolean FL() {
         if (!TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            return this.aAD;
+            return this.aBu;
         }
         if (!TbadkCoreApplication.m9getInst().isPageStayOpen()) {
-            bR(false);
+            bV(false);
             return false;
-        } else if (!e.FL().FM()) {
-            bR(false);
+        } else if (!e.FP().FQ()) {
+            bV(false);
             return false;
         } else {
-            bR(true);
+            bV(true);
             return true;
         }
     }

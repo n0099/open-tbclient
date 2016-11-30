@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Animation.AnimationListener {
-    final /* synthetic */ a geI;
+    final /* synthetic */ a gmm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.geI = aVar;
+        this.gmm = aVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,6 +21,6 @@ public class d implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.geI.bpy();
+        this.gmm.brS();
     }
 }

@@ -6,11 +6,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ PluginErrorTipView aDg;
+    final /* synthetic */ PluginErrorTipView aDX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PluginErrorTipView pluginErrorTipView) {
-        this.aDg = pluginErrorTipView;
+        this.aDX = pluginErrorTipView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,12 +18,12 @@ public class c implements View.OnClickListener {
         LinkedList linkedList;
         LinkedList linkedList2;
         HashSet hashSet;
-        linkedList = this.aDg.aDd;
+        linkedList = this.aDX.aDU;
         if (linkedList.size() > 0) {
-            linkedList2 = this.aDg.aDd;
-            hashSet = this.aDg.aDe;
+            linkedList2 = this.aDX.aDU;
+            hashSet = this.aDX.aDV;
             hashSet.add(Integer.valueOf(((com.baidu.adp.plugin.packageManager.a.a) linkedList2.getLast()).getErrorCode()));
         }
-        this.aDg.setVisibility(8);
+        this.aDX.setVisibility(8);
     }
 }

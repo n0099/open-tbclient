@@ -1665,12 +1665,12 @@ public final class FragmentManagerImpl extends FragmentManager {
 
     public static int reverseTransit(int i) {
         switch (i) {
-            case 4097:
+            case FragmentTransaction.TRANSIT_FRAGMENT_OPEN /* 4097 */:
                 return FragmentTransaction.TRANSIT_FRAGMENT_CLOSE;
             case FragmentTransaction.TRANSIT_FRAGMENT_FADE /* 4099 */:
                 return FragmentTransaction.TRANSIT_FRAGMENT_FADE;
             case FragmentTransaction.TRANSIT_FRAGMENT_CLOSE /* 8194 */:
-                return 4097;
+                return FragmentTransaction.TRANSIT_FRAGMENT_OPEN;
             default:
                 return 0;
         }
@@ -1678,7 +1678,7 @@ public final class FragmentManagerImpl extends FragmentManager {
 
     public static int transitToStyleIndex(int i, boolean z) {
         switch (i) {
-            case 4097:
+            case FragmentTransaction.TRANSIT_FRAGMENT_OPEN /* 4097 */:
                 return z ? 1 : 2;
             case FragmentTransaction.TRANSIT_FRAGMENT_FADE /* 4099 */:
                 return z ? 5 : 6;

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ g cHV;
+    final /* synthetic */ g cNi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(g gVar, int i) {
         super(i);
-        this.cHV = gVar;
+        this.cNi = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,23 +25,23 @@ public class k extends CustomMessageListener {
         int i = 0;
         if (customResponsedMessage != null) {
             if (!(customResponsedMessage.getData() instanceof ArrayList)) {
-                this.cHV.cHR = 0;
-                this.cHV.cHQ = null;
+                this.cNi.cNe = 0;
+                this.cNi.cNd = null;
                 return;
             }
             ArrayList arrayList4 = (ArrayList) customResponsedMessage.getData();
-            arrayList = this.cHV.cHQ;
+            arrayList = this.cNi.cNd;
             if (arrayList == null) {
                 if (arrayList4.size() > 0) {
-                    this.cHV.cHR = 1;
+                    this.cNi.cNe = 1;
                 } else {
-                    this.cHV.cHR = 2;
+                    this.cNi.cNe = 2;
                 }
             } else {
                 int size = arrayList4.size();
-                arrayList2 = this.cHV.cHQ;
+                arrayList2 = this.cNi.cNd;
                 if (size != arrayList2.size()) {
-                    this.cHV.cHR = 1;
+                    this.cNi.cNe = 1;
                 } else {
                     while (true) {
                         int i2 = i;
@@ -49,21 +49,21 @@ public class k extends CustomMessageListener {
                             break;
                         }
                         if (i2 == arrayList4.size()) {
-                            this.cHV.cHR = 2;
+                            this.cNi.cNe = 2;
                         } else if (StringUtils.isNull((String) arrayList4.get(i2))) {
                             break;
                         } else {
-                            arrayList3 = this.cHV.cHQ;
+                            arrayList3 = this.cNi.cNd;
                             if (!((String) arrayList4.get(i2)).equals(arrayList3.get(i2))) {
                                 break;
                             }
                         }
                         i = i2 + 1;
                     }
-                    this.cHV.cHR = 1;
+                    this.cNi.cNe = 1;
                 }
             }
-            this.cHV.cHQ = arrayList4;
+            this.cNi.cNd = arrayList4;
         }
     }
 }

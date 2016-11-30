@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
@@ -56,7 +56,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (afD) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (agd) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -71,7 +71,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (afE) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (agf) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -89,7 +89,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.containerWidth = 0;
-        this.mOnClickListener = new t(this);
+        this.mOnClickListener = new u(this);
         init(context, null);
     }
 
@@ -100,7 +100,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.containerWidth = 0;
-        this.mOnClickListener = new t(this);
+        this.mOnClickListener = new u(this);
         init(context, attributeSet);
     }
 
@@ -111,7 +111,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.containerWidth = 0;
-        this.mOnClickListener = new t(this);
+        this.mOnClickListener = new u(this);
         init(context, attributeSet);
     }
 
@@ -133,6 +133,7 @@ public class NavigationBar extends RelativeLayout {
         this.mCenterText = (TextView) this.mRootView.findViewById(r.g.center_text);
         this.bottomLine = this.mRootView.findViewById(r.g.bottom_line);
         this.topCoverBgView = this.mRootView.findViewById(r.g.navigation_bar_view_cover_bg);
+        this.topCoverBgView.setBackgroundDrawable(at.q(0, r.f.navigation_cover_top_bg));
         this.barBgView = this.mRootView.findViewById(r.g.navigation_bar_view_bg);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r.l.NavigationBar);
@@ -154,7 +155,7 @@ public class NavigationBar extends RelativeLayout {
         setGravity(48);
         initPadding();
         switchNaviBarStatus(true);
-        this.mRootView.setOnClickListener(new u(this));
+        this.mRootView.setOnClickListener(new v(this));
     }
 
     public void showNavigationBarExcludeStatusbar(boolean z) {
@@ -253,8 +254,10 @@ public class NavigationBar extends RelativeLayout {
         if (str != null) {
             this.mCenterText.setText(str);
             this.mCenterText.setVisibility(0);
+            this.mCenterIcon.setVisibility(8);
         } else {
             this.mCenterText.setVisibility(8);
+            this.mCenterIcon.setVisibility(0);
         }
         return this.mCenterText;
     }
@@ -342,7 +345,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void setDefTextButtonColor(TextView textView) {
-        av.j((View) textView, r.d.navi_op_text);
+        at.j((View) textView, r.d.navi_op_text);
     }
 
     public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
@@ -456,7 +459,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void showBottomLine(boolean z) {
-        this.bottomLine.setVisibility(z ? 0 : 8);
+        this.bottomLine.setVisibility(8);
     }
 
     private View getViewFromLayoutFile(int i) {
@@ -466,24 +469,24 @@ public class NavigationBar extends RelativeLayout {
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
         BitmapDrawable bitmapDrawable;
         if (this.isAutoNight) {
-            bitmapDrawable = new BitmapDrawable(av.cO(r.f.s_navbar_bg));
+            bitmapDrawable = new BitmapDrawable(at.cP(r.f.s_navbar_bg));
         } else {
-            bitmapDrawable = new BitmapDrawable(av.r(r.f.s_navbar_bg, i));
+            bitmapDrawable = new BitmapDrawable(at.r(r.f.s_navbar_bg, i));
         }
         setBackgroundDrawable(bitmapDrawable);
-        av.e(this.bottomLine, r.d.cp_bg_line_a, i);
+        at.e(this.bottomLine, r.d.cp_bg_line_a, i);
         onBackBtnOnChangeSkin(i);
-        av.b(this.mTextTitle, r.d.cp_cont_b, r.d.s_navbar_title_color);
-        av.b(this.mCenterText, r.d.cp_cont_b, r.d.s_navbar_title_color);
+        at.b(this.mTextTitle, r.d.cp_cont_b, r.d.s_navbar_title_color);
+        at.b(this.mCenterText, r.d.cp_cont_b, r.d.s_navbar_title_color);
         if (this.mRegisterView != null) {
-            av.c(this.mRegisterView, r.d.cp_cont_f, 1);
+            at.c(this.mRegisterView, r.d.cp_cont_f, 1);
         }
         if (this.mLoginView != null) {
-            av.c(this.mLoginView, r.d.cp_cont_f, 1);
+            at.c(this.mLoginView, r.d.cp_cont_f, 1);
         }
         initPadding();
         if (hVar instanceof TbPageContext) {
-            ((TbPageContext) hVar).getLayoutMode().ah(i == 1);
+            ((TbPageContext) hVar).getLayoutMode().ai(i == 1);
             ((TbPageContext) hVar).getLayoutMode().x(this);
         }
     }
@@ -497,9 +500,9 @@ public class NavigationBar extends RelativeLayout {
             i = TbadkCoreApplication.m9getInst().getSkinType();
         }
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
-            av.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
+            at.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else {
-            av.a(this.mBackImageView, r.f.icon_return_bg_s, r.f.icon_return_bg, i);
+            at.a(this.mBackImageView, r.f.icon_return_bg_s, r.f.icon_return_bg, i);
         }
     }
 
@@ -510,7 +513,7 @@ public class NavigationBar extends RelativeLayout {
     public void setmBackImageViewBg(int i, int i2) {
         this.mBackImagedeepResId = i;
         this.mBackImagelightResId = i2;
-        av.b(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
+        at.b(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
     }
 
     public void release() {

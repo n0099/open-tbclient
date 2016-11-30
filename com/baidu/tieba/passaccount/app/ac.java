@@ -1,21 +1,17 @@
 package com.baidu.tieba.passaccount.app;
 
-import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.view.j;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class ac implements j.a {
-    final /* synthetic */ SapiFastRegActivity eiX;
+class ac implements Runnable {
+    final /* synthetic */ SapiFastRegActivity eoV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(SapiFastRegActivity sapiFastRegActivity) {
-        this.eiX = sapiFastRegActivity;
+        this.eoV = sapiFastRegActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.j.a
-    public void j(AccountData accountData) {
-        this.eiX.eiV = RegisterActivityConfig.REGIST_USER;
-        this.eiX.r(accountData);
+    @Override // java.lang.Runnable
+    public void run() {
+        TbadkCoreApplication.m9getInst().setUsed();
     }
 }

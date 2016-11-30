@@ -1,22 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class db extends CustomMessageListener {
-    final /* synthetic */ da eqY;
+public class db extends y.a {
+    public TextView aYg;
+    public HeadImageView ceb;
+    public TextView cyf;
+    public TextView dcb;
+    public TbImageView ewK;
+    public TextView ewL;
+    public int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db(da daVar, int i) {
-        super(i);
-        this.eqY = daVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.eqY.j(customResponsedMessage);
+    public db(View view) {
+        super(view);
+        this.mSkinType = 3;
+        this.ceb = (HeadImageView) view.findViewById(r.g.photo);
+        this.ceb.setRadius(com.baidu.adp.lib.util.k.e(view.getContext(), r.e.ds30));
+        this.aYg = (TextView) view.findViewById(r.g.user_name);
+        this.dcb = (TextView) view.findViewById(r.g.time);
+        this.cyf = (TextView) view.findViewById(r.g.text);
+        this.ewK = (TbImageView) view.findViewById(r.g.god_pic);
+        this.ewL = (TextView) view.findViewById(r.g.god_btn);
     }
 }

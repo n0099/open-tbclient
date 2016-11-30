@@ -2,6 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
@@ -17,33 +19,15 @@ public class g extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ab abVar;
-        ab abVar2;
-        ab abVar3;
-        ab abVar4;
-        ab abVar5;
-        ab abVar6;
-        ab abVar7;
-        if (customResponsedMessage.getData() instanceof Integer) {
-            Integer num = (Integer) customResponsedMessage.getData();
-            if (num.intValue() == 2) {
-                abVar6 = this.this$0.fyW;
-                abVar6.kT(true);
-                abVar7 = this.this$0.fyW;
-                abVar7.hr(true);
-            } else if (num.intValue() == 1) {
-                abVar3 = this.this$0.fyW;
-                abVar3.kT(true);
-                abVar4 = this.this$0.fyW;
-                abVar4.hr(false);
-            } else {
-                abVar = this.this$0.fyW;
-                abVar.kT(false);
-                abVar2 = this.this$0.fyW;
-                abVar2.hr(false);
-            }
-            abVar5 = this.this$0.fyW;
-            abVar5.blI();
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof TbPageContext)) {
+            TbPageContext tbPageContext = (TbPageContext) customResponsedMessage.getData();
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+            aVar.ca(r.j.across_forum_dialog_tips);
+            aVar.b(r.j.across_forum_dialog_right_button, new h(this));
+            aVar.a(r.j.across_forum_dialog_left_button, new i(this));
+            aVar.au(false);
+            aVar.b(tbPageContext).tq();
+            com.baidu.tbadk.core.sharedPref.b.um().putBoolean("across_forum_dialog_has_show", true);
         }
     }
 }

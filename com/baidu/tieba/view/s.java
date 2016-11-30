@@ -6,24 +6,24 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    com.baidu.tieba.e.b fYL = new com.baidu.tieba.e.b();
-    final /* synthetic */ PersonHeaderAttentionView fYM;
+    com.baidu.tieba.e.b ggg = new com.baidu.tieba.e.b();
+    final /* synthetic */ PersonHeaderAttentionView ggh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonHeaderAttentionView personHeaderAttentionView) {
-        this.fYM = personHeaderAttentionView;
+        this.ggh = personHeaderAttentionView;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ac, code lost:
-        if (r0.getPersonPrivate().Cf() == 2) goto L33;
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ab, code lost:
+        if (r0.getPersonPrivate().Cl() == 2) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00eb, code lost:
-        if (r0.getPersonPrivate().Cd() == 2) goto L44;
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00ea, code lost:
+        if (r0.getPersonPrivate().Cj() == 2) goto L44;
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -43,56 +43,56 @@ public class s implements View.OnClickListener {
         UserData userData10;
         m mVar2;
         Context context;
-        userData = this.fYM.mUserData;
+        userData = this.ggh.mUserData;
         if (userData != null && view != null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                context = this.fYM.mContext;
-                bm.ai(context);
+                context = this.ggh.mContext;
+                bk.ai(context);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            userData2 = this.fYM.mUserData;
+            userData2 = this.ggh.mUserData;
             boolean equals = currentAccount.equals(userData2.getUserId());
-            userData3 = this.fYM.mUserData;
+            userData3 = this.ggh.mUserData;
             boolean z = userData3.getIsFriend() == 1;
             int id = view.getId();
             if (r.g.person_header_attention_container == id) {
-                this.fYL.bJq = 4;
+                this.ggg.bMj = 4;
             } else if (r.g.person_header_fans_container == id) {
-                this.fYL.bJq = 5;
+                this.ggg.bMj = 5;
             } else if (r.g.person_header_post_container == id) {
-                userData7 = this.fYM.mUserData;
-                if (userData7.getPersonPrivate().Cf() != 1 && !equals) {
+                userData7 = this.ggh.mUserData;
+                if (userData7.getPersonPrivate().Cl() != 1 && !equals) {
                     if (z) {
-                        userData9 = this.fYM.mUserData;
+                        userData9 = this.ggh.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView = this.fYM;
-                    userData8 = this.fYM.mUserData;
-                    personHeaderAttentionView.hB(userData8.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView = this.ggh;
+                    userData8 = this.ggh.mUserData;
+                    personHeaderAttentionView.hC(userData8.getSex());
                     return;
                 }
-                this.fYL.bJq = 6;
+                this.ggg.bMj = 6;
             } else if (r.g.person_header_bar_container == id) {
-                userData4 = this.fYM.mUserData;
-                if (userData4.getPersonPrivate().Cd() != 1 && !equals) {
+                userData4 = this.ggh.mUserData;
+                if (userData4.getPersonPrivate().Cj() != 1 && !equals) {
                     if (z) {
-                        userData6 = this.fYM.mUserData;
+                        userData6 = this.ggh.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView2 = this.fYM;
-                    userData5 = this.fYM.mUserData;
-                    personHeaderAttentionView2.hB(userData5.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView2 = this.ggh;
+                    userData5 = this.ggh.mUserData;
+                    personHeaderAttentionView2.hC(userData5.getSex());
                     return;
                 }
-                this.fYL.bJq = 7;
+                this.ggg.bMj = 7;
             }
-            mVar = this.fYM.eFl;
+            mVar = this.ggh.eLK;
             if (mVar != null) {
-                this.fYL.bJr = new Bundle();
-                Bundle bundle = this.fYL.bJr;
-                userData10 = this.fYM.mUserData;
+                this.ggg.bMk = new Bundle();
+                Bundle bundle = this.ggg.bMk;
+                userData10 = this.ggh.mUserData;
                 bundle.putSerializable(UserData.TYPE_USER, userData10);
-                mVar2 = this.fYM.eFl;
-                mVar2.a(view, this.fYL);
+                mVar2 = this.ggh.eLK;
+                mVar2.a(view, this.ggg);
             }
         }
     }

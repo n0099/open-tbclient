@@ -1,23 +1,15 @@
 package com.baidu.tieba.write.write;
-
-import android.widget.GridView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements Runnable {
-    final /* synthetic */ WriteActivity ghD;
+class ba implements Runnable {
+    final /* synthetic */ WriteActivity gpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteActivity writeActivity) {
-        this.ghD = writeActivity;
+        this.gpp = writeActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.write.view.PhotoLiveView.a aVar;
-        GridView gridView;
-        aVar = this.ghD.ggX;
-        aVar.notifyDataSetChanged();
-        gridView = this.ghD.ggW;
-        gridView.invalidateViews();
+        com.baidu.adp.lib.util.k.b(this.gpp.getActivity(), this.gpp.getCurrentFocus());
     }
 }

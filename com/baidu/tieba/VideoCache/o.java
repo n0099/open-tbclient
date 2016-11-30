@@ -2,16 +2,15 @@ package com.baidu.tieba.VideoCache;
 
 import android.os.Handler;
 import android.os.Message;
-import java.io.IOException;
 import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements Handler.Callback {
-    final /* synthetic */ n aOA;
+    final /* synthetic */ n aQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aOA = nVar;
+        this.aQG = nVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -27,32 +26,32 @@ public class o implements Handler.Callback {
             if (message.obj instanceof InputStream) {
                 try {
                     ((InputStream) message.obj).close();
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         } else if (message.what == 2) {
             if (message.obj instanceof String) {
-                iVar = this.aOA.aOy;
+                iVar = this.aQG.aQE;
                 iVar.setVideoUrl((String) message.obj);
-                iVar2 = this.aOA.aOy;
+                iVar2 = this.aQG.aQE;
                 iVar2.run();
             }
         } else if (message.what == 3) {
-            cVar4 = this.aOA.aOz;
+            cVar4 = this.aQG.aQF;
             if (cVar4 != null) {
-                cVar5 = this.aOA.aOz;
-                cVar5.Kg();
+                cVar5 = this.aQG.aQF;
+                cVar5.KK();
             }
         } else if (message.what == 4) {
             if (message.obj instanceof String) {
-                cVar3 = this.aOA.aOz;
-                cVar3.gQ((String) message.obj);
+                cVar3 = this.aQG.aQF;
+                cVar3.gR((String) message.obj);
             }
         } else if (message.what == 5) {
-            cVar = this.aOA.aOz;
+            cVar = this.aQG.aQF;
             if (cVar != null) {
-                cVar2 = this.aOA.aOz;
+                cVar2 = this.aQG.aQF;
                 cVar2.clearCache();
             }
         }

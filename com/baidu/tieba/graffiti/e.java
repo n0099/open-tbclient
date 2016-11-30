@@ -12,65 +12,65 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.l;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.bm;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.util.Error;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.util.p;
+import com.baidu.tieba.tbadkCore.util.o;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements View.OnClickListener {
-    static final int cwI = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds150);
-    static final int cwJ = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds30);
-    private com.baidu.tbadk.widget.richText.f aIj;
-    private boolean aJj;
-    private View bGK;
-    private final View.OnLongClickListener bIY;
-    private RelativeLayout.LayoutParams cwK;
-    private RelativeLayout.LayoutParams cwL;
-    private TbImageView cwM;
-    private View cwN;
-    private TextView cwO;
-    private boolean cwP;
-    private final com.baidu.tbadk.util.e<Error> cwQ;
-    public final View.OnClickListener cwR;
+    static final int cBS = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds150);
+    static final int cBT = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds30);
+    private com.baidu.tbadk.widget.richText.f aIZ;
+    private boolean aKc;
+    private View bJE;
+    private final View.OnLongClickListener bLR;
+    private RelativeLayout.LayoutParams cBU;
+    private RelativeLayout.LayoutParams cBV;
+    private TbImageView cBW;
+    private View cBX;
+    private TextView cBY;
+    private boolean cBZ;
+    private final com.baidu.tbadk.util.e<Error> cCa;
+    public final View.OnClickListener cCb;
 
     public e(Context context) {
         super(context);
-        this.cwK = new RelativeLayout.LayoutParams(-2, -2);
-        this.cwL = new RelativeLayout.LayoutParams(-1, -2);
-        this.cwM = null;
-        this.bGK = null;
-        this.cwN = null;
-        this.cwO = null;
-        this.aJj = true;
-        this.cwP = false;
-        this.bIY = new f(this);
-        this.cwQ = new g(this);
-        this.cwR = new h(this);
+        this.cBU = new RelativeLayout.LayoutParams(-2, -2);
+        this.cBV = new RelativeLayout.LayoutParams(-1, -2);
+        this.cBW = null;
+        this.bJE = null;
+        this.cBX = null;
+        this.cBY = null;
+        this.aKc = true;
+        this.cBZ = false;
+        this.bLR = new f(this);
+        this.cCa = new g(this);
+        this.cCb = new h(this);
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(r.h.tb_richtext_graffitiview, this);
-        this.bGK = inflate.findViewById(r.g.root_layout);
-        this.cwM = (TbImageView) inflate.findViewById(r.g.graffiti_image);
-        this.cwM.setGifIconSupport(false);
-        this.cwN = inflate.findViewById(r.g.save_layout);
-        this.cwO = (TextView) inflate.findViewById(r.g.tv_save);
-        this.cwM.setDrawBorder(true);
-        this.cwM.setBorderColor(av.getColor(r.d.cp_bg_line_k));
-        this.cwM.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds1));
-        this.cwM.setFocusable(false);
-        this.cwN.setClickable(true);
-        this.cwM.setOnClickListener(this.cwR);
-        this.cwM.setGifIconSupport(false);
-        this.cwM.setAdjustViewBounds(false);
-        this.cwO.setClickable(true);
-        this.cwO.setOnClickListener(this);
-        this.cwO.setLongClickable(true);
-        this.cwO.setOnLongClickListener(this.bIY);
+        this.bJE = inflate.findViewById(r.g.root_layout);
+        this.cBW = (TbImageView) inflate.findViewById(r.g.graffiti_image);
+        this.cBW.setGifIconSupport(false);
+        this.cBX = inflate.findViewById(r.g.save_layout);
+        this.cBY = (TextView) inflate.findViewById(r.g.tv_save);
+        this.cBW.setDrawBorder(true);
+        this.cBW.setBorderColor(at.getColor(r.d.cp_bg_line_k));
+        this.cBW.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds1));
+        this.cBW.setFocusable(false);
+        this.cBX.setClickable(true);
+        this.cBW.setOnClickListener(this.cCb);
+        this.cBW.setGifIconSupport(false);
+        this.cBW.setAdjustViewBounds(false);
+        this.cBY.setClickable(true);
+        this.cBY.setOnClickListener(this);
+        this.cBY.setLongClickable(true);
+        this.cBY.setOnLongClickListener(this.bLR);
     }
 
     public void a(com.baidu.tbadk.widget.richText.f fVar, int i, String str, int i2, int i3, boolean z) {
@@ -81,49 +81,49 @@ public class e extends RelativeLayout implements View.OnClickListener {
         if (getVisibility() != 0) {
             setVisibility(0);
         }
-        this.aIj = fVar;
+        this.aIZ = fVar;
         a(fVar, i, i2, i3);
-        if (!d.ajV() || !z) {
-            this.cwN.setVisibility(8);
-            this.bGK.setLayoutParams(this.cwK);
+        if (!d.alQ() || !z) {
+            this.cBX.setVisibility(8);
+            this.bJE.setLayoutParams(this.cBU);
         } else {
-            this.cwN.setVisibility(0);
-            this.bGK.setLayoutParams(this.cwL);
+            this.cBX.setVisibility(0);
+            this.bJE.setLayoutParams(this.cBV);
         }
-        boolean oN = l.oH().oN();
-        this.cwM.setDefaultBgResource(r.d.cp_bg_line_c);
-        if (oN) {
-            this.cwM.setInterceptOnClick(false);
-            this.cwM.setDefaultResource(r.f.transparent_bg);
+        boolean oP = l.oJ().oP();
+        this.cBW.setDefaultBgResource(r.d.cp_bg_line_c);
+        if (oP) {
+            this.cBW.setInterceptOnClick(false);
+            this.cBW.setDefaultResource(r.f.transparent_bg);
         } else {
-            this.cwM.setDefaultResource(r.f.icon_click);
-            this.cwM.setInterceptOnClick(true);
+            this.cBW.setDefaultResource(r.f.icon_click);
+            this.cBW.setInterceptOnClick(true);
         }
-        this.cwM.c(fVar.url, 17, false);
-        this.cwM.setTag(fVar.url);
+        this.cBW.c(fVar.url, 17, false);
+        this.cBW.setTag(fVar.url);
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     private void a(com.baidu.tbadk.widget.richText.f fVar, int i, int i2, int i3) {
         ViewGroup.LayoutParams layoutParams;
-        if (fVar != null && (layoutParams = this.cwM.getLayoutParams()) != null && i2 > cwI) {
+        if (fVar != null && (layoutParams = this.cBW.getLayoutParams()) != null && i2 > cBS) {
             int i4 = fVar.width;
-            int i5 = (i2 - cwI) - cwJ;
+            int i5 = (i2 - cBS) - cBT;
             if (i5 <= 0 || i4 <= i5) {
                 i5 = i4;
             }
             if (layoutParams.width != i5 || layoutParams.height != i5) {
                 layoutParams.width = i5;
                 layoutParams.height = i5;
-                this.cwM.setLayoutParams(layoutParams);
+                this.cBW.setLayoutParams(layoutParams);
             }
-            this.cwN.setPadding(Math.min(i3, ((i2 - cwI) - i5) / 2), 0, 0, 0);
+            this.cBX.setPadding(Math.min(i3, ((i2 - cBS) - i5) / 2), 0, 0, 0);
         }
     }
 
-    public void k(boolean z, boolean z2) {
-        if (this.aJj != z) {
-            this.aJj = z;
+    public void j(boolean z, boolean z2) {
+        if (this.aKc != z) {
+            this.aKc = z;
             if (z2) {
                 requestLayout();
             }
@@ -131,42 +131,42 @@ public class e extends RelativeLayout implements View.OnClickListener {
     }
 
     public TbImageView getGraffitiImageView() {
-        return this.cwM;
+        return this.cBW;
     }
 
     public View getSaveBtn() {
-        return this.cwN;
+        return this.cBX;
     }
 
     public void onChangeSkinType(int i) {
-        av.c(this.cwO, r.d.cp_link_tip_a, 1);
-        av.k(this.cwO, r.f.btn_tuya_save_n);
+        at.c(this.cBY, r.d.cp_link_tip_a, 1);
+        at.k(this.cBY, r.f.btn_tuya_save_n);
     }
 
     public void reset() {
-        this.aIj = null;
-        this.cwM.setImageResource(0);
-        this.cwN.setBackgroundResource(0);
-        this.cwO.setBackgroundResource(0);
+        this.aIZ = null;
+        this.cBW.setImageResource(0);
+        this.cBX.setBackgroundResource(0);
+        this.cBY.setBackgroundResource(0);
         setTag(null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        p pVar;
-        ajW();
-        if (view == this.cwO && this.aIj != null && bm.ak(getContext()) && !com.baidu.tbadk.util.d.isFastDoubleClick() && !this.cwP) {
-            this.cwP = true;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, p.class);
-            if (runTask != null && (pVar = (p) runTask.getData()) != null) {
-                pVar.b(this.aIj.url, this.cwQ);
+        o oVar;
+        alR();
+        if (view == this.cBY && this.aIZ != null && bk.ak(getContext()) && !com.baidu.tbadk.util.d.isFastDoubleClick() && !this.cBZ) {
+            this.cBZ = true;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, o.class);
+            if (runTask != null && (oVar = (o) runTask.getData()) != null) {
+                oVar.b(this.aIZ.url, this.cCa);
             }
-            TiebaStatic.log(new ax("c10964"));
+            TiebaStatic.log(new av("c10964"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajW() {
+    public void alR() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 

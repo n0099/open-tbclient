@@ -10,97 +10,97 @@ import android.view.animation.AnimationUtils;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class r {
-    private View aAy;
-    private boolean avA = false;
-    private View bLL;
-    private Animation cDp;
-    private Animation cDq;
-    private ViewGroup cDw;
-    private a cDx;
-    private q cDy;
+    private View aBq;
+    private boolean awu = false;
+    private View bOE;
+    private Animation cIC;
+    private Animation cID;
+    private ViewGroup cIJ;
+    private a cIK;
+    private q cIL;
     private int topHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void amh();
+        void aoc();
     }
 
     public r(ViewGroup viewGroup) {
-        this.cDw = viewGroup;
+        this.cIJ = viewGroup;
     }
 
     public void a(a aVar) {
-        this.cDx = aVar;
+        this.cIK = aVar;
     }
 
     public boolean isShowing() {
-        return this.avA;
+        return this.awu;
     }
 
     public void a(Context context, List<TagInfo> list, int i) {
-        if (!this.avA) {
-            this.avA = true;
-            this.aAy = b(context, list, i);
-            this.cDw.addView(this.aAy);
-            av.l(this.aAy, r.d.common_color_10186);
-            this.aAy.startAnimation(aJ(context));
+        if (!this.awu) {
+            this.awu = true;
+            this.aBq = b(context, list, i);
+            this.cIJ.addView(this.aBq);
+            at.l(this.aBq, r.d.common_color_10186);
+            this.aBq.startAnimation(aV(context));
         }
     }
 
-    public void aI(Context context) {
-        if (this.aAy != null) {
-            this.aAy.startAnimation(aK(context));
+    public void aU(Context context) {
+        if (this.aBq != null) {
+            this.aBq.startAnimation(aW(context));
         }
     }
 
     private View b(Context context, List<TagInfo> list, int i) {
         View inflate = LayoutInflater.from(context).inflate(r.h.scroll_fragment_more, (ViewGroup) null);
-        this.bLL = inflate.findViewById(r.g.more_top_view);
-        jZ(this.topHeight);
+        this.bOE = inflate.findViewById(r.g.more_top_view);
+        kg(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(r.g.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.cDy = new q(context, i);
-        this.cDy.bs(list);
-        gridView.setAdapter((ListAdapter) this.cDy);
+        this.cIL = new q(context, i);
+        this.cIL.bu(list);
+        gridView.setAdapter((ListAdapter) this.cIL);
         gridView.setOnItemClickListener(new s(this, context));
         return inflate;
     }
 
-    public void jZ(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bLL.getLayoutParams();
+    public void kg(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bOE.getLayoutParams();
         layoutParams.height = i;
-        this.bLL.setLayoutParams(layoutParams);
+        this.bOE.setLayoutParams(layoutParams);
     }
 
-    private Animation aJ(Context context) {
-        if (this.cDp == null) {
-            this.cDp = AnimationUtils.loadAnimation(context, r.a.dialog_ani_t2b_enter);
+    private Animation aV(Context context) {
+        if (this.cIC == null) {
+            this.cIC = AnimationUtils.loadAnimation(context, r.a.dialog_ani_t2b_enter);
         }
-        return this.cDp;
+        return this.cIC;
     }
 
-    private Animation aK(Context context) {
-        if (this.cDq == null) {
-            this.cDq = AnimationUtils.loadAnimation(context, r.a.dialog_ani_t2b_exit);
+    private Animation aW(Context context) {
+        if (this.cID == null) {
+            this.cID = AnimationUtils.loadAnimation(context, r.a.dialog_ani_t2b_exit);
         }
-        this.cDq.setAnimationListener(new t(this));
-        return this.cDq;
+        this.cID.setAnimationListener(new t(this));
+        return this.cID;
     }
 
-    public void ka(int i) {
+    public void kh(int i) {
         this.topHeight = i;
     }
 
-    public void dl(int i) {
-        av.l(this.aAy, r.d.common_color_10186);
-        if (this.cDy != null) {
-            this.cDy.notifyDataSetChanged();
+    public void dm(int i) {
+        at.l(this.aBq, r.d.common_color_10186);
+        if (this.cIL != null) {
+            this.cIL.notifyDataSetChanged();
         }
     }
 }

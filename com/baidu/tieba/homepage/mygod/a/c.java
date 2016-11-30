@@ -5,48 +5,48 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.cd;
+import com.baidu.tieba.card.bz;
 import com.baidu.tieba.card.data.g;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<g, a> {
-    private TbPageContext<?> GM;
-    public BdUniqueId aYW;
-    private cd<g> bVT;
-    private com.baidu.tieba.card.e cEu;
+    private TbPageContext<?> GO;
+    private bz<g> bZe;
+    public BdUniqueId bcf;
+    private com.baidu.tieba.card.e cJH;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bVT = new d(this);
-        this.GM = tbPageContext;
+        this.bZe = new d(this);
+        this.GO = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ab */
+    /* renamed from: ai */
     public a a(ViewGroup viewGroup) {
-        this.cEu = new com.baidu.tieba.card.e(this.GM);
-        this.cEu.aYF = false;
-        this.cEu.j(this.aYW);
-        return new a(this.cEu);
+        this.cJH = new com.baidu.tieba.card.e(this.GO);
+        this.cJH.bbO = false;
+        this.cJH.j(this.bcf);
+        return new a(this.cJH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, a aVar) {
-        aVar.cEw.onBindDataToView(gVar);
-        aVar.cEw.setOnSubCardOnClickListenner(this.bVT);
+        aVar.cJJ.onBindDataToView(gVar);
+        aVar.cJJ.setOnSubCardOnClickListenner(this.bZe);
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.card.e cEw;
+        public com.baidu.tieba.card.e cJJ;
 
         public a(com.baidu.tieba.card.e eVar) {
             super(eVar.getView());
-            this.cEw = eVar;
+            this.cJJ = eVar;
         }
     }
 }

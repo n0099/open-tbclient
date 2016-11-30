@@ -1,50 +1,43 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.Topic;
 /* loaded from: classes.dex */
 public class bq {
-    private int OC;
-    private long Vp;
-    private String activity_all_icon;
-    private String activity_half_icon;
-    private String activity_url;
+    private int VK = 0;
+    private int VL = 0;
+    private String link = "";
 
-    public String getActivityUrl() {
-        return this.activity_url;
+    public int td() {
+        return this.VK;
     }
 
-    public String tc() {
-        return this.activity_all_icon;
+    public int te() {
+        return this.VL;
     }
 
-    public String td() {
-        return this.activity_half_icon;
-    }
-
-    public void a(YuleActivity yuleActivity) {
-        if (yuleActivity != null) {
-            this.Vp = yuleActivity.activity_id.longValue();
-            this.OC = yuleActivity.activity_type.intValue();
-            this.activity_url = yuleActivity.activity_url;
-            this.activity_all_icon = yuleActivity.activity_all_icon;
-            this.activity_half_icon = yuleActivity.activity_half_icon;
-        }
+    public String getLink() {
+        return this.link;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Vp = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.OC = jSONObject.optInt("activity_type");
-                this.activity_url = jSONObject.optString("activity_url");
-                this.activity_all_icon = jSONObject.optString("activity_all_icon");
-                this.activity_half_icon = jSONObject.optString("activity_half_icon");
+                this.VK = jSONObject.optInt("is_lpost", 0);
+                this.VL = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString("link", "");
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
+        }
+    }
+
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.VK = topic.is_lpost.intValue();
+            this.VL = topic.topic_type.intValue();
+            this.link = topic.link;
         }
     }
 }

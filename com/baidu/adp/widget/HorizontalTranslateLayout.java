@@ -7,10 +7,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 import android.support.v4.view.MotionEventCompat;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.List;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
@@ -155,7 +155,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
         canvas.translate(this.zB, 0.0f);
-        Log.d("HorizontalTranslateLayout", "@dispatchDraw " + this.zB);
+        BdLog.d("HorizontalTranslateLayout@dispatchDraw " + this.zB);
         canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.zJ);
         super.dispatchDraw(canvas);
         canvas.restore();
@@ -187,12 +187,12 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 default:
                     return false;
                 case 2:
-                    Log.d("HorizontalTranslateLayout", "@interceptInterceptTouchEvent");
+                    BdLog.d("HorizontalTranslateLayout@interceptInterceptTouchEvent");
                     motionEvent.offsetLocation(-this.zB, 0.0f);
                     return j(x, y);
             }
         }
-        Log.d("HorizontalTranslateLayout", "Intercepted to onTouch()");
+        BdLog.d("HorizontalTranslateLayoutIntercepted to onTouch()");
         return true;
     }
 
@@ -210,10 +210,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
             switch (action) {
                 case 1:
                 case 3:
-                    Log.d("HorizontalTranslateLayout", "@onTouchEvent up");
+                    BdLog.d("HorizontalTranslateLayout@onTouchEvent up");
                     this.zN = false;
                     if (this.zQ.Ag) {
-                        Log.d("HorizontalTranslateLayout", "@onTouchEvent tracking");
+                        BdLog.d("HorizontalTranslateLayout@onTouchEvent tracking");
                         this.zQ.jP();
                         this.zQ.jQ();
                         return true;
@@ -240,9 +240,9 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     return false;
             }
         }
-        Log.d("HorizontalTranslateLayout", String.format("collapse x=%d, y=%d", Integer.valueOf(x), Integer.valueOf(y)));
-        Log.d("HorizontalTranslateLayout", "left tap back frame = " + this.zH);
-        Log.d("HorizontalTranslateLayout", "right tap back frame = " + this.zI);
+        BdLog.d("HorizontalTranslateLayout" + String.format("collapse x=%d, y=%d", Integer.valueOf(x), Integer.valueOf(y)));
+        BdLog.d("HorizontalTranslateLayoutleft tap back frame = " + this.zH);
+        BdLog.d("HorizontalTranslateLayoutright tap back frame = " + this.zI);
         switch (action) {
             case 0:
                 if ((this.zG != 10000 || !this.zH.contains(x, y)) && (this.zG != 10001 || !this.zI.contains(x, y))) {
@@ -425,7 +425,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 int i2 = this.zV.zB - i;
                 switch (jR()[this.zV.zF.ordinal()]) {
                     case 1:
-                        Log.d("HorizontalTranslateLayout", "@move left");
+                        BdLog.d("HorizontalTranslateLayout@move left");
                         if (i2 > this.zV.zz - this.zV.getMeasuredWidth() && i2 < 0) {
                             this.zV.zB -= i;
                             this.zV.invalidate();
@@ -433,7 +433,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                         }
                         return;
                     case 2:
-                        Log.d("HorizontalTranslateLayout", "@move right");
+                        BdLog.d("HorizontalTranslateLayout@move right");
                         if (i2 < this.zV.getMeasuredWidth() - this.zV.zA && i2 > 0) {
                             this.zV.zB -= i;
                             this.zV.invalidate();
@@ -441,7 +441,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                         }
                         return;
                     case 3:
-                        Log.d("HorizontalTranslateLayout", "@move horizontal");
+                        BdLog.d("HorizontalTranslateLayout@move horizontal");
                         if (i2 >= this.zV.zz - this.zV.getMeasuredWidth() && i2 <= this.zV.getMeasuredWidth() - this.zV.zA) {
                             this.zV.zB -= i;
                             this.zV.invalidate();
@@ -459,7 +459,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             float max;
             this.Af.computeCurrentVelocity(this.Ah);
             float xVelocity = this.Af.getXVelocity();
-            Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
+            BdLog.d("HorizontalTranslateLayout@fling x " + xVelocity);
             if (xVelocity < 0.0f) {
                 max = Math.min(xVelocity, -this.Ai);
             } else {
@@ -481,7 +481,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
 
         private void C(float f) {
-            Log.d("HorizontalTranslateLayout", "@horizontalFling");
+            BdLog.d("HorizontalTranslateLayout@horizontalFling");
             int i = this.zV.zB;
             if (i <= 0 && i >= this.zV.zz - this.zV.getMeasuredWidth()) {
                 if (f < 0.0f) {
@@ -499,7 +499,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
 
         private void D(float f) {
-            Log.d("HorizontalTranslateLayout", "@leftFling");
+            BdLog.d("HorizontalTranslateLayout@leftFling");
             if (f < 0.0f) {
                 this.zV.zP.A(f);
             } else {
@@ -508,7 +508,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         }
 
         private void E(float f) {
-            Log.d("HorizontalTranslateLayout", "@rightFling");
+            BdLog.d("HorizontalTranslateLayout@rightFling");
             if (f < 0.0f) {
                 this.zV.zP.z(f);
             } else {
@@ -621,8 +621,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.zY = 0 - this.zV.zB;
             this.zZ = this.zV.zB;
             this.zV.zO.removeMessages(-104);
-            Log.d("Animator", "@animateTopOpen " + this.zY);
-            Log.d("Animator", "@animateTopOpen " + f);
+            BdLog.d("Animator@animateTopOpen " + this.zY);
+            BdLog.d("Animator@animateTopOpen " + f);
             this.zV.zO.sendEmptyMessageAtTime(-104, this.Ab);
         }
 
@@ -640,8 +640,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.zW = 0.0f;
             this.zY = 0 - this.zV.zB;
             this.zZ = this.zV.zB;
-            Log.d("Animator", "@animateBottomOpen " + this.zY);
-            Log.d("Animator", "@animateBottomOpen " + f);
+            BdLog.d("Animator@animateBottomOpen " + this.zY);
+            BdLog.d("Animator@animateBottomOpen " + f);
             this.zV.zO.removeMessages(-105);
             this.zV.zO.sendEmptyMessageAtTime(-105, this.Ab);
         }
@@ -659,8 +659,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.zW = 0.0f;
             this.zY = ((-this.zV.getMeasuredWidth()) + this.zV.zz) - this.zV.zB;
             this.zZ = this.zV.zB;
-            Log.d("Animator", "@animateTop " + this.zY);
-            Log.d("Animator", "@animateTop " + f);
+            BdLog.d("Animator@animateTop " + this.zY);
+            BdLog.d("Animator@animateTop " + f);
             this.zV.zO.removeMessages(-100);
             this.zV.zO.sendEmptyMessageAtTime(-100, this.Ab);
         }
@@ -678,8 +678,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.zW = 0.0f;
             this.zY = (this.zV.getMeasuredWidth() - this.zV.zA) - this.zV.zB;
             this.zZ = this.zV.zB;
-            Log.d("Animator", "@animateBottom " + this.zY);
-            Log.d("Animator", "@animateBottom " + f);
+            BdLog.d("Animator@animateBottom " + this.zY);
+            BdLog.d("Animator@animateBottom " + f);
             this.zV.zO.removeMessages(-101);
             this.zV.zO.sendEmptyMessageAtTime(-101, this.Ab);
         }

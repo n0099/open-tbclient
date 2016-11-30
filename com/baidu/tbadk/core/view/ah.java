@@ -1,20 +1,43 @@
 package com.baidu.tbadk.core.view;
 
-import com.baidu.tbadk.core.util.bm;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class ah implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ UserIconBox ahs;
+public class ah extends ImageSpan {
+    private int offset;
+    private WeakReference<Drawable> zl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(UserIconBox userIconBox) {
-        this.ahs = userIconBox;
+    public ah(Drawable drawable) {
+        super(drawable);
     }
 
-    @Override // com.baidu.tbadk.imageManager.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        if (aVar != null && str != null) {
-            bm.a(this.ahs, false, new ai(this, str));
+    public void setOffset(int i) {
+        this.offset = i;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable jy = jy();
+        canvas.save();
+        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - jy.getBounds().height()) / 2) + this.offset);
+        jy.draw(canvas);
+        canvas.restore();
+    }
+
+    private Drawable jy() {
+        WeakReference<Drawable> weakReference = this.zl;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
         }
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.zl = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
     }
 }

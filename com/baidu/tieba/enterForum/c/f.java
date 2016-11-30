@@ -14,146 +14,148 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private TbPageContext<?> Gd;
-    private ViewEventCenter aPL;
-    private SoftReference<j> bHJ;
-    private com.baidu.tieba.enterForum.a.b bHK;
-    private com.baidu.tieba.enterForum.a.a bHL;
-    private int bHM;
+    private TbPageContext<?> Gf;
+    private ViewEventCenter aRS;
+    private SoftReference<j> bKD;
+    private com.baidu.tieba.enterForum.a.b bKE;
+    private com.baidu.tieba.enterForum.a.a bKF;
+    private int bKG;
 
     public f(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.Gd = tbPageContext;
-        this.aPL = viewEventCenter;
+        this.Gf = tbPageContext;
+        this.aRS = viewEventCenter;
     }
 
-    public j Yl() {
-        if (this.bHJ == null) {
+    public j Zn() {
+        if (this.bKD == null) {
             return null;
         }
-        return this.bHJ.get();
+        return this.bKD.get();
     }
 
-    public void Ym() {
-        j jVar = new j(this.Gd.getPageActivity());
-        jVar.setEventCenter(this.aPL);
-        this.bHJ = new SoftReference<>(jVar);
+    public void Zo() {
+        j jVar = new j(this.Gf.getPageActivity());
+        jVar.setEventCenter(this.aRS);
+        this.bKD = new SoftReference<>(jVar);
     }
 
-    public int Yn() {
-        return this.bHM;
+    public int Zp() {
+        return this.bKG;
     }
 
-    public List<w> Ft() {
-        if (this.bHM == 2) {
+    public List<w> Fy() {
+        if (this.bKG == 2) {
             if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                return b(this.bHL.Ft(), false);
+                return b(this.bKF.Fy(), false);
             }
-            return this.bHL.Ft();
+            return this.bKF.Fy();
         }
-        return this.bHK.Ft();
+        return this.bKE.Fy();
     }
 
     public void b(w wVar) {
-        List<w> Ft = Ft();
-        if (Ft != null) {
-            Ft.remove(wVar);
-            if (this.bHM == 2) {
+        List<w> Fy = Fy();
+        if (Fy != null) {
+            Fy.remove(wVar);
+            if (this.bKG == 2) {
                 if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                    this.bHL.A(b(Ft, true));
+                    this.bKF.A(b(Fy, true));
                     return;
                 } else {
-                    this.bHL.A(Ft);
+                    this.bKF.A(Fy);
                     return;
                 }
             }
-            this.bHK.A(Ft);
+            this.bKE.A(Fy);
         }
     }
 
-    public void Yo() {
-        List<w> Ft = Ft();
-        if (this.bHM == 2) {
-            TiebaStatic.eventStat(this.Gd.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
-            this.bHM = 1;
+    public void Zq() {
+        List<w> Fy = Fy();
+        if (this.bKG == 2) {
+            TiebaStatic.eventStat(this.Gf.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
+            this.bKG = 1;
         } else {
-            TiebaStatic.eventStat(this.Gd.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
-            this.bHM = 2;
+            TiebaStatic.eventStat(this.Gf.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
+            this.bKG = 2;
         }
-        a(this.bHM, Ft);
+        a(this.bKG, Fy);
     }
 
     public void a(int i, List<w> list) {
         j jVar;
-        this.bHM = i;
-        if (this.bHJ != null && list != null && (jVar = this.bHJ.get()) != null) {
+        this.bKG = i;
+        if (this.bKD != null && list != null && (jVar = this.bKD.get()) != null) {
             jVar.setColumnTypeAndRefeshView(i);
-            al(list);
+            am(list);
         }
     }
 
     private List<w> b(List<w> list, boolean z) {
         ArrayList arrayList = new ArrayList();
-        if (list == null || list.size() == 0) {
+        if (list == null) {
             return null;
         }
-        int size = list.size();
-        int i = !z ? size - 2 : size;
-        for (int i2 = 0; i2 < i; i2++) {
-            arrayList.add(list.get(i2));
-        }
-        if (z) {
-            arrayList.add(null);
-            arrayList.add(null);
+        if (list.size() > 0) {
+            int size = list.size();
+            int i = !z ? size - 2 : size;
+            for (int i2 = 0; i2 < i; i2++) {
+                arrayList.add(list.get(i2));
+            }
+            if (z) {
+                arrayList.add(null);
+                arrayList.add(null);
+            }
         }
         return arrayList;
     }
 
-    public void al(List<w> list) {
-        j jVar = this.bHJ.get();
+    public void am(List<w> list) {
+        j jVar = this.bKD.get();
         if (jVar != null) {
-            if (this.bHM == 2) {
-                if (this.bHL == null) {
-                    Yq();
+            if (this.bKG == 2) {
+                if (this.bKF == null) {
+                    Zs();
                 }
-                jVar.setGridAdapterIfNeeded(this.bHL);
+                jVar.setGridAdapterIfNeeded(this.bKF);
                 if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                    this.bHL.A(b(list, true));
+                    this.bKF.A(b(list, true));
                 } else {
-                    this.bHL.A(list);
+                    this.bKF.A(list);
                 }
-                this.bHL.a(this.Gd, TbadkCoreApplication.m9getInst().getSkinType());
+                this.bKF.a(this.Gf, TbadkCoreApplication.m9getInst().getSkinType());
                 return;
             }
-            if (this.bHK == null) {
-                Yp();
+            if (this.bKE == null) {
+                Zr();
             }
-            jVar.setListAdapterIfNeeded(this.bHK);
-            this.bHK.A(list);
-            this.bHK.a(this.Gd, TbadkCoreApplication.m9getInst().getSkinType());
+            jVar.setListAdapterIfNeeded(this.bKE);
+            this.bKE.A(list);
+            this.bKE.a(this.Gf, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void Yp() {
-        this.bHK = new com.baidu.tieba.enterForum.a.b(this.Gd, u.class, r.h.home_like_item_in_edit_list, this.aPL);
-        this.bHK.bP(false);
+    private void Zr() {
+        this.bKE = new com.baidu.tieba.enterForum.a.b(this.Gf, u.class, r.h.home_like_item_in_edit_list, this.aRS);
+        this.bKE.bT(false);
     }
 
-    private void Yq() {
-        this.bHL = new com.baidu.tieba.enterForum.a.a(this.Gd, m.class, r.h.home_like_item_in_edit_grid, this.aPL);
-        this.bHL.bP(false);
+    private void Zs() {
+        this.bKF = new com.baidu.tieba.enterForum.a.a(this.Gf, m.class, r.h.home_like_item_in_edit_grid, this.aRS);
+        this.bKF.bT(false);
     }
 
-    public void q(TbPageContext<?> tbPageContext) {
+    public void r(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.bHJ.get() != null) {
-                this.bHJ.get().q(tbPageContext);
+            if (this.bKD.get() != null) {
+                this.bKD.get().r(tbPageContext);
             }
-            if (this.bHM == 2) {
-                if (this.bHL != null) {
-                    this.bHL.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            if (this.bKG == 2) {
+                if (this.bKF != null) {
+                    this.bKF.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
                 }
-            } else if (this.bHK != null) {
-                this.bHK.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            } else if (this.bKE != null) {
+                this.bKE.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
     }

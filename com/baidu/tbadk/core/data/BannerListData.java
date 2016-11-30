@@ -16,11 +16,11 @@ import tbclient.FeedForumInfo;
 /* loaded from: classes.dex */
 public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
-    private ArrayList<b> advertAppList = new ArrayList<>();
+    private ArrayList<c> advertAppList = new ArrayList<>();
     private ArrayList<FeedForumData> feedForumList = new ArrayList<>();
     private com.baidu.tieba.card.data.q recomTopicData;
 
-    public ArrayList<b> getAllAdvertList() {
+    public ArrayList<c> getAllAdvertList() {
         return this.advertAppList;
     }
 
@@ -31,8 +31,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).OZ)) {
-                sb.append(this.advertAppList.get(i).OZ);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).Pm)) {
+                sb.append(this.advertAppList.get(i).Pm);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -69,13 +69,13 @@ public class BannerListData implements Serializable {
             if (list != null && list.size() > 0) {
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i) != null) {
-                        b bVar = new b();
-                        bVar.a(list.get(i));
-                        this.advertAppList.add(bVar);
+                        c cVar = new c();
+                        cVar.a(list.get(i));
+                        this.advertAppList.add(cVar);
                     }
                 }
             }
-            Collections.sort(this.advertAppList, new g(this));
+            Collections.sort(this.advertAppList, new h(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
@@ -87,9 +87,9 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                ay ayVar = new ay();
-                ayVar.a(bannerList.hot_topic);
-                this.recomTopicData = ayVar.qU();
+                ba baVar = new ba();
+                baVar.a(bannerList.hot_topic);
+                this.recomTopicData = baVar.qW();
             }
         }
     }

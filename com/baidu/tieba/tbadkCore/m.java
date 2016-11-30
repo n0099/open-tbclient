@@ -25,44 +25,9 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     private String stType;
     private int updateType;
     private int withGroup;
-    private String ahc = "";
+    private String ahC = "";
     private int mSortType = -1;
-
-    public boolean isNeedCache() {
-        return this.needCache;
-    }
-
-    public void setNeedCache(boolean z) {
-        this.needCache = z;
-    }
-
-    public int getUpdateType() {
-        return this.updateType;
-    }
-
-    public void setUpdateType(int i) {
-        this.updateType = i;
-    }
-
-    public void setYuelaouLocate(String str) {
-        this.ahc = str;
-    }
-
-    public void setLastId(String str) {
-        this.lastId = str;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public int getCategoryId() {
-        return this.categoryId;
-    }
-
-    public void setCategoryId(int i) {
-        this.categoryId = i;
-    }
+    private int bPd = 1;
 
     public void setLastClickTid(long j) {
         this.mLastClickTid = j;
@@ -72,7 +37,7 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         this.mSortType = i;
     }
 
-    public int bhK() {
+    public int agy() {
         return this.mSortType;
     }
 
@@ -144,8 +109,52 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         this.netError = i;
     }
 
+    public int getLoadType() {
+        return this.bPd;
+    }
+
+    public void setLoadType(int i) {
+        this.bPd = i;
+    }
+
+    public boolean isNeedCache() {
+        return this.needCache;
+    }
+
+    public void setNeedCache(boolean z) {
+        this.needCache = z;
+    }
+
+    public int getUpdateType() {
+        return this.updateType;
+    }
+
+    public void setUpdateType(int i) {
+        this.updateType = i;
+    }
+
+    public void setYuelaouLocate(String str) {
+        this.ahC = str;
+    }
+
+    public void setLastId(String str) {
+        this.lastId = str;
+    }
+
+    public void setStType(String str) {
+        this.stType = str;
+    }
+
+    public int getCategoryId() {
+        return this.categoryId;
+    }
+
+    public void setCategoryId(int i) {
+        this.categoryId = i;
+    }
+
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> lY() {
+    public HashMap<String, Object> mb() {
         return null;
     }
 
@@ -170,22 +179,24 @@ public class m extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.ahc;
+        builder.yuelaou_locate = this.ahC;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        com.baidu.tbadk.util.o.a(builder, true, false, true);
+        builder.app_pos = com.baidu.tieba.recapp.c.a.beA().beD();
+        builder.load_type = Integer.valueOf(this.bPd);
+        com.baidu.tbadk.util.n.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String EI() {
+    public String EN() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean EJ() {
+    public boolean EO() {
         return false;
     }
 

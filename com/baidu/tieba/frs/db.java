@@ -1,71 +1,82 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.widget.vote.a;
+import com.baidu.tieba.r;
+import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class db extends SparseArray<dg> {
-    public BdUniqueId aYW = null;
+public class db implements a {
+    private int bWt = -1;
+    private String bWu = null;
+    private int mPercent = 0;
+    private boolean bWv = false;
+    private int[] bWw = {r.f.icon_grade_vote_num1, r.f.icon_grade_vote_num2, r.f.icon_grade_vote_num3};
+    private int[] bWx = {r.f.icon_grade_vote_no1, r.f.icon_grade_vote_no2, r.f.icon_grade_vote_no3};
 
-    public void a(dh dhVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                dg valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(dhVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Cu() {
+        return this.bWt;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cr() {
+        return this.bWu;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cs() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int Cv() {
+        return this.mPercent;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Ct() {
+        return String.valueOf(this.mPercent) + "%";
+    }
+
+    public void ec(boolean z) {
+        this.bWv = z;
+    }
+
+    @Override // com.baidu.tbadk.widget.vote.a
+    public boolean isSelected() {
+        return true;
+    }
+
+    public void a(int i, PollOption pollOption, long j) {
+        int[] iArr = this.bWv ? this.bWw : this.bWx;
+        switch (i) {
+            case 1:
+                this.bWt = iArr[0];
+                break;
+            case 2:
+                this.bWt = iArr[1];
+                break;
+            case 3:
+                this.bWt = iArr[2];
+                break;
+            default:
+                this.bWt = -1;
+                break;
+        }
+        this.bWu = pollOption.text;
+        if (j > 0) {
+            this.mPercent = (int) ((pollOption.num.longValue() * 100) / j);
+        } else {
+            this.mPercent = 0;
         }
     }
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                dg valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    @Override // com.baidu.tbadk.widget.vote.a
+    public String Cw() {
+        return null;
     }
 
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                dg valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.aat();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void a(int i, dg dgVar) {
-        if (i > 100) {
-            i = 100;
-        }
-        put(i, dgVar);
-    }
-
-    public dg ia(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return get(i);
+    @Override // com.baidu.tbadk.widget.vote.a
+    public int getId() {
+        return 0;
     }
 }

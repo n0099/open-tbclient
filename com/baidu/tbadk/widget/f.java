@@ -8,21 +8,21 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f extends ImageSpan {
-    private int aGk;
+    private int aHa;
     private int paddingLeft;
     private int paddingRight;
     private WeakReference<Drawable> zl;
 
     public f(Drawable drawable) {
         super(drawable);
-        this.aGk = 0;
+        this.aHa = 0;
     }
 
-    public void fm(int i) {
+    public void fp(int i) {
         this.paddingLeft = i;
     }
 
-    public void fn(int i) {
+    public void fq(int i) {
         this.paddingRight = i;
     }
 
@@ -52,7 +52,7 @@ public class f extends ImageSpan {
         Drawable jy = jy();
         if (jy != null) {
             canvas.save();
-            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - jy.getBounds().bottom) / 2) + i3) - this.aGk);
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - jy.getBounds().bottom) / 2) + i3) - this.aHa);
             jy.draw(canvas);
             canvas.restore();
         }
@@ -73,6 +73,6 @@ public class f extends ImageSpan {
     }
 
     public void setVerticalOffset(int i) {
-        this.aGk = i;
+        this.aHa = i;
     }
 }

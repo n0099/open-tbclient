@@ -4,19 +4,19 @@ import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.adp.lib.f.c<com.baidu.tbadk.widget.layout.c> {
-    final /* synthetic */ e cGs;
+    final /* synthetic */ e cLD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.cGs = eVar;
+        this.cLD = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: acJ */
+    /* renamed from: adW */
     public com.baidu.tbadk.widget.layout.c ez() {
         TbPageContext tbPageContext;
-        tbPageContext = this.cGs.GM;
+        tbPageContext = this.cLD.GO;
         return new com.baidu.tbadk.widget.layout.c(tbPageContext.getPageActivity());
     }
 

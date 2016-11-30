@@ -13,7 +13,6 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
-    public static final String BAOBAO_IMAGES = "baobao_images";
     public static final String CATEGORY_ID = "category_id";
     public static final String CONTENT = "write_content";
     public static final String DEAL_INFO = "deal_info";
@@ -27,6 +26,8 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String FORUM_NAME = "forum_name";
     public static final String FROM_ADD_PHOTO_LIVE_IN_MISSON = "from_add_photo_live_in_misson";
     public static final String HOT_TOPIC = "hot_topic";
+    public static final String HOT_TOPIC_ID = "hot_topic_id";
+    public static final String HOT_TOPIC_POST_FORUM = "hot_topic_forum_list";
     public static final String IS_AD = "is_ad";
     public static final String IS_ADDITION = "is_addition";
     public static final String IS_LIVE_POST = "is_live_post";

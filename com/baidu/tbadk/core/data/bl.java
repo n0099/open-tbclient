@@ -1,81 +1,29 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.List;
-import tbclient.TogetherHi;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import tbclient.PbContent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl {
-    private String UZ;
-    private long Va;
-    private int Vb;
-    private int Vc;
-    private int Vd;
-    private List<String> Ve;
-    private int Vf;
-    private String location;
-    private List<String> photoList;
-    private int startTime;
+public class bl extends com.baidu.tbadk.widget.richText.h {
+    final /* synthetic */ bk Vv;
+    private final /* synthetic */ PbContent Vw;
 
-    public List<String> sN() {
-        return this.photoList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl(bk bkVar, int i, String str, PbContent pbContent) {
+        super(i, str);
+        this.Vv = bkVar;
+        this.Vw = pbContent;
     }
 
-    public String getActivityName() {
-        return this.UZ;
-    }
-
-    public long getActivityId() {
-        return this.Va;
-    }
-
-    public int getStartTime() {
-        return this.startTime;
-    }
-
-    public int sO() {
-        return this.Vb;
-    }
-
-    public String getLocation() {
-        return this.location;
-    }
-
-    public int sP() {
-        return this.Vc;
-    }
-
-    public int sQ() {
-        return this.Vd;
-    }
-
-    public List<String> sR() {
-        return this.Ve;
-    }
-
-    public int sS() {
-        return this.Vf;
-    }
-
-    public void a(TogetherHi togetherHi) {
-        if (togetherHi != null) {
-            this.UZ = togetherHi.album_name;
-            this.Va = togetherHi.album_id.longValue();
-            this.startTime = togetherHi.start_time.intValue();
-            this.Vb = togetherHi.end_time.intValue();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.startTime == 0) {
-                this.Vf = 8;
-            } else if (this.startTime > currentTimeMillis) {
-                this.Vf = 1;
-            } else if (this.Vb < currentTimeMillis) {
-                this.Vf = 4;
-            } else {
-                this.Vf = 2;
-            }
-            this.location = togetherHi.location;
-            this.Vc = togetherHi.num_join.intValue();
-            this.Vd = togetherHi.num_signup.intValue();
-            this.Ve = togetherHi.potraits;
-            this.photoList = togetherHi.pic_urls;
+    @Override // com.baidu.tbadk.widget.richText.h, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (!TextUtils.isEmpty(this.Vw.link)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, this.Vw.link));
         }
     }
 }

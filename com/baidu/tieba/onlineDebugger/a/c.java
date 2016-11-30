@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements b {
-    private String eig;
-    private String[] eih;
+    private String eoe;
+    private String[] eog;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object S(Object obj) {
+    public Object V(Object obj) {
         Class<?> cls;
         boolean z;
         Class<?>[] parameterTypes;
@@ -33,18 +33,18 @@ public class c implements b {
             if (l2 != null && l2.size() > 0) {
                 ArrayList<Method> arrayList = new ArrayList();
                 for (Method method : l2) {
-                    if (method != null && method.getName().equals(this.eig) && (parameterTypes = method.getParameterTypes()) != null) {
+                    if (method != null && method.getName().equals(this.eoe) && (parameterTypes = method.getParameterTypes()) != null) {
                         if (parameterTypes.length == 0) {
-                            if (this.eih == null || this.eih.length == 0) {
+                            if (this.eog == null || this.eog.length == 0) {
                                 arrayList.add(method);
                             }
-                        } else if (this.eih != null && this.eih.length == parameterTypes.length) {
+                        } else if (this.eog != null && this.eog.length == parameterTypes.length) {
                             arrayList.add(method);
                         }
                     }
                 }
                 if (arrayList.size() == 0) {
-                    throw new RuntimeException("method not find:" + this.eig + " for class " + cls.getName());
+                    throw new RuntimeException("method not find:" + this.eoe + " for class " + cls.getName());
                 }
                 if (arrayList.size() == 1) {
                     Method method2 = (Method) arrayList.get(0);
@@ -61,7 +61,7 @@ public class c implements b {
                             throw new RuntimeException(th);
                         }
                     }
-                    throw new RuntimeException("method not find:" + this.eig + " for class " + cls.getName());
+                    throw new RuntimeException("method not find:" + this.eoe + " for class " + cls.getName());
                 }
                 Exception exc = null;
                 for (Method method3 : arrayList) {
@@ -75,7 +75,7 @@ public class c implements b {
                 }
                 throw new RuntimeException(exc);
             }
-            throw new RuntimeException("method not find:" + this.eig + " for class " + cls.getName());
+            throw new RuntimeException("method not find:" + this.eoe + " for class " + cls.getName());
         }
         return null;
     }
@@ -83,7 +83,7 @@ public class c implements b {
     private Object b(Method method, Object obj) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
         h hVar;
         Object obj2;
-        String[] strArr = this.eih;
+        String[] strArr = this.eog;
         String[] strArr2 = (strArr == null || strArr.length != 0) ? strArr : null;
         if (strArr2 != null && strArr2.length > 0) {
             for (int i = 0; i < strArr2.length; i++) {
@@ -94,13 +94,13 @@ public class c implements b {
                     } else {
                         if (str.contains(".") || (str.contains("(") && str.contains(")"))) {
                             try {
-                                hVar = com.baidu.tieba.onlineDebugger.e.b.oO("get " + str);
+                                hVar = com.baidu.tieba.onlineDebugger.e.b.pb("get " + str);
                             } catch (Exception e) {
                                 hVar = null;
                             }
                             if (hVar != null) {
                                 try {
-                                    obj2 = hVar.aLi();
+                                    obj2 = hVar.aNb();
                                 } catch (Exception e2) {
                                     obj2 = null;
                                 }
@@ -117,17 +117,17 @@ public class c implements b {
         if (!method.isAccessible()) {
             method.setAccessible(true);
         }
-        BdLog.e(String.valueOf(obj.toString()) + " before invokeMethod " + this.eig + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null"));
+        BdLog.e(String.valueOf(obj.toString()) + " before invokeMethod " + this.eoe + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null"));
         Object a = com.baidu.tieba.onlineDebugger.d.a(method, obj, strArr2);
-        BdLog.e(String.valueOf(obj.toString()) + " after invokeMethod " + this.eig + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null") + " , result = " + (a != null ? a.toString() : "null"));
+        BdLog.e(String.valueOf(obj.toString()) + " after invokeMethod " + this.eoe + " params " + (strArr2 != null ? Arrays.toString(strArr2) : "null") + " , result = " + (a != null ? a.toString() : "null"));
         return a;
     }
 
-    public void oy(String str) {
-        this.eig = str;
+    public void oL(String str) {
+        this.eoe = str;
     }
 
-    public void C(String[] strArr) {
-        this.eih = strArr;
+    public void B(String[] strArr) {
+        this.eog = strArr;
     }
 }

@@ -7,30 +7,30 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class h extends BaseViewPager {
-    private PointF anT;
-    private com.baidu.tbadk.widget.a anU;
-    private com.baidu.tbadk.widget.a anV;
+    private PointF aoN;
+    private com.baidu.tbadk.widget.a aoO;
+    private com.baidu.tbadk.widget.a aoP;
 
     public h(Context context) {
         super(context);
     }
 
     public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.anU = aVar;
+        this.aoO = aVar;
     }
 
     public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.anU;
+        return this.aoO;
     }
 
-    private float[] h(MotionEvent motionEvent) {
+    private float[] i(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.anT.x, pointF.y - this.anT.y};
+                return new float[]{pointF.x - this.aoN.x, pointF.y - this.aoN.y};
             case 0:
-                this.anT = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.aoN = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -40,25 +40,25 @@ public class h extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.anU != null) {
-                this.anU.Hl();
+            if (this.aoO != null) {
+                this.aoO.Ho();
             }
         }
-        if (this.anU == null) {
+        if (this.aoO == null) {
             return super.onTouchEvent(motionEvent);
         }
-        float[] h = h(motionEvent);
-        if (this.anU.Hm()) {
+        float[] i = i(motionEvent);
+        if (this.aoO.Hp()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (h != null && this.anU.Hq() && h[0] < 0.0f) {
+        if (i != null && this.aoO.Ht() && i[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (h != null && this.anU.Hr() && h[0] > 0.0f) {
+        if (i != null && this.aoO.Hu() && i[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (h == null) {
-            if (this.anU.Hr() || this.anU.Hq()) {
+        if (i == null) {
+            if (this.aoO.Hu() || this.aoO.Ht()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -71,21 +71,21 @@ public class h extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] h = h(motionEvent);
-        if (this.anU == null) {
+        float[] i = i(motionEvent);
+        if (this.aoO == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.anU.Hm()) {
+        if (this.aoO.Hp()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (h != null && this.anU.Hq() && h[0] < 0.0f) {
+        if (i != null && this.aoO.Ht() && i[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (h != null && this.anU.Hr() && h[0] > 0.0f) {
+        if (i != null && this.aoO.Hu() && i[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (h == null) {
-            if (this.anU.Hr() || this.anU.Hq()) {
+        if (i == null) {
+            if (this.aoO.Hu() || this.aoO.Ht()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -94,10 +94,10 @@ public class h extends BaseViewPager {
     }
 
     public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
-        this.anV = aVar;
+        this.aoP = aVar;
     }
 
     public com.baidu.tbadk.widget.a getSelectedView() {
-        return this.anV;
+        return this.aoP;
     }
 }

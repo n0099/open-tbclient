@@ -2,81 +2,60 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tbadk.data.GodUserData;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class ao implements View.OnClickListener {
-    final /* synthetic */ UserLikeButton ahP;
+class ao implements View.OnClickListener {
+    final /* synthetic */ UserIconLayout aig;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(UserLikeButton userLikeButton) {
-        this.ahP = userLikeButton;
+    public ao(UserIconLayout userIconLayout) {
+        this.aig = userIconLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.c.a aVar;
-        View.OnClickListener onClickListener;
+        bk bkVar;
+        bk bkVar2;
+        bk bkVar3;
+        bk bkVar4;
+        bk bkVar5;
         Context context;
-        bi biVar;
-        bi biVar2;
-        int i;
-        boolean hadConcerned;
-        com.baidu.tbadk.coreExtra.d.a aVar2;
-        String str;
-        BdUniqueId bdUniqueId;
-        String str2;
+        bk bkVar6;
+        bk bkVar7;
+        bk bkVar8;
+        View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        Context context2;
-        Context context3;
-        com.baidu.tbadk.c.a aVar3;
-        aVar = this.ahP.ahM;
-        if (aVar != null) {
-            aVar3 = this.ahP.ahM;
-            if (aVar3.w(view)) {
-                return;
-            }
-        }
-        if (!com.baidu.adp.lib.util.i.fZ()) {
-            context2 = this.ahP.mContext;
-            if (context2 != null) {
-                context3 = this.ahP.mContext;
-                com.baidu.adp.lib.util.k.showToast(context3, r.j.network_ungeilivable);
-            }
-        }
-        onClickListener = this.ahP.adX;
-        if (onClickListener != null) {
-            onClickListener2 = this.ahP.adX;
-            onClickListener2.onClick(this.ahP);
-        }
-        context = this.ahP.mContext;
-        if (bm.ak(context)) {
-            biVar = this.ahP.adW;
-            if (biVar != null) {
-                biVar2 = this.ahP.adW;
-                MetaData author = biVar2.getAuthor();
-                if (author != null && author.getGodUserData() != null) {
-                    GodUserData godUserData = author.getGodUserData();
-                    i = this.ahP.es;
-                    if (i == 1) {
-                        hadConcerned = godUserData.getFollowed() == 1;
-                    } else {
-                        hadConcerned = author.hadConcerned();
+        bkVar = this.aig.aeu;
+        if (bkVar != null) {
+            bkVar2 = this.aig.aeu;
+            if (bkVar2.getAuthor() != null) {
+                bkVar3 = this.aig.aeu;
+                if (!StringUtils.isNull(bkVar3.getAuthor().getName_show())) {
+                    bkVar4 = this.aig.aeu;
+                    if (!StringUtils.isNull(bkVar4.getAuthor().getUserId())) {
+                        bkVar5 = this.aig.aeu;
+                        if (bkVar5.getForum_name() != null) {
+                            MessageManager messageManager = MessageManager.getInstance();
+                            context = this.aig.mContext;
+                            bkVar6 = this.aig.aeu;
+                            String userId = bkVar6.getAuthor().getUserId();
+                            bkVar7 = this.aig.aeu;
+                            String name_show = bkVar7.getAuthor().getName_show();
+                            bkVar8 = this.aig.aeu;
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, bkVar8.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            onClickListener = this.aig.ahZ;
+                            if (onClickListener != null) {
+                                onClickListener2 = this.aig.ahZ;
+                                onClickListener2.onClick(view);
+                            }
+                        }
                     }
-                    boolean z = godUserData.getType() == 2;
-                    aVar2 = this.ahP.ahJ;
-                    boolean z2 = hadConcerned ? false : true;
-                    String portrait = author.getPortrait();
-                    String userId = author.getUserId();
-                    str = this.ahP.ahK;
-                    bdUniqueId = this.ahP.ahL;
-                    str2 = this.ahP.mForumId;
-                    aVar2.a(z2, portrait, userId, z, str, bdUniqueId, str2);
                 }
             }
         }

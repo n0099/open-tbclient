@@ -58,7 +58,7 @@ public class SocialOAuthActivity extends Activity {
             this.b = bundle.getString(SocialConstants.PARAM_MEDIA_TYPE);
             this.c = bundle.getString("client_id");
             this.d = bundle.getBoolean(SocialConstants.PARAM_ACTIVITY_STATE_FLAG);
-            this.e = new aw(this, this.c, this.f).sS(this.b);
+            this.e = new aw(this, this.c, this.f).tp(this.b);
             if (this.d) {
                 return;
             }

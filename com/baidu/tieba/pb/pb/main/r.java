@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 class r extends CustomMessageListener {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(PbActivity pbActivity, int i) {
         super(i);
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,14 +22,14 @@ class r extends CustomMessageListener {
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
                 if (!updateAttentionMessage.getData().vS) {
                     if (updateAttentionMessage.getData().errorString != null) {
-                        this.eqa.showToast(updateAttentionMessage.getData().errorString);
+                        this.evL.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
                     return;
                 }
-                this.eqa.c(updateAttentionMessage);
-                this.eqa.b(updateAttentionMessage);
-                this.eqa.a(updateAttentionMessage);
+                this.evL.b(updateAttentionMessage);
+                this.evL.a(updateAttentionMessage);
+                this.evL.c(updateAttentionMessage);
             }
         }
     }

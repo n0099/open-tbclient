@@ -2,16 +2,16 @@ package com.baidu.tieba.b.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.tieba.b.a.c {
-    final /* synthetic */ g aWS;
+    final /* synthetic */ g baa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.aWS = gVar;
+        this.baa = gVar;
     }
 
     @Override // com.baidu.tieba.b.a.a
     public boolean b(float f, float f2, float f3, int i) {
-        return this.aWS.aWG >= 0.0f || ((double) i) > 15.0d;
+        return this.baa.aZO >= 0.0f || ((double) i) > 15.0d;
     }
 
     @Override // com.baidu.tieba.b.a.a
@@ -23,9 +23,9 @@ public class i extends com.baidu.tieba.b.a.c {
         float f4;
         float f5;
         double sin = Math.sin((((float) com.baidu.tieba.b.c.a.c(i / 15.0d)) * 3.141592653589793d) / 2.0d);
-        f4 = this.aWS.mRadius;
+        f4 = this.baa.mRadius;
         double abs = sin * Math.abs(f4);
-        f5 = this.aWS.mRadius;
+        f5 = this.baa.mRadius;
         return (float) (abs - Math.abs(f5));
     }
 
@@ -33,9 +33,9 @@ public class i extends com.baidu.tieba.b.a.c {
     public float h(float f, float f2, float f3, int i) {
         float f4;
         float f5;
-        f4 = this.aWS.mRadius;
+        f4 = this.baa.mRadius;
         if (f3 >= f4) {
-            f5 = this.aWS.mRadius;
+            f5 = this.baa.mRadius;
             return ((float) Math.cos((((float) com.baidu.tieba.b.c.a.c(i / 15.0d)) * 3.141592653589793d) / 2.0d)) * f5;
         }
         return f3;

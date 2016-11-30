@@ -1,34 +1,45 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-class ad implements com.baidu.adp.lib.network.http.i {
-    int aaC = 0;
-    int aaD = 0;
-    int aaE = 0;
-    final /* synthetic */ ac aaF;
-    private final /* synthetic */ Handler aaG;
-    private final /* synthetic */ int aaH;
+public class ad {
+    private static ArrayList<a> abl = new ArrayList<>();
+    public static AtomicInteger abm = new AtomicInteger(0);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ac acVar, Handler handler, int i) {
-        this.aaF = acVar;
-        this.aaG = handler;
-        this.aaH = i;
+    /* loaded from: classes.dex */
+    public static class a {
+        public int abn;
+        public long abo;
+        public int abp;
+        public int mMode;
+        public long mTime;
     }
 
-    @Override // com.baidu.adp.lib.network.http.i
-    public void f(int i, int i2) {
-        if (i2 > 0) {
-            this.aaC = i2 / 50;
-        }
-        this.aaD += i - this.aaE;
-        this.aaE = i;
-        if (this.aaG != null) {
-            if (this.aaD > this.aaC || i == i2) {
-                this.aaD = 0;
-                this.aaG.sendMessage(this.aaG.obtainMessage(this.aaH, i, i2));
+    public static int cF(int i) {
+        return abm.getAndSet(i);
+    }
+
+    public static int cG(int i) {
+        return abm.addAndGet(i);
+    }
+
+    public static synchronized void a(a aVar) {
+        synchronized (ad.class) {
+            if (aVar != null) {
+                if (abl.size() <= 20) {
+                    abl.add(aVar);
+                }
             }
         }
+    }
+
+    public static synchronized a vg() {
+        a remove;
+        synchronized (ad.class) {
+            int size = abl.size();
+            remove = size > 0 ? abl.remove(size - 1) : null;
+        }
+        return remove;
     }
 }

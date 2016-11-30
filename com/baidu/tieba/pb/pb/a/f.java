@@ -4,32 +4,32 @@ import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements QuickVideoView.b {
-    final /* synthetic */ e emY;
+    final /* synthetic */ e esY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.emY = eVar;
+        this.esY = eVar;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.b
     public void onSurfaceDestroyed() {
-        v vVar;
-        v vVar2;
-        v vVar3;
-        v vVar4;
-        vVar = this.emY.emT;
-        if (vVar != null) {
-            vVar2 = this.emY.emT;
-            if (vVar2.aMF != null) {
-                vVar3 = this.emY.emT;
-                if (vVar3.aMF.isPlaying()) {
-                    vVar4 = this.emY.emT;
-                    vVar4.aMF.stopPlayback();
-                    this.emY.e(false, 0);
+        t tVar;
+        t tVar2;
+        t tVar3;
+        t tVar4;
+        tVar = this.esY.esQ;
+        if (tVar != null) {
+            tVar2 = this.esY.esQ;
+            if (tVar2.aOE != null) {
+                tVar3 = this.esY.esQ;
+                if (tVar3.aOE.isPlaying()) {
+                    tVar4 = this.esY.esQ;
+                    tVar4.aOE.stopPlayback();
+                    this.esY.e(false, 0);
                 }
             }
         }
-        this.emY.aoz();
-        this.emY.cOb = false;
+        this.esY.aqu();
+        this.esY.cTt = false;
     }
 }

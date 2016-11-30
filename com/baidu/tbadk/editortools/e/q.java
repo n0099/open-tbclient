@@ -16,11 +16,11 @@ import com.baidu.tieba.tbadkCore.writeModel.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements b.d {
-    final /* synthetic */ p awo;
+    final /* synthetic */ p axh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.awo = pVar;
+        this.axh = pVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
@@ -32,16 +32,16 @@ public class q implements b.d {
         com.baidu.tieba.tbadkCore.writeModel.b bVar3;
         a aVar;
         b.d dVar2;
-        dVar = this.awo.awn;
+        dVar = this.axh.axg;
         if (dVar != null) {
-            dVar2 = this.awo.awn;
+            dVar2 = this.axh.axg;
             dVar2.callback(z, postWriteCallBackData, sVar, writeData, antiData);
         }
         if (z) {
-            this.awo.avE = null;
-            this.awo.awj = null;
-            this.awo.bF(true);
-            this.awo.DM();
+            this.axh.awy = null;
+            this.axh.axc = null;
+            this.axh.bJ(true);
+            this.axh.DQ();
         }
         int i = -1;
         String str = "";
@@ -50,34 +50,34 @@ public class q implements b.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            bVar = this.awo.avJ;
-            WriteData bfE = bVar.bfE();
-            bVar2 = this.awo.avJ;
+            bVar = this.axh.awC;
+            WriteData bia = bVar.bia();
+            bVar2 = this.axh.awC;
             bVar2.d((WriteData) null);
-            bVar3 = this.awo.avJ;
-            bVar3.kQ(false);
-            this.awo.avF = null;
-            if (bfE != null && bfE != null && bfE.getType() == 2) {
-                aVar = this.awo.awl;
-                aVar.Df();
+            bVar3 = this.axh.awC;
+            bVar3.lp(false);
+            this.axh.awz = null;
+            if (bia != null && bia != null && bia.getType() == 2) {
+                aVar = this.axh.axe;
+                aVar.Dn();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.rU(i)) {
-            this.awo.l(i, str);
+        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.sm(i)) {
+            this.axh.k(i, str);
         } else if (sVar != null && writeData != null && !StringUtils.isNull(sVar.getVcode_pic_url())) {
             writeData.setVcodeMD5(sVar.getVcode_md5());
             writeData.setVcodeUrl(sVar.getVcode_pic_url());
-            writeData.setVcodeExtra(sVar.xX());
-            if (com.baidu.tbadk.j.a.gG(sVar.xW())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.awo.DI().getPageActivity(), 12006, writeData, false, sVar.xW())));
+            writeData.setVcodeExtra(sVar.yd());
+            if (com.baidu.tbadk.j.a.gG(sVar.yc())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.axh.xL().getPageActivity(), 12006, writeData, false, sVar.yc())));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.awo.DI().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.axh.xL().getPageActivity(), writeData, 12006)));
             }
         } else if (postWriteCallBackData != null && i == 227001) {
             MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.awo.Gd;
+            tbPageContext = this.axh.Gf;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(tbPageContext.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
         } else {
-            this.awo.DI().showToast(str);
+            this.axh.xL().showToast(str);
         }
     }
 }

@@ -1,25 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bm;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
-    final /* synthetic */ ab fzu;
+class af implements FragmentTabHost.b {
+    final /* synthetic */ ae fGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ab abVar) {
-        this.fzu = abVar;
+    public af(ae aeVar) {
+        this.fGW = aeVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.fzu.fzj;
-        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
-        mainTabActivity2 = this.fzu.fzj;
-        bm.aj(mainTabActivity2.getPageContext().getPageActivity());
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b
+    public void f(int i, boolean z) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, Integer.valueOf(i)));
     }
 }

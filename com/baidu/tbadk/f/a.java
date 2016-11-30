@@ -4,45 +4,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View ayL;
-    private boolean ayM;
+    protected View azD;
+    private boolean azE;
 
     public a(View view) {
-        this.ayL = view;
+        this.azD = view;
     }
 
-    public boolean Eu() {
-        return this.ayM;
+    public boolean Ez() {
+        return this.azE;
     }
 
     public void b(View view, boolean z) {
-        if (view != null && this.ayL != null && this.ayL.getParent() == null) {
-            this.ayM = true;
-            d.N(view).a(view, this.ayL, z);
-            Ev();
+        if (view != null && this.azD != null && this.azD.getParent() == null) {
+            this.azE = true;
+            d.O(view).a(view, this.azD, z);
+            EA();
         }
     }
 
-    public void L(View view) {
-        if (view != null && this.ayL != null && this.ayL.getParent() != null && (view instanceof ViewGroup)) {
+    public void M(View view) {
+        if (view != null && this.azD != null && this.azD.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Ew();
-                ((ViewGroup) view).removeView(this.ayL);
-                this.ayM = false;
+                EB();
+                ((ViewGroup) view).removeView(this.azD);
+                this.azE = false;
             } catch (Exception e) {
             }
         }
     }
 
-    public void M(View view) {
+    public void N(View view) {
         b(view, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ev() {
+    public void EA() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ew() {
+    public void EB() {
     }
 }

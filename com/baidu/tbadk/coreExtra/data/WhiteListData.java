@@ -27,9 +27,9 @@ public class WhiteListData extends LinkedList<String> {
 
     public void saveJson(JSONArray jSONArray) {
         if (jSONArray == null) {
-            eo(null);
+            eq(null);
         } else {
-            eo(jSONArray.toString());
+            eq(jSONArray.toString());
         }
     }
 
@@ -54,13 +54,13 @@ public class WhiteListData extends LinkedList<String> {
         return false;
     }
 
-    private void eo(String str) {
-        com.baidu.tbadk.core.sharedPref.b.uh().putString("key_white_list", str);
+    private void eq(String str) {
+        com.baidu.tbadk.core.sharedPref.b.um().putString("key_white_list", str);
     }
 
     public static WhiteListData createBySP() {
         WhiteListData whiteListData = new WhiteListData();
-        String string = com.baidu.tbadk.core.sharedPref.b.uh().getString("key_white_list", null);
+        String string = com.baidu.tbadk.core.sharedPref.b.um().getString("key_white_list", null);
         if (!TextUtils.isEmpty(string)) {
             whiteListData.parserJson(string);
         }

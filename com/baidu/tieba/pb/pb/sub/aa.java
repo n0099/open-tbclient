@@ -1,52 +1,48 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.r;
-import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity exF;
+class aa implements com.baidu.adp.lib.f.c<LinearLayout> {
+    final /* synthetic */ NewSubPbActivity eEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(NewSubPbActivity newSubPbActivity, int i) {
-        super(i);
-        this.exF = newSubPbActivity;
+    public aa(NewSubPbActivity newSubPbActivity) {
+        this.eEs = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdUniqueId bdUniqueId;
-        ag agVar;
-        com.baidu.tbadk.core.view.h hVar;
-        com.baidu.adp.base.h hVar2;
-        com.baidu.tbadk.core.view.h hVar3;
-        com.baidu.adp.base.h hVar4;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
-            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.exF.exD;
-            if (tag == bdUniqueId) {
-                agVar = this.exF.exu;
-                agVar.aLg();
-                UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-                if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    hVar3 = this.exF.ept;
-                    hVar4 = this.exF.eps;
-                    hVar3.c(hVar4.getResources().getString(r.j.un_mute_success));
-                    return;
-                }
-                String muteMessage = userMuteDelResponseMessage.getMuteMessage();
-                if (az.isEmpty(muteMessage)) {
-                    hVar2 = this.exF.eps;
-                    muteMessage = hVar2.getResources().getString(r.j.un_mute_fail);
-                }
-                hVar = this.exF.ept;
-                hVar.d(muteMessage);
-            }
-        }
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: aPJ */
+    public LinearLayout ez() {
+        LinearLayout linearLayout = new LinearLayout(this.eEs.getPageContext().getPageActivity());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(1);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public void o(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public LinearLayout p(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: e */
+    public LinearLayout q(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

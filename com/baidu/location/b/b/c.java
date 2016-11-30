@@ -42,15 +42,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b Jh;
-    private PublicKey Jg;
+    private static volatile b Jj;
+    private PublicKey Ji;
     private final Context a;
     private int b = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public ApplicationInfo Ji;
+        public ApplicationInfo Jk;
         public int b;
         public boolean c;
         public boolean d;
@@ -81,7 +81,7 @@ public final class c {
             this();
         }
 
-        public static b bO(String str) {
+        public static b bP(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -128,16 +128,16 @@ public final class c {
     }
 
     private static b Q(Context context) {
-        if (Jh == null) {
+        if (Jj == null) {
             synchronized (b.class) {
-                if (Jh == null) {
+                if (Jj == null) {
                     SystemClock.uptimeMillis();
-                    Jh = new c(context).my();
+                    Jj = new c(context).mB();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return Jh;
+        return Jj;
     }
 
     public static String a(Context context) {
@@ -249,7 +249,7 @@ public final class c {
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 a aVar = new a(null);
                                 aVar.b = jSONObject.getInt("priority");
-                                aVar.Ji = resolveInfo.activityInfo.applicationInfo;
+                                aVar.Jk = resolveInfo.activityInfo.applicationInfo;
                                 if (this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     aVar.d = true;
                                 }
@@ -263,7 +263,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Jg);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Ji);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -293,7 +293,7 @@ public final class c {
             th = th;
         }
         try {
-            this.Jg = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.Ji = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -522,6 +522,10 @@ public final class c {
         }
     }
 
+    private static String bO(String str) {
+        return (str == null || !str.contains(":")) ? str : "";
+    }
+
     private boolean c() {
         return c("android.permission.WRITE_SETTINGS");
     }
@@ -597,35 +601,16 @@ public final class c {
         }
         if (telephonyManager != null) {
             str2 = telephonyManager.getDeviceId();
-            String i = i(str2);
-            return !TextUtils.isEmpty(i) ? str : i;
+            String bO = bO(str2);
+            return !TextUtils.isEmpty(bO) ? str : bO;
         }
         str2 = null;
-        String i2 = i(str2);
-        if (!TextUtils.isEmpty(i2)) {
+        String bO2 = bO(str2);
+        if (!TextUtils.isEmpty(bO2)) {
         }
     }
 
-    private static String i(String str) {
-        return (str == null || !str.contains(":")) ? str : "";
-    }
-
-    private b mA() {
-        File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
-        if (file.exists()) {
-            String a2 = a(file);
-            if (!TextUtils.isEmpty(a2)) {
-                try {
-                    return b.bO(new String(com.baidu.location.b.a.a.c("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return null;
-    }
-
-    private b my() {
+    private b mB() {
         boolean z;
         b bVar;
         b bVar2;
@@ -651,8 +636,8 @@ public final class c {
             z = z3;
         }
         File file = new File(this.a.getFilesDir(), "libcuid.so");
-        b bO = file.exists() ? b.bO(f(a(file))) : null;
-        if (bO == null) {
+        b bP = file.exists() ? b.bP(f(a(file))) : null;
+        if (bP == null) {
             this.b |= 16;
             List<a> a3 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (a3 != null) {
@@ -665,34 +650,34 @@ public final class c {
                 }
                 for (a aVar2 : a3) {
                     if (!aVar2.d) {
-                        File file2 = new File(new File(aVar2.Ji.dataDir, str2), "libcuid.so");
+                        File file2 = new File(new File(aVar2.Jk.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
-                            bVar = b.bO(f(a(file2)));
+                            bVar = b.bP(f(a(file2)));
                             if (bVar != null) {
                                 break;
                             }
                         } else {
-                            bVar = bO;
+                            bVar = bP;
                         }
-                        bO = bVar;
+                        bP = bVar;
                     }
                 }
             }
         }
-        bVar = bO;
+        bVar = bP;
         if (bVar == null) {
-            bVar = b.bO(f(b("com.baidu.deviceid.v2")));
+            bVar = b.bP(f(b("com.baidu.deviceid.v2")));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
         if (bVar == null && c) {
             this.b |= 2;
-            bVar2 = mA();
+            bVar2 = mD();
         } else {
             bVar2 = bVar;
         }
         if (bVar2 == null) {
             this.b |= 8;
-            bVar2 = mz();
+            bVar2 = mC();
         }
         if (bVar2 == null && c) {
             this.b |= 1;
@@ -750,7 +735,7 @@ public final class c {
         return bVar3;
     }
 
-    private b mz() {
+    private b mC() {
         String b2 = b("com.baidu.deviceid");
         String b3 = b("bd_setting_i");
         if (TextUtils.isEmpty(b3)) {
@@ -769,5 +754,20 @@ public final class c {
         bVar.a = b2;
         bVar.b = b3;
         return bVar;
+    }
+
+    private b mD() {
+        File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
+        if (file.exists()) {
+            String a2 = a(file);
+            if (!TextUtils.isEmpty(a2)) {
+                try {
+                    return b.bP(new String(com.baidu.location.b.a.a.c("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
 }

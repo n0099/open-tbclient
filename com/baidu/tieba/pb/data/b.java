@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
 public class b {
-    public View aPr;
-    public int ahV;
-    public BdTypeListView bCe;
-    public PbActivity elH;
-    public DealInfoData elI;
-    public View elL;
-    public View elM;
+    public BdTypeListView aML;
+    public View aRx;
+    public int aiA;
+    public PbActivity erE;
+    public DealInfoData erF;
+    public View erI;
+    public View erJ;
     public int id;
 
     public b(int i) {
         this.id = i;
     }
 
-    public void aMe() {
+    public void aNX() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.ECOMM_PB_VIEW, this));
     }
 }

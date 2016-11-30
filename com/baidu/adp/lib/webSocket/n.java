@@ -1,32 +1,31 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class n {
-    private String tr;
-    private int ue;
+    private String ts;
     private int uf;
-    private boolean ug;
+    private int ug;
     private boolean uh;
-    private int ui;
+    private boolean ui;
     private int uj;
-    private boolean uk;
+    private int uk;
     private boolean ul;
+    private boolean um;
 
     public n() {
-        this.tr = null;
-        this.ue = 32768;
-        this.uf = 131072;
-        this.ug = false;
-        this.uh = true;
-        this.ui = 30000;
+        this.ts = null;
+        this.uf = 32768;
+        this.ug = 131072;
+        this.uh = false;
+        this.ui = true;
         this.uj = 30000;
-        this.uk = true;
+        this.uk = 30000;
         this.ul = true;
-        this.tr = null;
+        this.um = true;
+        this.ts = null;
     }
 
     public n(n nVar) {
-        this.tr = null;
-        this.ue = nVar.ue;
+        this.ts = null;
         this.uf = nVar.uf;
         this.ug = nVar.ug;
         this.uh = nVar.uh;
@@ -34,46 +33,47 @@ public class n {
         this.uj = nVar.uj;
         this.uk = nVar.uk;
         this.ul = nVar.ul;
-        this.tr = nVar.tr;
+        this.um = nVar.um;
+        this.ts = nVar.ts;
     }
 
     public boolean hq() {
-        return this.ug;
-    }
-
-    public int hr() {
-        return this.ue;
-    }
-
-    public int hs() {
-        return this.uf;
-    }
-
-    public boolean getTcpNoDelay() {
         return this.uh;
     }
 
-    public int ht() {
+    public int hr() {
+        return this.uf;
+    }
+
+    public int hs() {
+        return this.ug;
+    }
+
+    public boolean getTcpNoDelay() {
         return this.ui;
     }
 
-    public int hu() {
+    public int ht() {
         return this.uj;
     }
 
-    public boolean hv() {
+    public int hu() {
         return this.uk;
     }
 
-    public boolean hw() {
+    public boolean hv() {
         return this.ul;
     }
 
+    public boolean hw() {
+        return this.um;
+    }
+
     public String hx() {
-        return this.tr;
+        return this.ts;
     }
 
     public void aX(String str) {
-        this.tr = str;
+        this.ts = str;
     }
 }

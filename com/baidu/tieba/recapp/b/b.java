@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.t;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.r;
 import java.io.File;
@@ -21,24 +21,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b fdE = new b();
-    private static DownloadData atj = null;
-    private static List<DownloadData> atb = new LinkedList();
-    private a fdF = null;
+    private static b fkQ = new b();
+    private static DownloadData aud = null;
+    private static List<DownloadData> mTaskList = new LinkedList();
+    private a fkR = null;
     private int max = 20;
-    private Handler atl = new c(this, Looper.getMainLooper());
+    private Handler auf = new c(this, Looper.getMainLooper());
 
     private b() {
     }
 
-    public static b bbZ() {
-        return fdE;
+    public static b bew() {
+        return fkQ;
     }
 
     public void a(DownloadData downloadData, int i) {
         int type = downloadData.getType();
         int i2 = 0;
-        for (DownloadData downloadData2 : atb) {
+        for (DownloadData downloadData2 : mTaskList) {
             if (downloadData2.getType() == type) {
                 i2++;
             }
@@ -71,8 +71,8 @@ public class b {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < atb.size()) {
-                    DownloadData downloadData2 = atb.get(i2);
+                if (i2 < mTaskList.size()) {
+                    DownloadData downloadData2 = mTaskList.get(i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -80,8 +80,8 @@ public class b {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    atb.add(downloadData);
-                    Cz();
+                    mTaskList.add(downloadData);
+                    CH();
                     return;
                 }
             }
@@ -89,32 +89,32 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cz() {
-        if (atj == null && !atb.isEmpty()) {
-            atj = atb.get(0);
-            if (atj != null) {
-                this.fdF = new a();
-                this.fdF.execute(atj);
+    public void CH() {
+        if (aud == null && !mTaskList.isEmpty()) {
+            aud = mTaskList.get(0);
+            if (aud != null) {
+                this.fkR = new a();
+                this.fkR.execute(aud);
             }
         }
     }
 
-    public void fm(String str) {
+    public void fp(String str) {
         t(str, false);
     }
 
     public void t(String str, boolean z) {
-        if (atj != null && atj.getUrl().equals(str)) {
+        if (aud != null && aud.getUrl().equals(str)) {
             if (z) {
-                this.fdF.CC();
+                this.fkR.CK();
                 return;
             } else {
-                this.fdF.cancel(true);
+                this.fkR.cancel(true);
                 return;
             }
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = atb.iterator();
+        Iterator<DownloadData> it = mTaskList.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -129,35 +129,35 @@ public class b {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            atb.remove(downloadData);
+            mTaskList.remove(downloadData);
         }
     }
 
     public void u(DownloadData downloadData) {
         if (downloadData != null) {
             t(downloadData.getUrl(), true);
-            File cW = m.cW(String.valueOf(downloadData.getId()) + "_" + downloadData.getName() + ".tmp");
-            if (cW != null) {
-                cW.delete();
+            File cY = m.cY(String.valueOf(downloadData.getId()) + "_" + downloadData.getName() + ".tmp");
+            if (cY != null) {
+                cY.delete();
             }
         }
     }
 
     public List<DownloadData> iV() {
-        return atb;
+        return mTaskList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private ab NY = new ab();
+        private z Ob = new z();
 
         a() {
         }
 
-        public void CC() {
-            if (this.NY != null) {
-                this.NY.ej();
+        public void CK() {
+            if (this.Ob != null) {
+                this.Ob.ej();
             }
             cancel(true);
         }
@@ -166,17 +166,17 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.NY.ej();
-            b.atj.setStatus(4);
-            b.atj.setStatusMsg(null);
-            if (b.atj.getCallback() != null) {
-                b.atj.getCallback().b(b.atj);
+            this.Ob.ej();
+            b.aud.setStatus(4);
+            b.aud.setStatusMsg(null);
+            if (b.aud.getCallback() != null) {
+                b.aud.getCallback().b(b.aud);
             }
-            if (!b.atb.isEmpty()) {
-                b.atb.remove(0);
+            if (!b.mTaskList.isEmpty()) {
+                b.mTaskList.remove(0);
             }
-            b.atj = null;
-            b.this.Cz();
+            b.aud = null;
+            b.this.CH();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=4, 393=4, 394=4, 395=4] */
@@ -201,22 +201,22 @@ public class b {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.NY.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.NY.a(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp", b.this.atl, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
+                    this.Ob.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.Ob.a(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp", b.this.auf, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                         return 3;
                     }
-                    File cW = m.cW(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
-                    if (cW == null) {
+                    File cY = m.cY(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
+                    if (cY == null) {
                         return 1;
                     }
                     try {
-                        String parent = cW.getParent();
+                        String parent = cY.getParent();
                         String parent2 = file.getParent();
                         if (parent.equals(parent2)) {
-                            cW.renameTo(new File(parent2, file.getName()));
+                            cY.renameTo(new File(parent2, file.getName()));
                         } else {
-                            com.baidu.adp.lib.util.e.b(cW, file);
-                            com.baidu.adp.lib.util.e.f(cW);
+                            com.baidu.adp.lib.util.e.b(cY, file);
+                            com.baidu.adp.lib.util.e.f(cY);
                         }
                     } catch (IOException e) {
                         try {
@@ -227,7 +227,7 @@ public class b {
                         return 7;
                     }
                 }
-                if (!az.isEmpty(downloadDataArr[0].getCheck())) {
+                if (!ax.isEmpty(downloadDataArr[0].getCheck())) {
                     try {
                         fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
                         try {
@@ -303,12 +303,12 @@ public class b {
             super.onPostExecute((a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
-                    b.atj.setStatus(0);
-                    if (b.atj.getCallback() != null) {
-                        b.atj.getCallback().b(b.atj);
+                    b.aud.setStatus(0);
+                    if (b.aud.getCallback() != null) {
+                        b.aud.getCallback().b(b.aud);
                     }
-                    if (b.atj.getCallback() != null) {
-                        b.atj.getCallback().d(b.atj);
+                    if (b.aud.getCallback() != null) {
+                        b.aud.getCallback().d(b.aud);
                     }
                 } else {
                     switch (num.intValue()) {
@@ -335,20 +335,20 @@ public class b {
                             string = TbadkCoreApplication.m9getInst().getApp().getString(r.j.download_fail);
                             break;
                     }
-                    b.atj.setStatusMsg(string);
-                    b.atj.setErrorCode(num.intValue());
-                    b.atj.setStatus(2);
-                    if (b.atj.getCallback() != null) {
-                        b.atj.getCallback().b(b.atj);
+                    b.aud.setStatusMsg(string);
+                    b.aud.setErrorCode(num.intValue());
+                    b.aud.setStatus(2);
+                    if (b.aud.getCallback() != null) {
+                        b.aud.getCallback().b(b.aud);
                     }
-                    if (b.atj.getCallback() != null) {
-                        b.atj.getCallback().a(b.atj, num.intValue(), string);
+                    if (b.aud.getCallback() != null) {
+                        b.aud.getCallback().a(b.aud, num.intValue(), string);
                     }
                 }
-                b.atj = null;
-                if (!b.atb.isEmpty()) {
-                    b.atb.remove(0);
-                    b.this.Cz();
+                b.aud = null;
+                if (!b.mTaskList.isEmpty()) {
+                    b.mTaskList.remove(0);
+                    b.this.CH();
                 }
             }
         }

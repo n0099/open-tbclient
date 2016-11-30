@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
-    private SapiWebView eiE;
+    private SapiWebView eoD;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,12 +23,12 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(r.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
         this.mNavigationBar.setTitleText(getPageContext().getString(r.j.sapi_forget_password_title));
-        this.eiE = (SapiWebView) findViewById(r.g.sapi_webview);
-        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.eiE);
-        this.eiE.setOnBackCallback(new h(this));
-        this.eiE.setChangePwdCallback(new i(this));
-        this.eiE.setOnFinishCallback(new j(this));
-        this.eiE.loadForgetPwd();
+        this.eoD = (SapiWebView) findViewById(r.g.sapi_webview);
+        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.eoD);
+        this.eoD.setOnBackCallback(new h(this));
+        this.eoD.setChangePwdCallback(new i(this));
+        this.eoD.setOnFinishCallback(new j(this));
+        this.eoD.loadForgetPwd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

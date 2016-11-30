@@ -1,75 +1,85 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.sub.ax;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class b implements ax.a {
-    final /* synthetic */ NewSubPbActivity exF;
+public class b {
+    private static final int eDU = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds160);
+    private static final int eDV = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds20);
+    private BaseActivity aTb;
+    private com.baidu.tieba.d.c bVF;
+    private com.baidu.tieba.pb.pb.sub.a eDT;
+    private a eDW;
+    private boolean eDX = false;
+    private View.OnTouchListener eDY;
+    private NavigationBar mNavigationBar;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(NewSubPbActivity newSubPbActivity) {
-        this.exF = newSubPbActivity;
+    /* loaded from: classes.dex */
+    public interface a {
+        void aSY();
+
+        void aSZ();
+
+        boolean aTa();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0036, code lost:
-        if (r0 != null) goto L26;
-     */
-    @Override // com.baidu.tieba.pb.pb.sub.ax.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(boolean z, int i, String str, com.baidu.tieba.pb.data.n nVar) {
-        ag agVar;
-        ag agVar2;
-        ax axVar;
-        ag agVar3;
-        com.baidu.tbadk.editortools.e.p pVar;
-        com.baidu.tbadk.editortools.e.p pVar2;
-        ag agVar4;
-        ax axVar2;
-        ax axVar3;
-        ax axVar4;
-        ag agVar5;
-        agVar = this.exF.exu;
-        if (agVar != null) {
-            agVar5 = this.exF.exu;
-            agVar5.aRb();
+    public b(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
+        this.aTb = baseActivity;
+        this.bVF = new com.baidu.tieba.d.c(this.aTb.getPageContext().getPageActivity());
+        this.mNavigationBar = navigationBar;
+        this.mNavigationBar.setStatusBarVisibility(8);
+        this.eDY = new c(this);
+        view.setOnTouchListener(new d(this));
+        this.bVF.a(new e(this));
+    }
+
+    public void aY(View view) {
+        if (view != null) {
+            view.setOnTouchListener(this.eDY);
         }
-        if (z) {
-            agVar2 = this.exF.exu;
-            agVar2.hideNoDataView();
-            if (nVar != null) {
-                if (nVar.aMN() == null) {
-                    axVar4 = this.exF.exr;
-                }
-                com.baidu.tieba.tbadkCore.data.q aMN = nVar.aMN();
-                axVar = this.exF.exr;
-                aMN.a(axVar.aRG());
-                agVar3 = this.exF.exu;
-                if (agVar3 != null) {
-                    agVar4 = this.exF.exu;
-                    axVar2 = this.exF.exr;
-                    int aMz = axVar2.aMz();
-                    axVar3 = this.exF.exr;
-                    agVar4.a(nVar, aMz, axVar3.aRI() != null);
-                }
-                com.baidu.tieba.pb.e eVar = new com.baidu.tieba.pb.e();
-                eVar.setData(nVar);
-                pVar = this.exF.duz;
-                if (pVar != null) {
-                    pVar2 = this.exF.duz;
-                    pVar2.a(nVar.getAntiData());
-                }
-                eVar.setType(0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, eVar));
-                return;
+    }
+
+    public void aSV() {
+        if (this.eDX && this.mNavigationBar != null && this.eDT != null && this.eDT.getVisibility() == 0) {
+            this.mNavigationBar.setStatusBarVisibility(0);
+            this.aTb.setExcludeHeight(0);
+            if (this.eDW != null) {
+                this.eDW.aSY();
             }
-            return;
+            this.eDT.aST();
         }
-        this.exF.showToast(str);
-        this.exF.M(i, str);
+    }
+
+    public void aSW() {
+        ViewGroup viewGroup;
+        if (!this.eDX && (viewGroup = (ViewGroup) this.aTb.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
+            this.eDT = new com.baidu.tieba.pb.pb.sub.a(this.aTb.getPageContext().getPageActivity());
+            this.eDT.setBackgroundResource(r.d.transparent);
+            ((LinearLayout) viewGroup.getParent()).addView(this.eDT, 0, new LinearLayout.LayoutParams(-1, eDU));
+            this.eDT.setVisibility(0);
+            this.eDT.setOnClickListener(new f(this));
+            this.eDT.setScrollCallBack(new g(this));
+            this.aTb.setExcludeHeight(eDU);
+            this.eDX = true;
+        }
+    }
+
+    public void a(a aVar) {
+        this.eDW = aVar;
+    }
+
+    public boolean aSX() {
+        return this.eDX;
+    }
+
+    public void oP(int i) {
+        if (this.eDT != null) {
+            com.baidu.tbadk.core.util.at.k(this.eDT, i);
+        }
     }
 }

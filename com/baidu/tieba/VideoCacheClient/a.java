@@ -5,37 +5,37 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a aOF;
-    private List<String> aOG = new ArrayList();
+    private static a aQL;
+    private List<String> aQM = new ArrayList();
     private Object mLock = new Object();
-    private boolean aOH = false;
-    private byte[] aOJ = new byte[1024];
+    private boolean aQN = false;
+    private byte[] aQP = new byte[1024];
     private Runnable CI = new b(this);
-    private Thread aOI = new Thread(this.CI);
+    private Thread aQO = new Thread(this.CI);
 
     private a() {
-        this.aOI.start();
+        this.aQO.start();
     }
 
-    public static a Kw() {
-        if (aOF == null) {
+    public static a La() {
+        if (aQL == null) {
             synchronized (a.class) {
-                if (aOF == null) {
-                    aOF = new a();
+                if (aQL == null) {
+                    aQL = new a();
                 }
             }
         }
-        return aOF;
+        return aQL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String Kx() {
-        return this.aOG.isEmpty() ? null : this.aOG.get(0);
+    public synchronized String Lb() {
+        return this.aQM.isEmpty() ? null : this.aQM.get(0);
     }
 
-    public synchronized void hf(String str) {
-        this.aOG.clear();
-        this.aOG.add(str);
+    public synchronized void hg(String str) {
+        this.aQM.clear();
+        this.aQM.add(str);
         synchronized (this.mLock) {
             this.mLock.notify();
         }

@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqS;
-    final /* synthetic */ b fyh;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a arM;
+    final /* synthetic */ b fFH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, com.baidu.tbadk.core.dialog.a aVar) {
-        this.fyh = bVar;
-        this.aqS = aVar;
+        this.fFH = bVar;
+        this.arM = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aqS.dismiss();
-        this.fyh.cancel();
+        this.arM.dismiss();
+        this.fFH.cancel();
     }
 }

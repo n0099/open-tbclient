@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ u aqO;
-    private final /* synthetic */ boolean aqR;
+    final /* synthetic */ u arI;
+    private final /* synthetic */ boolean arL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(u uVar, boolean z) {
-        this.aqO = uVar;
-        this.aqR = z;
+        this.arI = uVar;
+        this.arL = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,33 +19,33 @@ public class z extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.g.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         boolean z;
-        this.aqO.bm(this.aqR);
-        z = this.aqO.aqE;
+        this.arI.bq(this.arL);
+        z = this.arI.ary;
         if (!z) {
             if (aVar != null) {
                 Bitmap jV = aVar.jV();
                 if (jV != null) {
-                    this.aqO.aqD = true;
+                    this.arI.arx = true;
                     if (aVar.cY()) {
                         byte[] ka = aVar.ka();
                         if (ka == null) {
                             ka = BitmapHelper.Bitmap2Bytes(jV, 100);
                         }
-                        this.aqO.aqx.a(ka, jV);
-                        this.aqO.aqx.invalidate();
-                        this.aqO.aqx.play();
-                        this.aqO.aqJ = false;
+                        this.arI.arr.a(ka, jV);
+                        this.arI.arr.invalidate();
+                        this.arI.arr.play();
+                        this.arI.arD = false;
                     } else {
-                        this.aqO.aqx.setImageBitmap(jV);
-                        this.aqO.aqx.setImageData(aVar.ka());
+                        this.arI.arr.setImageBitmap(jV);
+                        this.arI.arr.setImageData(aVar.ka());
                     }
-                    this.aqO.Bj();
-                    this.aqO.Bl();
-                } else if (!this.aqR) {
-                    this.aqO.aqx.Hs();
+                    this.arI.Bq();
+                    this.arI.Bs();
+                } else if (!this.arL) {
+                    this.arI.arr.Hv();
                 }
-            } else if (!this.aqR) {
-                this.aqO.aqx.Hs();
+            } else if (!this.arL) {
+                this.arI.arr.Hv();
             }
         }
     }

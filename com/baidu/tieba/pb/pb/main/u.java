@@ -9,54 +9,54 @@ import com.baidu.tieba.pb.a.d;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class u implements d.a {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PbActivity pbActivity) {
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.a.d.a
     public boolean a(View view, MotionEvent motionEvent) {
-        ex exVar;
-        ex exVar2;
-        ex exVar3;
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
         com.baidu.tbadk.editortools.e.e eVar;
-        ex exVar4;
-        ex exVar5;
+        ey eyVar4;
+        ey eyVar5;
         com.baidu.tbadk.editortools.e.e eVar2;
-        com.baidu.tieba.pb.pb.main.a.f fVar;
-        com.baidu.tieba.pb.pb.main.a.f fVar2;
-        ex exVar6;
-        ex exVar7;
+        com.baidu.tieba.pb.pb.main.a.j jVar;
+        com.baidu.tieba.pb.pb.main.a.j jVar2;
+        ey eyVar6;
+        ey eyVar7;
         com.baidu.tbadk.editortools.e.e eVar3;
-        exVar = this.eqa.epe;
-        if (exVar.aQJ()) {
+        eyVar = this.evL.euP;
+        if (eyVar.aSF()) {
             return true;
         }
-        exVar2 = this.eqa.epe;
-        if (exVar2 == null) {
+        eyVar2 = this.evL.euP;
+        if (eyVar2 == null) {
             return false;
         }
-        exVar3 = this.eqa.epe;
-        exVar3.iu(false);
-        eVar = this.eqa.epp;
+        eyVar3 = this.evL.euP;
+        eyVar3.iS(false);
+        eVar = this.evL.evb;
         if (eVar != null) {
-            exVar7 = this.eqa.epe;
-            eVar3 = this.eqa.epp;
-            exVar7.gD(eVar3.Dr());
+            eyVar7 = this.evL.euP;
+            eVar3 = this.evL.evb;
+            eyVar7.gX(eVar3.Dz());
         }
-        exVar4 = this.eqa.epe;
-        exVar4.aX(view);
-        exVar5 = this.eqa.epe;
-        exVar5.iu(true);
-        eVar2 = this.eqa.epp;
-        eVar2.Du();
-        fVar = this.eqa.eoN;
-        if (fVar != null) {
-            fVar2 = this.eqa.eoN;
-            exVar6 = this.eqa.epe;
-            fVar2.iF(exVar6.isFullScreen());
+        eyVar4 = this.evL.euP;
+        eyVar4.aW(view);
+        eyVar5 = this.evL.euP;
+        eyVar5.iS(true);
+        eVar2 = this.evL.evb;
+        eVar2.DC();
+        jVar = this.evL.eux;
+        if (jVar != null) {
+            jVar2 = this.evL.eux;
+            eyVar6 = this.evL.euP;
+            jVar2.jc(eyVar6.isFullScreen());
             return true;
         }
         return true;
@@ -67,8 +67,8 @@ class u implements d.a {
         return false;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00bf, code lost:
-        if (r5 == r0.aQK()) goto L29;
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b7, code lost:
+        if (r5 == r0.aSG()) goto L27;
      */
     @Override // com.baidu.tieba.pb.a.d.a
     /*
@@ -76,34 +76,34 @@ class u implements d.a {
     */
     public boolean c(View view, MotionEvent motionEvent) {
         com.baidu.tbadk.editortools.e.e eVar;
-        ex exVar;
+        ey eyVar;
         com.baidu.tbadk.editortools.e.e eVar2;
-        ex exVar2;
-        ex exVar3;
+        ey eyVar2;
+        ey eyVar3;
         com.baidu.tbadk.editortools.e.e eVar3;
-        ex exVar4;
-        ex exVar5;
-        ex exVar6;
-        boolean aT;
+        ey eyVar4;
+        ey eyVar5;
+        ey eyVar6;
+        boolean aS;
         if (view != null) {
             if (view.getId() != r.g.richText) {
                 if (view.getId() == r.g.pb_list_item_layout) {
                     if (view.getTag(r.g.tag_from) instanceof SparseArray) {
-                        this.eqa.e((SparseArray) view.getTag(r.g.tag_from));
+                        this.evL.e((SparseArray) view.getTag(r.g.tag_from));
                     }
                 } else if (!(view instanceof TbRichTextView) && view.getId() != r.g.pb_post_header_layout) {
-                    exVar4 = this.eqa.epe;
-                    if (exVar4 != null) {
-                        exVar5 = this.eqa.epe;
-                        if (exVar5.aNm()) {
-                            if (view.getId() != r.g.pb_head_owner_root && view.getId() != r.g.pb_head_user_info_root) {
-                                exVar6 = this.eqa.epe;
+                    eyVar4 = this.evL.euP;
+                    if (eyVar4 != null) {
+                        eyVar5 = this.evL.euP;
+                        if (eyVar5.aPe()) {
+                            if (view.getId() != r.g.pb_head_user_info_root) {
+                                eyVar6 = this.evL.euP;
                             }
                             if (view.getTag(r.g.tag_user_id) instanceof String) {
-                                TiebaStatic.log(new com.baidu.tbadk.core.util.ax("c10630").ab("obj_id", (String) view.getTag(r.g.tag_user_id)));
+                                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10630").ab("obj_id", (String) view.getTag(r.g.tag_user_id)));
                             }
-                            if (this.eqa.epf != null && this.eqa.epf.ewW != null) {
-                                this.eqa.epf.ewW.onClick(view);
+                            if (this.evL.euQ != null && this.evL.euQ.eDj != null) {
+                                this.evL.euQ.eDj.onClick(view);
                             }
                         }
                     }
@@ -115,27 +115,27 @@ class u implements d.a {
                     if (sparseArray == null) {
                         return false;
                     }
-                    this.eqa.e(sparseArray);
+                    this.evL.e(sparseArray);
                 }
             } else {
-                aT = this.eqa.aT(view);
-                if (aT) {
+                aS = this.evL.aS(view);
+                if (aS) {
                     return true;
                 }
             }
         }
-        eVar = this.eqa.epp;
+        eVar = this.evL.evb;
         if (eVar != null) {
-            exVar3 = this.eqa.epe;
-            eVar3 = this.eqa.epp;
-            exVar3.gD(eVar3.Dr());
+            eyVar3 = this.evL.euP;
+            eVar3 = this.evL.evb;
+            eyVar3.gX(eVar3.Dz());
         }
-        exVar = this.eqa.epe;
-        exVar.aPG();
-        eVar2 = this.eqa.epp;
-        eVar2.Du();
-        exVar2 = this.eqa.epe;
-        exVar2.aBc();
+        eyVar = this.evL.euP;
+        eyVar.aRJ();
+        eVar2 = this.evL.evb;
+        eVar2.DC();
+        eyVar2 = this.evL.euP;
+        eyVar2.aCY();
         return true;
     }
 }

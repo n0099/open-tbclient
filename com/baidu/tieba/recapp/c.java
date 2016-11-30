@@ -9,11 +9,11 @@ import java.util.List;
 public interface c {
     com.baidu.adp.widget.ListView.a<?, ?> a(b bVar, BdUniqueId bdUniqueId);
 
-    void a(String str, String str2, String str3, String str4, List<a.b> list, String str5);
+    void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
     com.baidu.adp.widget.ListView.a<?, ?> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 
     com.baidu.adp.widget.ListView.a<?, ?> c(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 
-    void sendFRS(String str, String str2, String str3, List<a.b> list, String str4);
+    void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

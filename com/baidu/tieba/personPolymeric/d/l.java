@@ -5,31 +5,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView aUr;
-    private TextView cGL;
+    private ImageView aWC;
+    private TextView cLW;
     private View mRootView;
 
     public l(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        V(getView());
+        W(getView());
     }
 
-    private void V(View view) {
+    private void W(View view) {
         this.mRootView = view.findViewById(r.g.card_privacy_rootview);
-        this.aUr = (ImageView) view.findViewById(r.g.card_privacy_icon);
-        this.cGL = (TextView) view.findViewById(r.g.card_privacy_txt);
+        this.aWC = (ImageView) view.findViewById(r.g.card_privacy_icon);
+        this.cLW = (TextView) view.findViewById(r.g.card_privacy_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            av.k(this.mRootView, r.d.cp_bg_line_d);
-            av.c(this.aUr, r.f.icon_mine_lock);
-            av.c(this.cGL, r.d.cp_cont_c, 1);
+            at.k(this.mRootView, r.d.cp_bg_line_d);
+            at.c(this.aWC, r.f.icon_mine_lock);
+            at.c(this.cLW, r.d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -45,16 +45,16 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void onBindDataToView(com.baidu.tieba.personPolymeric.c.i iVar) {
         String string = iVar.sex == 2 ? this.mContext.getString(r.j.person_identity_she) : this.mContext.getString(r.j.person_identity_he);
         StringBuffer stringBuffer = new StringBuffer();
-        if (iVar.eKq) {
+        if (iVar.eQO) {
             stringBuffer.append(this.mContext.getString(r.j.person_polymeric_privacry_post));
         }
-        if (!StringUtils.isNull(stringBuffer.toString()) && iVar.eKp) {
+        if (!StringUtils.isNull(stringBuffer.toString()) && iVar.eQN) {
             stringBuffer.append(this.mContext.getString(r.j.person_polymeric_privacry_and));
         }
-        if (iVar.eKp) {
+        if (iVar.eQN) {
             stringBuffer.append(this.mContext.getString(r.j.person_polymeric_privacry_bar));
         }
-        this.cGL.setText(String.format(this.mContext.getString(r.j.person_polymeric_privacry_tip), string, stringBuffer.toString()));
+        this.cLW.setText(String.format(this.mContext.getString(r.j.person_polymeric_privacry_tip), string, stringBuffer.toString()));
     }
 
     @Override // android.view.View.OnClickListener

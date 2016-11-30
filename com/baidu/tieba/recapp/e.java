@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class e implements c {
-    public static final AtomicReference<c> fcW = new AtomicReference<>(null);
-    private static final c fcX = new e();
+    public static final AtomicReference<c> fki = new AtomicReference<>(null);
+    private static final c fkj = new e();
 
-    public static c bbV() {
-        c cVar = fcW.get();
-        return cVar == null ? fcX : cVar;
+    public static c bes() {
+        c cVar = fki.get();
+        return cVar == null ? fkj : cVar;
     }
 
     @Override // com.baidu.tieba.recapp.c
@@ -36,12 +36,12 @@ public class e implements c {
     }
 
     @Override // com.baidu.tieba.recapp.c
-    public void sendFRS(String str, String str2, String str3, List<a.b> list, String str4) {
+    public void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
         BdLog.e("recapp plugin install failed!");
     }
 
     @Override // com.baidu.tieba.recapp.c
-    public void a(String str, String str2, String str3, String str4, List<a.b> list, String str5) {
+    public void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
         BdLog.e("recapp plugin install failed!");
     }
 }

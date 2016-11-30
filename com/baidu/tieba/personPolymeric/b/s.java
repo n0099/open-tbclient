@@ -7,13 +7,13 @@ import com.baidu.tieba.person.SetUserPicsResponse;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends HttpMessageListener {
-    final /* synthetic */ q eJJ;
+    final /* synthetic */ q eQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(q qVar, int i) {
         super(i);
-        this.eJJ = qVar;
+        this.eQi = qVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ public class s extends HttpMessageListener {
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof SetUserPicsResponse)) {
             SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
             if (setUserPicsResponse.getErrCode() != 0) {
-                tbPageContext = this.eJJ.GM;
+                tbPageContext = this.eQi.GO;
                 tbPageContext.showToast(setUserPicsResponse.getErrorString());
-                this.eJJ.iS(false);
+                this.eQi.js(false);
                 return;
             }
-            this.eJJ.aTR();
+            this.eQi.aVY();
         }
     }
 }

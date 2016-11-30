@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h LI = null;
-    public static String a = np().b() + "/baidu/tempdata";
+    private static volatile h LM = null;
+    public static String a = ns().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
 
@@ -47,7 +47,18 @@ public final class h {
         return z;
     }
 
-    private List<g> d() {
+    public static h ns() {
+        if (LM == null) {
+            synchronized (h.class) {
+                if (LM == null) {
+                    LM = new h(com.baidu.location.f.getServiceContext());
+                }
+            }
+        }
+        return LM;
+    }
+
+    private List<g> nt() {
         boolean z;
         try {
             StorageManager storageManager = (StorageManager) this.d.getSystemService("storage");
@@ -99,22 +110,11 @@ public final class h {
         return this.b;
     }
 
-    public static h np() {
-        if (LI == null) {
-            synchronized (h.class) {
-                if (LI == null) {
-                    LI = new h(com.baidu.location.f.getServiceContext());
-                }
-            }
-        }
-        return LI;
-    }
-
     /* JADX WARN: Removed duplicated region for block: B:42:0x00ad  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private List<g> nq() {
+    private List<g> nu() {
         Scanner scanner;
         String[] split;
         String[] split2;
@@ -213,7 +213,7 @@ public final class h {
     }
 
     public List<g> c() {
-        List<g> d = Build.VERSION.SDK_INT >= 14 ? d() : null;
-        return (d == null || d.size() <= 0) ? nq() : d;
+        List<g> nt = Build.VERSION.SDK_INT >= 14 ? nt() : null;
+        return (nt == null || nt.size() <= 0) ? nu() : nt;
     }
 }

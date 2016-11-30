@@ -6,7 +6,6 @@ public class f {
     public String mCuid;
     public String mNetType;
     public String mUid;
-    public String pP;
     public String pQ;
     public String pR;
     public String pS;
@@ -17,4 +16,5 @@ public class f {
     public String pX;
     public String pY;
     public String pZ;
+    public String qa;
 }

@@ -2,69 +2,69 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.card.an;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId Ru = BdUniqueId.gen();
-    public bi bbU;
-    private ax bcn;
-    private ax bco;
-    private ax bcp;
-    private ax bcq;
+    public static final BdUniqueId RQ = BdUniqueId.gen();
+    public bk beS;
+    private av bfm;
+    private av bfn;
+    private av bfo;
+    private av bfp;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Ru;
+        return RQ;
     }
 
-    public n(bi biVar) {
-        this.bbU = biVar;
+    public n(bk bkVar) {
+        this.beS = bkVar;
     }
 
-    public static boolean d(bi biVar) {
-        return biVar != null && biVar.getThreadType() == 33;
+    public static boolean g(bk bkVar) {
+        return bkVar != null && bkVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bi Jv() {
-        return this.bbU;
+    public bk Jz() {
+        return this.beS;
     }
 
-    public int OG() {
-        return (this.bbU == null || StringUtils.isNull(this.bbU.getPhotoLiveCover())) ? 0 : 1;
+    public int PJ() {
+        return (this.beS == null || StringUtils.isNull(this.beS.getPhotoLiveCover())) ? 0 : 1;
     }
 
-    public void b(ax axVar) {
-        this.bcn = axVar;
+    public void b(av avVar) {
+        this.bfm = avVar;
     }
 
-    public void c(ax axVar) {
-        this.bco = axVar;
+    public void c(av avVar) {
+        this.bfn = avVar;
     }
 
-    public void d(ax axVar) {
-        this.bcp = axVar;
+    public void d(av avVar) {
+        this.bfo = avVar;
     }
 
-    public void e(ax axVar) {
-        this.bcq = axVar;
+    public void e(av avVar) {
+        this.bfp = avVar;
     }
 
-    public ax OH() {
-        return this.bcn != null ? this.bcn.ab("obj_param3", an.Oc()) : this.bcn;
+    public av PK() {
+        return this.bfm != null ? this.bfm.ab("obj_param3", an.Pe()) : this.bfm;
     }
 
-    public ax OI() {
-        return this.bco != null ? this.bco.ab("obj_param3", an.Oc()) : this.bco;
+    public av PL() {
+        return this.bfn != null ? this.bfn.ab("obj_param3", an.Pe()) : this.bfn;
     }
 
-    public ax OJ() {
-        return this.bcq != null ? this.bcq.ab("obj_param3", an.Oc()) : this.bcq;
+    public av PM() {
+        return this.bfp != null ? this.bfp.ab("obj_param3", an.Pe()) : this.bfp;
     }
 
-    public ax OK() {
-        return this.bcp != null ? this.bcp.ab("obj_param3", an.Oc()) : this.bcp;
+    public av PN() {
+        return this.bfo != null ? this.bfo.ab("obj_param3", an.Pe()) : this.bfo;
     }
 }

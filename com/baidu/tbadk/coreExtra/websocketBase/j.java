@@ -6,37 +6,37 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements g.a {
-    final /* synthetic */ i arI;
+    final /* synthetic */ i asC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.arI = iVar;
+        this.asC = iVar;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void e(Map<String, String> map) {
         int i;
-        i = this.arI.arD;
+        i = this.asC.asx;
         if (i >= 5) {
             com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.j.getUrl());
-            a.Bq().eW(com.baidu.adp.framework.client.socket.j.getUrl());
-            a.Bq().Bu();
+            a.Bx().eY(com.baidu.adp.framework.client.socket.j.getUrl());
+            a.Bx().BB();
         }
-        this.arI.arD = 0;
+        this.asC.asx = 0;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void e(int i, String str) {
+    public void d(int i, String str) {
         int i2;
         int i3;
         if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.gm()) {
-            i iVar = this.arI;
-            i2 = iVar.arD;
-            iVar.arD = i2 + 1;
-            i3 = this.arI.arD;
+            i iVar = this.asC;
+            i2 = iVar.asx;
+            iVar.asx = i2 + 1;
+            i3 = this.asC.asx;
             if (i3 >= 5) {
                 com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                this.arI.BM();
+                this.asC.BT();
             }
         }
     }

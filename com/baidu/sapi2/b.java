@@ -122,6 +122,7 @@ import com.baidu.sapi2.utils.f;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -5524,7 +5525,7 @@ public final class b {
                 } else {
                     SapiAccount a3 = b.this.a(b2);
                     a3.a(b2.socialType, b2.socialPortraitUrl);
-                    a3.a("account_type", Integer.valueOf(b2.accountType.getType()));
+                    a3.a(GiftTabActivityConfig.ACCOUNT_TYPE, Integer.valueOf(b2.accountType.getType()));
                     a3.a("stoken_list", new JSONObject(b2.tplStokenMap));
                     com.baidu.sapi2.share.a.a().a(a3);
                     iqiyiLoginCallback.onSuccess(iqiyiLoginResult);

@@ -3,20 +3,20 @@ package com.baidu.tbadk.coreExtra.view;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class ac implements a.b {
-    private final /* synthetic */ String abr;
-    final /* synthetic */ u aqO;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqS;
+    private final /* synthetic */ String abQ;
+    final /* synthetic */ u arI;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a arM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(u uVar, com.baidu.tbadk.core.dialog.a aVar, String str) {
-        this.aqO = uVar;
-        this.aqS = aVar;
-        this.abr = str;
+        this.arI = uVar;
+        this.arM = aVar;
+        this.abQ = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aqS.dismiss();
-        this.aqO.eV(this.abr);
+        this.arM.dismiss();
+        this.arI.eX(this.abQ);
     }
 }

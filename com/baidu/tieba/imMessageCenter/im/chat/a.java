@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ PersonalChatActivity doA;
+    final /* synthetic */ PersonalChatActivity dui;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PersonalChatActivity personalChatActivity, int i) {
         super(i);
-        this.doA = personalChatActivity;
+        this.dui = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,17 +24,17 @@ class a extends CustomMessageListener {
         PersonalChatView personalChatView2;
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
             com.baidu.tieba.im.data.b data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
-            personalMsglistModel = this.doA.dot;
+            personalMsglistModel = this.dui.dub;
             PersonalMsglistModel.CardStatus k = personalMsglistModel.k(data);
-            personalMsglistModel2 = this.doA.dot;
+            personalMsglistModel2 = this.dui.dub;
             personalMsglistModel2.a(k);
             if (k == PersonalMsglistModel.CardStatus.AGREE) {
                 String content = data.getContent();
-                personalChatView2 = this.doA.dou;
+                personalChatView2 = this.dui.duc;
                 personalChatView2.a(k, false, content);
                 return;
             }
-            personalChatView = this.doA.dou;
+            personalChatView = this.dui.duc;
             personalChatView.a(k, false, new String[0]);
         }
     }

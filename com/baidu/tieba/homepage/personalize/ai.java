@@ -1,22 +1,19 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ai extends CustomMessageListener {
-    final /* synthetic */ m this$0;
+public class ai {
+    private static volatile List<Long> cLs = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(m mVar, int i) {
-        super(i);
-        this.this$0 = mVar;
+    public static void bG(long j) {
+        if (cLs.size() > 300) {
+            cLs.remove(0);
+        }
+        cLs.add(Long.valueOf(j));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.fb(false);
+    public static boolean bH(long j) {
+        return cLs.contains(Long.valueOf(j));
     }
 }

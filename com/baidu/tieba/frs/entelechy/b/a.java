@@ -3,18 +3,18 @@ package com.baidu.tieba.frs.entelechy.b;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.entelechy.a.af;
+import com.baidu.tieba.frs.entelechy.a.aj;
 /* loaded from: classes.dex */
 public interface a {
-    d M(FrsActivity frsActivity);
+    d C(FrsActivity frsActivity);
 
-    af a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z);
+    aj a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z);
 
     com.baidu.tieba.frs.view.c a(String str, FrsActivity frsActivity, int i);
 
-    g acT();
+    g aeg();
 
-    b acU();
+    b aeh();
 
     c b(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout);
 

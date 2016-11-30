@@ -19,7 +19,7 @@ public interface g {
 
         void c(c cVar);
 
-        void e(int i, String str);
+        void d(int i, String str);
 
         void e(Map<String, String> map);
 

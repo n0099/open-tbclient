@@ -1,82 +1,46 @@
 package com.baidu.tieba.play;
 
-import android.os.Handler;
-import android.widget.MediaController;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import com.baidu.tieba.play.z;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ z eZj;
-    int eZk = 0;
+public class ab extends CustomMessageListener {
+    final /* synthetic */ aa ffP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(z zVar) {
-        this.eZj = zVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(aa aaVar, int i) {
+        super(i);
+        this.ffP = aaVar;
     }
 
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
-        Handler handler;
-        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        this.eZj.cSy = true;
-        onSeekBarChangeListener = this.eZj.aQT;
-        if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.eZj.aQT;
-            onSeekBarChangeListener2.onStartTrackingTouch(seekBar);
-        }
-        handler = this.eZj.mHandler;
-        handler.removeMessages(1);
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        TextView textView;
-        z.a aVar;
-        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
-        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        z.a aVar2;
-        TextView textView2;
-        String la;
-        if (z) {
-            mediaPlayerControl = this.eZj.aPl;
-            this.eZk = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
-            textView = this.eZj.cSw;
-            if (textView != null) {
-                textView2 = this.eZj.cSw;
-                la = this.eZj.la(this.eZk);
-                textView2.setText(la);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        boolean z2;
+        aq aqVar;
+        aq aqVar2;
+        aq aqVar3;
+        aq aqVar4;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+            this.ffP.aro();
+            z = this.ffP.bWF;
+            if (z) {
+                z2 = this.ffP.bWF;
+                if (z2) {
+                    aa aaVar = this.ffP;
+                    aqVar = this.ffP.ffM;
+                    int bcW = aqVar.bcW();
+                    aqVar2 = this.ffP.ffM;
+                    int bcX = aqVar2.bcX();
+                    aqVar3 = this.ffP.ffM;
+                    boolean bcY = aqVar3.bcY();
+                    aqVar4 = this.ffP.ffM;
+                    aaVar.a(bcW, bcX, bcY, aqVar4.bcZ());
+                }
             }
-            aVar = this.eZj.aRb;
-            if (aVar != null) {
-                aVar2 = this.eZj.aRb;
-                aVar2.Lz();
-            }
-            onSeekBarChangeListener = this.eZj.aQT;
-            if (onSeekBarChangeListener != null) {
-                onSeekBarChangeListener2 = this.eZj.aQT;
-                onSeekBarChangeListener2.onProgressChanged(seekBar, this.eZk, z);
-            }
-        }
-    }
-
-    @Override // android.widget.SeekBar.OnSeekBarChangeListener
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        Handler handler;
-        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
-        SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        mediaPlayerControl = this.eZj.aPl;
-        mediaPlayerControl.seekTo(this.eZk);
-        this.eZj.cSy = false;
-        handler = this.eZj.mHandler;
-        handler.sendEmptyMessageDelayed(1, 500L);
-        onSeekBarChangeListener = this.eZj.aQT;
-        if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.eZj.aQT;
-            onSeekBarChangeListener2.onStopTrackingTouch(seekBar);
         }
     }
 }

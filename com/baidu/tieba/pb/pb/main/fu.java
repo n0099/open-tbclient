@@ -1,25 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class fu implements View.OnClickListener {
-    final /* synthetic */ ex ewH;
+class fu implements Runnable {
+    final /* synthetic */ ft eCX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fu(ex exVar) {
-        this.ewH = exVar;
+    public fu(ft ftVar) {
+        this.eCX = ftVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // java.lang.Runnable
+    public void run() {
+        ey eyVar;
         PbActivity pbActivity;
+        ey eyVar2;
         PbActivity pbActivity2;
-        this.ewH.aQx();
-        pbActivity = this.ewH.eow;
-        if (pbActivity.bRx != null) {
-            pbActivity2 = this.ewH.eow;
-            pbActivity2.bRx.onClick(view);
-        }
+        ey eyVar3;
+        RelativeLayout relativeLayout;
+        eyVar = this.eCX.eCT;
+        pbActivity = eyVar.eug;
+        eyVar2 = this.eCX.eCT;
+        pbActivity2 = eyVar2.eug;
+        eyVar3 = this.eCX.eCT;
+        relativeLayout = eyVar3.efO;
+        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
     }
 }

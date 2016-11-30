@@ -1,58 +1,34 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tieba.play.t;
 import java.util.List;
 /* loaded from: classes.dex */
-class r implements Runnable {
-    final /* synthetic */ ForumHeadVideoView ccf;
+class r implements t.a {
+    final /* synthetic */ ForumHeadVideoView cfB;
+    private long cfC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ForumHeadVideoView forumHeadVideoView) {
-        this.ccf = forumHeadVideoView;
+        this.cfB = forumHeadVideoView;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0060, code lost:
-        if (r2 < com.baidu.tbadk.core.util.y.s(r1)) goto L15;
-     */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
+    @Override // com.baidu.tieba.play.t.a
+    public void onCompletion(com.baidu.tieba.play.t tVar) {
         List list;
-        List list2;
-        List list3;
-        boolean hasMore;
-        List list4;
-        list = this.ccf.aSU;
-        if (list != null) {
-            list2 = this.ccf.aSU;
-            if (list2.size() > 0) {
-                list3 = this.ccf.aSU;
-                y.d(list3, 0);
-                e currentVideoItemView = this.ccf.getCurrentVideoItemView();
-                e swapVideoItemView = this.ccf.getSwapVideoItemView();
-                if (currentVideoItemView != null) {
-                    currentVideoItemView.clearAnimation();
-                    currentVideoItemView.stopPlayback();
-                    currentVideoItemView.setVisibility(8);
-                    this.ccf.removeView(currentVideoItemView);
-                    int childCount = this.ccf.getChildCount();
-                    if (swapVideoItemView != null) {
-                        swapVideoItemView.clearAnimation();
-                        this.ccf.g(swapVideoItemView, childCount - 1, childCount);
-                    }
-                    hasMore = this.ccf.hasMore();
-                    if (!hasMore) {
-                        list4 = this.ccf.aSU;
-                    }
-                    this.ccf.addView(currentVideoItemView, 0);
-                    this.ccf.aeP();
-                    this.ccf.Jp();
-                    this.ccf.is(this.ccf.getChildCount());
+        c currentVideoItemView = this.cfB.getCurrentVideoItemView();
+        if (currentVideoItemView != null) {
+            list = this.cfB.aUV;
+            if (x.s(list) == 1 && tVar != null && tVar.isLooping()) {
+                if (System.currentTimeMillis() - this.cfC > 100) {
+                    currentVideoItemView.afS();
+                    this.cfC = System.currentTimeMillis();
+                    return;
                 }
+                return;
             }
+            currentVideoItemView.setVideoPlayState(1);
+            this.cfB.agc();
         }
-        this.ccf.cbR = true;
     }
 }

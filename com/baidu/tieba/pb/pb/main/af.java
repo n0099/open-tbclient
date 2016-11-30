@@ -6,60 +6,60 @@ import com.baidu.tieba.r;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 class af implements a.InterfaceC0032a {
-    final /* synthetic */ PbActivity eqa;
+    final /* synthetic */ PbActivity evL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(PbActivity pbActivity) {
-        this.eqa = pbActivity;
+        this.evL = pbActivity;
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0032a
     public void a(boolean z, boolean z2, String str) {
-        ex exVar;
+        ey eyVar;
         com.baidu.tbadk.baseEditMark.a aVar;
-        dh dhVar;
-        dh dhVar2;
-        ex exVar2;
-        dh dhVar3;
+        dj djVar;
+        dj djVar2;
+        ey eyVar2;
+        dj djVar3;
         com.baidu.tbadk.baseEditMark.a aVar2;
         com.baidu.tbadk.baseEditMark.a aVar3;
         com.baidu.tbadk.baseEditMark.a aVar4;
-        exVar = this.eqa.epe;
-        exVar.aQb();
+        eyVar = this.evL.euP;
+        eyVar.aSc();
         if (z) {
-            aVar = this.eqa.dMU;
+            aVar = this.evL.dSz;
             if (aVar != null) {
-                aVar4 = this.eqa.dMU;
+                aVar4 = this.evL.dSz;
                 aVar4.ad(z2);
             }
-            dhVar = this.eqa.eov;
-            dhVar.ih(z2);
-            dhVar2 = this.eqa.eov;
-            if (!dhVar2.nv()) {
-                exVar2 = this.eqa.epe;
-                dhVar3 = this.eqa.eov;
-                exVar2.j(dhVar3.getPbData());
+            djVar = this.evL.euf;
+            djVar.iz(z2);
+            djVar2 = this.evL.euf;
+            if (!djVar2.nz()) {
+                eyVar2 = this.evL.euP;
+                djVar3 = this.evL.euf;
+                eyVar2.j(djVar3.getPbData());
             } else {
-                this.eqa.aNy();
+                this.evL.aPq();
             }
             if (z2) {
-                aVar2 = this.eqa.dMU;
+                aVar2 = this.evL.dSz;
                 if (aVar2 != null) {
-                    aVar3 = this.eqa.dMU;
-                    MarkData ny = aVar3.ny();
-                    if (ny != null) {
-                        this.eqa.showToast(MessageFormat.format(this.eqa.getPageContext().getString(r.j.add_mark_on_pb), Integer.valueOf(ny.getFloor())));
+                    aVar3 = this.evL.dSz;
+                    MarkData nC = aVar3.nC();
+                    if (nC != null) {
+                        this.evL.showToast(MessageFormat.format(this.evL.getPageContext().getString(r.j.add_mark_on_pb), Integer.valueOf(nC.getFloor())));
                         return;
                     } else {
-                        this.eqa.showToast(this.eqa.getPageContext().getString(r.j.add_mark));
+                        this.evL.showToast(this.evL.getPageContext().getString(r.j.add_mark));
                         return;
                     }
                 }
                 return;
             }
-            this.eqa.showToast(this.eqa.getPageContext().getString(r.j.remove_mark));
+            this.evL.showToast(this.evL.getPageContext().getString(r.j.remove_mark));
             return;
         }
-        this.eqa.showToast(this.eqa.getPageContext().getString(r.j.update_mark_failed));
+        this.evL.showToast(this.evL.getPageContext().getString(r.j.update_mark_failed));
     }
 }

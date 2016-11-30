@@ -21,7 +21,7 @@ public class RequestIncrForumAccessCountNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.mForumId);
         if (z) {
-            com.baidu.tbadk.util.o.a(builder, true);
+            com.baidu.tbadk.util.n.a(builder, true);
         }
         IncrForumAccessCountReqIdl.Builder builder2 = new IncrForumAccessCountReqIdl.Builder();
         builder2.data = builder.build(false);

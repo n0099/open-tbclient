@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.r;
 import java.io.File;
@@ -89,7 +89,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         SPEAKER,
         HEADSET;
 
-        /* JADX DEBUG: Replace access to removed values field (aig) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aiY) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PlayMode[] valuesCustom() {
             PlayMode[] valuesCustom = values();
@@ -110,7 +110,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
         VoiceData.VoiceModel getVoiceModel();
 
-        void lD();
+        void lG();
 
         void onShowErr(int i, String str);
     }
@@ -125,7 +125,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public static synchronized void initConfig() {
         synchronized (VoiceManager.class) {
             if (!bInitConfig) {
-                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("voice_use_soft_decoder", l.gS());
+                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.um().getBoolean("voice_use_soft_decoder", l.gS());
             }
         }
     }
@@ -136,7 +136,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public static void setVoiceUseSoftDecoder(boolean z) {
         bVoiceUseSoftDecoder = true;
-        com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+        com.baidu.tbadk.core.sharedPref.b.um().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
     }
 
     public static VoiceManager instance() {
@@ -183,7 +183,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setStatusWaiting(VoiceData.VoiceModel voiceModel) {
         unRegistSensorHandler();
         voiceModel.voice_status = 1;
-        l.sV = 2;
+        l.sW = 2;
         setVolumeControlStream();
         b playView = getPlayView();
         if (playView != null) {
@@ -227,26 +227,26 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mResourceCall == null) {
                 this.mResourceCall = new h(this);
             }
-            Object ea = i.ea(voiceModel.getId());
-            if (ea == null) {
+            Object ec = i.ec(voiceModel.getId());
+            if (ec == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof k)) {
                     bdUniqueId = ((k) this.context.getOrignalPage()).getUniqueId();
                 }
-                ea = com.baidu.adp.lib.g.c.eA().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                ec = com.baidu.adp.lib.g.c.eA().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && ea == null) {
+            if (voiceModel.isLocal && ec == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d(this, null);
                 }
-                this.mPlayCall.f(5, l.getString(r.j.voice_err_no_file));
+                this.mPlayCall.e(5, l.getString(r.j.voice_err_no_file));
                 com.baidu.tbadk.core.util.l lVar = new com.baidu.tbadk.core.util.l();
                 if (voiceModel != null) {
                     lVar.n("id", voiceModel.getId());
                     lVar.n("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", lVar.toString());
-            } else if (ea != null) {
-                setPlaying(voiceModel, (String) ea);
+            } else if (ec != null) {
+                setPlaying(voiceModel, (String) ec);
             } else {
                 voiceModel.voice_status = 2;
                 b playView = getPlayView();
@@ -287,7 +287,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void startPlay(b bVar) {
-        if (bVar != null && !ag.af(this.context.getPageActivity()) && !ag.ac(null)) {
+        if (bVar != null && !ae.af(this.context.getPageActivity()) && !ae.ac(null)) {
             if (this.mHandle != null) {
                 this.mHandle.removeCallbacks(this.stopVoiceAndRePlayRunnable);
             }
@@ -372,7 +372,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
 
         @Override // com.baidu.adp.lib.voice.i
-        public void f(int i, String str) {
+        public void e(int i, String str) {
             TiebaStatic.voiceError(i, str, "");
             if (VoiceManager.this.sPlayView != null) {
                 VoiceManager.this.sPlayView.onShowErr(i, str);
@@ -418,7 +418,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 this.mPlayCall = new d(this, null);
             }
             if (!new File(str).exists()) {
-                this.mPlayCall.f(5, l.getString(r.j.voice_err_no_file));
+                this.mPlayCall.e(5, l.getString(r.j.voice_err_no_file));
                 return;
             }
             registSensor();
@@ -426,9 +426,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             firstOpenSpeaker();
             if (this.audioManager != null) {
                 if (this.audioManager.isSpeakerphoneOn()) {
-                    l.sV = 3;
+                    l.sW = 3;
                 } else {
-                    l.sV = 0;
+                    l.sW = 0;
                 }
             }
             setVolumeControlStream();
@@ -656,7 +656,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void openSpeaker() {
-        if (this.audioManager != null && l.sU != 2) {
+        if (this.audioManager != null && l.sV != 2) {
             if (TbadkCoreApplication.m9getInst().isHeadsetModeOn() || TbadkCoreApplication.m9getInst().getIsPhoneCalling()) {
                 setSpeakerphone(false);
                 this.bSpeakerphoneOn = false;
@@ -665,7 +665,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 saveInitVoiceStatus();
                 setSpeakerphone(true);
-                l.sV = 3;
+                l.sW = 3;
                 stopVoiceAndRePlay();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -679,7 +679,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             saveInitVoiceStatus();
             try {
                 setSpeakerphone(false);
-                l.sV = 0;
+                l.sW = 0;
                 stopVoiceAndRePlay();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -692,7 +692,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void setVolumeControlStream() {
         try {
             if (this.context != null && this.context.getPageActivity() != null) {
-                this.context.getPageActivity().setVolumeControlStream(l.sV);
+                this.context.getPageActivity().setVolumeControlStream(l.sW);
             }
         } catch (Exception e) {
             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_VOLUME, "setVolumeControlStream exception: " + e.getMessage(), "");
@@ -734,7 +734,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             try {
                 if (bInitSpeakerphoneOn != null && bInitMode != null && bInitVolume != null) {
                     setSpeakerphone(bInitSpeakerphoneOn.booleanValue());
-                    l.sV = 3;
+                    l.sW = 3;
                     bInitSpeakerphoneOn = null;
                     bInitMode = null;
                     bInitVolume = null;

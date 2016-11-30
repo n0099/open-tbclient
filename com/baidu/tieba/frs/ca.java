@@ -1,86 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.pb.ThreadSkinView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import android.text.TextUtils;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class ca extends y.a {
-    public TextView aMI;
-    public TextView agW;
-    public TextView agZ;
-    public int ahV;
-    public UserIconBox ahw;
-    public UserIconBox ahx;
-    public TextView bRb;
-    public TextView bRc;
-    public int bSb;
-    public FrameLayout bSc;
-    public LinearLayout bSd;
-    public RelativeLayout bSe;
-    public TbImageView bSf;
-    public TextView bSg;
-    public PlayVoiceBnt bSh;
-    public FrsCommonImageLayout bSi;
-    public TextView bSj;
-    public HeadImageView bSk;
-    public TextView bSl;
-    public TextView bSm;
-    public RelativeLayout bSn;
-    public LinearLayout bSo;
-    public LinearLayout bSp;
-    public LinearLayout bSq;
-    public View bSr;
-    public TbImageView bSs;
-    public RelativeLayout bSt;
-    public TbImageView bSu;
-    public TextView bSv;
-    public ThreadSkinView bSw;
+public class ca {
+    private static ca bVu = new ca();
+    private final SparseArray<String> bVt = new SparseArray<>();
 
-    public ca(View view, int i) {
-        super(view);
-        this.ahV = 3;
-        this.bSb = 0;
-        this.bSb = i;
-        this.bSc = (FrameLayout) view.findViewById(r.g.frs_list);
-        this.bSn = (RelativeLayout) view.findViewById(r.g.frs_item_user_info_view);
-        this.bSo = (LinearLayout) view.findViewById(r.g.frs_item_base_user_info);
-        this.bSd = (LinearLayout) view.findViewById(r.g.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bSd.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.bSd.setLayoutParams(layoutParams);
-        this.bSe = (RelativeLayout) view.findViewById(r.g.frs_list_item_top_card);
-        this.bSf = (TbImageView) view.findViewById(r.g.frs_normal_item_theme_card);
-        this.bSk = (HeadImageView) view.findViewById(r.g.frs_photo);
-        this.ahw = (UserIconBox) view.findViewById(r.g.frs_user_tshow_icon_box);
-        this.ahx = (UserIconBox) view.findViewById(r.g.frs_user_icon_box);
-        this.bSj = (TextView) view.findViewById(r.g.frs_lv_author);
-        this.agW = (TextView) view.findViewById(r.g.frs_lv_reply_time);
-        this.aMI = (TextView) view.findViewById(r.g.frs_lv_title);
-        this.bSg = (TextView) view.findViewById(r.g.abstract_text);
-        this.bSh = (PlayVoiceBnt) view.findViewById(r.g.abstract_voice);
-        this.bSi = (FrsCommonImageLayout) view.findViewById(r.g.abstract_img_layout);
-        this.agZ = (TextView) view.findViewById(r.g.frs_praise_num);
-        this.bSl = (TextView) view.findViewById(r.g.action_button);
-        this.bRc = (TextView) view.findViewById(r.g.frs_reply_num);
-        this.bSm = (TextView) view.findViewById(r.g.frs_more_abstract);
-        this.bSp = (LinearLayout) view.findViewById(r.g.frs_item_num);
-        this.bSq = (LinearLayout) view.findViewById(r.g.frs_item_loc_view);
-        this.bRb = (TextView) view.findViewById(r.g.frs_item_location_address);
-        this.bSr = view.findViewById(r.g.frs_item_location_sep);
-        this.bSs = (TbImageView) view.findViewById(r.g.game_activity_banner);
-        this.bSu = (TbImageView) view.findViewById(r.g.app_code_banner);
-        this.bSv = (TextView) view.findViewById(r.g.app_code_btn);
-        this.bSt = (RelativeLayout) view.findViewById(r.g.app_code_wrapper);
-        this.bSw = (ThreadSkinView) view.findViewById(r.g.frs_thread_skin);
+    private ca() {
+    }
+
+    public static ca adF() {
+        return bVu;
+    }
+
+    public void ia(int i) {
+        this.bVt.put(i, "1");
+    }
+
+    public boolean ib(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return !TextUtils.isEmpty(this.bVt.get(i));
     }
 }

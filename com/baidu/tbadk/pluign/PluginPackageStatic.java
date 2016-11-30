@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class PluginPackageStatic {
     static {
-        MessageManager.getInstance().registerListener(new b(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
+        MessageManager.getInstance().registerListener(new a(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
     }
 }

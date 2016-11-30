@@ -1,24 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.h.b;
+import com.baidu.tbadk.coreExtra.view.BannerView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av extends CustomMessageListener {
+public class av implements BannerView.a {
+    final /* synthetic */ au bUk;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(int i) {
-        super(i);
+    public av(au auVar) {
+        this.bUk = auVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            int g = b.g(customResponsedMessage.getData().toString(), 1);
-            if (g == 1 || g == 0) {
-                FrsActivityStatic.bQv = false;
-                FrsActivityStatic.bQu = false;
-            }
-        }
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void AO() {
+        this.bUk.acN();
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void AP() {
+        this.bUk.acY();
     }
 }

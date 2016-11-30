@@ -1,6 +1,8 @@
 package com.baidu.tieba.frs;
+
+import java.util.List;
 /* loaded from: classes.dex */
 public class cy {
-    public int bTi;
-    public String name;
+    public int bVr;
+    public List<cx> bVs;
 }

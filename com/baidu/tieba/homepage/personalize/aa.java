@@ -1,30 +1,22 @@
 package com.baidu.tieba.homepage.personalize;
-
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends com.baidu.tbadk.util.t<Object> {
-    private final /* synthetic */ int Wf;
-    final /* synthetic */ m this$0;
+public class aa implements com.baidu.tbadk.util.f<String> {
+    private final /* synthetic */ m cLr;
+    final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(m mVar, int i) {
-        this.this$0 = mVar;
-        this.Wf = i;
+    public aa(n nVar, m mVar) {
+        this.this$0 = nVar;
+        this.cLr = mVar;
     }
 
-    @Override // com.baidu.tbadk.util.t
-    public Object doInBackground() {
-        String str;
-        String str2;
-        com.baidu.tbadk.core.b.a ti = com.baidu.tbadk.core.b.a.ti();
-        str = this.this$0.cFX;
-        com.baidu.adp.lib.cache.o<String> N = ti.N(str, TbadkCoreApplication.getCurrentAccount());
-        if (N != null) {
-            str2 = this.this$0.cFX;
-            N.a(str2, Integer.toString(this.Wf), 43200000L);
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.f
+    /* renamed from: lf */
+    public void onReturnDataInUI(String str) {
+        if (this.cLr != null) {
+            this.cLr.kb(com.baidu.adp.lib.h.b.g(str, 0));
         }
-        return null;
     }
 }

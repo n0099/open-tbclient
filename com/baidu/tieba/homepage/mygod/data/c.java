@@ -1,28 +1,28 @@
 package com.baidu.tieba.homepage.mygod.data;
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.mvc.b.e {
-    private long cEG;
+    private long cJT;
 
     public c(long j) {
-        this.cEG = j;
+        this.cJT = j;
     }
 
-    public long amt() {
-        return this.cEG;
+    public long aoo() {
+        return this.cJT;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
-        return new StringBuilder(String.valueOf(this.cEG)).toString();
+        return new StringBuilder(String.valueOf(this.cJT)).toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String EI() {
+    public String EN() {
         return "RecommendGodCache";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean EJ() {
+    public boolean EO() {
         return true;
     }
 

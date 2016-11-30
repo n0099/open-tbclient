@@ -11,15 +11,15 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements a.InterfaceC0085a {
-    final /* synthetic */ a geO;
+    final /* synthetic */ a gms;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.geO = aVar;
+        this.gms = aVar;
     }
 
     @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0085a
-    public void ts(int i) {
+    public void tO(int i) {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
@@ -34,43 +34,43 @@ public class b implements a.InterfaceC0085a {
         l lVar4;
         l lVar5;
         LinkedList linkedList6;
-        linkedList = this.geO.chosedFiles;
+        linkedList = this.gms.chosedFiles;
         if (linkedList != null) {
-            linkedList2 = this.geO.chosedFiles;
+            linkedList2 = this.gms.chosedFiles;
             if (linkedList2.size() - 1 >= i) {
-                linkedList6 = this.geO.chosedFiles;
+                linkedList6 = this.gms.chosedFiles;
                 ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList6.remove(i);
                 if (imageFileInfo.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.cB().c(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
             }
-            linkedList3 = this.geO.chosedFiles;
+            linkedList3 = this.gms.chosedFiles;
             int size = linkedList3.size();
-            lVar = this.geO.atv;
+            lVar = this.gms.aup;
             if (lVar != null) {
-                lVar2 = this.geO.atv;
-                i2 = this.geO.auY;
+                lVar2 = this.gms.aup;
+                i2 = this.gms.avS;
                 lVar2.b(new com.baidu.tbadk.editortools.a(i2, -1, null));
                 if (size > 0) {
-                    lVar5 = this.geO.atv;
+                    lVar5 = this.gms.aup;
                     lVar5.b(new com.baidu.tbadk.editortools.a(2, 10, String.valueOf(size)));
                 } else {
-                    lVar3 = this.geO.atv;
+                    lVar3 = this.gms.aup;
                     lVar3.b(new com.baidu.tbadk.editortools.a(2, 10, null));
                 }
-                linkedList5 = this.geO.chosedFiles;
+                linkedList5 = this.gms.chosedFiles;
                 if (linkedList5.size() == 1 && size == 0) {
-                    lVar4 = this.geO.atv;
+                    lVar4 = this.gms.aup;
                     lVar4.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                 }
             }
-            this.geO.btc();
-            baseActivity = this.geO.bDL;
-            linkedList4 = this.geO.chosedFiles;
+            this.gms.bvx();
+            baseActivity = this.gms.bGF;
+            linkedList4 = this.gms.chosedFiles;
             ((WriteActivity) baseActivity).o(linkedList4);
-            this.geO.bsZ();
-            this.geO.notifyDataSetChanged();
-            gridView = this.geO.dOC;
+            this.gms.bvu();
+            this.gms.notifyDataSetChanged();
+            gridView = this.gms.dUh;
             gridView.invalidateViews();
         }
     }

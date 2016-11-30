@@ -10,19 +10,19 @@ import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes.dex */
 public class a {
     private String code;
-    private Stack<Object> eie = new Stack<>();
+    private Stack<Object> eoc = new Stack<>();
 
     public a(String str) {
         this.code = str.substring(str.indexOf(" ") + 1);
-        this.eie.add("#");
+        this.eoc.add("#");
     }
 
     public Object get() {
         prepare();
-        if (this.eie.isEmpty()) {
+        if (this.eoc.isEmpty()) {
             return null;
         }
-        return this.eie.pop();
+        return this.eoc.pop();
     }
 
     private void prepare() {
@@ -38,9 +38,9 @@ public class a {
                     case '$':
                         int length = "$.getInstance().get( )".length() + i2;
                         try {
-                            Object aLi = com.baidu.tieba.onlineDebugger.e.b.oO("get " + this.code.substring(i2, length)).aLi();
-                            if (aLi != null) {
-                                this.eie.add(aLi);
+                            Object aNb = com.baidu.tieba.onlineDebugger.e.b.pb("get " + this.code.substring(i2, length)).aNb();
+                            if (aNb != null) {
+                                this.eoc.add(aNb);
                             }
                         } catch (Exception e) {
                             BdLog.e(e);
@@ -58,23 +58,23 @@ public class a {
                         i = i2;
                         break;
                     case r.l.PullToRefresh_headerTextColor /* 40 */:
-                        this.eie.add(this.code.substring(i5 + 1, i2).trim());
-                        this.eie.add("(");
+                        this.eoc.add(this.code.substring(i5 + 1, i2).trim());
+                        this.eoc.add("(");
                         i = i2;
                         break;
                     case r.l.PullToRefresh_mode /* 41 */:
                         String trim = this.code.substring(i5 + 1, i2).trim();
                         if (!trim.isEmpty()) {
-                            this.eie.add(trim);
+                            this.eoc.add(trim);
                         }
-                        this.eie.add(")");
+                        this.eoc.add(")");
                         Stack stack = new Stack();
                         LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
                         while (true) {
-                            if (!this.eie.isEmpty()) {
-                                if (this.eie.peek().equals("(")) {
-                                    stack.add(this.eie.pop());
-                                    stack.add(this.eie.pop());
+                            if (!this.eoc.isEmpty()) {
+                                if (this.eoc.peek().equals("(")) {
+                                    stack.add(this.eoc.pop());
+                                    stack.add(this.eoc.pop());
                                     String str = (String) stack.pop();
                                     while (!stack.isEmpty()) {
                                         Object pop = stack.pop();
@@ -84,10 +84,10 @@ public class a {
                                     }
                                     Object a = a(str, linkedBlockingQueue);
                                     if (a != null) {
-                                        this.eie.add(a);
+                                        this.eoc.add(a);
                                     }
                                 } else {
-                                    stack.add(this.eie.pop());
+                                    stack.add(this.eoc.pop());
                                 }
                             }
                         }
@@ -96,9 +96,9 @@ public class a {
                     case ',':
                         String substring = this.code.substring(i5 + 1, i2);
                         if (!substring.isEmpty()) {
-                            this.eie.add(substring.trim());
+                            this.eoc.add(substring.trim());
                         }
-                        this.eie.add(",");
+                        this.eoc.add(",");
                         i = i2;
                         break;
                 }
@@ -112,7 +112,7 @@ public class a {
     private Object a(String str, Queue<Object> queue) {
         Constructor<?>[] constructors;
         try {
-            Class<?> cls = Class.forName(ov(str));
+            Class<?> cls = Class.forName(oI(str));
             int size = queue.size();
             for (Constructor<?> constructor : cls.getConstructors()) {
                 if (constructor.getParameterTypes().length == size) {
@@ -130,7 +130,7 @@ public class a {
         return null;
     }
 
-    private String ov(String str) {
+    private String oI(String str) {
         if (str.startsWith("new")) {
             return str.substring(str.indexOf(" ") + 1);
         }
@@ -143,19 +143,19 @@ public class a {
             case 0:
                 return constructor.newInstance(new Object[0]);
             case 1:
-                return constructor.newInstance(Q(array[0]));
+                return constructor.newInstance(T(array[0]));
             case 2:
-                return constructor.newInstance(Q(array[0]), Q(array[1]));
+                return constructor.newInstance(T(array[0]), T(array[1]));
             case 3:
-                return constructor.newInstance(Q(array[0]), Q(array[1]), Q(array[2]));
+                return constructor.newInstance(T(array[0]), T(array[1]), T(array[2]));
             case 4:
-                return constructor.newInstance(Q(array[0]), Q(array[1]), Q(array[2]), Q(array[3]));
+                return constructor.newInstance(T(array[0]), T(array[1]), T(array[2]), T(array[3]));
             default:
                 return null;
         }
     }
 
-    private Object Q(Object obj) {
+    private Object T(Object obj) {
         if (obj instanceof String) {
             String obj2 = obj.toString();
             try {

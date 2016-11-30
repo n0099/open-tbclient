@@ -1,67 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.tbadkCore.ah;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends com.baidu.adp.base.e {
-    private static final String aVi = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aVi);
-    private final HttpMessageListener aVj;
-    private a fua;
+public class ai extends HttpMessageListener {
+    final /* synthetic */ ah fBo;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void hB(String str);
-
-        void v(int i, String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(ah ahVar, int i) {
+        super(i);
+        this.fBo = ahVar;
     }
 
-    static {
-        task.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(task);
-    }
-
-    public ai(TbPageContext tbPageContext, a aVar) {
-        super(tbPageContext);
-        this.fua = null;
-        this.aVj = new aj(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.fua = aVar;
-    }
-
-    public void registerListener() {
-        this.aVj.setSelfListener(true);
-        this.aVj.setTag(getUniqueId());
-        registerListener(this.aVj);
-    }
-
-    public void a(String str, String str2, int i, String str3) {
-        String str4;
-        if (i == 1) {
-            str4 = "unlike";
-        } else {
-            str4 = "like";
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        ah.a aVar;
+        ah.a aVar2;
+        ah.a aVar3;
+        ah.a aVar4;
+        ah.a aVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
+            int statusCode = httpResponsedMessage.getStatusCode();
+            if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
+                aVar = this.fBo.fBn;
+                if (aVar != null) {
+                    aVar2 = this.fBo.fBn;
+                    aVar2.L(statusCode, null);
+                    return;
+                }
+                return;
+            }
+            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
+            if (praiseResponseMessage.getError() == 0) {
+                aVar5 = this.fBo.fBn;
+                aVar5.hB(praiseResponseMessage.getErrMsg());
+                return;
+            }
+            aVar3 = this.fBo.fBn;
+            if (aVar3 != null) {
+                aVar4 = this.fBo.fBn;
+                aVar4.L(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+            }
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        httpMessage.addParam("st_type", str4);
-        httpMessage.addParam("action", str4);
-        httpMessage.addParam("post_id", new StringBuilder(String.valueOf(str)).toString());
-        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(str2)).toString());
-        httpMessage.addParam("st_param", str3);
-        sendMessage(httpMessage);
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
     }
 }

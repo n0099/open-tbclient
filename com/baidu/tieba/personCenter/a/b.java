@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.b, com.baidu.tieba.personCenter.e.a> {
@@ -17,7 +17,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bA */
+    /* renamed from: bG */
     public com.baidu.tieba.personCenter.e.a a(ViewGroup viewGroup) {
         return new com.baidu.tieba.personCenter.e.a(LayoutInflater.from(this.mContext).inflate(r.h.item_person_center_list_interval, viewGroup, false));
     }
@@ -28,19 +28,19 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.b bVar, com.baidu.tieba.personCenter.e.a aVar) {
         if (bVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            if (aVar.ahV != skinType) {
-                aVar.ahV = skinType;
-                av.k(aVar.eFG, bVar.eFC);
+            if (aVar.aiA != skinType) {
+                aVar.aiA = skinType;
+                at.k(aVar.eMf, bVar.eMb);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.eFG.getLayoutParams();
-            if (bVar.eAj > 0) {
-                layoutParams.height = bVar.eAj;
+            ViewGroup.LayoutParams layoutParams = aVar.eMf.getLayoutParams();
+            if (bVar.eGS > 0) {
+                layoutParams.height = bVar.eGS;
             }
-            if (bVar.eAi > 0) {
-                layoutParams.width = bVar.eAi;
+            if (bVar.eGR > 0) {
+                layoutParams.width = bVar.eGR;
             }
-            aVar.eFG.setLayoutParams(layoutParams);
-            aVar.eFG.setOnClickListener(null);
+            aVar.eMf.setLayoutParams(layoutParams);
+            aVar.eMf.setOnClickListener(null);
         }
         return view;
     }

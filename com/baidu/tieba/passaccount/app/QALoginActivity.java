@@ -17,53 +17,54 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class QALoginActivity extends BaseActivity {
-    private BdAsyncTask<?, ?, ?> aSL;
+    private BdAsyncTask<?, ?, ?> aUM;
     private WebView mWebView;
-    private String pX = "";
+    private String pY = "";
     private String tbs = "";
-    private String eiR = "https://tieba.baidu.com";
-    private String eiS = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
-    private boolean eiI = false;
+    private String eoP = "https://tieba.baidu.com";
+    private String eoQ = "http://wappass.qatest.baidu.com/passport/?login&u=https://tieba.baidu.com";
+    private boolean eoH = false;
     private int mFrom = -1;
-    private final a.InterfaceC0033a Yl = new v(this);
+    private final a.InterfaceC0033a YJ = new u(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
-        this.eiI = intent.getBooleanExtra(IntentConfig.CLOSE, false);
+        this.eoH = intent.getBooleanExtra(IntentConfig.CLOSE, false);
         this.mFrom = intent.getIntExtra("from", -1);
         initView();
-        UT();
+        VV();
         initData();
     }
 
     public void initView() {
         this.mWebView = new WebView(getPageContext().getPageActivity());
         this.mWebView.getSettings().setJavaScriptEnabled(true);
+        this.mWebView.removeJavascriptInterface("searchBoxJavaBridge_");
         setContentView(this.mWebView);
     }
 
     public void initData() {
-        this.mWebView.loadUrl(this.eiS);
+        this.mWebView.loadUrl(this.eoQ);
     }
 
-    public void UT() {
-        this.mWebView.setWebViewClient(new y(this));
+    public void VV() {
+        this.mWebView.setWebViewClient(new x(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aLr() {
+    public void aNk() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-        if (this.aSL != null) {
-            this.aSL.cancel();
+        if (this.aUM != null) {
+            this.aUM.cancel();
         }
-        this.aSL = com.baidu.tieba.model.b.b("", this.pX, "", null, this.Yl);
+        this.aUM = com.baidu.tieba.model.b.b("", this.pY, "", null, this.YJ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mh() {
+    public void MN() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_startApp", 0, "", new Object[0]);
         if (TbadkCoreApplication.m9getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
@@ -72,8 +73,8 @@ public class QALoginActivity extends BaseActivity {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
             }
         } else {
-            if (com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+            if (com.baidu.tbadk.core.sharedPref.b.um().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                com.baidu.tbadk.core.sharedPref.b.um().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
             }
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
         }
@@ -81,18 +82,18 @@ public class QALoginActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aLq() {
+    public void aNj() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.m9getInst().onUserChanged();
-        if (this.eiI) {
+        if (this.eoH) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             if (intExtra == -1) {
-                if (com.baidu.tbadk.core.sharedPref.b.uh().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                    com.baidu.tbadk.core.sharedPref.b.uh().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                if (com.baidu.tbadk.core.sharedPref.b.um().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                    com.baidu.tbadk.core.sharedPref.b.um().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                     intExtra = 1;
                 } else {
                     intExtra = 1;

@@ -4,28 +4,28 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private TextView aMI;
-    private View aYC;
-    private View bdi;
+    private TextView aOH;
+    private View bbL;
+    private View bgh;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.aYC = getView().findViewById(r.g.card_divider_top_margin);
-        this.aMI = (TextView) getView().findViewById(r.g.card_divider_tv);
-        this.bdi = getView().findViewById(r.g.bottom_line);
+        this.bbL = getView().findViewById(r.g.card_divider_top_margin);
+        this.aOH = (TextView) getView().findViewById(r.g.card_divider_tv);
+        this.bgh = getView().findViewById(r.g.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            av.j((View) this.aMI, r.d.cp_cont_d);
-            av.l(this.bdi, r.d.cp_bg_line_b);
-            av.l(this.aYC, r.d.cp_bg_line_c);
+            at.j((View) this.aOH, r.d.cp_cont_d);
+            at.l(this.bgh, r.d.cp_bg_line_b);
+            at.l(this.bbL, r.d.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -40,12 +40,12 @@ public class c extends com.baidu.tieba.card.a<b> {
     /* renamed from: a */
     public void onBindDataToView(b bVar) {
         if (bVar != null) {
-            if (bVar.bbL) {
-                this.aYC.setVisibility(0);
+            if (bVar.needTopMargin) {
+                this.bbL.setVisibility(0);
             } else {
-                this.aYC.setVisibility(8);
+                this.bbL.setVisibility(8);
             }
-            this.aMI.setText(bVar.title);
+            this.aOH.setText(bVar.title);
             onChangeSkinType(null, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }

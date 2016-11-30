@@ -1,33 +1,30 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tbadk.core.view.UserPhotoLayout;
+import android.widget.FrameLayout;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs implements AbsListView.RecyclerListener {
-    final /* synthetic */ bm bRV;
+public class bs extends y.a {
+    public int aiA;
+    public TbImageView bUs;
+    public FrameLayout bVi;
+    public PhotoLiveCardView bVj;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bm bmVar) {
-        this.bRV = bmVar;
+    public bs(View view) {
+        super(view);
+        this.aiA = 3;
+        this.bVi = (FrameLayout) view.findViewById(r.g.live_card_layout);
+        this.bUs = (TbImageView) view.findViewById(r.g.frs_single_livecard_theme_card);
+        this.bVj = (PhotoLiveCardView) view.findViewById(r.g.item_live_card);
+        this.bVj.setAllowGreyState(true);
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(r.g.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.reset();
-        }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(r.g.abstract_img_layout);
-        if (frsCommonImageLayout != null) {
-            frsCommonImageLayout.reset();
-        }
-        if (view instanceof UserPhotoLayout) {
-            ((UserPhotoLayout) view).reset();
+    public void wM() {
+        if (this.bVj != null) {
+            this.bVj.wM();
         }
     }
 }

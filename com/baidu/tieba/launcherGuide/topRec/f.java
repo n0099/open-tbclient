@@ -6,11 +6,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ e dAC;
+    final /* synthetic */ e dGg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.dAC = eVar;
+        this.dGg = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,26 +26,26 @@ public class f implements Animation.AnimationListener {
         TextView textView5;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.dAC.dAy;
+        i = this.dGg.dGc;
         if (i < 100) {
-            textView5 = this.dAC.dAz;
-            topRecActivity2 = this.dAC.dAk;
+            textView5 = this.dGg.dGd;
+            topRecActivity2 = this.dGg.dFO;
             StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(r.j.done))).append("(");
-            i2 = this.dAC.dAy;
+            i2 = this.dGg.dGc;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
-            textView = this.dAC.dAz;
-            topRecActivity = this.dAC.dAk;
+            textView = this.dGg.dGd;
+            topRecActivity = this.dGg.dFO;
             textView.setText(String.valueOf(topRecActivity.getPageContext().getString(r.j.done)) + "(99+)");
         }
-        textView2 = this.dAC.dAz;
+        textView2 = this.dGg.dGd;
         textView2.invalidate();
-        textView3 = this.dAC.dAz;
-        animation2 = this.dAC.dAB;
+        textView3 = this.dGg.dGd;
+        animation2 = this.dGg.dGf;
         textView3.setAnimation(animation2);
-        animation3 = this.dAC.dAB;
+        animation3 = this.dGg.dGf;
         animation3.start();
-        textView4 = this.dAC.dAz;
+        textView4 = this.dGg.dGd;
         textView4.setVisibility(4);
     }
 

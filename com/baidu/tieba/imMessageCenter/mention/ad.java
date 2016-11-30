@@ -6,11 +6,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.widget.layout.i {
-    final /* synthetic */ z dtY;
+    final /* synthetic */ z dzD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(z zVar) {
-        this.dtY = zVar;
+        this.dzD = zVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.i
@@ -19,9 +19,9 @@ public class ad implements com.baidu.tbadk.widget.layout.i {
         bf bfVar2;
         if (i2 != i4) {
             int lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-            bfVar = this.dtY.dtC;
-            bfVar2 = this.dtY.dtC;
-            bfVar2.ms(lightStatusBarHeight + com.baidu.adp.lib.util.k.e(bfVar.getPageContext().getPageActivity(), r.e.ds98) + i2);
+            bfVar = this.dzD.dzh;
+            bfVar2 = this.dzD.dzh;
+            bfVar2.mA(lightStatusBarHeight + com.baidu.adp.lib.util.k.e(bfVar.getPageContext().getPageActivity(), r.e.ds98) + i2);
         }
     }
 }

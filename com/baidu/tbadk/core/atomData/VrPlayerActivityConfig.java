@@ -10,6 +10,7 @@ public class VrPlayerActivityConfig extends IntentConfig {
     public static final String RES_PATH = "video_path";
     public static final String TITLE = "title";
     public static final String TYPE = "type";
+    public static final int TYPE_ACROSS_FORUM = 3;
     public static final int TYPE_PIC = 2;
     public static final int TYPE_VIDEO = 1;
 

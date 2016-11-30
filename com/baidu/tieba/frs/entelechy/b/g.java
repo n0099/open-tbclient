@@ -9,15 +9,15 @@ public interface g {
 
     void a(f fVar);
 
-    void adB();
+    void aeS();
 
-    void dX(boolean z);
+    boolean aeT();
 
-    void dY(boolean z);
+    void ei(boolean z);
 
-    boolean isMenuShowing();
+    void ej(boolean z);
 
-    void showContent(boolean z);
+    void ek(boolean z);
 
     ViewGroup t(Activity activity);
 }

@@ -24,16 +24,16 @@ import java.util.concurrent.TimeoutException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    private static a JX = null;
+    private static a Ka = null;
     private static final String k = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/";
     private static final String l = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/ls.db";
     private String b = null;
     private boolean c = false;
     private boolean d = false;
-    private double JY = 0.0d;
-    private double IP = 0.0d;
-    private double JZ = 0.0d;
-    private double JE = 0.0d;
+    private double Kb = 0.0d;
+    private double IR = 0.0d;
+    private double Kc = 0.0d;
+    private double JH = 0.0d;
     private double i = 0.0d;
     private volatile boolean j = false;
     private Handler m = new Handler();
@@ -258,9 +258,9 @@ public final class a {
             try {
                 this.b = str;
                 if (rawQuery.moveToFirst()) {
-                    this.IP = rawQuery.getDouble(1) - 1235.4323d;
-                    this.JY = rawQuery.getDouble(2) - 4326.0d;
-                    this.JZ = rawQuery.getDouble(3) - 2367.3217d;
+                    this.IR = rawQuery.getDouble(1) - 1235.4323d;
+                    this.Kb = rawQuery.getDouble(2) - 4326.0d;
+                    this.Kc = rawQuery.getDouble(3) - 2367.3217d;
                     this.c = true;
                 }
                 if (rawQuery != null) {
@@ -292,7 +292,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, com.baidu.location.f.a aVar, SQLiteDatabase sQLiteDatabase) {
-        if (aVar.b() && com.baidu.location.a.e.mp().g()) {
+        if (aVar.b() && com.baidu.location.a.e.ms().g()) {
             System.currentTimeMillis();
             double d = 0.0d;
             double d2 = 0.0d;
@@ -397,8 +397,8 @@ public final class a {
                         if (i7 > 8 && i7 > i6) {
                             cursor.moveToNext();
                         } else if (this.c) {
-                            Location.distanceBetween(d6, d5, this.JZ, this.IP, new float[1]);
-                            if (fArr[0] > this.JY + 2000.0d) {
+                            Location.distanceBetween(d6, d5, this.Kc, this.IR, new float[1]);
+                            if (fArr[0] > this.Kb + 2000.0d) {
                                 cursor.moveToNext();
                             } else {
                                 z3 = true;
@@ -475,7 +475,7 @@ public final class a {
                     }
                     if (i3 > 0) {
                         this.d = true;
-                        this.JE = d3 / i3;
+                        this.JH = d3 / i3;
                         this.i = d4 / i3;
                     }
                 }
@@ -519,16 +519,16 @@ public final class a {
         boolean z3 = false;
         if (this.d) {
             z2 = true;
-            d = this.JE;
+            d = this.JH;
             d2 = this.i;
             d3 = 246.4d;
             z3 = true;
         } else if (this.c) {
             z2 = true;
-            d = this.IP;
-            d2 = this.JZ;
-            d3 = this.JY;
-            z3 = com.baidu.location.a.e.mp().g();
+            d = this.IR;
+            d2 = this.Kc;
+            d3 = this.Kb;
+            z3 = com.baidu.location.a.e.ms().g();
         }
         if (!z2) {
             return z ? "{\"result\":{\"time\":\"" + com.baidu.location.h.i.a() + "\",\"error\":\"67\"}}" : "{\"result\":{\"time\":\"" + com.baidu.location.h.i.a() + "\",\"error\":\"63\"}}";
@@ -584,13 +584,13 @@ public final class a {
         }
     }
 
-    public static synchronized a mJ() {
+    public static synchronized a mM() {
         a aVar;
         synchronized (a.class) {
-            if (JX == null) {
-                JX = new a();
+            if (Ka == null) {
+                Ka = new a();
             }
-            aVar = JX;
+            aVar = Ka;
         }
         return aVar;
     }
@@ -611,7 +611,7 @@ public final class a {
                     }
                 } catch (TimeoutException e2) {
                     if (z) {
-                        com.baidu.location.c.f.mG().a("old offlineLocation Timeout Exception!");
+                        com.baidu.location.c.f.mJ().a("old offlineLocation Timeout Exception!");
                     }
                     futureTask.cancel(true);
                     newSingleThreadExecutor.shutdown();
@@ -629,7 +629,7 @@ public final class a {
     }
 
     public void a(String str, com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, BDLocation bDLocation) {
-        boolean z = (aVar.b() && com.baidu.location.a.e.mp().g()) ? false : true;
+        boolean z = (aVar.b() && com.baidu.location.a.e.ms().g()) ? false : true;
         boolean z2 = bDLocation == null || bDLocation.getLocType() != 161 || (!"wf".equals(bDLocation.getNetworkLocationType()) && bDLocation.getRadius() >= 300.0f);
         if (iVar.a == null) {
             z2 = true;
@@ -642,23 +642,23 @@ public final class a {
     }
 
     public BDLocation ab(boolean z) {
-        com.baidu.location.f.a mY = com.baidu.location.f.c.nc().mY();
-        String g = mY != null ? mY.g() : null;
-        com.baidu.location.f.i ni = com.baidu.location.f.k.nl().ni();
-        BDLocation a = ni != null ? a(g, ni.a, true) : null;
+        com.baidu.location.f.a nb = com.baidu.location.f.c.nf().nb();
+        String g = nb != null ? nb.g() : null;
+        com.baidu.location.f.i nl = com.baidu.location.f.k.no().nl();
+        BDLocation a = nl != null ? a(g, nl.a, true) : null;
         if (a != null && a.getLocType() == 66) {
             StringBuffer stringBuffer = new StringBuffer(1024);
             stringBuffer.append(String.format(Locale.CHINA, "&ofl=%f|%f|%f", Double.valueOf(a.getLatitude()), Double.valueOf(a.getLongitude()), Float.valueOf(a.getRadius())));
-            if (ni != null && ni.a() > 0) {
+            if (nl != null && nl.a() > 0) {
                 stringBuffer.append("&wf=");
-                stringBuffer.append(ni.b(15));
+                stringBuffer.append(nl.b(15));
             }
-            if (mY != null) {
-                stringBuffer.append(mY.h());
+            if (nb != null) {
+                stringBuffer.append(nb.h());
             }
             stringBuffer.append("&uptype=oldoff");
-            stringBuffer.append(com.baidu.location.h.c.nm().a(false));
-            stringBuffer.append(com.baidu.location.a.a.mn().c());
+            stringBuffer.append(com.baidu.location.h.c.np().a(false));
+            stringBuffer.append(com.baidu.location.a.a.mq().c());
             stringBuffer.toString();
         }
         return a;

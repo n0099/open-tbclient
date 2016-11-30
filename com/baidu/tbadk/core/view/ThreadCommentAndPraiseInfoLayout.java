@@ -12,38 +12,38 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bk;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
-    private bi adW;
-    private TextView agV;
-    private TextView agW;
-    private View agX;
-    private TextView agY;
-    private TextView agZ;
-    private TextView aha;
-    private String ahb;
-    private String ahc;
-    private View.OnClickListener ahd;
-    private boolean ahe;
-    private View.OnClickListener ahf;
-    private boolean ahg;
-    private boolean ahh;
-    private CustomMessageListener ahi;
+    private bk aeu;
+    private TextView ahA;
+    private String ahB;
+    private String ahC;
+    private View.OnClickListener ahD;
+    private boolean ahE;
+    private View.OnClickListener ahF;
+    private boolean ahG;
+    private boolean ahH;
+    private CustomMessageListener ahI;
+    private TextView ahv;
+    private TextView ahw;
+    private View ahx;
+    private TextView ahy;
+    private TextView ahz;
     private int from;
     private Context mContext;
 
     public void setYuelaouLocate(String str) {
-        this.ahc = str;
+        this.ahC = str;
     }
 
     public void setStType(String str) {
-        this.ahb = str;
+        this.ahB = str;
     }
 
     public void setFrom(int i) {
@@ -52,136 +52,160 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
 
     public ThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        this.ahe = false;
+        this.ahE = false;
         this.from = 1;
-        this.ahf = new ae(this);
-        this.ahg = true;
-        this.ahh = true;
-        this.ahi = new af(this, CmdConfigCustom.PB_ACTION_PRAISE);
+        this.ahF = new af(this);
+        this.ahG = true;
+        this.ahH = true;
+        this.ahI = new ag(this, CmdConfigCustom.PB_ACTION_PRAISE);
         init(context);
     }
 
     public ThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ahe = false;
+        this.ahE = false;
         this.from = 1;
-        this.ahf = new ae(this);
-        this.ahg = true;
-        this.ahh = true;
-        this.ahi = new af(this, CmdConfigCustom.PB_ACTION_PRAISE);
+        this.ahF = new af(this);
+        this.ahG = true;
+        this.ahH = true;
+        this.ahI = new ag(this, CmdConfigCustom.PB_ACTION_PRAISE);
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(r.h.thread_comment_and_praise_info_layout, (ViewGroup) this, true);
-        this.agV = (TextView) inflate.findViewById(r.g.thread_info_bar_name);
-        this.agW = (TextView) inflate.findViewById(r.g.thread_info_reply_time);
-        this.agX = inflate.findViewById(r.g.frs_item_location_sep);
-        this.agY = (TextView) inflate.findViewById(r.g.frs_item_location_address);
-        this.agZ = (TextView) inflate.findViewById(r.g.thread_info_praise_num);
-        this.aha = (TextView) inflate.findViewById(r.g.thread_info_commont_num);
+        this.ahv = (TextView) inflate.findViewById(r.g.thread_info_bar_name);
+        this.ahw = (TextView) inflate.findViewById(r.g.thread_info_reply_time);
+        this.ahx = inflate.findViewById(r.g.frs_item_location_sep);
+        this.ahy = (TextView) inflate.findViewById(r.g.frs_item_location_address);
+        this.ahz = (TextView) inflate.findViewById(r.g.thread_info_praise_num);
+        this.ahA = (TextView) inflate.findViewById(r.g.thread_info_commont_num);
         this.mContext = context;
     }
 
     public void setShowPraiseNum(boolean z) {
-        this.ahg = z;
+        this.ahG = z;
     }
 
     public void setBarNameClickEnabled(boolean z) {
-        this.ahh = z;
-        if (this.agV != null) {
-            this.agV.setClickable(this.ahh);
+        this.ahH = z;
+        if (this.ahv != null) {
+            this.ahv.setClickable(this.ahH);
         }
     }
 
-    public void setData(bi biVar) {
-        if (biVar != null) {
-            this.adW = biVar;
-            if (!StringUtils.isNull(biVar.getForum_name())) {
-                this.agV.setVisibility(0);
-                String string = getContext().getString(r.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(biVar.getForum_name(), 5, true));
-                this.agV.setText(string);
-                this.agV.setContentDescription(string);
-                this.agV.setOnClickListener(this.ahf);
-                this.agV.setClickable(this.ahh);
-            } else {
-                this.agV.setVisibility(8);
-            }
-            String u = az.u(biVar.rI() * 1000);
+    public boolean a(bk bkVar) {
+        boolean z;
+        if (bkVar == null) {
+            return false;
+        }
+        this.aeu = bkVar;
+        if (!StringUtils.isNull(bkVar.getForum_name())) {
+            this.ahv.setVisibility(0);
+            String string = getContext().getString(r.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(bkVar.getForum_name(), 5, true));
+            this.ahv.setText(string);
+            this.ahv.setContentDescription(string);
+            this.ahv.setOnClickListener(this.ahF);
+            this.ahv.setClickable(this.ahH);
+            z = true;
+        } else {
+            this.ahv.setVisibility(8);
+            z = false;
+        }
+        if (bkVar.rK() <= 0) {
+            this.ahw.setVisibility(8);
+        } else {
+            this.ahw.setVisibility(0);
+            String t = ax.t(bkVar.rK() * 1000);
             if (this.from == 2) {
-                u = az.s(biVar.rI());
+                t = ax.r(bkVar.rK());
             }
-            this.agW.setText(u);
-            if (this.ahe && !biVar.sr() && !StringUtils.isNull(biVar.getAddress())) {
-                this.agY.setVisibility(0);
-                this.agX.setVisibility(0);
-                this.agY.setText(biVar.getAddress());
+            this.ahw.setText(t);
+            z = true;
+        }
+        if (this.ahE && !bkVar.st() && !StringUtils.isNull(bkVar.getAddress())) {
+            this.ahy.setVisibility(0);
+            if (bkVar.rK() <= 0) {
+                this.ahx.setVisibility(8);
             } else {
-                this.agY.setVisibility(8);
-                this.agX.setVisibility(8);
+                this.ahx.setVisibility(0);
             }
-            a(biVar);
-            int rH = biVar.rH();
-            if (rH > 0) {
-                this.aha.setVisibility(0);
-                this.aha.setText(String.valueOf(this.mContext.getString(r.j.comment)) + " " + az.w(rH));
-                return;
+            this.ahy.setText(bkVar.getAddress());
+            z = true;
+        } else {
+            this.ahy.setVisibility(8);
+            this.ahx.setVisibility(8);
+        }
+        b(bkVar);
+        int rJ = bkVar.rJ();
+        if (rJ > 0) {
+            this.ahA.setVisibility(0);
+            String v = ax.v(rJ);
+            this.ahA.setText(String.format(this.mContext.getString(r.j.reply_num_tip), v));
+            this.ahA.setContentDescription(String.valueOf(this.mContext.getString(r.j.reply_num)) + v);
+            z = true;
+        } else {
+            this.ahA.setVisibility(4);
+        }
+        if (z) {
+            setVisibility(0);
+        } else {
+            setVisibility(8);
+        }
+        return z;
+    }
+
+    public void b(bk bkVar) {
+        if (this.ahz != null && bkVar != null) {
+            if (this.ahG && bkVar.rH() != null && bkVar.rH().getNum() > 0) {
+                this.ahz.setVisibility(0);
+                String v = ax.v(bkVar.rH().getNum());
+                this.ahz.setText(v);
+                this.ahz.setContentDescription(String.valueOf(this.mContext.getString(r.j.zan_num)) + v);
+            } else {
+                this.ahz.setVisibility(8);
             }
-            this.aha.setVisibility(8);
+            com.baidu.tieba.graffiti.d.ak(this.ahz);
         }
     }
 
-    public void a(bi biVar) {
-        if (this.agZ != null && biVar != null) {
-            if (this.ahg && biVar.rF() != null && biVar.rF().getNum() > 0) {
-                this.agZ.setVisibility(0);
-                String w = az.w(biVar.rF().getNum());
-                this.agZ.setText(w);
-                this.agZ.setContentDescription(String.valueOf(this.mContext.getString(r.j.zan_num)) + w);
-            } else {
-                this.agZ.setVisibility(8);
-            }
-            com.baidu.tieba.graffiti.d.ak(this.agZ);
+    public void tB() {
+        at.j((View) this.ahv, r.d.cp_cont_c);
+        at.j((View) this.ahw, r.d.cp_cont_c);
+        at.l(this.ahx, r.d.cp_cont_c);
+        at.j((View) this.ahy, r.d.cp_cont_c);
+        at.j((View) this.ahz, r.d.cp_cont_c);
+        if (this.ahz != null) {
+            this.ahz.setCompoundDrawablesWithIntrinsicBounds(at.getDrawable(r.f.icon_hand_normal_card_recommend), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-    }
-
-    public void tx() {
-        av.j((View) this.agV, r.d.cp_cont_e);
-        av.j((View) this.agW, r.d.cp_cont_e);
-        av.l(this.agX, r.d.cp_cont_e);
-        av.j((View) this.agY, r.d.cp_cont_e);
-        av.j((View) this.agZ, r.d.cp_cont_e);
-        if (this.agZ != null) {
-            this.agZ.setCompoundDrawablesWithIntrinsicBounds(av.getDrawable(r.f.icon_hand_normal_card_recommend), (Drawable) null, (Drawable) null, (Drawable) null);
-        }
-        com.baidu.tieba.graffiti.d.ak(this.agZ);
-        av.j((View) this.aha, r.d.cp_cont_e);
+        com.baidu.tieba.graffiti.d.ak(this.ahz);
+        at.j((View) this.ahA, r.d.cp_cont_c);
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.ahd = onClickListener;
+        this.ahD = onClickListener;
     }
 
     public TextView getBarNameTv() {
-        return this.agV;
+        return this.ahv;
     }
 
     public void h(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.ahi != null) {
-            this.ahi.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.ahi);
+        if (bdUniqueId != null && this.ahI != null) {
+            this.ahI.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.ahI);
         }
     }
 
     public void setLocationEnabled(boolean z) {
-        this.ahe = z;
+        this.ahE = z;
     }
 
     public View getCommentNumView() {
-        return this.aha;
+        return this.ahA;
     }
 
     public void setCommentNumClickListener(View.OnClickListener onClickListener) {
-        this.aha.setOnClickListener(onClickListener);
+        this.ahA.setOnClickListener(onClickListener);
     }
 }

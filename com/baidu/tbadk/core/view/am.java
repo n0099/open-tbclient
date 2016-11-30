@@ -2,54 +2,39 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.core.util.bm;
-import com.baidu.tbadk.data.IconData;
-import java.util.ArrayList;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class am implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout ahF;
+    final /* synthetic */ UserIconLayout aig;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(UserIconLayout userIconLayout) {
-        this.ahF = userIconLayout;
+        this.aig = userIconLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        bk bkVar;
+        bk bkVar2;
+        bk bkVar3;
         Context context;
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        bi biVar4;
-        bi biVar5;
-        Context context2;
-        Context context3;
-        context = this.ahF.mContext;
-        if (bm.ak(context)) {
-            biVar = this.ahF.adW;
-            if (biVar != null) {
-                biVar2 = this.ahF.adW;
-                if (biVar2.getAuthor() != null) {
-                    biVar3 = this.ahF.adW;
-                    if (biVar3.getAuthor().getTShowInfoNew() != null) {
-                        biVar4 = this.ahF.adW;
-                        ArrayList<IconData> tShowInfoNew = biVar4.getAuthor().getTShowInfoNew();
-                        if (com.baidu.tbadk.core.util.y.s(tShowInfoNew) != 0 && com.baidu.tbadk.core.util.y.c(tShowInfoNew, 0) != null) {
-                            biVar5 = this.ahF.adW;
-                            String url = biVar5.getAuthor().getTShowInfoNew().get(0).getUrl();
-                            if (url != null) {
-                                context2 = this.ahF.mContext;
-                                if (com.baidu.adp.base.l.C(context2) instanceof TbPageContext) {
-                                    bh vL = bh.vL();
-                                    context3 = this.ahF.mContext;
-                                    vL.c((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{url});
-                                }
-                            }
-                        }
-                    }
+        int i;
+        bkVar = this.aig.aeu;
+        if (bkVar != null) {
+            bkVar2 = this.aig.aeu;
+            if (bkVar2.getAuthor() != null) {
+                bkVar3 = this.aig.aeu;
+                String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + bkVar3.getAuthor().getUserId();
+                String string = TbadkCoreApplication.m9getInst().getString(r.j.user_icon_web_view_title);
+                context = this.aig.mContext;
+                com.baidu.tbadk.browser.f.a(context.getApplicationContext(), string, str, true, true, true);
+                i = this.aig.aib;
+                if (i == 1) {
+                    TiebaStatic.log(new av("c10134").s("obj_type", 3));
                 }
             }
         }

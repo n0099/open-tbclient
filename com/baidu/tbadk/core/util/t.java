@@ -1,31 +1,17 @@
 package com.baidu.tbadk.core.util;
-
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public interface t {
-    void a(BasicNameValuePair basicNameValuePair);
+public class t {
+    public int num = 0;
+    public int aag = 0;
+    public long time = 0;
+    public long oe = 0;
+    public int aah = 0;
 
-    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
-
-    void d(String str, byte[] bArr);
-
-    void eg();
-
-    void ej();
-
-    void l(ArrayList<BasicNameValuePair> arrayList);
-
-    void n(String str, String str2);
-
-    ArrayList<BasicNameValuePair> ut();
-
-    String uu();
-
-    byte[] uv();
-
-    String uw();
-
-    String ux();
+    public void reset() {
+        this.num = 0;
+        this.aag = 0;
+        this.time = 0L;
+        this.oe = 0L;
+        this.aah = 0;
+    }
 }

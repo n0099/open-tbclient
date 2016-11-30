@@ -1,30 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.inputmethod.InputMethodManager;
-import android.widget.RelativeLayout;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fq implements Runnable {
-    final /* synthetic */ fp ewL;
+public class fq implements Runnable {
+    final /* synthetic */ ey eCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fq(fp fpVar) {
-        this.ewL = fpVar;
+    public fq(ey eyVar) {
+        this.eCT = eyVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        ex exVar;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
         PbActivity pbActivity;
-        ex exVar2;
         PbActivity pbActivity2;
-        ex exVar3;
-        RelativeLayout relativeLayout;
-        exVar = this.ewL.ewH;
-        pbActivity = exVar.eow;
-        exVar2 = this.ewL.ewH;
-        pbActivity2 = exVar2.eow;
-        exVar3 = this.ewL.ewH;
-        relativeLayout = exVar3.dZP;
-        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
+        bdTypeListView = this.eCT.aML;
+        if (bdTypeListView.getFirstVisiblePosition() <= 1) {
+            bdTypeListView2 = this.eCT.aML;
+            bdTypeListView2.setSelectionFromTop(1, 0);
+            pbActivity = this.eCT.eug;
+            if (pbActivity.aPb() != null) {
+                pbActivity2 = this.eCT.eug;
+                pbActivity2.aPb().aae();
+            }
+        }
     }
 }

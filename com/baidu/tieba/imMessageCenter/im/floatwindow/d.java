@@ -10,25 +10,25 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.view.a;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements a.InterfaceC0071a {
-    final /* synthetic */ b dqc;
+public class d implements a.InterfaceC0070a {
+    final /* synthetic */ b dvJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.dqc = bVar;
+        this.dvJ = bVar;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.a.InterfaceC0071a
-    public void axX() {
+    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.a.InterfaceC0070a
+    public void azU() {
         boolean z;
         boolean z2;
-        ArrayList<UserData> axI;
-        z = this.dqc.dpO;
+        ArrayList<UserData> azF;
+        z = this.dvJ.dvv;
         if (!z) {
-            z2 = this.dqc.dpN;
-            if (!z2 && (axI = this.dqc.dpS.axI()) != null && !axI.isEmpty()) {
-                this.dqc.axT();
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m9getInst(), axI)));
+            z2 = this.dvJ.dvu;
+            if (!z2 && (azF = this.dvJ.dvz.azF()) != null && !azF.isEmpty()) {
+                this.dvJ.azQ();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m9getInst(), azF)));
             }
         }
     }

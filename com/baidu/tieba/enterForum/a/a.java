@@ -9,27 +9,27 @@ import com.baidu.tieba.tbadkCore.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.g.d<w, com.baidu.tbadk.mvc.d.b, m> implements d {
-    private int bFU;
+    private int bIO;
 
     public a(TbPageContext<?> tbPageContext, Class<m> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.bFU = -1;
+        this.bIO = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.d
-    public void ab(int i, int i2) {
-        List<w> Ft = Ft();
-        com.baidu.tieba.enterForum.c.b.c(Ft, i, i2);
-        A(Ft);
+    public void ac(int i, int i2) {
+        List<w> Fy = Fy();
+        com.baidu.tieba.enterForum.c.b.d(Fy, i, i2);
+        A(Fy);
     }
 
     @Override // com.baidu.tieba.enterForum.a.d
-    public void hn(int i) {
-        this.bFU = i;
+    public void ho(int i) {
+        this.bIO = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.d
-    public void Xq() {
+    public void Ys() {
         notifyDataSetChanged();
     }
 
@@ -37,7 +37,7 @@ public class a extends com.baidu.tbadk.mvc.g.d<w, com.baidu.tbadk.mvc.d.b, m> im
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.bFU) {
+            if (i == this.bIO) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

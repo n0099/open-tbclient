@@ -1,41 +1,33 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.tieba.pb.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements View.OnClickListener {
-    private final /* synthetic */ boolean eqc;
-    final /* synthetic */ ag eyq;
+public class au implements d.a {
+    final /* synthetic */ ao eFb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(ag agVar, boolean z) {
-        this.eyq = agVar;
-        this.eqc = z;
+    public au(ao aoVar) {
+        this.eFb = aoVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        NewSubPbActivity newSubPbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
-        NewSubPbActivity newSubPbActivity2;
-        dialog = this.eyq.evf;
-        if (dialog != null) {
-            dialog2 = this.eyq.evf;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.eyq.evf;
-                newSubPbActivity2 = this.eyq.exK;
-                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity2.getPageContext());
-            }
-        }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            newSubPbActivity = this.eyq.exK;
-            newSubPbActivity.a(this.eqc, (String) sparseArray.get(r.g.tag_user_mute_mute_userid), sparseArray);
-        }
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.eFb.iS(false);
+        this.eFb.aW(view);
+        this.eFb.iS(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.pb.a.d.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

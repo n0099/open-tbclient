@@ -8,11 +8,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends WebViewClient {
-    final /* synthetic */ c gbY;
+    final /* synthetic */ c gjD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.gbY = cVar;
+        this.gjD = cVar;
     }
 
     @Override // android.webkit.WebViewClient
@@ -22,18 +22,18 @@ public class g extends WebViewClient {
         a aVar2;
         a aVar3;
         if (!StringUtils.isNull(str)) {
-            aVar = this.gbY.gbQ;
+            aVar = this.gjD.gjv;
             if (aVar != null) {
-                z = this.gbY.czI;
+                z = this.gjD.cES;
                 if (z) {
-                    aVar2 = this.gbY.gbQ;
-                    return aVar2.sr(str);
+                    aVar2 = this.gjD.gjv;
+                    return aVar2.sN(str);
                 }
-                this.gbY.czI = true;
-                this.gbY.lI(false);
-                this.gbY.brZ();
-                aVar3 = this.gbY.gbQ;
-                aVar3.brV();
+                this.gjD.cES = true;
+                this.gjD.mh(false);
+                this.gjD.buu();
+                aVar3 = this.gjD.gjv;
+                aVar3.buq();
                 return true;
             }
         }
@@ -45,11 +45,11 @@ public class g extends WebViewClient {
         a aVar;
         a aVar2;
         super.onPageFinished(webView, str);
-        this.gbY.czI = true;
-        aVar = this.gbY.gbQ;
+        this.gjD.cES = true;
+        aVar = this.gjD.gjv;
         if (aVar != null) {
-            aVar2 = this.gbY.gbQ;
-            aVar2.brV();
+            aVar2 = this.gjD.gjv;
+            aVar2.buq();
         }
     }
 
@@ -58,10 +58,10 @@ public class g extends WebViewClient {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
         super.onReceivedError(webView, i, str, str2);
-        this.gbY.lI(false);
-        baseActivity = this.gbY.avO;
+        this.gjD.mh(false);
+        baseActivity = this.gjD.awH;
         baseActivity.showToast(r.j.neterror);
-        baseActivity2 = this.gbY.avO;
+        baseActivity2 = this.gjD.awH;
         baseActivity2.finish();
     }
 }

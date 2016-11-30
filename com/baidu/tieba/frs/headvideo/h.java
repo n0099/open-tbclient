@@ -1,43 +1,61 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.frs.headvideo.g;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ g cbH;
+public class h implements View.OnTouchListener {
+    final /* synthetic */ g cfi;
+    private float mLastX;
+    private float mLastY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(g gVar, int i, int i2) {
-        super(i, i2);
-        this.cbH = gVar;
+    public h(g gVar) {
+        this.cfi = gVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        String LW;
-        g.a aVar;
-        g.a aVar2;
-        this.cbH.azO = false;
-        if (responsedMessage != null) {
-            if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                String errorString = responsedMessage.getErrorString();
-                LW = this.cbH.LW();
-                if (!StringUtils.isNull(errorString)) {
-                    LW = errorString;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        GestureDetector gestureDetector;
+        ForumHeadVideoView forumHeadVideoView;
+        boolean z;
+        ForumHeadVideoView forumHeadVideoView2;
+        GestureDetector gestureDetector2;
+        ForumHeadVideoView forumHeadVideoView3;
+        gestureDetector = this.cfi.cff;
+        if (gestureDetector != null) {
+            forumHeadVideoView = this.cfi.cfe;
+            if (forumHeadVideoView != null) {
+                z = this.cfi.cfg;
+                if (z) {
+                    forumHeadVideoView3 = this.cfi.cfe;
+                    forumHeadVideoView3.requestDisallowInterceptTouchEvent(true);
                 }
-                aVar = this.cbH.cbF;
-                if (aVar != null) {
-                    aVar2 = this.cbH.cbF;
-                    aVar2.fK(LW);
+                switch (motionEvent.getAction()) {
+                    case 0:
+                        this.mLastY = motionEvent.getY();
+                        this.mLastX = motionEvent.getX();
+                        break;
+                    case 1:
+                    case 3:
+                        this.mLastY = 0.0f;
+                        this.mLastX = 0.0f;
+                        break;
+                    case 2:
+                        float y = this.mLastY - motionEvent.getY();
+                        if (3.0f * Math.abs(y) > Math.abs(this.mLastX - motionEvent.getX()) && y >= 0.0f) {
+                            forumHeadVideoView2 = this.cfi.cfe;
+                            forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
+                            break;
+                        }
+                        break;
                 }
-            } else if (responsedMessage instanceof ForumHeadVideoListHttpResponseMessage) {
-                this.cbH.a(((ForumHeadVideoListHttpResponseMessage) responsedMessage).getData());
-            } else if (responsedMessage instanceof ForumHeadVideoListSocketResponseMessage) {
-                this.cbH.a(((ForumHeadVideoListSocketResponseMessage) responsedMessage).getData());
+                gestureDetector2 = this.cfi.cff;
+                gestureDetector2.onTouchEvent(motionEvent);
+                return true;
             }
         }
+        return false;
     }
 }

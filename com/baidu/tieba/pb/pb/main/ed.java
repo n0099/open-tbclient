@@ -1,105 +1,201 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadPendantView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.pb.pb.main.view.TriangleShapeView;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.pb.view.PbReplyEcommCard;
 import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
 public class ed extends y.a {
-    private TbPageContext Gd;
-    View.OnClickListener bdP;
-    public LinearLayout etf;
-    public View etg;
-    public RelativeLayout eth;
-    public TbImageView eti;
-    public TextView etj;
-    public TextView etk;
-    public TextView etl;
-    public LinearLayout etm;
-    public ImageView etn;
-    public TextView eto;
-    public LinearLayout etp;
-    public ImageView etq;
-    public TextView etr;
-    public View ets;
-    private com.baidu.tbadk.core.data.ao ett;
-    private com.baidu.tbadk.core.data.ao etu;
-    private com.baidu.tbadk.core.data.ao etv;
-    private int mSkinType;
+    public TextView aYg;
+    UserIconBox ahW;
+    public TbImageView bUF;
+    public ViewStub bbQ;
+    public TbImageView bbR;
+    public UserIconBox clv;
+    public ImageView etA;
+    public ImageView etB;
+    public TextView etC;
+    public TextView etD;
+    public TextView etE;
+    public TbRichTextView etF;
+    public FrsPraiseView etG;
+    public ImageView etH;
+    public PbGiftListView etI;
+    public RelativeLayout etJ;
+    public SubPbLayout etK;
+    public RelativeLayout etL;
+    public RelativeLayout etM;
+    public View etN;
+    public LinearLayout etO;
+    public LinearLayout etS;
+    public TextView etT;
+    public View etU;
+    public View etV;
+    public RelativeLayout etW;
+    public TextView etX;
+    public TextView etY;
+    public TextView etZ;
+    public View etv;
+    public View etw;
+    public View etx;
+    public HeadPendantView ety;
+    public HeadImageView etz;
+    public TextView eua;
+    public TextView eub;
+    public TriangleShapeView euc;
+    public RelativeLayout eza;
+    public View ezb;
+    public TextView ezc;
+    public TextView ezd;
+    public TextView eze;
+    public TbImageView ezf;
+    public TextView ezg;
+    public TextView ezh;
+    public ImageView ezi;
+    public View ezj;
+    public ClickableHeaderImageView ezk;
+    public TextView ezl;
+    public TbImageView ezm;
+    public FrameLayout ezn;
+    public TbImageView ezo;
+    public GifView ezp;
+    public ThreadSkinView ezq;
+    public LinearLayout ezr;
+    private ViewStub ezs;
+    public PbReplyEcommCard ezt;
+    public LinearLayout ezu;
+    public com.baidu.tieba.pb.pb.main.view.k ezv;
+    public int mSkinType;
 
-    public ed(TbPageContext tbPageContext, View view) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [165=5] */
+    public ed(TbPageContext tbPageContext, View view, boolean z, int i) {
         super(view);
         this.mSkinType = 3;
-        this.bdP = new ee(this);
-        this.Gd = tbPageContext;
-        this.etf = (LinearLayout) view.findViewById(r.g.pb_news_info_layout);
-        this.etg = view.findViewById(r.g.pb_list_item_top_line);
-        this.eth = (RelativeLayout) view.findViewById(r.g.pb_top_code);
-        this.eti = (TbImageView) view.findViewById(r.g.top_code_img);
-        this.etj = (TextView) view.findViewById(r.g.top_code_get_btn);
-        this.etk = (TextView) view.findViewById(r.g.top_code_detail_summary_text);
-        this.etl = (TextView) view.findViewById(r.g.top_code_detail_subtitle_text);
-        this.etm = (LinearLayout) view.findViewById(r.g.news_info);
-        this.etn = (ImageView) view.findViewById(r.g.news_info_img);
-        this.eto = (TextView) view.findViewById(r.g.news_info_text);
-        this.etp = (LinearLayout) view.findViewById(r.g.game_info);
-        this.etq = (ImageView) view.findViewById(r.g.game_info_img);
-        this.etr = (TextView) view.findViewById(r.g.game_info_text);
-        this.ets = view.findViewById(r.g.pb_news_info_divider);
-        setOnClickListener(this.bdP);
-    }
-
-    public void a(ds dsVar) {
-        if (dsVar != null) {
-            this.ett = dsVar.esx;
-            this.etu = dsVar.esy;
-            this.etv = dsVar.esz;
-            if (this.ett != null) {
-                this.eti.c(this.ett.Sd, 10, false);
-                this.etk.setText(this.ett.summary);
-                this.etl.setText(this.ett.subtitle);
-                this.etj.setText(this.ett.buttonText);
-                com.baidu.tbadk.core.util.av.k(this.etj, r.f.selector_star_btn_like);
-                com.baidu.tbadk.core.util.av.j((View) this.etj, r.f.news_text_color_selector);
-            } else {
-                this.eth.setVisibility(8);
-            }
-            if (this.etu != null) {
-                this.eto.setText(this.etu.summary);
-                com.baidu.tbadk.core.util.av.k(this.etn, r.f.icon_frs_news);
-            } else {
-                this.etm.setVisibility(8);
-                this.eto.setVisibility(8);
-                this.etn.setVisibility(8);
-            }
-            if (this.etv != null) {
-                this.etr.setText(this.etv.summary);
-                com.baidu.tbadk.core.util.av.k(this.etq, r.f.icon_frs_game);
-            } else {
-                this.etp.setVisibility(8);
-                this.etr.setVisibility(8);
-                this.etr.setVisibility(8);
-            }
-            this.etf.setTag(dsVar);
+        this.etx = view.findViewById(r.g.sub_pb_more);
+        this.etL = (RelativeLayout) view.findViewById(r.g.user_head_layout);
+        this.etz = (HeadImageView) view.findViewById(r.g.photo);
+        this.ety = (HeadPendantView) view.findViewById(r.g.pendant_photo);
+        this.bbQ = (ViewStub) view.findViewById(r.g.viewstub_headimage_mask);
+        this.etz.setRadius(com.baidu.adp.lib.util.k.e(view.getContext(), r.e.ds30));
+        this.ety.wo();
+        if (this.ety.getHeadView() != null) {
+            this.ety.getHeadView().setIsRound(true);
+            this.ety.getHeadView().setDrawBorder(false);
         }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            this.Gd.getLayoutMode().ah(i == 1);
-            this.Gd.getLayoutMode().x(getView());
-            this.mSkinType = i;
+        if (this.ety.getPendantView() != null) {
+            this.ety.getPendantView().setIsRound(true);
+            this.ety.getPendantView().setDrawBorder(false);
         }
+        this.aYg = (TextView) view.findViewById(r.g.user_name);
+        this.etA = (ImageView) view.findViewById(r.g.user_rank);
+        this.etB = (ImageView) view.findViewById(r.g.user_bawu);
+        this.etF = (TbRichTextView) view.findViewById(r.g.richText);
+        this.etN = view.findViewById(r.g.new_pb_list_item_line_full);
+        this.etI = (PbGiftListView) view.findViewById(r.g.gift_list_view);
+        this.etG = (FrsPraiseView) view.findViewById(r.g.pb_item_praise_view);
+        this.etH = (ImageView) view.findViewById(r.g.pb_item_praise_bottomline);
+        this.etW = (RelativeLayout) view.findViewById(r.g.pb_first_floor_location_container);
+        this.etX = (TextView) view.findViewById(r.g.pb_item_first_floor_name);
+        this.etY = (TextView) view.findViewById(r.g.pb_item_first_floor_reply_time);
+        this.etZ = (TextView) view.findViewById(r.g.pb_item_first_floor_location_address);
+        this.eua = (TextView) view.findViewById(r.g.pb_reply_location_address);
+        this.etM = (RelativeLayout) view.findViewById(r.g.pb_item_floor_layout);
+        this.etE = (TextView) view.findViewById(r.g.floor_owner);
+        this.etC = (TextView) view.findViewById(r.g.floor);
+        this.etD = (TextView) view.findViewById(r.g.time);
+        this.etJ = (RelativeLayout) view.findViewById(r.g.pb_post_header_layout);
+        this.etK = (SubPbLayout) view.findViewById(r.g.pb_post_footer_layout);
+        this.etv = view;
+        this.etw = view.findViewById(r.g.new_pb_list_item_blank_top);
+        this.etF.IR();
+        this.etF.setImageViewStretch(true);
+        this.bUF = (TbImageView) view.findViewById(r.g.game_activity_banner);
+        this.ezl = (TextView) view.findViewById(r.g.action_button);
+        this.ezm = (TbImageView) view.findViewById(r.g.game_activity_banner);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m9getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.etF.getPaddingLeft()) - this.etF.getPaddingRight()) - ((int) TbadkCoreApplication.m9getInst().getResources().getDimension(r.e.ds60)), i);
+        this.etF.setMaxImageWidth(min);
+        this.etF.setMaxImageHeight((int) (min * 1.618f));
+        this.etF.setTextSize(TbConfig.getContentSize());
+        this.etF.j(z, false);
+        this.etF.setVoiceViewRes(r.h.voice_play_btn_new);
+        this.clv = (UserIconBox) view.findViewById(r.g.user_icon_box);
+        this.ahW = (UserIconBox) view.findViewById(r.g.user_tshow_icon_box);
+        this.etO = (LinearLayout) view.findViewById(r.g.add_post_footer_layout);
+        this.etS = (LinearLayout) view.findViewById(r.g.addition_more_container);
+        this.etT = (TextView) this.etS.findViewById(r.g.addition_more);
+        this.etU = this.etS.findViewById(r.g.addition_divider1);
+        this.etV = this.etS.findViewById(r.g.addition_divider2);
+        this.eub = (TextView) view.findViewById(r.g.pb_item_tail_content);
+        this.ezi = (ImageView) view.findViewById(r.g.replybtn);
+        this.ezj = view.findViewById(r.g.cover_reply_content);
+        this.ezk = (ClickableHeaderImageView) view.findViewById(r.g.god_user_photo);
+        this.bbR = (TbImageView) view.findViewById(r.g.user_head_mask);
+        this.ezk.setGodIconMargin(0);
+        this.ezk.setGodIconWidth(r.e.ds24);
+        this.ezn = (FrameLayout) view.findViewById(r.g.lottery_tail);
+        this.ezo = (TbImageView) view.findViewById(r.g.lottery_tail_normalview);
+        this.ezp = (GifView) view.findViewById(r.g.lottery_tail_gifview);
+        this.ezq = (ThreadSkinView) view.findViewById(r.g.pb_item_thread_skin);
+        this.ezr = (LinearLayout) view.findViewById(r.g.middle);
+        this.ezs = (ViewStub) view.findViewById(r.g.reply_ecomm_card);
+        this.ezu = (LinearLayout) view.findViewById(r.g.pb_list_content);
+        this.ezv = new com.baidu.tieba.pb.pb.main.view.k(tbPageContext, view);
+        this.euc = (TriangleShapeView) view.findViewById(r.g.triangle_view);
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eth.setOnClickListener(onClickListener);
-        this.etm.setOnClickListener(onClickListener);
-        this.etp.setOnClickListener(onClickListener);
+    public PbReplyEcommCard aRp() {
+        if (this.ezt == null) {
+            this.ezt = (PbReplyEcommCard) this.ezs.inflate();
+        }
+        return this.ezt;
+    }
+
+    public void aRq() {
+        if (this.eza == null) {
+            this.eza = (RelativeLayout) ((ViewStub) this.etv.findViewById(r.g.pb_yule_head_img_container)).inflate();
+        }
+        this.eza.setVisibility(0);
+        if (this.ezf == null) {
+            this.ezf = (TbImageView) this.etv.findViewById(r.g.yule_head_img_img);
+        }
+        if (this.ezg == null) {
+            this.ezg = (TextView) this.etv.findViewById(r.g.yule_head_img_pic_author);
+        }
+        if (this.ezh == null) {
+            this.ezh = (TextView) this.etv.findViewById(r.g.yule_head_img_post_author);
+        }
+        if (this.eze == null) {
+            this.eze = (TextView) this.etv.findViewById(r.g.yule_head_img_all_rank);
+        }
+        if (this.ezb == null) {
+            this.ezb = this.etv.findViewById(r.g.yule_head_img_header_divider);
+        }
+        if (this.ezc == null) {
+            this.ezc = (TextView) this.etv.findViewById(r.g.yule_head_img_rank);
+        }
+        if (this.ezd == null) {
+            this.ezd = (TextView) this.etv.findViewById(r.g.yule_head_img_up_info);
+        }
     }
 }

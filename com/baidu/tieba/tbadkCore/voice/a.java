@@ -10,11 +10,11 @@ public interface a {
 
     void bM(String str);
 
-    void lt();
+    void lw();
 
-    boolean lu();
+    boolean lx();
 
-    void lv();
+    void ly();
 
     void release();
 }

@@ -3,14 +3,13 @@ package com.baidu.tieba.tblauncher;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 /* loaded from: classes.dex */
-class y implements CustomMessageTask.CustomRunnable<Integer> {
+class y implements CustomMessageTask.CustomRunnable<MainTabActivityConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
-            return new NewMsgArriveResponsedMessage(((NewMsgArriveRequestMessage) customMessage).getData().intValue());
+    public CustomResponsedMessage<?> run(CustomMessage<MainTabActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(MainTabActivity.class);
         }
         return null;
     }

@@ -1,92 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tieba.r;
-import java.net.URLEncoder;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl {
-    public static void a(TbPageContext tbPageContext, com.baidu.tieba.tbadkCore.p pVar, String str) {
-        String encode;
-        if (tbPageContext != null && pVar != null && pVar.aMr() != null) {
-            if (pVar.aMr().getName() == null) {
-                tbPageContext.showToast(tbPageContext.getString(r.j.no_forum_data));
-                return;
-            }
-            TiebaStatic.eventStat(tbPageContext.getPageActivity(), "frs_share", "frsclick", 1, new Object[0]);
-            String str2 = "http://tieba.baidu.com/f?kw=" + URLEncoder.encode(pVar.aMr().getName());
-            Uri parse = pVar.aMr().getImage_url() == null ? null : Uri.parse(pVar.aMr().getImage_url());
-            String slogan = pVar.aMr().getSlogan();
-            com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-            fVar.title = String.valueOf(encode) + tbPageContext.getString(r.j.forum);
-            fVar.content = slogan;
-            fVar.linkUrl = str2;
-            fVar.amR = true;
-            fVar.extData = str;
-            if (parse != null) {
-                fVar.imageUri = parse;
-            }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), fVar, true);
-            shareDialogConfig.addOutsideTextView(r.j.share_tieba_qunzu, r.f.icon_unite_share_qunzu, new cm(tbPageContext, str));
-            shareDialogConfig.addOutsideTextView(r.j.forum_friend, r.f.icon_unite_share_baf, new cn(tbPageContext, str));
-            shareDialogConfig.setCopyLinkListener(new co(fVar, tbPageContext));
-            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
-        }
+public class cl implements Animation.AnimationListener {
+    final /* synthetic */ ch bVG;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cl(ch chVar) {
+        this.bVG = chVar;
     }
 
-    public static void a(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.p pVar, Intent intent) {
-        a(frsActivity, pVar, b(pVar), intent.getLongExtra("key_user_id", -1L), intent.getStringExtra("key_user_name"), intent.getStringExtra("key_user_portait"));
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    private static ShareFromFrsMsgData b(com.baidu.tieba.tbadkCore.p pVar) {
-        ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(pVar.aMr().getImage_url());
-        shareFromFrsMsgData.setName(pVar.aMr().getName());
-        shareFromFrsMsgData.setMemberNum(pVar.aMr().getMember_num());
-        shareFromFrsMsgData.setPostNum(pVar.aMr().getPost_num());
-        shareFromFrsMsgData.setContent(pVar.aMr().getSlogan());
-        return shareFromFrsMsgData;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    public static void a(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.p pVar, ShareFromFrsMsgData shareFromFrsMsgData, long j, String str, String str2) {
-        if (pVar != null && pVar.aMr() != null) {
-            a aVar = new a(frsActivity.getPageContext().getPageActivity());
-            com.baidu.tieba.frs.view.n nVar = new com.baidu.tieba.frs.view.n(frsActivity.getPageContext().getPageActivity());
-            nVar.setData(shareFromFrsMsgData);
-            aVar.cb(1);
-            aVar.z(nVar);
-            aVar.a(r.j.share, new cp(frsActivity, nVar, j, str, str2, shareFromFrsMsgData));
-            aVar.b(r.j.alert_no_button, new cq(frsActivity, nVar));
-            aVar.ar(true);
-            aVar.b(frsActivity.getPageContext()).tm();
-            if (!com.baidu.adp.lib.util.j.isEmpty(shareFromFrsMsgData.getImageUrl())) {
-                nVar.F(shareFromFrsMsgData.getImageUrl(), false);
-            }
-        }
-    }
-
-    public static void a(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.p pVar, int i, String str, long j) {
-        if (pVar != null && pVar.aMr() != null) {
-            ShareFromFrsMsgData b = b(pVar);
-            a aVar = new a(frsActivity.getPageContext().getPageActivity());
-            com.baidu.tieba.frs.view.n nVar = new com.baidu.tieba.frs.view.n(frsActivity.getPageContext().getPageActivity());
-            nVar.setData(b);
-            aVar.cb(1);
-            aVar.z(nVar);
-            aVar.a(r.j.share, new cr(frsActivity, nVar, i, str, j, b));
-            aVar.b(r.j.alert_no_button, new cs(frsActivity, nVar));
-            aVar.ar(true);
-            aVar.b(frsActivity.getPageContext()).tm();
-            if (!com.baidu.adp.lib.util.j.isEmpty(b.getImageUrl())) {
-                nVar.F(b.getImageUrl(), false);
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ViewGroup viewGroup;
+        ViewGroup viewGroup2;
+        ViewGroup viewGroup3;
+        viewGroup = this.bVG.bVz;
+        if (viewGroup != null) {
+            viewGroup2 = this.bVG.bVz;
+            viewGroup2.clearAnimation();
+            viewGroup3 = this.bVG.bVz;
+            viewGroup3.setVisibility(0);
+            this.bVG.dw(false);
         }
     }
 }

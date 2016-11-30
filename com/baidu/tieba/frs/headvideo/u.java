@@ -1,23 +1,17 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.tieba.play.e;
+import android.view.View;
 /* loaded from: classes.dex */
-class u implements e.b {
-    final /* synthetic */ ForumHeadVideoView ccf;
+public class u {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(ForumHeadVideoView forumHeadVideoView) {
-        this.ccf = forumHeadVideoView;
-    }
-
-    @Override // com.baidu.tieba.play.e.b
-    public boolean onError(com.baidu.tieba.play.e eVar, int i, int i2) {
-        e currentVideoItemView = this.ccf.getCurrentVideoItemView();
-        if (currentVideoItemView != null) {
-            currentVideoItemView.stopPlayback();
-            currentVideoItemView.setVideoPlayState(4);
-            return true;
+    /* loaded from: classes.dex */
+    public static class a {
+        public boolean ag(View view) {
+            return false;
         }
-        return true;
+
+        public boolean ah(View view) {
+            return false;
+        }
     }
 }

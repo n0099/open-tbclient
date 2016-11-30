@@ -104,7 +104,7 @@ public class g extends BroadcastReceiver {
                 }
                 VoiceManager.b playView5 = this.this$0.getPlayView();
                 if (playView5 != null) {
-                    playView5.lD();
+                    playView5.lG();
                 }
                 MediaService.startPlay(context);
             } else {

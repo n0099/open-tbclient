@@ -9,34 +9,34 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static g giw = null;
-    private IWXAPIEventHandler giA = new h(this);
-    private IWXAPI gix = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-    private ConcurrentHashMap<String, IWXAPIEventHandler> giy = new ConcurrentHashMap<>();
-    private IWXAPIEventHandler giz;
+    private static g gqh = null;
+    private IWXAPIEventHandler gqk;
+    private IWXAPIEventHandler gql = new h(this);
+    private IWXAPI gqi = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+    private ConcurrentHashMap<String, IWXAPIEventHandler> gqj = new ConcurrentHashMap<>();
 
-    public static g buy() {
-        if (giw == null) {
+    public static g bwR() {
+        if (gqh == null) {
             synchronized (g.class) {
-                if (giw == null) {
-                    giw = new g();
+                if (gqh == null) {
+                    gqh = new g();
                 }
             }
         }
-        return giw;
+        return gqh;
     }
 
     private g() {
         if (isAvailable()) {
-            this.gix.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
+            this.gqi.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
         }
     }
 
     public boolean isAvailable() {
-        return this.gix.isWXAppInstalled() && this.gix.isWXAppSupportAPI();
+        return this.gqi.isWXAppInstalled() && this.gqi.isWXAppSupportAPI();
     }
 
-    public void I(Intent intent) {
-        this.gix.handleIntent(intent, this.giA);
+    public void G(Intent intent) {
+        this.gqi.handleIntent(intent, this.gql);
     }
 }

@@ -3,26 +3,26 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class l {
-    private StringBuilder ZE;
+    private StringBuilder aac;
 
     public l() {
-        this.ZE = null;
-        this.ZE = null;
+        this.aac = null;
+        this.aac = null;
     }
 
     public void n(String str, Object obj) {
-        if (!az.isEmpty(str) && obj != null) {
+        if (!ax.isEmpty(str) && obj != null) {
             try {
-                if (this.ZE == null) {
-                    this.ZE = new StringBuilder();
-                    this.ZE.append(str);
-                    this.ZE.append("=");
-                    this.ZE.append(obj.toString());
+                if (this.aac == null) {
+                    this.aac = new StringBuilder();
+                    this.aac.append(str);
+                    this.aac.append("=");
+                    this.aac.append(obj.toString());
                 } else {
-                    this.ZE.append("|");
-                    this.ZE.append(str);
-                    this.ZE.append("=");
-                    this.ZE.append(obj.toString());
+                    this.aac.append("|");
+                    this.aac.append(str);
+                    this.aac.append("=");
+                    this.aac.append(obj.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -31,6 +31,6 @@ public class l {
     }
 
     public String toString() {
-        return this.ZE != null ? this.ZE.toString() : "";
+        return this.aac != null ? this.aac.toString() : "";
     }
 }

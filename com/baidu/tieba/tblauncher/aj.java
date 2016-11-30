@@ -1,50 +1,44 @@
 package com.baidu.tieba.tblauncher;
 
-import android.os.Handler;
-import android.widget.ImageView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.r;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements Runnable {
-    final /* synthetic */ ab fzu;
+public class aj implements View.OnClickListener {
+    final /* synthetic */ ae fGW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ab abVar) {
-        this.fzu = abVar;
+    public aj(ae aeVar) {
+        this.fGW = aeVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.adp.lib.guide.d dVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         MainTabActivity mainTabActivity;
-        ImageView imageView;
-        com.baidu.adp.lib.guide.d dVar2;
-        com.baidu.adp.lib.guide.d dVar3;
+        int i;
         MainTabActivity mainTabActivity2;
-        Handler handler;
-        Runnable runnable;
-        dVar = this.fzu.Hs;
-        if (dVar == null) {
-            mainTabActivity = this.fzu.fzj;
-            String string = mainTabActivity.getPageContext().getPageActivity().getResources().getString(r.j.messge_tab_change_tip);
-            if (!StringUtils.isNull(string)) {
-                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                imageView = this.fzu.fzm;
-                gVar.o(imageView).ad(0).y(true).z(true);
-                gVar.a(new ak(this, string));
-                this.fzu.Hs = gVar.dQ();
-                dVar2 = this.fzu.Hs;
-                dVar2.w(false);
-                dVar3 = this.fzu.Hs;
-                mainTabActivity2 = this.fzu.fzj;
-                dVar3.j(mainTabActivity2.getPageContext().getPageActivity());
-                this.fzu.fzp = true;
-                this.fzu.acn();
-                handler = this.fzu.mHandler;
-                runnable = this.fzu.bRT;
-                handler.postDelayed(runnable, 3000L);
-            }
+        mainTabActivity = this.fGW.fGL;
+        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        String str = "";
+        i = this.fGW.eeQ;
+        switch (i) {
+            case 1:
+                str = "forum";
+                break;
+            case 2:
+                str = "kantie";
+                break;
+            case 3:
+                str = "message";
+                break;
+            case 8:
+                str = "profile";
+                break;
         }
+        TiebaStatic.log(new av("c10517").ab("obj_source", str));
+        mainTabActivity2 = this.fGW.fGL;
+        bk.ai(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

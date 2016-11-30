@@ -1,20 +1,78 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-class r extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
+public class r {
+    protected volatile int fEK;
+    protected volatile HashMap<Long, Integer> fEL = new HashMap<>();
+    private volatile int fEJ = 0;
+
     public r(int i) {
-        super(i);
+        this.fEK = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (TbadkCoreApplication.m9getInst().getPhotoLiveReadThreadHistory() != null) {
-            TbadkCoreApplication.m9getInst().getPhotoLiveReadThreadHistory().bkN();
+    public void rO(String str) {
+        try {
+            Long valueOf = Long.valueOf(Long.parseLong(str));
+            synchronized (this) {
+                if (this.fEL.size() >= this.fEK) {
+                    aZs();
+                }
+                this.fEJ++;
+                this.fEL.put(valueOf, Integer.valueOf(this.fEJ));
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void aZs() {
+        synchronized (this) {
+            int i = 134217727;
+            Long l = null;
+            for (Map.Entry<Long, Integer> entry : this.fEL.entrySet()) {
+                if (entry.getValue().intValue() < i) {
+                    i = entry.getValue().intValue();
+                    l = entry.getKey();
+                }
+            }
+            if (l != null) {
+                this.fEL.remove(l);
+            } else {
+                this.fEL.clear();
+            }
+        }
+    }
+
+    public boolean rP(String str) {
+        boolean z = false;
+        try {
+            Long valueOf = Long.valueOf(Long.parseLong(str));
+            synchronized (this) {
+                if (this.fEL.get(valueOf) != null) {
+                    z = true;
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return z;
+    }
+
+    public boolean rQ(String str) {
+        try {
+            return this.fEL.containsKey(Long.valueOf(Long.parseLong(str)));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
+        }
+    }
+
+    public void bnd() {
+        synchronized (this) {
+            this.fEL.clear();
         }
     }
 }
