@@ -147,7 +147,7 @@ public class c {
         }
     }
 
-    public String aD(int i) {
+    public String aE(int i) {
         PluginSetting findPluginSettingByCmd = this.yj.findPluginSettingByCmd(i);
         if (findPluginSettingByCmd != null) {
             return findPluginSettingByCmd.packageName;

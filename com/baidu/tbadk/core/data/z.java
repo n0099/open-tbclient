@@ -1,30 +1,44 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.FrsPage.RecommendBook;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.ThreadInfo;
+import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
-public class z extends bk {
+public class z extends bg {
     public static final BdUniqueId Rq = BdUniqueId.gen();
-    public String Qo;
-    public int Rr;
-    public List<String> Rs;
-    public String image;
-    public String linkUrl;
-    public String title;
+    private PhotoLiveCardData Rr = null;
 
-    public void a(RecommendBook recommendBook) {
-        if (recommendBook != null) {
-            this.Rr = recommendBook.type.intValue();
-            this.Qo = recommendBook.book_id;
-            this.title = recommendBook.title;
-            this.image = recommendBook.image;
-            this.Rs = recommendBook.desc;
-            this.linkUrl = recommendBook.link_url;
+    public PhotoLiveCardData qb() {
+        return this.Rr;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bg
+    public void a(ThreadInfo threadInfo) {
+        super.a(threadInfo);
+        if (threadInfo.twzhibo_info != null) {
+            a(threadInfo.twzhibo_info);
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
+    private void a(ZhiBoInfoTW zhiBoInfoTW) {
+        if (zhiBoInfoTW != null) {
+            if (this.Rr == null) {
+                this.Rr = new PhotoLiveCardData();
+            }
+            this.Rr.parserProtobuf(zhiBoInfoTW);
+            this.Rr.setShowExpressionViewIndexList(this.Rr.getExpressionDatas());
+            if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
+                setId(String.valueOf(this.Rr.getThreadId()));
+                cw(String.valueOf(this.Rr.getThreadId()));
+            }
+            if (StringUtils.isNull(rK())) {
+                cx(this.Rr.getForumName());
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
         return Rq;
     }

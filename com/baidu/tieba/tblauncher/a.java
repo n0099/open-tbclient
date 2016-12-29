@@ -4,10 +4,11 @@ import android.os.SystemClock;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.tblauncher.ClientStartStatic;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    private long mTimeStamp;
+    private long csw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i) {
@@ -20,10 +21,13 @@ class a extends CustomMessageListener {
         Boolean data;
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
             if (data.booleanValue()) {
-                this.mTimeStamp = SystemClock.elapsedRealtime();
-            } else if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
+                this.csw = SystemClock.elapsedRealtime();
+                return;
+            }
+            if (SystemClock.elapsedRealtime() - this.csw > 30000) {
                 new ClientStartStatic.a(null).execute(new Void[0]);
             }
+            TiebaStatic.log("c11894");
         }
     }
 }

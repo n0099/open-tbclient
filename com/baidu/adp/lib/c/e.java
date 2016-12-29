@@ -41,7 +41,7 @@ public class e {
     public boolean d(String str, int i) {
         d dVar;
         if (i >= 0 && (dVar = this.mZ.get(str)) != null) {
-            return dVar.Y(i);
+            return dVar.Z(i);
         }
         return false;
     }
@@ -59,7 +59,7 @@ public class e {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (d dVar : this.mZ.values()) {
                 if (dVar != null) {
-                    dVar.ab(0);
+                    dVar.ac(0);
                     edit.putInt(String.valueOf(dVar.getName()) + d.mQ, 0);
                     edit.putInt(String.valueOf(dVar.getName()) + d.mS, dVar.getDefaultType());
                 }

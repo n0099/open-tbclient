@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.play.t;
 /* loaded from: classes.dex */
 class l implements t.b {
-    final /* synthetic */ c ffA;
+    final /* synthetic */ c eIS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar) {
-        this.ffA = cVar;
+        this.eIS = cVar;
     }
 
     @Override // com.baidu.tieba.play.t.b
@@ -18,15 +18,15 @@ class l implements t.b {
         View view3;
         t.b bVar;
         t.b bVar2;
-        view = this.ffA.aON;
+        view = this.eIS.aOe;
         view.setVisibility(0);
-        view2 = this.ffA.ceM;
+        view2 = this.eIS.bKv;
         view2.setVisibility(8);
-        view3 = this.ffA.aSI;
+        view3 = this.eIS.aRZ;
         view3.setVisibility(8);
-        bVar = this.ffA.feX;
+        bVar = this.eIS.eIw;
         if (bVar != null) {
-            bVar2 = this.ffA.feX;
+            bVar2 = this.eIS.eIw;
             bVar2.onError(tVar, i, i2);
             return true;
         }

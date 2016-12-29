@@ -16,144 +16,144 @@ import java.util.Formatter;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class as extends RelativeLayout {
-    private int Cs;
-    private MediaController.MediaPlayerControl aRr;
-    private SeekBar.OnSeekBarChangeListener aSV;
-    private b aSX;
-    private a aSZ;
-    private int cYd;
-    private TextView cYe;
-    private TextView cYf;
-    private boolean cYg;
-    private boolean cYh;
-    private SeekBar cYi;
-    private StringBuilder cYj;
-    private Formatter cYk;
-    private SeekBar.OnSeekBarChangeListener cYl;
-    private int fgF;
+    private int Ct;
+    private MediaController.MediaPlayerControl aQI;
+    private SeekBar.OnSeekBarChangeListener aSm;
+    private b aSo;
+    private a aSq;
+    private int cDm;
+    private TextView cDn;
+    private TextView cDo;
+    private boolean cDp;
+    private boolean cDq;
+    private SeekBar cDr;
+    private StringBuilder cDs;
+    private Formatter cDt;
+    private SeekBar.OnSeekBarChangeListener cDu;
+    private int eJX;
     private Context mContext;
     private Handler mHandler;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Ma();
+        void Lt();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void fR(int i);
+        void fQ(int i);
     }
 
     public as(Context context) {
         super(context);
-        this.cYd = 50;
-        this.cYg = false;
-        this.cYh = true;
-        this.fgF = 0;
+        this.cDm = 50;
+        this.cDp = false;
+        this.cDq = true;
+        this.eJX = 0;
         this.mHandler = new at(this, Looper.getMainLooper());
-        this.cYl = new au(this);
+        this.cDu = new au(this);
         init(context);
     }
 
     public as(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cYd = 50;
-        this.cYg = false;
-        this.cYh = true;
-        this.fgF = 0;
+        this.cDm = 50;
+        this.cDp = false;
+        this.cDq = true;
+        this.eJX = 0;
         this.mHandler = new at(this, Looper.getMainLooper());
-        this.cYl = new au(this);
+        this.cDu = new au(this);
         init(context);
     }
 
     public as(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cYd = 50;
-        this.cYg = false;
-        this.cYh = true;
-        this.fgF = 0;
+        this.cDm = 50;
+        this.cDp = false;
+        this.cDq = true;
+        this.eJX = 0;
         this.mHandler = new at(this, Looper.getMainLooper());
-        this.cYl = new au(this);
+        this.cDu = new au(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        View bo = bo(context);
-        addView(bo, -1, (int) context.getResources().getDimension(r.e.ds80));
-        this.cYe = (TextView) bo.findViewById(r.g.textview_cur_time);
-        this.cYf = (TextView) bo.findViewById(r.g.textview_duration);
-        this.cYi = (SeekBar) bo.findViewById(r.g.pb_video_controller_seekBar);
-        this.cYi.setOnSeekBarChangeListener(this.cYl);
-        this.cYj = new StringBuilder();
-        this.cYk = new Formatter(this.cYj, Locale.getDefault());
+        View bn = bn(context);
+        addView(bn, -1, (int) context.getResources().getDimension(r.e.ds80));
+        this.cDn = (TextView) bn.findViewById(r.g.textview_cur_time);
+        this.cDo = (TextView) bn.findViewById(r.g.textview_duration);
+        this.cDr = (SeekBar) bn.findViewById(r.g.pb_video_controller_seekBar);
+        this.cDr.setOnSeekBarChangeListener(this.cDu);
+        this.cDs = new StringBuilder();
+        this.cDt = new Formatter(this.cDs, Locale.getDefault());
     }
 
-    protected View bo(Context context) {
+    protected View bn(Context context) {
         return LayoutInflater.from(context).inflate(r.h.video_controller, (ViewGroup) null);
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.aRr = mediaPlayerControl;
+        this.aQI = mediaPlayerControl;
     }
 
-    public void aO(int i, int i2) {
-        this.Cs = i2;
-        this.cYh = false;
+    public void aJ(int i, int i2) {
+        this.Ct = i2;
+        this.cDq = false;
         this.mHandler.removeMessages(1);
-        this.cYi.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
-        if (this.cYe != null) {
-            this.cYe.setText(li(i));
+        this.cDr.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
+        if (this.cDn != null) {
+            this.cDn.setText(ks(i));
         }
-        if (this.cYf != null) {
-            this.cYf.setText(li(this.Cs));
+        if (this.cDo != null) {
+            this.cDo.setText(ks(this.Ct));
         }
     }
 
     public void showProgress() {
-        if (this.aRr != null) {
-            this.cYd = ((this.aRr.getDuration() / 200) / 50) * 50;
-            if (this.cYd < 50) {
-                this.cYd = 50;
-            } else if (this.cYd > 500) {
-                this.cYd = 500;
+        if (this.aQI != null) {
+            this.cDm = ((this.aQI.getDuration() / 200) / 50) * 50;
+            if (this.cDm < 50) {
+                this.cDm = 50;
+            } else if (this.cDm > 500) {
+                this.cDm = 500;
             }
-            this.cYh = true;
+            this.cDq = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.cYd - (this.aRr.getCurrentPosition() % this.cYd));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.cDm - (this.aQI.getCurrentPosition() % this.cDm));
         }
     }
 
-    public void arr() {
-        this.cYh = false;
+    public void alT() {
+        this.cDq = false;
         this.mHandler.removeMessages(1);
-        this.cYi.setProgress(0);
-        if (this.cYe != null) {
-            this.cYe.setText(li(0));
+        this.cDr.setProgress(0);
+        if (this.cDn != null) {
+            this.cDn.setText(ks(0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int ars() {
-        if (this.aRr == null || this.cYg) {
+    public int alU() {
+        if (this.aQI == null || this.cDp) {
             return 0;
         }
-        int currentPosition = this.aRr.getCurrentPosition();
-        int duration = this.aRr.getDuration();
-        if (this.cYi != null) {
+        int currentPosition = this.aQI.getCurrentPosition();
+        int duration = this.aQI.getDuration();
+        if (this.cDr != null) {
             if (duration > 0) {
-                this.cYi.setProgress((int) ((10000 * currentPosition) / duration));
+                this.cDr.setProgress((int) ((10000 * currentPosition) / duration));
             }
-            this.aRr.getBufferPercentage();
+            this.aQI.getBufferPercentage();
         }
-        if (this.cYe != null) {
-            this.cYe.setText(li(currentPosition));
+        if (this.cDn != null) {
+            this.cDn.setText(ks(currentPosition));
             return currentPosition;
         }
         return currentPosition;
     }
 
-    public void Q(int i, boolean z) {
+    public void C(int i, boolean z) {
         if (i < 0) {
             i = 0;
         }
@@ -162,41 +162,41 @@ public class as extends RelativeLayout {
                 this.mHandler.removeMessages(1);
             }
         } else {
-            this.aRr.seekTo(i);
-            if (this.cYe != null) {
-                this.cYe.setText(li(i));
+            this.aQI.seekTo(i);
+            if (this.cDn != null) {
+                this.cDn.setText(ks(i));
             }
             showProgress();
         }
-        if (!this.aRr.isPlaying()) {
-            this.cYi.setProgress((int) (((i * 1.0f) / this.Cs) * 10000.0f));
+        if (!this.aQI.isPlaying()) {
+            this.cDr.setProgress((int) (((i * 1.0f) / this.Ct) * 10000.0f));
         }
     }
 
-    public String qS(int i) {
+    public String pT(int i) {
         if (i < 0) {
             i = 0;
         }
-        return li(i);
+        return ks(i);
     }
 
     public int getSeekPosition() {
-        return this.fgF;
+        return this.eJX;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String li(int i) {
+    public String ks(int i) {
         int i2 = i / 1000;
         int i3 = i2 % 60;
         int i4 = (i2 / 60) % 60;
         int i5 = i2 / 3600;
-        this.cYj.setLength(0);
-        return i5 > 0 ? this.cYk.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : this.cYk.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
+        this.cDs.setLength(0);
+        return i5 > 0 ? this.cDt.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : this.cDt.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
     }
 
     public int getCurProgress() {
-        if (this.cYi != null) {
-            return this.cYi.getProgress();
+        if (this.cDr != null) {
+            return this.cDr.getProgress();
         }
         return 0;
     }
@@ -208,14 +208,14 @@ public class as extends RelativeLayout {
     }
 
     public void setOnProgressUpdatedListener(b bVar) {
-        this.aSX = bVar;
+        this.aSo = bVar;
     }
 
     public void setOnDragingListener(a aVar) {
-        this.aSZ = aVar;
+        this.aSq = aVar;
     }
 
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.aSV = onSeekBarChangeListener;
+        this.aSm = onSeekBarChangeListener;
     }
 }

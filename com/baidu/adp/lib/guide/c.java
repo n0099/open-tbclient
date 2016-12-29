@@ -20,7 +20,7 @@ class c implements Parcelable.Creator<Configuration> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: ac */
+    /* renamed from: ad */
     public Configuration[] newArray(int i) {
         return new Configuration[i];
     }

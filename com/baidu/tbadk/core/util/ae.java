@@ -9,7 +9,7 @@ import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ae {
-    public static boolean Y(Context context) {
+    public static boolean W(Context context) {
         boolean z;
         boolean z2;
         if (com.baidu.a.a.nv()) {
@@ -23,7 +23,7 @@ public class ae {
                 z = false;
             }
             try {
-                z2 = Z(context);
+                z2 = X(context);
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
@@ -36,7 +36,7 @@ public class ae {
         return true;
     }
 
-    public static boolean Z(Context context) {
+    public static boolean X(Context context) {
         if (com.baidu.a.a.nv()) {
             if (context == null) {
                 return false;
@@ -54,7 +54,7 @@ public class ae {
         return true;
     }
 
-    public static boolean aa(Context context) {
+    public static boolean Y(Context context) {
         if (!com.baidu.a.a.nv()) {
             return true;
         }
@@ -69,7 +69,7 @@ public class ae {
         return false;
     }
 
-    public static boolean ab(Context context) {
+    public static boolean Z(Context context) {
         if (!com.baidu.a.a.nv()) {
             return true;
         }
@@ -84,14 +84,14 @@ public class ae {
         return false;
     }
 
-    public static boolean ac(Context context) {
-        Context ag = ag(context);
-        if (ag == null) {
+    public static boolean aa(Context context) {
+        Context ae = ae(context);
+        if (ae == null) {
             return true;
         }
         try {
-            if (com.baidu.a.a.nv() && com.baidu.a.a.a.t(ag, "android.permission.RECORD_AUDIO")) {
-                com.baidu.adp.lib.util.k.showToast(ag, r.j.record_audio_permission_denied_fun_disable);
+            if (com.baidu.a.a.nv() && com.baidu.a.a.a.t(ae, "android.permission.RECORD_AUDIO")) {
+                com.baidu.adp.lib.util.k.showToast(ae, r.j.record_audio_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -100,7 +100,7 @@ public class ae {
         return false;
     }
 
-    public static boolean ad(Context context) {
+    public static boolean ab(Context context) {
         if (!com.baidu.a.a.nv()) {
             return true;
         }
@@ -115,7 +115,7 @@ public class ae {
         return false;
     }
 
-    public static boolean ae(Context context) {
+    public static boolean ac(Context context) {
         if (!com.baidu.a.a.nv()) {
             return true;
         }
@@ -130,14 +130,14 @@ public class ae {
         return false;
     }
 
-    public static boolean af(Context context) {
-        Context ag = ag(context);
-        if (ag == null) {
+    public static boolean ad(Context context) {
+        Context ae = ae(context);
+        if (ae == null) {
             return true;
         }
         try {
-            if (com.baidu.a.a.nv() && com.baidu.a.a.a.t(ag, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                com.baidu.adp.lib.util.k.showToast(ag, r.j.write_external_storage_permission_denied_fun_disable);
+            if (com.baidu.a.a.nv() && com.baidu.a.a.a.t(ae, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                com.baidu.adp.lib.util.k.showToast(ae, r.j.write_external_storage_permission_denied_fun_disable);
                 return true;
             }
         } catch (Exception e) {
@@ -146,7 +146,7 @@ public class ae {
         return false;
     }
 
-    public static Context ag(Context context) {
+    public static Context ae(Context context) {
         return context == null ? TbadkCoreApplication.m9getInst().getContext() : context;
     }
 
@@ -171,10 +171,10 @@ public class ae {
 
     public static boolean d(Activity activity, int i) {
         ArrayList arrayList = new ArrayList(2);
-        if (!ae(activity.getApplicationContext())) {
+        if (!ac(activity.getApplicationContext())) {
             arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        if (!aa(activity.getApplicationContext())) {
+        if (!Y(activity.getApplicationContext())) {
             arrayList.add("android.permission.CAMERA");
         }
         if (arrayList.size() == 0) {

@@ -7,11 +7,11 @@ import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a fhf;
+    final /* synthetic */ PluginDownloadActivity.a eKy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PluginDownloadActivity.a aVar) {
-        this.fhf = aVar;
+        this.eKy = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,15 +28,15 @@ class n implements View.OnClickListener {
             return;
         }
         pluginDownloadActivity = PluginDownloadActivity.this;
-        pluginDownloadActivity.fgV = true;
-        textView = this.fhf.fgZ;
+        pluginDownloadActivity.eKo = true;
+        textView = this.eKy.eKs;
         textView.setVisibility(8);
-        textView2 = this.fhf.aWk;
+        textView2 = this.eKy.aVB;
         textView2.setVisibility(8);
-        textView3 = this.fhf.dTO;
+        textView3 = this.eKy.dyq;
         textView3.setVisibility(0);
         PluginPackageManager iB = PluginPackageManager.iB();
         pluginDownloadActivity2 = PluginDownloadActivity.this;
-        iB.a(pluginDownloadActivity2.fgS, new o(this));
+        iB.a(pluginDownloadActivity2.eKl, new o(this));
     }
 }

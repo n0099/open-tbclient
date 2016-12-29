@@ -6,13 +6,13 @@ import com.baidu.tbadk.performanceLog.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ e aCh;
+    final /* synthetic */ e aBB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(e eVar, int i) {
         super(i);
-        this.aCh = eVar;
+        this.aBB = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,13 +20,13 @@ public class i extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         e.a aVar;
         int i;
-        if (customResponsedMessage != null && (aVar = (e.a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.aCh.mId) {
-            e eVar = this.aCh;
-            i = eVar.aCa;
-            eVar.aCa = i + 1;
-            this.aCh.gn(aVar.aCi);
-            this.aCh.ff(aVar.aCj);
-            this.aCh.Gi();
+        if (customResponsedMessage != null && (aVar = (e.a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.aBB.mId) {
+            e eVar = this.aBB;
+            i = eVar.aBu;
+            eVar.aBu = i + 1;
+            this.aBB.gi(aVar.aBC);
+            this.aBB.ff(aVar.aBD);
+            this.aBB.FI();
         }
     }
 }

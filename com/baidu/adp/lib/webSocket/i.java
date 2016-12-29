@@ -96,7 +96,7 @@ public class i implements g.a {
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void a(int i, c cVar) {
         if (cVar != null) {
-            cVar.N(i);
+            cVar.O(i);
         }
     }
 

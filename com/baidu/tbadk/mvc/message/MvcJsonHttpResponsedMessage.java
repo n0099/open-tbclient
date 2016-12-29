@@ -85,15 +85,15 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof e)) {
                 e eVar = (e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String EN = eVar.EN();
+                String Ev = eVar.Ev();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(EN) && bArr != null) {
-                    if (eVar.EO()) {
-                        o<byte[]> M = a.tm().M(EN, currentAccount);
+                if (cacheKey != null && !TextUtils.isEmpty(Ev) && bArr != null) {
+                    if (eVar.Ew()) {
+                        o<byte[]> M = a.sX().M(Ev, currentAccount);
                         if (M != null) {
                             M.k(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.f) && (N = a.tm().N(EN, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.f) && (N = a.sX().N(Ev, currentAccount)) != null) {
                         try {
                             N.k(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {

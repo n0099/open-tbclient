@@ -2,6 +2,7 @@ package com.baidu.tbadk.browser;
 
 import android.net.Uri;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
@@ -10,11 +11,11 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements bf.a {
-    @Override // com.baidu.tbadk.core.util.bf.a
+public class n implements bc.a {
+    @Override // com.baidu.tbadk.core.util.bc.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         PbActivityConfig createNormalCfg;
         boolean a;
@@ -45,7 +46,7 @@ public class n implements bf.a {
                 tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter3, "lego")));
                 return 0;
             } else if ("person".equalsIgnoreCase(parse.getAuthority())) {
-                String queryParameter4 = parse.getQueryParameter("uid");
+                String queryParameter4 = parse.getQueryParameter(SapiAccountManager.SESSION_UID);
                 String queryParameter5 = parse.getQueryParameter("uname");
                 if (queryParameter4 == null || queryParameter4.length() <= 0 || queryParameter5 == null || queryParameter5.length() <= 0) {
                     return 3;
@@ -68,7 +69,7 @@ public class n implements bf.a {
                 return 3;
             }
         }
-        a = Static.a(tbPageContext, parse, null);
+        a = Static.a(tbPageContext, parse, null, false);
         return !a ? 3 : 0;
     }
 }

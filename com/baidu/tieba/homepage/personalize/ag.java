@@ -22,14 +22,14 @@ public class ag extends CustomMessageListener {
         com.baidu.tieba.play.aa aaVar;
         BdTypeListView bdTypeListView2;
         BdTypeListView bdTypeListView3;
-        bdTypeListView = this.this$0.aML;
+        bdTypeListView = this.this$0.aMc;
         if (bdTypeListView != null) {
-            aaVar = this.this$0.aMM;
-            aaVar.aro();
-            this.this$0.cKY = false;
-            bdTypeListView2 = this.this$0.aML;
+            aaVar = this.this$0.aMd;
+            aaVar.alQ();
+            this.this$0.cqt = false;
+            bdTypeListView2 = this.this$0.aMc;
             bdTypeListView2.l(2000L);
-            bdTypeListView3 = this.this$0.aML;
+            bdTypeListView3 = this.this$0.aMc;
             bdTypeListView3.kv();
         }
     }

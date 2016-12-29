@@ -6,8 +6,8 @@ import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tbadk.plugins.BdSocialShareSdkDelegate;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.coreExtra.share.b {
-    private BdSocialShareSdkDelegate anZ;
-    private b aoa;
+    private BdSocialShareSdkDelegate anB;
+    private b anC;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -19,38 +19,38 @@ public class a implements com.baidu.tbadk.coreExtra.share.b {
 
     public a(Context context, com.baidu.tbadk.coreExtra.share.a aVar) {
         this.mContext = null;
-        this.anZ = null;
+        this.anB = null;
         this.mContext = context;
-        this.anZ = (BdSocialShareSdkDelegate) PluginCenter.getInstance().getSocialShareClassInstance();
-        if (this.anZ != null) {
-            this.aoa = new b(aVar);
+        this.anB = (BdSocialShareSdkDelegate) PluginCenter.getInstance().getSocialShareClassInstance();
+        if (this.anB != null) {
+            this.anC = new b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.b
     public void a(f fVar, int i, boolean z) {
-        if (this.anZ != null) {
+        if (this.anB != null) {
             switch (i) {
                 case 2:
-                    this.anZ.shareToWexinTimeline(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
+                    this.anB.shareToWexinTimeline(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
                     return;
                 case 3:
-                    this.anZ.shareToWeixinFriend(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
+                    this.anB.shareToWeixinFriend(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
                     return;
                 case 4:
-                    this.anZ.shareToQZone(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
+                    this.anB.shareToQZone(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
                     return;
                 case 5:
-                    this.anZ.shareToQQWeibo(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
+                    this.anB.shareToQQWeibo(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
                     return;
                 case 6:
-                    this.anZ.shareToSinaWeibo(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
+                    this.anB.shareToSinaWeibo(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
                     return;
                 case 7:
-                    this.anZ.shareToRenren(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
+                    this.anB.shareToRenren(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
                     return;
                 case 8:
-                    this.anZ.shareToQQFriend(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
+                    this.anB.shareToQQFriend(fVar.title, fVar.content, fVar.linkUrl, fVar.imageUri, fVar.location, this.mContext, z, new c(fVar, i));
                     return;
                 default:
                     return;
@@ -61,78 +61,78 @@ public class a implements com.baidu.tbadk.coreExtra.share.b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c implements BdSocialShareSdkDelegate.ShareCallback {
-        private f aod;
-        private int aoe;
+        private f anF;
+        private int anG;
 
         public c(f fVar, int i) {
-            this.aod = null;
-            this.aoe = -1;
-            this.aod = fVar;
-            this.aoe = i;
+            this.anF = null;
+            this.anG = -1;
+            this.anF = fVar;
+            this.anG = i;
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void shareCallback(boolean z) {
             if (z) {
-                a.this.aoa.bk(true);
-                a.this.aoa.a(new com.baidu.tbadk.coreExtra.share.implementation.b(this));
+                a.this.anC.bk(true);
+                a.this.anC.a(new com.baidu.tbadk.coreExtra.share.implementation.b(this));
                 return;
             }
-            a.this.aoa.bk(false);
+            a.this.anC.bk(false);
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onCancelOfBaiduListener() {
-            a.this.aoa.AL();
+            a.this.anC.Ay();
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onCompleteOfBaiduListener() {
-            a.this.aoa.AK();
+            a.this.anC.Ax();
         }
 
         @Override // com.baidu.tbadk.plugins.BdSocialShareSdkDelegate.ShareCallback
         public void onErrorOfBaiduListener() {
-            a.this.aoa.AM();
+            a.this.anC.Az();
         }
     }
 
     /* loaded from: classes.dex */
     private static class b {
-        private com.baidu.tbadk.coreExtra.share.a anG;
-        private boolean aob = true;
-        private InterfaceC0038a aoc;
+        private boolean anD = true;
+        private InterfaceC0038a anE;
+        private com.baidu.tbadk.coreExtra.share.a anj;
 
         public b(com.baidu.tbadk.coreExtra.share.a aVar) {
-            this.anG = aVar;
+            this.anj = aVar;
         }
 
         public void bk(boolean z) {
-            this.aob = z;
+            this.anD = z;
         }
 
         public void a(InterfaceC0038a interfaceC0038a) {
-            this.aoc = interfaceC0038a;
+            this.anE = interfaceC0038a;
         }
 
-        public void AK() {
-            if (this.aob) {
-                this.anG.AC();
-                this.aoc.onSuccess();
+        public void Ax() {
+            if (this.anD) {
+                this.anj.Ap();
+                this.anE.onSuccess();
                 return;
             }
-            this.anG.AE();
+            this.anj.Ar();
         }
 
-        public void AL() {
-            this.anG.AD();
+        public void Ay() {
+            this.anj.Aq();
         }
 
-        public void AM() {
-            if (this.aob) {
-                this.anG.AF();
+        public void Az() {
+            if (this.anD) {
+                this.anj.As();
             } else {
-                this.anG.AF();
+                this.anj.As();
             }
         }
     }

@@ -8,23 +8,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class h {
     private static Toast sl;
     private static Handler mHandler = new Handler();
-    private static String aaa = null;
-    private static Runnable ZY = new i();
+    private static String Zu = null;
+    private static Runnable Zs = new i();
 
     public static void showToast(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            mHandler.removeCallbacks(ZY);
+            mHandler.removeCallbacks(Zs);
             if (sl != null) {
-                if (!str.equals(aaa)) {
-                    aaa = str;
+                if (!str.equals(Zu)) {
+                    Zu = str;
                     sl.setText(str);
                 }
             } else {
-                aaa = str;
+                Zu = str;
                 sl = Toast.makeText(TbadkCoreApplication.m9getInst(), str, 0);
                 sl.setGravity(17, 0, com.baidu.adp.lib.util.k.dip2px(context, 100.0f));
             }
-            mHandler.postDelayed(ZY, i);
+            mHandler.postDelayed(Zs, i);
             sl.show();
         }
     }

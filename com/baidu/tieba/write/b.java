@@ -12,21 +12,21 @@ import com.baidu.adp.lib.util.k;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class b extends PopupWindow {
-    private LinearLayout arj;
-    private int axF;
+    private LinearLayout aqM;
+    private int axc;
     private Context context;
     private int count;
-    private a gjs;
+    private a fxN;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void rK(int i);
+        void qL(int i);
     }
 
     public b(Context context) {
         super(context);
-        this.axF = -1;
+        this.axc = -1;
         this.context = context;
         init(context);
     }
@@ -34,10 +34,10 @@ public class b extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.arj = new LinearLayout(context);
-        this.arj.setOrientation(1);
-        this.arj.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.arj);
+        this.aqM = new LinearLayout(context);
+        this.aqM.setOrientation(1);
+        this.aqM.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.aqM);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, k.dip2px(context, 1.0f), k.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -68,8 +68,8 @@ public class b extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new View$OnClickListenerC0084b(this.count, this.gjs));
-        this.arj.addView(view);
+        view.setOnClickListener(new View$OnClickListenerC0078b(this.count, this.fxN));
+        this.aqM.addView(view);
         this.count++;
     }
 
@@ -77,33 +77,33 @@ public class b extends PopupWindow {
         this.maxHeight = i;
     }
 
-    public void tD(int i) {
-        if (this.axF != -1) {
-            this.arj.getChildAt(this.axF).setSelected(false);
+    public void sc(int i) {
+        if (this.axc != -1) {
+            this.aqM.getChildAt(this.axc).setSelected(false);
         }
-        this.axF = i;
-        this.arj.getChildAt(this.axF).setSelected(true);
+        this.axc = i;
+        this.aqM.getChildAt(this.axc).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.gjs = aVar;
+        this.fxN = aVar;
     }
 
     /* renamed from: com.baidu.tieba.write.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class View$OnClickListenerC0084b implements View.OnClickListener {
-        private a gjt;
+    public static class View$OnClickListenerC0078b implements View.OnClickListener {
+        private a fxO;
         private int position;
 
-        public View$OnClickListenerC0084b(int i, a aVar) {
+        public View$OnClickListenerC0078b(int i, a aVar) {
             this.position = i;
-            this.gjt = aVar;
+            this.fxO = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.gjt != null) {
-                this.gjt.rK(this.position);
+            if (this.fxO != null) {
+                this.fxO.qL(this.position);
             }
         }
     }

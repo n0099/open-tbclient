@@ -1,24 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fj extends CustomMessageListener {
-    final /* synthetic */ ey eCT;
+public class fj implements Runnable {
+    final /* synthetic */ er egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fj(ey eyVar, int i) {
-        super(i);
-        this.eCT = eyVar;
+    public fj(er erVar) {
+        this.egZ = erVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.eCT.eBU = false;
+    @Override // java.lang.Runnable
+    public void run() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        bdTypeListView = this.egZ.aMc;
+        if (bdTypeListView.getFirstVisiblePosition() <= 1) {
+            bdTypeListView2 = this.egZ.aMc;
+            bdTypeListView2.setSelectionFromTop(1, 0);
+            pbActivity = this.egZ.dYB;
+            if (pbActivity.aJa() != null) {
+                pbActivity2 = this.egZ.dYB;
+                pbActivity2.aJa().Ur();
+            }
         }
     }
 }

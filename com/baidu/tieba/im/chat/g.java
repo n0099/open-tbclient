@@ -12,11 +12,11 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements ad {
-    final /* synthetic */ AbsMsgImageActivity cZt;
+    final /* synthetic */ AbsMsgImageActivity cEF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AbsMsgImageActivity absMsgImageActivity) {
-        this.cZt = absMsgImageActivity;
+        this.cEF = absMsgImageActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x000a, code lost:
@@ -44,28 +44,28 @@ public class g implements ad {
         String str6;
         boolean z2;
         if (linkedHashMap != null) {
-            z2 = this.cZt.cZs;
+            z2 = this.cEF.cEE;
         }
         linkedHashMap = new LinkedHashMap<>();
         if (linkedHashMap.isEmpty()) {
-            str2 = this.cZt.cZm;
+            str2 = this.cEF.cEy;
             if (!TextUtils.isEmpty(str2)) {
-                str3 = this.cZt.cZo;
-                str4 = this.cZt.cZm;
+                str3 = this.cEF.cEA;
+                str4 = this.cEF.cEy;
                 linkedHashMap.put(str3, str4);
                 if (hashMap == null) {
                     hashMap = new HashMap<>();
                 }
                 ImageUrlData imageUrlData = new ImageUrlData();
-                str5 = this.cZt.cZn;
+                str5 = this.cEF.cEz;
                 imageUrlData.imageUrl = str5;
                 imageUrlData.urlType = 10;
-                str6 = this.cZt.cZm;
+                str6 = this.cEF.cEy;
                 hashMap.put(str6, imageUrlData);
             }
         }
         if (linkedHashMap.size() != 0) {
-            str = this.cZt.cZo;
+            str = this.cEF.cEA;
             Iterator<String> it = linkedHashMap.keySet().iterator();
             int i3 = 0;
             while (true) {
@@ -75,34 +75,34 @@ public class g implements ad {
                 }
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(next) && next.equals(str)) {
-                    this.cZt.mIndex = i3;
+                    this.cEF.mIndex = i3;
                     z = true;
                     break;
                 }
                 i3++;
             }
-            this.cZt.qh = linkedHashMap.size();
+            this.cEF.qh = linkedHashMap.size();
             if (!z) {
-                AbsMsgImageActivity absMsgImageActivity = this.cZt;
-                i2 = this.cZt.qh;
+                AbsMsgImageActivity absMsgImageActivity = this.cEF;
+                i2 = this.cEF.qh;
                 absMsgImageActivity.mIndex = i2 - 1;
             }
-            textView = this.cZt.WJ;
+            textView = this.cEF.Wd;
             textView.setVisibility(0);
-            this.cZt.arM();
-            multiImageView = this.cZt.cZh;
+            this.cEF.amo();
+            multiImageView = this.cEF.cEt;
             multiImageView.setIsFromCDN(true);
-            multiImageView2 = this.cZt.cZh;
+            multiImageView2 = this.cEF.cEt;
             multiImageView2.setAllowLocalUrl(true);
-            multiImageView3 = this.cZt.cZh;
+            multiImageView3 = this.cEF.cEt;
             multiImageView3.setAssistUrls(hashMap);
-            multiImageView4 = this.cZt.cZh;
+            multiImageView4 = this.cEF.cEt;
             multiImageView4.setUrlData(new ArrayList<>(linkedHashMap.values()));
-            multiImageView5 = this.cZt.cZh;
-            i = this.cZt.mIndex;
+            multiImageView5 = this.cEF.cEt;
+            i = this.cEF.mIndex;
             multiImageView5.setCurrentItem(i, false);
             return;
         }
-        this.cZt.finish();
+        this.cEF.finish();
     }
 }

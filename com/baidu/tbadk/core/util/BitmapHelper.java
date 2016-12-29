@@ -202,7 +202,7 @@ public class BitmapHelper {
         if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
             return null;
         }
-        if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
+        if ((bitmap.getWidth() > i || bitmap.getHeight() > i2) && bitmap.getWidth() > 0 && bitmap.getHeight() > 0) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             if (i2 / height > i / width) {
@@ -503,19 +503,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream de = m.de(str);
-                BitmapFactory.decodeStream(de, null, options);
+                InputStream df = m.df(str);
+                BitmapFactory.decodeStream(df, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.j(de);
+                com.baidu.adp.lib.util.o.j(df);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream de2 = m.de(str);
-                        decodeStream = BitmapFactory.decodeStream(de2, null, options);
-                        com.baidu.adp.lib.util.o.j(de2);
+                        InputStream df2 = m.df(str);
+                        decodeStream = BitmapFactory.decodeStream(df2, null, options);
+                        com.baidu.adp.lib.util.o.j(df2);
                     }
                 }
             }
@@ -693,7 +693,7 @@ public class BitmapHelper {
         return Bytes2Bitmap(bArr, null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [792=4, 825=5, 826=5, 827=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [773=4, 806=5, 807=5, 808=5] */
     public static Bitmap Bytes2Bitmap(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -790,7 +790,7 @@ public class BitmapHelper {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [845=4, 872=5, 873=5, 874=5, 876=5, 878=5, 879=5, 880=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [853=5, 854=5, 855=5, 857=5, 859=5, 860=5, 861=5, 826=4] */
     public static Bitmap Bytes2NineBitmap(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;

@@ -6,15 +6,15 @@ import android.os.Bundle;
 import com.baidu.cloudsdk.common.util.CoordinateManager;
 /* loaded from: classes.dex */
 public class al implements LocationListener {
-    final /* synthetic */ CoordinateManager.a gsA;
+    final /* synthetic */ CoordinateManager.a fFv;
 
     public al(CoordinateManager.a aVar) {
-        this.gsA = aVar;
+        this.fFv = aVar;
     }
 
     @Override // android.location.LocationListener
     public void onLocationChanged(Location location) {
-        CoordinateManager.this.c = this.gsA.c = location;
+        CoordinateManager.this.c = this.fFv.c = location;
     }
 
     @Override // android.location.LocationListener

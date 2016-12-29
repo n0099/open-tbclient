@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String fCf;
-    private int fCg;
-    private String fCh;
-    private String fCi;
-    private String fCj;
+    private String fgk;
+    private int fgl;
+    private String fgm;
+    private String fgn;
+    private String fgo;
     private int height;
     private String subTitle;
     private int width;
 
     public k(Timgs timgs) {
-        this.fCf = null;
-        this.fCg = 0;
-        this.fCh = null;
-        this.fCi = null;
-        this.fCj = null;
+        this.fgk = null;
+        this.fgl = 0;
+        this.fgm = null;
+        this.fgn = null;
+        this.fgo = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.fCf = timgs.img_url;
-            this.fCg = timgs.flag.intValue();
-            this.fCh = timgs.url;
-            this.fCi = timgs.big_cdn_url;
-            this.fCj = timgs.des_main;
+            this.fgk = timgs.img_url;
+            this.fgl = timgs.flag.intValue();
+            this.fgm = timgs.url;
+            this.fgn = timgs.big_cdn_url;
+            this.fgo = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,20 +50,20 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.fCf;
+        return this.fgk;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicLinkUrl() {
-        return this.fCh;
+    public String pI() {
+        return this.fgm;
     }
 
-    public String blS() {
-        return this.fCf;
+    public String bfH() {
+        return this.fgk;
     }
 
-    public String blT() {
-        return this.fCj;
+    public String bfI() {
+        return this.fgo;
     }
 
     public String getSubTitle() {
@@ -78,7 +78,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String blU() {
-        return this.fCi;
+    public String bfJ() {
+        return this.fgn;
     }
 }

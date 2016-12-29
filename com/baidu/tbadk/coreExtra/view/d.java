@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c aoM;
+    final /* synthetic */ c aoo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aoM = cVar;
+        this.aoo = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,17 +17,17 @@ public class d implements Runnable {
         View view;
         int i;
         View view2;
-        view = this.aoM.aoH;
+        view = this.aoo.aoj;
         if (view != null) {
-            int childCount = ((LinearLayout) this.aoM.getChildAt(0)).getChildCount();
+            int childCount = ((LinearLayout) this.aoo.getChildAt(0)).getChildCount();
             int i2 = 0;
             while (true) {
                 if (i2 >= childCount) {
                     i = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.aoM.getChildAt(0)).getChildAt(i2);
-                view2 = this.aoM.aoH;
+                View childAt = ((LinearLayout) this.aoo.getChildAt(0)).getChildAt(i2);
+                view2 = this.aoo.aoj;
                 if (childAt != view2) {
                     i2++;
                 } else {
@@ -35,10 +35,10 @@ public class d implements Runnable {
                     break;
                 }
             }
-            this.aoM.aoH = null;
-            int width = i - this.aoM.getWidth();
+            this.aoo.aoj = null;
+            int width = i - this.aoo.getWidth();
             if (width > 0) {
-                this.aoM.scrollBy(width, 0);
+                this.aoo.scrollBy(width, 0);
             }
         }
     }

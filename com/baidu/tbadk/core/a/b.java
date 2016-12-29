@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean ch(String str) {
+    public static boolean ci(String str) {
         return TiebaDatabase.getInstance().getMainDBDatabaseManager().g("delete from account_data where account=?", new String[]{str});
     }
 
@@ -21,7 +21,7 @@ public class b {
                 oT();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!ch(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
+            if (!ci(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
                 if (!mainDBDatabaseManager.x("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.bb();
                 }
@@ -163,7 +163,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v34, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData ci(String str) {
+    public static AccountData cj(String str) {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;

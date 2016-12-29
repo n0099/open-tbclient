@@ -10,46 +10,46 @@ import com.baidu.tieba.personCenter.g.f;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private com.baidu.tieba.personCenter.g.c eLP;
-    private f eLQ;
-    private e eLR;
+    private com.baidu.tieba.personCenter.g.c epl;
+    private f epm;
+    private e epn;
 
     public void a(Context context, LinearLayout linearLayout, Bundle bundle) {
         if (context != null && linearLayout != null && bundle != null) {
             linearLayout.setOrientation(0);
             ArrayList arrayList = (ArrayList) bundle.getSerializable("person_center_item_pic");
-            if (!x.t(arrayList) && this.eLP == null) {
-                this.eLP = new com.baidu.tieba.personCenter.g.c(context, linearLayout);
+            if (!x.t(arrayList) && this.epl == null) {
+                this.epl = new com.baidu.tieba.personCenter.g.c(context, linearLayout);
             }
-            if (this.eLP != null) {
-                this.eLP.cG(arrayList);
+            if (this.epl != null) {
+                this.epl.cw(arrayList);
             }
             String string = bundle.getString("person_center_item_txt");
-            if (!StringUtils.isNull(string) && this.eLQ == null) {
-                this.eLQ = new f(context, linearLayout);
+            if (!StringUtils.isNull(string) && this.epm == null) {
+                this.epm = new f(context, linearLayout);
             }
-            if (this.eLQ != null) {
-                this.eLQ.pU(string);
+            if (this.epm != null) {
+                this.epm.ow(string);
             }
-            if (bundle.getBoolean("person_center_item_red_tip", false) && this.eLR == null) {
-                this.eLR = new e(context, linearLayout);
+            if (bundle.getBoolean("person_center_item_red_tip", false) && this.epn == null) {
+                this.epn = new e(context, linearLayout);
             }
             boolean z = bundle.getBoolean("person_center_item_red_tip_show", false);
-            if (this.eLR != null) {
-                this.eLR.pi(z ? 0 : 8);
+            if (this.epn != null) {
+                this.epn.oi(z ? 0 : 8);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eLP != null) {
-            this.eLP.onChangeSkinType(i);
+        if (this.epl != null) {
+            this.epl.onChangeSkinType(i);
         }
-        if (this.eLQ != null) {
-            this.eLQ.onChangeSkinType(i);
+        if (this.epm != null) {
+            this.epm.onChangeSkinType(i);
         }
-        if (this.eLR != null) {
-            this.eLR.onChangeSkinType(i);
+        if (this.epn != null) {
+            this.epn.onChangeSkinType(i);
         }
     }
 }

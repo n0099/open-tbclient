@@ -1,7 +1,10 @@
 package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class s extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,21 +19,12 @@ class s extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ae aeVar;
-        boolean z;
-        ae aeVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            aeVar = this.this$0.fGw;
-            if (booleanValue) {
-                aeVar2 = this.this$0.fGw;
-                if (aeVar2.aok()) {
-                    z = true;
-                    aeVar.fl(z);
-                }
+        if (customResponsedMessage != null) {
+            this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ACROSS_FORUM_THEME_SHOW, this.this$0.getPageContext()));
+            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.h) {
+                this.this$0.a((com.baidu.tbadk.data.h) customResponsedMessage.getData());
+                TbadkCoreApplication.m9getInst().setPaymemberInfo((com.baidu.tbadk.data.h) customResponsedMessage.getData());
             }
-            z = false;
-            aeVar.fl(z);
         }
     }
 }

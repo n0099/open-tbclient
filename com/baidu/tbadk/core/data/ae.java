@@ -1,129 +1,128 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.GraffitiRankItem;
+import tbclient.GraffitiRankListInfo;
+import tbclient.User;
 /* loaded from: classes.dex */
-public class ae {
-    private long RL;
+public class ae extends com.baidu.tieba.tbadkCore.data.q {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
     private int RM;
-    private String RO;
-    private int RP;
-    private long gid;
-    private String picId;
-    private int type = 1;
-    private long uid;
-    private String url;
+    private int RO;
+    private List<UserData> RQ;
+    private int RR;
+    private int RS;
+    private boolean RT;
+    private int RW;
+    private String mForumId;
+    private String mThreadId;
+    private boolean RU = false;
+    private boolean RV = false;
+    private List<ad> RP = new ArrayList();
 
-    public long getGid() {
-        return this.gid;
+    public void setThreadId(String str) {
+        this.mThreadId = str;
     }
 
-    public void setGid(long j) {
-        this.gid = j;
+    public String getForumId() {
+        return this.mForumId;
     }
 
-    public long qd() {
-        return this.RL;
+    public void setForumId(String str) {
+        this.mForumId = str;
     }
 
-    public void n(long j) {
-        this.RL = j;
+    public String getThreadId() {
+        return this.mThreadId;
     }
 
-    public int qe() {
-        return this.RM;
-    }
-
-    public void bH(int i) {
-        this.RM = i;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public long getUid() {
-        return this.uid;
-    }
-
-    public void setUid(long j) {
-        this.uid = j;
-    }
-
-    public String getPicId() {
-        return this.picId;
-    }
-
-    public void setPicId(String str) {
-        this.picId = str;
-    }
-
-    public int qf() {
+    public List<ad> getItems() {
         return this.RP;
     }
 
-    public void bI(int i) {
-        this.RP = i;
+    public void n(List<ad> list) {
+        this.RP = list;
     }
 
-    public int getType() {
-        return this.type;
+    public int qk() {
+        return this.RR;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public int ql() {
+        return this.RS;
     }
 
-    public String qg() {
-        return this.RO;
+    public boolean qm() {
+        return this.RT;
     }
 
-    public void co(String str) {
-        this.RO = str;
+    public void ao(boolean z) {
+        this.RT = z;
     }
 
-    public void a(GraffitiRankItem graffitiRankItem) {
-        if (graffitiRankItem != null) {
-            this.type = 1;
-            this.gid = graffitiRankItem.gid.longValue();
-            this.RL = graffitiRankItem.vote_count.longValue();
-            this.RM = graffitiRankItem.is_vote.intValue();
-            this.url = graffitiRankItem.url;
-            this.RO = graffitiRankItem.thumb_url;
-            this.uid = graffitiRankItem.uid.longValue();
-            this.picId = graffitiRankItem.pic_id;
-            this.RP = graffitiRankItem.g_type.intValue();
-        }
+    public int getRole() {
+        return this.RW;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.type = 1;
-                this.gid = jSONObject.optLong("gid");
-                this.RL = jSONObject.optLong("vote_count");
-                this.RM = jSONObject.optInt("is_vote");
-                this.url = jSONObject.optString("url");
-                this.RO = jSONObject.optString("thumb_url");
-                this.uid = jSONObject.optLong("uid");
-                this.picId = jSONObject.optString(GraffitiVcodeActivityConfig.PIC_ID);
-                this.RP = jSONObject.optInt("g_type");
-            } catch (Exception e) {
+    public void bJ(int i) {
+        this.RW = i;
+    }
+
+    public boolean qn() {
+        return this.RU;
+    }
+
+    public void ap(boolean z) {
+        this.RU = z;
+    }
+
+    public boolean qo() {
+        return this.RV;
+    }
+
+    public void aq(boolean z) {
+        this.RV = z;
+    }
+
+    public void a(GraffitiRankListInfo graffitiRankListInfo) {
+        if (graffitiRankListInfo != null) {
+            this.RM = graffitiRankListInfo.has_more.intValue();
+            this.RO = graffitiRankListInfo.total.intValue();
+            this.RR = graffitiRankListInfo.show_list_count.intValue();
+            this.RS = graffitiRankListInfo.quick_list_count.intValue();
+            this.RT = graffitiRankListInfo.has_state.intValue() == 1;
+            if (this.RP == null) {
+                this.RP = new ArrayList();
+            }
+            this.RP.clear();
+            List<GraffitiRankItem> list = graffitiRankListInfo.list;
+            if (list != null) {
+                for (GraffitiRankItem graffitiRankItem : list) {
+                    ad adVar = new ad();
+                    adVar.a(graffitiRankItem);
+                    if (adVar.qj()) {
+                        this.RP.add(adVar);
+                    }
+                }
+            }
+            if (this.RQ == null) {
+                this.RQ = new ArrayList();
+            }
+            this.RQ.clear();
+            if (graffitiRankListInfo.consent_list != null) {
+                for (User user : graffitiRankListInfo.consent_list) {
+                    UserData userData = new UserData();
+                    userData.parserProtobuf(user);
+                    this.RQ.add(userData);
+                }
             }
         }
     }
 
-    public boolean qh() {
-        return this.RP == 2 || this.RP == 3;
-    }
-
-    public boolean qi() {
-        return getType() == 1 && getGid() > 0 && !TextUtils.isEmpty(qg()) && !TextUtils.isEmpty(getUrl());
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

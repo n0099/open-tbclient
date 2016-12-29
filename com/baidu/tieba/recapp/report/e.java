@@ -8,15 +8,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.rj(com.baidu.adp.lib.h.b.g(cVar.adPosition, 0));
-        aVar.ri(i);
-        aVar.qY(cVar.price);
-        aVar.qX(cVar.extensionInfo);
+        aVar.qk(com.baidu.adp.lib.h.b.g(cVar.adPosition, 0));
+        aVar.qj(i);
+        aVar.pC(cVar.price);
+        aVar.pB(cVar.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.ra(cVar.PE);
-        aVar.rb(cVar.PF);
-        aVar.rc(cVar.PG);
-        aVar.rd(cVar.OS);
+        aVar.pE(cVar.PA);
+        aVar.pF(cVar.PC);
+        aVar.pG(cVar.PD);
+        aVar.pH(cVar.OO);
         return aVar;
     }
 
@@ -26,43 +26,43 @@ public class e {
         }
         a aVar = new a();
         aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.ri(i);
+        aVar.qj(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
-    public static a P(int i, int i2, int i3) {
+    public static a O(int i, int i2, int i3) {
         a aVar = new a();
-        aVar.ri(i);
-        aVar.rj(i2);
+        aVar.qj(i);
+        aVar.qk(i2);
         aVar.setPageNumber(i3);
         return aVar;
     }
 
     public static a a(p pVar, int i) {
-        if (pVar == null || pVar.blZ() == null) {
+        if (pVar == null || pVar.bfO() == null) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.data.e blZ = pVar.blZ();
+        com.baidu.tieba.tbadkCore.data.e bfO = pVar.bfO();
         a aVar = new a();
-        aVar.rj(com.baidu.adp.lib.h.b.g(blZ.pos_name, 0));
-        aVar.qX(blZ.ext_info);
+        aVar.qk(com.baidu.adp.lib.h.b.g(bfO.pos_name, 0));
+        aVar.pB(bfO.ext_info);
         aVar.setPageNumber(pVar.pageNumber);
-        aVar.ri(i);
-        aVar.qY(blZ.price);
-        aVar.ra(pVar.PE);
-        aVar.rb(pVar.PF);
-        aVar.rc(pVar.forumId);
-        aVar.rd("PB");
+        aVar.qj(i);
+        aVar.pC(bfO.price);
+        aVar.pE(pVar.PA);
+        aVar.pF(pVar.PC);
+        aVar.pG(pVar.forumId);
+        aVar.pH("PB");
         return aVar;
     }
 
     public static a a(com.baidu.tbadk.core.data.c cVar, int i, int i2, int i3, int i4, int i5) {
         a a = a(cVar, i, i2);
-        a.rk(i3);
-        a.rl(i4);
-        a.rm(i5);
-        a.rd(cVar.OS);
+        a.ql(i3);
+        a.qm(i4);
+        a.qn(i5);
+        a.pH(cVar.OO);
         return a;
     }
 }

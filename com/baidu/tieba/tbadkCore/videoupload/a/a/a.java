@@ -12,11 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private final long fEY;
-    private final String fEZ;
-    private final int fFa;
-    private final int fFb;
-    private com.baidu.tieba.tbadkCore.videoupload.a.e fFc;
+    private final long fjf;
+    private final String fjg;
+    private final int fjh;
+    private final int fji;
+    private com.baidu.tieba.tbadkCore.videoupload.a.e fjj;
     protected final String mFileName;
 
     public abstract f b(ArrayList<Integer> arrayList, String str, int i);
@@ -27,20 +27,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.fFb = i2;
-        this.fEY = j;
-        this.fEZ = str2;
-        this.fFa = i;
+        this.fji = i2;
+        this.fjf = j;
+        this.fjg = str2;
+        this.fjh = i;
     }
 
     public void a(com.baidu.tieba.tbadkCore.videoupload.a.e eVar) {
-        this.fFc = eVar;
+        this.fjj = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void st(int i) {
-        if (this.fFc != null) {
-            this.fFc.as(i / 100.0f);
+    public void rw(int i) {
+        if (this.fjj != null) {
+            this.fjj.al(i / 100.0f);
         }
     }
 
@@ -57,10 +57,10 @@ public abstract class a {
         } else {
             z zVar = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.URL_UPLOAD_VIDEO);
             zVar.n("chunk_no", String.valueOf(i));
-            zVar.n("chunk_sum", String.valueOf(this.fFb));
+            zVar.n("chunk_sum", String.valueOf(this.fji));
             zVar.n("chunk_size", String.valueOf(a.length));
-            zVar.n("video_size", String.valueOf(this.fEY));
-            zVar.n("video_md5", this.fEZ);
+            zVar.n("video_size", String.valueOf(this.fjf));
+            zVar.n("video_md5", this.fjg);
             zVar.n("video_len", String.valueOf(j));
             zVar.n("tbs", TbadkCoreApplication.m9getInst().getTbs());
             zVar.d("video_chunk", a);
@@ -68,21 +68,21 @@ public abstract class a {
             if (isCancelled()) {
                 return null;
             }
-            String uB = zVar.uB();
+            String un = zVar.un();
             if (isCancelled()) {
                 return null;
             }
             f fVar2 = new f();
-            if (zVar.uW().vS().oH()) {
-                fVar2.videoUrl = rT(uB);
+            if (zVar.uI().vC().oH()) {
+                fVar2.videoUrl = qz(un);
                 return fVar2;
             }
-            if (zVar.uW().vS().uZ()) {
-                fVar2.errorNo = zVar.uW().vS().adb;
+            if (zVar.uI().vC().uL()) {
+                fVar2.errorNo = zVar.uI().vC().acu;
             } else {
-                fVar2.errorNo = zVar.uW().vS().oF;
+                fVar2.errorNo = zVar.uI().vC().oF;
             }
-            fVar2.errorMessage = zVar.uW().vS().mErrorString;
+            fVar2.errorMessage = zVar.uI().vC().mErrorString;
             return fVar2;
         }
     }
@@ -93,14 +93,14 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.fFb) {
-            i2 = (int) (this.fEY - ((i - 1) * this.fFa));
+        if (i == this.fji) {
+            i2 = (int) (this.fjf - ((i - 1) * this.fjh));
         } else {
-            i2 = this.fFa;
+            i2 = this.fjh;
         }
         byte[] bArr = new byte[i2];
         try {
-            randomAccessFile.seek((i - 1) * this.fFa);
+            randomAccessFile.seek((i - 1) * this.fjh);
             z = randomAccessFile.read(bArr, 0, i2) != -1;
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,7 +112,7 @@ public abstract class a {
         return null;
     }
 
-    private String rT(String str) {
+    private String qz(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

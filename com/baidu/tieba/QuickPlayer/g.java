@@ -7,19 +7,19 @@ import com.baidu.tieba.QuickPlayer.c;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g extends c.a {
-    private WeakReference<Handler> aMa;
+    private WeakReference<Handler> aLr;
 
     public g(Handler handler) {
-        this.aMa = new WeakReference<>(handler);
+        this.aLr = new WeakReference<>(handler);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.c
-    public void Jk() throws RemoteException {
+    public void IF() throws RemoteException {
         sendMessage(6);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.c
-    public void Jl() throws RemoteException {
+    public void IG() throws RemoteException {
         sendMessage(7);
     }
 
@@ -38,8 +38,8 @@ public class g extends c.a {
     }
 
     private void q(int i, int i2, int i3) {
-        if (this.aMa != null && this.aMa.get() != null) {
-            Handler handler = this.aMa.get();
+        if (this.aLr != null && this.aLr.get() != null) {
+            Handler handler = this.aLr.get();
             Message obtainMessage = handler.obtainMessage(i);
             obtainMessage.arg1 = i2;
             obtainMessage.arg2 = i3;

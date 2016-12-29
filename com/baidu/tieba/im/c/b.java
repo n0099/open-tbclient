@@ -12,11 +12,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements af.b {
-    final /* synthetic */ a drH;
+    final /* synthetic */ a cWB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.drH = aVar;
+        this.cWB = aVar;
     }
 
     @Override // com.baidu.tieba.im.c.af.b
@@ -24,20 +24,20 @@ public class b implements af.b {
         ae aeVar;
         ae aeVar2;
         try {
-            a.ayA().m(chatMessage);
+            a.asZ().k(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
-                    VoiceMsgData w = com.baidu.tieba.im.util.h.w(chatMessage);
-                    if (w != null) {
-                        w.setVoice_md5(str);
-                        chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(w) + "]");
+                    VoiceMsgData u = com.baidu.tieba.im.util.h.u(chatMessage);
+                    if (u != null) {
+                        u.setVoice_md5(str);
+                        chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(u) + "]");
                     }
                     com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
-                    a.ayA().o(chatMessage);
-                    aeVar = this.drH.mSendCallback;
+                    a.asZ().m(chatMessage);
+                    aeVar = this.cWB.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.drH.mSendCallback;
-                        aeVar2.mh(2);
+                        aeVar2 = this.cWB.mSendCallback;
+                        aeVar2.lr(2);
                         return;
                     }
                     return;

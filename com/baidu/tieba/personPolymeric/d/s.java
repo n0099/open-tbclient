@@ -4,14 +4,14 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
     private TbPageContext GO;
-    private TbImageView eSb;
-    private TextView eSc;
+    private TbImageView evA;
+    private TextView evB;
     private View mRootView;
 
     public s(TbPageContext tbPageContext) {
@@ -19,16 +19,16 @@ public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.GO = tbPageContext;
         this.mRootView.setTag(this);
-        this.eSb = (TbImageView) this.mRootView.findViewById(r.g.gift_pic);
-        this.eSc = (TextView) this.mRootView.findViewById(r.g.gift_num_text);
+        this.evA = (TbImageView) this.mRootView.findViewById(r.g.gift_pic);
+        this.evB = (TextView) this.mRootView.findViewById(r.g.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        at.l(this.mRootView, r.d.cp_bg_line_d);
-        at.k(this.eSb, r.f.item_gift_selector);
-        at.l(this.eSc, r.d.common_color_10294);
-        at.j((View) this.eSc, r.d.cp_link_tip_a);
+        ar.l(this.mRootView, r.d.cp_bg_line_d);
+        ar.k(this.evA, r.f.item_gift_selector);
+        ar.l(this.evB, r.d.common_color_10294);
+        ar.j((View) this.evB, r.d.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -45,19 +45,19 @@ public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.GO, TbadkCoreApplication.m9getInst().getSkinType());
-        this.eSb.c(mVar.picUrl, 10, false);
+        this.evA.c(mVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
-        if (mVar.eQT > 0) {
-            this.eSc.setVisibility(0);
-            if (mVar.eQT > 99) {
-                this.eSc.setText("99");
+        if (mVar.eut > 0) {
+            this.evB.setVisibility(0);
+            if (mVar.eut > 99) {
+                this.evB.setText("99");
                 return;
             } else {
-                this.eSc.setText(String.valueOf(mVar.eQT));
+                this.evB.setText(String.valueOf(mVar.eut));
                 return;
             }
         }
-        this.eSc.setVisibility(8);
+        this.evB.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

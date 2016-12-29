@@ -6,17 +6,17 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends s<CommonMsgPojo> {
-    final /* synthetic */ PersonalMsglistModel dyo;
+    final /* synthetic */ PersonalMsglistModel dbm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PersonalMsglistModel personalMsglistModel) {
-        this.dyo = personalMsglistModel;
+        this.dbm = personalMsglistModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: aBi */
+    /* renamed from: auE */
     public CommonMsgPojo doInBackground() {
-        return l.auQ().af(this.dyo.getUser().getUserId(), 23);
+        return l.app().ad(this.dbm.getUser().getUserId(), 23);
     }
 }

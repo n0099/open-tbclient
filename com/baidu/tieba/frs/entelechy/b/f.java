@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface f {
-    void aeO();
+    void Zj();
 
-    void aeP();
+    void Zk();
 
-    void aeQ();
+    void Zl();
 
-    void aeR();
+    void Zm();
 }

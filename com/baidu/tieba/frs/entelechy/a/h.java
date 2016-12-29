@@ -1,55 +1,24 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.au;
-import com.baidu.tieba.card.bz;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.widget.ListView.a<au, a> implements com.baidu.tieba.frs.h.e {
-    private TbPageContext<?> GO;
-    private com.baidu.tieba.frs.entelechy.view.ag bZd;
-    private bz bZe;
-
-    public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bZe = new i(this);
-        this.GO = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: B */
-    public a a(ViewGroup viewGroup) {
-        this.bZd = new com.baidu.tieba.frs.entelechy.view.ag(this.GO);
-        this.bZd.i(this.GO.getUniqueId());
-        return new a(this.bZd);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, au auVar, a aVar) {
-        if (aVar == null || aVar.bZg == null) {
-            return null;
-        }
-        aVar.bZg.onBindDataToView(auVar);
-        aVar.bZg.setOnSubCardOnClickListenner(this.bZe);
-        com.baidu.tieba.frs.h.b.agV().a(chm, auVar);
-        return aVar.getView();
-    }
+public class h extends CustomMessageListener {
+    final /* synthetic */ b bEQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class a extends y.a {
-        public com.baidu.tieba.frs.entelechy.view.ag bZg;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(b bVar, int i) {
+        super(i);
+        this.bEQ = bVar;
+    }
 
-        public a(com.baidu.tieba.frs.entelechy.view.ag agVar) {
-            super(agVar.getView());
-            this.bZg = agVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
+            this.bEQ.N((com.baidu.tbadk.data.j) customResponsedMessage.getData());
         }
     }
 }

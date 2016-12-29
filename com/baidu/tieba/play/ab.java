@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends CustomMessageListener {
-    final /* synthetic */ aa ffP;
+    final /* synthetic */ aa eJh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab(aa aaVar, int i) {
         super(i);
-        this.ffP = aaVar;
+        this.eJh = aaVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,20 +25,20 @@ public class ab extends CustomMessageListener {
         aq aqVar3;
         aq aqVar4;
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-            this.ffP.aro();
-            z = this.ffP.bWF;
+            this.eJh.alQ();
+            z = this.eJh.bCP;
             if (z) {
-                z2 = this.ffP.bWF;
+                z2 = this.eJh.bCP;
                 if (z2) {
-                    aa aaVar = this.ffP;
-                    aqVar = this.ffP.ffM;
-                    int bcW = aqVar.bcW();
-                    aqVar2 = this.ffP.ffM;
-                    int bcX = aqVar2.bcX();
-                    aqVar3 = this.ffP.ffM;
-                    boolean bcY = aqVar3.bcY();
-                    aqVar4 = this.ffP.ffM;
-                    aaVar.a(bcW, bcX, bcY, aqVar4.bcZ());
+                    aa aaVar = this.eJh;
+                    aqVar = this.eJh.eJe;
+                    int aWD = aqVar.aWD();
+                    aqVar2 = this.eJh.eJe;
+                    int aWE = aqVar2.aWE();
+                    aqVar3 = this.eJh.eJe;
+                    boolean aWF = aqVar3.aWF();
+                    aqVar4 = this.eJh.eJe;
+                    aaVar.a(aWD, aWE, aWF, aqVar4.aWG());
                 }
             }
         }

@@ -8,13 +8,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ad extends LinearLayout {
-    private LinearLayout aEC;
-    private TextView eSq;
-    private TextView eSr;
+    private LinearLayout aDV;
+    private TextView evP;
+    private TextView evQ;
     private boolean mIsLiked;
     private int mSkinType;
 
@@ -23,57 +23,57 @@ public class ad extends LinearLayout {
         this.mSkinType = 3;
         this.mIsLiked = z;
         LayoutInflater.from(getContext()).inflate(r.h.person_info_relation_view, (ViewGroup) this, true);
-        aO(context);
-        P(onClickListener);
+        aN(context);
+        M(onClickListener);
     }
 
-    private void aO(Context context) {
+    private void aN(Context context) {
         if (context != null) {
-            this.aEC = (LinearLayout) getRootView();
-            this.eSq = (TextView) this.aEC.findViewById(r.g.attention_btn);
-            this.eSq.setClickable(true);
-            aWn();
-            this.eSr = (TextView) this.aEC.findViewById(r.g.chat_btn);
-            this.eSr.setText(UtilHelper.getSpannableIcon(getContext(), getContext().getString(r.j.private_chat), r.f.icon_mine_bar_chat, true));
-            this.eSr.setClickable(true);
+            this.aDV = (LinearLayout) getRootView();
+            this.evP = (TextView) this.aDV.findViewById(r.g.attention_btn);
+            this.evP.setClickable(true);
+            aPX();
+            this.evQ = (TextView) this.aDV.findViewById(r.g.chat_btn);
+            this.evQ.setText(UtilHelper.getSpannableIcon(getContext(), getContext().getString(r.j.private_chat), r.f.icon_mine_bar_chat, true));
+            this.evQ.setClickable(true);
             onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void P(View.OnClickListener onClickListener) {
-        if (this.eSq != null) {
-            this.eSq.setOnClickListener(onClickListener);
+    private void M(View.OnClickListener onClickListener) {
+        if (this.evP != null) {
+            this.evP.setOnClickListener(onClickListener);
         }
-        if (this.eSr != null) {
-            this.eSr.setOnClickListener(onClickListener);
+        if (this.evQ != null) {
+            this.evQ.setOnClickListener(onClickListener);
         }
     }
 
-    private void aWn() {
-        if (this.eSq != null) {
+    private void aPX() {
+        if (this.evP != null) {
             if (this.mIsLiked) {
-                this.eSq.setText(UtilHelper.getSpannableIcon(getContext(), getContext().getString(r.j.relate_forum_is_followed), r.f.icon_mine_bar_add_ok, true));
-                at.j((View) this.eSq, r.d.cp_cont_e);
+                this.evP.setText(UtilHelper.getSpannableIcon(getContext(), getContext().getString(r.j.relate_forum_is_followed), r.f.icon_mine_bar_add_ok, true));
+                ar.j((View) this.evP, r.d.cp_cont_e);
                 return;
             }
-            this.eSq.setText(UtilHelper.getSpannableIcon(getContext(), getContext().getString(r.j.attention), r.f.icon_mine_bar_add, true));
-            at.j((View) this.eSq, r.d.cp_link_tip_a);
+            this.evP.setText(UtilHelper.getSpannableIcon(getContext(), getContext().getString(r.j.attention), r.f.icon_mine_bar_add, true));
+            ar.j((View) this.evP, r.d.cp_link_tip_a);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            at.l(this.aEC, r.d.cp_bg_line_c);
-            at.k(this.eSq, r.f.item_person_header_attention_bg_selector);
-            at.j((View) this.eSr, r.d.cp_link_tip_a);
-            at.k(this.eSr, r.f.item_person_header_attention_bg_selector);
+            ar.l(this.aDV, r.d.cp_bg_line_c);
+            ar.k(this.evP, r.f.item_person_header_attention_bg_selector);
+            ar.j((View) this.evQ, r.d.cp_link_tip_a);
+            ar.k(this.evQ, r.f.item_person_header_attention_bg_selector);
         }
         this.mSkinType = i;
     }
 
     public void setData(boolean z) {
         this.mIsLiked = z;
-        aWn();
+        aPX();
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 }

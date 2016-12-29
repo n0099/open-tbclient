@@ -35,45 +35,45 @@ public class ao extends CustomMessageListener {
         GroupNewsPojo p;
         ImMessageCenterPojo a;
         UpdatesItemData convertToUpdatesItem;
-        ImMessageCenterPojo ah;
+        ImMessageCenterPojo af;
         UpdatesItemData convertToUpdatesItem2;
-        ImMessageCenterPojo ah2;
+        ImMessageCenterPojo af2;
         if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
             String cmd = p.getCmd();
             if (!TextUtils.isEmpty(cmd)) {
-                if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.lz(cmd)) {
+                if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.kc(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGid("-1002");
                     imMessageCenterPojo.setCustomGroupType(-3);
-                    imMessageCenterPojo.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.bd(cmd, p.getContent()));
+                    imMessageCenterPojo.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.aZ(cmd, p.getContent()));
                     imMessageCenterPojo.setLast_content_time(p.getTime());
                     imMessageCenterPojo.setLast_rid(com.baidu.adp.lib.h.b.c(p.getNotice_id(), 0L));
-                    b.axj().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.lA(cmd)) {
+                    b.arI().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.kd(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                     imMessageCenterPojo2.setGid("-1003");
                     imMessageCenterPojo2.setCustomGroupType(-4);
-                    imMessageCenterPojo2.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.bd(cmd, p.getContent()));
+                    imMessageCenterPojo2.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.aZ(cmd, p.getContent()));
                     imMessageCenterPojo2.setLast_content_time(p.getTime());
                     imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.h.b.c(p.getNotice_id(), 0L));
-                    b.axj().c(imMessageCenterPojo2, ChatStatusManager.getInst().getIsOpen(7) ? 0 : 1);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.lC(cmd)) {
+                    b.arI().c(imMessageCenterPojo2, ChatStatusManager.getInst().getIsOpen(7) ? 0 : 1);
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.kf(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
                     imMessageCenterPojo3.setGid("-1004");
                     imMessageCenterPojo3.setCustomGroupType(-5);
-                    imMessageCenterPojo3.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.bd(cmd, p.getContent()));
+                    imMessageCenterPojo3.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.aZ(cmd, p.getContent()));
                     imMessageCenterPojo3.setLast_content_time(p.getTime());
                     imMessageCenterPojo3.setLast_rid(com.baidu.adp.lib.h.b.c(p.getNotice_id(), 0L));
-                    b.axj().c(imMessageCenterPojo3, ChatStatusManager.getInst().getIsOpen(8) ? 0 : 1);
+                    b.arI().c(imMessageCenterPojo3, ChatStatusManager.getInst().getIsOpen(8) ? 0 : 1);
                 }
                 if (cmd.equals("group_head_change")) {
                     if (ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem2 = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(p)) != null) {
                         String groupId = convertToUpdatesItem2.getGroupId();
-                        if (!TextUtils.isEmpty(groupId) && !TextUtils.isEmpty(convertToUpdatesItem2.getGroupHeadUrl()) && (ah2 = b.axj().ah(groupId, 1)) != null) {
-                            if (ah2.getGroup_head() == null || !ah2.getGroup_head().equals(convertToUpdatesItem2.getGroupHeadUrl())) {
-                                b.axj().bg(groupId, convertToUpdatesItem2.getGroupHeadUrl());
-                                ah2.setGroup_head(convertToUpdatesItem2.getGroupHeadUrl());
-                                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ap(this, ah2));
+                        if (!TextUtils.isEmpty(groupId) && !TextUtils.isEmpty(convertToUpdatesItem2.getGroupHeadUrl()) && (af2 = b.arI().af(groupId, 1)) != null) {
+                            if (af2.getGroup_head() == null || !af2.getGroup_head().equals(convertToUpdatesItem2.getGroupHeadUrl())) {
+                                b.arI().bc(groupId, convertToUpdatesItem2.getGroupHeadUrl());
+                                af2.setGroup_head(convertToUpdatesItem2.getGroupHeadUrl());
+                                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ap(this, af2));
                                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
                                 customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                                 customMessageTask.setPriority(4);
@@ -84,11 +84,11 @@ public class ao extends CustomMessageListener {
                 } else if (cmd.equals("group_name_change")) {
                     if (ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(p)) != null) {
                         String groupId2 = convertToUpdatesItem.getGroupId();
-                        if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(convertToUpdatesItem.getGroupName()) && (ah = b.axj().ah(groupId2, 1)) != null) {
-                            if (ah.getGroup_name() == null || !ah.getGroup_name().equals(convertToUpdatesItem.getGroupName())) {
-                                b.axj().bh(groupId2, convertToUpdatesItem.getGroupName());
-                                ah.setGroup_name(convertToUpdatesItem.getGroupName());
-                                CustomMessageTask customMessageTask2 = new CustomMessageTask(2001000, new aq(this, ah));
+                        if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(convertToUpdatesItem.getGroupName()) && (af = b.arI().af(groupId2, 1)) != null) {
+                            if (af.getGroup_name() == null || !af.getGroup_name().equals(convertToUpdatesItem.getGroupName())) {
+                                b.arI().bd(groupId2, convertToUpdatesItem.getGroupName());
+                                af.setGroup_name(convertToUpdatesItem.getGroupName());
+                                CustomMessageTask customMessageTask2 = new CustomMessageTask(2001000, new aq(this, af));
                                 customMessageTask2.setParallel(TiebaIMConfig.getParallel());
                                 customMessageTask2.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                                 customMessageTask2.setPriority(4);
@@ -107,8 +107,8 @@ public class ao extends CustomMessageListener {
                             String optString2 = optJSONObject.optString("groupImage");
                             String optString3 = optJSONObject.optString("groupName");
                             long optLong = optJSONObject.optLong("lastMsgId");
-                            com.baidu.tieba.im.settingcache.c.ayD().c(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
-                            com.baidu.tieba.im.settingcache.c.ayD().b(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
+                            com.baidu.tieba.im.settingcache.c.atc().c(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
+                            com.baidu.tieba.im.settingcache.c.atc().b(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
                             ImMessageCenterPojo imMessageCenterPojo4 = new ImMessageCenterPojo();
                             imMessageCenterPojo4.setGroup_name(optString3);
                             imMessageCenterPojo4.setCustomGroupType(1);
@@ -118,10 +118,10 @@ public class ao extends CustomMessageListener {
                             imMessageCenterPojo4.setIs_hidden(0);
                             imMessageCenterPojo4.setUnread_count(0);
                             imMessageCenterPojo4.setLast_content(" ");
-                            imMessageCenterPojo4.setLast_rid(com.baidu.tieba.im.util.g.cc(optLong));
-                            imMessageCenterPojo4.setPulled_msgId(com.baidu.tieba.im.util.g.cc(optLong));
-                            b.axj().i(imMessageCenterPojo4);
-                            b.axj().a(1, com.baidu.tieba.im.util.g.cc(optLong), optString);
+                            imMessageCenterPojo4.setLast_rid(com.baidu.tieba.im.util.g.bQ(optLong));
+                            imMessageCenterPojo4.setPulled_msgId(com.baidu.tieba.im.util.g.bQ(optLong));
+                            b.arI().i(imMessageCenterPojo4);
+                            b.arI().a(1, com.baidu.tieba.im.util.g.bQ(optLong), optString);
                             CustomMessageTask customMessageTask3 = new CustomMessageTask(2001000, new ar(this, imMessageCenterPojo4));
                             customMessageTask3.setParallel(TiebaIMConfig.getParallel());
                             customMessageTask3.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
@@ -136,9 +136,9 @@ public class ao extends CustomMessageListener {
                     if (TextUtils.isEmpty(gid)) {
                         return;
                     }
-                    this.this$0.mn(gid);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.lB(cmd) && (a = com.baidu.tieba.im.chat.receiveChatMsgHandler.n.a(p, cmd)) != null) {
-                    b.axj().c(a, 1);
+                    this.this$0.kQ(gid);
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ke(cmd) && (a = com.baidu.tieba.im.chat.receiveChatMsgHandler.n.a(p, cmd)) != null) {
+                    b.arI().c(a, 1);
                 }
             }
         }

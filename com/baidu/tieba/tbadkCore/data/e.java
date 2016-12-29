@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
 import tbclient.App;
@@ -12,19 +12,19 @@ import tbclient.ThreadPicList;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.a.b.a.a.i {
-    public ICardInfo PC;
-    public com.baidu.tbadk.core.data.b PD;
-    public final String Pr;
-    public final int Pv;
+    public final String Po;
+    public final int Ps;
+    public ICardInfo Py;
+    public com.baidu.tbadk.core.data.b Pz;
     public final String abtest;
     public final String apk_name;
     public final String apk_url;
     public final String ext_info;
-    public final int fBJ;
-    public final int fBK;
-    public final int fBL;
-    public final a[] fBM;
-    public a fBN;
+    public final int ffO;
+    public final int ffP;
+    public final int ffQ;
+    public final a[] ffR;
+    public a ffS;
     public final String first_name;
     public final String id;
     public final String ios_url;
@@ -37,11 +37,11 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
     public final String verify;
 
     public e() {
-        this.PC = null;
+        this.Py = null;
         this.id = null;
         this.name = null;
-        this.fBJ = 0;
-        this.Pr = null;
+        this.ffO = 0;
+        this.Po = null;
         this.url = null;
         this.ios_url = null;
         this.apk_url = null;
@@ -50,26 +50,26 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
         this.first_name = null;
         this.second_name = null;
         this.price = null;
-        this.Pv = 0;
+        this.Ps = 0;
         this.abtest = null;
-        this.fBK = 0;
+        this.ffP = 0;
         this.user_id = null;
         this.verify = null;
         this.ext_info = null;
-        this.fBL = 0;
-        this.fBM = null;
-        this.fBN = null;
-        this.PC = null;
+        this.ffQ = 0;
+        this.ffR = null;
+        this.ffS = null;
+        this.Py = null;
     }
 
     public e(App app) {
-        ICardInfo nk;
-        this.PC = null;
+        ICardInfo ly;
+        this.Py = null;
         if (app == null) {
             this.id = null;
             this.name = null;
-            this.fBJ = 0;
-            this.Pr = null;
+            this.ffO = 0;
+            this.Po = null;
             this.url = null;
             this.ios_url = null;
             this.apk_url = null;
@@ -77,23 +77,23 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
             this.pos_name = null;
             this.first_name = null;
             this.second_name = null;
-            this.Pv = 0;
+            this.Ps = 0;
             this.price = null;
             this.abtest = null;
-            this.fBK = 0;
+            this.ffP = 0;
             this.user_id = null;
             this.verify = null;
             this.ext_info = null;
-            this.fBL = 0;
-            this.fBM = null;
-            this.fBN = null;
-            this.PC = null;
+            this.ffQ = 0;
+            this.ffR = null;
+            this.ffS = null;
+            this.Py = null;
             return;
         }
         this.id = app.id;
         this.name = app.name;
-        this.fBJ = app.url_type.intValue();
-        this.Pr = app.deep_url;
+        this.ffO = app.url_type.intValue();
+        this.Po = app.deep_url;
         this.url = app.url;
         this.apk_url = app.apk_url;
         this.apk_name = app.apk_name;
@@ -101,21 +101,21 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
         this.pos_name = app.pos_name;
         this.first_name = app.first_name;
         this.second_name = app.second_name;
-        this.Pv = app.cpid.intValue();
+        this.Ps = app.cpid.intValue();
         this.price = app.price;
         this.abtest = app.abtest;
-        this.fBK = app.plan_id.intValue();
+        this.ffP = app.plan_id.intValue();
         this.user_id = app.user_id;
         this.verify = app.verify;
         this.ext_info = app.ext_info;
-        this.fBL = app.app_time.intValue();
-        this.fBM = null;
+        this.ffQ = app.app_time.intValue();
+        this.ffR = null;
         if (app.goods_info != null) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
-                    this.fBN = new a(goodsInfo);
-                    if (com.baidu.adp.lib.c.e.dN().ac("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.fBN.lego_card) && (nk = com.baidu.tieba.lego.card.b.nk(this.fBN.lego_card)) != null) {
-                        this.PC = nk.getViewItem(0, 1);
+                    this.ffS = new a(goodsInfo);
+                    if (com.baidu.adp.lib.c.e.dN().ac("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.ffS.lego_card) && (ly = com.baidu.tieba.lego.card.b.ly(this.ffS.lego_card)) != null) {
+                        this.Py = ly.getViewItem(0, 1);
                         return;
                     }
                     return;
@@ -125,11 +125,11 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public boolean pj() {
-        if (this.fBN == null || !this.fBN.c(this.PC)) {
+        if (this.ffS == null || !this.ffS.c(this.Py)) {
             return false;
         }
-        if (this.fBN.fBO != 1001) {
-            if (this.fBJ == 2) {
+        if (this.ffS.ffT != 1001) {
+            if (this.ffO == 2) {
                 return false;
             }
             return pk() || pl();
@@ -138,21 +138,29 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public boolean pk() {
-        return (this.fBJ != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
+        return (this.ffO != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
     public boolean pl() {
-        return this.fBJ == 1 && !StringUtils.isNull(this.url);
+        if (this.ffO == 1) {
+            if (!StringUtils.isNull(this.url)) {
+                return true;
+            }
+            if (this.ffS != null && !TextUtils.isEmpty(this.ffS.lego_card)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /* loaded from: classes.dex */
     public static class a extends com.baidu.adp.lib.a.b.a.a.i {
-        public float PY;
+        public float PT;
         public final String ad_source;
         public String button_text;
         public String button_url;
-        public final int fBO;
-        public final ArrayList<String> fBP;
+        public final int ffT;
+        public final ArrayList<String> ffU;
         public final int height;
         public final int id;
         public String lego_card;
@@ -176,8 +184,8 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
             this.thread_pic = null;
             this.pop_window_text = null;
             this.thread_content = null;
-            this.fBO = 0;
-            this.fBP = null;
+            this.ffT = 0;
+            this.ffU = null;
             this.needResize = false;
             this.width = 0;
             this.height = 0;
@@ -186,7 +194,7 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
             this.tag_name = null;
             this.ad_source = null;
             this.tag_name_url = null;
-            this.PY = 1.0f;
+            this.PT = 1.0f;
         }
 
         public a(GoodsInfo goodsInfo) {
@@ -197,8 +205,8 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
                 this.thread_title = null;
                 this.thread_pic = null;
                 this.pop_window_text = null;
-                this.fBO = 0;
-                this.fBP = null;
+                this.ffT = 0;
+                this.ffU = null;
                 this.thread_content = null;
                 this.needResize = false;
                 this.width = 0;
@@ -208,27 +216,27 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
                 this.tag_name = null;
                 this.ad_source = null;
                 this.tag_name_url = null;
-                this.PY = 1.0f;
+                this.PT = 1.0f;
                 return;
             }
             this.id = goodsInfo.id.intValue();
             this.user_name = goodsInfo.user_name;
             this.user_portrait = goodsInfo.user_portrait;
-            this.thread_title = ax.c(goodsInfo.thread_title, 29, "...");
+            this.thread_title = av.c(goodsInfo.thread_title, 29, "...");
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
-            this.fBO = goodsInfo.goods_style.intValue();
+            this.ffT = goodsInfo.goods_style.intValue();
             this.thread_content = goodsInfo.thread_content;
             this.needResize = goodsInfo.label_measure.intValue() == 2;
             this.width = goodsInfo.width.intValue();
             this.height = goodsInfo.height.intValue();
             this.button_text = goodsInfo.button_text;
             this.button_url = goodsInfo.button_url;
-            this.fBP = new ArrayList<>();
+            this.ffU = new ArrayList<>();
             if (goodsInfo.thread_pic_list != null) {
                 for (ThreadPicList threadPicList : goodsInfo.thread_pic_list) {
                     if (threadPicList != null && !StringUtils.isNull(threadPicList.pic)) {
-                        this.fBP.add(threadPicList.pic);
+                        this.ffU.add(threadPicList.pic);
                     }
                 }
             }
@@ -244,7 +252,7 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
                     int g = com.baidu.adp.lib.h.b.g(split[0], 1);
                     int g2 = com.baidu.adp.lib.h.b.g(split[1], 1);
                     if (g2 != 0) {
-                        this.PY = g / g2;
+                        this.PT = g / g2;
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -256,10 +264,10 @@ public class e extends com.baidu.adp.lib.a.b.a.a.i {
             int ac = com.baidu.adp.lib.c.e.dN().ac("is_support_lego_ad_style");
             if (!TextUtils.isEmpty(this.lego_card)) {
                 return (ac == 0 || iCardInfo == null) ? false : true;
-            } else if (this.fBO == 1001) {
+            } else if (this.ffT == 1001) {
                 return true;
             } else {
-                return this.fBO == 7 ? this.video_info != null && !StringUtils.isNull(this.video_info.video_url) && this.video_info.video_height.intValue() > 0 && this.video_info.video_width.intValue() > 0 && this.video_info.video_duration.intValue() > 0 : this.fBO == 2 ? !StringUtils.isNull(this.thread_pic) : this.fBO == 6 && this.fBP != null && this.fBP.size() > 0;
+                return this.ffT == 7 ? this.video_info != null && !StringUtils.isNull(this.video_info.video_url) && this.video_info.video_height.intValue() > 0 && this.video_info.video_width.intValue() > 0 && this.video_info.video_duration.intValue() > 0 : this.ffT == 2 ? !StringUtils.isNull(this.thread_pic) : this.ffT == 6 && this.ffU != null && this.ffU.size() > 0;
             }
         }
     }

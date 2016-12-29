@@ -1,41 +1,74 @@
 package com.baidu.tbadk.widget.richText;
 
-import java.util.List;
+import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.lib.a.b.a.a.i {
-    public int VA;
-    public int VB;
-    public List<String> VC;
-    public int VD;
-    public String Vx;
-    public long Vy;
-    public int Vz;
-    public String location;
-    public List<String> photoList;
-    public int startTime;
+public class n {
+    private String RK;
+    private int aIN;
+    private String aIO;
+    private int aIP;
+    private int aIQ;
+    private int duration;
+    private int height;
+    private String videoUrl;
+    private int width;
 
     public void a(PbContent pbContent) {
-        if (pbContent != null && pbContent.high_together != null) {
-            this.Vx = pbContent.high_together.album_name;
-            this.Vy = pbContent.high_together.album_id.longValue();
-            this.startTime = pbContent.high_together.start_time.intValue();
-            this.Vz = pbContent.high_together.end_time.intValue();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.startTime == 0) {
-                this.VD = 8;
-            } else if (this.startTime > currentTimeMillis) {
-                this.VD = 1;
-            } else if (this.Vz < currentTimeMillis) {
-                this.VD = 4;
-            } else {
-                this.VD = 2;
-            }
-            this.location = pbContent.high_together.location;
-            this.VA = pbContent.high_together.num_join.intValue();
-            this.VB = pbContent.high_together.num_signup.intValue();
-            this.VC = pbContent.high_together.potraits;
-            this.photoList = pbContent.high_together.pic_urls;
+        if (pbContent != null) {
+            this.videoUrl = pbContent.link;
+            this.RK = pbContent.src;
+            this.width = pbContent.width.intValue();
+            this.height = pbContent.height.intValue();
+            this.aIN = pbContent.e_type.intValue();
+            this.aIO = pbContent.text;
+            this.duration = pbContent.during_time.intValue();
+            this.aIP = pbContent.count.intValue();
+            this.aIQ = pbContent.origin_size.intValue();
         }
+    }
+
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
+
+    public String qh() {
+        return this.RK;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String Ih() {
+        return this.aIO;
+    }
+
+    public boolean Ii() {
+        return this.aIN == 15;
+    }
+
+    public boolean isAvaliable() {
+        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
+    }
+
+    public int getDuration() {
+        return this.duration;
+    }
+
+    public int Ij() {
+        return this.aIP;
+    }
+
+    public void fB(int i) {
+        this.aIP = i;
+    }
+
+    public int Ik() {
+        return this.aIQ;
     }
 }

@@ -23,7 +23,7 @@ public class RecommendGodSocketResponsedMessage extends MvcSocketResponsedMessag
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof e) {
                 e eVar = (e) mvcNetMessage.getRequestData();
-                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.b.a.tm().M("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
+                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.b.a.sX().M("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
                     M.k(new StringBuilder(String.valueOf(eVar.getTagCode())).toString(), bArr);
                 }
             }

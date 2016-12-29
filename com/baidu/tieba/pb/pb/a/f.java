@@ -1,35 +1,28 @@
 package com.baidu.tieba.pb.pb.a;
-
-import com.baidu.tieba.play.QuickVideoView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements QuickVideoView.b {
-    final /* synthetic */ e esY;
+public class f implements Runnable {
+    final /* synthetic */ d dXu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.esY = eVar;
+    public f(d dVar) {
+        this.dXu = dVar;
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.b
-    public void onSurfaceDestroyed() {
-        t tVar;
-        t tVar2;
-        t tVar3;
-        t tVar4;
-        tVar = this.esY.esQ;
-        if (tVar != null) {
-            tVar2 = this.esY.esQ;
-            if (tVar2.aOE != null) {
-                tVar3 = this.esY.esQ;
-                if (tVar3.aOE.isPlaying()) {
-                    tVar4 = this.esY.esQ;
-                    tVar4.aOE.stopPlayback();
-                    this.esY.e(false, 0);
+    @Override // java.lang.Runnable
+    public void run() {
+        s sVar;
+        s sVar2;
+        s sVar3;
+        sVar = this.dXu.dXm;
+        if (sVar != null) {
+            sVar2 = this.dXu.dXm;
+            if (sVar2.aNV != null) {
+                sVar3 = this.dXu.dXm;
+                if (!sVar3.aNV.isPlaying()) {
+                    this.dXu.e(true, 0);
                 }
             }
         }
-        this.esY.aqu();
-        this.esY.cTt = false;
     }
 }

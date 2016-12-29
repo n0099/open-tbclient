@@ -9,13 +9,13 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ g cNi;
+    final /* synthetic */ g csn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(g gVar, int i, int i2) {
         super(i, i2);
-        this.cNi = gVar;
+        this.csn = gVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -27,7 +27,7 @@ public class h extends com.baidu.adp.framework.listener.a {
         if (responsedMessage == null) {
             return;
         }
-        aVar = this.cNi.cNa;
+        aVar = this.csn.csf;
         if (aVar != null) {
             long j = 0;
             if (responsedMessage.getOrginalMessage() != null) {
@@ -45,20 +45,20 @@ public class h extends com.baidu.adp.framework.listener.a {
                 } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                     dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                 }
-                aVar2 = this.cNi.cNa;
+                aVar2 = this.csn.csf;
                 aVar2.b(j, dataRes, z);
             } else {
-                aVar3 = this.cNi.cNa;
+                aVar3 = this.csn.csf;
                 aVar3.a(j, responsedMessage.getError(), responsedMessage.getErrorString());
             }
             if (!(responsedMessage instanceof RecPersonalizeSocketResponse)) {
                 if (!(responsedMessage instanceof RecPersonalizeHttpResponse)) {
                     return;
                 }
-                this.cNi.j(responsedMessage);
+                this.csn.j(responsedMessage);
                 return;
             }
-            this.cNi.i(responsedMessage);
+            this.csn.i(responsedMessage);
         }
     }
 }

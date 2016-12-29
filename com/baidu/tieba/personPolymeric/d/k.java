@@ -4,12 +4,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
-    private ImageView aWC;
-    private TextView cLW;
+    private ImageView aVT;
+    private TextView crg;
     private View mRootView;
 
     public k(TbPageContext<?> tbPageContext) {
@@ -19,16 +19,16 @@ public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void W(View view) {
         this.mRootView = view.findViewById(r.g.card_null_polymeric_rootview);
-        this.aWC = (ImageView) view.findViewById(r.g.card_null_polymeric_icon);
-        this.cLW = (TextView) view.findViewById(r.g.card_null_polymeric_txt);
+        this.aVT = (ImageView) view.findViewById(r.g.card_null_polymeric_icon);
+        this.crg = (TextView) view.findViewById(r.g.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            at.k(this.mRootView, r.d.cp_bg_line_d);
-            at.c(this.aWC, r.f.emotion07);
-            at.c(this.cLW, r.d.cp_cont_c, 1);
+            ar.k(this.mRootView, r.d.cp_bg_line_d);
+            ar.c(this.aVT, r.f.emotion07);
+            ar.c(this.crg, r.d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -50,13 +50,13 @@ public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        TextView textView = this.cLW;
+        TextView textView = this.crg;
         String string2 = this.mContext.getString(r.j.person_polymeric_null_data);
         Object[] objArr = new Object[1];
-        if (hVar.bfT) {
-            string = this.mContext.getString(r.j.person_identity_you);
+        if (hVar.bfj) {
+            string = this.mContext.getString(r.j.you);
         } else {
-            string = hVar.sex == 2 ? this.mContext.getString(r.j.person_identity_she) : this.mContext.getString(r.j.person_identity_he);
+            string = hVar.sex == 2 ? this.mContext.getString(r.j.person_identity_she) : this.mContext.getString(r.j.he);
         }
         objArr[0] = string;
         textView.setText(String.format(string2, objArr));

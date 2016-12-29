@@ -8,11 +8,11 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.util.Map;
 /* loaded from: classes.dex */
 class ac implements TextureView.SurfaceTextureListener {
-    final /* synthetic */ QuickVideoView fgc;
+    final /* synthetic */ QuickVideoView eJu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(QuickVideoView quickVideoView) {
-        this.fgc = quickVideoView;
+        this.eJu = quickVideoView;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -23,15 +23,15 @@ class ac implements TextureView.SurfaceTextureListener {
         Context context;
         Uri uri;
         Map<String, String> map;
-        z = this.fgc.ffV;
+        z = this.eJu.eJn;
         if (z) {
-            this.fgc.ffV = false;
-            tVar = this.fgc.ffR;
+            this.eJu.eJn = false;
+            tVar = this.eJu.eJj;
             if (tVar != null) {
-                tVar2 = this.fgc.ffR;
-                context = this.fgc.mContext;
-                uri = this.fgc.mUri;
-                map = this.fgc.ud;
+                tVar2 = this.eJu.eJj;
+                context = this.eJu.mContext;
+                uri = this.eJu.mUri;
+                map = this.eJu.ud;
                 tVar2.a(context, uri, map, surfaceTexture);
             }
         }
@@ -50,21 +50,21 @@ class ac implements TextureView.SurfaceTextureListener {
         QuickVideoView.b bVar2;
         QuickVideoView.a aVar2;
         t tVar2;
-        tVar = this.fgc.ffR;
+        tVar = this.eJu.eJj;
         if (tVar != null) {
-            tVar2 = this.fgc.ffR;
+            tVar2 = this.eJu.eJj;
             tVar2.release();
         }
-        z = this.fgc.ffV;
+        z = this.eJu.eJn;
         if (!z) {
-            aVar = this.fgc.ffU;
+            aVar = this.eJu.eJm;
             if (aVar != null) {
-                aVar2 = this.fgc.ffU;
+                aVar2 = this.eJu.eJm;
                 aVar2.onStop();
             }
-            bVar = this.fgc.aOX;
+            bVar = this.eJu.aOo;
             if (bVar != null) {
-                bVar2 = this.fgc.aOX;
+                bVar2 = this.eJu.aOo;
                 bVar2.onSurfaceDestroyed();
                 return false;
             }

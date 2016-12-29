@@ -1,41 +1,73 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class q {
-    private int QA;
-    private ArrayList<s> QB = new ArrayList<>();
+    private String QA;
+    private String QB;
+    private String QC;
+    private String QD;
+    private String QE;
+    private long QF;
+    private long QG;
+    private long QH;
+    private long QI;
+    private long QJ;
+    private long QK;
+    private int Qn;
     private String Qz;
-    private int height;
-    private String obj_id;
-    private int width;
+    private String author;
+    private String bookId;
 
-    public ArrayList<s> pz() {
-        return this.QB;
+    public String getBookId() {
+        return this.bookId;
     }
 
-    public void g(ArrayList<s> arrayList) {
-        this.QB = arrayList;
+    public int pB() {
+        return this.Qn;
     }
 
-    public String pA() {
-        return this.obj_id;
+    public String pC() {
+        return this.QA;
     }
 
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
-            this.QA = activityHead.activity_type.intValue();
-            this.Qz = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            for (HeadImgs headImgs : activityHead.head_imgs) {
-                s sVar = new s();
-                sVar.a(headImgs);
-                this.QB.add(sVar);
-            }
+    public String pD() {
+        return this.author;
+    }
+
+    public long pE() {
+        return this.QF;
+    }
+
+    public String pF() {
+        return this.QE;
+    }
+
+    public String pG() {
+        return this.QD;
+    }
+
+    public String pH() {
+        return this.QC;
+    }
+
+    public void a(ForumBookInfo forumBookInfo) {
+        if (forumBookInfo != null) {
+            this.bookId = forumBookInfo.book_id;
+            this.Qn = forumBookInfo.book_type.intValue();
+            this.Qz = forumBookInfo.book_title;
+            this.QA = forumBookInfo.book_cover;
+            this.author = forumBookInfo.author;
+            this.QB = forumBookInfo.forum_pic;
+            this.QC = forumBookInfo.show_chapter_id;
+            this.QD = forumBookInfo.show_chapter_no;
+            this.QE = forumBookInfo.show_chapter_title;
+            this.QF = forumBookInfo.history_page_id.longValue();
+            this.QG = forumBookInfo.history_paragraph_id.longValue();
+            this.QH = forumBookInfo.history_word_id.longValue();
+            this.QI = forumBookInfo.history_percent.longValue();
+            this.QJ = forumBookInfo.show_page_id.longValue();
+            this.QK = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

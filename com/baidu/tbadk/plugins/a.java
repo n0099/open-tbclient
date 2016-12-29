@@ -14,9 +14,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern aEl = Pattern.compile("#.+?#", 2);
+    private static final Pattern aDF = Pattern.compile("#.+?#", 2);
 
-    public static boolean ca(boolean z) {
+    public static boolean bZ(boolean z) {
         boolean appResponseToIntentClass;
         if (PluginPackageManager.iB().bk("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
@@ -29,7 +29,7 @@ public class a {
         return false;
     }
 
-    public static boolean GH() {
+    public static boolean Gh() {
         return PluginPackageManager.iB().bq("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -41,7 +41,7 @@ public class a {
                 return true;
             }
             return true;
-        } else if (!ca(z2)) {
+        } else if (!bZ(z2)) {
             String string2 = tbPageContext.getResources().getString(r.j.plugin_hottopic_install_tips);
             String string3 = tbPageContext.getResources().getString(r.j.plugin_go_install);
             if (z) {
@@ -49,7 +49,7 @@ public class a {
                 return true;
             }
             return true;
-        } else if (GH()) {
+        } else if (Gh()) {
             String string4 = tbPageContext.getResources().getString(r.j.plugin_hottopic_not_active);
             String string5 = tbPageContext.getResources().getString(r.j.setup);
             if (z) {
@@ -62,7 +62,7 @@ public class a {
         }
     }
 
-    public static boolean f(TbPageContext<?> tbPageContext) {
+    public static boolean g(TbPageContext<?> tbPageContext) {
         return a(tbPageContext, true, true);
     }
 
@@ -70,22 +70,22 @@ public class a {
         Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cF(str);
+            aVar.cG(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(r.j.know, new b());
             } else {
                 aVar.a(str2, new c(pageActivity, tbPageContext));
                 aVar.b(r.j.cancel, new d());
             }
-            aVar.b(tbPageContext).tq();
+            aVar.b(tbPageContext).tb();
         }
     }
 
-    public static SpannableString go(String str) {
+    public static SpannableString gj(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = aEl.matcher(str);
+        Matcher matcher = aDF.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new e(18, ""), matcher.start(), matcher.end(), 33);

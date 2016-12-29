@@ -909,7 +909,7 @@ public class PluginPackageManager {
         }
     }
 
-    public void aC(int i) {
+    public void aD(int i) {
         this.xF = i;
     }
 

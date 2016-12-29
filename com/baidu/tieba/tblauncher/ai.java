@@ -1,25 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnClickListener {
-    final /* synthetic */ ae fGW;
+    final /* synthetic */ ad flb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ae aeVar) {
-        this.fGW = aeVar;
+    public ai(ad adVar) {
+        this.flb = adVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.fGW.fGL;
-        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
-        mainTabActivity2 = this.fGW.fGL;
-        bk.aj(mainTabActivity2.getPageContext().getPageActivity());
+        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, (Class) null);
     }
 }

@@ -1,33 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.pb.pb.main.cu;
-import com.baidu.tieba.r;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class at implements cu.a {
-    final /* synthetic */ PbActivity evL;
+class at extends CustomMessageListener {
+    final /* synthetic */ PbActivity eah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(PbActivity pbActivity) {
-        this.evL = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public at(PbActivity pbActivity, int i) {
+        super(i);
+        this.eah = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cu.a
-    public void h(int i, String str, String str2) {
-        ey eyVar;
-        if (StringUtils.isNull(str)) {
-            if (i == 0) {
-                this.evL.showToast(r.j.upgrage_toast_dialog);
-            } else {
-                this.evL.showToast(r.j.neterror);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            String str = (String) customResponsedMessage.getData();
+            if (!TextUtils.isEmpty(str)) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.at("c11455").ab("obj_locate", "pb"));
+                com.baidu.tbadk.core.util.bc.vz().c(this.eah.getPageContext(), new String[]{str});
             }
-        } else if (i != 0 && !TextUtils.isEmpty(str2)) {
-            this.evL.evF = str2;
-            eyVar = this.evL.euP;
-            eyVar.pB(str);
-        } else {
-            this.evL.showToast(str);
         }
     }
 }

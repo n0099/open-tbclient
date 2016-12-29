@@ -1,33 +1,25 @@
 package com.baidu.tieba.card;
 
-import android.view.animation.Animation;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements Animation.AnimationListener {
-    final /* synthetic */ r bde;
+public class w implements View.OnClickListener {
+    final /* synthetic */ t bcw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(r rVar) {
-        this.bde = rVar;
+    public w(t tVar) {
+        this.bcw = tVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        tbImageView = this.bde.bcO;
-        if (tbImageView != null) {
-            tbImageView2 = this.bde.bcO;
-            tbImageView2.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.card.data.o oVar;
+        com.baidu.tieba.card.data.o oVar2;
+        oVar = this.bcw.bco;
+        if (oVar != null && this.bcw.getOnSubCardOnClickListenner() != null) {
+            cb<com.baidu.tieba.card.data.o> onSubCardOnClickListenner = this.bcw.getOnSubCardOnClickListenner();
+            oVar2 = this.bcw.bco;
+            onSubCardOnClickListenner.a(view, oVar2);
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

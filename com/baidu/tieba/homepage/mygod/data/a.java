@@ -8,24 +8,24 @@ import tbclient.BannerInfo;
 import tbclient.GodBanner;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId cJN = BdUniqueId.gen();
-    private List<com.baidu.tbadk.core.flow.a.a> cJO = new ArrayList();
-    private String cJP;
-    private String cJQ;
+    public static final BdUniqueId cpi = BdUniqueId.gen();
+    private List<com.baidu.tbadk.core.flow.a.a> cpj = new ArrayList();
+    private String cpk;
+    private String cpl;
 
     public a(BannerInfo bannerInfo) {
-        this.cJP = null;
-        this.cJQ = null;
+        this.cpk = null;
+        this.cpl = null;
         if (bannerInfo != null && !x.t(bannerInfo.god_banner_list)) {
-            this.cJP = bannerInfo.god_good_url;
-            this.cJQ = bannerInfo.god_rank_url;
+            this.cpk = bannerInfo.god_good_url;
+            this.cpl = bannerInfo.god_rank_url;
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < bannerInfo.god_banner_list.size() && i2 < 3) {
                     GodBanner godBanner = bannerInfo.god_banner_list.get(i2);
                     if (godBanner != null) {
-                        this.cJO.add(new C0063a(godBanner.pic_url, godBanner.link_url));
+                        this.cpj.add(new C0061a(godBanner.pic_url, godBanner.link_url));
                     }
                     i = i2 + 1;
                 } else {
@@ -37,28 +37,28 @@ public class a extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return cJN;
+        return cpi;
     }
 
-    public String aol() {
-        return this.cJP;
+    public String aiL() {
+        return this.cpk;
     }
 
-    public String aom() {
-        return this.cJQ;
+    public String aiM() {
+        return this.cpl;
     }
 
-    public List<com.baidu.tbadk.core.flow.a.a> aon() {
-        return this.cJO;
+    public List<com.baidu.tbadk.core.flow.a.a> aiN() {
+        return this.cpj;
     }
 
     /* renamed from: com.baidu.tieba.homepage.mygod.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0063a implements com.baidu.tbadk.core.flow.a.a {
+    public class C0061a implements com.baidu.tbadk.core.flow.a.a {
         private String linkUrl;
         private String picUrl;
 
-        public C0063a(String str, String str2) {
+        public C0061a(String str, String str2) {
             this.picUrl = str;
             this.linkUrl = str2;
         }
@@ -69,7 +69,7 @@ public class a extends com.baidu.tieba.card.data.b {
         }
 
         @Override // com.baidu.tbadk.core.flow.a.a
-        public String getPicLinkUrl() {
+        public String pI() {
             return this.linkUrl;
         }
     }

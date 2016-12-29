@@ -5,48 +5,47 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.bz;
-import com.baidu.tieba.card.data.g;
+import com.baidu.tieba.card.cb;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<g, a> {
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.f, a> {
     private TbPageContext<?> GO;
-    private bz<g> bZe;
-    public BdUniqueId bcf;
-    private com.baidu.tieba.card.e cJH;
+    private cb<com.baidu.tieba.card.data.f> bES;
+    public BdUniqueId bbl;
+    private com.baidu.tieba.card.e cpc;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bZe = new d(this);
+        this.bES = new d(this);
         this.GO = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ai */
+    /* renamed from: V */
     public a a(ViewGroup viewGroup) {
-        this.cJH = new com.baidu.tieba.card.e(this.GO);
-        this.cJH.bbO = false;
-        this.cJH.j(this.bcf);
-        return new a(this.cJH);
+        this.cpc = new com.baidu.tieba.card.e(this.GO);
+        this.cpc.baU = false;
+        this.cpc.j(this.bbl);
+        return new a(this.cpc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, g gVar, a aVar) {
-        aVar.cJJ.onBindDataToView(gVar);
-        aVar.cJJ.setOnSubCardOnClickListenner(this.bZe);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.f fVar, a aVar) {
+        aVar.cpe.onBindDataToView(fVar);
+        aVar.cpe.setOnSubCardOnClickListenner(this.bES);
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.card.e cJJ;
+        public com.baidu.tieba.card.e cpe;
 
         public a(com.baidu.tieba.card.e eVar) {
             super(eVar.getView());
-            this.cJJ = eVar;
+            this.cpe = eVar;
         }
     }
 }

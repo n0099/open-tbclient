@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 class bd implements Runnable {
-    final /* synthetic */ PbActivity evL;
+    final /* synthetic */ PbActivity eah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(PbActivity pbActivity) {
-        this.evL = pbActivity;
+        this.eah = pbActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        dj djVar;
-        dj djVar2;
-        djVar = this.evL.euf;
-        if (djVar != null) {
-            djVar2 = this.evL.euf;
-            djVar2.LoadData();
+        dc dcVar;
+        dc dcVar2;
+        dcVar = this.eah.dYA;
+        if (dcVar != null) {
+            dcVar2 = this.eah.dYA;
+            dcVar2.LoadData();
         }
     }
 }

@@ -1,18 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.animation.Animation;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fr implements a.b {
-    final /* synthetic */ ey eCT;
+public class fr implements Animation.AnimationListener {
+    final /* synthetic */ er egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fr(ey eyVar) {
-        this.eCT = eyVar;
+    public fr(er erVar) {
+        this.egZ = erVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.eCT.aCY();
-        aVar.dismiss();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        this.egZ.egC = false;
+        textView = this.egZ.egA;
+        textView.setVisibility(8);
     }
 }

@@ -46,7 +46,7 @@ public class e {
 
     /* loaded from: classes.dex */
     static class c implements a {
-        private byte[] ks;
+        private byte[] kr;
         private OutputStream mOutputStream;
         private long tf;
         private String tg;
@@ -59,7 +59,7 @@ public class e {
             this.tj = null;
             this.tk = null;
             this.mOutputStream = null;
-            this.ks = null;
+            this.kr = null;
             this.tf = 0L;
             this.tg = null;
             this.th = null;
@@ -76,7 +76,7 @@ public class e {
             this.tj.setTcpNoDelay(nVar.getTcpNoDelay());
             this.tk = this.tj.getInputStream();
             this.mOutputStream = this.tj.getOutputStream();
-            this.ks = new byte[1024];
+            this.kr = new byte[1024];
             this.th = com.baidu.adp.lib.util.k.gE();
             this.ti = com.baidu.adp.lib.util.k.gF();
         }
@@ -113,9 +113,9 @@ public class e {
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            int read = this.tk.read(this.ks);
+            int read = this.tk.read(this.kr);
             if (read > 0) {
-                byteBuffer.put(this.ks, 0, read);
+                byteBuffer.put(this.kr, 0, read);
             }
             return read;
         }

@@ -19,7 +19,6 @@ public class FrsActivityConfig extends IntentConfig {
     public static final int FRS_FLAG_NORMAL = 0;
     public static final String FRS_FORUM_FREQUENTLY_FORUM = "frequently_forum";
     public static final String FRS_FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
-    public static final String FRS_FROM_ECOMM_ORDER_DETAIL = "from_ecomm_order_detail";
     public static final String FRS_FROM_ENTERFORUM_RECOMMEND = "recom_flist";
     public static final String FRS_FROM_FOLLOWED_RECOMMEND = "followed_recommend_forumlist";
     public static final String FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD = "frequently_forum_new_thread";

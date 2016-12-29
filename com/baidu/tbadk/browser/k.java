@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements bf.a {
-    @Override // com.baidu.tbadk.core.util.bf.a
+public class k implements bc.a {
+    @Override // com.baidu.tbadk.core.util.bc.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        Bundle gE;
+        Bundle gz;
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
@@ -69,7 +69,7 @@ public class k implements bf.a {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.x.at(str, "bindid=")));
             tbPageContext.getPageActivity().finish();
             return 1;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gE = com.baidu.tbadk.util.x.gE(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gE.getString("path"))) {
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gz = com.baidu.tbadk.util.x.gz(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gz.getString("path"))) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
             return 0;
         } else {

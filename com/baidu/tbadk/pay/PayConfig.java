@@ -4,12 +4,8 @@ import com.baidu.tbadk.util.PageDialogHelper;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PayConfig implements Serializable {
-    public static final int PAYTYPE_ECOMM_CONFIRM_TRANS = 5;
-    public static final int PAYTYPE_ECOMM_PAY = 3;
-    public static final int PAYTYPE_ECOMM_PAY_MARGIN = 6;
-    public static final int PAYTYPE_ECOMM_REFUND = 4;
     public static final int PAYTYPE_MEMBER = 1;
-    public static final int PAYTYPE_PAY_DIRECT = 7;
+    public static final int PAYTYPE_PAY_DIRECT = 3;
     public static final int PAYTYPE_TDOU = 2;
     private static final long serialVersionUID = 1473520404420820966L;
     public long mCategoryId;
@@ -73,10 +69,6 @@ public class PayConfig implements Serializable {
 
     public boolean getIsPayDialog() {
         return this.mIsPayDialog;
-    }
-
-    public void setIsPayDialog(boolean z) {
-        this.mIsPayDialog = z;
     }
 
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm) {

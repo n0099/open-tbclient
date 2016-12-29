@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    private String adE;
-    private bz<T> bbu;
-    protected by bbv;
+    private String acW;
+    protected cb<T> baA;
+    protected ca baB;
     public Context mContext;
     public TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
@@ -38,11 +38,11 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public String getFrom() {
-        return this.adE;
+        return this.acW;
     }
 
     public void setFrom(String str) {
-        this.adE = str;
+        this.acW = str;
     }
 
     public View getView() {
@@ -66,15 +66,21 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     public void onDestroy() {
     }
 
-    public void setOnSubCardOnClickListenner(bz<T> bzVar) {
-        this.bbu = bzVar;
+    public void setVisibility(int i) {
+        if (this.mView != null) {
+            this.mView.setVisibility(i);
+        }
     }
 
-    public void setOnCardStatisticsCallback(by byVar) {
-        this.bbv = byVar;
+    public void setOnSubCardOnClickListenner(cb<T> cbVar) {
+        this.baA = cbVar;
     }
 
-    public bz<T> getOnSubCardOnClickListenner() {
-        return this.bbu;
+    public void setOnCardStatisticsCallback(ca caVar) {
+        this.baB = caVar;
+    }
+
+    public cb<T> getOnSubCardOnClickListenner() {
+        return this.baA;
     }
 }

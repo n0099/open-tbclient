@@ -3,16 +3,16 @@ package com.baidu.tieba.account;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ AccountActivity aUO;
+    final /* synthetic */ AccountActivity aUf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.aUO = accountActivity;
+        this.aUf = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,25 +22,25 @@ public class e implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         TextView textView5;
-        if (!this.aUO.aUG.MM()) {
-            this.aUO.aUG.setEditState(true);
-            textView3 = this.aUO.aUI;
+        if (!this.aUf.aTX.Mf()) {
+            this.aUf.aTX.setEditState(true);
+            textView3 = this.aUf.aTZ;
             textView3.setText(r.j.done);
             if (TbadkCoreApplication.m9getInst().getSkinType() == 2) {
-                textView5 = this.aUO.aUI;
-                at.c(textView5, r.d.navi_op_text, 1);
+                textView5 = this.aUf.aTZ;
+                ar.c(textView5, r.d.navi_op_text, 1);
             } else {
-                textView4 = this.aUO.aUI;
-                at.c(textView4, r.d.cp_link_tip_a, 1);
+                textView4 = this.aUf.aTZ;
+                ar.c(textView4, r.d.cp_link_tip_a, 1);
             }
-            this.aUO.aUG.notifyDataSetChanged();
+            this.aUf.aTX.notifyDataSetChanged();
             return;
         }
-        this.aUO.aUG.setEditState(false);
-        textView = this.aUO.aUI;
+        this.aUf.aTX.setEditState(false);
+        textView = this.aUf.aTZ;
         textView.setText(r.j.edit);
-        textView2 = this.aUO.aUI;
-        at.c(textView2, r.d.navi_op_text, 1);
-        this.aUO.aUG.notifyDataSetChanged();
+        textView2 = this.aUf.aTZ;
+        ar.c(textView2, r.d.navi_op_text, 1);
+        this.aUf.aTX.notifyDataSetChanged();
     }
 }

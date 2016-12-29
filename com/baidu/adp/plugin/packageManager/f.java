@@ -17,7 +17,7 @@ public class f extends BroadcastReceiver {
         this.this$0 = pluginPackageManager;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:60:0x023c  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x023a  */
     @Override // android.content.BroadcastReceiver
     /*
         Code decompiled incorrectly, please refer to instructions dump.

@@ -66,7 +66,7 @@ public class a {
         eB.q("workflow", String.valueOf(str) + "_cost");
         eB.d("cost", Long.valueOf(j));
         if (i != 0) {
-            eB.d("count", Integer.valueOf(i));
+            eB.d(ImageViewerConfig.COUNT, Integer.valueOf(i));
         }
         if (str2 != null) {
             eB.q("pname", str2);

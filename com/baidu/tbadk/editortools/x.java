@@ -1,17 +1,39 @@
 package com.baidu.tbadk.editortools;
 
 import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class x extends aa {
-    public x(Context context) {
-        super(context, null, 2, 0);
-        this.name = TbadkCoreApplication.m9getInst().getString(r.j.more_function);
-        this.avu = r.f.selector_editor_btn_more;
-        this.auC = new t(context);
-        this.avy = true;
-        this.avx = 6;
-        this.avz = new int[]{1};
+public class x {
+    public int auR;
+    public int auT;
+    public int auU;
+    public int[] auW;
+    public y auh;
+    private Context context;
+    public int id;
+    public String name;
+    public boolean auS = true;
+    public boolean auV = false;
+
+    public x(String str, int i, int i2) {
+        this.name = str;
+        this.id = i;
+        this.auT = i2;
+    }
+
+    public x(Context context, String str, int i) {
+        this.name = str;
+        this.id = i;
+        this.context = context;
+    }
+
+    public x(Context context, String str, int i, int i2) {
+        this.name = str;
+        this.id = i;
+        this.context = context;
+        this.auT = i2;
+    }
+
+    protected Context getContext() {
+        return this.context;
     }
 }

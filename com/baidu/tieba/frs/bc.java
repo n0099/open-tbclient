@@ -1,43 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc extends aq<bd, be> {
-    private final int bHh;
+public class bc implements com.baidu.tbadk.widget.layout.i {
+    final /* synthetic */ ax bAv;
 
-    public bc(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.bHh = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds90);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bc(ax axVar) {
+        this.bAv = axVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: t */
-    public be a(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(r.h.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bHh));
-        return new be(inflate);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.aq, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bd bdVar, be beVar) {
-        super.a(i, view, viewGroup, (ViewGroup) bdVar, (bd) beVar);
-        if (bdVar.adx() == 6) {
-            beVar.bUn.setText(r.j.attention_no_post_tip);
-        } else {
-            beVar.bUn.setText(r.j.no_data_text);
+    @Override // com.baidu.tbadk.widget.layout.i
+    public void a(View view, int i, int i2, int i3, int i4) {
+        View view2;
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        View view3;
+        View view4;
+        View view5;
+        View view6;
+        view2 = this.bAv.bAg;
+        if (view2 != null) {
+            view3 = this.bAv.bAg;
+            if (view3.getLayoutParams() != null && i2 != i4) {
+                view4 = this.bAv.bAg;
+                view4.getLayoutParams().height = i2;
+                view5 = this.bAv.bAg;
+                view6 = this.bAv.bAg;
+                view5.setLayoutParams(view6.getLayoutParams());
+            }
         }
-        com.baidu.tbadk.core.util.at.c(beVar.bUn, r.d.cp_cont_d, 1);
-        return view;
+        frsActivity = this.bAv.bzH;
+        if (frsActivity.Wa() != null) {
+            frsActivity2 = this.bAv.bzH;
+            frsActivity2.Wa().p(view, i2);
+        }
     }
 }

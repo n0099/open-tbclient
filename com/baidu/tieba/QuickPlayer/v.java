@@ -13,46 +13,46 @@ import tv.danmaku.ijk.media.player.ITrackInfo;
 import tv.danmaku.ijk.media.player.MediaInfo;
 /* loaded from: classes.dex */
 public class v extends AbstractMediaPlayer {
-    private MediaPlayer.OnPreparedListener aMy = new w(this);
-    private MediaPlayer.OnCompletionListener aMz = new x(this);
-    private MediaPlayer.OnSeekCompleteListener aMA = new y(this);
-    private MediaPlayer.OnVideoSizeChangedListener aMB = new z(this);
-    private MediaPlayer.OnErrorListener aMC = new aa(this);
-    private MediaPlayer.OnInfoListener aMD = new ab(this);
-    private MediaPlayer aMx = new MediaPlayer();
+    private MediaPlayer.OnPreparedListener aLP = new w(this);
+    private MediaPlayer.OnCompletionListener aLQ = new x(this);
+    private MediaPlayer.OnSeekCompleteListener aLR = new y(this);
+    private MediaPlayer.OnVideoSizeChangedListener aLS = new z(this);
+    private MediaPlayer.OnErrorListener aLT = new aa(this);
+    private MediaPlayer.OnInfoListener aLU = new ab(this);
+    private MediaPlayer aLO = new MediaPlayer();
 
     public v() {
-        this.aMx.setOnPreparedListener(this.aMy);
-        this.aMx.setOnCompletionListener(this.aMz);
-        this.aMx.setOnSeekCompleteListener(this.aMA);
-        this.aMx.setOnVideoSizeChangedListener(this.aMB);
-        this.aMx.setOnErrorListener(this.aMC);
-        this.aMx.setOnInfoListener(this.aMD);
+        this.aLO.setOnPreparedListener(this.aLP);
+        this.aLO.setOnCompletionListener(this.aLQ);
+        this.aLO.setOnSeekCompleteListener(this.aLR);
+        this.aLO.setOnVideoSizeChangedListener(this.aLS);
+        this.aLO.setOnErrorListener(this.aLT);
+        this.aLO.setOnInfoListener(this.aLU);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setDisplay(SurfaceHolder surfaceHolder) {
-        this.aMx.setDisplay(surfaceHolder);
+        this.aLO.setDisplay(surfaceHolder);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setDataSource(Context context, Uri uri) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
-        this.aMx.setDataSource(context, uri);
+        this.aLO.setDataSource(context, uri);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
-        this.aMx.setDataSource(context, uri, map);
+        this.aLO.setDataSource(context, uri, map);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException, IllegalArgumentException, IllegalStateException {
-        this.aMx.setDataSource(fileDescriptor);
+        this.aLO.setDataSource(fileDescriptor);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setDataSource(String str) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException {
-        this.aMx.setDataSource(str);
+        this.aLO.setDataSource(str);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
@@ -62,13 +62,13 @@ public class v extends AbstractMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void prepareAsync() throws IllegalStateException {
-        this.aMx.prepareAsync();
+        this.aLO.prepareAsync();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void start() throws IllegalStateException {
         try {
-            this.aMx.start();
+            this.aLO.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class v extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void stop() throws IllegalStateException {
         try {
-            this.aMx.stop();
+            this.aLO.stop();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,7 +86,7 @@ public class v extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void pause() throws IllegalStateException {
         try {
-            this.aMx.pause();
+            this.aLO.pause();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,23 +94,23 @@ public class v extends AbstractMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setScreenOnWhilePlaying(boolean z) {
-        this.aMx.setScreenOnWhilePlaying(z);
+        this.aLO.setScreenOnWhilePlaying(z);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public int getVideoWidth() {
-        return this.aMx.getVideoWidth();
+        return this.aLO.getVideoWidth();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public int getVideoHeight() {
-        return this.aMx.getVideoHeight();
+        return this.aLO.getVideoHeight();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public boolean isPlaying() {
         try {
-            return this.aMx.isPlaying();
+            return this.aLO.isPlaying();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -120,7 +120,7 @@ public class v extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void seekTo(long j) throws IllegalStateException {
         try {
-            this.aMx.seekTo((int) j);
+            this.aLO.seekTo((int) j);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -129,7 +129,7 @@ public class v extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public long getCurrentPosition() {
         try {
-            return this.aMx.getCurrentPosition();
+            return this.aLO.getCurrentPosition();
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;
@@ -139,7 +139,7 @@ public class v extends AbstractMediaPlayer {
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public long getDuration() {
         try {
-            return this.aMx.getDuration();
+            return this.aLO.getDuration();
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;
@@ -148,22 +148,22 @@ public class v extends AbstractMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void release() {
-        this.aMx.release();
+        this.aLO.release();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void reset() {
-        this.aMx.reset();
+        this.aLO.reset();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setVolume(float f, float f2) {
-        this.aMx.setVolume(f, f2);
+        this.aLO.setVolume(f, f2);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public int getAudioSessionId() {
-        return this.aMx.getAudioSessionId();
+        return this.aLO.getAudioSessionId();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
@@ -182,7 +182,7 @@ public class v extends AbstractMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setAudioStreamType(int i) {
-        this.aMx.setAudioStreamType(i);
+        this.aLO.setAudioStreamType(i);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
@@ -201,17 +201,17 @@ public class v extends AbstractMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setWakeMode(Context context, int i) {
-        this.aMx.setWakeMode(context, i);
+        this.aLO.setWakeMode(context, i);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setLooping(boolean z) {
-        this.aMx.setLooping(z);
+        this.aLO.setLooping(z);
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public boolean isLooping() {
-        return this.aMx.isLooping();
+        return this.aLO.isLooping();
     }
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
@@ -221,6 +221,6 @@ public class v extends AbstractMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void setSurface(Surface surface) {
-        this.aMx.setSurface(surface);
+        this.aLO.setSurface(surface);
     }
 }

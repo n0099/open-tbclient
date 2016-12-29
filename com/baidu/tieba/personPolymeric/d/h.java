@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
@@ -17,27 +17,27 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.f> {
     private TbPageContext GO;
-    private TextView aOH;
-    private View bPN;
-    private HTypeListView eKj;
-    private com.baidu.tieba.personPolymeric.a.t eRM;
+    private TextView aNY;
+    private HTypeListView bbO;
+    private View bvR;
+    private com.baidu.tieba.personPolymeric.a.t evl;
     private View mRootView;
 
     public h(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.GO = tbPageContext;
         this.mRootView = getView();
-        this.bPN = this.mRootView.findViewById(r.g.divider_view);
-        this.aOH = (TextView) this.mRootView.findViewById(r.g.gift_title);
-        this.eKj = (HTypeListView) this.mRootView.findViewById(r.g.gift_horizontal_list);
-        this.eRM = new com.baidu.tieba.personPolymeric.a.t(this.GO, this.eKj);
+        this.bvR = this.mRootView.findViewById(r.g.divider_view);
+        this.aNY = (TextView) this.mRootView.findViewById(r.g.gift_title);
+        this.bbO = (HTypeListView) this.mRootView.findViewById(r.g.gift_horizontal_list);
+        this.evl = new com.baidu.tieba.personPolymeric.a.t(this.GO, this.bbO);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        at.l(this.mRootView, r.d.cp_bg_line_d);
-        at.l(this.bPN, r.d.cp_bg_line_b);
-        at.j((View) this.aOH, r.d.cp_cont_d);
+        ar.l(this.mRootView, r.d.cp_bg_line_d);
+        ar.l(this.bvR, r.d.cp_bg_line_b);
+        ar.j((View) this.aNY, r.d.cp_cont_d);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -54,16 +54,16 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         i iVar = new i(this, fVar);
-        this.eRM.O(iVar);
+        this.evl.K(iVar);
         this.mRootView.setOnClickListener(iVar);
-        this.eRM.L(iVar);
-        this.eKj.setData(cI(fVar.eQJ));
-        if (fVar.czI) {
-            this.aOH.setText(r.j.gift_received_by_me);
-        } else if (fVar.eQI) {
-            this.aOH.setText(r.j.gift_received_by_him);
+        this.evl.L(iVar);
+        this.bbO.setData(cy(fVar.eui));
+        if (fVar.ceV) {
+            this.aNY.setText(r.j.gift_received_by_me);
+        } else if (fVar.euh) {
+            this.aNY.setText(r.j.gift_received_by_him);
         } else {
-            this.aOH.setText(r.j.gift_received_by_her);
+            this.aNY.setText(r.j.gift_received_by_her);
         }
         onChangeSkinType(this.GO, TbadkCoreApplication.m9getInst().getSkinType());
     }
@@ -72,12 +72,12 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void b(com.baidu.tieba.personPolymeric.c.f fVar) {
         if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.GO.showToast(r.j.gift_load_fail);
-        } else if (bk.ak(this.GO.getPageActivity())) {
+        } else if (bh.ai(this.GO.getPageActivity())) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.GO.getPageActivity(), fVar.mUid, fVar.pX, fVar.mSex)));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.v> cI(List<com.baidu.adp.widget.ListView.v> list) {
+    private List<com.baidu.adp.widget.ListView.v> cy(List<com.baidu.adp.widget.ListView.v> list) {
         int s = com.baidu.tbadk.core.util.x.s(list);
         if (s > 0) {
             List<com.baidu.adp.widget.ListView.v> arrayList = new ArrayList<>(list);

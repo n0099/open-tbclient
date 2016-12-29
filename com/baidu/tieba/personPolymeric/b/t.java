@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements Runnable {
-    final /* synthetic */ q eQi;
+    final /* synthetic */ q etH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(q qVar) {
-        this.eQi = qVar;
+        this.etH = qVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,16 +18,16 @@ public class t implements Runnable {
         com.baidu.tieba.personPolymeric.c.n nVar2;
         com.baidu.tieba.personPolymeric.mode.c cVar2;
         com.baidu.tieba.personPolymeric.mode.c cVar3;
-        cVar = this.eQi.eQc;
+        cVar = this.etH.etB;
         if (cVar != null) {
-            nVar = this.eQi.mPersonPolymericData;
+            nVar = this.etH.mPersonPolymericData;
             if (nVar != null) {
-                nVar2 = this.eQi.mPersonPolymericData;
-                if (nVar2.aSh()) {
-                    cVar2 = this.eQi.eQc;
+                nVar2 = this.etH.mPersonPolymericData;
+                if (nVar2.aMb()) {
+                    cVar2 = this.etH.etB;
                     cVar2.resetData();
-                    cVar3 = this.eQi.eQc;
-                    cVar3.cJ(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+                    cVar3 = this.etH.etB;
+                    cVar3.cr(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
                 }
             }
         }

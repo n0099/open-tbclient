@@ -1,15 +1,14 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.a;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public interface cc {
-    a<? extends com.baidu.tbadk.core.data.bk, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z);
+    void a(TbPageContext tbPageContext, View view, int i, boolean z);
 
-    aq<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
+    void b(com.baidu.tieba.tbadkCore.o oVar);
 
-    a<? extends com.baidu.tbadk.core.data.bk, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
+    void changeSkinType(int i);
+
+    void hide();
 }

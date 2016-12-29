@@ -10,7 +10,7 @@ public class f {
         return vD;
     }
 
-    public a aB(int i) {
+    public a aC(int i) {
         switch (i) {
             case 0:
                 return new c();

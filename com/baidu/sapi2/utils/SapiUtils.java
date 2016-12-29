@@ -28,7 +28,6 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -158,7 +157,7 @@ public class SapiUtils {
 
     public static String getGPSInfo(Context context) {
         Location lastKnownLocation;
-        LocationManager locationManager = (LocationManager) context.getSystemService(ThActivityDetailActivityConfig.LOCATION);
+        LocationManager locationManager = (LocationManager) context.getSystemService("location");
         try {
             return (checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) && locationManager.isProviderEnabled("gps") && (lastKnownLocation = locationManager.getLastKnownLocation("gps")) != null) ? lastKnownLocation.getLongitude() + "," + lastKnownLocation.getLatitude() : "";
         } catch (Exception e2) {

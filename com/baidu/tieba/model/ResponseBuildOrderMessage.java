@@ -1,6 +1,5 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tbadk.core.atomData.EcommOrderDetailActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -32,7 +31,7 @@ public class ResponseBuildOrderMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         if (getStatusCode() == 200 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.orderId = optJSONObject.optString(EcommOrderDetailActivityConfig.ORDER_ID);
+            this.orderId = optJSONObject.optString("order_id");
             this.openId = optJSONObject.optLong("open_id");
         }
     }

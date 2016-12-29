@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class r {
-    protected volatile int fEK;
-    protected volatile HashMap<Long, Integer> fEL = new HashMap<>();
-    private volatile int fEJ = 0;
+    protected volatile int fiR;
+    protected volatile HashMap<Long, Integer> fiS = new HashMap<>();
+    private volatile int fiQ = 0;
 
     public r(int i) {
-        this.fEK = i;
+        this.fiR = i;
     }
 
-    public void rO(String str) {
+    public void qu(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.fEL.size() >= this.fEK) {
-                    aZs();
+                if (this.fiS.size() >= this.fiR) {
+                    aTd();
                 }
-                this.fEJ++;
-                this.fEL.put(valueOf, Integer.valueOf(this.fEJ));
+                this.fiQ++;
+                this.fiS.put(valueOf, Integer.valueOf(this.fiQ));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void aZs() {
+    public void aTd() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.fEL.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.fiS.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.fEL.remove(l);
+                this.fiS.remove(l);
             } else {
-                this.fEL.clear();
+                this.fiS.clear();
             }
         }
     }
 
-    public boolean rP(String str) {
+    public boolean qv(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.fEL.get(valueOf) != null) {
+                if (this.fiS.get(valueOf) != null) {
                     z = true;
                 }
             }
@@ -61,18 +61,18 @@ public class r {
         return z;
     }
 
-    public boolean rQ(String str) {
+    public boolean qw(String str) {
         try {
-            return this.fEL.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.fiS.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void bnd() {
+    public void bgX() {
         synchronized (this) {
-            this.fEL.clear();
+            this.fiS.clear();
         }
     }
 }

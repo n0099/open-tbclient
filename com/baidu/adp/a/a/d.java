@@ -20,7 +20,7 @@ public class d {
     public static boolean gF = false;
     public static boolean gG = false;
 
-    public static void G(int i) {
+    public static void H(int i) {
         gv = i;
         try {
             if (mHandler != null) {

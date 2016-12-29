@@ -10,32 +10,32 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg implements a.b {
-    private final /* synthetic */ int bXi;
-    private final /* synthetic */ String bXj;
-    private final /* synthetic */ long bXk;
-    private final /* synthetic */ ShareFromPBMsgData bXo;
-    final /* synthetic */ PbActivity evL;
-    private final /* synthetic */ gp evU;
+    private final /* synthetic */ int bDs;
+    private final /* synthetic */ String bDt;
+    private final /* synthetic */ long bDu;
+    private final /* synthetic */ ShareFromPBMsgData bDy;
+    final /* synthetic */ PbActivity eah;
+    private final /* synthetic */ gi eaq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(PbActivity pbActivity, gp gpVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
-        this.evL = pbActivity;
-        this.evU = gpVar;
-        this.bXi = i;
-        this.bXj = str;
-        this.bXk = j;
-        this.bXo = shareFromPBMsgData;
+    public bg(PbActivity pbActivity, gi giVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
+        this.eah = pbActivity;
+        this.eaq = giVar;
+        this.bDs = i;
+        this.bDt = str;
+        this.bDu = j;
+        this.bDy = shareFromPBMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        int aPi;
-        this.evL.HidenSoftKeyPad((InputMethodManager) this.evL.getSystemService("input_method"), this.evU.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.evL.getPageContext().getPageActivity(), this.bXi, this.bXj, this.bXk, "from_share", this.evU.getLeaveMsg(), this.bXo.toChatMessageContent())));
+        int aJh;
+        this.eah.HidenSoftKeyPad((InputMethodManager) this.eah.getSystemService("input_method"), this.eaq.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.eah.getPageContext().getPageActivity(), this.bDs, this.bDt, this.bDu, "from_share", this.eaq.getLeaveMsg(), this.bDy.toChatMessageContent())));
         aVar.dismiss();
-        aPi = this.evL.aPi();
-        if (aPi == 1) {
-            this.evL.aPn();
+        aJh = this.eah.aJh();
+        if (aJh == 1) {
+            this.eah.aJm();
         }
     }
 }

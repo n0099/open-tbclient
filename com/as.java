@@ -11,23 +11,24 @@ import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.core.SocialConfig;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
+import com.baidu.sapi2.SapiAccountManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as extends ax {
     private String a;
     private String b;
-    private ServiceConnection gvK;
+    private ServiceConnection fIF;
 
     public as(SocialOAuthActivity socialOAuthActivity, String str, IBaiduListener iBaiduListener) {
         super(socialOAuthActivity, str, MediaType.SINAWEIBO.toString(), iBaiduListener);
-        this.gvK = new at(this);
+        this.fIF = new at(this);
     }
 
     private boolean a() {
         Context applicationContext = this.mActivity.getApplicationContext();
         Intent intent = new Intent("com.sina.weibo.remotessoservice");
         if (applicationContext.getPackageManager().resolveService(intent, 0) != null) {
-            return applicationContext.getApplicationContext().bindService(intent, this.gvK, 1);
+            return applicationContext.getApplicationContext().bindService(intent, this.fIF, 1);
         }
         return false;
     }
@@ -74,7 +75,7 @@ public class as extends ax {
             }
             if (stringExtra == null) {
                 Bundle extras = intent.getExtras();
-                getSessionFromServer(extras.getString(SocialConstants.PARAM_ACCESS_TOKEN), extras.getString("uid"), MediaType.SINAWEIBO.toString());
+                getSessionFromServer(extras.getString(SocialConstants.PARAM_ACCESS_TOKEN), extras.getString(SapiAccountManager.SESSION_UID), MediaType.SINAWEIBO.toString());
             } else if (stringExtra.equals(SocialConstants.ERROR_ACCESS_DENIED) || stringExtra.equals("OAuthAccessDeniedException")) {
                 this.mListener.onCancel();
             } else {

@@ -19,6 +19,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import com.baidu.tbadk.TbDomainConfig;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -401,7 +402,7 @@ public class CompatibleUtile {
         public void loadUrl(WebView webView, String str) {
             if (webView != null && !TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("referer", "http://c.tieba.baidu.com/");
+                hashMap.put("referer", TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS);
                 webView.loadUrl(str, hashMap);
             }
         }

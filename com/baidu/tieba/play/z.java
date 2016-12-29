@@ -2,6 +2,7 @@ package com.baidu.tieba.play;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -21,7 +22,7 @@ public class z {
         httpMessage.addParam("video_md5", str);
         httpMessage.addParam("thread_id", str2);
         httpMessage.addParam("forum_id", str3);
-        httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+        httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_locate", str4);
         httpMessage.addParam("obj_param1", str5);
         httpMessage.addParam("obj_param2", str6);

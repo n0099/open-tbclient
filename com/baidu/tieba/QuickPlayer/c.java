@@ -7,9 +7,9 @@ import android.os.Parcel;
 import android.os.RemoteException;
 /* loaded from: classes.dex */
 public interface c extends IInterface {
-    void Jk() throws RemoteException;
+    void IF() throws RemoteException;
 
-    void Jl() throws RemoteException;
+    void IG() throws RemoteException;
 
     void N(int i, int i2) throws RemoteException;
 
@@ -42,12 +42,12 @@ public interface c extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    Jk();
+                    IF();
                     parcel2.writeNoException();
                     return true;
                 case 2:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    Jl();
+                    IG();
                     parcel2.writeNoException();
                     return true;
                 case 3:
@@ -83,7 +83,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void Jk() throws RemoteException {
+            public void IF() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -97,7 +97,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void Jl() throws RemoteException {
+            public void IG() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

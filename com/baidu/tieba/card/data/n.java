@@ -2,69 +2,69 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.card.an;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tieba.card.ap;
 /* loaded from: classes.dex */
 public class n extends c {
-    public static final BdUniqueId RQ = BdUniqueId.gen();
-    public bk beS;
-    private av bfm;
-    private av bfn;
-    private av bfo;
-    private av bfp;
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public bg beB;
+    private at beC;
+    private at beD;
+    private at beE;
+    private at beF;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return RQ;
+        return TYPE;
     }
 
-    public n(bk bkVar) {
-        this.beS = bkVar;
+    public n(bg bgVar) {
+        this.beB = bgVar;
     }
 
-    public static boolean g(bk bkVar) {
-        return bkVar != null && bkVar.getThreadType() == 33;
+    public static boolean l(bg bgVar) {
+        return bgVar != null && bgVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bk Jz() {
-        return this.beS;
+    public bg IU() {
+        return this.beB;
     }
 
-    public int PJ() {
-        return (this.beS == null || StringUtils.isNull(this.beS.getPhotoLiveCover())) ? 0 : 1;
+    public int Pf() {
+        return (this.beB == null || StringUtils.isNull(this.beB.getPhotoLiveCover())) ? 0 : 1;
     }
 
-    public void b(av avVar) {
-        this.bfm = avVar;
+    public void b(at atVar) {
+        this.beC = atVar;
     }
 
-    public void c(av avVar) {
-        this.bfn = avVar;
+    public void c(at atVar) {
+        this.beD = atVar;
     }
 
-    public void d(av avVar) {
-        this.bfo = avVar;
+    public void d(at atVar) {
+        this.beE = atVar;
     }
 
-    public void e(av avVar) {
-        this.bfp = avVar;
+    public void e(at atVar) {
+        this.beF = atVar;
     }
 
-    public av PK() {
-        return this.bfm != null ? this.bfm.ab("obj_param3", an.Pe()) : this.bfm;
+    public at Pg() {
+        return this.beC != null ? this.beC.ab("obj_param3", ap.OA()) : this.beC;
     }
 
-    public av PL() {
-        return this.bfn != null ? this.bfn.ab("obj_param3", an.Pe()) : this.bfn;
+    public at Ph() {
+        return this.beD != null ? this.beD.ab("obj_param3", ap.OA()) : this.beD;
     }
 
-    public av PM() {
-        return this.bfp != null ? this.bfp.ab("obj_param3", an.Pe()) : this.bfp;
+    public at Pi() {
+        return this.beF != null ? this.beF.ab("obj_param3", ap.OA()) : this.beF;
     }
 
-    public av PN() {
-        return this.bfo != null ? this.bfo.ab("obj_param3", an.Pe()) : this.bfo;
+    public at Pj() {
+        return this.beE != null ? this.beE.ab("obj_param3", ap.OA()) : this.beE;
     }
 }

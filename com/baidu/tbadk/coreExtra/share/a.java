@@ -1,11 +1,11 @@
 package com.baidu.tbadk.coreExtra.share;
 /* loaded from: classes.dex */
 public interface a {
-    void AC();
+    void Ap();
 
-    void AD();
+    void Aq();
 
-    void AE();
+    void Ar();
 
-    void AF();
+    void As();
 }

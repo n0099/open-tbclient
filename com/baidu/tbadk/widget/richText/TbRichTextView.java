@@ -26,14 +26,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.TbListTextView;
 import com.baidu.tieba.r;
-import com.baidu.tieba.togetherhi.TogetherHiLivingView;
-import com.baidu.tieba.togetherhi.ds;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -41,67 +39,66 @@ import org.json.JSONArray;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwidget.a.i {
-    private static final float aJB;
-    static int aJC;
-    private final com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> aEL;
-    private com.baidu.adp.lib.f.b<ImageView> aJD;
-    private com.baidu.adp.lib.f.b<TextView> aJE;
-    private com.baidu.adp.lib.f.b<View> aJF;
-    private com.baidu.adp.lib.f.b<View> aJG;
-    private com.baidu.adp.lib.f.b<LinearLayout> aJH;
-    private com.baidu.adp.lib.f.b<GifView> aJI;
-    private com.baidu.adp.lib.f.b<View> aJJ;
-    private float aJK;
-    private int aJL;
-    private int aJM;
-    private float aJN;
-    private int aJO;
-    private int aJP;
-    private int aJQ;
-    private int aJR;
-    private int aJS;
-    private ImageView.ScaleType aJT;
-    private int aJU;
-    private int aJV;
-    private boolean aJW;
-    private TextUtils.TruncateAt aJX;
-    private g aJY;
-    private e aJZ;
-    private f aKa;
-    private View.OnClickListener aKb;
-    private boolean aKc;
-    private int aKd;
-    private boolean aKe;
-    private boolean aKf;
-    private Runnable aKg;
-    private boolean aKh;
-    private d aKi;
-    private com.baidu.tbadk.widget.richText.a aKj;
-    private String aKk;
-    private boolean aKl;
-    private boolean aKm;
-    private boolean aKn;
-    private int aKo;
-    private boolean aKp;
-    private boolean aKq;
-    private boolean aKr;
-    private int aKs;
-    private boolean aKt;
-    private boolean aKu;
-    public final View.OnClickListener aKv;
-    private final View.OnTouchListener aKw;
-    private boolean aKx;
-    private Drawable aKy;
-    private CustomMessageListener aKz;
-    private BdUniqueId ayG;
+    private static final int aIR = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds32);
+    private static final float aIS = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m9getInst());
+    private static final float aIT;
+    static int aIU;
+    private final com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> aEe;
+    private com.baidu.adp.lib.f.b<ImageView> aIV;
+    private com.baidu.adp.lib.f.b<TextView> aIW;
+    private com.baidu.adp.lib.f.b<View> aIX;
+    private com.baidu.adp.lib.f.b<View> aIY;
+    private com.baidu.adp.lib.f.b<LinearLayout> aIZ;
+    private com.baidu.tbadk.widget.richText.a aJA;
+    private String aJB;
+    private boolean aJC;
+    private boolean aJD;
+    private boolean aJE;
+    private int aJF;
+    private boolean aJG;
+    private boolean aJH;
+    private boolean aJI;
+    private int aJJ;
+    private boolean aJK;
+    private boolean aJL;
+    public final View.OnClickListener aJM;
+    private final View.OnTouchListener aJN;
+    private boolean aJO;
+    private Drawable aJP;
+    private CustomMessageListener aJQ;
+    private com.baidu.adp.lib.f.b<GifView> aJa;
+    private float aJb;
+    private int aJc;
+    private int aJd;
+    private float aJe;
+    private int aJf;
+    private int aJg;
+    private int aJh;
+    private int aJi;
+    private int aJj;
+    private ImageView.ScaleType aJk;
+    private int aJl;
+    private int aJm;
+    private boolean aJn;
+    private TextUtils.TruncateAt aJo;
+    private g aJp;
+    private e aJq;
+    private f aJr;
+    private View.OnClickListener aJs;
+    private boolean aJt;
+    private int aJu;
+    private boolean aJv;
+    private boolean aJw;
+    private Runnable aJx;
+    private boolean aJy;
+    private d aJz;
+    private BdUniqueId ayd;
     private boolean mIsFromCDN;
     private final View.OnClickListener mOnClickListener;
     private int mTextColor;
     private final int mType;
     private String mUrl;
     private int vj;
-    private static final int aJz = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds32);
-    private static final float aJA = com.baidu.adp.lib.util.k.M(TbadkCoreApplication.m9getInst());
 
     /* loaded from: classes.dex */
     public interface b {
@@ -124,32 +121,32 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     static {
-        aJB = aJA > 0.0f ? 1.0f / aJA : 0.3f;
-        aJC = 174;
+        aIT = aIS > 0.0f ? 1.0f / aIS : 0.3f;
+        aIU = 174;
     }
 
     public void setSubPbPost(boolean z) {
-        this.aKt = z;
+        this.aJK = z;
     }
 
     public void setShowGraffitiSaveBtn(boolean z) {
-        this.aKu = z;
+        this.aJL = z;
     }
 
-    public boolean IQ() {
-        return this.aKh;
+    public boolean Il() {
+        return this.aJy;
     }
 
-    public void IR() {
-        this.aKl = true;
+    public void Im() {
+        this.aJC = true;
     }
 
     public String getBackgroundImageUrl() {
-        return this.aKk;
+        return this.aJB;
     }
 
     public void setBackgroundImageUrl(String str) {
-        this.aKk = str;
+        this.aJB = str;
     }
 
     public void setIsFromCDN(boolean z) {
@@ -161,23 +158,23 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     public void setMaxLines(int i) {
-        this.aKo = i;
+        this.aJF = i;
     }
 
     public void setTextEllipsize(TextUtils.TruncateAt truncateAt) {
-        this.aJX = truncateAt;
+        this.aJo = truncateAt;
     }
 
     public void setIsSupportVitality(boolean z) {
-        this.aKr = z;
+        this.aJI = z;
     }
 
     public boolean getIsSupportVitality() {
-        return this.aKr;
+        return this.aJI;
     }
 
     public float getLineSpacing() {
-        return this.aJK;
+        return this.aJb;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -219,137 +216,135 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     public static com.baidu.adp.lib.f.b<TextView> i(Context context, int i) {
-        return new com.baidu.adp.lib.f.b<>(new v(context), i, 0);
+        return new com.baidu.adp.lib.f.b<>(new u(context), i, 0);
     }
 
     public TbRichTextView(Context context) {
         super(context);
-        this.aJD = null;
-        this.aJE = null;
-        this.aJF = null;
-        this.aJG = null;
-        this.aJH = null;
-        this.aJI = null;
-        this.aJJ = null;
-        this.aJK = 0.0f;
-        this.aJL = 0;
-        this.aJM = 0;
-        this.aJN = 15.0f;
-        this.aJO = -1;
-        this.aJP = -1;
+        this.aIV = null;
+        this.aIW = null;
+        this.aIX = null;
+        this.aIY = null;
+        this.aIZ = null;
+        this.aJa = null;
+        this.aJb = 0.0f;
+        this.aJc = 0;
+        this.aJd = 0;
+        this.aJe = 15.0f;
+        this.aJf = -1;
+        this.aJg = -1;
         this.mTextColor = ViewCompat.MEASURED_STATE_MASK;
-        this.aJQ = -9989158;
-        this.aJR = 200;
-        this.aJS = 200;
-        this.aJT = null;
-        this.aJU = 0;
-        this.aJV = 0;
-        this.aJW = false;
-        this.aJX = null;
-        this.aJY = null;
-        this.aJZ = null;
-        this.aKa = null;
-        this.aKb = null;
-        this.aKc = true;
+        this.aJh = -9989158;
+        this.aJi = 200;
+        this.aJj = 200;
+        this.aJk = null;
+        this.aJl = 0;
+        this.aJm = 0;
+        this.aJn = false;
+        this.aJo = null;
+        this.aJp = null;
+        this.aJq = null;
+        this.aJr = null;
+        this.aJs = null;
+        this.aJt = true;
         this.mIsFromCDN = true;
-        this.aKd = -1;
-        this.aKe = false;
-        this.aKf = false;
-        this.aKg = null;
-        this.aKh = false;
-        this.aKk = null;
-        this.aKl = false;
-        this.aKm = false;
+        this.aJu = -1;
+        this.aJv = false;
+        this.aJw = false;
+        this.aJx = null;
+        this.aJy = false;
+        this.aJB = null;
+        this.aJC = false;
+        this.aJD = false;
         this.vj = -1;
-        this.aKo = -1;
-        this.aKp = true;
-        this.aKq = false;
-        this.aKr = false;
-        this.aKt = false;
-        this.aKu = true;
-        this.mOnClickListener = new p(this);
-        this.aKv = new r(this);
-        this.aKw = new s(this);
+        this.aJF = -1;
+        this.aJG = true;
+        this.aJH = false;
+        this.aJI = false;
+        this.aJK = false;
+        this.aJL = true;
+        this.mOnClickListener = new o(this);
+        this.aJM = new q(this);
+        this.aJN = new r(this);
         this.mType = 19;
-        this.aEL = new t(this);
-        this.aKz = new u(this, CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD);
+        this.aEe = new s(this);
+        this.aJQ = new t(this, CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD);
         init();
     }
 
     public TbRichTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aJD = null;
-        this.aJE = null;
-        this.aJF = null;
-        this.aJG = null;
-        this.aJH = null;
-        this.aJI = null;
-        this.aJJ = null;
-        this.aJK = 0.0f;
-        this.aJL = 0;
-        this.aJM = 0;
-        this.aJN = 15.0f;
-        this.aJO = -1;
-        this.aJP = -1;
+        this.aIV = null;
+        this.aIW = null;
+        this.aIX = null;
+        this.aIY = null;
+        this.aIZ = null;
+        this.aJa = null;
+        this.aJb = 0.0f;
+        this.aJc = 0;
+        this.aJd = 0;
+        this.aJe = 15.0f;
+        this.aJf = -1;
+        this.aJg = -1;
         this.mTextColor = ViewCompat.MEASURED_STATE_MASK;
-        this.aJQ = -9989158;
-        this.aJR = 200;
-        this.aJS = 200;
-        this.aJT = null;
-        this.aJU = 0;
-        this.aJV = 0;
-        this.aJW = false;
-        this.aJX = null;
-        this.aJY = null;
-        this.aJZ = null;
-        this.aKa = null;
-        this.aKb = null;
-        this.aKc = true;
+        this.aJh = -9989158;
+        this.aJi = 200;
+        this.aJj = 200;
+        this.aJk = null;
+        this.aJl = 0;
+        this.aJm = 0;
+        this.aJn = false;
+        this.aJo = null;
+        this.aJp = null;
+        this.aJq = null;
+        this.aJr = null;
+        this.aJs = null;
+        this.aJt = true;
         this.mIsFromCDN = true;
-        this.aKd = -1;
-        this.aKe = false;
-        this.aKf = false;
-        this.aKg = null;
-        this.aKh = false;
-        this.aKk = null;
-        this.aKl = false;
-        this.aKm = false;
+        this.aJu = -1;
+        this.aJv = false;
+        this.aJw = false;
+        this.aJx = null;
+        this.aJy = false;
+        this.aJB = null;
+        this.aJC = false;
+        this.aJD = false;
         this.vj = -1;
-        this.aKo = -1;
-        this.aKp = true;
-        this.aKq = false;
-        this.aKr = false;
-        this.aKt = false;
-        this.aKu = true;
-        this.mOnClickListener = new p(this);
-        this.aKv = new r(this);
-        this.aKw = new s(this);
+        this.aJF = -1;
+        this.aJG = true;
+        this.aJH = false;
+        this.aJI = false;
+        this.aJK = false;
+        this.aJL = true;
+        this.mOnClickListener = new o(this);
+        this.aJM = new q(this);
+        this.aJN = new r(this);
         this.mType = 19;
-        this.aEL = new t(this);
-        this.aKz = new u(this, CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD);
+        this.aEe = new s(this);
+        this.aJQ = new t(this, CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD);
         init();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r.l.TbRichTextView);
-        this.aJM = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-        this.aJL = obtainStyledAttributes.getDimensionPixelSize(1, 0);
-        this.aJK = obtainStyledAttributes.getFloat(5, 1.12f);
-        this.aJN = obtainStyledAttributes.getDimensionPixelSize(2, (int) this.aJN);
+        this.aJd = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.aJc = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+        this.aJb = obtainStyledAttributes.getFloat(5, 1.12f);
+        this.aJe = obtainStyledAttributes.getDimensionPixelSize(2, (int) this.aJe);
         this.mTextColor = obtainStyledAttributes.getColor(3, this.mTextColor);
-        this.aJR = obtainStyledAttributes.getDimensionPixelSize(6, this.aJR);
-        this.aJS = obtainStyledAttributes.getDimensionPixelSize(7, this.aJS);
-        this.aJU = obtainStyledAttributes.getResourceId(8, 0);
-        this.aJO = obtainStyledAttributes.getDimensionPixelSize(9, this.aJO);
-        this.aJP = obtainStyledAttributes.getDimensionPixelSize(10, this.aJP);
-        this.aJV = obtainStyledAttributes.getResourceId(11, 0);
-        this.aJW = obtainStyledAttributes.getBoolean(12, false);
+        this.aJi = obtainStyledAttributes.getDimensionPixelSize(6, this.aJi);
+        this.aJj = obtainStyledAttributes.getDimensionPixelSize(7, this.aJj);
+        this.aJl = obtainStyledAttributes.getResourceId(8, 0);
+        this.aJf = obtainStyledAttributes.getDimensionPixelSize(9, this.aJf);
+        this.aJg = obtainStyledAttributes.getDimensionPixelSize(10, this.aJg);
+        this.aJm = obtainStyledAttributes.getResourceId(11, 0);
+        this.aJn = obtainStyledAttributes.getBoolean(12, false);
         obtainStyledAttributes.recycle();
     }
 
     public void setLineSpacing(float f2) {
-        this.aJK = f2;
+        this.aJb = f2;
     }
 
     private void init() {
-        aJC = getContext().getResources().getDimensionPixelSize(r.e.ds348);
+        aIU = getContext().getResources().getDimensionPixelSize(r.e.ds348);
         m mVar = null;
         com.baidu.adp.base.h<?> C = com.baidu.adp.base.l.C(getContext());
         if (getContext() instanceof m) {
@@ -358,23 +353,23 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             mVar = (m) C.getOrignalPage();
         }
         if (C != null) {
-            C.registerListener(this.aKz);
+            C.registerListener(this.aJQ);
         }
         if (mVar != null) {
-            this.aJD = mVar.IG();
-            this.aJE = mVar.IH();
-            this.aJG = mVar.IJ();
-            this.aJH = mVar.IK();
-            this.aJI = mVar.II();
-            this.aJF = mVar.IL();
-            if (mVar.getListView() != null && this.aJY == null) {
-                this.aJY = new g(mVar.IF());
-                mVar.getListView().setRecyclerListener(this.aJY);
+            this.aIV = mVar.Ib();
+            this.aIW = mVar.Ic();
+            this.aIY = mVar.Ie();
+            this.aIZ = mVar.If();
+            this.aJa = mVar.Id();
+            this.aIX = mVar.Ig();
+            if (mVar.getListView() != null && this.aJp == null) {
+                this.aJp = new g(mVar.Ia());
+                mVar.getListView().setRecyclerListener(this.aJp);
             }
         }
         setOrientation(1);
-        setOnHierarchyChangeListener(new w(this));
-        this.aKs = com.baidu.adp.lib.util.k.K(getContext());
+        setOnHierarchyChangeListener(new v(this));
+        this.aJJ = com.baidu.adp.lib.util.k.I(getContext());
     }
 
     public void setText(com.baidu.tbadk.widget.richText.a aVar) {
@@ -385,49 +380,48 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         a(aVar, z, (b) null);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:100:0x0027 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:101:0x0027 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0027 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0027 */
     public void a(com.baidu.tbadk.widget.richText.a aVar, boolean z, b bVar) {
-        ArrayList<com.baidu.tbadk.widget.richText.c> Ic;
+        ArrayList<com.baidu.tbadk.widget.richText.c> Hy;
         boolean z2;
-        SpannableStringBuilder Ii;
+        SpannableStringBuilder HE;
         View view;
         View a2;
-        n Ir;
         View view2 = null;
-        if (this.aKj != aVar || (aVar != null && aVar.aIM)) {
+        if (this.aJA != aVar || (aVar != null && aVar.aIf)) {
             if (aVar != null) {
-                aVar.aIM = false;
+                aVar.aIf = false;
             }
-            this.aKj = aVar;
+            this.aJA = aVar;
             removeAllViews();
-            if (aVar != null && (Ic = aVar.Ic()) != null) {
-                Iterator<com.baidu.tbadk.widget.richText.c> it = Ic.iterator();
+            if (aVar != null && (Hy = aVar.Hy()) != null) {
+                Iterator<com.baidu.tbadk.widget.richText.c> it = Hy.iterator();
                 int i = 0;
                 View view3 = null;
                 while (it.hasNext()) {
                     com.baidu.tbadk.widget.richText.c next = it.next();
                     if (next != null) {
                         if (next.getType() == 1) {
-                            TextView as = as(getContext());
-                            boolean a3 = a(next, as, true, bVar);
-                            if (z && !this.aKh && (Ii = next.Ii()) != null) {
-                                this.aKh = Ii.length() >= 200;
+                            TextView aq = aq(getContext());
+                            boolean a3 = a(next, aq, true, bVar);
+                            if (z && !this.aJy && (HE = next.HE()) != null) {
+                                this.aJy = HE.length() >= 200;
                             }
-                            as.setOnClickListener(this.aKb);
+                            aq.setOnClickListener(this.aJs);
                             z2 = a3;
-                            view3 = as;
+                            view3 = aq;
                         } else if (next.getType() == 8) {
                             if (i < 10) {
                                 i++;
-                                ImageView ar = ar(getContext());
-                                z2 = b(next, ar, this.aJR, this.aJS);
-                                view3 = ar;
+                                ImageView ap = ap(getContext());
+                                z2 = b(next, ap, this.aJi, this.aJj);
+                                view3 = ap;
                             }
                         } else if (next.getType() == 32) {
-                            o Il = next.Il();
-                            if (Il != null && Il.IN()) {
-                                a2 = b(Il);
+                            n HH = next.HH();
+                            if (HH != null && HH.Ii()) {
+                                a2 = b(HH);
                             } else {
                                 a2 = a(next);
                             }
@@ -448,25 +442,19 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
                             z2 = a(next, (GifView) gifView);
                             view3 = gifView;
                         } else if (next.getType() == 1280) {
-                            ImageView ar2 = ar(getContext());
+                            ImageView ap2 = ap(getContext());
                             i++;
-                            z2 = a(next, ar2, (this.aJR - getPaddingLeft()) - getPaddingRight(), this.aJS);
-                            view3 = ar2;
-                        } else if (next.getType() == 1536) {
-                            com.baidu.tbadk.widget.richText.f Iq = next.Iq();
-                            Iq.fx(aVar.Ib());
-                            if (Iq != null) {
-                                View a4 = a(Iq, aVar.Ib(), aVar.getAuthorId());
-                                z2 = true;
-                                view3 = a4;
-                            }
-                            z2 = false;
-                            view3 = view3;
+                            z2 = a(next, ap2, (this.aJi - getPaddingLeft()) - getPaddingRight(), this.aJj);
+                            view3 = ap2;
                         } else {
-                            if (next.getType() == 1792 && (Ir = next.Ir()) != null) {
-                                View b2 = b(Ir);
-                                z2 = true;
-                                view3 = b2;
+                            if (next.getType() == 1536) {
+                                com.baidu.tbadk.widget.richText.f HM = next.HM();
+                                HM.fx(aVar.Hx());
+                                if (HM != null) {
+                                    View a4 = a(HM, aVar.Hx(), aVar.getAuthorId());
+                                    z2 = true;
+                                    view3 = a4;
+                                }
                             }
                             z2 = false;
                             view3 = view3;
@@ -492,7 +480,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
                 }
                 if (view2 != null && !(view2 instanceof TbListTextView)) {
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) view2.getLayoutParams();
-                    layoutParams2.bottomMargin = this.aJM;
+                    layoutParams2.bottomMargin = this.aJd;
                     view2.setLayoutParams(layoutParams2);
                 }
             }
@@ -500,14 +488,14 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     public void setCommonTextViewOnClickListener(View.OnClickListener onClickListener) {
-        this.aKb = onClickListener;
+        this.aJs = onClickListener;
     }
 
-    private View b(o oVar) {
-        if (oVar == null || !oVar.isAvaliable()) {
+    private View b(n nVar) {
+        if (nVar == null || !nVar.isAvaliable()) {
             return null;
         }
-        ImageView ey = this.aJD.ey();
+        ImageView ey = this.aIV.ey();
         if (ey instanceof ForeDrawableImageView) {
             ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) ey;
             foreDrawableImageView.setForegroundDrawable(r.f.icon_play_video);
@@ -517,23 +505,23 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             foreDrawableImageView.setNoImageBottomText("点击播放视频");
             foreDrawableImageView.setInterceptOnClick(false);
             foreDrawableImageView.setTag("VideoView");
-            a(foreDrawableImageView, oVar.getWidth(), oVar.getHeight(), (this.aJR - getPaddingLeft()) - getPaddingRight(), this.aJS, new x(this, oVar));
+            a(foreDrawableImageView, nVar.getWidth(), nVar.getHeight(), (this.aJi - getPaddingLeft()) - getPaddingRight(), this.aJj, new w(this, nVar));
             foreDrawableImageView.setDefaultResource(0);
-            foreDrawableImageView.setSupportNoImage(this.aKl);
+            foreDrawableImageView.setSupportNoImage(this.aJC);
             if (com.baidu.tbadk.core.l.oJ().oP()) {
                 foreDrawableImageView.setDefaultBgResource(r.f.pic_bg_video_frs);
             } else {
                 foreDrawableImageView.setDefaultBgResource(r.d.cp_bg_line_c);
             }
-            foreDrawableImageView.c(oVar.qg(), 17, false);
+            foreDrawableImageView.c(nVar.qh(), 17, false);
             return ey;
         }
         return ey;
     }
 
     private boolean a(ImageView imageView, int i, int i2, int i3, int i4, View.OnClickListener onClickListener) {
-        if (this.aKr && M(i, i2) && this.aKs > 0) {
-            i3 = this.aKs;
+        if (this.aJI && M(i, i2) && this.aJJ > 0) {
+            i3 = this.aJJ;
             i4 = (int) (i3 * 1.618f);
         }
         int[] c2 = com.baidu.adp.lib.util.k.c(i, i2, i3, i4);
@@ -543,7 +531,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         int[] iArr = {c2[0], c2[1]};
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
-            tbImageView.setDefaultResource(this.aJU);
+            tbImageView.setDefaultResource(this.aJl);
             if (tbImageView.getGifIconWidth() >= iArr[0] || tbImageView.getGifIconHeight() >= iArr[1]) {
                 tbImageView.setGifIconSupport(false);
             } else {
@@ -552,14 +540,14 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         }
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.aKn || i3 <= i5 || aJA <= 1.0f) {
+        if (!this.aJE || i3 <= i5 || aIS <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * aJA <= i3) {
-                if (i5 * aJA > i3 * 0.68f) {
+            if (i5 * aIS <= i3) {
+                if (i5 * aIS > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * aJA);
+                    i3 = (int) (i5 * aIS);
                 }
             }
             if (iArr[0] > 0) {
@@ -567,19 +555,19 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             }
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i3, i6);
-        if (this.aKn) {
+        if (this.aJE) {
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        } else if (this.aJT == null) {
+        } else if (this.aJk == null) {
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         } else {
-            imageView.setScaleType(this.aJT);
+            imageView.setScaleType(this.aJk);
         }
-        if (this.aKr) {
+        if (this.aJI) {
             if (M(i, i2)) {
                 layoutParams.width = -1;
                 layoutParams.leftMargin = 0;
             } else {
-                layoutParams.leftMargin = aJz;
+                layoutParams.leftMargin = aIR;
             }
         }
         imageView.setClickable(true);
@@ -590,38 +578,38 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     private LinearLayout a(com.baidu.tbadk.widget.richText.c cVar) {
-        if (this.aJV <= 0 || cVar == null) {
+        if (this.aJm <= 0 || cVar == null) {
             return null;
         }
         LinearLayout linearLayout = new LinearLayout(getContext());
         linearLayout.setTag("VideoView");
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = this.aJM;
+        layoutParams.topMargin = this.aJd;
         linearLayout.setClickable(true);
-        Bitmap cO = at.cO(this.aJV);
-        if (cO != null) {
-            linearLayout.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), cO));
+        Bitmap cQ = ar.cQ(this.aJm);
+        if (cQ != null) {
+            linearLayout.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(), cQ));
         }
         linearLayout.setFocusable(false);
-        if (this.aKr) {
-            layoutParams.leftMargin = aJz;
-            layoutParams.rightMargin = aJz;
+        if (this.aJI) {
+            layoutParams.leftMargin = aIR;
+            layoutParams.rightMargin = aIR;
         }
         linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setOnClickListener(new y(this, cVar));
+        linearLayout.setOnClickListener(new x(this, cVar));
         return linearLayout;
     }
 
     public int getVideoImageId() {
-        return this.aJV;
+        return this.aJm;
     }
 
     public void setVideoImageId(int i) {
-        this.aJV = i;
+        this.aJm = i;
     }
 
-    private ImageView ar(Context context) {
-        ImageView ey = this.aJD != null ? this.aJD.ey() : null;
+    private ImageView ap(Context context) {
+        ImageView ey = this.aIV != null ? this.aIV.ey() : null;
         if (ey == null || ey.getParent() != null) {
             ey = null;
         }
@@ -635,20 +623,20 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         if (cVar == null || imageView == null) {
             return false;
         }
-        l Io = cVar.Io();
-        if (Io != null && Io.getLink() != null) {
+        l HK = cVar.HK();
+        if (HK != null && HK.getLink() != null) {
             if (imageView instanceof TbImageView) {
                 TbImageView tbImageView = (TbImageView) imageView;
-                if (this.aKl) {
+                if (this.aJC) {
                     tbImageView.setSupportNoImage(true);
                 }
-                tbImageView.c(Io.IE(), this.mIsFromCDN ? 17 : 18, false);
-                tbImageView.setTag(new c(Io.getLink()));
-                if (!Io.Ix()) {
+                tbImageView.c(HK.HZ(), this.mIsFromCDN ? 17 : 18, false);
+                tbImageView.setTag(new c(HK.getLink()));
+                if (!HK.HS()) {
                     tbImageView.setAdjustViewBounds(false);
                 }
             }
-            return a(imageView, Io.getWidth(), Io.getHeight(), i, i2, this.aKv);
+            return a(imageView, HK.getWidth(), HK.getHeight(), i, i2, this.aJM);
         }
         return false;
     }
@@ -657,36 +645,36 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         if (cVar == null || imageView == null) {
             return false;
         }
-        com.baidu.tbadk.widget.richText.g Ih = cVar.Ih();
-        if (Ih == null) {
+        com.baidu.tbadk.widget.richText.g HD = cVar.HD();
+        if (HD == null) {
             return false;
         }
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
-            if (this.aKl) {
+            if (this.aJC) {
                 tbImageView.setSupportNoImage(true);
             }
-            tbImageView.c(Ih.Iw(), this.mIsFromCDN ? 17 : 18, false);
-            if (!Ih.Ix()) {
+            tbImageView.c(HD.HR(), this.mIsFromCDN ? 17 : 18, false);
+            if (!HD.HS()) {
                 tbImageView.setAdjustViewBounds(false);
             }
         }
-        return a(imageView, Ih.getWidth(), Ih.getHeight(), i, i2, this.mOnClickListener);
+        return a(imageView, HD.getWidth(), HD.getHeight(), i, i2, this.mOnClickListener);
     }
 
     public void setImageViewStretch(boolean z) {
-        this.aKn = z;
+        this.aJE = z;
     }
 
-    private TextView as(Context context) {
+    private TextView aq(Context context) {
         TextView textView = null;
-        if (this.aJE != null) {
-            textView = this.aJE.ey();
+        if (this.aIW != null) {
+            textView = this.aIW.ey();
         }
         if (textView == null || textView.getParent() != null) {
             textView = new TbListTextView(context);
         }
-        textView.setPadding(this.aJL, 0, this.aJL, 0);
+        textView.setPadding(this.aJc, 0, this.aJc, 0);
         return textView;
     }
 
@@ -697,81 +685,81 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         } else {
             layoutParams = new LinearLayout.LayoutParams(-2, -2);
         }
-        if (this.aKm) {
+        if (this.aJD) {
             layoutParams.gravity = 16;
             textView.setGravity(16);
         } else {
-            layoutParams.topMargin = this.aJM;
+            layoutParams.topMargin = this.aJd;
         }
-        textView.setLineSpacing(0.0f, this.aJK);
-        textView.setTextSize(0, this.aJN);
+        textView.setLineSpacing(0.0f, this.aJb);
+        textView.setTextSize(0, this.aJe);
         textView.setTextColor(this.mTextColor);
-        textView.setLinkTextColor(at.getColor(r.d.cp_link_tip_c));
+        textView.setLinkTextColor(ar.getColor(r.d.cp_link_tip_c));
         textView.setHighlightColor(getContext().getResources().getColor(r.d.transparent));
-        textView.setSingleLine(this.aJW);
-        if (this.aJX != null) {
-            textView.setEllipsize(this.aJX);
+        textView.setSingleLine(this.aJn);
+        if (this.aJo != null) {
+            textView.setEllipsize(this.aJo);
         }
         if (this.vj > 0) {
             textView.setMaxWidth(this.vj);
         }
-        if (this.aKo > 0) {
-            textView.setMaxLines(this.aKo);
+        if (this.aJF > 0) {
+            textView.setMaxLines(this.aJF);
         }
         if (cVar == null) {
             return false;
         }
-        SpannableStringBuilder Ii = cVar.Ii();
-        if (Ii == null || Ii.length() <= 0) {
+        SpannableStringBuilder HE = cVar.HE();
+        if (HE == null || HE.length() <= 0) {
             return false;
         }
         int lineHeight = textView.getLineHeight();
         int textSize = lineHeight - ((int) textView.getTextSize());
-        if (this.aJP > 0 && this.aJO > 0) {
-            cVar.K(this.aJO, this.aJP);
+        if (this.aJg > 0 && this.aJf > 0) {
+            cVar.K(this.aJf, this.aJg);
         }
         if (textSize > 0) {
             cVar.J(lineHeight, textSize);
         }
         if (bVar != null) {
-            bVar.a(Ii, textView, this);
+            bVar.a(HE, textView, this);
         }
         try {
-            textView.setText(Ii);
+            textView.setText(HE);
         } catch (Exception e2) {
             textView.setText("");
         }
-        if (this.aKp) {
-            if (cVar.Is()) {
-                textView.setMovementMethod(com.baidu.tieba.view.g.bti());
+        if (this.aJG) {
+            if (cVar.HN()) {
+                textView.setMovementMethod(com.baidu.tieba.view.g.bki());
             } else {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }
         }
         textView.setFocusable(false);
-        if (this.aKr) {
-            layoutParams.leftMargin = aJz;
-            layoutParams.rightMargin = aJz;
+        if (this.aJI) {
+            layoutParams.leftMargin = aIR;
+            layoutParams.rightMargin = aIR;
         }
         textView.setLayoutParams(layoutParams);
         textView.setTag(cVar);
-        if (cVar != null && cVar.Ik() != null) {
-            cVar.Ik().aJg = this.aKx;
+        if (cVar != null && cVar.HG() != null) {
+            cVar.HG().aIy = this.aJO;
         }
         return true;
     }
 
     private GifView getGifView() {
         GifView gifView = null;
-        if (this.aJI != null) {
-            gifView = this.aJI.ey();
+        if (this.aJa != null) {
+            gifView = this.aJa.ey();
         }
         GifView gifView2 = (gifView == null || gifView.getParent() != null) ? new GifView(getContext()) : gifView;
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gifView2.getLayoutParams();
         if (layoutParams != null) {
-            if (this.aKr) {
-                layoutParams.leftMargin = aJz;
-                layoutParams.rightMargin = aJz;
+            if (this.aJI) {
+                layoutParams.leftMargin = aIR;
+                layoutParams.rightMargin = aIR;
             } else {
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
@@ -783,31 +771,31 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     private boolean a(com.baidu.tbadk.widget.richText.c cVar, GifView gifView) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) gifView.getLayoutParams();
-        if (layoutParams == null || layoutParams.width != cVar.Im().ayE.ayi || layoutParams.height != cVar.Im().ayE.ayj) {
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(cVar.Im().ayE.ayi, cVar.Im().ayE.ayj);
+        if (layoutParams == null || layoutParams.width != cVar.HI().ayb.axF || layoutParams.height != cVar.HI().ayb.axG) {
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(cVar.HI().ayb.axF, cVar.HI().ayb.axG);
             layoutParams2.gravity = 3;
-            if (this.aKr) {
-                layoutParams2.leftMargin = aJz;
-                layoutParams2.rightMargin = aJz;
+            if (this.aJI) {
+                layoutParams2.leftMargin = aIR;
+                layoutParams2.rightMargin = aIR;
             }
             gifView.setLayoutParams(layoutParams2);
         } else {
             layoutParams.bottomMargin = 0;
         }
-        gifView.setOnClickListener(new q(this, cVar));
-        gifView.a(cVar.Im().ayE);
+        gifView.setOnClickListener(new p(this, cVar));
+        gifView.a(cVar.HI().ayb);
         return true;
     }
 
     private View getVoiceView() {
-        View ey = this.aJG != null ? this.aJG.ey() : null;
-        if ((ey == null || ey.getParent() != null) && this.aKd != -1) {
-            ey = LayoutInflater.from(getContext()).inflate(this.aKd, (ViewGroup) null);
+        View ey = this.aIY != null ? this.aIY.ey() : null;
+        if ((ey == null || ey.getParent() != null) && this.aJu != -1) {
+            ey = LayoutInflater.from(getContext()).inflate(this.aJu, (ViewGroup) null);
         }
         if (ey != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.topMargin = this.aJM;
-            layoutParams.bottomMargin = this.aJM;
+            layoutParams.topMargin = this.aJd;
+            layoutParams.bottomMargin = this.aJd;
             ey.setLayoutParams(layoutParams);
             return ey;
         }
@@ -818,93 +806,62 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     /* JADX WARN: Type inference failed for: r0v9, types: [android.view.View] */
     private View a(com.baidu.tbadk.widget.richText.f fVar, int i, String str) {
         com.baidu.tieba.graffiti.e eVar = null;
-        if (this.aJF != null) {
-            eVar = this.aJF.ey();
+        if (this.aIX != null) {
+            eVar = this.aIX.ey();
         }
         if (eVar == null || eVar.getParent() != null) {
             eVar = new com.baidu.tieba.graffiti.e(getContext());
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.aJM;
-        layoutParams.bottomMargin = this.aJM;
-        if (this.aKr) {
-            layoutParams.leftMargin = aJz;
-            layoutParams.rightMargin = aJz;
+        layoutParams.topMargin = this.aJd;
+        layoutParams.bottomMargin = this.aJd;
+        if (this.aJI) {
+            layoutParams.leftMargin = aIR;
+            layoutParams.rightMargin = aIR;
         }
         eVar.setLayoutParams(layoutParams);
         if (eVar instanceof com.baidu.tieba.graffiti.e) {
             com.baidu.tieba.graffiti.e eVar2 = eVar;
-            eVar2.j(this.aKc, false);
+            eVar2.j(this.aJt, false);
             if (eVar2.getGraffitiImageView() != null) {
-                eVar2.getGraffitiImageView().setSupportNoImage(this.aKl);
-                eVar2.getGraffitiImageView().setDefaultResource(this.aJU);
+                eVar2.getGraffitiImageView().setSupportNoImage(this.aJC);
+                eVar2.getGraffitiImageView().setDefaultResource(this.aJl);
             }
             if (eVar2.getSaveBtn() != null) {
-                eVar2.getSaveBtn().setOnTouchListener(this.aKw);
+                eVar2.getSaveBtn().setOnTouchListener(this.aJN);
             }
-            eVar2.a(fVar, i, str, this.aJR - (getPaddingLeft() + getPaddingRight()), getPaddingRight(), this.aKu);
+            eVar2.a(fVar, i, str, this.aJi - (getPaddingLeft() + getPaddingRight()), getPaddingRight(), this.aJL);
         }
         return eVar;
     }
 
-    private View b(n nVar) {
-        m mVar;
-        if (this.aJJ == null) {
-            com.baidu.adp.base.h<?> C = com.baidu.adp.base.l.C(getContext());
-            if (getContext() instanceof m) {
-                mVar = (m) getContext();
-            } else {
-                mVar = (C == null || !(C.getOrignalPage() instanceof m)) ? null : (m) C.getOrignalPage();
-            }
-            this.aJJ = mVar.fB(nVar.VD);
-        }
-        View ey = this.aJJ != null ? this.aJJ.ey() : null;
-        if (ey == null || ey.getParent() != null) {
-            if (nVar.VD == 1) {
-                ey = new ds(getContext());
-            } else {
-                ey = new TogetherHiLivingView(getContext());
-            }
-        }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.aJM;
-        ey.setLayoutParams(layoutParams);
-        if (ey instanceof ds) {
-            ey.setData(nVar);
-        }
-        if (ey instanceof TogetherHiLivingView) {
-            ey.setData(nVar);
-        }
-        return ey;
-    }
-
     private boolean a(com.baidu.tbadk.widget.richText.c cVar, View view) {
-        view.setTag(cVar.Ij());
+        view.setTag(cVar.HF());
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new LinearLayout.LayoutParams(-2, -2);
         }
-        if (this.aKr) {
-            layoutParams.leftMargin = aJz;
-            layoutParams.rightMargin = aJz;
+        if (this.aJI) {
+            layoutParams.leftMargin = aIR;
+            layoutParams.rightMargin = aIR;
         }
         view.setLayoutParams(layoutParams);
         return true;
     }
 
     private View getTextVoiceView() {
-        LinearLayout ey = this.aJH.ey();
+        LinearLayout ey = this.aIZ.ey();
         if (ey != null) {
-            TextView as = as(getContext());
-            if (as == null) {
-                this.aJH.n(ey);
+            TextView aq = aq(getContext());
+            if (aq == null) {
+                this.aIZ.n(ey);
                 return null;
             }
-            ey.addView(as);
+            ey.addView(aq);
             View voiceView = getVoiceView();
             if (voiceView == null) {
-                this.aJE.n(as);
-                this.aJH.n(ey);
+                this.aIW.n(aq);
+                this.aIZ.n(ey);
                 return null;
             }
             ey.addView(voiceView);
@@ -947,8 +904,8 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             resources = context.getResources();
         }
         float applyDimension = TypedValue.applyDimension(2, f2, resources.getDisplayMetrics());
-        if (applyDimension != this.aJN) {
-            this.aJN = applyDimension;
+        if (applyDimension != this.aJe) {
+            this.aJe = applyDimension;
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = getChildAt(i);
@@ -973,21 +930,21 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     public void setTextPadding(int i) {
-        if (this.aJL != i) {
-            this.aJL = i;
+        if (this.aJc != i) {
+            this.aJc = i;
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt != null && (childAt instanceof TextView)) {
-                    ((TextView) childAt).setPadding(this.aJL, 0, 0, this.aJL);
+                    ((TextView) childAt).setPadding(this.aJc, 0, 0, this.aJc);
                 }
             }
         }
     }
 
     public void setLinkTextColor(int i) {
-        if (i != this.aJQ) {
-            this.aJQ = i;
+        if (i != this.aJh) {
+            this.aJh = i;
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
@@ -999,64 +956,64 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     private boolean M(int i, int i2) {
-        if (this.aKs <= 0) {
+        if (this.aJJ <= 0) {
             return false;
         }
-        return ((((float) i) / ((float) this.aKs)) > aJB ? 1 : ((((float) i) / ((float) this.aKs)) == aJB ? 0 : -1)) > 0;
+        return ((((float) i) / ((float) this.aJJ)) > aIT ? 1 : ((((float) i) / ((float) this.aJJ)) == aIT ? 0 : -1)) > 0;
     }
 
     public int getMaxImageWidth() {
-        return this.aJR;
+        return this.aJi;
     }
 
     public void setMaxImageWidth(int i) {
-        this.aJR = i;
+        this.aJi = i;
     }
 
     public int getMaxImageHeight() {
-        return this.aJS;
+        return this.aJj;
     }
 
     public void setMaxImageHeight(int i) {
-        this.aJS = i;
+        this.aJj = i;
     }
 
     public ImageView.ScaleType getScaleType() {
-        return this.aJT;
+        return this.aJk;
     }
 
     public void setScaleType(ImageView.ScaleType scaleType) {
-        this.aJT = scaleType;
+        this.aJk = scaleType;
     }
 
     public int getDefaultImageId() {
-        return this.aJU;
+        return this.aJl;
     }
 
     public void setDefaultImageId(int i) {
-        this.aJU = i;
+        this.aJl = i;
     }
 
     public e getOnImageClickListener() {
-        return this.aJZ;
+        return this.aJq;
     }
 
     public void setOnImageClickListener(e eVar) {
-        this.aJZ = eVar;
+        this.aJq = eVar;
     }
 
     public void setOnEmotionClickListener(d dVar) {
-        this.aKi = dVar;
+        this.aJz = dVar;
     }
 
     public void j(boolean z, boolean z2) {
-        if (this.aKc != z) {
-            this.aKc = z;
+        if (this.aJt != z) {
+            this.aJt = z;
             if (z2) {
                 requestLayout();
             }
-            if (!this.aKc && this.aJD != null) {
-                this.aJD.clear();
+            if (!this.aJt && this.aIV != null) {
+                this.aIV.clear();
             }
         }
     }
@@ -1082,14 +1039,14 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        this.aKe = false;
+        this.aJv = false;
         switch (motionEvent.getAction()) {
             case 1:
             case 3:
-                if (!this.aKf) {
-                    IT();
+                if (!this.aJw) {
+                    Io();
                     break;
-                } else if (!this.aKq) {
+                } else if (!this.aJH) {
                     motionEvent.setAction(3);
                     break;
                 }
@@ -1098,8 +1055,8 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
         switch (motionEvent.getAction()) {
             case 0:
-                if (!this.aKe) {
-                    IS();
+                if (!this.aJv) {
+                    In();
                     break;
                 }
                 break;
@@ -1109,21 +1066,21 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.aKe = true;
+        this.aJv = true;
         return super.onTouchEvent(motionEvent);
     }
 
-    private void IS() {
-        this.aKf = false;
-        if (this.aKg == null) {
-            this.aKg = new a();
+    private void In() {
+        this.aJw = false;
+        if (this.aJx == null) {
+            this.aJx = new a();
         }
-        postDelayed(this.aKg, ViewConfiguration.getLongPressTimeout());
+        postDelayed(this.aJx, ViewConfiguration.getLongPressTimeout());
     }
 
-    private void IT() {
-        if (this.aKg != null) {
-            removeCallbacks(this.aKg);
+    private void Io() {
+        if (this.aJx != null) {
+            removeCallbacks(this.aJx);
         }
     }
 
@@ -1135,51 +1092,51 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!TbRichTextView.this.aKq && TbRichTextView.this.performLongClick()) {
-                TbRichTextView.this.aKf = true;
+            if (!TbRichTextView.this.aJH && TbRichTextView.this.performLongClick()) {
+                TbRichTextView.this.aJw = true;
             }
         }
     }
 
     public void setVoiceViewRes(int i) {
-        this.aKd = i;
+        this.aJu = i;
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         super.setBackgroundDrawable(drawable);
-        this.aKk = null;
-        if (this.aKy != drawable) {
-            this.aKx = true;
-            this.aKy = drawable;
+        this.aJB = null;
+        if (this.aJP != drawable) {
+            this.aJO = true;
+            this.aJP = drawable;
         }
-        setText(this.aKj);
-        this.aKx = false;
+        setText(this.aJA);
+        this.aJO = false;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Em();
+        DU();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        Em();
+        DU();
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 8 || i == 4) {
-            Em();
+            DU();
         } else {
             refresh();
         }
     }
 
-    public void gI(String str) {
+    public void gD(String str) {
         BdUniqueId bdUniqueId;
         boolean z;
         if (TextUtils.isEmpty(str)) {
@@ -1195,27 +1152,27 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
             bdUniqueId = null;
             z = false;
         }
-        if (!(str.equals(this.mUrl) && this.ayG == bdUniqueId)) {
-            Em();
+        if (!(str.equals(this.mUrl) && this.ayd == bdUniqueId)) {
+            DU();
         }
         this.mUrl = str;
-        this.ayG = bdUniqueId;
+        this.ayd = bdUniqueId;
         setBackgroundDrawable(null);
         com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.eA().a(this.mUrl, 19, new Object[0]);
         if (aVar != null) {
             e(aVar);
         } else if (z) {
             invalidate();
-        } else if (!com.baidu.adp.lib.g.c.eA().al(19)) {
+        } else if (!com.baidu.adp.lib.g.c.eA().am(19)) {
             invalidate();
         } else {
-            com.baidu.adp.lib.g.c.eA().a(this.mUrl, 19, this.aEL, 0, 0, this.ayG, new Object[0]);
+            com.baidu.adp.lib.g.c.eA().a(this.mUrl, 19, this.aEe, 0, 0, this.ayd, new Object[0]);
         }
     }
 
-    public void Em() {
+    public void DU() {
         if (!TextUtils.isEmpty(this.mUrl)) {
-            com.baidu.adp.lib.g.c.eA().a(this.mUrl, 19, this.aEL);
+            com.baidu.adp.lib.g.c.eA().a(this.mUrl, 19, this.aEe);
             setBackgroundDrawable(null);
         }
     }
@@ -1236,7 +1193,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     @Override // com.baidu.adp.newwidget.a.i
     public void refresh() {
-        gI(this.mUrl);
+        gD(this.mUrl);
     }
 
     public void setTextViewOnClickListener(View.OnClickListener onClickListener) {
@@ -1281,18 +1238,18 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
     }
 
     public f getOnLinkImageClickListener() {
-        return this.aKa;
+        return this.aJr;
     }
 
     public void setOnLinkImageClickListener(f fVar) {
-        this.aKa = fVar;
+        this.aJr = fVar;
     }
 
     public void setHasMovementMethod(boolean z) {
-        this.aKp = z;
+        this.aJG = z;
     }
 
     public void setTextCenter(boolean z) {
-        this.aKm = z;
+        this.aJD = z;
     }
 }

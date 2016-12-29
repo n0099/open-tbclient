@@ -14,25 +14,25 @@ import java.util.LinkedList;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
-    private static ImDbShrinkStatic dgn;
-    private static long dgq = -1;
-    private static int dgr = 0;
-    private a dgo = new a(null);
-    private b dgp = null;
+    private static ImDbShrinkStatic cLi;
+    private static long cLl = -1;
+    private static int cLm = 0;
+    private a cLj = new a(null);
+    private b cLk = null;
 
     static {
-        auH();
+        apg();
     }
 
-    public static ImDbShrinkStatic auH() {
-        if (dgn == null) {
+    public static ImDbShrinkStatic apg() {
+        if (cLi == null) {
             synchronized (ImDbShrinkStatic.class) {
-                if (dgn == null) {
-                    dgn = new ImDbShrinkStatic();
+                if (cLi == null) {
+                    cLi = new ImDbShrinkStatic();
                 }
             }
         }
-        return dgn;
+        return cLi;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,8 +50,8 @@ public class ImDbShrinkStatic {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    ImDbShrinkStatic.auH().dgo.removeMessages(1);
-                    ImDbShrinkStatic.auH().execute();
+                    ImDbShrinkStatic.apg().cLj.removeMessages(1);
+                    ImDbShrinkStatic.apg().execute();
                     return;
                 default:
                     return;
@@ -65,21 +65,21 @@ public class ImDbShrinkStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.dgp != null) {
-            this.dgp.cancel();
-            this.dgp = null;
+        if (this.cLk != null) {
+            this.cLk.cancel();
+            this.cLk = null;
         }
-        this.dgp = new b(this, null);
-        this.dgp.setParallel(TiebaIMConfig.getParallel());
-        this.dgp.setPriority(4);
-        this.dgp.execute(new String[0]);
+        this.cLk = new b(this, null);
+        this.cLk.setParallel(TiebaIMConfig.getParallel());
+        this.cLk.setPriority(4);
+        this.cLk.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.dgp != null) {
-            this.dgp.cancel();
-            this.dgp = null;
+        if (this.cLk != null) {
+            this.cLk.cancel();
+            this.cLk = null;
         }
     }
 
@@ -99,48 +99,48 @@ public class ImDbShrinkStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> auN = i.auK().auN();
-            if (auN == null || auN.size() == 0) {
+            LinkedList<ImMessageCenterPojo> apm = i.apj().apm();
+            if (apm == null || apm.size() == 0) {
                 return false;
             }
-            if (ImDbShrinkStatic.dgq < 0) {
+            if (ImDbShrinkStatic.cLl < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    ImDbShrinkStatic.dgq = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (ImDbShrinkStatic.dgq > IjkMediaMeta.AV_CH_WIDE_LEFT) {
-                        ImDbShrinkStatic.dgr = 5000;
-                    } else if (ImDbShrinkStatic.dgq > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
-                        ImDbShrinkStatic.dgr = 3000;
+                    ImDbShrinkStatic.cLl = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (ImDbShrinkStatic.cLl > IjkMediaMeta.AV_CH_WIDE_LEFT) {
+                        ImDbShrinkStatic.cLm = 5000;
+                    } else if (ImDbShrinkStatic.cLl > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+                        ImDbShrinkStatic.cLm = 3000;
                     } else {
-                        ImDbShrinkStatic.dgr = 1000;
+                        ImDbShrinkStatic.cLm = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (ImDbShrinkStatic.dgr < 1000) {
-                ImDbShrinkStatic.dgr = 1000;
+            if (ImDbShrinkStatic.cLm < 1000) {
+                ImDbShrinkStatic.cLm = 1000;
             }
             try {
-                g.auF().auG();
-                for (ImMessageCenterPojo imMessageCenterPojo : auN) {
+                g.ape().apf();
+                for (ImMessageCenterPojo imMessageCenterPojo : apm) {
                     if (isCancelled()) {
-                        g.auF().endTransaction();
+                        g.ape().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.auB().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.dgr);
+                        c.apa().X(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cLm);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        l.auQ().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.dgr);
+                        l.app().X(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cLm);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        k.auP().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.dgr);
+                        k.apo().X(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cLm);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.auC().Z(imMessageCenterPojo.getGid(), ImDbShrinkStatic.dgr);
+                        d.apb().X(imMessageCenterPojo.getGid(), ImDbShrinkStatic.cLm);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                g.auF().endTransaction();
+                g.ape().endTransaction();
             }
             return true;
         }

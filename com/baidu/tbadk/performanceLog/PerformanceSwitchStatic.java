@@ -8,7 +8,7 @@ public class PerformanceSwitchStatic extends com.baidu.adp.lib.c.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.c.a
     public void changeSettingByType(int i) {
-        aa.Gu().bX(1 == i);
+        aa.FU().bW(1 == i);
     }
 
     @Override // com.baidu.adp.lib.c.a

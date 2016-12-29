@@ -1,37 +1,14 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.util.LongSparseArray;
-import java.util.LinkedList;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class cb {
-    private static final cb bVw = new cb();
-    private LongSparseArray<LinkedList<String>> bVv = new LongSparseArray<>();
+public interface cb {
+    com.baidu.adp.widget.ListView.a<? extends com.baidu.tbadk.core.data.bg, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z);
 
-    private cb() {
-    }
+    au<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 
-    public static cb adG() {
-        return bVw;
-    }
-
-    public void g(long j, String str) {
-        LinkedList<String> linkedList = this.bVv.get(j);
-        if (linkedList == null) {
-            linkedList = new LinkedList<>();
-            this.bVv.put(j, linkedList);
-        }
-        linkedList.add(str);
-    }
-
-    public boolean h(long j, String str) {
-        LinkedList<String> linkedList = this.bVv.get(j);
-        return linkedList != null && linkedList.contains(str);
-    }
-
-    public void bm(long j) {
-        LinkedList<String> linkedList = this.bVv.get(j);
-        if (linkedList != null) {
-            linkedList.clear();
-        }
-    }
+    com.baidu.adp.widget.ListView.a<? extends com.baidu.tbadk.core.data.bg, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 }

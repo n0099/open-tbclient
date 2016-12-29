@@ -17,22 +17,22 @@ import com.baidu.tieba.acrossForum.message.AcrossForumRequestMsg;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a {
-    private static a aVE;
+    private static a aUV;
     private TbPageContext Gf;
-    public AcrossForumViewData aVF;
-    public String aVG;
-    private boolean aVH;
-    private com.baidu.adp.framework.listener.a aVI = new b(this, CmdConfigHttp.CMD_ACROSS_FORUM, 309424);
+    public AcrossForumViewData aUW;
+    public String aUX;
+    private boolean aUY;
+    private com.baidu.adp.framework.listener.a aUZ = new b(this, CmdConfigHttp.CMD_ACROSS_FORUM, 309424);
 
-    public static a MS() {
-        if (aVE == null) {
-            aVE = new a();
+    public static a Ml() {
+        if (aUV == null) {
+            aUV = new a();
         }
-        return aVE;
+        return aUV;
     }
 
     public a() {
-        MessageManager.getInstance().registerListener(this.aVI);
+        MessageManager.getInstance().registerListener(this.aUZ);
     }
 
     public void b(TbPageContext tbPageContext, String str, String str2) {
@@ -41,27 +41,27 @@ public class a {
                 tbPageContext.showToast(r.j.neterror);
                 return;
             }
-            this.aVG = str;
+            this.aUX = str;
             AcrossForumRequestMsg acrossForumRequestMsg = new AcrossForumRequestMsg();
             acrossForumRequestMsg.callFrom = str;
             acrossForumRequestMsg.forumName = str2;
             MessageManager.getInstance().sendMessage(acrossForumRequestMsg);
-            if (MT()) {
-                this.aVH = true;
+            if (Mm()) {
+                this.aUY = true;
             } else {
                 try {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_VR_LOGO_CAN_OPEN, Boolean.class, 1);
                     if (runTask == null || runTask.getData() == null) {
-                        this.aVH = false;
+                        this.aUY = false;
                     } else {
-                        this.aVH = ((Boolean) runTask.getData()).booleanValue();
+                        this.aUY = ((Boolean) runTask.getData()).booleanValue();
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
-                    this.aVH = false;
+                    this.aUY = false;
                 }
             }
-            if (this.aVH) {
+            if (this.aUY) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ACROSS_FORUM_VR_OPEN, tbPageContext));
                 return;
             }
@@ -70,24 +70,24 @@ public class a {
         }
     }
 
-    public void ay(Context context) {
-        if (this.aVF == null || StringUtils.isNull(this.aVF.forumName)) {
+    public void aw(Context context) {
+        if (this.aUW == null || StringUtils.isNull(this.aUW.forumName)) {
             k.showToast(TbadkCoreApplication.m9getInst().getContext(), r.j.across_forum_to_frs_error);
             return;
         }
-        FrsActivityConfig createNormalCfg = new FrsActivityConfig(context).createNormalCfg(this.aVF.forumName, null);
-        createNormalCfg.setIsFromAcrossForum(this.aVF);
+        FrsActivityConfig createNormalCfg = new FrsActivityConfig(context).createNormalCfg(this.aUW.forumName, null);
+        createNormalCfg.setIsFromAcrossForum(this.aUW);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
-        this.aVF = null;
+        this.aUW = null;
     }
 
-    public boolean MT() {
-        return StringUtils.isNull(this.aVG) || this.aVG.equals("startvr");
+    public boolean Mm() {
+        return StringUtils.isNull(this.aUX) || this.aUX.equals("startvr");
     }
 
     public void onDestory() {
-        MessageManager.getInstance().unRegisterListener(this.aVI);
+        MessageManager.getInstance().unRegisterListener(this.aUZ);
         this.Gf = null;
-        aVE = null;
+        aUV = null;
     }
 }

@@ -86,8 +86,8 @@ public class d implements View.OnClickListener, View.OnKeyListener {
 
     private h k(Activity activity) {
         h hVar = new h(activity);
-        hVar.ag(activity.getResources().getColor(this.nj.nd));
-        hVar.af(this.nj.mAlpha);
+        hVar.ah(activity.getResources().getColor(this.nj.nd));
+        hVar.ag(this.nj.mAlpha);
         hVar.A(this.nj.nf);
         hVar.setOnKeyListener(this);
         int[] iArr = new int[2];

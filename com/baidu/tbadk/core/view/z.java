@@ -11,27 +11,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.b.d.a;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.widget.ListView.d {
-    protected View aha;
-    protected LinearLayout ahb;
-    protected ImageView ahc;
-    private b ahd;
-    private a ahe;
-    private c ahf;
-    protected AnimationDrawable ahg;
-    private com.baidu.tieba.b.d.a ahh;
-    private a.e ahi;
-    protected com.baidu.tieba.b.b.b ahj;
-    protected LinearLayout ahk;
-    protected FrameLayout ahl;
-    private Bitmap ahm;
-    private Bitmap ahn;
-    private Bitmap aho;
-    private boolean ahp;
+    private com.baidu.tieba.b.d.a agA;
+    private a.e agB;
+    protected com.baidu.tieba.b.b.b agC;
+    protected LinearLayout agD;
+    protected FrameLayout agE;
+    private Bitmap agF;
+    private Bitmap agG;
+    private Bitmap agH;
+    private boolean agI;
+    protected View agt;
+    protected LinearLayout agu;
+    protected ImageView agv;
+    private b agw;
+    private a agx;
+    private c agy;
+    protected AnimationDrawable agz;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -40,229 +39,229 @@ public class z extends com.baidu.adp.widget.ListView.d {
 
     /* loaded from: classes.dex */
     public interface b {
-        void aL(boolean z);
+        void aM(boolean z);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void aM(boolean z);
+        void aN(boolean z);
     }
 
     public z(Context context) {
         super(context);
-        this.aha = null;
-        this.ahb = null;
-        this.ahc = null;
-        this.ahd = null;
-        this.ahe = null;
-        this.ahf = null;
-        this.ahm = null;
-        this.ahn = null;
-        this.aho = null;
-        this.ahp = false;
+        this.agt = null;
+        this.agu = null;
+        this.agv = null;
+        this.agw = null;
+        this.agx = null;
+        this.agy = null;
+        this.agF = null;
+        this.agG = null;
+        this.agH = null;
+        this.agI = false;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public View kk() {
-        this.aha = LayoutInflater.from(getContext()).inflate(r.h.tb_pull_view, (ViewGroup) null);
-        this.ahb = (LinearLayout) this.aha.findViewById(r.g.pull_root);
-        this.ahk = (LinearLayout) this.ahb.findViewById(r.g.cube_container);
-        this.ahl = (FrameLayout) this.ahb.findViewById(r.g.loading_cube);
-        this.ahc = (ImageView) this.aha.findViewById(r.g.pull_image);
-        if (!vt()) {
-            this.ahg = com.baidu.tbadk.core.util.ak.vl().cI(TbadkCoreApplication.m9getInst().getSkinType());
+        this.agt = LayoutInflater.from(getContext()).inflate(r.h.tb_pull_view, (ViewGroup) null);
+        this.agu = (LinearLayout) this.agt.findViewById(r.g.pull_root);
+        this.agD = (LinearLayout) this.agu.findViewById(r.g.cube_container);
+        this.agE = (FrameLayout) this.agu.findViewById(r.g.loading_cube);
+        this.agv = (ImageView) this.agt.findViewById(r.g.pull_image);
+        if (!vd()) {
+            this.agz = com.baidu.tbadk.core.util.aj.uV().cK(TbadkCoreApplication.m9getInst().getSkinType());
         }
-        this.ahc.setBackgroundDrawable(this.ahg);
-        this.ahi = new aa(this);
-        this.ahj = new com.baidu.tieba.b.b.b(getContext());
-        di(TbadkCoreApplication.m9getInst().getSkinType());
-        this.ahm = BitmapHelper.getResBitmapPowerOf2Size(getContext(), r.f.cube_top);
-        this.ahn = BitmapHelper.getResBitmapPowerOf2Size(getContext(), r.f.btn_frs_post_arrow);
-        this.aho = BitmapHelper.getResBitmapPowerOf2Size(getContext(), r.f.btn_frs_post_ok);
-        if (this.ahm == null || this.ahn == null || this.aho == null) {
-            com.baidu.tbadk.core.util.ak.vl().aD(false);
+        this.agv.setBackgroundDrawable(this.agz);
+        this.agB = new aa(this);
+        this.agC = new com.baidu.tieba.b.b.b(getContext());
+        dk(TbadkCoreApplication.m9getInst().getSkinType());
+        this.agF = BitmapHelper.getResBitmapPowerOf2Size(getContext(), r.f.cube_top);
+        this.agG = BitmapHelper.getResBitmapPowerOf2Size(getContext(), r.f.btn_frs_post_arrow);
+        this.agH = BitmapHelper.getResBitmapPowerOf2Size(getContext(), r.f.btn_frs_post_ok);
+        if (this.agF == null || this.agG == null || this.agH == null) {
+            com.baidu.tbadk.core.util.aj.uV().aE(false);
         }
-        this.ahj.a(this.ahm, this.ahm, this.ahn, this.ahm, this.ahm, this.ahm);
-        this.ahh = new com.baidu.tieba.b.d.a(getContext());
-        this.ahh.setEGLConfigChooser(this.ahi);
-        this.ahh.setRenderer(this.ahj);
+        this.agC.a(this.agF, this.agF, this.agG, this.agF, this.agF, this.agF);
+        this.agA = new com.baidu.tieba.b.d.a(getContext());
+        this.agA.setEGLConfigChooser(this.agB);
+        this.agA.setRenderer(this.agC);
         try {
-            this.ahh.setRenderMode(0);
+            this.agA.setRenderMode(0);
         } catch (Exception e) {
         }
-        this.ahl.addView(this.ahh);
-        this.ahj.Og();
-        wO();
-        return this.aha;
+        this.agE.addView(this.agA);
+        this.agC.Ns();
+        wz();
+        return this.agt;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void kl() {
-        if (vt()) {
-            this.ahh.setVisibility(0);
-            this.ahh.setRenderMode(1);
-        } else if (this.ahg != null && this.ahc != null) {
-            this.ahg.stop();
-            this.ahc.setBackgroundDrawable(this.ahg.getFrame(0));
+        if (vd()) {
+            this.agA.setVisibility(0);
+            this.agA.setRenderMode(1);
+        } else if (this.agz != null && this.agv != null) {
+            this.agz.stop();
+            this.agv.setBackgroundDrawable(this.agz.getFrame(0));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void R(boolean z) {
-        if (this.ahf != null) {
-            this.ahf.aM(z);
+        if (this.agy != null) {
+            this.agy.aN(z);
         }
-        wO();
-        this.ahp = true;
-        if (vt()) {
-            wP();
-            this.ahh.requestRender();
-            this.ahh.onResume();
-            this.ahh.setRenderMode(1);
+        wz();
+        this.agI = true;
+        if (vd()) {
+            wA();
+            this.agA.requestRender();
+            this.agA.onResume();
+            this.agA.setRenderMode(1);
             if (z) {
-                this.ahj.Oi();
+                this.agC.Nu();
             }
-            this.ahj.Og();
-            this.ahh.setVisibility(0);
-        } else if (this.ahg != null && this.ahc != null) {
-            this.ahg.stop();
-            this.ahc.setBackgroundDrawable(this.ahg.getFrame(0));
+            this.agC.Ns();
+            this.agA.setVisibility(0);
+        } else if (this.agz != null && this.agv != null) {
+            this.agz.stop();
+            this.agv.setBackgroundDrawable(this.agz.getFrame(0));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void km() {
-        wO();
-        if (vt()) {
-            if (!this.ahp) {
-                wP();
+        wz();
+        if (vd()) {
+            if (!this.agI) {
+                wA();
             }
-            this.ahh.requestRender();
-            this.ahh.onResume();
-            this.ahh.setVisibility(0);
-            this.ahh.setRenderMode(1);
-            this.ahj.Oh();
-            this.ahj.a(this.ahm, this.ahm, this.ahm, this.ahm, this.ahm, this.ahm);
-        } else if (this.ahg != null && this.ahc != null) {
-            this.ahg.stop();
-            this.ahc.setBackgroundDrawable(this.ahg);
-            this.ahc.post(new ab(this));
+            this.agA.requestRender();
+            this.agA.onResume();
+            this.agA.setVisibility(0);
+            this.agA.setRenderMode(1);
+            this.agC.Nt();
+            this.agC.a(this.agF, this.agF, this.agF, this.agF, this.agF, this.agF);
+        } else if (this.agz != null && this.agv != null) {
+            this.agz.stop();
+            this.agv.setBackgroundDrawable(this.agz);
+            this.agv.post(new ab(this));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void S(boolean z) {
-        this.ahp = false;
-        if (vt()) {
-            this.ahj.a(this.ahm, this.ahm, this.ahn, this.ahm, this.ahm, this.ahm);
-            if (this.ahh != null) {
-                this.ahh.setRenderMode(0);
-                this.ahh.onPause();
+        this.agI = false;
+        if (vd()) {
+            this.agC.a(this.agF, this.agF, this.agG, this.agF, this.agF, this.agF);
+            if (this.agA != null) {
+                this.agA.setRenderMode(0);
+                this.agA.onPause();
             }
-        } else if (this.ahg != null) {
-            this.ahg.stop();
+        } else if (this.agz != null) {
+            this.agz.stop();
         }
         release();
-        if (this.ahe != null) {
-            this.ahe.F(this.aha);
+        if (this.agx != null) {
+            this.agx.F(this.agt);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void T(boolean z) {
-        if (this.ahd != null) {
-            this.ahd.aL(z);
+        if (this.agw != null) {
+            this.agw.aM(z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void kn() {
-        if (vt()) {
-            this.ahj.a(this.ahm, this.ahm, this.aho, this.ahm, this.ahm, this.ahm);
-            this.ahj.Oi();
-            this.ahh.setRenderMode(1);
+        if (vd()) {
+            this.agC.a(this.agF, this.agF, this.agH, this.agF, this.agF, this.agF);
+            this.agC.Nu();
+            this.agA.setRenderMode(1);
         }
     }
 
     public void a(b bVar) {
-        this.ahd = bVar;
+        this.agw = bVar;
     }
 
     public void a(a aVar) {
-        this.ahe = aVar;
+        this.agx = aVar;
     }
 
     public void a(c cVar) {
-        this.ahf = cVar;
+        this.agy = cVar;
     }
 
-    public void di(int i) {
-        if (vt() && this.ahj != null) {
-            if (this.ahj.aiA != i) {
-                this.ahj.gd(at.getColor(r.d.cp_bg_line_c));
-                this.ahj.aiA = i;
+    public void dk(int i) {
+        if (vd() && this.agC != null) {
+            if (this.agC.aib != i) {
+                this.agC.gc(com.baidu.tbadk.core.util.ar.getColor(r.d.cp_bg_line_c));
+                this.agC.aib = i;
             }
-            at.l(this.aha, r.d.cp_bg_line_c);
-            at.l(this.ahk, r.d.cp_bg_line_c);
-            at.l(this.ahl, r.d.cp_bg_line_c);
+            com.baidu.tbadk.core.util.ar.l(this.agt, r.d.cp_bg_line_c);
+            com.baidu.tbadk.core.util.ar.l(this.agD, r.d.cp_bg_line_c);
+            com.baidu.tbadk.core.util.ar.l(this.agE, r.d.cp_bg_line_c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean vt() {
-        return com.baidu.tbadk.core.util.ak.vl().vt();
+    public boolean vd() {
+        return com.baidu.tbadk.core.util.aj.uV().vd();
     }
 
-    private void wO() {
-        if (vt()) {
-            if (this.ahc != null && this.ahk != null) {
-                if (this.ahc.getVisibility() != 8) {
-                    this.ahc.setVisibility(8);
+    private void wz() {
+        if (vd()) {
+            if (this.agv != null && this.agD != null) {
+                if (this.agv.getVisibility() != 8) {
+                    this.agv.setVisibility(8);
                 }
-                if (this.ahk.getVisibility() != 0) {
-                    this.ahk.setVisibility(0);
+                if (this.agD.getVisibility() != 0) {
+                    this.agD.setVisibility(0);
                 }
             }
-        } else if (this.ahc != null && this.ahk != null) {
-            if (this.ahc.getVisibility() != 0) {
-                this.ahc.setVisibility(0);
+        } else if (this.agv != null && this.agD != null) {
+            if (this.agv.getVisibility() != 0) {
+                this.agv.setVisibility(0);
             }
-            if (this.ahk.getVisibility() != 8) {
-                this.ahk.setVisibility(8);
+            if (this.agD.getVisibility() != 8) {
+                this.agD.setVisibility(8);
             }
         }
     }
 
-    private void wP() {
-        this.ahh = new com.baidu.tieba.b.d.a(getContext());
-        this.ahh.setVisibility(4);
-        this.ahh.setEGLConfigChooser(this.ahi);
-        this.ahj.a(this.ahm, this.ahm, this.ahn, this.ahm, this.ahm, this.ahm);
-        this.ahh.setRenderer(this.ahj);
-        this.ahl.removeAllViews();
-        this.ahl.addView(this.ahh);
+    private void wA() {
+        this.agA = new com.baidu.tieba.b.d.a(getContext());
+        this.agA.setVisibility(4);
+        this.agA.setEGLConfigChooser(this.agB);
+        this.agC.a(this.agF, this.agF, this.agG, this.agF, this.agF, this.agF);
+        this.agA.setRenderer(this.agC);
+        this.agE.removeAllViews();
+        this.agE.addView(this.agA);
     }
 
     private void release() {
-        if (vt()) {
-            if (this.ahg != null) {
-                this.ahg.stop();
-                this.ahg = null;
+        if (vd()) {
+            if (this.agz != null) {
+                this.agz.stop();
+                this.agz = null;
                 return;
             }
             return;
         }
-        if (this.ahm != null) {
-            this.ahm.recycle();
-            this.ahm = null;
+        if (this.agF != null) {
+            this.agF.recycle();
+            this.agF = null;
         }
-        if (this.ahn != null) {
-            this.ahn.recycle();
-            this.ahn = null;
+        if (this.agG != null) {
+            this.agG.recycle();
+            this.agG = null;
         }
-        if (this.aho != null) {
-            this.aho.recycle();
-            this.aho = null;
+        if (this.agH != null) {
+            this.agH.recycle();
+            this.agH = null;
         }
     }
 }

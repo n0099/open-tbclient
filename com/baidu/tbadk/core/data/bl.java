@@ -1,29 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import tbclient.PbContent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.Topic;
 /* loaded from: classes.dex */
-public class bl extends com.baidu.tbadk.widget.richText.h {
-    final /* synthetic */ bk Vv;
-    private final /* synthetic */ PbContent Vw;
+public class bl {
+    private int Vd = 0;
+    private int Ve = 0;
+    private String link = "";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bl(bk bkVar, int i, String str, PbContent pbContent) {
-        super(i, str);
-        this.Vv = bkVar;
-        this.Vw = pbContent;
+    public int sO() {
+        return this.Vd;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.Vw.link)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, this.Vw.link));
+    public int sP() {
+        return this.Ve;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Vd = jSONObject.optInt("is_lpost", 0);
+                this.Ve = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString("link", "");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.Vd = topic.is_lpost.intValue();
+            this.Ve = topic.topic_type.intValue();
+            this.link = topic.link;
         }
     }
 }

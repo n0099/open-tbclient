@@ -17,6 +17,7 @@ public class AntiData implements Serializable {
     private int hide_stat;
     private int ifpost;
     private int ifposta;
+    public BlockPopInfoData mFrsForbidenDialogInfo;
     private int need_vcode;
     private String poll_message;
     private String tbs;
@@ -179,6 +180,14 @@ public class AntiData implements Serializable {
             this.ifaddition = anti.ifaddition.intValue();
             this.poll_message = anti.poll_message;
             this.video_message = anti.video_message;
+            if (anti.block_pop_info != null) {
+                this.mFrsForbidenDialogInfo = new BlockPopInfoData();
+                this.mFrsForbidenDialogInfo.ahead_info = anti.block_pop_info.ahead_info;
+                this.mFrsForbidenDialogInfo.ahead_url = anti.block_pop_info.ahead_url;
+                this.mFrsForbidenDialogInfo.ok_info = anti.block_pop_info.ok_info;
+                this.mFrsForbidenDialogInfo.can_post = anti.block_pop_info.can_post;
+                this.mFrsForbidenDialogInfo.block_info = anti.block_pop_info.block_info;
+            }
         }
     }
 

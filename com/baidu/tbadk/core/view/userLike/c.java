@@ -7,72 +7,72 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
     private TbPageContext GO;
-    private a aip;
-    private b aiq;
-    private BdUniqueId ait;
-    private com.baidu.tbadk.c.a aiu;
-    private String ais = "0";
-    private CustomMessageListener aiv = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-    private com.baidu.tbadk.coreExtra.d.a air = new com.baidu.tbadk.coreExtra.d.a(null);
+    private a ahQ;
+    private b ahR;
+    private BdUniqueId ahU;
+    private com.baidu.tbadk.c.a ahV;
+    private String ahT = "0";
+    private CustomMessageListener ahW = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private com.baidu.tbadk.coreExtra.d.a ahS = new com.baidu.tbadk.coreExtra.d.a(null);
 
     public void setOnInterceptClickEventListener(com.baidu.tbadk.c.a aVar) {
-        this.aiu = aVar;
+        this.ahV = aVar;
     }
 
     public c(TbPageContext tbPageContext) {
         this.GO = tbPageContext;
-        tbPageContext.registerListener(this.aiv);
+        tbPageContext.registerListener(this.ahW);
     }
 
     public c(TbPageContext tbPageContext, b bVar) {
         this.GO = tbPageContext;
-        tbPageContext.registerListener(this.aiv);
+        tbPageContext.registerListener(this.ahW);
         a(bVar);
     }
 
     public void i(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.ait = bdUniqueId;
-            MessageManager.getInstance().unRegisterListener(this.aiv);
-            this.aiv.setTag(this.ait);
-            MessageManager.getInstance().registerListener(this.aiv);
+            this.ahU = bdUniqueId;
+            MessageManager.getInstance().unRegisterListener(this.ahW);
+            this.ahW.setTag(this.ahU);
+            MessageManager.getInstance().registerListener(this.ahW);
         }
     }
 
     public void a(b bVar) {
-        this.aiq = bVar;
-        if (this.aiq != null) {
-            this.aiq.g(this);
+        this.ahR = bVar;
+        if (this.ahR != null) {
+            this.ahR.g(this);
         }
     }
 
     public void a(a aVar) {
-        this.aip = aVar;
-        if (this.aiq != null && this.aip != null) {
-            this.aiq.aO(aVar.getIsLike());
-            this.aiq.mo12do(aVar.getFansNum());
+        this.ahQ = aVar;
+        if (this.ahR != null && this.ahQ != null) {
+            this.ahR.aP(aVar.getIsLike());
+            this.ahR.dq(aVar.getFansNum());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aiu == null || !this.aiu.w(view)) {
+        if (this.ahV == null || !this.ahV.w(view)) {
             if (!i.fZ()) {
                 this.GO.showToast(r.j.network_ungeilivable);
             }
-            if (this.aiq != null) {
-                this.aiq.G(view);
+            if (this.ahR != null) {
+                this.ahR.G(view);
             }
-            if (bk.ak(this.GO.getPageActivity()) && this.aip != null) {
-                if (this.ait == null) {
-                    this.air.a(this.aip.getIsLike() ? false : true, this.aip.getPortrait(), this.aip.getUserId(), this.aip.isGod(), this.GO.getUniqueId());
+            if (bh.ai(this.GO.getPageActivity()) && this.ahQ != null) {
+                if (this.ahU == null) {
+                    this.ahS.a(this.ahQ.getIsLike() ? false : true, this.ahQ.getPortrait(), this.ahQ.getUserId(), this.ahQ.isGod(), this.GO.getUniqueId());
                 } else {
-                    this.air.a(this.aip.getIsLike() ? false : true, this.aip.getPortrait(), this.aip.getUserId(), this.aip.isGod(), this.ait);
+                    this.ahS.a(this.ahQ.getIsLike() ? false : true, this.ahQ.getPortrait(), this.ahQ.getUserId(), this.ahQ.isGod(), this.ahU);
                 }
             }
         }

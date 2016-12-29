@@ -11,6 +11,7 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.tieba.im.settingcache.j;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ImMessageCenterModel extends ImBaseMessageCenterModel {
@@ -28,14 +29,14 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         return false;
     }
 
-    private void b(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    private void a(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         ImMessageCenterShowItemData buildNormalItem;
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData bj = com.baidu.tieba.im.settingcache.c.ayD().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (bj != null) {
-                buildNormalItem.setGroupSetting(bj);
+            GroupSettingItemData bf = com.baidu.tieba.im.settingcache.c.atc().bf(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (bf != null) {
+                buildNormalItem.setGroupSetting(bf);
             }
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName())) {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -48,16 +49,16 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         }
     }
 
-    private void a(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    private void b(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && imMessageCenterPojo.getIsFriend() != 0) {
             BdLog.i("send message status " + imMessageCenterPojo.getSend_status());
             ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
             if (buildNormalItem != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData bj = com.baidu.tieba.im.settingcache.j.ayG().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                if (bj != null) {
-                    buildNormalItem.setGroupSetting(bj);
+                PersonalSettingItemData bf = j.atf().bf(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                if (bf != null) {
+                    buildNormalItem.setGroupSetting(bf);
                 }
                 insertShowData(buildNormalItem, this.mList);
             }
@@ -81,7 +82,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(5));
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
-                buildNormalItem.setMsgContent(String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(r.j.official_msg_list_name, imMessageCenterPojo.getLast_user_name())) + ":" + buildNormalItem.getMsgContent());
+                buildNormalItem.setMsgContent(String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(r.j.chosen_pb_original_bar, imMessageCenterPojo.getLast_user_name())) + ":" + buildNormalItem.getMsgContent());
             }
             insertShowData(buildNormalItem, this.mList);
         }
@@ -130,7 +131,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         }
     }
 
-    private boolean w(ImMessageCenterPojo imMessageCenterPojo) {
+    private boolean p(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo == null) {
             return false;
         }
@@ -146,7 +147,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         return true;
     }
 
-    private boolean x(ImMessageCenterPojo imMessageCenterPojo) {
+    private boolean q(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo == null) {
             return false;
         }
@@ -188,10 +189,10 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
                 f(imMessageCenterPojo, imMessageCenterShowItemData);
                 return;
             case 1:
-                b(imMessageCenterPojo, imMessageCenterShowItemData);
+                a(imMessageCenterPojo, imMessageCenterShowItemData);
                 return;
             case 2:
-                a(imMessageCenterPojo, imMessageCenterShowItemData);
+                b(imMessageCenterPojo, imMessageCenterShowItemData);
                 return;
             case 4:
                 if (imMessageCenterPojo.getUserType() == 4) {
@@ -233,11 +234,11 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
-        return w(imMessageCenterPojo);
+        return p(imMessageCenterPojo);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
-        return x(imMessageCenterPojo);
+        return q(imMessageCenterPojo);
     }
 }

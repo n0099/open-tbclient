@@ -4,35 +4,26 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class by implements a.b {
-    private final /* synthetic */ String bXe;
-    private final /* synthetic */ String bYq;
-    final /* synthetic */ PbActivity evL;
-    private final /* synthetic */ long evY;
-    private final /* synthetic */ String evZ;
-    private final /* synthetic */ String ewa;
+    private final /* synthetic */ String bDo;
+    private final /* synthetic */ String bEe;
+    final /* synthetic */ PbActivity eah;
+    private final /* synthetic */ long eau;
+    private final /* synthetic */ String eav;
+    private final /* synthetic */ String eaw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public by(PbActivity pbActivity, long j, String str, String str2, String str3, String str4) {
-        this.evL = pbActivity;
-        this.evY = j;
-        this.evZ = str;
-        this.bXe = str2;
-        this.bYq = str3;
-        this.ewa = str4;
+        this.eah = pbActivity;
+        this.eau = j;
+        this.eav = str;
+        this.bDo = str2;
+        this.bEe = str3;
+        this.eaw = str4;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        dj djVar;
-        dj djVar2;
-        com.baidu.tieba.pb.b.a(this.evY, this.evZ, null, "PB", "BTN_FBOK", "CLICK_FEEDBACK", "tpoint", null, null, this.bXe, this.bYq, this.ewa);
+        com.baidu.tieba.pb.b.a(this.eau, this.eav, null, "PB", "BTN_FBCANCEL", "CLICK_FEEDBACK", "tpoint", null, null, this.bDo, this.bEe, this.eaw);
         aVar.dismiss();
-        if (this.evL.checkUpIsLogin()) {
-            djVar = this.evL.euf;
-            if (djVar.aQL() != null) {
-                djVar2 = this.evL.euf;
-                djVar2.aQL().cB(this.evY);
-            }
-        }
     }
 }

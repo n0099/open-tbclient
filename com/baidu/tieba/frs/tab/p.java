@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements AdapterView.OnItemClickListener {
-    final /* synthetic */ n chV;
+    final /* synthetic */ n bNE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.chV = nVar;
+        this.bNE = nVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,27 +25,27 @@ public class p implements AdapterView.OnItemClickListener {
         BaseAdapter baseAdapter2;
         j.b bVar2;
         j jVar2;
-        jVar = this.chV.chT;
+        jVar = this.bNE.bNC;
         if (jVar != null) {
-            jVar2 = this.chV.chT;
-            jVar2.agZ();
+            jVar2 = this.bNE.bNC;
+            jVar2.abu();
         }
-        baseAdapter = this.chV.chU;
+        baseAdapter = this.bNE.bND;
         if (baseAdapter != null) {
-            bVar = this.chV.chx;
+            bVar = this.bNE.bNg;
             if (bVar != null) {
-                list = this.chV.aUV;
+                list = this.bNE.aUm;
                 for (cx cxVar : list) {
                     if (cxVar != null) {
                         cxVar.isSelected = false;
                     }
                 }
-                baseAdapter2 = this.chV.chU;
+                baseAdapter2 = this.bNE.bND;
                 cx cxVar2 = (cx) baseAdapter2.getItem(i);
                 if (cxVar2 != null) {
                     cxVar2.isSelected = true;
-                    bVar2 = this.chV.chx;
-                    bVar2.iF(cxVar2.bVo);
+                    bVar2 = this.bNE.bNg;
+                    bVar2.hP(cxVar2.bBw);
                 }
             }
         }

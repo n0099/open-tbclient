@@ -4,11 +4,11 @@ import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tbadk.coreExtra.share.implementation.a;
 /* loaded from: classes.dex */
 class b implements a.InterfaceC0038a {
-    final /* synthetic */ a.c aog;
+    final /* synthetic */ a.c anI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a.c cVar) {
-        this.aog = cVar;
+        this.anI = cVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.implementation.a.InterfaceC0038a
@@ -17,8 +17,8 @@ class b implements a.InterfaceC0038a {
         f fVar;
         int i;
         aVar = a.this;
-        fVar = this.aog.aod;
-        i = this.aog.aoe;
+        fVar = this.anI.anF;
+        i = this.anI.anG;
         aVar.a(fVar, i, false);
     }
 }

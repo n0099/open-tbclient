@@ -6,14 +6,14 @@ import java.util.List;
 import tbclient.FrequentlyForumInfo;
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.mvc.b.a {
-    private String asY;
-    private String asZ;
-    private long ata;
-    private int atb;
-    private int atc;
-    private int atd;
-    private int ate;
-    private List<String> atf = new ArrayList();
+    private String asB;
+    private String asC;
+    private long asD;
+    private int asE;
+    private int asF;
+    private int asG;
+    private int asH;
+    private List<String> asI = new ArrayList();
     private long mForumId;
     private String mForumName;
 
@@ -29,59 +29,59 @@ public class e implements com.baidu.tbadk.mvc.b.a {
         return this.mForumName;
     }
 
-    public void ff(String str) {
+    public void fb(String str) {
         this.mForumName = str;
     }
 
-    public String Cc() {
-        return this.asY;
+    public String BP() {
+        return this.asB;
     }
 
-    public void fg(String str) {
-        this.asY = str;
+    public void fc(String str) {
+        this.asB = str;
     }
 
-    public String Cd() {
-        return this.asZ;
+    public String BQ() {
+        return this.asC;
     }
 
-    public int Ce() {
-        return this.atb;
-    }
-
-    public void ep(int i) {
-        this.atb = i;
+    public int BR() {
+        return this.asE;
     }
 
     public void eq(int i) {
-        this.ate = i;
+        this.asE = i;
+    }
+
+    public void er(int i) {
+        this.asH = i;
     }
 
     public boolean isSign() {
-        return this.ate == 1;
+        return this.asH == 1;
     }
 
-    public List<String> Cf() {
-        return this.atf;
+    public List<String> BS() {
+        return this.asI;
     }
 
     public void a(FrequentlyForumInfo frequentlyForumInfo) {
         if (frequentlyForumInfo != null) {
             try {
-                this.asY = frequentlyForumInfo.avatar;
+                this.asB = frequentlyForumInfo.avatar;
                 this.mForumId = frequentlyForumInfo.forum_id.longValue();
                 this.mForumName = frequentlyForumInfo.forum_name;
-                this.atc = frequentlyForumInfo.forum_state.intValue();
-                this.atd = frequentlyForumInfo.access_flag.intValue();
-                this.ata = frequentlyForumInfo.last_access_time.longValue();
-                this.atb = frequentlyForumInfo.level_id.intValue();
-                this.asZ = frequentlyForumInfo.new_thread_num;
-                this.ate = frequentlyForumInfo.is_sign.intValue();
+                this.asF = frequentlyForumInfo.forum_state.intValue();
+                this.asG = frequentlyForumInfo.access_flag.intValue();
+                this.asD = frequentlyForumInfo.last_access_time.longValue();
+                this.asE = frequentlyForumInfo.level_id.intValue();
+                this.asC = frequentlyForumInfo.new_thread_num;
+                this.asH = frequentlyForumInfo.is_sign.intValue();
                 if (frequentlyForumInfo.user_list != null && frequentlyForumInfo.user_list.size() > 0) {
                     int size = frequentlyForumInfo.user_list.size();
                     for (int i = 0; i < size; i++) {
                         if (frequentlyForumInfo.user_list.get(i) != null) {
-                            this.atf.add(frequentlyForumInfo.user_list.get(i).portrait);
+                            this.asI.add(frequentlyForumInfo.user_list.get(i).portrait);
                         }
                     }
                 }

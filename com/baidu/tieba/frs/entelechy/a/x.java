@@ -1,74 +1,39 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.bz;
-import com.baidu.tieba.frs.entelechy.view.ba;
-import com.baidu.tieba.frs.entelechy.view.s;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tieba.card.cb;
+import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends com.baidu.adp.widget.ListView.a<bk, a> implements ba, com.baidu.tieba.frs.h.e {
-    private TbPageContext<?> GO;
-    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> bXs;
-    private com.baidu.adp.lib.f.b<TbImageView> bXt;
-    private s bZK;
-    private bz<bk> bZL;
-    private String mForumName;
-
-    public x(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bZL = new y(this);
-        this.bXs = new com.baidu.adp.lib.f.b<>(new z(this), 6, 0);
-        this.bXt = new com.baidu.adp.lib.f.b<>(new aa(this), 12, 0);
-        this.GO = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: J */
-    public a a(ViewGroup viewGroup) {
-        this.bZK = new s(this.GO);
-        this.bZK.setConstrainLayoutPool(this.bXs);
-        this.bZK.setConstrainImagePool(this.bXt);
-        this.bZK.setForumName(this.mForumName);
-        this.bZK.j(this.GO.getUniqueId());
-        return new a(this.bZK);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bk bkVar, a aVar) {
-        aVar.bZN.j(bkVar);
-        aVar.bZN.setOnSubCardOnClickListenner(this.bZL);
-        com.baidu.tieba.frs.h.b.agV().a(chm, bkVar);
-        return aVar.getView();
-    }
-
-    public void setFromCDN(boolean z) {
-        if (this.bZK != null) {
-            this.bZK.setFromCDN(z);
-        }
-    }
+public class x extends cb<bg> {
+    final /* synthetic */ w bFv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class a extends y.a {
-        public s bZN;
-
-        public a(s sVar) {
-            super(sVar.getView());
-            this.bZN = sVar;
-        }
+    public x(w wVar) {
+        this.bFv = wVar;
     }
 
-    @Override // com.baidu.tieba.frs.entelechy.view.ba
-    public void setForumName(String str) {
-        this.mForumName = str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.cb
+    public void a(View view, bg bgVar) {
+        if (view != null && bgVar != null) {
+            if (view.getId() != r.g.frame_video) {
+                if (view.getId() != r.g.layout_root) {
+                    if (view.getId() != r.g.image_user && view.getId() != r.g.user_name && view.getId() != r.g.pendant_image_user) {
+                        if (view.getId() == r.g.card_divider_tv) {
+                            com.baidu.tieba.frs.utils.s.a(w.bMV, bgVar.sc());
+                            return;
+                        }
+                        return;
+                    }
+                    this.bFv.a(bgVar, "c10241");
+                    return;
+                }
+                this.bFv.a(bgVar, "c10242");
+                return;
+            }
+            this.bFv.a(bgVar, "c11718");
+        }
     }
 }

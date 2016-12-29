@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String aVx = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/bawu/appeal";
+    private static final String aUO = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/bawu/appeal";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,18 +25,18 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, AppealData> {
-        private String aVA;
-        private String aVB;
-        private WeakReference<b> aVC;
-        private String aVy;
-        private String aVz;
+        private String aUP;
+        private String aUQ;
+        private String aUR;
+        private String aUS;
+        private WeakReference<b> aUT;
 
         public a(String str, String str2, String str3, String str4, b bVar) {
-            this.aVy = str;
-            this.aVz = str2;
-            this.aVA = str3;
-            this.aVB = str4;
-            this.aVC = new WeakReference<>(bVar);
+            this.aUP = str;
+            this.aUQ = str2;
+            this.aUR = str3;
+            this.aUS = str4;
+            this.aUT = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -45,15 +45,15 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: r */
         public AppealData doInBackground(String... strArr) {
-            z zVar = new z(f.aVx);
-            zVar.n("forum_id", this.aVy);
-            zVar.n("user_id", this.aVz);
-            zVar.n("user_name", this.aVA);
-            zVar.n(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aVB);
-            String uy = zVar.uy();
-            if (zVar.uW().vS().oH()) {
+            z zVar = new z(f.aUO);
+            zVar.n("forum_id", this.aUP);
+            zVar.n("user_id", this.aUQ);
+            zVar.n("user_name", this.aUR);
+            zVar.n(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aUS);
+            String uk = zVar.uk();
+            if (zVar.uI().vC().oH()) {
                 try {
-                    return (AppealData) i.objectWithJsonStr(uy, AppealData.class);
+                    return (AppealData) i.objectWithJsonStr(uk, AppealData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     AppealData appealData = new AppealData();
@@ -62,7 +62,7 @@ public class f {
                 }
             }
             AppealData appealData2 = new AppealData();
-            appealData2.errNo = zVar.va();
+            appealData2.errNo = zVar.uM();
             appealData2.errMsg = zVar.getErrorString();
             return appealData2;
         }
@@ -73,9 +73,9 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(AppealData appealData) {
             super.onPostExecute(appealData);
-            b bVar = this.aVC.get();
+            b bVar = this.aUT.get();
             if (bVar != null) {
-                if (appealData.errNo == 0 && ax.isEmpty(appealData.errMsg)) {
+                if (appealData.errNo == 0 && av.isEmpty(appealData.errMsg)) {
                     bVar.a(appealData);
                 } else {
                     bVar.b(appealData);

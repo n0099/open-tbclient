@@ -1,28 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.pb.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fv implements View.OnClickListener {
-    final /* synthetic */ ey eCT;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.q eCY;
+public class fv implements a.InterfaceC0066a {
+    final /* synthetic */ er egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fv(ey eyVar, com.baidu.tieba.tbadkCore.data.q qVar) {
-        this.eCT = eyVar;
-        this.eCY = qVar;
+    public fv(er erVar) {
+        this.egZ = erVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10630").ab("obj_id", this.eCY.getAuthor().getUserId()));
-        pbActivity = this.eCT.eug;
-        if (pbActivity.euQ.eDj != null) {
-            pbActivity2 = this.eCT.eug;
-            pbActivity2.euQ.eDj.onClick(view);
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
+    public void XP() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        bdTypeListView = this.egZ.aMc;
+        if (bdTypeListView != null) {
+            bdTypeListView2 = this.egZ.aMc;
+            bdTypeListView2.setSelection(0);
         }
+    }
+
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
+    public void XO() {
+        PbActivity pbActivity;
+        pbActivity = this.egZ.dYB;
+        pbActivity.WE();
     }
 }

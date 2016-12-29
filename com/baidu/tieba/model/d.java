@@ -6,15 +6,15 @@ import com.baidu.tieba.model.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.InterfaceC0033a {
-    final /* synthetic */ b.a eea;
+    final /* synthetic */ b.a dIG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b.a aVar) {
-        this.eea = aVar;
+        this.dIG = aVar;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
-    public void cg(String str) {
+    public void ch(String str) {
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a

@@ -5,30 +5,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class x extends RelativeLayout {
-    private TextView WJ;
-    private TextView cJi;
+    private TextView Wd;
+    private TextView coD;
     private View mRootView;
 
     public x(Context context) {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(r.h.tab_item_view, this);
-        this.WJ = (TextView) this.mRootView.findViewById(r.g.tab_item_textview);
-        this.cJi = (TextView) this.mRootView.findViewById(r.g.tab_item_red_tip);
+        this.Wd = (TextView) this.mRootView.findViewById(r.g.tab_item_textview);
+        this.coD = (TextView) this.mRootView.findViewById(r.g.tab_item_red_tip);
     }
 
     public TextView getTextView() {
-        return this.WJ;
+        return this.Wd;
     }
 
     public TextView getRedTipView() {
-        return this.cJi;
+        return this.coD;
     }
 
-    public void tB() {
-        at.k(this.cJi, r.f.icon_news_down_bar_one);
+    public void tm() {
+        ar.k(this.coD, r.f.icon_news_down_bar_one);
     }
 }

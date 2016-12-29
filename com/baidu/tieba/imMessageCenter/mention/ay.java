@@ -1,28 +1,42 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 /* loaded from: classes.dex */
-public class ay extends al implements com.baidu.tbadk.mvc.b.c {
-    @Override // com.baidu.tbadk.mvc.b.b
-    public boolean z(byte[] bArr) {
-        try {
-            a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+public class ay extends com.baidu.tbadk.mvc.model.d<az, ba, ReplyMessageActivity> {
+    public ay(TbPageContext<ReplyMessageActivity> tbPageContext, az azVar) {
+        super(tbPageContext, azVar);
     }
 
-    @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] EM() {
-        return null;
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcProtobufHttpResponsedMessage> ma() {
+        return ReplyMeHttpResponseMessage.class;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "replyme_cache";
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcSocketResponsedMessage> lZ() {
+        return ReplyMeSocketResponseMessage.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int lW() {
+        return CmdConfigHttp.REPLYME_HTTP_CMD;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected String lX() {
+        return "c/u/feed/replyme";
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<ba> getResponseDataClass() {
+        return ba.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int lY() {
+        return 303007;
     }
 }

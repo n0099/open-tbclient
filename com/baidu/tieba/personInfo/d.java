@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ PersonInfoDelegateStatic ePq;
+    final /* synthetic */ PersonInfoDelegateStatic esM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PersonInfoDelegateStatic personInfoDelegateStatic, int i) {
         super(i);
-        this.ePq = personInfoDelegateStatic;
+        this.esM = personInfoDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,14 +23,14 @@ class d extends CustomMessageListener {
         Boolean bool;
         Boolean bool2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            this.ePq.ePo = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).azO);
-            imageView = this.ePq.dWb;
-            bool = this.ePq.ePo;
+            this.esM.esK = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).azl);
+            imageView = this.esM.dAE;
+            bool = this.esM.esK;
             imageView.setVisibility(bool.booleanValue() ? 0 : 8);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            bool2 = this.ePq.ePo;
+            bool2 = this.esM.esK;
             if (!bool2.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                com.baidu.tbadk.core.sharedPref.b.um().putBoolean("member_close_ad_mine_clicked", true);
+                com.baidu.tbadk.core.sharedPref.b.tW().putBoolean("member_close_ad_mine_clicked", true);
             }
         }
     }

@@ -1,40 +1,69 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.cu;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class cv extends HttpMessageListener {
-    final /* synthetic */ cu ewH;
+public class cv {
+    private TbPageContext GO;
+    private RelativeLayout dKv;
+    private com.baidu.tbadk.editortools.e.p ebd;
+    private com.baidu.tieba.pb.pb.main.view.c ebe;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cv(cu cuVar, int i) {
-        super(i);
-        this.ewH = cuVar;
+    public cv(TbPageContext tbPageContext, com.baidu.tieba.pb.pb.main.view.c cVar, RelativeLayout relativeLayout) {
+        this.GO = tbPageContext;
+        this.dKv = relativeLayout;
+        this.ebe = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        cu.a aVar;
-        cu.a aVar2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-            if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.ewH.evG;
-                aVar.h(-1, null, null);
-                return;
-            }
-            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-            String tid = applyCopyThreadResponseMessage.getTid();
-            if (errorCode == 0) {
-                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-            }
-            aVar2 = this.ewH.evG;
-            aVar2.h(errorCode, errorMessage, tid);
+    public void aJT() {
+        if (this.ebd != null) {
+            this.ebd.DA();
+        }
+    }
+
+    private void aJU() {
+        if (this.dKv != null && this.ebd == null) {
+            this.ebd = (com.baidu.tbadk.editortools.e.p) new com.baidu.tbadk.editortools.e.t().al(this.GO.getPageActivity());
+            this.ebd.a(this.GO);
+            this.ebd.b(this.ebe);
+            this.ebd.CB().bC(true);
+            this.ebd.f(this.GO);
+            aJV();
+        }
+    }
+
+    public void bL(String str, String str2) {
+        aJU();
+        this.ebd.setReplyId(str);
+        this.ebd.fP(str2);
+    }
+
+    private void aJV() {
+        if (this.dKv != null && this.ebd != null && this.ebd.CB() != null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.addRule(12);
+            this.dKv.addView(this.ebd.CB(), layoutParams);
+            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (this.ebd != null) {
+            this.ebd.onActivityResult(i, i2, intent);
+        }
+    }
+
+    public void onStop() {
+        if (this.ebd != null) {
+            this.ebd.onStop();
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.ebd != null && this.ebd.CB() != null) {
+            this.ebd.CB().onChangeSkinType(i);
         }
     }
 }

@@ -7,15 +7,15 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.b;
 /* loaded from: classes.dex */
 class s implements b.d {
-    final /* synthetic */ NewSubPbActivity eEs;
+    final /* synthetic */ NewSubPbActivity eis;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.eEs = newSubPbActivity;
+        this.eis = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.s sVar, WriteData writeData, AntiData antiData) {
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.q qVar, WriteData writeData, AntiData antiData) {
         ao aoVar;
         com.baidu.tbadk.editortools.e.p pVar;
         com.baidu.tbadk.editortools.e.p pVar2;
@@ -23,22 +23,22 @@ class s implements b.d {
         bc bcVar;
         bc bcVar2;
         if (z) {
-            pVar = this.eEs.dAe;
+            pVar = this.eis.ddg;
             if (pVar != null) {
-                pVar2 = this.eEs.dAe;
-                if (pVar2.CO() != null) {
-                    pVar3 = this.eEs.dAe;
-                    pVar3.CO().hide();
-                    bcVar = this.eEs.eEb;
-                    if (bcVar.aTH()) {
-                        com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10367");
-                        bcVar2 = this.eEs.eEb;
-                        TiebaStatic.log(avVar.ab("post_id", bcVar2.Do()));
+                pVar2 = this.eis.ddg;
+                if (pVar2.CB() != null) {
+                    pVar3 = this.eis.ddg;
+                    pVar3.CB().hide();
+                    bcVar = this.eis.eib;
+                    if (bcVar.aNy()) {
+                        com.baidu.tbadk.core.util.at atVar = new com.baidu.tbadk.core.util.at("c10367");
+                        bcVar2 = this.eis.eib;
+                        TiebaStatic.log(atVar.ab("post_id", bcVar2.CX()));
                     }
                 }
             }
         }
-        aoVar = this.eEs.eEd;
-        aoVar.aTo();
+        aoVar = this.eis.eid;
+        aoVar.aNf();
     }
 }

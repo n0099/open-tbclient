@@ -1,24 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.a.j;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
-class q implements j.a {
-    final /* synthetic */ PbActivity evL;
+class q extends CustomMessageListener {
+    final /* synthetic */ PbActivity eah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(PbActivity pbActivity) {
-        this.evL = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q(PbActivity pbActivity, int i) {
+        super(i);
+        this.eah = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.a.j.a
-    public void dx(boolean z) {
-        ey eyVar;
-        ey eyVar2;
-        this.evL.iv(z);
-        eyVar = this.evL.euP;
-        if (eyVar.aSx() != null && z) {
-            eyVar2 = this.evL.euP;
-            eyVar2.iT(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof UpdateAttentionMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
+                if (!updateAttentionMessage.getData().vS) {
+                    if (updateAttentionMessage.getData().errorString != null) {
+                        this.eah.showToast(updateAttentionMessage.getData().errorString);
+                        return;
+                    }
+                    return;
+                }
+                this.eah.b(updateAttentionMessage);
+                this.eah.a(updateAttentionMessage);
+                this.eah.c(updateAttentionMessage);
+            }
         }
     }
 }

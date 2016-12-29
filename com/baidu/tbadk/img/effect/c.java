@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c azs = new c();
-    private final HashMap<String, Class<? extends b>> azt = new HashMap<>();
+    private static c ayP = new c();
+    private final HashMap<String, Class<? extends b>> ayQ = new HashMap<>();
 
-    public static c Ew() {
-        return azs;
+    public static c Ee() {
+        return ayP;
     }
 
     private c() {
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap gc = dVar != null ? dVar.gc(str) : null;
+        Bitmap fY = dVar != null ? dVar.fY(str) : null;
         if (list == null) {
-            return gc;
+            return fY;
         }
         while (true) {
-            Bitmap bitmap = gc;
+            Bitmap bitmap = fY;
             if (i2 < list.size()) {
                 b a = a(list.get(i2));
                 if (a == null) {
-                    gc = bitmap;
+                    fY = bitmap;
                 } else if (bitmap == null) {
-                    gc = a.gc(str);
+                    fY = a.fY(str);
                 } else {
-                    gc = a.b(bitmap, true);
+                    fY = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -123,7 +123,7 @@ public class c {
 
     protected b a(ImageOperation imageOperation) {
         b s;
-        Class<? extends b> cls = this.azt.get(imageOperation.actionName);
+        Class<? extends b> cls = this.ayQ.get(imageOperation.actionName);
         if (cls != null && (s = s(cls)) != null) {
             s.setParams(imageOperation.actionParam);
             return s;
@@ -134,7 +134,7 @@ public class c {
     private void r(Class<? extends b> cls) {
         b s = s(cls);
         if (s != null) {
-            this.azt.put(s.getActionName(), cls);
+            this.ayQ.put(s.getActionName(), cls);
         }
     }
 

@@ -7,11 +7,11 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e CJ;
+    final /* synthetic */ e CK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.CJ = eVar;
+        this.CK = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -31,44 +31,44 @@ public class f implements Runnable {
         int i2;
         int i3;
         int i4;
-        weakReference = this.CJ.CH;
+        weakReference = this.CK.CI;
         if (weakReference != null) {
-            weakReference2 = this.CJ.CH;
+            weakReference2 = this.CK.CI;
             View view = (View) weakReference2.get();
             if (view == null) {
-                this.CJ.CD = true;
+                this.CK.CE = true;
             } else {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
                 int i5 = layoutParams.topMargin;
-                i2 = this.CJ.Cn;
+                i2 = this.CK.Co;
                 layoutParams.topMargin = i5 - ((int) (i2 * 1.5f));
                 int i6 = layoutParams.topMargin;
-                i3 = this.CJ.CC;
+                i3 = this.CK.CD;
                 if (i6 <= i3) {
-                    i4 = this.CJ.CC;
+                    i4 = this.CK.CD;
                     layoutParams.topMargin = i4;
-                    this.CJ.CD = true;
+                    this.CK.CE = true;
                 }
                 view.setLayoutParams(layoutParams);
             }
-            z = this.CJ.CD;
+            z = this.CK.CE;
             if (z) {
-                gVar = this.CJ.Cp;
+                gVar = this.CK.Cq;
                 if (gVar != null) {
-                    gVar2 = this.CJ.Cp;
+                    gVar2 = this.CK.Cq;
                     gVar2.kB();
                 }
-                handler3 = this.CJ.handler;
-                runnable3 = this.CJ.CI;
+                handler3 = this.CK.handler;
+                runnable3 = this.CK.CJ;
                 handler3.removeCallbacks(runnable3);
                 return;
             }
-            handler = this.CJ.handler;
-            runnable = this.CJ.CI;
+            handler = this.CK.handler;
+            runnable = this.CK.CJ;
             handler.removeCallbacks(runnable);
-            handler2 = this.CJ.handler;
-            runnable2 = this.CJ.CI;
-            i = this.CJ.CB;
+            handler2 = this.CK.handler;
+            runnable2 = this.CK.CJ;
+            i = this.CK.CC;
             handler2.postDelayed(runnable2, i);
         }
     }

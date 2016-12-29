@@ -13,20 +13,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class f {
-    public static void T(Context context, String str) {
-        if (!StringUtils.isNull(str)) {
-            Toast makeText = Toast.makeText(context, str, 0);
-            if (makeText.getView() != null) {
-                View findViewById = makeText.getView().findViewById(16908299);
-                if (findViewById instanceof TextView) {
-                    ((TextView) findViewById).setGravity(17);
-                }
-                makeText.show();
-            }
-        }
-    }
-
-    public static void g(Context context, View view) {
+    public static void f(Context context, View view) {
         Toast toast = new Toast(context);
         toast.setView(view);
         toast.setGravity(17, 0, 0);
@@ -44,12 +31,12 @@ public class f {
             str = context.getString(r.j.send_success);
         }
         textView.setText(str);
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+        if (str2 != null || str3 != null) {
             findViewById.setVisibility(0);
             textView2.setText(str2);
             textView3.setText(str3);
         }
-        g(context, inflate);
+        f(context, inflate);
     }
 
     public static void a(z zVar, WriteData writeData) {
@@ -60,10 +47,10 @@ public class f {
                 zVar.n("lat", String.valueOf(B.getLatitude()));
                 zVar.n("lng", String.valueOf(B.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bmL().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bgE().getLocationData();
             if (locationData != null) {
-                zVar.n("name", locationData.getFormatted_address());
-                zVar.n("sn", locationData.getSn());
+                zVar.n("name", locationData.bgA());
+                zVar.n("sn", locationData.bgC());
             }
         }
     }

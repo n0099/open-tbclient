@@ -1,30 +1,17 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ar implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId bTr = BdUniqueId.gen();
-    private int height = 0;
-    private int bTs = 0;
-
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bTr;
+class ar extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ar(int i) {
+        super(i);
     }
 
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public int getBgResId() {
-        return this.bTs;
-    }
-
-    public void hU(int i) {
-        this.bTs = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.frs.acrossForum.a.Yl().onDestory();
     }
 }

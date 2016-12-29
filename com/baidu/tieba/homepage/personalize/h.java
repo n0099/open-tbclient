@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.view.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements z.b {
-    final /* synthetic */ a cKG;
+    final /* synthetic */ a cqb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.cKG = aVar;
+        this.cqb = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.z.b
-    public void aL(boolean z) {
+    public void aM(boolean z) {
         n nVar;
-        nVar = this.cKG.cKz;
+        nVar = this.cqb.cpU;
         nVar.update();
     }
 }

@@ -26,9 +26,9 @@ public class aa {
     }
 
     public static void a(com.baidu.tbadk.data.l lVar, BdUniqueId bdUniqueId) {
-        if (lVar != null && !StringUtils.isNull(lVar.Cp()) && com.baidu.tbadk.core.util.x.t(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (lVar != null && !StringUtils.isNull(lVar.Cc()) && com.baidu.tbadk.core.util.x.t(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", lVar.Cp());
+            httpMessage.addParam("pic_url", lVar.Cc());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -36,13 +36,13 @@ public class aa {
 
     public static void a(com.baidu.tbadk.data.l lVar, List<com.baidu.adp.widget.ListView.v> list) {
         com.baidu.tbadk.data.l lVar2;
-        if (lVar != null && !com.baidu.tbadk.core.util.x.t(list) && !StringUtils.isNull(lVar.Cp())) {
+        if (lVar != null && !com.baidu.tbadk.core.util.x.t(list) && !StringUtils.isNull(lVar.Cc())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.v vVar = list.get(i);
-                if ((vVar instanceof com.baidu.tbadk.data.l) && (lVar2 = (com.baidu.tbadk.data.l) vVar) != lVar && !lVar2.Cq()) {
-                    jSONArray.put(lVar2.Cp());
+                if ((vVar instanceof com.baidu.tbadk.data.l) && (lVar2 = (com.baidu.tbadk.data.l) vVar) != lVar && !lVar2.Cd()) {
+                    jSONArray.put(lVar2.Cc());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -56,7 +56,7 @@ public class aa {
         }
     }
 
-    public static void h(String str, List<com.baidu.adp.widget.ListView.v> list) {
+    public static void g(String str, List<com.baidu.adp.widget.ListView.v> list) {
         if (!StringUtils.isNull(str)) {
             if (list == null) {
                 list = new ArrayList<>();
@@ -67,8 +67,8 @@ public class aa {
                 com.baidu.adp.widget.ListView.v vVar = list.get(i);
                 if (vVar instanceof com.baidu.tbadk.data.l) {
                     com.baidu.tbadk.data.l lVar = (com.baidu.tbadk.data.l) vVar;
-                    if (!lVar.Cq()) {
-                        jSONArray.put(lVar.Cp());
+                    if (!lVar.Cd()) {
+                        jSONArray.put(lVar.Cc());
                     }
                 }
             }

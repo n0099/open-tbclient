@@ -8,7 +8,7 @@ import com.baidu.adp.lib.h.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean Xi = false;
+    private static boolean WC = false;
     private static Handler hj = new a();
 
     static {
@@ -24,7 +24,7 @@ public class ImagesInvalidServiceStatic {
         i.d(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void aA(boolean z) {
-        Xi = z;
+    public static void aB(boolean z) {
+        WC = z;
     }
 }

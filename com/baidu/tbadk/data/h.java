@@ -1,19 +1,18 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import org.json.JSONObject;
 import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class h {
-    private int OH;
-    private int att;
+    private int OD;
+    private int asW;
     private String expire_remind;
     private String url;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.att = jSONObject.optInt("props_id");
-            this.OH = jSONObject.optInt(ThActivityDetailActivityConfig.END_TIME, 0);
+            this.asW = jSONObject.optInt("props_id");
+            this.OD = jSONObject.optInt("end_time", 0);
             this.url = jSONObject.optString(this.url, "");
             this.expire_remind = jSONObject.optString("expire_remind");
         }
@@ -22,33 +21,33 @@ public class h {
     public void a(PayMemberInfo payMemberInfo) {
         if (payMemberInfo != null) {
             if (payMemberInfo.props_id != null) {
-                this.att = payMemberInfo.props_id.intValue();
+                this.asW = payMemberInfo.props_id.intValue();
             }
             if (payMemberInfo.end_time != null) {
-                this.OH = payMemberInfo.end_time.intValue();
+                this.OD = payMemberInfo.end_time.intValue();
             }
             this.url = payMemberInfo.url;
             this.expire_remind = payMemberInfo.expire_remind;
         }
     }
 
-    public int Ch() {
-        return this.att;
+    public int BU() {
+        return this.asW;
     }
 
     public int pc() {
-        return this.OH;
+        return this.OD;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public String Ci() {
+    public String BV() {
         return this.expire_remind;
     }
 
-    public void fh(String str) {
+    public void fd(String str) {
         this.expire_remind = str;
     }
 }

@@ -5,59 +5,59 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter aRS;
-    private View bLp;
-    private TextView bLq;
-    private TextView bLr;
-    private TextView bLs;
-    private ImageView bLt;
-    private View bLu;
-    private TextView bLv;
-    private TextView bLw;
-    private TextView bLx;
-    private ImageView bLy;
+public class o extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
+    private ViewEventCenter aRj;
+    private TextView brA;
+    private TextView brB;
+    private ImageView brC;
+    private View brt;
+    private TextView bru;
+    private TextView brv;
+    private TextView brw;
+    private ImageView brx;
+    private View bry;
+    private TextView brz;
 
     public o(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aRS = viewEventCenter;
-        this.bLp = view.findViewById(r.g.left_container);
-        this.bLq = (TextView) this.bLp.findViewById(r.g.sign);
-        this.bLr = (TextView) this.bLp.findViewById(r.g.name);
-        this.bLs = (TextView) this.bLp.findViewById(r.g.grade);
-        this.bLt = (ImageView) this.bLp.findViewById(r.g.add);
-        this.bLu = view.findViewById(r.g.right_container);
-        this.bLv = (TextView) this.bLu.findViewById(r.g.sign);
-        this.bLw = (TextView) this.bLu.findViewById(r.g.name);
-        this.bLx = (TextView) this.bLu.findViewById(r.g.grade);
-        this.bLy = (ImageView) this.bLu.findViewById(r.g.add);
+        this.aRj = viewEventCenter;
+        this.brt = view.findViewById(r.g.left_container);
+        this.bru = (TextView) this.brt.findViewById(r.g.sign);
+        this.brv = (TextView) this.brt.findViewById(r.g.name);
+        this.brw = (TextView) this.brt.findViewById(r.g.grade);
+        this.brx = (ImageView) this.brt.findViewById(r.g.add);
+        this.bry = view.findViewById(r.g.right_container);
+        this.brz = (TextView) this.bry.findViewById(r.g.sign);
+        this.brA = (TextView) this.bry.findViewById(r.g.name);
+        this.brB = (TextView) this.bry.findViewById(r.g.grade);
+        this.brC = (ImageView) this.bry.findViewById(r.g.add);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.g.e
+    @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
     public void E(com.baidu.tieba.enterForum.b.a aVar) {
         super.E(aVar);
         if (aVar != null) {
-            a(aVar.Yt(), true);
-            a(aVar.Yu(), false);
-            b(aVar.Yt(), true);
-            b(aVar.Yu(), false);
+            a(aVar.SE(), true);
+            a(aVar.SF(), false);
+            b(aVar.SE(), true);
+            b(aVar.SF(), false);
         }
     }
 
-    private void a(com.baidu.tieba.tbadkCore.w wVar, boolean z) {
-        if (wVar != null) {
-            View view = z ? this.bLp : this.bLu;
-            TextView textView = z ? this.bLq : this.bLv;
-            TextView textView2 = z ? this.bLr : this.bLw;
-            TextView textView3 = z ? this.bLs : this.bLx;
-            ImageView imageView = z ? this.bLt : this.bLy;
-            switch (wVar.getType()) {
+    private void a(com.baidu.tieba.tbadkCore.v vVar, boolean z) {
+        if (vVar != null) {
+            View view = z ? this.brt : this.bry;
+            TextView textView = z ? this.bru : this.brz;
+            TextView textView2 = z ? this.brv : this.brA;
+            TextView textView3 = z ? this.brw : this.brB;
+            ImageView imageView = z ? this.brx : this.brC;
+            switch (vVar.getType()) {
                 case 1:
                     view.setVisibility(0);
                     imageView.setVisibility(0);
@@ -72,44 +72,44 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
                     view.setVisibility(0);
                     imageView.setVisibility(8);
                     textView2.setVisibility(0);
-                    textView2.setText(wVar.getName());
-                    if (wVar.blt() == 0) {
+                    textView2.setText(vVar.getName());
+                    if (vVar.bfi() == 0) {
                         textView.setVisibility(8);
                     } else {
                         textView.setVisibility(0);
                     }
-                    if (wVar.getLevel() == 0) {
+                    if (vVar.getLevel() == 0) {
                         textView3.setVisibility(4);
                         return;
                     }
                     textView3.setVisibility(0);
-                    at.k(textView3, BitmapHelper.getGradeResourceIdNew(wVar.getLevel()));
+                    ar.k(textView3, BitmapHelper.getGradeResourceIdNew(vVar.getLevel()));
                     return;
             }
         }
     }
 
-    private void b(com.baidu.tieba.tbadkCore.w wVar, boolean z) {
+    private void b(com.baidu.tieba.tbadkCore.v vVar, boolean z) {
         View view;
         if (z) {
-            view = this.bLp;
+            view = this.brt;
         } else {
-            view = this.bLu;
+            view = this.bry;
         }
-        view.setOnClickListener(new p(this, wVar));
-        view.setOnLongClickListener(new q(this, wVar));
+        view.setOnClickListener(new p(this, vVar));
+        view.setOnLongClickListener(new q(this, vVar));
     }
 
-    @Override // com.baidu.tieba.tbadkCore.s
+    @Override // com.baidu.tieba.tbadkCore.r
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-        this.bLp.setBackgroundDrawable(at.getDrawable(r.f.home_like_item_bg));
-        this.bLu.setBackgroundDrawable(at.getDrawable(r.f.home_like_item_bg));
-        if (getData() != null && getData().Yt() != null) {
-            at.k(this.bLs, BitmapHelper.getGradeResourceIdNew(getData().Yt().getLevel()));
+        this.brt.setBackgroundDrawable(ar.getDrawable(r.f.home_like_item_bg));
+        this.bry.setBackgroundDrawable(ar.getDrawable(r.f.home_like_item_bg));
+        if (getData() != null && getData().SE() != null) {
+            ar.k(this.brw, BitmapHelper.getGradeResourceIdNew(getData().SE().getLevel()));
         }
-        if (getData() != null && getData().Yu() != null) {
-            at.k(this.bLx, BitmapHelper.getGradeResourceIdNew(getData().Yu().getLevel()));
+        if (getData() != null && getData().SF() != null) {
+            ar.k(this.brB, BitmapHelper.getGradeResourceIdNew(getData().SF().getLevel()));
             return true;
         }
         return true;

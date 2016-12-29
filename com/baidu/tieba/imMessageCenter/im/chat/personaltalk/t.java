@@ -9,13 +9,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ r dvf;
+    final /* synthetic */ r daf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(r rVar, int i) {
         super(i);
-        this.dvf = rVar;
+        this.daf = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,30 +32,30 @@ public class t extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.dvf.dvd;
+                personalTalkSettingActivity = this.daf.dad;
                 if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.dvf.dvd;
+                    personalTalkSettingActivity2 = this.daf.dad;
                     personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.dvf.alx = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.dvf.dvd;
+            this.daf.akY = updateAttentionMessage.isAttention();
+            personalTalkSettingActivity3 = this.daf.dad;
             if (personalTalkSettingActivity3 != null) {
-                z = this.dvf.alx;
+                z = this.daf.akY;
                 if (z) {
-                    personalTalkSettingActivity5 = this.dvf.dvd;
+                    personalTalkSettingActivity5 = this.daf.dad;
                     personalTalkSettingActivity5.showToast(r.j.add_succ);
                 } else {
-                    personalTalkSettingActivity4 = this.dvf.dvd;
+                    personalTalkSettingActivity4 = this.daf.dad;
                     personalTalkSettingActivity4.showToast(r.j.remove_succ);
                 }
             }
-            aVar = this.dvf.dve;
+            aVar = this.daf.dae;
             if (aVar != null) {
-                aVar2 = this.dvf.dve;
-                aVar2.ww();
+                aVar2 = this.daf.dae;
+                aVar2.wg();
             }
         }
     }

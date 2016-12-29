@@ -3,11 +3,10 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a agY;
+    private a agr;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,44 +22,44 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        wM();
+        wx();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        initialize();
+        ww();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initialize();
+        ww();
     }
 
-    private void initialize() {
+    private void ww() {
         setOnClickListener(new y(this));
-        wM();
+        wx();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.agY = aVar;
+        this.agr = aVar;
     }
 
-    public void wM() {
-        if (wN()) {
-            at.c(this, r.f.icon_set_list_ok_s);
+    public void wx() {
+        if (wy()) {
+            com.baidu.tbadk.core.util.ar.c(this, r.f.icon_set_list_ok_s);
             setContentDescription(getResources().getString(r.j.check_box_checked));
             return;
         }
-        at.c(this, r.f.icon_set_list_ok_n);
+        com.baidu.tbadk.core.util.ar.c(this, r.f.icon_set_list_ok_n);
         setContentDescription(getResources().getString(r.j.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return wN();
+        return wy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wN() {
+    public boolean wy() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -73,9 +72,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        wM();
-        if (this.agY != null) {
-            this.agY.a(this, z, getTag());
+        wx();
+        if (this.agr != null) {
+            this.agr.a(this, z, getTag());
         }
     }
 }

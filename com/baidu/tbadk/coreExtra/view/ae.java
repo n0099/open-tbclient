@@ -2,17 +2,17 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.widget.TextView;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.download.d {
-    final /* synthetic */ u arI;
+    final /* synthetic */ u arl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(u uVar) {
-        this.arI = uVar;
+        this.arl = uVar;
     }
 
     @Override // com.baidu.tbadk.download.d
@@ -28,23 +28,23 @@ public class ae implements com.baidu.tbadk.download.d {
         ImageUrlData imageUrlData4;
         ImageUrlData imageUrlData5;
         if (downloadData != null) {
-            imageUrlData = this.arI.arA;
+            imageUrlData = this.arl.ard;
             if (imageUrlData != null) {
-                imageUrlData4 = this.arI.arA;
+                imageUrlData4 = this.arl.ard;
                 if (imageUrlData4.originalProcess != -1) {
-                    imageUrlData5 = this.arI.arA;
+                    imageUrlData5 = this.arl.ard;
                     imageUrlData5.originalProcess = downloadData.getProcess();
                 }
             }
-            imageUrlData2 = this.arI.arA;
+            imageUrlData2 = this.arl.ard;
             if (imageUrlData2 != null) {
-                imageUrlData3 = this.arI.arA;
+                imageUrlData3 = this.arl.ard;
                 if (imageUrlData3.originalProcess == -1) {
                     return;
                 }
             }
-            this.arI.ars.setText(String.valueOf(downloadData.getProcess()) + "%");
-            this.arI.ars.setCompoundDrawablesWithIntrinsicBounds(0, 0, r.f.icon_close_yuantu, 0);
+            this.arl.aqV.setText(String.valueOf(downloadData.getProcess()) + "%");
+            this.arl.aqV.setCompoundDrawablesWithIntrinsicBounds(0, 0, r.f.icon_close_yuantu, 0);
         }
     }
 
@@ -57,17 +57,17 @@ public class ae implements com.baidu.tbadk.download.d {
     public void d(DownloadData downloadData) {
         Runnable runnable;
         boolean bs;
-        this.arI.ars.setText(this.arI.getResources().getString(r.j.done));
-        this.arI.ars.setClickable(false);
-        this.arI.ars.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        this.arl.aqV.setText(this.arl.getResources().getString(r.j.done));
+        this.arl.aqV.setClickable(false);
+        this.arl.aqV.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.arI.arG;
+        runnable = this.arl.arj;
         eG.postDelayed(runnable, 1500L);
-        this.arI.arC = false;
-        u uVar = this.arI;
-        bs = this.arI.bs(false);
-        uVar.arB = bs;
-        this.arI.Bt();
+        this.arl.arf = false;
+        u uVar = this.arl;
+        bs = this.arl.bs(false);
+        uVar.are = bs;
+        this.arl.Bg();
     }
 
     @Override // com.baidu.tbadk.download.d
@@ -77,22 +77,22 @@ public class ae implements com.baidu.tbadk.download.d {
         String str2;
         String str3;
         ImageUrlData imageUrlData3;
-        this.arI.arC = false;
-        BdToast.a(this.arI.mContext, str).tw().ty();
-        imageUrlData = this.arI.arA;
+        this.arl.arf = false;
+        BdToast.a(this.arl.mContext, str).th().tj();
+        imageUrlData = this.arl.ard;
         imageUrlData.originalProcess = -1;
-        imageUrlData2 = this.arI.arA;
+        imageUrlData2 = this.arl.ard;
         if (imageUrlData2.originalSize > 0) {
-            TextView textView = this.arI.ars;
-            str3 = u.arq;
+            TextView textView = this.arl.aqV;
+            str3 = u.aqT;
             StringBuilder append = new StringBuilder(String.valueOf(str3)).append("(");
-            imageUrlData3 = this.arI.arA;
-            textView.setText(append.append(ax.H(imageUrlData3.originalSize)).append(")").toString());
+            imageUrlData3 = this.arl.ard;
+            textView.setText(append.append(av.G(imageUrlData3.originalSize)).append(")").toString());
         } else {
-            TextView textView2 = this.arI.ars;
-            str2 = u.arq;
+            TextView textView2 = this.arl.aqV;
+            str2 = u.aqT;
             textView2.setText(str2);
         }
-        this.arI.ars.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        this.arl.aqV.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }
 }

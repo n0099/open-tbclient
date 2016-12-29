@@ -13,50 +13,50 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c {
-    private static final int bWD = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds160);
-    private String aRN;
-    private AcrossForumViewData aVF;
-    private FrsActivity bTA;
-    private GifView bWE;
-    private String bWG;
-    private boolean bWF = true;
-    private Runnable bWH = new d(this);
+    private static final int bCN = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds160);
+    private String aRe;
+    private AcrossForumViewData aUW;
+    private GifView bCO;
+    private String bCQ;
+    private FrsActivity bzH;
+    private boolean bCP = true;
+    private Runnable bCR = new d(this);
     private View.OnClickListener mOnClickListener = new f(this);
-    private CustomMessageListener bWI = new g(this, CmdConfigCustom.CMD_FRS_EXIT_STICKY_MODE);
+    private CustomMessageListener bCS = new g(this, CmdConfigCustom.CMD_FRS_EXIT_STICKY_MODE);
 
     public c(FrsActivity frsActivity, AcrossForumViewData acrossForumViewData) {
-        this.bTA = frsActivity;
-        this.aVF = acrossForumViewData;
+        this.bzH = frsActivity;
+        this.aUW = acrossForumViewData;
     }
 
-    public void aaf() {
-        if (this.bTA.abZ() != null && this.bTA.acr() != null) {
-            if (this.aVF == null && this.bTA.acr().aOk() != null && this.bTA.acr().aOk().mAcrossForumIcon != null && !StringUtils.isNull(this.bTA.acr().aOk().mAcrossForumIcon.icon_url)) {
+    public void Us() {
+        if (this.bzH.Wo() != null && this.bzH.WF() != null) {
+            if (this.aUW == null && this.bzH.WF().aIk() != null && this.bzH.WF().aIk().mAcrossForumIcon != null && !StringUtils.isNull(this.bzH.WF().aIk().mAcrossForumIcon.icon_url)) {
                 init();
             } else {
-                this.bTA.abZ().acL();
+                this.bzH.Wo().WY();
             }
         }
     }
 
     private void init() {
-        if (this.bWE == null && this.bTA.abZ().adf() != null) {
-            this.bWG = this.bTA.acr().aOk().getName();
-            this.aRN = this.bTA.acr().aOk().getId();
-            String str = this.bTA.acr().aOk().mAcrossForumIcon.icon_url;
-            com.baidu.adp.lib.g.c.eA().a(str, 20, new h(this, str), 0, 0, this.bTA.getUniqueId(), "", str, true, str);
-            this.bTA.registerListener(this.bWI);
+        if (this.bCO == null && this.bzH.Wo().Xv() != null) {
+            this.bCQ = this.bzH.WF().aIk().getName();
+            this.aRe = this.bzH.WF().aIk().getId();
+            String str = this.bzH.WF().aIk().mAcrossForumIcon.icon_url;
+            com.baidu.adp.lib.g.c.eA().a(str, 20, new h(this, str), 0, 0, this.bzH.getUniqueId(), "", str, true, str);
+            this.bzH.registerListener(this.bCS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adS() {
-        if (this.bWE != null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bWE, View.TRANSLATION_X, bWD, 0.0f);
+    public void Ym() {
+        if (this.bCO != null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bCO, View.TRANSLATION_X, bCN, 0.0f);
             ofFloat.addListener(new i(this));
             ofFloat.setDuration(500L).start();
-            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bWH);
-            com.baidu.adp.lib.h.h.eG().postDelayed(this.bWH, TbConfig.NOTIFY_SOUND_INTERVAL);
+            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bCR);
+            com.baidu.adp.lib.h.h.eG().postDelayed(this.bCR, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 }

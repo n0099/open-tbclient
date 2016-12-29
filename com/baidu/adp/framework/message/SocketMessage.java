@@ -69,7 +69,7 @@ public class SocketMessage extends Message<byte[]> {
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.K(i);
+        return FrameHelper.L(i);
     }
 
     public String getEncodeName() {

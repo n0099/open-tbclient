@@ -1,17 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.pb.main.view.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fz implements a.b {
-    final /* synthetic */ ey eCT;
+public class fz implements c.a {
+    final /* synthetic */ er egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fz(ey eyVar) {
-        this.eCT = eyVar;
+    public fz(er erVar) {
+        this.egZ = erVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // com.baidu.tieba.pb.pb.main.view.c.a
+    public void i(com.baidu.tieba.tbadkCore.data.q qVar) {
+        com.baidu.tieba.pb.pb.main.view.c cVar;
+        cj cjVar;
+        cv cvVar;
+        cVar = this.egZ.ebe;
+        cVar.j(qVar);
+        cjVar = this.egZ.efp;
+        cjVar.notifyDataSetChanged();
+        cvVar = this.egZ.egt;
+        cvVar.aJT();
     }
 }

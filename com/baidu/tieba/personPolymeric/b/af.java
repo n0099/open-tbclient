@@ -13,59 +13,59 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.g {
     private TbPageContext Gf;
-    private ViewGroup Wh;
-    private BaseActivity aTb;
-    private CustomMessageListener bqQ = new ag(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-    private com.baidu.tbadk.coreExtra.d.a bzm;
-    private com.baidu.tieba.personPolymeric.d.ad eQu;
-    public com.baidu.tieba.e.c eQv;
+    private ViewGroup VB;
+    private BaseActivity aSs;
+    private CustomMessageListener bIg = new ag(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private com.baidu.tbadk.coreExtra.d.a dJo;
+    private com.baidu.tieba.personPolymeric.d.ad etT;
+    public com.baidu.tieba.e.c etU;
     private boolean mIsLiked;
     private View.OnClickListener mOnClickListener;
     private UserData mUserData;
 
     public af(BaseActivity baseActivity, ViewGroup viewGroup, UserData userData) {
-        this.aTb = baseActivity;
+        this.aSs = baseActivity;
         this.Gf = baseActivity.getPageContext();
-        this.Wh = viewGroup;
+        this.VB = viewGroup;
         this.mUserData = userData;
         this.mIsLiked = userData.getHave_attention() == 1;
-        this.bzm = new com.baidu.tbadk.coreExtra.d.a(this);
-        alA();
-        VV();
-        if (this.Wh != null && this.eQu != null) {
-            this.eQv = new com.baidu.tieba.e.c(this.Gf.getPageActivity(), this.eQu, null);
+        this.dJo = new com.baidu.tbadk.coreExtra.d.a(this);
+        aga();
+        Tc();
+        if (this.VB != null && this.etT != null) {
+            this.etU = new com.baidu.tieba.e.c(this.Gf.getPageActivity(), this.etT, null);
         }
     }
 
-    private void alA() {
+    private void aga() {
         this.mOnClickListener = new ah(this);
-        this.eQu = new com.baidu.tieba.personPolymeric.d.ad(this.Gf.getPageActivity(), this.mIsLiked, this.mOnClickListener);
+        this.etT = new com.baidu.tieba.personPolymeric.d.ad(this.Gf.getPageActivity(), this.mIsLiked, this.mOnClickListener);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.e(this.Gf.getPageActivity(), r.e.ds110));
-        this.eQu.setLayoutParams(layoutParams);
+        this.etT.setLayoutParams(layoutParams);
         layoutParams.addRule(12);
-        this.eQu.setAlpha(0.9f);
-        this.eQu.setOrientation(0);
-        this.Wh.addView(this.eQu);
+        this.etT.setAlpha(0.9f);
+        this.etT.setOrientation(0);
+        this.VB.addView(this.etT);
     }
 
     public void onChangeSkinType(int i) {
-        this.eQu.onChangeSkinType(i);
+        this.etT.onChangeSkinType(i);
     }
 
-    private void VV() {
-        this.Gf.registerListener(this.bqQ);
+    private void Tc() {
+        this.Gf.registerListener(this.bIg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKh() {
+    public void aEi() {
         if (this.mUserData != null && this.mUserData.getUserId() != null && this.mUserData.getUserName() != null && !this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             try {
-                TiebaStatic.log(new av("c11593"));
+                TiebaStatic.log(new at("c11593"));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.Gf.getPageActivity(), Long.parseLong(this.mUserData.getUserId()), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getIsFriend())));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -85,12 +85,12 @@ public class af extends com.baidu.adp.base.g {
     public void setData(UserData userData) {
         this.mUserData = userData;
         this.mIsLiked = userData.getHave_attention() == 1;
-        this.eQu.setData(this.mIsLiked);
+        this.etT.setData(this.mIsLiked);
     }
 
     public void onDestroy() {
-        if (this.eQv != null) {
-            this.eQv.aac();
+        if (this.etU != null) {
+            this.etU.Up();
         }
     }
 }

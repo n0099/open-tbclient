@@ -9,27 +9,27 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ c cme;
+    final /* synthetic */ c bRo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.cme = cVar;
+        this.bRo = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c tC() {
+    public com.baidu.tbadk.core.flow.a.c tn() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-        cVar.cs(r.f.icon_dot_personal_s);
-        cVar.ct(r.f.icon_dot_personal_n);
+        cVar.cu(r.f.icon_dot_personal_s);
+        cVar.cv(r.f.icon_dot_personal_n);
         cVar.setSpacing(r.e.ds10);
         cVar.setGravity(85);
-        cVar.cv(r.e.ds20);
-        cVar.cu(r.e.ds16);
+        cVar.cx(r.e.ds20);
+        cVar.cw(r.e.ds16);
         return cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView S(Context context) {
+    public TbImageView Q(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         tbImageView.setGifIconSupport(false);
@@ -37,14 +37,14 @@ public class k implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e tD() {
+    public com.baidu.tbadk.core.flow.a.e to() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
         eVar.setHeight(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View tE() {
-        return this.cme.clc;
+    public View tp() {
+        return this.bRo.bQn;
     }
 }

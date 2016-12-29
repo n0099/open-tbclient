@@ -3,10 +3,12 @@ package com.baidu.tieba.tbadkCore.writeModel;
 import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class e {
-    final AntiData antiData;
     private String colorMsg;
+    final AntiData deh;
     final int errorCode;
     private String errorString;
+    private String fjR;
+    private String fjS;
     private int isCopyTWZhibo;
     private String preMsg;
     private String threadId = null;
@@ -15,18 +17,18 @@ public class e {
     public e(int i, String str, AntiData antiData) {
         this.errorCode = i;
         this.errorString = str;
-        this.antiData = antiData;
+        this.deh = antiData;
     }
 
     public boolean hasError() {
         return this.errorCode != 0;
     }
 
-    public boolean bns() {
+    public boolean bhm() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bnt() {
+    public boolean bhn() {
         return this.errorCode == 227001;
     }
 
@@ -42,8 +44,8 @@ public class e {
         this.errorString = str;
     }
 
-    public AntiData getAntiData() {
-        return this.antiData;
+    public AntiData avW() {
+        return this.deh;
     }
 
     public String getPreMsg() {
@@ -84,5 +86,21 @@ public class e {
 
     public int getIsCopyTWZhibo() {
         return this.isCopyTWZhibo;
+    }
+
+    public String bho() {
+        return this.fjR;
+    }
+
+    public void qA(String str) {
+        this.fjR = str;
+    }
+
+    public String bhp() {
+        return this.fjS;
+    }
+
+    public void qB(String str) {
+        this.fjS = str;
     }
 }

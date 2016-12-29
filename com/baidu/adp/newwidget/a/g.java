@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
 /* loaded from: classes.dex */
 public class g extends l {
-    private Rect kG;
+    private Rect kF;
     private Path vE;
     private final Paint vF = new Paint();
     private final Paint vG = new Paint();
@@ -30,12 +30,12 @@ public class g extends l {
             if (this.vE == null || this.vs != this.uW.vs) {
                 z = true;
             }
-            if (this.kG == null || !this.kG.contains(rect)) {
+            if (this.kF == null || !this.kF.contains(rect)) {
                 z = true;
             }
             this.vs = this.uW.vs;
             if (z) {
-                this.kG = rect;
+                this.kF = rect;
                 this.vE = new Path();
                 if (this.vs) {
                     this.vE.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);

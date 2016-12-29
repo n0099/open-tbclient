@@ -1,17 +1,23 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import android.view.View;
 /* loaded from: classes.dex */
-class az implements FrsCommonImageLayout.b {
-    final /* synthetic */ aw bdG;
+class az implements View.OnClickListener {
+    final /* synthetic */ ay bcY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(aw awVar) {
-        this.bdG = awVar;
+    public az(ay ayVar) {
+        this.bcY = ayVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.b
-    public void dn(int i) {
-        this.bdG.Ph();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.card.data.m mVar;
+        if (this.bcY.getOnSubCardOnClickListenner() != null) {
+            cb<com.baidu.tieba.card.data.m> onSubCardOnClickListenner = this.bcY.getOnSubCardOnClickListenner();
+            mVar = this.bcY.bcN;
+            onSubCardOnClickListenner.a(view, mVar);
+        }
+        this.bcY.OD();
     }
 }

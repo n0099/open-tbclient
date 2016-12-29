@@ -1,28 +1,45 @@
 package com.baidu.tieba.pb.data;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.core.data.DealInfoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import tbclient.Lottery.DrawInfo;
 /* loaded from: classes.dex */
 public class b {
-    public BdTypeListView aML;
-    public View aRx;
-    public int aiA;
-    public PbActivity erE;
-    public DealInfoData erF;
-    public View erI;
-    public View erJ;
-    public int id;
+    private long PW;
+    private int dWp;
+    private String dWq;
+    private String dWr;
+    private String mLink;
 
-    public b(int i) {
-        this.id = i;
+    private b(DrawInfo drawInfo) {
+        if (drawInfo != null) {
+            this.dWp = drawInfo.draw_res_type.intValue();
+            this.mLink = drawInfo.link;
+            this.dWr = drawInfo.award_des;
+            this.dWq = drawInfo.award_imgsrc;
+            this.PW = drawInfo.award_id.longValue();
+        }
     }
 
-    public void aNX() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.ECOMM_PB_VIEW, this));
+    public int aIc() {
+        return this.dWp;
+    }
+
+    public String getLink() {
+        return this.mLink;
+    }
+
+    public String aId() {
+        return this.dWq;
+    }
+
+    public String aIe() {
+        return this.dWr;
+    }
+
+    public long po() {
+        return this.PW;
+    }
+
+    public static b a(DrawInfo drawInfo) {
+        return new b(drawInfo);
     }
 }

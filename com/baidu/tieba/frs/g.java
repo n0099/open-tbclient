@@ -1,38 +1,39 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
-class g implements View.OnTouchListener {
-    final /* synthetic */ FrsActivity bTa;
+public class g implements cb {
+    public static final AtomicReference<cb> bxP = new AtomicReference<>(null);
+    private static final cb bxQ = new g();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(FrsActivity frsActivity) {
-        this.bTa = frsActivity;
+    private g() {
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        ch chVar;
-        com.baidu.tieba.frs.j.ai aiVar;
-        com.baidu.tieba.frs.j.ai aiVar2;
-        ch chVar2;
-        ch chVar3;
-        chVar = this.bTa.bSs;
-        if (chVar != null) {
-            chVar2 = this.bTa.bSs;
-            if (chVar2.adH() != null) {
-                chVar3 = this.bTa.bSs;
-                chVar3.adH().onTouchEvent(motionEvent);
-            }
-        }
-        aiVar = this.bTa.bSA;
-        if (aiVar != null) {
-            aiVar2 = this.bTa.bSA;
-            if (aiVar2.b(motionEvent, view)) {
-                return true;
-            }
-        }
-        return false;
+    public static cb VZ() {
+        cb cbVar = bxP.get();
+        return cbVar == null ? bxQ : cbVar;
+    }
+
+    @Override // com.baidu.tieba.frs.cb
+    public au<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
+    }
+
+    @Override // com.baidu.tieba.frs.cb
+    public com.baidu.adp.widget.ListView.a<? extends com.baidu.tbadk.core.data.bg, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
+    }
+
+    @Override // com.baidu.tieba.frs.cb
+    public com.baidu.adp.widget.ListView.a<? extends com.baidu.tbadk.core.data.bg, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
     }
 }

@@ -3,34 +3,35 @@ package com.baidu.tieba.im.db;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class l extends a {
-    public static String dgf = "tb_private_msg_";
-    private static a dgu;
+    public static String cLa = "tb_private_msg_";
+    private static a cLp;
 
     private l() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized l auQ() {
+    public static synchronized l app() {
         l lVar;
         synchronized (l.class) {
-            if (dgu == null) {
-                dgu = new l();
+            if (cLp == null) {
+                cLp = new l();
             }
-            lVar = (l) dgu;
+            lVar = (l) cLp;
         }
         return lVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [81=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0162 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0164 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0166 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0161 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0163 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0165 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x001b */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v1, types: [java.lang.String] */
@@ -42,15 +43,15 @@ public class l extends a {
     /* JADX WARN: Type inference failed for: r2v5, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v9 */
-    public CommonMsgPojo af(String str, int i) {
+    public CommonMsgPojo ad(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? valueOf = String.valueOf(dgf);
+            ?? valueOf = String.valueOf(cLa);
             try {
                 try {
-                    cursor = g.auF().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = g.ape().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -58,7 +59,7 @@ public class l extends a {
                             valueOf = cursor;
                         } else {
                             commonMsgPojo2.setGid(str);
-                            commonMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex("uid")));
+                            commonMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex(SapiAccountManager.SESSION_UID)));
                             commonMsgPojo2.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
                             commonMsgPojo2.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
                             commonMsgPojo2.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
@@ -80,7 +81,7 @@ public class l extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        lO(str);
+                        kr(str);
                         com.baidu.adp.lib.util.o.a(cursor);
                         valueOf = cursor;
                         return commonMsgPojo;

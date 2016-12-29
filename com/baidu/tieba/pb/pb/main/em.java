@@ -1,37 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.ResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class em extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ el eAd;
-
+class em extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public em(el elVar, int i, int i2) {
-        super(i, i2);
-        this.eAd = elVar;
+    public em(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        boolean z;
-        BdUniqueId bdUniqueId;
-        if ((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) {
-            z = this.eAd.eAb;
-            if (!z) {
-                BdUniqueId tag = responsedMessage.getOrginalMessage().getTag();
-                bdUniqueId = this.eAd.mTag;
-                if (tag == bdUniqueId && !responsedMessage.hasError()) {
-                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                        this.eAd.a((pbPageSocketResponseMessage) responsedMessage);
-                    }
-                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
-                        this.eAd.a((pbPageHttpResponseMessage) responsedMessage);
-                    }
-                }
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ej.aLu().a(1, customResponsedMessage);
     }
 }

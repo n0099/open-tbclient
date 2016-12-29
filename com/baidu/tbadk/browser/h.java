@@ -19,14 +19,14 @@ public class h extends com.baidu.tbadk.core.c.p {
         return "TBHY_COMMON_Utils";
     }
 
-    @com.baidu.tbadk.core.c.q(tZ = false, value = "showToast")
+    @com.baidu.tbadk.core.c.q(tK = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).ty();
+            BdToast.a(getContext(), jSONObject.optString("message")).tj();
         }
     }
 
-    @com.baidu.tbadk.core.c.q(tZ = false, value = "showNetStatus")
+    @com.baidu.tbadk.core.c.q(tK = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -52,13 +52,13 @@ public class h extends com.baidu.tbadk.core.c.p {
         return jSONObject;
     }
 
-    @com.baidu.tbadk.core.c.q(tZ = false, value = "showDeviceInfo")
+    @com.baidu.tbadk.core.c.q(tK = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.m9getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(String.valueOf(com.baidu.adp.lib.util.k.K(getContext()))) + "," + String.valueOf(com.baidu.adp.lib.util.k.L(getContext()));
+        String str3 = String.valueOf(String.valueOf(com.baidu.adp.lib.util.k.I(getContext()))) + "," + String.valueOf(com.baidu.adp.lib.util.k.J(getContext()));
         String versionName = TbadkCoreApplication.m9getInst().getVersionName();
         try {
             jSONObject.put("systemName", SocialConstants.ANDROID_CLIENT_TYPE);

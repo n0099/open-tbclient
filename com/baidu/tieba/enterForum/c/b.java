@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    public static <T> void d(List<T> list, int i, int i2) {
+    public static <T> void c(List<T> list, int i, int i2) {
         if (list != null && i != i2 && i >= 0 && i < list.size() && i2 >= 0 && i2 < list.size()) {
             if (i < i2) {
                 while (i < i2) {

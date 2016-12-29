@@ -1,40 +1,43 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.aq;
-import com.baidu.tieba.frs.bi;
-import com.baidu.tieba.frs.entelechy.view.bb;
-import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends aq<bi, bb> {
-    private TbPageContext<?> GO;
+public class q implements com.baidu.adp.lib.f.c<com.baidu.tbadk.widget.layout.c> {
+    final /* synthetic */ o bFo;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public q(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.GO = baseActivity.getPageContext();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(o oVar) {
+        this.bFo = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: G */
-    public bb a(ViewGroup viewGroup) {
-        return new bb(LayoutInflater.from(this.mContext).inflate(r.h.frs_read_progress_item, viewGroup, false), this.GO.getPageActivity());
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: Za */
+    public com.baidu.tbadk.widget.layout.c ez() {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bFo.GO;
+        return new com.baidu.tbadk.widget.layout.c(tbPageContext.getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.aq, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bi biVar, bb bbVar) {
-        if (biVar != null && bbVar != null) {
-            bbVar.a(biVar);
-        }
-        return view;
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public void o(com.baidu.tbadk.widget.layout.c cVar) {
+        cVar.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: d */
+    public com.baidu.tbadk.widget.layout.c p(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: e */
+    public com.baidu.tbadk.widget.layout.c q(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
     }
 }

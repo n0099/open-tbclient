@@ -1,23 +1,49 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements a.b {
-    final /* synthetic */ g fGJ;
+public class i extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.fGJ = gVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        String string = com.baidu.tbadk.core.sharedPref.b.um().getString("across_forum_theme_id", "");
-        if (!StringUtils.isNull(string)) {
-            TbadkCoreApplication.m9getInst().setUsedTheme(com.baidu.adp.lib.h.b.g(string, 0), 0);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ad adVar;
+        ad adVar2;
+        ad adVar3;
+        ad adVar4;
+        ad adVar5;
+        ad adVar6;
+        ad adVar7;
+        if (customResponsedMessage.getData() instanceof Integer) {
+            Integer num = (Integer) customResponsedMessage.getData();
+            if (num.intValue() == 2) {
+                adVar6 = this.this$0.fkF;
+                adVar6.ld(true);
+                adVar7 = this.this$0.fkF;
+                adVar7.hy(true);
+            } else if (num.intValue() == 1) {
+                adVar3 = this.this$0.fkF;
+                adVar3.ld(true);
+                adVar4 = this.this$0.fkF;
+                adVar4.hy(false);
+            } else {
+                adVar = this.this$0.fkF;
+                adVar.ld(false);
+                adVar2 = this.this$0.fkF;
+                adVar2.hy(false);
+            }
+            adVar5 = this.this$0.fkF;
+            adVar5.bhU();
         }
-        aVar.dismiss();
     }
 }

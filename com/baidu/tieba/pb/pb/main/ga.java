@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
 /* loaded from: classes.dex */
-class ga implements a.b {
-    final /* synthetic */ ey eCT;
+class ga implements View.OnLongClickListener {
+    final /* synthetic */ er egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ga(ey eyVar) {
-        this.eCT = eyVar;
+    public ga(er erVar) {
+        this.egZ = erVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        return false;
     }
 }

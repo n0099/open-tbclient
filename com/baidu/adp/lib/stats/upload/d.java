@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccountManager;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -30,7 +31,7 @@ class d {
         if (TextUtils.isEmpty(fVar.mUid)) {
             fVar.mUid = "0";
         }
-        a(hashMap, "uid", fVar.mUid);
+        a(hashMap, SapiAccountManager.SESSION_UID, fVar.mUid);
         a(hashMap, "un", fVar.pX);
         a(hashMap, "BDUSS", fVar.pY);
         if (z) {
@@ -90,7 +91,7 @@ class d {
             sb.append(URLEncoder.encode(fVar.pW, "utf-8"));
             if (!TextUtils.isEmpty(fVar.mUid)) {
                 sb.append("&");
-                sb.append("uid");
+                sb.append(SapiAccountManager.SESSION_UID);
                 sb.append("=");
                 sb.append(URLEncoder.encode(fVar.mUid, "utf-8"));
             }
@@ -143,54 +144,13 @@ class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x00b4  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x00d4  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private static String a(boolean z, f fVar) {
-        String str;
-        String[] split;
         if (fVar == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("_client_type=2");
-        String str2 = fVar.mAppVersion;
-        if (!TextUtils.isEmpty(str2)) {
-            if (str2.split("\\.").length == 4) {
-                str = String.valueOf(split[0]) + "." + split[1] + "." + split[2];
-                try {
-                    StringBuilder append = sb.append("&").append("new_four_version").append("=");
-                    if (z) {
-                        str2 = URLEncoder.encode(str2, "utf-8");
-                    }
-                    append.append(str2);
-                } catch (UnsupportedEncodingException e) {
-                    BdLog.e(e);
-                }
-                a(sb, "_client_version", str, z);
-                a(sb, "_phone_imei", fVar.pU, z);
-                a(sb, "_client_id", fVar.mClientId, z);
-                a(sb, "subapp_type", fVar.pV, z);
-                a(sb, "os_version", fVar.qa, z);
-                a(sb, "from", fVar.pS, z);
-                a(sb, "cfrom", fVar.pT, z);
-                a(sb, "net_type", fVar.pZ, z);
-                a(sb, SocialConstants.PARAM_CUID, fVar.mCuid, z);
-                a(sb, "model", fVar.pW, z);
-                if (!TextUtils.isEmpty(fVar.mUid)) {
-                    a(sb, "uid", "0", z);
-                } else {
-                    a(sb, "uid", fVar.mUid, z);
-                }
-                a(sb, "un", fVar.pX, z);
-                a(sb, "BDUSS", fVar.pY, z);
-                return sb.toString();
-            }
-        }
-        str = str2;
-        a(sb, "_client_version", str, z);
+        a(sb, "_client_version", fVar.mAppVersion, z);
         a(sb, "_phone_imei", fVar.pU, z);
         a(sb, "_client_id", fVar.mClientId, z);
         a(sb, "subapp_type", fVar.pV, z);
@@ -200,7 +160,10 @@ class d {
         a(sb, "net_type", fVar.pZ, z);
         a(sb, SocialConstants.PARAM_CUID, fVar.mCuid, z);
         a(sb, "model", fVar.pW, z);
-        if (!TextUtils.isEmpty(fVar.mUid)) {
+        if (TextUtils.isEmpty(fVar.mUid)) {
+            a(sb, SapiAccountManager.SESSION_UID, "0", z);
+        } else {
+            a(sb, SapiAccountManager.SESSION_UID, fVar.mUid, z);
         }
         a(sb, "un", fVar.pX, z);
         a(sb, "BDUSS", fVar.pY, z);

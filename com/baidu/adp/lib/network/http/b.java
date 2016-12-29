@@ -202,7 +202,7 @@ public class b {
             }
             eVar.oo = -8;
             this.gW.eq().e(this.nR);
-            if (c.contains("c.tieba.baidu.com") && (map = this.gW.eq().oG) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null) {
+            if (c.contains("c.tieba.baidu.com") && (map = this.gW.eq().oG) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                 eVar.ot = list.get(0);
                 eVar.ou = list.get(1);
             }
@@ -353,7 +353,7 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [685=6, 686=6, 687=6, 688=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [684=6, 685=6, 686=6, 687=6] */
     public boolean a(String str, i iVar, int i, int i2, boolean z, e eVar, boolean z2) throws Exception {
         InputStream inputStream;
         String headerField;

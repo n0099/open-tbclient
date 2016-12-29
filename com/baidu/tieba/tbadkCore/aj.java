@@ -1,43 +1,42 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.text.TextUtils;
-import com.baidu.tieba.r;
-import java.io.File;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bm;
 /* loaded from: classes.dex */
-public class aj {
-    public static final void R(Context context, String str) {
-        if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.k.showToast(context, r.j.pb_app_error);
-            return;
-        }
-        File cY = com.baidu.tbadk.core.util.m.cY(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cY != null) {
-            Intent intent = new Intent();
-            intent.addFlags(268435456);
-            intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cY), "application/vnd.android.package-archive");
-            context.startActivity(intent);
-        }
+public class aj extends bg {
+    public static final BdUniqueId ffv = BdUniqueId.gen();
+    private bj ffw;
+    private bm ffx;
+    private boolean ffy = false;
+
+    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return ffv;
     }
 
-    public static boolean isInstalledPackage(Context context, String str) {
-        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
+    public boolean bfo() {
+        return this.ffy;
     }
 
-    public static boolean w(Activity activity) {
-        if (Build.VERSION.SDK_INT < 23) {
-            return true;
-        }
-        boolean ae = com.baidu.tbadk.core.util.ae.ae(activity);
-        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
-            return false;
-        }
-        return ae;
+    public void kU(boolean z) {
+        this.ffy = z;
+    }
+
+    public bj bfp() {
+        return this.ffw;
+    }
+
+    public void a(bj bjVar) {
+        this.ffw = bjVar;
+    }
+
+    public bm bfq() {
+        return this.ffx;
+    }
+
+    public void a(bm bmVar) {
+        this.ffx = bmVar;
     }
 }

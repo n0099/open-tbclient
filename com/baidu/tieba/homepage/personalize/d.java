@@ -10,44 +10,44 @@ import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements n.a {
-    final /* synthetic */ a cKG;
+    final /* synthetic */ a cqb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.cKG = aVar;
+        this.cqb = aVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.n.a
-    public void aA(int i, int i2) {
+    public void av(int i, int i2) {
         com.baidu.tieba.homepage.framework.c cVar;
-        boolean aos;
+        boolean aiS;
         TagInfo tagInfo;
         com.baidu.tieba.homepage.framework.c cVar2;
         TagInfo tagInfo2;
         com.baidu.tieba.homepage.framework.c cVar3;
         TagInfo tagInfo3;
-        cVar = this.cKG.cKy;
+        cVar = this.cqb.cpT;
         if (cVar == null) {
-            this.cKG.showNetRefreshView(this.cKG, TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
-            this.cKG.JO();
+            this.cqb.showNetRefreshView(this.cqb, TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+            this.cqb.Jj();
             return;
         }
-        aos = this.cKG.aos();
-        this.cKG.JP();
-        if (aos) {
-            this.cKG.j(true, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds520));
+        aiS = this.cqb.aiS();
+        this.cqb.Jk();
+        if (aiS) {
+            this.cqb.g(true, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds520));
         }
-        tagInfo = this.cKG.cKv;
+        tagInfo = this.cqb.cpQ;
         if (tagInfo != null) {
-            tagInfo2 = this.cKG.cKv;
+            tagInfo2 = this.cqb.cpQ;
             if (tagInfo2.tag_code != null) {
-                cVar3 = this.cKG.cKy;
-                tagInfo3 = this.cKG.cKv;
+                cVar3 = this.cqb.cpT;
+                tagInfo3 = this.cqb.cpQ;
                 cVar3.t(tagInfo3.tag_code.intValue(), i, i2);
                 return;
             }
         }
-        cVar2 = this.cKG.cKy;
+        cVar2 = this.cqb.cpT;
         cVar2.t(0, i, i2);
     }
 
@@ -58,14 +58,14 @@ public class d implements n.a {
         TagInfo tagInfo2;
         com.baidu.tieba.homepage.framework.c cVar2;
         TagInfo tagInfo3;
-        cVar = this.cKG.cKy;
+        cVar = this.cqb.cpT;
         if (cVar != null) {
-            tagInfo = this.cKG.cKv;
+            tagInfo = this.cqb.cpQ;
             if (tagInfo != null) {
-                tagInfo2 = this.cKG.cKv;
+                tagInfo2 = this.cqb.cpQ;
                 if (tagInfo2.tag_code != null) {
-                    cVar2 = this.cKG.cKy;
-                    tagInfo3 = this.cKG.cKv;
+                    cVar2 = this.cqb.cpT;
+                    tagInfo3 = this.cqb.cpQ;
                     cVar2.j(tagInfo3.tag_code.intValue(), i, i2, i3);
                 }
             }
@@ -76,13 +76,13 @@ public class d implements n.a {
     public void onError(int i, String str) {
         BdTypeListView bdTypeListView;
         TbPageContext tbPageContext;
-        this.cKG.JO();
+        this.cqb.Jj();
         if (i != 1) {
-            bdTypeListView = this.cKG.cKw;
+            bdTypeListView = this.cqb.cpR;
             bdTypeListView.setVisibility(8);
-            this.cKG.showNetRefreshView(this.cKG, str, true);
+            this.cqb.showNetRefreshView(this.cqb, str, true);
         } else if (com.baidu.adp.lib.util.i.gm()) {
-            tbPageContext = this.cKG.pageContext;
+            tbPageContext = this.cqb.pageContext;
             tbPageContext.showToast(str);
         }
     }
@@ -90,20 +90,20 @@ public class d implements n.a {
     @Override // com.baidu.tieba.homepage.personalize.n.a
     public void onSuccess() {
         BdTypeListView bdTypeListView;
-        this.cKG.JO();
-        this.cKG.JP();
-        bdTypeListView = this.cKG.cKw;
+        this.cqb.Jj();
+        this.cqb.Jk();
+        bdTypeListView = this.cqb.cpR;
         bdTypeListView.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.n.a
-    public void bw(List<TagInfo> list) {
+    public void bo(List<TagInfo> list) {
         com.baidu.tieba.homepage.framework.c cVar;
         com.baidu.tieba.homepage.framework.c cVar2;
-        cVar = this.cKG.cKy;
+        cVar = this.cqb.cpT;
         if (cVar != null) {
-            cVar2 = this.cKG.cKy;
-            cVar2.bq(list);
+            cVar2 = this.cqb.cpT;
+            cVar2.bi(list);
         }
     }
 }

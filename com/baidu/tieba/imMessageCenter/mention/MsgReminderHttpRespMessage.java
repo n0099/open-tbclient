@@ -4,9 +4,9 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
-    private ah msgData;
+    private aj msgData;
 
-    public ah getMsgData() {
+    public aj getMsgData() {
         return this.msgData;
     }
 
@@ -22,9 +22,9 @@ public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("message");
             if (jSONObject != null) {
-                ah ahVar = new ah();
-                ahVar.parserJson(optJSONObject);
-                this.msgData = ahVar;
+                aj ajVar = new aj();
+                ajVar.parserJson(optJSONObject);
+                this.msgData = ajVar;
             }
         }
     }

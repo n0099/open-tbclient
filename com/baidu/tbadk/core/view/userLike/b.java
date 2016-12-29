@@ -5,10 +5,9 @@ import android.view.View;
 public interface b {
     void G(View view);
 
-    void aO(boolean z);
+    void aP(boolean z);
 
-    /* renamed from: do */
-    void mo12do(int i);
+    void dq(int i);
 
     void g(View.OnClickListener onClickListener);
 }

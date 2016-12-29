@@ -7,13 +7,13 @@ import com.baidu.tieba.personPolymeric.mode.message.PersonPolymericSocketResMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ c eRn;
+    final /* synthetic */ c euM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i, int i2) {
         super(i, i2);
-        this.eRn = cVar;
+        this.euM = cVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -26,21 +26,21 @@ public class d extends com.baidu.adp.framework.listener.a {
         n nVar3;
         n nVar4;
         if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-            if (((responsedMessage instanceof PersonPolymericHttpResMsg) || (responsedMessage instanceof PersonPolymericSocketResMsg)) && this.eRn.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
+            if (((responsedMessage instanceof PersonPolymericHttpResMsg) || (responsedMessage instanceof PersonPolymericSocketResMsg)) && this.euM.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.getError() != 0) {
-                    bVar = this.eRn.eRk;
-                    nVar = this.eRn.mPersonPolymericData;
+                    bVar = this.euM.euJ;
+                    nVar = this.euM.mPersonPolymericData;
                     bVar.a(null, nVar.hasMore());
                     return;
                 }
-                c cVar = this.eRn;
+                c cVar = this.euM;
                 i = cVar.pageIndex;
                 cVar.pageIndex = i + 1;
-                nVar2 = this.eRn.mPersonPolymericData;
-                nVar2.aWf();
-                bVar2 = this.eRn.eRk;
-                nVar3 = this.eRn.mPersonPolymericData;
-                nVar4 = this.eRn.mPersonPolymericData;
+                nVar2 = this.euM.mPersonPolymericData;
+                nVar2.aPP();
+                bVar2 = this.euM.euJ;
+                nVar3 = this.euM.mPersonPolymericData;
+                nVar4 = this.euM.mPersonPolymericData;
                 bVar2.a(nVar3, nVar4.hasMore());
             }
         }

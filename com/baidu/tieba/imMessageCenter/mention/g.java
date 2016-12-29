@@ -4,8 +4,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes.dex */
-public class g extends NetModel<h, i, bf> {
-    public g(TbPageContext<bf> tbPageContext, h hVar) {
+public class g extends NetModel<h, i, ag> {
+    public g(TbPageContext<ag> tbPageContext, h hVar) {
         super(tbPageContext, hVar, NetModel.NetModelType.TYPE_NETWORK);
     }
 

@@ -96,7 +96,7 @@ public abstract class b extends ImageView implements i {
                 this.uW.vz = getResources().getDrawable(R.drawable.icon_gif);
             }
         }
-        this.vd = f.hL().aB(this.va);
+        this.vd = f.hL().aC(this.va);
         this.vd.a(this.uW);
     }
 
@@ -323,7 +323,7 @@ public abstract class b extends ImageView implements i {
     public void setDrawerType(int i) {
         if (this.va != i) {
             this.va = i;
-            this.vd = f.hL().aB(this.va);
+            this.vd = f.hL().aC(this.va);
             this.vd.a(this.uW);
             this.vg = true;
             invalidate();

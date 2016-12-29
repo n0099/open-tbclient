@@ -90,9 +90,9 @@ public class CommonMsgPojo extends i implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.drz);
+                this.gid = String.valueOf(a.cWt);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.drA);
+                this.gid = String.valueOf(a.cWu);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -225,7 +225,7 @@ public class CommonMsgPojo extends i implements Serializable {
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
             }
-            h.w(personalChatMessage);
+            h.u(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -275,7 +275,7 @@ public class CommonMsgPojo extends i implements Serializable {
                 }
                 personalChatMessage.setToUserId(j5);
             }
-            h.w(personalChatMessage);
+            h.u(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -303,7 +303,7 @@ public class CommonMsgPojo extends i implements Serializable {
         toUserInfo = personalChatMessage.getToUserInfo();
         if (toUserInfo != null) {
         }
-        h.w(personalChatMessage);
+        h.u(personalChatMessage);
         personalChatMessage.setIsFriend(this.isFriend);
         return personalChatMessage;
     }

@@ -1,26 +1,13 @@
 package com.baidu.tieba.VideoCache;
 
-import java.io.File;
-import java.util.Comparator;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-class k implements Comparator<File> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: c */
-    public int compare(File file, File file2) {
-        if (file == null || file2 == null) {
-            return 0;
-        }
-        try {
-            long parseLong = Long.parseLong(file.getName());
-            long parseLong2 = Long.parseLong(file2.getName());
-            int i = parseLong > parseLong2 ? 1 : 0;
-            if (parseLong < parseLong2) {
-                return -1;
-            }
-            return i;
-        } catch (Exception e) {
-            return 0;
+public class k {
+    private static long mStartTime = 0;
+
+    public static void log(String str, String str2) {
+        if (System.currentTimeMillis() - mStartTime > TbConfig.NOTIFY_SOUND_INTERVAL) {
+            mStartTime = System.currentTimeMillis();
         }
     }
 }

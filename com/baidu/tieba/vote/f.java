@@ -10,17 +10,17 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    private final /* synthetic */ String ets;
-    private final /* synthetic */ String ett;
-    private final /* synthetic */ String etu;
-    final /* synthetic */ b ggH;
+    private final /* synthetic */ String dXN;
+    private final /* synthetic */ String dXO;
+    private final /* synthetic */ String dXP;
+    final /* synthetic */ b fvz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar, String str, String str2, String str3) {
-        this.ggH = bVar;
-        this.ets = str;
-        this.ett = str2;
-        this.etu = str3;
+        this.fvz = bVar;
+        this.dXN = str;
+        this.dXO = str2;
+        this.dXP = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,15 +28,15 @@ public class f implements View.OnClickListener {
         h hVar;
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ets) && !StringUtils.isNull(this.ett)) {
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.dXN) && !StringUtils.isNull(this.dXO)) {
             if (i.gm()) {
-                hVar = this.ggH.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ets) + "," + this.ett, this.etu, this.etu, hVar.getString(r.j.app_info_for_map));
-                pbActivity = this.ggH.eug;
+                hVar = this.fvz.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.dXN) + "," + this.dXO, this.dXP, this.dXP, hVar.getString(r.j.app_info_for_map));
+                pbActivity = this.fvz.dYB;
                 com.baidu.tbadk.browser.f.u(pbActivity.getPageContext().getPageActivity(), format);
                 return;
             }
-            pbActivity2 = this.ggH.eug;
+            pbActivity2 = this.fvz.dYB;
             pbActivity2.showToast(r.j.neterror);
         }
     }

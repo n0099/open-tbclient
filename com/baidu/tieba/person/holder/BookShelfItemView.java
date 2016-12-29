@@ -13,31 +13,31 @@ import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class BookShelfItemView extends LinearLayout {
     private TbPageContext<?> GO;
-    private View.OnClickListener aNB;
-    private com.baidu.tieba.personInfo.b eLd;
-    private TbImageView eLe;
-    private TextView eLf;
-    private TextView eLg;
+    private View.OnClickListener aMS;
+    private com.baidu.tieba.personInfo.b eoI;
+    private TbImageView eoJ;
+    private TextView eoK;
+    private TextView eoL;
     private Context mContext;
     private View mRootView;
 
     public BookShelfItemView(Context context) {
         super(context);
-        this.aNB = new b(this);
+        this.aMS = new b(this);
         this.mContext = context;
         initView();
     }
 
     public BookShelfItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aNB = new b(this);
+        this.aMS = new b(this);
         this.mContext = context;
         initView();
     }
 
     public BookShelfItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aNB = new b(this);
+        this.aMS = new b(this);
         this.mContext = context;
         initView();
     }
@@ -45,29 +45,29 @@ public class BookShelfItemView extends LinearLayout {
     private void initView() {
         this.GO = (TbPageContext) l.C(this.mContext);
         this.mRootView = LayoutInflater.from(this.mContext).inflate(r.h.personinfo_book_shelf_item, this);
-        this.eLe = (TbImageView) this.mRootView.findViewById(r.g.book_icon);
-        this.eLf = (TextView) this.mRootView.findViewById(r.g.book_title);
-        this.eLg = (TextView) this.mRootView.findViewById(r.g.book_desc);
-        this.eLe.setOnClickListener(this.aNB);
-        this.eLf.setOnClickListener(this.aNB);
-        this.eLg.setOnClickListener(this.aNB);
+        this.eoJ = (TbImageView) this.mRootView.findViewById(r.g.book_icon);
+        this.eoK = (TextView) this.mRootView.findViewById(r.g.book_title);
+        this.eoL = (TextView) this.mRootView.findViewById(r.g.book_desc);
+        this.eoJ.setOnClickListener(this.aMS);
+        this.eoK.setOnClickListener(this.aMS);
+        this.eoL.setOnClickListener(this.aMS);
     }
 
     public void a(com.baidu.tieba.personInfo.b bVar) {
         if (bVar != null) {
-            this.eLd = bVar;
-            this.eLe.c(this.eLd.ejU, 10, false);
-            this.eLf.setText(this.eLd.dSK);
-            if (this.eLd.Qq == 1) {
-                this.eLg.setText("共" + this.eLd.Qh + "章");
+            this.eoI = bVar;
+            this.eoJ.c(this.eoI.dOC, 10, false);
+            this.eoK.setText(this.eoI.dxm);
+            if (this.eoI.Qn == 1) {
+                this.eoL.setText("共" + this.eoI.Qe + "章");
             } else {
-                this.eLg.setText("更新" + this.eLd.Qh + "章");
+                this.eoL.setText("更新" + this.eoI.Qe + "章");
             }
-            tB();
+            tm();
         }
     }
 
-    public void tB() {
+    public void tm() {
         com.baidu.tbadk.i.a.a(this.GO, this.mRootView);
     }
 }

@@ -11,39 +11,39 @@ class m implements BdNativeCrash.NativeCrashCallback {
         Thread thread = new Thread();
         thread.setName("NativeCrashThread");
         vVar.a(thread, (Throwable) new Exception(str), true);
-        k.gw(str2);
+        k.gr(str2);
     }
 
     @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
     public boolean onSoFound(String str) {
         List list;
         List list2;
-        boolean gx;
-        boolean gy;
+        boolean gs;
+        boolean gt;
         boolean ar;
         List list3;
         try {
-            list2 = k.aFf;
+            list2 = k.aEz;
             if (list2.indexOf(str) >= 0) {
                 return false;
             }
-            gx = k.gx(str);
-            if (gx) {
+            gs = k.gs(str);
+            if (gs) {
                 return true;
             }
-            gy = k.gy(str);
-            if (gy) {
+            gt = k.gt(str);
+            if (gt) {
                 return true;
             }
             ar = k.ar(str, TbadkCoreApplication.m9getInst().getApp().getApplicationInfo().sourceDir);
             if (ar) {
                 return true;
             }
-            list3 = k.aFf;
+            list3 = k.aEz;
             list3.add(str);
             return false;
         } catch (Throwable th) {
-            list = k.aFf;
+            list = k.aEz;
             list.add(str);
             return false;
         }

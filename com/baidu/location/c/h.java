@@ -9,8 +9,8 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class h {
-    private static h JP = null;
-    private a JQ = null;
+    private static h JO = null;
+    private a JP = null;
     private boolean d = false;
     private boolean e = false;
     private boolean f = false;
@@ -81,10 +81,10 @@ public class h {
     public static synchronized h mL() {
         h hVar;
         synchronized (h.class) {
-            if (JP == null) {
-                JP = new h();
+            if (JO == null) {
+                JO = new h();
             }
-            hVar = JP;
+            hVar = JO;
         }
         return hVar;
     }
@@ -92,10 +92,10 @@ public class h {
     public synchronized void b() {
         if (com.baidu.location.f.isServing && !this.h) {
             try {
-                this.JQ = new a();
+                this.JP = new a();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                com.baidu.location.f.getServiceContext().registerReceiver(this.JQ, intentFilter);
+                com.baidu.location.f.getServiceContext().registerReceiver(this.JP, intentFilter);
                 this.e = true;
                 f();
             } catch (Exception e) {
@@ -108,13 +108,13 @@ public class h {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.JQ);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.JP);
             } catch (Exception e) {
             }
             this.g = false;
             this.h = false;
             this.f = false;
-            this.JQ = null;
+            this.JP = null;
         }
     }
 

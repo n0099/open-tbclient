@@ -5,16 +5,16 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements BaseWebView.e {
-    final /* synthetic */ d ceA;
+    final /* synthetic */ d bKj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.ceA = dVar;
+        this.bKj = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
     public void onReceivedError(WebView webView, int i, String str, String str2) {
-        this.ceA.afJ();
-        this.ceA.cez = true;
+        this.bKj.aaf();
+        this.bKj.bKi = true;
     }
 }

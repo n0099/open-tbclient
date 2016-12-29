@@ -8,23 +8,23 @@ import com.baidu.tieba.frs.acrossForum.message.AcrossAwardRequestMsg;
 import tbclient.Acrossaward.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    private static a bWA;
-    private com.baidu.adp.framework.listener.a bWB = new b(this, CmdConfigHttp.CMD_ACROSS_AWARD, 309425);
+    private static a bCK;
+    private com.baidu.adp.framework.listener.a bCL = new b(this, CmdConfigHttp.CMD_ACROSS_AWARD, 309425);
 
     public a() {
-        MessageManager.getInstance().registerListener(this.bWB);
+        MessageManager.getInstance().registerListener(this.bCL);
     }
 
-    public static a adR() {
-        if (bWA == null) {
-            bWA = new a();
+    public static a Yl() {
+        if (bCK == null) {
+            bCK = new a();
         }
-        return bWA;
+        return bCK;
     }
 
-    public void jY(String str) {
+    public void iD(String str) {
         if (!StringUtils.isNull(str)) {
-            if (!str.equals("across_sign") || !com.baidu.tieba.acrossForum.a.MS().MT()) {
+            if (!str.equals("across_sign") || !com.baidu.tieba.acrossForum.a.Ml().Mm()) {
                 AcrossAwardRequestMsg acrossAwardRequestMsg = new AcrossAwardRequestMsg();
                 acrossAwardRequestMsg.awardType = str;
                 MessageManager.getInstance().sendMessage(acrossAwardRequestMsg);
@@ -33,8 +33,8 @@ public class a {
     }
 
     public void onDestory() {
-        MessageManager.getInstance().unRegisterListener(this.bWB);
-        bWA = null;
+        MessageManager.getInstance().unRegisterListener(this.bCL);
+        bCK = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

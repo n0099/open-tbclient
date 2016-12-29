@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.appsearchlib.Info;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -110,7 +111,7 @@ public class j {
                     dVar.d(objArr);
                 }
                 if (this.uid != null && !str.equals("stat")) {
-                    dVar.q("uid", this.uid);
+                    dVar.q(SapiAccountManager.SESSION_UID, this.uid);
                 }
                 if (str3 != null && !str.equals("stat")) {
                     dVar.q("c_logid", str3);
@@ -278,7 +279,7 @@ public class j {
             aVar.ft();
             if (!aVar.fA()) {
                 oVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                oVar.X(3);
+                oVar.Y(3);
             }
             com.baidu.adp.lib.Disk.d.cB().c(oVar);
         }

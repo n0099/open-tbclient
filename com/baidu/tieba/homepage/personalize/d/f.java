@@ -2,7 +2,6 @@ package com.baidu.tieba.homepage.personalize.d;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.util.t;
@@ -10,19 +9,18 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class f {
-    public static long cNt;
-    private final long cNr = TbConfig.APP_OVERDUR_DRAFT_BOX;
-    private String cNs;
+    public static long csy;
+    private String csx;
 
-    public void bB(List<v> list) {
+    public void bt(List<v> list) {
         com.baidu.tieba.card.data.c cVar;
         int i = 0;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.cNs == null) {
-                this.cNs = com.baidu.tbadk.core.sharedPref.b.um().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.csx == null) {
+                this.csx = com.baidu.tbadk.core.sharedPref.b.tW().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.cNs)) {
-                String[] split = this.cNs.split(",");
+            if (!StringUtils.isNull(this.csx)) {
+                String[] split = this.csx.split(",");
                 if (split.length == 2) {
                     String str = split[0];
                     long c = com.baidu.adp.lib.h.b.c(split[1], 0L);
@@ -32,11 +30,11 @@ public class f {
                     while (true) {
                         int i2 = i;
                         if (i2 < list.size()) {
-                            if (!(list.get(i2) instanceof com.baidu.tieba.card.data.c) || (cVar = (com.baidu.tieba.card.data.c) list.get(i2)) == null || StringUtils.isNull(cVar.TY) || !cVar.TY.equals(str)) {
+                            if (!(list.get(i2) instanceof com.baidu.tieba.card.data.c) || (cVar = (com.baidu.tieba.card.data.c) list.get(i2)) == null || StringUtils.isNull(cVar.Ty) || !cVar.Ty.equals(str)) {
                                 i = i2 + 1;
                             } else {
                                 e eVar = new e();
-                                eVar.mTimeStamp = c;
+                                eVar.csw = c;
                                 if (i2 + 1 < list.size()) {
                                     list.add(i2 + 1, eVar);
                                     return;
@@ -56,14 +54,14 @@ public class f {
         ThreadInfo threadInfo;
         if (TbadkCoreApplication.isLogin() && !x.t(list) && i == x.s(list2) - 1 && z && (threadInfo = (ThreadInfo) x.c(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
             System.currentTimeMillis();
-            this.cNs = null;
-            cNt = threadInfo.tid.longValue();
-            com.baidu.tbadk.core.sharedPref.b.um().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+            this.csx = null;
+            csy = threadInfo.tid.longValue();
+            com.baidu.tbadk.core.sharedPref.b.tW().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
         }
     }
 
     public static void a(long j, int i, List<ThreadInfo> list, List<v> list2) {
-        if (j == cNt && !x.t(list) && !x.t(list2)) {
+        if (j == csy && !x.t(list) && !x.t(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -82,7 +80,7 @@ public class f {
             } else {
                 ThreadInfo threadInfo = list.get(i - 1);
                 if (threadInfo != null && threadInfo.tid.longValue() != 0) {
-                    cNt = threadInfo.tid.longValue();
+                    csy = threadInfo.tid.longValue();
                     t.a(new g(threadInfo), null);
                 }
             }

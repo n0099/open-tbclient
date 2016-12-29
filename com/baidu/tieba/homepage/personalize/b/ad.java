@@ -2,33 +2,26 @@ package com.baidu.tieba.homepage.personalize.b;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.List;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends CustomMessageListener {
-    final /* synthetic */ ac cMI;
+    final /* synthetic */ ab crO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad(ac acVar, int i) {
+    public ad(ab abVar, int i) {
         super(i);
-        this.cMI = acVar;
+        this.crO = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        List<com.baidu.adp.widget.ListView.v> list2;
-        if (customResponsedMessage == null) {
+        UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+        if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().vS) {
             return;
         }
-        this.cMI.aex();
-        list = this.cMI.cMq;
-        if (list != null) {
-            ac acVar = this.cMI;
-            list2 = this.cMI.cMq;
-            acVar.by(list2);
-        }
+        this.crO.M(updateAttentionMessage.getData());
     }
 }

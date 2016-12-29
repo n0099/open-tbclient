@@ -4,17 +4,17 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements TbImageView.a {
-    final /* synthetic */ j bYo;
+    final /* synthetic */ j bEc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(j jVar) {
-        this.bYo = jVar;
+        this.bEc = jVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
     public void v(String str, boolean z) {
         if (z) {
-            this.bYo.aeq();
+            this.bEc.YJ();
         }
     }
 

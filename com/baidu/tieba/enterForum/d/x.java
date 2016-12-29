@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ w bLM;
+    final /* synthetic */ w brQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.bLM = wVar;
+        this.brQ = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ViewEventCenter viewEventCenter;
         ViewEventCenter viewEventCenter2;
-        viewEventCenter = this.bLM.aRS;
+        viewEventCenter = this.brQ.aRj;
         if (viewEventCenter != null) {
-            TiebaStatic.eventStat(this.bLM.getActivity(), "find_more_symbol_click", null);
-            viewEventCenter2 = this.bLM.aRS;
+            TiebaStatic.eventStat(this.brQ.getActivity(), "find_more_symbol_click", null);
+            viewEventCenter2 = this.brQ.aRj;
             viewEventCenter2.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(13, null, null, null));
         }
     }

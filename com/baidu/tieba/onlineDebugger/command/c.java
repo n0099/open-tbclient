@@ -9,11 +9,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ b eoi;
+    final /* synthetic */ b dSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.eoi = bVar;
+        this.dSO = bVar;
     }
 
     @Override // java.lang.Runnable

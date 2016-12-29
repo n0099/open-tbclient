@@ -57,12 +57,12 @@ public class c implements e<a> {
         if (aVar != null) {
             aVar.oV = kVar;
         }
-        byte[] dT = kVar.dT(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!kVar.wa()) {
+        byte[] dR = kVar.dR(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!kVar.vK()) {
             aVar2.error_code = 3;
             aVar2.error_msg = l.getString(r.j.neterror);
             return aVar2;
-        } else if (dT == null || dT.length == 0) {
+        } else if (dR == null || dR.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = l.getString(r.j.voice_cache_error_no_file);
             return aVar2;
@@ -70,13 +70,13 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (dT == null || dT.length == 0) {
+            } else if (dR == null || dR.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.r(false);
-                diskFileOperate.setData(dT);
+                diskFileOperate.setData(dR);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
@@ -86,7 +86,7 @@ public class c implements e<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.cQ() != null) {
                     str5 = diskFileOperate.cQ().getAbsolutePath();
                     i3 = 0;
-                } else if (m.uw() < dT.length) {
+                } else if (m.uh() < dR.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,7 +97,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.dw(i3);
+                aVar2.error_msg = a.dy(i3);
             }
             return aVar2;
         }

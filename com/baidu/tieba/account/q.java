@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class q implements a.InterfaceC0033a {
-    final /* synthetic */ NotLoginGuideActivity aVk;
+    final /* synthetic */ NotLoginGuideActivity aUB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aVk = notLoginGuideActivity;
+        this.aUB = notLoginGuideActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
-    public void cg(String str) {
-        if (this.aVk.getLoadingDialog() == null || !this.aVk.getLoadingDialog().isShowing()) {
-            this.aVk.showLoadingDialog(this.aVk.getPageContext().getString(r.j.sapi_logining), new r(this));
+    public void ch(String str) {
+        if (this.aUB.getLoadingDialog() == null || !this.aUB.getLoadingDialog().isShowing()) {
+            this.aUB.showLoadingDialog(this.aUB.getPageContext().getString(r.j.sapi_logining), new r(this));
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
-        this.aVk.closeLoadingDialog();
+        this.aUB.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.aVk.k(accountData);
+            this.aUB.k(accountData);
         } else {
-            this.aVk.p(accountData);
+            this.aUB.p(accountData);
         }
     }
 
@@ -37,16 +37,16 @@ class q implements a.InterfaceC0033a {
         int i2;
         int i3;
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
-        this.aVk.closeLoadingDialog();
-        i2 = this.aVk.aVi;
+        this.aUB.closeLoadingDialog();
+        i2 = this.aUB.aUz;
         if (i2 != 1) {
-            i3 = this.aVk.aVi;
+            i3 = this.aUB.aUz;
             if (i3 != 2) {
                 return;
             }
-            this.aVk.MR();
+            this.aUB.Mk();
             return;
         }
-        this.aVk.MQ();
+        this.aUB.Mj();
     }
 }

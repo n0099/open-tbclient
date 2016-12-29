@@ -7,17 +7,17 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class h {
-    private boolean iP = false;
-    private int iQ = 0;
-    private final Handler iR = new i(this, Looper.getMainLooper());
+    private boolean iO = false;
+    private int iP = 0;
+    private final Handler iQ = new i(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void start(String str) {
         if (!BdSocketLinkService.isAvailable()) {
             stop("online failed 5");
-        } else if (!this.iP) {
-            this.iP = true;
-            this.iR.removeMessages(1);
+        } else if (!this.iO) {
+            this.iO = true;
+            this.iQ.removeMessages(1);
             if (com.baidu.adp.lib.webSocket.h.ha().hd()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 stop("in Opened");
@@ -25,12 +25,12 @@ public class h {
             }
             cf();
             BdLog.d("启动重连策略");
-            this.iQ = 0;
+            this.iP = 0;
             int[] bP = com.baidu.adp.framework.client.socket.j.bP();
             if (bP != null && bP.length >= 1) {
                 BdLog.i("start reconnStrategy... the first will be delay" + bP[0]);
-                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.iQ));
-                this.iR.sendMessageDelayed(this.iR.obtainMessage(1), bP[0] * 1000);
+                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.iP));
+                this.iQ.sendMessageDelayed(this.iQ.obtainMessage(1), bP[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -45,12 +45,12 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void stop(String str) {
-        if (this.iP) {
+        if (this.iO) {
             k.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
-            this.iP = false;
-            this.iQ = 0;
+            this.iO = false;
+            this.iP = 0;
             BdLog.i("stop reconnStrategy");
-            this.iR.removeMessages(1);
+            this.iQ.removeMessages(1);
         }
     }
 }

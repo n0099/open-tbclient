@@ -4,20 +4,20 @@ import android.os.Handler;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsInfoMessage;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonalChatActivity dui;
+    final /* synthetic */ PersonalChatActivity cZd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(PersonalChatActivity personalChatActivity, int i, boolean z) {
         super(i, z);
-        this.dui = personalChatActivity;
+        this.cZd = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,32 +35,32 @@ class f extends com.baidu.adp.framework.listener.e {
         Runnable runnable;
         long j2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.dui.dtZ = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.dui.dtZ;
+            this.cZd.cYU = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.cZd.cYU;
             if (bVar != null) {
-                msglistModel = this.dui.dbq;
+                msglistModel = this.cZd.cGA;
                 UserData user = ((PersonalMsglistModel) msglistModel).getUser();
                 if (user != null) {
-                    absMsglistView = this.dui.dbp;
+                    absMsglistView = this.cZd.cGz;
                     String userName = user.getUserName();
-                    bVar2 = this.dui.dtZ;
+                    bVar2 = this.cZd.cYU;
                     absMsglistView.refreshPersonalHeadFooter(userName, bVar2);
-                    PersonalChatActivity personalChatActivity = this.dui;
-                    PersonalChatActivity personalChatActivity2 = this.dui;
-                    bVar3 = this.dui.dtZ;
-                    personalChatActivity.dtY = personalChatActivity2.mA(ax.q(bVar3.getTime()));
-                    j = this.dui.dtY;
+                    PersonalChatActivity personalChatActivity = this.cZd;
+                    PersonalChatActivity personalChatActivity2 = this.cZd;
+                    bVar3 = this.cZd.cYU;
+                    personalChatActivity.cYT = personalChatActivity2.ld(av.q(bVar3.getTime()));
+                    j = this.cZd.cYT;
                     if (j != 0) {
-                        handler = this.dui.mHandler;
-                        runnable = this.dui.dud;
-                        j2 = this.dui.dtY;
+                        handler = this.cZd.mHandler;
+                        runnable = this.cZd.cYY;
+                        j2 = this.cZd.cYT;
                         handler.postDelayed(runnable, j2);
                     }
-                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e azk = PersonalChatActivityStatic.azk();
-                    str = this.dui.dua;
+                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e atJ = PersonalChatActivityStatic.atJ();
+                    str = this.cZd.cYV;
                     String str2 = String.valueOf(str) + "&" + user.getUserId();
-                    bVar4 = this.dui.dtZ;
-                    azk.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                    bVar4 = this.cZd.cYU;
+                    atJ.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
                 } else {
                     return;
                 }

@@ -5,31 +5,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class n extends r {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.b> fEH;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.b> fiO;
 
     public n(int i) {
         super(i);
-        this.fEH = new HashMap<>();
+        this.fiO = new HashMap<>();
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.b bVar) {
-        rO(str);
+        qu(str);
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.h.b.c(str, -1L));
             synchronized (this) {
-                this.fEH.put(valueOf, bVar);
+                this.fiO.put(valueOf, bVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public com.baidu.tieba.myCollection.baseHistory.b rM(String str) {
+    public com.baidu.tieba.myCollection.baseHistory.b qs(String str) {
         com.baidu.tieba.myCollection.baseHistory.b bVar;
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.h.b.c(str, -1L));
             synchronized (this) {
-                bVar = this.fEH.get(valueOf) != null ? this.fEH.get(valueOf) : null;
+                bVar = this.fiO.get(valueOf) != null ? this.fiO.get(valueOf) : null;
             }
             return bVar;
         } catch (Exception e) {
@@ -39,22 +39,22 @@ public class n extends r {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.r
-    public void aZs() {
+    public void aTd() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.fEL.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.fiS.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.fEL.remove(l);
-                this.fEH.remove(l);
+                this.fiS.remove(l);
+                this.fiO.remove(l);
             } else {
-                this.fEL.clear();
-                this.fEH.clear();
+                this.fiS.clear();
+                this.fiO.clear();
             }
         }
     }

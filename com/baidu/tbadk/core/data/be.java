@@ -1,57 +1,125 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
 /* loaded from: classes.dex */
-public class be extends bk {
-    public static final BdUniqueId TA = BdUniqueId.gen();
-    private PhotoLiveCardData TB;
+public class be {
+    private long Ry;
+    private long Ti;
+    private String Tj;
+    private String Tk;
+    private long forumId;
+    private String forumName;
+    private int mHeight;
+    private int mWidth;
+    private String obj_id;
+    private long taskId;
+    private long threadId;
 
-    public PhotoLiveCardData b(bk bkVar, int i) {
-        if (this.TB == null) {
-            if (bkVar == null) {
-                return null;
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public String getForumId() {
+        return new StringBuilder(String.valueOf(this.forumId)).toString();
+    }
+
+    public long rh() {
+        return this.Ti;
+    }
+
+    public long ri() {
+        return this.Ry;
+    }
+
+    public String getTaskId() {
+        return new StringBuilder(String.valueOf(this.taskId)).toString();
+    }
+
+    public String getThreadId() {
+        return new StringBuilder(String.valueOf(this.threadId)).toString();
+    }
+
+    public String rj() {
+        return this.Tj;
+    }
+
+    public String rk() {
+        return this.Tk;
+    }
+
+    public int rl() {
+        return this.mWidth;
+    }
+
+    public int rm() {
+        return this.mHeight;
+    }
+
+    public String pw() {
+        return this.obj_id;
+    }
+
+    public void a(TaskInfo taskInfo) {
+        if (taskInfo != null) {
+            this.forumName = taskInfo.forum_name;
+            this.forumId = taskInfo.forum_id.longValue();
+            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
+            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
+            this.Tj = taskInfo.bgimg;
+            this.Tk = taskInfo.thread_img;
+            this.Ti = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.Ry = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
+            String str = taskInfo.thread_img_size;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    this.mWidth = com.baidu.adp.lib.h.b.g(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.h.b.g(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
             }
-            this.TB = new PhotoLiveCardData();
-            MetaData author = bkVar.getAuthor();
-            if (author != null) {
-                this.TB.setAuthorName(author.getUserName());
-                this.TB.setAuthorPortrait(author.getPortrait());
-                this.TB.setFansNum(author.getFansNum());
-                this.TB.setNickName(author.getFansNickName());
-                this.TB.setAuthorId(author.getUserId());
-                this.TB.setGodInfo(author.getGodInfo());
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
             }
-            PraiseData rH = bkVar.rH();
-            if (rH != null) {
-                this.TB.setPraiseNum((int) rH.getNum());
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
             }
-            this.TB.setDiscussNum(bkVar.rJ());
-            this.TB.setPostNum(bkVar.getPost_num());
-            this.TB.setTitle(bkVar.getTitle());
-            this.TB.setLastModifiedTime(bkVar.rK());
-            this.TB.setPhotoLiveCover(bkVar.getPhotoLiveCover());
-            this.TB.setContent(bkVar.rW());
-            this.TB.setThreadId(com.baidu.adp.lib.h.b.c(bkVar.getTid(), 0L));
-            this.TB.setHeadlive(bkVar.isHeadLive());
-            this.TB.setExpressionDatas(bkVar.sg());
-            if (this.TB.getShowStyle() < 0) {
-                this.TB.setShowStyle(PhotoLiveCardData.getRandom(3, i));
-            }
-            this.TB.setShowExpressionViewIndexList(this.TB.getExpressionDatas());
+            this.obj_id = taskInfo.obj_id;
         }
-        cw(bkVar.getTid());
-        setId(bkVar.getId());
-        setThreadType(bkVar.getThreadType());
-        setForum_name(bkVar.getForum_name());
-        return this.TB;
     }
 
-    public PhotoLiveCardData rm() {
-        return this.TB;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return TA;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumName = jSONObject.optString("forum_name");
+                this.forumId = jSONObject.optLong("forum_id");
+                this.taskId = jSONObject.optLong(InterviewLiveActivityConfig.KEY_TASK_ID);
+                this.threadId = jSONObject.optLong("thread_id");
+                this.Tj = jSONObject.optString("bgimg");
+                this.Ti = jSONObject.optLong("start_time");
+                this.Ry = jSONObject.optLong("end_time");
+                this.Tk = jSONObject.optString("thread_img");
+                String optString = jSONObject.optString("thread_img_size");
+                if (optString != null && optString.length() > 0) {
+                    String[] split = optString.split(",");
+                    if (split.length > 1) {
+                        this.mWidth = Integer.valueOf(split[0]).intValue();
+                        this.mHeight = Integer.valueOf(split[1]).intValue();
+                    }
+                }
+                if (this.mWidth <= 0) {
+                    this.mWidth = 1;
+                }
+                if (this.mHeight <= 0) {
+                    this.mHeight = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 }

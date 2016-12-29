@@ -5,25 +5,25 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 /* loaded from: classes.dex */
 public class e {
-    private static e aBA = null;
-    private boolean aBB = false;
-    private int aBC;
+    private static e aAU = null;
+    private boolean aAV = false;
+    private int aAW;
 
     private e() {
     }
 
-    public static e FP() {
-        if (aBA == null) {
+    public static e Fp() {
+        if (aAU == null) {
             synchronized (e.class) {
-                if (aBA == null) {
-                    aBA = new e();
+                if (aAU == null) {
+                    aAU = new e();
                 }
             }
         }
-        return aBA;
+        return aAU;
     }
 
     public void a(Context context, d dVar) {
@@ -32,58 +32,58 @@ public class e {
 
     public void a(Context context, d dVar, b bVar) {
         if (dVar != null && !StringUtils.isNull(dVar.getCurrentPageKey())) {
-            if (dVar.aBv) {
+            if (dVar.aAP) {
                 if (bVar == null) {
                     bVar = new f(this);
                 }
                 if (bVar.a(dVar)) {
-                    av avVar = new av("userconvert");
-                    avVar.ab("obj_source", c.C(dVar.FM()));
-                    avVar.ab("obj_locate", dVar.getCurrentPageKey());
-                    avVar.ab("obj_type", "0");
-                    if (!StringUtils.isNull(dVar.aBz)) {
-                        avVar.ab("obj_id", dVar.aBz);
+                    at atVar = new at("userconvert");
+                    atVar.ab("obj_source", c.C(dVar.Fm()));
+                    atVar.ab("obj_locate", dVar.getCurrentPageKey());
+                    atVar.ab("obj_type", "0");
+                    if (!StringUtils.isNull(dVar.aAT)) {
+                        atVar.ab("obj_id", dVar.aAT);
                     }
-                    TiebaStatic.log(avVar);
+                    TiebaStatic.log(atVar);
                 }
-            } else if (dVar.FN() > 0) {
+            } else if (dVar.Fn() > 0) {
                 if (bVar == null) {
                     bVar = new g(this);
                 }
-                if (bVar.FL() && bVar.a(dVar)) {
-                    av avVar2 = new av("stime");
-                    avVar2.ab("obj_source", c.C(dVar.FM()));
-                    avVar2.ab("obj_type", dVar.getCurrentPageKey());
-                    avVar2.ab("obj_duration", String.valueOf(dVar.FN()));
+                if (bVar.Fl() && bVar.a(dVar)) {
+                    at atVar2 = new at("stime");
+                    atVar2.ab("obj_source", c.C(dVar.Fm()));
+                    atVar2.ab("obj_type", dVar.getCurrentPageKey());
+                    atVar2.ab("obj_duration", String.valueOf(dVar.Fn()));
                     if (dVar.getFid() > 0) {
-                        avVar2.ab("fid", String.valueOf(dVar.getFid()));
+                        atVar2.ab("fid", String.valueOf(dVar.getFid()));
                     }
                     if (dVar.getTid() > 0) {
-                        avVar2.ab("tid", String.valueOf(dVar.getTid()));
+                        atVar2.ab("tid", String.valueOf(dVar.getTid()));
                     }
                     if (dVar.getPid() > 0) {
-                        avVar2.ab(Info.kBaiduPIDKey, String.valueOf(dVar.getPid()));
+                        atVar2.ab(Info.kBaiduPIDKey, String.valueOf(dVar.getPid()));
                     }
-                    TiebaStatic.log(avVar2);
+                    TiebaStatic.log(atVar2);
                 }
             }
         }
     }
 
-    public boolean FQ() {
-        return this.aBB;
+    public boolean Fq() {
+        return this.aAV;
     }
 
-    public void bW(boolean z) {
-        this.aBB = z;
+    public void bV(boolean z) {
+        this.aAV = z;
     }
 
-    public int FR() {
-        return !TbadkCoreApplication.m9getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.um().getInt("page_stay_max_cost", 0) : this.aBC;
+    public int Fr() {
+        return !TbadkCoreApplication.m9getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.tW().getInt("page_stay_max_cost", 0) : this.aAW;
     }
 
     public void fc(int i) {
-        this.aBC = i;
-        com.baidu.tbadk.core.sharedPref.b.um().putInt("page_stay_max_cost", this.aBC);
+        this.aAW = i;
+        com.baidu.tbadk.core.sharedPref.b.tW().putInt("page_stay_max_cost", this.aAW);
     }
 }

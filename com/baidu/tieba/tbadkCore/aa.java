@@ -1,40 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bk;
+import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class aa extends bk {
-    public static final BdUniqueId fBc = BdUniqueId.gen();
-    private boolean fBd;
-    private q fBe;
-    private String fortune_desc;
+public class aa implements View.OnTouchListener {
+    private a ffk;
+    private int count = 0;
+    private long dXe = 0;
+    private long dXf = 0;
+    private long dXh = 500;
+    private Handler mHandler = new ab(this);
 
-    public boolean blw() {
-        return this.fBd;
+    /* loaded from: classes.dex */
+    public interface a {
+        void XO();
+
+        void XP();
     }
 
-    public void lj(boolean z) {
-        this.fBd = z;
+    public aa(a aVar) {
+        this.ffk = aVar;
     }
 
-    public String blx() {
-        return this.fortune_desc;
-    }
-
-    public void rB(String str) {
-        this.fortune_desc = str;
-    }
-
-    public q bly() {
-        return this.fBe;
-    }
-
-    public void b(q qVar) {
-        this.fBe = qVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return fBc;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            if (this.ffk == null) {
+                return false;
+            }
+            this.count++;
+            if (this.count == 1) {
+                this.dXe = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.dXh);
+                return true;
+            } else if (this.count == 2) {
+                this.dXf = System.currentTimeMillis();
+                if (this.dXf - this.dXe < this.dXh) {
+                    this.ffk.XP();
+                }
+                this.mHandler.sendEmptyMessage(2);
+                return true;
+            } else {
+                return true;
+            }
+        }
+        return true;
     }
 }

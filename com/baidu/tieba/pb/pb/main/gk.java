@@ -1,81 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.dj;
-import com.baidu.tieba.pb.pb.main.ei;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.pb.FileDownloader;
+import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class gk extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService eDb;
+public class gk implements a.b {
+    private final /* synthetic */ TbPageContext aDH;
+    final /* synthetic */ gj ehn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gk(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.eDb = readerPbService;
+    public gk(gj gjVar, TbPageContext tbPageContext) {
+        this.ehn = gjVar;
+        this.aDH = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ei eiVar;
-        ei eiVar2;
-        ei eiVar3;
-        ei eiVar4;
-        ei eiVar5;
-        BdUniqueId bdUniqueId;
-        el elVar;
-        BdUniqueId bdUniqueId2;
-        ei eiVar6;
-        ei.a aVar;
-        el elVar2;
-        dj.a aVar2;
-        BdUniqueId bdUniqueId3;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof eh)) {
-            eh ehVar = (eh) customResponsedMessage.getData();
-            BdUniqueId bdUniqueId4 = ehVar.tag;
-            if (bdUniqueId4 != null) {
-                bdUniqueId = this.eDb.mTagId;
-                if (bdUniqueId.getId() != bdUniqueId4.getId()) {
-                    this.eDb.releasePbReaderModel();
-                    this.eDb.releaseReadManager();
-                    this.eDb.mTagId = bdUniqueId4;
-                    this.eDb.mReaderManager = new ei();
-                    this.eDb.mReaderModel = new el();
-                    elVar = this.eDb.mReaderModel;
-                    bdUniqueId2 = this.eDb.mTagId;
-                    elVar.p(bdUniqueId2);
-                    eiVar6 = this.eDb.mReaderManager;
-                    aVar = this.eDb.mRefreshCallback;
-                    eiVar6.a(aVar);
-                    elVar2 = this.eDb.mReaderModel;
-                    aVar2 = this.eDb.mLoadDataCallback;
-                    elVar2.b(aVar2);
-                    bdUniqueId3 = this.eDb.mTagId;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_READER_TAG_CHANGED, bdUniqueId3));
-                }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.ehn.ehj;
+        aVar2.dismiss();
+        if (com.baidu.tbadk.core.util.m.cA()) {
+            str = this.ehn.btP;
+            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.gn()) {
+                Activity pageActivity = this.aDH.getPageActivity();
+                str2 = this.ehn.btP;
+                FileDownloader.download(pageActivity, str2, null, this.aDH.getString(r.j.download_iqiyi_app));
+                return;
             }
-            this.eDb.threadId = ehVar.threadId;
-            this.eDb.postId = ehVar.postId;
-            this.eDb.isAlive = ehVar.isAlive;
-            this.eDb.setReadModel(ehVar);
-            if (ehVar.ezP >= 0) {
-                eiVar3 = this.eDb.mReaderManager;
-                eiVar3.b(ehVar.pbData, ehVar.isSquence, ehVar.loadType, ehVar.ezO);
-                eiVar4 = this.eDb.mReaderManager;
-                eiVar4.ezQ = ehVar.ezQ;
-                eiVar5 = this.eDb.mReaderManager;
-                eiVar5.O(ehVar.ezP, ehVar.ezR);
-            } else if (ehVar.ezP == -2) {
-                eiVar2 = this.eDb.mReaderManager;
-                eiVar2.a(ehVar.pbData, ehVar.isSquence, ehVar.loadType, ehVar.ezO, false);
-            } else {
-                eiVar = this.eDb.mReaderManager;
-                eiVar.b(ehVar.pbData, ehVar.isSquence, ehVar.loadType, ehVar.ezO);
-            }
+            return;
         }
+        com.baidu.adp.lib.util.k.showToast(this.aDH.getPageActivity(), com.baidu.tbadk.core.util.m.ud());
     }
 }

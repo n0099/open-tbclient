@@ -3,74 +3,74 @@ package com.baidu.tieba.write.view.PhotoLiveView;
 import android.widget.GridView;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.j;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.write.view.PhotoLiveView.a;
 import com.baidu.tieba.write.write.WriteActivity;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements a.InterfaceC0085a {
-    final /* synthetic */ a gms;
+public class b implements a.InterfaceC0079a {
+    final /* synthetic */ a fAV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.gms = aVar;
+        this.fAV = aVar;
     }
 
-    @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0085a
-    public void tO(int i) {
+    @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0079a
+    public void sn(int i) {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
-        l lVar;
+        j jVar;
         BaseActivity baseActivity;
         LinkedList<ImageFileInfo> linkedList4;
         GridView gridView;
-        l lVar2;
+        j jVar2;
         int i2;
-        l lVar3;
+        j jVar3;
         LinkedList linkedList5;
-        l lVar4;
-        l lVar5;
+        j jVar4;
+        j jVar5;
         LinkedList linkedList6;
-        linkedList = this.gms.chosedFiles;
+        linkedList = this.fAV.chosedFiles;
         if (linkedList != null) {
-            linkedList2 = this.gms.chosedFiles;
+            linkedList2 = this.fAV.chosedFiles;
             if (linkedList2.size() - 1 >= i) {
-                linkedList6 = this.gms.chosedFiles;
+                linkedList6 = this.fAV.chosedFiles;
                 ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList6.remove(i);
                 if (imageFileInfo.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.cB().c(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
             }
-            linkedList3 = this.gms.chosedFiles;
+            linkedList3 = this.fAV.chosedFiles;
             int size = linkedList3.size();
-            lVar = this.gms.aup;
-            if (lVar != null) {
-                lVar2 = this.gms.aup;
-                i2 = this.gms.avS;
-                lVar2.b(new com.baidu.tbadk.editortools.a(i2, -1, null));
+            jVar = this.fAV.atU;
+            if (jVar != null) {
+                jVar2 = this.fAV.atU;
+                i2 = this.fAV.avp;
+                jVar2.b(new com.baidu.tbadk.editortools.a(i2, -1, null));
                 if (size > 0) {
-                    lVar5 = this.gms.aup;
-                    lVar5.b(new com.baidu.tbadk.editortools.a(2, 10, String.valueOf(size)));
+                    jVar5 = this.fAV.atU;
+                    jVar5.b(new com.baidu.tbadk.editortools.a(2, 10, String.valueOf(size)));
                 } else {
-                    lVar3 = this.gms.aup;
-                    lVar3.b(new com.baidu.tbadk.editortools.a(2, 10, null));
+                    jVar3 = this.fAV.atU;
+                    jVar3.b(new com.baidu.tbadk.editortools.a(2, 10, null));
                 }
-                linkedList5 = this.gms.chosedFiles;
+                linkedList5 = this.fAV.chosedFiles;
                 if (linkedList5.size() == 1 && size == 0) {
-                    lVar4 = this.gms.aup;
-                    lVar4.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                    jVar4 = this.fAV.atU;
+                    jVar4.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                 }
             }
-            this.gms.bvx();
-            baseActivity = this.gms.bGF;
-            linkedList4 = this.gms.chosedFiles;
+            this.fAV.bmv();
+            baseActivity = this.fAV.bFA;
+            linkedList4 = this.fAV.chosedFiles;
             ((WriteActivity) baseActivity).o(linkedList4);
-            this.gms.bvu();
-            this.gms.notifyDataSetChanged();
-            gridView = this.gms.dUh;
+            this.fAV.bms();
+            this.fAV.notifyDataSetChanged();
+            gridView = this.fAV.dyJ;
             gridView.invalidateViews();
         }
     }

@@ -1,69 +1,32 @@
 package com.baidu.tieba.tbadkCore;
 
-import tbclient.FrsPage.StarEnter;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.List;
 /* loaded from: classes.dex */
-public class h {
-    private String dSr;
-    private String icon;
-    private String obj_id;
-    private int time;
-    private String title;
-    private int type;
-    private String url;
-    private int weight;
+public class h implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId fdI = BdUniqueId.gen();
+    private List<FeedForumData> bHG;
+    private String forumId;
 
-    public String getIcon() {
-        return this.icon;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return fdI;
     }
 
-    public void setIcon(String str) {
-        this.icon = str;
+    public List<FeedForumData> bdV() {
+        return this.bHG;
     }
 
-    public void rT(int i) {
-        this.weight = i;
+    public void cR(List<FeedForumData> list) {
+        this.bHG = list;
     }
 
-    public String getTitle() {
-        return this.title;
+    public String getForumId() {
+        return this.forumId;
     }
 
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public void setTime(int i) {
-        this.time = i;
-    }
-
-    public String bke() {
-        return this.obj_id;
-    }
-
-    public String aGJ() {
-        return this.dSr;
-    }
-
-    public void a(StarEnter starEnter) {
-        setIcon(starEnter.icon);
-        setTime(starEnter.time.intValue());
-        setTitle(starEnter.title);
-        setType(starEnter.type.intValue());
-        setUrl(starEnter.url);
-        rT(starEnter.weight.intValue());
-        this.obj_id = starEnter.obj_id;
-        this.dSr = starEnter.text;
+    public void setForumId(String str) {
+        this.forumId = str;
     }
 }

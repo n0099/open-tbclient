@@ -2,36 +2,31 @@ package com.baidu.tieba.tbadkCore;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView fzM;
+    final /* synthetic */ FrsPraiseView fdN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsPraiseView frsPraiseView) {
-        this.fzM = frsPraiseView;
+        this.fdN = frsPraiseView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PraiseData praiseData;
         Context context;
-        String str;
-        String str2;
-        boolean z;
-        PraiseData praiseData2;
-        String str3 = "";
-        praiseData = this.fzM.fzK;
-        if (praiseData != null) {
-            praiseData2 = this.fzM.fzK;
-            str3 = praiseData2.getTitle();
+        praiseData = this.fdN.fdL;
+        MetaData metaData = praiseData.getUser().get(1);
+        if (metaData != null) {
+            context = this.fdN.mContext;
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(context).createNormalConfig(com.baidu.adp.lib.h.b.c(metaData.getUserId(), 0L), false)));
         }
-        context = this.fzM.mContext;
-        str = this.fzM.mThreadId;
-        str2 = this.fzM.mPostId;
-        z = this.fzM.eFv;
-        com.baidu.tbadk.util.j.a(new PraiseListActivityConfig(context, str, str2, str3, z));
     }
 }

@@ -1,30 +1,24 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
-    final /* synthetic */ ae fGW;
+class ah implements View.OnClickListener {
+    final /* synthetic */ ad flb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ae aeVar) {
-        this.fGW = aeVar;
+    public ah(ad adVar) {
+        this.flb = adVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
-            mainTabActivity = this.fGW.fGL;
-            mainTabActivity2 = this.fGW.fGL;
-            mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
-            TiebaStatic.log("c10085");
-        }
+        this.flb.hy(false);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM));
+        com.baidu.tbadk.core.sharedPref.b.tW().putBoolean("enter_forum_edit_mode", false);
+        TiebaStatic.log("c10099");
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ BaseFragmentActivity Oa;
+    final /* synthetic */ BaseFragmentActivity NW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(BaseFragmentActivity baseFragmentActivity, int i) {
         super(i);
-        this.Oa = baseFragmentActivity;
+        this.NW = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,16 +23,16 @@ public class d extends CustomMessageListener {
         com.baidu.tbadk.core.view.k kVar;
         com.baidu.tbadk.core.view.k kVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017) {
-            cVar = this.Oa.mLayoutMode;
+            cVar = this.NW.mLayoutMode;
             if (cVar != null) {
-                cVar2 = this.Oa.mLayoutMode;
+                cVar2 = this.NW.mLayoutMode;
                 cVar2.b((Resources) null);
-                kVar = this.Oa.mKeyboardAdjust;
+                kVar = this.NW.mKeyboardAdjust;
                 if (kVar != null) {
-                    kVar2 = this.Oa.mKeyboardAdjust;
-                    kVar2.dd(TbadkCoreApplication.m9getInst().getSkinType());
+                    kVar2 = this.NW.mKeyboardAdjust;
+                    kVar2.df(TbadkCoreApplication.m9getInst().getSkinType());
                 }
-                this.Oa.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+                this.NW.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
     }

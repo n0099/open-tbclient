@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.view.UserIconBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    com.baidu.tieba.personPolymeric.event.a eSh = new com.baidu.tieba.personPolymeric.event.a();
-    final /* synthetic */ t eSi;
+    com.baidu.tieba.personPolymeric.event.a evG = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ t evH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.eSi = tVar;
+        this.evH = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,60 +34,60 @@ public class u implements View.OnClickListener {
         UserData userData4;
         com.baidu.tieba.view.m mVar2;
         UserData userData5;
-        mVar = this.eSi.eLK;
+        mVar = this.evH.epg;
         if (mVar != null) {
-            this.eSh.bMj = -1;
-            headPendantView = this.eSi.ggj;
+            this.evG.bsn = -1;
+            headPendantView = this.evH.fvb;
             if (headPendantView != view) {
-                userIconBox = this.eSi.ggl;
+                userIconBox = this.evH.fvd;
                 if (userIconBox != view) {
-                    userIconBox2 = this.eSi.ggm;
+                    userIconBox2 = this.evH.fve;
                     if (userIconBox2 != view) {
-                        bdExpandImageView = this.eSi.ggi;
+                        bdExpandImageView = this.evH.fva;
                         if (bdExpandImageView != view) {
-                            imageView = this.eSi.eSg;
+                            imageView = this.evH.evF;
                             if (imageView != view) {
-                                textView = this.eSi.ggo;
+                                textView = this.evH.fvg;
                                 if (textView == view) {
-                                    this.eSh.bMj = 13;
+                                    this.evG.bsn = 13;
                                 }
                             } else {
-                                this.eSh.bMj = 12;
-                                this.eSh.bMk = new Bundle();
-                                Bundle bundle = this.eSh.bMk;
-                                userData = this.eSi.mUserData;
+                                this.evG.bsn = 12;
+                                this.evG.bso = new Bundle();
+                                Bundle bundle = this.evG.bso;
+                                userData = this.evH.mUserData;
                                 bundle.putSerializable(UserData.TYPE_USER, userData);
                             }
                         } else {
-                            this.eSh.bMj = 10;
-                            this.eSh.bMk = new Bundle();
-                            Bundle bundle2 = this.eSh.bMk;
-                            userData2 = this.eSi.mUserData;
+                            this.evG.bsn = 10;
+                            this.evG.bso = new Bundle();
+                            Bundle bundle2 = this.evG.bso;
+                            userData2 = this.evH.mUserData;
                             bundle2.putSerializable(UserData.TYPE_USER, userData2);
                         }
                     } else {
-                        this.eSh.bMj = 3;
-                        this.eSh.bMk = new Bundle();
-                        Bundle bundle3 = this.eSh.bMk;
-                        userData3 = this.eSi.mUserData;
+                        this.evG.bsn = 3;
+                        this.evG.bso = new Bundle();
+                        Bundle bundle3 = this.evG.bso;
+                        userData3 = this.evH.mUserData;
                         bundle3.putSerializable(UserData.TYPE_USER, userData3);
                     }
                 } else {
-                    this.eSh.bMj = 2;
-                    this.eSh.bMk = new Bundle();
-                    Bundle bundle4 = this.eSh.bMk;
-                    userData4 = this.eSi.mUserData;
+                    this.evG.bsn = 2;
+                    this.evG.bso = new Bundle();
+                    Bundle bundle4 = this.evG.bso;
+                    userData4 = this.evH.mUserData;
                     bundle4.putString("vip_user_jump", userData4.getTShowInfo().get(0).getUrl());
                 }
             } else {
-                this.eSh.bMj = 1;
-                this.eSh.bMk = new Bundle();
-                Bundle bundle5 = this.eSh.bMk;
-                userData5 = this.eSi.mUserData;
+                this.evG.bsn = 1;
+                this.evG.bso = new Bundle();
+                Bundle bundle5 = this.evG.bso;
+                userData5 = this.evH.mUserData;
                 bundle5.putSerializable(UserData.TYPE_USER, userData5);
             }
-            mVar2 = this.eSi.eLK;
-            mVar2.a(view, this.eSh);
+            mVar2 = this.evH.epg;
+            mVar2.a(view, this.evG);
         }
     }
 }

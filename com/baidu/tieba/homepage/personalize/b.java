@@ -1,27 +1,28 @@
 package com.baidu.tieba.homepage.personalize;
 
 import android.widget.CompoundButton;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.o;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements o.a {
-    final /* synthetic */ a cKG;
+    final /* synthetic */ a cqb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cKG = aVar;
+        this.cqb = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.o.a
     public void a(com.baidu.tieba.card.data.c cVar) {
         if (cVar != null) {
-            TiebaStatic.log(new av("c11693").ab("obj_locate", "1").ab("tid", cVar.TY).ab("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new at("c11693").ab("obj_locate", "1").ab("tid", cVar.Ty).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
@@ -46,11 +47,11 @@ public class b implements o.a {
                         str = intValue == r.g.reason_checkbox3 ? "4" : "";
                     }
                     if (!"".equals(str)) {
-                        TiebaStatic.log(new av("c11693").ab("obj_locate", str).ab("tid", cVar.TY).ab("uid", TbadkCoreApplication.getCurrentAccount()));
+                        TiebaStatic.log(new at("c11693").ab("obj_locate", str).ab("tid", cVar.Ty).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
                     }
                     i = i2 + 1;
                 } else {
-                    TiebaStatic.log(new av("c11693").ab("obj_locate", "5").ab("tid", cVar.TY).ab("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new at("c11693").ab("obj_locate", "5").ab("tid", cVar.Ty).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
                     return;
                 }
             }

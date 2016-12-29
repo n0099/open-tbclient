@@ -9,52 +9,52 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    private static d asb = new d();
-    private boolean arW;
-    private int arX;
-    private long arY;
-    private final SparseArray<a> arZ;
-    private final HashSet<Integer> asa;
-    private int asc;
+    private static d arE = new d();
+    private int arA;
+    private long arB;
+    private final SparseArray<a> arC;
+    private final HashSet<Integer> arD;
+    private int arF;
+    private boolean arz;
 
-    public static d BI() {
-        return asb;
+    public static d Bv() {
+        return arE;
     }
 
     private d() {
         super(1001);
-        this.arX = 3;
-        this.arY = 300000L;
-        this.arZ = new SparseArray<>();
-        this.asa = new HashSet<>();
-        this.asc = 0;
+        this.arA = 3;
+        this.arB = 300000L;
+        this.arC = new SparseArray<>();
+        this.arD = new HashSet<>();
+        this.arF = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
-    public boolean el(int i) {
-        this.asc = 0;
-        if (this.arW) {
-            this.asc = 3;
+    public boolean em(int i) {
+        this.arF = 0;
+        if (this.arz) {
+            this.arF = 3;
             return false;
-        } else if (this.asa.contains(Integer.valueOf(i))) {
-            this.asc = 6;
+        } else if (this.arD.contains(Integer.valueOf(i))) {
+            this.arF = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.asc = 1;
+            this.arF = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().bL() > PingManager.BM().BO() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().bL() > PingManager.Bz().BB() + 20000) {
             com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.asc = 2;
+            this.arF = 2;
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
             return false;
         } else {
-            a aVar = this.arZ.get(i);
-            if (aVar != null && aVar.ase) {
-                if (Math.abs(System.currentTimeMillis() - aVar.asf) > this.arY) {
+            a aVar = this.arC.get(i);
+            if (aVar != null && aVar.arH) {
+                if (Math.abs(System.currentTimeMillis() - aVar.arI) > this.arB) {
                     aVar.reset();
                 } else {
-                    this.asc = 4;
+                    this.arF = 4;
                     return false;
                 }
             }
@@ -66,8 +66,8 @@ public class d extends com.baidu.adp.framework.listener.e {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.arZ.size()) {
-                this.arZ.valueAt(i2).reset();
+            if (i2 < this.arC.size()) {
+                this.arC.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -75,41 +75,41 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
     }
 
-    public void em(int i) {
-        a aVar = this.arZ.get(i);
+    public void en(int i) {
+        a aVar = this.arC.get(i);
         if (aVar == null) {
             aVar = new a(null);
-            this.arZ.append(i, aVar);
+            this.arC.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.arX);
+            aVar.onError(this.arA);
         }
-        this.asc = 5;
+        this.arF = 5;
     }
 
-    public void en(int i) {
-        this.arZ.remove(i);
+    public void eo(int i) {
+        this.arC.remove(i);
     }
 
     public void bt(boolean z) {
-        this.arW = z;
+        this.arz = z;
     }
 
     public void d(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.asa.clear();
+            this.arD.clear();
             for (int i : iArr) {
-                this.asa.add(Integer.valueOf(i));
+                this.arD.add(Integer.valueOf(i));
             }
         }
     }
 
-    public void eo(int i) {
-        this.arX = i;
+    public void ep(int i) {
+        this.arA = i;
     }
 
-    public void O(long j) {
-        this.arY = j;
+    public void N(long j) {
+        this.arB = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,9 +123,9 @@ public class d extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int asd;
-        public boolean ase;
-        public long asf;
+        public int arG;
+        public boolean arH;
+        public long arI;
 
         private a() {
         }
@@ -135,23 +135,23 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
 
         public void reset() {
-            this.asd = 0;
-            if (this.ase) {
-                this.ase = false;
-                this.asf = 0L;
+            this.arG = 0;
+            if (this.arH) {
+                this.arH = false;
+                this.arI = 0L;
             }
         }
 
         public void onError(int i) {
-            this.asd++;
-            if (!this.ase && this.asd >= i) {
-                this.ase = true;
-                this.asf = System.currentTimeMillis();
+            this.arG++;
+            if (!this.arH && this.arG >= i) {
+                this.arH = true;
+                this.arI = System.currentTimeMillis();
             }
         }
     }
 
-    public int BJ() {
-        return this.asc;
+    public int Bw() {
+        return this.arF;
     }
 }

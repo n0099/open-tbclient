@@ -4,15 +4,15 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class aj implements x {
-    final /* synthetic */ ag gle;
+    final /* synthetic */ ag fzH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ag agVar) {
-        this.gle = agVar;
+        this.fzH = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
-    public void b(int i, ImageFileInfo imageFileInfo) {
+    public void a(int i, ImageFileInfo imageFileInfo) {
         o oVar;
         o oVar2;
         o oVar3;
@@ -20,24 +20,24 @@ class aj implements x {
         AlbumActivity albumActivity;
         o oVar5;
         AlbumActivity albumActivity2;
-        oVar = this.gle.gjE;
+        oVar = this.fzH.fxZ;
         int maxImagesAllowed = oVar.getMaxImagesAllowed();
-        oVar2 = this.gle.gjE;
+        oVar2 = this.fzH.fxZ;
         if (oVar2.size() >= maxImagesAllowed) {
-            albumActivity2 = this.gle.gjT;
-            if (!albumActivity2.buC()) {
-                this.gle.showToast(String.format(this.gle.getPageContext().getString(r.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+            albumActivity2 = this.fzH.fyo;
+            if (!albumActivity2.blt()) {
+                this.fzH.showToast(String.format(this.fzH.getPageContext().getString(r.j.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
                 return;
             }
         }
-        oVar3 = this.gle.gjE;
-        if (oVar3.buS()) {
-            oVar5 = this.gle.gjE;
-            oVar5.sS(String.valueOf(System.currentTimeMillis()));
+        oVar3 = this.fzH.fxZ;
+        if (oVar3.blN()) {
+            oVar5 = this.fzH.fxZ;
+            oVar5.rf(String.valueOf(System.currentTimeMillis()));
         }
-        oVar4 = this.gle.gjE;
-        String buR = oVar4.buR();
-        albumActivity = this.gle.gjT;
-        albumActivity.sP(buR);
+        oVar4 = this.fzH.fxZ;
+        String blM = oVar4.blM();
+        albumActivity = this.fzH.fyo;
+        albumActivity.ra(blM);
     }
 }

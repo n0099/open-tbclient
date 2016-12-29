@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.view.viewpager.a;
 import com.baidu.tbadk.core.view.viewpager.a.C0036a;
 /* loaded from: classes.dex */
 public abstract class e<T extends v, V extends a.C0036a> {
-    protected BdUniqueId AV;
-    protected a<T, V> aiQ;
+    protected BdUniqueId AT;
+    protected a<T, V> air;
     protected Context mContext;
 
     /* loaded from: classes.dex */
@@ -28,21 +28,21 @@ public abstract class e<T extends v, V extends a.C0036a> {
 
     protected e(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.AV = bdUniqueId;
+        this.AT = bdUniqueId;
     }
 
     public BdUniqueId getType() {
-        return this.AV;
+        return this.AT;
     }
 
     public void b(V v, T t) {
     }
 
     public void setOnItemClickListener(a<T, V> aVar) {
-        this.aiQ = aVar;
+        this.air = aVar;
     }
 
-    public a<T, V> xb() {
-        return this.aiQ;
+    public a<T, V> wO() {
+        return this.air;
     }
 }

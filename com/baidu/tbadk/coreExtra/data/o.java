@@ -1,11 +1,28 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o {
-    public String userId;
-    public String userName;
+    private String akt;
+    private ArrayList<Object> aku;
 
-    public o(String str, String str2) {
-        this.userId = str;
-        this.userName = str2;
+    public o() {
+        n(new ArrayList<>());
+    }
+
+    public String xN() {
+        return this.akt;
+    }
+
+    public void em(String str) {
+        this.akt = str;
+    }
+
+    public ArrayList<Object> xO() {
+        return this.aku;
+    }
+
+    public void n(ArrayList<Object> arrayList) {
+        this.aku = arrayList;
     }
 }

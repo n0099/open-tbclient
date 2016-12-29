@@ -1,17 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class et extends CustomMessageListener {
+public class et implements Runnable {
+    final /* synthetic */ er egZ;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public et(int i) {
-        super(i);
+    public et(er erVar) {
+        this.egZ = erVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        eq.aRA().a(1, customResponsedMessage);
+    @Override // java.lang.Runnable
+    public void run() {
+        LinearLayout linearLayout;
+        ViewStub viewStub;
+        linearLayout = this.egZ.efi;
+        if (linearLayout == null) {
+            this.egZ.aLJ();
+        }
+        viewStub = this.egZ.eeJ;
+        viewStub.setVisibility(0);
     }
 }

@@ -184,7 +184,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.LQ);
+        return j.a(iVar, this, com.baidu.location.h.i.LO);
     }
 
     public int d() {

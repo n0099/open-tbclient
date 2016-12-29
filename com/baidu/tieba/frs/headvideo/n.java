@@ -5,24 +5,24 @@ import com.baidu.tieba.frs.headvideo.e;
 import java.util.List;
 /* loaded from: classes.dex */
 class n implements e.a {
-    final /* synthetic */ ForumHeadVideoView cfB;
+    final /* synthetic */ ForumHeadVideoView bLk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ForumHeadVideoView forumHeadVideoView) {
-        this.cfB = forumHeadVideoView;
+        this.bLk = forumHeadVideoView;
     }
 
     @Override // com.baidu.tieba.frs.headvideo.e.a
-    public void fN(String str) {
+    public void fJ(String str) {
     }
 
     @Override // com.baidu.tieba.frs.headvideo.e.a
     public void c(int i, List<BannerThreadInfoData> list) {
         List list2;
         List list3;
-        list2 = this.cfB.aUV;
+        list2 = this.bLk.aUm;
         if (list2 != null && list != null) {
-            list3 = this.cfB.aUV;
+            list3 = this.bLk.aUm;
             list3.addAll(list);
         }
     }

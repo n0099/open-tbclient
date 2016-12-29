@@ -7,30 +7,30 @@ import tbclient.ActPost;
 import tbclient.LinkInfo;
 /* loaded from: classes.dex */
 public class c {
-    private String fBF;
-    private ArrayList<a> fBG = new ArrayList<>();
-    private ArrayList<b> fBH = new ArrayList<>();
+    private String ffK;
+    private ArrayList<a> ffL = new ArrayList<>();
+    private ArrayList<b> ffM = new ArrayList<>();
 
-    public String blF() {
-        return this.fBF;
+    public String bfu() {
+        return this.ffK;
     }
 
-    public List<a> blG() {
-        return this.fBG;
+    public List<a> bfv() {
+        return this.ffL;
     }
 
-    public List<b> blH() {
-        return this.fBH;
+    public List<b> bfw() {
+        return this.ffM;
     }
 
     public void a(ActPost actPost) {
         if (actPost != null) {
-            this.fBF = actPost.list_head;
+            this.ffK = actPost.list_head;
             for (ActHot actHot : actPost.act_hot) {
                 if (actHot != null) {
                     a aVar = new a();
                     aVar.a(actHot);
-                    this.fBG.add(aVar);
+                    this.ffL.add(aVar);
                 }
             }
             List<LinkInfo> list = actPost.link_info;
@@ -38,7 +38,7 @@ public class c {
                 if (list != null) {
                     b bVar = new b();
                     bVar.a(linkInfo);
-                    this.fBH.add(bVar);
+                    this.ffM.add(bVar);
                 }
             }
         }

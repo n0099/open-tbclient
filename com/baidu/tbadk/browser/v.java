@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 class v implements com.baidu.tbadk.core.c.l {
-    final /* synthetic */ TbWebViewActivity MG;
+    final /* synthetic */ TbWebViewActivity ME;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(TbWebViewActivity tbWebViewActivity) {
-        this.MG = tbWebViewActivity;
+        this.ME = tbWebViewActivity;
     }
 
     @Override // com.baidu.tbadk.core.c.l

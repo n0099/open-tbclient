@@ -1,23 +1,24 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements NoNetworkView.a {
-    final /* synthetic */ z dzD;
+public class ac extends CustomMessageListener {
+    final /* synthetic */ o dcz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(z zVar) {
-        this.dzD = zVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac(o oVar, int i) {
+        super(i);
+        this.dcz = oVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aK(boolean z) {
-        for (int i = 0; i < 3; i++) {
-            com.baidu.tbadk.mvc.f.a.a mE = this.dzD.mE(i);
-            if (mE != null) {
-                mE.bS(z);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120) {
+            this.dcz.d(customResponsedMessage);
         }
     }
 }

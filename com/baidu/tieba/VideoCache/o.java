@@ -1,60 +1,95 @@
 package com.baidu.tieba.VideoCache;
 
-import android.os.Handler;
-import android.os.Message;
-import java.io.InputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Environment;
+import android.os.StatFs;
+import java.io.File;
 /* loaded from: classes.dex */
-public class o implements Handler.Callback {
-    final /* synthetic */ n aQG;
+public class o {
+    private static final String TAG = o.class.getSimpleName();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.aQG = nVar;
-    }
-
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        c cVar;
-        c cVar2;
-        c cVar3;
-        c cVar4;
-        c cVar5;
-        i iVar;
-        i iVar2;
-        if (message.what == 1) {
-            if (message.obj instanceof InputStream) {
-                try {
-                    ((InputStream) message.obj).close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+    public static long gY(String str) {
+        long j;
+        long j2 = 0;
+        long gZ = gZ(str);
+        if (str == null || str.isEmpty()) {
+            j = 0;
+        } else {
+            File file = new File(String.valueOf(j.aPS) + str);
+            if (file == null || !file.exists() || !file.isDirectory()) {
+                return 0L;
             }
-        } else if (message.what == 2) {
-            if (message.obj instanceof String) {
-                iVar = this.aQG.aQE;
-                iVar.setVideoUrl((String) message.obj);
-                iVar2 = this.aQG.aQE;
-                iVar2.run();
-            }
-        } else if (message.what == 3) {
-            cVar4 = this.aQG.aQF;
-            if (cVar4 != null) {
-                cVar5 = this.aQG.aQF;
-                cVar5.KK();
-            }
-        } else if (message.what == 4) {
-            if (message.obj instanceof String) {
-                cVar3 = this.aQG.aQF;
-                cVar3.gR((String) message.obj);
-            }
-        } else if (message.what == 5) {
-            cVar = this.aQG.aQF;
-            if (cVar != null) {
-                cVar2 = this.aQG.aQF;
-                cVar2.clearCache();
+            File file2 = new File(String.valueOf(file.getAbsolutePath()) + "/completed");
+            j = (file2 == null || !file2.exists()) ? 0L : file2.length();
+            File file3 = new File(String.valueOf(file.getAbsolutePath()) + "/completed.temp");
+            if (file3 != null && file3.exists()) {
+                j2 = file3.length();
             }
         }
-        return true;
+        return j + j2 + gZ;
+    }
+
+    public static long gZ(String str) {
+        File file;
+        File file2;
+        File[] listFiles;
+        long j = 0;
+        if (str != null && !str.isEmpty() && (file = new File(String.valueOf(j.aPS) + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+            for (File file3 : listFiles) {
+                if (file3 != null && file3.exists()) {
+                    j += file3.length();
+                }
+            }
+        }
+        return j;
+    }
+
+    public static long Kr() {
+        if ("mounted".equals(Environment.getExternalStorageState())) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return statFs.getAvailableBlocks() * statFs.getBlockSize();
+        }
+        return 0L;
+    }
+
+    public static synchronized long getFileSize(File file) {
+        long j;
+        synchronized (o.class) {
+            j = 0;
+            if (file != null) {
+                if (file.exists()) {
+                    j = file.length();
+                }
+            }
+        }
+        return j;
+    }
+
+    public static void w(File file) {
+        if (file != null) {
+            if (file.isFile()) {
+                file.delete();
+            } else if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles == null || listFiles.length == 0) {
+                    file.delete();
+                    return;
+                }
+                for (File file2 : listFiles) {
+                    w(file2);
+                }
+                file.delete();
+            }
+        }
+    }
+
+    public static String ha(String str) {
+        if (str == null || !str.contains("/")) {
+            return null;
+        }
+        String substring = str.substring(str.lastIndexOf("/") + 1);
+        if (substring != null && substring.contains(".mp4")) {
+            return substring.replace(".mp4", "");
+        }
+        return substring;
     }
 }

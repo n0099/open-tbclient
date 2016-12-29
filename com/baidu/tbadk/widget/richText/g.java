@@ -5,45 +5,45 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.a.b.a.a.i {
-    private String aJk;
-    private String aJl;
-    private String aJm;
-    private boolean aJn;
-    private boolean aJo;
-    private String aJp;
-    private long aJq;
+    private String aIC;
+    private String aID;
+    private String aIE;
+    private boolean aIF;
+    private boolean aIG;
+    private String aIH;
+    private long aII;
     private int mHeight;
     private int mWidth;
 
     public g() {
-        this.aJk = null;
-        this.aJl = null;
-        this.aJm = null;
+        this.aIC = null;
+        this.aID = null;
+        this.aIE = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aJn = false;
-        this.aJo = false;
-        this.aJp = null;
-        this.aJq = 0L;
+        this.aIF = false;
+        this.aIG = false;
+        this.aIH = null;
+        this.aII = 0L;
     }
 
     public g(PbContent pbContent) {
-        this.aJk = null;
-        this.aJl = null;
-        this.aJm = null;
+        this.aIC = null;
+        this.aID = null;
+        this.aIE = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aJn = false;
-        this.aJo = false;
-        this.aJp = null;
-        this.aJq = 0L;
+        this.aIF = false;
+        this.aIG = false;
+        this.aIH = null;
+        this.aII = 0L;
         if (pbContent != null) {
-            this.aJk = pbContent.src;
-            this.aJl = pbContent.cdn_src;
-            if (this.aJl == null || this.aJl.length() == 0) {
-                this.aJl = this.aJk;
+            this.aIC = pbContent.src;
+            this.aID = pbContent.cdn_src;
+            if (this.aID == null || this.aID.length() == 0) {
+                this.aID = this.aIC;
             }
-            this.aJm = pbContent.big_cdn_src;
+            this.aIE = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
@@ -60,31 +60,31 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aJl != null && this.aJl.indexOf(".baidu.com") != -1) {
-                this.aJn = true;
+            if (this.aID != null && this.aID.indexOf(".baidu.com") != -1) {
+                this.aIF = true;
             }
-            this.aJp = pbContent.origin_src;
-            this.aJq = pbContent.origin_size.intValue();
+            this.aIH = pbContent.origin_src;
+            this.aII = pbContent.origin_size.intValue();
         }
     }
 
     public g(JSONObject jSONObject) {
-        this.aJk = null;
-        this.aJl = null;
-        this.aJm = null;
+        this.aIC = null;
+        this.aID = null;
+        this.aIE = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aJn = false;
-        this.aJo = false;
-        this.aJp = null;
-        this.aJq = 0L;
+        this.aIF = false;
+        this.aIG = false;
+        this.aIH = null;
+        this.aII = 0L;
         if (jSONObject != null) {
-            this.aJk = jSONObject.optString("src");
-            this.aJl = jSONObject.optString("cdn_src", "");
-            if (this.aJl == null || this.aJl.length() == 0) {
-                this.aJl = this.aJk;
+            this.aIC = jSONObject.optString("src");
+            this.aID = jSONObject.optString("cdn_src", "");
+            if (this.aID == null || this.aID.length() == 0) {
+                this.aID = this.aIC;
             }
-            this.aJm = jSONObject.optString("big_cdn_src", null);
+            this.aIE = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -98,14 +98,14 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aJl != null && this.aJl.indexOf(".baidu.com") != -1) {
-                this.aJn = true;
+            if (this.aID != null && this.aID.indexOf(".baidu.com") != -1) {
+                this.aIF = true;
             }
         }
     }
 
-    public String It() {
-        return this.aJm;
+    public String HO() {
+        return this.aIE;
     }
 
     public int getHeight() {
@@ -116,27 +116,27 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         return this.mWidth;
     }
 
-    public boolean Iu() {
-        return this.aJn;
+    public boolean HP() {
+        return this.aIF;
     }
 
-    public String Iv() {
-        return this.aJk;
+    public String HQ() {
+        return this.aIC;
     }
 
-    public String Iw() {
-        return this.aJl;
+    public String HR() {
+        return this.aID;
     }
 
-    public boolean Ix() {
-        return this.aJo;
+    public boolean HS() {
+        return this.aIG;
     }
 
-    public String Iy() {
-        return this.aJp;
+    public String HT() {
+        return this.aIH;
     }
 
     public long getOriginalSize() {
-        return this.aJq;
+        return this.aII;
     }
 }

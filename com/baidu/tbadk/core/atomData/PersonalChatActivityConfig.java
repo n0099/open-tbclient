@@ -2,14 +2,12 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.DealInfoIMData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PersonalChatActivityConfig extends IntentConfig {
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
-    public static final String KEY_ECOMM_INFO = "key_ecomm_info";
     public static final String KEY_IS_FRIEND = "key_is_friend";
     public static final String KEY_LEAVE_MSG = "key_leave_msg";
     public static final String KEY_REPLY_CONTENT = "key_reply_content";
@@ -33,7 +31,7 @@ public class PersonalChatActivityConfig extends IntentConfig {
         intent.putExtra("chat_mode", 1);
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra("key_is_friend", i2);
+        intent.putExtra(KEY_IS_FRIEND, i2);
     }
 
     public PersonalChatActivityConfig(Context context, long j, String str, String str2, int i, int i2, String str3) {
@@ -46,22 +44,15 @@ public class PersonalChatActivityConfig extends IntentConfig {
         intent.putExtra("chat_mode", 1);
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra("key_is_friend", i2);
+        intent.putExtra(KEY_IS_FRIEND, i2);
         intent.putExtra(KEY_REPLY_CONTENT, str3);
-    }
-
-    public static PersonalChatActivityConfig buildPersonalChatActivityConfigByEcomm(Context context, long j, String str, String str2, int i, int i2, DealInfoIMData dealInfoIMData) {
-        String jSONString = dealInfoIMData.toJSONString();
-        PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(context, j, str, str2, i, i2);
-        personalChatActivityConfig.getIntent().putExtra(KEY_ECOMM_INFO, jSONString);
-        return personalChatActivityConfig;
     }
 
     public PersonalChatActivityConfig(Context context, long j, String str, String str2, int i, String str3, String str4) {
         this(context, j, str, str2, i);
         Intent intent = getIntent();
-        intent.putExtra("key_leave_msg", str3);
-        intent.putExtra("key_share_msg", str4);
+        intent.putExtra(KEY_LEAVE_MSG, str3);
+        intent.putExtra(KEY_SHARE_MSG, str4);
     }
 
     public UserData getUserData() {

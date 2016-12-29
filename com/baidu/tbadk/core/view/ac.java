@@ -10,22 +10,22 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ac extends z {
-    protected boolean ahr;
-    private CustomMessageListener ahs;
-    private CustomMessageListener aht;
+    protected boolean agK;
+    private CustomMessageListener agL;
+    private CustomMessageListener agM;
     protected boolean isDone;
 
     public ac(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.isDone = true;
-        this.ahs = new ad(this, CmdConfigCustom.CMD_PULL_IMAGE_CHANGE);
-        this.aht = new ae(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
+        this.agL = new ad(this, CmdConfigCustom.CMD_PULL_IMAGE_CHANGE);
+        this.agM = new ae(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
         d(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.core.view.z, com.baidu.adp.widget.ListView.d
     public void S(boolean z) {
-        this.ahc.setBackgroundDrawable(null);
+        this.agv.setBackgroundDrawable(null);
         super.S(z);
         this.isDone = true;
     }
@@ -34,8 +34,8 @@ public class ac extends z {
     public void R(boolean z) {
         super.R(z);
         this.isDone = false;
-        if (!this.ahr) {
-            di(TbadkCoreApplication.m9getInst().getSkinType());
+        if (!this.agK) {
+            dk(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
@@ -46,23 +46,23 @@ public class ac extends z {
     }
 
     @Override // com.baidu.tbadk.core.view.z
-    public void di(int i) {
-        super.di(i);
-        if (this.ahb != null && this.ahc != null) {
-            this.ahr = false;
-            if (!vt()) {
-                this.ahg = com.baidu.tbadk.core.util.ak.vl().cH(i);
-                if (this.ahg != null) {
-                    this.ahr = true;
+    public void dk(int i) {
+        super.dk(i);
+        if (this.agu != null && this.agv != null) {
+            this.agK = false;
+            if (!vd()) {
+                this.agz = com.baidu.tbadk.core.util.aj.uV().cJ(i);
+                if (this.agz != null) {
+                    this.agK = true;
                 } else {
-                    this.ahg = new AnimationDrawable();
+                    this.agz = new AnimationDrawable();
                 }
-                this.ahb.setBackgroundColor(com.baidu.tbadk.core.util.ak.vl().cJ(i));
-                if (!this.ahr) {
-                    this.ahg = com.baidu.tbadk.core.util.ak.vl().cI(i);
+                this.agu.setBackgroundColor(com.baidu.tbadk.core.util.aj.uV().cL(i));
+                if (!this.agK) {
+                    this.agz = com.baidu.tbadk.core.util.aj.uV().cK(i);
                 }
-                this.ahg.setOneShot(false);
-                this.ahc.setBackgroundDrawable(this.ahg);
+                this.agz.setOneShot(false);
+                this.agv.setBackgroundDrawable(this.agz);
             }
         }
     }
@@ -74,23 +74,23 @@ public class ac extends z {
     }
 
     private void d(TbPageContext<?> tbPageContext) {
-        this.ahs.setTag(tbPageContext.getUniqueId());
-        this.aht.setTag(tbPageContext.getUniqueId());
-        tbPageContext.registerListener(this.ahs);
-        tbPageContext.registerListener(this.aht);
+        this.agL.setTag(tbPageContext.getUniqueId());
+        this.agM.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.agL);
+        tbPageContext.registerListener(this.agM);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        if (this.ahs != null) {
-            this.ahs.setTag(bdUniqueId);
+        if (this.agL != null) {
+            this.agL.setTag(bdUniqueId);
         }
-        if (this.aht != null) {
-            this.aht.setTag(bdUniqueId);
+        if (this.agM != null) {
+            this.agM.setTag(bdUniqueId);
         }
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.ahs);
-        MessageManager.getInstance().unRegisterListener(this.aht);
+        MessageManager.getInstance().unRegisterListener(this.agL);
+        MessageManager.getInstance().unRegisterListener(this.agM);
     }
 }

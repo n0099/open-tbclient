@@ -5,11 +5,11 @@ import com.baidu.tieba.play.t;
 import java.util.List;
 /* loaded from: classes.dex */
 class q implements t.d {
-    final /* synthetic */ ForumHeadVideoView cfB;
+    final /* synthetic */ ForumHeadVideoView bLk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ForumHeadVideoView forumHeadVideoView) {
-        this.cfB = forumHeadVideoView;
+        this.bLk = forumHeadVideoView;
     }
 
     @Override // com.baidu.tieba.play.t.d
@@ -22,16 +22,16 @@ class q implements t.d {
                 e.printStackTrace();
             }
         }
-        c currentVideoItemView = this.cfB.getCurrentVideoItemView();
+        c currentVideoItemView = this.bLk.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
-            list = this.cfB.aUV;
+            list = this.bLk.aUm;
             if (x.s(list) > 1) {
                 currentVideoItemView.setLooping(false);
             } else {
                 currentVideoItemView.setLooping(true);
             }
             currentVideoItemView.setVideoPlayState(3);
-            this.cfB.r(currentVideoItemView.getThreadInfo());
+            this.bLk.w(currentVideoItemView.getThreadInfo());
         }
     }
 }

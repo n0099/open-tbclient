@@ -7,8 +7,8 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class av {
     private int duration;
-    private long fgH;
-    private String fgI;
+    private long eJZ;
+    private String eKa;
     private String videoUrl;
 
     public void a(VideoInfo videoInfo, boolean z) {
@@ -37,18 +37,18 @@ public class av {
                     str2 = videoDesc.video_width;
                     str = videoDesc.video_height;
                     this.videoUrl = str3;
-                    this.fgH = videoInfo.video_length.intValue();
+                    this.eJZ = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.fgI = String.valueOf(str2) + "x" + str;
+                    this.eKa = String.valueOf(str2) + "x" + str;
                 }
             }
             str = num2;
             str2 = num;
             str3 = str4;
             this.videoUrl = str3;
-            this.fgH = videoInfo.video_length.intValue();
+            this.eJZ = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.fgI = String.valueOf(str2) + "x" + str;
+            this.eKa = String.valueOf(str2) + "x" + str;
         }
     }
 
@@ -56,24 +56,24 @@ public class av {
         a(videoInfo, false);
     }
 
-    public void e(com.baidu.tbadk.widget.richText.o oVar) {
-        if (oVar != null) {
-            this.videoUrl = oVar.getVideoUrl();
-            this.fgH = oVar.IP();
-            this.duration = oVar.getDuration();
-            this.fgI = String.valueOf(oVar.getWidth()) + "x" + oVar.getHeight();
+    public void e(com.baidu.tbadk.widget.richText.n nVar) {
+        if (nVar != null) {
+            this.videoUrl = nVar.getVideoUrl();
+            this.eJZ = nVar.Ik();
+            this.duration = nVar.getDuration();
+            this.eKa = String.valueOf(nVar.getWidth()) + "x" + nVar.getHeight();
         }
     }
 
-    public long bdc() {
-        return this.fgH;
+    public long aWJ() {
+        return this.eJZ;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String bdd() {
-        return this.fgI;
+    public String aWK() {
+        return this.eKa;
     }
 }

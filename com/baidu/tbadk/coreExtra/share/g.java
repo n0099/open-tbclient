@@ -31,7 +31,7 @@ class g implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
                     Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
                     TextView B = dVar.B(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                     if (data.isInsertBack) {
-                        dVar.a(B, dVar.AH(), (View.OnClickListener) ((Pair) next.second).second);
+                        dVar.a(B, dVar.Au(), (View.OnClickListener) ((Pair) next.second).second);
                     } else {
                         dVar.a(B, (View.OnClickListener) ((Pair) next.second).second);
                     }

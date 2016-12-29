@@ -8,16 +8,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.editortools.aa;
+import com.baidu.tbadk.editortools.x;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.editortools.d {
-    private a<?> awY;
+    private a<?> awv;
     private String forumName = null;
     private String forumId = null;
     private String from = null;
-    private boolean awX = false;
+    private boolean awu = false;
 
     public void setForumName(String str) {
         this.forumName = str;
@@ -32,50 +32,50 @@ public class n extends com.baidu.tbadk.editortools.d {
     }
 
     public void a(a<?> aVar) {
-        this.awY = aVar;
+        this.awv = aVar;
     }
 
     @Override // com.baidu.tbadk.editortools.d
-    protected com.baidu.tbadk.editortools.f ao(Context context) {
-        com.baidu.tbadk.editortools.l lVar = new com.baidu.tbadk.editortools.l(context);
-        lVar.setBackgroundColorId(0);
-        lVar.setBarBackgroundColorId(r.d.common_color_10099);
-        lVar.bD(true);
-        e eVar = new e(lVar);
-        eVar.a(this.awY);
+    protected com.baidu.tbadk.editortools.f am(Context context) {
+        com.baidu.tbadk.editortools.j jVar = new com.baidu.tbadk.editortools.j(context);
+        jVar.setBackgroundColorId(0);
+        jVar.setBarBackgroundColorId(r.d.common_color_10099);
+        jVar.bD(true);
+        e eVar = new e(jVar);
+        eVar.a(this.awv);
         return eVar;
     }
 
     @Override // com.baidu.tbadk.editortools.d
     protected void b(com.baidu.tbadk.editortools.f fVar) {
         if (fVar instanceof e) {
-            com.baidu.tbadk.editortools.l CO = fVar.CO();
-            o oVar = new o(this, (e) fVar, CO);
-            CO.a(5, oVar);
-            CO.a(4, oVar);
-            CO.a(7, oVar);
-            CO.a(16, oVar);
-            CO.a(14, oVar);
-            CO.a(15, oVar);
-            CO.a(8, oVar);
-            CO.a(18, oVar);
-            CO.a(20, oVar);
-            CO.a(10, oVar);
-            CO.a(11, oVar);
-            CO.a(27, oVar);
-            CO.a(29, oVar);
-            CO.a(36, oVar);
-            CO.a(32, oVar);
-            CO.a(40, oVar);
-            CO.a(43, oVar);
+            com.baidu.tbadk.editortools.j CB = fVar.CB();
+            o oVar = new o(this, (e) fVar, CB);
+            CB.a(5, oVar);
+            CB.a(4, oVar);
+            CB.a(7, oVar);
+            CB.a(16, oVar);
+            CB.a(14, oVar);
+            CB.a(15, oVar);
+            CB.a(8, oVar);
+            CB.a(18, oVar);
+            CB.a(20, oVar);
+            CB.a(10, oVar);
+            CB.a(11, oVar);
+            CB.a(27, oVar);
+            CB.a(29, oVar);
+            CB.a(36, oVar);
+            CB.a(32, oVar);
+            CB.a(40, oVar);
+            CB.a(43, oVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.d
     protected void a(com.baidu.tbadk.editortools.f fVar) {
         CustomResponsedMessage runTask;
-        aa aaVar;
-        com.baidu.tbadk.editortools.l CO = fVar.CO();
+        x xVar;
+        com.baidu.tbadk.editortools.j CB = fVar.CB();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         arrayList.add(19);
@@ -84,43 +84,43 @@ public class n extends com.baidu.tbadk.editortools.d {
         arrayList.add(11);
         arrayList.add(6);
         arrayList.add(9);
-        com.baidu.tbadk.editortools.c.a aVar = new com.baidu.tbadk.editortools.c.a(CO.getContext(), 7);
-        CO.b(aVar);
-        aVar.avu = r.f.icon_topic_n;
-        CO.b(new com.baidu.tbadk.editortools.imagetool.i(CO.getContext(), 3));
-        CO.b(new com.baidu.tbadk.editortools.imagetool.b(CO.getContext()));
-        if (com.baidu.tieba.tbadkCore.voice.c.bnn() && com.baidu.tieba.tbadkCore.u.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, CO.getContext()), aa.class)) != null && (aaVar = (aa) runTask.getData()) != null) {
-            aaVar.avw = 4;
-            CO.b(aaVar);
+        com.baidu.tbadk.editortools.c.a aVar = new com.baidu.tbadk.editortools.c.a(CB.getContext(), 7);
+        CB.b(aVar);
+        aVar.auR = r.f.icon_topic_n;
+        CB.b(new com.baidu.tbadk.editortools.imagetool.i(CB.getContext(), 3));
+        CB.b(new com.baidu.tbadk.editortools.imagetool.b(CB.getContext()));
+        if (com.baidu.tieba.tbadkCore.voice.c.bhh() && com.baidu.tieba.tbadkCore.t.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, CB.getContext()), x.class)) != null && (xVar = (x) runTask.getData()) != null) {
+            xVar.auT = 4;
+            CB.b(xVar);
         }
-        CO.b(new com.baidu.tbadk.editortools.a.a(CO.getContext(), 5));
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GRAFFITI_TOOL_CRTL, CO.getContext()), aa.class);
-        if (runTask2 != null && (runTask2.getData() instanceof aa)) {
-            aa aaVar2 = (aa) runTask2.getData();
-            aaVar2.avw = 6;
-            CO.b(aaVar2);
+        CB.b(new com.baidu.tbadk.editortools.a.a(CB.getContext(), 5));
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GRAFFITI_TOOL_CRTL, CB.getContext()), x.class);
+        if (runTask2 != null && (runTask2.getData() instanceof x)) {
+            x xVar2 = (x) runTask2.getData();
+            xVar2.auT = 6;
+            CB.b(xVar2);
         }
-        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, CO.getContext()), aa.class);
+        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, CB.getContext()), x.class);
         if (runTask3 != null && runTask3.getData() != null) {
-            aa aaVar3 = (aa) runTask3.getData();
-            aaVar3.avw = 8;
-            CO.b(aaVar3);
+            x xVar3 = (x) runTask3.getData();
+            xVar3.auT = 8;
+            CB.b(xVar3);
         }
-        CO.b(new com.baidu.tbadk.editortools.inputtool.a(CO.getContext(), true));
-        CO.b(new com.baidu.tbadk.editortools.sendtool.a(CO.getContext()));
-        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, CO.getContext()), aa.class);
+        CB.b(new com.baidu.tbadk.editortools.inputtool.a(CB.getContext(), true));
+        CB.b(new com.baidu.tbadk.editortools.sendtool.a(CB.getContext()));
+        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, CB.getContext()), x.class);
         if (runTask4 != null && runTask4.getData() != null) {
-            aa aaVar4 = (aa) runTask4.getData();
-            aaVar4.avw = 9;
-            CO.b(aaVar4);
+            x xVar4 = (x) runTask4.getData();
+            xVar4.auT = 9;
+            CB.b(xVar4);
         }
         arrayList.add(7);
         arrayList.add(8);
-        CO.y(arrayList);
-        if (!"PbChosenActivity".equals(CO.getContext().getClass().getSimpleName())) {
-            CO.b(new com.baidu.tbadk.editortools.b.a(CO.getContext(), 10));
+        CB.y(arrayList);
+        if (!"PbChosenActivity".equals(CB.getContext().getClass().getSimpleName())) {
+            CB.b(new com.baidu.tbadk.editortools.b.a(CB.getContext(), 10));
         }
-        CO.CP();
+        CB.CC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

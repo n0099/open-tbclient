@@ -22,10 +22,10 @@ public class b<T> {
         this.oR = i;
         this.oS = i2;
         this.oT = new LinkedList<>();
-        ak(this.oS);
+        al(this.oS);
     }
 
-    private void ak(int i) {
+    private void al(int i) {
         T t;
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -51,7 +51,7 @@ public class b<T> {
                 } else {
                     t = this.oU.p(this.oU.ez());
                 }
-                ak(this.oS - this.oT.size());
+                al(this.oS - this.oT.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -5,17 +5,17 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BdTypeListView Cx;
+    final /* synthetic */ BdTypeListView Cy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(BdTypeListView bdTypeListView) {
-        this.Cx = bdTypeListView;
+        this.Cy = bdTypeListView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.Cx.Cw != null) {
-            this.Cx.Cw.onItemClick(adapterView, view, i, j);
+        if (this.Cy.Cx != null) {
+            this.Cy.Cx.onItemClick(adapterView, view, i, j);
         }
     }
 }

@@ -5,19 +5,19 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public interface g {
+    void Zn();
+
+    boolean Zo();
+
     void a(Activity activity, View view, View view2);
 
     void a(f fVar);
 
-    void aeS();
+    void dS(boolean z);
 
-    boolean aeT();
+    void dT(boolean z);
 
-    void ei(boolean z);
-
-    void ej(boolean z);
-
-    void ek(boolean z);
+    void dU(boolean z);
 
     ViewGroup t(Activity activity);
 }

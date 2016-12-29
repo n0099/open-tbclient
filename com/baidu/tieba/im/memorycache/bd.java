@@ -23,12 +23,12 @@ public class bd extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List<ImMessageCenterPojo> axq = b.axj().axq();
-        if (axq != null && axq.size() != 0) {
-            for (ImMessageCenterPojo imMessageCenterPojo : axq) {
+        List<ImMessageCenterPojo> arP = b.arI().arP();
+        if (arP != null && arP.size() != 0) {
+            for (ImMessageCenterPojo imMessageCenterPojo : arP) {
                 imMessageCenterPojo.setTaskId("");
             }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new be(this, axq));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new be(this, arP));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);

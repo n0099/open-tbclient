@@ -1,68 +1,37 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.q;
-import tbclient.PbPage.GodCard;
+import tbclient.Lottery.DataRes;
 /* loaded from: classes.dex */
-public class c extends q {
-    public static final BdUniqueId erK = BdUniqueId.gen();
-    private String PT;
-    private String buttonText;
-    private String erL;
-    private int erM;
-    private String picUrl;
-    private String portrait;
-    private String text;
-    private String userName;
+public class c {
+    private String dWs;
+    private final LotteryUserChanceInfo dWt;
+    private final b dWu;
+    private int mStatus;
 
-    public void a(GodCard godCard) {
-        if (godCard != null) {
-            this.userName = godCard.user_name;
-            this.portrait = godCard.portrait;
-            this.erL = godCard.time_ex;
-            this.text = godCard.text;
-            this.picUrl = godCard.pic_url;
-            this.buttonText = godCard.button_text;
-            this.PT = godCard.button_url;
-            this.erM = godCard.show_floor.intValue();
-        }
+    private c(DataRes dataRes) {
+        this.dWt = LotteryUserChanceInfo.createFromProtobuf(dataRes.chance);
+        this.dWu = b.a(dataRes.award_info);
+        this.mStatus = dataRes.status.intValue();
+        this.dWs = dataRes.status_msg;
     }
 
-    public String getUserName() {
-        return this.userName;
+    public b aIf() {
+        return this.dWu;
     }
 
-    public String getPortrait() {
-        return this.portrait;
+    public LotteryUserChanceInfo aIg() {
+        return this.dWt;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.q
-    public String aNY() {
-        return this.erL;
+    public int getStatus() {
+        return this.mStatus;
     }
 
-    public String getText() {
-        return this.text;
+    public String getStatusMsg() {
+        return this.dWs;
     }
 
-    public String getPicUrl() {
-        return this.picUrl;
-    }
-
-    public String aNZ() {
-        return this.buttonText;
-    }
-
-    public String aOa() {
-        return this.PT;
-    }
-
-    public int aOb() {
-        return this.erM;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return erK;
+    public static c a(DataRes dataRes) {
+        return new c(dataRes);
     }
 }

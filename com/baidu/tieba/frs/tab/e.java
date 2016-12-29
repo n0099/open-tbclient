@@ -4,15 +4,15 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ HorizontalTabView chB;
+    final /* synthetic */ HorizontalTabView bNk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(HorizontalTabView horizontalTabView) {
-        this.chB = horizontalTabView;
+        this.bNk = horizontalTabView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.chB.scrollBy(this.chB.getContext().getResources().getDimensionPixelSize(r.e.ds160), 0);
+        this.bNk.scrollBy(this.bNk.getContext().getResources().getDimensionPixelSize(r.e.ds160), 0);
     }
 }

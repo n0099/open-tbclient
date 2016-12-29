@@ -6,11 +6,11 @@ import com.baidu.adp.lib.e.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class h implements a.InterfaceC0005a {
-    final /* synthetic */ UpdateInfoService fnx;
+    final /* synthetic */ UpdateInfoService eRs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UpdateInfoService updateInfoService) {
-        this.fnx = updateInfoService;
+        this.eRs = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
@@ -23,15 +23,15 @@ class h implements a.InterfaceC0005a {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    com.baidu.tieba.recapp.c.a.beA().setLongitude(String.valueOf(longitude));
-                    com.baidu.tieba.recapp.c.a.beA().setLatitude(String.valueOf(latitude));
-                    com.baidu.tieba.recapp.c.a.beA().cT(System.currentTimeMillis());
-                    eVar = this.fnx.mModel;
-                    if (eVar.aKa() && TbadkCoreApplication.m9getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                        eVar2 = this.fnx.mModel;
+                    com.baidu.tieba.recapp.c.a.aYn().setLongitude(String.valueOf(longitude));
+                    com.baidu.tieba.recapp.c.a.aYn().setLatitude(String.valueOf(latitude));
+                    com.baidu.tieba.recapp.c.a.aYn().cB(System.currentTimeMillis());
+                    eVar = this.eRs.mModel;
+                    if (eVar.aEb() && TbadkCoreApplication.m9getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        eVar2 = this.eRs.mModel;
                         eVar2.b(1, longitude, latitude);
-                        eVar3 = this.fnx.mModel;
-                        eVar3.aKb();
+                        eVar3 = this.eRs.mModel;
+                        eVar3.aEc();
                         return;
                     }
                     return;

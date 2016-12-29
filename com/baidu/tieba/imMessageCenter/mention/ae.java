@@ -1,43 +1,24 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.CustomViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements FragmentTabWidget.a {
-    final /* synthetic */ z dzD;
+public class ae implements View.OnClickListener {
+    final /* synthetic */ o dcz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(z zVar) {
-        this.dzD = zVar;
+    public ae(o oVar) {
+        this.dcz = oVar;
     }
 
-    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
-    public void f(int i, boolean z) {
-        bf bfVar;
-        CustomViewPager customViewPager;
-        FragmentTabWidget fragmentTabWidget;
-        int i2;
-        int i3;
-        bfVar = this.dzD.dzh;
-        bfVar.aBC();
-        customViewPager = this.dzD.dzB;
-        customViewPager.setCurrentItem(i);
-        fragmentTabWidget = this.dzD.dzA;
-        fragmentTabWidget.g(i, true);
-        this.dzD.cJr = i;
-        i2 = this.dzD.cJr;
-        if (i2 != 0) {
-            i3 = this.dzD.cJr;
-            if (i3 == 1) {
-                TiebaStatic.log("c10526");
-                return;
-            } else {
-                TiebaStatic.log("c10527");
-                return;
-            }
-        }
-        TiebaStatic.log("c10525");
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.base.h hVar;
+        com.baidu.adp.base.h hVar2;
+        hVar = this.dcz.mContext;
+        TiebaStatic.eventStat(hVar.getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        hVar2 = this.dcz.mContext;
+        com.baidu.tbadk.core.util.bh.ag(hVar2.getPageActivity());
     }
 }

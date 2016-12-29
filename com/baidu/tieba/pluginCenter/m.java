@@ -5,20 +5,20 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a fhf;
+    final /* synthetic */ PluginDownloadActivity.a eKy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PluginDownloadActivity.a aVar) {
-        this.fhf = aVar;
+        this.eKy = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        linearLayout = this.fhf.aPu;
+        linearLayout = this.eKy.aOL;
         linearLayout.setVisibility(8);
-        linearLayout2 = this.fhf.fgX;
+        linearLayout2 = this.eKy.eKq;
         linearLayout2.setVisibility(0);
     }
 }

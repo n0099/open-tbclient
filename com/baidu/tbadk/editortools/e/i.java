@@ -4,11 +4,11 @@ import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.g {
-    final /* synthetic */ e awU;
+    final /* synthetic */ e awr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(e eVar) {
-        this.awU = eVar;
+        this.awr = eVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -17,8 +17,8 @@ public class i extends com.baidu.adp.base.g {
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                bVar = this.awU.awC;
-                bVar.lp(true);
+                bVar = this.awr.avZ;
+                bVar.la(true);
             }
         }
     }

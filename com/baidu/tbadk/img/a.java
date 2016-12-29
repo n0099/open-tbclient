@@ -10,11 +10,11 @@ import com.baidu.tieba.r;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0045a<T>> ayW = null;
-    private c ayX = null;
-    private a<T>.b ayY = null;
-    public T ayZ;
-    private final com.baidu.tbadk.img.c aza;
+    private WeakReference<InterfaceC0045a<T>> ayt = null;
+    private c ayu = null;
+    private a<T>.b ayv = null;
+    public T ayw;
+    private final com.baidu.tbadk.img.c ayx;
     private String mPath;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
@@ -31,28 +31,28 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.aza = new com.baidu.tbadk.img.c(str2);
+        this.ayx = new com.baidu.tbadk.img.c(str2);
     }
 
     public void g(int i, int i2, int i3, int i4) {
-        this.aza.g(i, i2, i3, i4);
+        this.ayx.g(i, i2, i3, i4);
     }
 
     public void bL(boolean z) {
-        if (this.ayY == null) {
-            this.ayY = new b(this, null);
-            this.ayY.bM(z);
-            this.ayY.execute(new String[0]);
+        if (this.ayv == null) {
+            this.ayv = new b(this, null);
+            this.ayv.bM(z);
+            this.ayv.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<String, Integer, ImageUploadResult> implements c.a {
-        private boolean azb;
+        private boolean ayy;
 
         private b() {
-            this.azb = false;
+            this.ayy = false;
         }
 
         /* synthetic */ b(a aVar, b bVar) {
@@ -60,7 +60,7 @@ public class a<T> {
         }
 
         protected void bM(boolean z) {
-            this.azb = z;
+            this.ayy = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,12 +68,12 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return Et();
+            return Eb();
         }
 
-        private ImageUploadResult Et() {
-            a.this.aza.a(this, null);
-            ImageUploadResult u = a.this.aza.u(a.this.mPath, this.azb);
+        private ImageUploadResult Eb() {
+            a.this.ayx.a(this, null);
+            ImageUploadResult u = a.this.ayx.u(a.this.mPath, this.ayy);
             publishProgress(100);
             return u;
         }
@@ -97,8 +97,8 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr != null && numArr.length != 0 && a.this.ayW != null && a.this.ayW.get() != null) {
-                ((InterfaceC0045a) a.this.ayW.get()).b(numArr[0].intValue(), a.this.ayZ);
+            if (numArr != null && numArr.length != 0 && a.this.ayt != null && a.this.ayt.get() != null) {
+                ((InterfaceC0045a) a.this.ayt.get()).b(numArr[0].intValue(), a.this.ayw);
             }
         }
 
@@ -106,19 +106,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.ayX != null) {
+            if (a.this.ayu != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
                 imageUploadResult.error_msg = TbadkCoreApplication.m9getInst().getApp().getString(r.j.send_error);
-                a.this.ayX.a(a.this.mPath, imageUploadResult);
+                a.this.ayu.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.ayY = null;
-            a.this.aza.cancel();
+            a.this.ayv = null;
+            a.this.ayx.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,42 +127,42 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.ayY = null;
-            if (a.this.ayX != null) {
+            a.this.ayv = null;
+            if (a.this.ayu != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
                     imageUploadResult.error_msg = TbadkCoreApplication.m9getInst().getApp().getString(r.j.send_error);
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
-                a.this.ayX.a(a.this.mPath, imageUploadResult);
+                a.this.ayu.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
     public void a(InterfaceC0045a<T> interfaceC0045a) {
-        this.ayW = new WeakReference<>(interfaceC0045a);
+        this.ayt = new WeakReference<>(interfaceC0045a);
     }
 
     public void a(c cVar) {
-        this.ayX = cVar;
+        this.ayu = cVar;
     }
 
     public void setGroupId(String str) {
-        this.aza.setGroupId(str);
+        this.ayx.setGroupId(str);
     }
 
-    public T Er() {
-        return this.ayZ;
+    public T DZ() {
+        return this.ayw;
     }
 
     public void B(T t) {
-        this.ayZ = t;
+        this.ayw = t;
     }
 
-    public void Es() {
-        LocalViewSize.ImageSize uR = LocalViewSize.uP().uR();
-        LocalViewSize.ImageSize uS = LocalViewSize.uP().uS();
-        g(uS.width, uS.height, uR.width, uR.height);
+    public void Ea() {
+        LocalViewSize.ImageSize uD = LocalViewSize.uB().uD();
+        LocalViewSize.ImageSize uE = LocalViewSize.uB().uE();
+        g(uE.width, uE.height, uD.width, uD.height);
     }
 }

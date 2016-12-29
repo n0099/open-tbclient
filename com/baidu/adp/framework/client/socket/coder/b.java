@@ -11,17 +11,17 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class b {
-    private static b iG = null;
+    private static b iF = null;
 
     public static b ca() {
-        if (iG == null) {
+        if (iF == null) {
             synchronized (b.class) {
-                if (iG == null) {
-                    iG = new b();
+                if (iF == null) {
+                    iF = new b();
                 }
             }
         }
-        return iG;
+        return iF;
     }
 
     private b() {
@@ -46,27 +46,27 @@ public class b {
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.iH == null || cVar.iI == null) {
+        if (cVar == null || cVar.iG == null || cVar.iH == null) {
             throw new CoderException(j.hH);
         }
-        a aVar = cVar.iH;
-        if (aVar.bX() && cVar.iK > 0) {
+        a aVar = cVar.iG;
+        if (aVar.bX() && cVar.iJ > 0) {
             if (d.cb().getSecretKey() == null) {
                 throw new CoderException(j.hO);
             }
             try {
-                cVar.iI = v.a(d.cb().getSecretKey(), cVar.iI, cVar.iJ, cVar.iK);
-                cVar.iJ = 0;
-                cVar.iK = cVar.iI.length;
+                cVar.iH = v.a(d.cb().getSecretKey(), cVar.iH, cVar.iI, cVar.iJ);
+                cVar.iI = 0;
+                cVar.iJ = cVar.iH.length;
             } catch (Exception e) {
                 throw new CoderException(j.hQ);
             }
         }
-        if (aVar.bV() && cVar.iK > 0) {
+        if (aVar.bV() && cVar.iJ > 0) {
             try {
-                cVar.iI = c(cVar.iI, cVar.iJ, cVar.iK);
-                cVar.iJ = 0;
-                cVar.iK = cVar.iI.length;
+                cVar.iH = c(cVar.iH, cVar.iI, cVar.iJ);
+                cVar.iI = 0;
+                cVar.iJ = cVar.iH.length;
             } catch (Exception e2) {
                 throw new CoderException(j.hN);
             }
@@ -84,10 +84,10 @@ public class b {
             throw new CoderException(j.hH);
         }
         c cVar = new c();
-        cVar.iH = h;
-        cVar.iI = bArr;
-        cVar.iJ = bU;
-        cVar.iK = bArr.length - bU;
+        cVar.iG = h;
+        cVar.iH = bArr;
+        cVar.iI = bU;
+        cVar.iJ = bArr.length - bU;
         return cVar;
     }
 

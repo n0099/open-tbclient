@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ g cNi;
+    final /* synthetic */ g csn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(g gVar, int i) {
         super(i);
-        this.cNi = gVar;
+        this.csn = gVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -27,33 +27,33 @@ public class i extends CustomMessageListener {
         String str2;
         String str3;
         if (customResponsedMessage != null) {
-            if (!(customResponsedMessage.getData() instanceof com.baidu.tieba.homepage.personalize.data.i)) {
-                this.cNi.cNb = null;
-                this.cNi.cNe = 0;
+            if (!(customResponsedMessage.getData() instanceof com.baidu.tieba.homepage.personalize.data.g)) {
+                this.csn.csg = null;
+                this.csn.csj = 0;
                 return;
             }
-            com.baidu.tieba.homepage.personalize.data.i iVar = (com.baidu.tieba.homepage.personalize.data.i) customResponsedMessage.getData();
-            if (iVar.cMQ) {
-                str2 = this.cNi.cNb;
+            com.baidu.tieba.homepage.personalize.data.g gVar = (com.baidu.tieba.homepage.personalize.data.g) customResponsedMessage.getData();
+            if (gVar.crV) {
+                str2 = this.csn.csg;
                 if (!StringUtils.isNull(str2)) {
-                    str3 = this.cNi.cNb;
-                    if (str3.equals(iVar.PW)) {
-                        this.cNi.cNe = 2;
-                        this.cNi.cNb = iVar.PW;
+                    str3 = this.csn.csg;
+                    if (str3.equals(gVar.PR)) {
+                        this.csn.csj = 2;
+                        this.csn.csg = gVar.PR;
                         return;
                     }
                 }
-                this.cNi.cNe = 1;
-                this.cNi.cNb = iVar.PW;
+                this.csn.csj = 1;
+                this.csn.csg = gVar.PR;
                 return;
             }
-            str = this.cNi.cNb;
+            str = this.csn.csg;
             if (StringUtils.isNull(str)) {
-                this.cNi.cNe = 2;
+                this.csn.csj = 2;
             } else {
-                this.cNi.cNe = 1;
+                this.csn.csj = 1;
             }
-            this.cNi.cNb = null;
+            this.csn.csg = null;
         }
     }
 }

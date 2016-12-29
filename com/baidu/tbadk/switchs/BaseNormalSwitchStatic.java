@@ -7,8 +7,9 @@ public abstract class BaseNormalSwitchStatic extends a {
     @Override // com.baidu.adp.lib.c.a
     protected abstract String getName();
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.c.a
-    protected void changeSettingByType(int i) {
+    public void changeSettingByType(int i) {
     }
 
     @Override // com.baidu.adp.lib.c.a

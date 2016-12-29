@@ -1,27 +1,9 @@
 package com.baidu.adp.lib.util;
 
-import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class a {
-    public static int G(Context context) {
-        int identifier;
-        if (context != null && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", SocialConstants.ANDROID_CLIENT_TYPE)) > 0) {
-            return context.getResources().getDimensionPixelSize(identifier);
-        }
-        return 0;
-    }
-
-    public static int H(Context context) {
-        int identifier;
-        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", SocialConstants.ANDROID_CLIENT_TYPE)) > 0) {
-            return context.getResources().getDimensionPixelSize(identifier);
-        }
-        return 0;
-    }
-
     public static void az(String str) {
         if (str == null) {
             str = "";

@@ -1,27 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ca {
-    private static ca bVu = new ca();
-    private final SparseArray<String> bVt = new SparseArray<>();
+    private static final ca bBE = new ca();
+    private LongSparseArray<LinkedList<String>> bBD = new LongSparseArray<>();
 
     private ca() {
     }
 
-    public static ca adF() {
-        return bVu;
+    public static ca XZ() {
+        return bBE;
     }
 
-    public void ia(int i) {
-        this.bVt.put(i, "1");
-    }
-
-    public boolean ib(int i) {
-        if (i > 100) {
-            i = 100;
+    public void g(long j, String str) {
+        LinkedList<String> linkedList = this.bBD.get(j);
+        if (linkedList == null) {
+            linkedList = new LinkedList<>();
+            this.bBD.put(j, linkedList);
         }
-        return !TextUtils.isEmpty(this.bVt.get(i));
+        linkedList.add(str);
+    }
+
+    public boolean h(long j, String str) {
+        LinkedList<String> linkedList = this.bBD.get(j);
+        return linkedList != null && linkedList.contains(str);
+    }
+
+    public void aZ(long j) {
+        LinkedList<String> linkedList = this.bBD.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
+        }
     }
 }

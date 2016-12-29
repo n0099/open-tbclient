@@ -7,13 +7,13 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ GifView ayI;
+    final /* synthetic */ GifView ayf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(GifView gifView, Looper looper) {
         super(looper);
-        this.ayI = gifView;
+        this.ayf = gifView;
     }
 
     @Override // android.os.Handler
@@ -27,45 +27,45 @@ public class b extends Handler {
         boolean z2;
         boolean z3;
         boolean z4;
-        com.baidu.adp.gif.b gif = this.ayI.getGif();
+        com.baidu.adp.gif.b gif = this.ayf.getGif();
         if (gif != null && message.what == 1) {
-            GifView gifView = this.ayI;
-            i = gifView.ayl;
-            gifView.ayl = i + 1;
-            i2 = this.ayI.ayl;
+            GifView gifView = this.ayf;
+            i = gifView.axI;
+            gifView.axI = i + 1;
+            i2 = this.ayf.axI;
             if (i2 >= gif.cx()) {
-                z2 = this.ayI.ayD;
+                z2 = this.ayf.aya;
                 if (z2) {
-                    z4 = this.ayI.ayA;
+                    z4 = this.ayf.axX;
                     if (!z4) {
-                        this.ayI.setVisibility(4);
+                        this.ayf.setVisibility(4);
                     }
-                    this.ayI.ayD = false;
+                    this.ayf.aya = false;
                     z = true;
                 } else {
                     z = false;
                 }
-                z3 = this.ayI.ayA;
+                z3 = this.ayf.axX;
                 if (!z3) {
-                    this.ayI.ayl = 0;
+                    this.ayf.axI = 0;
                 } else {
-                    this.ayI.ayl = gif.cx() - 1;
+                    this.ayf.axI = gif.cx() - 1;
                 }
             } else {
                 z = false;
             }
-            i3 = this.ayI.ayl;
-            gif.U(i3);
-            bitmap = this.ayI.mBitmap;
+            i3 = this.ayf.axI;
+            gif.V(i3);
+            bitmap = this.ayf.mBitmap;
             gif.a(bitmap, null);
-            this.ayI.invalidate();
+            this.ayf.invalidate();
             removeMessages(1);
             if (!z) {
-                i4 = this.ayI.ayl;
-                sendEmptyMessageDelayed(1, gif.V(i4));
+                i4 = this.ayf.axI;
+                sendEmptyMessageDelayed(1, gif.W(i4));
                 return;
             }
-            this.ayI.onStop();
+            this.ayf.onStop();
         }
     }
 }

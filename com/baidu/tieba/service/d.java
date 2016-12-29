@@ -4,6 +4,7 @@ import android.content.Intent;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ class d implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
         Intent intent = new Intent(TbadkCoreApplication.m9getInst().getContext(), FatalErrorService.class);
         if (data != null && IntentConfig.START.equals(data.get("type"))) {
             intent.putExtra("uname", data.get("uname"));
-            intent.putExtra("uid", data.get("uid"));
+            intent.putExtra(SapiAccountManager.SESSION_UID, data.get(SapiAccountManager.SESSION_UID));
             TbadkCoreApplication.m9getInst().getContext().startService(intent);
             return null;
         } else if (IntentConfig.STOP.equals(data)) {

@@ -1,48 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.view.View;
+import android.widget.FrameLayout;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class br {
-    private long bVd;
-    private long bVe;
-    private long bVf;
-    private long bVg;
-    private long bVh;
+public class br extends y.a {
+    public int aib;
+    public TbImageView bAE;
+    public FrameLayout bBq;
+    public PhotoLiveCardView bBr;
 
-    public br(Context context) {
-        bh(0L);
-        bi(0L);
+    public br(View view) {
+        super(view);
+        this.aib = 3;
+        this.bBq = (FrameLayout) view.findViewById(r.g.live_card_layout);
+        this.bAE = (TbImageView) view.findViewById(r.g.frs_single_livecard_theme_card);
+        this.bBr = (PhotoLiveCardView) view.findViewById(r.g.item_live_card);
+        this.bBr.setAllowGreyState(true);
     }
 
-    public void bh(long j) {
-        this.bVd = j;
-    }
-
-    public void bi(long j) {
-        this.bVe = j;
-    }
-
-    public long adB() {
-        return this.bVe + this.bVd + this.bVf;
-    }
-
-    public void bj(long j) {
-        this.bVf = j;
-    }
-
-    public void bk(long j) {
-        this.bVg = j;
-    }
-
-    public long adC() {
-        return this.bVg;
-    }
-
-    public long adD() {
-        return this.bVh;
-    }
-
-    public void bl(long j) {
-        this.bVh = j;
+    public void wx() {
+        if (this.bBr != null) {
+            this.bBr.wx();
+        }
     }
 }

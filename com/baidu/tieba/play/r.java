@@ -1,11 +1,11 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface r {
-    void LO();
+    void KE();
 
-    void Ll();
+    void KF();
 
-    void Lm();
+    void KG();
 
-    void Ln();
+    void Lh();
 }

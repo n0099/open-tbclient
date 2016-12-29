@@ -1,51 +1,48 @@
 package com.baidu.tieba.pb.view;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bk;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView eGp;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(PbGiftListView pbGiftListView) {
-        this.eGp = pbGiftListView;
+public class k {
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        if (smallTailInfo != null && smallTailInfo.tailSpannable != null && smallTailInfo.tailSpannable.length() != 0 && textView != null) {
+            b(smallTailInfo, textView, z, z2, z3);
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        String str;
-        long j;
-        String str2;
-        long j2;
-        long j3;
-        context = this.eGp.mContext;
-        TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.l.C(context);
-        if (tbPageContext != null) {
-            if (TbadkCoreApplication.isLogin()) {
-                str = this.eGp.toUserName;
-                if (!StringUtils.isNull(str)) {
-                    Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.eGp.toUserId;
-                    str2 = this.eGp.toUserName;
-                    j2 = this.eGp.threadId;
-                    j3 = this.eGp.postId;
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
-                    return;
-                }
-                return;
+    private static void b(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+        if (smallTailInfo != null && textView != null) {
+            Resources resources = TbadkCoreApplication.m9getInst().getResources();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+            if (z2 && z3) {
+                layoutParams.setMargins((int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds8), (int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds18));
+            } else if (z) {
+                layoutParams.setMargins(0, (int) resources.getDimension(r.e.ds8), 0, 0);
+            } else if (!z2) {
+                layoutParams.setMargins(0, (int) resources.getDimension(r.e.ds8), (int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds14));
+            } else {
+                layoutParams.setMargins((int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds8), (int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds14));
             }
-            bk.ak(tbPageContext.getPageActivity());
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) "icon");
+            spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+            Drawable drawable = ar.getDrawable(r.f.icon_pb_tail);
+            int e = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds32);
+            drawable.setBounds(0, 0, e, e);
+            com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(drawable);
+            fVar.fq(com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds4));
+            spannableStringBuilder.setSpan(fVar, 0, 4, 33);
+            textView.setLayoutParams(layoutParams);
+            textView.setText(spannableStringBuilder);
+            textView.setTextColor(smallTailInfo.showColorId);
+            textView.setVisibility(0);
         }
     }
 }

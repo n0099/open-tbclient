@@ -1,41 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fi implements View.OnClickListener {
-    final /* synthetic */ ey eCT;
-    private final /* synthetic */ boolean evN;
+public class fi implements Runnable {
+    final /* synthetic */ er egZ;
+    private final /* synthetic */ int val$count;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fi(ey eyVar, boolean z) {
-        this.eCT = eyVar;
-        this.evN = z;
+    public fi(er erVar, int i) {
+        this.egZ = erVar;
+        this.val$count = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
+    @Override // java.lang.Runnable
+    public void run() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
         PbActivity pbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
         PbActivity pbActivity2;
-        dialog = this.eCT.eBr;
-        if (dialog != null) {
-            dialog2 = this.eCT.eBr;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.eCT.eBr;
-                pbActivity2 = this.eCT.eug;
-                com.baidu.adp.lib.h.j.b(dialog3, pbActivity2.getPageContext());
+        bdTypeListView = this.egZ.aMc;
+        if (bdTypeListView.getFirstVisiblePosition() <= 1) {
+            bdTypeListView2 = this.egZ.aMc;
+            bdTypeListView2.smoothScrollToPositionFromTop(1, 0, TbConfig.POST_IMAGE_SMALL);
+            pbActivity = this.egZ.dYB;
+            if (pbActivity.aJa() != null) {
+                pbActivity2 = this.egZ.dYB;
+                pbActivity2.aJa().Ur();
             }
-        }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            pbActivity = this.eCT.eug;
-            pbActivity.a(this.evN, (String) sparseArray.get(r.g.tag_user_mute_mute_userid), sparseArray);
+            com.baidu.tbadk.core.sharedPref.b.tW().putInt(com.baidu.tbadk.core.sharedPref.b.cR("pb_video_immersive_guide_count_"), this.val$count + 1);
         }
     }
 }

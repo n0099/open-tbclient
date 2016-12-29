@@ -3,11 +3,11 @@ package com.baidu.tbadk.browser;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 /* loaded from: classes.dex */
 class x implements Runnable {
-    final /* synthetic */ TbWebViewActivity.a MJ;
+    final /* synthetic */ TbWebViewActivity.a MH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(TbWebViewActivity.a aVar) {
-        this.MJ = aVar;
+        this.MH = aVar;
     }
 
     @Override // java.lang.Runnable

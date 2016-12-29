@@ -5,7 +5,7 @@ import com.baidu.tieba.onlineDebugger.command.h;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class d implements b {
-    private String eoh;
+    private String dSN;
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
@@ -23,18 +23,18 @@ public class d implements b {
                     if (!b.isAccessible()) {
                         b.setAccessible(true);
                     }
-                    if (this.eoh.contains(".") || (this.eoh.contains("(") && this.eoh.contains(")"))) {
-                        h pb = com.baidu.tieba.onlineDebugger.e.b.pb("get " + this.eoh);
-                        if (pb != null) {
-                            Object aNb = pb.aNb();
-                            if (aNb != null) {
-                                str = aNb.toString();
+                    if (this.dSN.contains(".") || (this.dSN.contains("(") && this.dSN.contains(")"))) {
+                        h nC = com.baidu.tieba.onlineDebugger.e.b.nC("get " + this.dSN);
+                        if (nC != null) {
+                            Object aHc = nC.aHc();
+                            if (aHc != null) {
+                                str = aHc.toString();
                             }
                         } else {
-                            str = this.eoh;
+                            str = this.dSN;
                         }
                     } else {
-                        str = this.eoh;
+                        str = this.dSN;
                     }
                     BdLog.e(String.valueOf(obj.toString()) + " before setField " + this.fieldName + " value = " + (str == null ? "null" : str.toString()));
                     com.baidu.tieba.onlineDebugger.d.a(b, obj, str);
@@ -54,11 +54,11 @@ public class d implements b {
         return null;
     }
 
-    public void oK(String str) {
+    public void nl(String str) {
         this.fieldName = str;
     }
 
-    public void oM(String str) {
-        this.eoh = str;
+    public void nn(String str) {
+        this.dSN = str;
     }
 }

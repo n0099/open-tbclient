@@ -9,48 +9,48 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends GetTplStokenCallback {
-    final /* synthetic */ h OB;
-    private final /* synthetic */ h.a OC;
+    final /* synthetic */ h Ox;
+    private final /* synthetic */ h.a Oy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, h.a aVar) {
-        this.OB = hVar;
-        this.OC = aVar;
+        this.Ox = hVar;
+        this.Oy = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onSuccess(GetTplStokenResult getTplStokenResult) {
         if (getTplStokenResult == null) {
-            if (this.OC != null) {
-                this.OC.onFailed();
+            if (this.Oy != null) {
+                this.Oy.onFailed();
                 return;
             }
             return;
         }
         Map<String, String> map = getTplStokenResult.tplStokenMap;
         if (map == null || map.size() <= 0) {
-            if (this.OC != null) {
-                this.OC.onFailed();
+            if (this.Oy != null) {
+                this.Oy.onFailed();
                 return;
             }
             return;
         }
         String str = map.get(TbConfig.PassConfig.TPL);
         if (StringUtils.isNULL(str)) {
-            if (this.OC != null) {
-                this.OC.onFailed();
+            if (this.Oy != null) {
+                this.Oy.onFailed();
             }
-        } else if (this.OC != null) {
-            this.OC.onSuccess(str);
+        } else if (this.Oy != null) {
+            this.Oy.onSuccess(str);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onFailure(GetTplStokenResult getTplStokenResult) {
-        if (this.OC != null) {
-            this.OC.onFailed();
+        if (this.Oy != null) {
+            this.Oy.onFailed();
         }
     }
 

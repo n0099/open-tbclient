@@ -116,10 +116,10 @@ public class IndicatorView extends View {
         private final int AI;
         private long AJ;
         private long AK;
-        private int AM;
-        private float AN;
-        private boolean AO;
-        private final HandlerC0014a AP = new HandlerC0014a(this, null);
+        private int AL;
+        private float AM;
+        private boolean AN;
+        private final HandlerC0014a AO = new HandlerC0014a(this, null);
 
         a() {
             this.AI = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
@@ -133,10 +133,10 @@ public class IndicatorView extends View {
                 return;
             }
             IndicatorView.this.setWillNotDraw(false);
-            IndicatorView.this.setMeasuredDimension(aH(i), aI(i2));
+            IndicatorView.this.setMeasuredDimension(aI(i), aJ(i2));
         }
 
-        private int aH(int i) {
+        private int aI(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = (IndicatorView.this.AD * (IndicatorView.this.qh - 1)) + (Math.max(IndicatorView.this.AF.getIntrinsicWidth(), IndicatorView.this.AG.getIntrinsicWidth()) * IndicatorView.this.qh);
@@ -160,7 +160,7 @@ public class IndicatorView extends View {
             }
         }
 
-        private int aI(int i) {
+        private int aJ(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             int max = Math.max(IndicatorView.this.AF.getIntrinsicHeight(), IndicatorView.this.AG.getIntrinsicHeight());
@@ -202,25 +202,25 @@ public class IndicatorView extends View {
         /* JADX INFO: Access modifiers changed from: private */
         public void jE() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.AN = ((((float) (uptimeMillis - this.AJ)) / 1000.0f) * this.AM) + this.AN;
+            this.AM = ((((float) (uptimeMillis - this.AJ)) / 1000.0f) * this.AL) + this.AM;
             this.AJ = uptimeMillis;
             this.AK = this.AJ + 16;
-            if (this.AM < 0) {
-                if (this.AN < IndicatorView.this.AE) {
+            if (this.AL < 0) {
+                if (this.AM < IndicatorView.this.AE) {
                     IndicatorView.this.mPosition = IndicatorView.this.AE;
-                    this.AO = false;
+                    this.AN = false;
                 } else {
-                    IndicatorView.this.mPosition = this.AN;
-                    this.AP.removeMessages(1000);
-                    this.AP.sendEmptyMessageAtTime(1000, this.AK);
+                    IndicatorView.this.mPosition = this.AM;
+                    this.AO.removeMessages(1000);
+                    this.AO.sendEmptyMessageAtTime(1000, this.AK);
                 }
-            } else if (this.AN > IndicatorView.this.AE) {
+            } else if (this.AM > IndicatorView.this.AE) {
                 IndicatorView.this.mPosition = IndicatorView.this.AE;
-                this.AO = false;
+                this.AN = false;
             } else {
-                IndicatorView.this.mPosition = this.AN;
-                this.AP.removeMessages(1000);
-                this.AP.sendEmptyMessageAtTime(1000, this.AK);
+                IndicatorView.this.mPosition = this.AM;
+                this.AO.removeMessages(1000);
+                this.AO.sendEmptyMessageAtTime(1000, this.AK);
             }
             IndicatorView.this.invalidate();
         }

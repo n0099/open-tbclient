@@ -15,24 +15,24 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c {
-    private BaseActivity awH;
-    private float gjA;
-    private a gjv = null;
-    private View cEE = null;
+    private BaseActivity awe;
+    private float fxV;
+    private a fxQ = null;
+    private View cjU = null;
     private BaseWebView mWebView = null;
-    private View cEF = null;
-    private TextView cEG = null;
-    private com.baidu.tbadk.core.view.a cEH = null;
-    private com.baidu.tbadk.core.view.h gjB = null;
-    private boolean cES = false;
+    private View cjV = null;
+    private TextView cjW = null;
+    private com.baidu.tbadk.core.view.a cjX = null;
+    private com.baidu.tbadk.core.view.h fxW = null;
+    private boolean cki = false;
     private float dQ = 1.2631578f;
-    private Runnable cET = new d(this);
-    private Runnable gjC = new e(this);
+    private Runnable ckj = new d(this);
+    private Runnable fxX = new e(this);
 
     public c(AccountAccessActivity accountAccessActivity) {
-        this.awH = null;
+        this.awe = null;
         if (accountAccessActivity != null) {
-            this.awH = accountAccessActivity;
+            this.awe = accountAccessActivity;
             if (!a(accountAccessActivity)) {
                 accountAccessActivity.finish();
             }
@@ -40,21 +40,21 @@ public class c {
     }
 
     public void c(a aVar) {
-        this.gjv = aVar;
+        this.fxQ = aVar;
     }
 
     private boolean a(AccountAccessActivity accountAccessActivity) {
         accountAccessActivity.setActivityBgTransparent();
         accountAccessActivity.setSwipeBackEnabled(false);
         accountAccessActivity.setContentView(r.h.account_access_activity);
-        this.cEE = accountAccessActivity.findViewById(r.g.account_access_black_layout);
-        this.cEE.setOnClickListener(new f(this));
-        this.cEF = accountAccessActivity.findViewById(r.g.aa_post_thread_loading_view);
-        this.cEG = (TextView) this.cEF.findViewById(r.g.custom_loading_text);
-        this.cEG.setText(accountAccessActivity.getResources().getString(r.j.sending));
-        this.gjB = new com.baidu.tbadk.core.view.h();
-        this.gjB.afr = 1000L;
-        this.gjA = k.K(accountAccessActivity.getBaseContext()) / k.L(accountAccessActivity.getBaseContext());
+        this.cjU = accountAccessActivity.findViewById(r.g.account_access_black_layout);
+        this.cjU.setOnClickListener(new f(this));
+        this.cjV = accountAccessActivity.findViewById(r.g.aa_post_thread_loading_view);
+        this.cjW = (TextView) this.cjV.findViewById(r.g.custom_loading_text);
+        this.cjW.setText(accountAccessActivity.getResources().getString(r.j.sending));
+        this.fxW = new com.baidu.tbadk.core.view.h();
+        this.fxW.aeK = 1000L;
+        this.fxV = k.I(accountAccessActivity.getBaseContext()) / k.J(accountAccessActivity.getBaseContext());
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) accountAccessActivity.findViewById(r.g.account_access_webview);
@@ -72,11 +72,11 @@ public class c {
     }
 
     public void showPostThreadLoadingView(boolean z) {
-        if (this.cEF != null) {
+        if (this.cjV != null) {
             if (z) {
-                this.cEF.setVisibility(0);
+                this.cjV.setVisibility(0);
             } else {
-                this.cEF.setVisibility(8);
+                this.cjV.setVisibility(8);
             }
         }
     }
@@ -86,21 +86,13 @@ public class c {
     }
 
     public void onDestory() {
-        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.cET);
-        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.gjC);
-        this.cEH = null;
+        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.ckj);
+        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.fxX);
+        this.cjX = null;
     }
 
     public BaseActivity getContext() {
-        return this.awH;
-    }
-
-    public void showToast(boolean z, String str) {
-        if (z) {
-            this.gjB.c(str);
-        } else {
-            this.gjB.d(str);
-        }
+        return this.awe;
     }
 
     public void showWebView(boolean z) {
@@ -114,31 +106,31 @@ public class c {
     }
 
     public void showWebViewDelay(int i) {
-        com.baidu.adp.lib.h.h.eG().postDelayed(this.cET, i);
+        com.baidu.adp.lib.h.h.eG().postDelayed(this.ckj, i);
     }
 
-    public void mh(boolean z) {
-        if (this.cEH == null) {
-            this.cEH = new com.baidu.tbadk.core.view.a(this.awH.getPageContext());
-            this.cEH.c(new h(this));
+    public void lv(boolean z) {
+        if (this.cjX == null) {
+            this.cjX = new com.baidu.tbadk.core.view.a(this.awe.getPageContext());
+            this.cjX.c(new h(this));
         }
-        this.cEH.aI(z);
+        this.cjX.aJ(z);
     }
 
     public void setRatio(float f) {
         this.dQ = f;
-        UtilHelper.setSupportHeight(this.awH.getPageContext().getPageActivity(), this.mWebView, f);
+        UtilHelper.setSupportHeight(this.awe.getPageContext().getPageActivity(), this.mWebView, f);
     }
 
     public float ad() {
         return this.dQ;
     }
 
-    public float but() {
-        return this.gjA;
+    public float blk() {
+        return this.fxV;
     }
 
-    public void v(int i, int i2, int i3, int i4) {
+    public void t(int i, int i2, int i3, int i4) {
         if (this.mWebView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mWebView.getLayoutParams();
             marginLayoutParams.setMargins(i, i2, i3, i4);
@@ -153,11 +145,11 @@ public class c {
         return translateAnimation;
     }
 
-    public void buu() {
-        if (this.awH != null) {
-            if (this.dQ == this.gjA) {
-                this.mWebView.startAnimation(k(k.L(this.awH.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
-                com.baidu.adp.lib.h.h.eG().postDelayed(this.gjC, 800L);
+    public void bll() {
+        if (this.awe != null) {
+            if (this.dQ == this.fxV) {
+                this.mWebView.startAnimation(k(k.J(this.awe.getBaseContext()) - (this.mWebView.getWidth() * 1.2631578f), 0.0f));
+                com.baidu.adp.lib.h.h.eG().postDelayed(this.fxX, 800L);
                 return;
             }
             this.mWebView.startAnimation(k(this.mWebView.getHeight(), 0.0f));

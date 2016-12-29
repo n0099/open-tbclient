@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.c;
 import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b XO = new a(null);
-    private static final b XP = new c(null);
-    private static final boolean XQ;
+    private static final b Xi = new a(null);
+    private static final b Xj = new c(null);
+    private static final boolean Xk;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -46,34 +46,34 @@ public class e {
 
         @Override // com.baidu.tbadk.core.c.e.b
         public void p(String str, String str2, String str3) {
-            av avVar = new av("c10729");
-            avVar.ab("obj_param1", str);
-            avVar.ab("obj_param2", str2);
-            avVar.ab("obj_param3", str3);
+            at atVar = new at("c10729");
+            atVar.ab("obj_param1", str);
+            atVar.ab("obj_param2", str2);
+            atVar.ab("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(avVar);
+                TiebaStatic.log(atVar);
             }
         }
     }
 
     public static void p(String str, String str2, String str3) {
-        if (XQ) {
-            XO.p(str, str2, str3);
+        if (Xk) {
+            Xi.p(str, str2, str3);
         }
-        XP.p(str, str2, str3);
+        Xj.p(str, str2, str3);
     }
 
-    public static void cI(String str) {
-        if (XQ) {
-            XO.p(null, null, str);
+    public static void cJ(String str) {
+        if (Xk) {
+            Xi.p(null, null, str);
         }
     }
 
     public static void q(String str, String str2, String str3) {
-        cI(str3);
+        cJ(str3);
     }
 
     static {
-        XQ = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        Xk = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

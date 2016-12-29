@@ -3,21 +3,21 @@ package com.baidu.tieba.frs.entelechy;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.entelechy.a.aj;
+import com.baidu.tieba.frs.entelechy.a.am;
 /* loaded from: classes.dex */
 public class i implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.g aeg() {
-        return new com.baidu.tieba.frs.f.a();
+    public com.baidu.tieba.frs.entelechy.b.g Yz() {
+        return new com.baidu.tieba.frs.e.a();
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.d C(FrsActivity frsActivity) {
+    public com.baidu.tieba.frs.entelechy.b.d B(FrsActivity frsActivity) {
         return new com.baidu.tieba.frs.entelechy.c.a(frsActivity);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b aeh() {
+    public com.baidu.tieba.frs.entelechy.b.b YA() {
         return new t();
     }
 
@@ -34,25 +34,25 @@ public class i implements com.baidu.tieba.frs.entelechy.b.a {
         } else {
             jVar = new j(frsActivity, null, null, i);
         }
-        jVar.b(frsActivity.abN());
-        jVar.b(frsActivity.abO());
+        jVar.b(frsActivity.Wc());
+        jVar.b(frsActivity.Wd());
         return jVar;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public aj a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z) {
-        return new com.baidu.tieba.frs.entelechy.a.a(frsActivity, bdTypeListView, z);
+    public am a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z) {
+        return new com.baidu.tieba.frs.entelechy.a.b(frsActivity, bdTypeListView, z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
-    public com.baidu.tieba.frs.j.f c(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.j.f(frsActivity, noPressedRelativeLayout);
+    public com.baidu.tieba.frs.h.i c(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
+        return new com.baidu.tieba.frs.h.i(frsActivity, noPressedRelativeLayout);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public com.baidu.tieba.frs.entelechy.b.c b(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.j.d(frsActivity, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.h.d(frsActivity, noPressedRelativeLayout);
     }
 }

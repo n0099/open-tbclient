@@ -7,11 +7,11 @@ import com.baidu.tieba.play.ah;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c ceZ;
+    final /* synthetic */ c bKI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.ceZ = cVar;
+        this.bKI = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,29 +24,29 @@ public class d implements View.OnClickListener {
         ah ahVar3;
         ah ahVar4;
         int id = view.getId();
-        imageView = this.ceZ.aOI;
+        imageView = this.bKI.aNZ;
         if (id == imageView.getId()) {
-            i = this.ceZ.ceV;
+            i = this.bKI.bKE;
             if (i == 2) {
-                quickVideoView = this.ceZ.aOE;
+                quickVideoView = this.bKI.aNV;
                 if (quickVideoView.isPlaying()) {
-                    this.ceZ.pausePlay();
+                    this.bKI.pausePlay();
                     return;
                 }
-                this.ceZ.JT();
-                ahVar3 = this.ceZ.aNT;
+                this.bKI.startPlay();
+                ahVar3 = this.bKI.aNk;
                 if (ahVar3 != null) {
-                    ahVar4 = this.ceZ.aNT;
-                    ahVar4.qK("2");
+                    ahVar4 = this.bKI.aNk;
+                    ahVar4.pm("2");
                     return;
                 }
                 return;
             }
-            this.ceZ.JT();
-            ahVar = this.ceZ.aNT;
+            this.bKI.startPlay();
+            ahVar = this.bKI.aNk;
             if (ahVar != null) {
-                ahVar2 = this.ceZ.aNT;
-                ahVar2.qK("2");
+                ahVar2 = this.bKI.aNk;
+                ahVar2.pm("2");
             }
         }
     }

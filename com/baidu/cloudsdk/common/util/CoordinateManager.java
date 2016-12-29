@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.util.Log;
 import com.ak;
 import com.al;
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 /* loaded from: classes.dex */
 public class CoordinateManager {
     private static final String a = CoordinateManager.class.getSimpleName();
@@ -63,7 +62,7 @@ public class CoordinateManager {
 
     public CoordinateManager(Context context) {
         Validator.notNull(context, "context");
-        this.b = (LocationManager) context.getApplicationContext().getSystemService(ThActivityDetailActivityConfig.LOCATION);
+        this.b = (LocationManager) context.getApplicationContext().getSystemService("location");
     }
 
     private Location a() {

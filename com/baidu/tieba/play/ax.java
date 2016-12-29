@@ -1,40 +1,41 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes.dex */
 public class ax {
-    public String aRN;
-    public String aRO;
-    public String fgJ;
-    public String fgK;
+    public String aRe;
+    public String aRf;
+    public String eKb;
+    public String eKc;
     public String mLocate;
     public String mSource;
     public String mUid;
 
-    public com.baidu.tbadk.core.util.av f(com.baidu.tbadk.core.util.av avVar) {
-        if (avVar != null) {
+    public com.baidu.tbadk.core.util.at f(com.baidu.tbadk.core.util.at atVar) {
+        if (atVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                avVar.ab("obj_locate", this.mLocate);
+                atVar.ab("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.aRO)) {
-                avVar.ab("tid", this.aRO);
+            if (!StringUtils.isNull(this.aRf)) {
+                atVar.ab("tid", this.aRf);
             }
-            if (!StringUtils.isNull(this.aRN)) {
-                avVar.ab("fid", this.aRN);
+            if (!StringUtils.isNull(this.aRe)) {
+                atVar.ab("fid", this.aRe);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                avVar.ab("uid", this.mUid);
+                atVar.ab(SapiAccountManager.SESSION_UID, this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                avVar.ab("obj_source", this.mSource);
+                atVar.ab("obj_source", this.mSource);
             }
-            if (!StringUtils.isNull(this.fgJ)) {
-                avVar.ab("obj_param1", this.fgJ);
+            if (!StringUtils.isNull(this.eKb)) {
+                atVar.ab("obj_param1", this.eKb);
             }
-            if (!StringUtils.isNull(this.fgK)) {
-                avVar.ab("obj_param2", this.fgK);
+            if (!StringUtils.isNull(this.eKc)) {
+                atVar.ab("obj_param2", this.eKc);
             }
         }
-        return avVar;
+        return atVar;
     }
 }

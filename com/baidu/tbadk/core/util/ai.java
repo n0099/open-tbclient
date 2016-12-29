@@ -1,9 +1,7 @@
 package com.baidu.tbadk.core.util;
+
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ai extends com.baidu.adp.lib.a.b.a.a.i {
-    public int abD;
-    public com.baidu.tbadk.widget.richText.d abE;
-    public int height;
-    public String imgUrl;
-    public int width;
+public interface ai {
+    ArrayList<ah> getImages();
 }

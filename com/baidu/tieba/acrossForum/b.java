@@ -10,13 +10,13 @@ import tbclient.Acrossforum.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a aVJ;
+    final /* synthetic */ a aVa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.aVJ = aVar;
+        this.aVa = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -32,30 +32,30 @@ public class b extends com.baidu.adp.framework.listener.a {
             dataRes = responsedMessage instanceof AcrossForumSocketResMsg ? ((AcrossForumSocketResMsg) responsedMessage).result : null;
         }
         if (dataRes == null || x.c(dataRes.across_forum, 0) == null) {
-            z = this.aVJ.aVH;
+            z = this.aVa.aUY;
             if (!z) {
-                a aVar = this.aVJ;
-                tbPageContext = this.aVJ.Gf;
-                aVar.ay(tbPageContext.getPageActivity());
+                a aVar = this.aVa;
+                tbPageContext = this.aVa.Gf;
+                aVar.aw(tbPageContext.getPageActivity());
             }
-            this.aVJ.Gf = null;
+            this.aVa.Gf = null;
             return;
         }
         AcrossForum acrossForum = dataRes.across_forum.get(0);
-        this.aVJ.aVF = new AcrossForumViewData();
-        this.aVJ.aVF.userPortrait = dataRes.user_portrait;
-        this.aVJ.aVF.forumName = acrossForum.forum_name;
-        this.aVJ.aVF.describe = acrossForum.desc;
-        this.aVJ.aVF.rulesURL = dataRes.jump_url;
-        this.aVJ.aVF.shareTitle = dataRes.share_title;
-        this.aVJ.aVF.shareAbstract = dataRes.share_abstract;
-        this.aVJ.aVF.sharePicURL = dataRes.share_pic;
-        z2 = this.aVJ.aVH;
+        this.aVa.aUW = new AcrossForumViewData();
+        this.aVa.aUW.userPortrait = dataRes.user_portrait;
+        this.aVa.aUW.forumName = acrossForum.forum_name;
+        this.aVa.aUW.describe = acrossForum.desc;
+        this.aVa.aUW.rulesURL = dataRes.jump_url;
+        this.aVa.aUW.shareTitle = dataRes.share_title;
+        this.aVa.aUW.shareAbstract = dataRes.share_abstract;
+        this.aVa.aUW.sharePicURL = dataRes.share_pic;
+        z2 = this.aVa.aUY;
         if (!z2) {
-            a aVar2 = this.aVJ;
-            tbPageContext2 = this.aVJ.Gf;
-            aVar2.ay(tbPageContext2.getPageActivity());
-            this.aVJ.Gf = null;
+            a aVar2 = this.aVa;
+            tbPageContext2 = this.aVa.Gf;
+            aVar2.aw(tbPageContext2.getPageActivity());
+            this.aVa.Gf = null;
         }
     }
 }

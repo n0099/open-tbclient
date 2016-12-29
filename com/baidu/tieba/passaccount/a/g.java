@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.coreExtra.a.c {
-    private static g epf;
+    private static g dTM;
 
     private g() {
     }
 
-    public static synchronized g aNq() {
+    public static synchronized g aHr() {
         g gVar;
         synchronized (g.class) {
-            if (epf == null) {
-                epf = new g();
+            if (dTM == null) {
+                dTM = new g();
             }
-            gVar = epf;
+            gVar = dTM;
         }
         return gVar;
     }
@@ -40,7 +40,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void xx() {
+    public void xk() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData uk() {
+    public AccountData tU() {
         SapiAccount session;
         AccountData h;
         SapiAccount.ReloginCredentials reloginCredentials = SapiAccountManager.getInstance().getSession().getReloginCredentials();
@@ -86,7 +86,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> xy() {
+    public List<AccountData> xl() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

@@ -197,7 +197,7 @@ public class d {
                     return;
                 }
                 eVar.ol = String.valueOf(String.valueOf(this.gW.eq().responseCode)) + "|retryCount:" + i4;
-                boolean ah = ah(this.gW.eq().responseCode);
+                boolean ai = ai(this.gW.eq().responseCode);
                 if (this.nS <= 0 && this.ob != null) {
                     this.nS = this.ob.ec();
                 }
@@ -207,9 +207,9 @@ public class d {
                 a dZ6 = a.dZ();
                 if (dZ6 != null) {
                     dZ6.a(this.gW);
-                    z2 = ah;
+                    z2 = ai;
                 } else {
-                    z2 = ah;
+                    z2 = ai;
                 }
             } catch (Throwable th) {
                 if (this.nS <= 0 && this.ob != null) {
@@ -334,7 +334,7 @@ public class d {
                     return;
                 }
                 eVar.ol = String.valueOf(String.valueOf(this.gW.eq().responseCode)) + "|retryCount:" + i4;
-                z = ah(this.gW.eq().responseCode);
+                z = ai(this.gW.eq().responseCode);
                 this.gW.a(eVar);
                 if (this.nS <= 0 && this.ob != null) {
                     this.nS = this.ob.ec();
@@ -363,7 +363,7 @@ public class d {
         }
     }
 
-    private boolean ah(int i) {
+    private boolean ai(int i) {
         if (i == 202 || i == 201 || i == 205 || i == 304 || i == 305 || i == 408) {
             return true;
         }
@@ -485,7 +485,7 @@ public class d {
                     return;
                 }
                 eVar.ol = String.valueOf(String.valueOf(this.gW.eq().responseCode)) + "|retryCount:" + i4;
-                z = ah(this.gW.eq().responseCode);
+                z = ai(this.gW.eq().responseCode);
                 this.gW.a(eVar);
                 if (this.nS <= 0 && this.ob != null) {
                     this.nS = this.ob.ec();

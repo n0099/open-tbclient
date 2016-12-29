@@ -4,13 +4,13 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a.a {
-    private String aCk = "dalvikvm";
-    private String[] aCl = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private d aCm = null;
-    private int aCd = 0;
-    private final int aCn = 10000;
-    private a aCo = null;
-    private final Handler aCp = new k(this);
+    private String aBE = "dalvikvm";
+    private String[] aBF = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private d aBG = null;
+    private int aBx = 0;
+    private final int aBH = 10000;
+    private a aBI = null;
+    private final Handler aBJ = new k(this);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,10 +21,10 @@ public class j extends com.baidu.adp.a.a.a {
     public void start() {
         if (!bc()) {
             super.start();
-            this.aCp.sendEmptyMessageDelayed(0, 10000L);
-            Gj();
+            this.aBJ.sendEmptyMessageDelayed(0, 10000L);
+            FJ();
             try {
-                d.a(this.aCk, new l(this));
+                d.a(this.aBE, new l(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -34,27 +34,27 @@ public class j extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        Gk();
+        FK();
     }
 
-    private void Gj() {
-        if (this.aCm == null) {
-            this.aCm = new d();
+    private void FJ() {
+        if (this.aBG == null) {
+            this.aBG = new d();
         }
-        if (!this.aCm.bc()) {
-            new Thread(this.aCm).start();
+        if (!this.aBG.bc()) {
+            new Thread(this.aBG).start();
         }
     }
 
-    private void Gk() {
-        if (this.aCm != null && this.aCm.bc()) {
-            this.aCm.stop();
+    private void FK() {
+        if (this.aBG != null && this.aBG.bc()) {
+            this.aBG.stop();
         }
     }
 
     public void a(a aVar) {
-        if (this.aCo == null) {
-            this.aCo = aVar;
+        if (this.aBI == null) {
+            this.aBI = aVar;
         }
     }
 }

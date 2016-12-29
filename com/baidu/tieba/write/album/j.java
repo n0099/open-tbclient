@@ -14,20 +14,20 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends PagerAdapter {
-    private com.baidu.tbadk.img.b arF;
-    private AlbumActivity gjT;
-    private Map<Integer, Boolean> gkg = new HashMap();
-    private ColorDrawable gkh;
+    private com.baidu.tbadk.img.b ari;
+    private Map<Integer, Boolean> fyF = new HashMap();
+    private ColorDrawable fyG;
+    private AlbumActivity fyo;
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
     private int vj;
 
     public j(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.gjT = albumActivity;
-        this.arF = bVar;
-        this.vj = com.baidu.adp.lib.util.k.K(this.gjT.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.L(this.gjT.getPageContext().getContext()) - ((int) this.gjT.getResources().getDimension(r.e.ds166));
-        this.gkh = new ColorDrawable(this.gjT.getResources().getColor(r.d.black_alpha100));
+        this.fyo = albumActivity;
+        this.ari = bVar;
+        this.vj = com.baidu.adp.lib.util.k.I(this.fyo.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.J(this.fyo.getPageContext().getContext()) - ((int) this.fyo.getResources().getDimension(r.e.ds166));
+        this.fyG = new ColorDrawable(this.fyo.getResources().getColor(r.d.black_alpha100));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -57,43 +57,43 @@ public class j extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo tG(int i) {
+    public ImageFileInfo sf(int i) {
         return (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, i);
     }
 
-    public boolean tH(int i) {
-        if (this.gkg.get(Integer.valueOf(i)) == null) {
+    public boolean sg(int i) {
+        if (this.fyF.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.gkg.get(Integer.valueOf(i)).booleanValue();
+        return this.fyF.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ImageFileInfo tG;
-        View inflate = LayoutInflater.from(this.gjT.getPageContext().getContext()).inflate(r.h.album_big_image_item, (ViewGroup) null);
+        ImageFileInfo sf;
+        View inflate = LayoutInflater.from(this.fyo.getPageContext().getContext()).inflate(r.h.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(r.g.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(r.d.black_alpha100);
-        tbImageView.setBg(this.gkh);
+        tbImageView.setBg(this.fyG);
         ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, 0);
         if (imageFileInfo != null && "-2".equals(imageFileInfo.getAlbumId())) {
-            tG = tG(i + 1);
+            sf = sf(i + 1);
         } else {
-            tG = tG(i);
+            sf = sf(i);
         }
-        this.gkg.put(Integer.valueOf(i), false);
-        if (tG != null) {
-            tG.clearPageActions();
-            tG.addPageAction(com.baidu.tbadk.img.effect.d.F(this.vj, this.mMaxHeight));
-            tbImageView.setTag(tG.toCachedKey(false));
-            if (this.arF.a(tG, false) != null) {
+        this.fyF.put(Integer.valueOf(i), false);
+        if (sf != null) {
+            sf.clearPageActions();
+            sf.addPageAction(com.baidu.tbadk.img.effect.d.F(this.vj, this.mMaxHeight));
+            tbImageView.setTag(sf.toCachedKey(false));
+            if (this.ari.a(sf, false) != null) {
                 tbImageView.invalidate();
-                this.gkg.put(Integer.valueOf(i), true);
+                this.fyF.put(Integer.valueOf(i), true);
             } else {
-                this.arF.a(tG, new k(this, viewGroup, i), false);
+                this.ari.a(sf, new k(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

@@ -24,15 +24,6 @@ public abstract class a {
         }
     }
 
-    public void removeEventDelegate(com.baidu.tbadk.mvc.c.a aVar) {
-        if (this.eventDelegates != null && this.eventDelegates.contains(aVar)) {
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.m9getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.remove(aVar);
-        }
-    }
-
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4] */
     public boolean dispatchMvcEvent(b bVar) {
         boolean z;
@@ -58,7 +49,7 @@ public abstract class a {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.ET()) {
+                                if (bVar.EB()) {
                                     return true;
                                 }
                             } catch (Throwable th) {

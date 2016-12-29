@@ -36,7 +36,7 @@ public class a implements b {
         return null;
     }
 
-    public void oK(String str) {
+    public void nl(String str) {
         this.fieldName = str;
     }
 }

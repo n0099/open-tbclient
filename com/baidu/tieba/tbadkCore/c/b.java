@@ -4,20 +4,20 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements e {
-    int fDj = 0;
-    final /* synthetic */ a fDk;
+    int fhn = 0;
+    final /* synthetic */ a fho;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.fDk = aVar;
+        this.fho = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.e
-    public void as(float f) {
+    public void al(float f) {
         int i = (int) (90.0f * f);
-        if (i != this.fDj) {
-            this.fDj = i;
-            this.fDk.sg(i);
+        if (i != this.fhn) {
+            this.fhn = i;
+            this.fho.rj(i);
         }
     }
 }

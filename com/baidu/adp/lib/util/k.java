@@ -42,7 +42,7 @@ public class k {
         View gJ();
     }
 
-    public static void J(Context context) {
+    public static void H(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -58,30 +58,30 @@ public class k {
         sh = true;
     }
 
-    public static int K(Context context) {
+    public static int I(Context context) {
         if (!sh) {
-            J(context);
+            H(context);
         }
         return sj;
     }
 
-    public static int L(Context context) {
+    public static int J(Context context) {
         if (!sh) {
-            J(context);
+            H(context);
         }
         return sk;
     }
 
     public static int dip2px(Context context, float f) {
         if (!sh) {
-            J(context);
+            H(context);
         }
         return (int) ((si * f) + 0.5f);
     }
 
-    public static float M(Context context) {
+    public static float K(Context context) {
         if (!sh) {
-            J(context);
+            H(context);
         }
         return si;
     }
@@ -182,7 +182,7 @@ public class k {
         return i;
     }
 
-    public static int[] N(Context context) {
+    public static int[] L(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
     }

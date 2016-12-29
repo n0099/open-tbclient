@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements BdListView.e {
-    final /* synthetic */ x eSp;
+    final /* synthetic */ x evO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(x xVar) {
-        this.eSp = xVar;
+        this.evO = xVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
@@ -19,16 +19,16 @@ public class z implements BdListView.e {
         com.baidu.tieba.model.a aVar2;
         PbListView pbListView2;
         com.baidu.tieba.model.a aVar3;
-        pbListView = this.eSp.aNs;
+        pbListView = this.evO.aMJ;
         if (pbListView != null) {
-            aVar = this.eSp.gfO;
+            aVar = this.evO.fuG;
             if (aVar != null) {
-                aVar2 = this.eSp.gfO;
-                if (aVar2.hasMoreData()) {
-                    pbListView2 = this.eSp.aNs;
-                    pbListView2.wF();
-                    aVar3 = this.eSp.gfO;
-                    aVar3.SN();
+                aVar2 = this.evO.fuG;
+                if (aVar2.aEa()) {
+                    pbListView2 = this.evO.aMJ;
+                    pbListView2.wp();
+                    aVar3 = this.evO.fuG;
+                    aVar3.Tj();
                 }
             }
         }

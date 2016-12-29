@@ -9,13 +9,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ f bJJ;
+    final /* synthetic */ f bpN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.bJJ = fVar;
+        this.bpN = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,21 +23,21 @@ public class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
         FragmentTabWidget fragmentTabWidget;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001378) {
-            z = this.bJJ.bJC;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            z = this.bpN.bpF;
             if (!z) {
-                int i = com.baidu.tbadk.core.sharedPref.b.um().getInt("wefan_switch", 0);
-                String string = com.baidu.tbadk.core.sharedPref.b.um().getString("wefan_tab_name", "");
-                String string2 = com.baidu.tbadk.core.sharedPref.b.um().getString("wefan_url", "");
+                int i = com.baidu.tbadk.core.sharedPref.b.tW().getInt("wefan_switch", 0);
+                String string = com.baidu.tbadk.core.sharedPref.b.tW().getString("wefan_tab_name", "");
+                String string2 = com.baidu.tbadk.core.sharedPref.b.tW().getString("wefan_url", "");
                 if (i == 1 && !StringUtils.isNull(string) && !StringUtils.isNull(string2)) {
-                    this.bJJ.bJC = true;
-                    FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.bJJ.getBaseFragmentActivity().getPageContext().getPageActivity());
-                    fragmentTabIndicator.setTextSize(0, this.bJJ.getResources().getDimension(r.e.ds28));
+                    this.bpN.bpF = true;
+                    FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.bpN.getBaseFragmentActivity().getPageContext().getPageActivity());
+                    fragmentTabIndicator.setTextSize(0, this.bpN.getResources().getDimension(r.e.ds28));
                     fragmentTabIndicator.setTag(1);
                     fragmentTabIndicator.setGravity(17);
-                    fragmentTabIndicator.azS = r.d.s_actionbar_text_color;
+                    fragmentTabIndicator.azp = r.d.s_actionbar_text_color;
                     fragmentTabIndicator.setText(string);
-                    fragmentTabWidget = this.bJJ.bJG;
+                    fragmentTabWidget = this.bpN.bpK;
                     fragmentTabWidget.addView(fragmentTabIndicator);
                 }
             }

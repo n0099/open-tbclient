@@ -4,11 +4,11 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements b {
-    final /* synthetic */ RecommendFrsControlFragment cHJ;
+    final /* synthetic */ RecommendFrsControlFragment cnd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cHJ = recommendFrsControlFragment;
+        this.cnd = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tieba.homepage.framework.b
@@ -18,34 +18,34 @@ public class l implements b {
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         ScrollFragmentTabHost scrollFragmentTabHost4;
-        scrollFragmentTabHost = this.cHJ.cHv;
+        scrollFragmentTabHost = this.cnd.cmP;
         if (scrollFragmentTabHost != null) {
-            qVar = this.cHJ.cHw;
-            scrollFragmentTabHost2 = this.cHJ.cHv;
-            int bC = scrollFragmentTabHost2.bC(j);
-            scrollFragmentTabHost3 = this.cHJ.cHv;
-            long bD = scrollFragmentTabHost3.bD(j);
-            scrollFragmentTabHost4 = this.cHJ.cHv;
-            qVar.a(i, j, bC, j2, bD, scrollFragmentTabHost4.bE(j), str);
+            qVar = this.cnd.cmQ;
+            scrollFragmentTabHost2 = this.cnd.cmP;
+            int bq = scrollFragmentTabHost2.bq(j);
+            scrollFragmentTabHost3 = this.cnd.cmP;
+            long br = scrollFragmentTabHost3.br(j);
+            scrollFragmentTabHost4 = this.cnd.cmP;
+            qVar.a(i, j, bq, j2, br, scrollFragmentTabHost4.bs(j), str);
         }
     }
 
     @Override // com.baidu.tieba.homepage.framework.b
-    public void bz(long j) {
+    public void bn(long j) {
         ScrollFragmentTabHost scrollFragmentTabHost;
         q qVar;
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         ScrollFragmentTabHost scrollFragmentTabHost4;
-        scrollFragmentTabHost = this.cHJ.cHv;
+        scrollFragmentTabHost = this.cnd.cmP;
         if (scrollFragmentTabHost != null) {
-            qVar = this.cHJ.cHw;
-            scrollFragmentTabHost2 = this.cHJ.cHv;
-            int bC = scrollFragmentTabHost2.bC(j);
-            scrollFragmentTabHost3 = this.cHJ.cHv;
-            long bD = scrollFragmentTabHost3.bD(j);
-            scrollFragmentTabHost4 = this.cHJ.cHv;
-            qVar.a(j, bC, bD, scrollFragmentTabHost4.bE(j));
+            qVar = this.cnd.cmQ;
+            scrollFragmentTabHost2 = this.cnd.cmP;
+            int bq = scrollFragmentTabHost2.bq(j);
+            scrollFragmentTabHost3 = this.cnd.cmP;
+            long br = scrollFragmentTabHost3.br(j);
+            scrollFragmentTabHost4 = this.cnd.cmP;
+            qVar.a(j, bq, br, scrollFragmentTabHost4.bs(j));
         }
     }
 }

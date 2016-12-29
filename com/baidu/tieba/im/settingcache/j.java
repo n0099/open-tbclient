@@ -7,26 +7,26 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.util.t;
 /* loaded from: classes.dex */
 public class j extends a {
-    private static j dsk = new j();
+    private static j cXe = new j();
 
     private j() {
     }
 
-    public static j ayG() {
-        return dsk;
+    public static j atf() {
+        return cXe;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bn */
-    public PersonalSettingItemData bj(String str, String str2) {
+    /* renamed from: bj */
+    public PersonalSettingItemData bf(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.dsa) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.dsa.get(str3);
+        synchronized (this.cWU) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.cWU.get(str3);
             personalSettingItemData = (aVar == null || !(aVar instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) aVar;
         }
         if (personalSettingItemData == null) {
@@ -44,23 +44,23 @@ public class j extends a {
         return personalSettingItemData;
     }
 
-    public void auA() {
+    public void aoZ() {
         super.v(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData bj;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bj = bj(str, str2)) != null) {
-            bj.setToPortrait(userData.getPortrait());
-            bj.setToName(userData.getUserName());
-            a(bj);
+        PersonalSettingItemData bf;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bf = bf(str, str2)) != null) {
+            bf.setToPortrait(userData.getPortrait());
+            bf.setToName(userData.getUserName());
+            a(bf);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> ayC() {
-        return com.baidu.tbadk.core.b.a.tm().cC("tb.im_personal_chat_setting");
+    public o<String> atb() {
+        return com.baidu.tbadk.core.b.a.sX().cD("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -75,13 +75,13 @@ public class j extends a {
                 }
                 return;
             }
-            o<String> ayC = ayC();
+            o<String> atb = atb();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.dsa) {
-                this.dsa.put(str, personalSettingItemData);
+            synchronized (this.cWU) {
+                this.cWU.put(str, personalSettingItemData);
             }
-            ayC.k(str, jsonStrWithObject);
+            atb.k(str, jsonStrWithObject);
         }
     }
 
@@ -98,8 +98,8 @@ public class j extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.dsa) {
-                this.dsa.put(str, personalSettingItemData);
+            synchronized (this.cWU) {
+                this.cWU.put(str, personalSettingItemData);
             }
             t.b(new k(this, personalSettingItemData, str), fVar);
         }

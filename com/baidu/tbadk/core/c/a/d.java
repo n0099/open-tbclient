@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.c.n;
 import com.baidu.tbadk.core.c.p;
 import com.baidu.tbadk.core.c.q;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bc;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public class d extends p {
         if (jSONObject != null) {
             String optString = jSONObject.optString("url");
             if (!StringUtils.isNull(optString)) {
-                bf.vP().c(this.Gf, new String[]{optString});
+                bc.vz().c(this.Gf, new String[]{optString});
             }
         }
     }

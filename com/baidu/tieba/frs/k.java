@@ -1,60 +1,38 @@
 package com.baidu.tieba.frs;
 
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.j.a;
-import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class k implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bTa;
+class k implements View.OnTouchListener {
+    final /* synthetic */ FrsActivity bzl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(FrsActivity frsActivity) {
-        this.bTa = frsActivity;
+        this.bzl = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        br brVar;
-        com.baidu.tieba.frs.j.af afVar;
-        br brVar2;
-        a aVar;
-        com.baidu.tieba.frs.j.w wVar;
-        a aVar2;
-        if (view != this.bTa.bRW.acQ()) {
-            if (view == this.bTa.bRW.acO()) {
-                au auVar = this.bTa.bRW;
-                brVar = this.bTa.bRY;
-                auVar.a(brVar);
-                afVar = this.bTa.bSj;
-                brVar2 = this.bTa.bRY;
-                afVar.a(brVar2);
-                TiebaStatic.log("c10529");
-                TiebaStatic.eventStat(this.bTa.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
-                this.bTa.bRW.acZ();
-                FrsActivityStatic.bTg = false;
-                aVar = this.bTa.bSx;
-                if (aVar != null) {
-                    aVar2 = this.bTa.bSx;
-                    aVar2.ahb();
-                }
-                wVar = this.bTa.bSk;
-                wVar.aeS();
-            }
-        } else {
-            this.bTa.closeActivity();
-        }
-        if (view.getId() == r.g.game_activity_egg_layout && com.baidu.adp.lib.util.k.gD()) {
-            TiebaStatic.log("c10853");
-            if (this.bTa.bRW.adb()) {
-                this.bTa.bRW.adc();
-                return;
-            }
-            String activityUrl = this.bTa.bRX.aOk().getYuleData().tj().getActivityUrl();
-            if (!StringUtils.isNull(activityUrl)) {
-                com.baidu.tbadk.browser.f.v(this.bTa.getPageContext().getPageActivity(), activityUrl);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        cg cgVar;
+        com.baidu.tieba.frs.h.an anVar;
+        com.baidu.tieba.frs.h.an anVar2;
+        cg cgVar2;
+        cg cgVar3;
+        cgVar = this.bzl.byC;
+        if (cgVar != null) {
+            cgVar2 = this.bzl.byC;
+            if (cgVar2.Ya() != null) {
+                cgVar3 = this.bzl.byC;
+                cgVar3.Ya().onTouchEvent(motionEvent);
             }
         }
+        anVar = this.bzl.byJ;
+        if (anVar != null) {
+            anVar2 = this.bzl.byJ;
+            if (anVar2.b(motionEvent, view)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

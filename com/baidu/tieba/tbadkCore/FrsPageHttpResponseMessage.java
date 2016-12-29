@@ -10,13 +10,14 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
-public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<n, FrsPageResIdl> {
+public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<m, FrsPageResIdl> {
     private boolean hasNetworkError;
     private int mCategoryId;
     private int mIsGood;
+    private int mLoadType;
     private int mSortType;
     private boolean needCache;
-    private n responseData;
+    private m responseData;
     private int updateType;
 
     public boolean hasNetworkError() {
@@ -40,21 +41,22 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
             this.hasNetworkError = hasError();
         } else if (message.getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) message.getExtra();
-            if (mvcNetMessage.getRequestData() instanceof m) {
-                m mVar = (m) mvcNetMessage.getRequestData();
-                this.updateType = mVar.getUpdateType();
-                this.needCache = mVar.isNeedCache();
-                this.mCategoryId = mVar.getCategoryId();
+            if (mvcNetMessage.getRequestData() instanceof l) {
+                l lVar = (l) mvcNetMessage.getRequestData();
+                this.updateType = lVar.getUpdateType();
+                this.needCache = lVar.isNeedCache();
+                this.mCategoryId = lVar.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = mVar.agy();
-                this.mIsGood = mVar.getIsGood();
+                this.mSortType = lVar.aaV();
+                this.mIsGood = lVar.getIsGood();
+                this.mLoadType = lVar.getLoadType();
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.responseData = new n();
+        this.responseData = new m();
         FrsPageResIdl D = this.responseData.D(bArr);
         if (D != null && D.error != null) {
             if (D.error.errorno != null) {
@@ -71,8 +73,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int g;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bkF() != null && !StringUtils.isNull(this.responseData.bkF().getBookId(), true) && !this.responseData.bkF().getBookId().equals("0") && this.responseData.bkF().pB() == 3 && (g = com.baidu.adp.lib.h.b.g(this.responseData.bkF().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
-            this.responseData.h(Integer.valueOf(((Integer) runTask.getData()).intValue()));
+        if (this.responseData.bev() != null && !StringUtils.isNull(this.responseData.bev().getBookId(), true) && !this.responseData.bev().getBookId().equals("0") && this.responseData.bev().pB() == 3 && (g = com.baidu.adp.lib.h.b.g(this.responseData.bev().getBookId(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(g))) != null) {
+            this.responseData.g(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
 
@@ -80,8 +82,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.responseData != null) {
             boolean z = com.baidu.tbadk.core.util.x.s(this.responseData.getThreadList()) >= 15;
-            if (this.needCache && this.responseData.aOk() != null && z) {
-                d.bkd().a(d.bkd().e(this.responseData.aOk().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            if (this.needCache && this.responseData.aIk() != null && z) {
+                c.bdT().a(c.bdT().e(this.responseData.aIk().getName(), this.mSortType, this.mIsGood, this.mCategoryId), bArr, true);
+            }
+            if ((this.mSortType == 3 || this.responseData.aaV() == 3) && this.responseData.aIk() != null) {
+                com.baidu.tieba.recapp.j.aYf().aYe().ax(this.responseData.aIk().getName(), this.mLoadType);
             }
         }
     }
@@ -99,11 +104,11 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         this.updateType = i;
     }
 
-    public n getResponseData() {
+    public m getResponseData() {
         return this.responseData;
     }
 
-    public void setResponseData(n nVar) {
-        this.responseData = nVar;
+    public void setResponseData(m mVar) {
+        this.responseData = mVar;
     }
 }

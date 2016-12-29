@@ -1,26 +1,12 @@
 package com.baidu.tbadk.editortools;
 
-import android.view.View;
-import com.baidu.tbadk.editortools.view.CommonTabContentView;
+import android.content.Context;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class w implements CommonTabContentView.c {
-    final /* synthetic */ u avl;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar) {
-        this.avl = uVar;
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.c
-    public void a(View view, int i, long j) {
-        l lVar;
-        l lVar2;
-        if (view instanceof e) {
-            lVar = this.avl.EL;
-            if (lVar != null) {
-                lVar2 = this.avl.EL;
-                lVar2.J(view);
-            }
-        }
+public class w extends x {
+    public w(Context context) {
+        super((String) null, 23, 0);
+        this.auR = r.f.selector_editor_btn_more;
+        this.auW = new int[]{32};
     }
 }

@@ -1,26 +1,19 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.tieba.play.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements Runnable {
-    final /* synthetic */ r bde;
+public class aa implements t.b {
+    final /* synthetic */ t bcw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(r rVar) {
-        this.bde = rVar;
+    public aa(t tVar) {
+        this.bcw = tVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        QuickVideoView quickVideoView;
-        QuickVideoView quickVideoView2;
-        quickVideoView = this.bde.bcQ;
-        if (quickVideoView != null) {
-            quickVideoView2 = this.bde.bcQ;
-            if (!quickVideoView2.isPlaying()) {
-                this.bde.e(true, 1);
-            }
-        }
+    @Override // com.baidu.tieba.play.t.b
+    public boolean onError(com.baidu.tieba.play.t tVar, int i, int i2) {
+        this.bcw.e(true, 4);
+        return true;
     }
 }

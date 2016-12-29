@@ -11,71 +11,70 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
-    public static a VQ = null;
-    private static HashMap<String, Integer> VR = new HashMap<>();
-    private static ArrayList<String> VS;
-    private static HashMap<String, o<byte[]>> VT;
-    private static HashMap<String, o<String>> VU;
+    public static a Vk = null;
+    private static HashMap<String, Integer> Vl = new HashMap<>();
+    private static ArrayList<String> Vm;
+    private static HashMap<String, o<byte[]>> Vn;
+    private static HashMap<String, o<String>> Vo;
 
     static {
-        VR.put("tb.pb_mark", 50);
-        VR.put("tb.pb_history", 300);
-        VR.put("tb.pb_normal", 1);
-        VR.put("tb.pb_editor", 50);
-        VR.put("tb.live_hotlist", 20);
-        VR.put("tb.live_hotlist", 20);
-        VR.put("tb.my_pages", 5);
-        VR.put("tb.my_forums", 3);
-        VR.put("tb.my_bookmarks", 3);
-        VR.put("tb.my_posts", 3);
-        VR.put("tb.im_frsgroup", 50);
-        VR.put("tb.im_hotgroup", 30);
-        VR.put("tb.im_groupinfo", 50);
-        VR.put("tb.im_groupactivity", 50);
-        VR.put("tb.im_entergroup", 10);
-        VR.put("tb.im_enterforum_groupinfo", 10);
-        VR.put("tb.im_group_setting", 3);
-        VR.put("tb.im_personal_chat_setting", 3);
-        VR.put("tb.im_official_chat_setting", 3);
-        VR.put("tb.im_group_search_history", 50);
-        VR.put("tb.im_official_history", 50);
-        VR.put("tb.im_recommend_detail", 10);
-        VR.put("tb.square", 1);
-        VR.put("tb.first_dir", 1);
-        VR.put("tb.forum_rank", 20);
-        VR.put("tb.pic_gif", 50);
-        VR.put("tb.official_bar_menu", 1000);
-        VR.put("tb.friend_feed", 20);
-        VR.put("net_err_record", 30);
-        VR.put("tb_face_package", 30);
-        VR.put("tb.recommend_friend", 10);
-        VR.put("tb.searchperson_history", 5);
-        VR.put("tb.game_center_home", 20);
-        VR.put("tb.game_center_list", 20);
-        VR.put("tb.ecomm", 5);
-        VR.put("tb.person_wallet_new", 10);
-        VS = new ArrayList<>();
-        VS.add("tb.square");
-        VS.add("tb.first_dir");
-        VS.add("tb.forum_rank");
-        VS.add("tb.im_group_setting");
-        VS.add("tb.im_personal_chat_setting");
-        VS.add("tb.im_official_chat_setting");
-        VS.add("net_err_record");
-        VS.add("tb_user_profile");
-        VS.add("tb_forum_recommend");
-        VS.add("tb.ad_killer_tags");
-        VS.add("tb.manga.settings");
-        VU = new HashMap<>();
-        VT = new HashMap<>();
+        Vl.put("tb.pb_mark", 50);
+        Vl.put("tb.pb_history", 300);
+        Vl.put("tb.pb_normal", 1);
+        Vl.put("tb.pb_editor", 50);
+        Vl.put("tb.live_hotlist", 20);
+        Vl.put("tb.live_hotlist", 20);
+        Vl.put("tb.my_pages", 5);
+        Vl.put("tb.my_forums", 3);
+        Vl.put("tb.my_bookmarks", 3);
+        Vl.put("tb.my_posts", 3);
+        Vl.put("tb.im_frsgroup", 50);
+        Vl.put("tb.im_hotgroup", 30);
+        Vl.put("tb.im_groupinfo", 50);
+        Vl.put("tb.im_groupactivity", 50);
+        Vl.put("tb.im_entergroup", 10);
+        Vl.put("tb.im_enterforum_groupinfo", 10);
+        Vl.put("tb.im_group_setting", 3);
+        Vl.put("tb.im_personal_chat_setting", 3);
+        Vl.put("tb.im_official_chat_setting", 3);
+        Vl.put("tb.im_group_search_history", 50);
+        Vl.put("tb.im_official_history", 50);
+        Vl.put("tb.im_recommend_detail", 10);
+        Vl.put("tb.square", 1);
+        Vl.put("tb.first_dir", 1);
+        Vl.put("tb.forum_rank", 20);
+        Vl.put("tb.pic_gif", 50);
+        Vl.put("tb.official_bar_menu", 1000);
+        Vl.put("tb.friend_feed", 20);
+        Vl.put("net_err_record", 30);
+        Vl.put("tb_face_package", 30);
+        Vl.put("tb.recommend_friend", 10);
+        Vl.put("tb.searchperson_history", 5);
+        Vl.put("tb.game_center_home", 20);
+        Vl.put("tb.game_center_list", 20);
+        Vl.put("tb.person_wallet_new", 10);
+        Vm = new ArrayList<>();
+        Vm.add("tb.square");
+        Vm.add("tb.first_dir");
+        Vm.add("tb.forum_rank");
+        Vm.add("tb.im_group_setting");
+        Vm.add("tb.im_personal_chat_setting");
+        Vm.add("tb.im_official_chat_setting");
+        Vm.add("net_err_record");
+        Vm.add("tb_user_profile");
+        Vm.add("tb_forum_recommend");
+        Vm.add("tb.ad_killer_tags");
+        Vm.add("tb.manga.settings");
+        Vo = new HashMap<>();
+        Vn = new HashMap<>();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_KV_CACHE_SUCC));
     }
 
-    public static a tm() {
-        if (VQ == null) {
-            VQ = new a();
+    public static a sX() {
+        if (Vk == null) {
+            Vk = new a();
         }
-        return VQ;
+        return Vk;
     }
 
     private a() {
@@ -83,11 +82,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public o<byte[]> cB(String str) {
+    public o<byte[]> cC(String str) {
         return M(str, null);
     }
 
-    public o<String> cC(String str) {
+    public o<String> cD(String str) {
         return N(str, null);
     }
 
@@ -96,13 +95,13 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? String.valueOf(str) + str2 : str;
-        o<byte[]> oVar = VT.get(str3);
+        o<byte[]> oVar = Vn.get(str3);
         if (oVar == null || !(oVar instanceof o)) {
             BdCacheService dB = BdCacheService.dB();
-            Integer num = VR.get(str);
+            Integer num = Vl.get(str);
             num = (num == null || num.intValue() == 0) ? 20 : 20;
             BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-            if (VS.contains(str)) {
+            if (Vm.contains(str)) {
                 cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
             }
             try {
@@ -110,7 +109,7 @@ public class a extends CustomMessageListener {
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            VT.put(str3, oVar);
+            Vn.put(str3, oVar);
             return oVar;
         }
         return oVar;
@@ -121,12 +120,12 @@ public class a extends CustomMessageListener {
             return null;
         }
         String str3 = str2 != null ? String.valueOf(str) + str2 : str;
-        o<String> oVar = VU.get(str3);
+        o<String> oVar = Vo.get(str3);
         BdCacheService dB = BdCacheService.dB();
-        Integer num = VR.get(str);
+        Integer num = Vl.get(str);
         num = (num == null || num.intValue() == 0) ? 20 : 20;
         BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
-        if (VS.contains(str)) {
+        if (Vm.contains(str)) {
             cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
         }
         try {
@@ -142,11 +141,11 @@ public class a extends CustomMessageListener {
             if (str2 != null) {
                 str = String.valueOf(str) + str2;
             }
-            o<String> oVar = VU.get(str);
+            o<String> oVar = Vo.get(str);
             if (oVar != null) {
                 try {
                     BdCacheService.dB().a(oVar);
-                    VU.remove(str);
+                    Vo.remove(str);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -154,14 +153,14 @@ public class a extends CustomMessageListener {
         }
     }
 
-    public void cD(String str) {
+    public void cE(String str) {
         O(str, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        VT.clear();
-        VU.clear();
+        Vn.clear();
+        Vo.clear();
     }
 }

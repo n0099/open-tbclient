@@ -1,141 +1,72 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.a.d;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.r;
+import com.baidu.tieba.usermute.MuteUser;
+import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 /* loaded from: classes.dex */
-class u implements d.a {
-    final /* synthetic */ PbActivity evL;
+class u extends CustomMessageListener {
+    final /* synthetic */ PbActivity eah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(PbActivity pbActivity) {
-        this.evL = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(PbActivity pbActivity, int i) {
+        super(i);
+        this.eah = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean a(View view, MotionEvent motionEvent) {
-        ey eyVar;
-        ey eyVar2;
-        ey eyVar3;
-        com.baidu.tbadk.editortools.e.e eVar;
-        ey eyVar4;
-        ey eyVar5;
-        com.baidu.tbadk.editortools.e.e eVar2;
-        com.baidu.tieba.pb.pb.main.a.j jVar;
-        com.baidu.tieba.pb.pb.main.a.j jVar2;
-        ey eyVar6;
-        ey eyVar7;
-        com.baidu.tbadk.editortools.e.e eVar3;
-        eyVar = this.evL.euP;
-        if (eyVar.aSF()) {
-            return true;
-        }
-        eyVar2 = this.evL.euP;
-        if (eyVar2 == null) {
-            return false;
-        }
-        eyVar3 = this.evL.euP;
-        eyVar3.iS(false);
-        eVar = this.evL.evb;
-        if (eVar != null) {
-            eyVar7 = this.evL.euP;
-            eVar3 = this.evL.evb;
-            eyVar7.gX(eVar3.Dz());
-        }
-        eyVar4 = this.evL.euP;
-        eyVar4.aW(view);
-        eyVar5 = this.evL.euP;
-        eyVar5.iS(true);
-        eVar2 = this.evL.evb;
-        eVar2.DC();
-        jVar = this.evL.eux;
-        if (jVar != null) {
-            jVar2 = this.evL.eux;
-            eyVar6 = this.evL.euP;
-            jVar2.jc(eyVar6.isFullScreen());
-            return true;
-        }
-        return true;
-    }
-
-    @Override // com.baidu.tieba.pb.a.d.a
-    public boolean b(View view, MotionEvent motionEvent) {
-        return false;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00b7, code lost:
-        if (r5 == r0.aSG()) goto L27;
-     */
-    @Override // com.baidu.tieba.pb.a.d.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean c(View view, MotionEvent motionEvent) {
-        com.baidu.tbadk.editortools.e.e eVar;
-        ey eyVar;
-        com.baidu.tbadk.editortools.e.e eVar2;
-        ey eyVar2;
-        ey eyVar3;
-        com.baidu.tbadk.editortools.e.e eVar3;
-        ey eyVar4;
-        ey eyVar5;
-        ey eyVar6;
-        boolean aS;
-        if (view != null) {
-            if (view.getId() != r.g.richText) {
-                if (view.getId() == r.g.pb_list_item_layout) {
-                    if (view.getTag(r.g.tag_from) instanceof SparseArray) {
-                        this.evL.e((SparseArray) view.getTag(r.g.tag_from));
-                    }
-                } else if (!(view instanceof TbRichTextView) && view.getId() != r.g.pb_post_header_layout) {
-                    eyVar4 = this.evL.euP;
-                    if (eyVar4 != null) {
-                        eyVar5 = this.evL.euP;
-                        if (eyVar5.aPe()) {
-                            if (view.getId() != r.g.pb_head_user_info_root) {
-                                eyVar6 = this.evL.euP;
-                            }
-                            if (view.getTag(r.g.tag_user_id) instanceof String) {
-                                TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10630").ab("obj_id", (String) view.getTag(r.g.tag_user_id)));
-                            }
-                            if (this.evL.euQ != null && this.evL.euQ.eDj != null) {
-                                this.evL.euQ.eDj.onClick(view);
-                            }
-                        }
-                    }
-                } else {
-                    SparseArray sparseArray = null;
-                    if (view.getTag() instanceof SparseArray) {
-                        sparseArray = (SparseArray) view.getTag();
-                    }
-                    if (sparseArray == null) {
-                        return false;
-                    }
-                    this.evL.e(sparseArray);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        er erVar;
+        dc dcVar;
+        com.baidu.tbadk.core.view.h hVar;
+        com.baidu.adp.base.h hVar2;
+        com.baidu.adp.base.h hVar3;
+        com.baidu.tbadk.core.view.h hVar4;
+        com.baidu.adp.base.h hVar5;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.eah.dZB;
+            if (tag == bdUniqueId) {
+                erVar = this.eah.dZk;
+                erVar.aHa();
+                UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
+                String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
+                dcVar = this.eah.dYA;
+                com.baidu.tieba.pb.data.f pbData = dcVar.getPbData();
+                if (pbData != null) {
+                    MuteUser muteUser = new MuteUser();
+                    muteUser.setUserId(str);
+                    pbData.aIw().add(muteUser);
                 }
-            } else {
-                aS = this.evL.aS(view);
-                if (aS) {
-                    return true;
+                if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
+                    hVar4 = this.eah.dZA;
+                    hVar5 = this.eah.dZz;
+                    hVar4.c(hVar5.getResources().getString(r.j.mute_success));
+                } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
+                    String errorString = userMuteAddResponseMessage.getErrorString();
+                    if (TextUtils.isEmpty(errorString)) {
+                        hVar3 = this.eah.dZz;
+                        errorString = hVar3.getResources().getString(r.j.mute_error_beyond_limit);
+                    }
+                    this.eah.fL(errorString);
+                } else if (userMuteAddResponseMessage.getMuteErrorCode() != 1990043) {
+                    String errorString2 = userMuteAddResponseMessage.getErrorString();
+                    if (com.baidu.tbadk.core.util.av.isEmpty(errorString2)) {
+                        hVar2 = this.eah.dZz;
+                        errorString2 = hVar2.getResources().getString(r.j.mute_fail);
+                    }
+                    hVar = this.eah.dZA;
+                    hVar.d(errorString2);
+                } else {
+                    this.eah.aJF();
                 }
             }
         }
-        eVar = this.evL.evb;
-        if (eVar != null) {
-            eyVar3 = this.evL.euP;
-            eVar3 = this.evL.evb;
-            eyVar3.gX(eVar3.Dz());
-        }
-        eyVar = this.evL.euP;
-        eyVar.aRJ();
-        eVar2 = this.evL.evb;
-        eVar2.DC();
-        eyVar2 = this.evL.euP;
-        eyVar2.aCY();
-        return true;
     }
 }

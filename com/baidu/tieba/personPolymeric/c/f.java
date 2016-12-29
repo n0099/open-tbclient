@@ -10,10 +10,10 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eQH = BdUniqueId.gen();
-    public boolean czI;
-    public boolean eQI;
-    public List<v> eQJ;
+    public static final BdUniqueId eug = BdUniqueId.gen();
+    public boolean ceV;
+    public boolean euh;
+    public List<v> eui;
     public int mSex;
     public String mUid;
     public String pX;
@@ -24,32 +24,32 @@ public class f extends com.baidu.tieba.card.data.b {
             this.pX = user.name;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.czI = true;
+                this.ceV = true;
             } else {
-                this.czI = false;
+                this.ceV = false;
             }
             if (user.sex.intValue() == 2) {
-                this.eQI = false;
+                this.euh = false;
             } else {
-                this.eQI = true;
+                this.euh = true;
             }
-            this.eQJ = new ArrayList();
+            this.eui = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     m mVar = new m();
                     mVar.a(giftInfo);
-                    this.eQJ.add(mVar);
+                    this.eui.add(mVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !x.t(this.eQJ);
+        return !x.t(this.eui);
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eQH;
+        return eug;
     }
 }

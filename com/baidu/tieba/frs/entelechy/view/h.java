@@ -5,11 +5,11 @@ import com.baidu.tieba.play.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements t.d {
-    final /* synthetic */ a cax;
+    final /* synthetic */ a bGf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.cax = aVar;
+        this.bGf = aVar;
     }
 
     @Override // com.baidu.tieba.play.t.d
@@ -22,7 +22,7 @@ public class h implements t.d {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            handler = this.cax.aPa;
+            handler = this.bGf.aOr;
             handler.sendEmptyMessageDelayed(202, 0L);
         }
     }

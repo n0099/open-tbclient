@@ -21,7 +21,6 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
-import com.baidu.tbadk.core.atomData.GameDetailActivityConfig;
 import com.bg;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -100,7 +99,7 @@ public class FacebookShareHandler implements ISocialShareHandler {
         } else if (bArr != null && !z) {
             MultipartRequestParams multipartRequestParams2 = new MultipartRequestParams();
             multipartRequestParams2.put("message", shareContent.getContent() + " " + shareContent.getLinkUrl());
-            multipartRequestParams2.put(GameDetailActivityConfig.SOURCE, new ByteArrayInputStream(bArr));
+            multipartRequestParams2.put("source", new ByteArrayInputStream(bArr));
             multipartRequestParams2.put(SocialConstants.PARAM_ACCESS_TOKEN, session.getAccessToken());
             new AsyncHttpClient().post(null, "https://graph.facebook.com/me/photos", multipartRequestParams2, new BaiduAPIResponseHandler(MediaType.FACEBOOK, "https://graph.facebook.com/me/photos", this.a));
         }

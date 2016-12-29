@@ -1,66 +1,41 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.r;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.at;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements com.baidu.adp.lib.guide.b {
-    private final /* synthetic */ String ewW;
-    final /* synthetic */ am fGX;
+public class an implements View.OnClickListener {
+    final /* synthetic */ ad flb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar, String str) {
-        this.fGX = amVar;
-        this.ewW = str;
+    public an(ad adVar) {
+        this.flb = adVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        ae aeVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         MainTabActivity mainTabActivity;
-        ae aeVar2;
         MainTabActivity mainTabActivity2;
-        ae aeVar3;
-        MainTabActivity mainTabActivity3;
-        ae aeVar4;
-        MainTabActivity mainTabActivity4;
-        aeVar = this.fGX.fGW;
-        mainTabActivity = aeVar.fGL;
-        TextView textView = new TextView(mainTabActivity.getPageContext().getPageActivity());
-        textView.setText(this.ewW);
-        textView.setGravity(17);
-        com.baidu.tbadk.core.util.at.j((View) textView, r.d.cp_cont_i);
-        aeVar2 = this.fGX.fGW;
-        mainTabActivity2 = aeVar2.fGL;
-        textView.setTextSize(0, mainTabActivity2.getResources().getDimensionPixelSize(r.e.fontsize28));
-        aeVar3 = this.fGX.fGW;
-        mainTabActivity3 = aeVar3.fGL;
-        textView.setWidth(mainTabActivity3.getResources().getDimensionPixelSize(r.e.ds300));
-        aeVar4 = this.fGX.fGW;
-        mainTabActivity4 = aeVar4.fGL;
-        textView.setHeight(mainTabActivity4.getResources().getDimensionPixelSize(r.e.ds76));
-        com.baidu.tbadk.core.util.at.k(textView, r.f.pic_sign_tip);
-        return textView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int dO() {
-        return 4;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int dP() {
-        return 48;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getXOffset() {
-        return 5;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getYOffset() {
-        return 0;
+        FragmentTabHost fragmentTabHost;
+        FragmentTabHost fragmentTabHost2;
+        int i = 3;
+        mainTabActivity = this.flb.fkU;
+        mainTabActivity2 = this.flb.fkU;
+        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
+        fragmentTabHost = this.flb.bgm;
+        if (fragmentTabHost.getCurrentTabType() != 3) {
+            fragmentTabHost2 = this.flb.bgm;
+            if (fragmentTabHost2.getCurrentTabType() != 2) {
+                i = 0;
+            } else {
+                i = 1;
+            }
+        }
+        TiebaStatic.log(new at("c10378").s("obj_type", i));
     }
 }

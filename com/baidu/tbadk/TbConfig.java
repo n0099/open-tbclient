@@ -8,7 +8,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -32,6 +31,7 @@ public class TbConfig {
     public static final String AVATAR_PENDANT = "c/e/theme/getPendantByCategory";
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
+    public static final String BIG_IMG_SPEC = "big_img";
     public static final int BIG_PHOTO_MAX_SIZE = 110;
     private static final String BROADCAST_CHANGESKIN = "com.baidu.tieba.broadcast.changeskin";
     private static final String BROADCAST_CHANGE_SHARED_PREF = "com.baidu.tieba.broadcast.changeSharedPref";
@@ -64,7 +64,6 @@ public class TbConfig {
     public static final String COOKER_GAME_RESULT = "c/u/game/submit/getgambleresult";
     public static final String COOKER_RANK_LIST = "c/u/game/smRank";
     public static final String COOKER_RESULT_RECORD = "c/u/game/resultrecord";
-    public static final String COVERAGE_RULE = "http://tieba.baidu.com/mo/q/ecomm/protocol?name=deposit&noshare=1";
     public static final String CREATE_BOOK_PAY_ORDER = "c/c/encourage/tbread/createPayOrder";
     public static final String DAILYRECOMMEND_ADDRESS = "c/f/forum/threadrecommend";
     public static final int DATABASE_SD_VERSION = 9;
@@ -76,32 +75,11 @@ public class TbConfig {
     public static final String DIALOG_FROM = "dianzishichang";
     public static final String DO_DAILY_TASK = "c/c/encourage/member/doDailyTask";
     public static final String DRESSUP_CENTER_PAGE = "c/e/theme/getThemeList";
-    public static final String ECOMM_CAN_SEND_THREAD = "c/e/ecomm/canSendThread";
-    public static final String ECOMM_CREATE_ORDER = "c/c/encourage/ecomm/order/create";
-    public static final String ECOMM_EDIT_SELLER_FORUM = "c/c/encourage/ecomm/editSellerForum";
-    public static final String ECOMM_EXPRESS_DETAIL = "c/e/ecomm/express/detail";
-    public static final String ECOMM_EXPRESS_GUESS = "c/e/ecomm/express/guess";
-    public static final String ECOMM_EXPRESS_LIST = "c/e/ecomm/express/list";
-    public static final String ECOMM_EXPRESS_SUBMIT = "c/c/encourage/ecomm/order/delivery";
-    public static final String ECOMM_FEED_BACK_ID = "23970309";
-    public static final String ECOMM_GET_ENSURE_ORDER = "c/e/ecomm/order/prepare";
-    public static final String ECOMM_GET_SELLER_PERSON_INFO = "c/e/ecomm/getSellerHomeInfo";
-    public static final String ECOMM_ORDER_EDIT_FEE = "c/c/encourage/ecomm/order/modifyShipFee";
-    public static final String ECOMM_PHONE_CODE_SUBMIT = "c/c/encourage/ecomm/phone/verify";
-    public static final String ECOMM_PRODUCT_CATEGORY_LIST = "c/e/ecomm/getAllCategoryList";
-    public static final String ECOMM_PRODUCT_DETAIL = "c/e/ecomm/product/detail";
-    public static final String ECOMM_PRODUCT_QUALIFICATION_PAY = "c/c/encourage/ecomm/payMargin";
-    public static final String ECOMM_REFUND_APPLY = "c/c/encourage/ecomm/order/refund/apply";
+    public static final String ECOMM_REFUND_AGREE_REUNFD = "c/c/encourage/ecomm/order/refund";
     public static final String ECOMM_REFUND_COMFIRM_TRANS = "c/c/encourage/ecomm/order/refund/confirmTrans";
     public static final String ECOMM_REFUND_DETAIL = "c/c/encourage/ecomm/order/refund/refuse";
     public static final String ECOMM_REFUND_DETAIL_PAGE = "c/e/ecomm/order/refund/detail";
     public static final String ECOMM_REFUND_PREPARE = "c/e/ecomm/order/refund/prepare";
-    public static final String ECOMM_SELLER_CERTIFY = "c/c/encourage/ecomm/applySeller";
-    public static final String ECOMM_SELLER_CONFIRM_DELIVERY = "c/c/encourage/ecomm/order/refund/confirmTrans";
-    public static final String ECOMM_SELLER_REFUSE_REFUND_REASON = "c/c/encourage/ecomm/order/refund/refuse";
-    public static final String ECOMM_SUBMIT_QUALIFICATION = "c/c/encourage/ecomm/addLice";
-    public static final String ECOMM_WINDOW_DISPLAY = "c/c/encourage/ecomm/product/display";
-    public static final String ECOMM_WINDOW_LIST = "c/e/ecomm/product/list";
     public static final int EMOTION_HEIGHT = 240;
     public static final int EMOTION_HEIGHT_LOW = 160;
     public static final int EMOTION_WIDTH = 240;
@@ -147,21 +125,10 @@ public class TbConfig {
     public static final String GET_BOOK_PAY_PANEL = "c/e/tbread/getPayPanel";
     public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
-    public static final String GET_ECOMM_COMMODITY_INFO = "c/e/ecomm/getUserProduct";
-    public static final String GET_ECOMM_DEFER_THREAD = "c/c/encourage/ecomm/DeferThread";
-    public static final String GET_ECOMM_DELETE_COMMODITY_INFO = "c/c/encourage/ecomm/delProduct";
-    public static final String GET_ECOMM_HIS_PRODUCT = "c/e/ecomm/product/list";
-    public static final String GET_ECOMM_PHONE_CODE = "c/c/encourage/ecomm/phone/code";
-    public static final String GET_ECOMM_PRODUCT_INFO = "c/e/ecomm/getUserProduct";
-    public static final String GET_ECOMM_PRODUCT_OFF_SHELF = "c/c/encourage/ecomm/offShelveProduct";
-    public static final String GET_ECOMM_PRODUCT_ON_SHELF = "c/c/encourage/ecomm/onShelveProduct";
-    public static final String GET_ECOMM_SELLER_INFO = "c/e/ecomm/getSellerInfo";
-    public static final String GET_ECOMM_SUBMIT_COMMODITY_INFO = "c/c/encourage/ecomm/editProduct";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
     public static final String GET_FRS_HOT = "c/f/frs/getHotThread";
     public static final String GET_FRS_LIVE = "c/f/frs/getFrsTWLiveList";
     public static final String GET_FRS_TAB_FOLLOW_POST_NUM = "c/f/frs/getFrsTabFollowPostNum";
-    public static final String GET_FRS_TOGETHERHI = "c/f/frs/highlist";
     public static final String GET_GAME_CATEGORY = "c/u/game/getgamecategory";
     public static final String GET_GAME_GATEGORY_DETAIL = "c/u/game/getgamecategorydetail";
     public static final String GET_GIFT_LIST_BY_CATEGORY = "c/e/present/getGiftListByCategoryId";
@@ -208,6 +175,11 @@ public class TbConfig {
     public static final String HOME_FORUM_FEED_LIST = "c/u/feed/forum";
     public static final String HOME_REALTIME_ADDRESS = "c/f/excellent/realtime";
     public static final String HOT_THREAD_UNLIKE = "c/f/choiceness/unlike";
+    public static final String HTTPS_FRS_PREFIX = "http://tieba.baidu.com/f?kw=";
+    public static final String HTTPS_PB_PREFIX = "http://tieba.baidu.com/p/";
+    public static final String HTTPS_PREFIX = "http://tieba.baidu.com/f?";
+    public static final String HTTP_PB_PREFIX = "http://tieba.baidu.com/p/";
+    public static final String HTTP_PREFIX = "http://tieba.baidu.com/f?";
     public static final String IMAGE_CACHE_DIR_NAME = "images";
     public static final String IMAGE_PB_ADDRESS = "c/f/pb/picpage";
     public static final int IMAGE_PV_COUNT = 100;
@@ -291,13 +263,10 @@ public class TbConfig {
     public static final int NOTIFY_REPLY_ME_ID = 24;
     public static final int NOTIFY_SIGN_ID = 12;
     public static final long NOTIFY_SOUND_INTERVAL = 5000;
-    public static final int NOTIFY_TH_HIACITIVTY_ID = 29;
-    public static final int NOTIFY_TH_MSG_ID = 31;
     public static final long ONE_DAY_TIME = 86400000;
     public static final String OP_BOOKRACK = "c/c/encourage/tbread/opBookrack";
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
-    public static final String PB_ECOMM_RECOMMEND_URL = "c/c/encourage/ecomm/product/recommend";
     public static final int PB_IMAGE_DIP_MAX_WIDTH = 427;
     public static final int PB_IMAGE_MAX_HEIGHT = 105;
     public static final int PB_IMAGE_MAX_WIDTH = 105;
@@ -320,7 +289,6 @@ public class TbConfig {
     public static final String PHOTO_LIVE_MISSON_DETAILS_ATTENTION = "c/c/livegroup/setFollowStatus";
     public static final String PHOTO_LIVE_SET_COVER = "c/c/thread/setLiveCover";
     public static final String PHOTO_LIVE_SET_TWGUIDE_DESC = "c/c/livegroup/setTWGuideDesc";
-    public static final String PLATFORM_INFO = "http://tieba.baidu.com/mo/q/ecomm/protocol?name=platform";
     public static final String PLUGIN_NET_CONFIGS_MIS = "c/s/pluginsmisconf";
     public static final int POST_IMAGE_BIG = 900;
     public static final int POST_IMAGE_DISPLAY = 100;
@@ -456,20 +424,19 @@ public class TbConfig {
     public static final String WEIXIN_SHARE_APP_ID = "wx289a8c58bca4c71e";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
-    public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
+    public static String SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
     public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static long MILLS_7DAYS = APP_OVERDUR_DRAFT_BOX;
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/s/login";
-    public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
+    public static String SERVER_ADDRESS_WEB_VIEW = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
     public static int ALPHA_80 = 80;
     private static int PB_LIST_ITEM_MAX_NUM = 300;
     private static int IMG_CHUNK_UPLOAD_ENABLE = 1;
     public static boolean KUANG_TEST_MODE = false;
     private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
     private static String POSITION_PAGER_ID = "2631903";
-    public static final String ECOMM_FEED_BACK_NAME = TbadkCoreApplication.m9getInst().getString(r.j.ecomm_feed_back_name);
     private static String VERSION = "";
     private static String SUB_VERSION = "";
     private static String LEGO_LIB_VERSION = "1.0.0";
@@ -488,8 +455,8 @@ public class TbConfig {
     private static int BIG_IMAGE_SIZE = 10240;
     private static int BIG_IMAGE_MAX_USED_MEMORY = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
     public static String PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
-    public static String FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
     public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
+    public static String FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
     public static final String IMAGE_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/p/img?";
     public static String UPLOAD_IMG_URL = String.valueOf(SERVER_ADDRESS) + "c/s/uploadPicture";
     public static String CHANGE_USER_PORTRAIT = String.valueOf(SERVER_ADDRESS) + "c/c/img/changeportrait";
@@ -504,20 +471,6 @@ public class TbConfig {
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
     public static String GET_HOT_GOD = "c/u/user/getHotGod";
     public static String GET_BFB_INFO = "c/f/forum/getUserBfbInfo";
-    public static String ECOMM_ADDRESS_LIST = "c/e/ecomm/getUserAddrList";
-    public static String ECOMM_PROVINCE_LIST = "c/e/ecomm/getAllProvinceList";
-    public static String ECOMM_EDIT_USER_ADDRESS = "c/c/encourage/ecomm/editUserAddr";
-    public static String ECOMM_DEL_USER_ADDRESS = "c/c/encourage/ecomm/delUserAddr";
-    public static String ECOMM_ORDER_LIST = "c/e/ecomm/order/list";
-    public static String ECOMM_ORDER_PAY = "c/c/encourage/ecomm/order/pay";
-    public static final String ECOMM_REFUND_AGREE_REUNFD = "c/c/encourage/ecomm/order/refund";
-    public static String ECOMM_ORDER_REFUND = ECOMM_REFUND_AGREE_REUNFD;
-    public static String ECOMM_APPLY_FOR_REFUND = "c/c/encourage/ecomm/order/applyForRefund";
-    public static String ECOMM_CONFIRM_TRANS = "c/c/encourage/ecomm/order/confirmTrans";
-    public static String ECOMM_ORDER_QUERY = "c/c/encourage/ecomm/order/query";
-    public static String ECOMM_ORDER_CANCEL = "c/c/encourage/ecomm/order/cancel";
-    public static String ECOMM_ORDER_REMINDER = "c/c/encourage/ecomm/order/reminder";
-    public static String ECOMM_GET_ORDER_DETAIL = "c/e/ecomm/order/detail";
 
     /* loaded from: classes.dex */
     public static final class PassConfig {
@@ -772,7 +725,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.K(context) * k.L(context));
+            int sqrt = (int) Math.sqrt(k.I(context) * k.J(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

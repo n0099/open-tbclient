@@ -8,23 +8,23 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.framework.a.b, CustomResponsedMessage<?>> {
-    private com.baidu.adp.framework.client.b jd;
+    private com.baidu.adp.framework.client.b jc;
 
     public a(MessageManager messageManager) {
         super(messageManager);
-        this.jd = null;
-        this.jd = new com.baidu.adp.framework.client.b(messageManager);
-        this.ji = com.baidu.adp.framework.c.a.ck();
+        this.jc = null;
+        this.jc = new com.baidu.adp.framework.client.b(messageManager);
+        this.jh = com.baidu.adp.framework.c.a.ck();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        this.jd.a((CustomMessage) customMessage, customMessageTask);
+        this.jc.a((CustomMessage) customMessage, customMessageTask);
     }
 
     public <T> CustomResponsedMessage<T> a(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
-        return this.jd.a(customMessage, customMessageTask, cls);
+        return this.jc.a(customMessage, customMessageTask, cls);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,20 +35,20 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.fram
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.jd.removeMessage(bdUniqueId);
+        this.jc.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.jd.removeMessage(i, bdUniqueId);
+        this.jc.removeMessage(i, bdUniqueId);
     }
 
     public LinkedList<CustomMessage<?>> a(BdUniqueId bdUniqueId) {
-        return this.jd.a(bdUniqueId);
+        return this.jc.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<CustomMessage<?>> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.jd.findMessage(i, bdUniqueId);
+        return this.jc.findMessage(i, bdUniqueId);
     }
 }

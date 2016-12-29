@@ -6,11 +6,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends Handler {
-    final /* synthetic */ am fgy;
+    final /* synthetic */ am eJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.fgy = amVar;
+        this.eJQ = amVar;
     }
 
     @Override // android.os.Handler
@@ -27,53 +27,53 @@ public class an extends Handler {
         Activity activity6;
         Activity activity7;
         if (message != null) {
-            activity = this.fgy.mActivity;
+            activity = this.eJQ.mActivity;
             if (activity != null) {
-                z = this.fgy.fgw;
+                z = this.eJQ.eJO;
                 if (z) {
                     switch (message.what) {
                         case 1:
-                            activity2 = this.fgy.mActivity;
+                            activity2 = this.eJQ.mActivity;
                             int requestedOrientation = activity2.getRequestedOrientation();
                             int i = message.arg1;
-                            z2 = this.fgy.fgv;
+                            z2 = this.eJQ.eJN;
                             if (!z2) {
                                 if (i > 225 && i < 315) {
                                     if (requestedOrientation == 8) {
-                                        activity7 = this.fgy.mActivity;
+                                        activity7 = this.eJQ.mActivity;
                                         activity7.setRequestedOrientation(0);
                                         return;
                                     }
                                     return;
                                 } else if (i > 45 && i < 135 && requestedOrientation == 0) {
-                                    activity6 = this.fgy.mActivity;
+                                    activity6 = this.eJQ.mActivity;
                                     activity6.setRequestedOrientation(8);
                                     return;
                                 } else {
                                     return;
                                 }
                             } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                                z4 = this.fgy.fgt;
+                                z4 = this.eJQ.eJL;
                                 if (!z4) {
                                     if (i > 55 && i < 125) {
                                         if (requestedOrientation != 8) {
-                                            activity5 = this.fgy.mActivity;
+                                            activity5 = this.eJQ.mActivity;
                                             activity5.setRequestedOrientation(8);
                                         }
                                     } else if (requestedOrientation != 0) {
-                                        activity4 = this.fgy.mActivity;
+                                        activity4 = this.eJQ.mActivity;
                                         activity4.setRequestedOrientation(0);
                                     }
                                 }
-                                this.fgy.fgs = false;
+                                this.eJQ.eJK = false;
                                 return;
                             } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                                z3 = this.fgy.fgs;
+                                z3 = this.eJQ.eJK;
                                 if (!z3 && requestedOrientation != 1) {
-                                    activity3 = this.fgy.mActivity;
+                                    activity3 = this.eJQ.mActivity;
                                     activity3.setRequestedOrientation(1);
                                 }
-                                this.fgy.fgt = false;
+                                this.eJQ.eJL = false;
                                 return;
                             } else {
                                 return;

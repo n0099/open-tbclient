@@ -4,19 +4,19 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements BaseWebView.b {
-    final /* synthetic */ a cev;
-    private final /* synthetic */ h cew;
+    final /* synthetic */ a bKe;
+    private final /* synthetic */ h bKf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, h hVar) {
-        this.cev = aVar;
-        this.cew = hVar;
+        this.bKe = aVar;
+        this.bKf = hVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
@@ -26,16 +26,16 @@ public class c implements BaseWebView.b {
         if ((webView.getTag() instanceof Integer) && 3 == ((Integer) webView.getTag()).intValue()) {
             webView.setTag(-1);
         } else {
-            bf vP = bf.vP();
-            baseActivity = this.cev.aTb;
-            if (3 == vP.b(baseActivity.getPageContext(), new String[]{str})) {
+            bc vz = bc.vz();
+            baseActivity = this.bKe.aSs;
+            if (3 == vz.b(baseActivity.getPageContext(), new String[]{str})) {
                 webView.setTag(3);
             }
-            bf vP2 = bf.vP();
-            baseActivity2 = this.cev.aTb;
-            vP2.a(baseActivity2.getPageContext(), new String[]{str}, true);
-            if (this.cew != null && !TextUtils.isEmpty(this.cew.stType)) {
-                TiebaStatic.log(new av("c10335").ab("obj_name", this.cew.stType));
+            bc vz2 = bc.vz();
+            baseActivity2 = this.bKe.aSs;
+            vz2.a(baseActivity2.getPageContext(), new String[]{str}, true);
+            if (this.bKf != null && !TextUtils.isEmpty(this.bKf.stType)) {
+                TiebaStatic.log(new at("c10335").ab("obj_name", this.bKf.stType));
             }
         }
         return true;

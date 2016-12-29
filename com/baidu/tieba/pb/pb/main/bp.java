@@ -6,20 +6,20 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements a.b {
-    final /* synthetic */ PbActivity evL;
+    final /* synthetic */ PbActivity eah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PbActivity pbActivity) {
-        this.evL = pbActivity;
+        this.eah = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         if (!com.baidu.tbadk.core.util.m.cA()) {
-            this.evL.showToast(com.baidu.tbadk.core.util.m.ut());
+            this.eah.showToast(com.baidu.tbadk.core.util.m.ud());
         } else {
-            FileDownloader.download(this.evL.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.evL.getPageContext().getString(r.j.download_baidu_video));
+            FileDownloader.download(this.eah.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.eah.getPageContext().getString(r.j.download_baidu_video));
         }
     }
 }

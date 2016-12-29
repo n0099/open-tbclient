@@ -1,110 +1,109 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
-import java.io.File;
 /* loaded from: classes.dex */
 public class aw {
-    private static aw acg;
+    private static aw abP = null;
+    private boolean abQ = false;
+    private boolean abR = false;
+    private int abS = TbConfig.POST_IMAGE_SMALL;
+    private String abT = String.valueOf(45);
 
-    public static synchronized aw vw() {
-        aw awVar;
-        synchronized (aw.class) {
-            if (acg == null) {
-                acg = new aw();
+    public static aw vm() {
+        if (abP == null) {
+            synchronized (aw.class) {
+                abP = new aw();
             }
-            awVar = acg;
         }
-        return awVar;
+        return abP;
     }
 
-    public String dB(String str) {
-        long j = 0;
-        for (byte b : str.getBytes()) {
-            j += b;
-        }
-        return "image/" + (j % 20);
+    public aw() {
+        vp();
+        vn();
     }
 
-    public Bitmap dC(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return m.X(dB(str), str);
+    private void vn() {
+        vt();
+        vu();
+        vv();
     }
 
-    public boolean dD(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return m.W(dB(str), str);
+    public void aF(boolean z) {
+        this.abR = z;
     }
 
-    public int dE(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        return (int) m.V(dB(str), str);
+    public boolean vo() {
+        return this.abR;
     }
 
-    public boolean ac(String str, String str2) {
-        String str3 = m.rC + "/" + TbConfig.getTempDirName() + "/";
-        if (!m.cV(str3)) {
-            m.di(str3);
-        }
-        String str4 = String.valueOf(str3) + dB(str2);
-        if (!m.cV(str4)) {
-            m.di(str4);
-        }
-        String str5 = String.valueOf(str4) + "/" + str2;
-        if (str.equals(str5)) {
-            return false;
-        }
-        return m.b(str, str5, true);
+    public void aG(boolean z) {
+        this.abQ = z;
+        vn();
     }
 
-    public void h(String str, byte[] bArr) {
-        if (!TextUtils.isEmpty(str)) {
-            m.d(dB(str), str, bArr);
-        }
+    private void vp() {
+        this.abQ = com.baidu.adp.lib.util.i.gn();
     }
 
-    private void s(File file) {
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    s(file2);
-                    file2.delete();
-                } else {
-                    file2.delete();
+    public boolean vq() {
+        return this.abQ;
+    }
+
+    public String vr() {
+        return this.abT;
+    }
+
+    public int vs() {
+        vv();
+        return this.abS;
+    }
+
+    public void vt() {
+        boolean z = true;
+        if (com.baidu.tbadk.core.l.oJ().getViewImageQuality() != 0 ? com.baidu.tbadk.core.l.oJ().getViewImageQuality() != 1 : !this.abQ) {
+            z = false;
+        }
+        aF(z);
+    }
+
+    public void vu() {
+        String valueOf = String.valueOf(45);
+        if (com.baidu.tbadk.core.l.oJ().getViewImageQuality() == 0) {
+            if (vq()) {
+                valueOf = String.valueOf(80);
+            }
+        } else if (com.baidu.tbadk.core.l.oJ().getViewImageQuality() == 1) {
+            valueOf = String.valueOf(80);
+        }
+        this.abT = valueOf;
+    }
+
+    public void vv() {
+        int i = TbConfig.POST_IMAGE_BIG;
+        switch (com.baidu.tbadk.core.l.oJ().oM()) {
+            case 0:
+                if (!vq()) {
+                    i = 600;
+                    break;
                 }
-            }
+                break;
+            case 1:
+                break;
+            case 2:
+                i = 750;
+                break;
+            case 3:
+                i = 600;
+                break;
+            default:
+                i = 750;
+                break;
         }
+        this.abS = i;
     }
 
-    public void vx() {
-        s(new File(m.rC + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        s(new File(m.rC + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
-    }
-
-    public void vy() {
-        t(new File(m.rC + "/" + TbConfig.getTempDirName() + "/" + m.cB(3)));
-    }
-
-    private void t(File file) {
-        long currentTimeMillis = System.currentTimeMillis();
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    s(file2);
-                    file2.delete();
-                } else if (currentTimeMillis - file2.lastModified() >= -1702967296) {
-                    file2.delete();
-                }
-            }
-        }
+    public static boolean vw() {
+        return m.cA() && com.baidu.adp.gif.e.cz();
     }
 }

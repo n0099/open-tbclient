@@ -105,7 +105,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String YM = null;
+        String Yg = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -136,15 +136,15 @@ public class TiebaPrepareImageService extends BdBaseService {
                         }
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
                         if (resizeBitmap == null || m.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) == null) {
-                            this.YM = TiebaPrepareImageService.this.getString(r.j.error_sd_error);
+                            this.Yg = TiebaPrepareImageService.this.getString(r.j.error_sd_error);
                             z = false;
                         }
                     } else {
-                        this.YM = TiebaPrepareImageService.this.getString(r.j.error_sd_error);
+                        this.Yg = TiebaPrepareImageService.this.getString(r.j.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.YM = TiebaPrepareImageService.this.getString(r.j.pic_parser_error);
+                    this.Yg = TiebaPrepareImageService.this.getString(r.j.pic_parser_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
@@ -172,8 +172,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute(bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.YM != null) {
-                intent.putExtra("error", this.YM);
+            if (this.Yg != null) {
+                intent.putExtra("error", this.Yg);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

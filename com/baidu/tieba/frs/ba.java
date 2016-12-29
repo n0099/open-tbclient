@@ -1,71 +1,40 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.entelechy.b.b;
-import com.baidu.tieba.view.BdExpandListView;
-import java.util.HashSet;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements TbImageView.a {
-    final /* synthetic */ au bUk;
+public class ba implements AbsListView.RecyclerListener {
+    final /* synthetic */ ax bAv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(au auVar) {
-        this.bUk = auVar;
+    public ba(ax axVar) {
+        this.bAv = axVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void v(String str, boolean z) {
-        BannerView bannerView;
-        BannerView bannerView2;
-        boolean z2;
-        BdExpandListView bdExpandListView;
-        com.baidu.tbadk.core.data.w wVar;
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        BdExpandListView bdExpandListView2;
-        BannerView bannerView3;
-        com.baidu.tbadk.core.data.w wVar2;
-        HashSet hashSet;
-        if (z) {
-            bannerView = this.bUk.bTQ;
-            if (bannerView != null) {
-                bannerView2 = this.bUk.bTQ;
-                if (bannerView2.AN()) {
-                    z2 = this.bUk.bTS;
-                    if (!z2) {
-                        bdExpandListView = this.bUk.bTH;
-                        if (bdExpandListView != null) {
-                            this.bUk.bTS = true;
-                            wVar = this.bUk.aox;
-                            if (wVar != null) {
-                                wVar2 = this.bUk.aox;
-                                String pA = wVar2.pA();
-                                if (!StringUtils.isNULL(pA)) {
-                                    hashSet = this.bUk.bUa;
-                                    if (hashSet.add(pA)) {
-                                        this.bUk.jW(pA);
-                                    }
-                                }
-                            }
-                            frsActivity = this.bUk.bTA;
-                            b abM = frsActivity.abM();
-                            if (abM != null) {
-                                frsActivity2 = this.bUk.bTA;
-                                bdExpandListView2 = this.bUk.bTH;
-                                bannerView3 = this.bUk.bTQ;
-                                abM.a(frsActivity2, bdExpandListView2, bannerView3);
-                            }
-                        }
-                    }
-                }
-            }
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        com.baidu.tieba.play.aa aaVar;
+        com.baidu.tieba.play.aa aaVar2;
+        aaVar = this.bAv.aMd;
+        if (aaVar != null) {
+            aaVar2 = this.bAv.aMd;
+            aaVar2.bi(view);
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(r.g.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.reset();
+        }
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(r.g.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.reset();
+        }
+        if (view instanceof UserPhotoLayout) {
+            ((UserPhotoLayout) view).reset();
+        }
     }
 }

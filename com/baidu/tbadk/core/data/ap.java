@@ -1,53 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class ap {
-    private int Su;
-    private ArrayList<a> Sv;
+    public String Sr;
+    public int Ss;
+    public String St;
+    public String buttonText;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public String HR;
-        public String Rw;
-        public int giftId;
-        public int num;
-    }
-
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.Su = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.Sv = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.HR = pbPresentList.gift_name;
-                        aVar.Rw = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.Sv.add(aVar);
-                    }
-                }
-            }
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.Sr = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.Ss = newsInfo.news_type.intValue();
+            this.St = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.buttonText = newsInfo.button_text;
         }
-    }
-
-    public int qF() {
-        return this.Su;
-    }
-
-    public void bR(int i) {
-        this.Su = i;
-    }
-
-    public ArrayList<a> qG() {
-        return this.Sv;
-    }
-
-    public void h(ArrayList<a> arrayList) {
-        this.Sv = arrayList;
     }
 }

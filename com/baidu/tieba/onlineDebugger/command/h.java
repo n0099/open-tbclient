@@ -1,7 +1,7 @@
 package com.baidu.tieba.onlineDebugger.command;
 /* loaded from: classes.dex */
 public interface h {
-    Object aNb() throws Exception;
+    Object aHc() throws Exception;
 
-    boolean aNc();
+    boolean aHd();
 }

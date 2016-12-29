@@ -7,34 +7,34 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e {
-    private a aww;
+    private a avT;
     private String filename;
 
     public d(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.aww = null;
+        this.avT = null;
         this.filename = null;
     }
 
-    public boolean fG(String str) {
+    public boolean fC(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
-        if (this.aww != null) {
-            this.aww.cancel();
+        if (this.avT != null) {
+            this.avT.cancel();
         }
-        this.aww = new a(this.filename);
-        this.aww.execute(new Object[0]);
+        this.avT = new a(this.filename);
+        this.avT.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.aww != null) {
-            this.aww.cancel();
+        if (this.avT != null) {
+            this.avT.cancel();
             return true;
         }
         return true;
@@ -63,7 +63,7 @@ public class d extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            d.this.aww = null;
+            d.this.avT = null;
             if (d.this.mLoadDataCallBack != null) {
                 d.this.mLoadDataCallBack.g(null);
             }
@@ -81,7 +81,7 @@ public class d extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            d.this.aww = null;
+            d.this.avT = null;
             if (d.this.mLoadDataCallBack != null) {
                 d.this.mLoadDataCallBack.g(bitmap);
             }

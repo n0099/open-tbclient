@@ -8,13 +8,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b eRA;
+    final /* synthetic */ b euZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.eRA = bVar;
+        this.euZ = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,25 +25,25 @@ public class c extends CustomMessageListener {
         com.baidu.tieba.personPolymeric.c.a aVar2;
         TextView textView;
         if (customResponsedMessage != null) {
-            z = this.eRA.bfT;
+            z = this.euZ.bfj;
             if (!z) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof com.baidu.tieba.tbadkCore.writeModel.a) {
                     com.baidu.tieba.tbadkCore.writeModel.a aVar3 = (com.baidu.tieba.tbadkCore.writeModel.a) data;
                     long j = aVar3.forumId;
-                    aVar = this.eRA.eRz;
+                    aVar = this.euZ.euY;
                     if (j == aVar.forumId) {
                         if (aVar3.isSuccess) {
-                            aVar2 = this.eRA.eRz;
-                            aVar2.alx = true;
-                            textView = this.eRA.cAT;
+                            aVar2 = this.euZ.euY;
+                            aVar2.akY = true;
+                            textView = this.euZ.cgg;
                             textView.setVisibility(0);
-                            this.eRA.ju(true);
-                            com.baidu.adp.lib.util.k.showToast(this.eRA.mContext, r.j.person_polymeric_attention_success);
+                            this.euZ.jf(true);
+                            com.baidu.adp.lib.util.k.showToast(this.euZ.mContext, r.j.attention_success);
                         } else if (StringUtils.isNull(aVar3.errorMessage)) {
-                            com.baidu.adp.lib.util.k.showToast(this.eRA.mContext, r.j.person_polymeric_attention_faild);
+                            com.baidu.adp.lib.util.k.showToast(this.euZ.mContext, r.j.attention_fail);
                         } else {
-                            com.baidu.adp.lib.util.k.showToast(this.eRA.mContext, aVar3.errorMessage);
+                            com.baidu.adp.lib.util.k.showToast(this.euZ.mContext, aVar3.errorMessage);
                         }
                     }
                 }

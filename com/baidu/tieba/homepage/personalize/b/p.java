@@ -4,22 +4,22 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.card.bz;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tieba.card.cb;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends bz<com.baidu.tieba.card.data.k> {
-    final /* synthetic */ o cLP;
+public class p extends cb<com.baidu.tieba.card.data.j> {
+    final /* synthetic */ o crc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.cLP = oVar;
+        this.crc = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.bz
-    public void a(View view, com.baidu.tieba.card.data.k kVar) {
+    @Override // com.baidu.tieba.card.cb
+    public void a(View view, com.baidu.tieba.card.data.j jVar) {
         com.baidu.tieba.card.m mVar;
         com.baidu.tieba.card.m mVar2;
         com.baidu.tieba.card.m mVar3;
@@ -29,36 +29,36 @@ public class p extends bz<com.baidu.tieba.card.data.k> {
         com.baidu.tieba.card.m mVar7;
         com.baidu.tieba.card.m mVar8;
         if (view != null) {
-            mVar = this.cLP.cLN;
+            mVar = this.crc.cra;
             if (mVar != null) {
-                mVar2 = this.cLP.cLN;
-                if (mVar2.bcx != null) {
-                    mVar3 = this.cLP.cLN;
-                    if (mVar3.bcx.bcC != null) {
-                        mVar4 = this.cLP.cLN;
-                        if (mVar4.bcx.bcA != null) {
-                            mVar5 = this.cLP.cLN;
-                            if (mVar5.bcx.getView() != null) {
+                mVar2 = this.crc.cra;
+                if (mVar2.bbD != null) {
+                    mVar3 = this.crc.cra;
+                    if (mVar3.bbD.bbJ != null) {
+                        mVar4 = this.crc.cra;
+                        if (mVar4.bbD.bbG != null) {
+                            mVar5 = this.crc.cra;
+                            if (mVar5.bbD.getView() != null) {
                                 int id = view.getId();
-                                mVar6 = this.cLP.cLN;
-                                if (id == mVar6.bcx.bcC.getId() && (view.getTag() instanceof MetaData)) {
+                                mVar6 = this.crc.cra;
+                                if (id == mVar6.bbD.bbJ.getId() && (view.getTag() instanceof MetaData)) {
                                     if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
-                                        TiebaStatic.log(new av("c10803").s("obj_locate", 6));
+                                        TiebaStatic.log(new at("c10803").s("obj_locate", 6));
                                         return;
                                     }
                                     return;
                                 }
                                 int id2 = view.getId();
-                                mVar7 = this.cLP.cLN;
-                                if (id2 != mVar7.bcx.getView().getId()) {
+                                mVar7 = this.crc.cra;
+                                if (id2 != mVar7.bbD.getView().getId()) {
                                     int id3 = view.getId();
-                                    mVar8 = this.cLP.cLN;
-                                    if (id3 != mVar8.bcx.bcA.getId()) {
+                                    mVar8 = this.crc.cra;
+                                    if (id3 != mVar8.bbD.bbG.getId()) {
                                         return;
                                     }
                                 }
                                 if (view.getTag(r.g.rec_god_item_root) instanceof String) {
-                                    TiebaStatic.log(new av("c11005").ab("obj_id", (String) view.getTag(r.g.rec_god_item_root)));
+                                    TiebaStatic.log(new at("c11005").ab("obj_id", (String) view.getTag(r.g.rec_god_item_root)));
                                 }
                             }
                         }

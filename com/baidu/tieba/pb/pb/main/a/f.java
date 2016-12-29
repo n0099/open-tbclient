@@ -9,44 +9,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class f {
     private TbPageContext GO;
     private View bL;
-    private boolean eDn;
+    private boolean bxJ;
     private String mMessage;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.d Hu = null;
-    int eDo = 0;
-    private Runnable eDp = new g(this);
-    private Runnable eDq = new i(this);
+    private com.baidu.adp.lib.guide.d Ht = null;
+    int bxK = 0;
+    private Runnable bxL = new g(this);
+    private Runnable bxM = new i(this);
 
     public f(TbPageContext tbPageContext, View view) {
         this.GO = tbPageContext;
         this.bL = view;
     }
 
-    public void aSI() {
-        com.baidu.tbadk.core.sharedPref.b.um().putInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "pb_show_tools_guide_tips", this.eDo + 1);
+    public void VX() {
+        com.baidu.tbadk.core.sharedPref.b.tW().putInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "pb_show_tools_guide_tips", this.bxK + 1);
     }
 
-    public void pI(String str) {
-        if (!this.eDn && !StringUtils.isNull(str) && this.bL != null && this.bL.getVisibility() != 8) {
+    public void iz(String str) {
+        if (!this.bxJ && !StringUtils.isNull(str) && this.bL != null && this.bL.getVisibility() != 8) {
             this.mMessage = str;
-            this.eDo = com.baidu.tbadk.core.sharedPref.b.um().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "pb_show_tools_guide_tips", 0);
-            if (this.eDo < 3) {
+            this.bxK = com.baidu.tbadk.core.sharedPref.b.tW().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "pb_show_tools_guide_tips", 0);
+            if (this.bxK < 3) {
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.eDp, 1000L);
+                this.mHandler.postDelayed(this.bxL, 1000L);
             }
         }
     }
 
-    public void aSJ() {
-        if (this.Hu != null) {
-            this.Hu.dismiss();
-            this.Hu = null;
+    public void VY() {
+        if (this.Ht != null) {
+            this.Ht.dismiss();
+            this.Ht = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.eDp);
-            this.mHandler.removeCallbacks(this.eDq);
+            this.mHandler.removeCallbacks(this.bxL);
+            this.mHandler.removeCallbacks(this.bxM);
         }
     }
 }

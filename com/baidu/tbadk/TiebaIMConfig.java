@@ -24,7 +24,6 @@ public class TiebaIMConfig {
     public static int POST_IMAGE_DEFAULT_HEIGHT = 30;
     public static String NEW_UPLOAD_PIC_SERVER = "c/i/msgcenter/uploadPic";
     public static String IM_GROUP_SHARE_URL = "http://tieba.baidu.com/group/index?id=";
-    public static String IM_LIVE_GROUP_SHARE_URL = "http://tieba.baidu.com/mo/q/liveshowshare?gid=";
 
     public static byte[] getRSAPublicKey() throws IOException {
         return c.decode(PUBLIC_KEY_BASE64);

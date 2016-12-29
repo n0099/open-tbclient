@@ -1,25 +1,26 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class u implements Runnable {
-    final /* synthetic */ t bTc;
+class u implements NoNetworkView.a {
+    final /* synthetic */ FrsActivity bzl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar) {
-        this.bTc = tVar;
+    public u(FrsActivity frsActivity) {
+        this.bzl = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        FrsActivity frsActivity3;
-        frsActivity = this.bTc.bTa;
-        if (frsActivity.bRW != null) {
-            frsActivity2 = this.bTc.bTa;
-            if (frsActivity2.bRW.adl()) {
-                frsActivity3 = this.bTc.bTa;
-                frsActivity3.acw();
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aL(boolean z) {
+        if (this.bzl.byr.aaO() == 1 && z && !this.bzl.byg.WG()) {
+            if (this.bzl.byh == null || com.baidu.tbadk.core.util.x.t(this.bzl.byh.getThreadList())) {
+                this.bzl.hideNetRefreshView(this.bzl.byg.Xv());
+                this.bzl.showLoadingView(this.bzl.byg.Xv(), true);
+                this.bzl.byg.dy(false);
+                this.bzl.refresh();
+                return;
             }
+            this.bzl.byg.Xj();
         }
     }
 }

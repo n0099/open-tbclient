@@ -1,9 +1,9 @@
 package com.baidu.tieba.enterForum.a;
 /* loaded from: classes.dex */
 public interface d {
-    void Ys();
+    void SD();
 
-    void ac(int i, int i2);
+    void X(int i, int i2);
 
-    void ho(int i);
+    void gy(int i);
 }

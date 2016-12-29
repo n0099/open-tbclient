@@ -3,20 +3,20 @@ package com.baidu.tieba.play;
 import com.baidu.tieba.play.t;
 /* loaded from: classes.dex */
 class af implements t.b {
-    final /* synthetic */ QuickVideoView fgc;
+    final /* synthetic */ QuickVideoView eJu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(QuickVideoView quickVideoView) {
-        this.fgc = quickVideoView;
+        this.eJu = quickVideoView;
     }
 
     @Override // com.baidu.tieba.play.t.b
     public boolean onError(t tVar, int i, int i2) {
         t.b bVar;
         t.b bVar2;
-        bVar = this.fgc.aMp;
+        bVar = this.eJu.aLG;
         if (bVar != null) {
-            bVar2 = this.fgc.aMp;
+            bVar2 = this.eJu.aLG;
             if (bVar2.onError(tVar, i, i2)) {
             }
         }

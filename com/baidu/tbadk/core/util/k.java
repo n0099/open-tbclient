@@ -11,6 +11,6 @@ public class k extends Thread {
         zVar.n("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         zVar.n("os_version", Build.VERSION.RELEASE);
         zVar.n("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        zVar.uy();
+        zVar.uk();
     }
 }

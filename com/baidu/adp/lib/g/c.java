@@ -102,7 +102,7 @@ public class c {
         }
     }
 
-    public boolean al(int i) {
+    public boolean am(int i) {
         e<?> eVar = this.oX.get(i);
         if (eVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
