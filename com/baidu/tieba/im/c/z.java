@@ -10,13 +10,13 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements com.baidu.tbadk.util.f<LinkedHashMap<String, String>> {
-    final /* synthetic */ a drH;
-    private final /* synthetic */ ad drS;
+    final /* synthetic */ a cWB;
+    private final /* synthetic */ ad cWM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(a aVar, ad adVar) {
-        this.drH = aVar;
-        this.drS = adVar;
+        this.cWB = aVar;
+        this.cWM = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,19 +35,19 @@ public class z implements com.baidu.tbadk.util.f<LinkedHashMap<String, String>> 
             while (it.hasNext()) {
                 String str2 = (String) it.next();
                 String str3 = linkedHashMap.get(str2);
-                String H = com.baidu.tieba.im.util.h.H(str3, true);
-                if (H != null) {
-                    linkedHashMap2.put(str2, H);
+                String I = com.baidu.tieba.im.util.h.I(str3, true);
+                if (I != null) {
+                    linkedHashMap2.put(str2, I);
                 }
-                String H2 = com.baidu.tieba.im.util.h.H(str3, false);
-                if (!TextUtils.isEmpty(H2) && !TextUtils.isEmpty(H)) {
+                String I2 = com.baidu.tieba.im.util.h.I(str3, false);
+                if (!TextUtils.isEmpty(I2) && !TextUtils.isEmpty(I)) {
                     ImageUrlData imageUrlData = new ImageUrlData();
-                    imageUrlData.imageUrl = H2;
+                    imageUrlData.imageUrl = I2;
                     imageUrlData.urlType = 10;
-                    hashMap.put(H, imageUrlData);
+                    hashMap.put(I, imageUrlData);
                 }
             }
         }
-        this.drS.a(linkedHashMap2, hashMap);
+        this.cWM.a(linkedHashMap2, hashMap);
     }
 }

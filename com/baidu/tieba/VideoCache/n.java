@@ -1,60 +1,34 @@
 package com.baidu.tieba.VideoCache;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
-import java.io.InputStream;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class n {
-    private static n aQD;
-    private Handler.Callback aMt = new o(this);
-    private i aQE;
-    private c aQF;
-    private Handler mHandler;
+    private static n aPY;
+    private ExecutorService aPZ = Executors.newFixedThreadPool(10);
 
-    private n() {
-        HandlerThread handlerThread = new HandlerThread("video_cache_handler");
-        handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aMt);
-        this.aQE = new i();
-        this.aQF = new c();
-    }
-
-    public static n KW() {
-        if (aQD == null) {
+    public static n Kq() {
+        if (aPY == null) {
             synchronized (n.class) {
-                if (aQD == null) {
-                    aQD = new n();
+                if (aPY == null) {
+                    aPY = new n();
                 }
             }
         }
-        return aQD;
+        return aPY;
     }
 
-    public void n(InputStream inputStream) {
-        Message obtainMessage = this.mHandler.obtainMessage(1);
-        obtainMessage.obj = inputStream;
-        this.mHandler.sendMessage(obtainMessage);
+    public void g(Runnable runnable) {
+        if (this.aPZ != null) {
+            this.aPZ.execute(runnable);
+        }
     }
 
-    public void hc(String str) {
-        this.mHandler.removeMessages(2);
-        Message obtainMessage = this.mHandler.obtainMessage(2);
-        obtainMessage.obj = str;
-        this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
-    }
-
-    public void KK() {
-        this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-    }
-
-    public void gR(String str) {
-        Message obtainMessage = this.mHandler.obtainMessage(4);
-        obtainMessage.obj = str;
-        this.mHandler.sendMessage(obtainMessage);
-    }
-
-    public void clearCache() {
-        this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
+    public void destroy() {
+        if (this.aPZ != null) {
+            this.aPZ.shutdown();
+            this.aPZ = null;
+            aPY = null;
+        }
     }
 }

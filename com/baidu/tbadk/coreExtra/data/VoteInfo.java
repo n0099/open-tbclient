@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -88,7 +87,7 @@ public class VoteInfo implements Serializable {
             jSONObject.put("is_multi", this.mIsMulti);
             jSONObject.put("description", this.mDescription);
             jSONObject.put("type", this.mType);
-            jSONObject.put(ThActivityDetailActivityConfig.END_TIME, this.mEndtime);
+            jSONObject.put("end_time", this.mEndtime);
             JSONArray jSONArray = new JSONArray();
             int i = 0;
             while (true) {

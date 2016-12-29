@@ -4,11 +4,11 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements g {
-    final /* synthetic */ BdPullRefreshScrollView Dg;
+    final /* synthetic */ BdPullRefreshScrollView Dh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.Dg = bdPullRefreshScrollView;
+        this.Dh = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
@@ -19,25 +19,25 @@ public class i implements g {
         a aVar2;
         BdPullRefreshScrollView.b bVar;
         BdPullRefreshScrollView.b bVar2;
-        state = this.Dg.CK;
+        state = this.Dh.CL;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.Dg.CK;
+            state2 = this.Dh.CL;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
-                BdPullRefreshScrollView bdPullRefreshScrollView = this.Dg;
+                BdPullRefreshScrollView bdPullRefreshScrollView = this.Dh;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                aVar = this.Dg.CW;
+                aVar = this.Dh.CX;
                 bdPullRefreshScrollView.a(state3, aVar);
                 return;
             }
             return;
         }
-        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.Dg;
+        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.Dh;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        aVar2 = this.Dg.CW;
+        aVar2 = this.Dh.CX;
         bdPullRefreshScrollView2.a(state4, aVar2);
-        bVar = this.Dg.CZ;
+        bVar = this.Dh.Da;
         if (bVar != null) {
-            bVar2 = this.Dg.CZ;
+            bVar2 = this.Dh.Da;
             bVar2.kV();
         }
     }

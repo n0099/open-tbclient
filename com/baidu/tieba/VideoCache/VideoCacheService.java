@@ -7,13 +7,13 @@ import android.os.IBinder;
 /* loaded from: classes.dex */
 public class VideoCacheService extends Service {
     private static final String TAG = VideoCacheService.class.getSimpleName();
-    private r mHttpServer;
+    private p mHttpServer;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        m.log(TAG, "onCreate");
-        this.mHttpServer = new r(this);
+        k.log(TAG, "onCreate");
+        this.mHttpServer = new p(this);
     }
 
     @Override // android.app.Service
@@ -29,10 +29,10 @@ public class VideoCacheService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        m.log(TAG, "onDestroy");
+        k.log(TAG, "onDestroy");
         if (this.mHttpServer != null) {
             this.mHttpServer.destroy();
         }
-        p.KX().destroy();
+        n.Kq().destroy();
     }
 }

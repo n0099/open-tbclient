@@ -1,95 +1,100 @@
 package com.baidu.tieba.VideoCache;
 
-import android.os.Environment;
-import android.os.StatFs;
-import java.io.File;
+import android.content.Context;
+import java.net.ServerSocket;
+import java.net.Socket;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q {
-    private static final String TAG = q.class.getSimpleName();
+public class q implements Runnable {
+    final /* synthetic */ p aQb;
 
-    public static long hd(String str) {
-        long j;
-        long j2 = 0;
-        long he = he(str);
-        if (str == null || str.isEmpty()) {
-            j = 0;
-        } else {
-            File file = new File(String.valueOf(l.aQB) + str);
-            if (file == null || !file.exists() || !file.isDirectory()) {
-                return 0L;
-            }
-            File file2 = new File(String.valueOf(file.getAbsolutePath()) + "/completed");
-            j = (file2 == null || !file2.exists()) ? 0L : file2.length();
-            File file3 = new File(String.valueOf(file.getAbsolutePath()) + "/completed.temp");
-            if (file3 != null && file3.exists()) {
-                j2 = file3.length();
-            }
-        }
-        return j + j2 + he;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(p pVar) {
+        this.aQb = pVar;
     }
 
-    public static long he(String str) {
-        File file;
-        File file2;
-        File[] listFiles;
-        long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(String.valueOf(l.aQB) + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
-            for (File file3 : listFiles) {
-                if (file3 != null && file3.exists()) {
-                    j += file3.length();
-                }
+    /* JADX WARN: Incorrect condition in loop: B:4:0x0016 */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        String str;
+        ServerSocket serverSocket;
+        String str2;
+        String str3;
+        ServerSocket serverSocket2;
+        String str4;
+        String str5;
+        ServerSocket serverSocket3;
+        String str6;
+        String str7;
+        Context context;
+        str = p.TAG;
+        k.log(str, "run ...");
+        this.aQb.Ks();
+        int i = 9000;
+        while (serverSocket == null && i < 10000) {
+            try {
+                this.aQb.aQa = new ServerSocket(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                this.aQb.aQa = null;
+                i++;
             }
         }
-        return j;
-    }
-
-    public static long KY() {
-        if ("mounted".equals(Environment.getExternalStorageState())) {
-            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-            return statFs.getAvailableBlocks() * statFs.getBlockSize();
-        }
-        return 0L;
-    }
-
-    public static synchronized long getFileSize(File file) {
-        long j;
-        synchronized (q.class) {
-            j = 0;
-            if (file != null) {
-                if (file.exists()) {
-                    j = file.length();
-                }
-            }
-        }
-        return j;
-    }
-
-    public static void w(File file) {
-        if (file != null) {
-            if (file.isFile()) {
-                file.delete();
-            } else if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles == null || listFiles.length == 0) {
-                    file.delete();
+        str2 = p.TAG;
+        k.log(str2, "service port " + i);
+        this.aQb.fK(i);
+        f.Kh();
+        l.Kp();
+        while (true) {
+            try {
+                serverSocket2 = this.aQb.aQa;
+                if (serverSocket2.isClosed()) {
+                    str4 = p.TAG;
+                    k.log(str4, "视频服务已退出");
                     return;
                 }
-                for (File file2 : listFiles) {
-                    w(file2);
+                str5 = p.TAG;
+                k.log(str5, "accept start");
+                serverSocket3 = this.aQb.aQa;
+                Socket accept = serverSocket3.accept();
+                str6 = p.TAG;
+                k.log(str6, "accept end");
+                if (accept != null) {
+                    str7 = p.TAG;
+                    k.log(str7, "连接视频服务的client:" + accept);
+                    i b = g.b(accept);
+                    String Kl = b.Kl();
+                    if (Kl == null || !Kl.contains("?file_access=1")) {
+                        if (Kl == null || !Kl.contains("?stop_cache=1")) {
+                            if (Kl == null || !Kl.contains("delete_expired_files")) {
+                                if (Kl == null || !Kl.contains("clear_cache")) {
+                                    context = this.aQb.mContext;
+                                    g gVar = new g(context);
+                                    gVar.a(accept);
+                                    gVar.a(b);
+                                    n.Kq().g(gVar);
+                                } else {
+                                    this.aQb.d(b, accept);
+                                }
+                            } else {
+                                this.aQb.c(b, accept);
+                            }
+                        } else {
+                            this.aQb.a(b, accept);
+                        }
+                    } else {
+                        this.aQb.b(b, accept);
+                    }
                 }
-                file.delete();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                str3 = p.TAG;
+                k.log(str3, "视频服务已退出");
+                return;
             }
         }
-    }
-
-    public static String hf(String str) {
-        if (str == null || !str.contains("/")) {
-            return null;
-        }
-        String substring = str.substring(str.lastIndexOf("/") + 1);
-        if (substring != null && substring.contains(".mp4")) {
-            return substring.replace(".mp4", "");
-        }
-        return substring;
     }
 }

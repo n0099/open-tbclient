@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ p dyg;
+    final /* synthetic */ p dbf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.dyg = pVar;
+        this.dbf = pVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         InviteFriendListActivity inviteFriendListActivity;
-        inviteFriendListActivity = this.dyg.dxT;
+        inviteFriendListActivity = this.dbf.daS;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SearchFriendActivityConfig(inviteFriendListActivity.getPageContext().getPageActivity())));
     }
 }

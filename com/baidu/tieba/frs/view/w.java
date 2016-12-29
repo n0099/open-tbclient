@@ -1,67 +1,67 @@
 package com.baidu.tieba.frs.view;
 
-import com.baidu.tieba.frs.au;
+import com.baidu.tieba.frs.ax;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ u cmS;
-    private final /* synthetic */ String cmT;
+    final /* synthetic */ u bSc;
+    private final /* synthetic */ String bSd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(u uVar, String str) {
-        this.cmS = uVar;
-        this.cmT = str;
+        this.bSc = uVar;
+        this.bSd = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.g.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        au auVar;
-        au auVar2;
-        au auVar3;
-        au auVar4;
-        au auVar5;
-        au auVar6;
-        au auVar7;
-        au auVar8;
-        au auVar9;
-        au auVar10;
+        ax axVar;
+        ax axVar2;
+        ax axVar3;
+        ax axVar4;
+        ax axVar5;
+        ax axVar6;
+        ax axVar7;
+        ax axVar8;
+        ax axVar9;
+        ax axVar10;
         if (aVar == null) {
-            auVar9 = this.cmS.cmM;
-            auVar9.adn().setVisibility(8);
-            auVar10 = this.cmS.cmM;
-            auVar10.adm().setVisibility(8);
+            axVar9 = this.bSc.bRW;
+            axVar9.XD().setVisibility(8);
+            axVar10 = this.bSc.bRW;
+            axVar10.XC().setVisibility(8);
             return;
         }
         if (aVar.cY()) {
-            auVar5 = this.cmS.cmM;
-            auVar5.adn().setVisibility(0);
-            auVar6 = this.cmS.cmM;
-            auVar6.adm().setVisibility(8);
+            axVar5 = this.bSc.bRW;
+            axVar5.XD().setVisibility(0);
+            axVar6 = this.bSc.bRW;
+            axVar6.XC().setVisibility(8);
             com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
-            aVar2.ayh = this.cmT;
-            aVar2.ayf = this.cmT;
-            auVar7 = this.cmS.cmM;
-            auVar7.adn().a(aVar2);
-            u uVar = this.cmS;
-            auVar8 = this.cmS.cmM;
-            uVar.cmQ = auVar8.adn();
+            aVar2.axE = this.bSd;
+            aVar2.axC = this.bSd;
+            axVar7 = this.bSc.bRW;
+            axVar7.XD().a(aVar2);
+            u uVar = this.bSc;
+            axVar8 = this.bSc.bRW;
+            uVar.bSa = axVar8.XD();
         } else {
-            auVar = this.cmS.cmM;
-            auVar.adn().setVisibility(8);
-            auVar2 = this.cmS.cmM;
-            auVar2.adm().setVisibility(0);
-            auVar3 = this.cmS.cmM;
-            auVar3.adm().c(this.cmT, 17, false);
-            u uVar2 = this.cmS;
-            auVar4 = this.cmS.cmM;
-            uVar2.cmQ = auVar4.adm();
+            axVar = this.bSc.bRW;
+            axVar.XD().setVisibility(8);
+            axVar2 = this.bSc.bRW;
+            axVar2.XC().setVisibility(0);
+            axVar3 = this.bSc.bRW;
+            axVar3.XC().c(this.bSd, 17, false);
+            u uVar2 = this.bSc;
+            axVar4 = this.bSc.bRW;
+            uVar2.bSa = axVar4.XC();
         }
-        this.cmS.aN("c11103", null);
-        if (this.cmS.cmQ != null) {
-            this.cmS.cmQ.setOnClickListener(new x(this));
-            this.cmS.bn(8000L);
+        this.bSc.aJ("c11103", null);
+        if (this.bSc.bSa != null) {
+            this.bSc.bSa.setOnClickListener(new x(this));
+            this.bSc.bb(8000L);
         }
     }
 }

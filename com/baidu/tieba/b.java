@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ LogoActivity aLM;
+    final /* synthetic */ LogoActivity aLd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(LogoActivity logoActivity, int i) {
         super(i);
-        this.aLM = logoActivity;
+        this.aLd = logoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,9 +34,9 @@ class b extends CustomMessageListener {
                     TbadkCoreApplication.setIntent(intent);
                 }
                 com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-                aVar = this.aLM.aLG;
+                aVar = this.aLd.aKX;
                 eG.removeCallbacks(aVar);
-                this.aLM.Jh();
+                this.aLd.IC();
             }
         }
     }

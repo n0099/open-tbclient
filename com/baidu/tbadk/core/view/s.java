@@ -5,18 +5,18 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements PopupWindow.OnDismissListener {
-    final /* synthetic */ o agb;
+    final /* synthetic */ o afu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(o oVar) {
-        this.agb = oVar;
+        this.afu = oVar;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
         Context context;
-        o oVar = this.agb;
-        context = this.agb.mContext;
+        o oVar = this.afu;
+        context = this.afu.mContext;
         oVar.b(context, 1.0f);
     }
 }

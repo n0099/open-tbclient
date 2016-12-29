@@ -4,11 +4,11 @@ import com.baidu.tbadk.performanceLog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.InterfaceC0048a {
-    final /* synthetic */ e aCh;
+    final /* synthetic */ e aBB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.aCh = eVar;
+        this.aBB = eVar;
     }
 
     @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0048a
@@ -18,18 +18,18 @@ public class g implements a.InterfaceC0048a {
         int i4;
         a aVar;
         a aVar2;
-        e eVar = this.aCh;
-        i2 = eVar.aCe;
-        eVar.aCe = i2 + 1;
-        i3 = this.aCh.aBZ;
-        i4 = this.aCh.aCe;
+        e eVar = this.aBB;
+        i2 = eVar.aBy;
+        eVar.aBy = i2 + 1;
+        i3 = this.aBB.aBt;
+        i4 = this.aBB.aBy;
         if (i3 == i4) {
-            aVar = this.aCh.aCc;
+            aVar = this.aBB.aBw;
             aVar.a((a.InterfaceC0048a) null);
-            aVar2 = this.aCh.aCc;
+            aVar2 = this.aBB.aBw;
             aVar2.stop();
-            this.aCh.Gi();
+            this.aBB.FI();
         }
-        this.aCh.fe(i);
+        this.aBB.fe(i);
     }
 }

@@ -12,13 +12,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class b extends a {
-    private int dCS;
-    private volatile boolean fFd;
-    private volatile f fFf;
+    private int dfQ;
+    private volatile boolean fjk;
+    private volatile f fjm;
 
     public b(String str, int i, int i2, long j, String str2) {
         super(str, i, i2, j, str2);
-        this.fFf = new f();
+        this.fjm = new f();
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
@@ -42,19 +42,19 @@ public class b extends a {
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            return this.fFf;
+            return this.fjm;
         } catch (FileNotFoundException e3) {
-            return this.fFf;
+            return this.fjm;
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
     public void cancel() {
-        this.fFd = true;
+        this.fjk = true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
     public boolean isCancelled() {
-        return (!this.fFd && this.fFf.errorNo == 0 && StringUtils.isNull(this.fFf.videoUrl)) ? false : true;
+        return (!this.fjk && this.fjm.errorNo == 0 && StringUtils.isNull(this.fjm.videoUrl)) ? false : true;
     }
 }

@@ -1,22 +1,23 @@
 package com.baidu.tieba.f;
 
-import android.util.SparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    public SparseArray<a> fmq;
+public class h implements Runnable {
+    final /* synthetic */ a eQj;
 
-    public h(SparseArray<a> sparseArray) {
-        this.fmq = sparseArray;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(a aVar) {
+        this.eQj = aVar;
     }
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public boolean aRn;
-        public int mNum;
-
-        public a(boolean z, int i) {
-            this.aRn = z;
-            this.mNum = i;
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        z = this.eQj.eQb;
+        if (!z) {
+            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
         }
     }
 }

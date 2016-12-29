@@ -5,7 +5,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DealInfoData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
@@ -15,7 +14,6 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
     public static final String CATEGORY_ID = "category_id";
     public static final String CONTENT = "write_content";
-    public static final String DEAL_INFO = "deal_info";
     public static final String DISABLE_AUDIO_MESSAGE = "disable_audio_message";
     public static final String ENABLE_AUDIO = "enable_audio";
     public static final String FEED_BACK = "feed_back";
@@ -51,8 +49,6 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String SUB_USER_NAME = "sub_user_name";
     public static final String THREAD_ID = "thread_id";
     public static final String TITLE = "write_title";
-    public static final String TOGETHERHI_DATA = "togetherhi_data";
-    public static final String TOGETHERHI_SHOW = "togetherhi_show";
     public static final String TYPE = "type";
     public static final String VCODE_FEED_BACK = "vcode_feed_back";
     public static final String WRITE_IMAGES = "write_images";
@@ -62,29 +58,25 @@ public class WriteActivityConfig extends IntentConfig {
     }
 
     public void toLivePost(int i, String str, String str2, int i2, int i3, String str3, String str4, String str5) {
-        getIntent().putExtra("is_live_post", true);
-        getIntent().putExtra("live_group_id", i);
+        getIntent().putExtra(IS_LIVE_POST, true);
+        getIntent().putExtra(LIVE_GROUP_ID, i);
         if (str != null) {
-            getIntent().putExtra("live_group_head", str);
+            getIntent().putExtra(LIVE_GROUP_HEAD, str);
         }
         if (str2 != null) {
-            getIntent().putExtra("live_group_name", str2);
+            getIntent().putExtra(LIVE_GROUP_NAME, str2);
         }
         if (str4 != null) {
-            getIntent().putExtra("live_group_author_head", str4);
+            getIntent().putExtra(LIVE_GROUP_PUBLISH_HEAD, str4);
         }
-        getIntent().putExtra("live_group_member_count", i2);
-        getIntent().putExtra("live_group_zan_count", i3);
+        getIntent().putExtra(LIVE_GROUP_MEMBER_COUNT, i2);
+        getIntent().putExtra(LIVE_GROUP_ZAN_COUNT, i3);
         if (str3 != null) {
-            getIntent().putExtra("live_group_author", str3);
+            getIntent().putExtra(LIVE_GROUP_PUBLISH_NAME, str3);
         }
         if (str5 != null) {
-            getIntent().putExtra("live_group_intro", str5);
+            getIntent().putExtra(LIVE_GROUP_INTRO, str5);
         }
-    }
-
-    public void addEcommInfo(DealInfoData dealInfoData) {
-        getIntent().putExtra("deal_info", dealInfoData);
     }
 
     public void addHotTopicInfo(PostTopicData postTopicData) {
@@ -106,34 +98,34 @@ public class WriteActivityConfig extends IntentConfig {
         getIntent().putExtra("type", i);
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("forum_name", str2);
-        getIntent().putExtra("reply_sub_pb", z2);
+        getIntent().putExtra(REPLY_SUB_PB, z2);
         getIntent().putExtra("is_ad", z3);
         getIntent().putExtra("mem_type", i4);
         if (antiData != null) {
-            getIntent().putExtra("enable_audio", antiData.isIfvoice());
-            getIntent().putExtra("disable_audio_message", antiData.getVoice_message());
+            getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
+            getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());
         }
         if (str6 != null) {
             getIntent().putExtra("file_name", str6);
         }
-        getIntent().putExtra("refresh_pic", z4);
+        getIntent().putExtra(REFRESH_PIC, z4);
         if (z) {
-            getIntent().putExtra("feed_back", true);
+            getIntent().putExtra(FEED_BACK, true);
         }
         if (str3 != null) {
             getIntent().putExtra("thread_id", str3);
         }
         if (str4 != null) {
-            getIntent().putExtra("floor_id", str4);
+            getIntent().putExtra(FLOOR_ID, str4);
         }
         if (i2 > 0) {
             getIntent().putExtra("floor_num", i2);
         }
         if (str5 != null) {
-            getIntent().putExtra("sub_user_name", str5);
+            getIntent().putExtra(SUB_USER_NAME, str5);
         }
         if (additionData != null) {
-            getIntent().putExtra("addition_data", additionData);
+            getIntent().putExtra(ADDITION_DATA, additionData);
         }
         if (postPrefixData != null) {
             getIntent().putExtra("prefix_data", postPrefixData);
@@ -149,7 +141,7 @@ public class WriteActivityConfig extends IntentConfig {
 
     public void setIsVcodeFeedBack() {
         if (getIntent() != null) {
-            getIntent().putExtra("vcode_feed_back", true);
+            getIntent().putExtra(VCODE_FEED_BACK, true);
         }
     }
 }

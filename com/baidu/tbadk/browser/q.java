@@ -1,13 +1,13 @@
 package com.baidu.tbadk.browser;
 /* loaded from: classes.dex */
 class q extends com.baidu.tbadk.core.c.p {
-    final /* synthetic */ TbWebViewActivity MG;
+    final /* synthetic */ TbWebViewActivity ME;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.n nVar) {
         super(nVar);
-        this.MG = tbWebViewActivity;
+        this.ME = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -16,8 +16,8 @@ class q extends com.baidu.tbadk.core.c.p {
         return "TBHY_COMMON_Performance";
     }
 
-    @com.baidu.tbadk.core.c.q(tZ = false, value = "trackFPS")
+    @com.baidu.tbadk.core.c.q(tK = false, value = "trackFPS")
     private void trackFPS() {
-        this.MG.trackFPS();
+        this.ME.trackFPS();
     }
 }

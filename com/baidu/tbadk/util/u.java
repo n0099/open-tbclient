@@ -8,7 +8,7 @@ public class u {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int gD(String str) {
+    public static int gy(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -38,7 +38,7 @@ public class u {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gD(str) > i) {
+        if (gy(str) > i) {
             return String.valueOf(d(str, 0, i - 2)) + "...";
         }
         return str;
@@ -48,7 +48,7 @@ public class u {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gD(str) > i) {
+        if (gy(str) > i) {
             return d(str, 0, i);
         }
         return str;

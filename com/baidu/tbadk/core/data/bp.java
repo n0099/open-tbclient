@@ -1,41 +1,52 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import org.json.JSONException;
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import tbclient.YulePostActivity;
 /* loaded from: classes.dex */
 public class bp {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+    private long Vj;
+    private String activity_banner;
+    private String activity_button;
+    private String activity_desc;
+    private String activity_url;
+    private long start_time;
 
-    public String getTitle() {
-        return this.title;
+    public String sV() {
+        return this.activity_banner;
     }
 
-    public String tc() {
-        return this.title_link;
+    public String getActivityUrl() {
+        return this.activity_url;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public String sW() {
+        return this.activity_button;
+    }
+
+    public void a(YulePostActivity yulePostActivity) {
+        if (yulePostActivity != null) {
+            this.start_time = yulePostActivity.start_time != null ? yulePostActivity.start_time.longValue() : -1L;
+            this.Vj = yulePostActivity.end_time != null ? yulePostActivity.end_time.longValue() : -1L;
+            this.activity_banner = yulePostActivity.activity_banner;
+            this.activity_url = yulePostActivity.activity_url;
+            this.activity_desc = yulePostActivity.activity_desc;
+            this.activity_button = yulePostActivity.activity_button;
         }
     }
 
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.start_time = jSONObject.optLong("start_time");
+                this.Vj = jSONObject.optLong("end_time");
+                this.activity_banner = jSONObject.optString("activity_banner");
+                this.activity_url = jSONObject.optString("activity_url");
+                this.activity_desc = jSONObject.optString("activity_desc");
+                this.activity_button = jSONObject.optString("activity_button");
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 }

@@ -510,7 +510,7 @@ public final class b {
                 JSONObject jSONObject = new JSONObject(str);
                 sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                 sapiAccountResponse.username = jSONObject.optString("uname");
-                sapiAccountResponse.uid = jSONObject.optString("uid");
+                sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 sapiAccountResponse.email = jSONObject.optString("email");
                 sapiAccountResponse.bduss = jSONObject.optString("bduss");
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
@@ -763,7 +763,7 @@ public final class b {
                                             } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_DISPLAYNAME)) {
                                                 sapiAccount.displayname = newPullParser.nextText();
                                                 break;
-                                            } else if (name.equalsIgnoreCase("uid")) {
+                                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_UID)) {
                                                 sapiAccount.uid = newPullParser.nextText();
                                                 break;
                                             } else if (name.equalsIgnoreCase("bduss")) {
@@ -1628,7 +1628,7 @@ public final class b {
                     jSONObject = new JSONObject(sapiDataEncryptor.a(optString));
                     sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                     sapiAccountResponse.username = jSONObject.optString("uname");
-                    sapiAccountResponse.uid = jSONObject.optString("uid");
+                    sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                     sapiAccountResponse.email = jSONObject.optString("email");
                     sapiAccountResponse.bduss = jSONObject.optString("bduss");
                     sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
@@ -2440,7 +2440,7 @@ public final class b {
                                 sapiAccount.l = jSONObject2.optString("stoken");
                                 sapiAccount.displayname = jSONObject2.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                                 sapiAccount.username = jSONObject2.optString("uname");
-                                sapiAccount.uid = jSONObject2.optString("uid");
+                                sapiAccount.uid = jSONObject2.optString(SapiAccountManager.SESSION_UID);
                                 sapiAccount.m = SapiAccount.a.a(jSONObject2).a().toString();
                                 com.baidu.sapi2.share.a.a().a(sapiAccount);
                                 fillUsernameResult.session = sapiAccount;
@@ -2763,7 +2763,7 @@ public final class b {
                             JSONObject jSONObject = new JSONObject(str);
                             sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                             sapiAccount.bduss = jSONObject.optString("bduss");
-                            sapiAccount.uid = jSONObject.optString("uid");
+                            sapiAccount.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                             sapiAccount.k = jSONObject.optString("ptoken");
                             sapiAccount.l = jSONObject.optString("stoken");
                             sapiAccount.m = SapiAccount.a.a(jSONObject).a().toString();
@@ -5073,7 +5073,7 @@ public final class b {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                sapiAccountResponse.uid = jSONObject.optString("uid");
+                sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 sapiAccountResponse.bduss = jSONObject.optString("bduss");
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                 if (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE) == 104) {
@@ -5119,7 +5119,7 @@ public final class b {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                sapiAccountResponse.uid = jSONObject.optString("uid");
+                sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 sapiAccountResponse.bduss = jSONObject.optString("bduss");
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                 if (!jSONObject.has(SocialConstants.PARAM_ERROR_CODE) && !jSONObject.has(SocialConstants.PARAM_ERROR_MSG)) {
@@ -5235,7 +5235,7 @@ public final class b {
                     sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                     sapiAccountResponse.stoken = jSONObject.optString("stoken");
                     sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                    sapiAccountResponse.uid = jSONObject.optString("uid");
+                    sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                     sapiAccountResponse.username = jSONObject.optString("uname");
                     sapiAccountResponse.email = jSONObject.optString("email");
                     switch (i) {
@@ -5368,7 +5368,7 @@ public final class b {
                 JSONObject jSONObject = new JSONObject(str);
                 sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                 sapiAccountResponse.username = jSONObject.optString("uname");
-                sapiAccountResponse.uid = jSONObject.optString("uid");
+                sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 sapiAccountResponse.bduss = jSONObject.optString("bduss");
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                 sapiAccountResponse.stoken = jSONObject.optString("stoken");
@@ -5557,7 +5557,7 @@ public final class b {
 
     SapiAccount a(JSONObject jSONObject) {
         SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.uid = jSONObject.optString("uid");
+        sapiAccount.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
         sapiAccount.bduss = jSONObject.optString("bduss");
         sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
         sapiAccount.username = jSONObject.optString("uname");

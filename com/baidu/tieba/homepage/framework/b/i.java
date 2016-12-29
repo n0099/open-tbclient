@@ -5,50 +5,50 @@ import com.baidu.tieba.d.a;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements a.InterfaceC0058a {
-    final int bVH = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds98);
-    final /* synthetic */ e cJF;
+public class i implements a.InterfaceC0057a {
+    final int bBP = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds98);
+    final /* synthetic */ e cpa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(e eVar) {
-        this.cJF = eVar;
+        this.cpa = eVar;
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    @Override // com.baidu.tieba.d.a.InterfaceC0057a
     public void P(int i, int i2) {
         a aVar;
         a aVar2;
         a aVar3;
-        if (af(i2)) {
-            aVar = this.cJF.cJB;
+        if (aa(i2)) {
+            aVar = this.cpa.coW;
             if (aVar != null) {
-                aVar2 = this.cJF.cJB;
-                aVar2.dv(false);
-                aVar3 = this.cJF.cJB;
-                aVar3.fk(false);
+                aVar2 = this.cpa.coW;
+                aVar2.dd(false);
+                aVar3 = this.cpa.coW;
+                aVar3.eV(false);
             }
         }
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    @Override // com.baidu.tieba.d.a.InterfaceC0057a
     public void Q(int i, int i2) {
         a aVar;
         a aVar2;
         a aVar3;
-        if (af(i2)) {
-            aVar = this.cJF.cJB;
+        if (aa(i2)) {
+            aVar = this.cpa.coW;
             if (aVar != null) {
-                aVar2 = this.cJF.cJB;
-                aVar2.dv(true);
-                if (Math.abs(i2) > this.bVH) {
-                    aVar3 = this.cJF.cJB;
-                    aVar3.fj(false);
+                aVar2 = this.cpa.coW;
+                aVar2.dd(true);
+                if (Math.abs(i2) > this.bBP) {
+                    aVar3 = this.cpa.coW;
+                    aVar3.eU(false);
                 }
             }
         }
     }
 
-    private boolean af(float f) {
+    private boolean aa(float f) {
         return Math.abs(f) >= 10.0f;
     }
 }

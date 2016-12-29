@@ -8,60 +8,60 @@ import android.provider.Settings;
 import com.baidu.tieba.play.ap;
 /* loaded from: classes.dex */
 public class am {
-    private SensorManager fgp;
-    private y fgq;
-    private Sensor fgr;
-    private ap fgu;
+    private SensorManager eJH;
+    private y eJI;
+    private Sensor eJJ;
+    private ap eJM;
     private Activity mActivity;
-    private boolean fgs = false;
-    private boolean fgt = false;
-    private boolean fgv = false;
-    private boolean fgw = false;
+    private boolean eJK = false;
+    private boolean eJL = false;
+    private boolean eJN = false;
+    private boolean eJO = false;
     private Handler mHandler = new an(this);
-    private ap.a fgx = new ao(this);
+    private ap.a eJP = new ao(this);
 
-    public void bct() {
+    public void aWe() {
         if (this.mActivity != null) {
             if (this.mActivity.getRequestedOrientation() == 1) {
                 this.mActivity.setRequestedOrientation(0);
-                this.fgs = true;
+                this.eJK = true;
                 return;
             }
             this.mActivity.setRequestedOrientation(1);
-            this.fgt = true;
+            this.eJL = true;
         }
     }
 
     public am(Activity activity) {
         if (activity != null) {
             this.mActivity = activity;
-            this.fgp = (SensorManager) activity.getSystemService("sensor");
-            this.fgr = this.fgp.getDefaultSensor(1);
-            this.fgq = new y(this.mHandler);
+            this.eJH = (SensorManager) activity.getSystemService("sensor");
+            this.eJJ = this.eJH.getDefaultSensor(1);
+            this.eJI = new y(this.mHandler);
             this.mActivity.setRequestedOrientation(1);
-            this.fgu = new ap(this.mActivity, this.mHandler);
-            this.fgu.a(this.fgx);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.fgu);
+            this.eJM = new ap(this.mActivity, this.mHandler);
+            this.eJM.a(this.eJP);
+            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.eJM);
         }
     }
 
     public void start() {
-        if (this.fgp != null) {
-            this.fgp.registerListener(this.fgq, this.fgr, 2);
+        if (this.eJH != null) {
+            this.eJH.registerListener(this.eJI, this.eJJ, 2);
         }
     }
 
     public void stop() {
-        if (this.fgp != null) {
-            this.fgp.unregisterListener(this.fgq);
+        if (this.eJH != null) {
+            this.eJH.unregisterListener(this.eJI);
         }
         this.mHandler.removeCallbacksAndMessages(null);
         if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.fgu);
+            this.mActivity.getContentResolver().unregisterContentObserver(this.eJM);
         }
     }
 
-    public void kz(boolean z) {
-        this.fgw = z;
+    public void kj(boolean z) {
+        this.eJO = z;
     }
 }

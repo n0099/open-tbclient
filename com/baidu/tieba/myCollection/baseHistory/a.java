@@ -9,22 +9,22 @@ public class a extends com.baidu.tbadk.mvc.model.a<b, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<b> Fb() {
+    public Class<b> EJ() {
         return b.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Fc() {
+    public int EK() {
         return CmdConfigCustom.CMD_READ_PB_HISTORY_LIST;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int Fd() {
+    public int EL() {
         return CmdConfigCustom.CMD_WRITE_PB_HISTORY;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String EN() {
+    public String Ev() {
         return "tb.pb_history";
     }
 }

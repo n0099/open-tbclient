@@ -21,18 +21,18 @@ public class ac implements View.OnClickListener {
         BdTypeListView bdTypeListView2;
         BdTypeListView bdTypeListView3;
         cs csVar2;
-        csVar = this.this$0.cKR;
+        csVar = this.this$0.cqm;
         if (csVar != null) {
-            csVar2 = this.this$0.cKR;
+            csVar2 = this.this$0.cqm;
             csVar2.hideTip();
         }
-        i = this.this$0.cKN;
+        i = this.this$0.cqi;
         if (i == 1) {
-            bdTypeListView = this.this$0.aML;
+            bdTypeListView = this.this$0.aMc;
             if (bdTypeListView != null) {
-                bdTypeListView2 = this.this$0.aML;
+                bdTypeListView2 = this.this$0.aMc;
                 bdTypeListView2.setSelection(0);
-                bdTypeListView3 = this.this$0.aML;
+                bdTypeListView3 = this.this$0.aMc;
                 bdTypeListView3.kv();
             }
         }

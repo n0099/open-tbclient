@@ -13,15 +13,15 @@ public class c {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String dyI;
-        public int dyJ;
-        public String dyK;
-        public String dyL;
-        public int dyM;
-        public String dyN;
-        public String dyO;
-        public String dyP;
-        public String dyj;
+        public String dbD;
+        public int dbE;
+        public String dbF;
+        public String dbG;
+        public int dbH;
+        public String dbI;
+        public String dbJ;
+        public String dbK;
+        public String dbi;
         public String postId;
         public String threadId;
         public int threadType;
@@ -29,7 +29,7 @@ public class c {
         public int type;
     }
 
-    public static a mX(String str) {
+    public static a lk(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -38,10 +38,10 @@ public class c {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                aVar.dyK = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
-                aVar.dyj = optJSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-                aVar.dyN = optJSONObject.optString("quote_content");
-                aVar.dyP = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                aVar.dbF = optJSONObject.optString(VrPlayerActivityConfig.TITLE);
+                aVar.dbi = optJSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
+                aVar.dbI = optJSONObject.optString("quote_content");
+                aVar.dbK = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 aVar.threadId = optJSONObject.optString("thread_id");
                 aVar.postId = optJSONObject.optString("post_id");
                 aVar.type = optJSONObject.optInt("type");
@@ -49,14 +49,14 @@ public class c {
                 aVar.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    aVar.dyL = optJSONObject2.optString("id");
-                    aVar.dyO = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    aVar.dyM = optJSONObject2.optInt("gender");
+                    aVar.dbG = optJSONObject2.optString("id");
+                    aVar.dbJ = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    aVar.dbH = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    aVar.dyI = optJSONObject3.optString("id");
-                    aVar.dyJ = optJSONObject3.optInt("gender");
+                    aVar.dbD = optJSONObject3.optString("id");
+                    aVar.dbE = optJSONObject3.optInt("gender");
                 }
             }
             return aVar;

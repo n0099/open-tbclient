@@ -9,11 +9,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class d extends a<com.baidu.tieba.card.data.h> {
+public class d extends a<com.baidu.tieba.card.data.g> {
     private TbPageContext<?> GO;
-    private View bbL;
-    private TextView bbM;
-    public e bbN;
+    private View baR;
+    private TextView baS;
+    public e baT;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
@@ -21,24 +21,24 @@ public class d extends a<com.baidu.tieba.card.data.h> {
         this.mSkinType = 3;
         this.GO = tbPageContext;
         LinearLayout linearLayout = (LinearLayout) getView();
-        this.bbL = linearLayout.findViewById(r.g.card_god_feed_unfollowed_top_margin);
-        this.bbM = (TextView) linearLayout.findViewById(r.g.card_god_feed_unfollowed_god_describe);
-        this.bbN = new e(this.GO);
-        this.bbN.bbO = true;
-        linearLayout.addView(this.bbN.getView());
+        this.baR = linearLayout.findViewById(r.g.card_god_feed_unfollowed_top_margin);
+        this.baS = (TextView) linearLayout.findViewById(r.g.card_god_feed_unfollowed_god_describe);
+        this.baT = new e(this.GO);
+        this.baT.baU = true;
+        linearLayout.addView(this.baT.getView());
     }
 
-    public e OW() {
-        return this.bbN;
+    public e Or() {
+        return this.baT;
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.at.l(this.bbL, r.d.cp_bg_line_c);
-            com.baidu.tbadk.core.util.at.j((View) this.bbM, r.d.cp_cont_f);
-            com.baidu.tbadk.core.util.at.l(this.bbM, r.d.cp_bg_line_d);
-            this.bbN.onChangeSkinType(tbPageContext, i);
+            com.baidu.tbadk.core.util.ar.l(this.baR, r.d.cp_bg_line_c);
+            com.baidu.tbadk.core.util.ar.j((View) this.baS, r.d.cp_cont_f);
+            com.baidu.tbadk.core.util.ar.l(this.baS, r.d.cp_bg_line_d);
+            this.baT.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
@@ -51,27 +51,27 @@ public class d extends a<com.baidu.tieba.card.data.h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     /* renamed from: a */
-    public void onBindDataToView(com.baidu.tieba.card.data.h hVar) {
-        if (hVar != null) {
-            if (hVar.needTopMargin) {
-                this.bbL.setVisibility(0);
+    public void onBindDataToView(com.baidu.tieba.card.data.g gVar) {
+        if (gVar != null) {
+            if (gVar.needTopMargin) {
+                this.baR.setVisibility(0);
             } else {
-                this.bbL.setVisibility(8);
+                this.baR.setVisibility(8);
             }
-            if (hVar.beT == null || hVar.beT.threadData == null || hVar.beT.threadData.getAuthor() == null || hVar.beT.threadData.getAuthor().getGodUserData() == null || StringUtils.isNull(hVar.beT.threadData.getAuthor().getGodUserData().getIntro())) {
-                this.bbM.setVisibility(8);
+            if (gVar.bei == null || gVar.bei.threadData == null || gVar.bei.threadData.getAuthor() == null || gVar.bei.threadData.getAuthor().getGodUserData() == null || StringUtils.isNull(gVar.bei.threadData.getAuthor().getGodUserData().getIntro())) {
+                this.baS.setVisibility(8);
             } else {
-                this.bbM.setVisibility(0);
-                this.bbM.setText(hVar.beT.threadData.getAuthor().getGodUserData().getIntro());
+                this.baS.setVisibility(0);
+                this.baS.setText(gVar.bei.threadData.getAuthor().getGodUserData().getIntro());
             }
-            this.bbN.onBindDataToView(hVar.beT);
+            this.baT.onBindDataToView(gVar.bei);
             onChangeSkinType(this.GO, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (this.bbN != null) {
-            this.bbN.j(bdUniqueId);
+        if (this.baT != null) {
+            this.baT.j(bdUniqueId);
         }
     }
 

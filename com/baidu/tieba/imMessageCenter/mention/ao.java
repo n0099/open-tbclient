@@ -1,21 +1,30 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.view.View;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class ao implements View.OnClickListener {
-    final /* synthetic */ an dzS;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar) {
-        this.dzS = anVar;
+public class ao extends com.baidu.tbadk.mvc.model.a<ba, ReplyMessageActivity> {
+    public ao(TbPageContext<ReplyMessageActivity> tbPageContext) {
+        super(tbPageContext);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ViewEventCenter lI;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9483, this.dzS.getData(), null, null);
-        lI = this.dzS.lI();
-        lI.dispatchMvcEvent(bVar);
+    @Override // com.baidu.tbadk.mvc.model.a
+    public Class<ba> EJ() {
+        return ba.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public int EK() {
+        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public int EL() {
+        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.a
+    public String Ev() {
+        return "tb_user_replyme";
     }
 }

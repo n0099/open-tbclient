@@ -3,31 +3,31 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class ab implements com.baidu.adp.lib.network.http.i {
-    int aba = 0;
-    int abb = 0;
-    int abc = 0;
-    final /* synthetic */ aa abd;
-    private final /* synthetic */ Handler abe;
-    private final /* synthetic */ int abf;
+    int aau = 0;
+    int aav = 0;
+    int aaw = 0;
+    final /* synthetic */ aa aax;
+    private final /* synthetic */ Handler aay;
+    private final /* synthetic */ int aaz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar, Handler handler, int i) {
-        this.abd = aaVar;
-        this.abe = handler;
-        this.abf = i;
+        this.aax = aaVar;
+        this.aay = handler;
+        this.aaz = i;
     }
 
     @Override // com.baidu.adp.lib.network.http.i
     public void f(int i, int i2) {
         if (i2 > 0) {
-            this.aba = i2 / 50;
+            this.aau = i2 / 50;
         }
-        this.abb += i - this.abc;
-        this.abc = i;
-        if (this.abe != null) {
-            if (this.abb > this.aba || i == i2) {
-                this.abb = 0;
-                this.abe.sendMessage(this.abe.obtainMessage(this.abf, i, i2));
+        this.aav += i - this.aaw;
+        this.aaw = i;
+        if (this.aay != null) {
+            if (this.aav > this.aau || i == i2) {
+                this.aav = 0;
+                this.aay.sendMessage(this.aay.obtainMessage(this.aaz, i, i2));
             }
         }
     }

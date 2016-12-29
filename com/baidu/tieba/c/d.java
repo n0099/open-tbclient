@@ -7,7 +7,7 @@ class d implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        a.OS();
+        a.Oe();
         TiebaStatic.log("c11577");
     }
 }

@@ -7,11 +7,11 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ e awU;
+    final /* synthetic */ e awr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(e eVar) {
-        this.awU = eVar;
+        this.awr = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class l extends BdAsyncTask<Void, Integer, Void> {
     public Void doInBackground(Void... voidArr) {
         String str;
         StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.awU.awA;
+        str = this.awr.avX;
         com.baidu.tbadk.core.util.m.p(new File(append.append(str).toString()));
         return null;
     }

@@ -6,13 +6,13 @@ import java.lang.reflect.Method;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ TbImageView aGU;
+    final /* synthetic */ TbImageView aGo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(TbImageView tbImageView, int i) {
         super(i);
-        this.aGU = tbImageView;
+        this.aGo = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,45 +27,45 @@ public class e extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
             String str2 = (String) customResponsedMessage.getData();
             com.baidu.adp.lib.g.c eA = com.baidu.adp.lib.g.c.eA();
-            str = this.aGU.mUrl;
-            i = this.aGU.mType;
+            str = this.aGo.mUrl;
+            i = this.aGo.mType;
             String f = eA.f(str, i);
             if (f != null && f.equals(str2)) {
-                this.aGU.destroyDrawingCache();
-                HL();
-                method = TbImageView.aGQ;
-                com.baidu.adp.lib.a.a.a.a(method, this.aGU, TbImageView.class);
-                method2 = TbImageView.aGR;
-                com.baidu.adp.lib.a.a.a.a(method2, this.aGU, TbImageView.class, false);
-                method3 = TbImageView.aGS;
-                com.baidu.adp.lib.a.a.a.a(method3, this.aGU, TbImageView.class);
-                method4 = TbImageView.aGT;
-                com.baidu.adp.lib.a.a.a.a(method4, this.aGU, TbImageView.class);
-                this.aGU.invalidate();
+                this.aGo.destroyDrawingCache();
+                Hh();
+                method = TbImageView.aGk;
+                com.baidu.adp.lib.a.a.a.a(method, this.aGo, TbImageView.class);
+                method2 = TbImageView.aGl;
+                com.baidu.adp.lib.a.a.a.a(method2, this.aGo, TbImageView.class, false);
+                method3 = TbImageView.aGm;
+                com.baidu.adp.lib.a.a.a.a(method3, this.aGo, TbImageView.class);
+                method4 = TbImageView.aGn;
+                com.baidu.adp.lib.a.a.a.a(method4, this.aGo, TbImageView.class);
+                this.aGo.invalidate();
             }
         }
     }
 
-    private void HL() {
+    private void Hh() {
         Method method;
         Method method2;
         Method method3;
         Method method4;
-        method = TbImageView.aGQ;
+        method = TbImageView.aGk;
         if (method == null) {
-            TbImageView.aGQ = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", new Object[0]);
+            TbImageView.aGk = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", new Object[0]);
         }
-        method2 = TbImageView.aGR;
+        method2 = TbImageView.aGl;
         if (method2 == null) {
-            TbImageView.aGR = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", false);
+            TbImageView.aGl = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "destroyLayer", false);
         }
-        method3 = TbImageView.aGS;
+        method3 = TbImageView.aGm;
         if (method3 == null) {
-            TbImageView.aGS = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "clearDisplayList", new Object[0]);
+            TbImageView.aGm = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "clearDisplayList", new Object[0]);
         }
-        method4 = TbImageView.aGT;
+        method4 = TbImageView.aGn;
         if (method4 == null) {
-            TbImageView.aGT = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "resetDisplayList", new Object[0]);
+            TbImageView.aGn = com.baidu.adp.lib.a.a.a.a((Class<?>) TbImageView.class, "resetDisplayList", new Object[0]);
         }
     }
 }

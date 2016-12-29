@@ -14,11 +14,11 @@ public class b {
     private int NK;
     private int NL;
     private int NM;
-    private int NN;
-    private int NP;
-    private int NQ;
-    private StringBuffer NR = new StringBuffer();
-    private String Nv;
+    private StringBuffer NN = new StringBuffer();
+    private String Ns;
+    private int Nt;
+    private int Nu;
+    private int Nv;
     private int Nw;
     private int Nx;
     private int Ny;
@@ -26,30 +26,22 @@ public class b {
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.NR.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.NN.toString() + "]";
     }
 
-    public void cb(String str) {
-        this.NR.append(str).append(" || ");
+    public void cc(String str) {
+        this.NN.append(str).append(" || ");
     }
 
     public int om() {
-        return this.NK;
-    }
-
-    public void be(int i) {
-        this.NK = i;
-    }
-
-    public int on() {
-        return this.NL;
+        return this.NH;
     }
 
     public void bf(int i) {
-        this.NL = i;
+        this.NH = i;
     }
 
-    public int oo() {
+    public int on() {
         return this.NI;
     }
 
@@ -57,15 +49,15 @@ public class b {
         this.NI = i;
     }
 
-    public int op() {
-        return this.NJ;
+    public int oo() {
+        return this.NF;
     }
 
     public void bh(int i) {
-        this.NJ = i;
+        this.NF = i;
     }
 
-    public int oq() {
+    public int op() {
         return this.NG;
     }
 
@@ -73,12 +65,20 @@ public class b {
         this.NG = i;
     }
 
-    public int or() {
-        return this.NH;
+    public int oq() {
+        return this.ND;
     }
 
     public void bj(int i) {
-        this.NH = i;
+        this.ND = i;
+    }
+
+    public int or() {
+        return this.NE;
+    }
+
+    public void bk(int i) {
+        this.NE = i;
     }
 
     public String getId() {
@@ -86,62 +86,54 @@ public class b {
     }
 
     public int os() {
-        return this.NM;
-    }
-
-    public void bk(int i) {
-        this.NM = i;
-    }
-
-    public int ot() {
-        return this.NN;
+        return this.NJ;
     }
 
     public void bl(int i) {
-        this.NN = i;
+        this.NJ = i;
+    }
+
+    public int ot() {
+        return this.NK;
+    }
+
+    public void bm(int i) {
+        this.NK = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void cc(String str) {
-        this.Nv = str;
+    public void cd(String str) {
+        this.Ns = str;
     }
 
     public int ou() {
-        return this.Nw;
-    }
-
-    public void bm(int i) {
-        this.Nw = i;
-    }
-
-    public int ov() {
-        return this.Nx;
+        return this.Nt;
     }
 
     public void bn(int i) {
-        this.Nx = i;
+        this.Nt = i;
     }
 
-    public int ow() {
-        return this.NA;
+    public int ov() {
+        return this.Nu;
     }
 
     public void bo(int i) {
-        this.NA = i;
+        this.Nu = i;
     }
 
-    public int ox() {
-        return this.NB;
+    public int ow() {
+        return this.Nx;
     }
 
     public void bp(int i) {
-        this.NB = i;
+        this.Nx = i;
     }
 
-    public int oy() {
+    public int ox() {
         return this.Ny;
     }
 
@@ -149,59 +141,67 @@ public class b {
         this.Ny = i;
     }
 
-    public int oz() {
-        return this.Nz;
+    public int oy() {
+        return this.Nv;
     }
 
     public void br(int i) {
-        this.Nz = i;
+        this.Nv = i;
     }
 
-    public int oA() {
-        return this.ND;
-    }
-
-    public int oB() {
-        return this.NC;
+    public int oz() {
+        return this.Nw;
     }
 
     public void bs(int i) {
-        this.NC = i;
+        this.Nw = i;
+    }
+
+    public int oA() {
+        return this.NA;
+    }
+
+    public int oB() {
+        return this.Nz;
     }
 
     public void bt(int i) {
-        this.ND = i;
-    }
-
-    public int oC() {
-        return this.NF;
+        this.Nz = i;
     }
 
     public void bu(int i) {
-        this.NF = i;
+        this.NA = i;
     }
 
-    public int oD() {
-        return this.NE;
+    public int oC() {
+        return this.NC;
     }
 
     public void bv(int i) {
-        this.NE = i;
+        this.NC = i;
     }
 
-    public int oE() {
-        return this.NP;
+    public int oD() {
+        return this.NB;
     }
 
     public void bw(int i) {
-        this.NP = i;
+        this.NB = i;
     }
 
-    public int oF() {
-        return this.NQ;
+    public int oE() {
+        return this.NL;
     }
 
     public void bx(int i) {
-        this.NQ = i;
+        this.NL = i;
+    }
+
+    public int oF() {
+        return this.NM;
+    }
+
+    public void by(int i) {
+        this.NM = i;
     }
 }

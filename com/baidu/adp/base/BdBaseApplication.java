@@ -22,7 +22,7 @@ public class BdBaseApplication extends MAApplication {
     private void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        com.baidu.adp.lib.util.k.J(application);
+        com.baidu.adp.lib.util.k.H(application);
         initWorkMode();
         initBitmapHelper();
         initPlugin();
@@ -61,7 +61,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.fT().I(this.mContext);
+        com.baidu.adp.lib.util.d.fT().G(this.mContext);
     }
 
     public void onAppMemoryLow() {

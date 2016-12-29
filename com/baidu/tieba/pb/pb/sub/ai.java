@@ -7,13 +7,13 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes.dex */
 class ai extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity eEs;
+    final /* synthetic */ NewSubPbActivity eis;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.eEs = newSubPbActivity;
+        this.eis = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,23 +27,23 @@ class ai extends CustomMessageListener {
         com.baidu.adp.base.h hVar4;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eEs.eEn;
+            bdUniqueId = this.eis.ein;
             if (tag == bdUniqueId) {
-                aoVar = this.eEs.eEd;
-                aoVar.aMZ();
+                aoVar = this.eis.eid;
+                aoVar.aHa();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    hVar3 = this.eEs.evf;
-                    hVar4 = this.eEs.eve;
+                    hVar3 = this.eis.dZA;
+                    hVar4 = this.eis.dZz;
                     hVar3.c(hVar4.getResources().getString(r.j.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
-                if (com.baidu.tbadk.core.util.ax.isEmpty(muteMessage)) {
-                    hVar2 = this.eEs.eve;
+                if (com.baidu.tbadk.core.util.av.isEmpty(muteMessage)) {
+                    hVar2 = this.eis.dZz;
                     muteMessage = hVar2.getResources().getString(r.j.un_mute_fail);
                 }
-                hVar = this.eEs.evf;
+                hVar = this.eis.dZA;
                 hVar.d(muteMessage);
             }
         }

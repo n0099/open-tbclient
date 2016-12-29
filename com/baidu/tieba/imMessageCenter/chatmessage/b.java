@@ -5,15 +5,16 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
-class b implements bf.a {
-    @Override // com.baidu.tbadk.core.util.bf.a
+class b implements bc.a {
+    @Override // com.baidu.tbadk.core.util.bc.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (strArr == null || strArr.length == 0 || strArr[0] == null) {
             return 3;
         }
-        if (strArr[0].contains("http://tieba.baidu.com/mo/q/chat")) {
+        String str = strArr[0];
+        if (str.contains("http://tieba.baidu.com/mo/q/chat") || str.contains("https://tieba.baidu.com/mo/q/chat")) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChatMessageActivityConfig(tbPageContext.getPageActivity(), -1)));
             return 0;
         }

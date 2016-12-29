@@ -5,6 +5,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.r;
@@ -16,19 +17,19 @@ public class l {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern fCn = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern fgs = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String fCl = null;
-    private SpannableStringBuilder fCm = null;
-    private boolean fCk = false;
+    private String fgq = null;
+    private SpannableStringBuilder fgr = null;
+    private boolean fgp = false;
 
-    public static boolean bw(int i, int i2) {
+    public static boolean bl(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean bx(int i, int i2) {
+    public static boolean bm(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -44,23 +45,23 @@ public class l {
         return this.text;
     }
 
-    public String blV() {
+    public String bfK() {
         return this.c;
     }
 
-    public SpannableStringBuilder blW() {
-        return this.fCm;
+    public SpannableStringBuilder bfL() {
+        return this.fgr;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.fCm == null) {
-            this.fCm = new SpannableStringBuilder();
+        if (this.fgr == null) {
+            this.fgr = new SpannableStringBuilder();
         }
-        this.fCm.append((CharSequence) spannableString);
-        return this.fCm;
+        this.fgr.append((CharSequence) spannableString);
+        return this.fgr;
     }
 
-    public SpannableString br(Context context) {
+    public SpannableString bq(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -120,7 +121,7 @@ public class l {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.fCl = jSONObject.optString("cdn_src", null);
+                    this.fgq = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -135,17 +136,17 @@ public class l {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.fCk = true;
+                        this.fgp = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
-                    this.link = jSONObject.optString("uid");
+                    this.link = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 } else if (this.type == 11) {
                     this.c = jSONObject.optString("c");
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.Eo().fu(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.DW().fq(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

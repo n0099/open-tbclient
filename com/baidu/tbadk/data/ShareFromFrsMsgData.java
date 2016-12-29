@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +23,7 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
             jSONObject.put("themeContent", String.valueOf(this.name) + "\n关注：" + this.memberNum + " 帖子：" + this.postNum);
             jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put("【" + this.name + "吧】 " + this.content + " http://tieba.baidu.com/f?kw=" + this.name);
+            jSONArray.put("【" + this.name + "吧】 " + this.content + " " + TbConfig.HTTPS_FRS_PREFIX + this.name);
             jSONArray.put("4");
             jSONArray.put(jSONObject);
             return jSONArray.toString();

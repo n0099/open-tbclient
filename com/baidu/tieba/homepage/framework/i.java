@@ -8,13 +8,13 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment cHJ;
+    final /* synthetic */ RecommendFrsControlFragment cnd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.cHJ = recommendFrsControlFragment;
+        this.cnd = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,9 +24,9 @@ public class i extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_TO_REFRESH, false));
         if (customResponsedMessage != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Integer) && ((Integer) data).intValue() == 0 && this.cHJ.isPrimary()) {
-                scrollFragmentTabHost = this.cHJ.cHv;
-                scrollFragmentTabHost.anZ();
+            if ((data instanceof Integer) && ((Integer) data).intValue() == 0 && this.cnd.isPrimary()) {
+                scrollFragmentTabHost = this.cnd.cmP;
+                scrollFragmentTabHost.aiz();
             }
         }
     }

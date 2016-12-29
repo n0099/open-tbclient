@@ -1,104 +1,105 @@
 package com.baidu.tieba.recapp.report;
 
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
     private DownloadStaticsData downloadStaticsData;
+    private JSONObject eOA;
+    private int eOB;
+    private int eOC;
+    private int eOD;
+    private String eOE;
+    private String eOF;
+    private String eOG;
+    private String eOH;
+    private String eOI;
+    private JSONObject eOv;
+    private int eOw;
+    private int eOx;
+    private long eOy = System.currentTimeMillis() / 1000;
+    private String eOz;
     private String extInfo;
-    private JSONObject fkY;
-    private int fkZ;
-    private int fla;
-    private long flb = System.currentTimeMillis() / 1000;
-    private String flc;
-    private JSONObject fld;
-    private int fle;
-    private int flf;
-    private int flg;
-    private String flh;
-    private String fli;
-    private String flj;
-    private String flk;
-    private String fll;
     private int pageNumber;
 
-    public void qX(String str) {
+    public void pB(String str) {
         this.extInfo = str;
     }
 
-    public void ri(int i) {
-        this.fkZ = i;
+    public void qj(int i) {
+        this.eOw = i;
     }
 
-    public void rj(int i) {
-        this.fla = i;
+    public void qk(int i) {
+        this.eOx = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void qY(String str) {
-        this.flc = str;
+    public void pC(String str) {
+        this.eOz = str;
     }
 
-    public void rk(int i) {
-        this.fle = i;
+    public void ql(int i) {
+        this.eOB = i;
     }
 
-    public void rl(int i) {
-        this.flg = i;
+    public void qm(int i) {
+        this.eOD = i;
     }
 
-    public void rm(int i) {
-        this.flf = i;
+    public void qn(int i) {
+        this.eOC = i;
     }
 
-    public void qZ(String str) {
-        this.flh = str;
+    public void pD(String str) {
+        this.eOE = str;
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
         if (downloadStaticsData != null) {
-            this.fla = com.baidu.adp.lib.h.b.g(downloadStaticsData.getAdPosition(), 0);
-            this.flc = downloadStaticsData.getPrice();
+            this.eOx = com.baidu.adp.lib.h.b.g(downloadStaticsData.getAdPosition(), 0);
+            this.eOz = downloadStaticsData.getPrice();
             this.extInfo = downloadStaticsData.getExtensionInfo();
         }
     }
 
-    public void bP(String str, String str2) {
-        if (this.fkY == null) {
-            this.fkY = new JSONObject();
+    public void bS(String str, String str2) {
+        if (this.eOv == null) {
+            this.eOv = new JSONObject();
         }
         try {
-            this.fkY.put(str, str2);
+            this.eOv.put(str, str2);
         } catch (Exception e) {
         }
     }
 
-    public JSONObject beE() {
-        if (this.fld != null) {
-            return this.fld;
+    public JSONObject aYr() {
+        if (this.eOA != null) {
+            return this.eOA;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.fla);
-            jSONObject.put("da_type", this.fkZ);
+            jSONObject.put("da_locate", this.eOx);
+            jSONObject.put("da_type", this.eOw);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.flb);
+            jSONObject.put("origin_time", this.eOy);
             jSONObject.put("da_page_num", this.pageNumber);
-            jSONObject.put("da_price", this.flc);
-            jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.fle);
-            jSONObject.put("ext3", this.flg);
-            jSONObject.put("ext2", this.flf);
-            jSONObject.put("da_menu1", this.fli);
-            jSONObject.put("da_menu2", this.flj);
-            jSONObject.put("da_menu3", this.flk);
-            jSONObject.put("da_page", this.fll);
-            jSONObject.put("lego_extra", this.flh);
+            jSONObject.put("da_price", this.eOz);
+            jSONObject.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+            jSONObject.put("ext1", this.eOB);
+            jSONObject.put("ext3", this.eOD);
+            jSONObject.put("ext2", this.eOC);
+            jSONObject.put("da_menu1", this.eOF);
+            jSONObject.put("da_menu2", this.eOG);
+            jSONObject.put("da_menu3", this.eOH);
+            jSONObject.put("da_page", this.eOI);
+            jSONObject.put("lego_extra", this.eOE);
             if (this.downloadStaticsData != null) {
                 jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
                 jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
@@ -108,29 +109,29 @@ public class a {
             }
         } catch (JSONException e) {
         }
-        if (this.fkY != null) {
+        if (this.eOv != null) {
             try {
-                jSONObject.put("ext", this.fkY);
+                jSONObject.put("ext", this.eOv);
             } catch (Exception e2) {
             }
         }
-        this.fld = jSONObject;
+        this.eOA = jSONObject;
         return jSONObject;
     }
 
-    public void ra(String str) {
-        this.fli = str;
+    public void pE(String str) {
+        this.eOF = str;
     }
 
-    public void rb(String str) {
-        this.flj = str;
+    public void pF(String str) {
+        this.eOG = str;
     }
 
-    public void rc(String str) {
-        this.flk = str;
+    public void pG(String str) {
+        this.eOH = str;
     }
 
-    public void rd(String str) {
-        this.fll = str;
+    public void pH(String str) {
+        this.eOI = str;
     }
 }

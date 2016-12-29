@@ -1,17 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class eu extends CustomMessageListener {
+public class eu implements Runnable {
+    final /* synthetic */ er egZ;
+    private final /* synthetic */ boolean eha;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eu(int i) {
-        super(i);
+    public eu(er erVar, boolean z) {
+        this.egZ = erVar;
+        this.eha = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        eq.aRA().a(0, customResponsedMessage);
+    @Override // java.lang.Runnable
+    public void run() {
+        BdTypeListView bdTypeListView;
+        bdTypeListView = this.egZ.aMc;
+        bdTypeListView.setEnabled(this.eha);
     }
 }

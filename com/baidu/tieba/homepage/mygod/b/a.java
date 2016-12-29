@@ -12,52 +12,52 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.mygod.data.a> {
     private TbPageContext<?> Gf;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.flow.a.a> Xv;
-    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> bCZ;
-    private LinearLayout cJX;
-    private LinearLayout cJY;
-    private TextView cJZ;
-    private TextView cKa;
-    private ImageView cKb;
-    private ImageView cKc;
-    private View cKd;
-    private View cKe;
-    private String cKf;
-    private String cKg;
-    private com.baidu.tieba.homepage.mygod.data.a cKh;
-    private final float cKi;
-    private final CustomMessageListener cKj;
-    private final CustomMessageListener cKk;
-    private View.OnClickListener cKl;
-    private View.OnClickListener cKm;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.flow.a.a> WP;
+    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> bQm;
+    private String cpA;
+    private String cpB;
+    private com.baidu.tieba.homepage.mygod.data.a cpC;
+    private final float cpD;
+    private final CustomMessageListener cpE;
+    private final CustomMessageListener cpF;
+    private View.OnClickListener cpG;
+    private View.OnClickListener cpH;
+    private LinearLayout cps;
+    private LinearLayout cpt;
+    private TextView cpu;
+    private TextView cpv;
+    private ImageView cpw;
+    private ImageView cpx;
+    private View cpy;
+    private View cpz;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.Gf = null;
-        this.bCZ = null;
-        this.cJX = null;
-        this.cJY = null;
-        this.cJZ = null;
-        this.cKa = null;
-        this.cKb = null;
-        this.cKc = null;
-        this.cKd = null;
-        this.cKe = null;
-        this.cKf = null;
-        this.cKg = null;
-        this.cKh = null;
-        this.cKi = 3.5294118f;
-        this.cKj = new b(this, CmdConfigCustom.CMD_VIEW_PAGER_START_AUTO_SCROLL);
-        this.cKk = new c(this, CmdConfigCustom.CMD_VIEW_PAGER_END_AUTO_SCROLL);
-        this.Xv = new d(this);
-        this.cKl = new e(this);
-        this.cKm = new f(this);
+        this.bQm = null;
+        this.cps = null;
+        this.cpt = null;
+        this.cpu = null;
+        this.cpv = null;
+        this.cpw = null;
+        this.cpx = null;
+        this.cpy = null;
+        this.cpz = null;
+        this.cpA = null;
+        this.cpB = null;
+        this.cpC = null;
+        this.cpD = 3.5294118f;
+        this.cpE = new b(this, CmdConfigCustom.CMD_VIEW_PAGER_START_AUTO_SCROLL);
+        this.cpF = new c(this, CmdConfigCustom.CMD_VIEW_PAGER_END_AUTO_SCROLL);
+        this.WP = new d(this);
+        this.cpG = new e(this);
+        this.cpH = new f(this);
         this.Gf = tbPageContext;
         initUI();
     }
@@ -65,42 +65,42 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.mygod.dat
     private void initUI() {
         View view;
         if (this.Gf != null && (view = getView()) != null) {
-            this.cJZ = (TextView) view.findViewById(r.g.textview_rank);
-            this.cKa = (TextView) view.findViewById(r.g.textview_good);
-            this.cKb = (ImageView) view.findViewById(r.g.image_rank);
-            this.cKc = (ImageView) view.findViewById(r.g.image_good);
-            this.cKd = view.findViewById(r.g.god_banner_bottom_margin);
-            this.cKe = view.findViewById(r.g.middle_separate_line);
-            this.bCZ = (CoverFlowView) view.findViewById(r.g.god_banner_coverflowview);
+            this.cpu = (TextView) view.findViewById(r.g.textview_rank);
+            this.cpv = (TextView) view.findViewById(r.g.textview_good);
+            this.cpw = (ImageView) view.findViewById(r.g.image_rank);
+            this.cpx = (ImageView) view.findViewById(r.g.image_good);
+            this.cpy = view.findViewById(r.g.god_banner_bottom_margin);
+            this.cpz = view.findViewById(r.g.middle_separate_line);
+            this.bQm = (CoverFlowView) view.findViewById(r.g.god_banner_coverflowview);
             g gVar = new g(this);
-            this.bCZ.setDisableParentEvent(false);
-            this.bCZ.setCoverFlowFactory(gVar);
-            this.bCZ.setCallback(this.Xv);
-            this.cJX = (LinearLayout) view.findViewById(r.g.layout_rank);
-            this.cJX.setOnClickListener(this.cKl);
-            this.cJY = (LinearLayout) view.findViewById(r.g.layout_good);
-            this.cJY.setOnClickListener(this.cKm);
+            this.bQm.setDisableParentEvent(false);
+            this.bQm.setCoverFlowFactory(gVar);
+            this.bQm.setCallback(this.WP);
+            this.cps = (LinearLayout) view.findViewById(r.g.layout_rank);
+            this.cps.setOnClickListener(this.cpG);
+            this.cpt = (LinearLayout) view.findViewById(r.g.layout_good);
+            this.cpt.setOnClickListener(this.cpH);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lg(String str) {
+    public void jK(String str) {
         if (TextUtils.isEmpty(str)) {
             k.showToast(this.Gf.getPageActivity(), r.j.url_is_null);
         } else {
-            bf.vP().a(this.Gf, "", new String[]{str}, false, null, true);
+            bc.vz().a(this.Gf, "", new String[]{str}, false, null, true);
         }
     }
 
-    public void xa() {
-        if (this.bCZ != null) {
-            this.bCZ.tG();
+    public void wN() {
+        if (this.bQm != null) {
+            this.bQm.tr();
         }
     }
 
-    public void wZ() {
-        if (this.bCZ != null) {
-            this.bCZ.tF();
+    public void wM() {
+        if (this.bQm != null) {
+            this.bQm.tq();
         }
     }
 
@@ -117,33 +117,33 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.mygod.dat
     @Override // com.baidu.tieba.card.a
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.homepage.mygod.data.a aVar) {
-        if (aVar != null && aVar != this.cKh) {
-            this.bCZ.setData(aVar.aon());
-            this.cKf = aVar.aol();
-            this.cKg = aVar.aom();
-            this.cKh = aVar;
+        if (aVar != null && aVar != this.cpC) {
+            this.bQm.setData(aVar.aiN());
+            this.cpA = aVar.aiL();
+            this.cpB = aVar.aiM();
+            this.cpC = aVar;
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            at.k(this.cKd, r.d.cp_bg_line_c);
-            at.k(this.cKe, r.d.cp_bg_line_a);
-            at.c(this.cJZ, r.d.cp_cont_b, 1);
-            at.c(this.cKa, r.d.cp_cont_b, 1);
-            at.c(this.cKb, r.f.icon_god_rank);
-            at.c(this.cKc, r.f.icon_god_good);
+            ar.k(this.cpy, r.d.cp_bg_line_c);
+            ar.k(this.cpz, r.d.cp_bg_line_a);
+            ar.c(this.cpu, r.d.cp_cont_b, 1);
+            ar.c(this.cpv, r.d.cp_cont_b, 1);
+            ar.c(this.cpw, r.f.icon_god_rank);
+            ar.c(this.cpx, r.f.icon_god_good);
         }
         this.mSkinType = i;
     }
 
     public void i(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.cKj.setTag(bdUniqueId);
-            this.cKk.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.cKj);
-            MessageManager.getInstance().registerListener(this.cKk);
+            this.cpE.setTag(bdUniqueId);
+            this.cpF.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.cpE);
+            MessageManager.getInstance().registerListener(this.cpF);
         }
     }
 }

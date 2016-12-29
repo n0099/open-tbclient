@@ -6,14 +6,14 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ah {
-    private TextView bMf;
-    private BdListView bMg;
-    private com.baidu.tieba.enterForum.a.c bMh;
+    private TextView bsj;
+    private BdListView bsk;
+    private com.baidu.tieba.enterForum.a.c bsl;
     private Context mContext;
     private View mRootView;
 
@@ -24,20 +24,20 @@ public class ah {
     }
 
     private void init() {
-        this.bMf = (TextView) this.mRootView.findViewById(r.g.frequently_forum_info_title);
-        this.bMg = (BdListView) this.mRootView.findViewById(r.g.frequently_forum_info_listview);
-        this.bMh = new com.baidu.tieba.enterForum.a.c();
-        this.bMg.setAdapter((ListAdapter) this.bMh);
+        this.bsj = (TextView) this.mRootView.findViewById(r.g.frequently_forum_info_title);
+        this.bsk = (BdListView) this.mRootView.findViewById(r.g.frequently_forum_info_listview);
+        this.bsl = new com.baidu.tieba.enterForum.a.c();
+        this.bsk.setAdapter((ListAdapter) this.bsl);
     }
 
     public void d(List<com.baidu.tbadk.data.e> list, TbPageContext<?> tbPageContext) {
-        this.bMh.a(list, tbPageContext);
-        this.bMh.c(this.bMg);
+        this.bsl.a(list, tbPageContext);
+        this.bsl.c(this.bsk);
     }
 
-    public void tB() {
-        at.j((View) this.bMf, r.d.cp_cont_c);
-        this.bMh.notifyDataSetChanged();
+    public void tm() {
+        ar.j((View) this.bsj, r.d.cp_cont_c);
+        this.bsl.notifyDataSetChanged();
     }
 
     public void setVisibility(int i) {

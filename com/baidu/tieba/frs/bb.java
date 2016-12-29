@@ -1,28 +1,43 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.tbadkCore.aa;
+import com.baidu.tieba.view.BdExpandListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements c.b {
-    final /* synthetic */ au bUk;
+public class bb implements aa.a {
+    final /* synthetic */ ax bAv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(au auVar) {
-        this.bUk = auVar;
+    public bb(ax axVar) {
+        this.bAv = axVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+    @Override // com.baidu.tieba.tbadkCore.aa.a
+    public void XO() {
         FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        cVar.dismiss();
-        if (i == 0) {
-            frsActivity2 = this.bUk.bTA;
-            frsActivity2.acy();
-        } else if (i == 1) {
-            frsActivity = this.bUk.bTA;
-            com.baidu.tbadk.core.util.as.p(frsActivity.getPageContext().getPageActivity());
+        frsActivity = this.bAv.bzH;
+        frsActivity.WE();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.aa.a
+    public void XP() {
+        BdExpandListView bdExpandListView;
+        BdExpandListView bdExpandListView2;
+        com.baidu.tieba.play.aa aaVar;
+        com.baidu.tieba.play.aa aaVar2;
+        int i;
+        int i2;
+        bdExpandListView = this.bAv.bzO;
+        if (bdExpandListView != null) {
+            bdExpandListView2 = this.bAv.bzO;
+            bdExpandListView2.setSelection(0);
+            aaVar = this.bAv.aMd;
+            if (aaVar != null) {
+                aaVar2 = this.bAv.aMd;
+                i = this.bAv.aMh;
+                i2 = this.bAv.aMg;
+                aaVar2.a(i, i2, false, true);
+            }
         }
     }
 }

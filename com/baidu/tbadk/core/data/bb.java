@@ -1,80 +1,83 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.data.IconData;
-import org.json.JSONObject;
-import tbclient.FrsPage.UserInfo;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class bb {
-    private String Ts;
-    private IconData Tt = new IconData();
-    private String introduction;
-    private boolean isAdded;
-    private String name;
-    private int sex;
-    private long userId;
+    protected float tagNameRatio;
+    protected String tagNameUrl;
+    protected String img_url = null;
+    protected String link = null;
+    protected String Td = null;
 
-    public void qZ() {
-        this.isAdded = true;
+    public String pS() {
+        return this.img_url;
     }
 
-    public boolean ra() {
-        return this.isAdded;
+    public void cs(String str) {
+        this.img_url = str;
     }
 
-    public void a(UserInfo userInfo) {
-        if (userInfo != null) {
-            this.isAdded = false;
-            this.userId = userInfo.user_id.longValue();
-            this.Ts = userInfo.portrait;
-            this.name = userInfo.user_name;
-            this.sex = userInfo.gender.intValue();
-            this.introduction = userInfo.intro;
-            if (userInfo.tshow_icon != null) {
-                this.Tt.setIcon(userInfo.tshow_icon.icon);
-                this.Tt.setIconName(userInfo.tshow_icon.name);
-                this.Tt.setUrl(userInfo.tshow_icon.url);
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void ct(String str) {
+        this.tagNameUrl = str;
+    }
+
+    public String pJ() {
+        return this.tagNameUrl;
+    }
+
+    public void cu(String str) {
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                int g = com.baidu.adp.lib.h.b.g(split[0], 1);
+                int g2 = com.baidu.adp.lib.h.b.g(split[1], 1);
+                if (g2 != 0) {
+                    this.tagNameRatio = g / g2;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public long getUserId() {
-        return this.userId;
+    public float re() {
+        return this.tagNameRatio;
     }
 
-    public String rb() {
-        return this.Ts;
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
+        }
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public boolean rc() {
-        return 2 == this.sex;
-    }
-
-    public String rd() {
-        return this.introduction;
-    }
-
-    public IconData re() {
-        return this.Tt;
-    }
-
-    public void k(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.userId = jSONObject.optLong("user_id");
-            this.name = jSONObject.optString("user_name");
-            this.Ts = jSONObject.optString("portait");
-            this.sex = jSONObject.optInt("gender");
-            this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.introduction = jSONObject.optString("intro");
-            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
-            if (optJSONObject != null) {
-                this.Tt.setIcon(optJSONObject.optString("icon"));
-                this.Tt.setIconName(optJSONObject.optString("user_name"));
-                this.Tt.setUrl(optJSONObject.optString("url"));
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
+            try {
+                cs(banner.pic_url);
+                setLink(banner.link);
+                ct(banner.tag_name_url);
+                cu(banner.tag_name_wh);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
+    }
+
+    public String rf() {
+        return this.Td;
+    }
+
+    public void cv(String str) {
+        this.Td = str;
     }
 }

@@ -10,31 +10,31 @@ import java.util.List;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class a {
-    private Class<?> eoj;
-    private Stack<com.baidu.tieba.onlineDebugger.a.b> eok;
-    private String eol;
+    private Class<?> dSP;
+    private Stack<com.baidu.tieba.onlineDebugger.a.b> dSQ;
+    private String dSR;
 
-    public void oW(String str) {
-        this.eol = str;
-        String[] oX = oX(str);
-        if (oX == null || oX.length != 2) {
+    public void nx(String str) {
+        this.dSR = str;
+        String[] ny = ny(str);
+        if (ny == null || ny.length != 2) {
             throw new RuntimeException("anaylze class name return error");
         }
-        this.eoj = com.baidu.tieba.onlineDebugger.c.a.findClass(oX[0]);
-        if (this.eoj == null) {
-            this.eoj = d.oJ(oX[0]);
+        this.dSP = com.baidu.tieba.onlineDebugger.c.a.findClass(ny[0]);
+        if (this.dSP == null) {
+            this.dSP = d.nk(ny[0]);
         }
-        if (this.eoj == null) {
+        if (this.dSP == null) {
             throw new RuntimeException("cannot find class for command " + str);
         }
-        this.eok = new Stack<>();
-        List<String> oY = oY(oX[1]);
-        for (int size = oY.size() - 1; size >= 0; size--) {
-            this.eok.push(pa(oY.get(size)));
+        this.dSQ = new Stack<>();
+        List<String> nz = nz(ny[1]);
+        for (int size = nz.size() - 1; size >= 0; size--) {
+            this.dSQ.push(nB(nz.get(size)));
         }
     }
 
-    private String[] oX(String str) {
+    private String[] ny(String str) {
         if (str.startsWith("$")) {
             String[] strArr = new String[2];
             strArr[0] = LoopQueue.class.getName();
@@ -61,7 +61,7 @@ public class a {
         throw new RuntimeException("cannot find class");
     }
 
-    private List<String> oY(String str) {
+    private List<String> nz(String str) {
         char[] charArray = str.toCharArray();
         ArrayList<String> arrayList = new ArrayList();
         int i = 0;
@@ -122,7 +122,7 @@ public class a {
         return cArr2;
     }
 
-    private String[] oZ(String str) {
+    private String[] nA(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -174,7 +174,7 @@ public class a {
         return new String[]{str};
     }
 
-    private com.baidu.tieba.onlineDebugger.a.b pa(String str) {
+    private com.baidu.tieba.onlineDebugger.a.b nB(String str) {
         if (str != null) {
             int indexOf = str.indexOf(40);
             int lastIndexOf = str.lastIndexOf(41);
@@ -184,32 +184,32 @@ public class a {
                 String[] split = str.split("=");
                 if (split != null && split.length == 2) {
                     com.baidu.tieba.onlineDebugger.a.d dVar = new com.baidu.tieba.onlineDebugger.a.d();
-                    dVar.oK(split[0]);
-                    dVar.oM(split[1]);
+                    dVar.nl(split[0]);
+                    dVar.nn(split[1]);
                     return dVar;
                 }
                 throw new RuntimeException("parser action error " + str);
             } else if (z2) {
                 String substring = str.substring(0, indexOf);
-                String[] oZ = oZ(str.substring(indexOf + 1, lastIndexOf));
+                String[] nA = nA(str.substring(indexOf + 1, lastIndexOf));
                 c cVar = new c();
-                cVar.oL(substring);
-                cVar.B(oZ);
+                cVar.nm(substring);
+                cVar.A(nA);
                 return cVar;
             } else {
                 com.baidu.tieba.onlineDebugger.a.a aVar = new com.baidu.tieba.onlineDebugger.a.a();
-                aVar.oK(str);
+                aVar.nl(str);
                 return aVar;
             }
         }
         return null;
     }
 
-    public Class<?> aNh() {
-        return this.eoj;
+    public Class<?> aHi() {
+        return this.dSP;
     }
 
-    public Stack<com.baidu.tieba.onlineDebugger.a.b> aNi() {
-        return this.eok;
+    public Stack<com.baidu.tieba.onlineDebugger.a.b> aHj() {
+        return this.dSQ;
     }
 }

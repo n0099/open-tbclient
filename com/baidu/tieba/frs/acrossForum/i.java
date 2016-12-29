@@ -5,20 +5,20 @@ import com.baidu.tbadk.gif.GifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Animator.AnimatorListener {
-    final /* synthetic */ c bWJ;
+    final /* synthetic */ c bCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(c cVar) {
-        this.bWJ = cVar;
+        this.bCT = cVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
         GifView gifView;
         GifView gifView2;
-        gifView = this.bWJ.bWE;
+        gifView = this.bCT.bCO;
         if (gifView != null) {
-            gifView2 = this.bWJ.bWE;
+            gifView2 = this.bCT.bCO;
             gifView2.setClickable(false);
         }
     }
@@ -27,10 +27,10 @@ public class i implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         GifView gifView;
         GifView gifView2;
-        this.bWJ.bWF = true;
-        gifView = this.bWJ.bWE;
+        this.bCT.bCP = true;
+        gifView = this.bCT.bCO;
         if (gifView != null) {
-            gifView2 = this.bWJ.bWE;
+            gifView2 = this.bCT.bCO;
             gifView2.setClickable(true);
         }
     }

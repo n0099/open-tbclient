@@ -17,7 +17,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.location.h.f {
-    private static g IS = null;
+    private static g IR = null;
     String a = null;
     String b = null;
     String c = null;
@@ -61,7 +61,7 @@ public class g extends com.baidu.location.h.f {
         }
     }
 
-    public static void d(File file, File file2) throws IOException {
+    public static void c(File file, File file2) throws IOException {
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream = null;
         try {
@@ -188,17 +188,17 @@ public class g extends com.baidu.location.h.f {
             file2.delete();
         }
         try {
-            d(file, file2);
+            c(file, file2);
         } catch (Exception e) {
             file2.delete();
         }
     }
 
     public static g mw() {
-        if (IS == null) {
-            IS = new g();
+        if (IR == null) {
+            IR = new g();
         }
-        return IS;
+        return IR;
     }
 
     @Override // com.baidu.location.h.f

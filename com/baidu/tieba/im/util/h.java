@@ -21,9 +21,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private static Pattern pattern = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern acc = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String H(String str, boolean z) {
+    public static String I(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -36,7 +36,7 @@ public class h {
         }
     }
 
-    public static long p(ChatMessage chatMessage) {
+    public static long n(ChatMessage chatMessage) {
         if (chatMessage == null) {
             return -1L;
         }
@@ -50,19 +50,19 @@ public class h {
         return jSONObject.optString(z ? "big_src" : "src");
     }
 
-    public static boolean q(ChatMessage chatMessage) {
+    public static boolean o(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 2;
     }
 
-    public static boolean r(ChatMessage chatMessage) {
+    public static boolean p(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 4;
     }
 
-    public static boolean s(ChatMessage chatMessage) {
+    public static boolean q(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 3;
     }
 
-    public static boolean t(ChatMessage chatMessage) {
+    public static boolean r(ChatMessage chatMessage) {
         try {
             if (chatMessage.getMsgType() != 11 && TbadkCoreApplication.isLogin()) {
                 return chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount());
@@ -73,11 +73,11 @@ public class h {
         }
     }
 
-    public static boolean u(ChatMessage chatMessage) {
+    public static boolean s(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 6;
     }
 
-    public static MsgCacheData v(ChatMessage chatMessage) {
+    public static MsgCacheData t(ChatMessage chatMessage) {
         try {
             MsgCacheData msgCacheData = new MsgCacheData();
             msgCacheData.setRich_content(null);
@@ -87,7 +87,7 @@ public class h {
         }
     }
 
-    public static VoiceMsgData w(ChatMessage chatMessage) {
+    public static VoiceMsgData u(ChatMessage chatMessage) {
         VoiceMsgData voiceMsgData;
         if (chatMessage == null || chatMessage.getMsgType() != 3) {
             return null;
@@ -127,7 +127,7 @@ public class h {
         }
     }
 
-    private static final String mu(String str) {
+    private static final String kX(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -156,7 +156,7 @@ public class h {
         return sb.toString();
     }
 
-    private static final String mv(String str) {
+    private static final String kY(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -178,29 +178,29 @@ public class h {
         return sb.toString();
     }
 
-    public static String x(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : y(chatMessage.getMsgType(), chatMessage.getContent());
+    public static String v(ChatMessage chatMessage) {
+        return chatMessage == null ? "" : v(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String y(int i, String str) {
+    public static String v(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String mu = (str.length() <= 1 || str.charAt(0) != '[') ? null : mu(str);
-            if (TextUtils.isEmpty(mu)) {
-                mu = str;
+            String kX = (str.length() <= 1 || str.charAt(0) != '[') ? null : kX(str);
+            if (TextUtils.isEmpty(kX)) {
+                kX = str;
             }
-            if (mu == null) {
+            if (kX == null) {
                 return null;
             }
-            Matcher matcher = pattern.matcher(mu);
+            Matcher matcher = acc.matcher(kX);
             while (matcher.find()) {
                 String group = matcher.group();
-                mu = mu.replace(group, group.replace("#(", "[").replace(")", "]"));
+                kX = kX.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return mu;
+            return kX;
         } else if (i == 2) {
             return TbadkCoreApplication.m9getInst().getApp().getString(r.j.last_msg_pic);
         } else {
@@ -208,7 +208,7 @@ public class h {
                 return TbadkCoreApplication.m9getInst().getApp().getString(r.j.last_msg_voice);
             }
             if (i == 11) {
-                return mw(str);
+                return kZ(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.m9getInst().getApp().getString(r.j.last_msg_reply_card);
@@ -297,7 +297,7 @@ public class h {
                         return TbadkCoreApplication.m9getInst().getApp().getString(r.j.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return mv(str);
+                    return kY(str);
                 } else {
                     return null;
                 }
@@ -305,7 +305,7 @@ public class h {
         }
     }
 
-    public static String y(ChatMessage chatMessage) {
+    public static String w(ChatMessage chatMessage) {
         if (chatMessage == null) {
             return null;
         }
@@ -315,21 +315,21 @@ public class h {
             str = chatMessage.getUserInfo().getUserName();
         }
         if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-            return x(chatMessage);
+            return v(chatMessage);
         }
         if (chatMessage.getMsgType() == 11) {
-            return x(chatMessage);
+            return v(chatMessage);
         }
         if (chatMessage.getToUserId() != 0) {
-            return x(chatMessage);
+            return v(chatMessage);
         }
         if (!TextUtils.isEmpty(str)) {
-            return String.valueOf(str) + ":" + x(chatMessage);
+            return String.valueOf(str) + ":" + v(chatMessage);
         }
-        return x(chatMessage);
+        return v(chatMessage);
     }
 
-    private static String mw(String str) {
+    private static String kZ(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -379,7 +379,7 @@ public class h {
         return str2;
     }
 
-    public static SystemMsgData z(ChatMessage chatMessage) {
+    public static SystemMsgData x(ChatMessage chatMessage) {
         if (chatMessage == null || chatMessage.getMsgType() != 11 || TextUtils.isEmpty(chatMessage.getContent())) {
             return null;
         }
@@ -443,25 +443,25 @@ public class h {
         }
     }
 
-    public static int n(Context context, int i) {
+    public static int o(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
     public static e a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return mx(commonMsgPojo.getContent());
+            return la(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static e mx(String str) {
+    public static e la(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return my(jSONArray.getJSONObject(0).optString("msg_src"));
+                return lb(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -470,14 +470,30 @@ public class h {
         }
     }
 
-    public static e my(String str) {
+    public static e lb(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         e eVar = new e();
-        eVar.dge = split[0];
+        eVar.cKZ = split[0];
         eVar.taskId = split[1];
         return eVar;
+    }
+
+    public static boolean y(ChatMessage chatMessage) {
+        if (chatMessage == null) {
+            return true;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(chatMessage.getContent());
+            if (jSONArray.length() > 0) {
+                return ((JSONObject) jSONArray.get(0)).optInt("switch", -1) == 0;
+            }
+            return true;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return true;
+        }
     }
 }

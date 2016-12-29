@@ -1,30 +1,54 @@
 package com.baidu.tieba.frs.entelechy.a;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.card.bz;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends bz<bk> {
-    final /* synthetic */ ab bZP;
+public class ac implements com.baidu.adp.lib.f.c<TbImageView> {
+    final /* synthetic */ z bFz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar) {
-        this.bZP = abVar;
+    public ac(z zVar) {
+        this.bFz = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.bz
-    public void a(View view, bk bkVar) {
-        if (view != null && bkVar != null) {
-            if (view.getId() == r.g.frame_video) {
-                com.baidu.tieba.frs.h.b.agV().a(ab.chm, bkVar, 4);
-            } else if (view.getId() == r.g.layout_root) {
-                com.baidu.tieba.frs.h.b.agV().a(ab.chm, bkVar, 1);
-            } else if (view.getId() == r.g.image_user || view.getId() == r.g.user_name) {
-                com.baidu.tieba.frs.h.b.agV().a(ab.chm, bkVar, 2);
-            }
-        }
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: wE */
+    public TbImageView ez() {
+        TbPageContext tbPageContext;
+        tbPageContext = this.bFz.GO;
+        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderColor(ar.getColor(r.d.common_color_10043));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds1));
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: a */
+    public void o(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: b */
+    public TbImageView p(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: c */
+    public TbImageView q(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+        return tbImageView;
     }
 }

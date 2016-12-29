@@ -18,15 +18,15 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new com.baidu.tieba.model.e(null);
-        this.mModel.aKc();
-        this.mModel.cr(540000L);
+        this.mModel.aEd();
+        this.mModel.cg(540000L);
         this.mModel.a(new i(this));
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.aKa()) {
+        if (this.mModel.aEb()) {
             findLocationFromLocal();
         }
     }

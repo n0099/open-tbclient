@@ -6,7 +6,7 @@ import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
 /* loaded from: classes.dex */
 class c implements a.c {
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-    public boolean ly(String str) {
+    public boolean kb(String str) {
         return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(2) && str.equals(ChatStatusManager.getInst().getCurId(2));
     }
 }

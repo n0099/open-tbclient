@@ -4,15 +4,15 @@ import com.baidu.tieba.play.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements ap.a {
-    final /* synthetic */ am fgy;
+    final /* synthetic */ am eJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(am amVar) {
-        this.fgy = amVar;
+        this.eJQ = amVar;
     }
 
     @Override // com.baidu.tieba.play.ap.a
     public void onChange(boolean z) {
-        this.fgy.fgv = z;
+        this.eJQ.eJN = z;
     }
 }

@@ -8,10 +8,10 @@ import com.baidu.tieba.screenlocknotify.ScreenLockActivity;
 public class b extends e<ScreenLockActivity> {
     public b(ScreenLockActivity screenLockActivity) {
         super(screenLockActivity.getPageContext());
-        Ei();
+        DQ();
     }
 
-    private void Ei() {
+    private void DQ() {
         com.baidu.tieba.tbadkCore.a.a.a(309420, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309420, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
     }
@@ -21,7 +21,7 @@ public class b extends e<ScreenLockActivity> {
         return true;
     }
 
-    public void bfg() {
+    public void aYV() {
         sendMessage(new ScreenLockLoadMoreMessage());
     }
 

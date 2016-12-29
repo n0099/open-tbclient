@@ -1,15 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class fs implements Runnable {
-    final /* synthetic */ ey eCT;
+class fs implements a.b {
+    final /* synthetic */ er egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fs(ey eyVar) {
-        this.eCT = eyVar;
+    public fs(er erVar) {
+        this.egZ = erVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.eCT.aSs();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

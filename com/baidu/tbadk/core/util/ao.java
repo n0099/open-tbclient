@@ -1,22 +1,54 @@
 package com.baidu.tbadk.core.util;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class ao implements Runnable {
-    final /* synthetic */ ak abP;
-    private final /* synthetic */ String abQ;
-    private final /* synthetic */ String abT;
-    private final /* synthetic */ int abU;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(ak akVar, String str, String str2, int i) {
-        this.abP = akVar;
-        this.abT = str;
-        this.abQ = str2;
-        this.abU = i;
+import com.baidu.tbadk.TbConfig;
+/* loaded from: classes.dex */
+public class ao extends Thread {
+    private String abo;
+    private boolean abp;
+    private String mObjTp;
+    private String mParam;
+    private String mType;
+
+    public ao(String str, boolean z) {
+        this.mType = null;
+        this.mParam = null;
+        this.abo = null;
+        this.mObjTp = null;
+        this.abp = false;
+        this.mType = str;
+        this.abp = z;
     }
 
-    @Override // java.lang.Runnable
+    public ao(String str, String str2) {
+        this.mType = null;
+        this.mParam = null;
+        this.abo = null;
+        this.mObjTp = null;
+        this.abp = false;
+        this.mType = str;
+        this.mParam = str2;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.abP.c(this.abT, this.abQ, this.abU);
+        String str;
+        super.run();
+        if (this.abp) {
+            str = TbConfig.IN_PV_ADDRESS;
+        } else {
+            str = TbConfig.LOAD_REG_PV_ADDRESS;
+        }
+        z zVar = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+        zVar.n("st_type", this.mType);
+        if (this.mParam != null) {
+            zVar.n("st_param", this.mParam);
+        }
+        if (this.abo != null) {
+            zVar.n("obj", this.abo);
+        }
+        if (this.mObjTp != null) {
+            zVar.n("obj_tp", this.mObjTp);
+        }
+        zVar.uk();
     }
 }

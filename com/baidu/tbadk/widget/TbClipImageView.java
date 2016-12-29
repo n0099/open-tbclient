@@ -8,13 +8,13 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class TbClipImageView extends TbImageView {
-    private static Method aGy;
-    private boolean aGz;
+    private static Method aFS;
+    private boolean aFT;
 
     static {
-        aGy = null;
+        aFS = null;
         try {
-            aGy = TbClipImageView.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            aFS = TbClipImageView.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException e) {
         }
     }
@@ -25,7 +25,7 @@ public class TbClipImageView extends TbImageView {
 
     public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aGz = false;
+        this.aFT = false;
         b(context, attributeSet, i);
     }
 
@@ -76,16 +76,16 @@ public class TbClipImageView extends TbImageView {
         if (Build.VERSION.SDK_INT >= 11) {
             CompatibleUtile.getInstance().closeViewGpu(this);
             try {
-                if (aGy != null) {
-                    aGy.invoke(this, 1, null);
+                if (aFS != null) {
+                    aFS.invoke(this, 1, null);
                 }
             } catch (Exception e) {
             }
         }
         if (z2 || z) {
-            this.aGz = false;
+            this.aFT = false;
         } else {
-            this.aGz = true;
+            this.aFT = true;
         }
     }
 
@@ -94,7 +94,7 @@ public class TbClipImageView extends TbImageView {
         if (i == 0) {
             super.setDrawerType(i);
         } else if (i == 1) {
-            super.setDrawerType(this.aGz ? 4 : 5);
+            super.setDrawerType(this.aFT ? 4 : 5);
         } else {
             super.setDrawerType(i);
         }

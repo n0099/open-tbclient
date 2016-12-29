@@ -7,29 +7,29 @@ import com.baidu.tieba.passaccount.a.f;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements f.a {
-    final /* synthetic */ a epa;
+    final /* synthetic */ a dTH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.epa = aVar;
+        this.dTH = aVar;
     }
 
     @Override // com.baidu.tieba.passaccount.a.f.a
     public void a(AccountData accountData) {
-        a.InterfaceC0071a interfaceC0071a;
-        a.InterfaceC0071a interfaceC0071a2;
+        a.InterfaceC0065a interfaceC0065a;
+        a.InterfaceC0065a interfaceC0065a2;
         new e(this, accountData).execute(new Void[0]);
-        interfaceC0071a = this.epa.eoX;
-        if (interfaceC0071a != null) {
-            interfaceC0071a2 = this.epa.eoX;
-            interfaceC0071a2.onSuccess();
+        interfaceC0065a = this.dTH.dTE;
+        if (interfaceC0065a != null) {
+            interfaceC0065a2 = this.dTH.dTE;
+            interfaceC0065a2.onSuccess();
         }
     }
 
     @Override // com.baidu.tieba.passaccount.a.f.a
     public void onFailure(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.core.a.b.ch(str);
+            com.baidu.tbadk.core.a.b.ci(str);
         }
     }
 }

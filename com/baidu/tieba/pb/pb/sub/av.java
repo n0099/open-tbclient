@@ -3,18 +3,18 @@ package com.baidu.tieba.pb.pb.sub;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.pb.pb.sub.ba;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ao eFb;
+    final /* synthetic */ ao ejb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(ao aoVar) {
-        this.eFb = aoVar;
+        this.ejb = aoVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,39 +26,39 @@ public class av implements AdapterView.OnItemClickListener {
         com.baidu.tbadk.editortools.e.p pVar2;
         bc bcVar;
         b bVar2;
-        newSubPbActivity = this.eFb.eEy;
-        if (bk.ak(newSubPbActivity.getPageContext().getPageActivity())) {
-            bVar = this.eFb.eEp;
+        newSubPbActivity = this.ejb.eiy;
+        if (bh.ai(newSubPbActivity.getPageContext().getPageActivity())) {
+            bVar = this.ejb.eip;
             if (bVar != null) {
-                bVar2 = this.eFb.eEp;
-                bVar2.aSV();
+                bVar2 = this.ejb.eip;
+                bVar2.aMM();
             }
-            this.eFb.aTh();
+            this.ejb.aMY();
             if (view == null || !(view.getTag() instanceof ba.a)) {
-                arrayList = this.eFb.eES;
+                arrayList = this.ejb.eiS;
                 com.baidu.tieba.tbadkCore.data.q qVar = (com.baidu.tieba.tbadkCore.data.q) com.baidu.tbadk.core.util.x.c(arrayList, i);
                 if (qVar == null) {
-                    this.eFb.eET = null;
+                    this.ejb.eiT = null;
                 } else {
-                    this.eFb.eET = qVar.getId();
+                    this.ejb.eiT = qVar.getId();
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 if (sparseArray != null) {
                     String str = (String) sparseArray.get(r.g.tag_photo_username);
                     String str2 = (String) sparseArray.get(r.g.tag_photo_userid);
                     if (str != null) {
-                        pVar = this.eFb.dAe;
+                        pVar = this.ejb.ddg;
                         pVar.setReplyId(str2);
-                        pVar2 = this.eFb.dAe;
-                        pVar2.fT(str);
+                        pVar2 = this.ejb.ddg;
+                        pVar2.fP(str);
                     }
                 }
-                this.eFb.aTi();
+                this.ejb.aMZ();
                 return;
             }
-            this.eFb.aTj();
-            bcVar = this.eFb.eEb;
-            bcVar.aTD();
+            this.ejb.aNa();
+            bcVar = this.ejb.eib;
+            bcVar.aNu();
         }
     }
 }

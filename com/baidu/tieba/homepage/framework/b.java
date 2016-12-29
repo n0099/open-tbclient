@@ -3,5 +3,5 @@ package com.baidu.tieba.homepage.framework;
 public interface b {
     void a(int i, long j, long j2, String str);
 
-    void bz(long j);
+    void bn(long j);
 }

@@ -1,18 +1,15 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
 import java.io.Serializable;
 import java.util.LinkedList;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
     public static final int NEW = 0;
-    public static final int NEW_ECOMM = 7;
     public static final int NEW_PHOTO_LIVE = 4;
     public static final int NEW_VOTE = 6;
     public static final int REPLY = 1;
@@ -20,7 +17,6 @@ public class WriteData implements Serializable {
     public static final int SHARE_SDK = 3;
     public static int SHARE_SDK_LOCAL_IMAGE = 1;
     public static int SHARE_SDK_NET_IMAGE = 0;
-    public static final String THREAD_TYPE_LBS = "7";
     public static final int UPDATE_PHOTO_LIVE = 5;
     public static final int VIDEO_REVIEW_TYPE_DEFAULT = 0;
     public static final int VIDEO_REVIEW_TYPE_NEED = 1;
@@ -41,7 +37,6 @@ public class WriteData implements Serializable {
     private String mGraffitiWriteCode;
     private boolean mHasLocationData;
     private boolean mHaveDraft;
-    private String mHiContent;
     private boolean mIsAddition;
     private boolean mIsBarrage;
     private boolean mIsFrsReply;
@@ -77,7 +72,6 @@ public class WriteData implements Serializable {
     private int mVideoReviewType;
     private String mVoiceMd5;
     private VoteInfo mVoteInfo;
-    public long productId;
     private WriteImagesInfo writeImagesInfo;
 
     public boolean isBabaoPosted() {
@@ -154,7 +148,7 @@ public class WriteData implements Serializable {
 
     public boolean hasContentToSave() {
         if (com.baidu.adp.lib.util.j.isEmpty(this.mContent) && com.baidu.adp.lib.util.j.isEmpty(this.mTitle)) {
-            if ((this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) && this.mHiContent == null) {
+            if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 return (this.mVideoInfo != null && this.mVideoInfo.isAvaliable()) || this.mCategoryTo >= 0 || !TextUtils.isEmpty(this.mGraffitiFileName);
             }
             return true;
@@ -175,7 +169,6 @@ public class WriteData implements Serializable {
             if (this.writeImagesInfo != null) {
                 jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
             }
-            jSONObject.put("mHiContent", this.mHiContent);
             if (this.mVideoInfo != null) {
                 jSONObject.put(VideoInfo.DRAFT_JSON_NAME, VideoInfo.jsonWithObject(this.mVideoInfo));
             }
@@ -191,7 +184,6 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        Object obj;
         if (com.baidu.adp.lib.util.j.isEmpty(str)) {
             return null;
         }
@@ -215,9 +207,6 @@ public class WriteData implements Serializable {
                 writeData.writeImagesInfo.parseJson(optJSONObject2);
             }
             writeData.mGraffitiFileName = jSONObject.optString("mGraffitiFileName");
-            if (jSONObject.has("mHiContent") && (obj = jSONObject.get("mHiContent")) != null && (obj instanceof String)) {
-                writeData.mHiContent = obj.toString();
-            }
             writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
             writeData.mBarrageTime = jSONObject.getLong("barrage_time");
             return writeData;
@@ -356,21 +345,6 @@ public class WriteData implements Serializable {
 
     public void setIsInterviewLive(boolean z) {
         this.mIsInterviewLivew = z;
-    }
-
-    public String getHiAlbumId() {
-        if (this.mHiContent == null) {
-            return null;
-        }
-        try {
-            return new JSONObject(this.mHiContent).getString(ThActivityDetailActivityConfig.ALBUM_ID);
-        } catch (JSONException e) {
-            return null;
-        }
-    }
-
-    public String getHiContent() {
-        return this.mHiContent;
     }
 
     public boolean getIsInterviewLive() {
@@ -513,10 +487,6 @@ public class WriteData implements Serializable {
 
     public void setIsFrsReply(boolean z) {
         this.mIsFrsReply = z;
-    }
-
-    public void setHiContent(String str) {
-        this.mHiContent = str;
     }
 
     public String getReturnVoiceMd5() {

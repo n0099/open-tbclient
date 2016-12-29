@@ -6,22 +6,22 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends CustomMessageListener {
-    final /* synthetic */ p bIq;
+    final /* synthetic */ p bot;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(p pVar, int i) {
         super(i);
-        this.bIq = pVar;
+        this.bot = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         switch (customResponsedMessage.getCmd()) {
-            case CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED /* 2001120 */:
-                this.bIq.reset();
-                this.bIq.setup();
+            case CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED /* 2001117 */:
+                this.bot.reset();
+                this.bot.setup();
                 return;
             default:
                 return;

@@ -1,28 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs implements View.OnClickListener {
-    final /* synthetic */ PbActivity evL;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bDp;
+    final /* synthetic */ PbActivity eah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(PbActivity pbActivity) {
-        this.evL = pbActivity;
+    public bs(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.eah = pbActivity;
+        this.bDp = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        dj djVar;
-        this.evL.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.evL.getPageContext().getPageActivity(), 23007)));
-        com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10125");
-        djVar = this.evL.euf;
-        TiebaStatic.log(avVar.ab("tid", djVar.getThreadID()).s("obj_type", 1));
+        com.baidu.adp.lib.util.a.az(this.bDp.linkUrl);
+        com.baidu.adp.lib.util.k.showToast(this.eah.getPageContext().getPageActivity(), view.getResources().getString(r.j.copy_pb_url_success));
     }
 }

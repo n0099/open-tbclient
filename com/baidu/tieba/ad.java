@@ -16,11 +16,11 @@ public class ad implements View.OnClickListener {
         boolean z;
         boolean z2;
         boolean z3;
-        this.this$0.aPM.Kz();
+        this.this$0.aPd.JS();
         UpdateDialog updateDialog = this.this$0;
-        z = this.this$0.aPH;
-        z2 = this.this$0.aPI;
-        z3 = this.this$0.aPJ;
+        z = this.this$0.aOY;
+        z2 = this.this$0.aOZ;
+        z3 = this.this$0.aPa;
         updateDialog.c(z, z2, z3);
     }
 }

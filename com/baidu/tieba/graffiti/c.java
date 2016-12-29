@@ -1,23 +1,23 @@
 package com.baidu.tieba.graffiti;
 
-import com.baidu.tbadk.core.data.ae;
+import com.baidu.tbadk.core.data.ad;
 /* loaded from: classes.dex */
 public class c {
-    private ae cBQ;
+    private ad chd;
     private String forumId;
     private String threadId;
 
-    public c(String str, String str2, ae aeVar) {
+    public c(String str, String str2, ad adVar) {
         this.forumId = str;
         this.threadId = str2;
-        this.cBQ = aeVar;
+        this.chd = adVar;
     }
 
     public String getThreadId() {
         return this.threadId;
     }
 
-    public ae alP() {
-        return this.cBQ;
+    public ad agq() {
+        return this.chd;
     }
 }

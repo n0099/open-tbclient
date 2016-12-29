@@ -11,7 +11,7 @@ class l extends BroadcastReceiver {
         if (intent != null) {
             String stringExtra = intent.getStringExtra("package_name");
             if (!TextUtils.isEmpty(stringExtra) && "com.baidu.adp.plugin.installed".equals(intent.getAction())) {
-                com.baidu.tbadk.core.sharedPref.b.um().putInt("native_crash_count_" + stringExtra, 0);
+                com.baidu.tbadk.core.sharedPref.b.tW().putInt("native_crash_count_" + stringExtra, 0);
             }
         }
     }

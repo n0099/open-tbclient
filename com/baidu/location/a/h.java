@@ -3,7 +3,7 @@ package com.baidu.location.a;
 import android.location.Location;
 /* loaded from: classes.dex */
 public class h {
-    private static com.baidu.location.f.a Ir;
+    private static com.baidu.location.f.a Iq;
     private static long a;
     private static Location c;
     private static String d;
@@ -29,11 +29,11 @@ public class h {
     }
 
     public static void c(com.baidu.location.f.a aVar) {
-        Ir = aVar;
+        Iq = aVar;
     }
 
     public static com.baidu.location.f.a mx() {
-        return Ir;
+        return Iq;
     }
 
     public static Location my() {

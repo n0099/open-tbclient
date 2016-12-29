@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public abstract class c implements p {
-    private volatile byte[] ks = null;
+    private volatile byte[] kr = null;
     private volatile boolean tc = false;
 
     protected abstract byte[] bB();
@@ -10,9 +10,9 @@ public abstract class c implements p {
         synchronized (this) {
             if (!this.tc) {
                 this.tc = true;
-                this.ks = bB();
+                this.kr = bB();
             }
         }
-        return this.ks;
+        return this.kr;
     }
 }

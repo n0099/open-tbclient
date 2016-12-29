@@ -18,12 +18,12 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
-    private BdAsyncTask<?, ?, ?> aUM;
+    private BdAsyncTask<?, ?, ?> aUd;
     private String bduss;
-    private SapiWebView eoD;
+    private SapiWebView dTj;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.j azx = null;
-    private final a.InterfaceC0033a YJ = new a(this);
+    private com.baidu.tbadk.coreExtra.view.j ayU = null;
+    private final a.InterfaceC0033a Yd = new a(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -43,12 +43,12 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             Toast.makeText(getPageContext().getPageActivity(), "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.eoD = (SapiWebView) findViewById(r.g.sapi_webview);
-        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.eoD);
-        this.eoD.setOnBackCallback(new c(this));
-        this.eoD.setOnFinishCallback(new d(this));
-        this.eoD.setAuthorizationListener(new e(this));
-        this.eoD.loadFillUProfile(this.bduss);
+        this.dTj = (SapiWebView) findViewById(r.g.sapi_webview);
+        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.dTj);
+        this.dTj.setOnBackCallback(new c(this));
+        this.dTj.setOnFinishCallback(new d(this));
+        this.dTj.setAuthorizationListener(new e(this));
+        this.dTj.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,7 +59,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNj() {
+    public void aHk() {
         TbadkCoreApplication.m9getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
@@ -68,34 +68,34 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNk() {
+    public void aHl() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            if (this.aUM != null) {
-                this.aUM.cancel();
+            if (this.aUd != null) {
+                this.aUd.cancel();
             }
-            this.aUM = com.baidu.tbadk.core.a.a.oR().a(session.username, session.bduss, "", null, this.YJ);
+            this.aUd = com.baidu.tbadk.core.a.a.oR().a(session.username, session.bduss, "", null, this.Yd);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(AccountData accountData) {
-        if (this.azx == null) {
-            this.azx = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
-            this.azx.a(new f(this));
+        if (this.ayU == null) {
+            this.ayU = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
+            this.ayU.a(new f(this));
         }
-        this.azx.AV();
-        this.azx.i(accountData);
-        this.azx.AR();
+        this.ayU.AI();
+        this.ayU.i(accountData);
+        this.ayU.AE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aUM != null) {
-            this.aUM.cancel();
+        if (this.aUd != null) {
+            this.aUd.cancel();
         }
     }
 }

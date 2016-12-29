@@ -2,35 +2,29 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
 import java.util.List;
-import tbclient.FrsPage.NtSpreadInfo;
+import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes.dex */
-public class y extends bk {
+public class y extends bg {
     public static final BdUniqueId Rn = BdUniqueId.gen();
-    public String Ro;
-    public String Rp;
+    public String Ql;
+    public int Ro;
+    public List<String> Rp;
+    public String image;
     public String linkUrl;
-    public List<String> pics;
-    public Integer position;
-    public String tips;
     public String title;
-    public String type;
-    public String userName;
 
-    public void a(NtSpreadInfo ntSpreadInfo) {
-        if (ntSpreadInfo != null) {
-            this.userName = ntSpreadInfo.user_name;
-            this.Ro = ntSpreadInfo.user_avatar;
-            this.tips = ntSpreadInfo.tips;
-            this.type = ntSpreadInfo.type;
-            this.title = ntSpreadInfo.title;
-            this.pics = ntSpreadInfo.pics;
-            this.linkUrl = ntSpreadInfo.link_url;
-            this.position = ntSpreadInfo.position;
-            this.Rp = ntSpreadInfo.publish_date;
+    public void a(RecommendBook recommendBook) {
+        if (recommendBook != null) {
+            this.Ro = recommendBook.type.intValue();
+            this.Ql = recommendBook.book_id;
+            this.title = recommendBook.title;
+            this.image = recommendBook.image;
+            this.Rp = recommendBook.desc;
+            this.linkUrl = recommendBook.link_url;
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
         return Rn;
     }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnLongClickListener {
-    final /* synthetic */ NewSubPbActivity eEs;
+    final /* synthetic */ NewSubPbActivity eis;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(NewSubPbActivity newSubPbActivity) {
-        this.eEs = newSubPbActivity;
+        this.eis = newSubPbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -26,9 +26,9 @@ public class t implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            aoVar = this.eEs.eEd;
-            bVar = this.eEs.evD;
-            bcVar = this.eEs.eEb;
+            aoVar = this.eis.eid;
+            bVar = this.eis.dZZ;
+            bcVar = this.eis.eib;
             aoVar.a(bVar, bcVar.isMarked());
         }
         return true;

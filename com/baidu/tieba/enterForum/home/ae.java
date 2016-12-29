@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ l bKe;
+    final /* synthetic */ l bqi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(l lVar, int i) {
         super(i);
-        this.bKe = lVar;
+        this.bqi = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,28 +30,28 @@ public class ae extends CustomMessageListener {
         com.baidu.tieba.enterForum.c.c cVar10;
         com.baidu.tbadk.data.e eVar = (com.baidu.tbadk.data.e) customResponsedMessage.getData();
         if (eVar != null) {
-            cVar = this.bKe.bJN;
+            cVar = this.bqi.bpR;
             if (cVar != null) {
-                cVar2 = this.bKe.bJN;
-                if (cVar2.Zi() != null) {
-                    cVar3 = this.bKe.bJN;
-                    if (cVar3.Zi().Yw() != null) {
-                        cVar4 = this.bKe.bJN;
-                        if (cVar4.Zi().Yw().YB() != null) {
-                            cVar5 = this.bKe.bJN;
-                            int size = cVar5.Zi().Yw().YB().size();
+                cVar2 = this.bqi.bpR;
+                if (cVar2.Tv() != null) {
+                    cVar3 = this.bqi.bpR;
+                    if (cVar3.Tv().SH() != null) {
+                        cVar4 = this.bqi.bpR;
+                        if (cVar4.Tv().SH().SM() != null) {
+                            cVar5 = this.bqi.bpR;
+                            int size = cVar5.Tv().SH().SM().size();
                             int i = 0;
                             while (true) {
                                 if (i >= size) {
                                     z = false;
                                     break;
                                 }
-                                cVar8 = this.bKe.bJN;
-                                if (cVar8.Zi().Yw().YB().get(i) != null) {
-                                    cVar9 = this.bKe.bJN;
-                                    if (cVar9.Zi().Yw().YB().get(i).getForumId() == eVar.getForumId()) {
-                                        cVar10 = this.bKe.bJN;
-                                        cVar10.Zi().Yw().YB().remove(i);
+                                cVar8 = this.bqi.bpR;
+                                if (cVar8.Tv().SH().SM().get(i) != null) {
+                                    cVar9 = this.bqi.bpR;
+                                    if (cVar9.Tv().SH().SM().get(i).getForumId() == eVar.getForumId()) {
+                                        cVar10 = this.bqi.bpR;
+                                        cVar10.Tv().SH().SM().remove(i);
                                         z = true;
                                         break;
                                     }
@@ -59,12 +59,12 @@ public class ae extends CustomMessageListener {
                                 i++;
                             }
                             if (!z) {
-                                cVar7 = this.bKe.bJN;
-                                cVar7.Zi().Yw().YB().add(0, eVar);
+                                cVar7 = this.bqi.bpR;
+                                cVar7.Tv().SH().SM().add(0, eVar);
                             }
-                            com.baidu.tieba.enterForum.d.e eVar2 = this.bKe.bJM;
-                            cVar6 = this.bKe.bJN;
-                            eVar2.b(cVar6.Zi().Yw().YB(), this.bKe.bJL.getPageContext());
+                            com.baidu.tieba.enterForum.d.e eVar2 = this.bqi.bpQ;
+                            cVar6 = this.bqi.bpR;
+                            eVar2.b(cVar6.Tv().SH().SM(), this.bqi.bpP.getPageContext());
                         }
                     }
                 }

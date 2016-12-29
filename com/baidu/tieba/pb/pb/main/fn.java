@@ -1,28 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class fn implements View.OnClickListener {
-    final /* synthetic */ ey eCT;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.q eCW;
+class fn implements Runnable {
+    final /* synthetic */ fm ehd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fn(ey eyVar, com.baidu.tieba.tbadkCore.data.q qVar) {
-        this.eCT = eyVar;
-        this.eCW = qVar;
+    public fn(fm fmVar) {
+        this.ehd = fmVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // java.lang.Runnable
+    public void run() {
+        er erVar;
         PbActivity pbActivity;
+        er erVar2;
         PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10630").ab("obj_id", this.eCW.getAuthor().getUserId()));
-        pbActivity = this.eCT.eug;
-        if (pbActivity.euQ.eDj != null) {
-            pbActivity2 = this.eCT.eug;
-            pbActivity2.euQ.eDj.onClick(view);
-        }
+        er erVar3;
+        RelativeLayout relativeLayout;
+        erVar = this.ehd.egZ;
+        pbActivity = erVar.dYB;
+        erVar2 = this.ehd.egZ;
+        pbActivity2 = erVar2.dYB;
+        erVar3 = this.ehd.egZ;
+        relativeLayout = erVar3.dKv;
+        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
     }
 }

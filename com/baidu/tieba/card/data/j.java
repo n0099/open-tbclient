@@ -5,37 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends a {
-    public static final BdUniqueId beW = BdUniqueId.gen();
-    private String bcs;
+    public static BdUniqueId TYPE = BdUniqueId.gen();
     private List<com.baidu.tieba.horizonalList.widget.l> mList = new ArrayList();
-    private String stType;
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return beW;
+    public void a(k kVar) {
+        this.mList.add(kVar);
     }
 
-    public void b(com.baidu.tieba.horizonalList.widget.l lVar) {
-        this.mList.add(lVar);
-    }
-
-    public List<com.baidu.tieba.horizonalList.widget.l> Fy() {
+    public List<com.baidu.tieba.horizonalList.widget.l> getDataList() {
         return this.mList;
     }
 
-    public String getStType() {
-        return this.stType;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public String PB() {
-        return this.bcs;
-    }
-
-    public void setYuelaouLocate(String str) {
-        this.bcs = str;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

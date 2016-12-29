@@ -12,37 +12,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements d {
-    private TbHttpMessageTask flr;
-    private HttpMessageListener flq = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
-    private ArrayList<a> fls = new ArrayList<>();
+    private TbHttpMessageTask eOO;
+    private HttpMessageListener eON = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
+    private ArrayList<a> eOP = new ArrayList<>();
 
     public f() {
-        beI();
-        MessageManager.getInstance().registerListener(this.flq);
+        aYv();
+        MessageManager.getInstance().registerListener(this.eON);
     }
 
-    private void beI() {
-        this.flr = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.flr.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.flr.setIsNeedAddCommenParam(true);
-        this.flr.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void aYv() {
+        this.eOO = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.eOO.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.eOO.setIsNeedAddCommenParam(true);
+        this.eOO.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
     public void b(a aVar) {
         if (aVar != null) {
             com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.m9getInst().getAdAdSense();
-            if (!(adAdSense == null || adAdSense.xE())) {
-                this.flr.setUrl("http://als.baidu.com/clog/clog");
+            if (!(adAdSense == null || adAdSense.xr())) {
+                this.eOO.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            beJ();
+            aYw();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void beH() {
-        beJ();
+    public void aYu() {
+        aYw();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -52,15 +52,15 @@ public class f implements d {
         }
     }
 
-    private void beJ() {
-        if (x.s(this.fls) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fls), this.flr);
-            this.fls.clear();
+    private void aYw() {
+        if (x.s(this.eOP) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.eOP), this.eOO);
+            this.eOP.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cY(List<a> list) {
+    public void cO(List<a> list) {
         if (x.s(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
@@ -72,10 +72,10 @@ public class f implements d {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (x.s(this.fls) >= 20) {
-                this.fls.remove(0);
+            if (x.s(this.eOP) >= 20) {
+                this.eOP.remove(0);
             }
-            this.fls.add(aVar);
+            this.eOP.add(aVar);
         }
     }
 }

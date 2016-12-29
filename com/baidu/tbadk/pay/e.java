@@ -10,31 +10,31 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class e {
-    private static e aBI = null;
+    private static e aBc = null;
 
     private e() {
     }
 
-    public static synchronized e FV() {
+    public static synchronized e Fv() {
         e eVar;
         synchronized (e.class) {
-            if (aBI == null) {
-                aBI = new e();
+            if (aBc == null) {
+                aBc = new e();
             }
-            eVar = aBI;
+            eVar = aBc;
         }
         return eVar;
     }
 
-    public boolean FW() {
-        return TbadkCoreApplication.m9getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m9getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && FX();
+    public boolean Fw() {
+        return TbadkCoreApplication.m9getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m9getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Fx();
     }
 
-    public boolean FX() {
+    public boolean Fx() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -46,14 +46,14 @@ public class e {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            bf.vP().c(tbPageContext, new String[]{str});
+            bc.vz().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(r.j.plugin_pay_error);
-        } else if (!FW()) {
+        } else if (!Fw()) {
             showToast(r.j.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));

@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity aLM;
+    final /* synthetic */ LogoActivity aLd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LogoActivity logoActivity) {
-        this.aLM = logoActivity;
+        this.aLd = logoActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -29,20 +29,20 @@ public class l implements Animation.AnimationListener {
         int i;
         int i2;
         RelativeLayout relativeLayout2;
-        relativeLayout = this.aLM.mRootView;
+        relativeLayout = this.aLd.mRootView;
         if (relativeLayout != null) {
-            relativeLayout2 = this.aLM.mRootView;
+            relativeLayout2 = this.aLd.mRootView;
             relativeLayout2.setVisibility(8);
         }
-        i = this.aLM.aLE;
+        i = this.aLd.aKV;
         if (i >= 0) {
-            LogoActivity logoActivity = this.aLM;
-            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aLM.getPageContext().getPageActivity());
-            i2 = this.aLM.aLE;
+            LogoActivity logoActivity = this.aLd;
+            MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this.aLd.getPageContext().getPageActivity());
+            i2 = this.aLd.aKV;
             logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig.createNormalCfg(i2)));
         } else {
-            this.aLM.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aLM.getPageContext().getPageActivity()).createNormalCfg(2)));
+            this.aLd.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.aLd.getPageContext().getPageActivity()).createNormalCfg(2)));
         }
-        this.aLM.finish();
+        this.aLd.finish();
     }
 }

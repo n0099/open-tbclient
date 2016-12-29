@@ -1,68 +1,126 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.entelechy.b.b;
-import com.baidu.tieba.tbadkCore.e;
-import java.util.ArrayList;
+import android.widget.AbsListView;
+import com.baidu.tbadk.performanceLog.e;
 /* loaded from: classes.dex */
-class p implements cf {
-    final /* synthetic */ FrsActivity bTa;
+class p implements AbsListView.OnScrollListener {
+    final /* synthetic */ FrsActivity bzl;
+    private int aMh = 0;
+    private int aMg = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsActivity frsActivity) {
-        this.bTa = frsActivity;
+        this.bzl = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.cf
-    public void a(int i, int i2, cp cpVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        b bVar;
-        cf cfVar;
-        cf cfVar2;
-        com.baidu.tieba.frs.j.n nVar;
-        b bVar2;
-        this.bTa.acd();
-        bVar = this.bTa.bSu;
-        if (bVar != null) {
-            nVar = this.bTa.bSi;
-            bVar2 = this.bTa.bSu;
-            nVar.ev(bVar2.ie(i));
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        com.baidu.tieba.frs.entelechy.b.d dVar;
+        com.baidu.tieba.frs.h.a aVar;
+        com.baidu.tieba.frs.h.an anVar;
+        int i4;
+        com.baidu.tieba.frs.f.d dVar2;
+        cg cgVar;
+        cg cgVar2;
+        com.baidu.tieba.frs.h.s sVar;
+        com.baidu.tieba.frs.f.d dVar3;
+        com.baidu.tieba.frs.h.an anVar2;
+        com.baidu.tieba.frs.h.an anVar3;
+        com.baidu.tieba.frs.h.a aVar2;
+        com.baidu.tieba.frs.entelechy.b.d dVar4;
+        com.baidu.tieba.frs.h.s sVar2;
+        dVar = this.bzl.byw;
+        if (dVar != null) {
+            dVar4 = this.bzl.byw;
+            sVar2 = this.bzl.bys;
+            dVar4.a(absListView, i, i2, i3, sVar2.acb());
         }
-        e.a aVar = new e.a();
-        if (cpVar != null) {
-            aVar.isSuccess = cpVar.errCode == 0;
-            aVar.errorCode = cpVar.errCode;
-            aVar.errorMsg = cpVar.errMsg;
-            if (aVar.isSuccess) {
-                if (com.baidu.tbadk.core.util.x.t(arrayList)) {
-                    this.bTa.bRW.adj();
-                } else if (cpVar.hasMore) {
-                    this.bTa.bRW.adi();
-                } else if (cpVar.bVL) {
-                    this.bTa.bRW.JM();
-                } else {
-                    this.bTa.bRW.adj();
-                }
-            }
+        aVar = this.bzl.byG;
+        if (aVar != null) {
+            aVar2 = this.bzl.byG;
+            aVar2.abw();
+        }
+        anVar = this.bzl.byJ;
+        if (anVar != null) {
+            anVar2 = this.bzl.byJ;
+            anVar2.a(absListView, i);
+            anVar3 = this.bzl.byJ;
+            i4 = anVar3.ace();
         } else {
-            cpVar = new cp();
-            cpVar.pn = 1;
-            cpVar.hasMore = false;
-            cpVar.bVL = false;
+            i4 = 0;
         }
-        if (i == 1) {
-            this.bTa.bSg = true;
-            this.bTa.bSM.a(this.bTa.bSh.getType(), false, aVar);
+        dVar2 = this.bzl.byz;
+        if (dVar2 != null) {
+            dVar3 = this.bzl.byz;
+            dVar3.abl();
+        }
+        cgVar = this.bzl.byC;
+        if (cgVar != null) {
+            cgVar2 = this.bzl.byC;
+            sVar = this.bzl.bys;
+            cgVar2.a(absListView, i + i4, i2, i3, sVar.acb() - i4, this.bzl.Wv());
+        }
+        if (this.bzl.byh != null && this.bzl.byg != null && this.bzl.byg.Xu() != null) {
+            this.aMh = i;
+            this.aMg = (i + i2) - 1;
+            this.bzl.byg.ad(this.aMh, this.aMg);
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        com.baidu.tieba.frs.h.s sVar;
+        com.baidu.tieba.frs.h.an anVar;
+        int i2;
+        cg cgVar;
+        boolean z;
+        com.baidu.adp.widget.ListView.x xVar;
+        cg cgVar2;
+        com.baidu.tieba.frs.h.an anVar2;
+        com.baidu.tieba.frs.h.an anVar3;
+        com.baidu.tieba.frs.h.s sVar2;
+        sVar = this.bzl.bys;
+        if (sVar != null) {
+            sVar2 = this.bzl.bys;
+            sVar2.setScrollState(i);
+        }
+        anVar = this.bzl.byJ;
+        if (anVar != null) {
+            anVar2 = this.bzl.byJ;
+            anVar2.onScrollStateChanged(absListView, i);
+            anVar3 = this.bzl.byJ;
+            i2 = anVar3.ace();
         } else {
-            this.bTa.a(aVar, true);
-            if (this.bTa.bSh.afE() != null) {
-                this.bTa.bRX = this.bTa.bSh.afE();
+            i2 = 0;
+        }
+        cgVar = this.bzl.byC;
+        if (cgVar != null) {
+            cgVar2 = this.bzl.byC;
+            cgVar2.a(absListView, i, i2);
+        }
+        if (i == 2 || i == 1) {
+            z = this.bzl.byn;
+            if (!z) {
+                this.bzl.byn = true;
+                this.bzl.byg.Xx();
             }
-            this.bTa.ack();
         }
-        cfVar = this.bTa.bSZ;
-        if (cfVar == null) {
-            return;
+        if (this.bzl.byo == null) {
+            this.bzl.byo = new e();
+            this.bzl.byo.fg(1000);
         }
-        cfVar2 = this.bTa.bSZ;
-        cfVar2.a(i, i2, cpVar, arrayList);
+        if (i != 0) {
+            this.bzl.byg.a((com.baidu.adp.widget.ListView.x) null);
+        } else {
+            com.baidu.tieba.card.bz.OH().cz(true);
+            ax axVar = this.bzl.byg;
+            xVar = this.bzl.bzj;
+            axVar.a(xVar);
+            this.bzl.byg.ac(this.aMh, this.aMg);
+        }
+        this.bzl.byo.FB();
+        if (i == 0) {
+            com.baidu.tieba.frs.utils.s.a(this.bzl.byg, this.bzl.byh, this.bzl.getForumId(), false, null);
+        }
     }
 }

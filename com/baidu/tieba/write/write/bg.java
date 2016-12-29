@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class bg extends CustomMessageListener {
-    final /* synthetic */ WriteActivity gpp;
+    final /* synthetic */ WriteActivity fDQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bg(WriteActivity writeActivity, int i) {
         super(i);
-        this.gpp = writeActivity;
+        this.fDQ = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,16 +23,16 @@ class bg extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.gpp.awB;
-                dVar2.ln(false);
-                dVar3 = this.gpp.awB;
-                dVar3.bX(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.gpp.b(2, true, responsedSelectLocation.getName());
+                dVar2 = this.fDQ.avY;
+                dVar2.kY(false);
+                dVar3 = this.fDQ.avY;
+                dVar3.ca(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.fDQ.b(2, true, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.gpp.awB;
-            dVar.ln(true);
-            this.gpp.b(0, true, null);
+            dVar = this.fDQ.avY;
+            dVar.kY(true);
+            this.fDQ.b(0, true, null);
         }
     }
 }

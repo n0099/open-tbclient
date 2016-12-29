@@ -1,51 +1,47 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.DataRes;
-import tbclient.Personalized.TagStruct;
 /* loaded from: classes.dex */
 public class h implements v {
-    public static final BdUniqueId cMN = BdUniqueId.gen();
-    public List<i> cMO = new ArrayList();
-    public String cMP;
+    public static final BdUniqueId crW = BdUniqueId.gen();
+    public List<g> crX = null;
+    public List<g> crY = null;
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return cMN;
-    }
-
-    public static h a(DataRes.Builder builder) {
-        i a;
-        if (builder == null || builder.interestion == null || builder.interestion.size() == 0) {
+    public static h b(DataRes.Builder builder) {
+        if (builder == null || builder.age_sex == null) {
+            return null;
+        }
+        if ((builder.age_sex.sex_tag == null || builder.age_sex.sex_tag.size() == 0) && (builder.age_sex.age_tag == null || builder.age_sex.age_tag.size() == 0)) {
             return null;
         }
         h hVar = new h();
-        for (TagStruct tagStruct : builder.interestion) {
-            if (tagStruct != null && (a = i.a(tagStruct)) != null) {
-                hVar.cMO.add(a);
+        hVar.crX = new ArrayList();
+        hVar.crY = new ArrayList();
+        if (builder.age_sex.sex_tag != null && builder.age_sex.sex_tag.size() == 2) {
+            g a = g.a(builder.age_sex.sex_tag.get(0));
+            g a2 = g.a(builder.age_sex.sex_tag.get(1));
+            if (a != null && a2 != null) {
+                hVar.crX.add(a);
+                hVar.crX.add(a2);
             }
         }
-        StringBuilder sb = new StringBuilder();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < hVar.cMO.size()) {
-                i iVar = hVar.cMO.get(i2);
-                if (iVar != null && !StringUtils.isNull(iVar.PW)) {
-                    sb.append(iVar.PW);
-                    if (i2 != hVar.cMO.size() - 1) {
-                        sb.append("_");
-                    }
+        if (builder.age_sex.age_tag != null && builder.age_sex.age_tag.size() > 0) {
+            for (int i = 0; i < builder.age_sex.age_tag.size() && i < 5; i++) {
+                g a3 = g.a(builder.age_sex.age_tag.get(i));
+                if (a3 != null) {
+                    hVar.crY.add(a3);
                 }
-                i = i2 + 1;
-            } else {
-                hVar.cMP = sb.toString();
-                return hVar;
             }
         }
+        return hVar;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return crW;
     }
 }

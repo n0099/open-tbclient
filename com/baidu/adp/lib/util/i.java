@@ -59,7 +59,7 @@ public class i {
             this.rN = true;
             this.rO = activeNetworkInfo.getSubtype();
             if (this.rM) {
-                this.rP = at(this.rO);
+                this.rP = au(this.rO);
             } else {
                 this.rP = 0;
             }
@@ -188,7 +188,7 @@ public class i {
         }
     }
 
-    public static int at(int i) {
+    public static int au(int i) {
         switch (i) {
             case 1:
             case 2:

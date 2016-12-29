@@ -1,46 +1,45 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.lib.a.b.a.a.i {
-    private int atu = 1;
-    private int atv = 1;
-    private int atw = 1;
-    private int atx = 1;
-    private int aty = 1;
+    private int asX = 1;
+    private int asY = 1;
+    private int asZ = 1;
+    private int ata = 1;
+    private int atb = 1;
 
-    public int Cj() {
-        return this.atv;
+    public int BW() {
+        return this.asY;
     }
 
-    public int Ck() {
-        return this.atw;
+    public int BX() {
+        return this.asZ;
     }
 
-    public int Cl() {
-        return this.atx;
+    public int BY() {
+        return this.ata;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.atu = jSONObject.optInt(ThActivityDetailActivityConfig.LOCATION, 1);
-            this.atv = jSONObject.optInt("like", 1);
-            this.atw = jSONObject.optInt("group", 1);
-            this.atx = jSONObject.optInt("post", 1);
-            this.aty = jSONObject.optInt("friend", 1);
+            this.asX = jSONObject.optInt("location", 1);
+            this.asY = jSONObject.optInt("like", 1);
+            this.asZ = jSONObject.optInt("group", 1);
+            this.ata = jSONObject.optInt("post", 1);
+            this.atb = jSONObject.optInt("friend", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.atu = privSets.location.intValue();
-                this.atv = privSets.like.intValue();
-                this.atw = privSets.group.intValue();
-                this.atx = privSets.post.intValue();
-                this.aty = privSets.friend.intValue();
+                this.asX = privSets.location.intValue();
+                this.asY = privSets.like.intValue();
+                this.asZ = privSets.group.intValue();
+                this.ata = privSets.post.intValue();
+                this.atb = privSets.friend.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

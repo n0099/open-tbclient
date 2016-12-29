@@ -1,9 +1,9 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public interface a {
-    void SN();
+    void Tj();
 
-    boolean hasMoreData();
+    boolean aEa();
 
     void resetData();
 }

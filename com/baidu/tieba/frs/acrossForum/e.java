@@ -4,11 +4,11 @@ import android.animation.Animator;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 class e implements Animator.AnimatorListener {
-    final /* synthetic */ d bWK;
+    final /* synthetic */ d bCU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.bWK = dVar;
+        this.bCU = dVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -17,11 +17,11 @@ class e implements Animator.AnimatorListener {
         GifView gifView;
         c cVar2;
         GifView gifView2;
-        cVar = this.bWK.bWJ;
-        gifView = cVar.bWE;
+        cVar = this.bCU.bCT;
+        gifView = cVar.bCO;
         if (gifView != null) {
-            cVar2 = this.bWK.bWJ;
-            gifView2 = cVar2.bWE;
+            cVar2 = this.bCU.bCT;
+            gifView2 = cVar2.bCO;
             gifView2.setClickable(false);
         }
     }
@@ -33,14 +33,14 @@ class e implements Animator.AnimatorListener {
         c cVar2;
         GifView gifView2;
         c cVar3;
-        cVar = this.bWK.bWJ;
-        gifView = cVar.bWE;
+        cVar = this.bCU.bCT;
+        gifView = cVar.bCO;
         if (gifView != null) {
-            cVar2 = this.bWK.bWJ;
-            gifView2 = cVar2.bWE;
+            cVar2 = this.bCU.bCT;
+            gifView2 = cVar2.bCO;
             gifView2.setClickable(true);
-            cVar3 = this.bWK.bWJ;
-            cVar3.bWF = false;
+            cVar3 = this.bCU.bCT;
+            cVar3.bCP = false;
         }
     }
 

@@ -3,11 +3,11 @@ package com.baidu.location.c;
 import com.baidu.location.c.h;
 /* loaded from: classes.dex */
 class l extends Thread {
-    final /* synthetic */ h.b JT;
+    final /* synthetic */ h.b JS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(h.b bVar) {
-        this.JT = bVar;
+        this.JS = bVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable

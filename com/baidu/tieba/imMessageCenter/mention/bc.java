@@ -1,81 +1,41 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.imMessageCenter.mention.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc extends com.baidu.tbadk.editortools.e.a<bf> {
-    final /* synthetic */ az dAk;
+public class bc implements au.a {
+    final /* synthetic */ bb ddm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bc(az azVar, com.baidu.adp.base.h hVar) {
-        super(hVar);
-        this.dAk = azVar;
+    public bc(bb bbVar) {
+        this.ddm = bbVar;
     }
 
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public boolean Dn() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public WriteData fF(String str) {
-        String str2;
+    @Override // com.baidu.tieba.imMessageCenter.mention.au.a
+    public void b(long j, long j2, long j3) {
+        com.baidu.tbadk.editortools.e.p pVar;
         FeedData feedData;
+        com.baidu.tbadk.editortools.e.p pVar2;
         FeedData feedData2;
+        com.baidu.tbadk.editortools.e.p pVar3;
         FeedData feedData3;
-        FeedData feedData4;
-        long j;
-        long j2;
-        long j3;
-        FeedData feedData5;
-        String quote_pid;
-        long j4;
-        WriteData writeData = new WriteData();
-        str2 = this.dAk.mForumId;
-        writeData.setForumId(str2);
-        feedData = this.dAk.dAf;
-        writeData.setForumName(feedData.getFname());
-        feedData2 = this.dAk.dAf;
-        writeData.setThreadId(feedData2.getThread_id());
-        writeData.setIsAd(false);
-        writeData.setFloorNum(0);
-        feedData3 = this.dAk.dAf;
-        if (!feedData3.getIsFloor()) {
-            feedData4 = this.dAk.dAf;
-            writeData.setFloor(feedData4.getPost_id());
-        } else {
-            j3 = this.dAk.dAg;
-            if (j3 <= 0) {
-                feedData5 = this.dAk.dAf;
-                quote_pid = feedData5.getQuote_pid();
-            } else {
-                j4 = this.dAk.dAg;
-                quote_pid = String.valueOf(j4);
+        this.ddm.mForumId = String.valueOf(j);
+        this.ddm.ddi = j2;
+        this.ddm.ddj = j3;
+        pVar = this.ddm.ddg;
+        if (pVar != null) {
+            feedData = this.ddm.ddh;
+            if (feedData.getIsFloor()) {
+                feedData2 = this.ddm.ddh;
+                if (feedData2.getReplyer() != null) {
+                    pVar3 = this.ddm.ddg;
+                    feedData3 = this.ddm.ddh;
+                    pVar3.fM(feedData3.getReplyer().getUserName());
+                    return;
+                }
             }
-            writeData.setFloor(quote_pid);
+            pVar2 = this.ddm.ddg;
+            pVar2.fM(null);
         }
-        j = this.dAk.dAh;
-        if (j > 0) {
-            j2 = this.dAk.dAh;
-            writeData.setRepostId(String.valueOf(j2));
-        }
-        writeData.setType(2);
-        return writeData;
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public String Do() {
-        return null;
     }
 }

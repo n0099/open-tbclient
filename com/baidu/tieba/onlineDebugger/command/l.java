@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class l implements Runnable {
-    final /* synthetic */ k eos;
+    final /* synthetic */ k dSY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.eos = kVar;
+        this.dSY = kVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,16 +17,16 @@ class l implements Runnable {
         Character ch2;
         String str;
         String str2;
-        ch = this.eos.eor;
-        ch2 = k.eoq;
+        ch = this.dSY.dSX;
+        ch2 = k.dSW;
         if (ch.equals(ch2)) {
             Context applicationContext = TbadkCoreApplication.m9getInst().getApplicationContext();
-            str2 = this.eos.msgContent;
+            str2 = this.dSY.msgContent;
             com.baidu.adp.lib.util.k.m(applicationContext, str2);
             return;
         }
         Context applicationContext2 = TbadkCoreApplication.m9getInst().getApplicationContext();
-        str = this.eos.msgContent;
+        str = this.dSY.msgContent;
         com.baidu.adp.lib.util.k.showToast(applicationContext2, str);
     }
 }

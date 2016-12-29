@@ -7,11 +7,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements TextWatcher {
-    final /* synthetic */ WriteActivity gpp;
+    final /* synthetic */ WriteActivity fDQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(WriteActivity writeActivity) {
-        this.gpp = writeActivity;
+        this.fDQ = writeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -21,31 +21,31 @@ public class ay implements TextWatcher {
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         String str;
-        str = this.gpp.gpf;
+        str = this.fDQ.fDG;
         if (!str.equals(charSequence.toString())) {
-            this.gpp.gpg = i + i3;
+            this.fDQ.fDH = i + i3;
         }
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         String str;
-        SpannableString go;
+        SpannableString gj;
         EditText editText;
         int i;
         EditText editText2;
         EditText editText3;
         int i2;
-        str = this.gpp.gpf;
-        if (!str.equals(editable.toString()) && (go = com.baidu.tbadk.plugins.a.go(editable.toString())) != null) {
-            this.gpp.gpf = go.toString();
-            editText = this.gpp.fsM;
-            editText.setText(go);
-            i = this.gpp.gpg;
-            editText2 = this.gpp.fsM;
+        str = this.fDQ.fDG;
+        if (!str.equals(editable.toString()) && (gj = com.baidu.tbadk.plugins.a.gj(editable.toString())) != null) {
+            this.fDQ.fDG = gj.toString();
+            editText = this.fDQ.eWF;
+            editText.setText(gj);
+            i = this.fDQ.fDH;
+            editText2 = this.fDQ.eWF;
             if (i <= editText2.getText().length()) {
-                editText3 = this.gpp.fsM;
-                i2 = this.gpp.gpg;
+                editText3 = this.fDQ.eWF;
+                i2 = this.fDQ.fDH;
                 editText3.setSelection(i2);
             }
         }

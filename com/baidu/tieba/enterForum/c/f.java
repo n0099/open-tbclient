@@ -8,90 +8,90 @@ import com.baidu.tieba.enterForum.d.j;
 import com.baidu.tieba.enterForum.d.m;
 import com.baidu.tieba.enterForum.d.u;
 import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.w;
+import com.baidu.tieba.tbadkCore.v;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
     private TbPageContext<?> Gf;
-    private ViewEventCenter aRS;
-    private SoftReference<j> bKD;
-    private com.baidu.tieba.enterForum.a.b bKE;
-    private com.baidu.tieba.enterForum.a.a bKF;
-    private int bKG;
+    private ViewEventCenter aRj;
+    private SoftReference<j> bqH;
+    private com.baidu.tieba.enterForum.a.b bqI;
+    private com.baidu.tieba.enterForum.a.a bqJ;
+    private int bqK;
 
     public f(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.Gf = tbPageContext;
-        this.aRS = viewEventCenter;
+        this.aRj = viewEventCenter;
     }
 
-    public j Zn() {
-        if (this.bKD == null) {
+    public j TA() {
+        if (this.bqH == null) {
             return null;
         }
-        return this.bKD.get();
+        return this.bqH.get();
     }
 
-    public void Zo() {
+    public void TB() {
         j jVar = new j(this.Gf.getPageActivity());
-        jVar.setEventCenter(this.aRS);
-        this.bKD = new SoftReference<>(jVar);
+        jVar.setEventCenter(this.aRj);
+        this.bqH = new SoftReference<>(jVar);
     }
 
-    public int Zp() {
-        return this.bKG;
+    public int TC() {
+        return this.bqK;
     }
 
-    public List<w> Fy() {
-        if (this.bKG == 2) {
+    public List<v> getDataList() {
+        if (this.bqK == 2) {
             if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                return b(this.bKF.Fy(), false);
+                return b(this.bqJ.getDataList(), false);
             }
-            return this.bKF.Fy();
+            return this.bqJ.getDataList();
         }
-        return this.bKE.Fy();
+        return this.bqI.getDataList();
     }
 
-    public void b(w wVar) {
-        List<w> Fy = Fy();
-        if (Fy != null) {
-            Fy.remove(wVar);
-            if (this.bKG == 2) {
+    public void b(v vVar) {
+        List<v> dataList = getDataList();
+        if (dataList != null) {
+            dataList.remove(vVar);
+            if (this.bqK == 2) {
                 if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                    this.bKF.A(b(Fy, true));
+                    this.bqJ.A(b(dataList, true));
                     return;
                 } else {
-                    this.bKF.A(Fy);
+                    this.bqJ.A(dataList);
                     return;
                 }
             }
-            this.bKE.A(Fy);
+            this.bqI.A(dataList);
         }
     }
 
-    public void Zq() {
-        List<w> Fy = Fy();
-        if (this.bKG == 2) {
+    public void TD() {
+        List<v> dataList = getDataList();
+        if (this.bqK == 2) {
             TiebaStatic.eventStat(this.Gf.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
-            this.bKG = 1;
+            this.bqK = 1;
         } else {
             TiebaStatic.eventStat(this.Gf.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
-            this.bKG = 2;
+            this.bqK = 2;
         }
-        a(this.bKG, Fy);
+        a(this.bqK, dataList);
     }
 
-    public void a(int i, List<w> list) {
+    public void a(int i, List<v> list) {
         j jVar;
-        this.bKG = i;
-        if (this.bKD != null && list != null && (jVar = this.bKD.get()) != null) {
+        this.bqK = i;
+        if (this.bqH != null && list != null && (jVar = this.bqH.get()) != null) {
             jVar.setColumnTypeAndRefeshView(i);
-            am(list);
+            ae(list);
         }
     }
 
-    private List<w> b(List<w> list, boolean z) {
+    private List<v> b(List<v> list, boolean z) {
         ArrayList arrayList = new ArrayList();
         if (list == null) {
             return null;
@@ -110,52 +110,52 @@ public class f {
         return arrayList;
     }
 
-    public void am(List<w> list) {
-        j jVar = this.bKD.get();
+    public void ae(List<v> list) {
+        j jVar = this.bqH.get();
         if (jVar != null) {
-            if (this.bKG == 2) {
-                if (this.bKF == null) {
-                    Zs();
+            if (this.bqK == 2) {
+                if (this.bqJ == null) {
+                    TF();
                 }
-                jVar.setGridAdapterIfNeeded(this.bKF);
+                jVar.setGridAdapterIfNeeded(this.bqJ);
                 if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                    this.bKF.A(b(list, true));
+                    this.bqJ.A(b(list, true));
                 } else {
-                    this.bKF.A(list);
+                    this.bqJ.A(list);
                 }
-                this.bKF.a(this.Gf, TbadkCoreApplication.m9getInst().getSkinType());
+                this.bqJ.a(this.Gf, TbadkCoreApplication.m9getInst().getSkinType());
                 return;
             }
-            if (this.bKE == null) {
-                Zr();
+            if (this.bqI == null) {
+                TE();
             }
-            jVar.setListAdapterIfNeeded(this.bKE);
-            this.bKE.A(list);
-            this.bKE.a(this.Gf, TbadkCoreApplication.m9getInst().getSkinType());
+            jVar.setListAdapterIfNeeded(this.bqI);
+            this.bqI.A(list);
+            this.bqI.a(this.Gf, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void Zr() {
-        this.bKE = new com.baidu.tieba.enterForum.a.b(this.Gf, u.class, r.h.home_like_item_in_edit_list, this.aRS);
-        this.bKE.bT(false);
+    private void TE() {
+        this.bqI = new com.baidu.tieba.enterForum.a.b(this.Gf, u.class, r.h.home_like_item_in_edit_list, this.aRj);
+        this.bqI.bS(false);
     }
 
-    private void Zs() {
-        this.bKF = new com.baidu.tieba.enterForum.a.a(this.Gf, m.class, r.h.home_like_item_in_edit_grid, this.aRS);
-        this.bKF.bT(false);
+    private void TF() {
+        this.bqJ = new com.baidu.tieba.enterForum.a.a(this.Gf, m.class, r.h.home_like_item_in_edit_grid, this.aRj);
+        this.bqJ.bS(false);
     }
 
-    public void r(TbPageContext<?> tbPageContext) {
+    public void s(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.bKD.get() != null) {
-                this.bKD.get().r(tbPageContext);
+            if (this.bqH.get() != null) {
+                this.bqH.get().s(tbPageContext);
             }
-            if (this.bKG == 2) {
-                if (this.bKF != null) {
-                    this.bKF.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            if (this.bqK == 2) {
+                if (this.bqJ != null) {
+                    this.bqJ.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
                 }
-            } else if (this.bKE != null) {
-                this.bKE.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            } else if (this.bqI != null) {
+                this.bqI.a(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
     }

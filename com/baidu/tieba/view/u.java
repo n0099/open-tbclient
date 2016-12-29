@@ -2,11 +2,11 @@ package com.baidu.tieba.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ t ggq;
+    final /* synthetic */ t fvi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.ggq = tVar;
+        this.fvi = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -14,7 +14,7 @@ public class u extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.g.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         if (aVar != null) {
-            aVar.e(this.ggq.ggi);
+            aVar.e(this.fvi.fva);
         }
     }
 

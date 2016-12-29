@@ -1,60 +1,27 @@
 package com.baidu.tieba.card;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.r;
+import android.view.View;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp extends CustomMessageListener {
-    final /* synthetic */ bl bey;
+public class bp implements com.baidu.tbadk.widget.layout.h {
+    private final /* synthetic */ LinkedList bcT;
+    private final /* synthetic */ com.baidu.tbadk.core.data.bg bcU;
+    final /* synthetic */ bn bdP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bp(bl blVar, int i) {
-        super(i);
-        this.bey = blVar;
+    public bp(bn bnVar, LinkedList linkedList, com.baidu.tbadk.core.data.bg bgVar) {
+        this.bdP = bnVar;
+        this.bcT = linkedList;
+        this.bcU = bgVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        CardPersonDynamicThreadData cardPersonDynamicThreadData;
-        CardPersonDynamicThreadData cardPersonDynamicThreadData2;
-        TextView textView;
-        TextView textView2;
-        CardPersonDynamicThreadData cardPersonDynamicThreadData3;
-        boolean Pa;
-        TextView textView3;
-        CardPersonDynamicThreadData cardPersonDynamicThreadData4;
-        TextView textView4;
-        CardPersonDynamicThreadData cardPersonDynamicThreadData5;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            cardPersonDynamicThreadData = this.bey.bej;
-            if (cardPersonDynamicThreadData != null) {
-                cardPersonDynamicThreadData2 = this.bey.bej;
-                if (cardPersonDynamicThreadData2.threadId != null) {
-                    textView = this.bey.aOH;
-                    if (textView != null) {
-                        textView2 = this.bey.beq;
-                        if (textView2 != null) {
-                            cardPersonDynamicThreadData3 = this.bey.bej;
-                            if (((String) customResponsedMessage.getData()).equals(cardPersonDynamicThreadData3.threadId)) {
-                                Pa = this.bey.Pa();
-                                if (!Pa) {
-                                    textView3 = this.bey.aOH;
-                                    cardPersonDynamicThreadData4 = this.bey.bej;
-                                    an.a(textView3, cardPersonDynamicThreadData4.threadId, r.d.cp_cont_b, r.d.cp_cont_d);
-                                    textView4 = this.bey.beq;
-                                    cardPersonDynamicThreadData5 = this.bey.bej;
-                                    an.a(textView4, cardPersonDynamicThreadData5.threadId, r.d.cp_cont_j, r.d.cp_cont_d);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+    @Override // com.baidu.tbadk.widget.layout.h
+    public void c(View view, int i, boolean z) {
+        if (z) {
+            this.bdP.OD();
+        } else {
+            this.bdP.a(this.bcT, i, this.bcU);
         }
     }
 }

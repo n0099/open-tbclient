@@ -12,9 +12,9 @@ public class r implements m {
     }
 
     @Override // com.baidu.tieba.homepage.personalize.m
-    public void kb(int i) {
+    public void jm(int i) {
         BdTypeListView bdTypeListView;
-        bdTypeListView = this.this$0.aML;
+        bdTypeListView = this.this$0.aMc;
         bdTypeListView.post(new s(this, i));
     }
 }

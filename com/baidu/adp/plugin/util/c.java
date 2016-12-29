@@ -7,7 +7,6 @@ import java.util.Comparator;
 public class c implements Comparator<File> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    /* renamed from: c */
     public int compare(File file, File file2) {
         int I;
         if (file == null || file2 == null) {

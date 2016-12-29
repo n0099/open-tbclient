@@ -7,11 +7,11 @@ public interface v {
 
     void H(Context context, String str);
 
-    void av(Context context);
+    void at(Context context);
 
-    String hh(String str);
+    String hc(String str);
 
-    String hi(String str);
+    String hd(String str);
 
-    void hj(String str);
+    void he(String str);
 }

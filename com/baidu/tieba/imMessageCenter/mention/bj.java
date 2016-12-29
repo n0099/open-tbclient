@@ -1,25 +1,20 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj extends CustomMessageListener {
+public class bj implements Runnable {
+    final /* synthetic */ bb ddm;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(int i) {
-        super(i);
+    public bj(bb bbVar) {
+        this.ddm = bbVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            if (TbadkCoreApplication.isLogin()) {
-                ai.aBx().start();
-            } else {
-                ai.aBx().destroy();
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        bdListView = this.ddm.dde;
+        bdListView.kv();
     }
 }

@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.d;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a YC = null;
+    private static a XW = null;
 
     public static void f(Context context, int i) {
-        if (YC != null) {
-            YC.f(context, i);
+        if (XW != null) {
+            XW.f(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (YC != null) {
-            YC.b(context, i, z);
+        if (XW != null) {
+            XW.b(context, i, z);
         }
     }
 
-    public static void V(Context context) {
-        if (YC != null) {
-            YC.V(context);
+    public static void T(Context context) {
+        if (XW != null) {
+            XW.T(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (YC != null) {
-            YC.c(context, i, z);
+        if (XW != null) {
+            XW.c(context, i, z);
         }
     }
 
-    public static Class<?> ue() {
-        if (YC == null) {
+    public static Class<?> tP() {
+        if (XW == null) {
             return null;
         }
-        return YC.ue();
+        return XW.tP();
     }
 
-    public static String uf() {
-        if (YC == null) {
+    public static String tQ() {
+        if (XW == null) {
             return null;
         }
-        return YC.uf();
+        return XW.tQ();
     }
 
     public static void a(a aVar) {
-        YC = aVar;
+        XW = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (YC == null) {
+        if (XW == null) {
             return -1;
         }
-        return YC.getCurrentTabType();
+        return XW.getCurrentTabType();
     }
 }

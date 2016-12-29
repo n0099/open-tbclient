@@ -5,29 +5,29 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ag;
+import com.baidu.tbadk.core.data.af;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Mz = null;
-    protected static boolean MB = false;
-    protected String Mw = "183322726";
-    protected boolean MA = true;
-    protected transient List<String> Mx = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> Mx = null;
+    protected static boolean Mz = false;
+    protected String Mu = "183322726";
+    protected boolean My = true;
+    protected transient List<String> Mv = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(boolean z, int i, int i2, ag agVar);
+        void a(boolean z, int i, int i2, af afVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a(TbPageContext tbPageContext, String str, String str2, String str3);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bc(int i);
+    public abstract void bd(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (Mz == null) {
-            Mz = new WeakReference<>(tbPageContext);
+        if (Mx == null) {
+            Mx = new WeakReference<>(tbPageContext);
             return;
         }
-        Mz.clear();
-        Mz = null;
-        Mz = new WeakReference<>(tbPageContext);
+        Mx.clear();
+        Mx = null;
+        Mx = new WeakReference<>(tbPageContext);
     }
 
     public boolean nL() {
-        return MB;
+        return Mz;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ae(boolean z) {
-        this.MA = z;
+        this.My = z;
     }
 
     public boolean nF() {
-        return this.MA;
+        return this.My;
     }
 
     public void nH() {
-        if (Mz != null) {
-            Mz.get();
-            Mz.clear();
-            Mz = null;
+        if (Mx != null) {
+            Mx.get();
+            Mx.clear();
+            Mx = null;
         }
     }
 }

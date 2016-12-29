@@ -29,7 +29,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         }
 
         @Override // com.baidu.tieba.QuickPlayer.d
-        public b Jm() throws RemoteException {
+        public b IH() throws RemoteException {
             return new h(QuickMediaPlayerService.this);
         }
     }

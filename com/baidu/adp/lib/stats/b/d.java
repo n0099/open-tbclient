@@ -11,7 +11,7 @@ public class d {
             aVar.fs();
             if (!aVar.fA()) {
                 eVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                eVar.X(3);
+                eVar.Y(3);
             }
             com.baidu.adp.lib.Disk.d.cB().c(eVar);
         }

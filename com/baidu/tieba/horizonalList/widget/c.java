@@ -5,11 +5,11 @@ import com.baidu.tieba.horizonalList.widget.AbsHListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ AbsHListView.e cQa;
+    final /* synthetic */ AbsHListView.e cvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AbsHListView.e eVar) {
-        this.cQa = eVar;
+        this.cvg = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -29,7 +29,7 @@ public class c implements Runnable {
         i = absHListView.mActivePointerId;
         absHListView2 = AbsHListView.this;
         velocityTracker = absHListView2.mVelocityTracker;
-        o oVar = this.cQa.cPX;
+        o oVar = this.cvg.cvd;
         if (velocityTracker != null && i != -1) {
             absHListView3 = AbsHListView.this;
             i2 = absHListView3.mMaximumVelocity;
@@ -43,11 +43,11 @@ public class c implements Runnable {
                 absHListView7.postDelayed(this, 40L);
                 return;
             }
-            this.cQa.apL();
+            this.cvg.akn();
             absHListView5 = AbsHListView.this;
-            absHListView5.cPb = 3;
+            absHListView5.cuh = 3;
             absHListView6 = AbsHListView.this;
-            absHListView6.ky(1);
+            absHListView6.jI(1);
         }
     }
 }

@@ -1,22 +1,36 @@
 package com.baidu.tieba.frs.utils;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.r;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
-class m implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext aEn;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bXf;
+class m implements a.b {
+    private final /* synthetic */ long bDw;
+    private final /* synthetic */ String bDx;
+    private final /* synthetic */ FrsActivity bOc;
+    private final /* synthetic */ com.baidu.tieba.frs.view.o bOd;
+    private final /* synthetic */ ShareFromFrsMsgData bOe;
+    private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(com.baidu.tbadk.coreExtra.share.f fVar, TbPageContext tbPageContext) {
-        this.bXf = fVar;
-        this.aEn = tbPageContext;
+    public m(FrsActivity frsActivity, com.baidu.tieba.frs.view.o oVar, long j, String str, String str2, ShareFromFrsMsgData shareFromFrsMsgData) {
+        this.bOc = frsActivity;
+        this.bOd = oVar;
+        this.bDw = j;
+        this.val$name = str;
+        this.bDx = str2;
+        this.bOe = shareFromFrsMsgData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.lib.util.a.az(this.bXf.linkUrl);
-        com.baidu.adp.lib.util.k.showToast(this.aEn.getPageActivity(), view.getResources().getString(r.j.copy_pb_url_success));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.bOc.HidenSoftKeyPad((InputMethodManager) this.bOc.getSystemService("input_method"), this.bOd.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.bOc.getPageContext().getPageActivity(), this.bDw, this.val$name, this.bDx, 0, this.bOd.getLeaveMsg(), this.bOe.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

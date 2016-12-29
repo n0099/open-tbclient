@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private int aiJ;
-    private List<v> aiR;
-    private List<v> aiS;
-    private boolean aiT;
-    private boolean aiU;
-    private int aiV = 2;
-    private int aiW = 1;
+    private int aik;
+    private List<v> ais;
+    private List<v> ait;
+    private boolean aiu;
+    private boolean aiv;
+    private int aiw = 2;
+    private int aix = 1;
 
     public f(List<v> list, boolean z, int i) {
-        this.aiJ = 2;
-        this.aiR = list;
-        this.aiU = z;
-        this.aiJ = i;
+        this.aik = 2;
+        this.ais = list;
+        this.aiv = z;
+        this.aik = i;
         u(list);
     }
 
     public void u(List<v> list) {
-        if (list != null && list.size() >= this.aiV && list.size() <= this.aiJ) {
-            this.aiT = true;
-        } else if (list.size() > this.aiJ && this.aiU) {
-            this.aiT = true;
+        if (list != null && list.size() >= this.aiw && list.size() <= this.aik) {
+            this.aiu = true;
+        } else if (list.size() > this.aik && this.aiv) {
+            this.aiu = true;
         } else {
-            this.aiT = false;
+            this.aiu = false;
         }
-        this.aiS = xc();
+        this.ait = wP();
     }
 
-    private List<v> xc() {
+    private List<v> wP() {
         ArrayList arrayList = new ArrayList();
-        if (this.aiR != null) {
-            if (this.aiT) {
-                if (this.aiR.size() > this.aiJ && this.aiR.size() >= this.aiW) {
-                    arrayList.addAll(this.aiR.subList(0, this.aiJ));
-                    arrayList.addAll(0, this.aiR.subList(this.aiJ - this.aiW, this.aiJ));
-                    arrayList.addAll(this.aiR.subList(0, this.aiW));
+        if (this.ais != null) {
+            if (this.aiu) {
+                if (this.ais.size() > this.aik && this.ais.size() >= this.aix) {
+                    arrayList.addAll(this.ais.subList(0, this.aik));
+                    arrayList.addAll(0, this.ais.subList(this.aik - this.aix, this.aik));
+                    arrayList.addAll(this.ais.subList(0, this.aix));
                 } else {
-                    arrayList.addAll(this.aiR);
-                    arrayList.addAll(0, this.aiR.subList(this.aiR.size() - this.aiW, this.aiR.size()));
-                    arrayList.addAll(this.aiR.subList(0, this.aiW));
+                    arrayList.addAll(this.ais);
+                    arrayList.addAll(0, this.ais.subList(this.ais.size() - this.aix, this.ais.size()));
+                    arrayList.addAll(this.ais.subList(0, this.aix));
                 }
-            } else if (this.aiR != null && this.aiR.size() > 0 && this.aiR.size() >= this.aiW) {
-                arrayList.addAll(this.aiR.subList(0, this.aiW));
+            } else if (this.ais != null && this.ais.size() > 0 && this.ais.size() >= this.aix) {
+                arrayList.addAll(this.ais.subList(0, this.aix));
             }
         }
         return arrayList;
     }
 
-    public int dr(int i) {
-        if (this.aiT) {
-            int size = this.aiS.size();
+    public int dt(int i) {
+        if (this.aiu) {
+            int size = this.ait.size();
             if (i == 0) {
-                return (size - 1) - this.aiW;
+                return (size - 1) - this.aix;
             }
-            if (i == size - this.aiW) {
-                return this.aiW;
+            if (i == size - this.aix) {
+                return this.aix;
             }
             return i;
         }
         return i;
     }
 
-    public int ds(int i) {
-        if (this.aiT) {
-            return i - this.aiW;
+    public int du(int i) {
+        if (this.aiu) {
+            return i - this.aix;
         }
         return i;
     }
 
-    public int xd() {
-        if (this.aiR == null) {
+    public int wQ() {
+        if (this.ais == null) {
             return 0;
         }
-        return this.aiR.size();
+        return this.ais.size();
     }
 
-    public int xe() {
-        if (this.aiT) {
-            return this.aiW;
+    public int wR() {
+        if (this.aiu) {
+            return this.aix;
         }
         return 0;
     }
 
-    public void dt(int i) {
-        this.aiJ = i;
-        u(this.aiR);
-    }
-
-    public void du(int i) {
-        this.aiV = i;
-        u(this.aiR);
-    }
-
-    public List<v> xf() {
-        return this.aiS;
-    }
-
     public void dv(int i) {
-        this.aiW = i;
-        u(this.aiR);
+        this.aik = i;
+        u(this.ais);
+    }
+
+    public void dw(int i) {
+        this.aiw = i;
+        u(this.ais);
+    }
+
+    public List<v> wS() {
+        return this.ait;
+    }
+
+    public void dx(int i) {
+        this.aix = i;
+        u(this.ais);
     }
 }

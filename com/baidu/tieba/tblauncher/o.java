@@ -2,7 +2,7 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class o extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -17,21 +17,24 @@ class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ae aeVar;
-        ae aeVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
-            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-            int a = MainTabActivity.a(newsNotifyMessage);
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.zh().zC()) {
-                a -= newsNotifyMessage.getMsgOfficialMerge();
+        ad adVar;
+        ad adVar2;
+        ad adVar3;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            int oldSkinType = TbadkCoreApplication.m9getInst().getOldSkinType();
+            if (!((intValue == 2 || oldSkinType == 2) ? false : true)) {
+                if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
+                    adVar3 = this.this$0.fkF;
+                    adVar3.bhT().cz(1);
+                } else if (TbadkCoreApplication.m9getInst().isThemeIconCover()) {
+                    adVar2 = this.this$0.fkF;
+                    adVar2.bhT().cz(2);
+                } else {
+                    adVar = this.this$0.fkF;
+                    adVar.bhT().cz(1);
+                }
             }
-            if (a == 0) {
-                aeVar2 = this.this$0.fGw;
-                aeVar2.a(true, false, 0);
-                return;
-            }
-            aeVar = this.this$0.fGw;
-            aeVar.a(true, true, a);
         }
     }
 }

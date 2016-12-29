@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.message.UninstallInquirerBySwitchMessage;
 import com.baidu.tbadk.data.d;
 import com.baidu.tbadk.g.a;
@@ -92,16 +92,16 @@ public class TbadkApplication extends TbadkCoreApplication {
                 str = "";
             }
         }
-        if (b.um().getBoolean("is_domain_qa", false)) {
+        if (b.tW().getBoolean("is_domain_qa", false)) {
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         } else {
-            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.ajT).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
+            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.aju).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(str).fastLoginSupport(generateFastLoginFeatures()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         }
         try {
             SapiAccountManager.getInstance().init(build);
         } catch (Exception e2) {
         }
-        ab.GA().V(System.currentTimeMillis() - currentTimeMillis);
+        ab.Ga().U(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private FastLoginFeature[] generateFastLoginFeatures() {
@@ -125,18 +125,18 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         init(getContext());
         if ((this.isCdnTachometerProcess == null || !this.isCdnTachometerProcess.booleanValue()) && !this.isPluginInstallProcess) {
-            boolean GZ = i.GZ();
+            boolean Gv = i.Gv();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = GZ && isXiaomiPushSdkShouldOpen;
+            boolean z = Gv && isXiaomiPushSdkShouldOpen;
             long currentTimeMillis = System.currentTimeMillis();
             String str = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.iB().a(a.GF(), new com.baidu.tbadk.g.c(), GZ && isXiaomiPushSdkShouldOpen);
+            PluginPackageManager.iB().a(a.Gf(), new com.baidu.tbadk.g.c(), Gv && isXiaomiPushSdkShouldOpen);
             PluginSettings jb = com.baidu.adp.plugin.packageManager.pluginSettings.c.je().jb();
             if (jb != null) {
                 String containerVersion = jb.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.K(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    ab.GA().bZ(z);
-                    ab.GA().X(System.currentTimeMillis() - currentTimeMillis);
+                    ab.Ga().bY(z);
+                    ab.Ga().W(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
@@ -152,19 +152,19 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            ab.GA().ao(System.currentTimeMillis() - this.processCreateTime);
+            ab.Ga().an(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             long currentTimeMillis2 = System.currentTimeMillis();
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    bf.vP().c(null, new String[]{str3});
+                    bc.vz().c(null, new String[]{str3});
                 }
             });
-            ab.GA().ag(System.currentTimeMillis() - currentTimeMillis2);
+            ab.Ga().af(System.currentTimeMillis() - currentTimeMillis2);
         }
-        ab.GA().T(System.currentTimeMillis());
+        ab.Ga().S(System.currentTimeMillis());
     }
 
     private void initSettings() {
@@ -270,7 +270,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        b.um().remove("account_share");
+        b.tW().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -321,12 +321,12 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loadPatchs() {
         super.loadPatchs();
         PluginPackageManager.iB().d(String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
-        int i = b.um().getInt("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.iB().aC(i);
+        int i = b.tW().getInt("plugin_patch_hook_failed_count", 0);
+        PluginPackageManager.iB().aD(i);
         if (checkSyncPatchBlacklist() && m.im() && i == 0 && PluginPackageManager.iB().iF()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.iB().iG();
-            ab.GA().W(System.currentTimeMillis() - currentTimeMillis);
+            ab.Ga().V(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

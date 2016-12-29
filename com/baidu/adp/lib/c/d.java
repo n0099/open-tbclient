@@ -42,7 +42,7 @@ public class d {
         return this.mU;
     }
 
-    public boolean Y(int i) {
+    public boolean Z(int i) {
         if (this.mV.getMaxCrashTimes() >= 0 && this.mT >= this.mV.getMaxCrashTimes() + 2) {
             i = this.mV.getOffType();
         }
@@ -51,7 +51,7 @@ public class d {
         }
         this.mU = i;
         this.mV.d(this.mU, false);
-        Z(i);
+        aa(i);
         return true;
     }
 
@@ -65,9 +65,9 @@ public class d {
             for (String str2 : this.mV.dK()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
                     this.mT++;
-                    aa(this.mT);
+                    ab(this.mT);
                     if (this.mT >= this.mV.getMaxCrashTimes()) {
-                        Z(this.mV.getOffType());
+                        aa(this.mV.getOffType());
                         this.mU = this.mV.getOffType();
                         this.mV.d(this.mV.getOffType(), false);
                         return true;
@@ -80,9 +80,9 @@ public class d {
             for (String str3 : this.mV.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
                     this.mT++;
-                    aa(this.mT);
+                    ab(this.mT);
                     if (this.mT >= this.mV.getMaxCrashTimes()) {
-                        Z(this.mV.getOffType());
+                        aa(this.mV.getOffType());
                         this.mU = this.mV.getOffType();
                         this.mV.d(this.mV.getOffType(), false);
                         return true;
@@ -94,7 +94,7 @@ public class d {
         return false;
     }
 
-    private void Z(int i) {
+    private void aa(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
         edit.putInt(String.valueOf(this.mV.getName()) + mS, i);
         edit.commit();
@@ -108,7 +108,7 @@ public class d {
         return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.mV.getName()) + mQ, -1);
     }
 
-    private void aa(int i) {
+    private void ab(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
         edit.putInt(String.valueOf(this.mV.getName()) + mQ, i);
         edit.commit();
@@ -118,7 +118,7 @@ public class d {
         this.mT = 0;
     }
 
-    public void ab(int i) {
+    public void ac(int i) {
         this.mT = i;
     }
 }

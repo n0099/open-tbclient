@@ -6,95 +6,95 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TbImageView azK;
-    protected TextView azL;
-    protected TextView azM;
-    protected TextView azN;
+    protected TbImageView azh;
+    protected TextView azi;
+    protected TextView azj;
+    protected TextView azk;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(r.h.net_refresh_view_layout, (ViewGroup) null));
-        this.azK = (TbImageView) this.azD.findViewById(r.g.net_refresh_image);
-        this.azL = (TextView) this.azD.findViewById(r.g.net_refresh_desc);
-        this.azM = (TextView) this.azD.findViewById(r.g.net_refresh_title);
-        this.azN = (TextView) this.azD.findViewById(r.g.net_refresh_button);
-        this.azN.setOnClickListener(onClickListener);
-        this.azD.setOnClickListener(null);
+        this.azh = (TbImageView) this.aza.findViewById(r.g.net_refresh_image);
+        this.azi = (TextView) this.aza.findViewById(r.g.net_refresh_desc);
+        this.azj = (TextView) this.aza.findViewById(r.g.net_refresh_title);
+        this.azk = (TextView) this.aza.findViewById(r.g.net_refresh_button);
+        this.azk.setOnClickListener(onClickListener);
+        this.aza.setOnClickListener(null);
     }
 
-    public void gf(String str) {
+    public void gb(String str) {
         if (str == null) {
-            this.azL.setVisibility(8);
+            this.azi.setVisibility(8);
             return;
         }
-        this.azL.setVisibility(0);
-        this.azL.setText(str);
+        this.azi.setVisibility(0);
+        this.azi.setText(str);
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.azM.setText(str);
+            this.azj.setText(str);
         }
     }
 
-    public void gg(String str) {
+    public void gc(String str) {
         if (str != null) {
-            this.azN.setText(str);
+            this.azk.setText(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.f.a
-    public void EA() {
-        super.EA();
-        tB();
+    public void Ei() {
+        super.Ei();
+        tm();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.f.a
-    public void EB() {
-        super.EB();
-        this.azK.setImageResource(0);
+    public void Ej() {
+        super.Ej();
+        this.azh.setImageResource(0);
     }
 
-    public void eV(int i) {
-        ViewGroup.LayoutParams layoutParams = this.azK.getLayoutParams();
+    public void eW(int i) {
+        ViewGroup.LayoutParams layoutParams = this.azh.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.azK.setLayoutParams(marginLayoutParams);
+            this.azh.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void EG() {
-        this.azN.setVisibility(0);
-        this.azM.setVisibility(0);
-        at.c(this.azL, r.d.cp_cont_d, 1);
+    public void Eo() {
+        this.azk.setVisibility(0);
+        this.azj.setVisibility(0);
+        ar.c(this.azi, r.d.cp_cont_d, 1);
     }
 
-    public void EH() {
-        this.azN.setVisibility(8);
-        this.azM.setVisibility(8);
-        at.c(this.azL, r.d.cp_cont_b, 1);
+    public void Ep() {
+        this.azk.setVisibility(8);
+        this.azj.setVisibility(8);
+        ar.c(this.azi, r.d.cp_cont_b, 1);
     }
 
-    public void tB() {
-        if (Ez()) {
+    public void tm() {
+        if (Eh()) {
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            at.c(this.azK, r.f.net_refresh_emotion);
-            at.b(this.azL, r.d.cp_cont_d, 1, skinType);
-            at.b(this.azM, r.d.cp_cont_b, 1, skinType);
-            at.b(this.azN, r.d.cp_cont_g, 1, skinType);
-            at.d(this.azN, r.f.btn_appdownload, skinType);
-            at.l(this.azD, r.d.cp_bg_line_d);
+            ar.c(this.azh, r.f.net_refresh_emotion);
+            ar.b(this.azi, r.d.cp_cont_d, 1, skinType);
+            ar.b(this.azj, r.d.cp_cont_b, 1, skinType);
+            ar.b(this.azk, r.d.cp_cont_g, 1, skinType);
+            ar.d(this.azk, r.f.btn_appdownload, skinType);
+            ar.l(this.aza, r.d.cp_bg_line_d);
         }
     }
 
-    public View EF() {
-        return this.azD;
+    public View En() {
+        return this.aza;
     }
 }

@@ -12,59 +12,59 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ForumHeadSdkView extends LinearLayout {
-    private TextView Wu;
-    private TbImageView bEA;
-    private View bLK;
-    private TbImageView ckF;
-    private com.baidu.tbadk.core.data.x ckG;
+    private TextView VO;
+    private TbImageView bPO;
+    private TbImageView bPP;
+    private com.baidu.tbadk.core.data.w bPQ;
+    private View brO;
 
     public ForumHeadSdkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        aO(context);
+        aN(context);
     }
 
     public ForumHeadSdkView(Context context) {
         super(context);
-        aO(context);
+        aN(context);
     }
 
-    private void aO(Context context) {
+    private void aN(Context context) {
         LayoutInflater.from(context).inflate(r.h.frs_head_sdk_view, this);
-        this.bLK = findViewById(r.g.frs_head_sdk_container);
-        this.bEA = (TbImageView) findViewById(r.g.frs_head_sdk_image);
-        this.ckF = (TbImageView) findViewById(r.g.frs_head_sdk_title_image);
-        this.Wu = (TextView) findViewById(r.g.frs_head_sdk_title);
+        this.brO = findViewById(r.g.frs_head_sdk_container);
+        this.bPO = (TbImageView) findViewById(r.g.frs_head_sdk_image);
+        this.bPP = (TbImageView) findViewById(r.g.frs_head_sdk_title_image);
+        this.VO = (TextView) findViewById(r.g.frs_head_sdk_title);
     }
 
-    public void setData(com.baidu.tbadk.core.data.x xVar) {
-        if (xVar != null) {
-            this.ckG = xVar;
-            this.bEA.c(this.ckG.pW(), 10, false);
-            String pX = this.ckG.pX();
-            if (StringUtils.isNull(pX)) {
-                this.Wu.setVisibility(8);
-                this.ckF.setVisibility(8);
-            } else if (pX.startsWith("http")) {
-                this.Wu.setVisibility(8);
-                this.ckF.c(pX, 10, false);
+    public void setData(com.baidu.tbadk.core.data.w wVar) {
+        if (wVar != null) {
+            this.bPQ = wVar;
+            this.bPO.c(this.bPQ.pX(), 10, false);
+            String pY = this.bPQ.pY();
+            if (StringUtils.isNull(pY)) {
+                this.VO.setVisibility(8);
+                this.bPP.setVisibility(8);
+            } else if (pY.startsWith("http")) {
+                this.VO.setVisibility(8);
+                this.bPP.c(pY, 10, false);
             } else {
-                this.ckF.setVisibility(8);
-                this.Wu.setText(pX);
+                this.bPP.setVisibility(8);
+                this.VO.setText(pY);
             }
         }
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.bLK.setOnClickListener(onClickListener);
+        this.brO.setOnClickListener(onClickListener);
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        this.bEA.invalidate();
+        this.bPO.invalidate();
         tbPageContext.getLayoutMode().ai(i == 1);
         tbPageContext.getLayoutMode().x(this);
     }
 
     public void show() {
-        this.bLK.setVisibility(0);
+        this.brO.setVisibility(0);
     }
 }

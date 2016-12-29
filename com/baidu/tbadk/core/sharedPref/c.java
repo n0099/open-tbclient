@@ -6,22 +6,22 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ b Zf;
-    private final /* synthetic */ Uri Zg;
-    private final /* synthetic */ ContentValues Zh;
+    private final /* synthetic */ Uri YA;
+    private final /* synthetic */ ContentValues YB;
+    final /* synthetic */ b Yz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, Uri uri, ContentValues contentValues) {
-        this.Zf = bVar;
-        this.Zg = uri;
-        this.Zh = contentValues;
+        this.Yz = bVar;
+        this.YA = uri;
+        this.YB = contentValues;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        this.Zf.b(this.Zg, this.Zh);
+        this.Yz.b(this.YA, this.YB);
         return null;
     }
 }

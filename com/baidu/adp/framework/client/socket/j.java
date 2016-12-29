@@ -46,23 +46,23 @@ public class j {
     public static final int io = BASE_ERROR_NO - 501;
     private static String iq = null;
     private static String ir = null;
-    private static String[] iu = null;
-    private static int[] iw = com.baidu.adp.framework.c.reconStrategy;
-    private static ArrayList<BasicNameValuePair> ix = null;
+    private static String[] it = null;
+    private static int[] iu = com.baidu.adp.framework.c.reconStrategy;
+    private static ArrayList<BasicNameValuePair> iw = null;
 
-    public static String P(int i) {
+    public static String Q(int i) {
         int i2 = BASE_ERROR_NO - i;
         Application app = BdBaseApplication.getInst().getApp();
         return (i2 <= -300 || i2 > -200) ? app.getString(R.string.im_error_default) : app.getString(R.string.im_error_codec);
     }
 
     public static int[] bP() {
-        return iw;
+        return iu;
     }
 
     public static void b(int[] iArr) {
         if (iArr != null) {
-            iw = iArr;
+            iu = iArr;
         }
     }
 
@@ -83,10 +83,10 @@ public class j {
     }
 
     public static ArrayList<BasicNameValuePair> bR() {
-        return ix;
+        return iw;
     }
 
     public static void c(ArrayList<BasicNameValuePair> arrayList) {
-        ix = arrayList;
+        iw = arrayList;
     }
 }

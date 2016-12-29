@@ -37,7 +37,7 @@ public class a extends OutputStream {
         return this.tb.remaining();
     }
 
-    public synchronized void aA(int i) {
+    public synchronized void aB(int i) {
         if (i > this.tb.capacity()) {
             ByteBuffer byteBuffer = this.tb;
             int position = this.tb.position();
@@ -52,7 +52,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
         if (this.tb.position() + 1 > this.tb.capacity()) {
-            aA(this.tb.capacity() + 1);
+            aB(this.tb.capacity() + 1);
         }
         this.tb.put((byte) i);
     }
@@ -60,7 +60,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         if (this.tb.position() + i2 > this.tb.capacity()) {
-            aA(this.tb.capacity() + i2);
+            aB(this.tb.capacity() + i2);
         }
         this.tb.put(bArr, i, i2);
     }

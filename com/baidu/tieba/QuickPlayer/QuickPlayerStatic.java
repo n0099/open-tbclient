@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class QuickPlayerStatic {
-    private static final CustomMessageListener aMw = new t(CmdConfigCustom.CMD_BACKGROUND_SWTICH);
+    private static final CustomMessageListener aLN = new t(CmdConfigCustom.CMD_BACKGROUND_SWTICH);
 
-    private static void Jt() {
+    private static void IO() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, new u());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void Ju() {
+    public static void IP() {
         Intent intent = new Intent(TbadkCoreApplication.m9getInst(), QuickMediaPlayerService.class);
         intent.putExtra(QuickMediaPlayerService.KEY_RELEASE_ALL_PLAYERS, true);
         TbadkCoreApplication.m9getInst().startService(intent);
     }
 
     static {
-        Jt();
-        MessageManager.getInstance().registerListener(aMw);
-        m.Jq();
+        IO();
+        MessageManager.getInstance().registerListener(aLN);
+        m.IL();
     }
 }

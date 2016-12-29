@@ -1,69 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cz {
-    private TbPageContext GO;
-    private RelativeLayout efO;
-    private com.baidu.tbadk.editortools.e.p ewI;
-    private com.baidu.tieba.pb.pb.main.view.c ewJ;
+public class cz extends CustomMessageListener {
+    final /* synthetic */ cy ebj;
 
-    public cz(TbPageContext tbPageContext, com.baidu.tieba.pb.pb.main.view.c cVar, RelativeLayout relativeLayout) {
-        this.GO = tbPageContext;
-        this.efO = relativeLayout;
-        this.ewJ = cVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz(cy cyVar, int i) {
+        super(i);
+        this.ebj = cyVar;
     }
 
-    public void aPU() {
-        if (this.ewI != null) {
-            this.ewI.DS();
-        }
-    }
-
-    private void aPV() {
-        if (this.efO != null && this.ewI == null) {
-            this.ewI = (com.baidu.tbadk.editortools.e.p) new com.baidu.tbadk.editortools.e.t().an(this.GO.getPageActivity());
-            this.ewI.a(this.GO);
-            this.ewI.b(this.ewJ);
-            this.ewI.CO().bC(true);
-            this.ewI.e(this.GO);
-            aPW();
-        }
-    }
-
-    public void bI(String str, String str2) {
-        aPV();
-        this.ewI.setReplyId(str);
-        this.ewI.fT(str2);
-    }
-
-    private void aPW() {
-        if (this.efO != null && this.ewI != null && this.ewI.CO() != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(12);
-            this.efO.addView(this.ewI.CO(), layoutParams);
-            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        }
-    }
-
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.ewI != null) {
-            this.ewI.onActivityResult(i, i2, intent);
-        }
-    }
-
-    public void onStop() {
-        if (this.ewI != null) {
-            this.ewI.onStop();
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.ewI != null && this.ewI.CO() != null) {
-            this.ewI.CO().onChangeSkinType(i);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.ebj.i(customResponsedMessage);
     }
 }

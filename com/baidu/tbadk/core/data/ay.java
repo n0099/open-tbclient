@@ -1,39 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import tbclient.RecommendInfo;
+import com.baidu.adp.lib.util.StringUtils;
 import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class ay extends bk {
-    public static final BdUniqueId Ta = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<bc> Tb = new ArrayList<>();
+public class ay {
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    bc bcVar = new bc();
-                    bcVar.a(schoolRecomUserInfo);
-                    this.Tb.add(bcVar);
-                }
-            }
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bk
-    public String getTitle() {
-        return this.title;
+    public String getUid() {
+        return this.uid;
     }
 
-    public ArrayList<bc> qN() {
-        return this.Tb;
+    public String qT() {
+        return this.uname;
     }
 
-    @Override // com.baidu.tbadk.core.data.bk, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Ta;
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public String qU() {
+        return this.institute;
+    }
+
+    public int getIsLike() {
+        return this.isLike;
     }
 }

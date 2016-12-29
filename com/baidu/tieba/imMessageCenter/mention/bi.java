@@ -1,28 +1,32 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ bf dAu;
+public class bi implements b.d {
+    final /* synthetic */ bb ddm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(bf bfVar) {
-        this.dAu = bfVar;
+    public bi(bb bbVar) {
+        this.ddm = bbVar;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-        az azVar;
-        az azVar2;
-        azVar = this.dAu.dAn;
-        if (azVar != null) {
-            azVar2 = this.dAu.dAn;
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(azVar2.onBackPressed()));
+    @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.q qVar, WriteData writeData, AntiData antiData) {
+        ReplyMessageActivity replyMessageActivity;
+        com.baidu.tbadk.editortools.e.p pVar;
+        ReplyMessageActivity replyMessageActivity2;
+        replyMessageActivity = this.ddm.dcV;
+        replyMessageActivity.hideProgressBar();
+        pVar = this.ddm.ddg;
+        pVar.CB().hide();
+        if (postWriteCallBackData != null && qVar == null && !AntiHelper.rp(postWriteCallBackData.getErrorCode())) {
+            replyMessageActivity2 = this.ddm.dcV;
+            replyMessageActivity2.showToast(postWriteCallBackData.getErrorString());
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
     }
 }

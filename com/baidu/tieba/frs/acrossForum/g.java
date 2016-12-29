@@ -7,13 +7,13 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ c bWJ;
+    final /* synthetic */ c bCT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(c cVar, int i) {
         super(i);
-        this.bWJ = cVar;
+        this.bCT = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,11 +22,11 @@ public class g extends CustomMessageListener {
         FrsActivity frsActivity;
         boolean z;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId)) {
-            frsActivity = this.bWJ.bTA;
+            frsActivity = this.bCT.bzH;
             if (frsActivity.getUniqueId().equals((BdUniqueId) customResponsedMessage.getData())) {
-                z = this.bWJ.bWF;
+                z = this.bCT.bCP;
                 if (!z) {
-                    this.bWJ.adS();
+                    this.bCT.Ym();
                 }
             }
         }

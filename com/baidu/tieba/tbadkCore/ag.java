@@ -1,30 +1,67 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class ag extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ WriteData fBk;
-    private final /* synthetic */ String fBl;
+public class ag extends com.baidu.adp.base.e {
+    private static final String aWL = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aWL);
+    private final HttpMessageListener aWM;
+    private a ffs;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(WriteData writeData, String str) {
-        this.fBk = writeData;
-        this.fBl = str;
+    /* loaded from: classes.dex */
+    public interface a {
+        void H(int i, String str);
+
+        void hw(String str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.adp.lib.cache.o<String> cC = com.baidu.tbadk.core.b.a.tm().cC("tb.pb_editor");
-        if (this.fBk != null && this.fBk.hasContentToSave()) {
-            cC.a(ad.rC(this.fBl), this.fBk.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
-            return null;
+    static {
+        task.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(task);
+    }
+
+    public ag(TbPageContext tbPageContext, a aVar) {
+        super(tbPageContext);
+        this.ffs = null;
+        this.aWM = new ah(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.ffs = aVar;
+    }
+
+    public void registerListener() {
+        this.aWM.setSelfListener(true);
+        this.aWM.setTag(getUniqueId());
+        registerListener(this.aWM);
+    }
+
+    public void a(String str, String str2, int i, String str3) {
+        String str4;
+        if (i == 1) {
+            str4 = "unlike";
+        } else {
+            str4 = "like";
         }
-        cC.remove(ad.rC(this.fBl));
-        return null;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        httpMessage.addParam("st_type", str4);
+        httpMessage.addParam("action", str4);
+        httpMessage.addParam("post_id", new StringBuilder(String.valueOf(str)).toString());
+        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(str2)).toString());
+        httpMessage.addParam("st_param", str3);
+        sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

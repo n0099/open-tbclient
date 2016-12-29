@@ -4,18 +4,18 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
-import com.baidu.tbadk.editortools.l;
+import com.baidu.tbadk.editortools.j;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView;
 /* loaded from: classes.dex */
 class e implements MultiImgToolView.a {
-    final /* synthetic */ MultiImgToolView avX;
+    final /* synthetic */ MultiImgToolView avu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MultiImgToolView multiImgToolView) {
-        this.avX = multiImgToolView;
+        this.avu = multiImgToolView;
     }
 
     @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
@@ -28,70 +28,70 @@ class e implements MultiImgToolView.a {
         WriteImagesInfo writeImagesInfo3;
         TextView textView;
         WriteImagesInfo writeImagesInfo4;
-        l lVar;
-        l lVar2;
+        j jVar;
+        j jVar2;
         int i;
-        l lVar3;
+        j jVar3;
         int i2;
         boolean z;
         WriteImagesInfo writeImagesInfo5;
         TextView textView2;
         String str;
-        l lVar4;
-        l lVar5;
-        l lVar6;
+        j jVar4;
+        j jVar5;
+        j jVar6;
         int i3;
-        dragHorizonScrollView = this.avX.avL;
-        if (!dragHorizonScrollView.bmI()) {
-            this.avX.bo(view);
-            dragHorizonScrollView2 = this.avX.avL;
-            int bp = dragHorizonScrollView2.bp(view);
-            if (bp >= 0) {
-                writeImagesInfo = this.avX.avO;
-                if (bp < writeImagesInfo.getChosedFiles().size()) {
-                    writeImagesInfo2 = this.avX.avO;
-                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(bp);
+        dragHorizonScrollView = this.avu.avi;
+        if (!dragHorizonScrollView.bgx()) {
+            this.avu.bn(view);
+            dragHorizonScrollView2 = this.avu.avi;
+            int bo = dragHorizonScrollView2.bo(view);
+            if (bo >= 0) {
+                writeImagesInfo = this.avu.avl;
+                if (bo < writeImagesInfo.getChosedFiles().size()) {
+                    writeImagesInfo2 = this.avu.avl;
+                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(bo);
                     if (remove.isTempFile()) {
                         com.baidu.adp.lib.Disk.d.cB().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                     }
-                    dragHorizonScrollView3 = this.avX.avL;
+                    dragHorizonScrollView3 = this.avu.avi;
                     int maxItemNum = dragHorizonScrollView3.getMaxItemNum();
-                    writeImagesInfo3 = this.avX.avO;
+                    writeImagesInfo3 = this.avu.avl;
                     int size = writeImagesInfo3.size();
-                    String string = this.avX.getResources().getString(r.j.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
-                    textView = this.avX.avM;
+                    String string = this.avu.getResources().getString(r.j.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
+                    textView = this.avu.avj;
                     textView.setText(string);
-                    writeImagesInfo4 = this.avX.avO;
+                    writeImagesInfo4 = this.avu.avl;
                     int size2 = writeImagesInfo4.getChosedFiles().size();
-                    lVar = this.avX.EL;
-                    if (lVar != null) {
-                        lVar2 = this.avX.EL;
-                        i = this.avX.avS;
-                        lVar2.b(new com.baidu.tbadk.editortools.a(i, -1, null));
+                    jVar = this.avu.EM;
+                    if (jVar != null) {
+                        jVar2 = this.avu.EM;
+                        i = this.avu.avp;
+                        jVar2.b(new com.baidu.tbadk.editortools.a(i, -1, null));
                         if (size2 > 0) {
-                            lVar6 = this.avX.EL;
-                            i3 = this.avX.avT;
-                            lVar6.b(new com.baidu.tbadk.editortools.a(2, i3, String.valueOf(size2)));
+                            jVar6 = this.avu.EM;
+                            i3 = this.avu.avq;
+                            jVar6.b(new com.baidu.tbadk.editortools.a(2, i3, String.valueOf(size2)));
                         } else {
-                            lVar3 = this.avX.EL;
-                            i2 = this.avX.avT;
-                            lVar3.b(new com.baidu.tbadk.editortools.a(2, i2, null));
+                            jVar3 = this.avu.EM;
+                            i2 = this.avu.avq;
+                            jVar3.b(new com.baidu.tbadk.editortools.a(2, i2, null));
                         }
                         if (maxItemNum == 1 && size2 == 0) {
-                            z = this.avX.avU;
+                            z = this.avu.avr;
                             if (z) {
-                                lVar5 = this.avX.EL;
-                                lVar5.b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                                jVar5 = this.avu.EM;
+                                jVar5.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                                 return;
                             }
-                            MultiImgToolView multiImgToolView = this.avX;
-                            writeImagesInfo5 = this.avX.avO;
+                            MultiImgToolView multiImgToolView = this.avu;
+                            writeImagesInfo5 = this.avu.avl;
                             multiImgToolView.a(writeImagesInfo5, true);
-                            textView2 = this.avX.avM;
-                            str = this.avX.avV;
+                            textView2 = this.avu.avj;
+                            str = this.avu.avs;
                             textView2.setText(str);
-                            lVar4 = this.avX.EL;
-                            lVar4.invalidate();
+                            jVar4 = this.avu.EM;
+                            jVar4.invalidate();
                         }
                     }
                 }

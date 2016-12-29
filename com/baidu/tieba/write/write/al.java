@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gpp;
+    final /* synthetic */ WriteActivity fDQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.gpp = writeActivity;
+        this.fDQ = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,26 +19,26 @@ public class al implements View.OnClickListener {
         TextView textView;
         View view2;
         com.baidu.tieba.write.b bVar;
-        com.baidu.tbadk.editortools.l lVar;
+        com.baidu.tbadk.editortools.j jVar;
         InputMethodManager inputMethodManager;
         EditText editText;
         InputMethodManager inputMethodManager2;
         EditText editText2;
-        textView = this.gpp.fsS;
+        textView = this.fDQ.eWL;
         textView.setVisibility(0);
-        view2 = this.gpp.fsV;
+        view2 = this.fDQ.eWO;
         view2.setSelected(true);
-        bVar = this.gpp.fsT;
-        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.gpp.getPageContext().getPageActivity(), 1.0f));
-        lVar = this.gpp.auI;
-        lVar.Bc();
-        WriteActivity writeActivity = this.gpp;
-        inputMethodManager = this.gpp.mInputManager;
-        editText = this.gpp.fsM;
+        bVar = this.fDQ.eWM;
+        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.fDQ.getPageContext().getPageActivity(), 1.0f));
+        jVar = this.fDQ.aun;
+        jVar.AP();
+        WriteActivity writeActivity = this.fDQ;
+        inputMethodManager = this.fDQ.mInputManager;
+        editText = this.fDQ.eWF;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.gpp;
-        inputMethodManager2 = this.gpp.mInputManager;
-        editText2 = this.gpp.fsQ;
+        WriteActivity writeActivity2 = this.fDQ;
+        inputMethodManager2 = this.fDQ.mInputManager;
+        editText2 = this.fDQ.eWJ;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
     }
 }

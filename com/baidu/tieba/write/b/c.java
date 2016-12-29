@@ -1,14 +1,14 @@
 package com.baidu.tieba.write.b;
 
 import android.content.Context;
-import com.baidu.tbadk.editortools.aa;
+import com.baidu.tbadk.editortools.x;
 /* loaded from: classes.dex */
-public class c extends aa {
+public class c extends x {
     public c(Context context) {
         super(context, (String) null, 15);
-        this.avy = false;
-        this.avx = 3;
-        this.auC = new a(context);
-        this.avz = new int[]{9, 20, 19, 12, 13, 10, 11};
+        this.auV = false;
+        this.auU = 3;
+        this.auh = new a(context);
+        this.auW = new int[]{9, 20, 19, 12, 13, 10, 11};
     }
 }

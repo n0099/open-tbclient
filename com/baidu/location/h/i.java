@@ -44,10 +44,10 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
+    public static double IT = 0.0d;
     public static double IU = 0.0d;
     public static double IW = 0.0d;
     public static double IX = 0.0d;
-    public static double IY = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -65,41 +65,41 @@ public class i {
     public static int G = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
     public static float H = 2.0f;
     public static float I = 10.0f;
-    public static float LN = 50.0f;
-    public static float LO = 200.0f;
+    public static float LL = 50.0f;
+    public static float LM = 200.0f;
     public static int L = 16;
-    public static float LP = 0.9f;
+    public static float LN = 0.9f;
     public static int N = 10000;
-    public static float LQ = 0.5f;
-    public static float LR = 0.0f;
-    public static float LS = 0.1f;
-    public static int LT = 30;
+    public static float LO = 0.5f;
+    public static float LP = 0.0f;
+    public static float LQ = 0.1f;
+    public static int LR = 30;
     public static int S = 100;
     public static int T = 0;
     public static int U = 0;
     public static int V = 0;
     public static int W = 420000;
-    public static boolean LU = true;
-    public static boolean LV = true;
+    public static boolean LS = true;
+    public static boolean LT = true;
     public static int Z = 20;
-    public static int LW = 300;
-    public static int LX = 1000;
+    public static int LU = 300;
+    public static int LV = 1000;
     public static long ac = 900000;
     public static long ad = 420000;
     public static long ae = 180000;
-    public static long LY = 0;
-    public static long LZ = 15;
-    public static long Ma = 300000;
+    public static long LW = 0;
+    public static long LX = 15;
+    public static long LY = 300000;
     public static int ai = 1000;
     public static int aj = 0;
-    public static int Mb = 30000;
+    public static int LZ = 30000;
     public static int al = 30000;
+    public static float Ma = 10.0f;
+    public static float Mb = 6.0f;
     public static float Mc = 10.0f;
-    public static float Md = 6.0f;
-    public static float Me = 10.0f;
-    public static int Mf = 60;
+    public static int Md = 60;
     public static int aq = 70;
-    public static int Mg = 6;
+    public static int Me = 6;
 
     public static String a() {
         Calendar calendar = Calendar.getInstance();
@@ -152,9 +152,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < Md && ((i3 == 1 || i3 == 0) && (d3 < Mf || e2))) {
+                if (speed < Mb && ((i3 == 1 || i3 == 0) && (d3 < Md || e2))) {
                     n = 1;
-                } else if (speed >= Me || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= Mg))) {
+                } else if (speed >= Mc || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= Me))) {
                     n = 3;
                 } else {
                     n = 2;

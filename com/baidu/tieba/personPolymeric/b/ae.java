@@ -3,55 +3,55 @@ package com.baidu.tieba.personPolymeric.b;
 import com.baidu.tieba.d.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements a.InterfaceC0058a {
-    final /* synthetic */ ab eQt;
+public class ae implements a.InterfaceC0057a {
+    final /* synthetic */ ab etS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar) {
-        this.eQt = abVar;
+        this.etS = abVar;
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    @Override // com.baidu.tieba.d.a.InterfaceC0057a
     public void P(int i, int i2) {
         af afVar;
         af afVar2;
         af afVar3;
         af afVar4;
-        if (af(i2)) {
-            afVar = this.eQt.eQp;
+        if (aa(i2)) {
+            afVar = this.etS.etO;
             if (afVar != null) {
-                afVar2 = this.eQt.eQp;
-                if (afVar2.eQv != null) {
-                    afVar3 = this.eQt.eQp;
-                    afVar3.eQv.dv(false);
-                    afVar4 = this.eQt.eQp;
-                    afVar4.eQv.aaf();
+                afVar2 = this.etS.etO;
+                if (afVar2.etU != null) {
+                    afVar3 = this.etS.etO;
+                    afVar3.etU.dd(false);
+                    afVar4 = this.etS.etO;
+                    afVar4.etU.Us();
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0058a
+    @Override // com.baidu.tieba.d.a.InterfaceC0057a
     public void Q(int i, int i2) {
         af afVar;
         af afVar2;
         af afVar3;
         af afVar4;
-        if (af(i2)) {
-            afVar = this.eQt.eQp;
+        if (aa(i2)) {
+            afVar = this.etS.etO;
             if (afVar != null) {
-                afVar2 = this.eQt.eQp;
-                if (afVar2.eQv != null) {
-                    afVar3 = this.eQt.eQp;
-                    afVar3.eQv.dv(true);
-                    afVar4 = this.eQt.eQp;
-                    afVar4.eQv.aae();
+                afVar2 = this.etS.etO;
+                if (afVar2.etU != null) {
+                    afVar3 = this.etS.etO;
+                    afVar3.etU.dd(true);
+                    afVar4 = this.etS.etO;
+                    afVar4.etU.Ur();
                 }
             }
         }
     }
 
-    private boolean af(float f) {
+    private boolean aa(float f) {
         return Math.abs(f) >= 1.0f;
     }
 }

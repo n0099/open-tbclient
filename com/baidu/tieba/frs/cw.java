@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cw implements Animation.AnimationListener {
-    final /* synthetic */ cs bWl;
+    final /* synthetic */ cs bCv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cw(cs csVar) {
-        this.bWl = csVar;
+        this.bCv = csVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,8 +20,8 @@ public class cw implements Animation.AnimationListener {
         Runnable runnable;
         int i;
         com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.bWl.bWk;
-        i = this.bWl.bWh;
+        runnable = this.bCv.bCu;
+        i = this.bCv.bCr;
         eG.postDelayed(runnable, i);
     }
 

@@ -1,59 +1,117 @@
 package com.baidu.tieba.frs.i;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.v;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.k;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.data.bn;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.plugins.h;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadPendantClickableView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
-    final /* synthetic */ a cie;
+public class c extends y.a {
+    public HeadPendantClickableView bGj;
+    public LinearLayout bSA;
+    public TbImageView bSB;
+    public TbImageView bSC;
+    public TbImageView bSD;
+    public TbImageView bSE;
+    public TbImageView bSF;
+    public TbImageView bSG;
+    public TbImageView bSH;
+    public TbImageView bSI;
+    public TbImageView bSJ;
+    public TbImageView bSK;
+    public TbImageView bSL;
+    public TbImageView bSM;
+    public TbImageView bSN;
+    public TbImageView bSO;
+    public View bSq;
+    public HeadImageView bSr;
+    public TextView bSs;
+    public TextView bSt;
+    public TextView bSu;
+    public TextView bSv;
+    public LinearLayout bSw;
+    public LinearLayout bSx;
+    public LinearLayout bSy;
+    public LinearLayout bSz;
+    public View mRootView;
+    public int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.cie = aVar;
+    public c(BaseActivity baseActivity, View view) {
+        super(view);
+        this.mSkinType = 3;
+        this.mRootView = getView();
+        this.bSq = this.mRootView.findViewById(r.g.card_home_page_normal_thread_top_line);
+        this.bSr = (HeadImageView) this.mRootView.findViewById(r.g.card_home_page_normal_thread_user_header);
+        this.bGj = (HeadPendantClickableView) this.mRootView.findViewById(r.g.card_home_page_normal_thread_user_pendant_header);
+        this.bSr.setDefaultResource(17170445);
+        this.bSr.setDefaultErrorResource(r.f.icon_default_avatar100);
+        this.bSr.setDefaultBgResource(r.d.cp_bg_line_e);
+        this.bSr.setRadius(k.e(baseActivity.getPageContext().getPageActivity(), r.e.ds70));
+        if (this.bGj.getHeadView() != null) {
+            this.bGj.getHeadView().setIsRound(true);
+            this.bGj.getHeadView().setDrawBorder(false);
+            this.bGj.getHeadView().setDefaultResource(17170445);
+            this.bGj.getHeadView().setDefaultErrorResource(r.f.icon_default_avatar100);
+            this.bGj.getHeadView().setDefaultBgResource(r.d.cp_bg_line_e);
+            this.bGj.getHeadView().setRadius(k.e(baseActivity.getPageContext().getPageActivity(), r.e.ds70));
+        }
+        this.bGj.vY();
+        if (this.bGj.getPendantView() != null) {
+            this.bGj.getPendantView().setIsRound(true);
+            this.bGj.getPendantView().setDrawBorder(false);
+        }
+        this.bSs = (TextView) this.mRootView.findViewById(r.g.frs_wefan_tv_username);
+        this.bSt = (TextView) this.mRootView.findViewById(r.g.frs_wefan_tv_tips);
+        this.bSu = (TextView) this.mRootView.findViewById(r.g.frs_wefan_tv_title);
+        this.bSv = (TextView) this.mRootView.findViewById(r.g.frs_wefan_tv_date);
+        int width = ((WindowManager) view.getContext().getSystemService("window")).getDefaultDisplay().getWidth() - view.getResources().getDimensionPixelSize(r.e.ds168);
+        int i = width / 3;
+        int dimensionPixelSize = view.getResources().getDimensionPixelSize(r.e.ds3) + (width / 2);
+        this.bSB = (TbImageView) this.mRootView.findViewById(r.g.frs_wefan_cover_image);
+        b(this.bSB, width);
+        this.bSw = (LinearLayout) this.mRootView.findViewById(r.g.frs_wefan_image_row_1);
+        this.bSx = (LinearLayout) this.mRootView.findViewById(r.g.frs_wefan_image_row_2);
+        this.bSy = (LinearLayout) this.mRootView.findViewById(r.g.frs_wefan_image_row_3);
+        this.bSz = (LinearLayout) this.mRootView.findViewById(r.g.frs_wefan_image_row_4);
+        this.bSA = (LinearLayout) this.mRootView.findViewById(r.g.frs_wefan_image_row_5);
+        this.bSC = (TbImageView) this.bSw.getChildAt(0);
+        this.bSD = (TbImageView) this.bSw.getChildAt(1);
+        this.bSE = (TbImageView) this.bSw.getChildAt(2);
+        this.bSF = (TbImageView) this.bSx.getChildAt(0);
+        this.bSG = (TbImageView) this.bSx.getChildAt(1);
+        this.bSH = (TbImageView) this.bSx.getChildAt(2);
+        this.bSI = (TbImageView) this.bSy.getChildAt(0);
+        this.bSJ = (TbImageView) this.bSy.getChildAt(1);
+        this.bSK = (TbImageView) this.bSy.getChildAt(2);
+        this.bSL = (TbImageView) this.bSz.getChildAt(0);
+        this.bSM = (TbImageView) this.bSz.getChildAt(1);
+        this.bSN = (TbImageView) this.bSA.getChildAt(0);
+        this.bSO = (TbImageView) this.bSA.getChildAt(1);
+        b(this.bSC, i);
+        b(this.bSD, i);
+        b(this.bSE, i);
+        b(this.bSF, i);
+        b(this.bSG, i);
+        b(this.bSH, i);
+        b(this.bSI, i);
+        b(this.bSJ, i);
+        b(this.bSK, i);
+        b(this.bSL, dimensionPixelSize);
+        b(this.bSM, dimensionPixelSize);
+        b(this.bSN, dimensionPixelSize);
+        b(this.bSO, dimensionPixelSize);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseActivity baseActivity;
-        BaseActivity baseActivity2;
-        bn bnVar;
-        bn bnVar2;
-        bn bnVar3;
-        bn bnVar4;
-        bn bnVar5;
-        bn bnVar6;
-        v aJ = this.cie.aJ(((Integer) view.getTag()).intValue());
-        if (aJ != null && (aJ instanceof bk)) {
-            this.cie.cia = ((bk) aJ).rA();
-            baseActivity = this.cie.aTb;
-            if (h.f(baseActivity.getPageContext())) {
-                baseActivity2 = this.cie.aTb;
-                ThActivityDetailActivityConfig thActivityDetailActivityConfig = new ThActivityDetailActivityConfig(baseActivity2.getBaseContext());
-                bnVar = this.cie.cia;
-                String l = Long.toString(bnVar.getActivityId());
-                bnVar2 = this.cie.cia;
-                String activityName = bnVar2.getActivityName();
-                bnVar3 = this.cie.cia;
-                int startTime = bnVar3.getStartTime();
-                bnVar4 = this.cie.cia;
-                int sS = bnVar4.sS();
-                bnVar5 = this.cie.cia;
-                String location = bnVar5.getLocation();
-                bnVar6 = this.cie.cia;
-                thActivityDetailActivityConfig.createActivityDetailConfig(l, activityName, startTime, sS, location, bnVar6.sT(), ThActivityDetailActivityConfig.TH_FROM_FRS);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, thActivityDetailActivityConfig));
-            }
-            com.baidu.tieba.frs.h.b.agV().a(a.chm, (bk) aJ, 1);
-            TiebaStatic.log("c11150");
-        }
+    private void b(TbImageView tbImageView, int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbImageView.getLayoutParams();
+        layoutParams.height = i;
+        layoutParams.width = i;
+        tbImageView.setLayoutParams(layoutParams);
     }
 }

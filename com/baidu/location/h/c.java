@@ -6,7 +6,7 @@ import android.telephony.TelephonyManager;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c LC = null;
+    private static c LB = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -22,10 +22,10 @@ public class c {
     }
 
     public static c np() {
-        if (LC == null) {
-            LC = new c();
+        if (LB == null) {
+            LB = new c();
         }
-        return LC;
+        return LB;
     }
 
     public String a(boolean z) {

@@ -19,7 +19,7 @@ public class a extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Boolean bool;
         Boolean isSpeakerphone;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001280) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001273) {
             this.this$0.stopPlay();
             if ((customResponsedMessage.getData() instanceof Boolean) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
                 VoiceManager voiceManager = this.this$0;

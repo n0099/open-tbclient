@@ -3,7 +3,8 @@ package com.baidu.tieba.graffiti;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.ae;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.coreExtra.data.q;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.r;
 import org.json.JSONObject;
@@ -12,8 +13,8 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
     private boolean isNeedVcode;
     private int mErrCode;
     private String mErrMsg;
-    private ae mGraffitiInfo;
-    private com.baidu.tbadk.coreExtra.data.s vCodeData;
+    private ad mGraffitiInfo;
+    private q vCodeData;
 
     public int getErrCode() {
         return this.mErrCode;
@@ -31,7 +32,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
         this.mErrMsg = str;
     }
 
-    public com.baidu.tbadk.coreExtra.data.s getVCodeData() {
+    public q getVCodeData() {
         return this.vCodeData;
     }
 
@@ -39,7 +40,7 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
         return this.isNeedVcode;
     }
 
-    public ae getGraffitiInfo() {
+    public ad getGraffitiInfo() {
         return this.mGraffitiInfo;
     }
 
@@ -63,16 +64,16 @@ public class ResponseCommitGraffitiMessage extends JsonHttpResponsedMessage {
                 if (optJSONObject2 != null) {
                     this.isNeedVcode = optJSONObject2.optInt("need_vcode", 0) == 1;
                     if (this.isNeedVcode) {
-                        this.vCodeData = new com.baidu.tbadk.coreExtra.data.s();
+                        this.vCodeData = new q();
                         this.vCodeData.parserJson(optJSONObject2);
                     }
                 }
                 if (!this.isNeedVcode && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                    this.mGraffitiInfo = new ae();
+                    this.mGraffitiInfo = new ad();
                     this.mGraffitiInfo.parserJson(optJSONObject);
                     this.mGraffitiInfo.setType(1);
                     long c = com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), -1L);
-                    if (!this.mGraffitiInfo.qi() || c != this.mGraffitiInfo.getUid()) {
+                    if (!this.mGraffitiInfo.qj() || c != this.mGraffitiInfo.getUid()) {
                         setError(-3);
                         setErrCode(-3);
                         setErrorString(this.mErrMsg);

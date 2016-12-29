@@ -1,26 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dv extends com.baidu.tieba.tbadkCore.data.q {
-    public static final BdUniqueId eyO = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.aq eyP;
-    public com.baidu.tbadk.core.data.aq eyQ;
-    public com.baidu.tbadk.core.data.aq eyR;
+public class dv extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ dq edg;
+    private final /* synthetic */ dw edi;
+    private final /* synthetic */ String val$url;
 
-    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return eyO;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dv(dq dqVar, dw dwVar, String str) {
+        this.edg = dqVar;
+        this.edi = dwVar;
+        this.val$url = str;
     }
 
-    public boolean hasData() {
-        if (this.eyP == null || StringUtils.isNull(this.eyP.summary)) {
-            if (this.eyQ == null || StringUtils.isNull(this.eyQ.summary)) {
-                return (this.eyR == null || StringUtils.isNull(this.eyR.summary)) ? false : true;
-            }
-            return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        if (aVar == null) {
+            this.edi.edz.setVisibility(8);
+            this.edi.edA.setVisibility(8);
+        } else if (aVar.cY()) {
+            com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
+            aVar2.axE = this.val$url;
+            aVar2.axC = this.val$url;
+            this.edi.edA.setVisibility(0);
+            this.edi.edz.setVisibility(8);
+            this.edi.edA.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.edi.edA.a(aVar2);
+        } else {
+            this.edi.edA.setVisibility(8);
+            this.edi.edz.setVisibility(0);
+            this.edi.edz.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.edi.edz.c(this.val$url, 17, false);
         }
-        return true;
     }
 }

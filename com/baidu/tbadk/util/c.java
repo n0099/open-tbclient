@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c aFa = new c();
-    private b aFb;
-    private a aFc;
+    private static c aEu = new c();
+    private b aEv;
+    private a aEw;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,22 +17,22 @@ public class c {
     private c() {
     }
 
-    public static c GV() {
-        return aFa;
+    public static c Gr() {
+        return aEu;
     }
 
     public void a(a aVar) {
-        this.aFc = aVar;
-        if (this.aFb != null) {
-            this.aFb.cancel();
+        this.aEw = aVar;
+        if (this.aEv != null) {
+            this.aEv.cancel();
         }
-        this.aFb = new b(this, null);
-        this.aFb.setPriority(4);
-        this.aFb.execute(new String[0]);
+        this.aEv = new b(this, null);
+        this.aEv.setPriority(4);
+        this.aEv.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean GW() {
+    public boolean Gs() {
         int i;
         long j = 0;
         byte[] aG = com.baidu.adp.lib.util.e.aG("crash_hour_record.log");
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.GW());
+            return Boolean.valueOf(c.this.Gs());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(Boolean bool) {
-            if (c.this.aFc != null && bool != null) {
-                c.this.aFc.am(bool.booleanValue());
+            if (c.this.aEw != null && bool != null) {
+                c.this.aEw.am(bool.booleanValue());
             }
         }
     }

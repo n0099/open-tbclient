@@ -4,15 +4,15 @@ import com.baidu.tieba.play.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements w.a {
-    final /* synthetic */ a cax;
+    final /* synthetic */ a bGf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.cax = aVar;
+        this.bGf = aVar;
     }
 
     @Override // com.baidu.tieba.play.w.a
-    public void JW() {
-        this.cax.JU();
+    public void Jp() {
+        this.bGf.Jn();
     }
 }

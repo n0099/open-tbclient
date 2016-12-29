@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ c gjD;
+    final /* synthetic */ c fxY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.gjD = cVar;
+        this.fxY = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,10 +17,10 @@ public class e implements Runnable {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
         BaseWebView baseWebView;
-        baseActivity = this.gjD.awH;
+        baseActivity = this.fxY.awe;
         if (baseActivity != null) {
-            baseActivity2 = this.gjD.awH;
-            baseWebView = this.gjD.mWebView;
+            baseActivity2 = this.fxY.awe;
+            baseWebView = this.fxY.mWebView;
             baseActivity2.ShowSoftKeyPadDelay(baseWebView);
         }
     }

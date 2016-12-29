@@ -9,13 +9,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private TextView gjp;
-    private ImageView gjq;
-    private View gjr;
+    private TextView fxK;
+    private ImageView fxL;
+    private View fxM;
     private Context mContext;
 
     public a(Context context) {
@@ -32,34 +32,34 @@ public class a extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(r.h.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.gjp = (TextView) findViewById(r.g.prefix_text);
-        this.gjq = (ImageView) findViewById(r.g.prefix_checked);
-        this.gjr = findViewById(r.g.prefix_item_divider);
-        this.gjp.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        at.k(this.gjp, r.d.cp_bg_line_d);
-        this.gjq.setBackgroundDrawable(at.getDrawable(r.f.icon_set_list_ok_s));
-        at.k(this.gjr, r.d.cp_bg_line_c);
+        this.fxK = (TextView) findViewById(r.g.prefix_text);
+        this.fxL = (ImageView) findViewById(r.g.prefix_checked);
+        this.fxM = findViewById(r.g.prefix_item_divider);
+        this.fxK.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        ar.k(this.fxK, r.d.cp_bg_line_d);
+        this.fxL.setBackgroundDrawable(ar.getDrawable(r.f.icon_set_list_ok_s));
+        ar.k(this.fxM, r.d.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.gjp.setText(str);
+        this.fxK.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.gjp.setTextColor(i);
+        this.fxK.setTextColor(i);
     }
 
-    public void mg(boolean z) {
+    public void lu(boolean z) {
         if (z) {
-            this.gjq.setVisibility(0);
+            this.fxL.setVisibility(0);
         } else {
-            this.gjq.setVisibility(8);
+            this.fxL.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.gjr.getLayoutParams()).setMargins(k.e(this.mContext, r.e.ds30), 0, k.e(this.mContext, r.e.ds30), 0);
+            ((LinearLayout.LayoutParams) this.fxM.getLayoutParams()).setMargins(k.e(this.mContext, r.e.ds30), 0, k.e(this.mContext, r.e.ds30), 0);
         }
     }
 }

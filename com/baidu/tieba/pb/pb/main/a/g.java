@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ f eDr;
+    final /* synthetic */ f eht;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.eDr = fVar;
+        this.eht = fVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,24 +24,24 @@ public class g implements Runnable {
         TbPageContext tbPageContext;
         Handler handler;
         Runnable runnable;
-        dVar = this.eDr.Hu;
+        dVar = this.eht.Ht;
         if (dVar == null) {
-            str = this.eDr.mMessage;
+            str = this.eht.mMessage;
             if (!StringUtils.isNull(str)) {
                 com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                view = this.eDr.bL;
-                gVar.o(view).ad(0).y(true).z(true);
+                view = this.eht.bL;
+                gVar.o(view).ae(0).y(true).z(true);
                 gVar.a(new h(this));
-                this.eDr.Hu = gVar.dQ();
-                dVar2 = this.eDr.Hu;
+                this.eht.Ht = gVar.dQ();
+                dVar2 = this.eht.Ht;
                 dVar2.w(false);
-                dVar3 = this.eDr.Hu;
-                tbPageContext = this.eDr.GO;
+                dVar3 = this.eht.Ht;
+                tbPageContext = this.eht.GO;
                 dVar3.j(tbPageContext.getPageActivity());
-                this.eDr.eDn = true;
-                this.eDr.aSI();
-                handler = this.eDr.mHandler;
-                runnable = this.eDr.eDq;
+                this.eht.bxJ = true;
+                this.eht.VX();
+                handler = this.eht.mHandler;
+                runnable = this.eht.bxM;
                 handler.postDelayed(runnable, 3000L);
             }
         }

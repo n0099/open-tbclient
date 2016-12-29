@@ -88,10 +88,10 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             e eVar = new e(socketMessage, socketMessageTask, this);
             if (BdSocketLinkService.hasAbsoluteClose()) {
                 k.a("queue", socketMessage, 0, "sendMessage", j.il, "user manual close socket");
-                eVar.N(j.il);
+                eVar.O(j.il);
             } else if (!BdSocketLinkService.isAvailable()) {
                 k.a("queue", socketMessage, 0, "sendMessage", j.ia, "isManualBlock message be removed");
-                eVar.N(j.ia);
+                eVar.O(j.ia);
             } else {
                 k.a("queue", socketMessage, 0, "sendMessage", 0, "socketclient: send message");
                 c.a(eVar, this.hy);
@@ -162,9 +162,9 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         } else {
             i2 = j.hW;
         }
-        String P = j.P(i2);
+        String Q = j.Q(i2);
         e(eVar);
-        a(eVar, i2, P);
+        a(eVar, i2, Q);
     }
 
     public void c(e eVar) {
@@ -204,7 +204,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             if (socketResponsedMessage != null) {
                 socketResponsedMessage.setError(i);
                 if (str == null) {
-                    socketResponsedMessage.setErrorString(j.P(i));
+                    socketResponsedMessage.setErrorString(j.Q(i));
                 } else {
                     socketResponsedMessage.setErrorString(str);
                 }
@@ -310,8 +310,8 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             try {
                 com.baidu.adp.framework.client.socket.coder.c i = com.baidu.adp.framework.client.socket.coder.b.ca().i(bArr);
                 this.hE = 0;
-                int bW = i.iH.bW();
-                int bY = i.iH.bY();
+                int bW = i.iG.bW();
+                int bY = i.iG.bY();
                 k.a("queue", bW, bY, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
                 e g = g(bW, bY);
                 if (g != null) {
@@ -319,7 +319,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
                     g.ht = aVar.ht;
                 }
                 if (this.hC != null) {
-                    if (i.iH.bW() == this.hC.getCmd() && c.a(this.hy, this.hz)) {
+                    if (i.iG.bW() == this.hC.getCmd() && c.a(this.hy, this.hz)) {
                         bI();
                     }
                     this.hC.bl();
@@ -429,7 +429,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         return BdAsyncTask.getTaskNum(d.bm());
     }
 
-    public int O(int i) {
+    public int P(int i) {
         return BdAsyncTask.getTaskNum(String.valueOf(i), d.bm());
     }
 

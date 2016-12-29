@@ -16,15 +16,15 @@ import com.baidu.tieba.tbadkCore.writeModel.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements b.d {
-    final /* synthetic */ p axh;
+    final /* synthetic */ p awE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.axh = pVar;
+        this.awE = pVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.s sVar, WriteData writeData, AntiData antiData) {
+    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.q qVar, WriteData writeData, AntiData antiData) {
         b.d dVar;
         TbPageContext tbPageContext;
         com.baidu.tieba.tbadkCore.writeModel.b bVar;
@@ -32,16 +32,16 @@ public class q implements b.d {
         com.baidu.tieba.tbadkCore.writeModel.b bVar3;
         a aVar;
         b.d dVar2;
-        dVar = this.axh.axg;
+        dVar = this.awE.awD;
         if (dVar != null) {
-            dVar2 = this.axh.axg;
-            dVar2.callback(z, postWriteCallBackData, sVar, writeData, antiData);
+            dVar2 = this.awE.awD;
+            dVar2.callback(z, postWriteCallBackData, qVar, writeData, antiData);
         }
         if (z) {
-            this.axh.awy = null;
-            this.axh.axc = null;
-            this.axh.bJ(true);
-            this.axh.DQ();
+            this.awE.avV = null;
+            this.awE.awz = null;
+            this.awE.bJ(true);
+            this.awE.Dy();
         }
         int i = -1;
         String str = "";
@@ -50,34 +50,34 @@ public class q implements b.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            bVar = this.axh.awC;
-            WriteData bia = bVar.bia();
-            bVar2 = this.axh.awC;
+            bVar = this.awE.avZ;
+            WriteData bbN = bVar.bbN();
+            bVar2 = this.awE.avZ;
             bVar2.d((WriteData) null);
-            bVar3 = this.axh.awC;
-            bVar3.lp(false);
-            this.axh.awz = null;
-            if (bia != null && bia != null && bia.getType() == 2) {
-                aVar = this.axh.axe;
-                aVar.Dn();
+            bVar3 = this.awE.avZ;
+            bVar3.la(false);
+            this.awE.avW = null;
+            if (bbN != null && bbN != null && bbN.getType() == 2) {
+                aVar = this.awE.awB;
+                aVar.CW();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.sm(i)) {
-            this.axh.k(i, str);
-        } else if (sVar != null && writeData != null && !StringUtils.isNull(sVar.getVcode_pic_url())) {
-            writeData.setVcodeMD5(sVar.getVcode_md5());
-            writeData.setVcodeUrl(sVar.getVcode_pic_url());
-            writeData.setVcodeExtra(sVar.yd());
-            if (com.baidu.tbadk.j.a.gG(sVar.yc())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.axh.xL().getPageActivity(), 12006, writeData, false, sVar.yc())));
+        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.rp(i)) {
+            this.awE.k(i, str);
+        } else if (qVar != null && writeData != null && !StringUtils.isNull(qVar.getVcode_pic_url())) {
+            writeData.setVcodeMD5(qVar.getVcode_md5());
+            writeData.setVcodeUrl(qVar.getVcode_pic_url());
+            writeData.setVcodeExtra(qVar.xR());
+            if (com.baidu.tbadk.j.a.gB(qVar.xQ())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.awE.xz().getPageActivity(), 12006, writeData, false, qVar.xQ())));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.axh.xL().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.awE.xz().getPageActivity(), writeData, 12006)));
             }
         } else if (postWriteCallBackData != null && i == 227001) {
             MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.axh.Gf;
+            tbPageContext = this.awE.Gf;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(tbPageContext.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
         } else {
-            this.axh.xL().showToast(str);
+            this.awE.xz().showToast(str);
         }
     }
 }

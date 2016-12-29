@@ -1,29 +1,45 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import tbclient.PbContent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
-public class bm extends com.baidu.tbadk.widget.richText.h {
-    final /* synthetic */ bk Vv;
-    private final /* synthetic */ PbContent Vw;
+public class bm extends com.baidu.tieba.tbadkCore.data.q {
+    public static final BdUniqueId Vf = BdUniqueId.gen();
+    private String Sr;
+    private int position = 0;
+    private String summary;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bm(bk bkVar, int i, String str, PbContent pbContent) {
-        super(i, str);
-        this.Vv = bkVar;
-        this.Vw = pbContent;
+    public String sQ() {
+        return this.Sr;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.Vw.link)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, this.Vw.link));
+    public String sH() {
+        return this.summary;
+    }
+
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.Sr = topNews.news_link;
+            this.summary = topNews.summary;
         }
+    }
+
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Sr = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Vf;
     }
 }

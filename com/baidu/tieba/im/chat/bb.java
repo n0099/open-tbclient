@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements View.OnLongClickListener {
-    final /* synthetic */ as daW;
+    final /* synthetic */ as cGg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(as asVar) {
-        this.daW = asVar;
+        this.cGg = asVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.daW.dan.b(view, 4, this.daW.ape, 0L);
+        this.cGg.cFz.b(view, 4, this.cGg.aoG, 0L);
         return true;
     }
 }

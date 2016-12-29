@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.c.u;
+import com.baidu.tieba.lego.card.d.u;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
@@ -11,32 +11,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> dHv;
+    private final List<e> dkP;
 
     /* synthetic */ b(b bVar) {
         this();
     }
 
     private b() {
-        this.dHv = new ArrayList(4);
+        this.dkP = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b dHw = new b(null);
+        private static final b dkQ = new b(null);
     }
 
-    public static b aDN() {
-        return a.dHw;
+    public static b axd() {
+        return a.dkQ;
     }
 
     public synchronized void a(e eVar) {
-        this.dHv.add(eVar);
+        this.dkP.add(eVar);
+    }
+
+    public synchronized void a(e eVar, int i) {
+        this.dkP.add(0, eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void aDO() {
+    protected void axe() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -45,7 +49,7 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.dHv) {
+        for (e eVar : this.dkP) {
             ICardInfo a2 = eVar.a(jSONObject, i);
             if (a2 != null) {
                 return a2;
@@ -65,7 +69,7 @@ public class b extends e {
     }
 
     private <T> u b(TbPageContext<T> tbPageContext, int i, int i2) {
-        for (e eVar : this.dHv) {
+        for (e eVar : this.dkP) {
             u a2 = eVar.a(tbPageContext, i, i2);
             if (a2 != null) {
                 return a2;
@@ -75,9 +79,9 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo nk(String str) {
+    public static ICardInfo ly(String str) {
         try {
-            return H(new JSONObject(str));
+            return q(new JSONObject(str));
         } catch (CardParseException e) {
             return null;
         } catch (JSONException e2) {
@@ -85,7 +89,7 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo H(JSONObject jSONObject) throws CardParseException {
-        return aDN().a(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo q(JSONObject jSONObject) throws CardParseException {
+        return axd().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

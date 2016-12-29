@@ -1,15 +1,28 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.dialog.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be extends y.a {
-    public TextView bUn;
+public class be implements c.b {
+    final /* synthetic */ ax bAv;
 
-    public be(View view) {
-        super(view);
-        this.bUn = (TextView) view.findViewById(r.g.no_data_tips);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public be(ax axVar) {
+        this.bAv = axVar;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        cVar.dismiss();
+        if (i == 0) {
+            frsActivity2 = this.bAv.bzH;
+            frsActivity2.WL();
+        } else if (i == 1) {
+            frsActivity = this.bAv.bzH;
+            com.baidu.tbadk.core.util.aq.p(frsActivity.getPageContext().getPageActivity());
+        }
     }
 }

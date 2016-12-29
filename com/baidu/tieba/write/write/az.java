@@ -10,18 +10,18 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az implements View.OnClickListener {
-    final /* synthetic */ WriteActivity gpp;
+    final /* synthetic */ WriteActivity fDQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(WriteActivity writeActivity) {
-        this.gpp = writeActivity;
+        this.fDQ = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         List list;
-        Activity pageActivity = this.gpp.getPageContext().getPageActivity();
-        list = this.gpp.mList;
+        Activity pageActivity = this.fDQ.getPageContext().getPageActivity();
+        list = this.fDQ.mList;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicChangeActivityConfig(pageActivity, 25005, list)));
     }
 }

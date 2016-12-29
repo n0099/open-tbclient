@@ -1,74 +1,48 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.PbContent;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public class o {
-    private String RO;
-    private int aJv;
-    private String aJw;
-    private int aJx;
-    private int aJy;
-    private int duration;
-    private int height;
-    private String videoUrl;
-    private int width;
+class o implements View.OnClickListener {
+    final /* synthetic */ TbRichTextView aJR;
 
-    public void a(PbContent pbContent) {
-        if (pbContent != null) {
-            this.videoUrl = pbContent.link;
-            this.RO = pbContent.src;
-            this.width = pbContent.width.intValue();
-            this.height = pbContent.height.intValue();
-            this.aJv = pbContent.e_type.intValue();
-            this.aJw = pbContent.text;
-            this.duration = pbContent.during_time.intValue();
-            this.aJx = pbContent.count.intValue();
-            this.aJy = pbContent.origin_size.intValue();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(TbRichTextView tbRichTextView) {
+        this.aJR = tbRichTextView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbRichTextView.e eVar;
+        String str;
+        TbRichTextView.e eVar2;
+        boolean Q;
+        eVar = this.aJR.aJq;
+        if (eVar != null && (view instanceof ImageView)) {
+            Object tag = view.getTag();
+            if (tag != null && (tag instanceof String)) {
+                str = (String) tag;
+            } else if (!(view instanceof TbImageView)) {
+                str = null;
+            } else {
+                str = ((TbImageView) view).getUrl();
+            }
+            int childCount = this.aJR.getChildCount();
+            int i = -1;
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.aJR.getChildAt(i2);
+                Q = this.aJR.Q(childAt);
+                if (Q) {
+                    i++;
+                }
+                if (view == childAt) {
+                    break;
+                }
+            }
+            eVar2 = this.aJR.aJq;
+            eVar2.a(view, str, i);
         }
-    }
-
-    public String getVideoUrl() {
-        return this.videoUrl;
-    }
-
-    public String qg() {
-        return this.RO;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public String IM() {
-        return this.aJw;
-    }
-
-    public boolean IN() {
-        return this.aJv == 15;
-    }
-
-    public boolean isAvaliable() {
-        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public int IO() {
-        return this.aJx;
-    }
-
-    public void fC(int i) {
-        this.aJx = i;
-    }
-
-    public int IP() {
-        return this.aJy;
     }
 }

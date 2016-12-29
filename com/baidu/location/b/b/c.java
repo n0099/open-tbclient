@@ -42,15 +42,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b Jj;
-    private PublicKey Ji;
+    private static volatile b Ji;
+    private PublicKey Jh;
     private final Context a;
     private int b = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public ApplicationInfo Jk;
+        public ApplicationInfo Jj;
         public int b;
         public boolean c;
         public boolean d;
@@ -127,21 +127,21 @@ public final class c {
         a();
     }
 
-    private static b Q(Context context) {
-        if (Jj == null) {
+    private static b O(Context context) {
+        if (Ji == null) {
             synchronized (b.class) {
-                if (Jj == null) {
+                if (Ji == null) {
                     SystemClock.uptimeMillis();
-                    Jj = new c(context).mB();
+                    Ji = new c(context).mB();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return Jj;
+        return Ji;
     }
 
     public static String a(Context context) {
-        return Q(context).b();
+        return O(context).b();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
@@ -249,7 +249,7 @@ public final class c {
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 a aVar = new a(null);
                                 aVar.b = jSONObject.getInt("priority");
-                                aVar.Jk = resolveInfo.activityInfo.applicationInfo;
+                                aVar.Jj = resolveInfo.activityInfo.applicationInfo;
                                 if (this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     aVar.d = true;
                                 }
@@ -263,7 +263,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Ji);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Jh);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -293,7 +293,7 @@ public final class c {
             th = th;
         }
         try {
-            this.Ji = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.Jh = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -650,7 +650,7 @@ public final class c {
                 }
                 for (a aVar2 : a3) {
                     if (!aVar2.d) {
-                        File file2 = new File(new File(aVar2.Jk.dataDir, str2), "libcuid.so");
+                        File file2 = new File(new File(aVar2.Jj.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
                             bVar = b.bP(f(a(file2)));
                             if (bVar != null) {

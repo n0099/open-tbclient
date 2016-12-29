@@ -1,16 +1,12 @@
 package com.baidu.tbadk.editortools;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class n implements Runnable {
-    final /* synthetic */ l avj;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar) {
-        this.avj = lVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.avj.CV();
+public class n extends x {
+    public n() {
+        super((String) null, 1, 0);
+        this.auR = r.f.selector_msgsend_btn_softkey;
+        this.name = TbadkCoreApplication.m9getInst().getString(r.j.switch_to_keyboard);
     }
 }

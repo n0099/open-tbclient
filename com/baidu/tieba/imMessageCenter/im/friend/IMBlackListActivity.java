@@ -7,67 +7,67 @@ import com.baidu.tieba.im.model.BlackListModel;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    private com.baidu.tbadk.core.dialog.a FF;
-    private com.baidu.adp.framework.listener.e coV = new a(this, 0);
-    private BlackListModel dxs;
-    private h dxt;
-    private com.baidu.tieba.im.data.a dxu;
+    private com.baidu.tbadk.core.dialog.a FG;
+    private com.baidu.adp.framework.listener.e bUf = new a(this, 0);
+    private BlackListModel dap;
+    private h daq;
+    private com.baidu.tieba.im.data.a dar;
 
     private void initView() {
-        this.dxt = new h(this);
+        this.daq = new h(this);
     }
 
     private void aa() {
-        this.dxs = new BlackListModel(getPageContext());
-        this.dxs.setUniqueId(getUniqueId());
+        this.dap = new BlackListModel(getPageContext());
+        this.dap.setUniqueId(getUniqueId());
     }
 
-    private void SN() {
-        this.dxs.loadBlackList();
-        this.dxt.Ea();
+    private void Tj() {
+        this.dap.loadBlackList();
+        this.daq.DI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(104103, this.coV);
-        registerListener(104102, this.coV);
+        registerListener(104103, this.bUf);
+        registerListener(104102, this.bUf);
         initView();
         aa();
-        SN();
+        Tj();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.dxs != null) {
-            this.dxs.cancelLoadData();
+        if (this.dap != null) {
+            this.dap.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aAF() {
+    public void aub() {
         showLoadingDialog((String) null, new b(this));
     }
 
     private void a(com.baidu.tieba.im.data.a aVar) {
-        mR(String.format(getPageContext().getString(r.j.black_list_ensure_toremove_text), aVar.getUserName()));
-        this.FF.tq();
+        lg(String.format(getPageContext().getString(r.j.black_list_ensure_toremove_text), aVar.getUserName()));
+        this.FG.tb();
     }
 
-    private void mR(String str) {
-        this.FF = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.FF.cF(str);
-        this.FF.a(r.j.confirm, new c(this));
-        this.FF.b(r.j.alert_no_button, new d(this));
-        this.FF.b(getPageContext());
+    private void lg(String str) {
+        this.FG = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.FG.cG(str);
+        this.FG.a(r.j.confirm, new c(this));
+        this.FG.b(r.j.alert_no_button, new d(this));
+        this.FG.b(getPageContext());
     }
 
     public void a(View view, com.baidu.tieba.im.data.a aVar) {
         if (aVar != null && aVar.getUserId() > 0) {
-            this.dxu = aVar;
+            this.dar = aVar;
             a(aVar);
         }
     }

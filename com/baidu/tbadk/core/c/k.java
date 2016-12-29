@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.c;
 /* loaded from: classes.dex */
 interface k {
-    void cJ(String str);
+    void cK(String str);
 
-    void tV();
+    void tG();
 }

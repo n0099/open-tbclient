@@ -7,14 +7,14 @@ import com.baidu.tieba.horizonalList.widget.AbsHListView;
 class f implements Parcelable.Creator<AbsHListView.SavedState> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: k */
+    /* renamed from: g */
     public AbsHListView.SavedState createFromParcel(Parcel parcel) {
         return new AbsHListView.SavedState(parcel, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: kK */
+    /* renamed from: jU */
     public AbsHListView.SavedState[] newArray(int i) {
         return new AbsHListView.SavedState[i];
     }

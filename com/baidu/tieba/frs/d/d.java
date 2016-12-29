@@ -1,43 +1,62 @@
 package com.baidu.tieba.frs.d;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.aa;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.p;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.tbadkCore.x;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ a cfQ;
-    private final /* synthetic */ aa cfR;
+public class d extends s {
+    public final com.baidu.adp.base.g bLM;
+    public final com.baidu.adp.base.g bLN;
+    private final CustomMessageListener bwo;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, aa aaVar) {
-        this.cfQ = aVar;
-        this.cfR = aaVar;
+    public d(FrsActivity frsActivity) {
+        super(frsActivity);
+        this.bwo = new e(this, CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS);
+        this.bLM = new f(this);
+        this.bLN = new g(this);
+        this.bFI.registerListener(this.bwo);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        p pVar;
-        Context context;
-        p pVar2;
-        p pVar3;
-        String str = "";
-        pVar = this.cfQ.bRX;
-        if (pVar != null) {
-            pVar2 = this.cfQ.bRX;
-            if (pVar2.aOk() != null) {
-                pVar3 = this.cfQ.bRX;
-                str = pVar3.aOk().getName();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(x xVar) {
+        if (xVar != null) {
+            com.baidu.tieba.tbadkCore.o WF = this.bFI.WF();
+            if (this.byr != null && this.byt != null && this.bys != null && this.byg != null && WF != null && WF.aIk() != null && xVar.getFid() != null) {
+                boolean z = xVar.isLike() == 1;
+                if (xVar.getFid().equals(WF.aIk().getId())) {
+                    WF.aIk().setLike(xVar.isLike());
+                    if (!StringUtils.isNULL(xVar.getLevelName())) {
+                        WF.aIk().setLevelName(xVar.getLevelName());
+                    }
+                    if (xVar.getUserLevel() >= 0) {
+                        WF.aIk().setUser_level(xVar.getUserLevel());
+                    }
+                    if (z) {
+                        this.bys.a(WF, false);
+                        this.byt.eh(true);
+                        TbadkCoreApplication.m9getInst().addLikeForum(this.bFI.getForumName());
+                        return;
+                    }
+                    com.baidu.tieba.tbadkCore.c.bdT().U(this.bFI.getForumName(), false);
+                    WF.aIk().setLike(0);
+                    this.bys.abS();
+                    this.byt.eh(false);
+                    TbadkCoreApplication.m9getInst().delLikeForum(this.bFI.getForumName());
+                    return;
+                }
+                if (xVar.isLike() == 1) {
+                    WF.pV(xVar.getFid());
+                    this.bys.i(WF);
+                    this.byw.a(this.byg.Xm(), WF, this.byr.aaU());
+                }
+                if (WF.aIk().getBannerListData() != null) {
+                    WF.aIk().getBannerListData().setFeedForumLiked(xVar.getFid(), xVar.isLike());
+                }
+                this.byg.Xj();
             }
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.cfQ.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.cfR.getAuthor().getUserId(), this.cfR.getAuthor().getName_show(), str, AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

@@ -16,7 +16,7 @@ public class PageDialogHelper {
         DIALOG,
         NORMAL;
 
-        /* JADX DEBUG: Replace access to removed values field (aFk) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aEE) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PayForm[] valuesCustom() {
             PayForm[] valuesCustom = values();

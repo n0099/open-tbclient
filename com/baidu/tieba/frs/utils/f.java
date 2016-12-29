@@ -1,17 +1,17 @@
 package com.baidu.tieba.frs.utils;
 
-import com.baidu.tieba.frs.au;
+import com.baidu.tieba.frs.ax;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    private final /* synthetic */ au ciG;
+    private final /* synthetic */ ax bNN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(au auVar) {
-        this.ciG = auVar;
+    public f(ax axVar) {
+        this.bNN = axVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.ciG.acT();
+        this.bNN.Xj();
     }
 }

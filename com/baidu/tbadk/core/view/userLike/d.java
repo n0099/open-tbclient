@@ -8,13 +8,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c aiw;
+    final /* synthetic */ c ahX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.aiw = cVar;
+        this.ahX = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,53 +41,53 @@ public class d extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-            aVar = this.aiw.aip;
+            aVar = this.ahX.ahQ;
             if (aVar != null) {
-                aVar2 = this.aiw.aip;
+                aVar2 = this.ahX.ahQ;
                 if (!StringUtils.isNull(aVar2.getUserId()) && data != null) {
-                    aVar3 = this.aiw.aip;
+                    aVar3 = this.ahX.ahQ;
                     if (aVar3.getUserId().equals(data.toUid)) {
                         if (data.vS) {
-                            aVar4 = this.aiw.aip;
+                            aVar4 = this.ahX.ahQ;
                             int fansNum = aVar4.getFansNum();
-                            if (data.alx) {
-                                aVar9 = this.aiw.aip;
+                            if (data.akY) {
+                                aVar9 = this.ahX.ahQ;
                                 if (!aVar9.getIsLike()) {
                                     fansNum++;
-                                    aVar6 = this.aiw.aip;
-                                    aVar6.setIsLike(data.alx);
-                                    aVar7 = this.aiw.aip;
+                                    aVar6 = this.ahX.ahQ;
+                                    aVar6.setIsLike(data.akY);
+                                    aVar7 = this.ahX.ahQ;
                                     aVar7.setIsFromNetWork(false);
-                                    aVar8 = this.aiw.aip;
+                                    aVar8 = this.ahX.ahQ;
                                     aVar8.setFansNum(fansNum);
-                                    bVar = this.aiw.aiq;
+                                    bVar = this.ahX.ahR;
                                     if (bVar == null) {
-                                        bVar2 = this.aiw.aiq;
-                                        bVar2.mo12do(fansNum);
-                                        bVar3 = this.aiw.aiq;
-                                        bVar3.aO(data.alx);
+                                        bVar2 = this.ahX.ahR;
+                                        bVar2.dq(fansNum);
+                                        bVar3 = this.ahX.ahR;
+                                        bVar3.aP(data.akY);
                                         return;
                                     }
                                     return;
                                 }
                             }
-                            if (!data.alx) {
-                                aVar5 = this.aiw.aip;
+                            if (!data.akY) {
+                                aVar5 = this.ahX.ahQ;
                                 if (aVar5.getIsLike()) {
                                     fansNum--;
                                 }
                             }
-                            aVar6 = this.aiw.aip;
-                            aVar6.setIsLike(data.alx);
-                            aVar7 = this.aiw.aip;
+                            aVar6 = this.ahX.ahQ;
+                            aVar6.setIsLike(data.akY);
+                            aVar7 = this.ahX.ahQ;
                             aVar7.setIsFromNetWork(false);
-                            aVar8 = this.aiw.aip;
+                            aVar8 = this.ahX.ahQ;
                             aVar8.setFansNum(fansNum);
-                            bVar = this.aiw.aiq;
+                            bVar = this.ahX.ahR;
                             if (bVar == null) {
                             }
                         } else {
-                            tbPageContext = this.aiw.GO;
+                            tbPageContext = this.ahX.GO;
                             tbPageContext.showToast(updateAttentionMessage.getData().errorString);
                         }
                     }

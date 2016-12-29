@@ -7,13 +7,19 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class LegoListActivityConfig extends IntentConfig {
+    public static final String ANIMATION_INFO = "animation_info";
+    public static final String HAS_ANIMATION = "has_animation";
+    public static final String IS_FROM = "source";
     public static final String IS_IMMERSIVE = "is_immersive";
+    public static final String IS_LANDINGPAGE = "is_landingpage";
     public static final String ITEM_ID = "item_id";
+    public static final String NEXT_PAGE = "next_page";
     public static final String PAGE_ID = "page_id";
     public static final int PAGE_LIST = 2;
     public static final int PAGE_TAB = 1;
     public static final String PAGE_TYPE = "page_type";
     public static final String PARAMS = "params";
+    public static final String PRE_LOAD = "pre_load";
     public static final String RN = "rn";
     private final Context mContext;
 
@@ -35,6 +41,23 @@ public class LegoListActivityConfig extends IntentConfig {
         if (!(this.mContext instanceof Activity)) {
             intent.addFlags(268435456);
         }
+        return this;
+    }
+
+    public LegoListActivityConfig addLandingPageParams(String str, String str2, String str3, int i, int i2, String str4) {
+        Intent intent = getIntent();
+        intent.putExtra(HAS_ANIMATION, i);
+        intent.putExtra(IS_LANDINGPAGE, i2);
+        if (!TextUtils.isEmpty(str)) {
+            intent.putExtra(ANIMATION_INFO, str);
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            intent.putExtra(PRE_LOAD, str2);
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            intent.putExtra(NEXT_PAGE, str3);
+        }
+        intent.putExtra("source", str4);
         return this;
     }
 }

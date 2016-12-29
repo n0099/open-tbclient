@@ -2,28 +2,28 @@ package com.baidu.tieba.homepage.personalize.b;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.lib.f.c<TbImageView> {
-    final /* synthetic */ k cLL;
+    final /* synthetic */ k cqZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.cLL = kVar;
+        this.cqZ = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.c
-    /* renamed from: wR */
+    /* renamed from: wE */
     public TbImageView ez() {
         TbPageContext tbPageContext;
-        tbPageContext = this.cLL.GO;
+        tbPageContext = this.cqZ.GO;
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         tbImageView.setDrawBorder(true);
-        tbImageView.setBorderColor(at.getColor(r.d.common_color_10264));
+        tbImageView.setBorderColor(ar.getColor(r.d.common_color_10264));
         tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds1));
         return tbImageView;
     }

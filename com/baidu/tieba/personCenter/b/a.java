@@ -9,27 +9,27 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.view.m;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.f.a {
-    private boolean bOz;
-    private CustomMessageListener bSN = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
-    private com.baidu.tieba.personCenter.f.b eLE;
-    private g eLF;
-    private com.baidu.tieba.e.a eLN;
+    private boolean buE;
+    private CustomMessageListener byX = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
+    private com.baidu.tieba.personCenter.f.b epa;
+    private g epb;
+    private com.baidu.tieba.e.a epj;
 
     public a(TbPageContext tbPageContext, com.baidu.tieba.personCenter.f.b bVar, g gVar) {
-        this.eLE = bVar;
-        this.eLF = gVar;
-        this.eLN = new com.baidu.tieba.personCenter.d.b(tbPageContext);
-        this.eLE.a(this);
-        tbPageContext.registerListener(this.bSN);
+        this.epa = bVar;
+        this.epb = gVar;
+        this.epj = new com.baidu.tieba.personCenter.d.b(tbPageContext);
+        this.epa.a(this);
+        tbPageContext.registerListener(this.byX);
     }
 
-    public m aUU() {
-        return this.eLN;
+    public m aOE() {
+        return this.epj;
     }
 
     @Override // com.baidu.tieba.model.a
-    public void SN() {
-        this.eLE.Ff();
+    public void Tj() {
+        this.epa.EN();
     }
 
     @Override // com.baidu.tieba.model.a
@@ -37,25 +37,25 @@ public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.
     }
 
     @Override // com.baidu.tieba.model.a
-    public boolean hasMoreData() {
+    public boolean aEa() {
         return false;
     }
 
     @Override // com.baidu.tieba.personCenter.f.a
     public void a(com.baidu.tieba.personCenter.c.a aVar) {
-        this.eLF.JO();
+        this.epb.Jj();
         if (aVar == null) {
-            if (!this.bOz) {
-                this.eLF.G(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+            if (!this.buE) {
+                this.epb.H(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
                 return;
             }
             return;
         }
-        this.bOz = true;
-        this.eLF.b(aVar);
+        this.buE = true;
+        this.epb.b(aVar);
     }
 
     public boolean hasData() {
-        return this.bOz;
+        return this.buE;
     }
 }

@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> aWp;
-    private int aWs = r.d.cp_cont_b;
-    private int aWt = r.d.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> aVG;
+    private int aVJ = r.d.cp_cont_b;
+    private int aVK = r.d.cp_cont_c;
     private Context mContext;
 
     public h(Context context) {
@@ -24,26 +24,26 @@ public class h extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.aWp = list;
+        this.aVG = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aWp == null) {
+        if (this.aVG == null) {
             return 0;
         }
-        return this.aWp.size();
+        return this.aVG.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: fY */
+    /* renamed from: fX */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.aWp == null || i < 0 || i >= this.aWp.size()) {
+        if (this.aVG == null || i < 0 || i >= this.aVG.size()) {
             return null;
         }
-        return this.aWp.get(i);
+        return this.aVG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class h extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.Az()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.Ay())) {
+        if (!TextUtils.isEmpty(item.Am()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.Al())) {
             return 0;
         }
         return 1;
@@ -81,38 +81,38 @@ public class h extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(r.h.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b(this, null);
-                bVar2.aWB = (TextView) view.findViewById(r.g.addresslist_group_item_key);
-                bVar2.Xf = view.findViewById(r.g.addresslist_group_item_divider);
+                bVar2.aVS = (TextView) view.findViewById(r.g.addresslist_group_item_key);
+                bVar2.Wz = view.findViewById(r.g.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.Az() != null) {
-                bVar.aWB.setText(item.Az());
+            if (item.Am() != null) {
+                bVar.aVS.setText(item.Am());
             }
-            at.c(bVar.aWB, this.aWt, 1);
-            at.l(bVar.Xf, r.d.cp_bg_line_b);
+            ar.c(bVar.aVS, this.aVK, 1);
+            ar.l(bVar.Wz, r.d.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
                 a aVar2 = new a(this, null);
                 view = LayoutInflater.from(this.mContext).inflate(r.h.select_friend_child_item, (ViewGroup) null);
-                aVar2.aWq = (HeadImageView) view.findViewById(r.g.addresslist_child_item_icon);
-                aVar2.aWr = (TextView) view.findViewById(r.g.addresslist_child_item_name);
-                aVar2.Xf = view.findViewById(r.g.addresslist_child_item_divider);
+                aVar2.aVH = (HeadImageView) view.findViewById(r.g.addresslist_child_item_icon);
+                aVar2.aVI = (TextView) view.findViewById(r.g.addresslist_child_item_name);
+                aVar2.Wz = view.findViewById(r.g.addresslist_child_item_divider);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
             if (item.getUserName() != null) {
-                aVar.aWr.setText(item.getUserName());
-                aVar.aWq.c(item.Ay(), 12, false);
+                aVar.aVI.setText(item.getUserName());
+                aVar.aVH.c(item.Al(), 12, false);
             }
-            at.c(aVar.aWr, this.aWs, 1);
-            at.k(aVar.Xf, r.d.cp_bg_line_b);
-            at.k(view, r.f.select_friend_item_bg);
+            ar.c(aVar.aVI, this.aVJ, 1);
+            ar.k(aVar.Wz, r.d.cp_bg_line_b);
+            ar.k(view, r.f.select_friend_item_bg);
             return view;
         } else {
             return null;
@@ -121,8 +121,8 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class b {
-        View Xf;
-        TextView aWB;
+        View Wz;
+        TextView aVS;
 
         private b() {
         }
@@ -134,9 +134,9 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        View Xf;
-        HeadImageView aWq;
-        TextView aWr;
+        View Wz;
+        HeadImageView aVH;
+        TextView aVI;
 
         private a() {
         }

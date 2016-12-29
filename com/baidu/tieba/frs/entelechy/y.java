@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 class y implements a.b {
-    final /* synthetic */ u bYy;
+    final /* synthetic */ u bEm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(u uVar) {
-        this.bYy = uVar;
+        this.bEm = uVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -23,11 +23,11 @@ class y implements a.b {
         FrsActivity frsActivity;
         TbPageContext tbPageContext;
         int i;
-        frsActivity = this.bYy.bTA;
+        frsActivity = this.bEm.bzH;
         TiebaStatic.eventStat(frsActivity.getPageContext().getPageActivity(), "c10752", "click");
-        tbPageContext = this.bYy.Gf;
+        tbPageContext = this.bEm.Gf;
         Activity pageActivity = tbPageContext.getPageActivity();
-        i = this.bYy.mMemberType;
+        i = this.bEm.mMemberType;
         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(pageActivity, i, "exp_acce", 2);
         memberPayActivityConfig.setSceneId("4004001000");
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));

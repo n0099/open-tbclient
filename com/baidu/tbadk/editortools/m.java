@@ -1,18 +1,20 @@
 package com.baidu.tbadk.editortools;
 
-import android.view.View;
+import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ l avj;
+public class m implements Comparator<x> {
+    final /* synthetic */ j auG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.avj = lVar;
+    public m(j jVar) {
+        this.auG = jVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.avj.J(view);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(x xVar, x xVar2) {
+        return xVar.auT - xVar2.auT;
     }
 }

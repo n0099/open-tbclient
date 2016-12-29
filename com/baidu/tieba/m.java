@@ -6,16 +6,16 @@ import java.io.File;
 import java.io.FileFilter;
 /* loaded from: classes.dex */
 class m implements FileFilter {
-    final /* synthetic */ LogoActivity aLM;
+    final /* synthetic */ LogoActivity aLd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(LogoActivity logoActivity) {
-        this.aLM = logoActivity;
+        this.aLd = logoActivity;
     }
 
     @Override // java.io.FileFilter
     public boolean accept(File file) {
         String name = file.getName();
-        return !TextUtils.isEmpty(name) && name.contains(this.aLM.getPageContext().getString(r.j.app_name)) && name.endsWith(".apk");
+        return !TextUtils.isEmpty(name) && name.contains(this.aLd.getPageContext().getString(r.j.app_name)) && name.endsWith(".apk");
     }
 }

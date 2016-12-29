@@ -9,26 +9,26 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements PbActivity.a {
-    final /* synthetic */ PbActivity evL;
+    final /* synthetic */ PbActivity eah;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(PbActivity pbActivity) {
-        this.evL = pbActivity;
+        this.eah = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
     public void g(Object obj) {
-        dj djVar;
-        dj djVar2;
-        dj djVar3;
-        dj djVar4;
+        dc dcVar;
+        dc dcVar2;
+        dc dcVar3;
+        dc dcVar4;
         if (!com.baidu.adp.lib.util.i.gm()) {
-            this.evL.showToast(r.j.network_not_available);
+            this.eah.showToast(r.j.network_not_available);
             return;
         }
         Object[] objArr = (Object[]) obj;
-        djVar = this.evL.euf;
-        String valueOf = String.valueOf(djVar.getPbData().getUserData().getUserId());
+        dcVar = this.eah.dYA;
+        String valueOf = String.valueOf(dcVar.getPbData().getUserData().getUserId());
         String str = "";
         if (objArr.length > 1) {
             str = String.valueOf(objArr[1]);
@@ -37,13 +37,13 @@ public class ay implements PbActivity.a {
         if (objArr.length > 2) {
             str2 = String.valueOf(objArr[2]);
         }
-        PbActivity pbActivity = this.evL;
-        Activity pageActivity = this.evL.getPageContext().getPageActivity();
-        djVar2 = this.evL.euf;
-        String id = djVar2.getPbData().aOk().getId();
-        djVar3 = this.evL.euf;
-        String name = djVar3.getPbData().aOk().getName();
-        djVar4 = this.evL.euf;
-        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, djVar4.getPbData().aOl().getId(), valueOf, str, str2)));
+        PbActivity pbActivity = this.eah;
+        Activity pageActivity = this.eah.getPageContext().getPageActivity();
+        dcVar2 = this.eah.dYA;
+        String id = dcVar2.getPbData().aIk().getId();
+        dcVar3 = this.eah.dYA;
+        String name = dcVar3.getPbData().aIk().getName();
+        dcVar4 = this.eah.dYA;
+        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, dcVar4.getPbData().aIl().getId(), valueOf, str, str2)));
     }
 }

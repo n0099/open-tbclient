@@ -5,34 +5,34 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends CustomMessageListener {
-    final /* synthetic */ l bKe;
+    final /* synthetic */ l bqi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(l lVar, int i) {
         super(i);
-        this.bKe = lVar;
+        this.bqi = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean YR;
+        boolean Td;
         boolean z;
         com.baidu.tieba.enterForum.c.c cVar;
         com.baidu.tieba.enterForum.c.c cVar2;
-        this.bKe.bJM.ZA();
-        YR = this.bKe.YR();
-        if (YR) {
-            this.bKe.bJM.Zz();
-            cVar = this.bKe.bJN;
-            cVar.ak(this.bKe.bJM.ZE());
-            cVar2 = this.bKe.bJN;
-            cVar2.hw(this.bKe.bJM.Zp());
+        this.bqi.bpQ.TN();
+        Td = this.bqi.Td();
+        if (Td) {
+            this.bqi.bpQ.TM();
+            cVar = this.bqi.bpR;
+            cVar.ac(this.bqi.bpQ.TR());
+            cVar2 = this.bqi.bpR;
+            cVar2.gG(this.bqi.bpQ.TC());
         }
-        z = this.bKe.bJS;
+        z = this.bqi.bpW;
         if (z) {
-            this.bKe.bJM.kv();
+            this.bqi.bpQ.kv();
         }
     }
 }

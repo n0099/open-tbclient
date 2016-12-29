@@ -1872,7 +1872,7 @@ public final class SapiWebView extends WebView {
                                         sapiAccountResponse.displayname = newPullParser.nextText();
                                         z3 = z2;
                                         continue;
-                                    } else if (name.equalsIgnoreCase("uid")) {
+                                    } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_UID)) {
                                         sapiAccountResponse.uid = newPullParser.nextText();
                                         z3 = z2;
                                         continue;
@@ -2179,7 +2179,7 @@ public final class SapiWebView extends WebView {
         this.ac = new SsoHandler((Activity) getContext(), f.l, d);
         this.ac.authorize(new SSOListener() { // from class: com.baidu.sapi2.SapiWebView.20
             public void onComplete(Bundle bundle) {
-                SapiWebView.this.loadUrl(SapiAccountManager.getInstance().getAccountService().a(SocialType.SINA_WEIBO, bundle.getString(SocialConstants.PARAM_ACCESS_TOKEN), bundle.getString("uid")));
+                SapiWebView.this.loadUrl(SapiAccountManager.getInstance().getAccountService().a(SocialType.SINA_WEIBO, bundle.getString(SocialConstants.PARAM_ACCESS_TOKEN), bundle.getString(SapiAccountManager.SESSION_UID)));
             }
 
             public void onJumpNormal() {

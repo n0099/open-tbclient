@@ -8,54 +8,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p extends FlowLayout {
-    private List<com.baidu.tieba.personPolymeric.c.e> eRS;
-    private List<q> eRT;
-    private com.baidu.adp.lib.f.b<q> eRU;
+    private List<com.baidu.tieba.personPolymeric.c.e> evr;
+    private List<q> evs;
+    private com.baidu.adp.lib.f.b<q> evt;
     private Context mContext;
 
     public p(Context context) {
         super(context);
-        this.eRT = new ArrayList();
+        this.evs = new ArrayList();
         this.mContext = context;
     }
 
     public void setData(List<com.baidu.tieba.personPolymeric.c.e> list) {
-        this.eRS = list;
-        amV();
+        this.evr = list;
+        ahv();
     }
 
-    private void amV() {
-        if (!com.baidu.tbadk.core.util.x.t(this.eRS)) {
-            for (com.baidu.tieba.personPolymeric.c.e eVar : this.eRS) {
+    private void ahv() {
+        if (!com.baidu.tbadk.core.util.x.t(this.evr)) {
+            for (com.baidu.tieba.personPolymeric.c.e eVar : this.evr) {
                 if (eVar != null) {
-                    q ey = this.eRU.ey();
+                    q ey = this.evt.ey();
                     ey.setData(eVar);
-                    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.k.K(this.mContext) - com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds80)) - com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds16)) / 2, -2);
+                    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.k.I(this.mContext) - com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds80)) - com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds16)) / 2, -2);
                     ey.setPadding(com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds16), 0, com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds14), 0);
                     addView(ey, layoutParams);
-                    this.eRT.add(ey);
+                    this.evs.add(ey);
                 }
             }
         }
     }
 
     public void recycle() {
-        if (!com.baidu.tbadk.core.util.x.t(this.eRT)) {
-            for (q qVar : this.eRT) {
-                this.eRU.n(qVar);
+        if (!com.baidu.tbadk.core.util.x.t(this.evs)) {
+            for (q qVar : this.evs) {
+                this.evt.n(qVar);
             }
             removeAllViews();
         }
     }
 
     public void setForumItemViewBdObjectPool(com.baidu.adp.lib.f.b<q> bVar) {
-        this.eRU = bVar;
+        this.evt = bVar;
     }
 
-    public void tB() {
-        for (q qVar : this.eRT) {
+    public void tm() {
+        for (q qVar : this.evs) {
             if (qVar != null) {
-                qVar.tB();
+                qVar.tm();
             }
         }
     }

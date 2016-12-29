@@ -14,27 +14,15 @@ public class b {
         this.hide = i;
     }
 
-    public String AA() {
+    public String An() {
         return this.distance;
-    }
-
-    public void eN(String str) {
-        this.distance = str;
     }
 
     public long getTime() {
         return this.time;
     }
 
-    public void setTime(long j) {
-        this.time = j;
-    }
-
-    public int AB() {
+    public int Ao() {
         return this.hide;
-    }
-
-    public void eb(int i) {
-        this.hide = i;
     }
 }

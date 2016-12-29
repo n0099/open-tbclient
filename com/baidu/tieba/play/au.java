@@ -8,11 +8,11 @@ import com.baidu.tieba.play.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ as fgG;
+    final /* synthetic */ as eJY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(as asVar) {
-        this.fgG = asVar;
+        this.eJY = asVar;
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
@@ -20,13 +20,13 @@ public class au implements SeekBar.OnSeekBarChangeListener {
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
         Handler handler;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        this.fgG.cYg = true;
-        onSeekBarChangeListener = this.fgG.aSV;
+        this.eJY.cDp = true;
+        onSeekBarChangeListener = this.eJY.aSm;
         if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.fgG.aSV;
+            onSeekBarChangeListener2 = this.eJY.aSm;
             onSeekBarChangeListener2.onStartTrackingTouch(seekBar);
         }
-        handler = this.fgG.mHandler;
+        handler = this.eJY.mHandler;
         handler.removeMessages(1);
     }
 
@@ -41,27 +41,27 @@ public class au implements SeekBar.OnSeekBarChangeListener {
         as.a aVar2;
         TextView textView2;
         int i3;
-        String li;
+        String ks;
         if (z) {
-            mediaPlayerControl = this.fgG.aRr;
-            this.fgG.fgF = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
-            textView = this.fgG.cYe;
+            mediaPlayerControl = this.eJY.aQI;
+            this.eJY.eJX = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
+            textView = this.eJY.cDn;
             if (textView != null) {
-                textView2 = this.fgG.cYe;
-                as asVar = this.fgG;
-                i3 = this.fgG.fgF;
-                li = asVar.li(i3);
-                textView2.setText(li);
+                textView2 = this.eJY.cDn;
+                as asVar = this.eJY;
+                i3 = this.eJY.eJX;
+                ks = asVar.ks(i3);
+                textView2.setText(ks);
             }
-            aVar = this.fgG.aSZ;
+            aVar = this.eJY.aSq;
             if (aVar != null) {
-                aVar2 = this.fgG.aSZ;
-                aVar2.Ma();
+                aVar2 = this.eJY.aSq;
+                aVar2.Lt();
             }
-            onSeekBarChangeListener = this.fgG.aSV;
+            onSeekBarChangeListener = this.eJY.aSm;
             if (onSeekBarChangeListener != null) {
-                onSeekBarChangeListener2 = this.fgG.aSV;
-                i2 = this.fgG.fgF;
+                onSeekBarChangeListener2 = this.eJY.aSm;
+                i2 = this.eJY.eJX;
                 onSeekBarChangeListener2.onProgressChanged(seekBar, i2, z);
             }
         }
@@ -74,15 +74,15 @@ public class au implements SeekBar.OnSeekBarChangeListener {
         Handler handler;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        mediaPlayerControl = this.fgG.aRr;
-        i = this.fgG.fgF;
+        mediaPlayerControl = this.eJY.aQI;
+        i = this.eJY.eJX;
         mediaPlayerControl.seekTo(i);
-        this.fgG.cYg = false;
-        handler = this.fgG.mHandler;
+        this.eJY.cDp = false;
+        handler = this.eJY.mHandler;
         handler.sendEmptyMessageDelayed(1, 500L);
-        onSeekBarChangeListener = this.fgG.aSV;
+        onSeekBarChangeListener = this.eJY.aSm;
         if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.fgG.aSV;
+            onSeekBarChangeListener2 = this.eJY.aSm;
             onSeekBarChangeListener2.onStopTrackingTouch(seekBar);
         }
     }

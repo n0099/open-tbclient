@@ -10,19 +10,19 @@ import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes.dex */
 public class a {
     private String code;
-    private Stack<Object> eoc = new Stack<>();
+    private Stack<Object> dSJ = new Stack<>();
 
     public a(String str) {
         this.code = str.substring(str.indexOf(" ") + 1);
-        this.eoc.add("#");
+        this.dSJ.add("#");
     }
 
     public Object get() {
         prepare();
-        if (this.eoc.isEmpty()) {
+        if (this.dSJ.isEmpty()) {
             return null;
         }
-        return this.eoc.pop();
+        return this.dSJ.pop();
     }
 
     private void prepare() {
@@ -38,9 +38,9 @@ public class a {
                     case '$':
                         int length = "$.getInstance().get( )".length() + i2;
                         try {
-                            Object aNb = com.baidu.tieba.onlineDebugger.e.b.pb("get " + this.code.substring(i2, length)).aNb();
-                            if (aNb != null) {
-                                this.eoc.add(aNb);
+                            Object aHc = com.baidu.tieba.onlineDebugger.e.b.nC("get " + this.code.substring(i2, length)).aHc();
+                            if (aHc != null) {
+                                this.dSJ.add(aHc);
                             }
                         } catch (Exception e) {
                             BdLog.e(e);
@@ -58,23 +58,23 @@ public class a {
                         i = i2;
                         break;
                     case r.l.PullToRefresh_headerTextColor /* 40 */:
-                        this.eoc.add(this.code.substring(i5 + 1, i2).trim());
-                        this.eoc.add("(");
+                        this.dSJ.add(this.code.substring(i5 + 1, i2).trim());
+                        this.dSJ.add("(");
                         i = i2;
                         break;
                     case r.l.PullToRefresh_mode /* 41 */:
                         String trim = this.code.substring(i5 + 1, i2).trim();
                         if (!trim.isEmpty()) {
-                            this.eoc.add(trim);
+                            this.dSJ.add(trim);
                         }
-                        this.eoc.add(")");
+                        this.dSJ.add(")");
                         Stack stack = new Stack();
                         LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
                         while (true) {
-                            if (!this.eoc.isEmpty()) {
-                                if (this.eoc.peek().equals("(")) {
-                                    stack.add(this.eoc.pop());
-                                    stack.add(this.eoc.pop());
+                            if (!this.dSJ.isEmpty()) {
+                                if (this.dSJ.peek().equals("(")) {
+                                    stack.add(this.dSJ.pop());
+                                    stack.add(this.dSJ.pop());
                                     String str = (String) stack.pop();
                                     while (!stack.isEmpty()) {
                                         Object pop = stack.pop();
@@ -84,10 +84,10 @@ public class a {
                                     }
                                     Object a = a(str, linkedBlockingQueue);
                                     if (a != null) {
-                                        this.eoc.add(a);
+                                        this.dSJ.add(a);
                                     }
                                 } else {
-                                    stack.add(this.eoc.pop());
+                                    stack.add(this.dSJ.pop());
                                 }
                             }
                         }
@@ -96,9 +96,9 @@ public class a {
                     case ',':
                         String substring = this.code.substring(i5 + 1, i2);
                         if (!substring.isEmpty()) {
-                            this.eoc.add(substring.trim());
+                            this.dSJ.add(substring.trim());
                         }
-                        this.eoc.add(",");
+                        this.dSJ.add(",");
                         i = i2;
                         break;
                 }
@@ -112,7 +112,7 @@ public class a {
     private Object a(String str, Queue<Object> queue) {
         Constructor<?>[] constructors;
         try {
-            Class<?> cls = Class.forName(oI(str));
+            Class<?> cls = Class.forName(nj(str));
             int size = queue.size();
             for (Constructor<?> constructor : cls.getConstructors()) {
                 if (constructor.getParameterTypes().length == size) {
@@ -130,7 +130,7 @@ public class a {
         return null;
     }
 
-    private String oI(String str) {
+    private String nj(String str) {
         if (str.startsWith("new")) {
             return str.substring(str.indexOf(" ") + 1);
         }

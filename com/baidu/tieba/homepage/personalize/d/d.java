@@ -5,22 +5,22 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.card.bz;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tieba.card.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends bz<e> {
-    final /* synthetic */ c cNp;
+public class d extends cb<e> {
+    final /* synthetic */ c csu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.cNp = cVar;
+        this.csu = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.bz
+    @Override // com.baidu.tieba.card.cb
     public void a(View view, e eVar) {
-        TiebaStatic.log(new av("c11273"));
+        TiebaStatic.log(new at("c11273"));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
     }
 }

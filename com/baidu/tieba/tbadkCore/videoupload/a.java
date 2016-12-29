@@ -7,40 +7,40 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int fEN = 6144000;
-    private static int fEO = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b fEP;
+    private static int fiU = 6144000;
+    private static int fiV = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b fiW;
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (com.baidu.adp.lib.c.e.dN().ac("is_video_batch") == 1) {
-                this.fEP = new d(str2, fEO);
+                this.fiW = new d(str2, fiV);
             } else {
-                this.fEP = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fEN);
+                this.fiW = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fiU);
             }
-            this.fEP.a(eVar);
-            return this.fEP.aG(str2, i);
+            this.fiW.a(eVar);
+            return this.fiW.aC(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void bnh() {
-        if (this.fEP != null) {
-            this.fEP.cancel();
+    public void bhb() {
+        if (this.fiW != null) {
+            this.fiW.cancel();
         }
     }
 
-    public static void sq(int i) {
+    public static void rt(int i) {
         if (i <= 0) {
-            fEO = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            fiV = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            fEO = i;
+            fiV = i;
         }
     }
 
-    public static void sr(int i) {
+    public static void ru(int i) {
         if (i <= 0) {
             chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public static void ss(int i) {
+    public static void rv(int i) {
         if (i <= 0) {
-            fEN = 6144000;
+            fiU = 6144000;
         } else {
-            fEN = i;
+            fiU = i;
         }
     }
 }

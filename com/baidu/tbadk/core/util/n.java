@@ -13,7 +13,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class n {
-    public static int dn(String str) {
+    /* renamed from: do  reason: not valid java name */
+    public static int m11do(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("game:detail")) {
                 return 1;

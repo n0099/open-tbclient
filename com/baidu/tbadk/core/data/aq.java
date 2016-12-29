@@ -1,25 +1,44 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.List;
+import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
-public class aq {
+public class aq extends com.baidu.tieba.tbadkCore.data.q {
+    public static final BdUniqueId Su = BdUniqueId.gen();
+    public String QA;
+    public int Qn;
+    public String Qz;
+    public String SA;
+    public String Sv;
     public String Sw;
-    public int Sx;
-    public String Sy;
-    public String buttonText;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    public String Sx;
+    public List<String> Sy;
+    public String Sz;
+    public String bookId;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.Sw = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.Sx = newsInfo.news_type.intValue();
-            this.Sy = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.buttonText = newsInfo.button_text;
+    public void a(RecommendBook recommendBook) {
+        if (recommendBook != null) {
+            this.Sv = recommendBook.recommend_text;
+            this.Sw = recommendBook.suggest_text;
+            this.Sx = recommendBook.suggest_url;
+            this.bookId = recommendBook.book_id;
+            this.Qn = recommendBook.book_type.intValue();
+            this.QA = recommendBook.book_cover;
+            this.Qz = recommendBook.book_title;
+            this.Sy = recommendBook.book_tips;
+            this.Sz = recommendBook.botton_text;
+            this.SA = recommendBook.subscript_icon;
         }
+    }
+
+    public boolean hasData() {
+        return (this == null || StringUtils.isNull(this.bookId)) ? false : true;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Su;
     }
 }

@@ -5,27 +5,27 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.card.bx;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.card.bz;
+import com.baidu.tieba.card.cb;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<e, a> {
     private final TbPageContext<?> GO;
-    private bz<e> bZe;
+    private cb<e> bES;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bZe = new d(this);
+        this.bES = new d(this);
         this.GO = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aw */
+    /* renamed from: aa */
     public a a(ViewGroup viewGroup) {
         com.baidu.tieba.homepage.personalize.d.a aVar = new com.baidu.tieba.homepage.personalize.d.a(this.GO);
-        aVar.setOnSubCardOnClickListenner(this.bZe);
+        aVar.setOnSubCardOnClickListenner(this.bES);
         return new a(aVar);
     }
 
@@ -33,18 +33,18 @@ public class c extends com.baidu.adp.widget.ListView.a<e, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        bx.Pl().a(new av("c11272"));
-        aVar.cNq.onBindDataToView(eVar);
+        bz.OH().a(new at("c11272"));
+        aVar.csv.onBindDataToView(eVar);
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.homepage.personalize.d.a cNq;
+        public com.baidu.tieba.homepage.personalize.d.a csv;
 
         public a(com.baidu.tieba.homepage.personalize.d.a aVar) {
             super(aVar.getView());
-            this.cNq = aVar;
+            this.csv = aVar;
         }
     }
 }

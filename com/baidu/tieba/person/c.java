@@ -1,17 +1,16 @@
 package com.baidu.tieba.person;
 
-import tbclient.Profile.UserGodInfo;
-import tbclient.TbBookrack;
-import tbclient.User;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* loaded from: classes.dex */
-public interface c {
-    User GetUser();
-
-    TbBookrack getBookrackData();
-
-    int getErrorCode();
-
-    g getUcCardData();
-
-    UserGodInfo getUserGodInfo();
+class c implements CustomMessageTask.CustomRunnable<PersonInfoActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            PersonInfoActivityStatic.a(customMessage.getData());
+        }
+        return null;
+    }
 }

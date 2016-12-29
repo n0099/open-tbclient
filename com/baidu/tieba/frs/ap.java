@@ -1,29 +1,24 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.frs.f.f;
 /* loaded from: classes.dex */
-public class ap {
-    private HashMap<String, Drawable> bTk = new HashMap<>();
-
-    public Drawable q(int i, int i2) {
-        String ag = ag(i, i2);
-        Drawable drawable = this.bTk.get(ag);
-        if (drawable == null) {
-            Drawable q = com.baidu.tbadk.core.util.at.q(i2, i);
-            this.bTk.put(ag, q);
-            return q.getConstantState().newDrawable();
-        }
-        return drawable.getConstantState().newDrawable();
+class ap extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(int i) {
+        super(i);
     }
 
-    private String ag(int i, int i2) {
-        return String.valueOf(i) + "_" + i2;
-    }
-
-    public void destory() {
-        if (!this.bTk.isEmpty()) {
-            this.bTk.clear();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
+            f.abm().abn();
+            com.baidu.tieba.frs.f.a.abf().abh();
+            if (com.baidu.tieba.recapp.j.aYf().aYe() != null) {
+                com.baidu.tieba.recapp.j.aYf().aYe().aYb();
+            }
         }
     }
 }

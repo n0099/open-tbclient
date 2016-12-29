@@ -5,11 +5,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.play.t;
 /* loaded from: classes.dex */
 class j implements Runnable {
-    final /* synthetic */ c ffA;
+    final /* synthetic */ c eIS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar) {
-        this.ffA = cVar;
+        this.eIS = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,36 +25,36 @@ class j implements Runnable {
         t.d dVar;
         t.d dVar2;
         View view6;
-        if (this.ffA.aOE.getCurrentPosition() > 100) {
-            this.ffA.feZ = true;
-            view = this.ffA.ceH;
+        if (this.eIS.aNV.getCurrentPosition() > 100) {
+            this.eIS.eIy = true;
+            view = this.eIS.bKq;
             view.setVisibility(8);
-            view2 = this.ffA.aON;
+            view2 = this.eIS.aOe;
             view2.setVisibility(8);
-            view3 = this.ffA.ceM;
+            view3 = this.eIS.bKv;
             view3.setVisibility(8);
-            view4 = this.ffA.aSI;
+            view4 = this.eIS.aRZ;
             view4.setVisibility(8);
-            tbImageView = this.ffA.aSE;
+            tbImageView = this.eIS.aRV;
             tbImageView.setVisibility(8);
-            this.ffA.bcF();
-            view5 = this.ffA.aSJ;
+            this.eIS.axR();
+            view5 = this.eIS.aSa;
             if (view5 != null) {
-                view6 = this.ffA.aSJ;
+                view6 = this.eIS.aSa;
                 view6.setVisibility(0);
             }
-            videoListMediaControllerView = this.ffA.feO;
+            videoListMediaControllerView = this.eIS.dns;
             videoListMediaControllerView.showProgress();
-            dVar = this.ffA.feV;
+            dVar = this.eIS.eIu;
             if (dVar != null) {
-                dVar2 = this.ffA.feV;
-                dVar2.onPrepared(this.ffA.aOE.getPlayer());
+                dVar2 = this.eIS.eIu;
+                dVar2.onPrepared(this.eIS.aNV.getPlayer());
                 return;
             }
             return;
         }
         com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.ffA.fft;
+        runnable = this.eIS.eIO;
         eG.postDelayed(runnable, 20L);
     }
 }

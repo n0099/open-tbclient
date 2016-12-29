@@ -4,11 +4,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bq extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ bp dbn;
+    final /* synthetic */ bp cGx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar) {
-        this.dbn = bpVar;
+        this.cGx = bpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,11 +18,11 @@ public class bq extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
         String k;
         super.a((bq) aVar, str, i);
         if (aVar != null) {
-            bp bpVar = this.dbn;
-            k = this.dbn.k(this.dbn.mUrl, aVar.jY());
+            bp bpVar = this.cGx;
+            k = this.cGx.k(this.cGx.mUrl, aVar.jY());
             bpVar.showToast(k);
             return;
         }
-        this.dbn.showToast(this.dbn.aTb.getPageContext().getString(r.j.save_error));
+        this.cGx.showToast(this.cGx.aSs.getPageContext().getString(r.j.save_error));
     }
 }

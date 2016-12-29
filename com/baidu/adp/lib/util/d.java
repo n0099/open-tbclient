@@ -30,7 +30,7 @@ public class d {
         return dVar;
     }
 
-    public synchronized void I(Context context) {
+    public synchronized void G(Context context) {
         this.mContext = context;
     }
 

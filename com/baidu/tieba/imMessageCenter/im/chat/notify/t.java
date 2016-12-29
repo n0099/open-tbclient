@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.ac;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
@@ -14,14 +14,14 @@ public class t extends ac {
     @Override // com.baidu.tbadk.core.view.z, com.baidu.adp.widget.ListView.d
     public View kk() {
         View kk = super.kk();
-        this.ahc.setVisibility(4);
+        this.agv.setVisibility(4);
         return kk;
     }
 
     @Override // com.baidu.tbadk.core.view.ac, com.baidu.tbadk.core.view.z
-    public void di(int i) {
-        super.di(i);
-        at.l(this.ahb, r.d.cp_bg_line_d);
+    public void dk(int i) {
+        super.dk(i);
+        ar.l(this.agu, r.d.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.ac, com.baidu.tbadk.core.view.z, com.baidu.adp.widget.ListView.d

@@ -4,11 +4,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements TbImageView.a {
-    final /* synthetic */ a cax;
+    final /* synthetic */ a bGf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.cax = aVar;
+        this.bGf = aVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -16,9 +16,9 @@ public class j implements TbImageView.a {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         if (z) {
-            tbImageView = this.cax.bcO;
+            tbImageView = this.bGf.bcg;
             if (tbImageView != null) {
-                tbImageView2 = this.cax.bcO;
+                tbImageView2 = this.bGf.bcg;
                 tbImageView2.setDefaultBgResource(0);
             }
         }

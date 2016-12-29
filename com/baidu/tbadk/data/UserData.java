@@ -11,7 +11,6 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ActivitySponsor;
-import tbclient.Ecom;
 import tbclient.GiftInfo;
 import tbclient.LikeForumInfo;
 import tbclient.MyGroupInfo;
@@ -31,7 +30,6 @@ public class UserData extends MetaData {
     private String bg_pic;
     private int bimg_end_time;
     private String bimg_url;
-    private int canPostHi;
     private c closeAdData;
     private String grade;
     private int have_attention;
@@ -42,7 +40,7 @@ public class UserData extends MetaData {
     private boolean isManager;
     private boolean isMask;
     private int isOfficialAccount;
-    private boolean isSeller;
+    private boolean isShowDriftingBottle;
     private int is_mem;
     private long lastReplyTime;
     private String lat;
@@ -74,28 +72,8 @@ public class UserData extends MetaData {
     private UserVipInfoData vipInfo;
     private int visitorNum;
 
-    public int getMarkCount() {
-        return this.markCount;
-    }
-
-    public void setMarkCount(int i) {
-        this.markCount = i;
-    }
-
-    public int getNewMarkCount() {
-        return this.newMarkCount;
-    }
-
-    public void setNewMarkCount(int i) {
-        this.newMarkCount = i;
-    }
-
     public i getPersonPrivate() {
         return this.personPrivate;
-    }
-
-    public void setPersonPrivate(i iVar) {
-        this.personPrivate = iVar;
     }
 
     public List<MyLikeForum> getLikeForum() {
@@ -173,22 +151,6 @@ public class UserData extends MetaData {
         return this.mIsSelectTail;
     }
 
-    public void setIsSelectTail(boolean z) {
-        this.mIsSelectTail = z;
-    }
-
-    public a getActivitySponsorData() {
-        return this.mActivitySponsorData;
-    }
-
-    public void setActivitySponsorData(a aVar) {
-        this.mActivitySponsorData = aVar;
-    }
-
-    public boolean isSeller() {
-        return this.isSeller;
-    }
-
     public UserData() {
         this.password = null;
         this.isManager = false;
@@ -197,7 +159,6 @@ public class UserData extends MetaData {
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
         this.mPhotoAlbum = new ArrayList();
-        this.isSeller = false;
         this.ip = null;
         this.BDUSS = null;
         this.like_bars = -1;
@@ -209,7 +170,6 @@ public class UserData extends MetaData {
         this.markCount = 0;
         this.newMarkCount = 0;
         this.anchorLevel = 0;
-        this.canPostHi = 0;
     }
 
     public UserData(long j, String str, String str2, int i) {
@@ -220,7 +180,6 @@ public class UserData extends MetaData {
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
         this.mPhotoAlbum = new ArrayList();
-        this.isSeller = false;
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
@@ -231,16 +190,12 @@ public class UserData extends MetaData {
         return this.anchorLevel;
     }
 
-    public void setAnchorLevel(int i) {
-        this.anchorLevel = i;
-    }
-
     public void setIp(String str) {
         this.ip = str;
     }
 
-    public boolean getIsManager() {
-        return this.isManager;
+    public boolean isShowDriftingBottle() {
+        return this.isShowDriftingBottle;
     }
 
     public String getIp() {
@@ -272,22 +227,23 @@ public class UserData extends MetaData {
             this.markCount = user.bookmark_count.intValue();
             this.newMarkCount = user.bookmark_new_count.intValue();
             this.visitorNum = user.visitor_num.intValue();
+            this.isShowDriftingBottle = user.has_bottle_enter.intValue() == 1;
             this.isOfficialAccount = user.is_guanfang.intValue();
             if (this.mPhotoAlbum == null) {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
             l lVar = new l();
-            lVar.fj(getPortraitH());
-            lVar.fk(getPortrait());
+            lVar.ff(getPortraitH());
+            lVar.fg(getPortrait());
             lVar.bv(true);
             this.mPhotoAlbum.add(lVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         l lVar2 = new l();
-                        lVar2.fj(userPics.big);
-                        lVar2.fk(userPics.small);
+                        lVar2.ff(userPics.big);
+                        lVar2.fg(userPics.small);
                         lVar2.bv(false);
                         this.mPhotoAlbum.add(lVar2);
                     }
@@ -377,14 +333,10 @@ public class UserData extends MetaData {
             if (user.tw_anchor_info != null) {
                 this.anchorLevel = user.tw_anchor_info.anchor_level.intValue();
             }
-            this.canPostHi = user.no_post_high.intValue();
             ActivitySponsor activitySponsor = user.activity_sponsor;
             if (activitySponsor != null) {
                 this.mActivitySponsorData = new a();
                 this.mActivitySponsorData.a(activitySponsor);
-            }
-            if (user.ecom != null) {
-                this.isSeller = user.ecom.is_seller != Ecom.DEFAULT_IS_SELLER;
             }
         }
     }
@@ -470,8 +422,8 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 l lVar = new l();
-                lVar.fj(getPortraitH());
-                lVar.fk(getPortrait());
+                lVar.ff(getPortraitH());
+                lVar.fg(getPortrait());
                 lVar.bv(true);
                 this.mPhotoAlbum.add(lVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
@@ -481,8 +433,8 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             l lVar2 = new l();
-                            lVar2.fj(jSONObject2.optString("big"));
-                            lVar2.fk(jSONObject2.optString("small"));
+                            lVar2.ff(jSONObject2.optString("big"));
+                            lVar2.fg(jSONObject2.optString("small"));
                             lVar2.bv(false);
                             this.mPhotoAlbum.add(lVar2);
                         }
@@ -524,7 +476,6 @@ public class UserData extends MetaData {
                         }
                     }
                 }
-                this.canPostHi = jSONObject.optInt("no_post_high", 0);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -687,28 +638,12 @@ public class UserData extends MetaData {
         return this.isOfficialAccount;
     }
 
-    public void setIsOfficialAccount(int i) {
-        this.isOfficialAccount = i;
-    }
-
     public long getTDouNum() {
         return this.mTDouNum;
     }
 
-    public void setTDouNum(long j) {
-        this.mTDouNum = j;
-    }
-
     public List<v> getPhotoAlbum() {
         return this.mPhotoAlbum;
-    }
-
-    public void setPhotoAlbum(List<v> list) {
-        this.mPhotoAlbum = list;
-    }
-
-    public boolean canPostHi() {
-        return this.canPostHi == 0;
     }
 
     /* loaded from: classes.dex */

@@ -6,13 +6,13 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnTouchListener {
-    final /* synthetic */ g cfi;
+    final /* synthetic */ g bKR;
     private float mLastX;
     private float mLastY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.cfi = gVar;
+        this.bKR = gVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -23,13 +23,13 @@ public class h implements View.OnTouchListener {
         ForumHeadVideoView forumHeadVideoView2;
         GestureDetector gestureDetector2;
         ForumHeadVideoView forumHeadVideoView3;
-        gestureDetector = this.cfi.cff;
+        gestureDetector = this.bKR.bKO;
         if (gestureDetector != null) {
-            forumHeadVideoView = this.cfi.cfe;
+            forumHeadVideoView = this.bKR.bKN;
             if (forumHeadVideoView != null) {
-                z = this.cfi.cfg;
+                z = this.bKR.bKP;
                 if (z) {
-                    forumHeadVideoView3 = this.cfi.cfe;
+                    forumHeadVideoView3 = this.bKR.bKN;
                     forumHeadVideoView3.requestDisallowInterceptTouchEvent(true);
                 }
                 switch (motionEvent.getAction()) {
@@ -45,13 +45,13 @@ public class h implements View.OnTouchListener {
                     case 2:
                         float y = this.mLastY - motionEvent.getY();
                         if (3.0f * Math.abs(y) > Math.abs(this.mLastX - motionEvent.getX()) && y >= 0.0f) {
-                            forumHeadVideoView2 = this.cfi.cfe;
+                            forumHeadVideoView2 = this.bKR.bKN;
                             forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
                             break;
                         }
                         break;
                 }
-                gestureDetector2 = this.cfi.cff;
+                gestureDetector2 = this.bKR.bKO;
                 gestureDetector2.onTouchEvent(motionEvent);
                 return true;
             }

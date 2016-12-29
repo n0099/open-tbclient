@@ -3,24 +3,21 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 public class s {
-    /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean mn(int i) {
+    public static boolean lx(int i) {
         switch (i) {
             case 0:
-                return com.baidu.tbadk.coreExtra.messageCenter.c.zh().zp() || com.baidu.tbadk.coreExtra.messageCenter.c.zh().zw();
-            case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zh().zo()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yV().zd() && !com.baidu.tbadk.coreExtra.messageCenter.c.yV().zk()) {
                     return false;
                 }
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zh().zm()) {
+                return true;
+            case 1:
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yV().zc()) {
                     return false;
                 }
                 return true;
             case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.zh().zm()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.yV().za()) {
+                    return false;
                 }
                 return true;
             default:
@@ -34,13 +31,13 @@ public class s {
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (mn(0)) {
+        if (lx(0)) {
             i2 = newsNotifyMessage.getMsgChat();
             i = newsNotifyMessage.getMsgStrangerChat();
         } else {
             i = 0;
             i2 = 0;
         }
-        return ((mn(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (mn(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        return ((lx(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (lx(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h ePZ;
+    final /* synthetic */ h ety;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(h hVar, int i) {
         super(i);
-        this.ePZ = hVar;
+        this.ety = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,12 +25,12 @@ public class m extends com.baidu.adp.framework.listener.e {
         TbPageContext tbPageContext2;
         if ((socketResponsedMessage instanceof ResponseApplyMessage) && ((ResponseApplyMessage) socketResponsedMessage).getError() != 0) {
             if (StringUtils.isNull(socketResponsedMessage.getErrorString())) {
-                tbPageContext2 = this.ePZ.GO;
+                tbPageContext2 = this.ety.GO;
                 errorString = tbPageContext2.getResources().getString(r.j.neterror);
             } else {
                 errorString = socketResponsedMessage.getErrorString();
             }
-            tbPageContext = this.ePZ.GO;
+            tbPageContext = this.ety.GO;
             tbPageContext.showToast(errorString);
         }
     }

@@ -4,45 +4,45 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class t implements m {
-    final /* synthetic */ s Yy;
-    private final /* synthetic */ int Yz;
+    final /* synthetic */ s XS;
+    private final /* synthetic */ int XT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, int i) {
-        this.Yy = sVar;
-        this.Yz = i;
+        this.XS = sVar;
+        this.XT = i;
     }
 
     @Override // com.baidu.tbadk.core.c.m
     public void a(o oVar, JSONObject jSONObject) {
-        this.Yy.a(oVar, this.Yz);
+        this.XS.a(oVar, this.XT);
     }
 
     @Override // com.baidu.tbadk.core.c.m
     public void a(int i, Throwable th) {
         int[] iArr;
-        String ua;
+        String tL;
         int[] iArr2;
         int[] iArr3;
         if (i == 1) {
-            int i2 = this.Yz;
-            iArr = s.Yx;
+            int i2 = this.XT;
+            iArr = s.XR;
             if (i2 < iArr.length) {
-                this.Yy.ub();
+                this.XS.tM();
             }
-            if (this.Yz >= 0) {
-                int i3 = this.Yz;
-                iArr2 = s.Yx;
+            if (this.XT >= 0) {
+                int i3 = this.XT;
+                iArr2 = s.XR;
                 if (i3 < iArr2.length) {
-                    s sVar = this.Yy;
-                    iArr3 = s.Yx;
-                    sVar.S(String.valueOf(iArr3[this.Yz]), "");
+                    s sVar = this.XS;
+                    iArr3 = s.XR;
+                    sVar.S(String.valueOf(iArr3[this.XT]), "");
                     return;
                 }
             }
-            BdLog.e("pingIndex " + this.Yz + " out of bounds.");
-            ua = this.Yy.ua();
-            e.q(ua, "103", "ping timeout for index " + this.Yz);
+            BdLog.e("pingIndex " + this.XT + " out of bounds.");
+            tL = this.XS.tL();
+            e.q(tL, "103", "ping timeout for index " + this.XT);
         }
     }
 }

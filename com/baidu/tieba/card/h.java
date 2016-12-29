@@ -15,60 +15,60 @@ import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class h extends b<com.baidu.tieba.card.data.j> {
-    private com.baidu.tieba.tbadkCore.x Gg;
-    private View.OnClickListener aoz;
-    private HListView bcj;
-    private com.baidu.tieba.horizonalList.widget.k bck;
-    private c bcl;
-    private View bcm;
-    private List<com.baidu.tieba.horizonalList.widget.l> bcn;
-    private String bco;
-    private String bcp;
-    private String bcq;
-    private String bcr;
-    private String bcs;
-    private CustomMessageListener bct;
-    private CustomMessageListener bcu;
+public class h extends b<com.baidu.tieba.card.data.i> {
+    private com.baidu.tieba.tbadkCore.w Gg;
+    private View.OnClickListener aob;
+    private CustomMessageListener bbA;
+    private HListView bbp;
+    private com.baidu.tieba.horizonalList.widget.k bbq;
+    private c bbr;
+    private View bbs;
+    private List<com.baidu.tieba.horizonalList.widget.l> bbt;
+    private String bbu;
+    private String bbv;
+    private String bbw;
+    private String bbx;
+    private String bby;
+    private CustomMessageListener bbz;
     private LayoutInflater mInflater;
     private String stType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.bct = new i(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
-        this.bcu = new j(this, CmdConfigCustom.CMD_LIKE_FORUM);
-        this.bcj = new HListView(getContext());
-        this.bcj.setHeaderDividersEnabled(false);
-        this.bcj.setFooterDividersEnabled(false);
+        this.bbz = new i(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
+        this.bbA = new j(this, CmdConfigCustom.CMD_LIKE_FORUM);
+        this.bbp = new HListView(getContext());
+        this.bbp.setHeaderDividersEnabled(false);
+        this.bbp.setFooterDividersEnabled(false);
         this.mInflater = LayoutInflater.from(getContext());
-        this.bcm = this.mInflater.inflate(r.h.extend_forum_item, (ViewGroup) null);
-        this.bcl = new c(this.bcm);
-        this.bbE.addView(this.bcj);
-        this.bcj.setSelector(r.f.list_selector_transparent);
-        this.bcj.setPadding(tbPageContext.getResources().getDimensionPixelSize(r.e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(r.e.ds4), 0);
-        OY();
-        if (this.bck == null) {
+        this.bbs = this.mInflater.inflate(r.h.extend_forum_item, (ViewGroup) null);
+        this.bbr = new c(this.bbs);
+        this.baK.addView(this.bbp);
+        this.bbp.setSelector(r.f.list_selector_transparent);
+        this.bbp.setPadding(tbPageContext.getResources().getDimensionPixelSize(r.e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(r.e.ds4), 0);
+        Ot();
+        if (this.bbq == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 10; i++) {
                 arrayList.add(String.valueOf(i));
             }
-            this.bck = new com.baidu.tieba.horizonalList.widget.k(getContext(), r.h.extend_forum_item, this.bcl);
-            this.bck.setOnClickListener(this.aoz);
-            this.bcj.setAdapter((ListAdapter) this.bck);
+            this.bbq = new com.baidu.tieba.horizonalList.widget.k(getContext(), r.h.extend_forum_item, this.bbr);
+            this.bbq.setOnClickListener(this.aob);
+            this.bbp.setAdapter((ListAdapter) this.bbq);
         }
-        this.bbw.setOnClickListener(this);
-        this.Gg = new com.baidu.tieba.tbadkCore.x(tbPageContext);
+        this.baC.setOnClickListener(this);
+        this.Gg = new com.baidu.tieba.tbadkCore.w(tbPageContext);
         this.Gg.setLoadDataCallBack(new k(this));
-        this.bcj.setOnItemClickListener(null);
+        this.bbp.setOnItemClickListener(null);
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (this.bct != null && this.bcu != null) {
-            this.bct.setTag(bdUniqueId);
-            this.bcu.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.bct);
-            MessageManager.getInstance().registerListener(this.bcu);
+        if (this.bbz != null && this.bbA != null) {
+            this.bbz.setTag(bdUniqueId);
+            this.bbA.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.bbz);
+            MessageManager.getInstance().registerListener(this.bbA);
         }
     }
 
@@ -80,57 +80,57 @@ public class h extends b<com.baidu.tieba.card.data.j> {
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.bcj != null && this.bck != null) {
-            this.bck.dd(i);
+        if (this.bbp != null && this.bbq != null) {
+            this.bbq.df(i);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
-    public void a(com.baidu.tieba.card.data.j jVar) {
-        super.onBindDataToView((h) jVar);
-        if (jVar == null || com.baidu.tbadk.core.util.x.s(jVar.Fy()) <= 0) {
+    public void a(com.baidu.tieba.card.data.i iVar) {
+        super.onBindDataToView((h) iVar);
+        if (iVar == null || com.baidu.tbadk.core.util.x.s(iVar.getDataList()) <= 0) {
             getView().setVisibility(8);
             return;
         }
-        int s = com.baidu.tbadk.core.util.x.s(jVar.Fy());
+        int s = com.baidu.tbadk.core.util.x.s(iVar.getDataList());
         if (s > 10) {
-            ArrayList arrayList = new ArrayList(jVar.Fy());
-            jVar.Fy().clear();
-            jVar.Fy().addAll(arrayList.subList(0, 10));
+            ArrayList arrayList = new ArrayList(iVar.getDataList());
+            iVar.getDataList().clear();
+            iVar.getDataList().addAll(arrayList.subList(0, 10));
         }
-        this.bcs = jVar.PB();
-        this.stType = jVar.getStType();
-        if (!d(jVar.Fy(), this.bcn)) {
-            boolean z = com.baidu.tbadk.core.util.x.s(jVar.Fy()) != com.baidu.tbadk.core.util.x.s(this.bcn);
-            this.bcn = jVar.Fy();
+        this.bby = iVar.OX();
+        this.stType = iVar.getStType();
+        if (!d(iVar.getDataList(), this.bbt)) {
+            boolean z = com.baidu.tbadk.core.util.x.s(iVar.getDataList()) != com.baidu.tbadk.core.util.x.s(this.bbt);
+            this.bbt = iVar.getDataList();
             if (s <= 0) {
                 getView().setVisibility(8);
                 return;
             }
             getView().setVisibility(0);
-            if (this.bck != null) {
+            if (this.bbq != null) {
                 if (z) {
                     ArrayList arrayList2 = new ArrayList();
-                    for (int i = 0; i < this.bcn.size(); i++) {
+                    for (int i = 0; i < this.bbt.size(); i++) {
                         arrayList2.add(String.valueOf(i));
                     }
-                    this.bck = new com.baidu.tieba.horizonalList.widget.k(getContext(), r.h.extend_forum_item, this.bcl);
-                    this.bck.setData(this.bcn);
-                    this.bck.setOnClickListener(this.aoz);
-                    this.bcj.setAdapter((ListAdapter) this.bck);
+                    this.bbq = new com.baidu.tieba.horizonalList.widget.k(getContext(), r.h.extend_forum_item, this.bbr);
+                    this.bbq.setData(this.bbt);
+                    this.bbq.setOnClickListener(this.aob);
+                    this.bbp.setAdapter((ListAdapter) this.bbq);
                     onChangeSkinType(getTbPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
                     return;
                 }
-                this.bck.setData(this.bcn);
-                this.bck.notifyDataSetChanged();
+                this.bbq.setData(this.bbt);
+                this.bbq.notifyDataSetChanged();
             }
         }
     }
 
-    private com.baidu.tieba.card.data.e hQ(String str) {
-        if (com.baidu.tbadk.core.util.x.s(this.bcn) > 0) {
-            for (com.baidu.tieba.horizonalList.widget.l lVar : this.bcn) {
+    private com.baidu.tieba.card.data.e hK(String str) {
+        if (com.baidu.tbadk.core.util.x.s(this.bbt) > 0) {
+            for (com.baidu.tieba.horizonalList.widget.l lVar : this.bbt) {
                 if (lVar != null && (lVar instanceof com.baidu.tieba.card.data.e)) {
                     com.baidu.tieba.card.data.e eVar = (com.baidu.tieba.card.data.e) lVar;
                     if (String.valueOf(eVar.forumId).equals(str)) {
@@ -144,13 +144,13 @@ public class h extends b<com.baidu.tieba.card.data.j> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, boolean z) {
-        com.baidu.tieba.card.data.e hQ = hQ(String.valueOf(j));
-        if (hQ != null) {
-            hQ.isLiked = z;
+        com.baidu.tieba.card.data.e hK = hK(String.valueOf(j));
+        if (hK != null) {
+            hK.isLiked = z;
         }
-        if (this.bck != null) {
-            this.bck.setData(this.bcn);
-            this.bck.notifyDataSetChanged();
+        if (this.bbq != null) {
+            this.bbq.setData(this.bbt);
+            this.bbq.notifyDataSetChanged();
         }
     }
 
@@ -183,14 +183,14 @@ public class h extends b<com.baidu.tieba.card.data.j> {
         return z2;
     }
 
-    private void OY() {
-        this.aoz = new l(this);
+    private void Ot() {
+        this.aob = new l(this);
     }
 
     public void j(String str, String str2, String str3, String str4) {
-        this.bco = str;
-        this.bcp = str2;
-        this.bcq = str3;
-        this.bcr = str4;
+        this.bbu = str;
+        this.bbv = str2;
+        this.bbw = str3;
+        this.bbx = str4;
     }
 }

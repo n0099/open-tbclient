@@ -1,37 +1,36 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.tbadk.BaseActivity;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements Runnable {
-    final /* synthetic */ bm gpx;
+public class bn implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(bm bmVar) {
-        this.gpx = bmVar;
+    public bn(WriteImageActivity writeImageActivity) {
+        this.this$0 = writeImageActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.l lVar;
-        com.baidu.tbadk.editortools.l lVar2;
-        com.baidu.tbadk.editortools.j jVar2;
-        BaseActivity baseActivity;
-        jVar = this.gpx.gpu;
-        if (jVar != null) {
-            lVar = this.gpx.auI;
-            if (lVar != null) {
-                lVar2 = this.gpx.auI;
-                com.baidu.tbadk.editortools.s ez = lVar2.ez(24);
-                if (ez instanceof View) {
-                    jVar2 = this.gpx.gpu;
-                    baseActivity = this.gpx.aTb;
-                    jVar2.d(baseActivity.getPageContext().getPageActivity(), (View) ez);
-                }
-                this.gpx.gpv = true;
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        NavigationBar navigationBar;
+        NavigationBar navigationBar2;
+        LinearLayout linearLayout;
+        NavigationBar navigationBar3;
+        LinearLayout linearLayout2;
+        navigationBar = this.this$0.mNavigationBar;
+        if (navigationBar.getVisibility() == 0) {
+            navigationBar3 = this.this$0.mNavigationBar;
+            navigationBar3.setVisibility(8);
+            linearLayout2 = this.this$0.equ;
+            linearLayout2.setVisibility(8);
+            return;
         }
+        navigationBar2 = this.this$0.mNavigationBar;
+        navigationBar2.setVisibility(0);
+        linearLayout = this.this$0.equ;
+        linearLayout.setVisibility(0);
     }
 }

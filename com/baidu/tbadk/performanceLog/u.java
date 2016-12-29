@@ -3,19 +3,19 @@ package com.baidu.tbadk.performanceLog;
 public class u extends t {
     public long AA;
     public String Az;
-    public boolean aCC;
+    public boolean aBW;
     public boolean isSuccess;
 
-    public void Gn() {
+    public void FN() {
         ac acVar;
-        if (aa.Gu().Gv() && (acVar = (ac) aa.Gu().fi(this.aCB)) != null) {
+        if (aa.FU().FV() && (acVar = (ac) aa.FU().fi(this.aBV)) != null) {
             acVar.a(this, "head");
         }
     }
 
-    public void Go() {
+    public void FO() {
         ac acVar;
-        if (aa.Gu().Gv() && (acVar = (ac) aa.Gu().fi(this.aCB)) != null) {
+        if (aa.FU().FV() && (acVar = (ac) aa.FU().fi(this.aBV)) != null) {
             acVar.a(this, "img");
         }
     }

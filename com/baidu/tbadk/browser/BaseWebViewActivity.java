@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bk;
+import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.util.x;
 import com.baidu.tieba.r;
 import java.net.MalformedURLException;
@@ -29,7 +29,9 @@ import java.util.HashMap;
 import java.util.Timer;
 /* loaded from: classes.dex */
 public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivity> {
+    private static final String[] ALLOWED_NATIVE_SCHEME = {"baiduboxapp"};
     private static final String BOOLEAN_VALUE_CONFIG = "1";
+    private static final String KEY_FOR_NATIVE_CHECK = "enable_tieba_native_open";
     public static final String KEY_INSTALL_PLUGIN_DIALOG_CLOSED = "install_plugin_dialog_closed";
     public static final String KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME = "install_plugin_dialog_shown_time";
     private static final String KEY_NO_MENU = "nomenu";
@@ -102,7 +104,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         this.mView.ag(this.mIsLogin);
         this.mView.ag(isNeedShowMenuItem());
         if (!this.mView.nZ() && UtilHelper.canUseStyleImmersiveSticky()) {
-            bk.b(this.mView.MM, r.d.cp_link_tip_b, false);
+            bh.b(this.mView.MJ, r.d.cp_link_tip_b, false);
         }
         adjustResizeForSoftInput();
     }
@@ -313,20 +315,43 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     private Intent parseIntentFromUrl(Context context, String str) {
-        if (context == null || str == null) {
+        Uri parse;
+        boolean z;
+        boolean z2 = true;
+        if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        Uri parse = Uri.parse(str);
-        Intent intent = new Intent();
-        intent.setData(parse);
-        try {
-            if (context.getPackageManager().resolveActivity(intent, 65536) == null) {
-                intent = null;
+        String scheme = parse.getScheme();
+        String[] strArr = ALLOWED_NATIVE_SCHEME;
+        int length = strArr.length;
+        int i = 0;
+        while (true) {
+            if (i >= length) {
+                z = false;
+                break;
+            } else if (strArr[i].equals(scheme)) {
+                z = true;
+                break;
+            } else {
+                i++;
             }
-            return intent;
-        } catch (Throwable th) {
-            return null;
         }
+        if (!z || !"1".equals(parse.getQueryParameter(KEY_FOR_NATIVE_CHECK))) {
+            z2 = false;
+        }
+        if (z2) {
+            Intent intent = new Intent();
+            intent.setData(parse);
+            try {
+                if (context.getPackageManager().resolveActivity(intent, 65536) == null) {
+                    intent = null;
+                }
+                return intent;
+            } catch (Throwable th) {
+                return null;
+            }
+        }
+        return null;
     }
 
     public void refreshIgnoreFormat() {
@@ -515,14 +540,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b cf = com.baidu.tbadk.core.a.a.oR().cf(TbadkCoreApplication.getCurrentBduss());
-        if (cf != null) {
-            if (cf.pY != null) {
-                str3 = cf.pY;
+        a.b cg = com.baidu.tbadk.core.a.a.oR().cg(TbadkCoreApplication.getCurrentBduss());
+        if (cg != null) {
+            if (cg.pY != null) {
+                str3 = cg.pY;
             }
-            if (cf.Ow != null) {
+            if (cg.Os != null) {
                 str = str3;
-                str2 = cf.Ow;
+                str2 = cg.Os;
                 x.a aVar = new x.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

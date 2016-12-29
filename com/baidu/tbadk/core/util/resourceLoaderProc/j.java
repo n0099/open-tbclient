@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class j extends a {
-    private int abD;
+    private int aaU;
 
     public j(int i) {
-        this.abD = i;
+        this.aaU = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -27,33 +27,33 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean we() {
+    public boolean vO() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wf() {
+    public boolean vP() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
         String str3 = String.valueOf(str) + (TbadkCoreApplication.m9getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a ga = com.baidu.tbadk.imageManager.c.Ep().ga(str3);
-        if (ga == null) {
-            Bitmap cO = at.cO(com.baidu.adp.lib.h.b.g(str2, 0));
-            if (cO == null) {
+        com.baidu.adp.widget.a.a fW = com.baidu.tbadk.imageManager.c.DX().fW(str3);
+        if (fW == null) {
+            Bitmap cQ = ar.cQ(com.baidu.adp.lib.h.b.g(str2, 0));
+            if (cQ == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cO, false, str2);
-            com.baidu.tbadk.imageManager.c.Ep().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cQ, false, str2);
+            com.baidu.tbadk.imageManager.c.DX().c(str3, aVar);
             return aVar;
         }
-        return ga;
+        return fW;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int wg() {
-        return this.abD;
+    public int vQ() {
+        return this.aaU;
     }
 }

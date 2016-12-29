@@ -1,63 +1,63 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.util.at;
 /* loaded from: classes.dex */
 public class o extends c {
-    public static final BdUniqueId bfq = BdUniqueId.gen();
-    public static final BdUniqueId bfr = BdUniqueId.gen();
-    public static String bfs = "";
-    public static String bft = "";
-    public static String bfu = "";
-    public static String bfv = "";
-    public static String bfw = "";
-    public bk beS;
-    public boolean bfl = false;
-    public boolean bfx = true;
+    public static final BdUniqueId beG = BdUniqueId.gen();
+    public static final BdUniqueId beH = BdUniqueId.gen();
+    public static String beI = "";
+    public static String beJ = "";
+    public static String beK = "";
+    public static String beL = "";
+    public static String beM = "";
+    public bg beB;
+    public boolean beA = false;
+    public boolean beN = true;
     public int sourceType = 0;
 
-    public o(bk bkVar) {
-        this.beS = bkVar;
+    public o(bg bgVar) {
+        this.beB = bgVar;
     }
 
-    public static boolean g(bk bkVar) {
-        return (bkVar == null || bkVar.sf() == null) ? false : true;
+    public static boolean l(bg bgVar) {
+        return (bgVar == null || bgVar.rW() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.beS == null) {
-            return bfq;
+        if (this.beB == null) {
+            return beG;
         }
-        if (this.beS.rR() || this.beS.rS()) {
-            return bfr;
+        if (this.beB.rH() || this.beB.rI()) {
+            return beH;
         }
-        return bfq;
+        return beG;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bk Jz() {
-        return this.beS;
+    public bg IU() {
+        return this.beB;
     }
 
-    public av PD() {
-        return hX(bfv);
+    public at OZ() {
+        return hR(beL);
     }
 
-    public av PE() {
-        return hX(bfw);
+    public at Pa() {
+        return hR(beM);
     }
 
-    public av PF() {
-        return hX(bft);
+    public at Pb() {
+        return hR(beJ);
     }
 
-    public av PG() {
-        return hX(bfs);
+    public at Pc() {
+        return hR(beI);
     }
 
-    public av PO() {
-        return x(bfu, true);
+    public at Pk() {
+        return x(beK, true);
     }
 }

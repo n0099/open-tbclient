@@ -2,8 +2,8 @@ package com.baidu.tieba.homepage.personalize.c;
 
 import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.data.bk;
+import com.baidu.tbadk.core.data.ag;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.card.data.s;
 import java.util.Collections;
@@ -15,12 +15,12 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.homepage.personalize.d.f cMW = new com.baidu.tieba.homepage.personalize.d.f();
-    private final d cMU = new d();
-    private final int cMV = com.baidu.tbadk.core.sharedPref.b.um().getInt("home_page_max_thread_count", 300);
+    private com.baidu.tieba.homepage.personalize.d.f csb = new com.baidu.tieba.homepage.personalize.d.f();
+    private final d crZ = new d();
+    private final int csa = com.baidu.tbadk.core.sharedPref.b.tW().getInt("home_page_max_thread_count", 300);
 
-    public int aoP() {
-        return this.cMV;
+    public int ajq() {
+        return this.csa;
     }
 
     public d a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -36,27 +36,27 @@ public class a {
         e.e(builder);
         e.e(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.cMV);
+        a(builder, i, this.csa);
         e.f(builder);
         List<s> d = e.d(builder);
-        bz(d);
-        List<v> l = l(builder.thread_list, d);
-        this.cMW.bB(l);
-        a(l, builder);
-        c.a(builder, l);
-        this.cMU.cMY = l;
-        return this.cMU;
+        br(d);
+        List<v> k = k(builder.thread_list, d);
+        this.csb.bt(k);
+        a(k, builder);
+        c.a(builder, k);
+        this.crZ.csd = k;
+        return this.crZ;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (builder != null && builder2 != null) {
             a(z, builder.thread_list, builder2.thread_list, i);
             a(builder, builder2, i);
-            k(builder.thread_personalized, builder2.thread_personalized);
+            j(builder.thread_personalized, builder2.thread_personalized);
         }
     }
 
-    private void k(List<ThreadPersonalized> list, List<ThreadPersonalized> list2) {
+    private void j(List<ThreadPersonalized> list, List<ThreadPersonalized> list2) {
         if (list != null && list2 != null) {
             list.addAll(list2);
         }
@@ -98,7 +98,7 @@ public class a {
                 int s2 = x.s(list2) - 1;
                 i2 = 0;
                 while (s2 >= 0) {
-                    this.cMW.a(z, s2, list, list2);
+                    this.csb.a(z, s2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) x.c(list2, s2);
                     if (threadInfo3 == null || TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (threadInfo3 == null || threadInfo3.tid == null) {
@@ -119,36 +119,36 @@ public class a {
                     i2 = i3;
                 }
             }
-            this.cMU.cMZ = (x.s(list) - s) - i2;
+            this.crZ.cse = (x.s(list) - s) - i2;
         }
     }
 
-    private void bz(List<s> list) {
+    private void br(List<s> list) {
         if (list != null) {
             Collections.sort(list, new b(this));
         }
     }
 
-    private List<v> l(List<ThreadInfo> list, List<s> list2) {
+    private List<v> k(List<ThreadInfo> list, List<s> list2) {
         if (list == null) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
         for (ThreadInfo threadInfo : list) {
             if (threadInfo != null) {
-                bk bkVar = new bk();
-                bkVar.a(threadInfo);
-                if (!TextUtils.isEmpty(bkVar.sJ())) {
-                    ah ahVar = new ah();
-                    ahVar.cp(bkVar.sJ());
-                    linkedList.add(ahVar);
+                bg bgVar = new bg();
+                bgVar.a(threadInfo);
+                if (!TextUtils.isEmpty(bgVar.sy())) {
+                    ag agVar = new ag();
+                    agVar.cq(bgVar.sy());
+                    linkedList.add(agVar);
                 } else {
-                    com.baidu.tieba.card.data.c u = e.u(bkVar);
-                    if (u != null) {
-                        u.TY = bkVar.getTid();
+                    com.baidu.tieba.card.data.c z = e.z(bgVar);
+                    if (z != null) {
+                        z.Ty = bgVar.getTid();
                     }
-                    if (u != null && u.isValid()) {
-                        linkedList.add(u);
+                    if (z != null && z.isValid()) {
+                        linkedList.add(z);
                     }
                 }
             }
@@ -186,14 +186,14 @@ public class a {
     }
 
     private void a(List<v> list, DataRes.Builder builder) {
-        com.baidu.tieba.homepage.personalize.data.h a;
+        com.baidu.tieba.homepage.personalize.data.f a;
         if (builder != null && list != null) {
-            if (!com.baidu.tbadk.core.sharedPref.b.um().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
-                com.baidu.tieba.homepage.personalize.data.j b = com.baidu.tieba.homepage.personalize.data.j.b(builder);
+            if (!com.baidu.tbadk.core.sharedPref.b.tW().getBoolean("close_new_user_guide_tip", false) && builder.age_sex != null) {
+                com.baidu.tieba.homepage.personalize.data.h b = com.baidu.tieba.homepage.personalize.data.h.b(builder);
                 if (b != null) {
                     list.add(0, b);
                 }
-            } else if (builder.interestion != null && builder.interestion.size() > 0 && (a = com.baidu.tieba.homepage.personalize.data.h.a(builder)) != null) {
+            } else if (builder.interestion != null && builder.interestion.size() > 0 && (a = com.baidu.tieba.homepage.personalize.data.f.a(builder)) != null) {
                 list.add(0, a);
             }
         }

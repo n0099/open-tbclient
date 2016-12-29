@@ -6,11 +6,11 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ d glI;
+    final /* synthetic */ d fAl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.glI = dVar;
+        this.fAl = dVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,17 +21,17 @@ public class e implements Runnable {
         String str2;
         NewVcodeView newVcodeView3;
         NewVcodeView newVcodeView4;
-        newVcodeView = this.glI.glB;
+        newVcodeView = this.fAl.fAe;
         if (newVcodeView != null) {
-            str = this.glI.glG;
+            str = this.fAl.fAj;
             if (StringUtils.isNull(str)) {
-                newVcodeView3 = this.glI.glB;
-                newVcodeView4 = this.glI.glB;
+                newVcodeView3 = this.fAl.fAe;
+                newVcodeView4 = this.fAl.fAe;
                 newVcodeView3.showToast(false, newVcodeView4.getContext().getResources().getString(r.j.drag_vcode_error));
                 return;
             }
-            newVcodeView2 = this.glI.glB;
-            str2 = this.glI.glG;
+            newVcodeView2 = this.fAl.fAe;
+            str2 = this.fAl.fAj;
             newVcodeView2.showToast(false, str2);
         }
     }

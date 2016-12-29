@@ -24,27 +24,27 @@ public class h {
 
     public h() {
         b bVar = new b(this, null);
-        bVar.an(3000);
-        bVar.ao(120000);
-        bVar.ap(500);
+        bVar.ao(3000);
+        bVar.ap(120000);
+        bVar.aq(500);
         this.qc.put("net", bVar);
         this.qc.put("op", bVar);
         this.qc.put("stat", bVar);
         this.qc.put("crash", bVar);
         this.qc.put("pfmonitor", bVar);
         b bVar2 = new b(this, null);
-        bVar2.an(3000);
-        bVar2.ao(120000);
-        bVar2.ap(1500);
+        bVar2.ao(3000);
+        bVar2.ap(120000);
+        bVar2.aq(1500);
         this.qc.put("file", bVar2);
         this.qc.put("db", bVar2);
         this.qc.put("img", bVar2);
         this.qc.put("voice", bVar2);
         this.qc.put("error", bVar2);
         b bVar3 = new b(this, null);
-        bVar3.an(3000);
-        bVar3.ao(120000);
-        bVar3.ap(1500);
+        bVar3.ao(3000);
+        bVar3.ap(120000);
+        bVar3.aq(1500);
         this.qc.put("dbg", bVar3);
     }
 
@@ -71,7 +71,7 @@ public class h {
                 z = true;
             } else {
                 if (aVar.ff()) {
-                    aVar.am(aVar.fd() + 1);
+                    aVar.an(aVar.fd() + 1);
                     if (currentTimeMillis - aVar.fc() < bVar.fh()) {
                         if (aVar.fd() >= bVar.fi()) {
                             aVar.E(true);
@@ -81,7 +81,7 @@ public class h {
                         }
                     } else {
                         aVar.F(false);
-                        aVar.am(0);
+                        aVar.an(0);
                         aVar.f(currentTimeMillis);
                     }
                 } else if (currentTimeMillis - aVar.fe() < bVar.fg()) {
@@ -143,7 +143,7 @@ public class h {
             return this.qh;
         }
 
-        public void am(int i) {
+        public void an(int i) {
             this.qh = i;
         }
 
@@ -182,7 +182,7 @@ public class h {
             return this.qk;
         }
 
-        public void an(int i) {
+        public void ao(int i) {
             this.qk = i;
         }
 
@@ -190,7 +190,7 @@ public class h {
             return this.ql;
         }
 
-        public void ao(int i) {
+        public void ap(int i) {
             this.ql = i;
         }
 
@@ -198,7 +198,7 @@ public class h {
             return this.qm;
         }
 
-        public void ap(int i) {
+        public void aq(int i) {
             this.qm = i;
         }
     }

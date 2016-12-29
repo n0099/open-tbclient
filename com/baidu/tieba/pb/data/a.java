@@ -1,30 +1,68 @@
 package com.baidu.tieba.pb.data;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.DealInfoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.ct;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.tbadkCore.data.q;
+import tbclient.PbPage.GodCard;
 /* loaded from: classes.dex */
-public class a {
-    public ArrayList<v> bHW;
-    public List<com.baidu.adp.widget.ListView.a> bRh;
-    public PbActivity erE;
-    public DealInfoData erF;
-    public View.OnClickListener erG;
-    public ct erH;
-    public int id;
+public class a extends q {
+    public static final BdUniqueId dWm = BdUniqueId.gen();
+    private String PO;
+    private String buttonText;
+    private String dWn;
+    private int dWo;
+    private String picUrl;
+    private String portrait;
+    private String text;
+    private String userName;
 
-    public a(int i) {
-        this.id = i;
+    public void a(GodCard godCard) {
+        if (godCard != null) {
+            this.userName = godCard.user_name;
+            this.portrait = godCard.portrait;
+            this.dWn = godCard.time_ex;
+            this.text = godCard.text;
+            this.picUrl = godCard.pic_url;
+            this.buttonText = godCard.button_text;
+            this.PO = godCard.button_url;
+            this.dWo = godCard.show_floor.intValue();
+        }
     }
 
-    public void aNX() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.ECOMM_PB_ADAPTER, this));
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.q
+    public String aHY() {
+        return this.dWn;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public String getPicUrl() {
+        return this.picUrl;
+    }
+
+    public String aHZ() {
+        return this.buttonText;
+    }
+
+    public String aIa() {
+        return this.PO;
+    }
+
+    public int aIb() {
+        return this.dWo;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.q, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return dWm;
     }
 }

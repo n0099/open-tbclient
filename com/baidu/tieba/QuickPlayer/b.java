@@ -14,7 +14,7 @@ public interface b extends IInterface {
 
     void a(c cVar) throws RemoteException;
 
-    void ce(boolean z) throws RemoteException;
+    void cd(boolean z) throws RemoteException;
 
     int getCurrentPosition() throws RemoteException;
 
@@ -67,7 +67,7 @@ public interface b extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayer");
-                    ce(parcel.readInt() != 0);
+                    cd(parcel.readInt() != 0);
                     parcel2.writeNoException();
                     return true;
                 case 2:
@@ -177,7 +177,7 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.b
-            public void ce(boolean z) throws RemoteException {
+            public void cd(boolean z) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

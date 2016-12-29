@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class p implements Animation.AnimationListener {
-    final /* synthetic */ c ffA;
+    final /* synthetic */ c eIS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(c cVar) {
-        this.ffA = cVar;
+        this.eIS = cVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,11 +19,11 @@ class p implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         View view;
         View view2;
-        view = this.ffA.aSJ;
+        view = this.eIS.aSa;
         if (view != null) {
-            view2 = this.ffA.aSJ;
+            view2 = this.eIS.aSa;
             view2.setVisibility(8);
-            this.ffA.ffb = false;
+            this.eIS.dnz = false;
         }
     }
 

@@ -1,9 +1,9 @@
 package com.baidu.audiorecorder.lib.voice;
 /* loaded from: classes.dex */
 public class BdSoundGate {
-    private static BdSoundGate Er;
-    private int Ep = -1;
-    private int Eq;
+    private static BdSoundGate Es;
+    private int Eq = -1;
+    private int Er;
 
     private native void close(int i);
 
@@ -16,36 +16,36 @@ public class BdSoundGate {
     }
 
     public static BdSoundGate lq() {
-        if (Er == null) {
-            Er = new BdSoundGate();
+        if (Es == null) {
+            Es = new BdSoundGate();
         }
-        return Er;
+        return Es;
     }
 
     private BdSoundGate() {
     }
 
     public void o(int i, int i2) {
-        lq().a(i, 0.0f, f.aR(i2), 0.0f);
+        lq().a(i, 0.0f, f.aS(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {
-        this.Eq = i;
-        this.Ep = getChanger(i, f, f2, f3);
+        this.Er = i;
+        this.Eq = getChanger(i, f, f2, f3);
     }
 
     public int getBlockSize() {
-        return this.Eq;
+        return this.Er;
     }
 
     public void release() {
-        if (this.Ep > 0) {
-            close(this.Ep);
-            this.Ep = -1;
+        if (this.Eq > 0) {
+            close(this.Eq);
+            this.Eq = -1;
         }
     }
 
     public void a(short[] sArr, short[] sArr2) {
-        throughMono(this.Ep, sArr, sArr2);
+        throughMono(this.Eq, sArr, sArr2);
     }
 }

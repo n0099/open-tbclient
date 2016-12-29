@@ -1,30 +1,25 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu implements TbImageView.a {
-    final /* synthetic */ bl bey;
+public class bu implements View.OnClickListener {
+    final /* synthetic */ bn bdP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bl blVar) {
-        this.bey = blVar;
+    public bu(bn bnVar) {
+        this.bdP = bnVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void v(String str, boolean z) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        if (z) {
-            tbImageView = this.bey.beu;
-            if (tbImageView != null) {
-                tbImageView2 = this.bey.beu;
-                tbImageView2.setDefaultBgResource(0);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        CardPersonDynamicThreadData cardPersonDynamicThreadData;
+        cb<CardPersonDynamicThreadData> onSubCardOnClickListenner = this.bdP.getOnSubCardOnClickListenner();
+        if (onSubCardOnClickListenner != null) {
+            view.setTag("2");
+            cardPersonDynamicThreadData = this.bdP.bdB;
+            onSubCardOnClickListenner.a(view, cardPersonDynamicThreadData);
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.headvideo.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ g cfi;
+    final /* synthetic */ g bKR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.cfi = gVar;
+        this.bKR = gVar;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -24,14 +24,14 @@ public class i extends GestureDetector.SimpleOnGestureListener {
         if (Math.abs(y) * 3 <= Math.abs((int) (motionEvent.getX() - motionEvent2.getX())) || y < 20 || Math.abs(f2) <= 20.0f) {
             return super.onFling(motionEvent, motionEvent2, f, f2);
         }
-        aVar = this.cfi.cfh;
+        aVar = this.bKR.bKQ;
         if (aVar != null) {
-            forumHeadVideoView = this.cfi.cfe;
+            forumHeadVideoView = this.bKR.bKN;
             if (forumHeadVideoView != null) {
-                forumHeadVideoView2 = this.cfi.cfe;
+                forumHeadVideoView2 = this.bKR.bKN;
                 forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
-                aVar2 = this.cfi.cfh;
-                forumHeadVideoView3 = this.cfi.cfe;
+                aVar2 = this.bKR.bKQ;
+                forumHeadVideoView3 = this.bKR.bKN;
                 aVar2.ah(forumHeadVideoView3);
                 return true;
             }
@@ -47,14 +47,14 @@ public class i extends GestureDetector.SimpleOnGestureListener {
         ForumHeadVideoView forumHeadVideoView2;
         u.a aVar2;
         ForumHeadVideoView forumHeadVideoView3;
-        aVar = this.cfi.cfh;
+        aVar = this.bKR.bKQ;
         if (aVar != null) {
-            forumHeadVideoView = this.cfi.cfe;
+            forumHeadVideoView = this.bKR.bKN;
             if (forumHeadVideoView != null) {
-                forumHeadVideoView2 = this.cfi.cfe;
+                forumHeadVideoView2 = this.bKR.bKN;
                 forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
-                aVar2 = this.cfi.cfh;
-                forumHeadVideoView3 = this.cfi.cfe;
+                aVar2 = this.bKR.bKQ;
+                forumHeadVideoView3 = this.bKR.bKN;
                 aVar2.ag(forumHeadVideoView3);
             }
         }

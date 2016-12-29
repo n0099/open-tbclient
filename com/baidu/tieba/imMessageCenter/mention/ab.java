@@ -1,25 +1,44 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
+import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends CustomMessageListener {
-    final /* synthetic */ z dzD;
+public class ab implements com.baidu.tieba.im.chat.a.a {
+    final /* synthetic */ o dcz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(z zVar, int i) {
-        super(i);
-        this.dzD = zVar;
+    public ab(o oVar) {
+        this.dcz = oVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
+    @Override // com.baidu.tieba.im.chat.a.a
+    public void onComplete() {
+        BdListView bdListView;
+        ImMessageCenterModel imMessageCenterModel;
+        BdListView bdListView2;
+        ImMessageCenterModel imMessageCenterModel2;
+        boolean isLogin;
+        MessageAggregationListAdapter messageAggregationListAdapter;
+        ImMessageCenterModel imMessageCenterModel3;
+        bdListView = this.dcz.cZz;
+        if (bdListView != null) {
+            imMessageCenterModel = this.dcz.cZw;
+            if (imMessageCenterModel != null) {
+                bdListView2 = this.dcz.cZz;
+                bdListView2.l(2000L);
+                imMessageCenterModel2 = this.dcz.cZw;
+                if (imMessageCenterModel2.getData() != null) {
+                    messageAggregationListAdapter = this.dcz.dcr;
+                    imMessageCenterModel3 = this.dcz.cZw;
+                    messageAggregationListAdapter.setData(imMessageCenterModel3.getData());
+                    return;
+                }
+                o oVar = this.dcz;
+                isLogin = this.dcz.isLogin();
+                oVar.u(isLogin, true);
+            }
         }
-        this.dzD.d(customResponsedMessage);
     }
 }

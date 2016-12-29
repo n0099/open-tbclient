@@ -1,8 +1,22 @@
 package com.baidu.tieba.pb;
-
-import com.baidu.tieba.pb.PbExtraResolver;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
-public class d {
-    public static final AtomicReference<PbExtraResolver.IChudianViewResolver> eqa = new AtomicReference<>(null);
+public class d<T> {
+    private T data;
+    private int type;
+
+    public int getType() {
+        return this.type;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    public void setData(T t) {
+        this.data = t;
+    }
 }

@@ -1,88 +1,159 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.os.Parcelable;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.ei;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ej extends CustomMessageListener {
-    final /* synthetic */ ei eAa;
+public class ej {
+    private com.baidu.tieba.pb.data.f ebE;
+    private boolean ebq;
+    private boolean ebs;
+    private boolean eeA;
+    private Parcelable eeB;
+    private String eey;
+    private boolean eez;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ej(ei eiVar, int i) {
-        super(i);
-        this.eAa = eiVar;
+    static {
+        MessageManager.getInstance().registerListener(new ek(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
+        MessageManager.getInstance().registerListener(new el(CmdConfigCustom.PB_RECORDER_RESET_CMD));
+        MessageManager.getInstance().registerListener(new em(CmdConfigCustom.CMD_LIKE_FORUM));
+        MessageManager.getInstance().registerListener(new en(CmdConfigCustom.CMD_UNLIKE_FORUM));
+        MessageManager.getInstance().registerListener(new eo(CmdConfigCustom.CMD_UPDATE_PENDANT));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.pb.data.h hVar;
-        com.baidu.tieba.pb.data.h hVar2;
-        int i;
-        com.baidu.tieba.pb.data.h hVar3;
-        Object e;
-        ei.a aVar;
-        com.baidu.tieba.pb.data.h hVar4;
-        ei.a aVar2;
-        com.baidu.tieba.pb.data.h hVar5;
-        if (customResponsedMessage != null) {
-            hVar = this.eAa.pbData;
-            if (hVar != null) {
-                this.eAa.ezW = false;
-                hVar2 = this.eAa.pbData;
-                if (hVar2.aOm() != null) {
-                    hVar5 = this.eAa.pbData;
-                    i = hVar5.aOm().size();
-                } else {
-                    i = 0;
-                }
-                if (this.eAa.ezP >= i - 3) {
-                    aVar = this.eAa.ezX;
-                    if (aVar != null) {
-                        hVar4 = this.eAa.pbData;
-                        if (hVar4.getPage().qD() != 0) {
-                            aVar2 = this.eAa.ezX;
-                            aVar2.aRv();
-                        }
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        private static ej eeC = new ej(null);
+    }
+
+    public static ej aLu() {
+        return a.eeC;
+    }
+
+    private ej() {
+        this.eey = null;
+        this.eez = false;
+        this.ebE = null;
+        this.eeA = false;
+        this.eeB = null;
+        this.ebs = true;
+        this.ebq = false;
+    }
+
+    /* synthetic */ ej(ej ejVar) {
+        this();
+    }
+
+    public void N(String str, boolean z) {
+        this.eez = false;
+        if (z) {
+            str = null;
+        }
+        if (str == null || str.length() < 1) {
+            reset();
+            this.eey = null;
+        } else if (!str.equals(this.eey)) {
+            reset();
+            this.eey = str;
+        } else {
+            this.eez = true;
+        }
+    }
+
+    public com.baidu.tieba.pb.data.f getPbData() {
+        if (!this.eez) {
+            this.eeA = false;
+            return null;
+        } else if (this.ebE != null && this.ebE.aIm() != null && this.ebE.aIm().size() > 0) {
+            this.eeA = true;
+            com.baidu.tieba.pb.data.f fVar = this.ebE;
+            this.ebE = null;
+            return fVar;
+        } else {
+            this.eeA = false;
+            this.ebE = null;
+            return null;
+        }
+    }
+
+    public Parcelable aLv() {
+        if (this.eeA) {
+            this.eeA = false;
+            Parcelable parcelable = this.eeB;
+            this.eeB = null;
+            return parcelable;
+        }
+        this.eeB = null;
+        return null;
+    }
+
+    public boolean aKl() {
+        return this.ebs;
+    }
+
+    public boolean aLw() {
+        return this.ebq;
+    }
+
+    public boolean a(com.baidu.tieba.pb.data.f fVar, Parcelable parcelable, boolean z, boolean z2) {
+        this.eez = false;
+        if (this.eey == null) {
+            reset();
+            return false;
+        } else if (fVar == null) {
+            reset();
+            return false;
+        } else if (fVar.aIm() == null) {
+            reset();
+            return false;
+        } else if (fVar.aIm().size() < 1) {
+            reset();
+            return false;
+        } else if (parcelable == null) {
+            reset();
+            return false;
+        } else {
+            this.ebE = fVar;
+            this.eeA = false;
+            this.eeB = parcelable;
+            this.ebs = z;
+            this.ebq = z2;
+            return true;
+        }
+    }
+
+    public void reset() {
+        this.eez = false;
+        this.ebE = null;
+        this.eeA = false;
+        this.eeB = null;
+    }
+
+    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && this.ebE != null && this.ebE.aIk() != null) {
+            Object data = customResponsedMessage.getData();
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.h.b.c(this.ebE.aIk().getId(), 0L)) {
+                this.ebE.aIk().setLike(i);
+            }
+        }
+    }
+
+    public void a(com.baidu.tbadk.data.k kVar) {
+        if (kVar != null && this.ebE != null && this.ebE.aIm() != null && this.ebE.aIm().size() > 0) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (!StringUtils.isNull(currentAccount)) {
+                int size = this.ebE.aIm().size();
+                for (int i = 0; i < size; i++) {
+                    if (this.ebE.aIm().get(i) != null && this.ebE.aIm().get(i).getAuthor() != null && currentAccount.equals(this.ebE.aIm().get(i).getAuthor().getUserId()) && this.ebE.aIm().get(i).getAuthor().getPendantData() != null) {
+                        this.ebE.aIm().get(i).getAuthor().getPendantData().cs(kVar.pS());
+                        this.ebE.aIm().get(i).getAuthor().getPendantData().O(kVar.Cb());
                     }
                 }
-                if (this.eAa.ezP >= i - 1) {
-                    this.eAa.ezP = -1;
-                    this.eAa.ezT = 5;
-                    com.baidu.tbadk.core.data.bg bgVar = new com.baidu.tbadk.core.data.bg();
-                    bgVar.setData(TbadkCoreApplication.m9getInst().getResources().getString(r.j.read_thread_over));
-                    bgVar.bS(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bgVar));
-                    return;
-                } else if (this.eAa.ezP == -1) {
-                    this.eAa.ezT = 5;
-                    this.eAa.ezP = 0;
-                    com.baidu.tbadk.core.data.bg bgVar2 = new com.baidu.tbadk.core.data.bg();
-                    bgVar2.bS(15);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bgVar2));
-                    return;
-                } else {
-                    this.eAa.ezP++;
-                    this.eAa.ezT = 1;
-                    ei eiVar = this.eAa;
-                    int i2 = this.eAa.ezP;
-                    hVar3 = this.eAa.pbData;
-                    e = eiVar.e(i2, hVar3.aOm());
-                    com.baidu.tbadk.core.data.bg bgVar3 = new com.baidu.tbadk.core.data.bg();
-                    bgVar3.bS(1);
-                    bgVar3.setData(e);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, bgVar3));
-                    return;
-                }
             }
-            this.eAa.ezT = 5;
-            this.eAa.ezP = 0;
         }
     }
 }

@@ -43,7 +43,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         return 1;
     }
 
-    private void M(int i) {
+    private void N(int i) {
         if (this.hn != null && this.ho) {
             this.hn.a(i, this);
         }
@@ -102,9 +102,9 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     @Override // com.baidu.adp.lib.webSocket.p
-    public void N(int i) {
+    public void O(int i) {
         hj.removeCallbacks(br());
-        M(i);
+        N(i);
     }
 
     @Override // com.baidu.adp.lib.webSocket.p

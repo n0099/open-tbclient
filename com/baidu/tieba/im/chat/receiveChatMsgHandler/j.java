@@ -13,7 +13,7 @@ public class j {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new k(), ChatStatusManager.getInst().getIsOpen(5), new l());
     }
 
-    public static long h(ChatMessage chatMessage) {
+    public static long f(ChatMessage chatMessage) {
         JSONObject optJSONObject;
         if (chatMessage == null || chatMessage.getMsgType() != 22) {
             return -1L;
@@ -25,10 +25,10 @@ public class j {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.c.a.drz) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.c.a.cWt) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.g.cc(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.g.bQ(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

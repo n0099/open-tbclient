@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.s;
+import com.baidu.tbadk.coreExtra.data.q;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.r;
@@ -33,122 +33,122 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    public static int fFw = 10;
-    private final h<?> aUn;
-    private String fFA;
-    private byte[] fFB;
-    private InterfaceC0083b fFC;
-    private c fFD;
-    private d fFE;
-    private boolean fFF;
-    private a.InterfaceC0079a fFG;
-    private e fFx;
-    private a fFy;
-    private String fFz;
-    private WriteData fst;
+    public static int fjD = 10;
+    private final h<?> aTE;
+    private WriteData eWm;
+    private e fjE;
+    private a fjF;
+    private String fjG;
+    private String fjH;
+    private byte[] fjI;
+    private InterfaceC0077b fjJ;
+    private c fjK;
+    private d fjL;
+    private boolean fjM;
+    private a.InterfaceC0073a fjN;
 
     /* renamed from: com.baidu.tieba.tbadkCore.writeModel.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0083b {
+    public interface InterfaceC0077b {
         void a(ImageUploadResult imageUploadResult, boolean z);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void a(boolean z, String str, s sVar, WriteData writeData, AntiData antiData);
+        void a(boolean z, String str, q qVar, WriteData writeData, AntiData antiData);
     }
 
     /* loaded from: classes.dex */
     public interface d {
-        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, s sVar, WriteData writeData, AntiData antiData);
+        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData);
     }
 
     public b(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.fFx = null;
-        this.fFy = null;
-        this.fst = null;
-        this.fFz = null;
-        this.fFA = null;
-        this.fFB = null;
-        this.fFD = null;
-        this.fFE = null;
-        this.fFF = false;
-        this.aUn = baseActivity.getPageContext();
+        this.fjE = null;
+        this.fjF = null;
+        this.eWm = null;
+        this.fjG = null;
+        this.fjH = null;
+        this.fjI = null;
+        this.fjK = null;
+        this.fjL = null;
+        this.fjM = false;
+        this.aTE = baseActivity.getPageContext();
     }
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fFx = null;
-        this.fFy = null;
-        this.fst = null;
-        this.fFz = null;
-        this.fFA = null;
-        this.fFB = null;
-        this.fFD = null;
-        this.fFE = null;
-        this.fFF = false;
-        this.aUn = tbPageContext;
+        this.fjE = null;
+        this.fjF = null;
+        this.eWm = null;
+        this.fjG = null;
+        this.fjH = null;
+        this.fjI = null;
+        this.fjK = null;
+        this.fjL = null;
+        this.fjM = false;
+        this.aTE = tbPageContext;
     }
 
-    public void lp(boolean z) {
-        this.fFF = z;
+    public void la(boolean z) {
+        this.fjM = z;
     }
 
     public void b(d dVar) {
-        this.fFE = dVar;
+        this.fjL = dVar;
     }
 
     public void a(c cVar) {
-        this.fFD = cVar;
+        this.fjK = cVar;
     }
 
-    public void a(a.InterfaceC0079a interfaceC0079a) {
-        this.fFG = interfaceC0079a;
+    public void a(a.InterfaceC0073a interfaceC0073a) {
+        this.fjN = interfaceC0073a;
     }
 
     public void d(WriteData writeData) {
-        this.fst = writeData;
+        this.eWm = writeData;
     }
 
-    public WriteData bia() {
-        return this.fst;
+    public WriteData bbN() {
+        return this.eWm;
     }
 
-    public boolean bno() {
-        if (this.fst == null) {
+    public boolean bhi() {
+        if (this.eWm == null) {
             return false;
         }
-        if (!i.gm() || i.gn() || this.fst.getWriteImagesInfo() == null || this.fst.getWriteImagesInfo().size() == 0 || !this.fst.getWriteImagesInfo().isOriginalImg() || com.baidu.tbadk.core.sharedPref.b.um().getBoolean("original_img_up_tip", false)) {
-            bnp();
+        if (!i.gm() || i.gn() || this.eWm.getWriteImagesInfo() == null || this.eWm.getWriteImagesInfo().size() == 0 || !this.eWm.getWriteImagesInfo().isOriginalImg() || com.baidu.tbadk.core.sharedPref.b.tW().getBoolean("original_img_up_tip", false)) {
+            bhj();
         } else {
-            com.baidu.tbadk.core.sharedPref.b.um().putBoolean("original_img_up_tip", true);
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aUn.getPageActivity());
-            aVar.ca(r.j.original_img_up_no_wifi_tip);
+            com.baidu.tbadk.core.sharedPref.b.tW().putBoolean("original_img_up_tip", true);
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aTE.getPageActivity());
+            aVar.cb(r.j.original_img_up_no_wifi_tip);
             aVar.a(r.j.alert_yes_button, new com.baidu.tieba.tbadkCore.writeModel.c(this, aVar));
             aVar.b(r.j.alert_no_button, new com.baidu.tieba.tbadkCore.writeModel.d(this, aVar));
-            aVar.b(this.aUn);
-            aVar.tq();
+            aVar.b(this.aTE);
+            aVar.tb();
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnp() {
-        if (this.fFx == null) {
-            this.fFx = new e();
-            this.fFx.execute(new Integer[0]);
+    public void bhj() {
+        if (this.fjE == null) {
+            this.fjE = new e();
+            this.fjE.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cancel() {
-        if (this.fFx != null && !this.fFx.isCancelled()) {
-            this.fFx.cancel();
-        } else if (this.fFE != null) {
-            this.fFE.callback(false, null, null, null, null);
-        } else if (this.fFD != null) {
-            this.fFD.a(false, null, null, null, null);
+        if (this.fjE != null && !this.fjE.isCancelled()) {
+            this.fjE.cancel();
+        } else if (this.fjL != null) {
+            this.fjL.callback(false, null, null, null, null);
+        } else if (this.fjK != null) {
+            this.fjK.a(false, null, null, null, null);
         }
     }
 
@@ -159,32 +159,32 @@ public class b extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.fFx != null && !this.fFx.isCancelled()) {
-            this.fFx.cancel();
+        if (this.fjE != null && !this.fjE.isCancelled()) {
+            this.fjE.cancel();
             return false;
         }
         return false;
     }
 
-    public void bnq() {
-        if (this.fFy != null && !this.fFy.isCancelled()) {
-            this.fFy.cancel();
+    public void bhk() {
+        if (this.fjF != null && !this.fjF.isCancelled()) {
+            this.fjF.cancel();
         }
     }
 
-    public boolean bnr() {
-        if (this.fst == null) {
+    public boolean bhl() {
+        if (this.eWm == null) {
             return true;
         }
-        return (this.fst.getWriteImagesInfo() != null ? this.fst.getWriteImagesInfo().size() + 0 : 0) <= fFw;
+        return (this.eWm.getWriteImagesInfo() != null ? this.eWm.getWriteImagesInfo().size() + 0 : 0) <= fjD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class e extends BdAsyncTask<Integer, Integer, com.baidu.tieba.tbadkCore.writeModel.e> {
-        private com.baidu.tieba.tbadkCore.c.a fFI = null;
-        private String fFJ = null;
-        private boolean cEk = false;
+        private com.baidu.tieba.tbadkCore.c.a fjP = null;
+        private String fjQ = null;
+        private boolean cjz = false;
 
         public e() {
             setPriority(3);
@@ -192,7 +192,7 @@ public class b extends com.baidu.adp.base.e {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:34:0x00da  */
+        /* JADX WARN: Removed duplicated region for block: B:38:0x00ef  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: e */
         /*
@@ -207,36 +207,38 @@ public class b extends com.baidu.adp.base.e {
             String str4;
             String str5;
             int i;
-            String str6 = null;
-            if (this.cEk) {
+            String str6;
+            String str7;
+            String str8 = null;
+            if (this.cjz) {
                 return null;
             }
-            this.fFI = new com.baidu.tieba.tbadkCore.c.a();
-            this.fFI.a(b.this.fFG);
-            this.fFJ = this.fFI.a(b.this.fst, b.this.fFF);
-            ErrorData bmy = this.fFI.bmy();
-            if (this.fFI.oH() && this.fFJ != null) {
-                AntiData bmx = this.fFI.bmx();
-                String error_msg = bmy.getError_msg();
+            this.fjP = new com.baidu.tieba.tbadkCore.c.a();
+            this.fjP.a(b.this.fjN);
+            this.fjQ = this.fjP.a(b.this.eWm, b.this.fjM);
+            ErrorData bgn = this.fjP.bgn();
+            if (this.fjP.oH() && this.fjQ != null) {
+                AntiData bgm = this.fjP.bgm();
+                String error_msg = bgn.getError_msg();
                 if (j.isEmpty(error_msg)) {
                     error_msg = TbadkCoreApplication.m9getInst().getApp().getString(r.j.send_success);
                 }
-                com.baidu.tieba.tbadkCore.writeModel.e eVar2 = new com.baidu.tieba.tbadkCore.writeModel.e(bmy.getError_code(), error_msg, bmx);
-                if (b.this.fst == null || !b.this.fst.isHasImages() || eVar2.hasError()) {
+                com.baidu.tieba.tbadkCore.writeModel.e eVar2 = new com.baidu.tieba.tbadkCore.writeModel.e(bgn.getError_code(), error_msg, bgm);
+                if (b.this.eWm == null || !b.this.eWm.isHasImages() || eVar2.hasError()) {
                     eVar = eVar2;
                 } else {
-                    b.this.fst.deleteUploadedTempImages();
+                    b.this.eWm.deleteUploadedTempImages();
                     eVar = eVar2;
                 }
-            } else if (bmy != null && !StringUtils.isNull(bmy.getError_msg())) {
-                eVar = new com.baidu.tieba.tbadkCore.writeModel.e(bmy.getError_code(), bmy.getError_msg(), null);
+            } else if (bgn != null && !StringUtils.isNull(bgn.getError_msg())) {
+                eVar = new com.baidu.tieba.tbadkCore.writeModel.e(bgn.getError_code(), bgn.getError_msg(), null);
             } else {
                 eVar = new com.baidu.tieba.tbadkCore.writeModel.e(-17, TbadkCoreApplication.m9getInst().getApp().getString(r.j.neterror), null);
             }
             if (!eVar.hasError()) {
                 try {
-                    if (this.fFJ != null) {
-                        JSONObject jSONObject = new JSONObject(this.fFJ);
+                    if (this.fjQ != null) {
+                        JSONObject jSONObject = new JSONObject(this.fjQ);
                         String optString = jSONObject.optString(AddFriendActivityConfig.MSG);
                         try {
                             String optString2 = jSONObject.optString("pre_msg");
@@ -247,94 +249,140 @@ public class b extends com.baidu.adp.base.e {
                                     try {
                                         String optString5 = jSONObject.optString(Info.kBaiduPIDKey);
                                         try {
-                                            JSONObject optJSONObject = new JSONObject(this.fFJ).optJSONObject("twzhibo_info");
-                                            if (optJSONObject != null) {
-                                                i = optJSONObject.optInt("is_copytwzhibo", 0);
-                                                str5 = optString5;
-                                                str6 = optString4;
-                                                str = optString3;
-                                                str2 = optString2;
-                                                str3 = optString;
-                                            } else {
-                                                i = 0;
-                                                str5 = optString5;
-                                                str6 = optString4;
-                                                str = optString3;
-                                                str2 = optString2;
-                                                str3 = optString;
+                                            JSONObject optJSONObject = new JSONObject(this.fjQ).optJSONObject("twzhibo_info");
+                                            i = optJSONObject != null ? optJSONObject.optInt("is_copytwzhibo", 0) : 0;
+                                            try {
+                                                JSONObject optJSONObject2 = jSONObject.optJSONObject("exp");
+                                                if (optJSONObject2 != null) {
+                                                    String optString6 = optJSONObject2.optString("pre_msg");
+                                                    try {
+                                                        str7 = optJSONObject2.optString("color_msg");
+                                                        str8 = optString6;
+                                                        str = optString5;
+                                                        str2 = optString4;
+                                                        str3 = optString3;
+                                                        str4 = optString2;
+                                                        str5 = optString;
+                                                    } catch (JSONException e) {
+                                                        str6 = optString6;
+                                                        str = optString5;
+                                                        str2 = optString4;
+                                                        str3 = optString3;
+                                                        str4 = optString2;
+                                                        str5 = optString;
+                                                        jSONException = e;
+                                                        jSONException.printStackTrace();
+                                                        str8 = str6;
+                                                        str7 = null;
+                                                        if (StringUtils.isNull(str5)) {
+                                                        }
+                                                        eVar.setErrorString(str5);
+                                                        eVar.setPreMsg(str4);
+                                                        eVar.setColorMsg(str3);
+                                                        eVar.setThreadId(str2);
+                                                        eVar.setPostId(str);
+                                                        eVar.setIsCopyTWZhibo(i);
+                                                        eVar.qA(str8);
+                                                        eVar.qB(str7);
+                                                        return eVar;
+                                                    }
+                                                } else {
+                                                    str7 = null;
+                                                    str = optString5;
+                                                    str2 = optString4;
+                                                    str3 = optString3;
+                                                    str4 = optString2;
+                                                    str5 = optString;
+                                                }
+                                            } catch (JSONException e2) {
+                                                str = optString5;
+                                                str2 = optString4;
+                                                str3 = optString3;
+                                                str4 = optString2;
+                                                str5 = optString;
+                                                jSONException = e2;
+                                                str6 = null;
                                             }
-                                        } catch (JSONException e) {
-                                            str4 = optString5;
-                                            str6 = optString4;
-                                            str = optString3;
-                                            str2 = optString2;
-                                            str3 = optString;
-                                            jSONException = e;
-                                            jSONException.printStackTrace();
-                                            str5 = str4;
+                                        } catch (JSONException e3) {
+                                            str = optString5;
+                                            str2 = optString4;
+                                            str3 = optString3;
+                                            str4 = optString2;
+                                            str5 = optString;
+                                            jSONException = e3;
                                             i = 0;
-                                            if (StringUtils.isNull(str3)) {
-                                            }
-                                            eVar.setErrorString(str3);
-                                            eVar.setPreMsg(str2);
-                                            eVar.setColorMsg(str);
-                                            eVar.setThreadId(str6);
-                                            eVar.setPostId(str5);
-                                            eVar.setIsCopyTWZhibo(i);
-                                            return eVar;
+                                            str6 = null;
                                         }
-                                    } catch (JSONException e2) {
-                                        str4 = null;
-                                        str6 = optString4;
-                                        str = optString3;
-                                        str2 = optString2;
-                                        str3 = optString;
-                                        jSONException = e2;
+                                    } catch (JSONException e4) {
+                                        str = null;
+                                        str2 = optString4;
+                                        str3 = optString3;
+                                        str4 = optString2;
+                                        str5 = optString;
+                                        jSONException = e4;
+                                        i = 0;
+                                        str6 = null;
                                     }
-                                } catch (JSONException e3) {
-                                    str = optString3;
-                                    str2 = optString2;
-                                    str3 = optString;
-                                    jSONException = e3;
-                                    str4 = null;
+                                } catch (JSONException e5) {
+                                    str = null;
+                                    str2 = null;
+                                    str3 = optString3;
+                                    str4 = optString2;
+                                    str5 = optString;
+                                    jSONException = e5;
+                                    i = 0;
+                                    str6 = null;
                                 }
-                            } catch (JSONException e4) {
+                            } catch (JSONException e6) {
                                 str = null;
-                                str2 = optString2;
-                                str3 = optString;
-                                jSONException = e4;
-                                str4 = null;
+                                str2 = null;
+                                str3 = null;
+                                str4 = optString2;
+                                str5 = optString;
+                                jSONException = e6;
+                                i = 0;
+                                str6 = null;
                             }
-                        } catch (JSONException e5) {
+                        } catch (JSONException e7) {
                             str = null;
                             str2 = null;
-                            str3 = optString;
-                            jSONException = e5;
+                            str3 = null;
                             str4 = null;
+                            str5 = optString;
+                            jSONException = e7;
+                            i = 0;
+                            str6 = null;
                         }
                     } else {
                         i = 0;
                         str = null;
                         str2 = null;
                         str3 = null;
+                        str4 = null;
                         str5 = null;
+                        str7 = null;
                     }
-                } catch (JSONException e6) {
-                    jSONException = e6;
+                } catch (JSONException e8) {
+                    jSONException = e8;
                     str = null;
                     str2 = null;
                     str3 = null;
                     str4 = null;
+                    str5 = null;
+                    i = 0;
+                    str6 = null;
                 }
-                if (StringUtils.isNull(str3)) {
-                    str3 = TbadkCoreApplication.m9getInst().getString(r.j.send_success);
+                if (StringUtils.isNull(str5)) {
+                    str5 = TbadkCoreApplication.m9getInst().getString(r.j.send_success);
                 }
-                eVar.setErrorString(str3);
-                eVar.setPreMsg(str2);
-                eVar.setColorMsg(str);
-                eVar.setThreadId(str6);
-                eVar.setPostId(str5);
+                eVar.setErrorString(str5);
+                eVar.setPreMsg(str4);
+                eVar.setColorMsg(str3);
+                eVar.setThreadId(str2);
+                eVar.setPostId(str);
                 eVar.setIsCopyTWZhibo(i);
+                eVar.qA(str8);
+                eVar.qB(str7);
             }
             return eVar;
         }
@@ -344,26 +392,37 @@ public class b extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(com.baidu.tieba.tbadkCore.writeModel.e eVar) {
+            String bhp;
+            String str = null;
             super.onPostExecute(eVar);
-            b.this.fFx = null;
+            b.this.fjE = null;
             if (eVar != null && eVar.getErrorCode() != 0) {
                 com.baidu.tbadk.core.log.b.a("write", 0L, 0, "write_result", eVar.getErrorCode(), eVar.getErrorString(), "tid", eVar.getThreadId(), Info.kBaiduPIDKey, eVar.getPostId());
             }
-            if (!this.cEk && eVar != null) {
+            if (!this.cjz && eVar != null) {
                 if (!eVar.hasError()) {
-                    com.baidu.tieba.graffiti.d.b(b.this.fst);
-                    if (b.this.fFE == null) {
-                        if (b.this.fFD != null) {
-                            b.this.fFD.a(true, eVar.getErrorString(), null, null, eVar.getAntiData());
+                    com.baidu.tieba.graffiti.d.b(b.this.eWm);
+                    if (b.this.fjL == null) {
+                        if (b.this.fjK != null) {
+                            b.this.fjK.a(true, eVar.getErrorString(), null, null, eVar.avW());
                         }
                     } else {
-                        PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(eVar.getErrorCode(), eVar.getErrorString(), eVar.getPreMsg(), eVar.getColorMsg());
+                        if (!StringUtils.isNull(eVar.getPreMsg()) && !StringUtils.isNull(eVar.getColorMsg())) {
+                            str = eVar.getPreMsg();
+                            bhp = eVar.getColorMsg();
+                        } else if (StringUtils.isNull(eVar.bhp()) && StringUtils.isNull(eVar.bho())) {
+                            bhp = null;
+                        } else {
+                            str = eVar.bho();
+                            bhp = eVar.bhp();
+                        }
+                        PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(eVar.getErrorCode(), eVar.getErrorString(), str, bhp);
                         postWriteCallBackData.setThreadId(eVar.getThreadId());
                         postWriteCallBackData.setPostId(eVar.getPostId());
                         postWriteCallBackData.setIsCopyTWZhibo(eVar.getIsCopyTWZhibo());
-                        s sVar = new s();
-                        sVar.parserJson(this.fFJ);
-                        b.this.fFE.callback(true, postWriteCallBackData, sVar, b.this.fst, eVar.getAntiData());
+                        q qVar = new q();
+                        qVar.parserJson(this.fjQ);
+                        b.this.fjL.callback(true, postWriteCallBackData, qVar, b.this.eWm, eVar.avW());
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NEW_WRITE_POST_SUCCESS, true));
                     return;
@@ -374,69 +433,69 @@ public class b extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            this.cEk = true;
-            if (this.fFI != null) {
-                this.fFI.cancel();
+            this.cjz = true;
+            if (this.fjP != null) {
+                this.fjP.cancel();
             }
-            if (b.this.fFE == null) {
-                if (b.this.fFD != null) {
-                    b.this.fFD.a(false, null, null, null, null);
+            if (b.this.fjL == null) {
+                if (b.this.fjK != null) {
+                    b.this.fjK.a(false, null, null, null, null);
                 }
             } else {
-                b.this.fFE.callback(false, null, null, null, null);
+                b.this.fjL.callback(false, null, null, null, null);
             }
             super.cancel(true);
-            b.this.fFx = null;
+            b.this.fjE = null;
         }
 
         private void b(com.baidu.tieba.tbadkCore.writeModel.e eVar) {
-            AntiData antiData = eVar.getAntiData();
-            if (eVar.bns()) {
-                s sVar = new s();
-                sVar.parserJson(this.fFJ);
-                if (sVar.getVcode_pic_url() != null && b.this.fst != null) {
-                    b.this.fst.setVcodeMD5(sVar.getVcode_md5());
-                    b.this.fst.setVcodeUrl(sVar.getVcode_pic_url());
-                    if (b.this.fFE == null) {
-                        if (b.this.fFD != null) {
-                            b.this.fFD.a(false, eVar.getErrorString(), sVar, b.this.fst, antiData);
+            AntiData avW = eVar.avW();
+            if (eVar.bhm()) {
+                q qVar = new q();
+                qVar.parserJson(this.fjQ);
+                if (qVar.getVcode_pic_url() != null && b.this.eWm != null) {
+                    b.this.eWm.setVcodeMD5(qVar.getVcode_md5());
+                    b.this.eWm.setVcodeUrl(qVar.getVcode_pic_url());
+                    if (b.this.fjL == null) {
+                        if (b.this.fjK != null) {
+                            b.this.fjK.a(false, eVar.getErrorString(), qVar, b.this.eWm, avW);
                             return;
                         }
                         return;
                     }
-                    b.this.fFE.callback(false, new PostWriteCallBackData(eVar.getErrorCode(), eVar.getErrorString(), null, null), sVar, b.this.fst, antiData);
+                    b.this.fjL.callback(false, new PostWriteCallBackData(eVar.getErrorCode(), eVar.getErrorString(), null, null), qVar, b.this.eWm, avW);
                 }
-            } else if (!eVar.bnt()) {
-                if (b.this.fFE == null) {
-                    if (b.this.fFD != null) {
-                        b.this.fFD.a(false, eVar.getErrorString(), null, null, eVar.getAntiData());
+            } else if (!eVar.bhn()) {
+                if (b.this.fjL == null) {
+                    if (b.this.fjK != null) {
+                        b.this.fjK.a(false, eVar.getErrorString(), null, null, eVar.avW());
                         return;
                     }
                     return;
                 }
-                b.this.fFE.callback(false, new PostWriteCallBackData(eVar.getErrorCode(), eVar.getErrorString(), null, null), null, null, eVar.getAntiData());
+                b.this.fjL.callback(false, new PostWriteCallBackData(eVar.getErrorCode(), eVar.getErrorString(), null, null), null, null, eVar.avW());
             } else {
                 AccessState accessState = new AccessState();
-                accessState.parserJson(this.fFJ);
-                if (b.this.fFE == null) {
-                    if (b.this.fFD != null) {
-                        b.this.fFD.a(false, eVar.getErrorString(), null, b.this.fst, antiData);
+                accessState.parserJson(this.fjQ);
+                if (b.this.fjL == null) {
+                    if (b.this.fjK != null) {
+                        b.this.fjK.a(false, eVar.getErrorString(), null, b.this.eWm, avW);
                         return;
                     }
                     return;
                 }
                 PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(eVar.getErrorCode(), eVar.getErrorString(), null, null);
                 postWriteCallBackData.setAccessState(accessState);
-                b.this.fFE.callback(false, postWriteCallBackData, null, b.this.fst, antiData);
+                b.this.fjL.callback(false, postWriteCallBackData, null, b.this.eWm, avW);
             }
         }
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, Void, ImageUploadResult> {
-        private boolean cEk = false;
-        com.baidu.tieba.tbadkCore.c.a fFI = new com.baidu.tieba.tbadkCore.c.a();
-        Bitmap aGn = null;
+        private boolean cjz = false;
+        com.baidu.tieba.tbadkCore.c.a fjP = new com.baidu.tieba.tbadkCore.c.a();
+        Bitmap aFH = null;
 
         public a() {
             setPriority(3);
@@ -447,50 +506,50 @@ public class b extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: j */
         public ImageUploadResult doInBackground(Void... voidArr) {
-            boolean dj = m.dj(b.this.fFA);
-            if (this.cEk) {
+            boolean dk = m.dk(b.this.fjH);
+            if (this.cjz) {
                 return null;
             }
-            if (b.this.fFB == null || b.this.fFB.length <= 0) {
-                if (TextUtils.isEmpty(b.this.fFA) || !dj) {
+            if (b.this.fjI == null || b.this.fjI.length <= 0) {
+                if (TextUtils.isEmpty(b.this.fjH) || !dk) {
                     return null;
                 }
-                Uri parse = Uri.parse(b.this.fFA);
-                b.this.fFz = m.b(TbadkCoreApplication.m9getInst().getApp(), parse);
-                if (TextUtils.isEmpty(b.this.fFz)) {
+                Uri parse = Uri.parse(b.this.fjH);
+                b.this.fjG = m.b(TbadkCoreApplication.m9getInst().getApp(), parse);
+                if (TextUtils.isEmpty(b.this.fjG)) {
                     return null;
                 }
-                return b.this.a(b.this.fFz, this.fFI);
+                return b.this.a(b.this.fjG, this.fjP);
             }
-            this.aGn = BitmapHelper.Bytes2Bitmap(b.this.fFB);
-            if (this.aGn != null) {
-                b.this.fFz = m.a(TbConfig.IMAGE_RESIZED_FILE, this.aGn, 80);
-                if (TextUtils.isEmpty(b.this.fFz)) {
-                    if (this.aGn == null || this.aGn.isRecycled()) {
+            this.aFH = BitmapHelper.Bytes2Bitmap(b.this.fjI);
+            if (this.aFH != null) {
+                b.this.fjG = m.a(TbConfig.IMAGE_RESIZED_FILE, this.aFH, 80);
+                if (TextUtils.isEmpty(b.this.fjG)) {
+                    if (this.aFH == null || this.aFH.isRecycled()) {
                         return null;
                     }
-                    this.aGn.recycle();
+                    this.aFH.recycle();
                     return null;
                 }
-                return b.this.a(b.this.fFz, this.fFI);
+                return b.this.a(b.this.fjG, this.fjP);
             }
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            this.cEk = true;
-            if (this.fFI != null) {
-                this.fFI.cancel();
+            this.cjz = true;
+            if (this.fjP != null) {
+                this.fjP.cancel();
             }
-            if (b.this.fFC != null) {
-                b.this.fFC.a(null, true);
+            if (b.this.fjJ != null) {
+                b.this.fjJ.a(null, true);
             }
-            if (this.aGn != null && !this.aGn.isRecycled()) {
-                this.aGn.recycle();
+            if (this.aFH != null && !this.aFH.isRecycled()) {
+                this.aFH.recycle();
             }
             super.cancel();
-            b.this.fFy = null;
+            b.this.fjF = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -499,31 +558,31 @@ public class b extends com.baidu.adp.base.e {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (!this.cEk) {
-                if (b.this.fFC != null) {
-                    b.this.fFC.a(imageUploadResult, false);
+            if (!this.cjz) {
+                if (b.this.fjJ != null) {
+                    b.this.fjJ.a(imageUploadResult, false);
                 }
-                if (this.aGn != null && !this.aGn.isRecycled()) {
-                    this.aGn.recycle();
+                if (this.aFH != null && !this.aFH.isRecycled()) {
+                    this.aFH.recycle();
                 }
             }
         }
     }
 
-    public void aaG() {
-        if (this.fFy == null) {
-            this.fFy = new a();
-            this.fFy.execute(new Void[0]);
+    public void UT() {
+        if (this.fjF == null) {
+            this.fjF = new a();
+            this.fjF.execute(new Void[0]);
         }
     }
 
     public void d(byte[] bArr, String str) {
-        this.fFB = bArr;
-        this.fFA = str;
+        this.fjI = bArr;
+        this.fjH = str;
     }
 
-    public void a(InterfaceC0083b interfaceC0083b) {
-        this.fFC = interfaceC0083b;
+    public void a(InterfaceC0077b interfaceC0077b) {
+        this.fjJ = interfaceC0077b;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -534,7 +593,7 @@ public class b extends com.baidu.adp.base.e {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.clearAllActions();
-        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.F(ay.vC().vI(), ay.vC().vI()));
+        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.F(aw.vm().vs(), aw.vm().vs()));
         return aVar.d(imageFileInfo, true);
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.base.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.im.chat.notify.a;
+import com.baidu.tieba.im.chat.a.a;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 import java.util.Iterator;

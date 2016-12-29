@@ -19,7 +19,6 @@ import com.baidu.adp.lib.stats.switchs.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.t;
 import com.baidu.appsearchlib.Info;
-import com.baidu.tbadk.core.atomData.ThActivityDetailActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -223,7 +222,7 @@ public class a {
         if (dVar != null) {
             Address b = com.baidu.adp.lib.e.a.dU().b(false, false);
             if (b != null) {
-                dVar.q(ThActivityDetailActivityConfig.LOCATION, b.getLocality());
+                dVar.q("location", b.getLocality());
             }
             a("pfmonitor", str, -1L, (String) null, dVar, new Object[0]);
         }

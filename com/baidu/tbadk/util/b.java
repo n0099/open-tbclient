@@ -1,21 +1,19 @@
 package com.baidu.tbadk.util;
 
-import android.util.DisplayMetrics;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class b {
-    private static b aEV;
+    private static b aEp;
 
-    public static b GT() {
-        if (aEV == null) {
-            aEV = new b();
+    public static b Gp() {
+        if (aEp == null) {
+            aEp = new b();
         }
-        return aEV;
+        return aEp;
     }
 
-    public String gq(String str) {
+    public String gl(String str) {
         String str2;
-        new DisplayMetrics();
         if (BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi <= 240) {
             str2 = "hdpi";
         } else {

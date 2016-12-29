@@ -1,26 +1,18 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.card.bz;
+import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
-    final /* synthetic */ w caE;
+public class y implements CommonUserLikeButton.a {
+    final /* synthetic */ x bGi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(w wVar) {
-        this.caE = wVar;
+    public y(x xVar) {
+        this.bGi = xVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bk bkVar;
-        if (this.caE.getOnSubCardOnClickListenner() != null) {
-            bz<bk> onSubCardOnClickListenner = this.caE.getOnSubCardOnClickListenner();
-            bkVar = this.caE.aeu;
-            onSubCardOnClickListenner.a(view, bkVar);
-        }
-        this.caE.Ph();
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
+    public void dr(int i) {
+        this.bGi.gg(i);
     }
 }

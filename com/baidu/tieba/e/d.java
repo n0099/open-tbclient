@@ -5,32 +5,32 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Handler.Callback {
-    final /* synthetic */ c bMu;
+    final /* synthetic */ c bsy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bMu = cVar;
+        this.bsy = cVar;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         Handler handler;
-        if ((message.what != 1 && message.what != 2) || !this.bMu.aad()) {
+        if ((message.what != 1 && message.what != 2) || !this.bsy.Uq()) {
             switch (message.what) {
                 case 1:
-                    this.bMu.ZZ();
+                    this.bsy.Um();
                     return true;
                 case 2:
-                    this.bMu.ZX();
+                    this.bsy.Uk();
                     return true;
                 case 3:
-                    this.bMu.ZY();
+                    this.bsy.Ul();
                     return true;
                 default:
                     return false;
             }
         }
-        handler = this.bMu.mHandler;
+        handler = this.bsy.mHandler;
         handler.sendEmptyMessageDelayed(message.what, 100L);
         return true;
     }

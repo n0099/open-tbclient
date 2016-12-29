@@ -12,44 +12,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public JSONArray cKo;
-    private HttpMessageListener cKp;
-    private BdUniqueId cKq = BdUniqueId.gen();
-    private BdUniqueId cKr = BdUniqueId.gen();
-    private CustomMessageListener cKs = new b(this, 2000994);
-    private CustomMessageListener cKt = new c(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
+    public JSONArray cpJ;
+    private HttpMessageListener cpK;
+    private BdUniqueId cpL = BdUniqueId.gen();
+    private BdUniqueId cpM = BdUniqueId.gen();
+    private CustomMessageListener cpN = new b(this, 2000994);
+    private CustomMessageListener cpO = new c(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
 
     public a() {
-        if (this.cKp == null) {
-            this.cKp = new d(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
+        if (this.cpK == null) {
+            this.cpK = new d(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
         }
-        this.cKp.setTag(this.cKr);
-        MessageManager.getInstance().registerListener(this.cKp);
-        MessageManager.getInstance().registerListener(this.cKs);
-        MessageManager.getInstance().registerListener(this.cKt);
+        this.cpK.setTag(this.cpM);
+        MessageManager.getInstance().registerListener(this.cpK);
+        MessageManager.getInstance().registerListener(this.cpN);
+        MessageManager.getInstance().registerListener(this.cpO);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cKp);
-        MessageManager.getInstance().unRegisterListener(this.cKs);
-        MessageManager.getInstance().unRegisterListener(this.cKt);
-        this.cKo = null;
+        MessageManager.getInstance().unRegisterListener(this.cpK);
+        MessageManager.getInstance().unRegisterListener(this.cpN);
+        MessageManager.getInstance().unRegisterListener(this.cpO);
+        this.cpJ = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void D(JSONObject jSONObject) {
+    public void m(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (i.fZ()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.cKq);
+                a(jSONArray, this.cpL);
                 return;
             }
-            if (this.cKo == null) {
-                this.cKo = new JSONArray();
+            if (this.cpJ == null) {
+                this.cpJ = new JSONArray();
             }
-            if (this.cKo.length() <= 100) {
-                this.cKo.put(jSONObject);
+            if (this.cpJ.length() <= 100) {
+                this.cpJ.put(jSONObject);
             }
         }
     }

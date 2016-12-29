@@ -5,21 +5,21 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bw;
-import com.baidu.tieba.frs.g.f;
+import com.baidu.tieba.frs.bv;
+import com.baidu.tieba.frs.f.f;
 import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.b {
-    final /* synthetic */ a caq;
+    final /* synthetic */ a bGa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.caq = aVar;
+        this.bGa = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -37,46 +37,46 @@ public class c implements c.b {
         String str;
         FrsActivity frsActivity6;
         if (!i.fZ()) {
-            frsActivity6 = this.caq.cai;
+            frsActivity6 = this.bGa.bFS;
             frsActivity6.showToast(r.j.neterror);
             cVar.dismiss();
             return;
         }
-        aVar = this.caq.cal;
-        bw bwVar = (bw) x.c(aVar.aeY(), i);
-        if (bwVar != null) {
-            i2 = this.caq.cam;
-            if (i2 != bwVar.bVo) {
-                this.caq.can = true;
-                textView = this.caq.caj;
-                textView.setText(bwVar.name);
-                i3 = this.caq.cam;
+        aVar = this.bGa.bFV;
+        bv bvVar = (bv) x.c(aVar.Zt(), i);
+        if (bvVar != null) {
+            i2 = this.bGa.bFW;
+            if (i2 != bvVar.bBw) {
+                this.bGa.bFX = true;
+                textView = this.bGa.bFT;
+                textView.setText(bvVar.name);
+                i3 = this.bGa.bFW;
                 if (i3 == 7) {
-                    av avVar = new av("c11437");
-                    avVar.s("obj_locate", bwVar.bVo);
-                    str = this.caq.aRN;
-                    avVar.ab("fid", str);
-                    TiebaStatic.log(avVar);
+                    at atVar = new at("c11437");
+                    atVar.s("obj_locate", bvVar.bBw);
+                    str = this.bGa.aRe;
+                    atVar.ab("fid", str);
+                    TiebaStatic.log(atVar);
                 }
-                this.caq.cam = bwVar.bVo;
+                this.bGa.bFW = bvVar.bBw;
                 cVar.dismiss();
-                i4 = this.caq.cam;
+                i4 = this.bGa.bFW;
                 if (i4 != 7) {
-                    com.baidu.tbadk.util.r.Hh();
-                    s.bnf();
+                    com.baidu.tbadk.util.r.GD();
+                    s.bgZ();
                 } else {
-                    s.bne();
+                    s.bgY();
                 }
-                frsActivity = this.caq.cai;
-                if (frsActivity.abS() != null) {
-                    frsActivity2 = this.caq.cai;
-                    if (frsActivity2.abZ() != null) {
-                        frsActivity3 = this.caq.cai;
-                        frsActivity3.abS().iw(bwVar.bVo);
-                        frsActivity4 = this.caq.cai;
-                        frsActivity4.abZ().kv();
-                        frsActivity5 = this.caq.cai;
-                        f.agR().f(frsActivity5.abS().getForumName(), bwVar.bVo, bwVar.name);
+                frsActivity = this.bGa.bFS;
+                if (frsActivity.Wh() != null) {
+                    frsActivity2 = this.bGa.bFS;
+                    if (frsActivity2.Wo() != null) {
+                        frsActivity3 = this.bGa.bFS;
+                        frsActivity3.Wh().hG(bvVar.bBw);
+                        frsActivity4 = this.bGa.bFS;
+                        frsActivity4.Wo().kv();
+                        frsActivity5 = this.bGa.bFS;
+                        f.abm().f(frsActivity5.Wh().getForumName(), bvVar.bBw, bvVar.name);
                         return;
                     }
                     return;

@@ -5,20 +5,23 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ a bZc;
+    final /* synthetic */ b bEQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(a aVar, int i) {
+    public g(b bVar, int i) {
         super(i);
-        this.bZc = aVar;
+        this.bEQ = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-            this.bZc.N((com.baidu.tbadk.data.j) customResponsedMessage.getData());
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
+            com.baidu.tieba.lego.d.b bVar = new com.baidu.tieba.lego.d.b();
+            bVar.fid = String.valueOf(customResponsedMessage.getData());
+            bVar.dpi = false;
+            this.bEQ.M(bVar);
         }
     }
 }

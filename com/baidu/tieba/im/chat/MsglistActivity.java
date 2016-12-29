@@ -13,16 +13,15 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract boolean k(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.al
-    public void asv() {
-        arV();
+    public void amW() {
+        amx();
     }
 
-    public void arV() {
+    public void amx() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!k(bundle)) {
             finish();
@@ -30,22 +29,22 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(r.d.common_color_10022, false);
-        if (this.dbq != null) {
-            this.dbq.setImageUploadUIProgressCallback(this.dbw);
+        if (this.cGA != null) {
+            this.cGA.setImageUploadUIProgressCallback(this.cGG);
         }
-        asC();
+        anc();
         if (a((al) this)) {
             loadDraft();
-            arT();
-            br.dbo = com.baidu.tbadk.util.g.GX();
+            amv();
+            br.cGy = com.baidu.tbadk.util.g.Gt();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.dbq != null) {
-            this.dbq.onDestroy();
+        if (this.cGA != null) {
+            this.cGA.onDestroy();
         }
         setIntent(intent);
         if (!k(null)) {
@@ -54,7 +53,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(r.d.common_color_10022, false);
-        asC();
+        anc();
         if (a((al) this)) {
             loadDraft();
         }
@@ -64,8 +63,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dbp != null) {
-            this.dbp.onChangeSkinType(i);
+        if (this.cGz != null) {
+            this.cGz.onChangeSkinType(i);
         }
     }
 
@@ -73,37 +72,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.dbp != null) {
-            this.dbp.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-            arQ();
+        if (this.cGz != null) {
+            this.cGz.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+            ams();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arQ() {
+    public void ams() {
         if (TbadkCoreApplication.m9getInst().isHeadsetModeOn()) {
-            this.dbp.showReceiver();
+            this.cGz.showReceiver();
         } else {
-            this.dbp.closeReceiver();
+            this.cGz.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.dbq.loadDraft();
+        return this.cGA.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        arU();
+        amw();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arT() {
+    public void amv() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void arU() {
+    public void amw() {
     }
 }

@@ -62,7 +62,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface c {
-        void aE(int i);
+        void aF(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -197,7 +197,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     private boolean j(int i, int i2) {
-        return i2 >= this.zL - this.zC && i2 <= this.zL + this.zC && (i < this.zK - this.zC || i > this.zK + this.zC) && this.zQ.aF(i - this.zK);
+        return i2 >= this.zL - this.zC && i2 <= this.zL + this.zC && (i < this.zK - this.zC || i > this.zK + this.zC) && this.zQ.aG(i - this.zK);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -230,7 +230,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                                 this.zN = true;
                             }
                         }
-                        this.zQ.aG(this.zM - x);
+                        this.zQ.aH(this.zM - x);
                         this.zM = x;
                         this.zQ.Af.addMovement(motionEvent);
                         return true;
@@ -250,7 +250,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 }
                 if (!this.zQ.Ag) {
                     this.zM = x;
-                    this.zQ.aF(x);
+                    this.zQ.aG(x);
                     break;
                 }
                 break;
@@ -268,7 +268,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 return true;
         }
         if (this.zQ.Ag) {
-            this.zQ.aG(this.zM - x);
+            this.zQ.aH(this.zM - x);
             this.zM = x;
             this.zQ.Af.addMovement(motionEvent);
             return true;
@@ -392,7 +392,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             return iArr;
         }
 
-        boolean aF(int i) {
+        boolean aG(int i) {
             switch (jR()[this.zV.zF.ordinal()]) {
                 case 1:
                     if (this.zV.zG != 10004 && this.zV.zG != 10000) {
@@ -406,7 +406,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     break;
                 case 3:
                     if (this.zV.zU != null) {
-                        this.zV.zU.aE(i);
+                        this.zV.zU.aF(i);
                         break;
                     }
                     break;
@@ -420,7 +420,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.Ag = false;
         }
 
-        void aG(int i) {
+        void aH(int i) {
             if (this.Ag) {
                 int i2 = this.zV.zB - i;
                 switch (jR()[this.zV.zF.ordinal()]) {

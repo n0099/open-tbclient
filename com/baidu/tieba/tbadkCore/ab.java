@@ -1,50 +1,39 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Message;
+import com.baidu.tieba.tbadkCore.aa;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnTouchListener {
-    private a fBf;
-    private int count = 0;
-    private long esG = 0;
-    private long esH = 0;
-    private long esJ = 500;
-    private Handler mHandler = new ac(this);
+public class ab extends Handler {
+    final /* synthetic */ aa ffl;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void adv();
-
-        void adw();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(aa aaVar) {
+        this.ffl = aaVar;
     }
 
-    public ab(a aVar) {
-        this.fBf = aVar;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            if (this.fBf == null) {
-                return false;
-            }
-            this.count++;
-            if (this.count == 1) {
-                this.esG = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.esJ);
-                return true;
-            } else if (this.count == 2) {
-                this.esH = System.currentTimeMillis();
-                if (this.esH - this.esG < this.esJ) {
-                    this.fBf.adw();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        aa.a aVar;
+        aa.a aVar2;
+        if (message.what == 2) {
+            this.ffl.count = 0;
+            this.ffl.dXe = 0L;
+            this.ffl.dXf = 0L;
+        } else if (message.what == 1) {
+            i = this.ffl.count;
+            if (i == 1) {
+                aVar = this.ffl.ffk;
+                if (aVar != null) {
+                    aVar2 = this.ffl.ffk;
+                    aVar2.XO();
                 }
-                this.mHandler.sendEmptyMessage(2);
-                return true;
-            } else {
-                return true;
+                this.ffl.count = 0;
+                this.ffl.dXe = 0L;
+                this.ffl.dXf = 0L;
             }
         }
-        return true;
     }
 }

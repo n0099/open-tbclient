@@ -8,10 +8,10 @@ import android.os.Message;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class y implements SensorEventListener {
-    private WeakReference<Handler> aMa;
+    private WeakReference<Handler> aLr;
 
     public y(Handler handler) {
-        this.aMa = new WeakReference<>(handler);
+        this.aLr = new WeakReference<>(handler);
     }
 
     @Override // android.hardware.SensorEventListener
@@ -33,7 +33,7 @@ public class y implements SensorEventListener {
                     round -= 360;
                 }
                 int i = round < 0 ? round + 360 : round;
-                if (this.aMa != null && this.aMa.get() != null && (obtainMessage = (handler = this.aMa.get()).obtainMessage(1)) != null) {
+                if (this.aLr != null && this.aLr.get() != null && (obtainMessage = (handler = this.aLr.get()).obtainMessage(1)) != null) {
                     obtainMessage.arg1 = i;
                     handler.sendMessage(obtainMessage);
                 }

@@ -17,7 +17,7 @@ public class g {
         void onDismiss();
     }
 
-    public g ad(int i) {
+    public g ae(int i) {
         if (this.nr) {
             throw new BuildException("Already created. rebuild a new one.");
         }
@@ -39,7 +39,7 @@ public class g {
         return this;
     }
 
-    public g ae(int i) {
+    public g af(int i) {
         if (this.nr) {
             throw new BuildException("Already created. rebuild a new one.");
         }

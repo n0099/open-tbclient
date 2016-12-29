@@ -38,7 +38,7 @@ class b implements Handler.Callback {
                 fVar = a.sK;
                 if (fVar != null) {
                     fVar2 = a.sK;
-                    fVar2.ax(message.arg1);
+                    fVar2.ay(message.arg1);
                 }
                 return true;
             default:

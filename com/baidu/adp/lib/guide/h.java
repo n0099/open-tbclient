@@ -181,12 +181,12 @@ public class h extends ViewGroup {
         invalidate();
     }
 
-    public void af(int i) {
+    public void ag(int i) {
         this.nw.setAlpha(i);
         invalidate();
     }
 
-    public void ag(int i) {
+    public void ah(int i) {
         this.nw.setColor(i);
         invalidate();
     }

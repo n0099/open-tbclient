@@ -1,25 +1,18 @@
 package com.baidu.tieba.card;
 
-import android.view.View;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs implements View.OnClickListener {
-    final /* synthetic */ bl bey;
+public class bs implements FrsCommonImageLayout.b {
+    final /* synthetic */ bn bdP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bl blVar) {
-        this.bey = blVar;
+    public bs(bn bnVar) {
+        this.bdP = bnVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        CardPersonDynamicThreadData cardPersonDynamicThreadData;
-        bz<CardPersonDynamicThreadData> onSubCardOnClickListenner = this.bey.getOnSubCardOnClickListenner();
-        if (onSubCardOnClickListenner != null) {
-            view.setTag("2");
-            cardPersonDynamicThreadData = this.bey.bej;
-            onSubCardOnClickListenner.a(view, cardPersonDynamicThreadData);
-        }
+    @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.b
+    public void dp(int i) {
+        this.bdP.OD();
     }
 }

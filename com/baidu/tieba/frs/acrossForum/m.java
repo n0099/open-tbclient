@@ -7,13 +7,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends CustomMessageListener {
-    final /* synthetic */ j bWU;
+    final /* synthetic */ j bDe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(j jVar, int i) {
         super(i);
-        this.bWU = jVar;
+        this.bDe = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,15 +22,15 @@ public class m extends CustomMessageListener {
         ViewGroup viewGroup;
         ViewGroup viewGroup2;
         View view;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.y)) {
-            if (((com.baidu.tieba.tbadkCore.y) customResponsedMessage.getData()).isLike() == 1) {
-                viewGroup = this.bWU.bWP;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.x)) {
+            if (((com.baidu.tieba.tbadkCore.x) customResponsedMessage.getData()).isLike() == 1) {
+                viewGroup = this.bDe.bCZ;
                 if (viewGroup != null) {
-                    viewGroup2 = this.bWU.bWP;
-                    view = this.bWU.mView;
+                    viewGroup2 = this.bDe.bCZ;
+                    view = this.bDe.mView;
                     viewGroup2.removeView(view);
-                    this.bWU.mView = null;
-                    this.bWU.bWQ = true;
+                    this.bDe.mView = null;
+                    this.bDe.bDa = true;
                 }
             }
         }

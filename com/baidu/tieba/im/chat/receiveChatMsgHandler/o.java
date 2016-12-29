@@ -4,7 +4,7 @@ import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
 /* loaded from: classes.dex */
 class o implements a.c {
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
-    public boolean ly(String str) {
+    public boolean kb(String str) {
         return true;
     }
 }

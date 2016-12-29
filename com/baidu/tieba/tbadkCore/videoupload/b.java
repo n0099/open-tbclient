@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void bni() {
+    public static void bhc() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             mainDBDatabaseManager.x("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
         }
     }
 
-    public static void rR(String str) {
+    public static void qx(String str) {
         BdLog.e("deleteVieoChunkUploadData Called");
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
@@ -35,7 +35,7 @@ public class b {
         return mainDBDatabaseManager.g("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static c rS(String str) {
+    public static c qy(String str) {
         Cursor cursor;
         Exception e;
         c cVar;
@@ -50,8 +50,8 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.fEQ = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.fER = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.fiX = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.fiY = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.a(e, "getChunkUploadDataByMd5");

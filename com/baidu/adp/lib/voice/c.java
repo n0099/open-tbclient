@@ -58,7 +58,7 @@ public class c implements Runnable {
         }
     }
 
-    public void aw(int i) {
+    public void ax(int i) {
         this.sR = i;
     }
 

@@ -1,41 +1,38 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.MentionActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah {
-    private int dzE = 0;
-    private int dzF = 0;
-    private int dzG = 0;
-    private int chat = 0;
-    private int bookmark = 0;
+public class ah extends CustomMessageListener {
+    final /* synthetic */ ag dcE;
 
-    public int aBt() {
-        return this.dzE;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah(ag agVar, int i) {
+        super(i);
+        this.dcE = agVar;
     }
 
-    public int aBu() {
-        return this.dzF;
-    }
-
-    public int aBv() {
-        return this.dzG;
-    }
-
-    public int aBw() {
-        return this.bookmark;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.dzE = jSONObject.optInt("replyme", 0);
-                this.dzF = jSONObject.optInt("atme", 0);
-                this.dzG = jSONObject.optInt("fans", 0);
-                this.chat = jSONObject.optInt("pletter", 0);
-                this.bookmark = jSONObject.optInt("bookmark", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        o oVar;
+        o oVar2;
+        o oVar3;
+        o oVar4;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            oVar = this.dcE.dcB;
+            if (oVar != null) {
+                oVar4 = this.dcE.dcB;
+                oVar4.gz(true);
+            }
+            MentionActivityConfig.newJumpIn = true;
+            oVar2 = this.dcE.dcB;
+            if (oVar2 != null) {
+                oVar3 = this.dcE.dcB;
+                oVar3.Zi();
             }
         }
     }

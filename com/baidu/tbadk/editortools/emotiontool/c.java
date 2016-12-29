@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a avE;
-    private com.baidu.adp.widget.a.a avF;
-    private int avG;
+    private com.baidu.adp.widget.a.a avb;
+    private com.baidu.adp.widget.a.a avc;
+    private int avd;
     private int cols;
 
-    public abstract boolean Dh();
+    public abstract boolean CQ();
 
-    public abstract EmotionGroupType Di();
+    public abstract EmotionGroupType CR();
 
-    public abstract String eE(int i);
+    public abstract String eF(int i);
 
-    public abstract boolean fx(String str);
+    public abstract boolean ft(String str);
 
-    public abstract com.baidu.adp.widget.a.a fy(String str);
+    public abstract com.baidu.adp.widget.a.a fu(String str);
 
-    public abstract com.baidu.adp.widget.a.a fz(String str);
+    public abstract com.baidu.adp.widget.a.a fv(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,26 +30,26 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a Dj() {
-        return this.avE;
+    public com.baidu.adp.widget.a.a CS() {
+        return this.avb;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.jV();
         }
-        this.avE = aVar;
+        this.avb = aVar;
     }
 
-    public com.baidu.adp.widget.a.a Dk() {
-        return this.avF;
+    public com.baidu.adp.widget.a.a CT() {
+        return this.avc;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.jV();
         }
-        this.avF = aVar;
+        this.avc = aVar;
     }
 
     public int getCols() {
@@ -57,16 +57,16 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eF(int i) {
+    public void eG(int i) {
         this.cols = i;
     }
 
-    public int Dl() {
-        return this.avG;
+    public int CU() {
+        return this.avd;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eG(int i) {
-        this.avG = i;
+    public void eH(int i) {
+        this.avd = i;
     }
 }

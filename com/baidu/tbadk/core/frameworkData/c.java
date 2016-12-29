@@ -15,8 +15,8 @@ class c extends k {
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.websocketBase.d.BI().el(socketMessage.getCmd())) {
-            ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.websocketBase.d.BI().BJ());
+        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.websocketBase.d.Bv().em(socketMessage.getCmd())) {
+            ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.websocketBase.d.Bv().Bw());
             return null;
         }
         return socketMessage;

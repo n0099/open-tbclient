@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements a.b {
-    final /* synthetic */ j bYo;
+    final /* synthetic */ j bEc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(j jVar) {
-        this.bYo = jVar;
+        this.bEc = jVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         TbPageContext tbPageContext;
         int i;
-        tbPageContext = this.bYo.Gf;
+        tbPageContext = this.bEc.Gf;
         Activity pageActivity = tbPageContext.getPageActivity();
-        i = this.bYo.mMemberType;
+        i = this.bEc.mMemberType;
         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(pageActivity, i, "exp_acce", 2);
         memberPayActivityConfig.setSceneId("4004001000");
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));

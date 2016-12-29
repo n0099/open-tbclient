@@ -30,8 +30,8 @@ public class b extends p {
             String optString = jSONObject.optString("curNum");
             j jVar = new j();
             jVar.setActivityId(optInt);
-            jVar.er(optInt2);
-            jVar.fi(optString);
+            jVar.es(optInt2);
+            jVar.fe(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, jVar));
         }
     }

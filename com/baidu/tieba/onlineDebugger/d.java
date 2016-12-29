@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d {
-    public static final Class<?> oJ(String str) {
+    public static final Class<?> nk(String str) {
         if (str == null) {
             return null;
         }
@@ -47,14 +47,14 @@ public class d {
     }
 
     public static final Object c(String str, Class<?> cls) {
-        h pb;
+        h nC;
         if (str == null) {
             return null;
         }
         String trim = str.trim();
-        if (trim.startsWith("$") && (pb = com.baidu.tieba.onlineDebugger.e.b.pb("get " + trim)) != null) {
+        if (trim.startsWith("$") && (nC = com.baidu.tieba.onlineDebugger.e.b.nC("get " + trim)) != null) {
             try {
-                return pb.aNb();
+                return nC.aHc();
             } catch (Exception e) {
                 return null;
             }

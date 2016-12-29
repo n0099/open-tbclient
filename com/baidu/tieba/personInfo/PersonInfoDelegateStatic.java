@@ -13,9 +13,9 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private ImageView dWb;
-    private Boolean ePo = false;
-    private CustomMessageListener ePp;
+    private ImageView dAE;
+    private Boolean esK = false;
+    private CustomMessageListener esL;
 
     static {
         c cVar = new c(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
@@ -29,43 +29,43 @@ public class PersonInfoDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c EJ() {
+    public com.baidu.tbadk.mainTab.c Er() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aAd = new com.baidu.tieba.personCenter.a();
+        cVar.azA = new com.baidu.tieba.personCenter.a();
         cVar.type = 8;
-        cVar.aAe = r.j.mine;
-        cVar.aAf = r.f.s_tabbar_icon_four_bg;
+        cVar.azB = r.j.mine;
+        cVar.azC = r.f.s_tabbar_icon_four_bg;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator ap(Context context) {
-        this.azQ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(r.h.fragmenttabindicator, (ViewGroup) null);
-        this.dWb = new ImageView(context);
+    public FragmentTabIndicator an(Context context) {
+        this.azn = (FragmentTabIndicator) LayoutInflater.from(context).inflate(r.h.fragmenttabindicator, (ViewGroup) null);
+        this.dAE = new ImageView(context);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.aAc = this.azQ;
+        aVar.azz = this.azn;
         aVar.nC = k.dip2px(context, 3.0f);
-        aVar.view = this.dWb;
-        aVar.aAa = r.f.icon_news_down_bar_one;
-        if (this.ePo.booleanValue()) {
-            this.dWb.setVisibility(0);
+        aVar.view = this.dAE;
+        aVar.azx = r.f.icon_news_down_bar_one;
+        if (this.esK.booleanValue()) {
+            this.dAE.setVisibility(0);
         } else {
-            this.dWb.setVisibility(8);
+            this.dAE.setVisibility(8);
         }
-        this.azQ.a("emotion", aVar);
-        return this.azQ;
+        this.azn.a("emotion", aVar);
+        return this.azn;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void EI() {
-        this.ePp = new d(this, CmdConfigCustom.MAINTAB_PERSON_TIP);
-        this.ePp.setPriority(5);
-        MessageManager.getInstance().registerListener(this.ePp);
+    public void Eq() {
+        this.esL = new d(this, CmdConfigCustom.MAINTAB_PERSON_TIP);
+        this.esL.setPriority(5);
+        MessageManager.getInstance().registerListener(this.esL);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void bt() {
         super.bt();
-        MessageManager.getInstance().unRegisterListener(this.ePp);
+        MessageManager.getInstance().unRegisterListener(this.esL);
     }
 }

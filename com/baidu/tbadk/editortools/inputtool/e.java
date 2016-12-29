@@ -6,17 +6,17 @@ import android.text.SpannableStringBuilder;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ InputView awo;
-    private final /* synthetic */ SpannableStringBuilder awr;
-    private final /* synthetic */ int aws;
-    private final /* synthetic */ int awt;
+    final /* synthetic */ InputView avL;
+    private final /* synthetic */ SpannableStringBuilder avO;
+    private final /* synthetic */ int avP;
+    private final /* synthetic */ int avQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(InputView inputView, SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        this.awo = inputView;
-        this.awr = spannableStringBuilder;
-        this.aws = i;
-        this.awt = i2;
+        this.avL = inputView;
+        this.avO = spannableStringBuilder;
+        this.avP = i;
+        this.avQ = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ class e extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
             int width = (int) (0.5d * jV.getWidth());
             bitmapDrawable.setBounds(0, 0, width, width);
             bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
-            this.awr.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), this.aws, this.awt, 33);
+            this.avO.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), this.avP, this.avQ, 33);
         }
     }
 }

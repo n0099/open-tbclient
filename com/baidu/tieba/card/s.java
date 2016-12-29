@@ -1,31 +1,35 @@
 package com.baidu.tieba.card;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.view.View;
+import com.baidu.tieba.card.data.CardHListViewNormalItemData;
+import com.baidu.tieba.card.r;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends Handler {
-    final /* synthetic */ r bde;
+public class s implements View.OnClickListener {
+    final /* synthetic */ r.c bbS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(r rVar, Looper looper) {
-        super(looper);
-        this.bde = rVar;
+    public s(r.c cVar) {
+        this.bbS = cVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case 202:
-                this.bde.Kw();
-                return;
-            case 203:
-                this.bde.Kx();
-                return;
-            default:
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        cb cbVar;
+        cb cbVar2;
+        cb cbVar3;
+        cbVar = this.bbS.baA;
+        if (cbVar != null) {
+            if (view.getId() == r.g.hlistview_item_layout_root) {
+                if (view.getTag(r.g.hlistview_item_layout_root) instanceof CardHListViewNormalItemData) {
+                    cbVar3 = this.bbS.baA;
+                    cbVar3.a(view, null, (CardHListViewNormalItemData) view.getTag(r.g.hlistview_item_layout_root));
+                }
+            } else if (view.getId() == r.g.fourm_name && (view.getTag(r.g.fourm_name) instanceof CardHListViewNormalItemData)) {
+                cbVar2 = this.bbS.baA;
+                cbVar2.a(view, null, (CardHListViewNormalItemData) view.getTag(r.g.fourm_name));
+            }
         }
     }
 }

@@ -11,11 +11,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ h bcv;
+    final /* synthetic */ h bbB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(h hVar) {
-        this.bcv = hVar;
+        this.bbB = hVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,44 +26,44 @@ public class l implements View.OnClickListener {
         String str4;
         String str5;
         String str6;
-        com.baidu.tieba.tbadkCore.x xVar;
+        com.baidu.tieba.tbadkCore.w wVar;
         String str7;
         if (view != null) {
             if (view.getId() == r.g.forum_add_love) {
-                if (com.baidu.tbadk.core.util.bk.ak(this.bcv.getView().getContext())) {
+                if (com.baidu.tbadk.core.util.bh.ai(this.bbB.getView().getContext())) {
                     String str8 = (String) view.getTag(r.g.tag_forum_name);
                     String valueOf = String.valueOf(view.getTag(r.g.tag_forum_id));
-                    if (com.baidu.tbadk.core.util.ax.aN(str8)) {
-                        xVar = this.bcv.Gg;
-                        xVar.bS(str8, valueOf);
-                        str7 = this.bcv.bcp;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.av(str7).ab("fid", valueOf).ab("obj_param3", an.Pe()));
+                    if (com.baidu.tbadk.core.util.av.aN(str8)) {
+                        wVar = this.bbB.Gg;
+                        wVar.bV(str8, valueOf);
+                        str7 = this.bbB.bbv;
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.at(str7).ab("fid", valueOf).ab("obj_param3", ap.OA()));
                     }
                 }
             } else if (view.getTag(r.g.tag_forum_name) != null) {
                 String str9 = (String) view.getTag(r.g.tag_forum_name);
                 String valueOf2 = String.valueOf(view.getTag(r.g.tag_forum_id));
-                if (com.baidu.tbadk.core.util.ax.aN(str9)) {
+                if (com.baidu.tbadk.core.util.av.aN(str9)) {
                     if (view.getId() != r.g.m_forum_name_textview) {
-                        str = this.bcv.bcq;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.av(str).ab("fid", valueOf2).ab("obj_param3", an.Pe()));
+                        str = this.bbB.bbw;
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.at(str).ab("fid", valueOf2).ab("obj_param3", ap.OA()));
                     } else {
-                        str6 = this.bcv.bcr;
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.av(str6).ab("fid", valueOf2).ab("obj_param3", an.Pe()));
+                        str6 = this.bbB.bbx;
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.at(str6).ab("fid", valueOf2).ab("obj_param3", ap.OA()));
                     }
-                    str2 = this.bcv.stType;
+                    str2 = this.bbB.stType;
                     if (!StringUtils.isNull(str2)) {
-                        str3 = this.bcv.bcs;
+                        str3 = this.bbB.bby;
                         if (!StringUtils.isNull(str3)) {
                             MessageManager messageManager = MessageManager.getInstance();
-                            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bcv.getView().getContext());
-                            str4 = this.bcv.stType;
-                            str5 = this.bcv.bcs;
+                            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bbB.getView().getContext());
+                            str4 = this.bbB.stType;
+                            str5 = this.bbB.bby;
                             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createCfgForpersonalized(str9, str4, str5)));
                             return;
                         }
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bcv.getView().getContext()).createNormalCfg(str9, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bbB.getView().getContext()).createNormalCfg(str9, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 }
             }
         }

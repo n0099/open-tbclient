@@ -1,40 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
+import android.widget.CompoundButton;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fe implements Animation.AnimationListener {
-    final /* synthetic */ ey eCT;
+public class fe implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ er egZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fe(ey eyVar) {
-        this.eCT = eyVar;
+    public fe(er erVar) {
+        this.egZ = erVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.l lVar;
-        View view2;
-        com.baidu.tbadk.editortools.l lVar2;
-        ey eyVar = this.eCT;
-        view = this.eCT.eBP;
-        eyVar.eBU = view.getVisibility() == 0;
-        lVar = this.eCT.EL;
-        if (lVar != null) {
-            lVar2 = this.eCT.EL;
-            lVar2.hide();
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        List list;
+        List<com.baidu.tieba.pb.pb.main.view.a> list2;
+        String str;
+        String str2;
+        if (z) {
+            this.egZ.efP = (String) compoundButton.getTag();
+            list = this.egZ.eeK;
+            if (list != null) {
+                list2 = this.egZ.eeK;
+                for (com.baidu.tieba.pb.pb.main.view.a aVar : list2) {
+                    String str3 = (String) aVar.getTag();
+                    if (str3 != null) {
+                        str = this.egZ.efP;
+                        if (str != null) {
+                            str2 = this.egZ.efP;
+                            if (!str3.equals(str2)) {
+                                aVar.setChecked(false);
+                            }
+                        }
+                    }
+                }
+            }
         }
-        view2 = this.eCT.eBP;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

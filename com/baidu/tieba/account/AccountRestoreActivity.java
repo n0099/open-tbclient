@@ -42,7 +42,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         this.mWebView.setOnJsPromptCallback(this.jsCallback);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
         this.mWebView.removeJavascriptInterface("searchBoxJavaBridge_");
-        com.baidu.tbadk.browser.f.R(getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.f.P(getPageContext().getPageActivity());
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }
 

@@ -1,170 +1,112 @@
 package com.baidu.tieba.frs.e;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.acrossForum.AcrossForumViewData;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.utils.u;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tieba.frs.entelechy.b.f;
+import com.baidu.tieba.frs.entelechy.b.g;
 /* loaded from: classes.dex */
-public class a extends s {
-    private k bSB;
-    private AcrossForumViewData cgb;
+public class a implements g {
+    private C0059a bMv;
+    private f bMw;
+    private DrawerLayout.DrawerListener bMx = new b(this);
 
-    public void b(AcrossForumViewData acrossForumViewData) {
-        this.cgb = acrossForumViewData;
-    }
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.tieba.frs.e.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class C0059a extends DrawerLayout {
+        public C0059a(Context context) {
+            super(context);
+        }
 
-    public a(FrsActivity frsActivity) {
-        super(frsActivity);
-        this.bSB = this.bZY.abP();
-    }
+        @Override // android.view.View
+        public void setOnDragListener(View.OnDragListener onDragListener) {
+            super.setOnDragListener(onDragListener);
+        }
 
-    private void agn() {
-        if (this.bSB == null) {
-            this.bSB = this.bZY.abP();
+        @Override // android.support.v4.widget.DrawerLayout, android.view.View, android.view.KeyEvent.Callback
+        public boolean onKeyDown(int i, KeyEvent keyEvent) {
+            if (i == 4) {
+                return false;
+            }
+            return super.onKeyDown(i, keyEvent);
+        }
+
+        @Override // android.support.v4.widget.DrawerLayout, android.view.View, android.view.KeyEvent.Callback
+        public boolean onKeyUp(int i, KeyEvent keyEvent) {
+            if (i == 4) {
+                return false;
+            }
+            return super.onKeyUp(i, keyEvent);
         }
     }
 
-    public void onActivityResult(int i, int i2, Intent intent) {
-        agn();
-        if (i2 == -1) {
-            c(i, intent);
-        } else if (i2 == 0) {
-            b(i, intent);
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public ViewGroup t(Activity activity) {
+        if (this.bMv == null) {
+            this.bMv = new C0059a(activity);
+            this.bMv.setDrawerListener(this.bMx);
+        }
+        return this.bMv;
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public void a(Activity activity, View view, View view2) {
+        activity.setContentView(this.bMv);
+        this.bMv.addView(view);
+        this.bMv.addView(view2, new DrawerLayout.LayoutParams((int) (k.I(activity) * 0.72f), -1, GravityCompat.END));
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public void Zn() {
+        this.bMv.openDrawer(GravityCompat.END);
+        if (this.bMw != null) {
+            this.bMw.Zl();
         }
     }
 
-    private void b(int i, Intent intent) {
-        switch (i) {
-            case 12003:
-            default:
-                return;
+    public void abe() {
+        this.bMv.closeDrawer(GravityCompat.END);
+        if (this.bMw != null) {
+            this.bMw.Zm();
         }
     }
 
-    private void c(int i, Intent intent) {
-        bk rt;
-        PostWriteCallBackData postWriteCallBackData;
-        com.baidu.tieba.tbadkCore.p acr = this.bZY.acr();
-        switch (i) {
-            case 11001:
-                this.bZY.hR(0);
-                return;
-            case 11002:
-                this.bSi.ew(true);
-                return;
-            case 11011:
-                u.a(this.bZY, this.bZY.getThreadId(), this.bZY.aNA, this.bZY.acc());
-                return;
-            case 11012:
-                u.b(this.bZY, this.bZY.getThreadId(), this.bZY.aNA, this.bZY.acc());
-                return;
-            case 11014:
-                this.bSi.ahC();
-                return;
-            case 11016:
-                this.bRW.acV();
-                return;
-            case 11033:
-            default:
-                return;
-            case 11036:
-                this.bSi.acu();
-                return;
-            case 13003:
-                if (intent != null) {
-                    try {
-                        postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                    } catch (Exception e) {
-                        postWriteCallBackData = null;
-                    }
-                    if (this.bSB != null) {
-                        this.bSB.a(postWriteCallBackData);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case 18003:
-                this.bRW.ade().notifyDataSetChanged();
-                if (this.bSi != null) {
-                    this.bSi.aee();
-                }
-                int intExtra = intent.getIntExtra("type", -1);
-                if (intExtra == 4) {
-                    this.bZY.cj(6);
-                    return;
-                }
-                String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra != null && (rt = acr.rt(stringExtra)) != null) {
-                    if (intExtra == 2) {
-                        rt.bW(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
-                        rt.sw();
-                        return;
-                    } else if (intExtra == 0) {
-                        acr.x(rt);
-                        this.bRW.acX();
-                        if (com.baidu.tieba.tbadkCore.d.bkd() != null) {
-                            com.baidu.tieba.tbadkCore.d.bkd().R(this.bZY.getForumName(), false);
-                            return;
-                        }
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                return;
-            case 18004:
-                u.b(this.bZY, acr);
-                return;
-            case 23003:
-                if (intent != null && acr != null) {
-                    if (com.baidu.tieba.frs.utils.j.from == 2) {
-                        com.baidu.tieba.frs.acrossForum.u.b(this.bZY, intent, this.cgb);
-                        return;
-                    } else {
-                        com.baidu.tieba.frs.utils.j.a(this.bZY, acr, intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
-                        return;
-                    }
-                }
-                return;
-            case 23007:
-                if (com.baidu.tieba.frs.utils.j.from == 2) {
-                    com.baidu.tieba.frs.acrossForum.u.a(this.bZY, intent, this.cgb);
-                    return;
-                } else {
-                    com.baidu.tieba.frs.utils.j.a(this.bZY, acr, intent);
-                    return;
-                }
-            case 23013:
-                u.E(this.bZY);
-                return;
-            case 23019:
-                u.b(this.bZY, this.bZY.bRM);
-                return;
-            case 24002:
-                if (intent != null) {
-                    int intExtra2 = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
-                    int intExtra3 = intent.getIntExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, 0);
-                    int intExtra4 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
-                    int intExtra5 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
-                    if (intExtra2 == com.baidu.adp.lib.h.b.g(this.bZY.getForumId(), 0)) {
-                        this.bSi.s(intExtra3, intExtra4, intExtra5);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case 24007:
-                if (com.baidu.tieba.frs.utils.j.from == 2) {
-                    com.baidu.tieba.frs.acrossForum.a.adR().jY("vip3");
-                    return;
-                }
-                return;
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public void dS(boolean z) {
+        if (z) {
+            this.bMv.setDrawerLockMode(0);
+        } else {
+            this.bMv.setDrawerLockMode(1);
         }
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public void a(f fVar) {
+        this.bMw = fVar;
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public boolean Zo() {
+        return this.bMv.isDrawerOpen(GravityCompat.END);
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public void dT(boolean z) {
+        if (Zo()) {
+            abe();
+        } else {
+            Zn();
+        }
+    }
+
+    @Override // com.baidu.tieba.frs.entelechy.b.g
+    public void dU(boolean z) {
+        abe();
     }
 }

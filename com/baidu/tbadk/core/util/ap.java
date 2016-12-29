@@ -1,54 +1,43 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class ap extends Thread {
-    private String abX;
-    private boolean abY;
-    private String mObjTp;
-    private String mParam;
-    private String mType;
+public class ap {
+    private static final ap abq = new ap();
+    private final HashMap<Class<?>, Class<?>> abr = new HashMap<>();
 
-    public ap(String str, boolean z) {
-        this.mType = null;
-        this.mParam = null;
-        this.abX = null;
-        this.mObjTp = null;
-        this.abY = false;
-        this.mType = str;
-        this.abY = z;
+    public static final ap ve() {
+        return abq;
     }
 
-    public ap(String str, String str2) {
-        this.mType = null;
-        this.mParam = null;
-        this.abX = null;
-        this.mObjTp = null;
-        this.abY = false;
-        this.mType = str;
-        this.mParam = str2;
+    private ap() {
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String str;
-        super.run();
-        if (this.abY) {
-            str = TbConfig.IN_PV_ADDRESS;
+    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
+        this.abr.put(cls, cls2);
+    }
+
+    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
+        if (!this.abr.containsKey(cls)) {
+            this.abr.put(cls, cls2);
         } else {
-            str = TbConfig.LOAD_REG_PV_ADDRESS;
+            BdLog.e("register Intent failed, " + cls.getName() + " exist");
         }
-        z zVar = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-        zVar.n("st_type", this.mType);
-        if (this.mParam != null) {
-            zVar.n("st_param", this.mParam);
+    }
+
+    public boolean appResponseToIntentClass(Class<?> cls) {
+        return getIntentClass(cls) != null;
+    }
+
+    public int vf() {
+        return this.abr.size();
+    }
+
+    public Class<?> getIntentClass(Class<?> cls) {
+        if (this.abr != null) {
+            return this.abr.get(cls);
         }
-        if (this.abX != null) {
-            zVar.n("obj", this.abX);
-        }
-        if (this.mObjTp != null) {
-            zVar.n("obj_tp", this.mObjTp);
-        }
-        zVar.uy();
+        return null;
     }
 }

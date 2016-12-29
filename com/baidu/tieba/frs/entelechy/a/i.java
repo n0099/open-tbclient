@@ -1,41 +1,47 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bk;
-import com.baidu.tieba.card.bz;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.at;
+import com.baidu.tieba.card.cb;
 /* loaded from: classes.dex */
-public class i extends bz<bk> {
-    final /* synthetic */ h bZf;
+public class i extends com.baidu.adp.widget.ListView.a<at, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.am>> implements com.baidu.tieba.frs.g.e {
+    private TbPageContext<?> GO;
+    private com.baidu.tieba.frs.entelechy.view.am bER;
+    private cb bES;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.bZf = hVar;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
+    @Override // com.baidu.adp.widget.ListView.a
+    protected /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, at atVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.am> aVar) {
+        return a2(i, view, viewGroup, atVar, (com.baidu.tieba.card.a.a) aVar);
+    }
+
+    public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        this.bES = new j(this);
+        this.GO = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.bz
-    public void a(View view, bk bkVar) {
-        com.baidu.tieba.frs.entelechy.view.ag agVar;
-        com.baidu.tieba.frs.entelechy.view.ag agVar2;
-        com.baidu.tieba.frs.entelechy.view.ag agVar3;
-        if (view != null) {
-            agVar = this.bZf.bZd;
-            if (agVar != null) {
-                agVar2 = this.bZf.bZd;
-                if (agVar2.getView() != null) {
-                    agVar3 = this.bZf.bZd;
-                    if (agVar3.caG != null && bkVar != null && !StringUtils.isNull(bkVar.getTid())) {
-                        if (view.getId() == r.g.card_root_view) {
-                            com.baidu.tieba.frs.h.b.agV().a(h.chm, bkVar, 1);
-                        } else if (view.getId() == r.g.avatar || view.getId() == r.g.user_name) {
-                            com.baidu.tieba.frs.h.b.agV().a(h.chm, bkVar, 2);
-                        }
-                    }
-                }
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: i */
+    public com.baidu.tieba.card.a.a a(ViewGroup viewGroup) {
+        this.bER = new com.baidu.tieba.frs.entelechy.view.am(this.GO);
+        this.bER.i(this.GO.getUniqueId());
+        return new com.baidu.tieba.card.a.a(this.bER);
+    }
+
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    protected View a2(int i, View view, ViewGroup viewGroup, at atVar, com.baidu.tieba.card.a.a aVar) {
+        if (aVar == null || aVar.Po() == null) {
+            return null;
         }
+        aVar.Po().onBindDataToView(atVar);
+        aVar.Po().setOnSubCardOnClickListenner(this.bES);
+        com.baidu.tieba.frs.g.b.abq().a(bMV, atVar);
+        return aVar.getView();
     }
 }

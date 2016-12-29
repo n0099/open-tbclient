@@ -1,23 +1,29 @@
 package com.baidu.tbadk.widget.richText;
-
-import android.view.MotionEvent;
-import android.view.View;
 /* loaded from: classes.dex */
-class s implements View.OnTouchListener {
-    final /* synthetic */ TbRichTextView aKA;
+class s extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ TbRichTextView aJR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(TbRichTextView tbRichTextView) {
-        this.aKA = tbRichTextView;
+        this.aJR = tbRichTextView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            this.aKA.aKq = true;
-        } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            this.aKA.aKq = false;
-        }
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        this.aJR.e(aVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void onProgressUpdate(Object... objArr) {
+        super.onProgressUpdate(objArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.g.b
+    public void ai(String str) {
+        super.ai(str);
     }
 }

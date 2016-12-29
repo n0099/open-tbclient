@@ -4,9 +4,9 @@ import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public interface c {
-    void anG();
+    void aig();
 
-    void bq(List<TagInfo> list);
+    void bi(List<TagInfo> list);
 
     void j(int i, int i2, int i3, int i4);
 

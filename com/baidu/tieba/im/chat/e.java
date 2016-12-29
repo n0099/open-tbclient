@@ -8,11 +8,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity cZt;
+    final /* synthetic */ AbsMsgImageActivity cEF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.cZt = absMsgImageActivity;
+        this.cEF = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.cZt.getListMenu();
+        listMenu = this.cEF.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.cZt.cZh;
+                        multiImageView = this.cEF.cEt;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.cZt.cZh;
+                            multiImageView2 = this.cEF.cEt;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.cZt.cZe = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.cZt.cZe;
+                            this.cEF.cEq = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.cEF.cEq;
                             aVar.execute(new String[0]);
-                            this.cZt.cZf.setClickable(false);
+                            this.cEF.cEr.setClickable(false);
                         } else {
-                            this.cZt.showToast(this.cZt.getPageContext().getString(r.j.no_data));
+                            this.cEF.showToast(this.cEF.getPageContext().getString(r.j.no_data));
                         }
                         break;
                     } catch (Exception e) {

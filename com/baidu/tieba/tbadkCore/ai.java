@@ -1,50 +1,43 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.ah;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Environment;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.r;
+import java.io.File;
 /* loaded from: classes.dex */
-public class ai extends HttpMessageListener {
-    final /* synthetic */ ah fBo;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(ah ahVar, int i) {
-        super(i);
-        this.fBo = ahVar;
+public class ai {
+    public static final void R(Context context, String str) {
+        if (TextUtils.isEmpty(str)) {
+            com.baidu.adp.lib.util.k.showToast(context, r.j.download_error);
+            return;
+        }
+        File cZ = com.baidu.tbadk.core.util.m.cZ(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cZ != null) {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            intent.setDataAndType(UtilHelper.getUriFromFile(cZ, intent, context), "application/vnd.android.package-archive");
+            intent.addFlags(268435456);
+            context.startActivity(intent);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        ah.a aVar;
-        ah.a aVar2;
-        ah.a aVar3;
-        ah.a aVar4;
-        ah.a aVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
-            int statusCode = httpResponsedMessage.getStatusCode();
-            if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.fBo.fBn;
-                if (aVar != null) {
-                    aVar2 = this.fBo.fBn;
-                    aVar2.L(statusCode, null);
-                    return;
-                }
-                return;
-            }
-            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-            if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.fBo.fBn;
-                aVar5.hB(praiseResponseMessage.getErrMsg());
-                return;
-            }
-            aVar3 = this.fBo.fBn;
-            if (aVar3 != null) {
-                aVar4 = this.fBo.fBn;
-                aVar4.L(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
-            }
+    public static boolean isInstalledPackage(Context context, String str) {
+        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
+    }
+
+    public static boolean w(Activity activity) {
+        if (Build.VERSION.SDK_INT < 23) {
+            return true;
         }
+        boolean ac = com.baidu.tbadk.core.util.ae.ac(activity);
+        if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
+            return false;
+        }
+        return ac;
     }
 }

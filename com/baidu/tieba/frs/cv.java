@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cv implements Animator.AnimatorListener {
-    final /* synthetic */ cs bWl;
+    final /* synthetic */ cs bCv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cv(cs csVar) {
-        this.bWl = csVar;
+        this.bCv = csVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -20,10 +20,10 @@ public class cv implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         View view;
         View view2;
-        view = this.bWl.bWg;
+        view = this.bCv.bCq;
         if (view != null) {
-            this.bWl.adP();
-            view2 = this.bWl.bWg;
+            this.bCv.Yj();
+            view2 = this.bCv.bCq;
             view2.setAlpha(1.0f);
         }
     }

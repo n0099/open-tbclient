@@ -15,6 +15,7 @@ public class PbPageRequestMessage extends NetMessage {
     private String cacheKey;
     private Context context;
     private Integer floor_rn;
+    private Integer fromSmartFrs;
     private boolean isFromMark;
     private boolean isJumpFloor;
     private boolean isSubPostDataReverse;
@@ -28,6 +29,7 @@ public class PbPageRequestMessage extends NetMessage {
     private String message_click;
     private Integer message_id;
     private String objParam1;
+    public String obj_source;
     private long opMessageID;
     private int opStat;
     private String opType;
@@ -56,6 +58,8 @@ public class PbPageRequestMessage extends NetMessage {
         this.opType = null;
         this.opUrl = null;
         this.objParam1 = "";
+        this.obj_source = "";
+        this.fromSmartFrs = 0;
     }
 
     public Context getContext() {
@@ -346,6 +350,18 @@ public class PbPageRequestMessage extends NetMessage {
         this.objParam1 = str;
     }
 
+    public void setObjSource(String str) {
+        this.obj_source = str;
+    }
+
+    public void setFromSmartFrs(int i) {
+        this.fromSmartFrs = Integer.valueOf(i);
+    }
+
+    public int getFromSmartFrs() {
+        return this.fromSmartFrs.intValue();
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -386,7 +402,9 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.st_task = Long.valueOf(this.opMessageID);
             }
             builder.obj_param1 = this.objParam1;
-            builder.app_pos = com.baidu.tieba.recapp.c.a.beA().beD();
+            builder.obj_source = this.obj_source;
+            builder.from_smart_frs = this.fromSmartFrs;
+            builder.app_pos = com.baidu.tieba.recapp.c.a.aYn().aYq();
             com.baidu.tbadk.util.n.a(builder, true, false, true);
             PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
             builder2.data = builder.build(false);

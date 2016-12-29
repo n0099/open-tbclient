@@ -6,7 +6,7 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    private static /* synthetic */ int[] aAK;
+    private static /* synthetic */ int[] aAh;
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,8 +14,8 @@ public class e implements Runnable {
         this.this$0 = netModel;
     }
 
-    static /* synthetic */ int[] Fm() {
-        int[] iArr = aAK;
+    static /* synthetic */ int[] EU() {
+        int[] iArr = aAh;
         if (iArr == null) {
             iArr = new int[NetModel.NetModelType.valuesCustom().length];
             try {
@@ -34,7 +34,7 @@ public class e implements Runnable {
                 iArr[NetModel.NetModelType.TYPE_SOCKET.ordinal()] = 2;
             } catch (NoSuchFieldError e4) {
             }
-            aAK = iArr;
+            aAh = iArr;
         }
         return iArr;
     }
@@ -45,9 +45,9 @@ public class e implements Runnable {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
-        int[] Fm = Fm();
-        netModelType = this.this$0.aAB;
-        switch (Fm[netModelType.ordinal()]) {
+        int[] EU = EU();
+        netModelType = this.this$0.azY;
+        switch (EU[netModelType.ordinal()]) {
             case 1:
             case 4:
                 NetModel netModel = this.this$0;

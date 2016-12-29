@@ -5,20 +5,20 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class r extends t {
-    public static int aCx = 0;
-    public static int aCy = 1;
-    public static int aCz = 2;
-    private static CustomMessageTask aCg = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new s());
+    public static int aBR = 0;
+    public static int aBS = 1;
+    public static int aBT = 2;
+    private static CustomMessageTask aBA = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new s());
 
     /* loaded from: classes.dex */
     public class a {
-        public String aCA;
-        public String aCi;
-        public int aCj;
+        public String aBC;
+        public int aBD;
+        public String aBU;
     }
 
     static {
-        aCg.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(aCg);
+        aBA.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(aBA);
     }
 }

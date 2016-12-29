@@ -5,13 +5,13 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.au;
-import com.baidu.tieba.frs.j.n;
-import com.baidu.tieba.tbadkCore.m;
-import com.baidu.tieba.tbadkCore.p;
+import com.baidu.tieba.frs.ax;
+import com.baidu.tieba.frs.h.s;
+import com.baidu.tieba.tbadkCore.l;
+import com.baidu.tieba.tbadkCore.o;
 /* loaded from: classes.dex */
 public interface b {
-    int a(int i, m mVar);
+    int a(int i, l lVar);
 
     View a(Context context, BdTypeListView bdTypeListView);
 
@@ -19,13 +19,13 @@ public interface b {
 
     void a(FrsActivity frsActivity, BdTypeListView bdTypeListView, BannerView bannerView);
 
-    void a(n nVar, p pVar);
+    void a(s sVar, o oVar);
 
-    void a(boolean z, d dVar, n nVar, au auVar, p pVar);
+    void a(boolean z, d dVar, s sVar, ax axVar, o oVar);
 
     void ad(View view);
 
     void b(FrsActivity frsActivity, BdTypeListView bdTypeListView, BannerView bannerView);
 
-    boolean ie(int i);
+    boolean ho(int i);
 }

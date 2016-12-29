@@ -7,11 +7,11 @@ import com.baidu.location.f.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
-    final /* synthetic */ e Lw;
+    final /* synthetic */ e Lv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.Lw = eVar;
+        this.Lv = eVar;
     }
 
     @Override // android.os.Handler
@@ -21,21 +21,21 @@ public class h extends Handler {
         if (com.baidu.location.f.isServing) {
             switch (message.what) {
                 case 1:
-                    this.Lw.f((Location) message.obj);
+                    this.Lv.f((Location) message.obj);
                     return;
                 case 2:
-                    aVar = this.Lw.Ls;
+                    aVar = this.Lv.Lr;
                     if (aVar != null) {
-                        aVar2 = this.Lw.Ls;
+                        aVar2 = this.Lv.Lr;
                         aVar2.a((String) message.obj);
                         return;
                     }
                     return;
                 case 3:
-                    this.Lw.a("&og=1", (Location) message.obj);
+                    this.Lv.a("&og=1", (Location) message.obj);
                     return;
                 case 4:
-                    this.Lw.a("&og=2", (Location) message.obj);
+                    this.Lv.a("&og=2", (Location) message.obj);
                     return;
                 default:
                     return;

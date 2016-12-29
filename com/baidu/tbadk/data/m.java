@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class m implements com.baidu.tbadk.widget.vote.a {
-    private String aaa;
-    private long atD;
+    private String Zu;
+    private long ati;
     private boolean isSelected = false;
     private int mId;
     private int mPercent;
@@ -13,16 +13,16 @@ public class m implements com.baidu.tbadk.widget.vote.a {
 
     public m(int i, String str, String str2, long j) {
         this.mId = i;
-        this.aaa = str;
+        this.Zu = str;
         this.mUrl = str2;
-        this.atD = j;
+        this.ati = j;
     }
 
     public void setSelected(boolean z) {
         this.isSelected = z;
     }
 
-    public void setPercent(int i) {
+    public void cj(int i) {
         this.mPercent = i;
     }
 
@@ -32,8 +32,8 @@ public class m implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cr() {
-        return this.aaa;
+    public String Ce() {
+        return this.Zu;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -42,27 +42,27 @@ public class m implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cs() {
-        return String.valueOf(this.atD) + TbadkCoreApplication.m9getInst().getString(r.j.vote_unit);
+    public String Cf() {
+        return String.valueOf(this.ati) + TbadkCoreApplication.m9getInst().getString(r.j.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Ct() {
+    public String Cg() {
         return String.valueOf(this.mPercent) + TbadkCoreApplication.m9getInst().getString(r.j.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Cu() {
+    public int Ch() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Cv() {
+    public int Ci() {
         return this.mPercent;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cw() {
+    public String Cj() {
         return this.mUrl;
     }
 }

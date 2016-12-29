@@ -4,23 +4,23 @@ import android.view.View;
 import com.baidu.tieba.write.view.PhotoLiveView.a;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    private final /* synthetic */ int WD;
-    final /* synthetic */ a gms;
+    private final /* synthetic */ int VX;
+    final /* synthetic */ a fAV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, int i) {
-        this.gms = aVar;
-        this.WD = i;
+        this.fAV = aVar;
+        this.VX = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a.InterfaceC0085a interfaceC0085a;
-        a.InterfaceC0085a interfaceC0085a2;
-        interfaceC0085a = this.gms.gmr;
-        if (interfaceC0085a != null) {
-            interfaceC0085a2 = this.gms.gmr;
-            interfaceC0085a2.tO(this.WD);
+        a.InterfaceC0079a interfaceC0079a;
+        a.InterfaceC0079a interfaceC0079a2;
+        interfaceC0079a = this.fAV.fAU;
+        if (interfaceC0079a != null) {
+            interfaceC0079a2 = this.fAV.fAU;
+            interfaceC0079a2.sn(this.VX);
         }
     }
 }

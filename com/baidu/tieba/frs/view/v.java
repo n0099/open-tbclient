@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements Animation.AnimationListener {
-    final /* synthetic */ u cmS;
+    final /* synthetic */ u bSc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.cmS = uVar;
+        this.bSc = uVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -17,12 +17,12 @@ public class v implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (animation == this.cmS.cmO) {
-            this.cmS.mState = 0;
+        if (animation == this.bSc.bRY) {
+            this.bSc.mState = 0;
             return;
         }
-        this.cmS.mState = 1;
-        this.cmS.bn(8000L);
+        this.bSc.mState = 1;
+        this.bSc.bb(8000L);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

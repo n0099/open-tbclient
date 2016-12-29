@@ -14,7 +14,7 @@ class a extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001332 && customResponsedMessage.getData() != null) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && customResponsedMessage.getData() != null) {
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                 TbadkCoreApplication.m9getInst().setIsKuangLogin(true);
                 b.bN(true);

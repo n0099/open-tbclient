@@ -8,5 +8,5 @@ public interface i {
 
     boolean a(GroupNewsPojo groupNewsPojo);
 
-    boolean bz(int i);
+    boolean bA(int i);
 }

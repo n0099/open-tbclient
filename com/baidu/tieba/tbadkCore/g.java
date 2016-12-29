@@ -1,55 +1,69 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.widget.ImageView;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
-public class g implements com.baidu.adp.lib.f.c<TbImageView> {
-    private final /* synthetic */ Context val$context;
+public class g {
+    private String dwT;
+    private String icon;
+    private String obj_id;
+    private int time;
+    private String title;
+    private int type;
+    private String url;
+    private int weight;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(Context context) {
-        this.val$context = context;
+    public String getIcon() {
+        return this.icon;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: wR */
-    public TbImageView ez() {
-        TbImageView tbImageView = new TbImageView(this.val$context);
-        tbImageView.setSupportNoImage(true);
-        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        tbImageView.setDrawBorder(true);
-        tbImageView.setBorderWidth(1);
-        return tbImageView;
+    public void setIcon(String str) {
+        this.icon = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void o(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
+    public void qU(int i) {
+        this.weight = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public TbImageView p(TbImageView tbImageView) {
-        return tbImageView;
+    public String getTitle() {
+        return this.title;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public TbImageView q(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public void setTime(int i) {
+        this.time = i;
+    }
+
+    public String bdU() {
+        return this.obj_id;
+    }
+
+    public String aAH() {
+        return this.dwT;
+    }
+
+    public void a(StarEnter starEnter) {
+        setIcon(starEnter.icon);
+        setTime(starEnter.time.intValue());
+        setTitle(starEnter.title);
+        setType(starEnter.type.intValue());
+        setUrl(starEnter.url);
+        qU(starEnter.weight.intValue());
+        this.obj_id = starEnter.obj_id;
+        this.dwT = starEnter.text;
     }
 }

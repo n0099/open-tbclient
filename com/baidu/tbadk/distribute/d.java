@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ a atR;
+    final /* synthetic */ a atw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, int i) {
         super(i);
-        this.atR = aVar;
+        this.atw = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class d extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
             if (i.gn() || i.go()) {
-                this.atR.bw(true);
+                this.atw.bw(true);
             } else {
-                this.atR.bw(false);
+                this.atw.bw(false);
             }
         }
     }

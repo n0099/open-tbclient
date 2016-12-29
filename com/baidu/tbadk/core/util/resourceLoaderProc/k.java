@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class k extends a {
-    private int abD;
+    private int aaU;
 
     public k(int i) {
-        this.abD = 0;
-        this.abD = i;
+        this.aaU = 0;
+        this.aaU = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -31,18 +31,18 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean we() {
+    public boolean vO() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean wf() {
+    public boolean vP() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.lib.Disk.ops.c dU(String str) {
+    public com.baidu.adp.lib.Disk.ops.c dS(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -78,7 +78,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int wg() {
-        return this.abD;
+    public int vQ() {
+        return this.aaU;
     }
 }

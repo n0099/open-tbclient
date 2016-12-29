@@ -6,18 +6,18 @@ import com.baidu.tbadk.coreExtra.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements j.a {
-    final /* synthetic */ LoginActivity eoM;
+    final /* synthetic */ LoginActivity dTt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(LoginActivity loginActivity) {
-        this.eoM = loginActivity;
+        this.dTt = loginActivity;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public void j(AccountData accountData) {
         com.baidu.tbadk.core.a.b.b(accountData);
-        TbadkCoreApplication.setCurrentAccount(accountData, this.eoM.getPageContext().getPageActivity());
-        this.eoM.aNm();
-        this.eoM.aNj();
+        TbadkCoreApplication.setCurrentAccount(accountData, this.dTt.getPageContext().getPageActivity());
+        this.dTt.aHn();
+        this.dTt.aHk();
     }
 }

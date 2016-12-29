@@ -1,49 +1,25 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
-public class al implements com.baidu.adp.lib.f.c<TbImageView> {
-    private final /* synthetic */ Context val$context;
+class al implements bh.a {
+    final /* synthetic */ ak ahu;
+    private final /* synthetic */ String ahv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(Context context) {
-        this.val$context = context;
+    public al(ak akVar, String str) {
+        this.ahu = akVar;
+        this.ahv = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: wR */
-    public TbImageView ez() {
-        return new TbImageView(this.val$context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: a */
-    public void o(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: b */
-    public TbImageView p(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: c */
-    public TbImageView q(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    @Override // com.baidu.tbadk.core.util.bh.a
+    public boolean A(View view) {
+        Object tag = view.getTag();
+        if (tag != null && this.ahv.equals(tag)) {
+            view.invalidate();
+            return false;
+        }
+        return false;
     }
 }

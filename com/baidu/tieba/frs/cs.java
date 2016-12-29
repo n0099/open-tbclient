@@ -8,56 +8,56 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class cs {
-    private TranslateAnimation bWj;
-    private View bWg = null;
-    private int bWh = 2000;
-    private Runnable bWk = new ct(this);
-    private ValueAnimator bWi = new ValueAnimator();
+    private TranslateAnimation bCt;
+    private View bCq = null;
+    private int bCr = 2000;
+    private Runnable bCu = new ct(this);
+    private ValueAnimator bCs = new ValueAnimator();
 
     public cs() {
-        this.bWi.setFloatValues(1.0f, 0.0f);
-        this.bWi.setDuration(400L);
-        this.bWi.addUpdateListener(new cu(this));
-        this.bWi.addListener(new cv(this));
-        this.bWj = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(r.e.ds56), 0.0f);
-        this.bWj.setDuration(400L);
-        this.bWj.setAnimationListener(new cw(this));
+        this.bCs.setFloatValues(1.0f, 0.0f);
+        this.bCs.setDuration(400L);
+        this.bCs.addUpdateListener(new cu(this));
+        this.bCs.addListener(new cv(this));
+        this.bCt = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(r.e.ds56), 0.0f);
+        this.bCt.setDuration(400L);
+        this.bCt.setAnimationListener(new cw(this));
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.bWg = view;
-            adP();
-            viewGroup.addView(this.bWg, layoutParams);
-            this.bWg.setVisibility(0);
-            this.bWh = i;
-            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bWk);
-            com.baidu.adp.lib.h.h.eG().postDelayed(this.bWk, this.bWh);
+            this.bCq = view;
+            Yj();
+            viewGroup.addView(this.bCq, layoutParams);
+            this.bCq.setVisibility(0);
+            this.bCr = i;
+            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bCu);
+            com.baidu.adp.lib.h.h.eG().postDelayed(this.bCu, this.bCr);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bWk);
-        if (this.bWg != null && this.bWg.getParent() != null && this.bWg.getVisibility() == 0 && !this.bWi.isRunning()) {
-            this.bWi.start();
+        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bCu);
+        if (this.bCq != null && this.bCq.getParent() != null && this.bCq.getVisibility() == 0 && !this.bCs.isRunning()) {
+            this.bCs.start();
         }
     }
 
-    public void adP() {
-        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bWk);
-        if (this.bWg != null) {
-            if (this.bWi != null && this.bWi.isRunning()) {
-                this.bWi.cancel();
+    public void Yj() {
+        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bCu);
+        if (this.bCq != null) {
+            if (this.bCs != null && this.bCs.isRunning()) {
+                this.bCs.cancel();
             }
-            this.bWg.clearAnimation();
-            if (this.bWg.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.bWg.getParent()).removeView(this.bWg);
+            this.bCq.clearAnimation();
+            if (this.bCq.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.bCq.getParent()).removeView(this.bCq);
             }
-            this.bWg.setVisibility(8);
+            this.bCq.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bWk);
+        com.baidu.adp.lib.h.h.eG().removeCallbacks(this.bCu);
     }
 }

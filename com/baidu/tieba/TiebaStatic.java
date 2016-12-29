@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bc;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TiebaStatic {
     static {
-        bf.vP().a(new y());
+        bc.vz().a(new y());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String gN(String str) {
+    public static String gI(String str) {
         URL url;
         try {
             url = new URL(str);

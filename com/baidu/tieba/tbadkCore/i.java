@@ -1,32 +1,37 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.FeedForumData;
-import java.util.List;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
+import com.baidu.tbadk.core.data.PraiseData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId fzH = BdUniqueId.gen();
-    private List<FeedForumData> cca;
-    private String forumId;
+public class i implements View.OnClickListener {
+    final /* synthetic */ FrsPraiseView fdN;
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return fzH;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(FrsPraiseView frsPraiseView) {
+        this.fdN = frsPraiseView;
     }
 
-    public List<FeedForumData> bkf() {
-        return this.cca;
-    }
-
-    public void db(List<FeedForumData> list) {
-        this.cca = list;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PraiseData praiseData;
+        Context context;
+        String str;
+        String str2;
+        boolean z;
+        PraiseData praiseData2;
+        String str3 = "";
+        praiseData = this.fdN.fdL;
+        if (praiseData != null) {
+            praiseData2 = this.fdN.fdL;
+            str3 = praiseData2.getTitle();
+        }
+        context = this.fdN.mContext;
+        str = this.fdN.mThreadId;
+        str2 = this.fdN.mPostId;
+        z = this.fdN.ejv;
+        com.baidu.tbadk.util.j.a(new PraiseListActivityConfig(context, str, str2, str3, z));
     }
 }

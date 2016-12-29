@@ -1,26 +1,25 @@
 package com.baidu.tieba.frs.d;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.frs.bf;
-import com.baidu.tieba.frs.bs;
-import com.baidu.tieba.r;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.x;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends y.a {
-    public TextView cfS;
-    public LinearLayout cfT;
-    public TextView cfU;
-    public View cfV;
-    public bf cfW;
-    public bs cfX;
+public class e extends CustomMessageListener {
+    final /* synthetic */ d bLO;
 
-    public e(View view) {
-        super(view);
-        this.cfS = (TextView) view.findViewById(r.g.storecard_title);
-        this.cfT = (LinearLayout) view.findViewById(r.g.storecard_middle_layout);
-        this.cfU = (TextView) view.findViewById(r.g.storecard_all_list);
-        this.cfV = view.findViewById(r.g.storecard_close_click);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(d dVar, int i) {
+        super(i);
+        this.bLO = dVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof x)) {
+            this.bLO.b((x) customResponsedMessage.getData());
+        }
     }
 }

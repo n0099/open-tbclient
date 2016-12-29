@@ -22,20 +22,20 @@ public class j extends com.baidu.adp.framework.listener.a {
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         NetModel.d dVar;
         NetModel.d dVar2;
-        this.this$0.aAG = false;
-        if (this.this$0.aAJ != null) {
-            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.this$0.aAJ);
+        this.this$0.aAd = false;
+        if (this.this$0.aAg != null) {
+            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.this$0.aAg);
         }
         if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
             MvcNetMessage mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-            if (this.this$0.aAy != null) {
-                this.this$0.aAy.a((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
+            if (this.this$0.azV != null) {
+                this.this$0.azV.a((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
             }
         } else if (responsedMessage instanceof MvcSocketResponsedMessage) {
             MvcNetMessage mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-            dVar = this.this$0.aAz;
+            dVar = this.this$0.azW;
             if (dVar != null) {
-                dVar2 = this.this$0.aAz;
+                dVar2 = this.this$0.azW;
                 dVar2.a((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
             }
         } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {

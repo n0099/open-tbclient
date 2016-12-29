@@ -13,11 +13,11 @@ import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a {
     private TbPageContext<?> Gf;
-    private AlertDialog aer;
-    private DialogInterface.OnCancelListener aet;
+    private AlertDialog adK;
+    private DialogInterface.OnCancelListener adM;
     private Activity mActivity;
-    private String aes = null;
-    private TextView Xc = null;
+    private String adL = null;
+    private TextView Ww = null;
 
     public a(TbPageContext<?> tbPageContext) {
         this.Gf = null;
@@ -30,47 +30,43 @@ public class a {
 
     private a b(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.aer = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.h.j.a(this.aer, this.mActivity);
+            this.adK = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.h.j.a(this.adK, this.mActivity);
             View inflate = LayoutInflater.from(this.mActivity).inflate(r.h.custom_loading_toast, (ViewGroup) null);
-            this.Xc = (TextView) inflate.findViewById(r.g.custom_loading_text);
-            if (!StringUtils.isNull(this.aes) && this.Xc != null) {
-                this.Xc.setText(this.aes);
+            this.Ww = (TextView) inflate.findViewById(r.g.custom_loading_text);
+            if (!StringUtils.isNull(this.adL) && this.Ww != null) {
+                this.Ww.setText(this.adL);
             }
-            if (this.aer != null && this.aer.getWindow() != null) {
-                this.aer.getWindow().setContentView(inflate);
+            if (this.adK != null && this.adK.getWindow() != null) {
+                this.adK.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.aer.setCancelable(true);
-                    this.aer.setCanceledOnTouchOutside(true);
-                    this.aer.setOnCancelListener(onCancelListener);
+                    this.adK.setCancelable(true);
+                    this.adK.setCanceledOnTouchOutside(true);
+                    this.adK.setOnCancelListener(onCancelListener);
                 } else {
-                    this.aer.setCanceledOnTouchOutside(false);
-                    this.aer.setCancelable(false);
+                    this.adK.setCanceledOnTouchOutside(false);
+                    this.adK.setCancelable(false);
                 }
             }
         }
         return this;
     }
 
-    public void aI(boolean z) {
+    public void aJ(boolean z) {
         if (z) {
-            b(this.aet);
+            b(this.adM);
         } else {
-            com.baidu.adp.lib.h.j.b(this.aer, this.mActivity);
+            com.baidu.adp.lib.h.j.b(this.adK, this.mActivity);
         }
     }
 
-    public void cX(int i) {
+    public void cZ(int i) {
         if (this.mActivity != null) {
-            this.aes = this.mActivity.getString(i);
+            this.adL = this.mActivity.getString(i);
         }
-    }
-
-    public void dY(String str) {
-        this.aes = str;
     }
 
     public void c(DialogInterface.OnCancelListener onCancelListener) {
-        this.aet = onCancelListener;
+        this.adM = onCancelListener;
     }
 }

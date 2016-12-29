@@ -1,24 +1,60 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements TbImageView.a {
-    final /* synthetic */ e esY;
-    private final /* synthetic */ com.baidu.tbadk.widget.richText.o eta;
+public class k extends Handler {
+    final /* synthetic */ d dXu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(e eVar, com.baidu.tbadk.widget.richText.o oVar) {
-        this.esY = eVar;
-        this.eta = oVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(d dVar, Looper looper) {
+        super(looper);
+        this.dXu = dVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void v(String str, boolean z) {
-        this.esY.pn(this.eta.getVideoUrl());
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        s sVar;
+        s sVar2;
+        s sVar3;
+        s sVar4;
+        s sVar5;
+        Handler handler;
+        Handler handler2;
+        switch (message.what) {
+            case 1:
+                sVar = this.dXu.dXm;
+                if (sVar != null) {
+                    sVar2 = this.dXu.dXm;
+                    if (sVar2.aNV != null) {
+                        sVar3 = this.dXu.dXm;
+                        if (sVar3.cBJ != null) {
+                            sVar4 = this.dXu.dXm;
+                            if (sVar4.cBN != null) {
+                                sVar5 = this.dXu.dXm;
+                                if (sVar5.aNV.getCurrentPosition() <= 0) {
+                                    handler = this.dXu.mHandler;
+                                    Message obtainMessage = handler.obtainMessage(1);
+                                    obtainMessage.obj = message.obj;
+                                    handler2 = this.dXu.mHandler;
+                                    handler2.sendMessageDelayed(obtainMessage, 50L);
+                                    return;
+                                }
+                                this.dXu.e(false, 1);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                return;
+            default:
+                return;
+        }
     }
 }

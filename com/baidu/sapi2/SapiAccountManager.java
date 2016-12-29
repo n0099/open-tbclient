@@ -40,7 +40,7 @@ public final class SapiAccountManager {
     }
 
     static {
-        g.addAll(Arrays.asList("uid", SESSION_DISPLAYNAME, "bduss"));
+        g.addAll(Arrays.asList(SESSION_UID, SESSION_DISPLAYNAME, "bduss"));
     }
 
     public static synchronized SapiAccountManager getInstance() {

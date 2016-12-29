@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends a {
-    private boolean azn;
+    private boolean ayK;
 
     public e(String str, int i, int i2, long j, String str2) {
         super(str, i, i2, j, str2);
@@ -29,7 +29,7 @@ public class e extends a {
                 if (fVar2 == null) {
                     return null;
                 }
-                st((int) (30.0f + ((50.0f * i3) / size)));
+                rw((int) (30.0f + ((50.0f * i3) / size)));
                 if (!StringUtils.isNull(fVar2.videoUrl) || fVar2.errorNo != 0) {
                     return fVar2;
                 }
@@ -43,11 +43,11 @@ public class e extends a {
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
     public void cancel() {
-        this.azn = true;
+        this.ayK = true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.a.a
     public boolean isCancelled() {
-        return this.azn;
+        return this.ayK;
     }
 }

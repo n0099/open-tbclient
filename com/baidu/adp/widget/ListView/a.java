@@ -10,11 +10,11 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.adp.widget.ListView.y.a;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends y.a> {
-    protected w AT;
-    protected x AU;
-    protected BdUniqueId AV;
-    private y AW;
-    protected V AX;
+    protected w AR;
+    protected x AS;
+    protected BdUniqueId AT;
+    private y AU;
+    protected V AV;
     protected Context mContext;
 
     protected abstract View a(int i, View view, ViewGroup viewGroup, T t, V v);
@@ -24,7 +24,7 @@ public abstract class a<T, V extends y.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.AV = bdUniqueId;
+        this.AT = bdUniqueId;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.y$a> */
@@ -32,10 +32,10 @@ public abstract class a<T, V extends y.a> {
     public View a(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (q(view)) {
-            this.AX = (V) a(viewGroup);
-            view2 = this.AX.getView();
+            this.AV = (V) a(viewGroup);
+            view2 = this.AV.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.AX.getClass().getName());
+                BdLog.i("convertView is creating" + this.AV.getClass().getName());
             }
         } else {
             view2 = view;
@@ -44,43 +44,37 @@ public abstract class a<T, V extends y.a> {
     }
 
     private boolean q(View view) {
-        return view == null || view.getTag() == null || this.AX == null || !this.AX.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.AX.getClass());
+        return view == null || view.getTag() == null || this.AV == null || !this.AV.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.AV.getClass());
     }
 
     public void a(w wVar) {
-        this.AT = wVar;
+        this.AR = wVar;
     }
 
     public w kd() {
-        return this.AT;
+        return this.AR;
     }
 
     public void a(x xVar) {
-        this.AU = xVar;
+        this.AS = xVar;
     }
 
     public x ke() {
-        return this.AU;
+        return this.AS;
     }
 
     public BdUniqueId getType() {
-        return this.AV;
+        return this.AT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(y yVar) {
-        this.AW = yVar;
+        this.AU = yVar;
     }
 
-    public void notifyDataSetChanged() {
-        if (this.AW != null) {
-            this.AW.notifyDataSetChanged();
-        }
-    }
-
-    public v aJ(int i) {
-        if (this.AW != null) {
-            return this.AW.getItem(i);
+    public v aK(int i) {
+        if (this.AU != null) {
+            return this.AU.getItem(i);
         }
         return null;
     }

@@ -1,15 +1,18 @@
 package com.baidu.tbadk.editortools;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements Runnable {
-    final /* synthetic */ j auQ;
+public class k implements View.OnClickListener {
+    final /* synthetic */ j auG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.auQ = jVar;
+        this.auG = jVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.auQ.CU();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.auG.J(view);
     }
 }

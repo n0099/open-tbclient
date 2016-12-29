@@ -1,53 +1,81 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.MentionActivityConfig;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg extends CustomMessageListener {
-    final /* synthetic */ bf dAu;
+public class bg extends com.baidu.tbadk.editortools.e.a<ag> {
+    final /* synthetic */ bb ddm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg(bf bfVar, int i) {
-        super(i);
-        this.dAu = bfVar;
+    public bg(bb bbVar, com.baidu.adp.base.h hVar) {
+        super(hVar);
+        this.ddm = bbVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        k kVar;
-        az azVar;
-        j jVar;
-        z zVar;
-        z zVar2;
-        j jVar2;
-        az azVar2;
-        k kVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            kVar = this.dAu.dAp;
-            if (kVar != null) {
-                kVar2 = this.dAu.dAp;
-                kVar2.gS(true);
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.editortools.e.a
+    public boolean CW() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.editortools.e.a
+    public WriteData fB(String str) {
+        String str2;
+        FeedData feedData;
+        FeedData feedData2;
+        FeedData feedData3;
+        FeedData feedData4;
+        long j;
+        long j2;
+        long j3;
+        FeedData feedData5;
+        String quote_pid;
+        long j4;
+        WriteData writeData = new WriteData();
+        str2 = this.ddm.mForumId;
+        writeData.setForumId(str2);
+        feedData = this.ddm.ddh;
+        writeData.setForumName(feedData.getFname());
+        feedData2 = this.ddm.ddh;
+        writeData.setThreadId(feedData2.getThread_id());
+        writeData.setIsAd(false);
+        writeData.setFloorNum(0);
+        feedData3 = this.ddm.ddh;
+        if (!feedData3.getIsFloor()) {
+            feedData4 = this.ddm.ddh;
+            writeData.setFloor(feedData4.getPost_id());
+        } else {
+            j3 = this.ddm.ddi;
+            if (j3 <= 0) {
+                feedData5 = this.ddm.ddh;
+                quote_pid = feedData5.getQuote_pid();
+            } else {
+                j4 = this.ddm.ddi;
+                quote_pid = String.valueOf(j4);
             }
-            azVar = this.dAu.dAn;
-            if (azVar != null) {
-                azVar2 = this.dAu.dAn;
-                azVar2.gS(true);
-            }
-            jVar = this.dAu.dAo;
-            if (jVar != null) {
-                jVar2 = this.dAu.dAo;
-                jVar2.gS(true);
-            }
-            MentionActivityConfig.newJumpIn = true;
-            zVar = this.dAu.dAm;
-            if (zVar != null) {
-                zVar2 = this.dAu.dAm;
-                zVar2.aeN();
-            }
+            writeData.setFloor(quote_pid);
         }
+        j = this.ddm.ddj;
+        if (j > 0) {
+            j2 = this.ddm.ddj;
+            writeData.setRepostId(String.valueOf(j2));
+        }
+        writeData.setType(2);
+        return writeData;
+    }
+
+    @Override // com.baidu.tbadk.editortools.e.a
+    public String CX() {
+        return null;
     }
 }
