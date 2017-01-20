@@ -1,39 +1,34 @@
 package com.baidu.tieba.play;
 
-import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.net.InetAddress;
+import android.content.Context;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ ah eJG;
+public class ak implements Runnable {
+    final /* synthetic */ aj eTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ah ahVar) {
-        this.eJG = ahVar;
+    public ak(aj ajVar) {
+        this.eTa = ajVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean aYo;
+        boolean z;
         String str;
+        Context context;
         String str2;
-        str = this.eJG.eJx;
-        if (!com.baidu.tbadk.core.util.av.isEmpty(str)) {
-            str2 = this.eJG.eJx;
-            Uri parse = Uri.parse(str2);
-            if (parse != null) {
-                try {
-                    InetAddress byName = InetAddress.getByName(parse.getHost());
-                    this.eJG.tQ = byName.getHostAddress();
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
+        aYo = this.eTa.aYo();
+        if (aYo) {
+            context = this.eTa.mContext;
+            str2 = this.eTa.eSS;
+            at.G(context, str2);
+            return;
         }
-        return null;
+        z = this.eTa.eST;
+        if (!z) {
+            str = this.eTa.eSS;
+            at.hf(str);
+        }
     }
 }

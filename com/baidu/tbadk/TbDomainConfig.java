@@ -10,4 +10,6 @@ public class TbDomainConfig {
     public static final String DOMAIN_HTTPS_STATIC_SERVER = "http://tb1.bdstatic.com/";
     public static final String DOMAIN_HTTPS_TB_HI_IMAGE = "http://tb.himg.baidu.com/";
     public static final String DOMAIN_HTTPS_TIEBA = "http://tieba.baidu.com/";
+    public static final String DOMAIN_HTTPS_TIEBAC = "https://tiebac.baidu.com/";
+    public static final String DOMAIN_HTTP_TIEBAC = "http://tiebac.baidu.com/";
 }

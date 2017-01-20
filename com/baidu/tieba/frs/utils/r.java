@@ -1,7 +1,9 @@
 package com.baidu.tieba.frs.utils;
+
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class r {
-    public static int hS(int i) {
+    public static int iF(int i) {
         int i2 = 0;
         if (i == 4) {
             return 2;
@@ -27,43 +29,43 @@ public class r {
         return i2;
     }
 
-    public static int a(int i, com.baidu.tieba.tbadkCore.l lVar) {
+    public static int a(int i, FrsRequestData frsRequestData) {
         if (i == 4) {
             return 2;
         }
         switch (i) {
             case 2:
-                if (lVar != null) {
-                    lVar.setSortType(0);
-                    lVar.setIsGood(0);
+                if (frsRequestData != null) {
+                    frsRequestData.setSortType(0);
+                    frsRequestData.setIsGood(0);
                     break;
                 }
                 break;
             case 3:
-                if (lVar != null) {
-                    lVar.setSortType(1);
-                    lVar.setIsGood(0);
+                if (frsRequestData != null) {
+                    frsRequestData.setSortType(1);
+                    frsRequestData.setIsGood(0);
                     break;
                 }
                 break;
             case 5:
-                if (lVar != null) {
-                    lVar.setSortType(0);
-                    lVar.setIsGood(1);
+                if (frsRequestData != null) {
+                    frsRequestData.setSortType(0);
+                    frsRequestData.setIsGood(1);
                     break;
                 }
                 break;
             case 6:
-                if (lVar != null) {
-                    lVar.setSortType(2);
-                    lVar.setIsGood(0);
+                if (frsRequestData != null) {
+                    frsRequestData.setSortType(2);
+                    frsRequestData.setIsGood(0);
                     break;
                 }
                 break;
             case 7:
-                if (lVar != null) {
-                    lVar.setSortType(3);
-                    lVar.setIsGood(0);
+                if (frsRequestData != null) {
+                    frsRequestData.setSortType(3);
+                    frsRequestData.setIsGood(0);
                     break;
                 }
                 break;

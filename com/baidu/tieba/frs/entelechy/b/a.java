@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.entelechy.a.am;
 /* loaded from: classes.dex */
 public interface a {
-    d B(FrsActivity frsActivity);
+    d C(FrsActivity frsActivity);
 
-    b YA();
+    g ZD();
 
-    g Yz();
+    b ZE();
 
     am a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z);
 

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class TbJsBridge {
@@ -25,7 +25,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!av.isEmpty(str)) {
+        if (!at.isEmpty(str)) {
             Toast.makeText(this.mTbPageContext.getPageActivity(), str, 0).show();
         }
         this.mTbPageContext.getPageActivity().finish();
@@ -33,7 +33,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        TbadkCoreApplication.m9getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.h.b.g(String.valueOf(i), 0))));
+        TbadkCoreApplication.m9getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mTbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.g(String.valueOf(i), 0))));
     }
 
     @JavascriptInterface
@@ -42,7 +42,7 @@ public class TbJsBridge {
         fVar.title = str;
         fVar.content = str2;
         fVar.linkUrl = str4;
-        if (!av.isEmpty(str3)) {
+        if (!at.isEmpty(str3)) {
             fVar.imageUri = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), fVar, true)));
@@ -57,6 +57,6 @@ public class TbJsBridge {
         intent.putExtra(PayTBeanActivityConfig.QUAN_NUM, str3);
         intent.putExtra("is_left", str4);
         intent.putExtra("props_mon", str5);
-        com.baidu.adp.lib.h.i.c(this.mTbPageContext.getPageActivity(), intent);
+        com.baidu.adp.lib.g.i.c(this.mTbPageContext.getPageActivity(), intent);
     }
 }

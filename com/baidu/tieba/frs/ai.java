@@ -1,22 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-class ai implements Runnable {
-    final /* synthetic */ FrsActivity.a bzp;
-    private final /* synthetic */ String bzq;
-
+class ai extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(FrsActivity.a aVar, String str) {
-        this.bzp = aVar;
-        this.bzq = str;
+    public ai(int i) {
+        super(i);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(this.bzq);
-        zVar.uI().vB().mIsNeedAddCommenParam = false;
-        zVar.uI().vB().mIsUseCurrentBDUSS = false;
-        zVar.ul();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
+                FrsActivityStatic.bGS = true;
+                FrsActivityStatic.bGR = true;
+                return;
+            }
+            FrsActivityStatic.bGS = false;
+            FrsActivityStatic.bGR = false;
+        }
     }
 }

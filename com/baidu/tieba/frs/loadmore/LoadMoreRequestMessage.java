@@ -1,10 +1,11 @@
 package com.baidu.tieba.frs.loadmore;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.util.n;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
@@ -62,7 +63,7 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.thread_ids = this.thread_ids;
         builder.forum_id = Long.valueOf(this.forum_id);
         builder.need_abstract = Integer.valueOf(this.need_abstract);
-        builder.user_id = Long.valueOf(com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+        builder.user_id = Long.valueOf(b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
         builder.forum_name = this.forumName;
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density);
         int I = k.I(TbadkCoreApplication.m9getInst());
@@ -71,11 +72,11 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(J);
         builder.scr_w = Integer.valueOf(I);
-        builder.q_type = Integer.valueOf(aw.vm().vo() ? 2 : 1);
+        builder.q_type = Integer.valueOf(au.vg().vi() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        n.a(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.c.a.aYn().aYq();
+        n.bindCommonParamsToProtobufData(builder, true, false, true);
+        builder.app_pos = com.baidu.tieba.recapp.c.a.bad().bag();
         ThreadListReqIdl.Builder builder2 = new ThreadListReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

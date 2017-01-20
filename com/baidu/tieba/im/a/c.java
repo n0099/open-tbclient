@@ -12,101 +12,101 @@ import java.util.List;
 import protobuf.UploadClientLog.ClientLog;
 /* loaded from: classes.dex */
 public class c {
-    private static final HashMap<String, Long> cSm = new HashMap<>();
-    private static final HashMap<String, Integer> cSn = new HashMap<>();
-    private static final HashMap<String, Long> cSo = new HashMap<>();
-    private static c cSu;
-    private List<b> cSp;
-    private List<a> cSq;
-    private String cSr = null;
-    private String cSs = null;
-    private long qt = -1;
-    private boolean cSt = false;
+    private static c cZC;
+    private static final HashMap<String, Long> cZu = new HashMap<>();
+    private static final HashMap<String, Integer> cZv = new HashMap<>();
+    private static final HashMap<String, Long> cZw = new HashMap<>();
+    private List<b> cZx;
+    private List<a> cZy;
+    private String cZz = null;
+    private String cZA = null;
+    private long qm = -1;
+    private boolean cZB = false;
     private final Handler mHandler = new d(this);
-    private com.baidu.adp.framework.listener.e cSv = new e(this, 202006);
-    private final com.baidu.adp.framework.listener.e cSw = new f(this, 202005);
-    private final com.baidu.adp.framework.listener.e cSx = new g(this, 202003);
-    private final CustomMessageListener cSy = new h(this, CmdConfigCustom.CMD_BACKGROUND_SWTICH);
-    private CustomMessageListener qR = new i(this, 2000994);
+    private com.baidu.adp.framework.listener.e cZD = new e(this, 202006);
+    private final com.baidu.adp.framework.listener.e cZE = new f(this, 202005);
+    private final com.baidu.adp.framework.listener.e cZF = new g(this, 202003);
+    private final CustomMessageListener cZG = new h(this, CmdConfigCustom.CMD_BACKGROUND_SWTICH);
+    private CustomMessageListener mNetworkChangedListener = new i(this, 2000994);
 
     static {
-        cSm.put("2g", 60L);
-        cSm.put("3g", 40L);
-        cSm.put("4g", 40L);
-        cSm.put("wifi", 10L);
-        cSn.put("2g", 10);
-        cSn.put("3g", 10);
-        cSn.put("4g", 10);
-        cSn.put("wifi", 10);
-        cSo.put("2g", 300L);
-        cSo.put("3g", 60L);
-        cSo.put("4g", 60L);
-        cSo.put("wifi", 5L);
-        cSu = null;
+        cZu.put("2g", 60L);
+        cZu.put("3g", 40L);
+        cZu.put("4g", 40L);
+        cZu.put("wifi", 10L);
+        cZv.put("2g", 10);
+        cZv.put("3g", 10);
+        cZv.put("4g", 10);
+        cZv.put("wifi", 10);
+        cZw.put("2g", 300L);
+        cZw.put("3g", 60L);
+        cZw.put("4g", 60L);
+        cZw.put("wifi", 5L);
+        cZC = null;
     }
 
-    public String aro() {
-        return this.cSs;
+    public String asu() {
+        return this.cZA;
     }
 
-    public String arp() {
-        return this.cSr;
+    public String asv() {
+        return this.cZz;
     }
 
-    public void arq() {
-        this.cSr = null;
-        this.cSs = null;
+    public void asw() {
+        this.cZz = null;
+        this.cZA = null;
     }
 
-    public static synchronized c arr() {
+    public static synchronized c asx() {
         c cVar;
         synchronized (c.class) {
-            if (cSu == null) {
-                cSu = new c();
+            if (cZC == null) {
+                cZC = new c();
             }
-            cVar = cSu;
+            cVar = cZC;
         }
         return cVar;
     }
 
     public void start() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), arF());
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), arD());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), asL());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), asJ());
     }
 
     public c() {
-        this.cSp = null;
-        this.cSq = null;
-        ars();
-        this.cSq = new ArrayList();
-        this.cSp = new ArrayList();
+        this.cZx = null;
+        this.cZy = null;
+        asy();
+        this.cZy = new ArrayList();
+        this.cZx = new ArrayList();
     }
 
-    private void ars() {
-        MessageManager.getInstance().registerListener(this.qR);
-        MessageManager.getInstance().registerListener(this.cSv);
-        MessageManager.getInstance().registerListener(this.cSw);
-        MessageManager.getInstance().registerListener(this.cSx);
-        MessageManager.getInstance().registerListener(this.cSy);
+    private void asy() {
+        MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
+        MessageManager.getInstance().registerListener(this.cZD);
+        MessageManager.getInstance().registerListener(this.cZE);
+        MessageManager.getInstance().registerListener(this.cZF);
+        MessageManager.getInstance().registerListener(this.cZG);
     }
 
-    public void art() {
+    public void asz() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(4));
     }
 
-    public void kN(String str) {
+    public void la(String str) {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-        if (arB() && System.currentTimeMillis() - this.qt > arD()) {
+        if (asH() && System.currentTimeMillis() - this.qm > asJ()) {
             this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
         }
     }
 
-    public String aru() {
-        return String.valueOf(com.baidu.adp.lib.util.i.gs());
+    public String asA() {
+        return String.valueOf(com.baidu.adp.lib.util.i.gq());
     }
 
-    public String arv() {
-        switch (com.baidu.adp.lib.util.i.gs()) {
+    public String asB() {
+        switch (com.baidu.adp.lib.util.i.gq()) {
             case 1:
                 return "wifi";
             case 2:
@@ -120,64 +120,64 @@ public class c {
         }
     }
 
-    public int arw() {
+    public int asC() {
         return TbadkCoreApplication.m9getInst().isInBackground() ? 2 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arx() {
-        if (!this.cSt) {
-            if (this.cSp != null && this.cSp.size() > 0) {
+    public void asD() {
+        if (!this.cZB) {
+            if (this.cZx != null && this.cZx.size() > 0) {
                 ArrayList arrayList = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.cSp.size()) {
+                    if (i2 >= this.cZx.size()) {
                         break;
                     }
-                    b bVar = this.cSp.get(i2);
+                    b bVar = this.cZx.get(i2);
                     if (bVar != null && !arrayList.contains(bVar)) {
                         a aVar = new a();
                         aVar.emitTime = bVar.emitTime;
-                        aVar.cSk = bVar.cSk;
-                        aVar.cSl = bVar.cSl;
-                        aVar.cSj = 1;
+                        aVar.netType = bVar.netType;
+                        aVar.cZt = bVar.cZt;
+                        aVar.cZs = 1;
                         arrayList.add(bVar);
-                        for (int i3 = i2; i3 < this.cSp.size(); i3++) {
-                            b bVar2 = this.cSp.get(i3);
-                            if (bVar2 != null && !arrayList.contains(bVar2) && bVar2.cSk != null && aVar.cSk != null && bVar2.cSk.equals(aVar.cSk) && bVar2.cSl == aVar.cSl) {
-                                if (bVar2.emitTime != null && aVar.emitTime != null && com.baidu.adp.lib.h.b.c(bVar2.emitTime, 0L) < com.baidu.adp.lib.h.b.c(aVar.emitTime, 0L)) {
+                        for (int i3 = i2; i3 < this.cZx.size(); i3++) {
+                            b bVar2 = this.cZx.get(i3);
+                            if (bVar2 != null && !arrayList.contains(bVar2) && bVar2.netType != null && aVar.netType != null && bVar2.netType.equals(aVar.netType) && bVar2.cZt == aVar.cZt) {
+                                if (bVar2.emitTime != null && aVar.emitTime != null && com.baidu.adp.lib.g.b.c(bVar2.emitTime, 0L) < com.baidu.adp.lib.g.b.c(aVar.emitTime, 0L)) {
                                     aVar.emitTime = bVar2.emitTime;
                                 }
-                                aVar.cSj++;
+                                aVar.cZs++;
                                 arrayList.add(bVar2);
                             }
                         }
-                        this.cSq.add(aVar);
+                        this.cZy.add(aVar);
                     }
                     i = i2 + 1;
                 }
             }
-            this.cSp.clear();
-            if (this.cSq.size() > arE() && arA() && com.baidu.adp.lib.util.i.gm()) {
+            this.cZx.clear();
+            if (this.cZy.size() > asK() && asG() && com.baidu.adp.lib.util.i.gk()) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
-            if (this.cSq.size() > 100 && !arB() && !arA()) {
-                this.cSq.clear();
+            if (this.cZy.size() > 100 && !asH() && !asG()) {
+                this.cZy.clear();
             }
         }
     }
 
-    public void ary() {
-        if (this.cSq.size() > 0) {
-            this.cSt = true;
+    public void asE() {
+        if (this.cZy.size() > 0) {
+            this.cZB = true;
             ArrayList arrayList = new ArrayList();
             ClientLog.Builder builder = new ClientLog.Builder();
-            for (a aVar : this.cSq) {
+            for (a aVar : this.cZy) {
                 builder.et = aVar.emitTime;
-                builder.net = aVar.cSk;
-                builder.pushcnt = Integer.valueOf(aVar.cSj);
-                builder.process_type = Integer.valueOf(aVar.cSl);
+                builder.net = aVar.netType;
+                builder.pushcnt = Integer.valueOf(aVar.cZs);
+                builder.process_type = Integer.valueOf(aVar.cZt);
                 arrayList.add(builder.build(false));
             }
             RequestUploadClientLogMessage requestUploadClientLogMessage = new RequestUploadClientLogMessage();
@@ -187,54 +187,54 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean arz() {
+    public boolean asF() {
         String str;
-        com.baidu.tbadk.data.f arC = arC();
-        return (arC == null || (str = arC.asR) == null || !str.equals("1")) ? false : true;
+        com.baidu.tbadk.data.f asI = asI();
+        return (asI == null || (str = asI.arW) == null || !str.equals("1")) ? false : true;
     }
 
-    private boolean arA() {
+    private boolean asG() {
         String str;
-        com.baidu.tbadk.data.f arC = arC();
-        return arC == null || (str = arC.asP.get(arv())) == null || !str.equals("-1");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean arB() {
-        String str;
-        com.baidu.tbadk.data.f arC = arC();
-        return arC == null || (str = arC.asO.get(arv())) == null || !str.equals("-1");
-    }
-
-    private com.baidu.tbadk.data.f arC() {
-        return com.baidu.tbadk.data.f.BT();
+        com.baidu.tbadk.data.f asI = asI();
+        return asI == null || (str = asI.arU.get(asB())) == null || !str.equals("-1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long arD() {
+    public boolean asH() {
         String str;
-        com.baidu.tbadk.data.f arC = arC();
-        if (arC != null && (str = arC.asO.get(arv())) != null && str.length() > 0) {
-            long c = com.baidu.adp.lib.h.b.c(str, 0L);
+        com.baidu.tbadk.data.f asI = asI();
+        return asI == null || (str = asI.arT.get(asB())) == null || !str.equals("-1");
+    }
+
+    private com.baidu.tbadk.data.f asI() {
+        return com.baidu.tbadk.data.f.BO();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public long asJ() {
+        String str;
+        com.baidu.tbadk.data.f asI = asI();
+        if (asI != null && (str = asI.arT.get(asB())) != null && str.length() > 0) {
+            long c = com.baidu.adp.lib.g.b.c(str, 0L);
             if (c > 2) {
                 return c * 1000;
             }
         }
-        return cSm.get(arv()).longValue() * 1000;
+        return cZu.get(asB()).longValue() * 1000;
     }
 
-    private int arE() {
+    private int asK() {
         String str;
         int g;
-        com.baidu.tbadk.data.f arC = arC();
-        return (arC == null || (str = arC.asP.get(arv())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.h.b.g(str, 0)) < 2) ? cSn.get(arv()).intValue() : g;
+        com.baidu.tbadk.data.f asI = asI();
+        return (asI == null || (str = asI.arU.get(asB())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? cZv.get(asB()).intValue() : g;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long arF() {
+    public long asL() {
         String str;
         int g;
-        com.baidu.tbadk.data.f arC = arC();
-        return (arC == null || (str = arC.asQ.get(arv())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.h.b.g(str, 0)) < 2) ? cSo.get(arv()).longValue() * 1000 : g * 1000;
+        com.baidu.tbadk.data.f asI = asI();
+        return (asI == null || (str = asI.arV.get(asB())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? cZw.get(asB()).longValue() * 1000 : g * 1000;
     }
 }

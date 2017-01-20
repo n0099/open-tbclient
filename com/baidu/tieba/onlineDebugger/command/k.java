@@ -3,20 +3,20 @@ package com.baidu.tieba.onlineDebugger.command;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class k implements h {
-    private static Character dSV = 's';
-    private static Character dSW = 'l';
-    private Character dSX;
+    private static Character ebO = 's';
+    private static Character ebP = 'l';
+    private Character ebQ;
     private String msgContent;
 
     public k(String str) {
         int indexOf;
-        this.dSX = dSV;
+        this.ebQ = ebO;
         int indexOf2 = str.indexOf(32);
         if (indexOf2 != -1) {
             this.msgContent = str.substring(indexOf2 + 1).trim();
             if (this.msgContent.startsWith("-") && (indexOf = this.msgContent.indexOf(32)) != -1) {
                 try {
-                    this.dSX = Character.valueOf(this.msgContent.charAt(1));
+                    this.ebQ = Character.valueOf(this.msgContent.charAt(1));
                     this.msgContent = this.msgContent.substring(indexOf + 1);
                 } catch (Exception e) {
                 }
@@ -30,13 +30,13 @@ public class k implements h {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public Object aHc() {
-        com.baidu.adp.lib.h.h.eG().post(new l(this));
+    public Object aIQ() {
+        com.baidu.adp.lib.g.h.eE().post(new l(this));
         return true;
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public boolean aHd() {
+    public boolean aIR() {
         return true;
     }
 }

@@ -1,21 +1,18 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tbadk.img.a;
-import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements a.InterfaceC0045a<ChatMessage> {
-    final /* synthetic */ TalkableActivity cGN;
+public class bv implements Runnable {
+    final /* synthetic */ TalkableActivity cNV;
+    private final /* synthetic */ String cNW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(TalkableActivity talkableActivity) {
-        this.cGN = talkableActivity;
+    public bv(TalkableActivity talkableActivity, String str) {
+        this.cNV = talkableActivity;
+        this.cNW = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.img.a.InterfaceC0045a
-    /* renamed from: a */
-    public void b(int i, ChatMessage chatMessage) {
-        this.cGN.cGz.updateAdapter(i, chatMessage);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.cNV.cNI.sendTextMessage(this.cNW);
     }
 }

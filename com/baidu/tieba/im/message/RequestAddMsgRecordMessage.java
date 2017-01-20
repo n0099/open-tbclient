@@ -40,7 +40,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.records = this.msgRecords;
         if (z) {
-            n.a(builder, true);
+            n.bindCommonParamsToProtobufData(builder, true);
         }
         AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
         builder2.data = builder.build(false);

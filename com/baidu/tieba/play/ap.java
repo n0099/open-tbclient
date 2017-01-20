@@ -1,44 +1,88 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-import android.database.ContentObserver;
+import android.app.Activity;
 import android.os.Handler;
-import android.provider.Settings;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap extends ContentObserver {
-    private a eJP;
-    private Context mContext;
+public class ap extends Handler {
+    final /* synthetic */ ao eTk;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void onChange(boolean z);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(ao aoVar) {
+        this.eTk = aoVar;
     }
 
-    public ap(Context context, Handler handler) {
-        super(handler);
-        this.mContext = context;
-    }
-
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        aWC();
-    }
-
-    private void aWC() {
-        if (this.mContext != null) {
-            try {
-                int i = Settings.System.getInt(this.mContext.getContentResolver(), "accelerometer_rotation");
-                if (this.eJP != null) {
-                    this.eJP.onChange(i == 1);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Activity activity;
+        boolean z;
+        Activity activity2;
+        boolean z2;
+        boolean z3;
+        Activity activity3;
+        boolean z4;
+        Activity activity4;
+        Activity activity5;
+        Activity activity6;
+        Activity activity7;
+        if (message != null) {
+            activity = this.eTk.mActivity;
+            if (activity != null) {
+                z = this.eTk.eTi;
+                if (z) {
+                    switch (message.what) {
+                        case 1:
+                            activity2 = this.eTk.mActivity;
+                            int requestedOrientation = activity2.getRequestedOrientation();
+                            int i = message.arg1;
+                            z2 = this.eTk.eTh;
+                            if (!z2) {
+                                if (i > 225 && i < 315) {
+                                    if (requestedOrientation == 8) {
+                                        activity7 = this.eTk.mActivity;
+                                        activity7.setRequestedOrientation(0);
+                                        return;
+                                    }
+                                    return;
+                                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
+                                    activity6 = this.eTk.mActivity;
+                                    activity6.setRequestedOrientation(8);
+                                    return;
+                                } else {
+                                    return;
+                                }
+                            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
+                                z4 = this.eTk.eTf;
+                                if (!z4) {
+                                    if (i > 55 && i < 125) {
+                                        if (requestedOrientation != 8) {
+                                            activity5 = this.eTk.mActivity;
+                                            activity5.setRequestedOrientation(8);
+                                        }
+                                    } else if (requestedOrientation != 0) {
+                                        activity4 = this.eTk.mActivity;
+                                        activity4.setRequestedOrientation(0);
+                                    }
+                                }
+                                this.eTk.eTe = false;
+                                return;
+                            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
+                                z3 = this.eTk.eTe;
+                                if (!z3 && requestedOrientation != 1) {
+                                    activity3 = this.eTk.mActivity;
+                                    activity3.setRequestedOrientation(1);
+                                }
+                                this.eTk.eTf = false;
+                                return;
+                            } else {
+                                return;
+                            }
+                        default:
+                            return;
+                    }
                 }
-            } catch (Settings.SettingNotFoundException e) {
-                e.printStackTrace();
             }
         }
-    }
-
-    public void a(a aVar) {
-        this.eJP = aVar;
-        aWC();
     }
 }

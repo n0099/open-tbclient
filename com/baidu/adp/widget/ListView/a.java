@@ -10,72 +10,89 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.adp.widget.ListView.y.a;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends y.a> {
-    protected w AR;
-    protected x AS;
-    protected BdUniqueId AT;
-    private y AU;
-    protected V AV;
+    private y mAdapter;
+    protected w mAdapterItemClickListener;
+    protected x mAdapterItemLongClickListener;
     protected Context mContext;
+    protected BdUniqueId mType;
+    protected V viewholder;
 
-    protected abstract View a(int i, View view, ViewGroup viewGroup, T t, V v);
+    protected abstract V onCreateViewHolder(ViewGroup viewGroup);
 
-    protected abstract V a(ViewGroup viewGroup);
+    protected abstract View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.AT = bdUniqueId;
+        this.mType = bdUniqueId;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.y$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public View a(int i, View view, ViewGroup viewGroup, T t) {
+    public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
-        if (q(view)) {
-            this.AV = (V) a(viewGroup);
-            view2 = this.AV.getView();
+        if (needCreateNewHolder(view)) {
+            this.viewholder = (V) onCreateViewHolder(viewGroup);
+            view2 = this.viewholder.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.AV.getClass().getName());
+                BdLog.i("convertView is creating" + this.viewholder.getClass().getName());
             }
         } else {
             view2 = view;
         }
-        return a(i, view2, viewGroup, t, (y.a) view2.getTag());
+        return onFillViewHolder(i, view2, viewGroup, t, (y.a) view2.getTag());
     }
 
-    private boolean q(View view) {
-        return view == null || view.getTag() == null || this.AV == null || !this.AV.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.AV.getClass());
+    private boolean needCreateNewHolder(View view) {
+        return view == null || view.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
     }
 
-    public void a(w wVar) {
-        this.AR = wVar;
+    public void setOnAdapterItemClickListener(w wVar) {
+        this.mAdapterItemClickListener = wVar;
     }
 
-    public w kd() {
-        return this.AR;
+    public w getOnAdapterItemClickListener() {
+        return this.mAdapterItemClickListener;
     }
 
-    public void a(x xVar) {
-        this.AS = xVar;
+    public void setOnAdapterItemLongClickListener(x xVar) {
+        this.mAdapterItemLongClickListener = xVar;
     }
 
-    public x ke() {
-        return this.AS;
+    public x getOnAdapterItemLongClickListener() {
+        return this.mAdapterItemLongClickListener;
     }
 
     public BdUniqueId getType() {
-        return this.AT;
+        return this.mType;
+    }
+
+    public void setType(BdUniqueId bdUniqueId) {
+        this.mType = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(y yVar) {
-        this.AU = yVar;
+    public void setAdapter(y yVar) {
+        this.mAdapter = yVar;
     }
 
-    public v aK(int i) {
-        if (this.AU != null) {
-            return this.AU.getItem(i);
+    public void notifyDataSetChanged() {
+        if (this.mAdapter != null) {
+            this.mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public v getItem(int i) {
+        if (this.mAdapter != null) {
+            return this.mAdapter.getItem(i);
         }
         return null;
+    }
+
+    public int getPositionByType(int i) {
+        if (this.mAdapter == null || this.mType == null) {
+            return -1;
+        }
+        return this.mAdapter.m(i, this.mType.getId());
     }
 }

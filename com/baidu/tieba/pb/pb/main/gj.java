@@ -1,155 +1,54 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
+import android.content.Context;
+import android.util.SparseArray;
+import android.view.View;
 import com.baidu.tieba.r;
-import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gj {
-    private static gj ehi = null;
-    private com.baidu.tbadk.core.dialog.a ehj = null;
-    private String ehk = null;
-    private String btP = null;
-    private String ehl = null;
-    private String ehm = null;
-    private String mPackageName = null;
+public class gj implements View.OnClickListener {
+    final /* synthetic */ ez eqf;
 
-    public static gj aMA() {
-        if (ehi == null) {
-            synchronized (gj.class) {
-                if (ehi == null) {
-                    ehi = new gj();
-                }
-            }
-        }
-        return ehi;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gj(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    public void h(TbPageContext tbPageContext, String str) {
-        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
-            boolean z = str.contains("is_native_app=1");
-            if (oj(str) || z) {
-                boolean n = com.baidu.adp.lib.util.k.n(tbPageContext.getPageActivity(), "com.qiyi.video");
-                og(str);
-                if (n) {
-                    A(tbPageContext);
-                } else {
-                    B(tbPageContext);
-                }
-            } else if (oh(str)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (oi(str)) {
-                com.baidu.tbadk.core.util.bc.vz().a(tbPageContext, new String[]{str}, true);
-            } else {
-                com.baidu.tbadk.core.util.bc.vz().c(tbPageContext, new String[]{str});
-            }
-        }
-    }
-
-    public static boolean oe(String str) {
-        return str != null && str.contains("bookcover:");
-    }
-
-    private void A(TbPageContext tbPageContext) {
-        if (tbPageContext != null) {
-            if (TextUtils.isEmpty(this.ehl) || TextUtils.isEmpty(this.ehm) || TextUtils.isEmpty(this.mPackageName)) {
-                if (!TextUtils.isEmpty(this.ehk)) {
-                    com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ehk);
-                    return;
-                }
-                return;
-            }
-            Intent intent = new Intent();
-            intent.setData(Uri.parse(this.ehl));
-            intent.setAction(this.ehm);
-            intent.setPackage(this.mPackageName);
-            if (intent.resolveActivity(tbPageContext.getPageActivity().getPackageManager()) != null) {
-                if (!com.baidu.adp.lib.h.i.b(tbPageContext.getPageActivity(), intent) && !TextUtils.isEmpty(this.ehk)) {
-                    com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ehk);
-                }
-            } else if (!TextUtils.isEmpty(this.ehk)) {
-                com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ehk);
-            }
-        }
-    }
-
-    private void og(String str) {
-        String[] split;
-        int indexOf;
-        if (!TextUtils.isEmpty(str) && (split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length != 0) {
-            for (int i = 0; i < split.length; i++) {
-                if (!TextUtils.isEmpty(split[i])) {
-                    if (split[i].contains("qiyimobile:")) {
-                        int lastIndexOf = split[i].lastIndexOf("&");
-                        if (lastIndexOf >= 0 && lastIndexOf < split[i].length()) {
-                            this.ehl = split[i].substring(0, lastIndexOf);
-                        }
-                    } else if (split[i].contains("action=")) {
-                        int indexOf2 = split[i].indexOf("=");
-                        if (indexOf2 >= 0 && indexOf2 < split[i].length()) {
-                            this.ehm = split[i].substring(indexOf2 + 1, split[i].length());
-                        }
-                    } else if (split[i].contains("package=")) {
-                        int indexOf3 = split[i].indexOf("=");
-                        if (indexOf3 >= 0 && indexOf3 < split[i].length()) {
-                            this.mPackageName = split[i].substring(indexOf3 + 1, split[i].length());
-                        }
-                    } else if (split[i].contains("download_url:")) {
-                        int indexOf4 = split[i].indexOf("http:");
-                        if (indexOf4 >= 0 && indexOf4 < split[i].length()) {
-                            this.btP = split[i].substring(indexOf4, split[i].length());
-                        }
-                    } else if (split[i].contains("web_play_url:") && (indexOf = split[i].indexOf("http:")) >= 0 && indexOf < split[i].length()) {
-                        this.ehk = split[i].substring(indexOf, split[i].length());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        PbActivity pbActivity3;
+        PbActivity pbActivity4;
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            boolean booleanValue = sparseArray.get(r.h.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.h.tag_should_manage_visible)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(r.h.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.h.tag_user_mute_visible)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(r.h.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.h.tag_should_delete_visible)).booleanValue() : false;
+            if (booleanValue) {
+                if (com.baidu.tieba.c.a.QW()) {
+                    pbActivity3 = this.eqf.ehi;
+                    Context baseContext = pbActivity3.getBaseContext();
+                    pbActivity4 = this.eqf.ehi;
+                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aKP().getThreadID(), (String) sparseArray.get(r.h.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(r.h.tag_manage_user_identity)).intValue())) {
+                        return;
                     }
                 }
-            }
-        }
-    }
-
-    private void B(TbPageContext tbPageContext) {
-        if (tbPageContext != null) {
-            if (!com.baidu.adp.lib.util.i.gn()) {
-                if (!TextUtils.isEmpty(this.ehk)) {
-                    com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), false, this.ehk);
+                if (booleanValue2) {
+                    sparseArray.put(r.h.tag_from, 1);
+                    pbActivity2 = this.eqf.ehi;
+                    pbActivity2.d(sparseArray);
                     return;
                 }
-                return;
+                this.eqf.bd(view);
+            } else if (booleanValue2) {
+                sparseArray.put(r.h.tag_from, 0);
+                sparseArray.put(r.h.tag_check_mute_from, 1);
+                pbActivity = this.eqf.ehi;
+                pbActivity.d(sparseArray);
+            } else if (booleanValue3) {
+                this.eqf.a(((Integer) sparseArray.get(r.h.tag_del_post_type)).intValue(), (String) sparseArray.get(r.h.tag_del_post_id), ((Integer) sparseArray.get(r.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(r.h.tag_del_post_is_self)).booleanValue());
             }
-            if (this.ehj == null) {
-                this.ehj = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                this.ehj.cb(r.j.download_iqiyi_app_dialog);
-                this.ehj.a(r.j.install_app, new gk(this, tbPageContext));
-                this.ehj.b(r.j.webpage_play, new gl(this, tbPageContext));
-                this.ehj.av(false);
-            }
-            this.ehj.b(tbPageContext).tb();
         }
-    }
-
-    private boolean oh(String str) {
-        Map<String, String> dI;
-        if (!TextUtils.isEmpty(str) && (dI = com.baidu.tbadk.core.util.bc.dI(com.baidu.tbadk.core.util.bc.dJ(str))) != null) {
-            String str2 = dI.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return oh(com.baidu.adp.lib.util.j.aQ(str2));
-            }
-            String str3 = dI.get("tbgametype");
-            return !TextUtils.isEmpty(str3) && str3.equals("1");
-        }
-        return false;
-    }
-
-    private boolean oi(String str) {
-        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
-    }
-
-    private boolean oj(String str) {
-        return !TextUtils.isEmpty(str) && str.contains("com.qiyi.video");
     }
 }

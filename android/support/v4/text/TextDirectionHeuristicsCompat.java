@@ -6,10 +6,10 @@ import java.util.Locale;
 public class TextDirectionHeuristicsCompat {
     public static final TextDirectionHeuristicCompat LTR = new e(null, false);
     public static final TextDirectionHeuristicCompat RTL = new e(null, true);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new e(b.cB, false);
-    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new e(b.cB, true);
-    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new e(a.cz, false);
-    public static final TextDirectionHeuristicCompat LOCALE = f.cE;
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_LTR = new e(b.cz, false);
+    public static final TextDirectionHeuristicCompat FIRSTSTRONG_RTL = new e(b.cz, true);
+    public static final TextDirectionHeuristicCompat ANYRTL_LTR = new e(a.cx, false);
+    public static final TextDirectionHeuristicCompat LOCALE = f.cC;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -49,12 +49,12 @@ public class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     private static abstract class d implements TextDirectionHeuristicCompat {
-        private final c cC;
+        private final c cA;
 
         protected abstract boolean V();
 
         public d(c cVar) {
-            this.cC = cVar;
+            this.cA = cVar;
         }
 
         @Override // android.support.v4.text.TextDirectionHeuristicCompat
@@ -67,11 +67,11 @@ public class TextDirectionHeuristicsCompat {
             if (charSequence == null || i < 0 || i2 < 0 || charSequence.length() - i2 < i) {
                 throw new IllegalArgumentException();
             }
-            return this.cC == null ? V() : c(charSequence, i, i2);
+            return this.cA == null ? V() : c(charSequence, i, i2);
         }
 
         private boolean c(CharSequence charSequence, int i, int i2) {
-            switch (this.cC.b(charSequence, i, i2)) {
+            switch (this.cA.b(charSequence, i, i2)) {
                 case 0:
                     return true;
                 case 1:
@@ -84,22 +84,22 @@ public class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     private static class e extends d {
-        private final boolean cD;
+        private final boolean cB;
 
         private e(c cVar, boolean z) {
             super(cVar);
-            this.cD = z;
+            this.cB = z;
         }
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.d
         protected boolean V() {
-            return this.cD;
+            return this.cB;
         }
     }
 
     /* loaded from: classes.dex */
     private static class b implements c {
-        public static final b cB = new b();
+        public static final b cz = new b();
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
         public int b(CharSequence charSequence, int i, int i2) {
@@ -118,9 +118,9 @@ public class TextDirectionHeuristicsCompat {
 
     /* loaded from: classes.dex */
     private static class a implements c {
-        private final boolean cy;
-        public static final a cz = new a(true);
-        public static final a cA = new a(false);
+        public static final a cx = new a(true);
+        public static final a cy = new a(false);
+        private final boolean cw;
 
         @Override // android.support.v4.text.TextDirectionHeuristicsCompat.c
         public int b(CharSequence charSequence, int i, int i2) {
@@ -129,14 +129,14 @@ public class TextDirectionHeuristicsCompat {
             while (i < i3) {
                 switch (TextDirectionHeuristicsCompat.l(Character.getDirectionality(charSequence.charAt(i)))) {
                     case 0:
-                        if (!this.cy) {
+                        if (!this.cw) {
                             z = true;
                             break;
                         } else {
                             return 0;
                         }
                     case 1:
-                        if (this.cy) {
+                        if (this.cw) {
                             z = true;
                             break;
                         } else {
@@ -146,19 +146,19 @@ public class TextDirectionHeuristicsCompat {
                 i++;
             }
             if (z) {
-                return !this.cy ? 0 : 1;
+                return !this.cw ? 0 : 1;
             }
             return 2;
         }
 
         private a(boolean z) {
-            this.cy = z;
+            this.cw = z;
         }
     }
 
     /* loaded from: classes.dex */
     private static class f extends d {
-        public static final f cE = new f();
+        public static final f cC = new f();
 
         public f() {
             super(null);

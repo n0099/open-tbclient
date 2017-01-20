@@ -1,9 +1,9 @@
 package com.baidu.tbadk.xiuba;
 
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class JSResultData extends i implements Serializable {
+public class JSResultData extends OrmObject implements Serializable {
     public static final String AUTH_KEY = "Bk87E*iWaZ4ORmQrCxVGOq+]-i!S*v";
     public static final int DOWNLOAD_FAIL = 0;
     public static final int DOWNLOAD_FINISH = 2;
@@ -54,7 +54,7 @@ public class JSResultData extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public static final class Result extends i implements Serializable {
+    public static final class Result extends OrmObject implements Serializable {
         private static final long serialVersionUID = 678301888552831958L;
         private String apkVersion;
         private int download;

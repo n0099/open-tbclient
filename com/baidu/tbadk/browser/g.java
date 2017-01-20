@@ -3,6 +3,7 @@ package com.baidu.tbadk.browser;
 import android.content.Context;
 import android.webkit.JsPromptResult;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
@@ -17,13 +18,13 @@ public class g implements com.baidu.tieba.tbadkCore.e.b {
         this.mTbPageContext = tbPageContext;
     }
 
-    private String nS() {
+    private String nM() {
         TbadkCoreApplication.m9getInst().login(this.mTbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.mTbPageContext.getPageActivity(), true)));
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
         jSResultData.setErrorCode("0");
         jSResultData.setErrorMsg("");
-        return com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(jSResultData);
+        return OrmObject.jsonStrWithObject(jSResultData);
     }
 
     @Override // com.baidu.tieba.tbadkCore.e.b
@@ -31,7 +32,7 @@ public class g implements com.baidu.tieba.tbadkCore.e.b {
         if ("CommonJSBridge".equals(str) && "startLoginModule".equals(str2)) {
             try {
                 new JSONObject(str3);
-                jsPromptResult.confirm(nS());
+                jsPromptResult.confirm(nM());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

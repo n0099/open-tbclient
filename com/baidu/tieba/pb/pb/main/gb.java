@@ -1,44 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
+import android.view.animation.Animation;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class gb {
-    protected BaseActivity aSs;
-    protected View mRootView;
+public class gb implements Animation.AnimationListener {
+    final /* synthetic */ ez eqf;
 
-    protected abstract void a(e eVar);
-
-    protected abstract void onChangeSkinType(int i);
-
-    public gb(BaseActivity baseActivity, View view) {
-        this.aSs = baseActivity;
-        this.mRootView = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public gb(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    public void init() {
-        b(null);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    public void b(e eVar) {
-        if (this.aSs != null && this.mRootView != null) {
-            a(eVar);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    public void changeSkinType(int i) {
-        onChangeSkinType(i);
-    }
-
-    public void a(View view, View.OnClickListener onClickListener) {
-        if (view != null) {
-            view.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void f(View view, boolean z) {
-        if (view != null) {
-            view.setVisibility(z ? 0 : 8);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        this.eqf.epI = false;
+        textView = this.eqf.epG;
+        textView.setVisibility(8);
     }
 }

@@ -1,10 +1,12 @@
 package com.baidu.tbadk.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,7 @@ import tbclient.VipCloseAd;
 import tbclient.VipShowInfo;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
+    private static final int USER_PICS_MAX_COUNT = 9;
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
     private int anchorLevel;
@@ -45,6 +48,10 @@ public class UserData extends MetaData {
     private long lastReplyTime;
     private String lat;
     private int like_bars;
+    private String liveId;
+    private int liveLevel;
+    private long liveLevelExp;
+    private int liveStatus;
     private String lng;
     private long loginTime;
     private a mActivitySponsorData;
@@ -62,17 +69,22 @@ public class UserData extends MetaData {
     private String password;
     private h payMemberInfo;
     private Permission permission;
-    private i personPrivate;
+    private PersonPrivateData personPrivate;
     private String position;
     private int posts_num;
     private int sex;
     private UserTbVipInfoData tbVipInfo;
     private String tb_age;
     private int userType;
+    private UserVideoChannelInfoData videoChannelInfo;
     private UserVipInfoData vipInfo;
     private int visitorNum;
 
-    public i getPersonPrivate() {
+    public UserVideoChannelInfoData getVideoChannelInfoData() {
+        return this.videoChannelInfo;
+    }
+
+    public PersonPrivateData getPersonPrivate() {
         return this.personPrivate;
     }
 
@@ -159,6 +171,10 @@ public class UserData extends MetaData {
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
         this.mPhotoAlbum = new ArrayList();
+        this.liveLevel = 1;
+        this.liveLevelExp = 0L;
+        this.liveStatus = 0;
+        this.liveId = "0";
         this.ip = null;
         this.BDUSS = null;
         this.like_bars = -1;
@@ -180,6 +196,10 @@ public class UserData extends MetaData {
         this.mGroup = new ArrayList();
         this.mGift = new ArrayList();
         this.mPhotoAlbum = new ArrayList();
+        this.liveLevel = 1;
+        this.liveLevelExp = 0L;
+        this.liveStatus = 0;
+        this.liveId = "0";
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
@@ -233,19 +253,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            l lVar = new l();
-            lVar.ff(getPortraitH());
-            lVar.fg(getPortrait());
-            lVar.bv(true);
-            this.mPhotoAlbum.add(lVar);
+            k kVar = new k();
+            kVar.fc(getPortraitH());
+            kVar.fd(getPortrait());
+            kVar.bv(true);
+            this.mPhotoAlbum.add(kVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        l lVar2 = new l();
-                        lVar2.ff(userPics.big);
-                        lVar2.fg(userPics.small);
-                        lVar2.bv(false);
-                        this.mPhotoAlbum.add(lVar2);
+                        k kVar2 = new k();
+                        kVar2.fc(userPics.big);
+                        kVar2.fd(userPics.small);
+                        kVar2.bv(false);
+                        this.mPhotoAlbum.add(kVar2);
                     }
                 }
             }
@@ -281,7 +301,7 @@ public class UserData extends MetaData {
             this.isFriend = user.is_friend.intValue();
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
-                this.personPrivate = new i();
+                this.personPrivate = new PersonPrivateData();
                 this.personPrivate.a(privSets);
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
@@ -337,6 +357,12 @@ public class UserData extends MetaData {
             if (activitySponsor != null) {
                 this.mActivitySponsorData = new a();
                 this.mActivitySponsorData.a(activitySponsor);
+            }
+            if (user.ala_info != null) {
+                this.liveLevel = user.ala_info.level_id.intValue();
+                this.liveLevelExp = user.ala_info.level_exp.longValue();
+                this.liveStatus = user.ala_info.live_status.intValue();
+                this.liveId = Long.toString(user.ala_info.live_id.longValue());
             }
         }
     }
@@ -404,7 +430,7 @@ public class UserData extends MetaData {
                 this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject4 != null) {
-                    this.personPrivate = new i();
+                    this.personPrivate = new PersonPrivateData();
                     this.personPrivate.parserJson(optJSONObject4);
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("pay_member_info");
@@ -421,22 +447,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                l lVar = new l();
-                lVar.ff(getPortraitH());
-                lVar.fg(getPortrait());
-                lVar.bv(true);
-                this.mPhotoAlbum.add(lVar);
+                k kVar = new k();
+                kVar.fc(getPortraitH());
+                kVar.fd(getPortrait());
+                kVar.bv(true);
+                this.mPhotoAlbum.add(kVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            l lVar2 = new l();
-                            lVar2.ff(jSONObject2.optString("big"));
-                            lVar2.fg(jSONObject2.optString("small"));
-                            lVar2.bv(false);
-                            this.mPhotoAlbum.add(lVar2);
+                            k kVar2 = new k();
+                            kVar2.fc(jSONObject2.optString("big"));
+                            kVar2.fd(jSONObject2.optString("small"));
+                            kVar2.bv(false);
+                            this.mPhotoAlbum.add(kVar2);
                         }
                     }
                 }
@@ -475,6 +501,14 @@ public class UserData extends MetaData {
                             this.mGift.add(myGift);
                         }
                     }
+                }
+                JSONObject optJSONObject9 = jSONObject.optJSONObject("ala_info");
+                if (optJSONObject9 != null) {
+                    this.liveLevel = optJSONObject9.optInt("level_id");
+                    this.liveLevelExp = optJSONObject9.optInt("level_exp");
+                    this.liveStatus = optJSONObject9.optInt("live_status");
+                    this.liveId = optJSONObject9.optString("live_id");
+                    this.alaUserData = (AlaUserInfoData) OrmObject.objectWithJson(jSONObject.optJSONObject("ala_info"), AlaUserInfoData.class);
                 }
             }
         } catch (Exception e) {
@@ -646,8 +680,24 @@ public class UserData extends MetaData {
         return this.mPhotoAlbum;
     }
 
+    public int getLiveLevel() {
+        return this.liveLevel;
+    }
+
+    public long getLiveLevelExp() {
+        return this.liveLevelExp;
+    }
+
+    public int getLiveStatus() {
+        return this.liveStatus;
+    }
+
+    public String getLiveId() {
+        return this.liveId;
+    }
+
     /* loaded from: classes.dex */
-    public static class Permission extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class Permission extends OrmObject implements Serializable {
         private static final long serialVersionUID = -661968182172681650L;
         private int isGroupManager;
         private int isGroupOwner;

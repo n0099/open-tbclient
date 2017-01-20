@@ -1,34 +1,33 @@
 package com.baidu.tieba.play;
 
-import android.content.Context;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
-public class ai implements Runnable {
-    final /* synthetic */ ah eJG;
+class ai implements v.c {
+    final /* synthetic */ QuickVideoView eSP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar) {
-        this.eJG = ahVar;
+    public ai(QuickVideoView quickVideoView) {
+        this.eSP = quickVideoView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        boolean aWB;
-        boolean z;
-        String str;
-        Context context;
-        String str2;
-        aWB = this.eJG.aWB();
-        if (aWB) {
-            context = this.eJG.mContext;
-            str2 = this.eJG.eJx;
-            ar.G(context, str2);
-            return;
+    @Override // com.baidu.tieba.play.v.c
+    public boolean a(v vVar, int i, int i2) {
+        an anVar;
+        an anVar2;
+        int i3;
+        if (i == 10001) {
+            this.eSP.eSG = i2;
+            anVar = this.eSP.eSA;
+            if (anVar != null && vVar != null) {
+                anVar2 = this.eSP.eSA;
+                int videoWidth = vVar.getVideoWidth();
+                int videoHeight = vVar.getVideoHeight();
+                i3 = this.eSP.eSG;
+                anVar2.O(videoWidth, videoHeight, i3);
+                return true;
+            }
+            return true;
         }
-        z = this.eJG.eJz;
-        if (!z) {
-            str = this.eJG.eJx;
-            ar.he(str);
-        }
+        return true;
     }
 }

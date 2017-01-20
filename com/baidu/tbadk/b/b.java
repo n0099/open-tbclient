@@ -5,50 +5,50 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.af;
+import com.baidu.tbadk.core.data.ag;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Mx = null;
-    protected static boolean Mz = false;
-    protected String Mu = "183322726";
-    protected boolean My = true;
-    protected transient List<String> Mv = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> LK = null;
+    protected static boolean LM = false;
+    protected String LH = "183322726";
+    protected boolean LL = true;
+    protected transient List<String> LI = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(boolean z, int i, int i2, af afVar);
+        void a(boolean z, int i, int i2, ag agVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a(TbPageContext tbPageContext, String str, String str2, String str3);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bd(int i);
+    public abstract void bc(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(a aVar);
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void nA();
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void nG();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nM();
+    public abstract void nH();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nN();
+    public abstract void nI();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nO();
+    public abstract void nJ();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nP();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void nQ();
+    public abstract void nK();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static b b(BaseFragmentActivity baseFragmentActivity) {
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (Mx == null) {
-            Mx = new WeakReference<>(tbPageContext);
+        if (LK == null) {
+            LK = new WeakReference<>(tbPageContext);
             return;
         }
-        Mx.clear();
-        Mx = null;
-        Mx = new WeakReference<>(tbPageContext);
+        LK.clear();
+        LK = null;
+        LK = new WeakReference<>(tbPageContext);
     }
 
-    public boolean nL() {
-        return Mz;
+    public boolean nF() {
+        return LM;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ae(boolean z) {
-        this.My = z;
+        this.LL = z;
     }
 
-    public boolean nF() {
-        return this.My;
+    public boolean nz() {
+        return this.LL;
     }
 
-    public void nH() {
-        if (Mx != null) {
-            Mx.get();
-            Mx.clear();
-            Mx = null;
+    public void nB() {
+        if (LK != null) {
+            LK.get();
+            LK.clear();
+            LK = null;
         }
     }
 }

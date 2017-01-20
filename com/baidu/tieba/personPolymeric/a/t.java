@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t {
-    private List<com.baidu.adp.widget.ListView.a> bbV = new ArrayList();
-    private com.baidu.tieba.personCenter.a.b eoc;
-    private h etg;
-    private q eth;
-    private i eti;
+    private h eDa;
+    private q eDb;
+    private i eDc;
+    private com.baidu.tieba.personCenter.a.b exW;
+    private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public t(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.etg = new h(tbPageContext, com.baidu.tieba.personPolymeric.c.m.eus);
-        this.eth = new q(tbPageContext);
-        this.eti = new i(tbPageContext, com.baidu.tieba.personPolymeric.c.g.euj);
-        this.eoc = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.epy);
-        this.bbV.add(this.etg);
-        this.bbV.add(this.eth);
-        this.bbV.add(this.eti);
-        this.bbV.add(this.eoc);
-        hTypeListView.g(this.bbV);
+        this.eDa = new h(tbPageContext, com.baidu.tieba.personPolymeric.c.m.eEm);
+        this.eDb = new q(tbPageContext);
+        this.eDc = new i(tbPageContext, com.baidu.tieba.personPolymeric.c.g.eEd);
+        this.exW = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.ezv);
+        this.mAdapters.add(this.eDa);
+        this.mAdapters.add(this.eDb);
+        this.mAdapters.add(this.eDc);
+        this.mAdapters.add(this.exW);
+        hTypeListView.addAdapters(this.mAdapters);
     }
 
-    public void K(View.OnClickListener onClickListener) {
-        this.etg.setOnClickListener(onClickListener);
+    public void N(View.OnClickListener onClickListener) {
+        this.eDa.setOnClickListener(onClickListener);
     }
 
-    public void L(View.OnClickListener onClickListener) {
-        this.eti.setOnClickListener(onClickListener);
+    public void O(View.OnClickListener onClickListener) {
+        this.eDc.setOnClickListener(onClickListener);
     }
 }

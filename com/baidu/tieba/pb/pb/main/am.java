@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class am implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity eah;
+    final /* synthetic */ PbActivity eiV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.eah = pbActivity;
+        this.eiV = pbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -19,9 +19,9 @@ class am implements View.OnLongClickListener {
         com.baidu.tbadk.baseEditMark.a aVar;
         com.baidu.tbadk.baseEditMark.a aVar2;
         boolean z;
-        er erVar;
+        ez ezVar;
         c.b bVar;
-        dc dcVar;
+        PbModel pbModel;
         try {
             sparseArray = (SparseArray) view.getTag();
         } catch (ClassCastException e) {
@@ -29,27 +29,27 @@ class am implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.eah.dZY = (com.baidu.tieba.tbadkCore.data.q) sparseArray.get(r.g.tag_clip_board);
-            if (this.eah.dZY != null) {
-                aVar = this.eah.dxb;
+            this.eiV.eiL = (com.baidu.tieba.tbadkCore.data.p) sparseArray.get(r.h.tag_clip_board);
+            if (this.eiV.eiL != null) {
+                aVar = this.eiV.dGi;
                 if (aVar != null) {
-                    aVar2 = this.eah.dxb;
-                    if (aVar2.nz() && this.eah.dZY.getId() != null) {
-                        String id = this.eah.dZY.getId();
-                        dcVar = this.eah.dYA;
-                        if (id.equals(dcVar.rO())) {
+                    aVar2 = this.eiV.dGi;
+                    if (aVar2.nt() && this.eiV.eiL.getId() != null) {
+                        String id = this.eiV.eiL.getId();
+                        pbModel = this.eiV.ehh;
+                        if (id.equals(pbModel.rF())) {
                             z = true;
-                            boolean booleanValue = ((Boolean) sparseArray.get(r.g.tag_is_subpb)).booleanValue();
-                            erVar = this.eah.dZk;
-                            bVar = this.eah.dZZ;
-                            erVar.a(bVar, z, booleanValue);
+                            boolean booleanValue = ((Boolean) sparseArray.get(r.h.tag_is_subpb)).booleanValue();
+                            ezVar = this.eiV.ehV;
+                            bVar = this.eiV.eiM;
+                            ezVar.a(bVar, z, booleanValue);
                         }
                     }
                     z = false;
-                    boolean booleanValue2 = ((Boolean) sparseArray.get(r.g.tag_is_subpb)).booleanValue();
-                    erVar = this.eah.dZk;
-                    bVar = this.eah.dZZ;
-                    erVar.a(bVar, z, booleanValue2);
+                    boolean booleanValue2 = ((Boolean) sparseArray.get(r.h.tag_is_subpb)).booleanValue();
+                    ezVar = this.eiV.ehV;
+                    bVar = this.eiV.eiM;
+                    ezVar.a(bVar, z, booleanValue2);
                 }
             }
         }

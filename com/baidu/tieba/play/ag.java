@@ -1,33 +1,39 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tieba.play.t;
+import com.baidu.tieba.play.QuickVideoView;
+import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
-class ag implements t.c {
-    final /* synthetic */ QuickVideoView eJu;
+class ag implements v.a {
+    final /* synthetic */ QuickVideoView eSP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(QuickVideoView quickVideoView) {
-        this.eJu = quickVideoView;
+        this.eSP = quickVideoView;
     }
 
-    @Override // com.baidu.tieba.play.t.c
-    public boolean a(t tVar, int i, int i2) {
-        al alVar;
-        al alVar2;
-        int i3;
-        if (i == 10001) {
-            this.eJu.eJo = i2;
-            alVar = this.eJu.eJi;
-            if (alVar != null && tVar != null) {
-                alVar2 = this.eJu.eJi;
-                int videoWidth = tVar.getVideoWidth();
-                int videoHeight = tVar.getVideoHeight();
-                i3 = this.eJu.eJo;
-                alVar2.N(videoWidth, videoHeight, i3);
-                return true;
+    @Override // com.baidu.tieba.play.v.a
+    public void onCompletion(v vVar) {
+        boolean z;
+        v.a aVar;
+        v.a aVar2;
+        QuickVideoView.a aVar3;
+        QuickVideoView.a aVar4;
+        z = this.eSP.eSH;
+        if (z) {
+            aVar3 = this.eSP.eSE;
+            if (aVar3 != null) {
+                QuickVideoView quickVideoView = this.eSP;
+                aVar4 = this.eSP.eSE;
+                quickVideoView.setVideoPath(aVar4.aYj());
+                this.eSP.start();
+                return;
             }
-            return true;
         }
-        return true;
+        this.eSP.eSD = false;
+        aVar = this.eSP.aKG;
+        if (aVar != null) {
+            aVar2 = this.eSP.aKG;
+            aVar2.onCompletion(vVar);
+        }
     }
 }

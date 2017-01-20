@@ -6,20 +6,20 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.editortools.j;
 import com.baidu.tbadk.editortools.view.b;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private j EM;
-    private CommonTabHorizonScrollView axo;
-    private ImageView axp;
+    private j DX;
+    private CommonTabHorizonScrollView aws;
+    private ImageView awt;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eR(int i);
+        void eS(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -33,20 +33,20 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(j jVar) {
-        this.EM = jVar;
+        this.DX = jVar;
     }
 
     private void init(Context context) {
         setVisibility(8);
         removeAllViews();
-        LayoutInflater.from(context).inflate(r.h.common_tab_widget, (ViewGroup) this, true);
-        this.axo = (CommonTabHorizonScrollView) findViewById(r.g.privilege_tab_scroll_view);
-        this.axp = (ImageView) findViewById(r.g.privilege_tab_delete);
-        this.axp.setOnClickListener(new e(this));
+        LayoutInflater.from(context).inflate(r.j.common_tab_widget, (ViewGroup) this, true);
+        this.aws = (CommonTabHorizonScrollView) findViewById(r.h.privilege_tab_scroll_view);
+        this.awt = (ImageView) findViewById(r.h.privilege_tab_delete);
+        this.awt.setOnClickListener(new e(this));
     }
 
     public void setDatas(ArrayList<b> arrayList) {
-        this.axo.setDatas(arrayList);
+        this.aws.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -55,33 +55,33 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void c(b.C0042b c0042b) {
-        this.axo.c(c0042b);
+        this.aws.c(c0042b);
     }
 
     public void setCurrentTab(int i) {
-        this.axo.setCurrentTab(i);
+        this.aws.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.axo.setOnTabSelectedListener(aVar);
+        this.aws.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.axo.reset();
+        this.aws.reset();
     }
 
     public void onChangeSkinType(int i) {
-        ar.l(this, r.d.common_color_10223);
-        this.axo.m13do(i);
-        ar.c(this.axp, r.f.but_face_close);
-        ar.l(this.axp, r.d.common_color_10224);
+        ap.k(this, r.e.common_color_10223);
+        this.aws.dp(i);
+        ap.c(this.awt, r.g.but_face_close);
+        ap.k(this.awt, r.e.common_color_10224);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.axp.setVisibility(0);
+            this.awt.setVisibility(0);
         } else {
-            this.axp.setVisibility(8);
+            this.awt.setVisibility(8);
         }
     }
 }

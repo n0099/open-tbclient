@@ -39,7 +39,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.h;
 import com.baidu.adp.base.i;
 import com.baidu.adp.base.j;
-import com.baidu.adp.base.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -51,7 +50,7 @@ import com.baidu.megapp.ma.MAFragmentActivity;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class FragmentActivityProxy extends MAFragmentActivity implements Handler.Callback, i, k, com.baidu.adp.plugin.a.b {
+public class FragmentActivityProxy extends MAFragmentActivity implements Handler.Callback, h, j, com.baidu.adp.plugin.a.b {
     protected PluginBaseFragmentActivity mEntity = null;
 
     public void loadEntityActivity() {
@@ -299,7 +298,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = j.aY().getResources();
+            Resources resources = i.aY().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -1569,18 +1568,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         g.a aVar = null;
         if (stringExtra != null) {
-            aVar = g.hS().aZ(stringExtra);
+            aVar = g.hQ().aY(stringExtra);
         }
-        if (aVar == null || aVar.wo == null) {
+        if (aVar == null || aVar.wf == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (g.hS().hT() == 1) {
-            g.hS().ba(stringExtra);
-            aVar.wo.stopSelf();
+        } else if (g.hQ().hR() == 1) {
+            g.hQ().aZ(stringExtra);
+            aVar.wf.stopSelf();
             return true;
         } else {
-            aVar.wo.onDestroy();
-            g.hS().ba(stringExtra);
+            aVar.wf.onDestroy();
+            g.hQ().aZ(stringExtra);
             return true;
         }
     }
@@ -1612,7 +1611,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     public void proxyStartActivityFromFragment(Fragment fragment, Intent intent, int i) {
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public BdUniqueId getUniqueId() {
         if (this.mEntity != null) {
             return this.mEntity.getUniqueId();
@@ -1620,7 +1619,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return null;
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public boolean isScroll() {
         if (this.mEntity != null) {
             return this.mEntity.isScroll();
@@ -1628,14 +1627,14 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return false;
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public void setIsScroll(boolean z) {
         if (this.mEntity != null) {
             this.mEntity.setIsScroll(z);
         }
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public void onPreLoad(BdListView bdListView) {
         if (this.mEntity != null) {
             this.mEntity.onPreLoad(bdListView);
@@ -1650,9 +1649,9 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return false;
     }
 
-    @Override // com.baidu.adp.base.i
-    public h getPageContext() {
-        if (this.mEntity == null || !(this.mEntity instanceof i)) {
+    @Override // com.baidu.adp.base.h
+    public com.baidu.adp.base.g getPageContext() {
+        if (this.mEntity == null || !(this.mEntity instanceof h)) {
             return null;
         }
         return this.mEntity.getPageContext();

@@ -1,24 +1,19 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.f.f;
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class ap extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-            f.abm().abn();
-            com.baidu.tieba.frs.f.a.abf().abh();
-            if (com.baidu.tieba.recapp.j.aYf().aYe() != null) {
-                com.baidu.tieba.recapp.j.aYf().aYe().aYb();
-            }
+class ap implements com.baidu.tbadk.ala.f {
+    @Override // com.baidu.tbadk.ala.f
+    public View Q(Context context) {
+        TextView P = com.baidu.tbadk.ala.d.P(context);
+        if (P != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 16;
+            P.setLayoutParams(layoutParams);
         }
+        return P;
     }
 }

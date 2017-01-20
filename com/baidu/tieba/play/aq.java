@@ -1,34 +1,18 @@
 package com.baidu.tieba.play;
+
+import com.baidu.tieba.play.ar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq {
-    private int ehf = 0;
-    private int eJR = 0;
-    private boolean eJS = false;
-    private boolean eJT = true;
+public class aq implements ar.a {
+    final /* synthetic */ ao eTk;
 
-    public int aWD() {
-        return this.ehf;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aq(ao aoVar) {
+        this.eTk = aoVar;
     }
 
-    public int aWE() {
-        return this.eJR;
-    }
-
-    public boolean aWF() {
-        return this.eJS;
-    }
-
-    public boolean aWG() {
-        return this.eJT;
-    }
-
-    public void g(int i, int i2, boolean z) {
-        this.ehf = i;
-        this.eJR = i2;
-        this.eJS = z;
-    }
-
-    public void kg(boolean z) {
-        this.eJT = z;
+    @Override // com.baidu.tieba.play.ar.a
+    public void onChange(boolean z) {
+        this.eTk.eTh = z;
     }
 }

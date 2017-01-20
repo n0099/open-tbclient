@@ -1,6 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
@@ -11,19 +12,19 @@ public class b extends com.baidu.adp.framework.listener.a {
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        com.baidu.tieba.enterForum.c.c cVar;
-        com.baidu.tieba.enterForum.c.c cVar2;
-        com.baidu.tieba.enterForum.c.c cVar3;
+        EnterForumModel enterForumModel;
+        EnterForumModel enterForumModel2;
+        EnterForumModel enterForumModel3;
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            cVar = CoreSearchRequestStatic.bpD;
-            if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            enterForumModel = CoreSearchRequestStatic.bxp;
+            if (enterForumModel.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    cVar3 = CoreSearchRequestStatic.bpD;
-                    cVar3.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    enterForumModel3 = CoreSearchRequestStatic.bxp;
+                    enterForumModel3.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    cVar2 = CoreSearchRequestStatic.bpD;
-                    cVar2.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    enterForumModel2 = CoreSearchRequestStatic.bxp;
+                    enterForumModel2.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }

@@ -1,22 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ea {
-    public boolean dXc;
-    public boolean edX;
-    public int edY;
-    public int edZ;
-    public boolean eea;
-    public boolean isAlive;
-    public boolean isSquence;
-    public int loadType;
-    public com.baidu.tieba.pb.data.f pbData;
-    public String postId;
-    public BdUniqueId tag;
-    public String threadId;
+public class ea implements View.OnClickListener {
+    final /* synthetic */ dx elZ;
+    private final /* synthetic */ String ema;
 
-    public ea(BdUniqueId bdUniqueId) {
-        this.tag = bdUniqueId;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ea(dx dxVar, String str) {
+        this.elZ = dxVar;
+        this.ema = str;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!StringUtils.isNull(this.ema) && com.baidu.adp.lib.util.k.gB()) {
+            TiebaStatic.log("c10854");
+            com.baidu.tbadk.browser.f.v(this.elZ.ehi.getActivity(), this.ema);
+        }
     }
 }

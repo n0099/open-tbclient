@@ -1,28 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.model.LocalPicModel;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.img.a;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends com.baidu.adp.base.g {
-    final /* synthetic */ TalkableActivity cGN;
+public class bu implements a.InterfaceC0045a<ChatMessage> {
+    final /* synthetic */ TalkableActivity cNV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(TalkableActivity talkableActivity) {
-        this.cGN = talkableActivity;
+        this.cNV = talkableActivity;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void g(Object obj) {
-        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.cGN.cGA != null) {
-                this.cGN.cGA.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
-                return;
-            }
-            return;
-        }
-        this.cGN.showToast(TbadkCoreApplication.m9getInst().getString(r.j.pic_parser_error));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.img.a.InterfaceC0045a
+    /* renamed from: a */
+    public void b(int i, ChatMessage chatMessage) {
+        this.cNV.cNH.updateAdapter(i, chatMessage);
     }
 }

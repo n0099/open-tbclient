@@ -10,63 +10,63 @@ import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements n.a {
-    final /* synthetic */ a cqb;
+    final /* synthetic */ a cxb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.cqb = aVar;
+        this.cxb = aVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.n.a
     public void av(int i, int i2) {
         com.baidu.tieba.homepage.framework.c cVar;
-        boolean aiS;
+        boolean ajZ;
         TagInfo tagInfo;
         com.baidu.tieba.homepage.framework.c cVar2;
         TagInfo tagInfo2;
         com.baidu.tieba.homepage.framework.c cVar3;
         TagInfo tagInfo3;
-        cVar = this.cqb.cpT;
+        cVar = this.cxb.cwS;
         if (cVar == null) {
-            this.cqb.showNetRefreshView(this.cqb, TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
-            this.cqb.Jj();
+            this.cxb.showNetRefreshView(this.cxb, TbadkCoreApplication.m9getInst().getString(r.l.neterror), true);
+            this.cxb.Jx();
             return;
         }
-        aiS = this.cqb.aiS();
-        this.cqb.Jk();
-        if (aiS) {
-            this.cqb.g(true, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds520));
+        ajZ = this.cxb.ajZ();
+        this.cxb.Jy();
+        if (ajZ) {
+            this.cxb.g(true, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds520));
         }
-        tagInfo = this.cqb.cpQ;
+        tagInfo = this.cxb.cwQ;
         if (tagInfo != null) {
-            tagInfo2 = this.cqb.cpQ;
+            tagInfo2 = this.cxb.cwQ;
             if (tagInfo2.tag_code != null) {
-                cVar3 = this.cqb.cpT;
-                tagInfo3 = this.cqb.cpQ;
-                cVar3.t(tagInfo3.tag_code.intValue(), i, i2);
+                cVar3 = this.cxb.cwS;
+                tagInfo3 = this.cxb.cwQ;
+                cVar3.u(tagInfo3.tag_code.intValue(), i, i2);
                 return;
             }
         }
-        cVar2 = this.cqb.cpT;
-        cVar2.t(0, i, i2);
+        cVar2 = this.cxb.cwS;
+        cVar2.u(0, i, i2);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.n.a
-    public void u(int i, int i2, int i3) {
+    public void v(int i, int i2, int i3) {
         com.baidu.tieba.homepage.framework.c cVar;
         TagInfo tagInfo;
         TagInfo tagInfo2;
         com.baidu.tieba.homepage.framework.c cVar2;
         TagInfo tagInfo3;
-        cVar = this.cqb.cpT;
+        cVar = this.cxb.cwS;
         if (cVar != null) {
-            tagInfo = this.cqb.cpQ;
+            tagInfo = this.cxb.cwQ;
             if (tagInfo != null) {
-                tagInfo2 = this.cqb.cpQ;
+                tagInfo2 = this.cxb.cwQ;
                 if (tagInfo2.tag_code != null) {
-                    cVar2 = this.cqb.cpT;
-                    tagInfo3 = this.cqb.cpQ;
-                    cVar2.j(tagInfo3.tag_code.intValue(), i, i2, i3);
+                    cVar2 = this.cxb.cwS;
+                    tagInfo3 = this.cxb.cwQ;
+                    cVar2.i(tagInfo3.tag_code.intValue(), i, i2, i3);
                 }
             }
         }
@@ -76,13 +76,13 @@ public class d implements n.a {
     public void onError(int i, String str) {
         BdTypeListView bdTypeListView;
         TbPageContext tbPageContext;
-        this.cqb.Jj();
+        this.cxb.Jx();
         if (i != 1) {
-            bdTypeListView = this.cqb.cpR;
+            bdTypeListView = this.cxb.aJF;
             bdTypeListView.setVisibility(8);
-            this.cqb.showNetRefreshView(this.cqb, str, true);
-        } else if (com.baidu.adp.lib.util.i.gm()) {
-            tbPageContext = this.cqb.pageContext;
+            this.cxb.showNetRefreshView(this.cxb, str, true);
+        } else if (com.baidu.adp.lib.util.i.gk()) {
+            tbPageContext = this.cxb.pageContext;
             tbPageContext.showToast(str);
         }
     }
@@ -90,20 +90,20 @@ public class d implements n.a {
     @Override // com.baidu.tieba.homepage.personalize.n.a
     public void onSuccess() {
         BdTypeListView bdTypeListView;
-        this.cqb.Jj();
-        this.cqb.Jk();
-        bdTypeListView = this.cqb.cpR;
+        this.cxb.Jx();
+        this.cxb.Jy();
+        bdTypeListView = this.cxb.aJF;
         bdTypeListView.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.n.a
-    public void bo(List<TagInfo> list) {
+    public void bu(List<TagInfo> list) {
         com.baidu.tieba.homepage.framework.c cVar;
         com.baidu.tieba.homepage.framework.c cVar2;
-        cVar = this.cqb.cpT;
+        cVar = this.cxb.cwS;
         if (cVar != null) {
-            cVar2 = this.cqb.cpT;
-            cVar2.bi(list);
+            cVar2 = this.cxb.cwS;
+            cVar2.bo(list);
         }
     }
 }

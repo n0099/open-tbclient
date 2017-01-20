@@ -5,20 +5,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ BaseFragmentActivity NW;
+    final /* synthetic */ BaseFragmentActivity Ni;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(BaseFragmentActivity baseFragmentActivity, int i) {
         super(i);
-        this.NW = baseFragmentActivity;
+        this.Ni = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-            this.NW.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+            this.Ni.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 }

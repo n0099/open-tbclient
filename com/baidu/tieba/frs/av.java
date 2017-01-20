@@ -1,30 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class av implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId bzC = BdUniqueId.gen();
-    private int height = 0;
-    private int bzD = 0;
+public class av extends y.a {
+    public TextView agb;
+    public TextView agf;
+    public int ahp;
+    public TextView bHd;
+    public TextView bHe;
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bzC;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public int getBgResId() {
-        return this.bzD;
-    }
-
-    public void he(int i) {
-        this.bzD = i;
+    public av(View view) {
+        super(view);
+        this.ahp = 3;
+        this.agb = (TextView) getView().findViewById(r.h.frs_god_lv_reply_time);
+        this.agf = (TextView) getView().findViewById(r.h.frs_god_praise_num);
+        this.bHe = (TextView) getView().findViewById(r.h.frs_god_reply_num);
+        this.bHd = (TextView) getView().findViewById(r.h.frs_god_item_location_address);
     }
 }

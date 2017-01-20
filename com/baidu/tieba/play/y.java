@@ -1,43 +1,49 @@
 package com.baidu.tieba.play;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.os.Handler;
-import android.os.Message;
-import java.lang.ref.WeakReference;
+import android.os.Looper;
+import android.widget.MediaController;
 /* loaded from: classes.dex */
-public class y implements SensorEventListener {
-    private WeakReference<Handler> aLr;
+public class y {
+    private a aMo;
+    private MediaController.MediaPlayerControl cKv;
+    private b eSw;
+    private int eSv = 0;
+    private Handler mHandler = new z(this, Looper.getMainLooper());
 
-    public y(Handler handler) {
-        this.aLr = new WeakReference<>(handler);
+    /* loaded from: classes.dex */
+    public interface a {
+        void JD();
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
+    /* loaded from: classes.dex */
+    public interface b {
+        void aYh();
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Handler handler;
-        Message obtainMessage;
-        if (sensorEvent != null && sensorEvent.values != null && sensorEvent.values.length >= 3) {
-            float[] fArr = sensorEvent.values;
-            float f = -fArr[0];
-            float f2 = -fArr[1];
-            float f3 = -fArr[2];
-            if ((f * f) + (f2 * f2) >= f3 * f3) {
-                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
-                if (round >= 360) {
-                    round -= 360;
-                }
-                int i = round < 0 ? round + 360 : round;
-                if (this.aLr != null && this.aLr.get() != null && (obtainMessage = (handler = this.aLr.get()).obtainMessage(1)) != null) {
-                    obtainMessage.arg1 = i;
-                    handler.sendMessage(obtainMessage);
-                }
-            }
-        }
+    public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
+        this.cKv = mediaPlayerControl;
+    }
+
+    public void start() {
+        this.eSv = 0;
+        aYg();
+    }
+
+    public void stop() {
+        this.mHandler.removeMessages(1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aYg() {
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 3000L);
+    }
+
+    public void a(a aVar) {
+        this.aMo = aVar;
+    }
+
+    public void a(b bVar) {
+        this.eSw = bVar;
     }
 }

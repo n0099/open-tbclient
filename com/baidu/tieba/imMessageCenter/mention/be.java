@@ -1,18 +1,28 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements NoNetworkView.a {
-    final /* synthetic */ bb ddm;
+public class be implements CustomMessageTask.CustomRunnable<Boolean> {
+    final /* synthetic */ ReplyMessageActivity dkB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bb bbVar) {
-        this.ddm = bbVar;
+    public be(ReplyMessageActivity replyMessageActivity) {
+        this.dkB = replyMessageActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aL(boolean z) {
-        this.ddm.gx(z);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
+        au auVar;
+        au auVar2;
+        auVar = this.dkB.dkA;
+        if (auVar != null) {
+            auVar2 = this.dkB.dkA;
+            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(auVar2.onBackPressed()));
+        }
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);
     }
 }

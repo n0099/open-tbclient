@@ -7,13 +7,13 @@ public class a implements b {
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object V(Object obj) {
+    public Object Y(Object obj) {
         Field b;
         if (obj != null) {
             if (obj instanceof Class) {
-                b = com.baidu.adp.lib.a.a.a.b((Class) obj, this.fieldName);
+                b = com.baidu.adp.lib.OrmObject.a.a.b((Class) obj, this.fieldName);
             } else {
-                b = com.baidu.adp.lib.a.a.a.b(obj.getClass(), this.fieldName);
+                b = com.baidu.adp.lib.OrmObject.a.a.b(obj.getClass(), this.fieldName);
             }
             if (b != null) {
                 try {
@@ -36,7 +36,7 @@ public class a implements b {
         return null;
     }
 
-    public void nl(String str) {
+    public void nC(String str) {
         this.fieldName = str;
     }
 }

@@ -1,59 +1,45 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.core.d.a {
-    private b fkT;
+public class ac implements View.OnClickListener {
+    final /* synthetic */ aa fuh;
 
-    @Override // com.baidu.tbadk.core.d.a
-    public void b(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i, z)));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(aa aaVar) {
+        this.fuh = aaVar;
     }
 
-    @Override // com.baidu.tbadk.core.d.a
-    public void f(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public void T(Context context) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            f(context, 1);
-        } else {
-            f(context, 0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        int i;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.fuh.fua;
+        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        String str = "";
+        i = this.fuh.dSu;
+        switch (i) {
+            case 1:
+                str = "forum";
+                break;
+            case 2:
+                str = "kantie";
+                break;
+            case 3:
+                str = "message";
+                break;
+            case 8:
+                str = "profile";
+                break;
         }
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public void c(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public Class<?> tP() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public String tQ() {
-        return MainTabActivity.class.getName();
-    }
-
-    @Override // com.baidu.tbadk.core.d.a
-    public int getCurrentTabType() {
-        if (this.fkT != null) {
-            return this.fkT.getCurrentTabType();
-        }
-        return -1;
-    }
-
-    public void a(b bVar) {
-        this.fkT = bVar;
+        TiebaStatic.log(new ar("c10517").ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str));
+        mainTabActivity2 = this.fuh.fua;
+        bf.ai(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

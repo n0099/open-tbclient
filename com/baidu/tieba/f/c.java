@@ -1,42 +1,72 @@
 package com.baidu.tieba.f;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 /* loaded from: classes.dex */
-public class c extends CustomMessageListener {
-    final /* synthetic */ a eQj;
+public class c extends com.baidu.tieba.f.a {
+    private ScaleGestureDetector bvk;
+    private a bvl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(a aVar, int i) {
-        super(i);
-        this.eQj = aVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void db(boolean z);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int i;
-        boolean z;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
-            ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
-            if (responseUnreadPointNum.getNum() > 0) {
-                i = this.eQj.ePT;
-                if (i < responseUnreadPointNum.getNum()) {
-                    this.eQj.ePU = true;
-                    a aVar = this.eQj;
-                    z = this.eQj.ePU;
-                    aVar.ePL = z ? true : this.eQj.ePL;
-                    this.eQj.ePT = responseUnreadPointNum.getNum();
-                    this.eQj.aYE();
-                    this.eQj.aYD();
+    public c(Context context) {
+        this.bvk = new ScaleGestureDetector(context, new b(this, null));
+    }
+
+    public void a(a aVar) {
+        this.bvl = aVar;
+    }
+
+    /* loaded from: classes.dex */
+    private final class b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        private boolean bvm;
+
+        private b() {
+            this.bvm = false;
+        }
+
+        /* synthetic */ b(c cVar, b bVar) {
+            this();
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
+            this.bvm = false;
+            return true;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
+            if (scaleGestureDetector != null && c.this.bvl != null) {
+                float scaleFactor = scaleGestureDetector.getScaleFactor();
+                if (!this.bvm && scaleFactor > 1.0f) {
+                    this.bvm = true;
+                    c.this.bvl.db(true);
+                } else if (!this.bvm && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                    this.bvm = true;
+                    c.this.bvl.db(false);
                 }
             }
-            this.eQj.ePT = responseUnreadPointNum.getNum();
-            this.eQj.ePU = false;
-            this.eQj.aYD();
+            return true;
+        }
+
+        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
+        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
+            this.bvm = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.f.a
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        try {
+            this.bvk.onTouchEvent(motionEvent);
+            return super.onTouchEvent(motionEvent);
+        } catch (Exception e) {
+            return false;
         }
     }
 }

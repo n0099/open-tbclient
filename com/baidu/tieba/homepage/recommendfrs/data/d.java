@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.recommendfrs.data;
 
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.mvc.b.h;
 import com.baidu.tbadk.util.n;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import tbclient.ExcFrsPage.DataReq;
 import tbclient.ExcFrsPage.ExcFrsPageReqIdl;
 /* loaded from: classes.dex */
 public class d implements h {
-    private long ctd;
+    private long cAh;
     private int pn;
     private long tagCode;
 
@@ -26,16 +26,16 @@ public class d implements h {
         this.tagCode = j;
     }
 
-    public long ajE() {
-        return this.ctd;
+    public long akL() {
+        return this.cAh;
     }
 
-    public void bx(long j) {
-        this.ctd = j;
+    public void bs(long j) {
+        this.cAh = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> mb() {
+    public HashMap<String, Object> lT() {
         return null;
     }
 
@@ -47,11 +47,11 @@ public class d implements h {
         builder.scr_h = Integer.valueOf(k.J(TbadkCoreApplication.m9getInst()));
         builder.scr_dip = Double.valueOf(k.K(TbadkCoreApplication.m9getInst()));
         builder.tag_code = Long.valueOf(this.tagCode);
-        builder.q_type = Integer.valueOf(aw.vm().vo() ? 2 : 1);
-        builder.last_rank = Long.valueOf(this.ctd);
+        builder.q_type = Integer.valueOf(au.vg().vi() ? 2 : 1);
+        builder.last_rank = Long.valueOf(this.cAh);
         ExcFrsPageReqIdl.Builder builder2 = new ExcFrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
-        n.a(builder2.data, true);
+        n.bindCommonParamsToProtobufData(builder2.data, true);
         return builder2.build(false);
     }
 }

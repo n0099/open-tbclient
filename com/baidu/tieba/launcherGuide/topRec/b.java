@@ -1,19 +1,19 @@
 package com.baidu.tieba.launcherGuide.topRec;
 
-import com.baidu.tbadk.core.view.z;
+import com.baidu.tbadk.core.view.aa;
 /* loaded from: classes.dex */
-class b implements z.b {
-    final /* synthetic */ TopRecActivity diJ;
+class b implements aa.b {
+    final /* synthetic */ TopRecActivity dpT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(TopRecActivity topRecActivity) {
-        this.diJ = topRecActivity;
+        this.dpT = topRecActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.z.b
+    @Override // com.baidu.tbadk.core.view.aa.b
     public void aM(boolean z) {
-        h hVar;
-        hVar = this.diJ.diB;
-        hVar.LoadData();
+        TopRecModel topRecModel;
+        topRecModel = this.dpT.dpL;
+        topRecModel.LoadData();
     }
 }

@@ -12,13 +12,13 @@ import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext MB;
-    final /* synthetic */ Invite2GroupView cYF;
+    private final /* synthetic */ TbPageContext LO;
+    final /* synthetic */ Invite2GroupView dfU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Invite2GroupView invite2GroupView, TbPageContext tbPageContext) {
-        this.cYF = invite2GroupView;
-        this.MB = tbPageContext;
+        this.dfU = invite2GroupView;
+        this.LO = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,16 +26,16 @@ public class b implements View.OnClickListener {
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;
         InviteMsgData inviteMsgData3;
-        Context context = this.cYF.getContext();
-        inviteMsgData = this.cYF.cYE;
-        inviteMsgData2 = this.cYF.cYE;
+        Context context = this.dfU.getContext();
+        inviteMsgData = this.dfU.dfT;
+        inviteMsgData2 = this.dfU.dfT;
         String text = inviteMsgData2.getText();
-        inviteMsgData3 = this.cYF.cYE;
+        inviteMsgData3 = this.dfU.dfT;
         GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(context, inviteMsgData.getGroupId(), 7, text, inviteMsgData3.getFromUid());
-        if (this.MB.getOrignalPage() instanceof BaseActivity) {
-            this.MB.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, groupInfoActivityConfig));
-        } else if (this.MB.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.MB.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, groupInfoActivityConfig));
+        if (this.LO.getOrignalPage() instanceof BaseActivity) {
+            this.LO.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, groupInfoActivityConfig));
+        } else if (this.LO.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.LO.sendMessage(new CustomMessage((int) CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START, groupInfoActivityConfig));
         }
     }
 }

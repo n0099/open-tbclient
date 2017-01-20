@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    private final /* synthetic */ AccountData axA;
-    final /* synthetic */ b axz;
+    final /* synthetic */ b awD;
+    private final /* synthetic */ AccountData awE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, AccountData accountData) {
-        this.axz = bVar;
-        this.axA = accountData;
+        this.awD = bVar;
+        this.awE = accountData;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.a.b.b(this.axA);
+        com.baidu.tbadk.core.a.b.b(this.awE);
     }
 }

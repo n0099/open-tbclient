@@ -1,31 +1,37 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.content.Intent;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends CustomMessageListener {
-    final /* synthetic */ ag dcE;
+public class ai extends HttpMessageListener {
+    final /* synthetic */ ah djW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(ag agVar, int i) {
+    public ai(ah ahVar, int i) {
         super(i);
-        this.dcE = agVar;
+        this.djW = ahVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        o oVar;
-        o oVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
-            Intent intent = (Intent) customResponsedMessage.getData();
-            oVar = this.dcE.dcB;
-            if (oVar != null) {
-                oVar2 = this.dcE.dcB;
-                oVar2.onNewIntent(intent);
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
+            ag msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
+            if (!com.baidu.tbadk.coreExtra.messageCenter.a.yv() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yS()) {
+                if (msgData.avV() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgBookmark(msgData.avV());
+                }
+                if (msgData.avT() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yV()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgAtme(msgData.avT());
+                }
+                if (msgData.avS() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yX()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgReplyme(msgData.avS());
+                }
+                if (msgData.avU() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yW()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgFans(msgData.avU());
+                }
             }
         }
     }

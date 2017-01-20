@@ -4,27 +4,27 @@ public class a {
 
     /* renamed from: com.baidu.tieba.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0054a {
+    public static class C0053a {
         double x;
         double y;
 
-        public C0054a() {
+        public C0053a() {
         }
 
-        public C0054a(double d, double d2) {
+        public C0053a(double d, double d2) {
             this.x = d;
             this.y = d2;
         }
     }
 
-    public static C0054a a(C0054a c0054a, C0054a c0054a2, C0054a c0054a3, C0054a c0054a4, double d) {
-        if (d < 0.0d || d > 1.0d || c0054a == null || c0054a2 == null || c0054a3 == null || c0054a4 == null) {
+    public static C0053a a(C0053a c0053a, C0053a c0053a2, C0053a c0053a3, C0053a c0053a4, double d) {
+        if (d < 0.0d || d > 1.0d || c0053a == null || c0053a2 == null || c0053a3 == null || c0053a4 == null) {
             return null;
         }
-        C0054a c0054a5 = new C0054a();
-        c0054a5.x = a(c0054a.x, c0054a2.x, c0054a3.x, c0054a4.x, d);
-        c0054a5.y = a(c0054a.y, c0054a2.y, c0054a3.y, c0054a4.y, d);
-        return c0054a5;
+        C0053a c0053a5 = new C0053a();
+        c0053a5.x = a(c0053a.x, c0053a2.x, c0053a3.x, c0053a4.x, d);
+        c0053a5.y = a(c0053a.y, c0053a2.y, c0053a3.y, c0053a4.y, d);
+        return c0053a5;
     }
 
     public static double a(double d, double d2, double d3, double d4, double d5) {
@@ -45,15 +45,15 @@ public class a {
     }
 
     public static double a(int i, float f, float f2) {
-        C0054a a = a(new C0054a(0.0d, 0.0d), new C0054a(0.0d, f2), new C0054a(f - f2, f), new C0054a(f, f), ((i % f) + 1.0f) / f);
+        C0053a a = a(new C0053a(0.0d, 0.0d), new C0053a(0.0d, f2), new C0053a(f - f2, f), new C0053a(f, f), ((i % f) + 1.0f) / f);
         if (a == null) {
             return 0.0d;
         }
         return a.y;
     }
 
-    public static double c(double d) {
-        C0054a a = a(new C0054a(0.0d, 0.0d), new C0054a(0.0d, 0.3d), new C0054a(0.2d, 1.0d), new C0054a(1.0d, 1.0d), d);
+    public static double d(double d) {
+        C0053a a = a(new C0053a(0.0d, 0.0d), new C0053a(0.0d, 0.3d), new C0053a(0.2d, 1.0d), new C0053a(1.0d, 1.0d), d);
         if (a == null) {
             return 0.0d;
         }

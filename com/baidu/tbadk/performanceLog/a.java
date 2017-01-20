@@ -10,37 +10,37 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b aBd;
-    private InterfaceC0048a aBe = null;
+    private b azV;
+    private InterfaceC0047a azW = null;
     private WindowManager bC;
 
     /* renamed from: com.baidu.tbadk.performanceLog.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0048a {
-        void fd(int i);
+    public interface InterfaceC0047a {
+        void fe(int i);
     }
 
     public a(Context context) {
-        this.aBd = null;
+        this.azV = null;
         this.bC = null;
-        this.aBd = new b(context);
+        this.azV = new b(context);
         this.bC = (WindowManager) context.getSystemService("window");
     }
 
-    private void Fy() {
+    private void Fs() {
         try {
-            this.bC.removeView(this.aBd);
+            this.bC.removeView(this.azV);
         } catch (Throwable th) {
         }
     }
 
-    private void Fz() {
+    private void Ft() {
         try {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2006, 0, -3);
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.bC.addView(this.aBd, layoutParams);
+            this.bC.addView(this.azV, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -48,28 +48,28 @@ public class a extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        Fy();
+        Fs();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         super.start();
-        Fy();
-        Fz();
+        Fs();
+        Ft();
         new Handler(Looper.getMainLooper()).post(new com.baidu.tbadk.performanceLog.b(this));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int aBg;
+        private int azY;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.aBg = 0;
+            this.azY = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -81,26 +81,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.aBg = 0;
+                this.azY = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aBe != null) {
-                    a.this.aBe.fd(this.aBg);
+                if (a.this.azW != null) {
+                    a.this.azW.fe(this.azY);
                 } else {
-                    com.baidu.adp.a.a.d.H(this.aBg);
+                    com.baidu.adp.a.a.d.H(this.azY);
                 }
-                this.aBg = 0;
+                this.azY = 0;
             }
-            this.aBg++;
+            this.azY++;
         }
     }
 
-    public void a(InterfaceC0048a interfaceC0048a) {
-        if (this.aBe == null) {
-            this.aBe = interfaceC0048a;
+    public void a(InterfaceC0047a interfaceC0047a) {
+        if (this.azW == null) {
+            this.azW = interfaceC0047a;
         }
     }
 }

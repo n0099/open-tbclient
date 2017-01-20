@@ -1,21 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd implements Runnable {
-    final /* synthetic */ PbActivity eah;
+public class bd implements a.b {
+    final /* synthetic */ PbActivity eiV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(PbActivity pbActivity) {
-        this.eah = pbActivity;
+        this.eiV = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        dc dcVar;
-        dc dcVar2;
-        dcVar = this.eah.dYA;
-        if (dcVar != null) {
-            dcVar2 = this.eah.dYA;
-            dcVar2.LoadData();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

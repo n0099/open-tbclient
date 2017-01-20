@@ -2,47 +2,48 @@ package com.baidu.tieba.imMessageCenter.im.friend;
 
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
 import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.e<InviteFriendListActivity> {
-    private int cVI;
-    private RequestCommitInviteMessage dbg;
-    private int dbh;
+public class y extends BdBaseModel<InviteFriendListActivity> {
+    private int dcT;
+    private RequestCommitInviteMessage dit;
+    private int diu;
 
     public y(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         return false;
     }
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.cVI = intent.getIntExtra("gid", -1);
-            this.dbh = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.dcT = intent.getIntExtra("gid", -1);
+            this.diu = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.cVI = bundle.getInt("gid", -1);
-            this.dbh = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.dcT = bundle.getInt("gid", -1);
+            this.diu = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
-    public void l(Bundle bundle) {
-        bundle.putInt("gid", this.cVI);
-        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.dbh);
+    public void m(Bundle bundle) {
+        bundle.putInt("gid", this.dcT);
+        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.diu);
     }
 
-    public void lh(String str) {
-        this.dbg = c(this.cVI, this.dbh, str);
-        super.sendMessage(this.dbg);
+    public void lu(String str) {
+        this.dit = c(this.dcT, this.diu, str);
+        super.sendMessage(this.dit);
     }
 
     private RequestCommitInviteMessage c(int i, int i2, String str) {
@@ -56,7 +57,7 @@ public class y extends com.baidu.adp.base.e<InviteFriendListActivity> {
         return requestCommitInviteMessage;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return true;
     }

@@ -46,7 +46,7 @@ public class forumRecommendRequestMessage extends NetMessage {
             builder.topic = get_topic();
             builder.recommend = get_recommend();
             if (z) {
-                com.baidu.tbadk.util.n.a(builder, true);
+                com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true);
             }
             ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
             builder2.data = builder.build(false);

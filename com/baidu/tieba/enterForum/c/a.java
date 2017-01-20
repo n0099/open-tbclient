@@ -1,141 +1,86 @@
 package com.baidu.tieba.enterForum.c;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.IBinder;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class a {
-    private static a bqt;
-    private WindowManager bC;
-    private WindowManager.LayoutParams bqq;
-    private ImageView bqr;
-    private boolean bqs;
-    private int bqu;
-    private boolean bqv;
-    private int mHeight;
-    private int mWidth;
+public class a extends GridView implements AdapterView.OnItemLongClickListener {
+    private int byA;
+    private com.baidu.tieba.enterForum.a.d byB;
+    private int byC;
+    private Runnable byD;
+    private int byy;
+    private int byz;
+    private int mOffset;
 
-    public static a Tm() {
-        if (bqt == null) {
-            synchronized (a.class) {
-                if (bqt == null) {
-                    bqt = new a();
-                }
-            }
+    public a(Context context) {
+        this(context, null);
+    }
+
+    public a(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.byD = new b(this);
+        setOnItemLongClickListener(this);
+    }
+
+    @Override // android.widget.GridView, android.widget.AbsListView
+    public void setAdapter(ListAdapter listAdapter) {
+        super.setAdapter(listAdapter);
+        if (listAdapter instanceof com.baidu.tieba.enterForum.a.d) {
+            this.byB = (com.baidu.tieba.enterForum.a.d) listAdapter;
+        } else {
+            BdLog.e("the adapter must be implements IDragAdapter");
         }
-        return bqt;
-    }
-
-    private a() {
-    }
-
-    public void j(Context context, int i) {
-        this.bqv = true;
-        if (context == null) {
-            throw new IllegalArgumentException("context cannot be null");
-        }
-        this.bC = (WindowManager) context.getSystemService("window");
-        this.bqu = i;
-    }
-
-    public void destroy() {
-        this.bqv = false;
-        bqt = null;
-    }
-
-    public boolean Tn() {
-        return this.bqs;
-    }
-
-    public void a(Context context, View view, int i, int i2) {
-        if (view != null) {
-            this.bqs = true;
-            view.setPressed(false);
-            view.setDrawingCacheEnabled(true);
-            Bitmap createBitmap = Bitmap.createBitmap(view.getDrawingCache());
-            this.mWidth = createBitmap.getWidth();
-            this.mHeight = createBitmap.getHeight();
-            a(context, createBitmap, i, i2);
-            view.destroyDrawingCache();
-            view.setDrawingCacheEnabled(false);
-        }
-    }
-
-    public void Y(int i, int i2) {
-        To();
-        Z(i, i2);
-        this.bC.updateViewLayout(this.bqr, this.bqq);
-    }
-
-    private void To() {
-        if (!this.bqv) {
-            BdLog.e("should do init first!");
-        }
-    }
-
-    private void a(Context context, Bitmap bitmap, int i, int i2) {
-        To();
-        if (bitmap != null) {
-            Z(i, i2);
-            this.bqr = new ImageView(context);
-            this.bqr.setImageBitmap(bitmap);
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (!activity.isFinishing() && activity.getWindow() != null && p(activity.getWindow().getDecorView())) {
-                    try {
-                        this.bC.addView(this.bqr, this.bqq);
-                    } catch (Exception e) {
-                    }
-                }
-            }
-        }
-    }
-
-    private boolean p(View view) {
-        IBinder windowToken;
-        if (view != null && (windowToken = view.getWindowToken()) != null) {
-            try {
-                if (windowToken.isBinderAlive()) {
-                    if (windowToken.pingBinder()) {
-                        return true;
-                    }
-                }
-            } catch (Exception e) {
-            }
-        }
-        return false;
-    }
-
-    private void Tp() {
-        this.bqq = new WindowManager.LayoutParams();
-        this.bqq.format = -3;
-        this.bqq.gravity = 51;
-        this.bqq.alpha = 1.0f;
-        this.bqq.width = -2;
-        this.bqq.height = -2;
-        this.bqq.flags = 24;
     }
 
     private void Z(int i, int i2) {
-        if (this.bqq == null) {
-            Tp();
+        int pointToPosition = pointToPosition(i, i2);
+        if (pointToPosition != this.byy && pointToPosition != -1) {
+            this.byB.hk(pointToPosition);
+            this.byB.W(this.byy, pointToPosition);
+            this.byy = pointToPosition;
         }
-        this.bqq.x = i - (this.mWidth / 2);
-        this.bqq.y = (i2 - (this.mHeight / 2)) - this.bqu;
     }
 
-    public void Tq() {
-        if (this.bqr != null) {
-            if (this.bC != null) {
-                this.bC.removeView(this.bqr);
+    @Override // android.widget.AbsListView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.byz = (int) motionEvent.getRawX();
+        this.byA = (int) motionEvent.getRawY();
+        if (com.baidu.tieba.enterForum.model.a.UF().UG()) {
+            switch (motionEvent.getAction()) {
+                case 1:
+                case 3:
+                    com.baidu.adp.lib.g.h.eE().removeCallbacks(this.byD);
+                    com.baidu.tieba.enterForum.model.a.UF().UJ();
+                    this.byB.hk(-1);
+                    this.byB.SH();
+                    break;
+                case 2:
+                    this.mOffset = com.baidu.tieba.enterForum.model.b.a(motionEvent.getY(), this.byC, getHeight());
+                    com.baidu.tieba.enterForum.model.a.UF().X(this.byz, this.byA - this.mOffset);
+                    Z((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
+                    break;
             }
-            this.bqr = null;
+            return true;
         }
-        this.bqs = false;
+        return super.onTouchEvent(motionEvent);
+    }
+
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        TiebaStatic.eventStat(getContext(), "list_drag_order", null);
+        this.byy = i;
+        com.baidu.tieba.enterForum.model.a.UF().a(getContext(), view, this.byz, this.byA);
+        this.byB.hk(i);
+        this.byB.SH();
+        this.byC = view.getHeight();
+        com.baidu.adp.lib.g.h.eE().postDelayed(this.byD, 200L);
+        return true;
     }
 }

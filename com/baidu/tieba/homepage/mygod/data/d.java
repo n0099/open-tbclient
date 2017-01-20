@@ -7,9 +7,9 @@ import tbclient.BannerInfo;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
-    private long cpp;
-    private int cpq = -1;
-    private BannerInfo cpr = null;
+    private long cwq;
+    private int cwr = -1;
+    private BannerInfo cws = null;
 
     @Override // com.baidu.tieba.homepage.recommendfrs.data.c, com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -17,13 +17,13 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         if ((message instanceof GodFeedResIdl) && (godFeedResIdl = (GodFeedResIdl) message) != null && godFeedResIdl.error != null && godFeedResIdl.error.errorno.intValue() == 0 && godFeedResIdl.data != null) {
             this.mHasMore = godFeedResIdl.data.has_more.intValue() == 1;
             this.pn = godFeedResIdl.data.pn.intValue();
-            this.cpp = godFeedResIdl.data.timeline.longValue();
+            this.cwq = godFeedResIdl.data.timeline.longValue();
             if (godFeedResIdl.data.thread_list != null) {
-                this.ctb = new ArrayList();
-                this.ctb.addAll(godFeedResIdl.data.thread_list);
+                this.cAf = new ArrayList();
+                this.cAf.addAll(godFeedResIdl.data.thread_list);
             }
-            this.cpq = godFeedResIdl.data.has_attention_god.intValue();
-            this.cpr = godFeedResIdl.data.banner_info;
+            this.cwr = godFeedResIdl.data.has_attention_god.intValue();
+            this.cws = godFeedResIdl.data.banner_info;
         }
     }
 
@@ -37,15 +37,15 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         return false;
     }
 
-    public long aiP() {
-        return this.cpp;
+    public long ajW() {
+        return this.cwq;
     }
 
-    public int aiQ() {
-        return this.cpq;
+    public int ajX() {
+        return this.cwr;
     }
 
-    public BannerInfo aiR() {
-        return this.cpr;
+    public BannerInfo ajY() {
+        return this.cws;
     }
 }

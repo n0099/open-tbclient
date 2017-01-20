@@ -1,39 +1,71 @@
 package com.baidu.tbadk.mvc.model;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.a;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends CustomMessageListener {
-    final /* synthetic */ a azU;
+public class c implements Runnable {
+    private static /* synthetic */ int[] aza;
+    final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(a aVar, int i) {
-        super(i);
-        this.azU = aVar;
+    public c(NetModel netModel) {
+        this.this$0 = netModel;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        a.InterfaceC0047a interfaceC0047a;
-        a.InterfaceC0047a interfaceC0047a2;
-        this.azU.azT = false;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
-            WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
-            WriteCacheMessage writeCacheMessage = null;
-            if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
-                writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
+    static /* synthetic */ int[] EO() {
+        int[] iArr = aza;
+        if (iArr == null) {
+            iArr = new int[NetModel.NetModelType.valuesCustom().length];
+            try {
+                iArr[NetModel.NetModelType.TYPE_AUTO.ordinal()] = 3;
+            } catch (NoSuchFieldError e) {
             }
-            interfaceC0047a = this.azU.azO;
-            if (interfaceC0047a != null) {
-                interfaceC0047a2 = this.azU.azO;
-                interfaceC0047a2.a(writeCacheRespMsg, writeCacheMessage);
+            try {
+                iArr[NetModel.NetModelType.TYPE_HTTP.ordinal()] = 1;
+            } catch (NoSuchFieldError e2) {
             }
+            try {
+                iArr[NetModel.NetModelType.TYPE_NETWORK.ordinal()] = 4;
+            } catch (NoSuchFieldError e3) {
+            }
+            try {
+                iArr[NetModel.NetModelType.TYPE_SOCKET.ordinal()] = 2;
+            } catch (NoSuchFieldError e4) {
+            }
+            aza = iArr;
+        }
+        return iArr;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        NetModel.NetModelType netModelType;
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        int[] EO = EO();
+        netModelType = this.this$0.ayT;
+        switch (EO[netModelType.ordinal()]) {
+            case 1:
+            case 4:
+                NetModel netModel = this.this$0;
+                tbPageContext = this.this$0.FY;
+                netModel.n(-1, tbPageContext.getString(r.l.neterror));
+                return;
+            case 2:
+                NetModel netModel2 = this.this$0;
+                tbPageContext2 = this.this$0.FY;
+                netModel2.o(-1, tbPageContext2.getString(r.l.neterror));
+                return;
+            case 3:
+                NetModel netModel3 = this.this$0;
+                tbPageContext3 = this.this$0.FY;
+                netModel3.m(-1, tbPageContext3.getString(r.l.neterror));
+                return;
+            default:
+                return;
         }
     }
 }

@@ -23,7 +23,7 @@ public interface g {
 
         void e(Map<String, String> map);
 
-        void gZ();
+        void gX();
 
         void r(byte[] bArr);
     }

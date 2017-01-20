@@ -3,44 +3,44 @@ package com.baidu.tieba.frs.c;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.tieba.frs.bi;
+import com.baidu.tieba.frs.bg;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.lib.f.c<bi> {
-    final /* synthetic */ a bLz;
+public class c implements com.baidu.adp.lib.e.c<bg> {
+    final /* synthetic */ a bRP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bLz = aVar;
+        this.bRP = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aaH */
-    public bi ez() {
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: abN */
+    public bg ex() {
         Context context;
-        context = this.bLz.mContext;
-        return new bi(LayoutInflater.from(context).inflate(r.h.frs_item, (ViewGroup) null), 0);
+        context = this.bRP.mContext;
+        return new bg(LayoutInflater.from(context).inflate(r.j.frs_item, (ViewGroup) null), 0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.e.c
     /* renamed from: a */
-    public void o(bi biVar) {
+    public void o(bg bgVar) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.e.c
     /* renamed from: b */
-    public bi p(bi biVar) {
-        return biVar;
+    public bg p(bg bgVar) {
+        return bgVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
-    public bi q(bi biVar) {
-        return biVar;
+    public bg q(bg bgVar) {
+        return bgVar;
     }
 }

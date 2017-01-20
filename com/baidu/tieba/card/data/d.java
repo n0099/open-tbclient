@@ -3,129 +3,129 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
-public class d extends b implements s {
-    public String aRe;
-    public com.baidu.tbadk.core.data.c beh;
+public class d extends b implements t {
+    public String bjT;
+    public com.baidu.tbadk.core.data.c boc;
     public String mPageType;
     public int mPn;
 
     public d(com.baidu.tbadk.core.data.c cVar) {
-        this.aRe = "";
+        this.bjT = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.beh = cVar;
+        this.boc = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d() {
-        this.aRe = "";
+        this.bjT = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.beh = null;
+        this.boc = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.beh != null && this.beh.Py != null) {
-            return com.baidu.tbadk.core.data.c.Ph;
+        if (this.boc != null && this.boc.legoCard != null) {
+            return com.baidu.tbadk.core.data.c.Os;
         }
-        if (this.beh != null && this.beh.getType() == com.baidu.tbadk.core.data.c.OU) {
-            return com.baidu.tbadk.core.data.c.Pe;
+        if (this.boc != null && this.boc.getType() == com.baidu.tbadk.core.data.c.Og) {
+            return com.baidu.tbadk.core.data.c.Op;
         }
-        if (this.beh != null && this.beh.getType() == com.baidu.tbadk.core.data.c.OX) {
-            return com.baidu.tbadk.core.data.c.Pg;
+        if (this.boc != null && this.boc.getType() == com.baidu.tbadk.core.data.c.Oj) {
+            return com.baidu.tbadk.core.data.c.Or;
         }
-        return com.baidu.tbadk.core.data.c.Pf;
+        return com.baidu.tbadk.core.data.c.Oq;
     }
 
-    @Override // com.baidu.tieba.card.data.s
+    @Override // com.baidu.tieba.card.data.t
     public int getPosition() {
-        return com.baidu.adp.lib.h.b.g(this.beh != null ? this.beh.adPosition : "-1", -1);
+        return com.baidu.adp.lib.g.b.g(this.boc != null ? this.boc.adPosition : "-1", -1);
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public boolean OO() {
+    @Override // com.baidu.tieba.card.data.t
+    public boolean RE() {
         return false;
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public void cA(boolean z) {
+    @Override // com.baidu.tieba.card.data.t
+    public void cP(boolean z) {
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public void cB(boolean z) {
+    @Override // com.baidu.tieba.card.data.t
+    public void cQ(boolean z) {
     }
 
-    public String OP() {
-        if (this.beh == null || this.beh.Pw == null) {
+    public String RF() {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.userPortrait;
+        return this.boc.OF.userPortrait;
     }
 
     public String getUserName() {
-        if (this.beh == null || this.beh.Pw == null) {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.userName;
+        return this.boc.OF.userName;
     }
 
-    public String OQ() {
-        if (this.beh == null || this.beh.Pw == null) {
+    public String RG() {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.PH;
+        return this.boc.OF.OP;
     }
 
-    public String OR() {
-        if (this.beh == null || this.beh.Pw == null) {
+    public String RH() {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.PI;
+        return this.boc.OF.OQ;
     }
 
-    public String OS() {
-        if (this.beh == null || this.beh.Pw == null) {
+    public String RI() {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.buttonText;
+        return this.boc.OF.buttonText;
     }
 
-    public String OT() {
-        if (this.beh == null || this.beh.Pw == null) {
+    public String RJ() {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.PO;
+        return this.boc.OF.OW;
     }
 
-    public String OU() {
-        if (this.beh == null || this.beh.Pw == null) {
+    public String RK() {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.PJ;
+        return this.boc.OF.OR;
     }
 
-    public List<String> OV() {
-        if (this.beh == null || this.beh.Pw == null) {
+    public List<String> RL() {
+        if (this.boc == null || this.boc.OF == null) {
             return null;
         }
-        return this.beh.Pw.PP;
+        return this.boc.OF.OX;
     }
 
-    public com.baidu.tbadk.core.data.c OW() {
-        return this.beh;
+    public com.baidu.tbadk.core.data.c RM() {
+        return this.boc;
     }
 
-    public boolean pl() {
-        if (this.beh != null) {
-            return this.beh.pl();
+    public boolean pe() {
+        if (this.boc != null) {
+            return this.boc.pe();
         }
         return false;
     }
 
-    public boolean pk() {
-        if (this.beh != null) {
-            return this.beh.pk();
+    public boolean pd() {
+        if (this.boc != null) {
+            return this.boc.pd();
         }
         return false;
     }

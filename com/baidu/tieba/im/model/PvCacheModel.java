@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.f.a;
-import com.baidu.adp.lib.h.b;
+import com.baidu.adp.lib.e.a;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */

@@ -1,29 +1,24 @@
 package com.baidu.tieba.card;
 
-import android.os.Handler;
-import com.baidu.tieba.play.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements t.d {
-    final /* synthetic */ t bcw;
+public class z extends CustomMessageListener {
+    final /* synthetic */ x bml;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(t tVar) {
-        this.bcw = tVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(x xVar, int i) {
+        super(i);
+        this.bml = xVar;
     }
 
-    @Override // com.baidu.tieba.play.t.d
-    public void onPrepared(com.baidu.tieba.play.t tVar) {
-        Handler handler;
-        if (tVar != null) {
-            try {
-                tVar.setVolume(0.0f, 0.0f);
-                tVar.start();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            handler = this.bcw.aOr;
-            handler.sendEmptyMessageDelayed(202, 300L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016477) {
+            this.bml.bmg = false;
         }
     }
 }

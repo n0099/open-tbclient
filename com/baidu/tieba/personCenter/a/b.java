@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.b, com.baidu.tieba.personCenter.e.a> {
@@ -17,30 +17,31 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bi */
-    public com.baidu.tieba.personCenter.e.a a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.personCenter.e.a(LayoutInflater.from(this.mContext).inflate(r.h.item_person_center_list_interval, viewGroup, false));
+    /* renamed from: bp */
+    public com.baidu.tieba.personCenter.e.a onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.personCenter.e.a(LayoutInflater.from(this.mContext).inflate(r.j.item_person_center_list_interval, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.b bVar, com.baidu.tieba.personCenter.e.a aVar) {
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.b bVar, com.baidu.tieba.personCenter.e.a aVar) {
         if (bVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            if (aVar.aib != skinType) {
-                aVar.aib = skinType;
-                ar.k(aVar.bbR, bVar.epz);
+            if (aVar.ahp != skinType) {
+                aVar.ahp = skinType;
+                ap.j(aVar.blF, bVar.ezw);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.bbR.getLayoutParams();
-            if (bVar.ekI > 0) {
-                layoutParams.height = bVar.ekI;
+            ViewGroup.LayoutParams layoutParams = aVar.blF.getLayoutParams();
+            if (bVar.euD > 0) {
+                layoutParams.height = bVar.euD;
             }
-            if (bVar.ekH > 0) {
-                layoutParams.width = bVar.ekH;
+            if (bVar.euC > 0) {
+                layoutParams.width = bVar.euC;
             }
-            aVar.bbR.setLayoutParams(layoutParams);
-            aVar.bbR.setOnClickListener(null);
+            aVar.blF.setLayoutParams(layoutParams);
+            aVar.blF.setOnClickListener(null);
         }
         return view;
     }

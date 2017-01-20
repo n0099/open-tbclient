@@ -1,88 +1,50 @@
 package com.baidu.tieba.play;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.TextureView;
+import android.view.View;
 /* loaded from: classes.dex */
-public class an extends Handler {
-    final /* synthetic */ am eJQ;
+public class an extends TextureView {
+    private int eSG;
+    private int mVideoHeight;
+    private int mVideoWidth;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.eJQ = amVar;
+    public an(Context context) {
+        super(context);
+        this.mVideoWidth = 0;
+        this.mVideoHeight = 0;
+        this.eSG = 0;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Activity activity;
-        boolean z;
-        Activity activity2;
-        boolean z2;
-        boolean z3;
-        Activity activity3;
-        boolean z4;
-        Activity activity4;
-        Activity activity5;
-        Activity activity6;
-        Activity activity7;
-        if (message != null) {
-            activity = this.eJQ.mActivity;
-            if (activity != null) {
-                z = this.eJQ.eJO;
-                if (z) {
-                    switch (message.what) {
-                        case 1:
-                            activity2 = this.eJQ.mActivity;
-                            int requestedOrientation = activity2.getRequestedOrientation();
-                            int i = message.arg1;
-                            z2 = this.eJQ.eJN;
-                            if (!z2) {
-                                if (i > 225 && i < 315) {
-                                    if (requestedOrientation == 8) {
-                                        activity7 = this.eJQ.mActivity;
-                                        activity7.setRequestedOrientation(0);
-                                        return;
-                                    }
-                                    return;
-                                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
-                                    activity6 = this.eJQ.mActivity;
-                                    activity6.setRequestedOrientation(8);
-                                    return;
-                                } else {
-                                    return;
-                                }
-                            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                                z4 = this.eJQ.eJL;
-                                if (!z4) {
-                                    if (i > 55 && i < 125) {
-                                        if (requestedOrientation != 8) {
-                                            activity5 = this.eJQ.mActivity;
-                                            activity5.setRequestedOrientation(8);
-                                        }
-                                    } else if (requestedOrientation != 0) {
-                                        activity4 = this.eJQ.mActivity;
-                                        activity4.setRequestedOrientation(0);
-                                    }
-                                }
-                                this.eJQ.eJK = false;
-                                return;
-                            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                                z3 = this.eJQ.eJK;
-                                if (!z3 && requestedOrientation != 1) {
-                                    activity3 = this.eJQ.mActivity;
-                                    activity3.setRequestedOrientation(1);
-                                }
-                                this.eJQ.eJL = false;
-                                return;
-                            } else {
-                                return;
-                            }
-                        default:
-                            return;
-                    }
-                }
+    @Override // android.view.View
+    protected void onMeasure(int i, int i2) {
+        if (this.eSG == 90 || this.eSG == 270) {
+            i = i2;
+            i2 = i;
+        }
+        int defaultSize = View.getDefaultSize(this.mVideoWidth, i);
+        int defaultSize2 = View.getDefaultSize(this.mVideoHeight, i2);
+        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
+            defaultSize = View.MeasureSpec.getSize(i);
+            defaultSize2 = View.MeasureSpec.getSize(i2);
+            float f = defaultSize / defaultSize2;
+            float f2 = this.mVideoWidth / this.mVideoHeight;
+            if (f2 > f) {
+                defaultSize2 = (int) (defaultSize / f2);
+            } else {
+                defaultSize = (int) (defaultSize2 * f2);
             }
+        }
+        setMeasuredDimension(defaultSize, defaultSize2);
+    }
+
+    public void O(int i, int i2, int i3) {
+        setRotation(i3);
+        this.mVideoWidth = i;
+        this.mVideoHeight = i2;
+        this.eSG = i3;
+        if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
+            requestLayout();
         }
     }
 }

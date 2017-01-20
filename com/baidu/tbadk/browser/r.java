@@ -5,23 +5,23 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-class r extends com.baidu.tbadk.core.c.p {
-    final /* synthetic */ TbWebViewActivity ME;
+class r extends com.baidu.tbadk.core.d.p {
+    final /* synthetic */ TbWebViewActivity LR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.c.n nVar) {
+    public r(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.d.n nVar) {
         super(nVar);
-        this.ME = tbWebViewActivity;
+        this.LR = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.c.p
-    public String nT() {
+    @Override // com.baidu.tbadk.core.d.p
+    public String nN() {
         return "TBHY_COMMON_Share";
     }
 
-    @com.baidu.tbadk.core.c.q(tK = false, value = TbConfig.TMP_SHARE_DIR_NAME)
+    @com.baidu.tbadk.core.d.q(tE = false, value = TbConfig.TMP_SHARE_DIR_NAME)
     private void share(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
@@ -30,10 +30,10 @@ class r extends com.baidu.tbadk.core.c.p {
             String optString4 = jSONObject.optString("url");
             String optString5 = jSONObject.optString("bid");
             if (!StringUtils.isNULL(optString5)) {
-                this.ME.mShareResultToFe = true;
-                this.ME.mBid = optString5;
+                this.LR.mShareResultToFe = true;
+                this.LR.mBid = optString5;
             }
-            com.baidu.adp.lib.h.h.eG().post(new s(this, this.ME.createShareContent(optString, optString4, optString2, optString3)));
+            com.baidu.adp.lib.g.h.eE().post(new s(this, this.LR.createShareContent(optString, optString4, optString2, optString3)));
         }
     }
 }

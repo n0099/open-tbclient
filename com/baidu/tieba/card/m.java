@@ -12,41 +12,41 @@ import com.baidu.tieba.r;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m extends b<com.baidu.tieba.card.data.j> {
-    private TbPageContext<?> Gf;
-    private View.OnClickListener adO;
-    private HListView bbC;
-    public p bbD;
-    private List<com.baidu.tieba.horizonalList.widget.l> bbE;
-    private com.baidu.tieba.horizonalList.widget.k bbq;
+    private TbPageContext<?> Fp;
+    private View.OnClickListener acY;
+    private com.baidu.tieba.horizonalList.widget.k bld;
+    private HListView blp;
+    public p blq;
+    private List<com.baidu.tieba.horizonalList.widget.l> blr;
 
     public m(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.adO = new n(this);
-        this.Gf = tbPageContext;
-        this.bbC = new HListView(getContext());
-        this.bbC.setHeaderDividersEnabled(false);
-        this.bbC.setFooterDividersEnabled(false);
-        this.bbC.setSelector(r.f.list_selector_transparent);
-        this.bbC.setPadding(tbPageContext.getResources().getDimensionPixelSize(r.e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(r.e.ds4), 0);
-        this.bbD = new p(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(r.h.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
-        this.bbq = new com.baidu.tieba.horizonalList.widget.k(getContext(), r.h.card_homepage_rec_god_item, this.bbD);
-        this.bbq.setOnClickListener(this.adO);
-        this.bbC.setAdapter((ListAdapter) this.bbq);
-        this.baK.addView(this.bbC);
-        this.baJ.setVisibility(8);
-        this.baD.setTextSize(0, com.baidu.adp.lib.util.k.e(this.Gf.getPageActivity(), r.e.ds28));
-        this.baE.setVisibility(0);
-        this.baE.setText(this.Gf.getResources().getString(r.j.recommend_frs_hot_thread_more));
-        this.baC.setOnClickListener(new o(this));
+        this.acY = new n(this);
+        this.Fp = tbPageContext;
+        this.blp = new HListView(getContext());
+        this.blp.setHeaderDividersEnabled(false);
+        this.blp.setFooterDividersEnabled(false);
+        this.blp.setSelector(r.g.list_selector_transparent);
+        this.blp.setPadding(tbPageContext.getResources().getDimensionPixelSize(r.f.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(r.f.ds4), 0);
+        this.blq = new p(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(r.j.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
+        this.bld = new com.baidu.tieba.horizonalList.widget.k(getContext(), r.j.card_homepage_rec_god_item, this.blq);
+        this.bld.setOnClickListener(this.acY);
+        this.blp.setAdapter((ListAdapter) this.bld);
+        this.bky.addView(this.blp);
+        this.bkx.setVisibility(8);
+        this.bkr.setTextSize(0, com.baidu.adp.lib.util.k.e(this.Fp.getPageActivity(), r.f.ds28));
+        this.bks.setVisibility(0);
+        this.bks.setText(this.Fp.getResources().getString(r.l.recommend_frs_hot_thread_more));
+        this.bkq.setOnClickListener(new o(this));
     }
 
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.bbC != null && this.bbq != null) {
-            com.baidu.tbadk.core.util.ar.j((View) this.baE, r.d.cp_cont_d);
-            com.baidu.tbadk.core.util.ar.j((View) this.baD, r.d.cp_cont_d);
-            this.bbq.df(i);
+        if (this.blp != null && this.bld != null) {
+            com.baidu.tbadk.core.util.ap.i((View) this.bks, r.e.cp_cont_d);
+            com.baidu.tbadk.core.util.ap.i((View) this.bkr, r.e.cp_cont_d);
+            this.bld.dg(i);
         }
     }
 
@@ -54,26 +54,26 @@ public class m extends b<com.baidu.tieba.card.data.j> {
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.card.data.j jVar) {
         super.onBindDataToView((m) jVar);
-        if (jVar != null && !com.baidu.tbadk.core.util.x.t(jVar.getDataList())) {
+        if (jVar != null && !com.baidu.tbadk.core.util.w.s(jVar.getDataList())) {
             if (StringUtils.isNull(jVar.mGroupTitle)) {
-                this.baD.setText(this.Gf.getPageActivity().getResources().getString(r.j.the_gods_you_may_interest_in));
+                this.bkr.setText(this.Fp.getPageActivity().getResources().getString(r.l.the_gods_you_may_interest_in));
             }
-            if (W(jVar.getDataList())) {
-                this.bbE = jVar.getDataList();
-                this.bbq.setData(this.bbE);
-                this.bbq.notifyDataSetChanged();
+            if (Y(jVar.getDataList())) {
+                this.blr = jVar.getDataList();
+                this.bld.setData(this.blr);
+                this.bld.notifyDataSetChanged();
             }
         }
     }
 
-    private boolean W(List<com.baidu.tieba.horizonalList.widget.l> list) {
-        if (com.baidu.tbadk.core.util.x.t(list)) {
+    private boolean Y(List<com.baidu.tieba.horizonalList.widget.l> list) {
+        if (com.baidu.tbadk.core.util.w.s(list)) {
             return false;
         }
-        if (!com.baidu.tbadk.core.util.x.t(this.bbE) && com.baidu.tbadk.core.util.x.s(this.bbE) == com.baidu.tbadk.core.util.x.s(list)) {
-            for (int i = 0; i < com.baidu.tbadk.core.util.x.s(this.bbE); i++) {
-                com.baidu.tieba.horizonalList.widget.l lVar = (com.baidu.tieba.horizonalList.widget.l) com.baidu.tbadk.core.util.x.c(this.bbE, i);
-                com.baidu.tieba.horizonalList.widget.l lVar2 = (com.baidu.tieba.horizonalList.widget.l) com.baidu.tbadk.core.util.x.c(list, i);
+        if (!com.baidu.tbadk.core.util.w.s(this.blr) && com.baidu.tbadk.core.util.w.r(this.blr) == com.baidu.tbadk.core.util.w.r(list)) {
+            for (int i = 0; i < com.baidu.tbadk.core.util.w.r(this.blr); i++) {
+                com.baidu.tieba.horizonalList.widget.l lVar = (com.baidu.tieba.horizonalList.widget.l) com.baidu.tbadk.core.util.w.c(this.blr, i);
+                com.baidu.tieba.horizonalList.widget.l lVar2 = (com.baidu.tieba.horizonalList.widget.l) com.baidu.tbadk.core.util.w.c(list, i);
                 if ((lVar instanceof com.baidu.tieba.card.data.k) && (lVar2 instanceof com.baidu.tieba.card.data.k)) {
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) lVar;
                     com.baidu.tieba.card.data.k kVar2 = (com.baidu.tieba.card.data.k) lVar2;

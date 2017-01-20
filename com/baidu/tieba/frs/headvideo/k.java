@@ -4,15 +4,16 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Animation.AnimationListener {
-    final /* synthetic */ ForumHeadVideoView bLk;
+    final /* synthetic */ ForumHeadVideoView bRD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ForumHeadVideoView forumHeadVideoView) {
-        this.bLk = forumHeadVideoView;
+        this.bRD = forumHeadVideoView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
+        this.bRD.bRp = false;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,6 +22,23 @@ public class k implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        com.baidu.adp.lib.h.h.eG().post(this.bLk.mRunnable);
+        b bVar;
+        b bVar2;
+        b bVar3;
+        c currentVideoItemView = this.bRD.getCurrentVideoItemView();
+        if (currentVideoItemView != null) {
+            currentVideoItemView.clearAnimation();
+            this.bRD.e(currentVideoItemView);
+            bVar = this.bRD.bGa;
+            if (bVar != null) {
+                bVar2 = this.bRD.bGa;
+                if (!bVar2.abp()) {
+                    bVar3 = this.bRD.bGa;
+                    bVar3.ef(true);
+                    a.abn();
+                }
+            }
+        }
+        this.bRD.bRp = true;
     }
 }

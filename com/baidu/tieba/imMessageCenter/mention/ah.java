@@ -1,39 +1,64 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.MentionActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class ah extends CustomMessageListener {
-    final /* synthetic */ ag dcE;
+public class ah {
+    private static ah djT = null;
+    private final HttpMessageListener djU = new ai(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long djV = 0;
+    private final Handler mHandler = new aj(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ah(ag agVar, int i) {
-        super(i);
-        this.dcE = agVar;
+    static {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
+        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        o oVar;
-        o oVar2;
-        o oVar3;
-        o oVar4;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            oVar = this.dcE.dcB;
-            if (oVar != null) {
-                oVar4 = this.dcE.dcB;
-                oVar4.gz(true);
+    public static synchronized ah avW() {
+        ah ahVar;
+        synchronized (ah.class) {
+            if (djT == null) {
+                djT = new ah();
             }
-            MentionActivityConfig.newJumpIn = true;
-            oVar2 = this.dcE.dcB;
-            if (oVar2 != null) {
-                oVar3 = this.dcE.dcB;
-                oVar3.Zi();
-            }
+            ahVar = djT;
         }
+        return ahVar;
+    }
+
+    public ah() {
+        MessageManager.getInstance().registerListener(this.djU);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void avX() {
+        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
+    }
+
+    public void avY() {
+        this.djV = 0L;
+        destroy();
+        start();
+    }
+
+    public void start() {
+        long currentTimeMillis = System.currentTimeMillis() - this.djV;
+        long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
+        if (j >= 600000) {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
+        } else {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
+        }
+        this.djV = System.currentTimeMillis();
+    }
+
+    public void destroy() {
+        this.mHandler.removeMessages(1);
     }
 }

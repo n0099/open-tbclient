@@ -1,47 +1,46 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tieba.play.QuickVideoView;
-import com.baidu.tieba.play.t;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements t.d {
-    final /* synthetic */ QuickVideoView eJu;
+public class ad extends CustomMessageListener {
+    final /* synthetic */ ac eSz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(QuickVideoView quickVideoView) {
-        this.eJu = quickVideoView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(ac acVar, int i) {
+        super(i);
+        this.eSz = acVar;
     }
 
-    @Override // com.baidu.tieba.play.t.d
-    public void onPrepared(t tVar) {
-        t.d dVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        al alVar;
-        QuickVideoView.a aVar;
-        QuickVideoView.a aVar2;
-        al alVar2;
-        int i;
-        t.d dVar2;
-        dVar = this.eJu.aLF;
-        if (dVar != null) {
-            dVar2 = this.eJu.aLF;
-            dVar2.onPrepared(tVar);
-        }
-        z = this.eJu.eJl;
-        if (z) {
-            this.eJu.start();
-        }
-        alVar = this.eJu.eJi;
-        if (alVar != null && tVar != null) {
-            alVar2 = this.eJu.eJi;
-            int videoWidth = tVar.getVideoWidth();
-            int videoHeight = tVar.getVideoHeight();
-            i = this.eJu.eJo;
-            alVar2.N(videoWidth, videoHeight, i);
-        }
-        aVar = this.eJu.eJm;
-        if (aVar != null) {
-            aVar2 = this.eJu.eJm;
-            aVar2.IF();
+        boolean z2;
+        as asVar;
+        as asVar2;
+        as asVar3;
+        as asVar4;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+            this.eSz.amY();
+            z = this.eSz.dxq;
+            if (z) {
+                z2 = this.eSz.dxq;
+                if (z2) {
+                    ac acVar = this.eSz;
+                    asVar = this.eSz.dxp;
+                    int aYq = asVar.aYq();
+                    asVar2 = this.eSz.dxp;
+                    int aYr = asVar2.aYr();
+                    asVar3 = this.eSz.dxp;
+                    boolean aYs = asVar3.aYs();
+                    asVar4 = this.eSz.dxp;
+                    acVar.a(aYq, aYr, aYs, asVar4.aYt());
+                }
+            }
         }
     }
 }

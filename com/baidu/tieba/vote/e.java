@@ -1,85 +1,43 @@
 package com.baidu.tieba.vote;
 
-import android.text.TextUtils;
 import android.view.View;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.base.g;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.r;
-import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ b fvz;
+    private final /* synthetic */ String egu;
+    private final /* synthetic */ String egv;
+    private final /* synthetic */ String egw;
+    final /* synthetic */ a fEt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(b bVar) {
-        this.fvz = bVar;
+    public e(a aVar, String str, String str2, String str3) {
+        this.fEt = aVar;
+        this.egu = str;
+        this.egv = str2;
+        this.egw = str3;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        g gVar;
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        VoteDataInfo voteDataInfo;
-        long j;
-        long j2;
-        boolean z;
-        PbActivity pbActivity3;
-        VoteDataInfo voteDataInfo2;
-        long j3;
-        long j4;
-        PbActivity pbActivity4;
-        List list;
-        VoteDataInfo voteDataInfo3;
-        if (view.getId() == r.g.btn_pb_vote) {
-            pbActivity = this.fvz.dYB;
-            if (pbActivity != null) {
-                pbActivity2 = this.fvz.dYB;
-                if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.fvz.fvu;
-                    if (voteDataInfo != null) {
-                        j = this.fvz.mForumId;
-                        if (j > 0) {
-                            j2 = this.fvz.mThreadId;
-                            if (j2 > 0) {
-                                z = this.fvz.fvw;
-                                if (!z) {
-                                    pbActivity3 = this.fvz.dYB;
-                                    a aVar = new a(pbActivity3);
-                                    StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.fvz.fvu;
-                                    List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
-                                    if (options != null) {
-                                        for (com.baidu.tbadk.widget.vote.a aVar2 : options) {
-                                            if (aVar2 != null && aVar2.isSelected()) {
-                                                sb.append(aVar2.getId()).append(",");
-                                                list = this.fvz.fvv;
-                                                list.add((g) aVar2);
-                                                voteDataInfo3 = this.fvz.fvu;
-                                                if (voteDataInfo3.getIsMulti() != 1) {
-                                                    break;
-                                                }
-                                            }
-                                        }
-                                        if (sb.toString().endsWith(",")) {
-                                            sb.deleteCharAt(sb.length() - 1);
-                                        }
-                                        if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.fvz.dYB;
-                                            UtilHelper.showToast(pbActivity4.getActivity(), r.j.vote_checked_less_one);
-                                            return;
-                                        }
-                                        j3 = this.fvz.mForumId;
-                                        j4 = this.fvz.mThreadId;
-                                        aVar.a(j3, j4, sb.toString());
-                                        this.fvz.fvw = true;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.egu) && !StringUtils.isNull(this.egv)) {
+            if (i.gk()) {
+                gVar = this.fEt.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.egu) + "," + this.egv, this.egw, this.egw, gVar.getString(r.l.app_info_for_map));
+                pbActivity = this.fEt.ehi;
+                com.baidu.tbadk.browser.f.u(pbActivity.getPageContext().getPageActivity(), format);
+                return;
             }
+            pbActivity2 = this.fEt.ehi;
+            pbActivity2.showToast(r.l.neterror);
         }
     }
 }

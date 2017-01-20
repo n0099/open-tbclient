@@ -1,13 +1,14 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.widget.richText.TbRichText;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class MsgCacheData extends i implements Serializable {
+public class MsgCacheData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -100392737471140589L;
-    private transient VoiceData.VoiceModel cKT;
-    private transient com.baidu.tbadk.widget.richText.a cKU;
+    private transient VoiceData.VoiceModel cSb;
+    private transient TbRichText cSc;
     private int is_left;
     private int is_show_time;
     private long lastMsgTime;
@@ -18,11 +19,11 @@ public class MsgCacheData extends i implements Serializable {
     }
 
     public VoiceData.VoiceModel getVoice_model() {
-        return this.cKT;
+        return this.cSb;
     }
 
     public void setVoice_model(VoiceData.VoiceModel voiceModel) {
-        this.cKT = voiceModel;
+        this.cSb = voiceModel;
     }
 
     public void setIs_left(int i) {
@@ -45,12 +46,12 @@ public class MsgCacheData extends i implements Serializable {
         this.is_show_time = i;
     }
 
-    public com.baidu.tbadk.widget.richText.a getRich_content() {
-        return this.cKU;
+    public TbRichText getRich_content() {
+        return this.cSc;
     }
 
-    public void setRich_content(com.baidu.tbadk.widget.richText.a aVar) {
-        this.cKU = aVar;
+    public void setRich_content(TbRichText tbRichText) {
+        this.cSc = tbRichText;
     }
 
     public long getLastMsgTime() {

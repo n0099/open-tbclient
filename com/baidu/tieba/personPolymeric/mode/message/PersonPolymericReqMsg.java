@@ -49,10 +49,10 @@ public class PersonPolymericReqMsg extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.scr_w = Integer.valueOf(k.I(TbadkCoreApplication.m9getInst().getApp()));
         builder.scr_h = Integer.valueOf(k.J(TbadkCoreApplication.m9getInst().getApp()));
-        builder.q_type = Integer.valueOf(l.oJ().getViewImageQuality());
+        builder.q_type = Integer.valueOf(l.oC().getViewImageQuality());
         builder.scr_dip = Double.valueOf(k.K(TbadkCoreApplication.m9getInst().getApp()));
         if (z) {
-            com.baidu.tbadk.util.n.a(builder, true);
+            com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true);
         }
         PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
         builder2.data = builder.build(false);

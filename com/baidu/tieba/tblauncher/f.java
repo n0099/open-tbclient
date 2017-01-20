@@ -2,8 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
@@ -19,15 +17,33 @@ public class f extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof TbPageContext)) {
-            TbPageContext tbPageContext = (TbPageContext) customResponsedMessage.getData();
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.cb(r.j.across_forum_dialog_tips);
-            aVar.b(r.j.across_forum_dialog_right_button, new g(this));
-            aVar.a(r.j.across_forum_dialog_left_button, new h(this));
-            aVar.av(false);
-            aVar.b(tbPageContext).tb();
-            com.baidu.tbadk.core.sharedPref.b.tW().putBoolean("across_forum_dialog_has_show", true);
+        aa aaVar;
+        aa aaVar2;
+        aa aaVar3;
+        aa aaVar4;
+        aa aaVar5;
+        aa aaVar6;
+        aa aaVar7;
+        if (customResponsedMessage.getData() instanceof Integer) {
+            Integer num = (Integer) customResponsedMessage.getData();
+            if (num.intValue() == 2) {
+                aaVar6 = this.this$0.ftN;
+                aaVar6.lp(true);
+                aaVar7 = this.this$0.ftN;
+                aaVar7.hJ(true);
+            } else if (num.intValue() == 1) {
+                aaVar3 = this.this$0.ftN;
+                aaVar3.lp(true);
+                aaVar4 = this.this$0.ftN;
+                aaVar4.hJ(false);
+            } else {
+                aaVar = this.this$0.ftN;
+                aaVar.lp(false);
+                aaVar2 = this.this$0.ftN;
+                aaVar2.hJ(false);
+            }
+            aaVar5 = this.this$0.ftN;
+            aaVar5.bjC();
         }
     }
 }

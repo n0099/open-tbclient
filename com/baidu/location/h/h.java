@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h LK = null;
-    public static String a = ns().b() + "/baidu/tempdata";
+    private static volatile h KT = null;
+    public static String a = nk().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
 
@@ -47,18 +47,18 @@ public final class h {
         return z;
     }
 
-    public static h ns() {
-        if (LK == null) {
+    public static h nk() {
+        if (KT == null) {
             synchronized (h.class) {
-                if (LK == null) {
-                    LK = new h(com.baidu.location.f.getServiceContext());
+                if (KT == null) {
+                    KT = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return LK;
+        return KT;
     }
 
-    private List<g> nt() {
+    private List<g> nl() {
         boolean z;
         try {
             StorageManager storageManager = (StorageManager) this.d.getSystemService("storage");
@@ -114,7 +114,7 @@ public final class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private List<g> nu() {
+    private List<g> nm() {
         Scanner scanner;
         String[] split;
         String[] split2;
@@ -213,7 +213,7 @@ public final class h {
     }
 
     public List<g> c() {
-        List<g> nt = Build.VERSION.SDK_INT >= 14 ? nt() : null;
-        return (nt == null || nt.size() <= 0) ? nu() : nt;
+        List<g> nl = Build.VERSION.SDK_INT >= 14 ? nl() : null;
+        return (nl == null || nl.size() <= 0) ? nm() : nl;
     }
 }

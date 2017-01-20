@@ -1,50 +1,54 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.card.bz;
-import com.baidu.tieba.card.cb;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.j, com.baidu.tieba.card.a.a<com.baidu.tieba.card.m>> {
-    private TbPageContext<?> GO;
-    public BdUniqueId bbl;
-    private com.baidu.tieba.card.m cra;
-    private cb<com.baidu.tieba.card.data.j> crb;
+public class o implements com.baidu.adp.lib.e.c<TbImageView> {
+    final /* synthetic */ m cyd;
 
-    public o(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.j.TYPE);
-        this.crb = new p(this);
-        this.GO = tbPageContext;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(m mVar) {
+        this.cyd = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
-    public com.baidu.tieba.card.a.a a(ViewGroup viewGroup) {
-        this.cra = new com.baidu.tieba.card.m(this.GO, this.bbl);
-        return new com.baidu.tieba.card.a.a(this.cra);
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: wz */
+    public TbImageView ex() {
+        TbPageContext tbPageContext;
+        tbPageContext = this.cyd.FY;
+        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
+        tbImageView.setDrawBorder(true);
+        tbImageView.setBorderColor(ap.getColor(r.e.common_color_10264));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds1));
+        return tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.m> aVar) {
-        this.cra = aVar.Po();
-        aVar.Po().a(jVar);
-        aVar.Po().setOnSubCardOnClickListenner(this.crb);
-        aVar.Po().onChangeSkinType(this.GO, TbadkCoreApplication.m9getInst().getSkinType());
-        bz.OH().a(new at("c11006"));
-        return aVar.getView();
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void o(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
     }
 
-    public void jA(int i) {
-        if (this.cra != null) {
-            this.cra.onChangeSkinType(this.GO, i);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView p(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView q(TbImageView tbImageView) {
+        tbImageView.setOnClickListener(null);
+        tbImageView.setForegroundColor(0);
+        return tbImageView;
     }
 }

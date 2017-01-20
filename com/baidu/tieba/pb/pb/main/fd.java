@@ -1,17 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fd implements a.b {
-    final /* synthetic */ er egZ;
+public class fd implements Runnable {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fd(er erVar) {
-        this.egZ = erVar;
+    public fd(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        LinearLayout linearLayout;
+        ViewStub viewStub;
+        linearLayout = this.eqf.eoo;
+        if (linearLayout == null) {
+            this.eqf.aNx();
+        }
+        viewStub = this.eqf.enN;
+        viewStub.setVisibility(0);
     }
 }

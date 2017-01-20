@@ -5,50 +5,50 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int bNo = 0;
-    public static int bNp = 1;
-    public static int bNq = 2;
-    private i bNr;
+    public static int bTC = 0;
+    public static int bTD = 1;
+    public static int bTE = 2;
+    private i bTF;
     private int mState;
 
     public TabItemView(Context context, i iVar, int i) {
         super(context);
-        this.mState = bNo;
-        this.bNr = iVar;
-        j(context, i);
+        this.mState = bTC;
+        this.bTF = iVar;
+        k(context, i);
     }
 
-    private void j(Context context, int i) {
+    private void k(Context context, int i) {
         setGravity(17);
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.bNr != null) {
-            setText(this.bNr.name);
+        if (this.bTF != null) {
+            setText(this.bTF.name);
         }
-        wx();
+        ws();
     }
 
     public void setState(int i) {
-        if (this.bNr != null && this.bNr.bNn != null && this.bNr.bNn.bBA != null && this.bNr.bNn.bBA.size() > 0) {
-            if (i == bNq) {
-                Drawable drawable = ar.getDrawable(r.f.icon_toolbar_arrow_up);
+        if (this.bTF != null && this.bTF.bTB != null && this.bTF.bTB.bIU != null && this.bTF.bTB.bIU.size() > 0) {
+            if (i == bTE) {
+                Drawable drawable = ap.getDrawable(r.g.icon_toolbar_arrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable, null);
             } else {
-                Drawable drawable2 = ar.getDrawable(r.f.icon_toolbar_arrow_down);
+                Drawable drawable2 = ap.getDrawable(r.g.icon_toolbar_arrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable2, null);
             }
-            setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(r.e.ds16));
+            setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(r.f.ds16));
         }
-        if (i == bNp || i == bNq) {
-            ar.c(this, r.d.cp_link_tip_a, 1);
+        if (i == bTD || i == bTE) {
+            ap.c(this, r.e.cp_link_tip_a, 1);
         } else {
-            ar.c(this, r.d.cp_cont_f, 1);
+            ap.c(this, r.e.cp_cont_f, 1);
         }
         setGravity(17);
         this.mState = i;
@@ -56,17 +56,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.bNr == null) {
+        if (this.bTF == null) {
             return -1;
         }
-        return this.bNr.bNm;
+        return this.bTF.bTA;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void wx() {
+    public void ws() {
         setState(this.mState);
     }
 
@@ -99,10 +99,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.bNr == null) {
+        if (this.bTF == null) {
             return null;
         }
-        return this.bNr.url;
+        return this.bTF.url;
     }
 
     public int getDrawableWidth() {

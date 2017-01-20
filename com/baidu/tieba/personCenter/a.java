@@ -9,65 +9,65 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.personCenter.f.b;
-import com.baidu.tieba.personCenter.g.g;
+import com.baidu.tieba.personCenter.f.g;
+import com.baidu.tieba.personCenter.mode.PersonCenterMode;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private BaseFragmentActivity aVu;
-    private b epa;
-    private g epb;
-    private com.baidu.tieba.personCenter.b.a epc;
+    private BaseFragmentActivity aQU;
+    private PersonCenterMode eyV;
+    private g eyW;
+    private com.baidu.tieba.personCenter.b.a eyX;
     private boolean mIsLogin;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.aVu = getBaseFragmentActivity();
+        this.aQU = getBaseFragmentActivity();
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.epa = new b(this.aVu);
+        this.eyV = new PersonCenterMode(this.aQU);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.epb = new g(this.aVu.getPageContext());
-        return this.epb.onCreateView(layoutInflater, viewGroup, bundle);
+        this.eyW = new g(this.aQU.getPageContext());
+        return this.eyW.onCreateView(layoutInflater, viewGroup, bundle);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.epb.initUI();
-        this.epb.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        this.eyW.initUI();
+        this.eyW.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.epc = new com.baidu.tieba.personCenter.b.a(this.aVu.getPageContext(), this.epa, this.epb);
-        this.epb.setOnViewResponseListener(this.epc.aOE());
-        this.epb.a(this.epc);
+        this.eyX = new com.baidu.tieba.personCenter.b.a(this.aQU.getPageContext(), this.eyV, this.eyW);
+        this.eyW.setOnViewResponseListener(this.eyX.aQE());
+        this.eyW.a(this.eyX);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        com.baidu.tieba.f.a.aYA().kq(isPrimary());
+        com.baidu.tieba.h.a.bap().kC(isPrimary());
         if (isPrimary() && this.mIsLogin) {
-            com.baidu.tieba.f.a.aYA().aYH();
-            if (i.fZ()) {
-                this.epb.Jk();
-                if (!this.epc.hasData()) {
-                    this.epb.g(true, getResources().getDimensionPixelSize(r.e.ds480));
+            com.baidu.tieba.h.a.bap().baw();
+            if (i.fX()) {
+                this.eyW.Jy();
+                if (!this.eyX.hasData()) {
+                    this.eyW.g(true, getResources().getDimensionPixelSize(r.f.ds480));
                 }
-                this.epa.EN();
-            } else if (!this.epc.hasData()) {
-                this.epb.H(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+                this.eyV.EH();
+            } else if (!this.eyX.hasData()) {
+                this.eyW.G(TbadkCoreApplication.m9getInst().getString(r.l.neterror), true);
             }
         }
     }
@@ -75,8 +75,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.epb != null) {
-            this.epb.onChangeSkinType(i);
+        if (this.eyW != null) {
+            this.eyW.onChangeSkinType(i);
         }
     }
 

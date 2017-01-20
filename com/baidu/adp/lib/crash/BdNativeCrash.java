@@ -34,7 +34,7 @@ public class BdNativeCrash {
 
     static {
         mbLibLoaded = false;
-        mbLibLoaded = g.fX().i("nativecrashlog", 1);
+        mbLibLoaded = g.fV().i("nativecrashlog", 1);
     }
 
     private BdNativeCrash() {
@@ -63,7 +63,7 @@ public class BdNativeCrash {
 
     public void initCrash(String str, String str2) {
         this.mCrashLogPath = str2;
-        d.cB().F(str);
+        d.cz().F(str);
         if (!TextUtils.isEmpty(this.mCrashLogPath)) {
             b bVar = new b();
             bVar.E(str);

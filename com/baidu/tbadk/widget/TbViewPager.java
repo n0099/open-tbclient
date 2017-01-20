@@ -9,19 +9,19 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aGt;
-    private boolean ahY;
+    private float aFi;
+    private boolean ahm;
     private int mTouchSlop;
 
     public TbViewPager(Context context) {
         super(context);
-        this.ahY = false;
+        this.ahm = false;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ahY = false;
+        this.ahm = false;
         init();
     }
 
@@ -31,7 +31,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.ahY = z;
+        this.ahm = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -40,7 +40,7 @@ public class TbViewPager extends ViewPager {
         if (g(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.ahY) {
+        if (motionEvent.getPointerCount() > 1 && this.ahm) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -68,15 +68,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 aQ(true);
-                this.aGt = motionEvent.getX();
+                this.aFi = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 aQ(false);
-                this.aGt = 0.0f;
+                this.aFi = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aGt;
+                float x = motionEvent.getX() - this.aFi;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         aQ(false);

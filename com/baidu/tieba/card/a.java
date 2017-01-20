@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    private String acW;
-    protected cb<T> baA;
-    protected ca baB;
+    private String aci;
+    protected cf<T> bko;
+    protected ce bkp;
     public Context mContext;
     public TbPageContext<?> mTbPageContext;
     public int mSkinType = 3;
@@ -38,11 +38,11 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public String getFrom() {
-        return this.acW;
+        return this.aci;
     }
 
     public void setFrom(String str) {
-        this.acW = str;
+        this.aci = str;
     }
 
     public View getView() {
@@ -72,15 +72,15 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         }
     }
 
-    public void setOnSubCardOnClickListenner(cb<T> cbVar) {
-        this.baA = cbVar;
+    public void setOnSubCardOnClickListenner(cf<T> cfVar) {
+        this.bko = cfVar;
     }
 
-    public void setOnCardStatisticsCallback(ca caVar) {
-        this.baB = caVar;
+    public void setOnCardStatisticsCallback(ce ceVar) {
+        this.bkp = ceVar;
     }
 
-    public cb<T> getOnSubCardOnClickListenner() {
-        return this.baA;
+    public cf<T> getOnSubCardOnClickListenner() {
+        return this.bko;
     }
 }

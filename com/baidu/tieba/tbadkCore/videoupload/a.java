@@ -7,40 +7,40 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int fiU = 6144000;
-    private static int fiV = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b fiW;
+    private static int fsg = 6144000;
+    private static int fsh = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b fsi;
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (com.baidu.adp.lib.c.e.dN().ac("is_video_batch") == 1) {
-                this.fiW = new d(str2, fiV);
+            if (com.baidu.adp.lib.b.e.dL().ac("is_video_batch") == 1) {
+                this.fsi = new d(str2, fsh);
             } else {
-                this.fiW = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fiU);
+                this.fsi = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fsg);
             }
-            this.fiW.a(eVar);
-            return this.fiW.aC(str2, i);
+            this.fsi.a(eVar);
+            return this.fsi.aD(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void bhb() {
-        if (this.fiW != null) {
-            this.fiW.cancel();
+    public void biM() {
+        if (this.fsi != null) {
+            this.fsi.cancel();
         }
     }
 
-    public static void rt(int i) {
+    public static void se(int i) {
         if (i <= 0) {
-            fiV = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            fsh = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            fiV = i;
+            fsh = i;
         }
     }
 
-    public static void ru(int i) {
+    public static void sf(int i) {
         if (i <= 0) {
             chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public static void rv(int i) {
+    public static void sg(int i) {
         if (i <= 0) {
-            fiU = 6144000;
+            fsg = 6144000;
         } else {
-            fiU = i;
+            fsg = i;
         }
     }
 }

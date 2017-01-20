@@ -1,26 +1,35 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class u implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity bzl;
+class u extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(FrsActivity frsActivity) {
-        this.bzl = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bGL = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aL(boolean z) {
-        if (this.bzl.byr.aaO() == 1 && z && !this.bzl.byg.WG()) {
-            if (this.bzl.byh == null || com.baidu.tbadk.core.util.x.t(this.bzl.byh.getThreadList())) {
-                this.bzl.hideNetRefreshView(this.bzl.byg.Xv());
-                this.bzl.showLoadingView(this.bzl.byg.Xv(), true);
-                this.bzl.byg.dy(false);
-                this.bzl.refresh();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001120) {
+                if (customResponsedMessage.getCmd() == 2001118) {
+                    com.baidu.tieba.frs.utils.e.a(customResponsedMessage, this.bGL.bFF, this.bGL.bFG);
+                    return;
+                }
                 return;
             }
-            this.bzl.byg.Xj();
+            this.bGL.d(customResponsedMessage);
         }
     }
 }

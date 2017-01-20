@@ -7,11 +7,11 @@ import com.baidu.tieba.write.write.AtSelectFriendList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements AtSelectFriendList.a {
-    final /* synthetic */ AtListActivity fCf;
+    final /* synthetic */ AtListActivity fKA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(AtListActivity atListActivity) {
-        this.fCf = atListActivity;
+        this.fKA = atListActivity;
     }
 
     @Override // com.baidu.tieba.write.write.AtSelectFriendList.a
@@ -20,12 +20,12 @@ public class k implements AtSelectFriendList.a {
             if (obj instanceof TbCheckBox.b) {
                 ((TbCheckBox.b) obj).setChecked(false);
             }
-            View findViewWithTag = this.fCf.Ck.findViewWithTag(obj);
+            View findViewWithTag = this.fKA.Bw.findViewWithTag(obj);
             if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
             } else if (!(obj instanceof MetaData)) {
             } else {
-                this.fCf.c((MetaData) obj);
+                this.fKA.c((MetaData) obj);
             }
         }
     }

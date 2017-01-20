@@ -28,7 +28,7 @@ public class BdFileDownloadData implements Serializable {
     private int type;
     private String url;
     private int width;
-    private transient a xS;
+    private transient a xJ;
 
     public BdFileDownloadData(String str) {
         this.status = 1;
@@ -38,7 +38,7 @@ public class BdFileDownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.xS = null;
+        this.xJ = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -52,7 +52,7 @@ public class BdFileDownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.xS = null;
+        this.xJ = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
@@ -67,13 +67,13 @@ public class BdFileDownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.xS = null;
+        this.xJ = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.xS = aVar;
+        this.xJ = aVar;
         this.status = 1;
     }
 
@@ -174,11 +174,11 @@ public class BdFileDownloadData implements Serializable {
     }
 
     public a getCallback() {
-        return this.xS;
+        return this.xJ;
     }
 
     public void setCallback(a aVar) {
-        this.xS = aVar;
+        this.xJ = aVar;
     }
 
     public String getStatusMsg() {

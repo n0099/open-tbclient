@@ -7,11 +7,11 @@ import com.baidu.tieba.imMessageCenter.im.friend.InviteFriendCandidateList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements InviteFriendCandidateList.a {
-    final /* synthetic */ p dbf;
+    final /* synthetic */ p dis;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.dbf = pVar;
+        this.dis = pVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.friend.InviteFriendCandidateList.a
@@ -21,12 +21,12 @@ public class r implements InviteFriendCandidateList.a {
             if (obj instanceof TbCheckBox.b) {
                 ((TbCheckBox.b) obj).setChecked(false);
             }
-            bdListView = this.dbf.Ck;
+            bdListView = this.dis.Bw;
             View findViewWithTag = bdListView.findViewWithTag(obj);
             if (findViewWithTag != null && (findViewWithTag instanceof TbCheckBox)) {
                 ((TbCheckBox) findViewWithTag).setChecked(false);
             } else if (obj instanceof com.baidu.tbadk.coreExtra.relationship.a) {
-                this.dbf.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+                this.dis.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
             }
         }
     }

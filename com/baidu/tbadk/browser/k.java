@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements bc.a {
-    @Override // com.baidu.tbadk.core.util.bc.a
+public class k implements ba.a {
+    @Override // com.baidu.tbadk.core.util.ba.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        Bundle gz;
+        Bundle gw;
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
@@ -52,7 +52,7 @@ public class k implements bc.a {
             tbPageContext.getPageActivity().finish();
             return 1;
         } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("pay=1") && (tbPageContext instanceof Activity)) {
-            UtilHelper.showToast(tbPageContext.getPageActivity(), r.j.buy_sucess);
+            UtilHelper.showToast(tbPageContext.getPageActivity(), r.l.buy_sucess);
             ((Activity) tbPageContext).finish();
             return 0;
         } else if (str.startsWith("tieba://focusforum")) {
@@ -69,7 +69,7 @@ public class k implements bc.a {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.x.at(str, "bindid=")));
             tbPageContext.getPageActivity().finish();
             return 1;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gz = com.baidu.tbadk.util.x.gz(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gz.getString("path"))) {
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gw = com.baidu.tbadk.util.x.gw(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gw.getString("path"))) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
             return 0;
         } else {
@@ -85,7 +85,7 @@ public class k implements bc.a {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_RANK, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring2, str2)));
                             }
                         } else {
-                            Static.c(tbPageContext, str.substring(3), tbPageContext.getString(r.j.kn_zhibo), false, true, false, false);
+                            Static.c(tbPageContext, str.substring(3), tbPageContext.getString(r.l.kn_zhibo), false, true, false, false);
                         }
                     } else {
                         Static.c(tbPageContext, str3, str.substring(6), false, true, true, false);

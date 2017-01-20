@@ -21,7 +21,7 @@ public class NoDataViewFactory {
         WEBVIEW,
         LOCAL;
 
-        /* JADX DEBUG: Replace access to removed values field (afR) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (afe) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();
@@ -34,43 +34,43 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        a afM;
-        a afN;
-        int afO = -1;
+        a aeZ;
+        a afa;
+        int afb = -1;
 
         private b() {
         }
 
         public static b a(a aVar) {
             b bVar = new b();
-            bVar.afM = aVar;
+            bVar.aeZ = aVar;
             return bVar;
         }
 
         public static b a(a aVar, int i) {
             b bVar = new b();
-            bVar.afM = aVar;
-            bVar.afO = i;
+            bVar.aeZ = aVar;
+            bVar.afb = i;
             return bVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String Zu;
-        View.OnClickListener afL;
+        String YI;
+        View.OnClickListener aeY;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.Zu = str;
-            this.afL = onClickListener;
+            this.YI = str;
+            this.aeY = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        ImgType afP = ImgType.NONE;
-        int afQ = -1;
-        int afJ = -1;
+        ImgType afc = ImgType.NONE;
+        int afd = -1;
+        int aeW = -1;
         int mHeight = -1;
         int mWidth = -1;
 
@@ -79,16 +79,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType, int i) {
             c cVar = new c();
-            cVar.afP = imgType;
-            cVar.afQ = i;
+            cVar.afc = imgType;
+            cVar.afd = i;
             return cVar;
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             c cVar = new c();
-            cVar.afP = imgType;
-            cVar.afJ = i;
-            cVar.afQ = i2;
+            cVar.afc = imgType;
+            cVar.aeW = i;
+            cVar.afd = i2;
             cVar.mHeight = i3;
             cVar.mWidth = i4;
             return cVar;
@@ -96,38 +96,38 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType) {
             c cVar = new c();
-            cVar.afP = imgType;
+            cVar.afc = imgType;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        int WU;
-        String afS;
-        int afT = -1;
+        int Wk;
+        String aff;
+        int afg = -1;
         String mSubTitle;
         String mTitle;
 
         private d() {
         }
 
-        public static d w(int i, int i2) {
+        public static d x(int i, int i2) {
             d dVar = new d();
             dVar.mSubTitle = TbadkCoreApplication.m9getInst().getResources().getString(i);
-            dVar.afT = i2;
+            dVar.afg = i2;
             return dVar;
         }
 
-        public static d dh(int i) {
-            return dX(TbadkCoreApplication.m9getInst().getResources().getString(i));
+        public static d di(int i) {
+            return dV(TbadkCoreApplication.m9getInst().getResources().getString(i));
         }
 
-        public static d x(int i, int i2) {
+        public static d y(int i, int i2) {
             return af(TbadkCoreApplication.m9getInst().getResources().getString(i), TbadkCoreApplication.m9getInst().getResources().getString(i2));
         }
 
-        public static d dX(String str) {
+        public static d dV(String str) {
             d dVar = new d();
             dVar.mSubTitle = str;
             return dVar;
@@ -144,41 +144,41 @@ public class NoDataViewFactory {
             d dVar = new d();
             dVar.mTitle = str2;
             dVar.mSubTitle = str;
-            dVar.WU = i;
+            dVar.Wk = i;
             return dVar;
         }
     }
 
-    public static w a(Context context, View view, c cVar, d dVar, b bVar) {
+    public static x a(Context context, View view, c cVar, d dVar, b bVar) {
         return a(context, view, cVar, dVar, bVar, false);
     }
 
-    public static w a(Context context, View view, c cVar, d dVar, b bVar, boolean z) {
-        w wVar = new w(context);
-        wVar.a(bVar, cVar, dVar);
+    public static x a(Context context, View view, c cVar, d dVar, b bVar, boolean z) {
+        x xVar = new x(context);
+        xVar.a(bVar, cVar, dVar);
         if (view != null) {
             if (view instanceof RelativeLayout) {
                 RelativeLayout relativeLayout = (RelativeLayout) view;
                 if (z) {
-                    relativeLayout.addView(wVar, 0);
+                    relativeLayout.addView(xVar, 0);
                 } else {
-                    relativeLayout.addView(wVar);
+                    relativeLayout.addView(xVar);
                 }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) wVar.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) xVar.getLayoutParams();
                 layoutParams.width = -1;
                 layoutParams.height = -1;
                 layoutParams.addRule(14);
-                wVar.setLayoutParams(layoutParams);
+                xVar.setLayoutParams(layoutParams);
             } else if (view instanceof LinearLayout) {
-                ((LinearLayout) view).addView(wVar);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) wVar.getLayoutParams();
+                ((LinearLayout) view).addView(xVar);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) xVar.getLayoutParams();
                 layoutParams2.gravity = 1;
-                wVar.setLayoutParams(layoutParams2);
+                xVar.setLayoutParams(layoutParams2);
             } else if (view instanceof FrameLayout) {
-                ((FrameLayout) view).addView(wVar, 0);
+                ((FrameLayout) view).addView(xVar, 0);
             }
         }
-        wVar.setVisibility(8);
-        return wVar;
+        xVar.setVisibility(8);
+        return xVar;
     }
 }

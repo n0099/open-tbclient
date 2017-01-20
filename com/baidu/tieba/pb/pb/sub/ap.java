@@ -1,50 +1,50 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import com.baidu.tieba.pb.b;
-import com.baidu.tieba.pb.pb.main.eq;
+import com.baidu.tieba.pb.pb.main.ey;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements b.a {
-    final /* synthetic */ ao ejb;
+    final /* synthetic */ ao esl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ao aoVar) {
-        this.ejb = aoVar;
+        this.esl = aoVar;
     }
 
     @Override // com.baidu.tieba.pb.b.a
     public void c(String str, String str2, String str3, String str4, String str5) {
         com.baidu.tieba.pb.data.j jVar;
-        com.baidu.tieba.tbadkCore.data.q qVar;
+        com.baidu.tieba.tbadkCore.data.p pVar;
         com.baidu.tieba.pb.data.j jVar2;
         com.baidu.tieba.pb.data.j jVar3;
-        com.baidu.tieba.tbadkCore.data.q qVar2;
-        com.baidu.tieba.tbadkCore.data.q qVar3;
-        com.baidu.tieba.tbadkCore.data.q qVar4;
+        com.baidu.tieba.tbadkCore.data.p pVar2;
+        com.baidu.tieba.tbadkCore.data.p pVar3;
+        com.baidu.tieba.tbadkCore.data.p pVar4;
         com.baidu.tieba.pb.data.j jVar4;
         com.baidu.tieba.pb.data.j jVar5;
         com.baidu.tieba.pb.data.j jVar6;
-        jVar = this.ejb.ehB;
+        jVar = this.esl.eqJ;
         if (jVar != null) {
-            qVar = this.ejb.dWW;
-            if (qVar != null) {
-                jVar2 = this.ejb.ehB;
-                if (jVar2.aIL() != null) {
-                    jVar3 = this.ejb.ehB;
-                    if (jVar3.IU() != null) {
-                        qVar2 = this.ejb.dWW;
-                        if (qVar2.bgi() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
-                            qVar3 = this.ejb.dWW;
-                            long templateId = qVar3.bgi().getTemplateId();
-                            qVar4 = this.ejb.dWW;
-                            String bfF = qVar4.bgi().bfF();
-                            jVar4 = this.ejb.ehB;
-                            String id = jVar4.aIL().getId();
-                            jVar5 = this.ejb.ehB;
-                            String name = jVar5.aIL().getName();
-                            jVar6 = this.ejb.ehB;
-                            com.baidu.tieba.pb.b.a(templateId, bfF, str, "PB", str2, str3, "tpoint", str4, str5, id, name, jVar6.IU().getTid());
+            pVar = this.esl.efS;
+            if (pVar != null) {
+                jVar2 = this.esl.eqJ;
+                if (jVar2.aKC() != null) {
+                    jVar3 = this.esl.eqJ;
+                    if (jVar3.Ji() != null) {
+                        pVar2 = this.esl.efS;
+                        if (pVar2.bhY() != null && !"VIEW_TRUE".equals(str3) && !"VIEW_CAROUSEL".equals(str3)) {
+                            pVar3 = this.esl.efS;
+                            long templateId = pVar3.bhY().getTemplateId();
+                            pVar4 = this.esl.efS;
+                            String bhv = pVar4.bhY().bhv();
+                            jVar4 = this.esl.eqJ;
+                            String id = jVar4.aKC().getId();
+                            jVar5 = this.esl.eqJ;
+                            String name = jVar5.aKC().getName();
+                            jVar6 = this.esl.eqJ;
+                            com.baidu.tieba.pb.b.a(templateId, bhv, str, "PB", str2, str3, "tpoint", str4, str5, id, name, jVar6.Ji().getTid());
                         }
                     }
                 }
@@ -53,17 +53,17 @@ public class ap implements b.a {
     }
 
     @Override // com.baidu.tieba.pb.b.a
-    public int aHN() {
-        com.baidu.tieba.tbadkCore.data.q qVar;
-        com.baidu.tieba.tbadkCore.data.q qVar2;
-        qVar = this.ejb.dWW;
-        if (eq.h(qVar)) {
-            qVar2 = this.ejb.dWW;
-            ArrayList<com.baidu.tieba.tbadkCore.data.k> bfC = qVar2.bgi().bfC();
-            if (bfC == null) {
+    public int aJB() {
+        com.baidu.tieba.tbadkCore.data.p pVar;
+        com.baidu.tieba.tbadkCore.data.p pVar2;
+        pVar = this.esl.efS;
+        if (ey.g(pVar)) {
+            pVar2 = this.esl.efS;
+            ArrayList<com.baidu.tieba.tbadkCore.data.j> bhs = pVar2.bhY().bhs();
+            if (bhs == null) {
                 return 0;
             }
-            return bfC.size();
+            return bhs.size();
         }
         return 0;
     }

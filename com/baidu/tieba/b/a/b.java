@@ -42,7 +42,7 @@ public abstract class b extends com.baidu.tieba.b.a.a {
 
     /* renamed from: com.baidu.tieba.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0053b extends b {
+    public static class C0052b extends b {
         @Override // com.baidu.tieba.b.a.b
         public double e(float f, float f2, float f3, int i) {
             return com.baidu.tieba.b.c.b.a(i, 20.0d);

@@ -24,7 +24,7 @@ public class GetUserInfoRequstData extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            n.a(builder, true);
+            n.bindCommonParamsToProtobufData(builder, true);
         }
         GetUserInfoReqIdl.Builder builder2 = new GetUserInfoReqIdl.Builder();
         builder.uid = Long.valueOf(this.mUid);

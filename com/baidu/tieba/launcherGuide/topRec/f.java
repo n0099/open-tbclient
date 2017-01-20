@@ -6,11 +6,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ e djg;
+    final /* synthetic */ e dqq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.djg = eVar;
+        this.dqq = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,26 +26,26 @@ public class f implements Animation.AnimationListener {
         TextView textView5;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.djg.djc;
+        i = this.dqq.dqm;
         if (i < 100) {
-            textView5 = this.djg.djd;
-            topRecActivity2 = this.djg.diM;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(r.j.done))).append("(");
-            i2 = this.djg.djc;
+            textView5 = this.dqq.dqn;
+            topRecActivity2 = this.dqq.dpW;
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(r.l.done))).append("(");
+            i2 = this.dqq.dqm;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
-            textView = this.djg.djd;
-            topRecActivity = this.djg.diM;
-            textView.setText(String.valueOf(topRecActivity.getPageContext().getString(r.j.done)) + "(99+)");
+            textView = this.dqq.dqn;
+            topRecActivity = this.dqq.dpW;
+            textView.setText(String.valueOf(topRecActivity.getPageContext().getString(r.l.done)) + "(99+)");
         }
-        textView2 = this.djg.djd;
+        textView2 = this.dqq.dqn;
         textView2.invalidate();
-        textView3 = this.djg.djd;
-        animation2 = this.djg.djf;
+        textView3 = this.dqq.dqn;
+        animation2 = this.dqq.dqp;
         textView3.setAnimation(animation2);
-        animation3 = this.djg.djf;
+        animation3 = this.dqq.dqp;
         animation3.start();
-        textView4 = this.djg.djd;
+        textView4 = this.dqq.dqn;
         textView4.setVisibility(4);
     }
 

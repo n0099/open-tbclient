@@ -1,41 +1,38 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.ForumPresentInfo;
-import tbclient.UserRankPresentInfo;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes.dex */
 public class u {
-    public String QV;
-    public ArrayList<a> users;
+    private String mIcon;
+    private String mName;
+    private String mUrl;
 
-    public void a(ForumPresentInfo forumPresentInfo) {
-        if (forumPresentInfo != null) {
-            this.QV = forumPresentInfo.content;
-            this.users = new ArrayList<>();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < forumPresentInfo.user_list.size()) {
-                    this.users.add(new a(forumPresentInfo.user_list.get(i2)));
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
+    public String getIcon() {
+        return this.mIcon;
+    }
+
+    public String getUrl() {
+        return this.mUrl;
+    }
+
+    public void a(MemberShowIcon memberShowIcon) {
+        if (memberShowIcon != null) {
+            this.mIcon = memberShowIcon.icon;
+            this.mName = memberShowIcon.name;
+            this.mUrl = memberShowIcon.url;
         }
     }
 
-    /* loaded from: classes.dex */
-    public class a {
-        public Integer QW;
-        public String userName;
-        public String userPortrait;
-
-        public a(UserRankPresentInfo userRankPresentInfo) {
-            if (userRankPresentInfo != null) {
-                this.QW = userRankPresentInfo.user_id;
-                this.userName = userRankPresentInfo.user_name;
-                this.userPortrait = userRankPresentInfo.portrait;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.mIcon = jSONObject.optString("icon");
+                this.mName = jSONObject.optString("name");
+                this.mUrl = jSONObject.optString("url");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

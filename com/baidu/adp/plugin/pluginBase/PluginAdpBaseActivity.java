@@ -9,16 +9,18 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.i;
-import com.baidu.adp.base.k;
+import com.baidu.adp.base.h;
+import com.baidu.adp.base.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.g.c;
+import com.baidu.adp.lib.f.c;
+import com.baidu.adp.lib.util.k;
+import com.baidu.adp.newwidget.a.i;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i, k {
+public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, h, j {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
@@ -67,7 +69,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     public void showToast(String str) {
-        com.baidu.adp.lib.util.k.showToast(getApplicationContext(), str);
+        k.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -128,7 +130,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -139,7 +141,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.eA().d(this.mId);
+        c.ey().d(this.mId);
         com.baidu.adp.base.a.aS().i(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
@@ -148,7 +150,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.eA().e(this.mId);
+        c.ey().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -165,21 +167,21 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.kt();
+            onGetPreLoadListView.cancelRefresh();
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public void onPreLoad(BdListView bdListView) {
     }
 
@@ -199,8 +201,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
 
     private void refreshImage(View view) {
         if (view != null) {
-            if (view instanceof com.baidu.adp.newwidget.a.i) {
-                ((com.baidu.adp.newwidget.a.i) view).refresh();
+            if (view instanceof i) {
+                ((i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;

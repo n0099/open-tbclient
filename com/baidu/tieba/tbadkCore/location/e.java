@@ -1,39 +1,34 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.location.Address;
+import com.baidu.adp.lib.d.a;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.tbadkCore.location.d;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ d fiB;
+public class e implements a.InterfaceC0004a {
+    final /* synthetic */ LocationModel frN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(d dVar, int i, boolean z) {
-        super(i, z);
-        this.fiB = dVar;
+    public e(LocationModel locationModel) {
+        this.frN = locationModel;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        d.a aVar;
-        d.a aVar2;
-        if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || !(socketResponsedMessage instanceof LocationSocketResponsedMessage)) {
-            BdLog.i("mLocationListener response error!");
-            aVar = this.fiB.fit;
-            if (aVar != null) {
-                String str = null;
-                if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
-                    str = socketResponsedMessage.getErrorString();
-                }
-                aVar2 = this.fiB.fit;
-                aVar2.fJ(str);
-                return;
-            }
+    @Override // com.baidu.adp.lib.d.a.InterfaceC0004a
+    public void b(int i, String str, Address address) {
+        LocationModel.a aVar;
+        LocationModel.a aVar2;
+        if (i == 0 && address != null) {
+            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + address.getLatitude());
+            this.frN.ci(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
             return;
         }
-        this.fiB.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
+        BdLog.i("mGetLonAndLatCallback error!");
+        aVar = this.frN.frH;
+        if (aVar != null) {
+            aVar2 = this.frN.frH;
+            aVar2.fG(str);
+        }
     }
 }

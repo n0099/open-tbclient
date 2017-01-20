@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements a.b {
-    private final /* synthetic */ Activity aDG;
-    private final /* synthetic */ TbPageContext aDH;
+    private final /* synthetic */ Activity aCy;
+    private final /* synthetic */ TbPageContext aCz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Activity activity, TbPageContext tbPageContext) {
-        this.aDG = activity;
-        this.aDH = tbPageContext;
+        this.aCy = activity;
+        this.aCz = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aDH.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aDG, "cn.jingling.motu.photowonder.plugin.mv")));
+        this.aCz.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aCy, "cn.jingling.motu.photowonder.plugin.mv")));
         aVar.dismiss();
     }
 }

@@ -14,50 +14,50 @@ import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PhotoLiveCoverView extends RelativeLayout {
-    private boolean apD;
-    private boolean apE;
-    private int aqA;
-    private int aqB;
-    private int aqC;
-    private int aqD;
-    private int aqE;
-    private int aqF;
-    private int aqG;
-    private int aqH;
-    private int aqI;
-    private int aqJ;
-    private RelativeLayout aqd;
-    private TbImageView aqe;
-    private TextView aqf;
-    private TextView aqg;
-    private TextView aqh;
-    private int aqn;
-    private ArrayList<Integer> aqo;
-    private boolean aqs;
-    private int aqz;
+    private boolean aoI;
+    private boolean aoJ;
+    private int apF;
+    private int apG;
+    private int apH;
+    private int apI;
+    private int apJ;
+    private int apK;
+    private int apL;
+    private int apM;
+    private int apN;
+    private int apO;
+    private int apP;
+    private RelativeLayout api;
+    private TbImageView apj;
+    private TextView apk;
+    private TextView apl;
+    private TextView apm;
+    private int apt;
+    private ArrayList<Integer> apu;
+    private boolean apy;
     private Context context;
     private int size;
 
     public PhotoLiveCoverView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aqn = 0;
-        this.apD = true;
-        this.apE = true;
-        this.aqs = true;
-        this.aqo = new ArrayList<>();
+        this.apt = 0;
+        this.aoI = true;
+        this.aoJ = true;
+        this.apy = true;
+        this.apu = new ArrayList<>();
         this.context = context;
-        this.aqz = (int) context.getResources().getDimension(r.e.ds80);
-        this.aqA = (int) context.getResources().getDimension(r.e.ds280);
-        this.aqB = (int) context.getResources().getDimension(r.e.ds170);
-        this.aqC = (int) context.getResources().getDimension(r.e.ds320);
-        this.aqD = (int) context.getResources().getDimension(r.e.ds200);
-        this.aqE = (int) context.getResources().getDimension(r.e.ds60);
-        this.aqF = (int) context.getResources().getDimension(r.e.ds120);
-        this.aqG = (int) context.getResources().getDimension(r.e.ds160);
-        this.aqH = (int) context.getResources().getDimension(r.e.ds220);
-        this.aqI = (int) context.getResources().getDimension(r.e.ds240);
-        this.aqJ = (int) context.getResources().getDimension(r.e.ds180);
-        this.size = (int) context.getResources().getDimension(r.e.ds8);
+        this.apF = (int) context.getResources().getDimension(r.f.ds80);
+        this.apG = (int) context.getResources().getDimension(r.f.ds280);
+        this.apH = (int) context.getResources().getDimension(r.f.ds170);
+        this.apI = (int) context.getResources().getDimension(r.f.ds320);
+        this.apJ = (int) context.getResources().getDimension(r.f.ds200);
+        this.apK = (int) context.getResources().getDimension(r.f.ds60);
+        this.apL = (int) context.getResources().getDimension(r.f.ds120);
+        this.apM = (int) context.getResources().getDimension(r.f.ds160);
+        this.apN = (int) context.getResources().getDimension(r.f.ds220);
+        this.apO = (int) context.getResources().getDimension(r.f.ds240);
+        this.apP = (int) context.getResources().getDimension(r.f.ds180);
+        this.size = (int) context.getResources().getDimension(r.f.ds8);
         init(context);
     }
 
@@ -70,47 +70,47 @@ public class PhotoLiveCoverView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        this.aqd = (RelativeLayout) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(r.h.photo_live_card_cover_and_expression, this).findViewById(r.g.photo_live_card_cover_and_expression);
-        AU();
+        this.api = (RelativeLayout) ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(r.j.photo_live_card_cover_and_expression, this).findViewById(r.h.photo_live_card_cover_and_expression);
+        AP();
     }
 
     public void setData(PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
-            a(this.apD, this.apE, photoLiveCardData);
+            a(this.aoI, this.aoJ, photoLiveCardData);
         }
     }
 
     private void a(boolean z, boolean z2, PhotoLiveCardData photoLiveCardData) {
         if (photoLiveCardData != null) {
-            if (z && this.aqs) {
-                this.aqd.setVisibility(0);
+            if (z && this.apy) {
+                this.api.setVisibility(0);
                 setCover(photoLiveCardData.getPhotoLiveCover());
                 setExpression(photoLiveCardData);
-            } else if (this.aqd != null) {
-                this.aqd.setVisibility(8);
+            } else if (this.api != null) {
+                this.api.setVisibility(8);
             }
         }
     }
 
-    private void AU() {
-        if (this.aqd != null) {
-            this.aqe = (TbImageView) this.aqd.findViewById(r.g.live_cover);
-            this.aqe.setGifIconSupport(false);
-            AW();
+    private void AP() {
+        if (this.api != null) {
+            this.apj = (TbImageView) this.api.findViewById(r.h.live_cover);
+            this.apj.setGifIconSupport(false);
+            AR();
         }
     }
 
-    private void AW() {
-        if (this.aqd != null) {
-            this.aqf = (TextView) this.aqd.findViewById(r.g.first_style_first_expression);
-            this.aqg = (TextView) this.aqd.findViewById(r.g.first_style_second_expression);
-            this.aqh = (TextView) this.aqd.findViewById(r.g.first_style_third_expression);
+    private void AR() {
+        if (this.api != null) {
+            this.apk = (TextView) this.api.findViewById(r.h.first_style_first_expression);
+            this.apl = (TextView) this.api.findViewById(r.h.first_style_second_expression);
+            this.apm = (TextView) this.api.findViewById(r.h.first_style_third_expression);
         }
     }
 
     private void setExpression(PhotoLiveCardData photoLiveCardData) {
-        this.aqo.clear();
-        AY();
+        this.apu.clear();
+        AT();
         if (photoLiveCardData != null && photoLiveCardData.getExpressionDatas() != null) {
             int size = photoLiveCardData.getExpressionDatas().size();
             for (int i = 0; i < size && i < 3; i++) {
@@ -119,26 +119,26 @@ public class PhotoLiveCoverView extends RelativeLayout {
                     a(intValue, photoLiveCardData.getExpressionDatas(), i);
                 }
             }
-            AX();
+            AS();
         }
     }
 
-    private void AY() {
-        this.aqf.setText("");
-        this.aqg.setText("");
-        this.aqh.setText("");
-        if (this.aqf.getVisibility() == 8) {
-            this.aqf.setVisibility(0);
+    private void AT() {
+        this.apk.setText("");
+        this.apl.setText("");
+        this.apm.setText("");
+        if (this.apk.getVisibility() == 8) {
+            this.apk.setVisibility(0);
         }
-        if (this.aqg.getVisibility() == 8) {
-            this.aqg.setVisibility(0);
+        if (this.apl.getVisibility() == 8) {
+            this.apl.setVisibility(0);
         }
-        if (this.aqh.getVisibility() == 8) {
-            this.aqh.setVisibility(0);
+        if (this.apm.getVisibility() == 8) {
+            this.apm.setVisibility(0);
         }
-        this.aqo.add(Integer.valueOf(this.aqf.getId()));
-        this.aqo.add(Integer.valueOf(this.aqg.getId()));
-        this.aqo.add(Integer.valueOf(this.aqh.getId()));
+        this.apu.add(Integer.valueOf(this.apk.getId()));
+        this.apu.add(Integer.valueOf(this.apl.getId()));
+        this.apu.add(Integer.valueOf(this.apm.getId()));
     }
 
     private void a(n nVar, TextView textView) {
@@ -148,46 +148,46 @@ public class PhotoLiveCoverView extends RelativeLayout {
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(nVar.ak(nVar.getLabelName(), String.valueOf(nVar.AJ())));
-            ej(textView.getId());
+            textView.setText(nVar.ak(nVar.getLabelName(), String.valueOf(nVar.AE())));
+            ek(textView.getId());
         }
     }
 
     private void a(int i, ArrayList<n> arrayList, int i2) {
         if (i >= 0 && i < 3) {
-            switch (this.aqn) {
+            switch (this.apt) {
                 case 0:
-                    a(this.aqz, this.aqA, this.aqf);
-                    a(this.aqB, this.aqC, this.aqg);
-                    a(this.aqD, this.aqE, this.aqh);
+                    a(this.apF, this.apG, this.apk);
+                    a(this.apH, this.apI, this.apl);
+                    a(this.apJ, this.apK, this.apm);
                     break;
                 case 1:
-                    a(this.aqE, this.aqF, this.aqf);
-                    a(this.aqG, this.aqE, this.aqg);
-                    a(this.aqH, this.aqC, this.aqh);
+                    a(this.apK, this.apL, this.apk);
+                    a(this.apM, this.apK, this.apl);
+                    a(this.apN, this.apI, this.apm);
                     break;
                 case 2:
-                    a(this.aqE, this.aqI, this.aqf);
-                    a(this.aqJ, this.aqE, this.aqg);
-                    a(this.aqH, this.aqC, this.aqh);
+                    a(this.apK, this.apO, this.apk);
+                    a(this.apP, this.apK, this.apl);
+                    a(this.apN, this.apI, this.apm);
                     break;
             }
             if (i == 0) {
-                a(arrayList.get(i2), this.aqf);
+                a(arrayList.get(i2), this.apk);
             } else if (i == 1) {
-                a(arrayList.get(i2), this.aqg);
+                a(arrayList.get(i2), this.apl);
             } else if (i == 2) {
-                a(arrayList.get(i2), this.aqh);
+                a(arrayList.get(i2), this.apm);
             }
         }
     }
 
     private void setCover(String str) {
-        this.aqe.setVisibility(0);
+        this.apj.setVisibility(0);
         if (!TextUtils.isEmpty(str)) {
-            this.aqe.c(str, 10, false);
+            this.apj.c(str, 10, false);
         } else {
-            this.aqe.c(null, 10, false);
+            this.apj.c(null, 10, false);
         }
     }
 
@@ -199,27 +199,27 @@ public class PhotoLiveCoverView extends RelativeLayout {
         }
     }
 
-    private void AX() {
-        if (this.aqo.size() != 0) {
-            int size = this.aqo.size();
+    private void AS() {
+        if (this.apu.size() != 0) {
+            int size = this.apu.size();
             for (int i = 0; i < size; i++) {
-                if (this.aqo.get(i).intValue() == this.aqf.getId()) {
-                    this.aqf.setVisibility(8);
-                } else if (this.aqo.get(i).intValue() == this.aqg.getId()) {
-                    this.aqg.setVisibility(8);
-                } else if (this.aqo.get(i).intValue() == this.aqh.getId()) {
-                    this.aqh.setVisibility(8);
+                if (this.apu.get(i).intValue() == this.apk.getId()) {
+                    this.apk.setVisibility(8);
+                } else if (this.apu.get(i).intValue() == this.apl.getId()) {
+                    this.apl.setVisibility(8);
+                } else if (this.apu.get(i).intValue() == this.apm.getId()) {
+                    this.apm.setVisibility(8);
                 }
             }
         }
     }
 
-    private void ej(int i) {
-        if (this.aqo.size() != 0) {
-            int size = this.aqo.size();
+    private void ek(int i) {
+        if (this.apu.size() != 0) {
+            int size = this.apu.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (this.aqo.get(i2).intValue() == i) {
-                    this.aqo.remove(i2);
+                if (this.apu.get(i2).intValue() == i) {
+                    this.apu.remove(i2);
                     return;
                 }
             }
@@ -231,14 +231,14 @@ public class PhotoLiveCoverView extends RelativeLayout {
     }
 
     public void setShowExpression(boolean z) {
-        this.apE = z;
+        this.aoJ = z;
     }
 
     public void setShowImage(boolean z) {
-        this.aqs = z;
+        this.apy = z;
     }
 
     public void setChooseStyle(int i) {
-        this.aqn = i;
+        this.apt = i;
     }
 }

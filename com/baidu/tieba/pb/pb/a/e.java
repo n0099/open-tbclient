@@ -1,35 +1,43 @@
 package com.baidu.tieba.pb.pb.a;
 
-import com.baidu.tieba.play.QuickVideoView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements QuickVideoView.b {
-    final /* synthetic */ d dXu;
+public class e implements View.OnClickListener {
+    final /* synthetic */ d egt;
+    private final /* synthetic */ String egu;
+    private final /* synthetic */ String egv;
+    private final /* synthetic */ String egw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar) {
-        this.dXu = dVar;
+    public e(d dVar, String str, String str2, String str3) {
+        this.egt = dVar;
+        this.egu = str;
+        this.egv = str2;
+        this.egw = str3;
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.b
-    public void onSurfaceDestroyed() {
-        s sVar;
-        s sVar2;
-        s sVar3;
-        s sVar4;
-        sVar = this.dXu.dXm;
-        if (sVar != null) {
-            sVar2 = this.dXu.dXm;
-            if (sVar2.aNV != null) {
-                sVar3 = this.dXu.dXm;
-                if (sVar3.aNV.isPlaying()) {
-                    sVar4 = this.dXu.dXm;
-                    sVar4.aNV.stopPlayback();
-                    this.dXu.e(false, 0);
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        PbActivity pbActivity;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.egu) && !StringUtils.isNull(this.egv)) {
+            if (!i.gk()) {
+                pbActivity = this.egt.ehi;
+                pbActivity.showToast(r.l.neterror);
+                return;
             }
+            context = this.egt.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.egu) + "," + this.egv, this.egw, this.egw, context.getString(r.l.app_info_for_map));
+            context2 = this.egt.mContext;
+            com.baidu.tbadk.browser.f.u(context2, format);
         }
-        this.dXu.akW();
-        this.dXu.cyC = false;
     }
 }

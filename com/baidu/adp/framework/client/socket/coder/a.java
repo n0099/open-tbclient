@@ -3,14 +3,14 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    private static byte ix = Byte.MIN_VALUE;
-    private static byte iy = 64;
-    private static byte iz = 8;
-    private boolean iA = false;
-    private boolean iB = false;
-    private boolean iC = false;
-    private int iD;
-    private int iE;
+    private static byte it = Byte.MIN_VALUE;
+    private static byte iu = 64;
+    private static byte iw = 8;
+    private int iA;
+    private int iB;
+    private boolean ix = false;
+    private boolean iy = false;
+    private boolean iz = false;
 
     public static int bU() {
         return 9;
@@ -18,11 +18,11 @@ public class a {
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + bU());
-        byte b = z ? (byte) (ix | 0) : (byte) 0;
+        byte b = z ? (byte) (it | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | iy);
+            b = (byte) (b | iu);
         }
-        allocate.put((byte) (b | iz));
+        allocate.put((byte) (b | iw));
         allocate.putInt(i);
         allocate.putInt(i2);
         if (bArr != null) {
@@ -36,37 +36,37 @@ public class a {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, bU());
         a aVar = new a();
         byte b = wrap.get();
-        if ((ix & b) != 0) {
-            aVar.iA = true;
+        if ((it & b) != 0) {
+            aVar.ix = true;
         }
-        if ((iy & b) != 0) {
-            aVar.iB = true;
+        if ((iu & b) != 0) {
+            aVar.iy = true;
         }
-        if ((b & iz) != 0) {
-            aVar.iC = true;
+        if ((b & iw) != 0) {
+            aVar.iz = true;
         }
-        aVar.iD = wrap.getInt();
-        aVar.iE = wrap.getInt();
+        aVar.iA = wrap.getInt();
+        aVar.iB = wrap.getInt();
         return aVar;
     }
 
     public boolean bV() {
-        return this.iB;
+        return this.iy;
     }
 
     public int bW() {
-        return this.iD;
-    }
-
-    public boolean bX() {
         return this.iA;
     }
 
+    public boolean bX() {
+        return this.ix;
+    }
+
     public int bY() {
-        return this.iE;
+        return this.iB;
     }
 
     public boolean bZ() {
-        return this.iC;
+        return this.iz;
     }
 }

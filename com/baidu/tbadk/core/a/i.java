@@ -9,48 +9,48 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends GetTplStokenCallback {
-    final /* synthetic */ h Ox;
-    private final /* synthetic */ h.a Oy;
+    final /* synthetic */ h NI;
+    private final /* synthetic */ h.a NJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, h.a aVar) {
-        this.Ox = hVar;
-        this.Oy = aVar;
+        this.NI = hVar;
+        this.NJ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onSuccess(GetTplStokenResult getTplStokenResult) {
         if (getTplStokenResult == null) {
-            if (this.Oy != null) {
-                this.Oy.onFailed();
+            if (this.NJ != null) {
+                this.NJ.onFailed();
                 return;
             }
             return;
         }
         Map<String, String> map = getTplStokenResult.tplStokenMap;
         if (map == null || map.size() <= 0) {
-            if (this.Oy != null) {
-                this.Oy.onFailed();
+            if (this.NJ != null) {
+                this.NJ.onFailed();
                 return;
             }
             return;
         }
         String str = map.get(TbConfig.PassConfig.TPL);
         if (StringUtils.isNULL(str)) {
-            if (this.Oy != null) {
-                this.Oy.onFailed();
+            if (this.NJ != null) {
+                this.NJ.onFailed();
             }
-        } else if (this.Oy != null) {
-            this.Oy.onSuccess(str);
+        } else if (this.NJ != null) {
+            this.NJ.onSuccess(str);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onFailure(GetTplStokenResult getTplStokenResult) {
-        if (this.Oy != null) {
-            this.Oy.onFailed();
+        if (this.NJ != null) {
+            this.NJ.onFailed();
         }
     }
 

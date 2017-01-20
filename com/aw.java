@@ -8,27 +8,27 @@ import com.baidu.cloudsdk.social.oauth.TwitterAuthHandler;
 /* loaded from: classes.dex */
 public class aw {
     private String b;
-    private SocialOAuthActivity fIH;
-    private IBaiduListener fII;
+    private SocialOAuthActivity fRa;
+    private IBaiduListener fRb;
 
     public aw(SocialOAuthActivity socialOAuthActivity, String str, IBaiduListener iBaiduListener) {
-        this.fIH = socialOAuthActivity;
+        this.fRa = socialOAuthActivity;
         this.b = str;
-        this.fII = iBaiduListener;
+        this.fRb = iBaiduListener;
     }
 
-    public av rA(String str) {
+    public av rT(String str) {
         switch (MediaType.fromString(str)) {
             case SINAWEIBO:
-                return new as(this.fIH, this.b, this.fII);
+                return new as(this.fRa, this.b, this.fRb);
             case QZONE:
-                return new ar(this.fIH, this.b, this.fII);
+                return new ar(this.fRa, this.b, this.fRb);
             case FACEBOOK:
-                return new FacebookAuthHandler(this.fIH, this.b, this.fII);
+                return new FacebookAuthHandler(this.fRa, this.b, this.fRb);
             case TWITTER:
-                return new TwitterAuthHandler(this.fIH, this.b, this.fII);
+                return new TwitterAuthHandler(this.fRa, this.b, this.fRb);
             default:
-                return new av(this.fIH, this.b, str, this.fII);
+                return new av(this.fRa, this.b, str, this.fRb);
         }
     }
 }

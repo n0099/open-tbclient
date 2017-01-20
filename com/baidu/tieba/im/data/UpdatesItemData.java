@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Serializable {
+public class UpdatesItemData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = -6859992224160576142L;
     private String authorId;
     private String authorName;
@@ -23,7 +24,7 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
     private String updatesType;
 
     public String toJsonString() {
-        return i.jsonStrWithObject(this);
+        return OrmObject.jsonStrWithObject(this);
     }
 
     public GroupNewsPojo toGroupNewsPojo() {
@@ -107,14 +108,14 @@ public class UpdatesItemData extends com.baidu.tbadk.core.util.a implements Seri
         this.notice_id = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(getGroupHeadUrl());
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(getGroupHeadUrl());

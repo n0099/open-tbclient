@@ -4,15 +4,15 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements MediaPlayer.OnPreparedListener {
-    final /* synthetic */ v aLV;
+    final /* synthetic */ v aKX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar) {
-        this.aLV = vVar;
+        this.aKX = vVar;
     }
 
     @Override // android.media.MediaPlayer.OnPreparedListener
     public void onPrepared(MediaPlayer mediaPlayer) {
-        this.aLV.notifyOnPrepared();
+        this.aKX.notifyOnPrepared();
     }
 }

@@ -6,6 +6,7 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbPageContext;
@@ -71,7 +72,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             result.setIsInstall(0);
             result.setApkVersion("");
         }
-        return com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData);
+        return OrmObject.jsonWithObject(jSResultData);
     }
 
     private boolean isInstall(String str) {
@@ -79,11 +80,11 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         if (StringUtils.isNull(str) || (split = str.split("\\.")) == null || split.length == 0) {
             return false;
         }
-        int g = com.baidu.adp.lib.h.b.g(split[0], 0);
+        int g = com.baidu.adp.lib.g.b.g(split[0], 0);
         if (g > 3) {
             return true;
         }
-        return split.length >= 2 && g == 3 && com.baidu.adp.lib.h.b.g(split[1], 0) >= 2;
+        return split.length >= 2 && g == 3 && com.baidu.adp.lib.g.b.g(split[1], 0) >= 2;
     }
 
     private String downLoadAPK(String str, long j, String str2) {
@@ -97,7 +98,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
             jSResultData.setErrorMsg("");
-            return com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(jSResultData);
+            return OrmObject.jsonStrWithObject(jSResultData);
         }
         return null;
     }
@@ -121,7 +122,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Cq().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m9getInst().getResources().getString(r.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Cl().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m9getInst().getResources().getString(r.l.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -133,7 +134,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         JSResultData.Result result = new JSResultData.Result();
         jSResultData.setResult(result);
         result.setDownload(i);
-        JSONObject jsonWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData);
+        JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
             ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
         } else if (this.mBaseWebView != null) {
@@ -150,7 +151,7 @@ public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         JSResultData.Result result = new JSResultData.Result();
         jSResultData.setResult(result);
         result.setInstall(1);
-        JSONObject jsonWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData);
+        JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
             ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
         } else if (this.mBaseWebView != null) {

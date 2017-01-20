@@ -1,29 +1,35 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.e;
-import com.baidu.tbadk.data.IconData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.widget.richText.TbRichText;
 /* loaded from: classes.dex */
-public class r implements e.a {
-    final /* synthetic */ q fha;
-    private final /* synthetic */ IconData fhb;
-    private final /* synthetic */ BdUniqueId fhc;
+class r extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ q fqs;
+    private final /* synthetic */ com.baidu.adp.widget.e fqt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar, IconData iconData, BdUniqueId bdUniqueId) {
-        this.fha = qVar;
-        this.fhb = iconData;
-        this.fhc = bdUniqueId;
+    public r(q qVar, com.baidu.adp.widget.e eVar) {
+        this.fqs = qVar;
+        this.fqt = eVar;
     }
 
-    @Override // com.baidu.adp.widget.e.a
-    public Drawable a(com.baidu.adp.widget.e eVar) {
-        com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.g.c.eA().a(this.fhb.getIcon(), 21, new Object[0]);
-        if (aVar == null) {
-            com.baidu.adp.lib.g.c.eA().a(this.fhb.getIcon(), 21, new s(this, eVar), this.fhc);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        p pVar;
+        p pVar2;
+        TbRichText tbRichText;
+        super.onLoaded((r) aVar, str, i);
+        if (aVar != null && aVar.jU()) {
+            pVar = this.fqs.fqp;
+            this.fqt.setDrawable(pVar.g(aVar));
+            pVar2 = this.fqs.fqp;
+            tbRichText = pVar2.dnz;
+            tbRichText.isChanged = true;
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
         }
-        return this.fha.g(aVar);
     }
 }

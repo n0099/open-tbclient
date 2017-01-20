@@ -1,29 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.write.write.r;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ExceptionData;
 /* loaded from: classes.dex */
-public class t implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ r.b fCC;
-
+class t extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(r.b bVar) {
-        this.fCC = bVar;
+    public t(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tbadk.imageManager.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        this.fCC.lE(true);
-        if (aVar != null) {
-            tbImageView2 = this.fCC.aKr;
-            aVar.e(tbImageView2);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && com.baidu.tbadk.core.util.az.vr() != null && com.baidu.tbadk.core.util.az.vr().indexOf("NewVcode") != -1) {
+            TbadkCoreApplication.m9getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.m9getInst().getNewVcodeWebviewCrashCount() + 1);
         }
-        tbImageView = this.fCC.aKr;
-        tbImageView.setDefaultResource(r.f.image_group_load_f);
     }
 }

@@ -1,34 +1,23 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tieba.play.t;
-import java.util.List;
+import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
-class r implements t.a {
-    final /* synthetic */ ForumHeadVideoView bLk;
-    private long bLl;
+class r implements v.b {
+    final /* synthetic */ ForumHeadVideoView bRD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ForumHeadVideoView forumHeadVideoView) {
-        this.bLk = forumHeadVideoView;
+        this.bRD = forumHeadVideoView;
     }
 
-    @Override // com.baidu.tieba.play.t.a
-    public void onCompletion(com.baidu.tieba.play.t tVar) {
-        List list;
-        c currentVideoItemView = this.bLk.getCurrentVideoItemView();
+    @Override // com.baidu.tieba.play.v.b
+    public boolean onError(v vVar, int i, int i2) {
+        c currentVideoItemView = this.bRD.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
-            list = this.bLk.aUm;
-            if (x.s(list) == 1 && tVar != null && tVar.isLooping()) {
-                if (System.currentTimeMillis() - this.bLl > 100) {
-                    currentVideoItemView.aao();
-                    this.bLl = System.currentTimeMillis();
-                    return;
-                }
-                return;
-            }
-            currentVideoItemView.setVideoPlayState(1);
-            this.bLk.aay();
+            currentVideoItemView.stopPlayback();
+            currentVideoItemView.setVideoPlayState(4);
+            return true;
         }
+        return true;
     }
 }

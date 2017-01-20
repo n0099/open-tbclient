@@ -5,33 +5,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class n extends r {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.b> fiO;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> fsa;
 
     public n(int i) {
         super(i);
-        this.fiO = new HashMap<>();
+        this.fsa = new HashMap<>();
     }
 
-    public void a(String str, com.baidu.tieba.myCollection.baseHistory.b bVar) {
-        qu(str);
+    public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
+        qO(str);
         try {
-            Long valueOf = Long.valueOf(com.baidu.adp.lib.h.b.c(str, -1L));
+            Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                this.fiO.put(valueOf, bVar);
+                this.fsa.put(valueOf, aVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public com.baidu.tieba.myCollection.baseHistory.b qs(String str) {
-        com.baidu.tieba.myCollection.baseHistory.b bVar;
+    public com.baidu.tieba.myCollection.baseHistory.a qM(String str) {
+        com.baidu.tieba.myCollection.baseHistory.a aVar;
         try {
-            Long valueOf = Long.valueOf(com.baidu.adp.lib.h.b.c(str, -1L));
+            Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                bVar = this.fiO.get(valueOf) != null ? this.fiO.get(valueOf) : null;
+                aVar = this.fsa.get(valueOf) != null ? this.fsa.get(valueOf) : null;
             }
-            return bVar;
+            return aVar;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
@@ -39,22 +39,22 @@ public class n extends r {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.r
-    public void aTd() {
+    public void aVa() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.fiS.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.fse.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.fiS.remove(l);
-                this.fiO.remove(l);
+                this.fse.remove(l);
+                this.fsa.remove(l);
             } else {
-                this.fiS.clear();
-                this.fiO.clear();
+                this.fse.clear();
+                this.fsa.clear();
             }
         }
     }

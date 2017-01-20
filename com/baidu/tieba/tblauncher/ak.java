@@ -1,32 +1,41 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a arp;
-    private final /* synthetic */ int cHo;
-    final /* synthetic */ ad flb;
+public class ak implements View.OnClickListener {
+    final /* synthetic */ aa fuh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ad adVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.flb = adVar;
-        this.arp = aVar;
-        this.cHo = i;
+    public ak(aa aaVar) {
+        this.fuh = aaVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        this.arp.dismiss();
-        if (this.cHo == 0) {
-            mainTabActivity2 = this.flb.fkU;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
-        } else if (this.cHo == 1) {
-            mainTabActivity = this.flb.fkU;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
+        FragmentTabHost fragmentTabHost;
+        FragmentTabHost fragmentTabHost2;
+        int i = 3;
+        mainTabActivity = this.fuh.fua;
+        mainTabActivity2 = this.fuh.fua;
+        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
+        fragmentTabHost = this.fuh.bto;
+        if (fragmentTabHost.getCurrentTabType() != 3) {
+            fragmentTabHost2 = this.fuh.bto;
+            if (fragmentTabHost2.getCurrentTabType() != 2) {
+                i = 0;
+            } else {
+                i = 1;
+            }
         }
+        TiebaStatic.log(new ar("c10378").s("obj_type", i));
     }
 }

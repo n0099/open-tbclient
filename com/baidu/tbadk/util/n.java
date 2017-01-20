@@ -12,15 +12,15 @@ import java.lang.reflect.Field;
 import tbclient.CommonReq;
 /* loaded from: classes.dex */
 public class n {
-    public static void a(Object obj, boolean z) {
-        a(obj, z, false);
+    public static void bindCommonParamsToProtobufData(Object obj, boolean z) {
+        bindCommonParamsToProtobufData(obj, z, false);
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        a(obj, z, z2, false);
+    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2) {
+        bindCommonParamsToProtobufData(obj, z, z2, false);
     }
 
-    public static void a(Object obj, boolean z, boolean z2, boolean z3) {
+    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2, boolean z3) {
         AccountData currentAccountInfo;
         if (obj != null) {
             try {

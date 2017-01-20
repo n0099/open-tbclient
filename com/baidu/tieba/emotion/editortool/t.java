@@ -3,35 +3,35 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class t {
-    private int boA;
-    private int boB;
-    private int boC;
-    private int boD;
-    private com.baidu.tbadk.editortools.emotiontool.c boE;
-    private int boF;
-    private int boG;
-    private EmotionGroupType boz;
+    private EmotionGroupType bwm;
+    private int bwn;
+    private int bwo;
+    private int bwp;
+    private int bwq;
+    private com.baidu.tbadk.editortools.emotiontool.c bwr;
+    private int bws;
+    private int bwt;
     private int column;
     private int index;
     private int row;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.boE = cVar;
+        this.bwr = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c Sq() {
-        return this.boE;
+    public com.baidu.tbadk.editortools.emotiontool.c TM() {
+        return this.bwr;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.boz = emotionGroupType;
+        this.bwm = emotionGroupType;
     }
 
-    public EmotionGroupType Sr() {
-        return this.boz;
+    public EmotionGroupType TN() {
+        return this.bwm;
     }
 
-    public void eP(int i) {
+    public void eQ(int i) {
         this.row = i;
     }
 
@@ -39,48 +39,48 @@ public class t {
         return this.row;
     }
 
-    public void eO(int i) {
+    public void eP(int i) {
         this.column = i;
     }
 
-    public int Ss() {
+    public int TO() {
         return this.column;
     }
 
-    public void gt(int i) {
-        this.boG = i;
+    public void hf(int i) {
+        this.bwt = i;
     }
 
-    public int St() {
-        return this.boG;
+    public int TP() {
+        return this.bwt;
     }
 
-    public void gu(int i) {
-        this.boF = i;
+    public void hg(int i) {
+        this.bws = i;
     }
 
-    public int Su() {
-        return this.boF;
+    public int TQ() {
+        return this.bws;
     }
 
-    public void gv(int i) {
-        this.boA = i;
+    public void hh(int i) {
+        this.bwn = i;
     }
 
-    public int Sv() {
-        return this.boA;
+    public int TR() {
+        return this.bwn;
     }
 
-    public void gw(int i) {
-        this.boC = i;
+    public void hi(int i) {
+        this.bwp = i;
     }
 
-    public int Sw() {
-        return this.boC;
+    public int TS() {
+        return this.bwp;
     }
 
     public void setEndIndex(int i) {
-        this.boD = i;
+        this.bwq = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class t {
         return this.index;
     }
 
-    public void gx(int i) {
-        this.boB = i;
+    public void hj(int i) {
+        this.bwo = i;
     }
 
-    public int Sx() {
-        return this.boB;
+    public int TT() {
+        return this.bwo;
     }
 }

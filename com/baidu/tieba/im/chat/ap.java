@@ -1,90 +1,98 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.y;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.r;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected TbPageContext<MsglistActivity<?>> GO;
-    protected long cFF;
-    private boolean cFG;
-    private boolean cFH;
-    protected int cFI;
-    protected com.baidu.adp.lib.d.a cFy;
-    protected com.baidu.adp.lib.d.b cFz;
+public class ap extends com.baidu.adp.base.d<MsglistActivity<?>> {
+    private TextView cMT;
+    private LinearLayout cMU;
+    private TextView cMV;
+    private TextView cMW;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
-    @Override // com.baidu.adp.widget.ListView.a
-    protected /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, y.a aVar) {
-        return a(i, view, viewGroup, chatMessage, (a) ((a) aVar));
+    public ap(TbPageContext<MsglistActivity<?>> tbPageContext) {
+        super(tbPageContext, r.j.msg_msgmid_view);
+        this.cMT = null;
+        initView();
     }
 
-    public ap(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cFy = null;
-        this.cFz = null;
-        this.cFF = 0L;
-        this.cFG = false;
-        this.cFH = false;
-        this.GO = tbPageContext;
+    private void initView() {
+        this.cMT = (TextView) findViewById(r.h.tex_msgcontent);
+        this.cMT.setMovementMethod(LinkMovementMethod.getInstance());
+        this.cMU = (LinearLayout) findViewById(r.h.lay_add_friend);
+        this.cMV = (TextView) findViewById(r.h.btn_add_friend);
+        this.cMW = (TextView) findViewById(r.h.text_add_friend);
+        this.cMU.setVisibility(8);
     }
 
-    public void a(com.baidu.adp.lib.d.a aVar) {
-        this.cFy = aVar;
-    }
-
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.d.b bVar) {
-        this.cFz = bVar;
-    }
-
-    private void amX() {
-        this.cFF = System.currentTimeMillis() / 1000;
-    }
-
-    public boolean amY() {
-        return this.cFG;
-    }
-
-    public void fv(boolean z) {
-        this.cFG = z;
-    }
-
-    public boolean amZ() {
-        return this.cFH;
-    }
-
-    public void fw(boolean z) {
-        this.cFH = z;
-    }
-
-    public void kz(int i) {
-        this.cFI = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, a<T> aVar) {
-        if (chatMessage != null && chatMessage.getCacheData() == null) {
-            chatMessage.setCacheData(new MsgCacheData());
+    public void setData(ChatMessage chatMessage) {
+        this.cMU.setVisibility(8);
+        if (chatMessage == null) {
+            this.cMT.setText("");
+        } else if (!a(chatMessage)) {
+            this.cMT.setVisibility(0);
+            String v = com.baidu.tieba.im.util.h.v(chatMessage);
+            if (!TextUtils.isEmpty(v)) {
+                this.cMT.setText(v);
+            } else {
+                this.cMT.setText("");
+            }
         }
-        amX();
-        return view;
     }
 
-    /* loaded from: classes.dex */
-    public static class a<T> extends y.a {
-        private T cFJ;
-
-        public a(View view, T t) {
-            super(view);
-            this.cFJ = t;
+    private boolean a(ChatMessage chatMessage) {
+        JSONObject jSONObject;
+        String optString;
+        UserData toUserInfo;
+        if (chatMessage == null || !(chatMessage instanceof PersonalChatMessage)) {
+            return false;
         }
-
-        public T ana() {
-            return this.cFJ;
+        if (chatMessage.getMsgType() != 11 || TextUtils.isEmpty(chatMessage.getContent())) {
+            return false;
         }
+        try {
+            jSONObject = new JSONObject(chatMessage.getContent());
+            optString = jSONObject.optString("eventId");
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+        if (optString == null) {
+            return false;
+        }
+        if (optString.equals("406")) {
+            this.cMU.setVisibility(0);
+            this.cMT.setVisibility(8);
+            String optString2 = jSONObject.optString("userMsg");
+            JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
+            if (optJSONObject == null) {
+                return false;
+            }
+            int optInt = optJSONObject.optInt("button_type");
+            String optString3 = optJSONObject.optString("name");
+            long optLong = optJSONObject.optLong("userId");
+            if (chatMessage.getUserId() == optLong) {
+                toUserInfo = chatMessage.getUserInfo();
+            } else {
+                toUserInfo = chatMessage.getToUserInfo();
+            }
+            String userName = toUserInfo.getUserName();
+            String portrait = toUserInfo.getPortrait();
+            this.cMW.setText(optString2);
+            if (optInt == 1) {
+                this.cMV.setVisibility(0);
+                this.cMV.setText(optString3);
+                this.cMV.setOnClickListener(new aq(this, optLong, userName, portrait));
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.data.a;
+import com.baidu.tieba.im.data.BlackListItemData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import protobuf.GetMaskInfo.UserInfo;
 /* loaded from: classes.dex */
 public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static final int FALSE = 0;
-    private ArrayList<a> blackList;
+    private ArrayList<BlackListItemData> blackList;
     private int isMask;
     private String list;
 
@@ -32,11 +32,11 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                 List<UserInfo> list = getMaskInfoResIdl.data.users;
                 int size = list != null ? list.size() : 0;
                 for (int i2 = 0; i2 < size; i2++) {
-                    a aVar = new a();
-                    aVar.kk(list.get(i2).portrait);
-                    aVar.setUserId(list.get(i2).uid.longValue());
-                    aVar.setUserName(list.get(i2).name);
-                    this.blackList.add(aVar);
+                    BlackListItemData blackListItemData = new BlackListItemData();
+                    blackListItemData.ky(list.get(i2).portrait);
+                    blackListItemData.setUserId(list.get(i2).uid.longValue());
+                    blackListItemData.setUserName(list.get(i2).name);
+                    this.blackList.add(blackListItemData);
                 }
             }
         }
@@ -54,7 +54,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         return this.list;
     }
 
-    public ArrayList<a> getBlackList() {
+    public ArrayList<BlackListItemData> getBlackList() {
         return this.blackList;
     }
 }

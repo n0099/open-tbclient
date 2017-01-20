@@ -1,6 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.frs.tab.TabData;
 /* loaded from: classes.dex */
 public enum SocialType {
     UNKNOWN(0, "未知"),
@@ -50,7 +51,7 @@ public enum SocialType {
                 return WANDA_FEIFAN;
             case 47:
                 return IQIYI;
-            case 49:
+            case TabData.TYPE_TAB_ALA_LIVE /* 49 */:
                 return XIAOMI;
             default:
                 return UNKNOWN;

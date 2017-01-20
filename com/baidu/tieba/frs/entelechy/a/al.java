@@ -1,31 +1,29 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tieba.card.cb;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tieba.card.cf;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends cb<bg> {
-    final /* synthetic */ ak bFH;
+public class al extends cf<bh> {
+    final /* synthetic */ ak bLY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar) {
-        this.bFH = akVar;
+        this.bLY = akVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cb
-    public void a(View view, bg bgVar) {
-        if (view != null && bgVar != null) {
-            if (view.getId() == r.g.frame_video) {
-                com.baidu.tieba.frs.g.b.abq().a(ak.bMV, bgVar, 4);
-            } else if (view.getId() == r.g.layout_root) {
-                com.baidu.tieba.frs.g.b.abq().a(ak.bMV, bgVar, 1);
-            } else if (view.getId() == r.g.image_user || view.getId() == r.g.user_name) {
-                com.baidu.tieba.frs.g.b.abq().a(ak.bMV, bgVar, 2);
-            } else if (view.getId() == r.g.header_divider) {
-                com.baidu.tieba.frs.utils.s.a(ak.bMV, bgVar.sc());
+    @Override // com.baidu.tieba.card.cf
+    public void a(View view, bh bhVar) {
+        if (view != null && bhVar != null) {
+            if (view.getId() == r.h.layout_root) {
+                com.baidu.tieba.frs.e.b.acx().a(ak.bTj, bhVar, 1);
+            } else if (view.getId() == r.h.image_user || view.getId() == r.h.user_name) {
+                com.baidu.tieba.frs.e.b.acx().a(ak.bTj, bhVar, 2);
+            } else if (view.getId() == r.h.header_divider) {
+                com.baidu.tieba.frs.utils.s.a(ak.bTj, bhVar.rU());
             }
         }
     }

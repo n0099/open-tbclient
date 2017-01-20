@@ -3,6 +3,6 @@ package com.baidu.tbadk.plugin;
 class d implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
-        PluginInstallProgressStatic.Gd();
+        PluginInstallProgressStatic.FX();
     }
 }

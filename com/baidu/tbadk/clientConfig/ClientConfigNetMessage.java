@@ -26,7 +26,7 @@ public class ClientConfigNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.type = this.mType;
         if (z) {
-            n.a(builder, true);
+            n.bindCommonParamsToProtobufData(builder, true);
         }
         GetClientConfigReqIdl.Builder builder2 = new GetClientConfigReqIdl.Builder();
         builder2.data = builder.build(false);

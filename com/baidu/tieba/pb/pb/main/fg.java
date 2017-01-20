@@ -1,28 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fg implements View.OnClickListener {
-    final /* synthetic */ er egZ;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.q ehc;
+public class fg implements Animation.AnimationListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fg(er erVar, com.baidu.tieba.tbadkCore.data.q qVar) {
-        this.egZ = erVar;
-        this.ehc = qVar;
+    public fg(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.eqf.enK.setTitleVisibility(false);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ObservedChangeLinearLayout observedChangeLinearLayout;
+        boolean z;
         PbActivity pbActivity;
-        PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.at("c10630").ab("obj_id", this.ehc.getAuthor().getUserId()));
-        pbActivity = this.egZ.dYB;
-        if (pbActivity.dZl.ehp != null) {
-            pbActivity2 = this.egZ.dYB;
-            pbActivity2.dZl.ehp.onClick(view);
+        observedChangeLinearLayout = this.eqf.eou;
+        observedChangeLinearLayout.setVisibility(0);
+        this.eqf.enK.setTitleVisibility(true);
+        this.eqf.iP(false);
+        z = this.eqf.epE;
+        if (z) {
+            this.eqf.aOd();
         }
+        pbActivity = this.eqf.ehi;
+        pbActivity.is(true);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

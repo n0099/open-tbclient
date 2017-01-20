@@ -16,14 +16,21 @@ class n extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ad adVar;
-        if (customResponsedMessage != null) {
-            Object data = customResponsedMessage.getData();
-            if (data instanceof Boolean) {
-                boolean booleanValue = ((Boolean) data).booleanValue();
-                adVar = this.this$0.fkF;
-                adVar.bhT().setWidgetLayerVisible(booleanValue);
+        aa aaVar;
+        boolean z;
+        aa aaVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            aaVar = this.this$0.ftN;
+            if (booleanValue) {
+                aaVar2 = this.this$0.ftN;
+                if (aaVar2.ajS()) {
+                    z = true;
+                    aaVar.fa(z);
+                }
             }
+            z = false;
+            aaVar.fa(z);
         }
     }
 }

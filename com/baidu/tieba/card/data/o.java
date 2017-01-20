@@ -1,63 +1,70 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.at;
 /* loaded from: classes.dex */
 public class o extends c {
-    public static final BdUniqueId beG = BdUniqueId.gen();
-    public static final BdUniqueId beH = BdUniqueId.gen();
-    public static String beI = "";
-    public static String beJ = "";
-    public static String beK = "";
-    public static String beL = "";
-    public static String beM = "";
-    public bg beB;
-    public boolean beA = false;
-    public boolean beN = true;
-    public int sourceType = 0;
-
-    public o(bg bgVar) {
-        this.beB = bgVar;
-    }
-
-    public static boolean l(bg bgVar) {
-        return (bgVar == null || bgVar.rW() == null) ? false : true;
-    }
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    public bh aVi;
+    private ar bov;
+    private ar bow;
+    private ar box;
+    private ar boy;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.beB == null) {
-            return beG;
-        }
-        if (this.beB.rH() || this.beB.rI()) {
-            return beH;
-        }
-        return beG;
+        return TYPE;
+    }
+
+    public o(bh bhVar) {
+        this.aVi = bhVar;
+    }
+
+    public static boolean n(bh bhVar) {
+        return bhVar != null && bhVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bg IU() {
-        return this.beB;
+    public bh Ji() {
+        return this.aVi;
     }
 
-    public at OZ() {
-        return hR(beL);
+    public int RV() {
+        return (this.aVi == null || StringUtils.isNull(this.aVi.getPhotoLiveCover())) ? 0 : 1;
     }
 
-    public at Pa() {
-        return hR(beM);
+    public void b(ar arVar) {
+        this.bov = arVar;
     }
 
-    public at Pb() {
-        return hR(beJ);
+    public void c(ar arVar) {
+        this.bow = arVar;
     }
 
-    public at Pc() {
-        return hR(beI);
+    public void d(ar arVar) {
+        this.box = arVar;
     }
 
-    public at Pk() {
-        return x(beK, true);
+    public void e(ar arVar) {
+        this.boy = arVar;
+    }
+
+    public ar RW() {
+        return this.bov != null ? this.bov.ab("obj_param3", at.Rr()) : this.bov;
+    }
+
+    public ar RX() {
+        return this.bow != null ? this.bow.ab("obj_param3", at.Rr()) : this.bow;
+    }
+
+    public ar RY() {
+        return this.boy != null ? this.boy.ab("obj_param3", at.Rr()) : this.boy;
+    }
+
+    public ar RZ() {
+        return this.box != null ? this.box.ab("obj_param3", at.Rr()) : this.box;
     }
 }

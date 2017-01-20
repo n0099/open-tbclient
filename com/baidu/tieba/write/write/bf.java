@@ -1,23 +1,39 @@
 package com.baidu.tieba.write.write;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
-public class bf implements DialogInterface.OnDismissListener {
-    final /* synthetic */ WriteActivity fDQ;
+class bf extends CustomMessageListener {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(WriteActivity writeActivity) {
-        this.fDQ = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bf(WriteActivity writeActivity, int i) {
+        super(i);
+        this.fMl = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        boolean z;
-        z = this.fDQ.fDx;
-        if (z) {
-            com.baidu.adp.lib.util.k.b(this.fDQ.getPageContext().getPageActivity(), this.fDQ.getCurrentFocus());
-            this.fDQ.fDy = System.currentTimeMillis();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LocationModel locationModel;
+        LocationModel locationModel2;
+        LocationModel locationModel3;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                locationModel2 = this.fMl.avd;
+                locationModel2.lk(false);
+                locationModel3 = this.fMl.avd;
+                locationModel3.cj(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.fMl.b(2, true, responsedSelectLocation.getName());
+                return;
+            }
+            locationModel = this.fMl.avd;
+            locationModel.lk(true);
+            this.fMl.b(0, true, null);
         }
     }
 }

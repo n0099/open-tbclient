@@ -6,12 +6,12 @@ import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 class b extends s<Boolean> {
-    final /* synthetic */ PersonalMsglistModel dbm;
+    final /* synthetic */ PersonalMsglistModel diz;
     private final /* synthetic */ ChatMessage val$msg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PersonalMsglistModel personalMsglistModel, ChatMessage chatMessage) {
-        this.dbm = personalMsglistModel;
+        this.diz = personalMsglistModel;
         this.val$msg = chatMessage;
     }
 
@@ -20,8 +20,8 @@ class b extends s<Boolean> {
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
         UserData userData;
-        l app = l.app();
-        userData = this.dbm.mUser;
-        return Boolean.valueOf(app.bb(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+        l aqw = l.aqw();
+        userData = this.diz.mUser;
+        return Boolean.valueOf(aqw.bg(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
     }
 }

@@ -15,9 +15,6 @@ public class CmdConfigCustom {
     public static final int CLOSE_SELECT_LOCATION_ACTIVITY = 2002013;
     public static final int CMD_ACCESS_TOKEN_UPDATED = 2001160;
     public static final int CMD_ACCOUT_LOGIN_HELPER = 2001293;
-    public static final int CMD_ACROSS_FORUM_THEME_INFO_GET = 2016504;
-    public static final int CMD_ACROSS_FORUM_THEME_SHOW = 2016505;
-    public static final int CMD_ACROSS_FORUM_VR_OPEN = 2016500;
     public static final int CMD_ADDRESSLIST_PLUGIN_INSTALL_SUCCESS = 2902090;
     public static final int CMD_ADDRESS_LIST_RES_TOOL = 2001322;
     public static final int CMD_ADD_HISTORY = 2001278;
@@ -32,6 +29,12 @@ public class CmdConfigCustom {
     public static final int CMD_AD_FRS_THREAD_CLICKED = 2016495;
     public static final int CMD_AD_KILLER_SUBMIT_SUCCESS = 2001388;
     public static final int CMD_AD_KILLER_TIP_SHOW = 2001389;
+    public static final int CMD_ALA_ANDROID_MAX = 2913000;
+    public static final int CMD_ALA_ATTENTION_LIVE_LIST_START = 2911004;
+    public static final int CMD_ALA_BASE = 2911000;
+    public static final int CMD_ALA_IM_PANNEL = 2911002;
+    public static final int CMD_ALA_LIVE_ROOM_START = 2911003;
+    public static final int CMD_ALA_MAX = 2919000;
     public static final int CMD_APPLIST = 2001370;
     public static final int CMD_APPLY_ADDFRIEND = 2001220;
     public static final int CMD_APPLY_MESSAGE = 2001216;
@@ -43,6 +46,7 @@ public class CmdConfigCustom {
     public static final int CMD_AUDIO_VIEW_START_PALY = 2016437;
     public static final int CMD_BACKGROUND_SWTICH = 2001011;
     public static final int CMD_BAIDU_LOCATION_SWITCH = 2001330;
+    public static final int CMD_BAIDU_YUN_PUSH_SWITCH_CHANGE = 2001439;
     public static final int CMD_BAOBAO_CHECKHASINSTALLED = 2802004;
     public static final int CMD_BAOBAO_CLEARFONT = 2802003;
     public static final int CMD_BAOBAO_CLEARIMAGE = 2802002;
@@ -77,6 +81,10 @@ public class CmdConfigCustom {
     public static final int CMD_CDN_PROBLEM_UPLOADER = 2016101;
     public static final int CMD_CDN_TACHOMETER = 2017000;
     public static final int CMD_CHANGE_CARD_TITILE_COLOR = 2001390;
+    public static final int CMD_CHANNEL_HOME_ADD_VIDEO = 2016511;
+    public static final int CMD_CHANNEL_HOME_INFO_UPDATE = 2016512;
+    public static final int CMD_CHANNEL_SEND_REQUEST = 2016513;
+    public static final int CMD_CHARM_CARD_START = 2911001;
     public static final int CMD_CHAT_ROOM_EVENT = 2001116;
     public static final int CMD_CHAT_SEND_VOICE_VIEW = 2001301;
     public static final int CMD_CHOSEN_PB_READ_CACHE = 2001314;
@@ -145,16 +153,20 @@ public class CmdConfigCustom {
     public static final int CMD_FRIEND_FEED_SWITCH_CHANGE = 2902112;
     public static final int CMD_FRS_ADD_ADAPTER = 2003008;
     public static final int CMD_FRS_ADD_MODEL = 2003011;
+    public static final int CMD_FRS_BANNER_AD_PLUGIN_OPERATE = 2016516;
     public static final int CMD_FRS_DISMISS_DIVIDER_BOTTOM_HEADER = 2003018;
     public static final int CMD_FRS_EXIT_STICKY_MODE = 2016506;
     public static final int CMD_FRS_EXPERIENCE_TIP = 2001352;
     public static final int CMD_FRS_EXTRA_LOADED = 2003016;
+    public static final int CMD_FRS_FEED_AD_PLUGIN_OPERATE = 2016515;
     public static final int CMD_FRS_GROUP_MENU = 2003013;
     public static final int CMD_FRS_HOT_CACHE = 2003012;
     public static final int CMD_FRS_LIVE_CACHE = 2003014;
     public static final int CMD_FRS_MANGA_STORE_CACHE = 2003015;
     public static final int CMD_FRS_MEMBER_INFO_CACHE = 2003009;
+    public static final int CMD_FRS_SELECT_ALA_LIVE_TAB = 2003019;
     public static final int CMD_FRS_SET_COMMON_ACCESS_FORUM = 2003017;
+    public static final int CMD_FRS_TAB_LIVE_START = 2001607;
     public static final int CMD_GAME_ADD_ITEM = 2001242;
     public static final int CMD_GAME_DELETE_ITEM = 2001243;
     public static final int CMD_GAME_GET_DOWN_DATA = 2001240;
@@ -304,6 +316,7 @@ public class CmdConfigCustom {
     public static final int CMD_MY_LIVE_RES_TOOL = 2001297;
     public static final int CMD_MY_WALLET = 2001351;
     public static final int CMD_NEG_FEED_BACK_DISMISS_WINDOW = 2016496;
+    public static final int CMD_NEG_FEED_BACK_TIP = 2016514;
     public static final int CMD_NEIGHBORS = 2902001;
     public static final int CMD_NEW_FRIEND_ACTION_ADD_LOCAL = 2001169;
     public static final int CMD_NEW_FRIEND_ACTION_DELETE_LOCAL = 2001170;
@@ -405,6 +418,8 @@ public class CmdConfigCustom {
     public static final int CMD_SAVE_DRAFT_PERSONAL = 2001149;
     public static final int CMD_SCREEN_DIALOG = 2001355;
     public static final int CMD_SCREEN_LOCK_NOTIFY = 2016200;
+    public static final int CMD_SEARCH_CREATE_BAR = 2001608;
+    public static final int CMD_SEARCH_JUMP_PB = 2001609;
     public static final int CMD_SELECT_LOCATION = 2001226;
     public static final int CMD_SEND_BOOK_READ_RECORD_TO_FRS = 2001424;
     public static final int CMD_SEND_GIFT_SUCCESS = 2001369;
@@ -436,8 +451,10 @@ public class CmdConfigCustom {
     public static final int CMD_SQUARE_FORUM_WEEKLY = 2902029;
     public static final int CMD_START_FRS_GOOD_ACTIVITY = 2003010;
     public static final int CMD_START_HOT_TOPIC_ACTIVITY = 2016493;
+    public static final int CMD_START_PLAY = 2001605;
     public static final int CMD_START_TRAFFICSTATSSERVICE = 2905001;
     public static final int CMD_START_USER_MUTE_LIST_ACTIVITY = 2016302;
+    public static final int CMD_START_VIDEO_LIST_ACTIVITY = 2001604;
     public static final int CMD_START_XIAOYING = 2001337;
     public static final int CMD_SYNC_FINISH = 2001371;
     public static final int CMD_TAIL_EDIT_CLOSE = 2001348;
@@ -470,6 +487,7 @@ public class CmdConfigCustom {
     public static final int CMD_UPDATE_ADCARD = 2016492;
     public static final int CMD_UPDATE_ATTENTION = 2001115;
     public static final int CMD_UPDATE_FRS_LIKE_STATUS = 2001266;
+    public static final int CMD_UPDATE_FRS_LIVE_COUNT = 2001606;
     public static final int CMD_UPDATE_INSTALL_STATUS = 2001434;
     public static final int CMD_UPDATE_PENDANT = 2016485;
     public static final int CMD_UPDATE_SUCCESS_MSG = 2001108;
@@ -489,6 +507,7 @@ public class CmdConfigCustom {
     public static final int CMD_VALIDATE_ICON = 2001287;
     public static final int CMD_VALIDATE_JOIN_GROUP_SUCC = 2001213;
     public static final int CMD_VALIDATE_MODEL = 2001299;
+    public static final int CMD_VEDIO_START_PLAY = 2016517;
     public static final int CMD_VIDEO_CACHE_CLEAN = 2001404;
     public static final int CMD_VIDEO_CACHE_DOWNLOAD = 2001403;
     public static final int CMD_VIDEO_CACHE_GET_LOCAL = 2001405;

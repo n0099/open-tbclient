@@ -1,12 +1,13 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import tbclient.Voice;
 /* loaded from: classes.dex */
 public class VoiceData {
 
     /* loaded from: classes.dex */
-    public static class VoiceModel extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class VoiceModel extends OrmObject implements Serializable {
         private static final long serialVersionUID = 5684687527058675291L;
         public int duration;
         public int duration2;

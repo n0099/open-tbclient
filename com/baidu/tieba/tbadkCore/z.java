@@ -1,40 +1,39 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bg;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tieba.tbadkCore.y;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends bg {
-    public static final BdUniqueId ffh = BdUniqueId.gen();
-    private boolean ffi;
-    private p ffj;
-    private String fortune_desc;
+public class z extends Handler {
+    final /* synthetic */ y foG;
 
-    public boolean bfl() {
-        return this.ffi;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(y yVar) {
+        this.foG = yVar;
     }
 
-    public void kT(boolean z) {
-        this.ffi = z;
-    }
-
-    public String bfm() {
-        return this.fortune_desc;
-    }
-
-    public void qf(String str) {
-        this.fortune_desc = str;
-    }
-
-    public p bfn() {
-        return this.ffj;
-    }
-
-    public void b(p pVar) {
-        this.ffj = pVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return ffh;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        y.a aVar;
+        y.a aVar2;
+        if (message.what == 2) {
+            this.foG.count = 0;
+            this.foG.ega = 0L;
+            this.foG.egb = 0L;
+        } else if (message.what == 1) {
+            i = this.foG.count;
+            if (i == 1) {
+                aVar = this.foG.foF;
+                if (aVar != null) {
+                    aVar2 = this.foG.foF;
+                    aVar2.YV();
+                }
+                this.foG.count = 0;
+                this.foG.ega = 0L;
+                this.foG.egb = 0L;
+            }
+        }
     }
 }

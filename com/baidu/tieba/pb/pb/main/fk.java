@@ -1,18 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class fk implements a.b {
-    final /* synthetic */ er egZ;
+class fk implements Animation.AnimationListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fk(er erVar) {
-        this.egZ = erVar;
+    public fk(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.egZ.awl();
-        aVar.dismiss();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        if (this.eqf.enK != null) {
+            this.eqf.enK.aOC();
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

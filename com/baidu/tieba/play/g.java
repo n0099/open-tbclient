@@ -1,42 +1,28 @@
 package com.baidu.tieba.play;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
+import android.widget.ProgressBar;
+import com.baidu.tieba.play.au;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements View.OnTouchListener {
-    final /* synthetic */ c eIS;
+public class g implements au.b {
+    final /* synthetic */ c eSu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.eIS = cVar;
+        this.eSu = cVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        GestureDetector gestureDetector;
-        int i;
-        int i2;
-        gestureDetector = this.eIS.mGestureDetector;
-        boolean onTouchEvent = gestureDetector.onTouchEvent(motionEvent);
-        if (motionEvent.getAction() == 1) {
-            if (this.eIS.cyE && this.eIS.eIy) {
-                if (this.eIS.mStatus == 1) {
-                    i = this.eIS.eIH;
-                    if (i != 0) {
-                        c cVar = this.eIS;
-                        i2 = this.eIS.eIH;
-                        cVar.b(i2 == 1 ? 1000 : -1000, false);
-                        this.eIS.eIH = 0;
-                        this.eIS.eIG = 0;
-                    }
-                }
-                if (!this.eIS.aNV.isPlaying() && 8 == this.eIS.aNZ.getVisibility()) {
-                    this.eIS.aNZ.setVisibility(0);
-                }
+    @Override // com.baidu.tieba.play.au.b
+    public void mQ(int i) {
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        if (this.eSu.aMY != null && this.eSu.aMY.getDuration() > 0) {
+            progressBar = this.eSu.eSl;
+            if (progressBar != null) {
+                progressBar2 = this.eSu.eSl;
+                progressBar2.setProgress((this.eSu.dvf.getWidth() * i) / this.eSu.aMY.getDuration());
             }
-            this.eIS.aWb();
         }
-        return onTouchEvent;
+        this.eSu.mN(i);
     }
 }

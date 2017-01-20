@@ -7,23 +7,23 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements a.b {
-    final /* synthetic */ l bqi;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.v bqj;
+    final /* synthetic */ l bxV;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.u bxW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(l lVar, com.baidu.tieba.tbadkCore.v vVar) {
-        this.bqi = lVar;
-        this.bqj = vVar;
+    public t(l lVar, com.baidu.tieba.tbadkCore.u uVar) {
+        this.bxV = lVar;
+        this.bxW = uVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (!com.baidu.adp.lib.util.k.gD()) {
-            this.bqi.aVu.showToast(r.j.delete_like_fail);
+        if (!com.baidu.adp.lib.util.k.gB()) {
+            this.bxV.aQU.showToast(r.l.delete_like_fail);
         } else {
-            new l.a(this.bqj).execute(new com.baidu.tieba.tbadkCore.v[0]);
+            new l.a(this.bxW).execute(new com.baidu.tieba.tbadkCore.u[0]);
         }
-        TiebaStatic.eventStat(this.bqi.aVu.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
+        TiebaStatic.eventStat(this.bxV.aQU.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
         aVar.dismiss();
     }
 }

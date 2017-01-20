@@ -12,28 +12,28 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class BdPullRefreshScrollView extends ScrollView {
-    private static /* synthetic */ int[] Df;
-    private static /* synthetic */ int[] Dg;
-    private State CL;
-    private Mode CM;
-    private Mode CN;
-    private int CO;
-    private int CP;
-    protected View CQ;
-    private float CR;
-    private FrameLayout CS;
-    private FrameLayout CT;
-    private float CU;
-    private float CV;
-    private com.baidu.adp.widget.ScrollView.a CW;
-    private com.baidu.adp.widget.ScrollView.a CX;
-    private int CY;
-    private c CZ;
-    private b Da;
-    private a Db;
-    private boolean Dc;
-    private boolean Dd;
-    private boolean De;
+    private static /* synthetic */ int[] Cq;
+    private static /* synthetic */ int[] Cr;
+    private State BW;
+    private Mode BX;
+    private Mode BY;
+    private int BZ;
+    private int Ca;
+    protected View Cb;
+    private float Cc;
+    private FrameLayout Cd;
+    private FrameLayout Ce;
+    private float Cf;
+    private float Cg;
+    private com.baidu.adp.widget.ScrollView.a Ch;
+    private com.baidu.adp.widget.ScrollView.a Ci;
+    private int Cj;
+    private c Ck;
+    private b Cl;
+    private a Cm;
+    private boolean Cn;
+    private boolean Co;
+    private boolean Cp;
     private boolean mIsBeingDragged;
     private float mLastMotionY;
     private float mLastY;
@@ -42,12 +42,12 @@ public class BdPullRefreshScrollView extends ScrollView {
 
     /* loaded from: classes.dex */
     public interface a {
-        void kU();
+        void kM();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void kV();
+        void kN();
     }
 
     /* loaded from: classes.dex */
@@ -55,8 +55,8 @@ public class BdPullRefreshScrollView extends ScrollView {
         void X(boolean z);
     }
 
-    static /* synthetic */ int[] kS() {
-        int[] iArr = Df;
+    static /* synthetic */ int[] kK() {
+        int[] iArr = Cq;
         if (iArr == null) {
             iArr = new int[Mode.valuesCustom().length];
             try {
@@ -79,13 +79,13 @@ public class BdPullRefreshScrollView extends ScrollView {
                 iArr[Mode.PULL_FROM_START.ordinal()] = 2;
             } catch (NoSuchFieldError e5) {
             }
-            Df = iArr;
+            Cq = iArr;
         }
         return iArr;
     }
 
-    static /* synthetic */ int[] kT() {
-        int[] iArr = Dg;
+    static /* synthetic */ int[] kL() {
+        int[] iArr = Cr;
         if (iArr == null) {
             iArr = new int[State.valuesCustom().length];
             try {
@@ -112,39 +112,39 @@ public class BdPullRefreshScrollView extends ScrollView {
                 iArr[State.RESET.ordinal()] = 1;
             } catch (NoSuchFieldError e6) {
             }
-            Dg = iArr;
+            Cr = iArr;
         }
         return iArr;
     }
 
     public void setCustomHeaderView(com.baidu.adp.widget.ScrollView.a aVar) {
-        if (aVar != null && aVar.kG() != null) {
-            if (this.CW != null) {
-                this.CS.removeView(this.CW.kG());
+        if (aVar != null && aVar.ky() != null) {
+            if (this.Ch != null) {
+                this.Cd.removeView(this.Ch.ky());
             }
-            this.CW = aVar;
-            this.CS.addView(this.CW.kG());
-            this.CW.kF();
+            this.Ch = aVar;
+            this.Cd.addView(this.Ch.ky());
+            this.Ch.kx();
         }
     }
 
     public void setCustomFooterView(com.baidu.adp.widget.ScrollView.a aVar) {
-        if (aVar != null && aVar.kG() != null) {
-            if (this.CX != null) {
-                this.CT.removeView(this.CX.kG());
+        if (aVar != null && aVar.ky() != null) {
+            if (this.Ci != null) {
+                this.Ce.removeView(this.Ci.ky());
             }
-            this.CX = aVar;
-            this.CT.addView(this.CX.kG());
-            this.CX.kF();
+            this.Ci = aVar;
+            this.Ce.addView(this.Ci.ky());
+            this.Ci.kx();
         }
     }
 
     public com.baidu.adp.widget.ScrollView.a getHeadLoadingView() {
-        return this.CW;
+        return this.Ch;
     }
 
     public com.baidu.adp.widget.ScrollView.a getmFootLoadingView() {
-        return this.CX;
+        return this.Ci;
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup
@@ -196,77 +196,77 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     public void setOnPullUpListener(b bVar) {
-        this.Da = bVar;
+        this.Cl = bVar;
     }
 
     public void setOnPullDownListener(a aVar) {
-        this.Db = aVar;
+        this.Cm = aVar;
     }
 
     public void setOnScrollUpDownListener(c cVar) {
-        this.CZ = cVar;
+        this.Ck = cVar;
     }
 
     public void setContentView(View view) {
         View childAt = getChildAt(0);
         if (childAt != null) {
-            this.CQ = view;
+            this.Cb = view;
             ((LinearLayout) childAt).addView(view, 1);
         }
     }
 
     public final void setMode(Mode mode) {
-        if (mode != this.CN) {
-            this.CN = mode;
+        if (mode != this.BY) {
+            this.BY = mode;
             updateUIForMode();
         }
     }
 
     protected void updateUIForMode() {
-        if (this.CN.showHeaderLoadingLayout()) {
-            this.CS.setVisibility(0);
+        if (this.BY.showHeaderLoadingLayout()) {
+            this.Cd.setVisibility(0);
         } else {
-            this.CS.setVisibility(8);
+            this.Cd.setVisibility(8);
         }
-        if (this.CN.showFooterLoadingLayout()) {
-            this.CT.setVisibility(0);
+        if (this.BY.showFooterLoadingLayout()) {
+            this.Ce.setVisibility(0);
         } else {
-            this.CT.setVisibility(8);
+            this.Ce.setVisibility(8);
         }
-        this.CM = this.CN != Mode.BOTH ? this.CN : Mode.PULL_FROM_START;
+        this.BX = this.BY != Mode.BOTH ? this.BY : Mode.PULL_FROM_START;
     }
 
     public void setRefreshing(int i) {
-        if (this.CL != State.REFRESHING) {
-            if (this.CN.showHeaderLoadingLayout() && i == 1) {
-                this.Dc = true;
+        if (this.BW != State.REFRESHING) {
+            if (this.BY.showHeaderLoadingLayout() && i == 1) {
+                this.Cn = true;
                 fullScroll(33);
-                aM(this.CY);
-                this.CM = Mode.PULL_FROM_START;
-                a(State.REFRESHING, this.CW);
-                kH();
-            } else if (this.CN.showFooterLoadingLayout() && i == 0) {
-                this.Dc = true;
+                aL(this.Cj);
+                this.BX = Mode.PULL_FROM_START;
+                a(State.REFRESHING, this.Ch);
+                kz();
+            } else if (this.BY.showFooterLoadingLayout() && i == 0) {
+                this.Cn = true;
                 fullScroll(TransportMediator.KEYCODE_MEDIA_RECORD);
-                this.CM = Mode.PULL_FROM_END;
-                a(State.REFRESHING, this.CX);
-                kH();
+                this.BX = Mode.PULL_FROM_END;
+                a(State.REFRESHING, this.Ci);
+                kz();
             }
         }
     }
 
-    private void kH() {
-        if (this.CM == Mode.PULL_FROM_START) {
-            if (this.Db != null) {
-                this.Db.kU();
+    private void kz() {
+        if (this.BX == Mode.PULL_FROM_START) {
+            if (this.Cm != null) {
+                this.Cm.kM();
             }
-        } else if (this.CM == Mode.PULL_FROM_END && this.Da != null) {
-            this.Da.kV();
+        } else if (this.BX == Mode.PULL_FROM_END && this.Cl != null) {
+            this.Cl.kN();
         }
     }
 
-    private boolean kI() {
-        switch (kS()[this.CN.ordinal()]) {
+    private boolean kA() {
+        switch (kK()[this.BY.ordinal()]) {
             case 2:
                 return isReadyForPullStart();
             case 3:
@@ -279,7 +279,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean isReadyForPullStart() {
-        switch (kS()[this.CN.ordinal()]) {
+        switch (kK()[this.BY.ordinal()]) {
             case 2:
                 return getScrollY() <= 0;
             case 3:
@@ -292,58 +292,58 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean isReadyForPullEnd() {
-        switch (kS()[this.CN.ordinal()]) {
+        switch (kK()[this.BY.ordinal()]) {
             case 2:
             default:
                 return false;
             case 3:
-                return getScrollY() + getHeight() >= this.CQ.getHeight() + this.CT.getHeight();
+                return getScrollY() + getHeight() >= this.Cb.getHeight() + this.Ce.getHeight();
             case 4:
-                return getScrollY() + getHeight() >= this.CQ.getHeight() + this.CT.getHeight() && getHeadViewTopMargin() == this.CY;
+                return getScrollY() + getHeight() >= this.Cb.getHeight() + this.Ce.getHeight() && getHeadViewTopMargin() == this.Cj;
         }
     }
 
-    private void kJ() {
-        if (getHeadViewTopMargin() >= this.CU) {
-            a(State.RELEASE_TO_REFRESH, this.CW);
+    private void kB() {
+        if (getHeadViewTopMargin() >= this.Cf) {
+            a(State.RELEASE_TO_REFRESH, this.Ch);
         } else {
-            a(State.PULL_TO_REFRESH, this.CW);
+            a(State.PULL_TO_REFRESH, this.Ch);
         }
     }
 
-    private void kK() {
-        if (getHeadViewTopMargin() > this.CY && getHeadViewTopMargin() - getScrollY() < this.CU) {
-            a(State.PULL_TO_REFRESH, this.CW);
-        } else if (getHeadViewTopMargin() - getScrollY() <= this.CY) {
-            a(State.RESET, this.CW);
+    private void kC() {
+        if (getHeadViewTopMargin() > this.Cj && getHeadViewTopMargin() - getScrollY() < this.Cf) {
+            a(State.PULL_TO_REFRESH, this.Ch);
+        } else if (getHeadViewTopMargin() - getScrollY() <= this.Cj) {
+            a(State.RESET, this.Ch);
         }
     }
 
-    private void kL() {
-        if (getFootViewBottomMargin() >= this.CV) {
-            a(State.RELEASE_TO_REFRESH, this.CX);
+    private void kD() {
+        if (getFootViewBottomMargin() >= this.Cg) {
+            a(State.RELEASE_TO_REFRESH, this.Ci);
         } else {
-            a(State.PULL_TO_REFRESH, this.CX);
+            a(State.PULL_TO_REFRESH, this.Ci);
         }
     }
 
-    private void kM() {
-        a(State.PULL_TO_REFRESH, this.CX);
+    private void kE() {
+        a(State.PULL_TO_REFRESH, this.Ci);
     }
 
-    private void kN() {
-        this.Dd = true;
-        this.De = false;
+    private void kF() {
+        this.Co = true;
+        this.Cp = false;
     }
 
-    private void kO() {
-        this.Dd = false;
-        this.De = true;
+    private void kG() {
+        this.Co = false;
+        this.Cp = true;
     }
 
-    private void kP() {
-        this.Dd = false;
-        this.De = false;
+    private void kH() {
+        this.Co = false;
+        this.Cp = false;
     }
 
     @Override // android.widget.ScrollView, android.view.ViewGroup
@@ -375,76 +375,76 @@ public class BdPullRefreshScrollView extends ScrollView {
 
     @Override // android.widget.ScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.CN.permitsPullToRefresh() || this.Dc) {
+        if (!this.BY.permitsPullToRefresh() || this.Cn) {
             return super.onTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
                 this.mLastY = motionEvent.getY();
-                this.CR = motionEvent.getY();
+                this.Cc = motionEvent.getY();
                 break;
             case 1:
             case 3:
-                if (this.CZ != null) {
-                    if (motionEvent.getY() - this.CR >= 20.0f) {
-                        this.CZ.X(true);
-                    } else if (motionEvent.getY() - this.CR <= -30.0f) {
-                        this.CZ.X(false);
+                if (this.Ck != null) {
+                    if (motionEvent.getY() - this.Cc >= 20.0f) {
+                        this.Ck.X(true);
+                    } else if (motionEvent.getY() - this.Cc <= -30.0f) {
+                        this.Ck.X(false);
                     }
                 }
                 release();
-                kP();
+                kH();
                 this.mLastY = -1000.0f;
                 this.mIsBeingDragged = false;
                 break;
             case 2:
-                if (this.CL == State.REFRESHING) {
+                if (this.BW == State.REFRESHING) {
                     return super.onTouchEvent(motionEvent);
                 }
                 if (-1000.0f == this.mLastY) {
                     this.mLastY = motionEvent.getY();
-                    this.CR = motionEvent.getY();
+                    this.Cc = motionEvent.getY();
                     return super.onTouchEvent(motionEvent);
                 }
                 float f = this.mLastY;
                 float y = motionEvent.getY();
                 int i = (int) (f - y);
                 this.mLastY = y;
-                if (kI()) {
-                    if (isReadyForPullStart() && i < 0 && this.CN.showHeaderLoadingLayout() && !this.De) {
-                        kN();
-                        if (this.CN == Mode.BOTH) {
-                            this.CM = Mode.PULL_FROM_START;
+                if (kA()) {
+                    if (isReadyForPullStart() && i < 0 && this.BY.showHeaderLoadingLayout() && !this.Cp) {
+                        kF();
+                        if (this.BY == Mode.BOTH) {
+                            this.BX = Mode.PULL_FROM_START;
                         }
-                        aM(i / 2);
-                        kJ();
+                        aL(i / 2);
+                        kB();
                         return super.onTouchEvent(motionEvent);
                     }
-                    if (isReadyForPullStart() && i > 0 && this.CN.showHeaderLoadingLayout() && !this.De) {
-                        kK();
-                        aM(i / 2);
+                    if (isReadyForPullStart() && i > 0 && this.BY.showHeaderLoadingLayout() && !this.Cp) {
+                        kC();
+                        aL(i / 2);
                     }
-                    if (isReadyForPullEnd() && i > 0 && this.CN.showFooterLoadingLayout() && !this.Dd) {
-                        kO();
-                        if (this.CN == Mode.BOTH) {
-                            this.CM = Mode.PULL_FROM_END;
+                    if (isReadyForPullEnd() && i > 0 && this.BY.showFooterLoadingLayout() && !this.Co) {
+                        kG();
+                        if (this.BY == Mode.BOTH) {
+                            this.BX = Mode.PULL_FROM_END;
                         }
-                        aN(i / 2);
-                        kL();
+                        aM(i / 2);
+                        kD();
                         return super.onTouchEvent(motionEvent);
-                    } else if (isReadyForPullEnd() && i < 0 && this.CN.showFooterLoadingLayout() && !this.Dd) {
+                    } else if (isReadyForPullEnd() && i < 0 && this.BY.showFooterLoadingLayout() && !this.Co) {
                         if (computeVerticalScrollRange() >= getHeight()) {
                             return super.onTouchEvent(motionEvent);
                         }
-                        kM();
+                        kE();
                         break;
                     }
-                } else if (this.CM == Mode.PULL_FROM_START && i > 0) {
-                    kK();
-                    aM(i / 2);
+                } else if (this.BX == Mode.PULL_FROM_START && i > 0) {
+                    kC();
+                    aL(i / 2);
                     return super.onTouchEvent(motionEvent);
-                } else if (this.CM == Mode.PULL_FROM_END && i < 0) {
-                    kM();
+                } else if (this.BX == Mode.PULL_FROM_END && i < 0) {
+                    kE();
                     return super.onTouchEvent(motionEvent);
                 }
                 break;
@@ -457,43 +457,43 @@ public class BdPullRefreshScrollView extends ScrollView {
         }
     }
 
-    private void aM(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.CS.getLayoutParams();
+    private void aL(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Cd.getLayoutParams();
         layoutParams.topMargin -= i;
-        if (layoutParams.topMargin <= this.CY) {
-            layoutParams.topMargin = this.CY;
+        if (layoutParams.topMargin <= this.Cj) {
+            layoutParams.topMargin = this.Cj;
         }
-        this.CS.setLayoutParams(layoutParams);
+        this.Cd.setLayoutParams(layoutParams);
     }
 
-    private void aN(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.CT.getLayoutParams();
+    private void aM(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Ce.getLayoutParams();
         layoutParams.bottomMargin += i;
         if (layoutParams.bottomMargin <= 0) {
             layoutParams.bottomMargin = 0;
         }
-        this.CT.setLayoutParams(layoutParams);
+        this.Ce.setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(State state, com.baidu.adp.widget.ScrollView.a aVar) {
-        if (this.CL != state) {
-            this.CL = state;
-            switch (kT()[state.ordinal()]) {
+        if (this.BW != state) {
+            this.BW = state;
+            switch (kL()[state.ordinal()]) {
                 case 1:
-                    aVar.kF();
+                    aVar.kx();
                     return;
                 case 2:
-                    aVar.kE();
+                    aVar.kw();
                     return;
                 case 3:
-                    aVar.kl();
+                    aVar.kh();
                     return;
                 case 4:
-                    aVar.km();
+                    aVar.ki();
                     return;
                 case 5:
-                    aVar.km();
+                    aVar.ki();
                     return;
                 default:
                     return;
@@ -502,70 +502,70 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private int getHeadViewTopMargin() {
-        return ((LinearLayout.LayoutParams) this.CS.getLayoutParams()).topMargin;
+        return ((LinearLayout.LayoutParams) this.Cd.getLayoutParams()).topMargin;
     }
 
     private int getFootViewBottomMargin() {
-        return ((LinearLayout.LayoutParams) this.CT.getLayoutParams()).bottomMargin;
+        return ((LinearLayout.LayoutParams) this.Ce.getLayoutParams()).bottomMargin;
     }
 
     private void release() {
-        if (this.CM.showHeaderLoadingLayout()) {
-            kQ();
-        } else if (this.CM.showFooterLoadingLayout()) {
-            kR();
+        if (this.BX.showHeaderLoadingLayout()) {
+            kI();
+        } else if (this.BX.showFooterLoadingLayout()) {
+            kJ();
         }
     }
 
-    private void kQ() {
+    private void kI() {
         if (getScrollY() == 0) {
-            if (State.RELEASE_TO_REFRESH == this.CL) {
-                m(getHeadViewTopMargin(), 0);
-            } else if (State.PULL_TO_REFRESH == this.CL) {
-                m(getHeadViewTopMargin(), this.CY);
+            if (State.RELEASE_TO_REFRESH == this.BW) {
+                n(getHeadViewTopMargin(), 0);
+            } else if (State.PULL_TO_REFRESH == this.BW) {
+                n(getHeadViewTopMargin(), this.Cj);
             }
         } else if (getScrollY() > 0) {
-            if (State.RELEASE_TO_REFRESH == this.CL) {
+            if (State.RELEASE_TO_REFRESH == this.BW) {
                 scrollTo(0, 0);
-                m(getHeadViewTopMargin() - getScrollY(), 0);
-            } else if (State.PULL_TO_REFRESH == this.CL) {
-                aM(getHeadViewTopMargin() - this.CY);
+                n(getHeadViewTopMargin() - getScrollY(), 0);
+            } else if (State.PULL_TO_REFRESH == this.BW) {
+                aL(getHeadViewTopMargin() - this.Cj);
                 scrollTo(0, 0);
-                a(State.RESET, this.CW);
+                a(State.RESET, this.Ch);
             }
-        } else if (getScrollY() < 0 && State.RESET != this.CL) {
+        } else if (getScrollY() < 0 && State.RESET != this.BW) {
             scrollTo(0, 0);
-            if (State.RELEASE_TO_REFRESH == this.CL) {
-                m(getHeadViewTopMargin(), 0);
-            } else if (State.PULL_TO_REFRESH == this.CL) {
-                m(getHeadViewTopMargin(), this.CY);
+            if (State.RELEASE_TO_REFRESH == this.BW) {
+                n(getHeadViewTopMargin(), 0);
+            } else if (State.PULL_TO_REFRESH == this.BW) {
+                n(getHeadViewTopMargin(), this.Cj);
             }
-        }
-    }
-
-    private void m(int i, int i2) {
-        h hVar = new h(this);
-        try {
-            e eVar = new e(i, i2, this.CO);
-            eVar.t(this.CS);
-            eVar.a(hVar);
-        } catch (OutOfMemoryError e) {
-            BdBaseApplication.getInst().onAppMemoryLow();
-            hVar.kB();
-        }
-    }
-
-    private void kR() {
-        if (State.RELEASE_TO_REFRESH == this.CL) {
-            n(getFootViewBottomMargin(), 0);
-        } else if (State.PULL_TO_REFRESH == this.CL) {
-            aN(0 - getFootViewBottomMargin());
         }
     }
 
     private void n(int i, int i2) {
-        com.baidu.adp.widget.ScrollView.b bVar = new com.baidu.adp.widget.ScrollView.b(i, i2, this.CP);
-        bVar.t(this.CT);
+        h hVar = new h(this);
+        try {
+            e eVar = new e(i, i2, this.BZ);
+            eVar.r(this.Cd);
+            eVar.a(hVar);
+        } catch (OutOfMemoryError e) {
+            BdBaseApplication.getInst().onAppMemoryLow();
+            hVar.kt();
+        }
+    }
+
+    private void kJ() {
+        if (State.RELEASE_TO_REFRESH == this.BW) {
+            o(getFootViewBottomMargin(), 0);
+        } else if (State.PULL_TO_REFRESH == this.BW) {
+            aM(0 - getFootViewBottomMargin());
+        }
+    }
+
+    private void o(int i, int i2) {
+        com.baidu.adp.widget.ScrollView.b bVar = new com.baidu.adp.widget.ScrollView.b(i, i2, this.Ca);
+        bVar.r(this.Ce);
         bVar.a(new i(this));
     }
 
@@ -580,7 +580,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         
         private int mIntValue;
 
-        /* JADX DEBUG: Replace access to removed values field (Dj) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Cu) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static State[] valuesCustom() {
             State[] valuesCustom = values();
@@ -619,7 +619,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         
         private int mIntValue;
 
-        /* JADX DEBUG: Replace access to removed values field (Di) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Ct) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static Mode[] valuesCustom() {
             Mode[] valuesCustom = values();

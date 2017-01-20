@@ -1,40 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class ex implements Animation.AnimationListener {
-    final /* synthetic */ er egZ;
+public class ex extends com.baidu.tbadk.core.view.userLike.c {
+    public boolean eny;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ex(er erVar) {
-        this.egZ = erVar;
+    public ex(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar) {
+        super(tbPageContext, bVar);
+        this.eny = false;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.j jVar;
-        View view2;
-        com.baidu.tbadk.editortools.j jVar2;
-        er erVar = this.egZ;
-        view = this.egZ.efV;
-        erVar.ega = view.getVisibility() == 0;
-        jVar = this.egZ.EM;
-        if (jVar != null) {
-            jVar2 = this.egZ.EM;
-            jVar2.hide();
+    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
+    public void onClick(View view) {
+        super.onClick(view);
+        if (this.eny && this.ahe != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11924").ab("obj_id", this.ahe.getUserId()));
         }
-        view2 = this.egZ.efV;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

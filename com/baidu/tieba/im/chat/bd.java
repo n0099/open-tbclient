@@ -3,17 +3,16 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd implements View.OnLongClickListener {
-    final /* synthetic */ as cGg;
+public class bd implements View.OnClickListener {
+    final /* synthetic */ ar cNp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(as asVar) {
-        this.cGg = asVar;
+    public bd(ar arVar) {
+        this.cNp = arVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.cGg.cFz.b(view, 3, this.cGg.aoG, 0L);
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cNp.cMG.a(view, 7, this.cNp.anM, 0L);
     }
 }

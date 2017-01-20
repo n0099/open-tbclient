@@ -25,12 +25,12 @@ public class ac extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryModifyLastMsgMessage.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
-            b.arI().a(data.customGroupType, data.cUg, data.id, data.type);
-            ImMessageCenterPojo af = b.arI().af(data.id, data.customGroupType);
+            b.asO().a(data.customGroupType, data.dbq, data.id, data.type);
+            ImMessageCenterPojo af = b.asO().af(data.id, data.customGroupType);
             if (af != null) {
                 ImMessageCenterPojo imMessageCenterPojo = null;
                 if (af.getCustomGroupType() == 4) {
-                    imMessageCenterPojo = b.arI().af("-1000", -8);
+                    imMessageCenterPojo = b.asO().af("-1000", -8);
                 }
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ad(this, af, imMessageCenterPojo));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());

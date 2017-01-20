@@ -1,36 +1,39 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.utils.e;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-class v extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bzl;
+class v implements com.baidu.adp.widget.ListView.x {
+    final /* synthetic */ FrsActivity bGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(FrsActivity frsActivity, int i) {
-        super(i);
-        this.bzl = frsActivity;
+    public v(FrsActivity frsActivity) {
+        this.bGL = frsActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getCmd() != 2001120) {
-                if (customResponsedMessage.getCmd() == 2001118) {
-                    e.a(customResponsedMessage, this.bzl.byg, this.bzl.byh);
-                    return;
-                }
-                return;
-            }
-            this.bzl.d(customResponsedMessage);
+    @Override // com.baidu.adp.widget.ListView.x
+    public boolean b(View view, com.baidu.adp.widget.ListView.v vVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
+        if (bdUniqueId == null) {
+            return false;
         }
+        if (vVar instanceof com.baidu.tbadk.core.data.bh) {
+            com.baidu.tbadk.core.data.bh bhVar = (com.baidu.tbadk.core.data.bh) vVar;
+            if (!bhVar.isPhotoLiveThread() && !(bhVar instanceof com.baidu.tbadk.core.data.av)) {
+                if ((bhVar instanceof com.baidu.tbadk.core.data.c) && ((com.baidu.tbadk.core.data.c) bhVar).legoCard != null) {
+                    return false;
+                }
+                this.bGL.mThreadId = bhVar.getId();
+                String rD = bhVar.rD();
+                if (rD == null || rD.equals("")) {
+                    this.bGL.bFD = false;
+                } else {
+                    this.bGL.bFD = true;
+                }
+                this.bGL.q(bhVar);
+                this.bGL.bFF.Yw();
+            }
+        }
+        return true;
     }
 }

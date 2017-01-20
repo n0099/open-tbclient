@@ -1,50 +1,7 @@
 package com.baidu.adp.lib.c;
 
-import com.baidu.adp.lib.c.c;
+import android.view.View;
 /* loaded from: classes.dex */
-public abstract class a {
-    protected static final int DEF_CRASHTIME_LIMIT = 10;
-    protected String[] mKey;
-    protected String mName;
-    protected int mDefaultType = 0;
-    protected int mOffType = 1;
-    protected int mMaxCrashTimes = 10;
-    protected c.a mSwitchListener = new b(this);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void changeSettingByType(int i);
-
-    protected abstract String[] getCrashKeys();
-
-    protected abstract int getDefaultType();
-
-    protected abstract int getMaxCrashTimes();
-
-    protected abstract String getName();
-
-    protected abstract int getOffType();
-
-    protected String[] getSwitchLibs() {
-        return null;
-    }
-
-    protected void addToManager() {
-        c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
-        cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
-        cVar.g(getSwitchLibs());
-        e.dN().a(cVar);
-    }
-
-    public a() {
-        initData();
-        addToManager();
-    }
-
-    protected void initData() {
-        this.mName = getName();
-        this.mKey = getCrashKeys();
-        this.mDefaultType = getDefaultType();
-        this.mOffType = getOffType();
-        this.mMaxCrashTimes = getMaxCrashTimes();
-    }
+public interface a {
+    void a(View view, int i, int i2, long j);
 }

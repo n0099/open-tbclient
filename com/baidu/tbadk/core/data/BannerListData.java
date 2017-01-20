@@ -18,7 +18,7 @@ public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
     private ArrayList<c> advertAppList = new ArrayList<>();
     private ArrayList<FeedForumData> feedForumList = new ArrayList<>();
-    private com.baidu.tieba.card.data.q recomTopicData;
+    private com.baidu.tieba.card.data.r recomTopicData;
 
     public ArrayList<c> getAllAdvertList() {
         return this.advertAppList;
@@ -31,8 +31,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).Pj)) {
-                sb.append(this.advertAppList.get(i).Pj);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).Ou)) {
+                sb.append(this.advertAppList.get(i).Ou);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -75,7 +75,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            Collections.sort(this.advertAppList, new h(this));
+            Collections.sort(this.advertAppList, new i(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
@@ -87,14 +87,14 @@ public class BannerListData implements Serializable {
                 }
             }
             if (bannerList.hot_topic != null) {
-                ax axVar = new ax();
-                axVar.a(bannerList.hot_topic);
-                this.recomTopicData = axVar.qQ();
+                ay ayVar = new ay();
+                ayVar.a(bannerList.hot_topic);
+                this.recomTopicData = ayVar.qI();
             }
         }
     }
 
-    public com.baidu.tieba.card.data.q getRecomTopicData() {
+    public com.baidu.tieba.card.data.r getRecomTopicData() {
         return this.recomTopicData;
     }
 

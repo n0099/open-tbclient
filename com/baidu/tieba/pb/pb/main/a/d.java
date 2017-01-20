@@ -2,17 +2,17 @@ package com.baidu.tieba.pb.pb.main.a;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a ehs;
+    final /* synthetic */ a eqB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.ehs = aVar;
+        this.eqB = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
@@ -23,19 +23,19 @@ public class d implements View.OnClickListener {
         PbActivity pbActivity2;
         PbActivity pbActivity3;
         PbActivity pbActivity4;
-        pbActivity = this.ehs.dYB;
+        pbActivity = this.eqB.ehi;
         if (pbActivity.checkUpIsLogin()) {
             String str = null;
             if (view.getTag() != null) {
                 str = (String) view.getTag();
             }
-            pbActivity2 = this.ehs.dYB;
-            if (bh.ai(pbActivity2.getActivity()) && str != null) {
-                bc vz = bc.vz();
-                pbActivity4 = this.ehs.dYB;
-                vz.c(pbActivity4.getPageContext(), new String[]{str});
+            pbActivity2 = this.eqB.ehi;
+            if (bf.ak(pbActivity2.getActivity()) && str != null) {
+                ba vt = ba.vt();
+                pbActivity4 = this.eqB.ehi;
+                vt.c(pbActivity4.getPageContext(), new String[]{str});
             }
-            pbActivity3 = this.ehs.dYB;
+            pbActivity3 = this.eqB.ehi;
             TiebaStatic.eventStat(pbActivity3.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
         }
     }

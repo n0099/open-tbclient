@@ -1,50 +1,45 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes.dex */
-public class bn {
-    private int OB;
-    private long Vg;
-    private String activity_all_icon;
-    private String activity_half_icon;
-    private String activity_url;
+public class bn extends com.baidu.tieba.tbadkCore.data.p {
+    public static final BdUniqueId Ut = BdUniqueId.gen();
+    private String RA;
+    private int position = 0;
+    private String summary;
 
-    public String getActivityUrl() {
-        return this.activity_url;
+    public String sK() {
+        return this.RA;
     }
 
-    public String sR() {
-        return this.activity_all_icon;
+    public String sB() {
+        return this.summary;
     }
 
-    public String sS() {
-        return this.activity_half_icon;
-    }
-
-    public void a(YuleActivity yuleActivity) {
-        if (yuleActivity != null) {
-            this.Vg = yuleActivity.activity_id.longValue();
-            this.OB = yuleActivity.activity_type.intValue();
-            this.activity_url = yuleActivity.activity_url;
-            this.activity_all_icon = yuleActivity.activity_all_icon;
-            this.activity_half_icon = yuleActivity.activity_half_icon;
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.RA = topNews.news_link;
+            this.summary = topNews.summary;
         }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Vg = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.OB = jSONObject.optInt("activity_type");
-                this.activity_url = jSONObject.optString("activity_url");
-                this.activity_all_icon = jSONObject.optString("activity_all_icon");
-                this.activity_half_icon = jSONObject.optString("activity_half_icon");
+                this.RA = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
         }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.p, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Ut;
     }
 }

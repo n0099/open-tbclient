@@ -1,53 +1,61 @@
 package com.baidu.tbadk.clientConfig;
 
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.base.e;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.r;
-import tbclient.GetClientConfig.DataRes;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a extends e {
-    private c Nl;
-    private final com.baidu.adp.framework.listener.a Nm;
+public class a extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ ClientConfigModel MA;
 
-    public a(BdBaseFragmentActivity<?> bdBaseFragmentActivity, c cVar) {
-        super(bdBaseFragmentActivity.getPageContext());
-        this.Nm = new b(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.Nl = cVar;
-        registerListener(this.Nm);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(ClientConfigModel clientConfigModel, int i, int i2) {
+        super(i, i2);
+        this.MA = clientConfigModel;
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void cb(String str) {
-        ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
-        clientConfigNetMessage.setType(str);
-        sendMessage(clientConfigNetMessage);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {
-        return (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != getUniqueId()) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(DataRes dataRes) {
-        if (dataRes == null) {
-            if (this.Nl != null) {
-                this.Nl.onError(TbadkCoreApplication.m9getInst().getString(r.j.data_load_error));
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean checkMessageIsBelongToCurPage;
+        b bVar;
+        b bVar2;
+        b bVar3;
+        b bVar4;
+        b bVar5;
+        b bVar6;
+        checkMessageIsBelongToCurPage = this.MA.checkMessageIsBelongToCurPage(responsedMessage);
+        if (!checkMessageIsBelongToCurPage) {
+            bVar5 = this.MA.My;
+            if (bVar5 != null) {
+                bVar6 = this.MA.My;
+                bVar6.onError("");
             }
-        } else if (this.Nl != null) {
-            this.Nl.z(dataRes);
+        } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
+            String errorString = responsedMessage.getErrorString();
+            String string = TbadkCoreApplication.m9getInst().getString(r.l.neterror);
+            if (!StringUtils.isNull(errorString)) {
+                string = errorString;
+            }
+            bVar = this.MA.My;
+            if (bVar != null) {
+                bVar2 = this.MA.My;
+                bVar2.onError(string);
+            }
+        } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
+            if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
+                bVar3 = this.MA.My;
+                if (bVar3 != null) {
+                    bVar4 = this.MA.My;
+                    bVar4.onError("");
+                    return;
+                }
+                return;
+            }
+            this.MA.a(((ClientConfigSocketResponse) responsedMessage).getData());
+        } else {
+            this.MA.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
         }
     }
 }

@@ -1,43 +1,40 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.frs.headvideo.e;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.os.Build;
+import android.view.GestureDetector;
+import android.view.View;
+import com.baidu.tieba.frs.headvideo.t;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ e bKM;
+public class f {
+    private final View.OnTouchListener aIu = new g(this);
+    private ForumHeadVideoView bRg;
+    private GestureDetector bRh;
+    private boolean bRi;
+    private t.a bRj;
+    private Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(e eVar, int i, int i2) {
-        super(i, i2);
-        this.bKM = eVar;
+    public f(Context context, ForumHeadVideoView forumHeadVideoView, t.a aVar) {
+        this.bRi = false;
+        this.mContext = context;
+        this.bRg = forumHeadVideoView;
+        this.bRj = aVar;
+        this.bRi = aby();
+        abx();
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        String LV;
-        e.a aVar;
-        e.a aVar2;
-        this.bKM.aAd = false;
-        if (responsedMessage != null) {
-            if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                String errorString = responsedMessage.getErrorString();
-                LV = this.bKM.LV();
-                if (!StringUtils.isNull(errorString)) {
-                    LV = errorString;
-                }
-                aVar = this.bKM.bKK;
-                if (aVar != null) {
-                    aVar2 = this.bKM.bKK;
-                    aVar2.fJ(LV);
-                }
-            } else if (responsedMessage instanceof ForumHeadVideoListHttpResponseMessage) {
-                this.bKM.a(((ForumHeadVideoListHttpResponseMessage) responsedMessage).getData());
-            } else if (responsedMessage instanceof ForumHeadVideoListSocketResponseMessage) {
-                this.bKM.a(((ForumHeadVideoListSocketResponseMessage) responsedMessage).getData());
-            }
+    private void abx() {
+        if (this.bRh == null && this.mContext != null && this.bRg != null) {
+            this.bRh = new GestureDetector(this.mContext, new h(this));
+            this.bRg.setOnTouchListener(this.aIu);
         }
+    }
+
+    public boolean aby() {
+        if (Build.MODEL == null) {
+            return false;
+        }
+        String str = Build.MODEL;
+        return "MI 5".equals(str) || "MX4".equals(str);
     }
 }

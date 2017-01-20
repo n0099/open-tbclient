@@ -1,18 +1,18 @@
 package com.baidu.adp.plugin.packageManager.pluginServerConfig;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class PluginNetConfigInfos extends i implements Serializable {
+public class PluginNetConfigInfos extends OrmObject implements Serializable {
     private static final long serialVersionUID = 2500429455834004772L;
     private String config_version;
     private List<PluginConfig> plugin_config = new ArrayList();
 
     /* loaded from: classes.dex */
-    public static class Newest extends i implements Serializable {
+    public static class Newest extends OrmObject implements Serializable {
         private static final long serialVersionUID = 8713611233991534353L;
         public String version = null;
         public int version_code = 0;
@@ -26,7 +26,7 @@ public class PluginNetConfigInfos extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public static class PluginConfig extends i implements Serializable {
+    public static class PluginConfig extends OrmObject implements Serializable {
         private static final long serialVersionUID = -5184076118455114028L;
         public int enable;
         public int[] enable_version_code;
@@ -55,7 +55,7 @@ public class PluginNetConfigInfos extends i implements Serializable {
         if (str == null) {
             return null;
         }
-        return (PluginNetConfigInfos) i.objectWithJsonStr(str, PluginNetConfigInfos.class);
+        return (PluginNetConfigInfos) OrmObject.objectWithJsonStr(str, PluginNetConfigInfos.class);
     }
 
     public void addOrUpdateConfig(PluginConfig pluginConfig) {

@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.view;
 /* loaded from: classes.dex */
 class g implements Runnable {
-    final /* synthetic */ HorizontalListView aeJ;
+    final /* synthetic */ HorizontalListView adU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(HorizontalListView horizontalListView) {
-        this.aeJ = horizontalListView;
+        this.adU = horizontalListView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aeJ.requestLayout();
+        this.adU.requestLayout();
     }
 }

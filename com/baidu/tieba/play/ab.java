@@ -1,46 +1,39 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class ab extends CustomMessageListener {
-    final /* synthetic */ aa eJh;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(aa aaVar, int i) {
-        super(i);
-        this.eJh = aaVar;
+public class ab {
+    static {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.URL_PLAY_STATISTICS);
+        tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean z;
-        boolean z2;
-        aq aqVar;
-        aq aqVar2;
-        aq aqVar3;
-        aq aqVar4;
-        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-            this.eJh.alQ();
-            z = this.eJh.bCP;
-            if (z) {
-                z2 = this.eJh.bCP;
-                if (z2) {
-                    aa aaVar = this.eJh;
-                    aqVar = this.eJh.eJe;
-                    int aWD = aqVar.aWD();
-                    aqVar2 = this.eJh.eJe;
-                    int aWE = aqVar2.aWE();
-                    aqVar3 = this.eJh.eJe;
-                    boolean aWF = aqVar3.aWF();
-                    aqVar4 = this.eJh.eJe;
-                    aaVar.a(aWD, aWE, aWF, aqVar4.aWG());
-                }
-            }
+    public static void a(String str, String str2, String str3, bb bbVar) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
+        httpMessage.addParam("video_md5", str);
+        httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+        httpMessage.addParam("obj_param2", str2);
+        httpMessage.addParam("obj_type", str3);
+        if (bbVar != null) {
+            httpMessage.addParam("thread_id", bbVar.bjS);
+            httpMessage.addParam("forum_id", bbVar.bjT);
+            httpMessage.addParam("obj_to", bbVar.eTy);
+            httpMessage.addParam("obj_id", bbVar.Ql);
+            httpMessage.addParam("obj_param3", bbVar.eTz);
+            httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mSource);
+            httpMessage.addParam("obj_locate", bbVar.mLocate);
+            httpMessage.addParam("obj_param1", bbVar.eTA);
         }
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

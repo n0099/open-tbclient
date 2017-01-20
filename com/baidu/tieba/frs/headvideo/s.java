@@ -1,23 +1,31 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.tieba.play.t;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements t.b {
-    final /* synthetic */ ForumHeadVideoView bLk;
+public class s implements Animation.AnimationListener {
+    final /* synthetic */ ForumHeadVideoView bRD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ForumHeadVideoView forumHeadVideoView) {
-        this.bLk = forumHeadVideoView;
+        this.bRD = forumHeadVideoView;
     }
 
-    @Override // com.baidu.tieba.play.t.b
-    public boolean onError(com.baidu.tieba.play.t tVar, int i, int i2) {
-        c currentVideoItemView = this.bLk.getCurrentVideoItemView();
-        if (currentVideoItemView != null) {
-            currentVideoItemView.stopPlayback();
-            currentVideoItemView.setVideoPlayState(4);
-            return true;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.bRD.bRp = false;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        c swapVideoItemView = this.bRD.getSwapVideoItemView();
+        if (swapVideoItemView != null) {
+            swapVideoItemView.clearAnimation();
+            this.bRD.h(swapVideoItemView);
         }
-        return true;
     }
 }

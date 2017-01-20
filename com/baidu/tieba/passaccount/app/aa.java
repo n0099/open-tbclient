@@ -6,27 +6,27 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends AuthorizationListener {
-    final /* synthetic */ SapiFastRegActivity dTC;
+    final /* synthetic */ SapiFastRegActivity ecv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(SapiFastRegActivity sapiFastRegActivity) {
-        this.dTC = sapiFastRegActivity;
+        this.ecv = sapiFastRegActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_success", 0, "", new Object[0]);
-        this.dTC.aHp();
+        this.ecv.aJd();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_fail", i, str, new Object[0]);
         if (str != null && !"".equals(str)) {
-            this.dTC.showToast(str);
+            this.ecv.showToast(str);
         } else {
-            this.dTC.showToast(r.j.data_load_error);
+            this.ecv.showToast(r.l.data_load_error);
         }
-        this.dTC.finish();
+        this.ecv.finish();
     }
 }

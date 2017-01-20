@@ -21,8 +21,8 @@ public class CommonIMTaskRegisterStatic {
         f.b(103008, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         f.b(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         f.b(103104, ResponseDismissGroupMessage.class, false);
-        f.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, com.baidu.tieba.im.e.a.e.class);
-        f.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, com.baidu.tieba.im.e.a.g.class);
-        f.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, com.baidu.tieba.im.e.a.f.class);
+        f.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, com.baidu.tieba.im.d.a.e.class);
+        f.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, com.baidu.tieba.im.d.a.g.class);
+        f.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, com.baidu.tieba.im.d.a.f.class);
     }
 }

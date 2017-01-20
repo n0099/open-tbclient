@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ o afu;
+    final /* synthetic */ o aeH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(o oVar) {
-        this.afu = oVar;
+        this.aeH = oVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -17,10 +17,10 @@ public class q implements CompoundButton.OnCheckedChangeListener {
         o.a aVar;
         o.a aVar2;
         com.baidu.tieba.card.data.c cVar;
-        aVar = this.afu.afo;
+        aVar = this.aeH.aez;
         if (aVar != null) {
-            aVar2 = this.afu.afo;
-            cVar = this.afu.afh;
+            aVar2 = this.aeH.aez;
+            cVar = this.aeH.aes;
             aVar2.a(cVar, compoundButton, z);
         }
     }

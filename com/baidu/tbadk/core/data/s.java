@@ -1,66 +1,102 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class s {
-    private p QU;
-    private long threadId;
-    private long QO = 0;
-    private String QP = "";
-    private long QR = 0;
-    private String QS = "";
-    private String imgUrl = "";
-    private String QT = "";
+public class s implements com.baidu.tbadk.core.flow.a.a {
+    private String PV;
+    private String PW;
+    private boolean PX;
+    private String mImageUrl;
+    private String mSubTitle;
+    private String mTitle;
+    private String tagNameUrl;
+    private float tagRatio;
 
-    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        if (forumHeadlineImgInfo != null) {
-            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.QO = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.QP = forumHeadlineImgInfo.thread_user_name;
-            this.QR = forumHeadlineImgInfo.img_user_id.longValue();
-            this.QS = forumHeadlineImgInfo.img_user_name;
-            this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.QT = forumHeadlineImgInfo.headline_url;
-            this.QU = new p();
-            ArrayList<r> arrayList = new ArrayList<>();
-            r rVar = new r(this.imgUrl == null ? "" : this.imgUrl, this.QT == null ? "" : this.QT, null);
-            rVar.an(true);
-            arrayList.add(rVar);
-            this.QU.g(arrayList);
+    public s(String str, String str2, String str3) {
+        this.mImageUrl = str;
+        this.PV = str2;
+        this.mTitle = str3;
+    }
+
+    public s() {
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.mImageUrl;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String pB() {
+        return this.PV;
+    }
+
+    public String getLinkUrl() {
+        return this.PV;
+    }
+
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    public String pC() {
+        return this.tagNameUrl;
+    }
+
+    public float pD() {
+        return this.tagRatio;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: pE */
+    public s clone() {
+        s sVar = new s();
+        sVar.mImageUrl = this.mImageUrl;
+        sVar.PV = this.PV;
+        sVar.mTitle = this.mTitle;
+        sVar.mSubTitle = this.mSubTitle;
+        sVar.PW = this.PW;
+        sVar.tagNameUrl = this.tagNameUrl;
+        sVar.tagRatio = this.tagRatio;
+        return sVar;
+    }
+
+    public void a(HeadImgs headImgs) {
+        if (headImgs != null) {
+            this.mImageUrl = headImgs.img_url;
+            this.PV = headImgs.pc_url;
+            this.tagNameUrl = headImgs.tag_name_url;
+            String str = headImgs.tag_name_wh;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    int g = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    if (g2 != 0) {
+                        this.tagRatio = g / g2;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (headImgs.title != null) {
+                this.mTitle = headImgs.title.trim();
+            }
+            if (headImgs.subtitle != null) {
+                this.mSubTitle = headImgs.subtitle.trim();
+            }
+            if (headImgs.btn_text != null) {
+                this.PW = headImgs.btn_text.trim();
+            }
         }
     }
 
-    public boolean pN() {
-        return pO() && pP();
+    public boolean pF() {
+        return this.PX;
     }
 
-    public boolean pO() {
-        return StringUtils.isNull(this.QP, true) || this.QO <= 0;
-    }
-
-    public boolean pP() {
-        return StringUtils.isNull(this.QS, true) || this.QR <= 0;
-    }
-
-    public String pQ() {
-        return this.QP;
-    }
-
-    public String pR() {
-        return this.QS;
-    }
-
-    public String pS() {
-        return this.imgUrl;
-    }
-
-    public String pT() {
-        return this.QT;
-    }
-
-    public p pU() {
-        return this.QU;
+    public void an(boolean z) {
+        this.PX = z;
     }
 }

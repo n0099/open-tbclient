@@ -1,20 +1,9 @@
 package com.baidu.tieba.graffiti;
 
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import com.baidu.tbadk.core.data.ae;
 /* loaded from: classes.dex */
-class t extends com.baidu.adp.lib.h.d {
-    private final /* synthetic */ ImageView chr;
+public interface t {
+    void a(int i, String str, com.baidu.tbadk.coreExtra.data.q qVar, String str2, String str3, String str4, int i2, int i3, String str5);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(ImageView imageView) {
-        this.chr = imageView;
-    }
-
-    @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.chr.setImageResource(0);
-        this.chr.setBackgroundResource(0);
-        this.chr.setVisibility(8);
-    }
+    void a(String str, String str2, String str3, ae aeVar);
 }

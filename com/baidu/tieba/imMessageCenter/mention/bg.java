@@ -1,81 +1,22 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.coreExtra.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class bg extends com.baidu.tbadk.editortools.e.a<ag> {
-    final /* synthetic */ bb ddm;
-
+class bg extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg(bb bbVar, com.baidu.adp.base.h hVar) {
-        super(hVar);
-        this.ddm = bbVar;
+    public bg(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public boolean CW() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public WriteData fB(String str) {
-        String str2;
-        FeedData feedData;
-        FeedData feedData2;
-        FeedData feedData3;
-        FeedData feedData4;
-        long j;
-        long j2;
-        long j3;
-        FeedData feedData5;
-        String quote_pid;
-        long j4;
-        WriteData writeData = new WriteData();
-        str2 = this.ddm.mForumId;
-        writeData.setForumId(str2);
-        feedData = this.ddm.ddh;
-        writeData.setForumName(feedData.getFname());
-        feedData2 = this.ddm.ddh;
-        writeData.setThreadId(feedData2.getThread_id());
-        writeData.setIsAd(false);
-        writeData.setFloorNum(0);
-        feedData3 = this.ddm.ddh;
-        if (!feedData3.getIsFloor()) {
-            feedData4 = this.ddm.ddh;
-            writeData.setFloor(feedData4.getPost_id());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (TbadkCoreApplication.isLogin()) {
+            ah.avW().avY();
         } else {
-            j3 = this.ddm.ddi;
-            if (j3 <= 0) {
-                feedData5 = this.ddm.ddh;
-                quote_pid = feedData5.getQuote_pid();
-            } else {
-                j4 = this.ddm.ddi;
-                quote_pid = String.valueOf(j4);
-            }
-            writeData.setFloor(quote_pid);
+            ah.avW().destroy();
         }
-        j = this.ddm.ddj;
-        if (j > 0) {
-            j2 = this.ddm.ddj;
-            writeData.setRepostId(String.valueOf(j2));
-        }
-        writeData.setType(2);
-        return writeData;
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public String CX() {
-        return null;
     }
 }

@@ -6,34 +6,35 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.au;
-import com.baidu.tieba.frs.bl;
-import com.baidu.tieba.frs.entelechy.view.bc;
+import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.bj;
+import com.baidu.tieba.frs.entelechy.view.bb;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class ad extends au<bl, bc> {
-    private TbPageContext<?> GO;
+public class ad extends at<bj, bb> {
+    private TbPageContext<?> FY;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ad(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.GO = baseActivity.getPageContext();
+        this.FY = baseActivity.getPageContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: y */
-    public bc a(ViewGroup viewGroup) {
-        return new bc(LayoutInflater.from(this.mContext).inflate(r.h.frs_read_progress_item, viewGroup, false), this.GO.getPageActivity());
+    /* renamed from: A */
+    public bb onCreateViewHolder(ViewGroup viewGroup) {
+        return new bb(LayoutInflater.from(this.mContext).inflate(r.j.frs_read_progress_item, viewGroup, false), this.FY.getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.au, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, bl blVar, bc bcVar) {
-        if (blVar != null && bcVar != null) {
-            bcVar.a(blVar);
+    @Override // com.baidu.tieba.frs.at, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bj bjVar, bb bbVar) {
+        if (bjVar != null && bbVar != null) {
+            bbVar.a(bjVar);
         }
         return view;
     }

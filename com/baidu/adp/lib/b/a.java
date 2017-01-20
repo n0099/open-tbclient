@@ -1,141 +1,50 @@
 package com.baidu.adp.lib.b;
 
-import android.content.SharedPreferences;
-import android.location.Address;
-import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.stats.d;
-import com.baidu.adp.lib.util.i;
-import com.baidu.tieba.compatible.EditorHelper;
-import java.net.InetAddress;
-import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.Calendar;
+import com.baidu.adp.lib.b.c;
 /* loaded from: classes.dex */
-public class a {
-    private static a mI = null;
-    private final String mJ = "c.tieba.baidu.com";
-    private long mK;
-    private String mL;
-    private long mM;
+public abstract class a {
+    protected static final int DEF_CRASHTIME_LIMIT = 10;
+    protected String[] mKey;
+    protected String mName;
+    protected int mDefaultType = 0;
+    protected int mOffType = 1;
+    protected int mMaxCrashTimes = 10;
+    protected c.a mSwitchListener = new b(this);
 
-    public static final a dI() {
-        if (mI == null) {
-            synchronized (a.class) {
-                if (mI == null) {
-                    mI = new a();
-                }
-            }
-        }
-        return mI;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void changeSettingByType(int i);
+
+    protected abstract String[] getCrashKeys();
+
+    protected abstract int getDefaultType();
+
+    protected abstract int getMaxCrashTimes();
+
+    protected abstract String getName();
+
+    protected abstract int getOffType();
+
+    protected String[] getSwitchLibs() {
+        return null;
     }
 
-    private a() {
-        this.mK = 0L;
-        this.mL = null;
-        this.mM = 0L;
-        SharedPreferences dJ = dJ();
-        this.mK = dJ.getLong(Y("c.tieba.baidu.com"), 0L);
-        this.mL = dJ.getString(Z("c.tieba.baidu.com"), null);
-        this.mM = dJ.getLong(aa("c.tieba.baidu.com"), 0L);
+    protected void addToManager() {
+        c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
+        cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
+        cVar.g(getSwitchLibs());
+        e.dL().a(cVar);
     }
 
-    public void b(String str, String str2, boolean z, boolean z2) {
-        String host;
-        if (!TextUtils.isEmpty(str) && i.gm()) {
-            try {
-                URL url = new URL(str);
-                String host2 = url.getHost();
-                if ("c.tieba.baidu.com".equals(host2) || TextUtils.isEmpty(str2)) {
-                    host = url.getHost();
-                    host2 = null;
-                } else {
-                    host = str2;
-                }
-                if ("c.tieba.baidu.com".equals(host)) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.mK;
-                    long j2 = this.mM;
-                    String str3 = this.mL;
-                    if (currentTimeMillis - j > 43200000) {
-                        a(host, host2, z, "12hour", z2);
-                        return;
-                    }
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTimeInMillis(currentTimeMillis);
-                    int i = calendar.get(6);
-                    calendar.setTimeInMillis(j);
-                    if (i != calendar.get(6)) {
-                        a(host, host2, z, "newday", z2);
-                    } else if (System.currentTimeMillis() - j2 > 3600000) {
-                        if (TextUtils.isEmpty(host2)) {
-                            host2 = X(host);
-                        }
-                        if (!TextUtils.equals(host2, str3) || str3 == null) {
-                            a(host, host2, z, "ipchange", z2);
-                        } else {
-                            this.mM = System.currentTimeMillis();
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-            }
-        }
+    public a() {
+        initData();
+        addToManager();
     }
 
-    private void a(String str, String str2, boolean z, String str3, boolean z2) {
-        if (!TextUtils.isEmpty(str)) {
-            if (str2 == null) {
-                str2 = X(str);
-            }
-            if (str2 != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                long currentTimeMillis2 = System.currentTimeMillis();
-                d ao = com.baidu.adp.lib.stats.a.eI().ao("dbg");
-                ao.q("host", str);
-                ao.q("hostip", str2);
-                ao.d("issuc", Boolean.valueOf(z));
-                ao.d("isuseip", Boolean.valueOf(z2));
-                Address b = com.baidu.adp.lib.e.a.dU().b(false, false);
-                if (b != null) {
-                    ao.d("lati", Double.valueOf(b.getLatitude()));
-                    ao.d("longi", Double.valueOf(b.getLongitude()));
-                }
-                com.baidu.adp.lib.stats.a.eI().b("dnsproxy", ao);
-                SharedPreferences dJ = dJ();
-                EditorHelper.putLong(dJ, Y(str), currentTimeMillis);
-                EditorHelper.putString(dJ, Z(str), str2);
-                EditorHelper.putLong(dJ, aa(str), currentTimeMillis2);
-                this.mK = currentTimeMillis;
-                this.mM = currentTimeMillis2;
-                this.mL = str2;
-            }
-        }
-    }
-
-    private String X(String str) {
-        try {
-            return InetAddress.getByName(str).getHostAddress();
-        } catch (UnknownHostException e) {
-            return null;
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    private SharedPreferences dJ() {
-        return BdBaseApplication.getInst().getSharedPreferences("adp", 0);
-    }
-
-    private String Y(String str) {
-        return String.valueOf(str) + "-lastLogTime";
-    }
-
-    private String Z(String str) {
-        return String.valueOf(str) + "-lastIpAddress";
-    }
-
-    private String aa(String str) {
-        return String.valueOf(str) + "-lastGetIpTime";
+    protected void initData() {
+        this.mName = getName();
+        this.mKey = getCrashKeys();
+        this.mDefaultType = getDefaultType();
+        this.mOffType = getOffType();
+        this.mMaxCrashTimes = getMaxCrashTimes();
     }
 }

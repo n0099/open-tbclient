@@ -6,20 +6,20 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.HorizontalCustomScrollView;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class InviteFriendCandidateList extends HorizontalCustomScrollView {
-    private int Zj;
-    private int aTH;
-    private int bRt;
-    private View.OnClickListener bgh;
-    private int daA;
-    private HeadImageView daB;
-    private a daC;
+    private int Yx;
+    private int bXX;
+    private View.OnClickListener baj;
+    private int cre;
+    private int dhN;
+    private HeadImageView dhO;
+    private a dhP;
     private Context mContext;
     private LinearLayout mLayout;
 
@@ -30,38 +30,38 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
 
     public InviteFriendCandidateList(Context context) {
         super(context);
-        this.Zj = -1;
-        this.bRt = -1;
-        this.daA = -1;
-        this.aTH = 4;
-        this.bgh = new i(this);
+        this.Yx = -1;
+        this.bXX = -1;
+        this.dhN = -1;
+        this.cre = 4;
+        this.baj = new i(this);
         this.mContext = context;
-        ww();
+        wr();
     }
 
     public InviteFriendCandidateList(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Zj = -1;
-        this.bRt = -1;
-        this.daA = -1;
-        this.aTH = 4;
-        this.bgh = new i(this);
+        this.Yx = -1;
+        this.bXX = -1;
+        this.dhN = -1;
+        this.cre = 4;
+        this.baj = new i(this);
         this.mContext = context;
-        ww();
+        wr();
     }
 
     public void setMaxCount(int i) {
-        this.aTH = i;
+        this.cre = i;
     }
 
     public void a(a aVar) {
-        this.daC = aVar;
+        this.dhP = aVar;
     }
 
-    private void ww() {
-        this.Zj = this.mContext.getResources().getDimensionPixelSize(r.e.ds80);
-        this.bRt = this.mContext.getResources().getDimensionPixelSize(r.e.ds80);
-        this.daA = this.mContext.getResources().getDimensionPixelSize(r.e.ds12);
+    private void wr() {
+        this.Yx = this.mContext.getResources().getDimensionPixelSize(r.f.ds80);
+        this.bXX = this.mContext.getResources().getDimensionPixelSize(r.f.ds80);
+        this.dhN = this.mContext.getResources().getDimensionPixelSize(r.f.ds12);
         this.mLayout = new LinearLayout(this.mContext);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
@@ -69,46 +69,46 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         this.mLayout.setLayoutParams(layoutParams);
         this.mLayout.setHorizontalScrollBarEnabled(true);
         this.mLayout.setOrientation(0);
-        aue();
+        avk();
         addView(this.mLayout);
         setSmoothScrollingEnabled(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aue() {
-        if (this.daB == null) {
-            this.daB = aui();
-            this.daB.setDrawBorder(false);
+    public void avk() {
+        if (this.dhO == null) {
+            this.dhO = avo();
+            this.dhO.setDrawBorder(false);
         }
-        this.daB.setImageBitmap(ar.cQ(r.f.icon_add_pop));
-        this.mLayout.addView(this.daB);
+        this.dhO.setImageBitmap(ap.cP(r.g.icon_add_pop));
+        this.mLayout.addView(this.dhO);
     }
 
-    private void auf() {
-        if (aug()) {
-            this.mLayout.removeView(this.daB);
+    private void avl() {
+        if (avm()) {
+            this.mLayout.removeView(this.dhO);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aug() {
+    public boolean avm() {
         int childCount = this.mLayout.getChildCount();
-        return childCount > 0 && this.mLayout.getChildAt(childCount + (-1)) == this.daB;
+        return childCount > 0 && this.mLayout.getChildAt(childCount + (-1)) == this.dhO;
     }
 
     public void d(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        if (getItemLength() < this.aTH) {
-            HeadImageView aui = aui();
-            aui.setIsRound(false);
-            aui.c(aVar.Al(), 12, false);
-            if (aug()) {
-                aui.setTag(aVar);
-                aui.setOnClickListener(this.bgh);
-                this.mLayout.addView(aui, getItemLength());
-                scrollTo(getItemLength() * (this.Zj + this.daA), 0);
+        if (getItemLength() < this.cre) {
+            HeadImageView avo = avo();
+            avo.setIsRound(false);
+            avo.c(aVar.Ag(), 12, false);
+            if (avm()) {
+                avo.setTag(aVar);
+                avo.setOnClickListener(this.baj);
+                this.mLayout.addView(avo, getItemLength());
+                scrollTo(getItemLength() * (this.Yx + this.dhN), 0);
             }
-            if (getItemLength() >= this.aTH) {
-                auf();
+            if (getItemLength() >= this.cre) {
+                avl();
             }
         }
     }
@@ -118,7 +118,7 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         int childCount = this.mLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mLayout.getChildAt(i);
-            if (childAt != this.daB && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a) && ((com.baidu.tbadk.coreExtra.relationship.a) tag).equals(aVar)) {
+            if (childAt != this.dhO && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a) && ((com.baidu.tbadk.coreExtra.relationship.a) tag).equals(aVar)) {
                 aVar.setChecked(true);
                 childAt.setTag(aVar);
                 return true;
@@ -127,13 +127,13 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         return false;
     }
 
-    public String auh() {
+    public String avn() {
         Object tag;
         int childCount = this.mLayout.getChildCount();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mLayout.getChildAt(i);
-            if (childAt != this.daB && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
+            if (childAt != this.dhO && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
                 if (i > 0) {
                     sb.append(",");
                 }
@@ -147,23 +147,23 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         View findViewWithTag = this.mLayout.findViewWithTag(aVar);
         if (findViewWithTag != null) {
             this.mLayout.removeView(findViewWithTag);
-            if (!aug()) {
-                aue();
+            if (!avm()) {
+                avk();
             }
         }
     }
 
-    private HeadImageView aui() {
+    private HeadImageView avo() {
         HeadImageView headImageView = new HeadImageView(this.mContext);
         headImageView.setIsRound(false);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.Zj, this.bRt);
-        layoutParams.setMargins(this.daA, 0, 0, 0);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.Yx, this.bXX);
+        layoutParams.setMargins(this.dhN, 0, 0, 0);
         headImageView.setLayoutParams(layoutParams);
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         return headImageView;
     }
 
     public int getItemLength() {
-        return aug() ? this.mLayout.getChildCount() - 1 : this.mLayout.getChildCount();
+        return avm() ? this.mLayout.getChildCount() - 1 : this.mLayout.getChildCount();
     }
 }

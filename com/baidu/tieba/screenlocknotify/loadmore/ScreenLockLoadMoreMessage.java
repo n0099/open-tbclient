@@ -15,7 +15,7 @@ public class ScreenLockLoadMoreMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            n.a(builder, true);
+            n.bindCommonParamsToProtobufData(builder, true);
         }
         GetMoreMsgReqIdl.Builder builder2 = new GetMoreMsgReqIdl.Builder();
         builder2.data = builder.build(false);

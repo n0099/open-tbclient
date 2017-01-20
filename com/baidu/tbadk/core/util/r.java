@@ -1,32 +1,31 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.os.Handler;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public abstract class r {
-    public static r Zz = null;
+public interface r {
+    void a(BasicNameValuePair basicNameValuePair);
 
-    public abstract com.baidu.tbadk.core.data.l getmCdnLogData();
+    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    public abstract void insertErrorData(int i, String str);
+    void d(String str, byte[] bArr);
 
-    public abstract void insertNormalData(long j, String str);
+    void ee();
 
-    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.l lVar);
+    void eh();
 
-    public static r getInstance() {
-        if (Zz == null) {
-            synchronized (r.class) {
-                if (Zz == null) {
-                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, r.class);
-                    if (runTask != null && runTask.getData() != null) {
-                        Zz = (r) runTask.getData();
-                    }
-                    return Zz;
-                }
-            }
-        }
-        return Zz;
-    }
+    void l(ArrayList<BasicNameValuePair> arrayList);
+
+    void n(String str, String str2);
+
+    ArrayList<BasicNameValuePair> uc();
+
+    String ud();
+
+    byte[] ue();
+
+    String uf();
+
+    String ug();
 }

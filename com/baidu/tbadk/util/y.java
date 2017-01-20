@@ -30,26 +30,26 @@ public class y {
             for (Field field : declaredFields) {
                 Class<?> type = field.getType();
                 if (type != null) {
-                    if (com.baidu.adp.lib.a.a.a.e(type, Message.class)) {
+                    if (com.baidu.adp.lib.OrmObject.a.a.e(type, Message.class)) {
                         Object a = a(type, hashSet);
                         if (a != null) {
-                            if (com.baidu.adp.lib.a.a.a.e(a.getClass(), Message.class)) {
+                            if (com.baidu.adp.lib.OrmObject.a.a.e(a.getClass(), Message.class)) {
                                 field.setAccessible(true);
                                 field.set(newInstance, a);
                             } else {
                                 BdLog.e("");
                             }
                         }
-                    } else if (com.baidu.adp.lib.a.a.a.e(type, List.class)) {
+                    } else if (com.baidu.adp.lib.OrmObject.a.a.e(type, List.class)) {
                         Type genericType = field.getGenericType();
                         if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
                             try {
                                 Class cls3 = (Class) actualTypeArguments[0];
-                                if (com.baidu.adp.lib.a.a.a.e(cls3, Message.class)) {
+                                if (com.baidu.adp.lib.OrmObject.a.a.e(cls3, Message.class)) {
                                     ArrayList arrayList = new ArrayList();
                                     Object a2 = a(cls3, hashSet);
                                     if (a2 != null) {
-                                        if (com.baidu.adp.lib.a.a.a.e(a2.getClass(), Message.class)) {
+                                        if (com.baidu.adp.lib.OrmObject.a.a.e(a2.getClass(), Message.class)) {
                                             arrayList.add(a2);
                                         } else {
                                             BdLog.e("");
@@ -83,7 +83,7 @@ public class y {
                     wire.parseFrom(bArr, cls);
                 }
                 if (bArr == null) {
-                    byte[] bArr2 = (byte[]) com.baidu.adp.lib.a.a.a.a((Class<?>) cls, "toByteArray", new Object[0]).invoke(a(cls, new HashSet()), new Object[0]);
+                    byte[] bArr2 = (byte[]) com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) cls, "toByteArray", new Object[0]).invoke(a(cls, new HashSet()), new Object[0]);
                     wire.parseFrom(bArr2, cls);
                     a(file, bArr2);
                 }

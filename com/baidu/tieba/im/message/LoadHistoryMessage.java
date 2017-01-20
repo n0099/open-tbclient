@@ -1,15 +1,15 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tieba.im.chat.al;
+import com.baidu.tieba.im.chat.ak;
 /* loaded from: classes.dex */
 public class LoadHistoryMessage extends CustomMessage<a> {
-    private al callback;
+    private ak callback;
 
     /* loaded from: classes.dex */
     public static class a {
-        public String cUe;
-        public String cUf;
+        public String dbo;
+        public String dbp;
         public String id;
         public int limit;
     }
@@ -18,11 +18,11 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         super(i, aVar);
     }
 
-    public al getCallback() {
+    public ak getCallback() {
         return this.callback;
     }
 
-    public void setCallback(al alVar) {
-        this.callback = alVar;
+    public void setCallback(ak akVar) {
+        this.callback = akVar;
     }
 }

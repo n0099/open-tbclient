@@ -5,24 +5,24 @@ import com.baidu.tieba.frs.view.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ q bRS;
-    private final /* synthetic */ q.b bRT;
+    final /* synthetic */ q bYy;
+    private final /* synthetic */ q.b bYz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar, q.b bVar) {
-        this.bRS = qVar;
-        this.bRT = bVar;
+        this.bYy = qVar;
+        this.bYz = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         q.a aVar;
         q.a aVar2;
-        aVar = this.bRS.bRO;
+        aVar = this.bYy.bYt;
         if (aVar != null) {
-            aVar2 = this.bRS.bRO;
-            aVar2.hT(this.bRT.bRU);
+            aVar2 = this.bYy.bYt;
+            aVar2.iG(this.bYz.bYA);
         }
-        this.bRS.dismiss();
+        this.bYy.dismiss();
     }
 }

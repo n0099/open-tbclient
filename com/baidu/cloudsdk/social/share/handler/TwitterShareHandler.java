@@ -108,25 +108,25 @@ public class TwitterShareHandler implements ISocialShareHandler {
                     httpPost.setEntity(new UrlEncodedFormEntity(linkedList, "UTF-8"));
                     httpPost.setParams(TwitterShareHandler.this.getParams());
                     TwitterShareHandler.this.b.sign(httpPost);
-                    jSONObject4 = new JSONObject((String) this.a.execute(httpPost, new BasicResponseHandler()));
+                    jSONObject2 = new JSONObject((String) this.a.execute(httpPost, new BasicResponseHandler()));
                 } catch (Exception e) {
-                    exc2 = e;
-                    jSONObject3 = null;
+                    exc = e;
+                    jSONObject = null;
                 }
                 try {
                     if (Build.DEBUG) {
-                        Log.d(TwitterShareHandler.a, jSONObject4.toString());
+                        Log.d(TwitterShareHandler.a, jSONObject2.toString());
                     }
-                    return jSONObject4;
+                    return jSONObject2;
                 } catch (Exception e2) {
-                    jSONObject3 = jSONObject4;
-                    exc2 = e2;
+                    jSONObject = jSONObject2;
+                    exc = e2;
                     if (TwitterShareHandler.this.e != null) {
-                        Log.e(TwitterShareHandler.a, exc2.getMessage());
-                        TwitterShareHandler.this.e.onError(new BaiduException(exc2.getMessage()));
-                        return jSONObject3;
+                        Log.e(TwitterShareHandler.a, exc.getMessage());
+                        TwitterShareHandler.this.e.onError(new BaiduException(exc.getMessage()));
+                        return jSONObject;
                     }
-                    return jSONObject3;
+                    return jSONObject;
                 }
             }
             try {
@@ -137,25 +137,25 @@ public class TwitterShareHandler implements ISocialShareHandler {
                 httpPost2.setEntity(multipartEntity);
                 httpPost2.setParams(TwitterShareHandler.this.getParams());
                 TwitterShareHandler.this.b.sign(httpPost2);
-                jSONObject2 = new JSONObject((String) this.a.execute(httpPost2, new BasicResponseHandler()));
+                jSONObject4 = new JSONObject((String) this.a.execute(httpPost2, new BasicResponseHandler()));
             } catch (Exception e3) {
-                exc = e3;
-                jSONObject = null;
+                exc2 = e3;
+                jSONObject3 = null;
             }
             try {
                 if (Build.DEBUG) {
-                    Log.d(TwitterShareHandler.a, jSONObject2.toString());
+                    Log.d(TwitterShareHandler.a, jSONObject4.toString());
                 }
-                return jSONObject2;
+                return jSONObject4;
             } catch (Exception e4) {
-                jSONObject = jSONObject2;
-                exc = e4;
-                Log.e(TwitterShareHandler.a, exc.getMessage());
+                jSONObject3 = jSONObject4;
+                exc2 = e4;
+                Log.e(TwitterShareHandler.a, exc2.getMessage());
                 if (TwitterShareHandler.this.e != null) {
-                    TwitterShareHandler.this.e.onError(new BaiduException(exc.getMessage()));
-                    return jSONObject;
+                    TwitterShareHandler.this.e.onError(new BaiduException(exc2.getMessage()));
+                    return jSONObject3;
                 }
-                return jSONObject;
+                return jSONObject3;
             }
         }
 

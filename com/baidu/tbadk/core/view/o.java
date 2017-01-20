@@ -15,29 +15,32 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.av;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends ImageView {
-    private PopupWindow aff;
-    private List<NEGFeedBackReasonCheckBox> afg;
-    private com.baidu.tieba.card.data.c afh;
-    private SparseArray<String> afi;
-    private int afj;
-    private int afk;
-    private int afl;
-    private int afm;
-    private boolean afn;
-    private a afo;
-    private View.OnClickListener afp;
-    private CompoundButton.OnCheckedChangeListener afq;
-    private View.OnClickListener afr;
-    private PopupWindow.OnDismissListener afs;
-    private final CustomMessageListener aft;
+    private TbPageContext FY;
+    private com.baidu.tieba.d.a aeA;
+    private View.OnClickListener aeB;
+    private CompoundButton.OnCheckedChangeListener aeC;
+    private View.OnClickListener aeD;
+    private PopupWindow.OnDismissListener aeE;
+    private final CustomMessageListener aeF;
+    private CustomMessageListener aeG;
+    private PopupWindow aeq;
+    private List<NEGFeedBackReasonCheckBox> aer;
+    private com.baidu.tieba.card.data.c aes;
+    private SparseArray<String> aet;
+    private int aeu;
+    private int aev;
+    private int aew;
+    private int aex;
+    private boolean aey;
+    private a aez;
     private Context mContext;
     private int mWindowHeight;
 
@@ -50,96 +53,109 @@ public class o extends ImageView {
         void a(ArrayList<Integer> arrayList, com.baidu.tieba.card.data.c cVar);
     }
 
-    public o(Context context) {
-        super(context);
+    public o(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.aff = null;
-        this.afg = null;
-        this.afh = null;
-        this.afi = null;
-        this.afn = false;
-        this.afo = null;
-        this.afp = new p(this);
-        this.afq = new q(this);
-        this.afr = new r(this);
-        this.afs = new s(this);
-        this.aft = new t(this, CmdConfigCustom.CMD_NEG_FEED_BACK_DISMISS_WINDOW);
-        this.mContext = context;
+        this.aeq = null;
+        this.aer = null;
+        this.aes = null;
+        this.aet = null;
+        this.aey = false;
+        this.aez = null;
+        this.aeB = new p(this);
+        this.aeC = new q(this);
+        this.aeD = new r(this);
+        this.aeE = new s(this);
+        this.aeF = new t(this, CmdConfigCustom.CMD_NEG_FEED_BACK_DISMISS_WINDOW);
+        this.aeG = new u(this, CmdConfigCustom.CMD_NEG_FEED_BACK_TIP);
+        this.mContext = tbPageContext.getPageActivity();
+        this.FY = tbPageContext;
         init();
     }
 
     private void init() {
-        this.afl = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds32);
-        this.mWindowHeight = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds278);
-        this.afj = com.baidu.adp.lib.util.k.I(this.mContext) - (this.afl * 2);
-        this.afk = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds120);
-        setOnClickListener(this.afp);
+        this.aew = com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds32);
+        this.mWindowHeight = com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds278);
+        this.aeu = com.baidu.adp.lib.util.k.I(this.mContext) - (this.aew * 2);
+        this.aev = com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds120);
+        setOnClickListener(this.aeB);
     }
 
-    public void wd() {
-        setLayoutParams(new ViewGroup.LayoutParams(com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds56), -1));
-        setPadding(com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds20), 0, 0, 0);
+    public void vX() {
+        setLayoutParams(new ViewGroup.LayoutParams(com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds64), -1));
+        setPadding(com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds28), 0, 0, 0);
+    }
+
+    public void vY() {
+        if (this.aeA == null) {
+            this.aeA = new com.baidu.tieba.d.a(this.FY, this);
+        }
+        if (this.aeA.Ti()) {
+            this.FY.registerListener(this.aeG);
+        } else {
+            this.aeA.Tg();
+        }
     }
 
     private View getContentView() {
         if (this.mContext == null) {
             return null;
         }
-        View inflate = LayoutInflater.from(this.mContext).inflate(r.h.neg_feedback_popupwindow, (ViewGroup) null);
-        View findViewById = inflate.findViewById(r.g.divider_line);
-        Button button = (Button) inflate.findViewById(r.g.forbid_thread_btn);
-        button.setOnClickListener(this.afr);
-        com.baidu.tbadk.core.util.ar.c((TextView) inflate.findViewById(r.g.head_text), r.d.cp_cont_c, 1);
-        com.baidu.tbadk.core.util.ar.k(findViewById, r.d.cp_bg_line_b);
-        com.baidu.tbadk.core.util.ar.k(button, r.f.btn_home_neg_feedback_forbid_selector);
-        com.baidu.tbadk.core.util.ar.c(button, r.d.cp_cont_b, 3);
-        this.afg = new ArrayList();
-        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) inflate.findViewById(r.g.reason_checkbox1);
-        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) inflate.findViewById(r.g.reason_checkbox2);
-        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox3 = (NEGFeedBackReasonCheckBox) inflate.findViewById(r.g.reason_checkbox3);
-        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.afq);
-        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.afq);
-        nEGFeedBackReasonCheckBox3.setOnCheckedChangeListener(this.afq);
-        this.afg.add(nEGFeedBackReasonCheckBox);
-        this.afg.add(nEGFeedBackReasonCheckBox2);
-        this.afg.add(nEGFeedBackReasonCheckBox3);
+        View inflate = LayoutInflater.from(this.mContext).inflate(r.j.neg_feedback_popupwindow, (ViewGroup) null);
+        View findViewById = inflate.findViewById(r.h.divider_line);
+        Button button = (Button) inflate.findViewById(r.h.forbid_thread_btn);
+        button.setOnClickListener(this.aeD);
+        com.baidu.tbadk.core.util.ap.c((TextView) inflate.findViewById(r.h.head_text), r.e.cp_cont_c, 1);
+        com.baidu.tbadk.core.util.ap.j(findViewById, r.e.cp_bg_line_b);
+        com.baidu.tbadk.core.util.ap.j((View) button, r.g.btn_home_neg_feedback_forbid_selector);
+        com.baidu.tbadk.core.util.ap.c(button, r.e.cp_cont_b, 3);
+        this.aer = new ArrayList();
+        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) inflate.findViewById(r.h.reason_checkbox1);
+        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) inflate.findViewById(r.h.reason_checkbox2);
+        NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox3 = (NEGFeedBackReasonCheckBox) inflate.findViewById(r.h.reason_checkbox3);
+        nEGFeedBackReasonCheckBox.setOnCheckedChangeListener(this.aeC);
+        nEGFeedBackReasonCheckBox2.setOnCheckedChangeListener(this.aeC);
+        nEGFeedBackReasonCheckBox3.setOnCheckedChangeListener(this.aeC);
+        this.aer.add(nEGFeedBackReasonCheckBox);
+        this.aer.add(nEGFeedBackReasonCheckBox2);
+        this.aer.add(nEGFeedBackReasonCheckBox3);
         return inflate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void we() {
+    public void vZ() {
         if (this.mContext != null) {
-            this.aff = new PopupWindow(getContentView(), this.afj, this.mWindowHeight);
-            this.aff.setFocusable(true);
-            this.aff.setTouchable(true);
-            this.aff.setOnDismissListener(this.afs);
-            if (!this.afn) {
-                MessageManager.getInstance().registerListener(this.aft);
-                this.afn = true;
+            this.aeq = new PopupWindow(getContentView(), this.aeu, this.mWindowHeight);
+            this.aeq.setFocusable(true);
+            this.aeq.setTouchable(true);
+            this.aeq.setOnDismissListener(this.aeE);
+            if (!this.aey) {
+                MessageManager.getInstance().registerListener(this.aeF);
+                this.aey = true;
             }
-            if (this.afi != null && this.afi.size() == 3 && com.baidu.tbadk.core.util.x.s(this.afg) == 3) {
-                for (int i = 0; i < this.afi.size(); i++) {
-                    String valueAt = this.afi.valueAt(i);
-                    if (av.dD(valueAt) > 8) {
-                        valueAt = av.d(valueAt, 6, "...吧");
+            if (this.aet != null && this.aet.size() == 3 && com.baidu.tbadk.core.util.w.r(this.aer) == 3) {
+                for (int i = 0; i < this.aet.size(); i++) {
+                    String valueAt = this.aet.valueAt(i);
+                    if (com.baidu.tbadk.core.util.at.dB(valueAt) > 8) {
+                        valueAt = com.baidu.tbadk.core.util.at.d(valueAt, 6, "...吧");
                     }
-                    this.afg.get(i).setText(valueAt);
+                    this.aer.get(i).setText(valueAt);
                 }
             }
             b(this.mContext, 0.5f);
             int[] iArr = new int[2];
-            boolean a2 = a(this.mContext, this, this.mWindowHeight, this.afj, this.afk, this.afm, iArr);
+            boolean a2 = a(this.mContext, this, this.mWindowHeight, this.aeu, this.aev, this.aex, iArr);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 if (a2) {
-                    this.aff.setAnimationStyle(r.k.scale_rb2lt_anim);
-                    com.baidu.tbadk.core.util.ar.a(this.aff, r.f.bg_home_feedback_under);
+                    this.aeq.setAnimationStyle(r.m.scale_rb2lt_anim);
+                    com.baidu.tbadk.core.util.ap.a(this.aeq, r.g.bg_home_feedback_under);
                 } else {
-                    this.aff.setAnimationStyle(r.k.scale_rt2lb_anim);
-                    com.baidu.tbadk.core.util.ar.a(this.aff, r.f.bg_home_feedback_top);
+                    this.aeq.setAnimationStyle(r.m.scale_rt2lb_anim);
+                    com.baidu.tbadk.core.util.ap.a(this.aeq, r.g.bg_home_feedback_top);
                 }
-                this.aff.showAtLocation(getRootView(), 0, iArr[0] - this.afl, iArr[1]);
-                if (this.afo != null) {
-                    this.afo.a(this.afh);
+                this.aeq.showAtLocation(getRootView(), 0, iArr[0] - this.aew, iArr[1]);
+                if (this.aez != null) {
+                    this.aez.a(this.aes);
                 }
             }
         }
@@ -148,10 +164,14 @@ public class o extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.afn) {
-            MessageManager.getInstance().unRegisterListener(this.aft);
-            this.afn = false;
+        if (this.aey) {
+            MessageManager.getInstance().unRegisterListener(this.aeF);
+            this.aey = false;
         }
+        if (this.aeA != null) {
+            this.aeA.Tg();
+        }
+        MessageManager.getInstance().unRegisterListener(this.aeG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -190,13 +210,13 @@ public class o extends ImageView {
 
     public void setData(com.baidu.tieba.card.data.c cVar) {
         if (cVar != null) {
-            this.afh = cVar;
-            this.afi = cVar.beg;
+            this.aes = cVar;
+            this.aet = cVar.bob;
         }
     }
 
-    public void tm() {
-        com.baidu.tbadk.core.util.ar.c(this, r.f.icon_home_feedback_selector);
+    public void tg() {
+        com.baidu.tbadk.core.util.ap.c(this, r.g.icon_home_feedback_selector);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -213,43 +233,43 @@ public class o extends ImageView {
     */
     public JSONObject m(ArrayList<Integer> arrayList) {
         JSONObject jSONObject = new JSONObject();
-        if (this.afh == null || this.afh.IU() == null || arrayList == null) {
+        if (this.aes == null || this.aes.Ji() == null || arrayList == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        if (!com.baidu.tbadk.core.util.x.t(this.afg)) {
+        if (!com.baidu.tbadk.core.util.w.s(this.aer)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.afg.size()) {
-                    NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = this.afg.get(i2);
-                    if (nEGFeedBackReasonCheckBox != null && nEGFeedBackReasonCheckBox.isChecked() && this.afi != null && this.afi.size() > i2) {
+                if (i2 < this.aer.size()) {
+                    NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = this.aer.get(i2);
+                    if (nEGFeedBackReasonCheckBox != null && nEGFeedBackReasonCheckBox.isChecked() && this.aet != null && this.aet.size() > i2) {
                         arrayList.add(Integer.valueOf(nEGFeedBackReasonCheckBox.getId()));
                         if (sb.length() != 0) {
                             sb.append(",");
                         }
-                        sb.append(String.valueOf(this.afi.keyAt(i2)));
+                        sb.append(String.valueOf(this.aet.keyAt(i2)));
                     }
                     i = i2 + 1;
                 }
             }
-            jSONObject.put("tid", this.afh.IU().getTid());
+            jSONObject.put("tid", this.aes.Ji().getTid());
             if (sb.length() != 0) {
                 jSONObject.put("dislike_ids", sb.toString());
             }
-            jSONObject.put("fid", this.afh.IU().getFid());
+            jSONObject.put("fid", this.aes.Ji().getFid());
             jSONObject.put("click_time", System.currentTimeMillis());
             return jSONObject;
         }
-        jSONObject.put("tid", this.afh.IU().getTid());
+        jSONObject.put("tid", this.aes.Ji().getTid());
         if (sb.length() != 0) {
         }
-        jSONObject.put("fid", this.afh.IU().getFid());
+        jSONObject.put("fid", this.aes.Ji().getFid());
         jSONObject.put("click_time", System.currentTimeMillis());
         return jSONObject;
     }
 
     public void setEventCallback(a aVar) {
-        this.afo = aVar;
+        this.aez = aVar;
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tbadk.core.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Runnable {
-    final /* synthetic */ k afd;
+    final /* synthetic */ k aeo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.afd = kVar;
+        this.aeo = kVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.afd.wc();
+        this.aeo.vW();
     }
 }

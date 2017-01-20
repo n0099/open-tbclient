@@ -1,23 +1,42 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.r;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.InjectPlugin.a;
 /* loaded from: classes.dex */
-public class aw extends y.a {
-    public TextView agP;
-    public TextView agS;
-    public int aib;
-    public TextView bzE;
-    public TextView bzF;
+public class aw {
+    private TbPageContext Fp;
+    private com.baidu.tieba.frs.mc.t bHf;
 
-    public aw(View view) {
-        super(view);
-        this.aib = 3;
-        this.agP = (TextView) getView().findViewById(r.g.frs_god_lv_reply_time);
-        this.agS = (TextView) getView().findViewById(r.g.frs_god_praise_num);
-        this.bzF = (TextView) getView().findViewById(r.g.frs_god_reply_num);
-        this.bzE = (TextView) getView().findViewById(r.g.frs_god_item_location_address);
+    public aw(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.t tVar) {
+        this.Fp = tbPageContext;
+        this.bHf = tVar;
+    }
+
+    public void b(a aVar) {
+        if (this.bHf != null && this.bHf.Xy() != null && this.bHf.Xy().abf() != null && this.bHf.XF() != null && aVar != null && this.bHf.XF().Iv() != null && this.bHf.XC() != null) {
+            BdTypeListView Iv = this.bHf.XF().Iv();
+            switch (aVar.what) {
+                case 2:
+                    if (aVar.getView() != null) {
+                        if (!this.bHf.XM()) {
+                            Iv.removeHeaderView(aVar.getView());
+                            Iv.addHeaderView(aVar.getView(), Iv.getHeaderViewsCount() - 1);
+                        }
+                        this.bHf.XC().iL(8);
+                        return;
+                    }
+                    return;
+                case 3:
+                    if (aVar.getView() != null) {
+                        Iv.removeHeaderView(aVar.getView());
+                        this.bHf.XC().iL(0);
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
     }
 }

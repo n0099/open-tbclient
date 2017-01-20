@@ -1,45 +1,43 @@
 package com.baidu.tbadk.mvc.model;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.framework.listener.a {
+public class j extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(NetModel netModel, int i, int i2) {
-        super(i, i2);
+    public j(NetModel netModel, int i, boolean z) {
+        super(i, z);
         this.this$0 = netModel;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         NetModel.d dVar;
         NetModel.d dVar2;
-        this.this$0.aAd = false;
-        if (this.this$0.aAg != null) {
-            com.baidu.adp.lib.h.h.eG().removeCallbacks(this.this$0.aAg);
+        this.this$0.isLoading = false;
+        if (this.this$0.ayZ != null) {
+            com.baidu.adp.lib.g.h.eE().removeCallbacks(this.this$0.ayZ);
         }
-        if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
-            MvcNetMessage mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-            if (this.this$0.azV != null) {
-                this.this$0.azV.a((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
-            }
-        } else if (responsedMessage instanceof MvcSocketResponsedMessage) {
-            MvcNetMessage mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
-            dVar = this.this$0.azW;
-            if (dVar != null) {
-                dVar2 = this.this$0.azW;
-                dVar2.a((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
+        if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
+            if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
+                dVar = this.this$0.ayR;
+                if (dVar != null) {
+                    dVar2 = this.this$0.ayR;
+                    dVar2.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                }
+            } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {
+                throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
             }
         } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {
-            throw new RuntimeException("mvc netmodel NetListener responsedMessage error");
+            throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage error");
         }
     }
 }

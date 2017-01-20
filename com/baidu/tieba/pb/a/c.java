@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class c {
-    public static String aIM() {
+    public static String aKD() {
         int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
         if (fontSize == 0) {
-            return TbadkCoreApplication.m9getInst().getString(r.j.toast_font_size_xlarge);
+            return TbadkCoreApplication.m9getInst().getString(r.l.toast_font_size_xlarge);
         }
         if (fontSize == 1) {
-            return TbadkCoreApplication.m9getInst().getString(r.j.toast_font_size_big);
+            return TbadkCoreApplication.m9getInst().getString(r.l.toast_font_size_big);
         }
         if (fontSize == 2) {
-            return TbadkCoreApplication.m9getInst().getString(r.j.toast_font_size_mid);
+            return TbadkCoreApplication.m9getInst().getString(r.l.toast_font_size_mid);
         }
-        return TbadkCoreApplication.m9getInst().getString(r.j.toast_font_size_small);
+        return TbadkCoreApplication.m9getInst().getString(r.l.toast_font_size_small);
     }
 
-    public static void aIN() {
+    public static void aKE() {
         int i = 1;
         int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
         if (fontSize != 0) {
@@ -32,10 +32,10 @@ public class c {
             TbadkCoreApplication.m9getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.m9getInst(), aIM(), r.f.icon_word_t_size, 0).tj();
+        BdToast.a(TbadkCoreApplication.m9getInst(), aKD(), r.g.icon_word_t_size, 0).td();
     }
 
-    public static void aIO() {
+    public static void aKF() {
         int i = 1;
         int fontSize = TbadkCoreApplication.m9getInst().getFontSize();
         if (fontSize == 0) {
@@ -49,10 +49,10 @@ public class c {
             TbadkCoreApplication.m9getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));
         }
-        BdToast.a(TbadkCoreApplication.m9getInst(), aIM(), r.f.icon_word_t_size, 0).tj();
+        BdToast.a(TbadkCoreApplication.m9getInst(), aKD(), r.g.icon_word_t_size, 0).td();
     }
 
-    public static void nv(int i) {
+    public static void on(int i) {
         if (TbadkCoreApplication.m9getInst().getFontSize() != i) {
             TbadkCoreApplication.m9getInst().setFontSize(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RICHTEXT_CHANGE_CMD));

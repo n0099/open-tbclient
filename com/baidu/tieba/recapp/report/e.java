@@ -1,6 +1,7 @@
 package com.baidu.tieba.recapp.report;
 
-import com.baidu.tieba.tbadkCore.data.p;
+import com.baidu.tieba.tbadkCore.data.AppData;
+import com.baidu.tieba.tbadkCore.data.o;
 /* loaded from: classes.dex */
 public class e {
     public static a a(com.baidu.tbadk.core.data.c cVar, int i, int i2) {
@@ -8,15 +9,15 @@ public class e {
             return null;
         }
         a aVar = new a();
-        aVar.qk(com.baidu.adp.lib.h.b.g(cVar.adPosition, 0));
-        aVar.qj(i);
-        aVar.pC(cVar.price);
-        aVar.pB(cVar.extensionInfo);
+        aVar.qU(com.baidu.adp.lib.g.b.g(cVar.adPosition, 0));
+        aVar.qT(i);
+        aVar.pW(cVar.price);
+        aVar.pV(cVar.extensionInfo);
         aVar.setPageNumber(i2);
-        aVar.pE(cVar.PA);
-        aVar.pF(cVar.PC);
-        aVar.pG(cVar.PD);
-        aVar.pH(cVar.OO);
+        aVar.pY(cVar.OH);
+        aVar.pZ(cVar.OI);
+        aVar.qa(cVar.OJ);
+        aVar.qb(cVar.Oa);
         return aVar;
     }
 
@@ -26,43 +27,43 @@ public class e {
         }
         a aVar = new a();
         aVar.setDownloadStaticsData(downloadStaticsData);
-        aVar.qj(i);
+        aVar.qT(i);
         aVar.setPageNumber(i2);
         return aVar;
     }
 
-    public static a O(int i, int i2, int i3) {
+    public static a P(int i, int i2, int i3) {
         a aVar = new a();
-        aVar.qj(i);
-        aVar.qk(i2);
+        aVar.qT(i);
+        aVar.qU(i2);
         aVar.setPageNumber(i3);
         return aVar;
     }
 
-    public static a a(p pVar, int i) {
-        if (pVar == null || pVar.bfO() == null) {
+    public static a a(o oVar, int i) {
+        if (oVar == null || oVar.bhE() == null) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.data.e bfO = pVar.bfO();
+        AppData bhE = oVar.bhE();
         a aVar = new a();
-        aVar.qk(com.baidu.adp.lib.h.b.g(bfO.pos_name, 0));
-        aVar.pB(bfO.ext_info);
-        aVar.setPageNumber(pVar.pageNumber);
-        aVar.qj(i);
-        aVar.pC(bfO.price);
-        aVar.pE(pVar.PA);
-        aVar.pF(pVar.PC);
-        aVar.pG(pVar.forumId);
-        aVar.pH("PB");
+        aVar.qU(com.baidu.adp.lib.g.b.g(bhE.pos_name, 0));
+        aVar.pV(bhE.ext_info);
+        aVar.setPageNumber(oVar.pageNumber);
+        aVar.qT(i);
+        aVar.pW(bhE.price);
+        aVar.pY(oVar.OH);
+        aVar.pZ(oVar.OI);
+        aVar.qa(oVar.forumId);
+        aVar.qb("PB");
         return aVar;
     }
 
     public static a a(com.baidu.tbadk.core.data.c cVar, int i, int i2, int i3, int i4, int i5) {
         a a = a(cVar, i, i2);
-        a.ql(i3);
-        a.qm(i4);
-        a.qn(i5);
-        a.pH(cVar.OO);
+        a.qV(i3);
+        a.qW(i4);
+        a.qX(i5);
+        a.qb(cVar.Oa);
         return a;
     }
 }

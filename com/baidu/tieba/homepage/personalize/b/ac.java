@@ -1,34 +1,40 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.cb;
+import com.baidu.tieba.card.cc;
 /* loaded from: classes.dex */
-public class ac extends CustomMessageListener {
-    final /* synthetic */ ab crO;
+public class ac extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.s, com.baidu.tieba.card.b.a<cb>> {
+    private TbPageContext<?> FY;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(ab abVar, int i) {
-        super(i);
-        this.crO = abVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ac(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.s.bpd);
+        this.FY = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        List<com.baidu.adp.widget.ListView.v> list2;
-        if (customResponsedMessage == null) {
-            return;
-        }
-        this.crO.YR();
-        list = this.crO.cry;
-        if (list != null) {
-            ab abVar = this.crO;
-            list2 = this.crO.cry;
-            abVar.bq(list2);
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: k */
+    public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
+        cb cbVar = new cb(this.FY);
+        cbVar.x("c10718", "c10719", "c10742");
+        return new com.baidu.tieba.card.b.a(cbVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.s sVar, com.baidu.tieba.card.b.a aVar) {
+        aVar.Sd().onBindDataToView(sVar);
+        aVar.Sd().onChangeSkinType(this.FY, TbadkCoreApplication.m9getInst().getSkinType());
+        cc.Rx().a(new ar("c10718").ab("obj_id", String.valueOf(sVar.bpe)));
+        return aVar.getView();
     }
 }

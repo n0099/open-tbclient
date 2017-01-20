@@ -4,68 +4,75 @@ import android.content.Context;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tieba.b.b.a {
-    private int aYM;
-    private a aYN;
+    private int bil;
+    private a bim;
     private Handler mHandler;
     private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cr(boolean z);
+        void cE(boolean z);
     }
 
     public g(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.aYM = 1;
-        this.aYN = null;
-        dV();
+        this.bil = 1;
+        this.bim = null;
+        dT();
     }
 
-    private void dV() {
+    private void dT() {
         this.mHandler = new Handler(new h(this));
     }
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.aYC = this.mRadius;
-        this.aYB = this.mRadius;
+        this.bhZ = this.mRadius;
+        this.bhY = this.mRadius;
     }
 
-    public void Nv() {
-        Nq();
-        this.aYC = this.mRadius;
-        this.aYB = this.mRadius;
-        gd(4);
+    public void Ql() {
+        Qg();
+        this.bhZ = this.mRadius;
+        this.bhY = this.mRadius;
+        gC(4);
         a(new i(this));
         a(new j(this));
     }
 
-    public void Nw() {
-        Nq();
-        gd(2);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Qm() {
+        this.mHandler.removeMessages(1);
+        this.mHandler.removeMessages(2);
+    }
+
+    public void Qn() {
+        Qg();
+        gC(2);
         a(new k(this));
         a(new l(this));
     }
 
     public int getViewStatus() {
-        return this.aYM;
+        return this.bil;
     }
 
-    public void gd(int i) {
-        this.aYM = i;
+    public void gC(int i) {
+        this.bil = i;
     }
 
     @Override // com.baidu.tieba.b.b.a
-    public void vL() {
-        super.vL();
-        this.aYC = this.mRadius;
-        this.aYB = this.mRadius;
-        this.aYM = 1;
+    public void vF() {
+        super.vF();
+        this.bhZ = this.mRadius;
+        this.bhY = this.mRadius;
+        this.bil = 1;
+        Qm();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.aYN = aVar;
+        this.bim = aVar;
     }
 }

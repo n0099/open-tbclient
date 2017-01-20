@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.adp.lib.f.c<TbImageView> {
+public class f implements com.baidu.adp.lib.e.c<TbImageView> {
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,9 +14,9 @@ public class f implements com.baidu.adp.lib.f.c<TbImageView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: wE */
-    public TbImageView ez() {
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: wz */
+    public TbImageView ex() {
         TbImageView tbImageView = new TbImageView(this.val$context);
         tbImageView.setSupportNoImage(true);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -26,7 +26,7 @@ public class f implements com.baidu.adp.lib.f.c<TbImageView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.e.c
     /* renamed from: a */
     public void o(TbImageView tbImageView) {
         tbImageView.setBackgroundResource(0);
@@ -36,14 +36,14 @@ public class f implements com.baidu.adp.lib.f.c<TbImageView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.e.c
     /* renamed from: b */
     public TbImageView p(TbImageView tbImageView) {
         return tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
     public TbImageView q(TbImageView tbImageView) {
         tbImageView.setBackgroundResource(0);

@@ -1,39 +1,39 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes.dex */
-public class r extends b implements s {
-    public static final BdUniqueId bfk = BdUniqueId.gen();
-    public long bfl;
-    public String bfm;
-    public String bfn;
-    public String bfo;
-    public String bfp;
-    public String bfq;
-    public long bfr;
-    public String bfs;
-    public String userName;
+public class r extends b implements t {
+    public static final BdUniqueId boJ = BdUniqueId.gen();
+    public boolean boK = true;
+    public boolean boL = true;
+    public String boM;
+    public List<q> boN;
+    public int boO;
+    public int position;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return bfk;
+        return boJ;
     }
 
-    @Override // com.baidu.tieba.card.data.s
+    @Override // com.baidu.tieba.card.data.t
     public int getPosition() {
-        return (int) this.bfr;
+        return this.position;
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public boolean OO() {
-        return false;
+    @Override // com.baidu.tieba.card.data.t
+    public boolean RE() {
+        return true;
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public void cA(boolean z) {
+    @Override // com.baidu.tieba.card.data.t
+    public void cP(boolean z) {
+        this.boK = z;
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public void cB(boolean z) {
+    @Override // com.baidu.tieba.card.data.t
+    public void cQ(boolean z) {
+        this.boL = z;
     }
 }

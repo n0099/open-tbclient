@@ -1,44 +1,56 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PbActivity eah;
-    private final /* synthetic */ MarkData eas;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a eat;
+public class bk implements a.b {
+    final /* synthetic */ PbActivity eiV;
+    private final /* synthetic */ MarkData ejg;
+    private final /* synthetic */ MarkData ejh;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a eji;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
-        this.eah = pbActivity;
-        this.eas = markData;
-        this.eat = aVar;
+    public bk(PbActivity pbActivity, MarkData markData, MarkData markData2, com.baidu.tbadk.core.dialog.a aVar) {
+        this.eiV = pbActivity;
+        this.ejg = markData;
+        this.ejh = markData2;
+        this.eji = aVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        er erVar;
-        er erVar2;
-        er erVar3;
-        dialogInterface.dismiss();
-        int[] iArr = new int[2];
-        erVar = this.eah.dZk;
-        if (erVar != null) {
-            erVar2 = this.eah.dZk;
-            if (erVar2.getView() != null) {
-                erVar3 = this.eah.dZk;
-                erVar3.getView().getLocationOnScreen(iArr);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        com.baidu.tbadk.baseEditMark.a aVar5;
+        com.baidu.tbadk.baseEditMark.a aVar6;
+        com.baidu.tbadk.baseEditMark.a aVar7;
+        com.baidu.tbadk.baseEditMark.a aVar8;
+        aVar.dismiss();
+        aVar2 = this.eiV.dGi;
+        if (aVar2 != null) {
+            aVar3 = this.eiV.dGi;
+            if (aVar3.nt()) {
+                aVar7 = this.eiV.dGi;
+                aVar7.nu();
+                aVar8 = this.eiV.dGi;
+                aVar8.ad(false);
             }
+            aVar4 = this.eiV.dGi;
+            aVar4.a(this.ejg);
+            aVar5 = this.eiV.dGi;
+            aVar5.ad(true);
+            aVar6 = this.eiV.dGi;
+            aVar6.nv();
         }
-        if (iArr[0] > 0) {
-            Intent intent = new Intent();
-            intent.putExtra(PbActivityConfig.KEY_MARK, this.eas);
-            this.eah.setResult(-1, intent);
-            this.eat.dismiss();
-            this.eah.aJl();
-        }
+        this.ejh.setPostId(this.ejg.getPostId());
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.ejh);
+        this.eiV.setResult(-1, intent);
+        this.eji.dismiss();
+        this.eiV.aKY();
     }
 }

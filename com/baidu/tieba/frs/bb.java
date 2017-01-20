@@ -1,43 +1,40 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.tbadkCore.aa;
-import com.baidu.tieba.view.BdExpandListView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements aa.a {
-    final /* synthetic */ ax bAv;
+public class bb implements com.baidu.tbadk.widget.layout.i {
+    final /* synthetic */ ax bHQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ax axVar) {
-        this.bAv = axVar;
+        this.bHQ = axVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void XO() {
+    @Override // com.baidu.tbadk.widget.layout.i
+    public void a(View view, int i, int i2, int i3, int i4) {
+        View view2;
         FrsActivity frsActivity;
-        frsActivity = this.bAv.bzH;
-        frsActivity.WE();
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void XP() {
-        BdExpandListView bdExpandListView;
-        BdExpandListView bdExpandListView2;
-        com.baidu.tieba.play.aa aaVar;
-        com.baidu.tieba.play.aa aaVar2;
-        int i;
-        int i2;
-        bdExpandListView = this.bAv.bzO;
-        if (bdExpandListView != null) {
-            bdExpandListView2 = this.bAv.bzO;
-            bdExpandListView2.setSelection(0);
-            aaVar = this.bAv.aMd;
-            if (aaVar != null) {
-                aaVar2 = this.bAv.aMd;
-                i = this.bAv.aMh;
-                i2 = this.bAv.aMg;
-                aaVar2.a(i, i2, false, true);
+        FrsActivity frsActivity2;
+        View view3;
+        View view4;
+        View view5;
+        View view6;
+        view2 = this.bHQ.bHE;
+        if (view2 != null) {
+            view3 = this.bHQ.bHE;
+            if (view3.getLayoutParams() != null && i2 != i4) {
+                view4 = this.bHQ.bHE;
+                view4.getLayoutParams().height = i2;
+                view5 = this.bHQ.bHE;
+                view6 = this.bHQ.bHE;
+                view5.setLayoutParams(view6.getLayoutParams());
             }
+        }
+        frsActivity = this.bHQ.bHh;
+        if (frsActivity.Xr() != null) {
+            frsActivity2 = this.bHQ.bHh;
+            frsActivity2.Xr().p(view, i2);
         }
     }
 }

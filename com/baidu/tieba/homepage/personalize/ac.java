@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.personalize;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.frs.cs;
+import com.baidu.tieba.frs.co;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
@@ -15,25 +15,25 @@ public class ac implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        cs csVar;
+        co coVar;
         int i;
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         BdTypeListView bdTypeListView3;
-        cs csVar2;
-        csVar = this.this$0.cqm;
-        if (csVar != null) {
-            csVar2 = this.this$0.cqm;
-            csVar2.hideTip();
+        co coVar2;
+        coVar = this.this$0.cxm;
+        if (coVar != null) {
+            coVar2 = this.this$0.cxm;
+            coVar2.hideTip();
         }
-        i = this.this$0.cqi;
+        i = this.this$0.cxi;
         if (i == 1) {
-            bdTypeListView = this.this$0.aMc;
+            bdTypeListView = this.this$0.mListView;
             if (bdTypeListView != null) {
-                bdTypeListView2 = this.this$0.aMc;
+                bdTypeListView2 = this.this$0.mListView;
                 bdTypeListView2.setSelection(0);
-                bdTypeListView3 = this.this$0.aMc;
-                bdTypeListView3.kv();
+                bdTypeListView3 = this.this$0.mListView;
+                bdTypeListView3.startPullRefresh();
             }
         }
     }

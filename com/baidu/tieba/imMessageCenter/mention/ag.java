@@ -1,126 +1,42 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MentionActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ag extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private o dcB;
-    private ViewEventCenter dcn;
-    private boolean dcC = false;
-    private CustomMessageListener dcD = new ah(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private CustomMessageListener dco = new ai(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
+public class ag {
+    private int djQ = 0;
+    private int djR = 0;
+    private int djS = 0;
+    private int chat = 0;
+    private int bookmark = 0;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dcB = new o(this);
-        if (bundle != null) {
-            this.dcB.f(bundle);
-            this.dcB.f(bundle);
-        } else {
-            this.dcB.f((Bundle) null);
-            this.dcB.f((Bundle) null);
-        }
-        View me = this.dcB.me();
-        this.dcB.gB(this.dcC);
-        this.dcB.a(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
-        lI().addEventDelegate(this);
-        registerListener(this.dcD);
-        registerListener(this.dco);
-        TiebaStatic.log(new com.baidu.tbadk.core.util.at("c11941"));
-        return me;
+    public int avS() {
+        return this.djQ;
     }
 
-    @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && s(getActivity().getIntent())) {
-            this.dcB.onNewIntent(getActivity().getIntent());
-        } else {
-            this.dcB.Zi();
-        }
-        super.onViewCreated(view, bundle);
+    public int avT() {
+        return this.djR;
     }
 
-    private boolean s(Intent intent) {
-        return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
+    public int avU() {
+        return this.djS;
     }
 
-    @Override // com.baidu.tbadk.mvc.c.a
-    public boolean lL() {
-        return false;
+    public int avV() {
+        return this.bookmark;
     }
 
-    @Override // com.baidu.tbadk.mvc.c.a
-    public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        return bVar == null;
-    }
-
-    public ViewEventCenter lI() {
-        if (this.dcn == null) {
-            this.dcn = new ViewEventCenter();
-        }
-        return this.dcn;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        if (this.dcB != null) {
-            this.dcB.a(getPageContext(), i);
-        }
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            switch (i) {
-                case 12011:
-                    Bundle extras = intent.getExtras();
-                    String string = extras.getString("user_id");
-                    String string2 = extras.getString("user_name");
-                    String string3 = extras.getString(IntentConfig.PORTRAIT);
-                    if (string2 != null && string != null) {
-                        try {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(getActivity(), Long.parseLong(string), string2, string3, 0)));
-                            return;
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            return;
-                        }
-                    }
-                    return;
-                default:
-                    return;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.djQ = jSONObject.optInt("replyme", 0);
+                this.djR = jSONObject.optInt("atme", 0);
+                this.djS = jSONObject.optInt("fans", 0);
+                this.chat = jSONObject.optInt("pletter", 0);
+                this.bookmark = jSONObject.optInt("bookmark", 0);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onUserChanged(boolean z) {
-        super.onUserChanged(z);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        this.dcB.onActivityDestroy();
-    }
-
-    public void gC(boolean z) {
-        this.dcC = z;
     }
 }

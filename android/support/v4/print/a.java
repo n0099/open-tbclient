@@ -11,11 +11,11 @@ import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 public class a {
     final Context mContext;
-    BitmapFactory.Options cd = null;
+    BitmapFactory.Options ca = null;
     private final Object mLock = new Object();
     int mScaleMode = 2;
-    int ca = 2;
-    int cc = 1;
+    int bZ = 2;
+    int mOrientation = 1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
@@ -31,19 +31,19 @@ public class a {
     }
 
     public void setColorMode(int i) {
-        this.ca = i;
+        this.bZ = i;
     }
 
     public void setOrientation(int i) {
-        this.cc = i;
+        this.mOrientation = i;
     }
 
     public int getOrientation() {
-        return this.cc;
+        return this.mOrientation;
     }
 
     public int getColorMode() {
-        return this.ca;
+        return this.bZ;
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
@@ -54,7 +54,7 @@ public class a {
             if (bitmap.getWidth() > bitmap.getHeight()) {
                 mediaSize = PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE;
             }
-            printManager.print(str, new b(this, str, bitmap, i), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.ca).build());
+            printManager.print(str, new b(this, str, bitmap, i), new PrintAttributes.Builder().setMediaSize(mediaSize).setColorMode(this.bZ).build());
         }
     }
 
@@ -62,10 +62,10 @@ public class a {
         c cVar = new c(this, str, uri, this.mScaleMode);
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
-        builder.setColorMode(this.ca);
-        if (this.cc == 1) {
+        builder.setColorMode(this.bZ);
+        if (this.mOrientation == 1) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
-        } else if (this.cc == 2) {
+        } else if (this.mOrientation == 2) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
         }
         printManager.print(str, cVar, builder.build());

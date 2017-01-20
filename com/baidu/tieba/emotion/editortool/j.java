@@ -4,18 +4,18 @@ import android.view.View;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
 /* loaded from: classes.dex */
-class j extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ EmotionTabContentView.a bnW;
+class j extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ EmotionTabContentView.a bvJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(EmotionTabContentView.a aVar) {
-        this.bnW = aVar;
+        this.bvJ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+    @Override // com.baidu.adp.lib.f.b
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         EmotionTabContentView emotionTabContentView;
         if (aVar != null) {
             emotionTabContentView = EmotionTabContentView.this;

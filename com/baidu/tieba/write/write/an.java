@@ -1,46 +1,54 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.tieba.r;
-import java.util.ArrayList;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.base.g {
-    final /* synthetic */ WriteActivity fDQ;
+public class an implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.fDQ = writeActivity;
+        this.fMl = writeActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.base.g
-    public void g(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        View view;
-        FeedBackTopListView feedBackTopListView2;
-        View view2;
-        FeedBackTopListView feedBackTopListView3;
-        this.fDQ.hideProgressBar();
-        if (obj == null || !(obj instanceof p)) {
-            feedBackTopListView = this.fDQ.fCK;
-            feedBackTopListView.setVisibility(8);
-            view = this.fDQ.fCL;
-            view.setVisibility(8);
-            this.fDQ.showToast(r.j.neterror);
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        WriteData writeData;
+        WriteData writeData2;
+        InputMethodManager inputMethodManager;
+        EditText boV;
+        InputMethodManager inputMethodManager2;
+        EditText boU;
+        com.baidu.tbadk.editortools.j jVar;
+        boolean z;
+        writeData = this.fMl.mData;
+        if (writeData.getVideoInfo() != null) {
+            TiebaStatic.log("c10063");
         }
-        p pVar = (p) obj;
-        if (pVar.getErrCode() != 0) {
-            feedBackTopListView2 = this.fDQ.fCK;
-            feedBackTopListView2.setVisibility(8);
-            view2 = this.fDQ.fCL;
-            view2.setVisibility(8);
-            return;
+        if (!com.baidu.tieba.write.d.a.isFastDoubleClick()) {
+            writeData2 = this.fMl.mData;
+            if (writeData2.getVideoInfo() != null) {
+                TiebaStatic.log("c10063");
+            }
+            WriteActivity writeActivity = this.fMl;
+            inputMethodManager = this.fMl.mInputManager;
+            boV = this.fMl.boV();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, boV);
+            WriteActivity writeActivity2 = this.fMl;
+            inputMethodManager2 = this.fMl.mInputManager;
+            boU = this.fMl.boU();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, boU);
+            jVar = this.fMl.ats;
+            jVar.AK();
+            this.fMl.boe();
+            z = this.fMl.fLa;
+            if (z) {
+                com.baidu.adp.lib.stats.a.eG().eP();
+            }
         }
-        ArrayList<com.baidu.tbadk.core.data.bg> bmZ = pVar.bmZ();
-        feedBackTopListView3 = this.fDQ.fCK;
-        feedBackTopListView3.a(bmZ, this.fDQ.getPageContext());
     }
 }

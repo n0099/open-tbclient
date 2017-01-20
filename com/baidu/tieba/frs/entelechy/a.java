@@ -11,134 +11,134 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.an;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends j {
-    private TextView bDB;
-    private TextView bDC;
-    private ViewGroup bDD;
-    private TextView bDE;
-    private com.baidu.tbadk.core.data.q bDF;
-    private int bDG;
-    private View.OnClickListener bDH;
-    private View.OnClickListener bDI;
-    private View.OnClickListener bDJ;
-    private CustomMessageListener bDK;
+    private TextView bKa;
+    private TextView bKb;
+    private ViewGroup bKc;
+    private TextView bKd;
+    private com.baidu.tbadk.core.data.r bKe;
+    private int bKf;
+    private View.OnClickListener bKg;
+    private View.OnClickListener bKh;
+    private View.OnClickListener bKi;
+    private CustomMessageListener bKj;
 
     public a(FrsActivity frsActivity, String str, String str2, int i) {
         super(frsActivity, str, str2, i);
-        this.bDF = null;
-        this.bDG = 1;
-        this.bDH = new b(this);
-        this.bDI = new c(this);
-        this.bDJ = new d(this);
-        this.bDK = new e(this, CmdConfigCustom.CMD_SEND_BOOK_READ_RECORD_TO_FRS);
-        if (this.aTY != null) {
-            this.aTY.setPadding(0, com.baidu.adp.lib.util.k.e(frsActivity.getPageContext().getPageActivity(), r.e.ds142), 0, 0);
+        this.bKe = null;
+        this.bKf = 1;
+        this.bKg = new b(this);
+        this.bKh = new c(this);
+        this.bKi = new d(this);
+        this.bKj = new e(this, CmdConfigCustom.CMD_SEND_BOOK_READ_RECORD_TO_FRS);
+        if (this.aPq != null) {
+            this.aPq.setPadding(0, com.baidu.adp.lib.util.k.e(frsActivity.getPageContext().getPageActivity(), r.f.ds142), 0, 0);
         }
-        this.bDB = (TextView) this.Ge.findViewById(r.g.book_author);
-        this.bDC = (TextView) this.Ge.findViewById(r.g.start_to_read);
-        this.bDD = (ViewGroup) this.bQh.findViewById(r.g.frs_header_final_chapter);
-        this.bDE = (TextView) this.bQh.findViewById(r.g.book_final_chapter_title);
-        this.bzH.registerListener(this.bDK);
+        this.bKa = (TextView) this.Fo.findViewById(r.h.book_author);
+        this.bKb = (TextView) this.Fo.findViewById(r.h.start_to_read);
+        this.bKc = (ViewGroup) this.bWM.findViewById(r.h.frs_header_final_chapter);
+        this.bKd = (TextView) this.bWM.findViewById(r.h.book_final_chapter_title);
+        this.bHh.registerListener(this.bKj);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.j, com.baidu.tieba.frs.view.c
     public void onDestory() {
         super.onDestory();
-        MessageManager.getInstance().unRegisterListener(this.bDK);
+        MessageManager.getInstance().unRegisterListener(this.bKj);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.j
-    protected View Yq() {
-        return LayoutInflater.from(this.bzH.getPageContext().getPageActivity()).inflate(r.h.frs_book_header, (ViewGroup) null);
+    protected View Zu() {
+        return LayoutInflater.from(this.bHh.getPageContext().getPageActivity()).inflate(r.j.frs_book_header, (ViewGroup) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.j
-    public void Yr() {
-        this.bDF = this.bFO.bev();
-        super.Yr();
-        if (this.bDF != null && !StringUtils.isNull(this.bDF.getBookId(), true) && !this.bDF.getBookId().equals("0")) {
-            this.bQp = null;
-            if (this.bDF.pB() == 3) {
-                int intValue = this.bFO.beC().intValue();
+    public void Zv() {
+        this.bKe = this.bMf.bgj();
+        super.Zv();
+        if (this.bKe != null && !StringUtils.isNull(this.bKe.getBookId(), true) && !this.bKe.getBookId().equals("0")) {
+            this.bWT = null;
+            if (this.bKe.pu() == 3) {
+                int intValue = this.bMf.bgq().intValue();
                 if (intValue > 0) {
-                    this.bDG = intValue;
-                    this.bDC.setText(this.Gf.getString(r.j.book_continue_read));
+                    this.bKf = intValue;
+                    this.bKb.setText(this.Fp.getString(r.l.continue_read));
                 } else {
-                    this.bDC.setText(this.Gf.getString(r.j.book_start_read));
+                    this.bKb.setText(this.Fp.getString(r.l.book_start_read));
                 }
-            } else if (this.bDF.pE() > 0) {
-                this.bDC.setText(this.Gf.getString(r.j.book_continue_read));
+            } else if (this.bKe.px() > 0) {
+                this.bKb.setText(this.Fp.getString(r.l.continue_read));
             } else {
-                this.bDC.setText(this.Gf.getString(r.j.book_start_read));
+                this.bKb.setText(this.Fp.getString(r.l.book_start_read));
             }
-            this.bDB.setText(this.bDF.pD());
-            this.FZ.setOnClickListener(this.bDH);
-            this.bQF.setOnClickListener(this.bDH);
-            if (this.bDD != null) {
-                if (!StringUtils.isNull(this.bDF.pH(), true) && !this.bDF.pH().equals("0")) {
-                    this.bDD.setVisibility(0);
-                    this.bDE.setText(this.bDF.pF());
+            this.bKa.setText(this.bKe.pw());
+            this.Fj.setOnClickListener(this.bKg);
+            this.bXj.setOnClickListener(this.bKg);
+            if (this.bKc != null) {
+                if (!StringUtils.isNull(this.bKe.pA(), true) && !this.bKe.pA().equals("0")) {
+                    this.bKc.setVisibility(0);
+                    this.bKd.setText(this.bKe.py());
                 } else {
-                    this.bDD.setVisibility(8);
+                    this.bKc.setVisibility(8);
                 }
             }
-            if (this.bDF.pB() == 3) {
-                this.bDC.setOnClickListener(this.bDI);
-                if (this.bDD != null) {
-                    this.bDD.setOnClickListener(this.bDI);
+            if (this.bKe.pu() == 3) {
+                this.bKb.setOnClickListener(this.bKh);
+                if (this.bKc != null) {
+                    this.bKc.setOnClickListener(this.bKh);
                     return;
                 }
                 return;
             }
-            this.bDC.setOnClickListener(this.bDJ);
-            if (this.bDD != null) {
-                this.bDD.setOnClickListener(this.bDJ);
+            this.bKb.setOnClickListener(this.bKi);
+            if (this.bKc != null) {
+                this.bKc.setOnClickListener(this.bKi);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.j
-    protected void Ys() {
-        if (this.bDF != null && !StringUtils.isNull(this.bDF.pC(), true)) {
-            this.bQF.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.bQF.c(this.bDF.pC(), 15, false);
-            if (this.bQF.getBdImage() == null || this.bQF.getBdImage().jV() == null) {
-                YI();
+    protected void Zw() {
+        if (this.bKe != null && !StringUtils.isNull(this.bKe.pv(), true)) {
+            this.bXj.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.bXj.c(this.bKe.pv(), 15, false);
+            if (this.bXj.getBdImage() == null || this.bXj.getBdImage().jT() == null) {
+                Mm();
                 return;
             }
-            if (this.bEa == null) {
-                this.bEa = new f(this);
+            if (this.aVM == null) {
+                this.aVM = new f(this);
             }
-            this.bQF.postDelayed(this.bEa, 50L);
+            this.bXj.postDelayed(this.aVM, 50L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.entelechy.j
-    public void Yt() {
-        this.bDO.en(false);
-        if (this.bDD.getVisibility() != 0) {
-            super.Yt();
+    public void Zx() {
+        this.bKn.er(false);
+        if (this.bKc.getVisibility() != 0) {
+            super.Zx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void M(String str, int i) {
-        am amVar = new am();
-        amVar.pageContext = this.bzH.getPageContext();
-        amVar.bookId = str;
-        amVar.chapterId = i;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_OPTION_TO_NOVEL_READER, amVar));
+        an anVar = new an();
+        anVar.pageContext = this.bHh.getPageContext();
+        anVar.bookId = str;
+        anVar.chapterId = i;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_OPTION_TO_NOVEL_READER, anVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(this.bzH.getPageContext().getPageActivity(), j, i, 2)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(this.bHh.getPageContext().getPageActivity(), j, i, 2)));
     }
 }

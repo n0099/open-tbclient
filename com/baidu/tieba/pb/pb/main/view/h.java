@@ -1,21 +1,25 @@
 package com.baidu.tieba.pb.pb.main.view;
 
-import android.view.View;
+import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    final /* synthetic */ g ehO;
+public class h implements j.a {
+    final /* synthetic */ f eqX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.ehO = gVar;
+    public h(f fVar) {
+        this.eqX = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void oa() {
         PbActivity pbActivity;
-        pbActivity = this.ehO.dYB;
-        pbActivity.WE();
+        pbActivity = this.eqX.ehi;
+        pbActivity.aKV();
+    }
+
+    @Override // com.baidu.tbadk.core.view.j.a
+    public void ob() {
     }
 }

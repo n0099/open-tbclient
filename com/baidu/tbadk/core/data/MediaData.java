@@ -1,11 +1,12 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Media;
 /* loaded from: classes.dex */
-public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+public class MediaData extends OrmObject implements Serializable {
     public static final int EXT_TYPE_XIAOYING = 12;
     private long postId;
     private int e_type = -1;

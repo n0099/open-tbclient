@@ -54,13 +54,13 @@ public class ForumHeadVideoListRequestMessage extends NetMessage {
             builder.active_tid = Long.valueOf(this.activeTid);
             int I = com.baidu.adp.lib.util.k.I(TbadkCoreApplication.m9getInst().getApp());
             int J = com.baidu.adp.lib.util.k.J(TbadkCoreApplication.m9getInst().getApp());
-            int viewImageQuality = com.baidu.tbadk.core.l.oJ().getViewImageQuality();
+            int viewImageQuality = com.baidu.tbadk.core.l.oC().getViewImageQuality();
             builder.scr_w = Integer.valueOf(I);
             builder.scr_h = Integer.valueOf(J);
             builder.scr_dip = Double.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m9getInst().getApp()));
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
-                com.baidu.tbadk.util.n.a(builder, true);
+                com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true);
             }
             ForumHeadVideoReqIdl.Builder builder2 = new ForumHeadVideoReqIdl.Builder();
             builder2.data = builder.build(false);

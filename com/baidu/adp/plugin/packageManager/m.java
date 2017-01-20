@@ -16,16 +16,16 @@ public class m extends BdAsyncTask<Void, Void, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
-        Object d = com.baidu.adp.lib.a.a.a.d(Looper.getMainLooper(), "sThreadLocal");
+        Object d = com.baidu.adp.lib.OrmObject.a.a.d(Looper.getMainLooper(), "sThreadLocal");
         if (d instanceof ThreadLocal) {
             ((ThreadLocal) d).set(Looper.getMainLooper());
         }
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            com.baidu.adp.plugin.b.a.io().bh("plugin_asyncinit_fail");
-            com.baidu.adp.lib.h.h.eG().post(new n(this));
+            com.baidu.adp.plugin.b.a.im().bg("plugin_asyncinit_fail");
+            com.baidu.adp.lib.g.h.eE().post(new n(this));
             return null;
         }
-        this.this$0.iH();
+        this.this$0.iF();
         return null;
     }
 }

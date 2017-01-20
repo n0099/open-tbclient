@@ -1,91 +1,68 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.pb.pb.main.dc;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class dg extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ dc ech;
+public class dg {
+    private BaseActivity aWr;
+    private PbModel ehh;
+    private final CustomMessageListener ejZ = new dh(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
+    private final CustomMessageListener eka = new di(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dg(dc dcVar, int i, int i2) {
-        super(i, i2);
-        this.ech = dcVar;
+    public dg(PbModel pbModel, BaseActivity baseActivity) {
+        this.ehh = pbModel;
+        this.aWr = baseActivity;
+        this.aWr.registerListener(this.ejZ);
+        this.aWr.registerListener(this.eka);
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        dc.a aVar;
-        dc.a aVar2;
-        boolean z4;
-        long j;
-        boolean z5;
-        long j2;
-        BaseActivity baseActivity;
-        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.ech.getUniqueId()) {
-            if (responsedMessage.hasError() && responsedMessage.getError() != 4 && com.baidu.adp.lib.util.i.gm()) {
-                baseActivity = this.ech.aSs;
-                baseActivity.showToast(responsedMessage.getErrorString());
-            }
-            if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
-                this.ech.a(pbpagesocketresponsemessage);
-                pbpagesocketresponsemessage.getDownSize();
-            }
-            if (!(responsedMessage instanceof pbPageHttpResponseMessage)) {
-                z = false;
-            } else {
-                pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
-                this.ech.a(pbpagehttpresponsemessage);
-                pbpagehttpresponsemessage.getDownSize();
-                z = true;
-            }
-            if (responsedMessage.getError() != 0) {
-                if (z) {
-                    j2 = 0;
-                } else {
-                    j2 = ((pbPageSocketResponseMessage) responsedMessage).sequenceID;
-                }
-                PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getExtra();
-                long clientLogID = responsedMessage.getOrginalMessage().getClientLogID();
-                int cmd = responsedMessage.getOrginalMessage().getCmd();
-                int error = responsedMessage.getError();
-                String errorString = responsedMessage.getErrorString();
-                Object[] objArr = new Object[6];
-                objArr[0] = "updateType";
-                objArr[1] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.getUpdateType()) : null;
-                objArr[2] = "ThreadId";
-                objArr[3] = pbPageRequestMessage != null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
-                objArr[4] = "seq_id";
-                objArr[5] = Long.valueOf(j2);
-                com.baidu.tbadk.core.log.b.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
-            }
-            z2 = this.ech.ebP;
-            if (z2) {
-                z5 = this.ech.ebQ;
-                if (z5) {
-                    return;
-                }
-            }
-            z3 = this.ech.ebP;
-            if (!z3) {
-                this.ech.ebP = true;
-            } else {
-                this.ech.ebQ = true;
-            }
-            aVar = this.ech.ebJ;
-            if (aVar != null) {
-                aVar2 = this.ech.ebJ;
-                int aKi = this.ech.aKi();
-                z4 = this.ech.ebR;
-                long currentTimeMillis = System.currentTimeMillis();
-                j = this.ech.bLI;
-                aVar2.a(aKi, z, responsedMessage, z4, currentTimeMillis - j);
+    public boolean aLJ() {
+        return (this.ehh == null || this.ehh.getPbData() == null || this.ehh.getPbData().aJW() == null || this.ehh.getPbData().getPage() == null || !this.ehh.aLY() || this.ehh.getPbData().aJW().qf() || !aLO() || com.baidu.tbadk.core.util.w.r(this.ehh.getPbData().aJW().getItems()) == 0 || this.ehh.getPbData().getPage().qx() != 0 || this.ehh.getPbData().getPage().qs() < 4 || this.ehh.getPbData().aJW().qh()) ? false : true;
+    }
+
+    public boolean aLK() {
+        return (this.ehh == null || this.ehh.getPbData() == null || this.ehh.getPbData().aJW() == null || this.ehh.getPbData().getPage() == null || !this.ehh.aLY() || this.ehh.getPbData().aJW().qf() || !aLO() || com.baidu.tbadk.core.util.w.r(this.ehh.getPbData().aJW().getItems()) == 0 || this.ehh.getPbData().getPage().qv() != 2 || this.ehh.getPbData().aJW().qg()) ? false : true;
+    }
+
+    public void aLL() {
+        if (this.ehh != null && this.ehh.getPbData() != null && this.ehh.getPbData().aJW() != null) {
+            this.ehh.getPbData().aJW().aq(true);
+        }
+    }
+
+    public void aLM() {
+        if (this.ehh != null && this.ehh.getPbData() != null && this.ehh.getPbData().aJW() != null) {
+            this.ehh.getPbData().aJW().ap(true);
+        }
+    }
+
+    public com.baidu.tbadk.core.data.af aLN() {
+        if (!aLO() || this.ehh == null || this.ehh.getPbData() == null) {
+            return null;
+        }
+        return this.ehh.getPbData().aJW();
+    }
+
+    public boolean aLO() {
+        return com.baidu.tieba.graffiti.c.ahy() && aLP();
+    }
+
+    private boolean aLP() {
+        if (this.ehh == null || this.ehh.getPbData() == null) {
+            return false;
+        }
+        com.baidu.tieba.tbadkCore.data.p pVar = (com.baidu.tieba.tbadkCore.data.p) com.baidu.tbadk.core.util.w.c(this.ehh.getPbData().aKb(), 0);
+        return pVar != null && (pVar.getType() == com.baidu.tieba.tbadkCore.data.p.fpL || pVar.getType() == com.baidu.tieba.tbadkCore.data.p.Sz || pVar.getType() == com.baidu.tieba.tbadkCore.data.p.fpN);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void i(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str = (String) customResponsedMessage.getData();
+            if (this.ehh != null && this.ehh.getPbData() != null && this.ehh.getPbData().aJW() != null && str.equals(this.ehh.getThreadID())) {
+                this.ehh.getPbData().aJW().ao(true);
             }
         }
     }

@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class FloatingLayout extends LinearLayout {
-    private int zu;
-    private int zv;
-    private int zw;
-    private int zx;
+    private int zk;
+    private int zl;
+    private int zm;
+    private int zn;
 
     public FloatingLayout(Context context) {
         this(context, null);
@@ -24,14 +24,14 @@ public class FloatingLayout extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.zu = 0;
-        this.zv = 0;
+        this.zk = 0;
+        this.zl = 0;
         if (getOrientation() == 1) {
             h(i, i2);
         } else if (getOrientation() == 0) {
             i(i, i2);
         }
-        setMeasuredDimension(this.zw + getPaddingLeft() + getPaddingRight(), this.zx + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.zm + getPaddingLeft() + getPaddingRight(), this.zn + getPaddingTop() + getPaddingBottom());
     }
 
     private void h(int i, int i2) {
@@ -49,32 +49,32 @@ public class FloatingLayout extends LinearLayout {
             } else {
                 a aVar = (a) childAt.getLayoutParams();
                 a generateDefaultLayoutParams = aVar == null ? generateDefaultLayoutParams() : aVar;
-                if (i4 <= this.zv || (generateDefaultLayoutParams.zy & 1) == 1) {
-                    this.zv = 0;
+                if (i4 <= this.zl || (generateDefaultLayoutParams.zo & 1) == 1) {
+                    this.zl = 0;
                 }
-                measureChildWithMargins(childAt, i, this.zu, i2, this.zv);
+                measureChildWithMargins(childAt, i, this.zk, i2, this.zl);
                 i3 = Math.max(childAt.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin, i6);
-                this.zu = i3;
-                this.zv = childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin + this.zv;
-                this.zx = Math.max(this.zv, this.zx);
-                if ((generateDefaultLayoutParams.zy & 2) == 2) {
-                    this.zv = 0;
-                    this.zu = i3 + this.zu;
+                this.zk = i3;
+                this.zl = childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin + this.zl;
+                this.zn = Math.max(this.zl, this.zn);
+                if ((generateDefaultLayoutParams.zo & 2) == 2) {
+                    this.zl = 0;
+                    this.zk = i3 + this.zk;
                     i3 = 0;
-                } else if ((generateDefaultLayoutParams.zy & 1) == 1) {
-                    this.zu = i3 + this.zu;
+                } else if ((generateDefaultLayoutParams.zo & 1) == 1) {
+                    this.zk = i3 + this.zk;
                     i3 = 0;
                 }
             }
             i5++;
             i6 = i3;
         }
-        this.zw = this.zu;
+        this.zm = this.zk;
     }
 
     private void i(int i, int i2) {
         int i3;
-        this.zv = 0;
+        this.zl = 0;
         int i4 = i & 1073741823;
         int childCount = getChildCount();
         int i5 = 0;
@@ -83,43 +83,43 @@ public class FloatingLayout extends LinearLayout {
             if (childAt != null && childAt.getVisibility() != 8) {
                 a aVar = (a) childAt.getLayoutParams();
                 a generateDefaultLayoutParams = aVar == null ? generateDefaultLayoutParams() : aVar;
-                if (i4 <= this.zu || (generateDefaultLayoutParams.zy & 1) == 1) {
-                    this.zu = 0;
+                if (i4 <= this.zk || (generateDefaultLayoutParams.zo & 1) == 1) {
+                    this.zk = 0;
                 }
-                measureChildWithMargins(childAt, i, this.zu, i2, this.zv);
+                measureChildWithMargins(childAt, i, this.zk, i2, this.zl);
                 int measuredWidth = generateDefaultLayoutParams.rightMargin + childAt.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin;
                 int measuredHeight = generateDefaultLayoutParams.bottomMargin + childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin;
-                if ((generateDefaultLayoutParams.zy & 1) == 1) {
-                    this.zv += i5;
+                if ((generateDefaultLayoutParams.zo & 1) == 1) {
+                    this.zl += i5;
                     i3 = 0;
                 } else {
                     i3 = i5;
                 }
                 i5 = Math.max(measuredHeight, i3);
-                this.zu += measuredWidth;
-                this.zw = Math.max(this.zw, this.zu);
-                if ((generateDefaultLayoutParams.zy & 2) == 2) {
-                    this.zu = 0;
-                    this.zv += i5;
+                this.zk += measuredWidth;
+                this.zm = Math.max(this.zm, this.zk);
+                if ((generateDefaultLayoutParams.zo & 2) == 2) {
+                    this.zk = 0;
+                    this.zl += i5;
                     i5 = 0;
                 }
             }
         }
-        this.zv += i5;
-        this.zx = this.zv;
+        this.zl += i5;
+        this.zn = this.zl;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int orientation = getOrientation();
         if (orientation == 0) {
-            jA();
+            jy();
         } else if (orientation == 1) {
-            jB();
+            jz();
         }
     }
 
-    private void jA() {
+    private void jy() {
         int childCount = getChildCount();
         int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
         int paddingLeft = getPaddingLeft();
@@ -134,7 +134,7 @@ public class FloatingLayout extends LinearLayout {
                 }
                 int measuredWidth2 = childAt.getMeasuredWidth() + aVar.leftMargin + aVar.rightMargin;
                 int measuredHeight = aVar.topMargin + aVar.bottomMargin + childAt.getMeasuredHeight();
-                if (measuredWidth - paddingLeft < measuredWidth2 || (aVar.zy & 1) == 1) {
+                if (measuredWidth - paddingLeft < measuredWidth2 || (aVar.zo & 1) == 1) {
                     paddingLeft = getPaddingLeft();
                     paddingTop += i;
                     i = 0;
@@ -144,7 +144,7 @@ public class FloatingLayout extends LinearLayout {
                 if (measuredHeight > i) {
                     i = measuredHeight;
                 }
-                if ((aVar.zy & 2) == 2) {
+                if ((aVar.zo & 2) == 2) {
                     paddingLeft = getPaddingLeft();
                     paddingTop += i;
                     i = 0;
@@ -153,7 +153,7 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
-    private void jB() {
+    private void jz() {
         a aVar;
         int childCount = getChildCount();
         int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
@@ -165,7 +165,7 @@ public class FloatingLayout extends LinearLayout {
             if (childAt != null && childAt.getVisibility() != 8 && (aVar = (a) childAt.getLayoutParams()) != null) {
                 int measuredWidth = aVar.leftMargin + aVar.rightMargin + childAt.getMeasuredWidth();
                 int measuredHeight2 = aVar.topMargin + aVar.bottomMargin + childAt.getMeasuredHeight();
-                if (measuredHeight - paddingTop < measuredHeight2 || (aVar.zy & 1) == 1) {
+                if (measuredHeight - paddingTop < measuredHeight2 || (aVar.zo & 1) == 1) {
                     paddingLeft += i;
                     paddingTop = getPaddingTop();
                     i = 0;
@@ -175,7 +175,7 @@ public class FloatingLayout extends LinearLayout {
                 if (measuredWidth > i) {
                     i = measuredWidth;
                 }
-                if ((aVar.zy & 2) == 2) {
+                if ((aVar.zo & 2) == 2) {
                     paddingLeft += i;
                     paddingTop = getPaddingTop();
                     i = 0;
@@ -186,34 +186,39 @@ public class FloatingLayout extends LinearLayout {
 
     /* loaded from: classes.dex */
     public static class a extends LinearLayout.LayoutParams {
-        private int zy;
+        private int zo;
 
         public a(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.zy = 0;
+            this.zo = 0;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
             String string = obtainStyledAttributes.getString(0);
             if (string != null) {
                 if ("before".equals(string)) {
-                    this.zy = 1;
+                    this.zo = 1;
                 } else if ("after".equals(string)) {
-                    this.zy = 2;
+                    this.zo = 2;
                 } else if ("both".equals(string)) {
-                    this.zy = 3;
+                    this.zo = 3;
                 }
             }
             obtainStyledAttributes.recycle();
         }
 
+        public a(int i, int i2) {
+            super(i, i2);
+            this.zo = 0;
+        }
+
         public a(int i, int i2, int i3) {
             super(i, i2);
-            this.zy = 0;
-            this.zy = i3;
+            this.zo = 0;
+            this.zo = i3;
         }
 
         public a(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.zy = 0;
+            this.zo = 0;
         }
     }
 
@@ -235,7 +240,7 @@ public class FloatingLayout extends LinearLayout {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    /* renamed from: jC */
+    /* renamed from: jA */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 0);
     }

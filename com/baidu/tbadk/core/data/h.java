@@ -1,20 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.Comparator;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
-public class h implements Comparator<c> {
-    final /* synthetic */ BannerListData Qb;
+public class h {
+    private int Pj;
+    private String badge_url;
+    private String webview;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(BannerListData bannerListData) {
-        this.Qb = bannerListData;
+    public String pl() {
+        return this.badge_url;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(c cVar, c cVar2) {
-        return (cVar != null ? com.baidu.adp.lib.h.b.g(cVar.adPosition, 0) : 0) - (cVar2 != null ? com.baidu.adp.lib.h.b.g(cVar2.adPosition, 0) : 0);
+    public String pm() {
+        return String.valueOf(this.Pj);
+    }
+
+    public String pn() {
+        return this.webview;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Pj = jSONObject.optInt("badge_id", 0);
+                this.badge_url = jSONObject.optString("badge_url", "");
+                this.webview = jSONObject.optString("webview");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void a(Badges badges) {
+        if (badges != null) {
+            this.Pj = badges.badge_id.intValue();
+            this.badge_url = badges.badge_url;
+            this.webview = badges.webview;
+        }
     }
 }

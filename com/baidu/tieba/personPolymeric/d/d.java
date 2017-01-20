@@ -7,13 +7,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ b euZ;
+    final /* synthetic */ b eET;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, int i) {
         super(i);
-        this.euZ = bVar;
+        this.eET = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,25 +25,25 @@ public class d extends CustomMessageListener {
         TextView textView;
         com.baidu.tieba.personPolymeric.c.a aVar3;
         if (customResponsedMessage != null) {
-            z = this.euZ.bfj;
+            z = this.eET.baK;
             if (!z) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof com.baidu.tieba.tbadkCore.writeModel.a) {
                     long j = ((com.baidu.tieba.tbadkCore.writeModel.a) data).forumId;
-                    aVar = this.euZ.euY;
+                    aVar = this.eET.eES;
                     if (j == aVar.forumId) {
                         if (((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
-                            aVar2 = this.euZ.euY;
-                            aVar2.akY = false;
-                            textView = this.euZ.cgg;
+                            aVar2 = this.eET.eES;
+                            aVar2.isAttention = false;
+                            textView = this.eET.cmy;
                             textView.setVisibility(0);
-                            b bVar = this.euZ;
-                            aVar3 = this.euZ.euY;
-                            bVar.jf(aVar3.akY);
-                            com.baidu.adp.lib.util.k.showToast(this.euZ.mContext, r.j.person_polymeric_unattention_success);
+                            b bVar = this.eET;
+                            aVar3 = this.eET.eES;
+                            bVar.jr(aVar3.isAttention);
+                            com.baidu.adp.lib.util.k.showToast(this.eET.mContext, r.l.unlike_success);
                             return;
                         }
-                        com.baidu.adp.lib.util.k.showToast(this.euZ.mContext, r.j.person_polymeric_unattention_faild);
+                        com.baidu.adp.lib.util.k.showToast(this.eET.mContext, r.l.unlike_failure);
                     }
                 }
             }

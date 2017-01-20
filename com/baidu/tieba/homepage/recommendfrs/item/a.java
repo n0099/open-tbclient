@@ -8,39 +8,39 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.homepage.recommendfrs.data.e, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView aqe;
-    private TextView ctj;
-    private TextView ctk;
-    private TextView ctl;
-    private TextView ctm;
-    private TextView ctn;
-    private int cto;
-    private com.baidu.tieba.homepage.recommendfrs.data.e ctp;
-    private View.OnClickListener ctq;
+    private TbImageView apj;
+    private TextView cAn;
+    private TextView cAo;
+    private TextView cAp;
+    private TextView cAq;
+    private TextView cAr;
+    private int cAs;
+    private com.baidu.tieba.homepage.recommendfrs.data.e cAt;
+    private View.OnClickListener cAu;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mSkinType = 3;
-        this.cto = 0;
-        this.ctq = new b(this);
-        view.setOnClickListener(this.ctq);
-        this.ctj = (TextView) view.findViewById(r.g.title_text);
-        this.ctk = (TextView) view.findViewById(r.g.refresh_time);
-        this.aqe = (TbImageView) view.findViewById(r.g.live_cover);
-        View findViewById = view.findViewById(r.g.hot_thread_comment);
-        this.ctl = (TextView) findViewById.findViewById(r.g.hot_thread_line_tag);
-        this.ctm = (TextView) findViewById.findViewById(r.g.hot_thread_line_praise);
-        this.ctm.setVisibility(8);
-        this.ctn = (TextView) findViewById.findViewById(r.g.hot_thread_line_comment);
+        this.cAs = 0;
+        this.cAu = new b(this);
+        view.setOnClickListener(this.cAu);
+        this.cAn = (TextView) view.findViewById(r.h.title_text);
+        this.cAo = (TextView) view.findViewById(r.h.refresh_time);
+        this.apj = (TbImageView) view.findViewById(r.h.live_cover);
+        View findViewById = view.findViewById(r.h.hot_thread_comment);
+        this.cAp = (TextView) findViewById.findViewById(r.h.hot_thread_line_tag);
+        this.cAq = (TextView) findViewById.findViewById(r.h.hot_thread_line_praise);
+        this.cAq.setVisibility(8);
+        this.cAr = (TextView) findViewById.findViewById(r.h.hot_thread_line_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,32 +48,32 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.homepage.recommen
     /* renamed from: a */
     public void E(com.baidu.tieba.homepage.recommendfrs.data.e eVar) {
         super.E(eVar);
-        if (eVar != null && eVar.ajL() != null) {
-            this.ctp = eVar;
-            ZhiBoInfoTW ajL = eVar.ajL();
-            this.ctj.setText(e(ajL.title));
-            this.ctk.setText(c(ajL));
-            this.aqe.c(ajL.livecover_src, 10, false);
-            String forumName = StringUtils.isNull(ajL.forum_name) ? eVar.getForumName() : ajL.forum_name;
+        if (eVar != null && eVar.akS() != null) {
+            this.cAt = eVar;
+            ZhiBoInfoTW akS = eVar.akS();
+            this.cAn.setText(e(akS.title));
+            this.cAo.setText(c(akS));
+            this.apj.c(akS.livecover_src, 10, false);
+            String forumName = StringUtils.isNull(akS.forum_name) ? eVar.getForumName() : akS.forum_name;
             if (StringUtils.isNull(forumName)) {
-                this.ctl.setVisibility(8);
+                this.cAp.setVisibility(8);
             } else {
-                this.ctl.setVisibility(0);
-                this.ctl.setText(getContext().getString(r.j.chosen_pb_original_bar, forumName));
+                this.cAp.setVisibility(0);
+                this.cAp.setText(getContext().getString(r.l.chosen_pb_original_bar, forumName));
             }
-            this.ctn.setText(av.y(ajL.reply_num.intValue() == 0 ? eVar.ajH() : ajL.reply_num.intValue()));
+            this.cAr.setText(at.w(akS.reply_num.intValue() == 0 ? eVar.akO() : akS.reply_num.intValue()));
             com.baidu.tieba.tbadkCore.util.r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.qv(String.valueOf(eVar.getThreadId()))) {
-                this.cto = r.d.cp_cont_c;
+            if (readThreadHistory != null && readThreadHistory.qP(String.valueOf(eVar.getThreadId()))) {
+                this.cAs = r.e.cp_cont_c;
             } else {
-                this.cto = r.d.cp_cont_b;
+                this.cAs = r.e.cp_cont_b;
             }
-            ar.c(this.ctj, this.cto, 1);
+            ap.c(this.cAn, this.cAs, 1);
         }
     }
 
     private String c(ZhiBoInfoTW zhiBoInfoTW) {
-        return TbadkCoreApplication.m9getInst().getString(r.j.photo_live_thread_expression_time, new Object[]{av.s(zhiBoInfoTW.last_modified_time.longValue() * 1000)});
+        return TbadkCoreApplication.m9getInst().getString(r.l.photo_live_thread_expression_time, new Object[]{at.r(zhiBoInfoTW.last_modified_time.longValue() * 1000)});
     }
 
     private SpannableStringBuilder e(CharSequence charSequence) {
@@ -81,19 +81,19 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.homepage.recommen
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("  " + ((Object) charSequence));
-        Bitmap cQ = ar.cQ(r.f.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
-        bitmapDrawable.setBounds(0, 0, cQ.getWidth(), cQ.getHeight());
+        Bitmap cP = ap.cP(r.g.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cP);
+        bitmapDrawable.setBounds(0, 0, cP.getWidth(), cP.getHeight());
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, 1, 33);
         return spannableStringBuilder;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.r
+    @Override // com.baidu.tieba.tbadkCore.q
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
-            if (this.cto != 0 && this.ctj != null) {
-                ar.c(this.ctj, this.cto, 1);
+            if (this.cAs != 0 && this.cAn != null) {
+                ap.c(this.cAn, this.cAs, 1);
             }
         }
         this.mSkinType = i;

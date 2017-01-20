@@ -8,12 +8,12 @@ class b extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                a.eI().eQ();
-                a.eI().eT();
+                a.eG().eO();
+                a.eG().eR();
                 return;
             case 2:
                 removeMessages(2);
-                a.eI().eS();
+                a.eG().eQ();
                 return;
             default:
                 return;

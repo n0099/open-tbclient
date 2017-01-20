@@ -1,25 +1,35 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.ArrayList;
+import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
-public abstract class a extends com.baidu.adp.lib.a.b.a.a.i implements w {
-    public boolean isSupportImageSize() {
-        return false;
+public class a implements com.baidu.adp.lib.stats.e {
+    private static a YE = null;
+
+    private a() {
     }
 
-    public ArrayList<String> getImageUrl() {
-        return null;
+    public static synchronized a tU() {
+        a aVar;
+        synchronized (a.class) {
+            if (YE == null) {
+                YE = new a();
+            }
+            aVar = YE;
+        }
+        return aVar;
     }
 
-    public ArrayList<ImageInfo> getImagesWithEmotions() {
-        return null;
+    @Override // com.baidu.adp.lib.stats.e
+    public void d(String str, long j) {
+        TbadkSettings.getInst().saveLong(cQ(str), j);
     }
 
-    public ArrayList<String> getPhotoUrl() {
-        return null;
+    @Override // com.baidu.adp.lib.stats.e
+    public long ap(String str) {
+        return TbadkSettings.getInst().loadLong(cQ(str), 0L);
     }
 
-    public ArrayList<String> getForumPhotoUrl() {
-        return null;
+    private String cQ(String str) {
+        return "new_log_upload_time_" + str;
     }
 }

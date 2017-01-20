@@ -19,18 +19,18 @@ public class ag extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         BdTypeListView bdTypeListView;
-        com.baidu.tieba.play.aa aaVar;
+        com.baidu.tieba.play.ac acVar;
         BdTypeListView bdTypeListView2;
         BdTypeListView bdTypeListView3;
-        bdTypeListView = this.this$0.aMc;
+        bdTypeListView = this.this$0.mListView;
         if (bdTypeListView != null) {
-            aaVar = this.this$0.aMd;
-            aaVar.alQ();
-            this.this$0.cqt = false;
-            bdTypeListView2 = this.this$0.aMc;
-            bdTypeListView2.l(2000L);
-            bdTypeListView3 = this.this$0.aMc;
-            bdTypeListView3.kv();
+            acVar = this.this$0.aLe;
+            acVar.amY();
+            this.this$0.cxs = false;
+            bdTypeListView2 = this.this$0.mListView;
+            bdTypeListView2.completePullRefreshPostDelayed(2000L);
+            bdTypeListView3 = this.this$0.mListView;
+            bdTypeListView3.startPullRefresh();
         }
     }
 }

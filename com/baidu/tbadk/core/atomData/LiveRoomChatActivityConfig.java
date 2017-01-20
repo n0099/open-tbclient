@@ -37,7 +37,7 @@ public class LiveRoomChatActivityConfig extends IntentConfig {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(r.j.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(r.l.live_error_system_not_support));
         return false;
     }
 }

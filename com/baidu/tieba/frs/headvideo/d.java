@@ -3,50 +3,50 @@ package com.baidu.tieba.frs.headvideo;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tieba.play.QuickVideoView;
-import com.baidu.tieba.play.ah;
+import com.baidu.tieba.play.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c bKI;
+    final /* synthetic */ c bRb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bKI = cVar;
+        this.bRb = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ImageView imageView;
         int i;
-        ah ahVar;
-        ah ahVar2;
+        aj ajVar;
+        aj ajVar2;
         QuickVideoView quickVideoView;
-        ah ahVar3;
-        ah ahVar4;
+        aj ajVar3;
+        aj ajVar4;
         int id = view.getId();
-        imageView = this.bKI.aNZ;
+        imageView = this.bRb.aNc;
         if (id == imageView.getId()) {
-            i = this.bKI.bKE;
+            i = this.bRb.bQX;
             if (i == 2) {
-                quickVideoView = this.bKI.aNV;
+                quickVideoView = this.bRb.aMY;
                 if (quickVideoView.isPlaying()) {
-                    this.bKI.pausePlay();
+                    this.bRb.pausePlay();
                     return;
                 }
-                this.bKI.startPlay();
-                ahVar3 = this.bKI.aNk;
-                if (ahVar3 != null) {
-                    ahVar4 = this.bKI.aNk;
-                    ahVar4.pm("2");
+                this.bRb.startPlay();
+                ajVar3 = this.bRb.aMm;
+                if (ajVar3 != null) {
+                    ajVar4 = this.bRb.aMm;
+                    ajVar4.pD("2");
                     return;
                 }
                 return;
             }
-            this.bKI.startPlay();
-            ahVar = this.bKI.aNk;
-            if (ahVar != null) {
-                ahVar2 = this.bKI.aNk;
-                ahVar2.pm("2");
+            this.bRb.startPlay();
+            ajVar = this.bRb.aMm;
+            if (ajVar != null) {
+                ajVar2 = this.bRb.aMm;
+                ajVar2.pD("2");
             }
         }
     }

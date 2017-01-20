@@ -1,35 +1,52 @@
 package com.baidu.tieba.d;
 
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.d.a;
+import android.view.View;
+import com.baidu.adp.lib.guide.g;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements Handler.Callback {
-    final /* synthetic */ a bnw;
+public class b implements Runnable {
+    final /* synthetic */ a bub;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bnw = aVar;
+        this.bub = aVar;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        a.InterfaceC0057a interfaceC0057a;
-        a.InterfaceC0057a interfaceC0057a2;
-        int i = message.arg1;
-        int i2 = message.arg2;
-        switch (message.what) {
-            case 0:
-                interfaceC0057a2 = this.bnw.aMk;
-                interfaceC0057a2.P(i, i2);
-                return true;
-            case 1:
-                interfaceC0057a = this.bnw.aMk;
-                interfaceC0057a.Q(i, i2);
-                return true;
-            default:
-                return false;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.guide.d dVar;
+        String str;
+        View view;
+        com.baidu.adp.lib.guide.d dVar2;
+        com.baidu.adp.lib.guide.d dVar3;
+        TbPageContext tbPageContext;
+        Handler handler;
+        Runnable runnable;
+        int i;
+        dVar = this.bub.GD;
+        if (dVar == null) {
+            str = this.bub.mMessage;
+            if (!StringUtils.isNull(str)) {
+                g gVar = new g();
+                view = this.bub.bK;
+                gVar.o(view).ae(0).y(true).z(true);
+                gVar.a(new c(this));
+                this.bub.GD = gVar.dO();
+                dVar2 = this.bub.GD;
+                dVar2.w(false);
+                dVar3 = this.bub.GD;
+                tbPageContext = this.bub.FY;
+                dVar3.j(tbPageContext.getPageActivity());
+                this.bub.btT = true;
+                this.bub.Tf();
+                handler = this.bub.mHandler;
+                runnable = this.bub.bua;
+                i = this.bub.btZ;
+                handler.postDelayed(runnable, i);
+            }
         }
     }
 }

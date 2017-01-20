@@ -1,18 +1,18 @@
 package com.baidu.tieba.imMessageCenter.mention;
+
+import com.baidu.tbadk.core.view.NoNetworkView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends az {
-    @Override // com.baidu.tieba.imMessageCenter.mention.az, com.baidu.tbadk.mvc.b.e
-    public String Ev() {
-        return "tb_user_atme";
+public class h implements NoNetworkView.a {
+    final /* synthetic */ g djw;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(g gVar) {
+        this.djw = gVar;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.mention.az, com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "atme_cache";
-    }
-
-    @Override // com.baidu.tieba.imMessageCenter.mention.az, com.baidu.tbadk.mvc.b.e
-    public boolean Ew() {
-        return false;
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void aL(boolean z) {
+        this.djw.gA(z);
     }
 }

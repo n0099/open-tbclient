@@ -1,32 +1,18 @@
 package com.baidu.tieba.graffiti;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.util.Error;
-import com.baidu.tieba.r;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.tbadk.util.e<Error> {
-    final /* synthetic */ e chp;
+public class g implements View.OnClickListener {
+    final /* synthetic */ d cnI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(e eVar) {
-        this.chp = eVar;
+    public g(d dVar) {
+        this.cnI = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.e
-    /* renamed from: a */
-    public void F(Error error) {
-        this.chp.chm = false;
-        if (error != null && error.getCode() == 0) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new j(null, 3)));
-            com.baidu.adp.lib.util.k.showToast(this.chp.getContext(), this.chp.getContext().getString(r.j.save_success));
-        } else if (error != null && error.getCode() == -1132) {
-            com.baidu.adp.lib.util.k.showToast(this.chp.getContext(), this.chp.getContext().getString(r.j.graffiti_save_full));
-        } else {
-            com.baidu.adp.lib.util.k.showToast(this.chp.getContext(), this.chp.getContext().getString(r.j.save_error));
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cnI.ahz();
     }
 }

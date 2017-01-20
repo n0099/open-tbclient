@@ -5,18 +5,18 @@ import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMediaItem;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class aa extends DefaultBaiduListener {
-    final /* synthetic */ x fY;
-    final /* synthetic */ ShareMediaItem fZ;
+    final /* synthetic */ x fV;
+    final /* synthetic */ ShareMediaItem fW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(x xVar, ShareMediaItem shareMediaItem) {
-        this.fY = xVar;
-        this.fZ = shareMediaItem;
+        this.fV = xVar;
+        this.fW = shareMediaItem;
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onComplete(JSONObject jSONObject) {
-        this.fZ.setUserName(jSONObject.optString("username"));
-        this.fY.notifyDataSetChanged();
+        this.fW.setUserName(jSONObject.optString("username"));
+        this.fV.notifyDataSetChanged();
     }
 }

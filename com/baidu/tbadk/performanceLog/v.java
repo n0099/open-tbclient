@@ -3,105 +3,105 @@ package com.baidu.tbadk.performanceLog;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class v extends t {
-    public long aBX;
-    public long aBY;
-    public long aBZ;
-    public long aCa;
-    public long aCb;
-    public long aCc;
-    public long aCd;
-    public long aCe;
-    public long aCf;
-    public long aCg;
-    public long aCh;
-    public long aCi;
-    public long aCj;
-    public long aCk;
-    public boolean aCl;
-    public long aCm;
-    public long aCn;
-    public boolean aCo;
-    public long aCp;
+    public long aAP;
+    public long aAQ;
+    public long aAR;
+    public long aAS;
+    public long aAT;
+    public long aAU;
+    public long aAV;
+    public long aAW;
+    public long aAX;
+    public long aAY;
+    public long aAZ;
+    public long aBa;
+    public long aBb;
+    public long aBc;
+    public boolean aBd;
+    public long aBe;
+    public long aBf;
+    public boolean aBg;
+    public long aBh;
     public int errCode;
-    public long hs;
-    public long ht;
+    public long hp;
+    public long hq;
     public boolean isSuccess;
     public long sequenceID;
     public long socketCostTime;
     public int socketErrNo;
 
     public v() {
-        this.hs = 0L;
-        this.ht = 0L;
-        this.aCe = 0L;
-        this.aCg = 0L;
-        this.aCj = 0L;
-        this.aCk = 0L;
-        this.aCm = 0L;
-        this.aCn = 0L;
-        this.aCo = false;
+        this.hp = 0L;
+        this.hq = 0L;
+        this.aAW = 0L;
+        this.aAY = 0L;
+        this.aBb = 0L;
+        this.aBc = 0L;
+        this.aBe = 0L;
+        this.aBf = 0L;
+        this.aBg = false;
     }
 
     public v(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        this.hs = 0L;
-        this.ht = 0L;
-        this.aCe = 0L;
-        this.aCg = 0L;
-        this.aCj = 0L;
-        this.aCk = 0L;
-        this.aCm = 0L;
-        this.aCn = 0L;
-        this.aCo = false;
+        this.hp = 0L;
+        this.hq = 0L;
+        this.aAW = 0L;
+        this.aAY = 0L;
+        this.aBb = 0L;
+        this.aBc = 0L;
+        this.aBe = 0L;
+        this.aBf = 0L;
+        this.aBg = false;
         if (responsedMessage != null) {
-            this.aBV = i;
-            this.aCl = z;
-            if (this.aCl) {
-                this.aCk = responsedMessage.getDownSize();
-                this.aCp = responsedMessage.getOrginalMessage().getClientLogID();
+            this.aAN = i;
+            this.aBd = z;
+            if (this.aBd) {
+                this.aBc = responsedMessage.getDownSize();
+                this.aBh = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.aCm = responsedMessage.performanceData.jz;
-                this.aCn = responsedMessage.performanceData.jA;
-                this.socketErrNo = responsedMessage.performanceData.jx;
-                this.socketCostTime = responsedMessage.performanceData.jy;
+                this.aBe = responsedMessage.performanceData.jt;
+                this.aBf = responsedMessage.performanceData.ju;
+                this.socketErrNo = responsedMessage.performanceData.jr;
+                this.socketCostTime = responsedMessage.performanceData.js;
             } else {
-                this.aCj = responsedMessage.getDownSize();
+                this.aBb = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.aBX = j;
-            this.aBY = j2;
-            this.aCf = j3;
+            this.aAP = j;
+            this.aAQ = j2;
+            this.aAX = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.aBZ = responsedMessage.performanceData.jp;
-            this.aCa = responsedMessage.performanceData.jq;
-            this.aCb = responsedMessage.performanceData.jr;
-            this.hs = responsedMessage.performanceData.js;
-            this.ht = responsedMessage.performanceData.jt;
-            this.aCc = responsedMessage.performanceData.ju;
-            this.aCd = responsedMessage.performanceData.jv;
-            this.aCe = responsedMessage.performanceData.jw;
-            this.aCe += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.aAR = responsedMessage.performanceData.jj;
+            this.aAS = responsedMessage.performanceData.jk;
+            this.aAT = responsedMessage.performanceData.jl;
+            this.hp = responsedMessage.performanceData.jm;
+            this.hq = responsedMessage.performanceData.jn;
+            this.aAU = responsedMessage.performanceData.jo;
+            this.aAV = responsedMessage.performanceData.jp;
+            this.aAW = responsedMessage.performanceData.jq;
+            this.aAW += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.aCo = z2;
-            this.aCg = j4;
+            this.aBg = z2;
+            this.aAY = j4;
         }
     }
 
-    public void FP() {
-        ac acVar = (ac) aa.FU().fi(this.aBV);
+    public void FJ() {
+        ac acVar = (ac) aa.FO().fj(this.aAN);
         if (acVar != null) {
             acVar.a(this);
         }
     }
 
-    public void FQ() {
+    public void FK() {
         ac acVar;
-        if (aa.FU().FV() && (acVar = (ac) aa.FU().fi(this.aBV)) != null) {
+        if (aa.FO().FP() && (acVar = (ac) aa.FO().fj(this.aAN)) != null) {
             acVar.b(this);
         }
     }
 
-    public void FR() {
-        ac acVar = (ac) aa.FU().fi(this.aBV);
+    public void FL() {
+        ac acVar = (ac) aa.FO().fj(this.aAN);
         if (acVar != null) {
             acVar.c(this);
         }

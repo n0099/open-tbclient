@@ -1,38 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-class bg extends CustomMessageListener {
-    final /* synthetic */ WriteActivity fDQ;
+class bg implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg(WriteActivity writeActivity, int i) {
-        super(i);
-        this.fDQ = writeActivity;
+    public bg(WriteActivity writeActivity) {
+        this.fMl = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        com.baidu.tieba.tbadkCore.location.d dVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar3;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.fDQ.avY;
-                dVar2.kY(false);
-                dVar3 = this.fDQ.avY;
-                dVar3.ca(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.fDQ.b(2, true, responsedSelectLocation.getName());
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortools.j jVar;
+        int boE;
+        EditText editText;
+        EditText editText2;
+        jVar = this.fMl.ats;
+        jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+        boE = this.fMl.boE();
+        if (boE >= 0) {
+            editText = this.fMl.fgd;
+            if (boE < editText.getText().length()) {
+                editText2 = this.fMl.fgd;
+                editText2.setSelection(boE);
             }
-            dVar = this.fDQ.avY;
-            dVar.kY(true);
-            this.fDQ.b(0, true, null);
         }
     }
 }

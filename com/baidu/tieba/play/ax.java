@@ -1,41 +1,79 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
+import java.util.Iterator;
+import tbclient.VideoDesc;
+import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class ax {
-    public String aRe;
-    public String aRf;
-    public String eKb;
-    public String eKc;
-    public String mLocate;
-    public String mSource;
-    public String mUid;
+    private int duration;
+    private long eTt;
+    private String eTu;
+    private String videoUrl;
 
-    public com.baidu.tbadk.core.util.at f(com.baidu.tbadk.core.util.at atVar) {
-        if (atVar != null) {
-            if (!StringUtils.isNull(this.mLocate)) {
-                atVar.ab("obj_locate", this.mLocate);
+    public void a(VideoInfo videoInfo, boolean z) {
+        String str;
+        if (videoInfo != null) {
+            String str2 = videoInfo.video_url;
+            videoInfo.video_width.toString();
+            videoInfo.video_height.toString();
+            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.w.s(videoInfo.video_desc)) {
+                VideoDesc videoDesc = null;
+                Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    VideoDesc next = it.next();
+                    if (next != null && !StringUtils.isNull(next.video_url)) {
+                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.i.gl()) {
+                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.i.gm()) {
+                                videoDesc = next;
+                                break;
+                            }
+                        } else {
+                            videoDesc = next;
+                            break;
+                        }
+                    }
+                }
+                if (videoDesc != null) {
+                    str = videoDesc.video_url;
+                    String str3 = videoDesc.video_width;
+                    String str4 = videoDesc.video_height;
+                    this.videoUrl = str;
+                    this.eTt = videoInfo.video_length.intValue();
+                    this.duration = videoInfo.video_duration.intValue();
+                    this.eTu = videoInfo.video_width + "x" + videoInfo.video_height;
+                }
             }
-            if (!StringUtils.isNull(this.aRf)) {
-                atVar.ab("tid", this.aRf);
-            }
-            if (!StringUtils.isNull(this.aRe)) {
-                atVar.ab("fid", this.aRe);
-            }
-            if (!StringUtils.isNull(this.mUid)) {
-                atVar.ab(SapiAccountManager.SESSION_UID, this.mUid);
-            }
-            if (!StringUtils.isNull(this.mSource)) {
-                atVar.ab("obj_source", this.mSource);
-            }
-            if (!StringUtils.isNull(this.eKb)) {
-                atVar.ab("obj_param1", this.eKb);
-            }
-            if (!StringUtils.isNull(this.eKc)) {
-                atVar.ab("obj_param2", this.eKc);
-            }
+            str = str2;
+            this.videoUrl = str;
+            this.eTt = videoInfo.video_length.intValue();
+            this.duration = videoInfo.video_duration.intValue();
+            this.eTu = videoInfo.video_width + "x" + videoInfo.video_height;
         }
-        return atVar;
+    }
+
+    public void c(VideoInfo videoInfo) {
+        a(videoInfo, false);
+    }
+
+    public void a(com.baidu.tbadk.core.data.d dVar) {
+        if (dVar != null) {
+            this.videoUrl = dVar.hls_url;
+        }
+    }
+
+    public long aYw() {
+        return this.eTt;
+    }
+
+    public int getDuration() {
+        return this.duration;
+    }
+
+    public String aYx() {
+        return this.eTu;
     }
 }

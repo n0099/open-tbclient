@@ -1,18 +1,23 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-class y implements CustomMessageTask.CustomRunnable<Void> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-        if (customMessage == null) {
-            return null;
+class y implements ba.a {
+    @Override // com.baidu.tbadk.core.util.ba.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
-        TbadkCoreApplication.m9getInst().setFriendFeedNew(true);
-        return new CustomResponsedMessage<>(CmdConfigCustom.FRIEND_FEED_NEW);
+        String str = strArr[0];
+        if (StringUtils.isNull(str) || !str.startsWith("tiebavr:") || TbadkCoreApplication.m9getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
+            return 3;
+        }
+        tbPageContext.showToast(r.l.vr_plugin_not_available);
+        return 1;
     }
 }

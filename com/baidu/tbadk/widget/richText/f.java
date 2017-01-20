@@ -1,37 +1,48 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
-import tbclient.PbContent;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.lib.a.b.a.a.i {
-    static final int aIA = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds360);
-    static final int aIB = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds300);
-    public long gid;
-    public String url;
-    public int width = aIB;
-    public int height = this.width;
+class f implements View.OnClickListener {
+    final /* synthetic */ TbRichTextView aIy;
 
-    public void a(PbContent pbContent) {
-        String[] split;
-        if (pbContent != null && pbContent.graffiti_info != null) {
-            this.url = pbContent.graffiti_info.url;
-            this.gid = pbContent.graffiti_info.gid.longValue();
-            String str = pbContent.bsize;
-            if (str != null && (split = str.split(",")) != null && split.length == 2) {
-                this.width = com.baidu.adp.lib.h.b.g(split[0], 0);
-                this.height = com.baidu.adp.lib.h.b.g(split[1], 0);
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(TbRichTextView tbRichTextView) {
+        this.aIy = tbRichTextView;
     }
 
-    public void fx(int i) {
-        if (i == 1) {
-            this.width = aIA;
-            this.height = this.width;
-        } else if (this.width != this.height || this.width <= 0 || this.width > aIB) {
-            this.width = aIB;
-            this.height = this.width;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbRichTextView.e eVar;
+        String str;
+        TbRichTextView.e eVar2;
+        boolean O;
+        eVar = this.aIy.aHX;
+        if (eVar != null && (view instanceof ImageView)) {
+            Object tag = view.getTag();
+            if (tag != null && (tag instanceof String)) {
+                str = (String) tag;
+            } else if (!(view instanceof TbImageView)) {
+                str = null;
+            } else {
+                str = ((TbImageView) view).getUrl();
+            }
+            int childCount = this.aIy.getChildCount();
+            int i = -1;
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.aIy.getChildAt(i2);
+                O = this.aIy.O(childAt);
+                if (O) {
+                    i++;
+                }
+                if (view == childAt) {
+                    break;
+                }
+            }
+            eVar2 = this.aIy.aHX;
+            eVar2.a(view, str, i);
         }
     }
 }

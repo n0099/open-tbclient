@@ -5,36 +5,36 @@ import com.baidu.tieba.onlineDebugger.command.h;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class d implements b {
-    private String dSN;
+    private String ebG;
     private String fieldName;
 
     @Override // com.baidu.tieba.onlineDebugger.a.b
-    public Object V(Object obj) {
+    public Object Y(Object obj) {
         Field b;
         String str = null;
         if (obj != null) {
             if (obj instanceof Class) {
-                b = com.baidu.adp.lib.a.a.a.b((Class) obj, this.fieldName);
+                b = com.baidu.adp.lib.OrmObject.a.a.b((Class) obj, this.fieldName);
             } else {
-                b = com.baidu.adp.lib.a.a.a.b(obj.getClass(), this.fieldName);
+                b = com.baidu.adp.lib.OrmObject.a.a.b(obj.getClass(), this.fieldName);
             }
             if (b != null) {
                 try {
                     if (!b.isAccessible()) {
                         b.setAccessible(true);
                     }
-                    if (this.dSN.contains(".") || (this.dSN.contains("(") && this.dSN.contains(")"))) {
-                        h nC = com.baidu.tieba.onlineDebugger.e.b.nC("get " + this.dSN);
-                        if (nC != null) {
-                            Object aHc = nC.aHc();
-                            if (aHc != null) {
-                                str = aHc.toString();
+                    if (this.ebG.contains(".") || (this.ebG.contains("(") && this.ebG.contains(")"))) {
+                        h nT = com.baidu.tieba.onlineDebugger.e.b.nT("get " + this.ebG);
+                        if (nT != null) {
+                            Object aIQ = nT.aIQ();
+                            if (aIQ != null) {
+                                str = aIQ.toString();
                             }
                         } else {
-                            str = this.dSN;
+                            str = this.ebG;
                         }
                     } else {
-                        str = this.dSN;
+                        str = this.ebG;
                     }
                     BdLog.e(String.valueOf(obj.toString()) + " before setField " + this.fieldName + " value = " + (str == null ? "null" : str.toString()));
                     com.baidu.tieba.onlineDebugger.d.a(b, obj, str);
@@ -54,11 +54,11 @@ public class d implements b {
         return null;
     }
 
-    public void nl(String str) {
+    public void nC(String str) {
         this.fieldName = str;
     }
 
-    public void nn(String str) {
-        this.dSN = str;
+    public void nE(String str) {
+        this.ebG = str;
     }
 }

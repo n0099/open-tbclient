@@ -1,25 +1,53 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.PbPage.NewsInfo;
+import java.util.ArrayList;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class ap {
-    public String Sr;
-    public int Ss;
-    public String St;
-    public String buttonText;
-    public int position = 0;
-    public String subtitle;
-    public String summary;
+    private int Ry;
+    private ArrayList<a> Rz;
 
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.Sr = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-            this.Ss = newsInfo.news_type.intValue();
-            this.St = newsInfo.news_icon;
-            this.subtitle = newsInfo.subtitle;
-            this.buttonText = newsInfo.button_text;
+    /* loaded from: classes.dex */
+    public static class a {
+        public String QC;
+        public int giftId;
+        public String giftName;
+        public int num;
+    }
+
+    public void a(PbPresent pbPresent) {
+        if (pbPresent != null) {
+            this.Ry = pbPresent.total.intValue();
+            if (pbPresent.list != null && pbPresent.list.size() > 0) {
+                this.Rz = new ArrayList<>();
+                for (PbPresentList pbPresentList : pbPresent.list) {
+                    if (pbPresentList != null) {
+                        a aVar = new a();
+                        aVar.giftId = pbPresentList.gift_id.intValue();
+                        aVar.giftName = pbPresentList.gift_name;
+                        aVar.QC = pbPresentList.thumbnail_url;
+                        aVar.num = pbPresentList.num.intValue();
+                        this.Rz.add(aVar);
+                    }
+                }
+            }
         }
+    }
+
+    public int qz() {
+        return this.Ry;
+    }
+
+    public void bQ(int i) {
+        this.Ry = i;
+    }
+
+    public ArrayList<a> qA() {
+        return this.Rz;
+    }
+
+    public void h(ArrayList<a> arrayList) {
+        this.Rz = arrayList;
     }
 }

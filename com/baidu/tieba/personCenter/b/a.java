@@ -4,32 +4,33 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.personCenter.g.g;
+import com.baidu.tieba.personCenter.f.g;
+import com.baidu.tieba.personCenter.mode.PersonCenterMode;
 import com.baidu.tieba.r;
 import com.baidu.tieba.view.m;
 /* loaded from: classes.dex */
-public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.f.a {
-    private boolean buE;
-    private CustomMessageListener byX = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
-    private com.baidu.tieba.personCenter.f.b epa;
-    private g epb;
-    private com.baidu.tieba.e.a epj;
+public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.mode.a {
+    private boolean bCl;
+    private CustomMessageListener bGx = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
+    private PersonCenterMode eyV;
+    private g eyW;
+    private com.baidu.tieba.g.a eze;
 
-    public a(TbPageContext tbPageContext, com.baidu.tieba.personCenter.f.b bVar, g gVar) {
-        this.epa = bVar;
-        this.epb = gVar;
-        this.epj = new com.baidu.tieba.personCenter.d.b(tbPageContext);
-        this.epa.a(this);
-        tbPageContext.registerListener(this.byX);
+    public a(TbPageContext tbPageContext, PersonCenterMode personCenterMode, g gVar) {
+        this.eyV = personCenterMode;
+        this.eyW = gVar;
+        this.eze = new com.baidu.tieba.personCenter.d.b(tbPageContext);
+        this.eyV.a(this);
+        tbPageContext.registerListener(this.bGx);
     }
 
-    public m aOE() {
-        return this.epj;
+    public m aQE() {
+        return this.eze;
     }
 
     @Override // com.baidu.tieba.model.a
-    public void Tj() {
-        this.epa.EN();
+    public void MR() {
+        this.eyV.EH();
     }
 
     @Override // com.baidu.tieba.model.a
@@ -37,25 +38,25 @@ public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.
     }
 
     @Override // com.baidu.tieba.model.a
-    public boolean aEa() {
+    public boolean Py() {
         return false;
     }
 
-    @Override // com.baidu.tieba.personCenter.f.a
+    @Override // com.baidu.tieba.personCenter.mode.a
     public void a(com.baidu.tieba.personCenter.c.a aVar) {
-        this.epb.Jj();
+        this.eyW.Jx();
         if (aVar == null) {
-            if (!this.buE) {
-                this.epb.H(TbadkCoreApplication.m9getInst().getString(r.j.neterror), true);
+            if (!this.bCl) {
+                this.eyW.G(TbadkCoreApplication.m9getInst().getString(r.l.neterror), true);
                 return;
             }
             return;
         }
-        this.buE = true;
-        this.epb.b(aVar);
+        this.bCl = true;
+        this.eyW.b(aVar);
     }
 
     public boolean hasData() {
-        return this.buE;
+        return this.bCl;
     }
 }

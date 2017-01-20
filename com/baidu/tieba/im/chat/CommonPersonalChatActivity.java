@@ -18,59 +18,59 @@ import org.json.JSONObject;
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void ams() {
-        super.ams();
+    public void anB() {
+        super.anB();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void p(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         a(userData);
-        ((CommonPersonalMsglistModel) this.cGA).setUser(userData);
+        ((CommonPersonalMsglistModel) this.cNI).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void j(Bundle bundle) {
+    public void k(Bundle bundle) {
         UserData userData = (UserData) bundle.getSerializable("user");
         a(userData);
-        ((CommonPersonalMsglistModel) this.cGA).setUser(userData);
+        ((CommonPersonalMsglistModel) this.cNI).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", ((CommonPersonalMsglistModel) this.cGA).getUser());
+        bundle.putSerializable("user", ((CommonPersonalMsglistModel) this.cNI).getUser());
     }
 
     protected void a(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean amu() {
+    public boolean anD() {
         UserData user;
-        return (!(this.cGA instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.cGA).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.cNI instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.cNI).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void i(Bundle bundle) throws Exception {
-        this.cGA.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-        j(bundle);
+    public void j(Bundle bundle) throws Exception {
+        this.cNI.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
+        k(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void amt() {
+    public void anC() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        if (this.cGA != null) {
-            this.cGA.setIsAcceptNotify(booleanExtra);
+        if (this.cNI != null) {
+            this.cNI.setIsAcceptNotify(booleanExtra);
             p(intent);
         }
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0038  */
     /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.d.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.c.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -82,7 +82,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (anf() && this.cGA != null && (msg = this.cGA.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg) && (content = msg.getContent()) != null) {
+                if (aon() && this.cNI != null && (msg = this.cNI.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg) && (content = msg.getContent()) != null) {
                     try {
                         jSONArray = new JSONArray(content);
                     } catch (Exception e) {
@@ -114,7 +114,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] s(int i, boolean z) {
-        return super.s(i, true);
+    public String[] r(int i, boolean z) {
+        return super.r(i, true);
     }
 }

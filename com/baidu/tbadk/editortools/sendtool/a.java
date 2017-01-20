@@ -10,32 +10,32 @@ import com.baidu.tieba.r;
 public class a extends x {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.auV = false;
-        this.auU = 2;
-        this.auW = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
-        this.auh = new SendView(context);
-        v.a aVar = new v.a(context.getResources().getDimensionPixelSize(r.e.ds100), context.getResources().getDimensionPixelSize(r.e.ds78));
+        this.aua = false;
+        this.atZ = 2;
+        this.aub = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
+        this.atm = new SendView(context);
+        v.a aVar = new v.a(context.getResources().getDimensionPixelSize(r.f.ds100), context.getResources().getDimensionPixelSize(r.f.ds78));
         aVar.gravity = 16;
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(r.e.ds10);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(r.e.ds10);
-        ((View) this.auh).setLayoutParams(aVar);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(r.f.ds10);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(r.f.ds10);
+        ((View) this.atm).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.auh != null && (this.auh instanceof TextView)) {
-            ((TextView) this.auh).setText(i);
+        if (this.atm != null && (this.atm instanceof TextView)) {
+            ((TextView) this.atm).setText(i);
         }
     }
 
     public void setType(int i) {
-        if (this.auh != null) {
-            ((SendView) this.auh).setType(i);
+        if (this.atm != null) {
+            ((SendView) this.atm).setType(i);
         }
     }
 
-    public void eN(int i) {
-        if (this.auh != null) {
-            ((SendView) this.auh).eN(i);
+    public void eO(int i) {
+        if (this.atm != null) {
+            ((SendView) this.atm).eO(i);
         }
     }
 }

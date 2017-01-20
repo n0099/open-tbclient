@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public abstract class e {
-    private static e acy = null;
-    public boolean acx = false;
+    private static e abK = null;
+    public boolean abJ = false;
 
     public abstract String getAllIPListCanUsed();
 
@@ -32,17 +32,17 @@ public abstract class e {
     public abstract void setIpDisableTime(int i);
 
     public static e getInstance() {
-        if (acy == null) {
+        if (abK == null) {
             synchronized (e.class) {
-                if (acy == null) {
+                if (abK == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, e.class);
                     if (runTask != null && runTask.getData() != null) {
-                        acy = (e) runTask.getData();
+                        abK = (e) runTask.getData();
                     }
-                    return acy;
+                    return abK;
                 }
             }
         }
-        return acy;
+        return abK;
     }
 }

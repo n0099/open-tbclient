@@ -14,11 +14,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean aYN() {
+    public static boolean baC() {
         return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage qE(String str) {
+    public static RemindRecommendMessage qY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,7 +52,7 @@ public class a {
         }
     }
 
-    public static long cG(long j) {
+    public static long cz(long j) {
         int i;
         int i2;
         int i3;
@@ -67,9 +67,9 @@ public class a {
             i2 = 5;
             i3 = 12;
         } else {
-            i3 = com.baidu.adp.lib.h.b.g(split[0], 12);
-            i2 = com.baidu.adp.lib.h.b.g(split[1], 5);
-            i = com.baidu.adp.lib.h.b.g(split[2], 0);
+            i3 = com.baidu.adp.lib.g.b.g(split[0], 12);
+            i2 = com.baidu.adp.lib.g.b.g(split[1], 5);
+            i = com.baidu.adp.lib.g.b.g(split[2], 0);
         }
         if (i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i < 0 || i > 59) {
             i = 0;
@@ -97,11 +97,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long bhV() {
-        return cG(System.currentTimeMillis());
+    public static long bjD() {
+        return cz(System.currentTimeMillis());
     }
 
-    public static boolean cH(long j) {
+    public static boolean cA(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -111,7 +111,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean bhW() {
-        return com.baidu.tbadk.core.sharedPref.b.tW().getInt("sync_local_dialog", 1) == 1;
+    public static boolean bjE() {
+        return com.baidu.tbadk.core.sharedPref.b.tQ().getInt("sync_local_dialog", 1) == 1;
     }
 }

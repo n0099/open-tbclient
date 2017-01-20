@@ -1,20 +1,31 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements Runnable {
-    final /* synthetic */ j dck;
+public class m extends CustomMessageListener {
+    final /* synthetic */ l djK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(j jVar) {
-        this.dck = jVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(l lVar, int i) {
+        super(i);
+        this.djK = lVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        bdListView = this.dck.dci;
-        bdListView.kv();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MessageAggregationListAdapter messageAggregationListAdapter;
+        MessageAggregationListAdapter messageAggregationListAdapter2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            messageAggregationListAdapter = this.djK.djD;
+            if (messageAggregationListAdapter != null) {
+                messageAggregationListAdapter2 = this.djK.djD;
+                messageAggregationListAdapter2.notifyDataSetChanged();
+            }
+        }
     }
 }

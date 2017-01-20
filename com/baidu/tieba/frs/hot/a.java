@@ -6,34 +6,34 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
-    private o<byte[]> aME;
+    private o<byte[]> aLF;
 
     public a() {
-        VA();
+        WU();
     }
 
-    public void VA() {
-        if (this.aME == null) {
-            this.aME = com.baidu.tbadk.core.b.a.sX().cC("tb.forum_hot_thread");
+    public void WU() {
+        if (this.aLF == null) {
+            this.aLF = com.baidu.tbadk.core.c.a.sR().cA("tb.forum_hot_thread");
         }
     }
 
-    public byte[] is(String str) {
+    public byte[] iI(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        o.c<byte[]> T = this.aME != null ? this.aME.T(String.valueOf(str) + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
-        if (T == null || T.lp == null) {
+        o.c<byte[]> T = this.aLF != null ? this.aLF.T(String.valueOf(str) + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        if (T == null || T.lj == null) {
             return null;
         }
-        return T.lp;
+        return T.lj;
     }
 
     public void j(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            VA();
-            this.aME.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            WU();
+            this.aLF.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 }

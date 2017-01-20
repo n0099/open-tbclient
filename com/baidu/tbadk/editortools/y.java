@@ -9,7 +9,7 @@ public interface y extends b {
 
     void init();
 
-    void lz();
+    void lr();
 
     void onChangeSkinType(int i);
 

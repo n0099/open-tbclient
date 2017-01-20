@@ -7,13 +7,13 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes.dex */
 class ai extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity eis;
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,28 +22,28 @@ class ai extends CustomMessageListener {
         BdUniqueId bdUniqueId;
         ao aoVar;
         com.baidu.tbadk.core.view.h hVar;
-        com.baidu.adp.base.h hVar2;
-        com.baidu.tbadk.core.view.h hVar3;
-        com.baidu.adp.base.h hVar4;
+        com.baidu.adp.base.g gVar;
+        com.baidu.tbadk.core.view.h hVar2;
+        com.baidu.adp.base.g gVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eis.ein;
+            bdUniqueId = this.erC.erx;
             if (tag == bdUniqueId) {
-                aoVar = this.eis.eid;
-                aoVar.aHa();
+                aoVar = this.erC.ern;
+                aoVar.aIO();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    hVar3 = this.eis.dZA;
-                    hVar4 = this.eis.dZz;
-                    hVar3.c(hVar4.getResources().getString(r.j.un_mute_success));
+                    hVar2 = this.erC.eil;
+                    gVar2 = this.erC.eik;
+                    hVar2.c(gVar2.getResources().getString(r.l.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
-                if (com.baidu.tbadk.core.util.av.isEmpty(muteMessage)) {
-                    hVar2 = this.eis.dZz;
-                    muteMessage = hVar2.getResources().getString(r.j.un_mute_fail);
+                if (com.baidu.tbadk.core.util.at.isEmpty(muteMessage)) {
+                    gVar = this.erC.eik;
+                    muteMessage = gVar.getResources().getString(r.l.un_mute_fail);
                 }
-                hVar = this.eis.dZA;
+                hVar = this.erC.eil;
                 hVar.d(muteMessage);
             }
         }

@@ -7,13 +7,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ j bEc;
+    final /* synthetic */ j bKz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, int i) {
         super(i);
-        this.bEc = jVar;
+        this.bKz = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,18 +23,18 @@ public class k extends CustomMessageListener {
         View view2;
         View view3;
         View view4;
-        view = this.bEc.bQh;
+        view = this.bKz.bWM;
         if (view != null && customResponsedMessage != null) {
             boolean booleanValue = (customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) ? false : ((Boolean) customResponsedMessage.getData()).booleanValue();
-            j jVar = this.bEc;
-            view2 = this.bEc.bQh;
-            jVar.bQl = view2.findViewById(r.g.divider_bottom);
+            j jVar = this.bKz;
+            view2 = this.bKz.bWM;
+            jVar.bfZ = view2.findViewById(r.h.divider_bottom);
             if (booleanValue) {
-                view4 = this.bEc.bQl;
+                view4 = this.bKz.bfZ;
                 view4.setVisibility(8);
                 return;
             }
-            view3 = this.bEc.bQl;
+            view3 = this.bKz.bfZ;
             view3.setVisibility(0);
         }
     }

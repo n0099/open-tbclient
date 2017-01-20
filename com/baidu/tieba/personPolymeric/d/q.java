@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class q extends RelativeLayout {
-    public TextView boU;
-    public BarImageView evu;
-    public TextView evv;
-    public TextView evw;
-    public TextView evx;
-    private com.baidu.tieba.personPolymeric.c.e evy;
+    public TextView bwH;
+    public BarImageView eFo;
+    public TextView eFp;
+    public TextView eFq;
+    public TextView eFr;
+    private com.baidu.tieba.personPolymeric.c.e eFs;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -27,41 +27,41 @@ public class q extends RelativeLayout {
         super(context);
         this.mSkinType = 3;
         this.mContext = context;
-        LayoutInflater.from(getContext()).inflate(r.h.person_info_common_forum_item, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(r.j.person_info_common_forum_item, (ViewGroup) this, true);
         init();
-        Tc();
+        Mj();
     }
 
     private void init() {
-        this.evu = (BarImageView) findViewById(r.g.forum_avatar);
-        this.boU = (TextView) findViewById(r.g.forum_name);
-        this.evv = (TextView) findViewById(r.g.forum_post_thread);
-        this.evw = (TextView) findViewById(r.g.forum_thread_num);
-        this.evx = (TextView) findViewById(r.g.forum_thread_str);
+        this.eFo = (BarImageView) findViewById(r.h.forum_avatar);
+        this.bwH = (TextView) findViewById(r.h.forum_name);
+        this.eFp = (TextView) findViewById(r.h.forum_post_thread);
+        this.eFq = (TextView) findViewById(r.h.forum_thread_num);
+        this.eFr = (TextView) findViewById(r.h.forum_thread_str);
     }
 
-    private void Tc() {
+    private void Mj() {
         this.mOnClickListener = new r(this);
     }
 
     public void setData(com.baidu.tieba.personPolymeric.c.e eVar) {
-        this.evy = eVar;
-        this.evu.c(eVar.avatar, 10, false);
-        this.boU.setText(String.valueOf(av.e(eVar.forumName, 7, "...")) + this.mContext.getString(r.j.forum));
-        this.evw.setText(av.v(eVar.euf));
-        this.evv.setText(String.format(this.mContext.getString(r.j.person_has_posted), av.cW(eVar.sex)));
+        this.eFs = eVar;
+        this.eFo.c(eVar.avatar, 10, false);
+        this.bwH.setText(String.valueOf(at.e(eVar.forumName, 7, "...")) + this.mContext.getString(r.l.forum));
+        this.eFq.setText(at.u(eVar.eDZ));
+        this.eFp.setText(String.format(this.mContext.getString(r.l.person_has_posted), at.cW(eVar.sex)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.mOnClickListener);
         }
-        tm();
+        tg();
     }
 
-    public void tm() {
+    public void tg() {
         if (this.mSkinType != TbadkCoreApplication.m9getInst().getSkinType()) {
-            ar.j((View) this.boU, r.d.cp_cont_b);
-            ar.j((View) this.evv, r.d.cp_cont_c);
-            ar.j((View) this.evx, r.d.cp_cont_c);
-            ar.j((View) this.evw, r.d.cp_link_tip_a);
+            ap.i((View) this.bwH, r.e.cp_cont_b);
+            ap.i((View) this.eFp, r.e.cp_cont_c);
+            ap.i((View) this.eFr, r.e.cp_cont_c);
+            ap.i((View) this.eFq, r.e.cp_link_tip_a);
         }
         this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
     }

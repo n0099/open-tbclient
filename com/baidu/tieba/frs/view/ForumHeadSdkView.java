@@ -12,59 +12,59 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class ForumHeadSdkView extends LinearLayout {
-    private TextView VO;
-    private TbImageView bPO;
-    private TbImageView bPP;
-    private com.baidu.tbadk.core.data.w bPQ;
-    private View brO;
+    private TextView Ve;
+    private TbImageView bWt;
+    private TbImageView bWu;
+    private com.baidu.tbadk.core.data.x bWv;
+    private View bzz;
 
     public ForumHeadSdkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        aN(context);
+        aT(context);
     }
 
     public ForumHeadSdkView(Context context) {
         super(context);
-        aN(context);
+        aT(context);
     }
 
-    private void aN(Context context) {
-        LayoutInflater.from(context).inflate(r.h.frs_head_sdk_view, this);
-        this.brO = findViewById(r.g.frs_head_sdk_container);
-        this.bPO = (TbImageView) findViewById(r.g.frs_head_sdk_image);
-        this.bPP = (TbImageView) findViewById(r.g.frs_head_sdk_title_image);
-        this.VO = (TextView) findViewById(r.g.frs_head_sdk_title);
+    private void aT(Context context) {
+        LayoutInflater.from(context).inflate(r.j.frs_head_sdk_view, this);
+        this.bzz = findViewById(r.h.frs_head_sdk_container);
+        this.bWt = (TbImageView) findViewById(r.h.frs_head_sdk_image);
+        this.bWu = (TbImageView) findViewById(r.h.frs_head_sdk_title_image);
+        this.Ve = (TextView) findViewById(r.h.frs_head_sdk_title);
     }
 
-    public void setData(com.baidu.tbadk.core.data.w wVar) {
-        if (wVar != null) {
-            this.bPQ = wVar;
-            this.bPO.c(this.bPQ.pX(), 10, false);
-            String pY = this.bPQ.pY();
-            if (StringUtils.isNull(pY)) {
-                this.VO.setVisibility(8);
-                this.bPP.setVisibility(8);
-            } else if (pY.startsWith("http")) {
-                this.VO.setVisibility(8);
-                this.bPP.c(pY, 10, false);
+    public void setData(com.baidu.tbadk.core.data.x xVar) {
+        if (xVar != null) {
+            this.bWv = xVar;
+            this.bWt.c(this.bWv.pQ(), 10, false);
+            String pR = this.bWv.pR();
+            if (StringUtils.isNull(pR)) {
+                this.Ve.setVisibility(8);
+                this.bWu.setVisibility(8);
+            } else if (pR.startsWith("http")) {
+                this.Ve.setVisibility(8);
+                this.bWu.c(pR, 10, false);
             } else {
-                this.bPP.setVisibility(8);
-                this.VO.setText(pY);
+                this.bWu.setVisibility(8);
+                this.Ve.setText(pR);
             }
         }
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.brO.setOnClickListener(onClickListener);
+        this.bzz.setOnClickListener(onClickListener);
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        this.bPO.invalidate();
+        this.bWt.invalidate();
         tbPageContext.getLayoutMode().ai(i == 1);
-        tbPageContext.getLayoutMode().x(this);
+        tbPageContext.getLayoutMode().v(this);
     }
 
     public void show() {
-        this.brO.setVisibility(0);
+        this.bzz.setVisibility(0);
     }
 }

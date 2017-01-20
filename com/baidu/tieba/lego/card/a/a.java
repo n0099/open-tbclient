@@ -5,16 +5,16 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.adp.widget.ListView.y.a;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.e;
+import com.baidu.tieba.lego.f;
 /* loaded from: classes.dex */
-public abstract class a<T extends y.a> extends com.baidu.adp.widget.ListView.a<ICardInfo, T> implements e {
-    protected int dkU;
+public abstract class a<T extends y.a> extends com.baidu.adp.widget.ListView.a<ICardInfo, T> implements f {
+    protected int dso;
 
     protected a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
 
     public void setBusinessType(int i) {
-        this.dkU = i;
+        this.dso = i;
     }
 }

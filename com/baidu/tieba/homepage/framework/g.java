@@ -5,23 +5,23 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ RecommendFrsControlFragment cnd;
+    final /* synthetic */ RecommendFrsControlFragment cud;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cnd = recommendFrsControlFragment;
+        this.cud = recommendFrsControlFragment;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         q qVar;
         q qVar2;
-        qVar = this.cnd.cmQ;
+        qVar = this.cud.ctQ;
         if (qVar != null) {
-            qVar2 = this.cnd.cmQ;
+            qVar2 = this.cud.ctQ;
             qVar2.a(1, true, 0, 0, 1, 0);
-            this.cnd.Jk();
-            this.cnd.f(false, this.cnd.getResources().getDimensionPixelSize(r.e.ds520));
+            this.cud.Jy();
+            this.cud.f(false, this.cud.getResources().getDimensionPixelSize(r.f.ds520));
         }
     }
 }

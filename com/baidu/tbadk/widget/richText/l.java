@@ -1,72 +1,68 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.PbContent;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbListTextView;
 /* loaded from: classes.dex */
-public class l extends com.baidu.adp.lib.a.b.a.a.i {
-    private boolean aIF;
-    private boolean aIG;
-    private String cdn_src;
-    private String link;
-    private int mHeight;
-    private int mWidth;
+class l implements com.baidu.adp.lib.e.c<TextView> {
+    private final /* synthetic */ Context val$context;
 
-    public l() {
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.cdn_src = null;
-        this.link = null;
-        this.aIF = false;
-        this.aIG = true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(Context context) {
+        this.val$context = context;
     }
 
-    public l(PbContent pbContent) {
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.cdn_src = null;
-        this.link = null;
-        this.aIF = false;
-        this.aIG = true;
-        this.cdn_src = pbContent.cdn_src;
-        this.link = pbContent.link;
-        String str = pbContent.bsize;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.mWidth = Integer.valueOf(split[0]).intValue();
-                this.mHeight = Integer.valueOf(split[1]).intValue();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        if (this.mWidth <= 0) {
-            this.mWidth = 1;
-        }
-        if (this.mHeight <= 0) {
-            this.mHeight = 1;
-        }
-        if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.aIF = true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Ig */
+    public TextView ex() {
+        return new TbListTextView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public void o(TextView textView) {
+        textView.setText((CharSequence) null);
+        textView.setTag(null);
+        textView.setSingleLine(false);
+        textView.setEllipsize(null);
+        textView.setBackgroundResource(0);
+        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        textView.setTextColor(0);
+        textView.setGravity(3);
+        textView.setOnClickListener(null);
+        textView.setOnTouchListener(null);
+        if (textView instanceof TbListTextView) {
+            ((TbListTextView) textView).setCheckSelection(true);
         }
     }
 
-    public int getWidth() {
-        return this.mWidth;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public TextView p(TextView textView) {
+        return textView;
     }
 
-    public int getHeight() {
-        return this.mHeight;
-    }
-
-    public String HZ() {
-        return this.cdn_src;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public boolean HS() {
-        return this.aIG;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: e */
+    public TextView q(TextView textView) {
+        textView.setText((CharSequence) null);
+        textView.setTag(null);
+        textView.setSingleLine(false);
+        textView.setEllipsize(null);
+        textView.setBackgroundResource(0);
+        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        textView.setTextColor(0);
+        textView.setGravity(3);
+        textView.setOnClickListener(null);
+        textView.setOnTouchListener(null);
+        if (textView instanceof TbListTextView) {
+            ((TbListTextView) textView).setCheckSelection(true);
+        }
+        return textView;
     }
 }

@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface c {
-    void a(a.InterfaceC0033a interfaceC0033a);
+    void a(a.InterfaceC0032a interfaceC0032a);
 
     void g(AccountData accountData);
 
     void h(AccountData accountData);
 
-    AccountData tU();
+    AccountData tO();
 
-    void xk();
+    void xe();
 
-    List<AccountData> xl();
+    List<AccountData> xf();
 }

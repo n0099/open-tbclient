@@ -7,39 +7,39 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap extends CustomMessageListener {
-    final /* synthetic */ am bGv;
+    final /* synthetic */ am bMK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(am amVar, int i) {
         super(i);
-        this.bGv = amVar;
+        this.bMK = amVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.core.data.at atVar;
-        com.baidu.tbadk.core.data.at atVar2;
-        com.baidu.tbadk.core.data.at atVar3;
-        com.baidu.tbadk.core.data.at atVar4;
-        com.baidu.tbadk.core.data.at atVar5;
-        com.baidu.tbadk.core.data.at atVar6;
+        com.baidu.tbadk.core.data.au auVar;
+        com.baidu.tbadk.core.data.au auVar2;
+        com.baidu.tbadk.core.data.au auVar3;
+        com.baidu.tbadk.core.data.au auVar4;
+        com.baidu.tbadk.core.data.au auVar5;
+        com.baidu.tbadk.core.data.au auVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            atVar = this.bGv.bGt;
-            if (atVar != null) {
-                atVar2 = this.bGv.bGt;
-                if (atVar2 != null) {
-                    atVar3 = this.bGv.bGt;
-                    if (atVar3.getTid() != null && this.bGv.bGu != null && this.bGv.bGu.aMQ != null && this.bGv.bGu.bdg != null) {
-                        atVar4 = this.bGv.bGt;
-                        if (((String) customResponsedMessage.getData()).equals(atVar4.getTid())) {
-                            TextView textView = this.bGv.bGu.aMQ;
-                            atVar5 = this.bGv.bGt;
-                            com.baidu.tieba.card.ap.a(textView, atVar5.getId(), r.d.cp_cont_b, r.d.cp_cont_d);
-                            TextView textView2 = this.bGv.bGu.bdg;
-                            atVar6 = this.bGv.bGt;
-                            com.baidu.tieba.card.ap.a(textView2, atVar6.getId(), r.d.cp_cont_j, r.d.cp_cont_d);
+            auVar = this.bMK.bMI;
+            if (auVar != null) {
+                auVar2 = this.bMK.bMI;
+                if (auVar2 != null) {
+                    auVar3 = this.bMK.bMI;
+                    if (auVar3.getTid() != null && this.bMK.bMJ != null && this.bMK.bMJ.aLR != null && this.bMK.bMJ.bmV != null) {
+                        auVar4 = this.bMK.bMI;
+                        if (((String) customResponsedMessage.getData()).equals(auVar4.getTid())) {
+                            TextView textView = this.bMK.bMJ.aLR;
+                            auVar5 = this.bMK.bMI;
+                            com.baidu.tieba.card.at.a(textView, auVar5.getId(), r.e.cp_cont_b, r.e.cp_cont_d);
+                            TextView textView2 = this.bMK.bMJ.bmV;
+                            auVar6 = this.bMK.bMI;
+                            com.baidu.tieba.card.at.a(textView2, auVar6.getId(), r.e.cp_cont_j, r.e.cp_cont_d);
                         }
                     }
                 }

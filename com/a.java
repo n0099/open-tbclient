@@ -12,7 +12,7 @@ import java.util.Map;
 public class a implements ab {
     private String a;
     private int c;
-    private ab cH;
+    private ab cF;
     private int d;
     private Map e = new HashMap();
 
@@ -20,7 +20,7 @@ public class a implements ab {
         this.a = str;
         this.c = i;
         this.d = i2;
-        this.cH = abVar;
+        this.cF = abVar;
     }
 
     @Override // com.ab
@@ -90,11 +90,11 @@ public class a implements ab {
             if (num == null) {
                 num = 0;
             }
-            if (num.intValue() + 1 < this.c || this.cH == null) {
+            if (num.intValue() + 1 < this.c || this.cF == null) {
                 this.e.put(str, Integer.valueOf(num.intValue() + 1));
                 return decodeFile;
             }
-            this.cH.a(str, decodeFile);
+            this.cF.a(str, decodeFile);
             this.e.remove(str);
             return decodeFile;
         }

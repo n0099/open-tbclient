@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.util.BdListViewHelper;
@@ -22,234 +22,234 @@ import com.baidu.tieba.r;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.base.f<InviteFriendListActivity> implements o.b {
-    private BdListView Ck;
-    private View MJ;
-    private TextWatcher aUJ;
-    private ProgressBar ban;
-    private EditText cXt;
-    private final InviteFriendListActivity daS;
-    private o daT;
-    private View daU;
-    private InviteFriendCandidateList daV;
-    private LinearLayout daW;
-    private Button daX;
-    private int daY;
-    private boolean daZ;
-    private TextView dba;
-    private View dbb;
-    private View dbc;
-    private TextView dbd;
-    private ImageView dbe;
+public class p extends com.baidu.adp.base.e<InviteFriendListActivity> implements o.b {
+    private BdListView Bw;
+    private View LW;
+    private ProgressBar bkd;
+    private EditText deH;
+    private final InviteFriendListActivity dif;
+    private o dig;
+    private View dih;
+    private InviteFriendCandidateList dii;
+    private LinearLayout dij;
+    private Button dik;
+    private int dil;
+    private boolean dim;
+    private TextView din;
+    private View dio;
+    private View dip;
+    private TextView diq;
+    private ImageView dir;
     private View mListFooter;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.core.view.w mNoDataView;
+    private com.baidu.tbadk.core.view.x mNoDataView;
+    private TextWatcher mTextWatcher;
 
     public p(InviteFriendListActivity inviteFriendListActivity, boolean z) {
         super(inviteFriendListActivity.getPageContext());
-        this.daY = 0;
-        this.daS = inviteFriendListActivity;
-        this.daZ = z;
-        ww();
+        this.dil = 0;
+        this.dif = inviteFriendListActivity;
+        this.dim = z;
+        wr();
     }
 
     public View getRootView() {
-        return this.MJ;
+        return this.LW;
     }
 
-    private void ww() {
-        this.daS.setContentView(r.h.invite_friend_list);
-        this.MJ = this.daS.findViewById(r.g.root_view);
-        acE();
-        this.Ck = (BdListView) this.MJ.findViewById(r.g.friend_list);
-        this.Ck.setOnItemClickListener(this.daS);
-        if (this.daZ) {
-            this.mNoDataView = NoDataViewFactory.a(this.daS.getPageContext().getPageActivity(), this.MJ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aEq), NoDataViewFactory.d.x(r.j.no_friends, r.j.no_friends_tip), null);
+    private void wr() {
+        this.dif.setContentView(r.j.invite_friend_list);
+        this.LW = this.dif.findViewById(r.h.root_view);
+        adO();
+        this.Bw = (BdListView) this.LW.findViewById(r.h.friend_list);
+        this.Bw.setOnItemClickListener(this.dif);
+        if (this.dim) {
+            this.mNoDataView = NoDataViewFactory.a(this.dif.getPageContext().getPageActivity(), this.LW, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aDg), NoDataViewFactory.d.y(r.l.no_friends, r.l.no_friends_tip), null);
         } else {
-            this.mNoDataView = NoDataViewFactory.a(this.daS.getPageContext().getPageActivity(), this.MJ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aEq), NoDataViewFactory.d.x(r.j.no_chat_friends, r.j.no_chat_friends_tip), NoDataViewFactory.b.a(new NoDataViewFactory.a(TbadkCoreApplication.m9getInst().getResources().getString(r.j.find_new_friend), new q(this))));
+            this.mNoDataView = NoDataViewFactory.a(this.dif.getPageContext().getPageActivity(), this.LW, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aDg), NoDataViewFactory.d.y(r.l.no_chat_friends, r.l.no_chat_friends_tip), NoDataViewFactory.b.a(new NoDataViewFactory.a(TbadkCoreApplication.m9getInst().getResources().getString(r.l.find_new_friend), new q(this))));
         }
-        this.ban = (ProgressBar) this.MJ.findViewById(r.g.progress);
-        this.daV = (InviteFriendCandidateList) this.MJ.findViewById(r.g.candidate_list);
-        this.daV.a(new r(this));
-        this.daW = (LinearLayout) this.MJ.findViewById(r.g.invite_candidate);
-        this.daU = this.MJ.findViewById(r.g.invite_candidate_border);
-        if (this.daZ) {
-            this.daW.setVisibility(8);
-            this.daU.setVisibility(8);
+        this.bkd = (ProgressBar) this.LW.findViewById(r.h.progress);
+        this.dii = (InviteFriendCandidateList) this.LW.findViewById(r.h.candidate_list);
+        this.dii.a(new r(this));
+        this.dij = (LinearLayout) this.LW.findViewById(r.h.invite_candidate);
+        this.dih = this.LW.findViewById(r.h.invite_candidate_border);
+        if (this.dim) {
+            this.dij.setVisibility(8);
+            this.dih.setVisibility(8);
         }
-        auv();
-        this.daX = (Button) this.MJ.findViewById(r.g.button_send);
-        this.daX.setOnClickListener(this.daS);
-        wx();
-        aun();
-        lA(0);
+        avB();
+        this.dik = (Button) this.LW.findViewById(r.h.button_send);
+        this.dik.setOnClickListener(this.dif);
+        ws();
+        avt();
+        mn(0);
     }
 
-    private void acE() {
-        this.mNavigationBar = (NavigationBar) this.MJ.findViewById(r.g.view_navigation_bar);
+    private void adO() {
+        this.mNavigationBar = (NavigationBar) this.LW.findViewById(r.h.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new s(this));
-        if (this.daZ) {
-            this.dba = this.mNavigationBar.setTitleText(r.j.invite_contact_title);
+        if (this.dim) {
+            this.din = this.mNavigationBar.setTitleText(r.l.invite_contact_title);
         } else {
-            this.dba = this.mNavigationBar.setTitleText(r.j.invite_friend);
+            this.din = this.mNavigationBar.setTitleText(r.l.invite_friend);
         }
-        this.dbc = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.h.add_new_friend_text, new t(this));
-        this.dbe = (ImageView) this.dbc.findViewById(r.g.new_friend_search);
-        this.dbb = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, r.h.navigationbar_search_edit, (View.OnClickListener) null);
-        this.dbb.setVisibility(8);
-        this.cXt = (EditText) this.dbb.findViewById(r.g.search_bar_edit);
-        if (this.cXt.getParent() != null) {
-            ((View) this.cXt.getParent()).setFocusable(true);
-            ((View) this.cXt.getParent()).setFocusableInTouchMode(true);
+        this.dip = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.j.add_new_friend_text, new t(this));
+        this.dir = (ImageView) this.dip.findViewById(r.h.new_friend_search);
+        this.dio = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, r.j.navigationbar_search_edit, (View.OnClickListener) null);
+        this.dio.setVisibility(8);
+        this.deH = (EditText) this.dio.findViewById(r.h.search_bar_edit);
+        if (this.deH.getParent() != null) {
+            ((View) this.deH.getParent()).setFocusable(true);
+            ((View) this.deH.getParent()).setFocusableInTouchMode(true);
         }
-        this.aUJ = new u(this);
-        this.cXt.addTextChangedListener(this.aUJ);
-        this.dbd = (TextView) this.dbb.findViewById(r.g.search_bar_delete_button);
-        this.dbd.setOnClickListener(new v(this));
+        this.mTextWatcher = new u(this);
+        this.deH.addTextChangedListener(this.mTextWatcher);
+        this.diq = (TextView) this.dio.findViewById(r.h.search_bar_delete_button);
+        this.diq.setOnClickListener(new v(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aum() {
-        if (this.daS != null) {
-            this.daS.auk();
+    public void avs() {
+        if (this.dif != null) {
+            this.dif.avq();
         }
     }
 
-    public void wx() {
+    public void ws() {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-        this.daS.getLayoutMode().ai(skinType == 1);
-        this.daS.getLayoutMode().x(this.MJ);
-        ar.b(this.dbe, r.f.icon_search_bg_s, r.f.icon_search_bg);
-        this.mNavigationBar.onChangeSkinType(this.daS.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.daS.getPageContext(), skinType);
-        ar.k(this.mListFooter, r.f.invite_friend_list_item_bg_color);
+        this.dif.getLayoutMode().ai(skinType == 1);
+        this.dif.getLayoutMode().v(this.LW);
+        ap.b(this.dir, r.g.icon_search_bg_s, r.g.icon_search_bg);
+        this.mNavigationBar.onChangeSkinType(this.dif.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.dif.getPageContext(), skinType);
+        ap.j(this.mListFooter, r.g.invite_friend_list_item_bg_color);
         this.mListFooter.setEnabled(false);
     }
 
-    public void aun() {
-        this.Ck.setOnTouchListener(new w(this));
+    public void avt() {
+        this.Bw.setOnTouchListener(new w(this));
     }
 
-    public void auo() {
-        com.baidu.adp.lib.util.k.b(this.daS.getPageContext().getPageActivity(), this.cXt);
-        this.dbb.setVisibility(8);
-        this.dba.setVisibility(0);
-        this.dbc.setVisibility(0);
-        this.cXt.getText().clear();
+    public void avu() {
+        com.baidu.adp.lib.util.k.b(this.dif.getPageContext().getPageActivity(), this.deH);
+        this.dio.setVisibility(8);
+        this.din.setVisibility(0);
+        this.dip.setVisibility(0);
+        this.deH.getText().clear();
     }
 
-    public boolean aup() {
-        return this.dbb != null && this.dbb.getVisibility() == 0;
+    public boolean avv() {
+        return this.dio != null && this.dio.getVisibility() == 0;
     }
 
-    public int auq() {
-        return this.daX.getId();
+    public int avw() {
+        return this.dik.getId();
     }
 
-    public String aur() {
-        Editable text = this.cXt.getText();
+    public String avx() {
+        Editable text = this.deH.getText();
         return text != null ? text.toString() : "";
     }
 
-    public String aus() {
-        return this.daV.auh();
+    public String avy() {
+        return this.dii.avn();
     }
 
-    public void g(List<com.baidu.tbadk.coreExtra.relationship.a> list, boolean z) {
-        if (this.daT == null) {
-            this.daT = new o(this.daS, this.daZ);
-            this.daT.a(this);
-            this.daT.a(new x(this));
-            this.Ck.setAdapter((ListAdapter) this.daT);
+    public void i(List<com.baidu.tbadk.coreExtra.relationship.a> list, boolean z) {
+        if (this.dig == null) {
+            this.dig = new o(this.dif, this.dim);
+            this.dig.a(this);
+            this.dig.a(new x(this));
+            this.Bw.setAdapter((ListAdapter) this.dig);
         }
         if (!z && list.isEmpty()) {
             this.mNoDataView.setVisibility(0);
-            this.Ck.setVisibility(8);
-            if (!this.daZ) {
-                this.daW.setVisibility(8);
+            this.Bw.setVisibility(8);
+            if (!this.dim) {
+                this.dij.setVisibility(8);
                 return;
             }
             return;
         }
         this.mNoDataView.setVisibility(8);
-        this.Ck.setVisibility(0);
-        this.daT.setData(list);
-        this.daT.notifyDataSetChanged();
-        if (!this.daZ) {
-            this.daW.setVisibility(0);
+        this.Bw.setVisibility(0);
+        this.dig.setData(list);
+        this.dig.notifyDataSetChanged();
+        if (!this.dim) {
+            this.dij.setVisibility(0);
         }
     }
 
-    public void aut() {
+    public void avz() {
         if (this.mNoDataView != null) {
-            this.mNoDataView.e(this.daS.getPageContext());
+            this.mNoDataView.e(this.dif.getPageContext());
         }
     }
 
-    public void auu() {
+    public void avA() {
         if (this.mNoDataView != null) {
             this.mNoDataView.onActivityStop();
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [387=4] */
-    private void auv() {
-        int dimensionPixelSize = this.daS.getResources().getDimensionPixelSize(r.e.ds80) + this.daS.getResources().getDimensionPixelSize(r.e.ds16) + this.daS.getResources().getDimensionPixelSize(r.e.ds16);
-        this.mListFooter = new View(this.daS.getPageContext().getPageActivity());
+    private void avB() {
+        int dimensionPixelSize = this.dif.getResources().getDimensionPixelSize(r.f.ds80) + this.dif.getResources().getDimensionPixelSize(r.f.ds16) + this.dif.getResources().getDimensionPixelSize(r.f.ds16);
+        this.mListFooter = new View(this.dif.getPageContext().getPageActivity());
         this.mListFooter.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
         this.mListFooter.setEnabled(false);
-        this.Ck.addFooterView(this.mListFooter);
+        this.Bw.addFooterView(this.mListFooter);
     }
 
     public void g(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
-            this.daV.d(aVar);
-            lA(this.daV.getItemLength());
-            auw();
+            this.dii.d(aVar);
+            mn(this.dii.getItemLength());
+            avC();
         }
     }
 
     public void h(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
-            this.daV.f(aVar);
-            lA(this.daV.getItemLength());
-            auw();
+            this.dii.f(aVar);
+            mn(this.dii.getItemLength());
+            avC();
         }
     }
 
-    private void auw() {
-        if (this.daV.getItemLength() > 0) {
-            this.daX.setEnabled(true);
+    private void avC() {
+        if (this.dii.getItemLength() > 0) {
+            this.dik.setEnabled(true);
         } else {
-            this.daX.setEnabled(false);
+            this.dik.setEnabled(false);
         }
     }
 
-    public void aux() {
-        com.baidu.adp.lib.util.k.b(this.daS.getPageContext().getPageActivity(), this.cXt);
+    public void avD() {
+        com.baidu.adp.lib.util.k.b(this.dif.getPageContext().getPageActivity(), this.deH);
     }
 
-    private void lA(int i) {
-        this.daX.setText(String.format(this.daS.getPageContext().getString(r.j.invite_friend_candidate_send), Integer.valueOf(i)));
+    private void mn(int i) {
+        this.dik.setText(String.format(this.dif.getPageContext().getString(r.l.invite_friend_candidate_send), Integer.valueOf(i)));
     }
 
-    public int auy() {
-        return this.daY;
+    public int avE() {
+        return this.dil;
     }
 
-    public void lB(int i) {
-        this.daY = i;
-        this.daV.setMaxCount(i);
+    public void mo(int i) {
+        this.dil = i;
+        this.dii.setMaxCount(i);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.friend.o.b
     public void a(View view, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         if (aVar != null) {
-            this.daV.e(aVar);
+            this.dii.e(aVar);
         }
     }
 
     public void onDestroy() {
-        this.cXt.removeTextChangedListener(this.aUJ);
+        this.deH.removeTextChangedListener(this.mTextWatcher);
     }
 }

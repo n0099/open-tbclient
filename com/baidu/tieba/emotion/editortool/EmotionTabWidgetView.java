@@ -7,20 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private com.baidu.tbadk.editortools.j EM;
-    private EmotionTabHorizonScrollView bou;
-    private ImageView bov;
-    private View bow;
-    private boolean box;
+    private com.baidu.tbadk.editortools.j DX;
+    private EmotionTabHorizonScrollView bwh;
+    private ImageView bwi;
+    private View bwj;
+    private boolean bwk;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eR(int i);
+        void eS(int i);
     }
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -35,72 +35,72 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     private void init(Context context) {
         removeAllViews();
-        LayoutInflater.from(context).inflate(r.h.emotion_tab_widget, (ViewGroup) this, true);
-        this.bou = (EmotionTabHorizonScrollView) findViewById(r.g.face_tab_scroll_view);
-        this.bov = (ImageView) findViewById(r.g.face_tab_delete);
-        this.bow = findViewById(r.g.vertical_div_line);
-        this.bov.setOnClickListener(new r(this));
+        LayoutInflater.from(context).inflate(r.j.emotion_tab_widget, (ViewGroup) this, true);
+        this.bwh = (EmotionTabHorizonScrollView) findViewById(r.h.face_tab_scroll_view);
+        this.bwi = (ImageView) findViewById(r.h.face_tab_delete);
+        this.bwj = findViewById(r.h.vertical_div_line);
+        this.bwi.setOnClickListener(new r(this));
     }
 
     public void setFrom(int i) {
-        if (this.bou != null) {
-            this.bou.setFrom(i);
+        if (this.bwh != null) {
+            this.bwh.setFrom(i);
         }
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList) {
-        this.bou.setDatas(arrayList);
+        this.bwh.setDatas(arrayList);
     }
 
     public void c(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.bou.c(cVar);
+        this.bwh.c(cVar);
     }
 
     public void setCurrentTab(int i) {
-        this.bou.setCurrentTab(i);
+        this.bwh.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.bou.setOnTabSelectedListener(aVar);
+        this.bwh.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.bou.reset();
+        this.bwh.reset();
     }
 
     public void setIsInChat(boolean z) {
-        this.box = z;
-        if (this.bou != null) {
-            this.bou.setIsInChat(z);
+        this.bwk = z;
+        if (this.bwh != null) {
+            this.bwh.setIsInChat(z);
         }
     }
 
     public void onChangeSkinType(int i) {
-        ar.e(this, r.d.common_color_10255, i);
-        this.bou.m16do(i);
-        ar.c(this.bov, r.f.but_face_close, i);
-        ar.e(this.bov, r.d.common_color_10255, i);
-        ar.e(this.bow, r.d.common_color_10288, i);
+        ap.e(this, r.e.common_color_10255, i);
+        this.bwh.dp(i);
+        ap.c(this.bwi, r.g.but_face_close, i);
+        ap.e(this.bwi, r.e.common_color_10255, i);
+        ap.e(this.bwj, r.e.common_color_10288, i);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.bov.setVisibility(0);
+            this.bwi.setVisibility(0);
         } else {
-            this.bov.setVisibility(8);
+            this.bwi.setVisibility(8);
         }
     }
 
-    public void m(int i, boolean z) {
-        this.bou.m(i, z);
+    public void l(int i, boolean z) {
+        this.bwh.l(i, z);
     }
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
-        this.bou.setTabWidgetBigEmontionVisibility(z);
+        this.bwh.setTabWidgetBigEmontionVisibility(z);
     }
 
     public void setOnDataSelected(com.baidu.tbadk.editortools.j jVar) {
-        this.EM = jVar;
-        this.bou.setEditorTools(this.EM);
+        this.DX = jVar;
+        this.bwh.setEditorTools(this.DX);
     }
 }

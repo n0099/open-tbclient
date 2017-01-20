@@ -9,29 +9,29 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    y Cx;
+    y mTypeAdapter;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.Cx = null;
+        this.mTypeAdapter = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Cx = null;
+        this.mTypeAdapter = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Cx = null;
+        this.mTypeAdapter = null;
         init();
     }
 
     private void init() {
-        if (this.Cx == null) {
-            this.Cx = new y();
+        if (this.mTypeAdapter == null) {
+            this.mTypeAdapter = new y();
         }
         super.setOnItemClickListener(new t(this));
         super.setOnItemLongClickListener(new u(this));
@@ -47,28 +47,28 @@ public class BdTypeListView extends BdListView {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void a(a<v, y.a> aVar) {
-        this.Cx.a(aVar);
-        setAdapter((ListAdapter) this.Cx);
+    public void addAdapter(a<v, y.a> aVar) {
+        this.mTypeAdapter.addAdapter(aVar);
+        setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    public void g(List<a> list) {
+    public void addAdapters(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.Cx.a(it.next());
+            this.mTypeAdapter.addAdapter(it.next());
         }
-        setAdapter((ListAdapter) this.Cx);
+        setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
     public void setData(List<v> list) {
-        this.Cx.setData(list);
+        this.mTypeAdapter.setData(list);
     }
 
     public List<v> getData() {
-        return this.Cx.getData();
+        return this.mTypeAdapter.getData();
     }
 
-    public v aK(int i) {
-        return this.Cx.getItem(i);
+    public v getItem(int i) {
+        return this.mTypeAdapter.getItem(i);
     }
 }

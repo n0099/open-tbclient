@@ -16,6 +16,7 @@ import tbclient.Profile.TAInfo;
 import tbclient.Profile.UserGodInfo;
 import tbclient.TbBookrack;
 import tbclient.User;
+import tbclient.UserManChannelInfo;
 /* loaded from: classes.dex */
 public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implements b {
     private static final String PROFILE_CACHE_KEY = "profile_cache_key";
@@ -32,6 +33,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     public f ucCardData;
     private User user;
     private UserGodInfo userGodInfo;
+    private UserManChannelInfo userManChannelInfo;
     public DealWindow window;
 
     public ProfileHttpResponseMessage(int i) {
@@ -71,6 +73,11 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     @Override // com.baidu.tieba.person.b
     public UserGodInfo getUserGodInfo() {
         return this.userGodInfo;
+    }
+
+    @Override // com.baidu.tieba.person.b
+    public UserManChannelInfo getUserChannelInfo() {
+        return this.userManChannelInfo;
     }
 
     public boolean isError() {
@@ -118,6 +125,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         }
         if (getError() == 0) {
             this.userGodInfo = profileResIdl.data.user_god_info;
+            this.userManChannelInfo = profileResIdl.data.video_channel_info;
             this.user = profileResIdl.data.user;
             this.anti_stat = profileResIdl.data.anti_stat;
             this.tainfo = profileResIdl.data.tainfo;
@@ -136,7 +144,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> M = com.baidu.tbadk.core.b.a.sX().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> M = com.baidu.tbadk.core.c.a.sR().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             M.k(PROFILE_CACHE_KEY, bArr);
         }
@@ -147,15 +155,15 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         o<String> N;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (N = com.baidu.tbadk.core.b.a.sX().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<f.a> list = this.ucCardData.enU;
-            list.get(4).At = 8L;
+        if (this.ucCardData != null && (N = com.baidu.tbadk.core.c.a.sR().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<f.a> list = this.ucCardData.exO;
+            list.get(4).Aj = 8L;
             if (list != null) {
                 for (f.a aVar : list) {
-                    if (aVar.At > com.baidu.adp.lib.h.b.c(N.get(aVar.title), 0L)) {
-                        aVar.enV = true;
+                    if (aVar.Aj > com.baidu.adp.lib.g.b.c(N.get(aVar.title), 0L)) {
+                        aVar.exP = true;
                     } else {
-                        aVar.enV = false;
+                        aVar.exP = false;
                     }
                 }
             }

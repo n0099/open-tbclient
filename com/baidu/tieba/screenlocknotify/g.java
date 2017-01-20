@@ -27,26 +27,26 @@ public class g implements AbsListView.OnScrollListener {
         TextView textView5;
         TextView textView6;
         TextView textView7;
-        textView = this.this$0.eQt;
+        textView = this.this$0.eZO;
         if (textView != null) {
-            textView2 = this.this$0.eQt;
+            textView2 = this.this$0.eZO;
             if (textView2.getParent() != null) {
-                int height = this.this$0.eQp.getHeight();
-                i4 = this.this$0.eQs;
+                int height = this.this$0.eZK.getHeight();
+                i4 = this.this$0.eZN;
                 if (height != i4) {
-                    textView3 = this.this$0.eQt;
-                    textView3.setText(this.this$0.getResources().getString(r.j.screen_notify_load_more));
-                    textView4 = this.this$0.eQt;
+                    textView3 = this.this$0.eZO;
+                    textView3.setText(this.this$0.getResources().getString(r.l.click_load_more));
+                    textView4 = this.this$0.eZO;
                     textView4.setEnabled(true);
                 } else if (i + i2 == i3) {
-                    textView5 = this.this$0.eQt;
+                    textView5 = this.this$0.eZO;
                     if (textView5.isEnabled()) {
-                        textView6 = this.this$0.eQt;
-                        textView6.setText(this.this$0.getResources().getString(r.j.loading));
-                        textView7 = this.this$0.eQt;
+                        textView6 = this.this$0.eZO;
+                        textView6.setText(this.this$0.getResources().getString(r.l.loading));
+                        textView7 = this.this$0.eZO;
                         textView7.setEnabled(false);
                     }
-                    this.this$0.IV();
+                    this.this$0.Jj();
                 }
             }
         }

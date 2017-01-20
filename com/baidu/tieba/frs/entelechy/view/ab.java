@@ -1,55 +1,55 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.cb;
+import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ aa bGn;
+    final /* synthetic */ aa bMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.bGn = aaVar;
+        this.bMC = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bg bgVar;
-        bg bgVar2;
-        bg bgVar3;
-        bg bgVar4;
-        bg bgVar5;
-        bg bgVar6;
-        bg bgVar7;
-        bg bgVar8;
-        bgVar = this.bGn.adN;
-        if (bgVar != null) {
-            bgVar6 = this.bGn.adN;
-            if (bgVar6.getAuthor() != null) {
-                bgVar7 = this.bGn.adN;
-                if (bgVar7.getAuthor().getGodInfo() != null) {
-                    com.baidu.tbadk.core.util.at s = new com.baidu.tbadk.core.util.at("c10806").s("obj_locate", 3);
-                    bgVar8 = this.bGn.adN;
-                    TiebaStatic.log(s.ab("tid", bgVar8.getId()));
+        bh bhVar;
+        bh bhVar2;
+        bh bhVar3;
+        bh bhVar4;
+        bh bhVar5;
+        bh bhVar6;
+        bh bhVar7;
+        bh bhVar8;
+        bhVar = this.bMC.acX;
+        if (bhVar != null) {
+            bhVar6 = this.bMC.acX;
+            if (bhVar6.getAuthor() != null) {
+                bhVar7 = this.bMC.acX;
+                if (bhVar7.getAuthor().getGodInfo() != null) {
+                    com.baidu.tbadk.core.util.ar s = new com.baidu.tbadk.core.util.ar("c10806").s("obj_locate", 3);
+                    bhVar8 = this.bMC.acX;
+                    TiebaStatic.log(s.ab("tid", bhVar8.getId()));
                 }
             }
         }
-        bgVar2 = this.bGn.adN;
-        if (bgVar2 != null) {
-            bgVar4 = this.bGn.adN;
-            if (bgVar4.rn()) {
-                com.baidu.tbadk.core.util.at s2 = new com.baidu.tbadk.core.util.at("c11663").s("obj_param1", 1);
-                bgVar5 = this.bGn.adN;
-                TiebaStatic.log(s2.ab("post_id", bgVar5.getTid()));
+        bhVar2 = this.bMC.acX;
+        if (bhVar2 != null) {
+            bhVar4 = this.bMC.acX;
+            if (bhVar4.rf()) {
+                com.baidu.tbadk.core.util.ar s2 = new com.baidu.tbadk.core.util.ar("c11663").s("obj_param1", 1);
+                bhVar5 = this.bMC.acX;
+                TiebaStatic.log(s2.ab("post_id", bhVar5.getTid()));
             }
         }
-        if (this.bGn.getOnSubCardOnClickListenner() != null) {
-            cb<bg> onSubCardOnClickListenner = this.bGn.getOnSubCardOnClickListenner();
-            bgVar3 = this.bGn.adN;
-            onSubCardOnClickListenner.a(view, bgVar3);
+        if (this.bMC.getOnSubCardOnClickListenner() != null) {
+            cf<bh> onSubCardOnClickListenner = this.bMC.getOnSubCardOnClickListenner();
+            bhVar3 = this.bMC.acX;
+            onSubCardOnClickListenner.a(view, bhVar3);
         }
-        this.bGn.OD();
+        this.bMC.Rt();
     }
 }

@@ -1,26 +1,33 @@
 package com.baidu.tieba.card;
 
-import com.baidu.tieba.play.QuickVideoView;
+import android.view.animation.Animation;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements Runnable {
-    final /* synthetic */ t bcw;
+public class ac implements Animation.AnimationListener {
+    final /* synthetic */ x bml;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(t tVar) {
-        this.bcw = tVar;
+    public ac(x xVar) {
+        this.bml = xVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        QuickVideoView quickVideoView;
-        QuickVideoView quickVideoView2;
-        quickVideoView = this.bcw.bci;
-        if (quickVideoView != null) {
-            quickVideoView2 = this.bcw.bci;
-            if (!quickVideoView2.isPlaying()) {
-                this.bcw.e(true, 1);
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        tbImageView = this.bml.blO;
+        if (tbImageView != null) {
+            tbImageView2 = this.bml.blO;
+            tbImageView2.setVisibility(8);
         }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -1,35 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbConfig;
+import android.view.View;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fi implements Runnable {
-    final /* synthetic */ er egZ;
-    private final /* synthetic */ int val$count;
+public class fi implements Animation.AnimationListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fi(er erVar, int i) {
-        this.egZ = erVar;
-        this.val$count = i;
+    public fi(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        bdTypeListView = this.egZ.aMc;
-        if (bdTypeListView.getFirstVisiblePosition() <= 1) {
-            bdTypeListView2 = this.egZ.aMc;
-            bdTypeListView2.smoothScrollToPositionFromTop(1, 0, TbConfig.POST_IMAGE_SMALL);
-            pbActivity = this.egZ.dYB;
-            if (pbActivity.aJa() != null) {
-                pbActivity2 = this.egZ.dYB;
-                pbActivity2.aJa().Ur();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        View view;
+        boolean z2;
+        z = this.eqf.epg;
+        if (!z) {
+            jVar = this.eqf.DX;
+            if (jVar != null) {
+                jVar2 = this.eqf.DX;
+                jVar2.lr();
+                return;
             }
-            com.baidu.tbadk.core.sharedPref.b.tW().putInt(com.baidu.tbadk.core.sharedPref.b.cR("pb_video_immersive_guide_count_"), this.val$count + 1);
+            return;
         }
+        view = this.eqf.epb;
+        if (view != null) {
+            z2 = this.eqf.doq;
+            if (z2) {
+                this.eqf.gM(false);
+            } else {
+                this.eqf.gN(false);
+            }
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

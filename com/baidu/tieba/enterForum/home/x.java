@@ -8,52 +8,53 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bb;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends CustomMessageListener {
-    final /* synthetic */ l bqi;
+    final /* synthetic */ l bxV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(l lVar, int i) {
         super(i);
-        this.bqi = lVar;
+        this.bxV = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.enterForum.c.c cVar;
-        com.baidu.tieba.enterForum.c.c cVar2;
-        com.baidu.tieba.enterForum.c.c cVar3;
+        EnterForumModel enterForumModel;
+        EnterForumModel enterForumModel2;
+        EnterForumModel enterForumModel3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001391) {
-            cVar = this.bqi.bpR;
-            if (cVar.Tv() != null) {
-                cVar2 = this.bqi.bpR;
-                com.baidu.tieba.enterForum.b.i SJ = cVar2.Tv().SJ();
-                if (SJ == null || SJ.SU() == null || SJ.SU().size() == 0) {
-                    cVar3 = this.bqi.bpR;
-                    SJ = cVar3.Tv().SI();
+            enterForumModel = this.bxV.bxD;
+            if (enterForumModel.UO() != null) {
+                enterForumModel2 = this.bxV.bxD;
+                com.baidu.tieba.enterForum.b.i Ue = enterForumModel2.UO().Ue();
+                if (Ue == null || Ue.Up() == null || Ue.Up().size() == 0) {
+                    enterForumModel3 = this.bxV.bxD;
+                    Ue = enterForumModel3.UO().Ud();
                 }
-                bb bbVar = (SJ == null || SJ.SU() == null || SJ.SU().size() == 0) ? null : SJ.SU().get(0);
-                if (bbVar != null) {
-                    String pS = bbVar.pS();
-                    String link = bbVar.getLink();
-                    if (!StringUtils.isNull(pS) && !StringUtils.isNull(link)) {
-                        View inflate = LayoutInflater.from(this.bqi.aVu.getBaseContext()).inflate(r.h.customer_enterforum_banner, (ViewGroup) null, true);
-                        ImageView imageView = (ImageView) inflate.findViewById(r.g.bc_banner_cancel);
-                        TbImageView tbImageView = (TbImageView) inflate.findViewById(r.g.bc_banner);
-                        com.baidu.tieba.recapp.l.a(bbVar.pJ(), (TbImageView) inflate.findViewById(r.g.bc_advert), bbVar.re(), com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds26));
-                        ar.c(imageView, r.f.icon_close_interstitial);
+                bc bcVar = (Ue == null || Ue.Up() == null || Ue.Up().size() == 0) ? null : Ue.Up().get(0);
+                if (bcVar != null) {
+                    String pL = bcVar.pL();
+                    String link = bcVar.getLink();
+                    if (!StringUtils.isNull(pL) && !StringUtils.isNull(link)) {
+                        View inflate = LayoutInflater.from(this.bxV.aQU.getBaseContext()).inflate(r.j.customer_enterforum_banner, (ViewGroup) null, true);
+                        ImageView imageView = (ImageView) inflate.findViewById(r.h.bc_banner_cancel);
+                        TbImageView tbImageView = (TbImageView) inflate.findViewById(r.h.bc_banner);
+                        com.baidu.tieba.recapp.r.a(bcVar.pC(), (TbImageView) inflate.findViewById(r.h.bc_advert), bcVar.qW(), com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.f.ds26));
+                        ap.c(imageView, r.g.icon_close_interstitial);
                         imageView.setOnClickListener(new y(this, inflate));
-                        tbImageView.c(pS, 10, false);
+                        tbImageView.c(pL, 10, false);
                         tbImageView.setOnClickListener(new z(this, link));
-                        this.bqi.bpQ.ab(inflate);
-                        this.bqi.bpU = true;
+                        this.bxV.bxC.ag(inflate);
+                        this.bxV.bxG = true;
                     }
                 }
             }

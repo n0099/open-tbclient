@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.y;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private final long fjf;
-    private final String fjg;
-    private final int fjh;
-    private final int fji;
-    private com.baidu.tieba.tbadkCore.videoupload.a.e fjj;
+    private final long fsr;
+    private final String fss;
+    private final int fst;
+    private final int fsu;
+    private com.baidu.tieba.tbadkCore.videoupload.a.e fsv;
     protected final String mFileName;
 
     public abstract f b(ArrayList<Integer> arrayList, String str, int i);
@@ -27,20 +27,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.fji = i2;
-        this.fjf = j;
-        this.fjg = str2;
-        this.fjh = i;
+        this.fsu = i2;
+        this.fsr = j;
+        this.fss = str2;
+        this.fst = i;
     }
 
     public void a(com.baidu.tieba.tbadkCore.videoupload.a.e eVar) {
-        this.fjj = eVar;
+        this.fsv = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void rw(int i) {
-        if (this.fjj != null) {
-            this.fjj.al(i / 100.0f);
+    public void sh(int i) {
+        if (this.fsv != null) {
+            this.fsv.ae(i / 100.0f);
         }
     }
 
@@ -55,34 +55,34 @@ public abstract class a {
         } else if (isCancelled()) {
             return null;
         } else {
-            z zVar = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.URL_UPLOAD_VIDEO);
-            zVar.n("chunk_no", String.valueOf(i));
-            zVar.n("chunk_sum", String.valueOf(this.fji));
-            zVar.n("chunk_size", String.valueOf(a.length));
-            zVar.n("video_size", String.valueOf(this.fjf));
-            zVar.n("video_md5", this.fjg);
-            zVar.n("video_len", String.valueOf(j));
-            zVar.n("tbs", TbadkCoreApplication.m9getInst().getTbs());
-            zVar.d("video_chunk", a);
-            zVar.n("upload_id", str);
+            y yVar = new y(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.URL_UPLOAD_VIDEO);
+            yVar.n("chunk_no", String.valueOf(i));
+            yVar.n("chunk_sum", String.valueOf(this.fsu));
+            yVar.n("chunk_size", String.valueOf(a.length));
+            yVar.n("video_size", String.valueOf(this.fsr));
+            yVar.n("video_md5", this.fss);
+            yVar.n("video_len", String.valueOf(j));
+            yVar.n("tbs", TbadkCoreApplication.m9getInst().getTbs());
+            yVar.d("video_chunk", a);
+            yVar.n("upload_id", str);
             if (isCancelled()) {
                 return null;
             }
-            String un = zVar.un();
+            String ug = yVar.ug();
             if (isCancelled()) {
                 return null;
             }
             f fVar2 = new f();
-            if (zVar.uI().vC().oH()) {
-                fVar2.videoUrl = qz(un);
+            if (yVar.uC().vw().isRequestSuccess()) {
+                fVar2.videoUrl = qT(ug);
                 return fVar2;
             }
-            if (zVar.uI().vC().uL()) {
-                fVar2.errorNo = zVar.uI().vC().acu;
+            if (yVar.uC().vw().uF()) {
+                fVar2.errorNo = yVar.uC().vw().abG;
             } else {
-                fVar2.errorNo = zVar.uI().vC().oF;
+                fVar2.errorNo = yVar.uC().vw().oy;
             }
-            fVar2.errorMessage = zVar.uI().vC().mErrorString;
+            fVar2.errorMessage = yVar.uC().vw().mErrorString;
             return fVar2;
         }
     }
@@ -93,14 +93,14 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.fji) {
-            i2 = (int) (this.fjf - ((i - 1) * this.fjh));
+        if (i == this.fsu) {
+            i2 = (int) (this.fsr - ((i - 1) * this.fst));
         } else {
-            i2 = this.fjh;
+            i2 = this.fst;
         }
         byte[] bArr = new byte[i2];
         try {
-            randomAccessFile.seek((i - 1) * this.fjh);
+            randomAccessFile.seek((i - 1) * this.fst);
             z = randomAccessFile.read(bArr, 0, i2) != -1;
         } catch (IOException e) {
             e.printStackTrace();
@@ -112,7 +112,7 @@ public abstract class a {
         return null;
     }
 
-    private String qz(String str) {
+    private String qT(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

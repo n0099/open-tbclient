@@ -1,16 +1,14 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
-
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ PersonalTalkSettingActivity cZX;
-    private final /* synthetic */ boolean cZY;
+    final /* synthetic */ PersonalTalkSettingActivity dhm;
+    private final /* synthetic */ boolean dhn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
-        this.cZX = personalTalkSettingActivity;
-        this.cZY = z;
+        this.dhm = personalTalkSettingActivity;
+        this.dhn = z;
     }
 
     @Override // java.lang.Runnable
@@ -18,11 +16,11 @@ public class g implements Runnable {
         w wVar;
         w wVar2;
         w wVar3;
-        wVar = this.cZX.cZU;
-        wVar.a((BdSwitchView.a) null);
-        wVar2 = this.cZX.cZU;
-        wVar2.gw(!this.cZY);
-        wVar3 = this.cZX.cZU;
-        wVar3.a(this.cZX);
+        wVar = this.dhm.dhj;
+        wVar.c(null);
+        wVar2 = this.dhm.dhj;
+        wVar2.gz(!this.dhn);
+        wVar3 = this.dhm.dhj;
+        wVar3.c(this.dhm);
     }
 }

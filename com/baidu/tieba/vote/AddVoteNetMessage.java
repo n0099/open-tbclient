@@ -29,7 +29,7 @@ public class AddVoteNetMessage extends NetMessage {
         builder.thread_id = Long.valueOf(this.mThreadId);
         builder.options = this.mOptions;
         if (z) {
-            n.a(builder, true);
+            n.bindCommonParamsToProtobufData(builder, true);
         }
         AddPollPostReqIdl.Builder builder2 = new AddPollPostReqIdl.Builder();
         builder2.data = builder.build(false);

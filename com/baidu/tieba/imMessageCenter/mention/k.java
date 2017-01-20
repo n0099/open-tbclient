@@ -1,18 +1,31 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class k implements NoNetworkView.a {
-    final /* synthetic */ j dck;
+class k extends CustomMessageListener {
+    final /* synthetic */ AtMessageActivity djB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.dck = jVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(AtMessageActivity atMessageActivity, int i) {
+        super(i);
+        this.djB = atMessageActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aL(boolean z) {
-        this.dck.gx(z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        AtMeModelController atMeModelController;
+        AtMeModelController atMeModelController2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
+            Intent intent = (Intent) customResponsedMessage.getData();
+            atMeModelController = this.djB.djy;
+            if (atMeModelController != null) {
+                atMeModelController2 = this.djB.djy;
+                atMeModelController2.lN();
+            }
+        }
     }
 }

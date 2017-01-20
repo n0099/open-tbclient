@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private int NA;
-    private int NB;
-    private int NC;
-    private int ND;
-    private int NE;
-    private int NF;
-    private int NG;
-    private int NH;
-    private int NI;
-    private int NJ;
-    private int NK;
-    private int NL;
-    private int NM;
-    private StringBuffer NN = new StringBuffer();
-    private String Ns;
-    private int Nt;
-    private int Nu;
-    private int Nv;
-    private int Nw;
-    private int Nx;
-    private int Ny;
-    private int Nz;
+    private String MF;
+    private int MG;
+    private int MH;
+    private int MI;
+    private int MJ;
+    private int MK;
+    private int ML;
+    private int MM;
+    private int MN;
+    private int MO;
+    private int MP;
+    private int MQ;
+    private int MR;
+    private int MS;
+    private int MT;
+    private int MU;
+    private int MV;
+    private int MW;
+    private int MX;
+    private int MY;
+    private int MZ;
+    private StringBuffer Na = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.NN.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.Na.toString() + "]";
     }
 
-    public void cc(String str) {
-        this.NN.append(str).append(" || ");
+    public void ca(String str) {
+        this.Na.append(str).append(" || ");
     }
 
-    public int om() {
-        return this.NH;
+    public int og() {
+        return this.MU;
+    }
+
+    public void be(int i) {
+        this.MU = i;
+    }
+
+    public int oh() {
+        return this.MV;
     }
 
     public void bf(int i) {
-        this.NH = i;
+        this.MV = i;
     }
 
-    public int on() {
-        return this.NI;
+    public int oi() {
+        return this.MS;
     }
 
     public void bg(int i) {
-        this.NI = i;
+        this.MS = i;
     }
 
-    public int oo() {
-        return this.NF;
+    public int oj() {
+        return this.MT;
     }
 
     public void bh(int i) {
-        this.NF = i;
+        this.MT = i;
     }
 
-    public int op() {
-        return this.NG;
+    public int ok() {
+        return this.MQ;
     }
 
     public void bi(int i) {
-        this.NG = i;
+        this.MQ = i;
     }
 
-    public int oq() {
-        return this.ND;
+    public int ol() {
+        return this.MR;
     }
 
     public void bj(int i) {
-        this.ND = i;
-    }
-
-    public int or() {
-        return this.NE;
-    }
-
-    public void bk(int i) {
-        this.NE = i;
+        this.MR = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int os() {
-        return this.NJ;
+    public int om() {
+        return this.MW;
+    }
+
+    public void bk(int i) {
+        this.MW = i;
+    }
+
+    public int on() {
+        return this.MX;
     }
 
     public void bl(int i) {
-        this.NJ = i;
-    }
-
-    public int ot() {
-        return this.NK;
-    }
-
-    public void bm(int i) {
-        this.NK = i;
+        this.MX = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void cd(String str) {
-        this.Ns = str;
+    public void cb(String str) {
+        this.MF = str;
     }
 
-    public int ou() {
-        return this.Nt;
+    public int oo() {
+        return this.MG;
+    }
+
+    public void bm(int i) {
+        this.MG = i;
+    }
+
+    public int op() {
+        return this.MH;
     }
 
     public void bn(int i) {
-        this.Nt = i;
+        this.MH = i;
     }
 
-    public int ov() {
-        return this.Nu;
+    public int oq() {
+        return this.MK;
     }
 
     public void bo(int i) {
-        this.Nu = i;
+        this.MK = i;
     }
 
-    public int ow() {
-        return this.Nx;
+    public int or() {
+        return this.ML;
     }
 
     public void bp(int i) {
-        this.Nx = i;
+        this.ML = i;
     }
 
-    public int ox() {
-        return this.Ny;
+    public int os() {
+        return this.MI;
     }
 
     public void bq(int i) {
-        this.Ny = i;
+        this.MI = i;
     }
 
-    public int oy() {
-        return this.Nv;
+    public int ot() {
+        return this.MJ;
     }
 
     public void br(int i) {
-        this.Nv = i;
+        this.MJ = i;
     }
 
-    public int oz() {
-        return this.Nw;
+    public int ou() {
+        return this.MN;
+    }
+
+    public int ov() {
+        return this.MM;
     }
 
     public void bs(int i) {
-        this.Nw = i;
-    }
-
-    public int oA() {
-        return this.NA;
-    }
-
-    public int oB() {
-        return this.Nz;
+        this.MM = i;
     }
 
     public void bt(int i) {
-        this.Nz = i;
+        this.MN = i;
+    }
+
+    public int ow() {
+        return this.MP;
     }
 
     public void bu(int i) {
-        this.NA = i;
+        this.MP = i;
     }
 
-    public int oC() {
-        return this.NC;
+    public int ox() {
+        return this.MO;
     }
 
     public void bv(int i) {
-        this.NC = i;
+        this.MO = i;
     }
 
-    public int oD() {
-        return this.NB;
+    public int oy() {
+        return this.MY;
     }
 
     public void bw(int i) {
-        this.NB = i;
+        this.MY = i;
     }
 
-    public int oE() {
-        return this.NL;
+    public int oz() {
+        return this.MZ;
     }
 
     public void bx(int i) {
-        this.NL = i;
-    }
-
-    public int oF() {
-        return this.NM;
-    }
-
-    public void by(int i) {
-        this.NM = i;
+        this.MZ = i;
     }
 }

@@ -1,22 +1,23 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
+import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private HashMap<String, a> cZT = new HashMap<>();
+    private HashMap<String, a> dhi = new HashMap<>();
 
     public void a(String str, a aVar) {
-        this.cZT.put(str, aVar);
+        this.dhi.put(str, aVar);
     }
 
-    public boolean le(String str) {
+    public boolean lr(String str) {
         a aVar;
-        return (this.cZT == null || (aVar = this.cZT.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.atU()) >= 300000) ? false : true;
+        return (this.dhi == null || (aVar = this.dhi.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.ava()) >= ReportUserInfoModel.TIME_INTERVAL) ? false : true;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b lf(String str) {
-        if (this.cZT.get(str) != null) {
-            return this.cZT.get(str).atT();
+    public com.baidu.tbadk.coreExtra.relationship.b ls(String str) {
+        if (this.dhi.get(str) != null) {
+            return this.dhi.get(str).auZ();
         }
         return null;
     }

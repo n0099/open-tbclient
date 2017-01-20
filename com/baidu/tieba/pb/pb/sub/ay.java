@@ -8,11 +8,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay implements View.OnClickListener {
-    final /* synthetic */ ao ejb;
+    final /* synthetic */ ao esl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(ao aoVar) {
-        this.ejb = aoVar;
+        this.esl = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,21 +23,21 @@ public class ay implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         NewSubPbActivity newSubPbActivity;
-        dialog = this.ejb.efx;
+        dialog = this.esl.eoD;
         if (dialog != null) {
-            dialog2 = this.ejb.efx;
+            dialog2 = this.esl.eoD;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.ejb.efx;
-                newSubPbActivity = this.ejb.eiy;
-                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity.getPageContext());
+                dialog3 = this.esl.eoD;
+                newSubPbActivity = this.esl.erI;
+                com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity.getPageContext());
             }
         }
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            aVar = this.ejb.eiP;
+            aVar = this.esl.erZ;
             if (aVar != null) {
-                aVar2 = this.ejb.eiP;
-                aVar2.g(new Object[]{sparseArray.get(r.g.tag_manage_user_identity), sparseArray.get(r.g.tag_forbid_user_name), sparseArray.get(r.g.tag_forbid_user_post_id)});
+                aVar2 = this.esl.erZ;
+                aVar2.g(new Object[]{sparseArray.get(r.h.tag_manage_user_identity), sparseArray.get(r.h.tag_forbid_user_name), sparseArray.get(r.h.tag_forbid_user_post_id)});
             }
         }
     }

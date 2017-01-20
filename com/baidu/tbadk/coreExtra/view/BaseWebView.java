@@ -23,6 +23,7 @@ public class BaseWebView extends WebView {
     private c mOnPageFinishedListener;
     private d mOnPageStartedListener;
     private e mOnReceivedErrorListener;
+    private f mOnReceivedSslErrorListener;
     private WebViewClient mWebViewClient;
 
     /* loaded from: classes.dex */
@@ -45,6 +46,11 @@ public class BaseWebView extends WebView {
         void onReceivedError(WebView webView, int i, String str, String str2);
     }
 
+    /* loaded from: classes.dex */
+    public interface f {
+        void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
+    }
+
     public BaseWebView(Context context) {
         super(context);
         this.mOnLoadUrlListener = null;
@@ -53,6 +59,7 @@ public class BaseWebView extends WebView {
         this.mOnPageStartedListener = null;
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
+        this.mOnReceivedSslErrorListener = null;
         this.mContext = context;
         init();
     }
@@ -76,6 +83,7 @@ public class BaseWebView extends WebView {
         this.mOnPageStartedListener = null;
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
+        this.mOnReceivedSslErrorListener = null;
         this.mContext = context;
         init();
     }
@@ -91,7 +99,7 @@ public class BaseWebView extends WebView {
         com.baidu.tbadk.browser.f.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         setWebViewClient(this.mWebViewClient);
-        setWebChromeClient(new f(this, null));
+        setWebChromeClient(new g(this, null));
         if (Build.VERSION.SDK_INT >= 11) {
             removeJavascriptInterface("searchBoxJavaBridge_");
         }
@@ -99,17 +107,17 @@ public class BaseWebView extends WebView {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class f extends WebChromeClient {
-        private f() {
+    public class g extends WebChromeClient {
+        private g() {
         }
 
-        /* synthetic */ f(BaseWebView baseWebView, f fVar) {
+        /* synthetic */ g(BaseWebView baseWebView, g gVar) {
             this();
         }
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.l((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.l((Activity) BaseWebView.this.getContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -117,7 +125,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.l((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.l((Activity) BaseWebView.this.getContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -125,7 +133,7 @@ public class BaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.l((Activity) BaseWebView.this.getContext())) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.l((Activity) BaseWebView.this.getContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -134,7 +142,7 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if (BaseWebView.this.jsCallback == null || !BaseWebView.this.jsCallback.onJsPrompt(str2, jsPromptResult)) {
-                if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.h.j.l((Activity) BaseWebView.this.getContext())) {
+                if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.l((Activity) BaseWebView.this.getContext())) {
                     return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
                 }
                 return true;
@@ -190,6 +198,9 @@ public class BaseWebView extends WebView {
             if (sslErrorHandler != null) {
                 sslErrorHandler.cancel();
             }
+            if (BaseWebView.this.mOnReceivedSslErrorListener != null) {
+                BaseWebView.this.mOnReceivedSslErrorListener.onReceivedSslError(webView, sslErrorHandler, sslError);
+            }
         }
     }
 
@@ -207,6 +218,10 @@ public class BaseWebView extends WebView {
 
     public void setOnReceivedErrorListener(e eVar) {
         this.mOnReceivedErrorListener = eVar;
+    }
+
+    public void setOnReceivedSslErrorListener(f fVar) {
+        this.mOnReceivedSslErrorListener = fVar;
     }
 
     public void resetProxy(int i) {
@@ -227,6 +242,7 @@ public class BaseWebView extends WebView {
         this.mOnPageStartedListener = null;
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
+        this.mOnReceivedSslErrorListener = null;
         this.jsCallback = null;
     }
 }

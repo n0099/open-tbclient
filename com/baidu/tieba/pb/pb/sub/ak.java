@@ -2,24 +2,24 @@ package com.baidu.tieba.pb.pb.sub;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.widget.richText.h;
+import com.baidu.tbadk.widget.richText.b;
 /* loaded from: classes.dex */
 class ak extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity eis;
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof h.a)) {
-            h.a aVar = (h.a) customResponsedMessage.getData();
-            com.baidu.tbadk.widget.richText.h.a(this.eis.getPageContext(), aVar.type, aVar.url, aVar.subType);
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof b.a)) {
+            b.a aVar = (b.a) customResponsedMessage.getData();
+            com.baidu.tbadk.widget.richText.b.a(this.erC.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.tbadkCore.imgView;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ DragHorizonScrollView fil;
+    final /* synthetic */ DragHorizonScrollView frz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DragHorizonScrollView dragHorizonScrollView) {
-        this.fil = dragHorizonScrollView;
+        this.frz = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
@@ -18,29 +18,29 @@ class c implements Runnable {
         int max;
         Scroller scroller2;
         Scroller scroller3;
-        i = this.fil.cvZ;
+        i = this.frz.cDd;
         if (i == 0) {
-            scroller3 = this.fil.fhS;
+            scroller3 = this.frz.frg;
             scroller3.forceFinished(true);
             return;
         }
-        scroller = this.fil.fhS;
+        scroller = this.frz.frg;
         boolean computeScrollOffset = scroller.computeScrollOffset();
         int currX = scroller.getCurrX();
-        i2 = this.fil.cve;
+        i2 = this.frz.cCi;
         int i3 = i2 - currX;
         if (i3 > 0) {
-            max = Math.min(((this.fil.getWidth() - this.fil.getPaddingLeft()) - this.fil.getPaddingRight()) - 1, i3);
+            max = Math.min(((this.frz.getWidth() - this.frz.getPaddingLeft()) - this.frz.getPaddingRight()) - 1, i3);
         } else {
-            max = Math.max(-(((this.fil.getWidth() - this.fil.getPaddingLeft()) - this.fil.getPaddingRight()) - 1), i3);
+            max = Math.max(-(((this.frz.getWidth() - this.frz.getPaddingLeft()) - this.frz.getPaddingRight()) - 1), i3);
         }
-        this.fil.rn(-max);
+        this.frz.rY(-max);
         if (!computeScrollOffset) {
-            scroller2 = this.fil.fhS;
+            scroller2 = this.frz.frg;
             scroller2.forceFinished(true);
             return;
         }
-        this.fil.cve = currX;
-        this.fil.post(this);
+        this.frz.cCi = currX;
+        this.frz.post(this);
     }
 }

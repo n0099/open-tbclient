@@ -1,15 +1,17 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.tbadk.core.util.AbstractImageProvider;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a implements Serializable, Cloneable {
+public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
     private static final long serialVersionUID = 3133087680118197014L;
     protected String friendId;
     protected String friendName;
     protected String friendPortrait;
     private int friendStatus;
-    private com.baidu.tieba.im.pushNotify.a groupSetting;
+    private ChatSetting groupSetting;
     private boolean isSelected = false;
     private boolean isSelf;
     protected String msgContent;
@@ -99,12 +101,12 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
         this.friendName = str;
     }
 
-    public com.baidu.tieba.im.pushNotify.a getGroupSetting() {
+    public ChatSetting getGroupSetting() {
         return this.groupSetting;
     }
 
-    public void setGroupSetting(com.baidu.tieba.im.pushNotify.a aVar) {
-        this.groupSetting = aVar;
+    public void setGroupSetting(ChatSetting chatSetting) {
+        this.groupSetting = chatSetting;
     }
 
     public int getUnReadCountExtra() {
@@ -131,7 +133,7 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
         this.isSelf = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(getFriendPortrait());

@@ -20,16 +20,16 @@ public class c extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
             boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
             if (!isNull) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.yy().c(new com.baidu.tbadk.coreExtra.d.e());
-                com.baidu.tbadk.coreExtra.messageCenter.a.yy().setMsgChat(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yy().setMsgAtme(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yy().setMsgFans(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yy().setMsgGiftNum(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yy().setMsgLiveVip(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yy().yQ();
-                t.GE();
-                l.app().aoX();
-                com.baidu.tieba.im.db.k.apo().aoX();
+                com.baidu.tbadk.coreExtra.messageCenter.a.yt().c(new com.baidu.tbadk.coreExtra.d.e());
+                com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgChat(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgAtme(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgFans(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgGiftNum(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgLiveVip(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.yt().yL();
+                t.Gw();
+                l.aqw().aqe();
+                com.baidu.tieba.im.db.k.aqv().aqe();
             }
             t.b(new d(this, isNull), new e(this));
         }

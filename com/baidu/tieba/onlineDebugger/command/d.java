@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ b dSO;
+    final /* synthetic */ b ebH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.dSO = bVar;
+        this.ebH = bVar;
     }
 
     @Override // java.lang.Runnable

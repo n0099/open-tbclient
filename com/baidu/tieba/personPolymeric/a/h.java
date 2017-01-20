@@ -5,35 +5,36 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.m, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.s>> {
-    private TbPageContext GO;
+public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.m, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.s>> {
+    private TbPageContext FY;
     private View.OnClickListener mOnClickListener;
 
     public h(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.GO = tbPageContext;
+        this.FY = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.s> a(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.d.s(this.GO));
+    /* renamed from: k */
+    public com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.s> onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.s(this.FY));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.m mVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.d.s> aVar) {
-        if (mVar == null || aVar == null || aVar.Po() == null) {
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.m mVar, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.s> aVar) {
+        if (mVar == null || aVar == null || aVar.Sd() == null) {
             return null;
         }
-        aVar.Po().onBindDataToView(mVar);
-        if (aVar.Po().getView() != null) {
-            aVar.Po().getView().setOnClickListener(this.mOnClickListener);
+        aVar.Sd().onBindDataToView(mVar);
+        if (aVar.Sd().getView() != null) {
+            aVar.Sd().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.Po().getView();
+        return aVar.Sd().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

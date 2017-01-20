@@ -8,40 +8,40 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class f {
     private static final String TAG = f.class.getSimpleName();
-    private static f aPB;
-    private c aPD;
-    private HashMap<String, c> aPC = new HashMap<>();
-    private List<c> aPE = new ArrayList();
+    private static f aOE;
+    private c aOG;
+    private HashMap<String, c> aOF = new HashMap<>();
+    private List<c> aOH = new ArrayList();
 
     private f() {
     }
 
-    public static f Kh() {
-        if (aPB == null) {
+    public static f Kw() {
+        if (aOE == null) {
             synchronized (f.class) {
-                if (aPB == null) {
-                    aPB = new f();
+                if (aOE == null) {
+                    aOE = new f();
                 }
             }
         }
-        return aPB;
+        return aOE;
     }
 
     public synchronized void n(c cVar) {
         k.log(TAG, "addPlayingCacheFile " + cVar);
-        c cVar2 = this.aPC.get(cVar.getVideoUrl());
+        c cVar2 = this.aOF.get(cVar.getVideoUrl());
         if (cVar2 != null) {
             k.log(TAG, "got pre same CacheFile ****************************************************************");
             cVar2.close();
         }
-        this.aPC.put(cVar.getVideoUrl(), cVar);
+        this.aOF.put(cVar.getVideoUrl(), cVar);
     }
 
     public synchronized void o(c cVar) {
         if (cVar != null) {
             k.log(TAG, "removePlayingCacheFile: " + cVar);
             cVar.close();
-            this.aPC.remove(cVar.getVideoUrl());
+            this.aOF.remove(cVar.getVideoUrl());
         }
     }
 
@@ -49,7 +49,7 @@ public class f {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<Map.Entry<String, c>> it = this.aPC.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.aOF.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -69,18 +69,18 @@ public class f {
         return z;
     }
 
-    public synchronized boolean gP(String str) {
+    public synchronized boolean gQ(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<Map.Entry<String, c>> it = this.aPC.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.aOF.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(o.ha(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(o.hb(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -92,32 +92,32 @@ public class f {
     }
 
     public void q(c cVar) {
-        this.aPD = cVar;
+        this.aOG = cVar;
     }
 
-    public c Ki() {
-        return this.aPD;
+    public c Kx() {
+        return this.aOG;
     }
 
     public synchronized void r(c cVar) {
-        this.aPE.add(cVar);
+        this.aOH.add(cVar);
     }
 
     public synchronized void s(c cVar) {
-        this.aPE.remove(cVar);
+        this.aOH.remove(cVar);
     }
 
-    public synchronized void gQ(String str) {
+    public synchronized void gR(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
-                for (c cVar : this.aPE) {
+                for (c cVar : this.aOH) {
                     if (cVar != null && str.equals(cVar.getVideoUrl())) {
                         cVar.close();
                         arrayList.add(cVar);
                     }
                 }
-                this.aPE.removeAll(arrayList);
+                this.aOH.removeAll(arrayList);
             }
         }
     }
@@ -126,7 +126,7 @@ public class f {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<c> it = this.aPE.iterator();
+                Iterator<c> it = this.aOH.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -144,18 +144,18 @@ public class f {
         return z;
     }
 
-    public synchronized boolean gR(String str) {
+    public synchronized boolean gS(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<c> it = this.aPE.iterator();
+                Iterator<c> it = this.aOH.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(o.ha(next.getVideoUrl()))) {
+                    if (next != null && str.equals(o.hb(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -168,15 +168,15 @@ public class f {
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0035, code lost:
         r0.close();
-        r3.aPC.remove(r4);
+        r3.aOF.remove(r4);
         com.baidu.tieba.VideoCache.k.log(com.baidu.tieba.VideoCache.f.TAG, "CacheFile close: " + r4);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void gS(String str) {
+    public synchronized void gT(String str) {
         if (str != null) {
-            Iterator<Map.Entry<String, c>> it = this.aPC.entrySet().iterator();
+            Iterator<Map.Entry<String, c>> it = this.aOF.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

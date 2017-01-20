@@ -17,18 +17,18 @@ import com.baidu.sapi2.SapiAccountManager;
 public class as extends ax {
     private String a;
     private String b;
-    private ServiceConnection fIF;
+    private ServiceConnection fQY;
 
     public as(SocialOAuthActivity socialOAuthActivity, String str, IBaiduListener iBaiduListener) {
         super(socialOAuthActivity, str, MediaType.SINAWEIBO.toString(), iBaiduListener);
-        this.fIF = new at(this);
+        this.fQY = new at(this);
     }
 
     private boolean a() {
         Context applicationContext = this.mActivity.getApplicationContext();
         Intent intent = new Intent("com.sina.weibo.remotessoservice");
         if (applicationContext.getPackageManager().resolveService(intent, 0) != null) {
-            return applicationContext.getApplicationContext().bindService(intent, this.fIF, 1);
+            return applicationContext.getApplicationContext().bindService(intent, this.fQY, 1);
         }
         return false;
     }

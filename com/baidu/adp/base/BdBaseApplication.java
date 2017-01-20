@@ -14,7 +14,7 @@ public class BdBaseApplication extends MAApplication {
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        j.aY().a(super.getResources());
+        i.aY().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -29,7 +29,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.ir().init();
+        com.baidu.adp.plugin.c.a.ip().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -61,7 +61,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.fT().G(this.mContext);
+        com.baidu.adp.lib.util.d.fR().G(this.mContext);
     }
 
     public void onAppMemoryLow() {
@@ -83,7 +83,7 @@ public class BdBaseApplication extends MAApplication {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = j.aY().getResources();
+        Resources resources = i.aY().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

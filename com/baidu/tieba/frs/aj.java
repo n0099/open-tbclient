@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import com.baidu.adp.lib.g.b;
 /* loaded from: classes.dex */
 class aj extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,15 +13,12 @@ class aj extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
-            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
-            if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                FrsActivityStatic.bzs = true;
-                FrsActivityStatic.bzr = true;
-                return;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            int g = b.g(customResponsedMessage.getData().toString(), 1);
+            if (g == 1 || g == 0) {
+                FrsActivityStatic.bGS = false;
+                FrsActivityStatic.bGR = false;
             }
-            FrsActivityStatic.bzs = false;
-            FrsActivityStatic.bzr = false;
         }
     }
 }

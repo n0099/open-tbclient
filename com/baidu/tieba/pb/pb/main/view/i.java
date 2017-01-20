@@ -1,25 +1,26 @@
 package com.baidu.tieba.pb.pb.main.view;
 
-import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements j.a {
-    final /* synthetic */ g ehO;
+public class i implements Runnable {
+    final /* synthetic */ f eqX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.ehO = gVar;
+    public i(f fVar) {
+        this.eqX = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void og() {
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.pb.view.j jVar;
+        com.baidu.tieba.pb.view.j jVar2;
         PbActivity pbActivity;
-        pbActivity = this.ehO.dYB;
-        pbActivity.aJi();
-    }
-
-    @Override // com.baidu.tbadk.core.view.j.a
-    public void oh() {
+        jVar = this.eqX.eqU;
+        if (jVar != null) {
+            jVar2 = this.eqX.eqU;
+            pbActivity = this.eqX.ehi;
+            com.baidu.adp.lib.g.j.a(jVar2, pbActivity.getPageContext().getPageActivity());
+        }
     }
 }

@@ -7,53 +7,54 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity eis;
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NewSubPbActivity newSubPbActivity) {
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
     public void g(Object obj) {
-        com.baidu.tieba.tbadkCore.f.a aVar;
-        bc bcVar;
-        bc bcVar2;
-        bc bcVar3;
-        bc bcVar4;
-        com.baidu.tieba.tbadkCore.f.a aVar2;
-        bc bcVar5;
-        bc bcVar6;
-        bc bcVar7;
+        ForumManageModel forumManageModel;
+        SubPbModel subPbModel;
+        SubPbModel subPbModel2;
+        SubPbModel subPbModel3;
+        SubPbModel subPbModel4;
+        ForumManageModel forumManageModel2;
+        SubPbModel subPbModel5;
+        SubPbModel subPbModel6;
+        SubPbModel subPbModel7;
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            aVar = this.eis.eic;
-            if (!aVar.bgO() && objArr != null && objArr.length >= 4) {
+            forumManageModel = this.erC.erm;
+            if (!forumManageModel.biz() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
-                int g = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[1]), 0);
-                boolean d = com.baidu.adp.lib.h.b.d(String.valueOf(objArr[2]), false);
-                int g2 = com.baidu.adp.lib.h.b.g(String.valueOf(objArr[3]), 0);
-                bcVar = this.eis.eib;
-                if (bcVar != null) {
-                    bcVar2 = this.eis.eib;
-                    if (bcVar2.aNr() != null) {
-                        bcVar3 = this.eis.eib;
-                        if (bcVar3.aNr().aIL() != null) {
-                            bcVar4 = this.eis.eib;
-                            if (bcVar4.aNr().IU() != null) {
-                                aVar2 = this.eis.eic;
-                                bcVar5 = this.eis.eib;
-                                String id = bcVar5.aNr().aIL().getId();
-                                bcVar6 = this.eis.eib;
-                                String name = bcVar6.aNr().aIL().getName();
-                                bcVar7 = this.eis.eib;
-                                aVar2.a(id, name, bcVar7.aNr().IU().getId(), valueOf, g2, g, d);
+                int g = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[1]), 0);
+                boolean d = com.baidu.adp.lib.g.b.d(String.valueOf(objArr[2]), false);
+                int g2 = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[3]), 0);
+                subPbModel = this.erC.erl;
+                if (subPbModel != null) {
+                    subPbModel2 = this.erC.erl;
+                    if (subPbModel2.aPn() != null) {
+                        subPbModel3 = this.erC.erl;
+                        if (subPbModel3.aPn().aKC() != null) {
+                            subPbModel4 = this.erC.erl;
+                            if (subPbModel4.aPn().Ji() != null) {
+                                forumManageModel2 = this.erC.erm;
+                                subPbModel5 = this.erC.erl;
+                                String id = subPbModel5.aPn().aKC().getId();
+                                subPbModel6 = this.erC.erl;
+                                String name = subPbModel6.aPn().aKC().getName();
+                                subPbModel7 = this.erC.erl;
+                                forumManageModel2.a(id, name, subPbModel7.aPn().Ji().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;
@@ -66,6 +67,6 @@ public class n implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m9getInst().login(this.eis.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.eis.getPageContext().getPageActivity(), this.eis.getPageContext().getString(r.j.login_to_use), true, 11017)));
+        TbadkCoreApplication.m9getInst().login(this.erC.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.erC.getPageContext().getPageActivity(), this.erC.getPageContext().getString(r.l.login_to_use), true, 11017)));
     }
 }

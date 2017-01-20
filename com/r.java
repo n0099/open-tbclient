@@ -6,17 +6,17 @@ import com.baidu.cloudsdk.common.util.PositionManager;
 import com.baidu.cloudsdk.social.share.uiwithlayout.LocationPreview;
 /* loaded from: classes.dex */
 class r implements PositionManager.IPositionManagerListener {
-    final /* synthetic */ q dB;
+    final /* synthetic */ q dz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.dB = qVar;
+        this.dz = qVar;
     }
 
     @Override // com.baidu.cloudsdk.common.util.PositionManager.IPositionManagerListener
     public void onComplete(Location location) {
-        this.dB.dA.g = location;
-        this.dB.dA.a(location);
+        this.dz.dy.g = location;
+        this.dz.dy.a(location);
     }
 
     @Override // com.baidu.cloudsdk.common.util.PositionManager.IPositionManagerListener
@@ -24,6 +24,6 @@ class r implements PositionManager.IPositionManagerListener {
         String str;
         str = LocationPreview.a;
         Log.e(str, "request location failed");
-        this.dB.dA.b();
+        this.dz.dy.b();
     }
 }

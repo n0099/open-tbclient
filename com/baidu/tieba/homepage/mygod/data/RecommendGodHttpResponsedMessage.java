@@ -5,6 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tieba.homepage.mygod.RecommendGodCacheModel;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
 public class RecommendGodHttpResponsedMessage extends MvcProtobufHttpResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c, GodFeedResIdl> {
@@ -24,7 +25,7 @@ public class RecommendGodHttpResponsedMessage extends MvcProtobufHttpResponsedMe
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof e) {
                 e eVar = (e) mvcNetMessage.getRequestData();
-                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.b.a.sX().M("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
+                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.c.a.sR().M(RecommendGodCacheModel.TABLE_NAME, TbadkCoreApplication.getCurrentAccount())) != null) {
                     M.k(new StringBuilder(String.valueOf(eVar.getTagCode())).toString(), bArr);
                 }
             }

@@ -1,54 +1,54 @@
 package com.baidu.adp.plugin.util;
 /* loaded from: classes.dex */
 public class i implements Comparable<i> {
-    int yK;
-    int yL;
-    int yM;
-    int yN;
-    int yO;
-    int yP;
+    int yB;
+    int yC;
+    int yD;
+    int yE;
+    int yF;
+    int yG;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.yK = i;
-        this.yL = i2;
-        this.yM = i3;
-        this.yN = i4;
-        this.yO = i5;
-        this.yP = i6;
+        this.yB = i;
+        this.yC = i2;
+        this.yD = i3;
+        this.yE = i4;
+        this.yF = i5;
+        this.yG = i6;
     }
 
     public String toString() {
-        return String.valueOf(this.yK) + "-" + this.yL + "-" + this.yM + " " + this.yN + ":" + this.yO + ":" + this.yP;
+        return String.valueOf(this.yB) + "-" + this.yC + "-" + this.yD + " " + this.yE + ":" + this.yF + ":" + this.yG;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(i iVar) {
-        if (this.yK - iVar.yK > 0) {
+        if (this.yB - iVar.yB > 0) {
             return 1;
         }
-        if (this.yK - iVar.yK < 0) {
+        if (this.yB - iVar.yB < 0) {
             return -1;
         }
-        if (this.yL - iVar.yL <= 0) {
-            if (this.yL - iVar.yL < 0) {
+        if (this.yC - iVar.yC <= 0) {
+            if (this.yC - iVar.yC < 0) {
                 return -1;
             }
-            if (this.yM - iVar.yM <= 0) {
-                if (this.yM - iVar.yM < 0) {
+            if (this.yD - iVar.yD <= 0) {
+                if (this.yD - iVar.yD < 0) {
                     return -1;
                 }
-                if (this.yN - iVar.yN <= 0) {
-                    if (this.yN - iVar.yN < 0) {
+                if (this.yE - iVar.yE <= 0) {
+                    if (this.yE - iVar.yE < 0) {
                         return -1;
                     }
-                    if (this.yO - iVar.yO <= 0) {
-                        if (this.yO - iVar.yO < 0) {
+                    if (this.yF - iVar.yF <= 0) {
+                        if (this.yF - iVar.yF < 0) {
                             return -1;
                         }
-                        if (this.yP - iVar.yP <= 0) {
-                            return this.yP - iVar.yP < 0 ? -1 : 0;
+                        if (this.yG - iVar.yG <= 0) {
+                            return this.yG - iVar.yG < 0 ? -1 : 0;
                         }
                         return 1;
                     }

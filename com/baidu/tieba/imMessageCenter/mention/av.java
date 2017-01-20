@@ -1,59 +1,41 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.imMessageCenter.mention.au;
-import com.baidu.tieba.r;
+import com.baidu.tieba.imMessageCenter.mention.ReplyMeModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ au dcX;
+public class av implements ReplyMeModel.a {
+    final /* synthetic */ au dky;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av(au auVar, int i) {
-        super(i);
-        this.dcX = auVar;
+    public av(au auVar) {
+        this.dky = auVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ReplyMessageActivity replyMessageActivity;
-        ReplyMessageActivity replyMessageActivity2;
-        ReplyMessageActivity replyMessageActivity3;
-        au.a aVar;
-        ReplyMessageActivity replyMessageActivity4;
-        ReplyMessageActivity replyMessageActivity5;
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-            replyMessageActivity = this.dcX.dcV;
-            replyMessageActivity.showToast(r.j.neterror);
-            return;
-        }
-        CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
-        if (checkPostResponseMessage.hasError()) {
-            if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                replyMessageActivity5 = this.dcX.dcV;
-                replyMessageActivity5.showToast(checkPostResponseMessage.getErrorString());
-                return;
+    @Override // com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.a
+    public void b(long j, long j2, long j3) {
+        com.baidu.tbadk.editortools.pb.n nVar;
+        FeedData feedData;
+        com.baidu.tbadk.editortools.pb.n nVar2;
+        FeedData feedData2;
+        com.baidu.tbadk.editortools.pb.n nVar3;
+        FeedData feedData3;
+        this.dky.mForumId = String.valueOf(j);
+        this.dky.dkt = j2;
+        this.dky.dku = j3;
+        nVar = this.dky.dkr;
+        if (nVar != null) {
+            feedData = this.dky.dks;
+            if (feedData.getIsFloor()) {
+                feedData2 = this.dky.dks;
+                if (feedData2.getReplyer() != null) {
+                    nVar3 = this.dky.dkr;
+                    feedData3 = this.dky.dks;
+                    nVar3.fJ(feedData3.getReplyer().getUserName());
+                    return;
+                }
             }
-            replyMessageActivity4 = this.dcX.dcV;
-            replyMessageActivity4.showToast(r.j.neterror);
-            return;
-        }
-        long forumId = checkPostResponseMessage.getForumId();
-        long postState = checkPostResponseMessage.getPostState();
-        long quoteId = checkPostResponseMessage.getQuoteId();
-        long repostId = checkPostResponseMessage.getRepostId();
-        if (postState == 1) {
-            aVar = this.dcX.dcW;
-            aVar.b(forumId, quoteId, repostId);
-        } else if (postState == 0) {
-            replyMessageActivity3 = this.dcX.dcV;
-            replyMessageActivity3.showToast(r.j.thread_delete_tip);
-        } else if (postState == -1) {
-            replyMessageActivity2 = this.dcX.dcV;
-            replyMessageActivity2.showToast(r.j.thread_shield_tip);
+            nVar2 = this.dky.dkr;
+            nVar2.fJ(null);
         }
     }
 }

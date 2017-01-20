@@ -7,23 +7,23 @@ import com.baidu.tbadk.editortools.x;
 public class b extends x {
     public b(Context context) {
         super(context, (String) null, 11);
-        this.auV = true;
-        this.auU = 6;
-        this.auh = c.h(context, 10);
-        this.auW = new int[]{12, 13, 9};
+        this.aua = true;
+        this.atZ = 6;
+        this.atm = c.i(context, 10);
+        this.aub = new int[]{12, 13, 9};
     }
 
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.auV = true;
-        this.auU = 6;
-        this.auh = c.h(context, i);
-        this.auW = new int[]{12, 13, 9};
+        this.aua = true;
+        this.atZ = 6;
+        this.atm = c.i(context, i);
+        this.aub = new int[]{12, 13, 9};
     }
 
-    public void eI(int i) {
-        if (this.auh != null) {
-            MultiImgToolView multiImgToolView = (MultiImgToolView) this.auh;
+    public void eJ(int i) {
+        if (this.atm != null) {
+            MultiImgToolView multiImgToolView = (MultiImgToolView) this.atm;
             if (i == 1) {
                 multiImgToolView.getDragHorizonScrollView().setCenterStart(true);
             } else {
@@ -33,16 +33,16 @@ public class b extends x {
         }
     }
 
-    public void fw(String str) {
+    public void ft(String str) {
         TextView mutiImageTips;
-        if (this.auh != null && (mutiImageTips = ((MultiImgToolView) this.auh).getMutiImageTips()) != null) {
+        if (this.atm != null && (mutiImageTips = ((MultiImgToolView) this.atm).getMutiImageTips()) != null) {
             mutiImageTips.setText(str);
         }
     }
 
-    public void fx(String str) {
-        if (this.auh instanceof MultiImgToolView) {
-            ((MultiImgToolView) this.auh).setNoPicTips(str);
+    public void fu(String str) {
+        if (this.atm instanceof MultiImgToolView) {
+            ((MultiImgToolView) this.atm).setNoPicTips(str);
         }
     }
 }

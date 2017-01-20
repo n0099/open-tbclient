@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
-import com.baidu.adp.base.e;
-import com.baidu.adp.base.h;
+import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public abstract class ImBaseMessageCenterModel extends e<Object> {
+public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     protected final LinkedList<ImMessageCenterShowItemData> mList;
 
     protected abstract int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData);
@@ -25,8 +25,8 @@ public abstract class ImBaseMessageCenterModel extends e<Object> {
     protected abstract void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ImBaseMessageCenterModel(h hVar) {
-        super(hVar);
+    public ImBaseMessageCenterModel(g gVar) {
+        super(gVar);
         this.mList = new LinkedList<>();
     }
 
@@ -165,12 +165,12 @@ public abstract class ImBaseMessageCenterModel extends e<Object> {
         }
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
     }

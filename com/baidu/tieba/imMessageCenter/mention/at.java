@@ -1,27 +1,28 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
-class at implements View.OnClickListener {
-    final /* synthetic */ ap dcT;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public at(ap apVar) {
-        this.dcT = apVar;
+public class at extends ak implements com.baidu.tbadk.mvc.b.c {
+    @Override // com.baidu.tbadk.mvc.b.b
+    public boolean z(byte[] bArr) {
+        try {
+            a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        ViewEventCenter lI;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9486, this.dcT.getData(), null, null);
-        bVar.setView(this.dcT.getRootView());
-        i = this.dcT.position;
-        bVar.eX(i);
-        lI = this.dcT.lI();
-        lI.dispatchMvcEvent(bVar);
-        TiebaStatic.log("c10096");
+    @Override // com.baidu.tbadk.mvc.b.b
+    public byte[] Eo() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.d
+    public String getCacheKey() {
+        return "replyme_cache";
     }
 }

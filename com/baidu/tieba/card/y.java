@@ -1,33 +1,31 @@
 package com.baidu.tieba.card;
 
-import android.view.animation.Animation;
-import com.baidu.tbadk.widget.TbImageView;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements Animation.AnimationListener {
-    final /* synthetic */ t bcw;
+public class y extends Handler {
+    final /* synthetic */ x bml;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(t tVar) {
-        this.bcw = tVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(x xVar, Looper looper) {
+        super(looper);
+        this.bml = xVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        tbImageView = this.bcw.bcg;
-        if (tbImageView != null) {
-            tbImageView2 = this.bcw.bcg;
-            tbImageView2.setVisibility(8);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        switch (message.what) {
+            case 202:
+                this.bml.Ke();
+                return;
+            case 203:
+                this.bml.Kf();
+                return;
+            default:
+                return;
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
     }
 }

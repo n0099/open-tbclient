@@ -11,13 +11,13 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h ety;
+    final /* synthetic */ h eDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, int i) {
         super(i);
-        this.ety = hVar;
+        this.eDs = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,32 +39,32 @@ public class i extends com.baidu.adp.framework.listener.e {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
             if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
                 if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    blackListModel3 = this.ety.etq;
+                    blackListModel3 = this.eDs.eDk;
                     blackListModel3.setMaskType(1);
                 } else {
-                    blackListModel = this.ety.etq;
+                    blackListModel = this.eDs.eDk;
                     blackListModel.setMaskType(0);
                 }
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    blackListModel2 = this.ety.etq;
+                    blackListModel2 = this.eDs.eDk;
                     if (blackListModel2.getMaskType() == 1) {
-                        tbPageContext3 = this.ety.GO;
-                        tbPageContext4 = this.ety.GO;
-                        tbPageContext3.showToast(tbPageContext4.getString(r.j.chat_message_blocked));
+                        tbPageContext3 = this.eDs.FY;
+                        tbPageContext4 = this.eDs.FY;
+                        tbPageContext3.showToast(tbPageContext4.getString(r.l.chat_message_blocked));
                         return;
                     }
-                    tbPageContext = this.ety.GO;
-                    tbPageContext2 = this.ety.GO;
-                    tbPageContext.showToast(tbPageContext2.getString(r.j.block_chat_remove_success));
+                    tbPageContext = this.eDs.FY;
+                    tbPageContext2 = this.eDs.FY;
+                    tbPageContext.showToast(tbPageContext2.getString(r.l.remove_succ));
                     return;
                 }
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    tbPageContext6 = this.ety.GO;
-                    errorString = tbPageContext6.getResources().getString(r.j.neterror);
+                    tbPageContext6 = this.eDs.FY;
+                    errorString = tbPageContext6.getResources().getString(r.l.neterror);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
-                tbPageContext5 = this.ety.GO;
+                tbPageContext5 = this.eDs.FY;
                 tbPageContext5.showToast(errorString);
             }
         }

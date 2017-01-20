@@ -6,7 +6,7 @@ import android.os.Parcelable;
 class j implements Parcelable.Creator<Voice> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: dA */
+    /* renamed from: dB */
     public Voice[] newArray(int i) {
         return new Voice[i];
     }

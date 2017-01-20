@@ -10,15 +10,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ PbGiftListView eki;
+    final /* synthetic */ PbGiftListView eud;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PbGiftListView pbGiftListView) {
-        this.eki = pbGiftListView;
+        this.eud = pbGiftListView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,23 +29,23 @@ public class d implements View.OnClickListener {
         String str2;
         long j2;
         long j3;
-        context = this.eki.mContext;
-        TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.l.C(context);
+        context = this.eud.mContext;
+        TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.k.C(context);
         if (tbPageContext != null) {
             if (TbadkCoreApplication.isLogin()) {
-                str = this.eki.toUserName;
+                str = this.eud.toUserName;
                 if (!StringUtils.isNull(str)) {
                     Activity pageActivity = tbPageContext.getPageActivity();
-                    j = this.eki.toUserId;
-                    str2 = this.eki.toUserName;
-                    j2 = this.eki.threadId;
-                    j3 = this.eki.postId;
+                    j = this.eud.toUserId;
+                    str2 = this.eud.toUserName;
+                    j2 = this.eud.threadId;
+                    j3 = this.eud.postId;
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GiftTabActivityConfig(pageActivity, j, str2, GiftTabActivityConfig.FROM_PB, j2, j3)));
                     return;
                 }
                 return;
             }
-            bh.ai(tbPageContext.getPageActivity());
+            bf.ak(tbPageContext.getPageActivity());
         }
     }
 }

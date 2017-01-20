@@ -1,38 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes.dex */
-class k implements View.OnTouchListener {
-    final /* synthetic */ FrsActivity bzl;
+class k extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(FrsActivity frsActivity) {
-        this.bzl = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bGL = frsActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        cg cgVar;
-        com.baidu.tieba.frs.h.an anVar;
-        com.baidu.tieba.frs.h.an anVar2;
-        cg cgVar2;
-        cg cgVar3;
-        cgVar = this.bzl.byC;
-        if (cgVar != null) {
-            cgVar2 = this.bzl.byC;
-            if (cgVar2.Ya() != null) {
-                cgVar3 = this.bzl.byC;
-                cgVar3.Ya().onTouchEvent(motionEvent);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && b.tQ().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1) != -1 && this.bGL.bFG.aJY() != null) {
+            this.bGL.bFG.aJY().setCanAddPhotoLivePost(true);
         }
-        anVar = this.bzl.byJ;
-        if (anVar != null) {
-            anVar2 = this.bzl.byJ;
-            if (anVar2.b(motionEvent, view)) {
-                return true;
-            }
-        }
-        return false;
     }
 }

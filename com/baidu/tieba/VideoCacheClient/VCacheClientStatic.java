@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class VCacheClientStatic {
     static {
-        KA();
-        c.Kv().as(TbadkCoreApplication.m9getInst().getContext());
+        KP();
+        c.KK().au(TbadkCoreApplication.m9getInst().getContext());
     }
 
-    private static void KA() {
+    private static void KP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, new j());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

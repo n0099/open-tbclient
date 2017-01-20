@@ -1,20 +1,29 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.view.View;
+import com.baidu.tbadk.core.data.BannerThreadInfoData;
+import com.baidu.tieba.frs.headvideo.ForumHeadVideoListModel;
+import java.util.List;
 /* loaded from: classes.dex */
-class m implements com.baidu.tbadk.widget.layout.i {
-    final /* synthetic */ ForumHeadVideoView bLk;
+class m implements ForumHeadVideoListModel.a {
+    final /* synthetic */ ForumHeadVideoView bRD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ForumHeadVideoView forumHeadVideoView) {
-        this.bLk = forumHeadVideoView;
+        this.bRD = forumHeadVideoView;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.i
-    public void a(View view, int i, int i2, int i3, int i4) {
-        int aah = a.aah();
-        if (i > 0 && i2 > 0 && aah == 0) {
-            this.bLk.aaw();
+    @Override // com.baidu.tieba.frs.headvideo.ForumHeadVideoListModel.a
+    public void fG(String str) {
+    }
+
+    @Override // com.baidu.tieba.frs.headvideo.ForumHeadVideoListModel.a
+    public void c(int i, List<BannerThreadInfoData> list) {
+        List list2;
+        List list3;
+        list2 = this.bRD.aPE;
+        if (list2 != null && list != null) {
+            list3 = this.bRD.aPE;
+            list3.addAll(list);
         }
     }
 }

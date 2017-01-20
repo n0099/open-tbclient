@@ -1,10 +1,10 @@
 package com.baidu.tieba.usermute;
 
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
-public class MuteUser extends i implements Serializable {
+public class MuteUser extends OrmObject implements Serializable {
     private String nickName;
     private String secureMobil;
     private String secureeMail;

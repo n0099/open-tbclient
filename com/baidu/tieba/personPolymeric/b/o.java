@@ -5,11 +5,11 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.b {
-    final /* synthetic */ h ety;
+    final /* synthetic */ h eDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(h hVar) {
-        this.ety = hVar;
+        this.eDs = hVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -20,16 +20,16 @@ public class o implements a.b {
         long j2;
         BlackListModel blackListModel3;
         long j3;
-        j = this.ety.mUserId;
+        j = this.eDs.mUserId;
         if (j > 0) {
-            blackListModel = this.ety.etq;
+            blackListModel = this.eDs.eDk;
             if (blackListModel.getMaskType() == 1) {
-                blackListModel3 = this.ety.etq;
-                j3 = this.ety.mUserId;
+                blackListModel3 = this.eDs.eDk;
+                j3 = this.eDs.mUserId;
                 blackListModel3.removeFromBlackList(j3);
             } else {
-                blackListModel2 = this.ety.etq;
-                j2 = this.ety.mUserId;
+                blackListModel2 = this.eDs.eDk;
+                j2 = this.eDs.mUserId;
                 blackListModel2.addToBlackList(j2);
             }
         }

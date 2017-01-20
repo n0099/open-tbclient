@@ -1,40 +1,25 @@
 package com.baidu.tieba.frs;
 
+import android.animation.ValueAnimator;
 import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements BdSwitchView.a {
-    final /* synthetic */ cp bCp;
+public class cq implements ValueAnimator.AnimatorUpdateListener {
+    final /* synthetic */ co bJL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cp cpVar) {
-        this.bCp = cpVar;
+    public cq(co coVar) {
+        this.bJL = coVar;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        com.baidu.adp.base.h hVar3;
-        com.baidu.adp.base.h hVar4;
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            hVar3 = this.bCp.mContext;
-            StringBuilder sb = new StringBuilder(String.valueOf(hVar3.getString(r.j.image_show_setting)));
-            hVar4 = this.bCp.mContext;
-            view.setContentDescription(sb.append(hVar4.getString(r.j.now_state_on)).toString());
-            com.baidu.tbadk.core.l.oJ().bE(0);
-            com.baidu.tbadk.core.l.oJ().ak(true);
-        } else {
-            hVar = this.bCp.mContext;
-            StringBuilder sb2 = new StringBuilder(String.valueOf(hVar.getString(r.j.image_show_setting)));
-            hVar2 = this.bCp.mContext;
-            view.setContentDescription(sb2.append(hVar2.getString(r.j.now_state_off)).toString());
-            com.baidu.tbadk.core.l.oJ().ak(false);
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        View view;
+        View view2;
+        view = this.bJL.bJG;
+        if (view != null && valueAnimator != null) {
+            view2 = this.bJL.bJG;
+            view2.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
         }
-        TiebaStatic.log("c11672");
-        this.bCp.bCl = true;
     }
 }

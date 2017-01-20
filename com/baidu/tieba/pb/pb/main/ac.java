@@ -8,102 +8,102 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class ac extends CustomMessageListener {
-    final /* synthetic */ PbActivity eah;
+    final /* synthetic */ PbActivity eiV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(PbActivity pbActivity, int i) {
         super(i);
-        this.eah = pbActivity;
+        this.eiV = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        dc dcVar;
+        PbModel pbModel;
         int i;
-        er erVar;
-        dc dcVar2;
-        dc dcVar3;
-        dc dcVar4;
+        ez ezVar;
+        PbModel pbModel2;
+        PbModel pbModel3;
+        PbModel pbModel4;
         boolean z2;
-        er erVar2;
-        er erVar3;
-        er erVar4;
-        dc dcVar5;
-        String aJt;
+        ez ezVar2;
+        ez ezVar3;
+        ez ezVar4;
+        PbModel pbModel5;
+        String aLg;
         boolean z3;
-        dc dcVar6;
-        dc dcVar7;
-        er erVar5;
-        er erVar6;
+        PbModel pbModel6;
+        PbModel pbModel7;
+        ez ezVar5;
+        ez ezVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.b.a)) {
             com.baidu.tieba.pb.b.a aVar = (com.baidu.tieba.pb.b.a) customResponsedMessage.getData();
-            if (aVar.tag == this.eah.getUniqueId()) {
-                switch (aVar.ejN) {
+            if (aVar.tag == this.eiV.getUniqueId()) {
+                switch (aVar.esX) {
                     case 0:
-                        z3 = this.eah.mIsLogin;
+                        z3 = this.eiV.mIsLogin;
                         if (z3) {
-                            dcVar6 = this.eah.dYA;
-                            if (!dcVar6.ik(false)) {
-                                dcVar7 = this.eah.dYA;
-                                if (dcVar7.getPbData() != null) {
-                                    erVar5 = this.eah.dZk;
-                                    erVar5.aMi();
+                            pbModel6 = this.eiV.ehh;
+                            if (!pbModel6.iu(false)) {
+                                pbModel7 = this.eiV.ehh;
+                                if (pbModel7.getPbData() != null) {
+                                    ezVar5 = this.eiV.ehV;
+                                    ezVar5.aNY();
                                     return;
                                 }
                                 return;
                             }
-                            erVar6 = this.eah.dZk;
-                            erVar6.aLV();
+                            ezVar6 = this.eiV.ehV;
+                            ezVar6.aNK();
                             return;
                         }
                         return;
                     case 1:
-                        z2 = this.eah.mIsLoading;
+                        z2 = this.eiV.mIsLoading;
                         if (!z2) {
-                            this.eah.mIsLoading = true;
-                            erVar2 = this.eah.dZk;
-                            erVar2.eeG.ehJ.setEnabled(false);
-                            erVar3 = this.eah.dZk;
-                            erVar3.aqY();
-                            this.eah.WD();
-                            erVar4 = this.eah.dZk;
-                            erVar4.aLU();
-                            dcVar5 = this.eah.dYA;
-                            aJt = this.eah.aJt();
-                            dcVar5.nW(aJt);
+                            this.eiV.mIsLoading = true;
+                            ezVar2 = this.eiV.ehV;
+                            ezVar2.enK.eqS.setEnabled(false);
+                            ezVar3 = this.eiV.ehV;
+                            ezVar3.ase();
+                            this.eiV.XU();
+                            ezVar4 = this.eiV.ehV;
+                            ezVar4.aNJ();
+                            pbModel5 = this.eiV.ehh;
+                            aLg = this.eiV.aLg();
+                            pbModel5.on(aLg);
                             return;
                         }
                         return;
                     case 2:
-                        z = this.eah.dYU;
+                        z = this.eiV.ehC;
                         if (z) {
-                            dcVar2 = this.eah.dYA;
-                            boolean hostMode = dcVar2.getHostMode();
-                            dcVar3 = this.eah.dYA;
-                            boolean aKl = dcVar3.aKl();
-                            dcVar4 = this.eah.dYA;
-                            String threadID = dcVar4.getThreadID();
+                            pbModel2 = this.eiV.ehh;
+                            boolean hostMode = pbModel2.getHostMode();
+                            pbModel3 = this.eiV.ehh;
+                            boolean aLY = pbModel3.aLY();
+                            pbModel4 = this.eiV.ehh;
+                            String threadID = pbModel4.getThreadID();
                             String str = aVar.postId;
-                            int i2 = aVar.ejO;
-                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.eah.getPageContext().getPageActivity());
-                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, aKl, null);
+                            int i2 = aVar.esY;
+                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.eiV.getPageContext().getPageActivity());
+                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, aLY, null);
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-                            this.eah.dZq = false;
-                            this.eah.finish();
+                            this.eiV.eib = false;
+                            this.eiV.finish();
                             return;
                         }
-                        int i3 = aVar.ejO;
-                        dcVar = this.eah.dYA;
-                        if (dcVar.getHostMode()) {
+                        int i3 = aVar.esY;
+                        pbModel = this.eiV.ehh;
+                        if (pbModel.getHostMode()) {
                             i = i3 + 3;
                         } else {
                             i = i3 + 2;
                         }
-                        erVar = this.eah.dZk;
-                        erVar.Pv().setSelection(i);
+                        ezVar = this.eiV.ehV;
+                        ezVar.getListView().setSelection(i);
                         return;
                     default:
                         return;

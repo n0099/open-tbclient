@@ -1,19 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.BitmapDrawable;
+import android.text.style.ImageSpan;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fDQ;
+class af implements TbFaceManager.a {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(WriteActivity writeActivity) {
-        this.fDQ = writeActivity;
+        this.fMl = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.fDQ.bbL();
-        this.fDQ.bmF();
+    @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
+    public ImageSpan fQ(String str) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.a.a.class);
+        com.baidu.adp.widget.a.a aVar = runTask != null ? (com.baidu.adp.widget.a.a) runTask.getData() : null;
+        if (aVar == null) {
+            return null;
+        }
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.jT());
+        int width = aVar.getWidth();
+        bitmapDrawable.setBounds(0, 0, width, width);
+        bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
+        return new ImageSpan(bitmapDrawable, 0);
     }
 }

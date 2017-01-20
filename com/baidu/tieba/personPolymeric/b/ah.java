@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements View.OnClickListener {
-    final /* synthetic */ af etV;
+    final /* synthetic */ af eDP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(af afVar) {
-        this.etV = afVar;
+        this.eDP = afVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,32 +30,32 @@ public class ah implements View.OnClickListener {
         boolean isUseSingleGod;
         TbPageContext tbPageContext3;
         if (view != null) {
-            if (view.getId() == r.g.attention_btn) {
-                tbPageContext2 = this.etV.Gf;
-                if (bh.ai(tbPageContext2.getPageActivity())) {
-                    TiebaStatic.log(new at("c11592"));
-                    userData = this.etV.mUserData;
+            if (view.getId() == r.h.attention_btn) {
+                tbPageContext2 = this.eDP.Fp;
+                if (bf.ak(tbPageContext2.getPageActivity())) {
+                    TiebaStatic.log(new ar("c11592"));
+                    userData = this.eDP.mUserData;
                     if (userData != null) {
-                        aVar = this.etV.dJo;
-                        z = this.etV.mIsLiked;
+                        aVar = this.eDP.dSm;
+                        z = this.eDP.mIsLiked;
                         boolean z2 = !z;
-                        userData2 = this.etV.mUserData;
+                        userData2 = this.eDP.mUserData;
                         String portrait = userData2.getPortrait();
-                        userData3 = this.etV.mUserData;
+                        userData3 = this.eDP.mUserData;
                         String userId = userData3.getUserId();
-                        af afVar = this.etV;
-                        userData4 = this.etV.mUserData;
+                        af afVar = this.eDP;
+                        userData4 = this.eDP.mUserData;
                         isUseSingleGod = afVar.isUseSingleGod(userData4);
-                        tbPageContext3 = this.etV.Gf;
+                        tbPageContext3 = this.eDP.Fp;
                         aVar.a(z2, portrait, userId, isUseSingleGod, tbPageContext3.getUniqueId());
                     }
                 }
-            } else if (view.getId() == r.g.chat_btn) {
-                tbPageContext = this.etV.Gf;
-                if (!bh.ai(tbPageContext.getPageActivity())) {
+            } else if (view.getId() == r.h.chat_btn) {
+                tbPageContext = this.eDP.Fp;
+                if (!bf.ak(tbPageContext.getPageActivity())) {
                     return;
                 }
-                this.etV.aEi();
+                this.eDP.aFV();
             }
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.memorycache.b;
@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
 /* loaded from: classes.dex */
-public class AddMsgRecordModel extends e {
-    @Override // com.baidu.adp.base.e
+public class AddMsgRecordModel extends BdBaseModel {
+    @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
     }
@@ -44,9 +44,9 @@ public class AddMsgRecordModel extends e {
 
     private List<MsgRecord> getMsgRecords() {
         ArrayList arrayList = null;
-        List<ImMessageCenterPojo> arP = b.arI().arP();
-        if (arP != null && arP.size() != 0) {
-            for (ImMessageCenterPojo imMessageCenterPojo : arP) {
+        List<ImMessageCenterPojo> asV = b.asO().asV();
+        if (asV != null && asV.size() != 0) {
+            for (ImMessageCenterPojo imMessageCenterPojo : asV) {
                 String taskId = imMessageCenterPojo.getTaskId();
                 if (taskId != null && taskId.length() != 0 && !"0".equals(taskId)) {
                     ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;

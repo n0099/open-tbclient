@@ -1,67 +1,39 @@
 package com.baidu.tieba.play;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.provider.Settings;
-import com.baidu.tieba.play.ap;
+import android.net.Uri;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.net.InetAddress;
 /* loaded from: classes.dex */
-public class am {
-    private SensorManager eJH;
-    private y eJI;
-    private Sensor eJJ;
-    private ap eJM;
-    private Activity mActivity;
-    private boolean eJK = false;
-    private boolean eJL = false;
-    private boolean eJN = false;
-    private boolean eJO = false;
-    private Handler mHandler = new an(this);
-    private ap.a eJP = new ao(this);
+class am extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ aj eTa;
 
-    public void aWe() {
-        if (this.mActivity != null) {
-            if (this.mActivity.getRequestedOrientation() == 1) {
-                this.mActivity.setRequestedOrientation(0);
-                this.eJK = true;
-                return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public am(aj ajVar) {
+        this.eTa = ajVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        String str;
+        String str2;
+        str = this.eTa.eSS;
+        if (!com.baidu.tbadk.core.util.at.isEmpty(str)) {
+            str2 = this.eTa.eSS;
+            Uri parse = Uri.parse(str2);
+            if (parse != null) {
+                try {
+                    InetAddress byName = InetAddress.getByName(parse.getHost());
+                    this.eTa.tH = byName.getHostAddress();
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
-            this.mActivity.setRequestedOrientation(1);
-            this.eJL = true;
+            return null;
         }
-    }
-
-    public am(Activity activity) {
-        if (activity != null) {
-            this.mActivity = activity;
-            this.eJH = (SensorManager) activity.getSystemService("sensor");
-            this.eJJ = this.eJH.getDefaultSensor(1);
-            this.eJI = new y(this.mHandler);
-            this.mActivity.setRequestedOrientation(1);
-            this.eJM = new ap(this.mActivity, this.mHandler);
-            this.eJM.a(this.eJP);
-            this.mActivity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), false, this.eJM);
-        }
-    }
-
-    public void start() {
-        if (this.eJH != null) {
-            this.eJH.registerListener(this.eJI, this.eJJ, 2);
-        }
-    }
-
-    public void stop() {
-        if (this.eJH != null) {
-            this.eJH.unregisterListener(this.eJI);
-        }
-        this.mHandler.removeCallbacksAndMessages(null);
-        if (this.mActivity != null) {
-            this.mActivity.getContentResolver().unregisterContentObserver(this.eJM);
-        }
-    }
-
-    public void kj(boolean z) {
-        this.eJO = z;
+        return null;
     }
 }

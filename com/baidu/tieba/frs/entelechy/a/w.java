@@ -5,47 +5,41 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.card.cb;
-import com.baidu.tieba.frs.entelechy.view.bb;
-import com.baidu.tieba.play.ax;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.cd;
+import com.baidu.tieba.card.cf;
+import com.baidu.tieba.play.bb;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.widget.ListView.a<bg, a<com.baidu.tieba.frs.entelechy.view.x>> implements bb, com.baidu.tieba.frs.g.e {
-    public static int bFs = 5;
-    public static int bFt = 10;
-    public static int bFu = 15;
-    private TbPageContext<?> GO;
-    private cb<bg> bES;
+public class w extends com.baidu.adp.widget.ListView.a<bh, a<com.baidu.tieba.frs.entelechy.view.x>> implements cd, com.baidu.tieba.frs.e.e {
+    public static int bLK = 5;
+    public static int bLL = 10;
+    public static int bLM = 15;
+    private TbPageContext<?> FY;
+    private cf<bh> bLl;
     private String forumName;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
-    @Override // com.baidu.adp.widget.ListView.a
-    protected /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, bg bgVar, a<com.baidu.tieba.frs.entelechy.view.x> aVar) {
-        return a2(i, view, viewGroup, bgVar, (a) aVar);
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(bg bgVar, String str) {
-        if (bgVar != null) {
-            int sE = bgVar.sE();
-            at atVar = new at(str);
-            atVar.ab("obj_locate", hp(sE));
-            atVar.ab("tid", bgVar.getTid());
-            atVar.s("obj_type", 2);
-            TiebaStatic.log(atVar);
+    public void a(bh bhVar, String str) {
+        if (bhVar != null) {
+            int sw = bhVar.sw();
+            ar arVar = new ar(str);
+            arVar.ab("obj_locate", ib(sw));
+            arVar.ab("tid", bhVar.getTid());
+            arVar.s("obj_type", 2);
+            TiebaStatic.log(arVar);
         }
     }
 
-    private String hp(int i) {
-        if (i == bFs) {
+    private String ib(int i) {
+        if (i == bLK) {
             return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
         }
-        if (i == bFt) {
+        if (i == bLL) {
             return "10";
         }
-        if (i != bFu) {
+        if (i != bLM) {
             return "";
         }
         return "11";
@@ -54,45 +48,54 @@ public class w extends com.baidu.adp.widget.ListView.a<bg, a<com.baidu.tieba.frs
     /* JADX INFO: Access modifiers changed from: protected */
     public w(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bES = new x(this);
-        this.GO = tbPageContext;
+        this.bLl = new x(this);
+        this.FY = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: w */
-    public a a(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.x xVar = new com.baidu.tieba.frs.entelechy.view.x(this.GO);
-        xVar.j(this.GO.getUniqueId());
+    /* renamed from: y */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        com.baidu.tieba.frs.entelechy.view.x xVar = new com.baidu.tieba.frs.entelechy.view.x(this.FY);
+        xVar.j(this.FY.getUniqueId());
         xVar.setForumName(this.forumName);
         return new a(xVar);
     }
 
-    private ax j(bg bgVar) {
-        if (bgVar == null) {
-            return null;
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0039: IGET  (r2v1 long A[REMOVE]) = 
+      (wrap: com.baidu.tbadk.core.data.bo : 0x0035: INVOKE  (r2v0 com.baidu.tbadk.core.data.bo A[REMOVE]) = (r6v0 com.baidu.tbadk.core.data.bh) type: VIRTUAL call: com.baidu.tbadk.core.data.bh.sz():com.baidu.tbadk.core.data.bo)
+     com.baidu.tbadk.core.data.bo.channelId long)] */
+    private bb j(bh bhVar) {
+        bb bbVar = null;
+        if (bhVar != null) {
+            bbVar = new bb();
+            bbVar.mLocate = ib(bhVar.sw());
+            bbVar.bjT = bTj.bTb;
+            bbVar.bjS = bhVar.getTid();
+            if (bhVar.sz() != null && bhVar.sz().channelId > 0) {
+                bbVar.Ql = new StringBuilder().append(bhVar.sz().channelId).toString();
+            }
+            bhVar.st();
         }
-        ax axVar = new ax();
-        axVar.mLocate = hp(bgVar.sE());
-        axVar.aRe = bMV.bMN;
-        axVar.aRf = bgVar.getTid();
-        bgVar.sB();
-        return axVar;
+        return bbVar;
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    protected View a2(int i, View view, ViewGroup viewGroup, bg bgVar, a aVar) {
-        if (aVar == null || aVar.Po() == null) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bh bhVar, a aVar) {
+        if (aVar == null || aVar.Sd() == null) {
             return null;
         }
-        aVar.Po().a(j(bgVar));
-        aVar.Po().onBindDataToView(bgVar);
-        aVar.Po().setOnSubCardOnClickListenner(this.bES);
+        aVar.Sd().a(j(bhVar));
+        aVar.Sd().onBindDataToView(bhVar);
+        aVar.Sd().setOnSubCardOnClickListenner(this.bLl);
         return aVar.getView();
     }
 
-    @Override // com.baidu.tieba.frs.entelechy.view.bb
+    @Override // com.baidu.tieba.card.cd
     public void setForumName(String str) {
         this.forumName = str;
     }

@@ -1,73 +1,43 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.card.ah;
-import com.baidu.tieba.card.bz;
-import com.baidu.tieba.card.cb;
-import com.baidu.tieba.play.ax;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.o, d<ah>> {
-    private TbPageContext<?> GO;
-    private cb bFl;
-    public BdUniqueId bbl;
-    private com.baidu.tieba.homepage.personalize.c.f cqS;
-    private ah cqU;
+public class i implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.layout.c> {
+    final /* synthetic */ g cxY;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
-    @Override // com.baidu.adp.widget.ListView.a
-    protected /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, d<ah> dVar) {
-        return a2(i, view, viewGroup, oVar, (d) dVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bFl = new j(this);
-        this.GO = tbPageContext;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(g gVar) {
+        this.cxY = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
-    public d a(ViewGroup viewGroup) {
-        this.cqU = new ah(this.GO);
-        this.cqU.j(this.bbl);
-        return new d(this.cqU);
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: aac */
+    public com.baidu.tbadk.widget.layout.c ex() {
+        TbPageContext tbPageContext;
+        tbPageContext = this.cxY.FY;
+        return new com.baidu.tbadk.widget.layout.c(tbPageContext.getPageActivity());
     }
 
-    private ax b(com.baidu.tieba.card.data.o oVar) {
-        ax axVar = null;
-        if (oVar != null) {
-            axVar = new ax();
-            axVar.mLocate = "1";
-            axVar.aRf = oVar.Ty;
-            if (oVar.IU() != null) {
-                axVar.aRe = String.valueOf(oVar.IU().getFid());
-            }
-        }
-        return axVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public void o(com.baidu.tbadk.widget.layout.c cVar) {
+        cVar.removeAllViews();
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.o oVar, d dVar) {
-        if (oVar != null) {
-            oVar.gj(i + 1);
-        }
-        dVar.Po().a(b(oVar));
-        dVar.Po().onBindDataToView(oVar);
-        dVar.Po().setOnSubCardOnClickListenner(this.bFl);
-        if (oVar.beB != null && oVar.beB.getTid() != null) {
-            bz.OH().a(new at("c11003").ab("tid", oVar.beB.getTid()));
-        }
-        return dVar.getView();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public com.baidu.tbadk.widget.layout.c p(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
     }
 
-    public void a(com.baidu.tieba.homepage.personalize.c.f fVar) {
-        this.cqS = fVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: e */
+    public com.baidu.tbadk.widget.layout.c q(com.baidu.tbadk.widget.layout.c cVar) {
+        return cVar;
     }
 }

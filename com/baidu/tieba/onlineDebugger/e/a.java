@@ -10,43 +10,43 @@ import java.util.List;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class a {
-    private Class<?> dSP;
-    private Stack<com.baidu.tieba.onlineDebugger.a.b> dSQ;
-    private String dSR;
+    private Class<?> ebI;
+    private Stack<com.baidu.tieba.onlineDebugger.a.b> ebJ;
+    private String ebK;
 
-    public void nx(String str) {
-        this.dSR = str;
-        String[] ny = ny(str);
-        if (ny == null || ny.length != 2) {
+    public void nO(String str) {
+        this.ebK = str;
+        String[] nP = nP(str);
+        if (nP == null || nP.length != 2) {
             throw new RuntimeException("anaylze class name return error");
         }
-        this.dSP = com.baidu.tieba.onlineDebugger.c.a.findClass(ny[0]);
-        if (this.dSP == null) {
-            this.dSP = d.nk(ny[0]);
+        this.ebI = com.baidu.tieba.onlineDebugger.c.a.findClass(nP[0]);
+        if (this.ebI == null) {
+            this.ebI = d.nB(nP[0]);
         }
-        if (this.dSP == null) {
+        if (this.ebI == null) {
             throw new RuntimeException("cannot find class for command " + str);
         }
-        this.dSQ = new Stack<>();
-        List<String> nz = nz(ny[1]);
-        for (int size = nz.size() - 1; size >= 0; size--) {
-            this.dSQ.push(nB(nz.get(size)));
+        this.ebJ = new Stack<>();
+        List<String> nQ = nQ(nP[1]);
+        for (int size = nQ.size() - 1; size >= 0; size--) {
+            this.ebJ.push(nS(nQ.get(size)));
         }
     }
 
-    private String[] ny(String str) {
+    private String[] nP(String str) {
         if (str.startsWith("$")) {
             String[] strArr = new String[2];
             strArr[0] = LoopQueue.class.getName();
             int indexOf = str.indexOf(".");
             if (indexOf > 0) {
-                int g = com.baidu.adp.lib.h.b.g(str.substring(1, indexOf), -1);
+                int g = com.baidu.adp.lib.g.b.g(str.substring(1, indexOf), -1);
                 if (g >= 0) {
                     strArr[1] = "getInstance().get(" + g + ")" + str.substring(indexOf);
                     return strArr;
                 }
             } else {
-                int g2 = com.baidu.adp.lib.h.b.g(str.substring(1), -1);
+                int g2 = com.baidu.adp.lib.g.b.g(str.substring(1), -1);
                 if (g2 >= 0) {
                     strArr[1] = "getInstance().get(" + g2 + ")";
                     return strArr;
@@ -61,7 +61,7 @@ public class a {
         throw new RuntimeException("cannot find class");
     }
 
-    private List<String> nz(String str) {
+    private List<String> nQ(String str) {
         char[] charArray = str.toCharArray();
         ArrayList<String> arrayList = new ArrayList();
         int i = 0;
@@ -122,7 +122,7 @@ public class a {
         return cArr2;
     }
 
-    private String[] nA(String str) {
+    private String[] nR(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -174,7 +174,7 @@ public class a {
         return new String[]{str};
     }
 
-    private com.baidu.tieba.onlineDebugger.a.b nB(String str) {
+    private com.baidu.tieba.onlineDebugger.a.b nS(String str) {
         if (str != null) {
             int indexOf = str.indexOf(40);
             int lastIndexOf = str.lastIndexOf(41);
@@ -184,32 +184,32 @@ public class a {
                 String[] split = str.split("=");
                 if (split != null && split.length == 2) {
                     com.baidu.tieba.onlineDebugger.a.d dVar = new com.baidu.tieba.onlineDebugger.a.d();
-                    dVar.nl(split[0]);
-                    dVar.nn(split[1]);
+                    dVar.nC(split[0]);
+                    dVar.nE(split[1]);
                     return dVar;
                 }
                 throw new RuntimeException("parser action error " + str);
             } else if (z2) {
                 String substring = str.substring(0, indexOf);
-                String[] nA = nA(str.substring(indexOf + 1, lastIndexOf));
+                String[] nR = nR(str.substring(indexOf + 1, lastIndexOf));
                 c cVar = new c();
-                cVar.nm(substring);
-                cVar.A(nA);
+                cVar.nD(substring);
+                cVar.z(nR);
                 return cVar;
             } else {
                 com.baidu.tieba.onlineDebugger.a.a aVar = new com.baidu.tieba.onlineDebugger.a.a();
-                aVar.nl(str);
+                aVar.nC(str);
                 return aVar;
             }
         }
         return null;
     }
 
-    public Class<?> aHi() {
-        return this.dSP;
+    public Class<?> aIW() {
+        return this.ebI;
     }
 
-    public Stack<com.baidu.tieba.onlineDebugger.a.b> aHj() {
-        return this.dSQ;
+    public Stack<com.baidu.tieba.onlineDebugger.a.b> aIX() {
+        return this.ebJ;
     }
 }

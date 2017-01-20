@@ -1,25 +1,29 @@
 package com.baidu.tieba.tblauncher;
+
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import protobuf.ConfigVersion;
 /* loaded from: classes.dex */
-class m extends com.baidu.tbadk.pageStayDuration.b {
+class m extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean Fj() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public int Fk() {
-        return com.baidu.tbadk.pageStayDuration.e.Fp().Fr();
-    }
-
-    @Override // com.baidu.tbadk.pageStayDuration.b
-    public boolean a(com.baidu.tbadk.pageStayDuration.d dVar) {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+                return;
+            }
+            this.this$0.qX(configVersion.sync);
+        }
     }
 }

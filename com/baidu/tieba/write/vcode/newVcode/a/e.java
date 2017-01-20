@@ -6,11 +6,11 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ d fAl;
+    final /* synthetic */ d fIK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.fAl = dVar;
+        this.fIK = dVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,17 +21,17 @@ public class e implements Runnable {
         String str2;
         NewVcodeView newVcodeView3;
         NewVcodeView newVcodeView4;
-        newVcodeView = this.fAl.fAe;
+        newVcodeView = this.fIK.fIG;
         if (newVcodeView != null) {
-            str = this.fAl.fAj;
+            str = this.fIK.mErrorToastOnStart;
             if (StringUtils.isNull(str)) {
-                newVcodeView3 = this.fAl.fAe;
-                newVcodeView4 = this.fAl.fAe;
-                newVcodeView3.showToast(false, newVcodeView4.getContext().getResources().getString(r.j.drag_vcode_error));
+                newVcodeView3 = this.fIK.fIG;
+                newVcodeView4 = this.fIK.fIG;
+                newVcodeView3.showToast(false, newVcodeView4.getContext().getResources().getString(r.l.drag_vcode_error));
                 return;
             }
-            newVcodeView2 = this.fAl.fAe;
-            str2 = this.fAl.fAj;
+            newVcodeView2 = this.fIK.fIG;
+            str2 = this.fIK.mErrorToastOnStart;
             newVcodeView2.showToast(false, str2);
         }
     }

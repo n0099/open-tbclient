@@ -21,6 +21,8 @@ public class TbConfig {
     public static final int ADD_IMAGE_WATER_USER_NAME = 1;
     public static final String ADD_MY_GAME = "c/c/game/addmygamebatch";
     public static final String ADD_USER_BOOKMARK = "c/c/encourage/tbread/addUserBookMark";
+    public static final String ALA_GET_LIVE_LIST_URL = "c/f/video/AlaTab";
+    public static final String ALA_VERIFY_STRATEGY = "ala/sys/strategy";
     public static final String ALL_THEME_LIST_PAGE = "c/e/theme/getSkinList";
     public static final String APPLY_GAME_CARD = "c/u/game/applygamecard";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
@@ -50,6 +52,13 @@ public class TbConfig {
     public static final String CHANNEL_FILE = "channel.dat";
     public static final String CHECK_USER_BOOKMARK = "c/e/tbread/checkUserBookMark";
     public static final String CLEAR_LOCATION_INFO = "c/u/recent/hide_position";
+    public static final String CMD_CHANNEL_FOLLOW = "c/c/video/followChannel";
+    public static final String CMD_CHANNEL_GET_INFO = "c/f/video/getChannelInfo";
+    public static final String CMD_CHANNEL_REMOVE_VIDEO = "c/c/video/removeVideo";
+    public static final String CMD_CHANNEL_UNFOLLOW = "c/c/video/unfollowChannel";
+    public static final String CMD_CHANNEL_UPDATE_INFO = "c/c/video/updateChannelInfo";
+    public static final String CMD_CHANNEL_UPDATE_PUSH = "c/c/video/updateChannelPushSwitch";
+    public static final String CMD_CHANNEL_VIDEO_UNSET_TOP = "c/c/video/unsetTop";
     public static final String CMD_GET_BOOKRACK = "c/e/tbread/getBookrack";
     public static final String CMD_GET_BOOKS_BY_IDS = "c/e/tbread/getBooksByIds";
     public static final String CMD_GET_BOOK_COMMENT = "c/e/tbread/getBookComment";
@@ -57,6 +66,7 @@ public class TbConfig {
     public static final String CMD_GET_BOOK_SUMMARY = "c/e/tbread/getBookSummary";
     public static final String CMD_GET_CATEGORY_CARTOON = "c/e/cartoon/getCartoonCategoryList";
     public static final String CMD_SCREEN_LOCK_MESSAGE_MORE = "c/f/msg/getMoreMsg";
+    public static final String CMD_VIDEO_SET_TOP = "c/c/video/setTop";
     public static final String COMMIT_GOOD_ADDRESS = "c/c/bawu/commitgood";
     public static final String COMMIT_TOP_ADDRESS = "c/c/bawu/committop";
     public static final String COMMON_PRAISE_URL = "c/c/zan/like";
@@ -263,6 +273,7 @@ public class TbConfig {
     public static final int NOTIFY_REPLY_ME_ID = 24;
     public static final int NOTIFY_SIGN_ID = 12;
     public static final long NOTIFY_SOUND_INTERVAL = 5000;
+    public static final int NOTIFY_YUN_PUSH = 2500;
     public static final long ONE_DAY_TIME = 86400000;
     public static final String OP_BOOKRACK = "c/c/encourage/tbread/opBookrack";
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
@@ -312,6 +323,7 @@ public class TbConfig {
     public static final String REGISTER_ADDRESS = "c/m/register";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String REPORT_APPLIST = "https://als.baidu.com/device/logForC";
+    public static final String REPORT_PLOG = "https://als.baidu.com/elog/plog";
     public static final String SAVE_GAME_STATUS = "c/c/game/saveGameStatus";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
     public static final String SEND_BLESS = "c/b/commit/sendBless";

@@ -1,15 +1,15 @@
 package com.baidu.tbadk.widget.pulltorefresh.library;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ PullToRefreshBase aHq;
+    final /* synthetic */ PullToRefreshBase aGf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PullToRefreshBase pullToRefreshBase) {
-        this.aHq = pullToRefreshBase;
+        this.aGf = pullToRefreshBase;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aHq.requestLayout();
+        this.aGf.requestLayout();
     }
 }

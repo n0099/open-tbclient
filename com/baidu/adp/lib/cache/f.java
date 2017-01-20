@@ -6,16 +6,16 @@ public interface f {
     public interface a extends f {
         String d(h<?> hVar);
 
-        void dv();
+        void dt();
 
-        void dw();
+        void du();
     }
 
     /* loaded from: classes.dex */
     public interface b extends f {
-        void dx();
+        void dv();
 
-        void dy();
+        void dw();
 
         String e(h<?> hVar);
 
@@ -24,7 +24,7 @@ public interface f {
         void release();
     }
 
-    boolean du();
+    boolean ds();
 
     int getMaxSize();
 }

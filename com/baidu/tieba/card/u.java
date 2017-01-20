@@ -1,31 +1,23 @@
 package com.baidu.tieba.card;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends Handler {
-    final /* synthetic */ t bcw;
+public class u implements View.OnClickListener {
+    final /* synthetic */ t blS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(t tVar, Looper looper) {
-        super(looper);
-        this.bcw = tVar;
+    public u(t tVar) {
+        this.blS = tVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case 202:
-                this.bcw.JP();
-                return;
-            case 203:
-                this.bcw.JQ();
-                return;
-            default:
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.card.data.m mVar;
+        if (this.blS.getOnSubCardOnClickListenner() != null) {
+            cf<com.baidu.tieba.card.data.m> onSubCardOnClickListenner = this.blS.getOnSubCardOnClickListenner();
+            mVar = this.blS.blL;
+            onSubCardOnClickListenner.a(view, mVar);
         }
     }
 }

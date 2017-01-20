@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as fIG;
+    final /* synthetic */ as fQZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.fIG = asVar;
+        this.fQZ = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.fIG.a = asInterface.getPackageName();
-            this.fIG.b = asInterface.getActivityName();
-            if (!this.fIG.startSingleSignOn()) {
-                this.fIG.startAuthDialog();
+            this.fQZ.a = asInterface.getPackageName();
+            this.fQZ.b = asInterface.getActivityName();
+            if (!this.fQZ.startSingleSignOn()) {
+                this.fQZ.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.fIG.startAuthDialog();
+            this.fQZ.startAuthDialog();
         } finally {
-            Context applicationContext = this.fIG.mActivity.getApplicationContext();
-            serviceConnection = this.fIG.fIF;
+            Context applicationContext = this.fQZ.mActivity.getApplicationContext();
+            serviceConnection = this.fQZ.fQY;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.fIG.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.fQZ.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.fIG.startAuthDialog();
+            this.fQZ.startAuthDialog();
         }
     }
 }

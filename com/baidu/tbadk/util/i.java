@@ -6,9 +6,9 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class i {
-    public static final boolean Gv() {
+    public static final boolean Gn() {
         int i = 0;
-        Object d = com.baidu.adp.lib.a.a.a.d(Looper.myQueue(), "mMessages");
+        Object d = com.baidu.adp.lib.OrmObject.a.a.d(Looper.myQueue(), "mMessages");
         if (d == null || !(d instanceof Message)) {
             return false;
         }
@@ -17,7 +17,7 @@ public class i {
         while (message != null && message.obj != null && !z && i < 10) {
             i++;
             boolean l = l(message);
-            Object d2 = com.baidu.adp.lib.a.a.a.d(message, "next");
+            Object d2 = com.baidu.adp.lib.OrmObject.a.a.d(message, "next");
             if (d2 != null && (d2 instanceof Message)) {
                 message = (Message) d2;
                 z = l;
@@ -36,6 +36,6 @@ public class i {
             return false;
         }
         Object obj = message.obj;
-        return (obj == null || (d = com.baidu.adp.lib.a.a.a.d(obj, "intent")) == null || !(d instanceof Intent) || (component = ((Intent) d).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
+        return (obj == null || (d = com.baidu.adp.lib.OrmObject.a.a.d(obj, "intent")) == null || !(d instanceof Intent) || (component = ((Intent) d).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 }

@@ -8,32 +8,32 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class aa {
-    private static String aCE = "tb_perfor_samllflow_time";
-    private static volatile aa aCH;
-    private long aCG;
-    private boolean aCC = false;
-    private long aCF = 86400;
-    private long aCD = com.baidu.tbadk.core.sharedPref.b.tW().getLong(aCE, 0);
+    private static String aBw = "tb_perfor_samllflow_time";
+    private static volatile aa aBz;
+    private long aBy;
+    private boolean aBu = false;
+    private long aBx = 86400;
+    private long aBv = com.baidu.tbadk.core.sharedPref.b.tQ().getLong(aBw, 0);
 
-    public static aa FU() {
-        if (aCH == null) {
+    public static aa FO() {
+        if (aBz == null) {
             synchronized (aa.class) {
-                if (aCH == null) {
-                    aCH = new aa();
+                if (aBz == null) {
+                    aBz = new aa();
                 }
             }
         }
-        return aCH;
+        return aBz;
     }
 
     private aa() {
-        this.aCG = 0L;
-        this.aCG = this.aCF;
+        this.aBy = 0L;
+        this.aBy = this.aBx;
     }
 
-    public boolean FV() {
-        if (!this.aCC || (System.currentTimeMillis() - this.aCD) / 1000 <= this.aCG) {
-            return this.aCC;
+    public boolean FP() {
+        if (!this.aBu || (System.currentTimeMillis() - this.aBv) / 1000 <= this.aBy) {
+            return this.aBu;
         }
         return false;
     }
@@ -41,21 +41,21 @@ public class aa {
     public void bW(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aCD || currentTimeMillis - this.aCD >= this.aCG) {
-                this.aCD = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.tW().putLong(aCE, this.aCD);
+            if (0 == this.aBv || currentTimeMillis - this.aBv >= this.aBy) {
+                this.aBv = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.tQ().putLong(aBw, this.aBv);
             }
         } else {
-            this.aCD = 0L;
-            com.baidu.tbadk.core.sharedPref.b.tW().putLong(aCE, this.aCD);
+            this.aBv = 0L;
+            com.baidu.tbadk.core.sharedPref.b.tQ().putLong(aBw, this.aBv);
         }
-        this.aCC = z;
-        if (com.baidu.adp.lib.stats.a.eI().eP()) {
-            ab.Ga().Gb();
+        this.aBu = z;
+        if (com.baidu.adp.lib.stats.a.eG().eN()) {
+            ab.FU().FV();
         }
     }
 
-    public String FW() {
+    public String FQ() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -69,7 +69,7 @@ public class aa {
         }
     }
 
-    public final String FX() {
+    public final String FR() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -85,25 +85,25 @@ public class aa {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.gm()) {
+        if (!com.baidu.adp.lib.util.i.gk()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.gn()) {
+        if (com.baidu.adp.lib.util.i.gl()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.gp()) {
+        if (com.baidu.adp.lib.util.i.gn()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.gq()) {
+        if (com.baidu.adp.lib.util.i.go()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.gr()) {
+        if (!com.baidu.adp.lib.util.i.gp()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fh(int i) {
+    public static String fi(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -116,8 +116,8 @@ public class aa {
         return "WIFI";
     }
 
-    public z fi(int i) {
-        if (FV()) {
+    public z fj(int i) {
+        if (FP()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
@@ -150,28 +150,28 @@ public class aa {
         return null;
     }
 
-    public void Q(long j) {
+    public void P(long j) {
         if (j > 0) {
-            this.aCG = j;
+            this.aBy = j;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x001e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x001e */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0061, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:81:0x001f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:82:0x001f */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0062, code lost:
         r0 = r6[2].trim();
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0031  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a0 A[Catch: Exception -> 0x00a6, TRY_LEAVE, TryCatch #3 {Exception -> 0x00a6, blocks: (B:44:0x009b, B:46:0x00a0), top: B:63:0x009b }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x009b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a1 A[Catch: Exception -> 0x00a7, TRY_LEAVE, TryCatch #1 {Exception -> 0x00a7, blocks: (B:44:0x009c, B:46:0x00a1), top: B:63:0x009c }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v4 */
     /* JADX WARN: Type inference failed for: r2v6 */
     /* JADX WARN: Type inference failed for: r2v7, types: [java.lang.String] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int FY() {
+    public int FS() {
         BufferedReader bufferedReader;
         Process process;
         String str;
@@ -226,7 +226,7 @@ public class aa {
                             }
                             if (str2 != null) {
                             }
-                            return com.baidu.adp.lib.h.b.g(str2, -1);
+                            return com.baidu.adp.lib.g.b.g(str2, -1);
                         } catch (Throwable th) {
                             th = th;
                             process = process2;
@@ -284,6 +284,6 @@ public class aa {
                 str2 = split2[0];
             }
         }
-        return com.baidu.adp.lib.h.b.g(str2, -1);
+        return com.baidu.adp.lib.g.b.g(str2, -1);
     }
 }

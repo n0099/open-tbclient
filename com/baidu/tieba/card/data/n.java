@@ -1,70 +1,117 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.card.ap;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.w;
 /* loaded from: classes.dex */
 public class n extends c {
+    public bh threadData;
+    public static String boh = "";
+    public static String boi = "";
+    public static String boj = "";
+    public static String bok = "";
+    public static String bol = "";
+    public static String bom = "";
+    public static String bon = "";
+    public static String boo = "";
+    public static String bop = "";
+    public static String boq = "";
+    public static String bor = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bg beB;
-    private at beC;
-    private at beD;
-    private at beE;
-    private at beF;
+    public static final BdUniqueId bos = BdUniqueId.gen();
+    public boolean bot = false;
+    public boolean bou = false;
+    public boolean auD = true;
+
+    public static boolean n(bh bhVar) {
+        if (bhVar == null) {
+            return false;
+        }
+        return bhVar.getType() == bh.Sx || bhVar.getType() == bh.Sy;
+    }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
+        if (this.threadData == null) {
+            return TYPE;
+        }
+        if (this.bot) {
+            return bos;
+        }
         return TYPE;
     }
 
-    public n(bg bgVar) {
-        this.beB = bgVar;
-    }
-
-    public static boolean l(bg bgVar) {
-        return bgVar != null && bgVar.getThreadType() == 33;
-    }
-
     @Override // com.baidu.tieba.card.data.c
-    public bg IU() {
-        return this.beB;
+    public bh Ji() {
+        return this.threadData;
     }
 
-    public int Pf() {
-        return (this.beB == null || StringUtils.isNull(this.beB.getPhotoLiveCover())) ? 0 : 1;
+    public boolean RO() {
+        return (this.threadData == null || w.r(this.threadData.rK()) == 0) ? false : true;
     }
 
-    public void b(at atVar) {
-        this.beC = atVar;
+    public ar RP() {
+        if (RO()) {
+            return ik(bom);
+        }
+        ar ik = ik(boh);
+        if (ik != null) {
+            ik.ab("ab_tag", RB()).ab("ab_action", "show");
+            return ik;
+        }
+        return ik;
     }
 
-    public void c(at atVar) {
-        this.beD = atVar;
+    public ar RQ() {
+        if (RO()) {
+            return ik(bon);
+        }
+        ar ik = ik(boi);
+        if (ik != null) {
+            ik.ab("ab_tag", RB()).ab("ab_action", "click");
+            return ik;
+        }
+        return ik;
     }
 
-    public void d(at atVar) {
-        this.beE = atVar;
+    public ar RR() {
+        if (RO()) {
+            return ik(boo);
+        }
+        ar ik = ik(boj);
+        if (ik != null) {
+            ik.ab("ab_tag", RB()).ab("ab_action", "click");
+            return ik;
+        }
+        return ik;
     }
 
-    public void e(at atVar) {
-        this.beF = atVar;
+    public ar RS() {
+        if (RO()) {
+            return ik(bop);
+        }
+        ar ik = ik(bok);
+        if (ik != null) {
+            ik.ab("ab_tag", RB()).ab("ab_action", "click");
+            return ik;
+        }
+        return ik;
     }
 
-    public at Pg() {
-        return this.beC != null ? this.beC.ab("obj_param3", ap.OA()) : this.beC;
+    public ar RT() {
+        if (RO()) {
+            return ik(boq);
+        }
+        ar ik = ik(bol);
+        if (ik != null) {
+            ik.ab("ab_tag", RB()).ab("ab_action", "click");
+            return ik;
+        }
+        return ik;
     }
 
-    public at Ph() {
-        return this.beD != null ? this.beD.ab("obj_param3", ap.OA()) : this.beD;
-    }
-
-    public at Pi() {
-        return this.beF != null ? this.beF.ab("obj_param3", ap.OA()) : this.beF;
-    }
-
-    public at Pj() {
-        return this.beE != null ? this.beE.ab("obj_param3", ap.OA()) : this.beE;
+    public ar RU() {
+        return ik(bor);
     }
 }

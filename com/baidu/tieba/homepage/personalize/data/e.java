@@ -2,23 +2,23 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.data.k;
-import com.baidu.tieba.card.data.s;
+import com.baidu.tieba.card.data.t;
 import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes.dex */
-public class e extends j implements s {
-    private CardGod crR;
+public class e extends j implements t {
+    private CardGod cyX;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.crR = cardGod;
-            this.mGroupTitle = this.crR.card_title;
-            if (!x.t(this.crR.gods)) {
+            this.cyX = cardGod;
+            this.mGroupTitle = this.cyX.card_title;
+            if (!w.s(this.cyX.gods)) {
                 int i = 0;
-                for (User user : this.crR.gods) {
+                for (User user : this.cyX.gods) {
                     if (i != 10) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(user);
@@ -36,30 +36,30 @@ public class e extends j implements s {
         }
     }
 
-    public boolean pj() {
-        return x.s(getDataList()) > 2;
+    public boolean pc() {
+        return w.r(getDataList()) > 2;
     }
 
-    @Override // com.baidu.tieba.card.data.s
+    @Override // com.baidu.tieba.card.data.t
     public int getPosition() {
-        if (this.crR == null || this.crR.position == null) {
+        if (this.cyX == null || this.cyX.position == null) {
             return 0;
         }
-        return this.crR.position.intValue();
+        return this.cyX.position.intValue();
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public boolean OO() {
+    @Override // com.baidu.tieba.card.data.t
+    public boolean RE() {
         return true;
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public void cA(boolean z) {
+    @Override // com.baidu.tieba.card.data.t
+    public void cP(boolean z) {
         this.showTopDivider = z;
     }
 
-    @Override // com.baidu.tieba.card.data.s
-    public void cB(boolean z) {
+    @Override // com.baidu.tieba.card.data.t
+    public void cQ(boolean z) {
         this.showBottomDivider = z;
     }
 }

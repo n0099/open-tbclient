@@ -6,25 +6,25 @@ import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ b fjo;
-    private final /* synthetic */ RandomAccessFile fjp;
-    private final /* synthetic */ ArrayList fjq;
-    private final /* synthetic */ int fjr;
-    private final /* synthetic */ int fjs;
-    private final /* synthetic */ String fjt;
-    private final /* synthetic */ int fju;
-    private final /* synthetic */ CountDownLatch fjv;
+    final /* synthetic */ b fsA;
+    private final /* synthetic */ RandomAccessFile fsB;
+    private final /* synthetic */ ArrayList fsC;
+    private final /* synthetic */ int fsD;
+    private final /* synthetic */ int fsE;
+    private final /* synthetic */ String fsF;
+    private final /* synthetic */ int fsG;
+    private final /* synthetic */ CountDownLatch fsH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
-        this.fjo = bVar;
-        this.fjp = randomAccessFile;
-        this.fjq = arrayList;
-        this.fjr = i;
-        this.fjs = i2;
-        this.fjt = str;
-        this.fju = i3;
-        this.fjv = countDownLatch;
+        this.fsA = bVar;
+        this.fsB = randomAccessFile;
+        this.fsC = arrayList;
+        this.fsD = i;
+        this.fsE = i2;
+        this.fsF = str;
+        this.fsG = i3;
+        this.fsH = countDownLatch;
     }
 
     @Override // java.lang.Runnable
@@ -34,27 +34,27 @@ class d implements Runnable {
         f fVar;
         f fVar2;
         f fVar3;
-        f a = this.fjo.a(this.fjp, ((Integer) this.fjq.get(this.fjr)).intValue(), this.fjs, this.fjt);
+        f a = this.fsA.a(this.fsB, ((Integer) this.fsC.get(this.fsD)).intValue(), this.fsE, this.fsF);
         if (a != null) {
             if (a.errorNo != 0) {
-                fVar2 = this.fjo.fjm;
+                fVar2 = this.fsA.fsy;
                 fVar2.errorNo = a.errorNo;
-                fVar3 = this.fjo.fjm;
+                fVar3 = this.fsA.fsy;
                 fVar3.errorMessage = a.errorMessage;
             }
             if (!StringUtils.isNull(a.videoUrl)) {
-                fVar = this.fjo.fjm;
+                fVar = this.fsA.fsy;
                 fVar.videoUrl = a.videoUrl;
             }
-            synchronized (this.fjo) {
-                b bVar = this.fjo;
-                i = bVar.dfQ;
-                bVar.dfQ = i + 1;
-                b bVar2 = this.fjo;
-                i2 = this.fjo.dfQ;
-                bVar2.rw((int) (30.0f + ((50.0f * i2) / this.fju)));
+            synchronized (this.fsA) {
+                b bVar = this.fsA;
+                i = bVar.dmZ;
+                bVar.dmZ = i + 1;
+                b bVar2 = this.fsA;
+                i2 = this.fsA.dmZ;
+                bVar2.sh((int) (30.0f + ((50.0f * i2) / this.fsG)));
             }
         }
-        this.fjv.countDown();
+        this.fsH.countDown();
     }
 }

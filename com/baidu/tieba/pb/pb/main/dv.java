@@ -1,40 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-public class dv extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ dq edg;
-    private final /* synthetic */ dw edi;
-    private final /* synthetic */ String val$url;
+public class dv extends com.baidu.tieba.tbadkCore.data.p {
+    public static final BdUniqueId elT = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.aq elU;
+    public com.baidu.tbadk.core.data.aq elV;
+    public com.baidu.tbadk.core.data.aq elW;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dv(dq dqVar, dw dwVar, String str) {
-        this.edg = dqVar;
-        this.edi = dwVar;
-        this.val$url = str;
+    @Override // com.baidu.tieba.tbadkCore.data.p, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return elT;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        if (aVar == null) {
-            this.edi.edz.setVisibility(8);
-            this.edi.edA.setVisibility(8);
-        } else if (aVar.cY()) {
-            com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
-            aVar2.axE = this.val$url;
-            aVar2.axC = this.val$url;
-            this.edi.edA.setVisibility(0);
-            this.edi.edz.setVisibility(8);
-            this.edi.edA.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.edi.edA.a(aVar2);
-        } else {
-            this.edi.edA.setVisibility(8);
-            this.edi.edz.setVisibility(0);
-            this.edi.edz.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.edi.edz.c(this.val$url, 17, false);
+    public boolean hasData() {
+        if (this.elU == null || StringUtils.isNull(this.elU.summary)) {
+            if (this.elV == null || StringUtils.isNull(this.elV.summary)) {
+                return (this.elW == null || StringUtils.isNull(this.elW.summary)) ? false : true;
+            }
+            return true;
         }
+        return true;
     }
 }

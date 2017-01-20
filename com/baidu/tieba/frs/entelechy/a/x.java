@@ -1,39 +1,39 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tieba.card.cb;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tieba.card.cf;
 import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends cb<bg> {
-    final /* synthetic */ w bFv;
+public class x extends cf<bh> {
+    final /* synthetic */ w bLN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.bFv = wVar;
+        this.bLN = wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.cb
-    public void a(View view, bg bgVar) {
-        if (view != null && bgVar != null) {
-            if (view.getId() != r.g.frame_video) {
-                if (view.getId() != r.g.layout_root) {
-                    if (view.getId() != r.g.image_user && view.getId() != r.g.user_name && view.getId() != r.g.pendant_image_user) {
-                        if (view.getId() == r.g.card_divider_tv) {
-                            com.baidu.tieba.frs.utils.s.a(w.bMV, bgVar.sc());
+    @Override // com.baidu.tieba.card.cf
+    public void a(View view, bh bhVar) {
+        if (view != null && bhVar != null) {
+            if (view.getId() != r.h.frame_video) {
+                if (view.getId() != r.h.layout_root) {
+                    if (view.getId() != r.h.image_user && view.getId() != r.h.user_name && view.getId() != r.h.pendant_image_user) {
+                        if (view.getId() == r.h.card_divider_tv) {
+                            com.baidu.tieba.frs.utils.s.a(w.bTj, bhVar.rU());
                             return;
                         }
                         return;
                     }
-                    this.bFv.a(bgVar, "c10241");
+                    this.bLN.a(bhVar, "c10241");
                     return;
                 }
-                this.bFv.a(bgVar, "c10242");
+                this.bLN.a(bhVar, "c10242");
                 return;
             }
-            this.bFv.a(bgVar, "c11718");
+            this.bLN.a(bhVar, "c11718");
         }
     }
 }

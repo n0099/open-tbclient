@@ -1,15 +1,15 @@
 package com.baidu.tieba.view;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ AudioAnimationView ftU;
+    final /* synthetic */ AudioAnimationView fCQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AudioAnimationView audioAnimationView) {
-        this.ftU = audioAnimationView;
+        this.fCQ = audioAnimationView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.ftU.aXA();
+        this.fCQ.aZo();
     }
 }

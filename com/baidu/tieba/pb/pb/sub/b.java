@@ -9,77 +9,77 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b {
-    private static final int ehU = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds160);
-    private static final int ehV = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.e.ds20);
-    private BaseActivity aSs;
-    private com.baidu.tieba.d.c bBN;
-    private com.baidu.tieba.pb.pb.sub.a ehT;
-    private a ehW;
-    private boolean ehX = false;
-    private View.OnTouchListener ehY;
+    private static final int ere = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.f.ds160);
+    private static final int erf = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst(), r.f.ds20);
+    private BaseActivity aWr;
+    private com.baidu.tieba.f.c bJg;
+    private com.baidu.tieba.pb.pb.sub.a erd;
+    private a erg;
+    private boolean erh = false;
+    private View.OnTouchListener eri;
     private NavigationBar mNavigationBar;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aMP();
+        void aOK();
 
-        void aMQ();
+        void aOL();
 
-        boolean aMR();
+        boolean aOM();
     }
 
     public b(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
-        this.aSs = baseActivity;
-        this.bBN = new com.baidu.tieba.d.c(this.aSs.getPageContext().getPageActivity());
+        this.aWr = baseActivity;
+        this.bJg = new com.baidu.tieba.f.c(this.aWr.getPageContext().getPageActivity());
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.setStatusBarVisibility(8);
-        this.ehY = new c(this);
+        this.eri = new c(this);
         view.setOnTouchListener(new d(this));
-        this.bBN.a(new e(this));
+        this.bJg.a(new e(this));
     }
 
-    public void aX(View view) {
+    public void be(View view) {
         if (view != null) {
-            view.setOnTouchListener(this.ehY);
+            view.setOnTouchListener(this.eri);
         }
     }
 
-    public void aMM() {
-        if (this.ehX && this.mNavigationBar != null && this.ehT != null && this.ehT.getVisibility() == 0) {
+    public void aOH() {
+        if (this.erh && this.mNavigationBar != null && this.erd != null && this.erd.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
-            this.aSs.setExcludeHeight(0);
-            if (this.ehW != null) {
-                this.ehW.aMP();
+            this.aWr.setExcludeHeight(0);
+            if (this.erg != null) {
+                this.erg.aOK();
             }
-            this.ehT.aMK();
+            this.erd.aOF();
         }
     }
 
-    public void aMN() {
+    public void aOI() {
         ViewGroup viewGroup;
-        if (!this.ehX && (viewGroup = (ViewGroup) this.aSs.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
-            this.ehT = new com.baidu.tieba.pb.pb.sub.a(this.aSs.getPageContext().getPageActivity());
-            this.ehT.setBackgroundResource(r.d.transparent);
-            ((LinearLayout) viewGroup.getParent()).addView(this.ehT, 0, new LinearLayout.LayoutParams(-1, ehU));
-            this.ehT.setVisibility(0);
-            this.ehT.setOnClickListener(new f(this));
-            this.ehT.setScrollCallBack(new g(this));
-            this.aSs.setExcludeHeight(ehU);
-            this.ehX = true;
+        if (!this.erh && (viewGroup = (ViewGroup) this.aWr.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
+            this.erd = new com.baidu.tieba.pb.pb.sub.a(this.aWr.getPageContext().getPageActivity());
+            this.erd.setBackgroundResource(r.e.transparent);
+            ((LinearLayout) viewGroup.getParent()).addView(this.erd, 0, new LinearLayout.LayoutParams(-1, ere));
+            this.erd.setVisibility(0);
+            this.erd.setOnClickListener(new f(this));
+            this.erd.setScrollCallBack(new g(this));
+            this.aWr.setExcludeHeight(ere);
+            this.erh = true;
         }
     }
 
     public void a(a aVar) {
-        this.ehW = aVar;
+        this.erg = aVar;
     }
 
-    public boolean aMO() {
-        return this.ehX;
+    public boolean aOJ() {
+        return this.erh;
     }
 
-    public void nR(int i) {
-        if (this.ehT != null) {
-            com.baidu.tbadk.core.util.ar.k(this.ehT, i);
+    public void oI(int i) {
+        if (this.erd != null) {
+            com.baidu.tbadk.core.util.ap.j(this.erd, i);
         }
     }
 }

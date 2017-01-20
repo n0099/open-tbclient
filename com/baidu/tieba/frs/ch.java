@@ -1,37 +1,41 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements Handler.Callback {
-    final /* synthetic */ cg bBO;
+public class ch implements Animation.AnimationListener {
+    final /* synthetic */ ce bJh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(cg cgVar) {
-        this.bBO = cgVar;
+    public ch(ce ceVar) {
+        this.bJh = ceVar;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        Handler handler;
-        if ((message.what != 1 && message.what != 2) || !this.bBO.Uq()) {
-            switch (message.what) {
-                case 1:
-                    this.bBO.Um();
-                    return true;
-                case 2:
-                    this.bBO.Uk();
-                    return true;
-                case 3:
-                    this.bBO.Ul();
-                    return true;
-                default:
-                    return false;
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        ViewGroup viewGroup;
+        ViewGroup viewGroup2;
+        viewGroup = this.bJh.bJb;
+        if (viewGroup != null) {
+            viewGroup2 = this.bJh.bJb;
+            viewGroup2.setVisibility(8);
         }
-        handler = this.bBO.mHandler;
-        handler.sendEmptyMessageDelayed(message.what, 100L);
-        return true;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ViewGroup viewGroup;
+        ViewGroup viewGroup2;
+        viewGroup = this.bJh.bJb;
+        if (viewGroup != null) {
+            viewGroup2 = this.bJh.bJb;
+            viewGroup2.clearAnimation();
+            this.bJh.dl(true);
+        }
     }
 }

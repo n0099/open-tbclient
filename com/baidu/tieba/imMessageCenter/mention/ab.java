@@ -1,44 +1,24 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
-import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements com.baidu.tieba.im.chat.a.a {
-    final /* synthetic */ o dcz;
+public class ab implements View.OnClickListener {
+    final /* synthetic */ l djK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(o oVar) {
-        this.dcz = oVar;
+    public ab(l lVar) {
+        this.djK = lVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.a.a
-    public void onComplete() {
-        BdListView bdListView;
-        ImMessageCenterModel imMessageCenterModel;
-        BdListView bdListView2;
-        ImMessageCenterModel imMessageCenterModel2;
-        boolean isLogin;
-        MessageAggregationListAdapter messageAggregationListAdapter;
-        ImMessageCenterModel imMessageCenterModel3;
-        bdListView = this.dcz.cZz;
-        if (bdListView != null) {
-            imMessageCenterModel = this.dcz.cZw;
-            if (imMessageCenterModel != null) {
-                bdListView2 = this.dcz.cZz;
-                bdListView2.l(2000L);
-                imMessageCenterModel2 = this.dcz.cZw;
-                if (imMessageCenterModel2.getData() != null) {
-                    messageAggregationListAdapter = this.dcz.dcr;
-                    imMessageCenterModel3 = this.dcz.cZw;
-                    messageAggregationListAdapter.setData(imMessageCenterModel3.getData());
-                    return;
-                }
-                o oVar = this.dcz;
-                isLogin = this.dcz.isLogin();
-                oVar.u(isLogin, true);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.g gVar2;
+        gVar = this.djK.mContext;
+        TiebaStatic.eventStat(gVar.getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        gVar2 = this.djK.mContext;
+        com.baidu.tbadk.core.util.bf.ai(gVar2.getPageActivity());
     }
 }

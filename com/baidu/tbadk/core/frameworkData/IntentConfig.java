@@ -9,19 +9,22 @@ import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.l;
+import com.baidu.adp.base.h;
+import com.baidu.adp.base.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.g.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.util.w;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class IntentConfig extends i {
+public class IntentConfig extends OrmObject {
     public static final String CALL_FROM = "call_from";
     public static final String CLOSE = "close";
     public static final String CMD = "cmd";
@@ -104,14 +107,14 @@ public class IntentConfig extends i {
     public void addSourceTraceForPageStayDurationStat() {
         ArrayList arrayList;
         if (this.mIntent != null) {
-            com.baidu.adp.base.i<?> B = l.B(this.mContext);
+            h<?> B = k.B(this.mContext);
             if (!(B instanceof com.baidu.tbadk.pageStayDuration.a)) {
                 arrayList = null;
             } else {
                 arrayList = (ArrayList) ((com.baidu.tbadk.pageStayDuration.a) B).getNextPageSourceKeyList();
             }
-            if (!x.t(arrayList)) {
-                this.mIntent.putStringArrayListExtra("obj_source", arrayList);
+            if (!w.s(arrayList)) {
+                this.mIntent.putStringArrayListExtra(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arrayList);
             }
         }
     }
@@ -216,7 +219,7 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
@@ -230,10 +233,10 @@ public class IntentConfig extends i {
                         startActivityForResult(i);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.je().bC(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().bB(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -255,17 +258,17 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.startService(this.mIntent);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.je().bC(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().bB(pluginNameByClassloader)) {
                 PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
             }
         }
@@ -296,7 +299,7 @@ public class IntentConfig extends i {
                         return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e);
                     return false;
                 }
@@ -317,11 +320,11 @@ public class IntentConfig extends i {
                 }
                 return false;
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return z;
             }
-        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.je().bC(pluginNameByClassloader)) {
+        } else if (com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().bB(pluginNameByClassloader)) {
             return false;
         } else {
             return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
@@ -340,17 +343,17 @@ public class IntentConfig extends i {
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                        com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                         BdLog.detailException(e);
                     }
                 }
                 try {
                     this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
                 } catch (Throwable th) {
-                    com.baidu.adp.plugin.b.a.io().D("plugin_run_fail", pluginNameByClassloader);
+                    com.baidu.adp.plugin.b.a.im().D("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(th);
                 }
-            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.je().bC(pluginNameByClassloader)) {
+            } else if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().bB(pluginNameByClassloader)) {
                 PluginCenter.getInstance().bindService(this.mContext, pluginNameByClassloader, this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             }
         }
@@ -360,7 +363,7 @@ public class IntentConfig extends i {
         setComponentClass(cls);
         Intent intent = new Intent();
         intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        com.baidu.adp.lib.h.i.bindService(this.mContext, intent, this.mClientConnection, 1);
+        i.bindService(this.mContext, intent, this.mClientConnection, 1);
     }
 
     public void startActivityForResultForRemote(int i, Class<?> cls) {
@@ -369,7 +372,7 @@ public class IntentConfig extends i {
         setComponentClass(cls);
         Intent intent = new Intent();
         intent.setClass(this.mContext, RemoteActivityProxyService.class);
-        com.baidu.adp.lib.h.i.bindService(this.mContext, intent, this.mClientConnection, 1);
+        i.bindService(this.mContext, intent, this.mClientConnection, 1);
     }
 
     private static boolean checkStartActivityInterval(Class<?> cls) {
@@ -401,7 +404,7 @@ public class IntentConfig extends i {
                         IntentConfig.this.startActivity(IntentConfig.this.mComponentClass);
                     }
                 }
-                com.baidu.adp.lib.h.i.a(IntentConfig.this.mContext, IntentConfig.this.mClientConnection);
+                i.a(IntentConfig.this.mContext, IntentConfig.this.mClientConnection);
                 IntentConfig.this.mContext = null;
             }
         }

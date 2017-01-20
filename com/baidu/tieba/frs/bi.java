@@ -1,86 +1,22 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 public class bi extends y.a {
-    public TextView aNY;
-    public TextView agP;
-    public TextView agS;
-    public UserIconBox ahx;
-    public UserIconBox ahy;
-    public int aib;
-    public int bAA;
-    public FrameLayout bAB;
-    public LinearLayout bAC;
-    public RelativeLayout bAD;
-    public TbImageView bAE;
-    public TextView bAF;
-    public PlayVoiceBnt bAG;
-    public FrsCommonImageLayout bAH;
-    public TextView bAI;
-    public HeadImageView bAJ;
-    public TextView bAK;
-    public TextView bAL;
-    public RelativeLayout bAM;
-    public LinearLayout bAN;
-    public LinearLayout bAO;
-    public LinearLayout bAP;
-    public View bAQ;
-    public TbImageView bAR;
-    public RelativeLayout bAS;
-    public TbImageView bAT;
-    public TextView bAU;
-    public ThreadSkinView bAV;
-    public TextView bzE;
-    public TextView bzF;
+    public int ahp;
+    public TextView bIr;
+    public PhotoLiveCardView bIs;
+    public View bIt;
 
-    public bi(View view, int i) {
+    public bi(View view) {
         super(view);
-        this.aib = 3;
-        this.bAA = 0;
-        this.bAA = i;
-        this.bAB = (FrameLayout) view.findViewById(r.g.frs_list);
-        this.bAM = (RelativeLayout) view.findViewById(r.g.frs_item_user_info_view);
-        this.bAN = (LinearLayout) view.findViewById(r.g.frs_item_base_user_info);
-        this.bAC = (LinearLayout) view.findViewById(r.g.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bAC.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.bAC.setLayoutParams(layoutParams);
-        this.bAD = (RelativeLayout) view.findViewById(r.g.frs_list_item_top_card);
-        this.bAE = (TbImageView) view.findViewById(r.g.frs_normal_item_theme_card);
-        this.bAJ = (HeadImageView) view.findViewById(r.g.frs_photo);
-        this.ahx = (UserIconBox) view.findViewById(r.g.frs_user_tshow_icon_box);
-        this.ahy = (UserIconBox) view.findViewById(r.g.frs_user_icon_box);
-        this.bAI = (TextView) view.findViewById(r.g.frs_lv_author);
-        this.agP = (TextView) view.findViewById(r.g.frs_lv_reply_time);
-        this.aNY = (TextView) view.findViewById(r.g.frs_lv_title);
-        this.bAF = (TextView) view.findViewById(r.g.abstract_text);
-        this.bAG = (PlayVoiceBnt) view.findViewById(r.g.abstract_voice);
-        this.bAH = (FrsCommonImageLayout) view.findViewById(r.g.abstract_img_layout);
-        this.agS = (TextView) view.findViewById(r.g.frs_praise_num);
-        this.bAK = (TextView) view.findViewById(r.g.action_button);
-        this.bzF = (TextView) view.findViewById(r.g.frs_reply_num);
-        this.bAL = (TextView) view.findViewById(r.g.frs_more_abstract);
-        this.bAO = (LinearLayout) view.findViewById(r.g.frs_item_num);
-        this.bAP = (LinearLayout) view.findViewById(r.g.frs_item_loc_view);
-        this.bzE = (TextView) view.findViewById(r.g.frs_item_location_address);
-        this.bAQ = view.findViewById(r.g.frs_item_location_sep);
-        this.bAR = (TbImageView) view.findViewById(r.g.game_activity_banner);
-        this.bAT = (TbImageView) view.findViewById(r.g.app_code_banner);
-        this.bAU = (TextView) view.findViewById(r.g.app_code_btn);
-        this.bAS = (RelativeLayout) view.findViewById(r.g.app_code_wrapper);
-        this.bAV = (ThreadSkinView) view.findViewById(r.g.frs_thread_skin);
+        this.ahp = 3;
+        this.bIr = (TextView) view.findViewById(r.h.more_live_list);
+        this.bIs = (PhotoLiveCardView) view.findViewById(r.h.photo_live_card);
+        this.bIt = view.findViewById(r.h.make_headlines);
     }
 }

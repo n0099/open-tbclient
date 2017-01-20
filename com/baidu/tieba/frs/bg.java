@@ -1,21 +1,86 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class bg implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId bAx = BdUniqueId.gen();
-    private int bAy;
+public class bg extends y.a {
+    public TextView aNb;
+    public ThreadSkinView aUZ;
+    public UserIconBox agL;
+    public UserIconBox agM;
+    public TextView agb;
+    public TextView agf;
+    public int ahp;
+    public int bHV;
+    public FrameLayout bHW;
+    public LinearLayout bHX;
+    public RelativeLayout bHY;
+    public TbImageView bHZ;
+    public TextView bHd;
+    public TextView bHe;
+    public TextView bIa;
+    public PlayVoiceBnt bIb;
+    public FrsCommonImageLayout bIc;
+    public TextView bId;
+    public HeadImageView bIe;
+    public TextView bIf;
+    public TextView bIg;
+    public RelativeLayout bIh;
+    public LinearLayout bIi;
+    public LinearLayout bIj;
+    public LinearLayout bIk;
+    public View bIl;
+    public TbImageView bIm;
+    public RelativeLayout bIn;
+    public TbImageView bIo;
+    public TextView bIp;
 
-    public int XQ() {
-        return this.bAy;
-    }
-
-    public void hi(int i) {
-        this.bAy = i;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bAx;
+    public bg(View view, int i) {
+        super(view);
+        this.ahp = 3;
+        this.bHV = 0;
+        this.bHV = i;
+        this.bHW = (FrameLayout) view.findViewById(r.h.frs_list);
+        this.bIh = (RelativeLayout) view.findViewById(r.h.frs_item_user_info_view);
+        this.bIi = (LinearLayout) view.findViewById(r.h.frs_item_base_user_info);
+        this.bHX = (LinearLayout) view.findViewById(r.h.frs_list_item_top_linear_layout);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bHX.getLayoutParams();
+        layoutParams.topMargin = i;
+        this.bHX.setLayoutParams(layoutParams);
+        this.bHY = (RelativeLayout) view.findViewById(r.h.frs_list_item_top_card);
+        this.bHZ = (TbImageView) view.findViewById(r.h.frs_normal_item_theme_card);
+        this.bIe = (HeadImageView) view.findViewById(r.h.frs_photo);
+        this.agL = (UserIconBox) view.findViewById(r.h.frs_user_tshow_icon_box);
+        this.agM = (UserIconBox) view.findViewById(r.h.frs_user_icon_box);
+        this.bId = (TextView) view.findViewById(r.h.frs_lv_author);
+        this.agb = (TextView) view.findViewById(r.h.frs_lv_reply_time);
+        this.aNb = (TextView) view.findViewById(r.h.frs_lv_title);
+        this.bIa = (TextView) view.findViewById(r.h.abstract_text);
+        this.bIb = (PlayVoiceBnt) view.findViewById(r.h.abstract_voice);
+        this.bIc = (FrsCommonImageLayout) view.findViewById(r.h.abstract_img_layout);
+        this.agf = (TextView) view.findViewById(r.h.frs_praise_num);
+        this.bIf = (TextView) view.findViewById(r.h.action_button);
+        this.bHe = (TextView) view.findViewById(r.h.frs_reply_num);
+        this.bIg = (TextView) view.findViewById(r.h.frs_more_abstract);
+        this.bIj = (LinearLayout) view.findViewById(r.h.frs_item_num);
+        this.bIk = (LinearLayout) view.findViewById(r.h.frs_item_loc_view);
+        this.bHd = (TextView) view.findViewById(r.h.frs_item_location_address);
+        this.bIl = view.findViewById(r.h.frs_item_location_sep);
+        this.bIm = (TbImageView) view.findViewById(r.h.game_activity_banner);
+        this.bIo = (TbImageView) view.findViewById(r.h.app_code_banner);
+        this.bIp = (TextView) view.findViewById(r.h.app_code_btn);
+        this.bIn = (RelativeLayout) view.findViewById(r.h.app_code_wrapper);
+        this.aUZ = (ThreadSkinView) view.findViewById(r.h.frs_thread_skin);
     }
 }

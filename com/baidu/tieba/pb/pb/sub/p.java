@@ -13,13 +13,15 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ NewSubPbActivity eis;
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(NewSubPbActivity newSubPbActivity) {
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v10, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ao aoVar;
@@ -27,8 +29,8 @@ public class p implements View.OnClickListener {
         ao aoVar3;
         ao aoVar4;
         boolean z;
-        bc bcVar;
-        bc bcVar2;
+        SubPbModel subPbModel;
+        SubPbModel subPbModel2;
         ao aoVar5;
         ao aoVar6;
         ao aoVar7;
@@ -37,13 +39,13 @@ public class p implements View.OnClickListener {
         ao aoVar10;
         ao aoVar11;
         ao aoVar12;
-        com.baidu.tbadk.editortools.e.p pVar;
-        com.baidu.tbadk.editortools.e.p pVar2;
-        com.baidu.tbadk.editortools.e.p pVar3;
+        com.baidu.tbadk.editortools.pb.n nVar;
+        com.baidu.tbadk.editortools.pb.n nVar2;
+        com.baidu.tbadk.editortools.pb.n nVar3;
         ao aoVar13;
         ao aoVar14;
         ao aoVar15;
-        bc bcVar3;
+        SubPbModel subPbModel3;
         ao aoVar16;
         ao aoVar17;
         ao aoVar18;
@@ -51,93 +53,101 @@ public class p implements View.OnClickListener {
         ao aoVar20;
         ao aoVar21;
         ao aoVar22;
-        com.baidu.tbadk.editortools.e.p pVar4;
+        com.baidu.tbadk.editortools.pb.n nVar4;
         b bVar;
         b bVar2;
         ao aoVar23;
         ao aoVar24;
-        bc bcVar4;
-        bc bcVar5;
+        SubPbModel subPbModel4;
+        SubPbModel subPbModel5;
         ao aoVar25;
-        bc bcVar6;
+        SubPbModel subPbModel6;
         ao aoVar26;
         ao aoVar27;
         ao aoVar28;
-        com.baidu.tbadk.editortools.e.p pVar5;
-        com.baidu.tbadk.editortools.e.p pVar6;
+        com.baidu.tbadk.editortools.pb.n nVar5;
+        com.baidu.tbadk.editortools.pb.n nVar6;
         b bVar3;
         b bVar4;
         ao aoVar29;
         ao aoVar30;
         if (view == null) {
-            aoVar30 = this.eis.eid;
+            aoVar30 = this.erC.ern;
             if (aoVar30 == null) {
                 return;
             }
         }
-        aoVar = this.eis.eid;
-        if (view == aoVar.aNo()) {
-            aoVar29 = this.eis.eid;
-            aoVar29.awl();
-            String str = view.getTag(r.g.tag_user_id) instanceof String ? (String) view.getTag(r.g.tag_user_id) : null;
-            String str2 = view.getTag(r.g.tag_user_name) instanceof String ? (String) view.getTag(r.g.tag_user_name) : null;
-            if (str != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.eis.getPageContext().getPageActivity(), str, str2, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+        aoVar = this.erC.ern;
+        if (view == aoVar.aPk()) {
+            aoVar29 = this.erC.ern;
+            aoVar29.axs();
+            String str = view.getTag(r.h.tag_user_id) instanceof String ? (String) view.getTag(r.h.tag_user_id) : null;
+            String str2 = view.getTag(r.h.tag_user_name) instanceof String ? (String) view.getTag(r.h.tag_user_name) : null;
+            String str3 = view.getTag(r.h.tag_virtual_user_url) instanceof String ? (String) view.getTag(r.h.tag_virtual_user_url) : null;
+            if (str3 != null) {
+                if (this.erC.checkUpIsLogin()) {
+                    com.baidu.tbadk.core.util.ba.vt().c(this.erC.getPageContext(), new String[]{str3});
+                    return;
+                }
+                return;
+            } else if (str != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.erC.getPageContext().getPageActivity(), str, str2, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+                return;
+            } else {
                 return;
             }
-            return;
         }
-        aoVar2 = this.eis.eid;
-        if (view == aoVar2.aNh()) {
-            aoVar27 = this.eis.eid;
-            aoVar27.aMY();
-            aoVar28 = this.eis.eid;
-            aoVar28.aMZ();
-            pVar5 = this.eis.ddg;
-            if (pVar5 != null) {
-                pVar6 = this.eis.ddg;
-                pVar6.DB();
-                bVar3 = this.eis.eip;
+        aoVar2 = this.erC.ern;
+        if (view == aoVar2.aPd()) {
+            aoVar27 = this.erC.ern;
+            aoVar27.aOU();
+            aoVar28 = this.erC.ern;
+            aoVar28.aOV();
+            nVar5 = this.erC.dkr;
+            if (nVar5 != null) {
+                nVar6 = this.erC.dkr;
+                nVar6.Dw();
+                bVar3 = this.erC.erz;
                 if (bVar3 != null) {
-                    bVar4 = this.eis.eip;
-                    bVar4.aMM();
+                    bVar4 = this.erC.erz;
+                    bVar4.aOH();
                     return;
                 }
                 return;
             }
             return;
         }
-        aoVar3 = this.eis.eid;
-        if (view == aoVar3.aNd()) {
-            aoVar25 = this.eis.eid;
-            aoVar25.awl();
-            bcVar6 = this.eis.eib;
-            if (bcVar6.EN()) {
-                aoVar26 = this.eis.eid;
-                aoVar26.aNb();
+        aoVar3 = this.erC.ern;
+        if (view == aoVar3.aOZ()) {
+            aoVar25 = this.erC.ern;
+            aoVar25.axs();
+            subPbModel6 = this.erC.erl;
+            if (subPbModel6.EH()) {
+                aoVar26 = this.erC.ern;
+                aoVar26.aOX();
                 return;
             }
             return;
         }
-        aoVar4 = this.eis.eid;
-        if (view != aoVar4.aNi()) {
-            aoVar5 = this.eis.eid;
-            if (view != aoVar5.aNj()) {
-                aoVar6 = this.eis.eid;
-                if (view != aoVar6.aNl()) {
-                    aoVar7 = this.eis.eid;
-                    if (aoVar7.aNm() != null) {
-                        aoVar23 = this.eis.eid;
-                        if (view == aoVar23.aNm().aKM()) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.at("c11739").s("obj_locate", 2));
-                            aoVar24 = this.eis.eid;
-                            aoVar24.awl();
-                            if (this.eis.checkUpIsLogin()) {
-                                bcVar4 = this.eis.eib;
-                                if (bcVar4.aNr() != null) {
-                                    NewSubPbActivity newSubPbActivity = this.eis;
-                                    bcVar5 = this.eis.eib;
-                                    newSubPbActivity.e(bcVar5.aNr().aIF());
+        aoVar4 = this.erC.ern;
+        if (view != aoVar4.aPe()) {
+            aoVar5 = this.erC.ern;
+            if (view != aoVar5.aPf()) {
+                aoVar6 = this.erC.ern;
+                if (view != aoVar6.aPh()) {
+                    aoVar7 = this.erC.ern;
+                    if (aoVar7.aPi() != null) {
+                        aoVar23 = this.erC.ern;
+                        if (view == aoVar23.aPi().aMz()) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11739").s("obj_locate", 2));
+                            aoVar24 = this.erC.ern;
+                            aoVar24.axs();
+                            if (this.erC.checkUpIsLogin()) {
+                                subPbModel4 = this.erC.erl;
+                                if (subPbModel4.aPn() != null) {
+                                    NewSubPbActivity newSubPbActivity = this.erC;
+                                    subPbModel5 = this.erC.erl;
+                                    newSubPbActivity.d(subPbModel5.aPn().aKw());
                                     return;
                                 }
                                 return;
@@ -145,20 +155,20 @@ public class p implements View.OnClickListener {
                             return;
                         }
                     }
-                    aoVar8 = this.eis.eid;
-                    if (aoVar8.aNm() != null) {
-                        aoVar21 = this.eis.eid;
-                        if (view == aoVar21.aNm().aKR()) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.at("c11739").s("obj_locate", 1));
-                            aoVar22 = this.eis.eid;
-                            aoVar22.awl();
-                            if (this.eis.checkUpIsLogin()) {
-                                pVar4 = this.eis.ddg;
-                                pVar4.fM(null);
-                                bVar = this.eis.eip;
+                    aoVar8 = this.erC.ern;
+                    if (aoVar8.aPi() != null) {
+                        aoVar21 = this.erC.ern;
+                        if (view == aoVar21.aPi().aME()) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11739").s("obj_locate", 1));
+                            aoVar22 = this.erC.ern;
+                            aoVar22.axs();
+                            if (this.erC.checkUpIsLogin()) {
+                                nVar4 = this.erC.dkr;
+                                nVar4.fJ(null);
+                                bVar = this.erC.erz;
                                 if (bVar != null) {
-                                    bVar2 = this.eis.eip;
-                                    bVar2.aMM();
+                                    bVar2 = this.erC.erz;
+                                    bVar2.aOH();
                                     return;
                                 }
                                 return;
@@ -166,63 +176,63 @@ public class p implements View.OnClickListener {
                             return;
                         }
                     }
-                    aoVar9 = this.eis.eid;
-                    if (aoVar9.aNm() != null) {
-                        aoVar18 = this.eis.eid;
-                        if (view == aoVar18.aNm().aKP()) {
-                            aoVar19 = this.eis.eid;
-                            aoVar19.awl();
+                    aoVar9 = this.erC.ern;
+                    if (aoVar9.aPi() != null) {
+                        aoVar18 = this.erC.ern;
+                        if (view == aoVar18.aPi().aMC()) {
+                            aoVar19 = this.erC.ern;
+                            aoVar19.axs();
                             SparseArray sparseArray = (SparseArray) view.getTag();
                             if (sparseArray != null) {
-                                aoVar20 = this.eis.eid;
-                                aoVar20.a(((Integer) sparseArray.get(r.g.tag_del_post_type)).intValue(), (String) sparseArray.get(r.g.tag_del_post_id), ((Integer) sparseArray.get(r.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(r.g.tag_del_post_is_self)).booleanValue());
+                                aoVar20 = this.erC.ern;
+                                aoVar20.a(((Integer) sparseArray.get(r.h.tag_del_post_type)).intValue(), (String) sparseArray.get(r.h.tag_del_post_id), ((Integer) sparseArray.get(r.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(r.h.tag_del_post_is_self)).booleanValue());
                                 return;
                             }
                             return;
                         }
                     }
-                    aoVar10 = this.eis.eid;
-                    if (aoVar10.aNm() != null) {
-                        aoVar16 = this.eis.eid;
-                        if (view == aoVar16.aNm().aKN()) {
-                            if (com.baidu.adp.lib.util.i.gm()) {
-                                aoVar17 = this.eis.eid;
-                                aoVar17.awl();
-                                if (!this.eis.checkUpIsLogin()) {
+                    aoVar10 = this.erC.ern;
+                    if (aoVar10.aPi() != null) {
+                        aoVar16 = this.erC.ern;
+                        if (view == aoVar16.aPi().aMA()) {
+                            if (com.baidu.adp.lib.util.i.gk()) {
+                                aoVar17 = this.erC.ern;
+                                aoVar17.axs();
+                                if (!this.erC.checkUpIsLogin()) {
                                     return;
                                 }
-                                this.eis.aY(view);
+                                this.erC.bf(view);
                                 return;
                             }
-                            this.eis.showToast(r.j.network_not_available);
+                            this.erC.showToast(r.l.network_not_available);
                             return;
                         }
                     }
-                    aoVar11 = this.eis.eid;
-                    if (aoVar11.aNm() != null) {
-                        aoVar14 = this.eis.eid;
-                        if (view == aoVar14.aNm().aKO()) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.at("c11739").s("obj_locate", 4));
-                            if (!com.baidu.adp.lib.util.i.gm()) {
-                                this.eis.showToast(r.j.network_not_available);
+                    aoVar11 = this.erC.ern;
+                    if (aoVar11.aPi() != null) {
+                        aoVar14 = this.erC.ern;
+                        if (view == aoVar14.aPi().aMB()) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11739").s("obj_locate", 4));
+                            if (!com.baidu.adp.lib.util.i.gk()) {
+                                this.erC.showToast(r.l.network_not_available);
                                 return;
                             }
                             Object tag = view.getTag();
-                            aoVar15 = this.eis.eid;
-                            aoVar15.awl();
+                            aoVar15 = this.erC.ern;
+                            aoVar15.axs();
                             if (tag instanceof String) {
-                                bcVar3 = this.eis.eib;
-                                String CX = bcVar3.CX();
-                                if (this.eis.checkUpIsLogin()) {
-                                    this.eis.nR(CX);
+                                subPbModel3 = this.erC.erl;
+                                String CS = subPbModel3.CS();
+                                if (this.erC.checkUpIsLogin()) {
+                                    this.erC.oi(CS);
                                     return;
                                 }
                                 return;
                             } else if (tag instanceof SparseArray) {
                                 SparseArray<Object> sparseArray2 = (SparseArray) tag;
-                                if ((sparseArray2.get(r.g.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray2.get(r.g.tag_user_mute_visible)).booleanValue()) {
-                                    sparseArray2.put(r.g.tag_from, 0);
-                                    this.eis.d(sparseArray2);
+                                if ((sparseArray2.get(r.h.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray2.get(r.h.tag_user_mute_visible)).booleanValue()) {
+                                    sparseArray2.put(r.h.tag_from, 0);
+                                    this.erC.d(sparseArray2);
                                     return;
                                 }
                                 return;
@@ -231,38 +241,38 @@ public class p implements View.OnClickListener {
                             }
                         }
                     }
-                    aoVar12 = this.eis.eid;
-                    if (view != aoVar12.aNg()) {
-                        aoVar13 = this.eis.eid;
-                        if (view != aoVar13.aNl()) {
+                    aoVar12 = this.erC.ern;
+                    if (view != aoVar12.aPc()) {
+                        aoVar13 = this.erC.ern;
+                        if (view != aoVar13.aPh()) {
                             return;
                         }
                     }
-                    if (this.eis.checkUpIsLogin()) {
-                        pVar = this.eis.ddg;
-                        if (pVar.Dz()) {
-                            pVar3 = this.eis.ddg;
-                            pVar3.DA();
+                    if (this.erC.checkUpIsLogin()) {
+                        nVar = this.erC.dkr;
+                        if (nVar.Du()) {
+                            nVar3 = this.erC.dkr;
+                            nVar3.Dv();
                             return;
                         }
-                        pVar2 = this.eis.ddg;
-                        pVar2.fM(null);
+                        nVar2 = this.erC.dkr;
+                        nVar2.fJ(null);
                         return;
                     }
                     return;
                 }
             }
         }
-        z = this.eis.eio;
+        z = this.erC.ery;
         if (z) {
-            this.eis.eio = false;
+            this.erC.ery = false;
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.eis.getActivity());
-        bcVar = this.eis.eib;
-        String threadID = bcVar.getThreadID();
-        bcVar2 = this.eis.eib;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(threadID, bcVar2.CX(), "")));
+        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.erC.getActivity());
+        subPbModel = this.erC.erl;
+        String threadID = subPbModel.getThreadID();
+        subPbModel2 = this.erC.erl;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(threadID, subPbModel2.CS(), "")));
     }
 }

@@ -5,10 +5,9 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import com.baidu.adp.base.l;
-import com.baidu.adp.lib.util.k;
+import com.baidu.adp.base.k;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 import com.baidu.tieba.tbadkCore.a;
@@ -31,21 +30,21 @@ public class LocationInfoView extends EditorInfoView {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(r.j.location_loading);
+                str = getResources().getString(r.l.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(r.j.location_default);
+                str = getResources().getString(r.l.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(r.j.location_default);
+                str = getResources().getString(r.l.location_default);
             }
             setText(str);
         }
-        CN();
+        CI();
     }
 
     public int getState() {
@@ -53,25 +52,25 @@ public class LocationInfoView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    protected void tm() {
-        super.tm();
-        CN();
+    protected void tg() {
+        super.tg();
+        CI();
     }
 
-    private void CN() {
+    private void CI() {
         if (this.mState == 1) {
-            Animatable animatable = (Animatable) ar.getDrawable(r.f.icon_posts_pin_loading_anim);
+            Animatable animatable = (Animatable) ap.getDrawable(r.g.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
-            a.a((TbPageContextSupport) l.B(getContext()), animatable);
-            setPadding(this.ffn + k.dip2px(getContext(), 3.0f), this.ffo, this.ffn, this.ffo);
-            setCompoundDrawablePadding(k.dip2px(getContext(), 3.0f));
+            a.a((TbPageContextSupport) k.B(getContext()), animatable);
+            setPadding(this.foI + com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f), this.foJ, this.foI, this.foJ);
+            setCompoundDrawablePadding(com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
-            setCompoundDrawablesWithIntrinsicBounds(ar.getDrawable(r.f.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.ffn, this.ffo, this.ffn, this.ffo);
+            setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(r.g.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.foI, this.foJ, this.foI, this.foJ);
             setCompoundDrawablePadding(0);
         } else {
-            setCompoundDrawablesWithIntrinsicBounds(ar.getDrawable(r.f.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.ffn, this.ffo, this.ffn, this.ffo);
+            setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(r.g.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.foI, this.foJ, this.foI, this.foJ);
             setCompoundDrawablePadding(0);
         }
     }

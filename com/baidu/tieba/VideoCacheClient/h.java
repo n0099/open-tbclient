@@ -7,33 +7,33 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements ServiceConnection {
-    final /* synthetic */ f aQl;
+    final /* synthetic */ f aPn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.aQl = fVar;
+        this.aPn = fVar;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Runnable runnable;
-        this.aQl.aLy = true;
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.aQl.aLA;
-        eG.removeCallbacks(runnable);
+        this.aPn.aKA = true;
+        com.baidu.adp.lib.g.h eE = com.baidu.adp.lib.g.h.eE();
+        runnable = this.aPn.aKC;
+        eE.removeCallbacks(runnable);
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
         Runnable runnable;
-        File file = new File(d.aPT);
+        File file = new File(d.aOW);
         if (file.exists()) {
             file.delete();
         }
-        c.Kv().Kx();
-        this.aQl.aLy = false;
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.aQl.aLA;
-        eG.postDelayed(runnable, 1000L);
+        c.KK().KM();
+        this.aPn.aKA = false;
+        com.baidu.adp.lib.g.h eE = com.baidu.adp.lib.g.h.eE();
+        runnable = this.aPn.aKC;
+        eE.postDelayed(runnable, 1000L);
     }
 }

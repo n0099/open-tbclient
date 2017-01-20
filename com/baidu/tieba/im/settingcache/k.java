@@ -1,25 +1,26 @@
 package com.baidu.tieba.im.settingcache;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends s<Void> {
-    final /* synthetic */ j cXf;
-    private final /* synthetic */ PersonalSettingItemData cXg;
-    private final /* synthetic */ String mD;
+    final /* synthetic */ j det;
+    private final /* synthetic */ PersonalSettingItemData deu;
+    private final /* synthetic */ String mw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, PersonalSettingItemData personalSettingItemData, String str) {
-        this.cXf = jVar;
-        this.cXg = personalSettingItemData;
-        this.mD = str;
+        this.det = jVar;
+        this.deu = personalSettingItemData;
+        this.mw = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: Mu */
+    /* renamed from: Li */
     public Void doInBackground() {
-        this.cXf.atb().k(this.mD, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.cXg));
+        this.det.auh().k(this.mw, OrmObject.jsonStrWithObject(this.deu));
         return null;
     }
 }

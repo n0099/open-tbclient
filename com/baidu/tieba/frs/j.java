@@ -1,23 +1,38 @@
 package com.baidu.tieba.frs;
 
-import java.util.ArrayList;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class j implements com.baidu.tieba.frs.d.t {
-    final /* synthetic */ FrsActivity bzl;
+class j implements View.OnTouchListener {
+    final /* synthetic */ FrsActivity bGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.bzl = frsActivity;
+        this.bGL = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.d.t
-    public void a(int i, boolean z, int i2, boolean z2, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        com.baidu.tieba.frs.f.d dVar;
-        com.baidu.tieba.frs.f.d dVar2;
-        dVar = this.bzl.byz;
-        if (dVar != null && this.bzl.byr != null && this.bzl.byr.aaZ() && z && this.bzl.Wv() && !z2) {
-            dVar2 = this.bzl.byz;
-            dVar2.hH(i2);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        ce ceVar;
+        com.baidu.tieba.frs.f.aq aqVar;
+        com.baidu.tieba.frs.f.aq aqVar2;
+        ce ceVar2;
+        ce ceVar3;
+        ceVar = this.bGL.bGb;
+        if (ceVar != null) {
+            ceVar2 = this.bGL.bGb;
+            if (ceVar2.Zh() != null) {
+                ceVar3 = this.bGL.bGb;
+                ceVar3.Zh().onTouchEvent(motionEvent);
+            }
         }
+        aqVar = this.bGL.bGg;
+        if (aqVar != null) {
+            aqVar2 = this.bGL.bGg;
+            if (aqVar2.b(motionEvent, view)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

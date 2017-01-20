@@ -9,82 +9,83 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.browser.XiubaTbJsBridge;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.frs.au;
+import com.baidu.tieba.frs.at;
 import com.baidu.tieba.r;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends au<h, l> {
-    private final LinkedList<BaseWebView> bKb;
-    private final LinkedList<d> bKc;
-    private XiubaTbJsBridge bKd;
+public class a extends at<h, l> {
+    private final LinkedList<BaseWebView> bQt;
+    private final LinkedList<d> bQu;
+    private XiubaTbJsBridge bQv;
 
     public a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.bKb = new LinkedList<>();
-        this.bKc = new LinkedList<>();
+        this.bQt = new LinkedList<>();
+        this.bQu = new LinkedList<>();
     }
 
-    @Override // com.baidu.tieba.frs.au
+    @Override // com.baidu.tieba.frs.at
     public void e(BaseActivity<?> baseActivity) {
         super.e(baseActivity);
-        if (this.bKd == null && baseActivity != null) {
-            this.bKd = new XiubaTbJsBridge(baseActivity.getPageContext());
+        if (this.bQv == null && baseActivity != null) {
+            this.bQv = new XiubaTbJsBridge(baseActivity.getPageContext());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: L */
-    public l a(ViewGroup viewGroup) {
+    /* renamed from: N */
+    public l onCreateViewHolder(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
         linearLayout.setOrientation(1);
         View view = new View(this.mContext);
-        view.setLayoutParams(new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelOffset(r.e.ds18)));
-        ar.l(view, r.d.cp_bg_line_c);
+        view.setLayoutParams(new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelOffset(r.f.ds18)));
+        ap.k(view, r.e.cp_bg_line_c);
         d dVar = new d(this.mContext);
         linearLayout.addView(view);
         linearLayout.addView(dVar);
-        this.bKb.add(dVar.getWebView());
-        this.bKc.add(dVar);
+        this.bQt.add(dVar.getWebView());
+        this.bQu.add(dVar);
         return new l(linearLayout, dVar, view);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.au, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, h hVar, l lVar) {
-        d dVar = lVar.bKl;
+    @Override // com.baidu.tieba.frs.at, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, l lVar) {
+        d dVar = lVar.bQD;
         if (dVar == null) {
             return null;
         }
         BaseWebView webView = dVar.getWebView();
-        this.bKd.setBaseWebView(webView);
+        this.bQv.setBaseWebView(webView);
         webView.setWebChromeClient(new b(this));
         webView.setOnLoadUrlListener(new c(this, hVar));
         webView.setHorizontalScrollBarEnabled(false);
-        if (!dVar.aag() && hVar != null) {
+        if (!dVar.abl() && hVar != null) {
             CompatibleUtile.getInstance().loadUrl(webView, hVar.url);
             dVar.setWebViewLoading(true);
         }
-        if (lVar.Wz != null) {
-            ar.l(lVar.Wz, r.d.cp_bg_line_c);
+        if (lVar.VP != null) {
+            ap.k(lVar.VP, r.e.cp_bg_line_c);
             return view;
         }
         return view;
     }
 
-    @Override // com.baidu.tieba.frs.au
+    @Override // com.baidu.tieba.frs.at
     public void release() {
         super.release();
-        Iterator<BaseWebView> it = this.bKb.iterator();
+        Iterator<BaseWebView> it = this.bQt.iterator();
         while (it.hasNext()) {
             BaseWebView next = it.next();
             if (next != null) {
@@ -92,12 +93,12 @@ public class a extends au<h, l> {
                 next.destroy();
             }
         }
-        this.bKb.clear();
-        Iterator<d> it2 = this.bKc.iterator();
+        this.bQt.clear();
+        Iterator<d> it2 = this.bQu.iterator();
         while (it2.hasNext()) {
             it2.next().removeAllViews();
         }
-        this.bKc.clear();
+        this.bQu.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,7 +111,7 @@ public class a extends au<h, l> {
             if (StringUtils.isNull(optString) || StringUtils.isNull(optString2) || StringUtils.isNull(optString3)) {
                 return false;
             }
-            return this.bKd.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+            return this.bQv.dealJsInterface(optString, optString2, optString3, jsPromptResult);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

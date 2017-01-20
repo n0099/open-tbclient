@@ -4,8 +4,8 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class e<T> implements n<T> {
-    protected final boolean lZ;
-    protected final f ma;
+    protected final boolean lT;
+    protected final f lU;
 
     public abstract h<T> N(String str);
 
@@ -16,12 +16,12 @@ public abstract class e<T> implements n<T> {
     public abstract void c(h<T> hVar);
 
     public e(f fVar, boolean z) {
-        this.ma = fVar;
-        this.lZ = z;
+        this.lU = fVar;
+        this.lT = z;
     }
 
     protected String h(String str, String str2) {
-        if (this.lZ) {
+        if (this.lT) {
             return String.valueOf(str) + "@" + str2;
         }
         return str2;
@@ -33,13 +33,13 @@ public abstract class e<T> implements n<T> {
         if (N == null) {
             BdLog.isDebugMode();
             return null;
-        } else if (N.mi < System.currentTimeMillis()) {
+        } else if (N.mb < System.currentTimeMillis()) {
             P(h);
             BdLog.isDebugMode();
             return null;
         } else {
-            if (this.ma.du()) {
-                N.mh = System.currentTimeMillis();
+            if (this.lU.ds()) {
+                N.ma = System.currentTimeMillis();
                 c(N);
             }
             BdLog.isDebugMode();
@@ -53,7 +53,7 @@ public abstract class e<T> implements n<T> {
         if (j == null) {
             return null;
         }
-        return j.lp;
+        return j.lj;
     }
 
     @Override // com.baidu.adp.lib.cache.n
@@ -64,21 +64,21 @@ public abstract class e<T> implements n<T> {
         }
         o.c<T> cVar = new o.c<>();
         cVar.key = str2;
-        cVar.lp = j.lp;
-        cVar.mi = j.mi;
-        cVar.my = j.mg;
+        cVar.lj = j.lj;
+        cVar.mb = j.mb;
+        cVar.mr = j.lZ;
         return cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.n
     public void a(String str, String str2, T t, long j) {
         h<T> hVar = new h<>();
-        hVar.md = h(str, str2);
-        hVar.mf = str;
-        hVar.mi = j;
-        hVar.lp = t;
-        hVar.mh = System.currentTimeMillis();
-        hVar.mg = System.currentTimeMillis();
+        hVar.lX = h(str, str2);
+        hVar.lY = str;
+        hVar.mb = j;
+        hVar.lj = t;
+        hVar.ma = System.currentTimeMillis();
+        hVar.lZ = System.currentTimeMillis();
         c(hVar);
     }
 
@@ -88,7 +88,7 @@ public abstract class e<T> implements n<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public f dt() {
-        return this.ma;
+    public f dr() {
+        return this.lU;
     }
 }

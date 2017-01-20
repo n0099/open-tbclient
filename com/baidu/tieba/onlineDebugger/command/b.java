@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class b implements h {
     private String msgContent;
@@ -25,15 +25,15 @@ public class b implements h {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public Object aHc() throws Exception {
+    public Object aIQ() throws Exception {
         if (this.msgContent.equals("-reboot")) {
-            com.baidu.adp.lib.h.h.eG().postDelayed(new c(this), 2000L);
+            com.baidu.adp.lib.g.h.eE().postDelayed(new c(this), 2000L);
         }
         if (this.msgContent.equals("-startMain")) {
-            com.baidu.adp.lib.h.h.eG().post(new d(this));
+            com.baidu.adp.lib.g.h.eE().post(new d(this));
         }
         if (this.msgContent.equals("-clearCache")) {
-            com.baidu.adp.lib.h.h.eG().post(new e(this));
+            com.baidu.adp.lib.g.h.eE().post(new e(this));
         }
         return true;
     }
@@ -52,9 +52,8 @@ public class b implements h {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: ew */
         public void onPostExecute(String str) {
-            super.onPostExecute(str);
+            super.onPostExecute((a) str);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,10 +62,10 @@ public class b implements h {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().bb();
-            com.baidu.tbadk.core.voice.a.b.wV();
+            com.baidu.tbadk.core.voice.a.b.wP();
             try {
-                au.vg().vh();
-                au.vg().vi();
+                as.va().vb();
+                as.va().vc();
                 MessageManager.getInstance().sendMessageFromBackground(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_CLEARIMAGE, ""));
                 return null;
             } catch (Exception e) {
@@ -77,7 +76,7 @@ public class b implements h {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public boolean aHd() {
+    public boolean aIR() {
         return !TextUtils.isEmpty(this.msgContent);
     }
 }
