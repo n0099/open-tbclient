@@ -15,6 +15,10 @@ public class CmdConfigHttp {
     public static final int CMD_ADD_USER_BOOKMARK = 1003166;
     public static final int CMD_ADD_VOTE = 1003043;
     public static final int CMD_AD_UPLOAD = 1003062;
+    public static final int CMD_ALA_HTTP_BASE_CMD = 1003201;
+    public static final int CMD_ALA_HTTP_MAX_CMD = 1003301;
+    public static final int CMD_ALA_LIVE_LIST = 1003302;
+    public static final int CMD_ALA_VERIFY_STRATEGY = 1003303;
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
     public static final int CMD_APPLY_GAME_CODE = 1003015;
@@ -25,6 +29,15 @@ public class CmdConfigHttp {
     public static final int CMD_BUBBLE_SET = 1003056;
     public static final int CMD_BUILD_ORDER = 1001538;
     public static final int CMD_CHANGE_PORTRAIT = 1003063;
+    public static final int CMD_CHANNEL_ADD_VIDEOS = 1003313;
+    public static final int CMD_CHANNEL_FOLLOW = 1003311;
+    public static final int CMD_CHANNEL_GET_INFO = 1003307;
+    public static final int CMD_CHANNEL_REMOVE_VIDEO = 1003306;
+    public static final int CMD_CHANNEL_UNFOLLOW = 1003309;
+    public static final int CMD_CHANNEL_UPDATE_INFO = 1003315;
+    public static final int CMD_CHANNEL_UPDATE_PUSH = 1003310;
+    public static final int CMD_CHANNEL_VIDEO_SET_TOP = 1003305;
+    public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
     public static final int CMD_CHECK_USER_BOOKMARK = 1003164;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_CLIENT_CONFIG = 1003024;
@@ -60,6 +73,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_CARD_BY_CATEGORY = 1003093;
     public static final int CMD_GET_CARD_DETAIL = 1003094;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
+    public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
     public static final int CMD_GET_FINE_PB = 1003006;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
     public static final int CMD_GET_GAME_BANNER = 1003013;
@@ -77,6 +91,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
     public static final int CMD_GET_STORE_REMIND_TIME = 1003067;
+    public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_TASK_SCORES = 1003101;
     public static final int CMD_GET_USER_BOOKMARK_LIST = 1003168;
@@ -84,6 +99,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_USER_FORUM_STORE = 1003068;
     public static final int CMD_GET_USER_INFO = 1003001;
     public static final int CMD_GET_USER_ORDER = 1003075;
+    public static final int CMD_GET_USER_VIDEO_LIST = 1003312;
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
     public static final int CMD_GOD_THREAD_LIST = 1003074;
@@ -122,6 +138,7 @@ public class CmdConfigHttp {
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_SAVE_GAME_STATUS = 1003059;
     public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;
+    public static final int CMD_SEARCH_LIST = 1003196;
     public static final int CMD_SEND_BLESS = 1003080;
     public static final int CMD_SEND_FREE_GIFT = 1003052;
     public static final int CMD_SET_COMMON_FORUM_STATE = 1003151;

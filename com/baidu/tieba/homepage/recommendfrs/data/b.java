@@ -1,28 +1,30 @@
 package com.baidu.tieba.homepage.recommendfrs.data;
+
+import com.baidu.tieba.homepage.recommendfrs.model.RecommendFrsCacheModel;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.mvc.b.e {
-    private long cpo;
+    private long ctu;
 
     public b(long j) {
-        this.cpo = j;
+        this.ctu = j;
     }
 
-    public long aiO() {
-        return this.cpo;
+    public long ajk() {
+        return this.ctu;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
-        return new StringBuilder(String.valueOf(this.cpo)).toString();
+        return new StringBuilder(String.valueOf(this.ctu)).toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Ev() {
-        return "RecommendFrsCache";
+    public String Ep() {
+        return RecommendFrsCacheModel.TABLE_NAME;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ew() {
+    public boolean Eq() {
         return true;
     }
 

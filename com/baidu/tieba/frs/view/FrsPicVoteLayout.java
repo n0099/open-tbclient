@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class FrsPicVoteLayout extends ViewGroup {
-    private int bRs;
-    private int bRt;
+    private int bXW;
+    private int bXX;
     private int mChildCount;
     private int mItemSize;
     private int mPadding;
@@ -15,8 +15,8 @@ public class FrsPicVoteLayout extends ViewGroup {
     public FrsPicVoteLayout(Context context) {
         super(context);
         this.mItemSize = 0;
-        this.bRs = 110;
-        this.bRt = 0;
+        this.bXW = 110;
+        this.bXX = 0;
         this.mPadding = 3;
         this.mChildCount = 3;
         init(context);
@@ -25,8 +25,8 @@ public class FrsPicVoteLayout extends ViewGroup {
     public FrsPicVoteLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mItemSize = 0;
-        this.bRs = 110;
-        this.bRt = 0;
+        this.bXW = 110;
+        this.bXX = 0;
         this.mPadding = 3;
         this.mChildCount = 3;
         init(context);
@@ -34,7 +34,7 @@ public class FrsPicVoteLayout extends ViewGroup {
 
     private void init(Context context) {
         this.mPadding = com.baidu.adp.lib.util.k.dip2px(context, this.mPadding);
-        this.mItemSize = com.baidu.adp.lib.util.k.dip2px(context, this.bRs);
+        this.mItemSize = com.baidu.adp.lib.util.k.dip2px(context, this.bXW);
     }
 
     @Override // android.view.View
@@ -42,14 +42,14 @@ public class FrsPicVoteLayout extends ViewGroup {
         int size = View.MeasureSpec.getSize(i);
         int i3 = (this.mItemSize * this.mChildCount) + (this.mPadding * (this.mChildCount - 1));
         if (this.mItemSize == 0) {
-            this.mItemSize = this.bRs;
+            this.mItemSize = this.bXW;
         } else if (i3 > size) {
             this.mItemSize = (size - (this.mPadding * (this.mChildCount - 1))) / this.mChildCount;
         } else {
             size = i3;
         }
-        this.bRt = (int) (this.mItemSize * 0.75d);
-        setMeasuredDimension(size, this.bRt);
+        this.bXX = (int) (this.mItemSize * 0.75d);
+        setMeasuredDimension(size, this.bXX);
         int i4 = 0;
         while (true) {
             int i5 = i4;
@@ -57,7 +57,7 @@ public class FrsPicVoteLayout extends ViewGroup {
                 if (getChildAt(i5) instanceof FrsPicVotePhotoFrame) {
                     FrsPicVotePhotoFrame frsPicVotePhotoFrame = (FrsPicVotePhotoFrame) getChildAt(i5);
                     if (frsPicVotePhotoFrame.getLayoutParams() != null) {
-                        measureChild(frsPicVotePhotoFrame, View.MeasureSpec.makeMeasureSpec(this.mItemSize, 1073741824), View.MeasureSpec.makeMeasureSpec(this.bRt, 1073741824));
+                        measureChild(frsPicVotePhotoFrame, View.MeasureSpec.makeMeasureSpec(this.mItemSize, 1073741824), View.MeasureSpec.makeMeasureSpec(this.bXX, 1073741824));
                     }
                 }
                 i4 = i5 + 1;

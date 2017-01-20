@@ -1,26 +1,24 @@
 package com.baidu.tieba.homepage.personalize.c;
 
-import com.baidu.tieba.card.data.s;
-import java.util.Comparator;
+import android.view.View;
+import com.baidu.tieba.card.cf;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b implements Comparator<s> {
-    final /* synthetic */ a csc;
+public class b implements View.OnClickListener {
+    final /* synthetic */ a czy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.csc = aVar;
+        this.czy = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(s sVar, s sVar2) {
-        if (sVar == null || sVar2 == null) {
-            return 0;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        e eVar;
+        if (this.czy.getOnSubCardOnClickListenner() != null) {
+            cf<e> onSubCardOnClickListenner = this.czy.getOnSubCardOnClickListenner();
+            eVar = this.czy.czx;
+            onSubCardOnClickListenner.a(view, eVar);
         }
-        if (sVar.getPosition() > sVar2.getPosition()) {
-            return 1;
-        }
-        return sVar.getPosition() < sVar2.getPosition() ? -1 : 0;
     }
 }

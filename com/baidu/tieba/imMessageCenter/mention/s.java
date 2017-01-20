@@ -1,27 +1,20 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
-    final /* synthetic */ o dcz;
+public class s implements Runnable {
+    final /* synthetic */ l djK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(o oVar) {
-        this.dcz = oVar;
+    public s(l lVar) {
+        this.djK = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean isLogin;
-        isLogin = this.dcz.isLogin();
-        if (isLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig((Context) this.dcz.getPageContext().getPageActivity(), true, true)));
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        bdListView = this.djK.dgO;
+        bdListView.startPullRefresh();
     }
 }

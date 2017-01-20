@@ -4,13 +4,14 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.lib.h.b;
+import com.baidu.adp.lib.g.b;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InterviewLiveActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
+import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
@@ -24,7 +25,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
     private transient MsgCacheData cacheData;
     private String content;
     private int customGroupType;
-    private com.baidu.tbadk.gif.a gifInfo;
+    private GifInfo gifInfo;
     private String groupId;
     private boolean hasRead;
     public boolean hasRepeat;
@@ -109,7 +110,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public com.baidu.tbadk.gif.a getGifInfo() {
+    public GifInfo getGifInfo() {
         JSONObject jSONObject;
         JSONArray jSONArray;
         if (this.gifInfo != null) {
@@ -135,18 +136,18 @@ public abstract class ChatMessage extends TbSocketMessage implements a, v {
                 String optString6 = jSONObject.optString("icon");
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
-                com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.axB = false;
-                aVar.axC = optString;
-                aVar.axD = optString2;
-                aVar.axE = optString3;
-                aVar.mGid = optString4;
-                aVar.axF = optInt;
-                aVar.axG = optInt2;
-                aVar.mPackageName = optString5;
-                aVar.mIcon = optString6;
-                this.gifInfo = aVar;
-                return aVar;
+                GifInfo gifInfo = new GifInfo();
+                gifInfo.mLoadFailed = false;
+                gifInfo.mSharpText = optString;
+                gifInfo.mStaticUrl = optString2;
+                gifInfo.mDynamicUrl = optString3;
+                gifInfo.mGid = optString4;
+                gifInfo.mGifWidth = optInt;
+                gifInfo.mGifHeight = optInt2;
+                gifInfo.mPackageName = optString5;
+                gifInfo.mIcon = optString6;
+                this.gifInfo = gifInfo;
+                return gifInfo;
             }
             return null;
         }

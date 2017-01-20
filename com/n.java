@@ -27,7 +27,7 @@ public class n implements ISocialShareHandler {
     private static final String a = n.class.getSimpleName();
     private static Map b = new HashMap();
     private static Map c = new HashMap();
-    private Weixin cR;
+    private Weixin cP;
     private Context d;
     private String e;
     private boolean f;
@@ -60,8 +60,8 @@ public class n implements ISocialShareHandler {
         this.d = context;
         this.e = str;
         this.f = z;
-        this.cR = new Weixin(context, str);
-        this.cR.registerApp();
+        this.cP = new Weixin(context, str);
+        this.cP.registerApp();
         this.h = a();
     }
 
@@ -71,7 +71,7 @@ public class n implements ISocialShareHandler {
 
     private void a(Bundle bundle) {
         Weixin.addBaseRequestParams(bundle, this.h, this.f);
-        if (this.cR.sendRequest(bundle)) {
+        if (this.cP.sendRequest(bundle)) {
             return;
         }
         Log.e(a, "sendMessage error");
@@ -95,12 +95,12 @@ public class n implements ISocialShareHandler {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareContent shareContent, IBaiduListener iBaiduListener) {
         SocialShareConfig socialShareConfig = SocialShareConfig.getInstance(this.d);
-        if (!this.cR.isAppInstalled()) {
+        if (!this.cP.isAppInstalled()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_not_installed"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("weixin not installed yet"));
             }
-        } else if (this.f && !this.cR.isTimelineSupported()) {
+        } else if (this.f && !this.cP.isTimelineSupported()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_timeline_not_supported"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("this version of weixin has no support for timeline related api"));

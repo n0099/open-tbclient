@@ -6,40 +6,40 @@ import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tieba.passaccount.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements a.InterfaceC0033a {
-    final /* synthetic */ a dTH;
+public class b implements a.InterfaceC0032a {
+    final /* synthetic */ a ecA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dTH = aVar;
+        this.ecA = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
-    public void ch(String str) {
-        a.InterfaceC0065a interfaceC0065a;
-        a.InterfaceC0065a interfaceC0065a2;
-        interfaceC0065a = this.dTH.dTE;
-        if (interfaceC0065a != null) {
-            interfaceC0065a2 = this.dTH.dTE;
-            interfaceC0065a2.ch(str);
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0032a
+    public void cf(String str) {
+        a.InterfaceC0067a interfaceC0067a;
+        a.InterfaceC0067a interfaceC0067a2;
+        interfaceC0067a = this.ecA.ecx;
+        if (interfaceC0067a != null) {
+            interfaceC0067a2 = this.ecA.ecx;
+            interfaceC0067a2.cf(str);
         }
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0032a
     public void a(AccountData accountData) {
-        a.InterfaceC0065a interfaceC0065a;
-        a.InterfaceC0065a interfaceC0065a2;
-        interfaceC0065a = this.dTH.dTE;
-        if (interfaceC0065a != null) {
-            interfaceC0065a2 = this.dTH.dTE;
-            interfaceC0065a2.onSuccess();
+        a.InterfaceC0067a interfaceC0067a;
+        a.InterfaceC0067a interfaceC0067a2;
+        interfaceC0067a = this.ecA.ecx;
+        if (interfaceC0067a != null) {
+            interfaceC0067a2 = this.ecA.ecx;
+            interfaceC0067a2.onSuccess();
         }
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0033a
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0032a
     public void b(String str, int i, String str2) {
         if (i == 1) {
-            ReloginManager.tR().f(null);
+            ReloginManager.tL().f(null);
         }
         c cVar = new c(this, str);
         cVar.setPriority(3);

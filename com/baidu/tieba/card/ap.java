@@ -1,173 +1,101 @@
 package com.baidu.tieba.card;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
+import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.r;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ap {
-    public static void hL(String str) {
-        com.baidu.tieba.tbadkCore.util.r readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) != null && !readThreadHistory.qw(str)) {
-            readThreadHistory.qu(str);
-        }
+public class ap extends au {
+    private TbPageContext FY;
+    private com.baidu.tbadk.core.data.bh acX;
+    private CommonUserLikeButton.a bkJ;
+    public EntelechyUserLikeButton bkM;
+    private com.baidu.tbadk.core.view.userLike.c bkN;
+    public TextView bmm;
+    private View.OnClickListener bmo;
+    private View.OnClickListener bmp;
+    private com.baidu.tieba.card.data.n bmr;
+    private int mSkinType;
+
+    public ap(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.mSkinType = 3;
+        this.bkJ = new aq(this);
+        this.bmo = new ar(this);
+        this.bmp = new as(this);
+        this.FY = tbPageContext;
+        this.bmy.setGodIconMargin(0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bmB.getLayoutParams();
+        layoutParams.topMargin = 0;
+        layoutParams.bottomMargin = com.baidu.adp.lib.util.k.e(this.FY.getPageActivity(), r.f.ds4);
+        this.bmB.setLayoutParams(layoutParams);
+        this.bmm = new TextView(tbPageContext.getPageActivity());
+        this.bmm.setId(r.h.fans_num);
+        this.bmm.setIncludeFontPadding(false);
+        this.bmm.setTextSize(0, com.baidu.adp.lib.util.k.e(tbPageContext.getPageActivity(), r.f.ds24));
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+        layoutParams2.bottomMargin = com.baidu.adp.lib.util.k.e(tbPageContext.getPageActivity(), r.f.ds14);
+        this.bmm.setLayoutParams(layoutParams2);
+        this.bmm.setOnClickListener(this.bmo);
+        this.aUY.addView(this.bmm, 1);
+        this.bkM = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
+        this.bkM.setAfterOnClickListener(this.bmp);
+        this.bkM.setFanNumCallBack(this.bkJ);
+        this.bkN = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.bkM);
+        this.bkM.setId(r.h.card_god_feed_like_btn);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, com.baidu.adp.lib.util.k.e(this.FY.getPageActivity(), r.f.ds56));
+        layoutParams3.addRule(11);
+        layoutParams3.rightMargin = com.baidu.adp.lib.util.k.e(this.FY.getPageActivity(), r.f.ds28);
+        layoutParams3.topMargin = com.baidu.adp.lib.util.k.e(this.FY.getPageActivity(), r.f.ds32);
+        this.bkM.setGravity(21);
+        this.bkM.setLayoutParams(layoutParams3);
+        ((ViewGroup) getView()).addView(this.bkM);
     }
 
-    public static boolean hM(String str) {
-        com.baidu.tieba.tbadkCore.util.r readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) == null || !readThreadHistory.qv(str)) ? false : true;
-    }
-
-    public static String OA() {
-        return String.valueOf(System.currentTimeMillis() / 1000);
-    }
-
-    public static String OB() {
-        return "personalize_page";
-    }
-
-    public static void a(TextView textView, String str, int i, int i2) {
-        if (textView instanceof TextView) {
-            if (hM(str)) {
-                com.baidu.tbadk.core.util.ar.j((View) textView, i2);
-            } else {
-                com.baidu.tbadk.core.util.ar.j((View) textView, i);
+    @Override // com.baidu.tieba.card.au
+    public void a(com.baidu.tieba.card.data.n nVar) {
+        super.onBindDataToView(nVar);
+        if (nVar != null && nVar.threadData != null) {
+            this.bmr = nVar;
+            this.acX = nVar.threadData;
+            if (nVar.threadData.getAuthor() != null) {
+                gI(nVar.threadData.getAuthor().getFansNum());
+                if (this.acX.getAuthor().getGodUserData().getIsLike()) {
+                    this.bkM.setVisibility(8);
+                    return;
+                }
+                this.bkM.setVisibility(0);
+                this.bkN.a(this.acX.getAuthor());
             }
         }
     }
 
-    public static SpannableStringBuilder a(Context context, CharSequence charSequence, int i, int i2, int i3) {
-        if (charSequence == null || charSequence.length() == 0) {
-            return null;
+    @Override // com.baidu.tieba.card.au, com.baidu.tieba.card.a
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        super.onChangeSkinType(tbPageContext, i);
+        if (this.mSkinType != i) {
+            com.baidu.tbadk.core.util.ap.i((View) this.bmm, r.e.cp_cont_d);
+            this.bkM.onChangeSkinType(i);
         }
-        String string = context.getString(i);
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(string) + " " + ((Object) charSequence));
-        spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.ar.getColor(i2)), 0, string.length(), 17);
-        com.baidu.adp.widget.d dVar = new com.baidu.adp.widget.d(context, com.baidu.tbadk.core.util.ar.cQ(i3), 1);
-        dVar.setOffset(3);
-        spannableStringBuilder.setSpan(dVar, string.length(), string.length() + 1, 33);
-        return spannableStringBuilder;
+        this.mSkinType = i;
     }
 
-    public static SpannableStringBuilder c(Context context, CharSequence charSequence, int i) {
-        return a(context, charSequence, i, r.d.cp_link_tip_a, r.f.pic_dot_title);
+    @Override // com.baidu.tieba.card.au
+    public void j(BdUniqueId bdUniqueId) {
+        super.j(bdUniqueId);
+        this.bkN.i(bdUniqueId);
     }
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int bcE;
-        public String bcF;
-        public int bcG;
-        public int bcH;
-        public int bcI;
-
-        public a(int i, int i2, int i3) {
-            this.bcE = -1;
-            this.bcF = "";
-            this.bcG = r.d.cp_link_tip_a;
-            this.bcH = r.f.pic_dot_title;
-            this.bcI = 0;
-            this.bcE = i;
-            this.bcG = i2;
-            this.bcH = i3;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void gI(int i) {
+        if (this.bmm != null) {
+            this.bmm.setText(String.format(this.FY.getResources().getString(r.l.fans_default_name_god_user), com.baidu.tbadk.core.util.at.u(i)));
         }
-
-        public a(int i) {
-            this.bcE = -1;
-            this.bcF = "";
-            this.bcG = r.d.cp_link_tip_a;
-            this.bcH = r.f.pic_dot_title;
-            this.bcI = 0;
-            this.bcE = i;
-        }
-
-        public a(String str) {
-            this.bcE = -1;
-            this.bcF = "";
-            this.bcG = r.d.cp_link_tip_a;
-            this.bcH = r.f.pic_dot_title;
-            this.bcI = 0;
-            this.bcF = str;
-        }
-
-        public a(String str, int i) {
-            this.bcE = -1;
-            this.bcF = "";
-            this.bcG = r.d.cp_link_tip_a;
-            this.bcH = r.f.pic_dot_title;
-            this.bcI = 0;
-            this.bcF = str;
-            this.bcH = i;
-        }
-
-        public void gh(int i) {
-            this.bcI = i;
-        }
-    }
-
-    public static SpannableStringBuilder a(Context context, String str, ArrayList<a> arrayList, boolean z) {
-        return a(context, str, arrayList, z, true);
-    }
-
-    public static SpannableStringBuilder a(Context context, String str, ArrayList<a> arrayList, boolean z, boolean z2) {
-        if (com.baidu.adp.lib.util.j.isEmpty(str) || context == null || arrayList == null) {
-            return null;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        for (int i = 0; i != arrayList.size(); i++) {
-            a aVar = arrayList.get(i);
-            if (aVar != null) {
-                if (aVar.bcE > 0) {
-                    aVar.bcF = context.getString(aVar.bcE);
-                }
-                if (!com.baidu.adp.lib.util.j.isEmpty(aVar.bcF)) {
-                    int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.bcF);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.ar.getColor(aVar.bcG)), length, spannableStringBuilder.length(), 17);
-                    if (i == arrayList.size() - 1 && !z2) {
-                        break;
-                    }
-                    Bitmap cQ = com.baidu.tbadk.core.util.ar.cQ(aVar.bcH);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(cQ);
-                    if (cQ != null) {
-                        bitmapDrawable.setBounds(0, 0, cQ.getWidth(), cQ.getHeight());
-                    }
-                    com.baidu.tbadk.core.view.aj ajVar = new com.baidu.tbadk.core.view.aj(bitmapDrawable);
-                    if (aVar.bcI != 0) {
-                        ajVar.setOffset(aVar.bcI);
-                    }
-                    int length2 = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) " ");
-                    spannableStringBuilder.setSpan(ajVar, length2, spannableStringBuilder.length(), 17);
-                } else {
-                    continue;
-                }
-            }
-        }
-        if (z) {
-            spannableStringBuilder.append((CharSequence) str);
-        }
-        return spannableStringBuilder;
-    }
-
-    public static void a(com.baidu.tbadk.core.data.bg bgVar, TextView textView) {
-        if ((StringUtils.isNull(bgVar.getTitle()) && (bgVar.rD() == null || bgVar.rD().size() == 0)) || bgVar.rU() == 1) {
-            textView.setVisibility(8);
-            return;
-        }
-        textView.setVisibility(0);
-        bgVar.Tx = 0;
-        bgVar.sl();
-        SpannableStringBuilder sd = bgVar.sd();
-        textView.setOnTouchListener(new com.baidu.tieba.view.x(sd));
-        textView.setText(sd);
-        a(textView, bgVar.getId(), r.d.cp_cont_b, r.d.cp_cont_d);
     }
 }

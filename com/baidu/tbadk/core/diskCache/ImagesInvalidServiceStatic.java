@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Handler;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.h.i;
+import com.baidu.adp.lib.g.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean WC = false;
-    private static Handler hj = new a();
+    private static boolean VS = false;
+    private static Handler hg = new a();
 
     static {
         MessageManager.getInstance().registerListener(new b(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
@@ -25,6 +25,6 @@ public class ImagesInvalidServiceStatic {
     }
 
     public static void aB(boolean z) {
-        WC = z;
+        VS = z;
     }
 }

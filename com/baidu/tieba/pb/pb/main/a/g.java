@@ -1,49 +1,37 @@
 package com.baidu.tieba.pb.pb.main.a;
 
 import android.os.Handler;
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements Runnable {
-    final /* synthetic */ f eht;
+public class g implements Handler.Callback {
+    final /* synthetic */ f eqF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.eht = fVar;
+        this.eqF = fVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.adp.lib.guide.d dVar;
-        String str;
-        View view;
-        com.baidu.adp.lib.guide.d dVar2;
-        com.baidu.adp.lib.guide.d dVar3;
-        TbPageContext tbPageContext;
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
         Handler handler;
-        Runnable runnable;
-        dVar = this.eht.Ht;
-        if (dVar == null) {
-            str = this.eht.mMessage;
-            if (!StringUtils.isNull(str)) {
-                com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                view = this.eht.bL;
-                gVar.o(view).ae(0).y(true).z(true);
-                gVar.a(new h(this));
-                this.eht.Ht = gVar.dQ();
-                dVar2 = this.eht.Ht;
-                dVar2.w(false);
-                dVar3 = this.eht.Ht;
-                tbPageContext = this.eht.GO;
-                dVar3.j(tbPageContext.getPageActivity());
-                this.eht.bxJ = true;
-                this.eht.VX();
-                handler = this.eht.mHandler;
-                runnable = this.eht.bxM;
-                handler.postDelayed(runnable, 3000L);
+        if ((message.what != 1 && message.what != 2) || !this.eqF.VL()) {
+            switch (message.what) {
+                case 1:
+                    this.eqF.VH();
+                    return true;
+                case 2:
+                    this.eqF.VF();
+                    return true;
+                case 3:
+                    this.eqF.VG();
+                    return true;
+                default:
+                    return false;
             }
         }
+        handler = this.eqF.mHandler;
+        handler.sendEmptyMessageDelayed(message.what, 100L);
+        return true;
     }
 }

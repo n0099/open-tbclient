@@ -1,64 +1,69 @@
 package com.baidu.tieba.play;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.widget.MediaController;
-import com.baidu.tieba.play.as;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class at extends Handler {
-    final /* synthetic */ as eJY;
+public class at {
+    private static x eTo = null;
+    private static boolean eTp = true;
+    private static boolean eTq = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at(as asVar, Looper looper) {
-        super(looper);
-        this.eJY = asVar;
+    private static x aYu() {
+        if (eTo == null) {
+            eTp = com.baidu.tbadk.core.sharedPref.b.tQ().getBoolean("prefs_save_paled_video", true);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, x.class);
+            if (runTask != null) {
+                eTo = (x) runTask.getData();
+            }
+        }
+        return eTo;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        boolean z2;
-        MediaController.MediaPlayerControl mediaPlayerControl;
-        MediaController.MediaPlayerControl mediaPlayerControl2;
-        int alU;
-        as.b bVar;
-        int i;
-        int i2;
-        as.b bVar2;
-        switch (message.what) {
-            case 1:
-                z = this.eJY.cDp;
-                if (!z) {
-                    z2 = this.eJY.cDq;
-                    if (z2) {
-                        mediaPlayerControl = this.eJY.aQI;
-                        if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.eJY.aQI;
-                            if (!mediaPlayerControl2.isPlaying()) {
-                                return;
-                            }
-                            alU = this.eJY.alU();
-                            bVar = this.eJY.aSo;
-                            if (bVar != null) {
-                                bVar2 = this.eJY.aSo;
-                                bVar2.fQ(alU);
-                            }
-                            Message obtainMessage = obtainMessage(1);
-                            i = this.eJY.cDm;
-                            i2 = this.eJY.cDm;
-                            sendMessageDelayed(obtainMessage, i - (alU % i2));
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            default:
-                return;
+    public static String hd(String str) {
+        if (eTq && eTp && aYu() != null) {
+            return aYu().hd(str);
         }
+        return str;
+    }
+
+    public static String he(String str) {
+        if (aYu() != null) {
+            return aYu().he(str);
+        }
+        return null;
+    }
+
+    public static void G(Context context, String str) {
+        if (aYu() != null) {
+            aYu().G(context, str);
+        }
+    }
+
+    public static void H(Context context, String str) {
+        if (eTq && eTp && aYu() != null) {
+            aYu().H(context, str);
+        }
+    }
+
+    public static void hf(String str) {
+        if (eTq && eTp && aYu() != null) {
+            aYu().hf(str);
+        }
+    }
+
+    public static void av(Context context) {
+        if (aYu() != null) {
+            aYu().av(context);
+        }
+    }
+
+    public static void ku(boolean z) {
+        eTp = z;
+    }
+
+    public static void aYv() {
+        eTq = com.baidu.adp.lib.b.e.dL().ac("android_video_cache_open") == 1;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.tblauncher;
 /* loaded from: classes.dex */
-class j implements Runnable {
+class j extends com.baidu.tbadk.pageStayDuration.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +8,18 @@ class j implements Runnable {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.this$0.fkP = true;
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean Fd() {
+        return true;
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public int Fe() {
+        return com.baidu.tbadk.pageStayDuration.e.Fj().Fl();
+    }
+
+    @Override // com.baidu.tbadk.pageStayDuration.b
+    public boolean a(com.baidu.tbadk.pageStayDuration.d dVar) {
+        return false;
     }
 }

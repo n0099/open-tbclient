@@ -1,31 +1,31 @@
 package com.baidu.tieba.frs.f;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.frs.f.f;
+import tbclient.PopInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    public String forumName;
-    public long lastTime;
+public class h implements a.b {
+    final /* synthetic */ f.a bVg;
+    private final /* synthetic */ PopInfo bVh;
 
-    public h() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(f.a aVar, PopInfo popInfo) {
+        this.bVg = aVar;
+        this.bVh = popInfo;
     }
 
-    public h(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            throw new NullPointerException("JSONObject is Null");
-        }
-        this.forumName = jSONObject.optString("forum_name");
-        this.lastTime = jSONObject.optLong("last_time");
-    }
-
-    public JSONObject abp() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("forum_name", this.forumName);
-            jSONObject.put("last_time", this.lastTime);
-            return jSONObject;
-        } catch (JSONException e) {
-            return null;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.frs.FrsActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        f fVar;
+        ba vt = ba.vt();
+        fVar = f.this;
+        vt.c(fVar.bMj.getPageContext(), new String[]{this.bVh.ahead_url});
+        if (aVar != null) {
+            aVar.dismiss();
         }
     }
 }

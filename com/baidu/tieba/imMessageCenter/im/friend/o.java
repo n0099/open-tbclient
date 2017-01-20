@@ -13,12 +13,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
-    private final TbPageContextSupport aAL;
-    private List<com.baidu.tbadk.coreExtra.relationship.a> aUm;
-    private TbCheckBox.a daN;
-    private boolean daP;
-    private b daO = null;
-    private ViewGroup cyf = null;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> aPE;
+    private final TbPageContextSupport azD;
+    private TbCheckBox.a dia;
+    private boolean dic;
+    private b dib = null;
+    private ViewGroup cFj = null;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -26,36 +26,36 @@ public class o extends BaseAdapter {
     }
 
     public o(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.aAL = tbPageContextSupport;
-        this.daP = z;
+        this.azD = tbPageContextSupport;
+        this.dic = z;
     }
 
     public void a(b bVar) {
-        this.daO = bVar;
+        this.dib = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.aUm = list;
+        this.aPE = list;
     }
 
     public void a(TbCheckBox.a aVar) {
-        this.daN = aVar;
+        this.dia = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aUm == null) {
+        if (this.aPE == null) {
             return 0;
         }
-        return this.aUm.size();
+        return this.aPE.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aUm == null) {
+        if (this.aPE == null) {
             return null;
         }
-        return this.aUm.get(i);
+        return this.aPE.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,8 +66,8 @@ public class o extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.cyf == null) {
-            this.cyf = viewGroup;
+        if (this.cFj == null) {
+            this.cFj = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.a aVar2 = (com.baidu.tbadk.coreExtra.relationship.a) getItem(i);
         if (aVar2 != null) {
@@ -76,7 +76,7 @@ public class o extends BaseAdapter {
             aVar = null;
         }
         if (aVar != null) {
-            return aVar.aAK;
+            return aVar.rootView;
         }
         return null;
     }
@@ -84,53 +84,53 @@ public class o extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = aul();
+            aVar2 = avr();
         } else {
             aVar2 = (a) obj;
         }
-        if (this.daO != null) {
-            this.daO.a(aVar2.aAK, aVar);
+        if (this.dib != null) {
+            this.dib.a(aVar2.rootView, aVar);
         }
-        a(aVar, aVar2, aVar.Al());
-        aVar2.bbH.setText(aVar.getUserName());
-        if (this.daP) {
-            aVar2.daQ.setVisibility(8);
+        a(aVar, aVar2, aVar.Ag());
+        aVar2.blu.setText(aVar.getUserName());
+        if (this.dic) {
+            aVar2.did.setVisibility(8);
         } else {
-            aVar2.daQ.setTagData(aVar);
+            aVar2.did.setTagData(aVar);
         }
-        if (this.aAL instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.aAL).getLayoutMode().x(aVar2.aAK);
+        if (this.azD instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.azD).getLayoutMode().v(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.daw.setTag(str);
-            aVar2.daw.c(str, 12, false);
+            aVar2.dhK.setTag(str);
+            aVar2.dhK.c(str, 12, false);
         }
     }
 
-    private a aul() {
+    private a avr() {
         a aVar = new a();
-        aVar.aAK = LayoutInflater.from(this.aAL.getPageContext().getContext()).inflate(r.h.invite_friend_list_item, (ViewGroup) null);
-        aVar.daw = (HeadImageView) aVar.aAK.findViewById(r.g.photo);
-        aVar.daw.setIsRound(false);
-        aVar.bbH = (TextView) aVar.aAK.findViewById(r.g.txt_user_name);
-        aVar.daQ = (TbCheckBox) aVar.aAK.findViewById(r.g.ckb_select);
-        if (this.daN != null) {
-            aVar.daQ.setStatedChangedListener(this.daN);
+        aVar.rootView = LayoutInflater.from(this.azD.getPageContext().getContext()).inflate(r.j.invite_friend_list_item, (ViewGroup) null);
+        aVar.dhK = (HeadImageView) aVar.rootView.findViewById(r.h.photo);
+        aVar.dhK.setIsRound(false);
+        aVar.blu = (TextView) aVar.rootView.findViewById(r.h.txt_user_name);
+        aVar.did = (TbCheckBox) aVar.rootView.findViewById(r.h.ckb_select);
+        if (this.dia != null) {
+            aVar.did.setStatedChangedListener(this.dia);
         }
-        aVar.aAK.setTag(aVar);
+        aVar.rootView.setTag(aVar);
         return aVar;
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public View aAK;
-        public TextView bbH;
-        public TbCheckBox daQ;
-        public HeadImageView daw;
+        public TextView blu;
+        public HeadImageView dhK;
+        public TbCheckBox did;
+        public View rootView;
 
         public a() {
         }

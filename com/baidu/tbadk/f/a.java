@@ -4,45 +4,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aza;
-    private boolean azb;
+    protected View axV;
+    private boolean axW;
 
     public a(View view) {
-        this.aza = view;
+        this.axV = view;
     }
 
-    public boolean Eh() {
-        return this.azb;
+    public boolean Ec() {
+        return this.axW;
     }
 
     public void b(View view, boolean z) {
-        if (view != null && this.aza != null && this.aza.getParent() == null) {
-            this.azb = true;
-            d.O(view).a(view, this.aza, z);
-            Ei();
+        if (view != null && this.axV != null && this.axV.getParent() == null) {
+            this.axW = true;
+            d.M(view).a(view, this.axV, z);
+            Ed();
         }
     }
 
-    public void M(View view) {
-        if (view != null && this.aza != null && this.aza.getParent() != null && (view instanceof ViewGroup)) {
+    public void K(View view) {
+        if (view != null && this.axV != null && this.axV.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Ej();
-                ((ViewGroup) view).removeView(this.aza);
-                this.azb = false;
+                Ee();
+                ((ViewGroup) view).removeView(this.axV);
+                this.axW = false;
             } catch (Exception e) {
             }
         }
     }
 
-    public void N(View view) {
+    public void L(View view) {
         b(view, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ei() {
+    public void Ed() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ej() {
+    public void Ee() {
     }
 }

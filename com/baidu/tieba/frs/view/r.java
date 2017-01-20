@@ -5,17 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnKeyListener {
-    final /* synthetic */ q bRS;
+    final /* synthetic */ q bYy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.bRS = qVar;
+        this.bYy = qVar;
     }
 
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.bRS.acA();
+            this.bYy.adK();
             return true;
         }
         return false;

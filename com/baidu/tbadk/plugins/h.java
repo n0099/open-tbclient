@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements a.b {
-    private final /* synthetic */ int aDJ;
-    private final /* synthetic */ int aDK;
-    private final /* synthetic */ String aDL;
+    private final /* synthetic */ int aCB;
+    private final /* synthetic */ int aCC;
+    private final /* synthetic */ String aCD;
     private final /* synthetic */ Context val$context;
     private final /* synthetic */ String val$url;
 
@@ -19,14 +19,14 @@ public class h implements a.b {
     public h(Context context, String str, int i, int i2, String str2) {
         this.val$context = context;
         this.val$url = str;
-        this.aDJ = i;
-        this.aDK = i2;
-        this.aDL = str2;
+        this.aCB = i;
+        this.aCC = i2;
+        this.aCD = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(this.val$context, this.val$url, this.aDJ, this.aDK, this.aDL)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(this.val$context, this.val$url, this.aCB, this.aCC, this.aCD)));
         aVar.dismiss();
     }
 }

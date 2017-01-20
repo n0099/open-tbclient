@@ -8,20 +8,20 @@ import java.io.File;
 /* loaded from: classes.dex */
 class i implements AsyncImageLoader.IAsyncImageLoaderListener {
     final /* synthetic */ Uri a;
-    final /* synthetic */ h cN;
+    final /* synthetic */ h cL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, Uri uri) {
-        this.cN = hVar;
+        this.cL = hVar;
         this.a = uri;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
     public void onComplete(Bitmap bitmap) {
         if (bitmap == null || bitmap.isRecycled()) {
-            this.cN.doShare(null);
+            this.cL.doShare(null);
             return;
         }
-        this.cN.doShare(Uri.fromFile(new File(ImageManager.getInstance().getCachedFilePath(this.a))));
+        this.cL.doShare(Uri.fromFile(new File(ImageManager.getInstance().getCachedFilePath(this.a))));
     }
 }

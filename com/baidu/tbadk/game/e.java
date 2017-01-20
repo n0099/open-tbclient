@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class e {
-    private static e axw;
+    private static e awA;
 
     private e() {
     }
 
-    public static e DN() {
-        if (axw == null) {
-            axw = new e();
+    public static e DI() {
+        if (awA == null) {
+            awA = new e();
         }
-        return axw;
+        return awA;
     }
 
     public void D(String str, int i) {

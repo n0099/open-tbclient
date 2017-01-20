@@ -1,30 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.tbadk.mvc.model.a<ba, ReplyMessageActivity> {
-    public ao(TbPageContext<ReplyMessageActivity> tbPageContext) {
-        super(tbPageContext);
+class ao implements View.OnClickListener {
+    final /* synthetic */ al dke;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ao(al alVar) {
+        this.dke = alVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.a
-    public Class<ba> EJ() {
-        return ba.class;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public int EK() {
-        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public int EL() {
-        return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.a
-    public String Ev() {
-        return "tb_user_replyme";
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.mvc.c.b bVar;
+        ViewEventCenter lA;
+        FeedData data = this.dke.getData();
+        if (data != null && FeedData.TYPE_GRAFFITI.equals(data.getPraiseItemType())) {
+            bVar = new com.baidu.tbadk.mvc.c.b(9487, data, null, null);
+        } else {
+            bVar = new com.baidu.tbadk.mvc.c.b(9484, data, null, null);
+        }
+        lA = this.dke.lA();
+        lA.dispatchMvcEvent(bVar);
     }
 }

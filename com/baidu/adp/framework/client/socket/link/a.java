@@ -5,11 +5,11 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 class a implements ServiceConnection {
-    final /* synthetic */ BdSocketDaemonService iN;
+    final /* synthetic */ BdSocketDaemonService iK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BdSocketDaemonService bdSocketDaemonService) {
-        this.iN = bdSocketDaemonService;
+        this.iK = bdSocketDaemonService;
     }
 
     @Override // android.content.ServiceConnection

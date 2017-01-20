@@ -8,89 +8,46 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c ahX;
+    final /* synthetic */ c ahl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.ahX = cVar;
+        this.ahl = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0091  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        a aVar;
-        a aVar2;
-        a aVar3;
-        a aVar4;
-        a aVar5;
-        a aVar6;
-        a aVar7;
-        a aVar8;
         b bVar;
         b bVar2;
         b bVar3;
-        a aVar9;
         TbPageContext tbPageContext;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-            aVar = this.ahX.ahQ;
-            if (aVar != null) {
-                aVar2 = this.ahX.ahQ;
-                if (!StringUtils.isNull(aVar2.getUserId()) && data != null) {
-                    aVar3 = this.ahX.ahQ;
-                    if (aVar3.getUserId().equals(data.toUid)) {
-                        if (data.vS) {
-                            aVar4 = this.ahX.ahQ;
-                            int fansNum = aVar4.getFansNum();
-                            if (data.akY) {
-                                aVar9 = this.ahX.ahQ;
-                                if (!aVar9.getIsLike()) {
-                                    fansNum++;
-                                    aVar6 = this.ahX.ahQ;
-                                    aVar6.setIsLike(data.akY);
-                                    aVar7 = this.ahX.ahQ;
-                                    aVar7.setIsFromNetWork(false);
-                                    aVar8 = this.ahX.ahQ;
-                                    aVar8.setFansNum(fansNum);
-                                    bVar = this.ahX.ahR;
-                                    if (bVar == null) {
-                                        bVar2 = this.ahX.ahR;
-                                        bVar2.dq(fansNum);
-                                        bVar3 = this.ahX.ahR;
-                                        bVar3.aP(data.akY);
-                                        return;
-                                    }
-                                    return;
-                                }
-                            }
-                            if (!data.akY) {
-                                aVar5 = this.ahX.ahQ;
-                                if (aVar5.getIsLike()) {
-                                    fansNum--;
-                                }
-                            }
-                            aVar6 = this.ahX.ahQ;
-                            aVar6.setIsLike(data.akY);
-                            aVar7 = this.ahX.ahQ;
-                            aVar7.setIsFromNetWork(false);
-                            aVar8 = this.ahX.ahQ;
-                            aVar8.setFansNum(fansNum);
-                            bVar = this.ahX.ahR;
-                            if (bVar == null) {
-                            }
-                        } else {
-                            tbPageContext = this.ahX.GO;
-                            tbPageContext.showToast(updateAttentionMessage.getData().errorString);
-                        }
-                    }
+            if (this.ahl.ahe != null && !StringUtils.isNull(this.ahl.ahe.getUserId()) && data != null && this.ahl.ahe.getUserId().equals(data.toUid)) {
+                if (!data.vJ) {
+                    tbPageContext = this.ahl.FY;
+                    tbPageContext.showToast(updateAttentionMessage.getData().errorString);
+                    return;
+                }
+                int fansNum = this.ahl.ahe.getFansNum();
+                if (data.isAttention && !this.ahl.ahe.getIsLike()) {
+                    fansNum++;
+                } else if (!data.isAttention && this.ahl.ahe.getIsLike()) {
+                    fansNum--;
+                }
+                this.ahl.ahe.setIsLike(data.isAttention);
+                this.ahl.ahe.setIsFromNetWork(false);
+                this.ahl.ahe.setFansNum(fansNum);
+                bVar = this.ahl.ahf;
+                if (bVar != null) {
+                    bVar2 = this.ahl.ahf;
+                    bVar2.dr(fansNum);
+                    bVar3 = this.ahl.ahf;
+                    bVar3.aP(data.isAttention);
                 }
             }
         }

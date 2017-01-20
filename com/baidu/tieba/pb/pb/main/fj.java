@@ -1,31 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.app.Dialog;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fj implements Runnable {
-    final /* synthetic */ er egZ;
+public class fj implements View.OnClickListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fj(er erVar) {
-        this.egZ = erVar;
+    public fj(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        Dialog dialog3;
         PbActivity pbActivity;
-        PbActivity pbActivity2;
-        bdTypeListView = this.egZ.aMc;
-        if (bdTypeListView.getFirstVisiblePosition() <= 1) {
-            bdTypeListView2 = this.egZ.aMc;
-            bdTypeListView2.setSelectionFromTop(1, 0);
-            pbActivity = this.egZ.dYB;
-            if (pbActivity.aJa() != null) {
-                pbActivity2 = this.egZ.dYB;
-                pbActivity2.aJa().Ur();
+        dialog = this.eqf.eoD;
+        if (dialog != null) {
+            dialog2 = this.eqf.eoD;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.eqf.eoD;
+                pbActivity = this.eqf.ehi;
+                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
             }
+        }
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.eqf.a(((Integer) sparseArray.get(r.h.tag_del_post_type)).intValue(), (String) sparseArray.get(r.h.tag_del_post_id), ((Integer) sparseArray.get(r.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(r.h.tag_del_post_is_self)).booleanValue());
         }
     }
 }

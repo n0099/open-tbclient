@@ -11,13 +11,13 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity cYR;
+    final /* synthetic */ AddFriendActivity dgg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.cYR = addFriendActivity;
+        this.dgg = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,20 +31,20 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.cYR.userId;
-                str2 = this.cYR.name;
+                str = this.dgg.userId;
+                str2 = this.dgg.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_ADD_FRIEND, new g(str, str2)));
-                z = this.cYR.cYP;
+                z = this.dgg.dge;
                 if (z) {
-                    this.cYR.showToast(this.cYR.getPageContext().getPageActivity().getString(r.j.add_ok_but_level_is_lower), false);
+                    this.dgg.showToast(this.dgg.getPageContext().getPageActivity().getString(r.l.group_apply_succ), false);
                 } else {
-                    this.cYR.showToast(this.cYR.getPageContext().getPageActivity().getString(r.j.group_apply_succ), false);
+                    this.dgg.showToast(this.dgg.getPageContext().getPageActivity().getString(r.l.group_apply_succ), false);
                 }
-                this.cYR.finish();
-            } else if (AntiHelper.rp(error)) {
-                AntiHelper.S(this.cYR.getPageContext().getPageActivity(), errorString);
+                this.dgg.finish();
+            } else if (AntiHelper.sa(error)) {
+                AntiHelper.T(this.dgg.getPageContext().getPageActivity(), errorString);
             } else {
-                k.showToast(this.cYR.getPageContext().getPageActivity(), errorString);
+                k.showToast(this.dgg.getPageContext().getPageActivity(), errorString);
             }
         }
     }

@@ -1,12 +1,13 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
 /* loaded from: classes.dex */
-public class AnchorInfoData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+public class AnchorInfoData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 1;
     private int isVip;
     private String portrait = "";

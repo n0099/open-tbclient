@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.db.pojo;
 
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.a;
+import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.data.IconData;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class OldUserData extends a implements Serializable {
+public class OldUserData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = -4483304441506804594L;
     private long id;
     private long inTime;
@@ -153,7 +153,7 @@ public class OldUserData extends a implements Serializable {
         this.lastReplyTime = j;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(this.portrait);
@@ -161,7 +161,7 @@ public class OldUserData extends a implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public static class Permission extends i implements Serializable {
+    public static class Permission extends OrmObject implements Serializable {
         private static final long serialVersionUID = -661968182172681650L;
         private int isGroupManager;
         private int isGroupOwner;

@@ -1,96 +1,68 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.browser.f;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigImgPbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.r;
+import com.baidu.tieba.frs.entelechy.b.b;
+import com.baidu.tieba.tbadkCore.d;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bzl;
+class o implements cc {
+    final /* synthetic */ FrsActivity bGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsActivity frsActivity) {
-        this.bzl = frsActivity;
+        this.bGL = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        bq bqVar;
-        com.baidu.tieba.frs.h.ak akVar;
-        bq bqVar2;
-        com.baidu.tieba.frs.h.a aVar;
-        com.baidu.tieba.frs.h.ab abVar;
-        com.baidu.tieba.frs.h.a aVar2;
-        if (view != this.bzl.byg.Xg()) {
-            if (view == this.bzl.byg.Xb()) {
-                ax axVar = this.bzl.byg;
-                bqVar = this.bzl.byi;
-                axVar.a(bqVar);
-                akVar = this.bzl.byt;
-                bqVar2 = this.bzl.byi;
-                akVar.a(bqVar2);
-                TiebaStatic.log("c10529");
-                TiebaStatic.eventStat(this.bzl.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
-                this.bzl.byg.Xp();
-                FrsActivityStatic.bzr = false;
-                aVar = this.bzl.byG;
-                if (aVar != null) {
-                    aVar2 = this.bzl.byG;
-                    aVar2.abw();
-                }
-                this.bzl.byg.XL();
-                abVar = this.bzl.byu;
-                abVar.Zn();
-            } else if (view == this.bzl.byg.Xd()) {
-                long j = 0;
-                if (this.bzl.byh != null && this.bzl.byh.getUserData() != null && !StringUtils.isNull(this.bzl.byh.getUserData().getUserId())) {
-                    str = this.bzl.byh.getUserData().getUserId();
+    @Override // com.baidu.tieba.frs.cc
+    public void a(int i, int i2, cm cmVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
+        b bVar;
+        cc ccVar;
+        cc ccVar2;
+        com.baidu.tieba.frs.f.u uVar;
+        b bVar2;
+        this.bGL.XI();
+        bVar = this.bGL.bGd;
+        if (bVar != null) {
+            uVar = this.bGL.bFR;
+            bVar2 = this.bGL.bGd;
+            uVar.ek(bVar2.ia(i));
+        }
+        d.a aVar = new d.a();
+        if (cmVar != null) {
+            aVar.isSuccess = cmVar.errCode == 0;
+            aVar.errorCode = cmVar.errCode;
+            aVar.errorMsg = cmVar.errMsg;
+            if (aVar.isSuccess) {
+                if (com.baidu.tbadk.core.util.w.s(arrayList)) {
+                    this.bGL.bFF.SI();
+                } else if (cmVar.hasMore) {
+                    this.bGL.bFF.YL();
+                } else if (cmVar.bJl) {
+                    this.bGL.bFF.Jv();
                 } else {
-                    str = "";
+                    this.bGL.bFF.SI();
                 }
-                if (this.bzl.byh != null) {
-                    j = this.bzl.byh.beF();
-                }
-                this.bzl.byg.Xe().setVisibility(4);
-                ImageView imageView = (ImageView) view;
-                if (this.bzl.Wv()) {
-                    com.baidu.tbadk.core.util.ar.b(imageView, r.f.btn_bottle_selector, r.f.btn_bottle_selector);
-                } else {
-                    com.baidu.tbadk.core.util.ar.b(imageView, r.f.d_btn_bottle_selector, r.f.d_btn_bottle_selector);
-                }
-                if (this.bzl.byg.XK()) {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.at("c11946").ab(SapiAccountManager.SESSION_UID, str).g("tid", j));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bzl.getApplicationContext(), String.valueOf(this.bzl.byh.beF()))));
-                } else {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.at("c11944"));
-                    com.baidu.adp.lib.util.k.showToast(this.bzl.getActivity(), r.j.frs_no_drifting_bottle_tip);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bzl.getApplicationContext())));
-                }
-                this.bzl.byg.dE(false);
-                com.baidu.tbadk.core.sharedPref.b.tW().putLong("drifting_bottle_tid" + TbadkCoreApplication.getCurrentAccount(), this.bzl.byh.beF());
             }
         } else {
-            this.bzl.closeActivity();
+            cmVar = new cm();
+            cmVar.pn = 1;
+            cmVar.hasMore = false;
+            cmVar.bJl = false;
         }
-        if (view.getId() == r.g.game_activity_egg_layout && com.baidu.adp.lib.util.k.gD()) {
-            TiebaStatic.log("c10853");
-            if (this.bzl.byg.Xr()) {
-                this.bzl.byg.Xs();
-                return;
+        if (i == 1) {
+            this.bGL.bFP = true;
+            this.bGL.bGw.a(this.bGL.bFQ.getType(), false, aVar);
+        } else {
+            this.bGL.a(aVar, true);
+            if (this.bGL.bFQ.abf() != null) {
+                this.bGL.bFG = this.bGL.bFQ.abf();
             }
-            String activityUrl = this.bzl.byh.aIk().getYuleData().sU().getActivityUrl();
-            if (!StringUtils.isNull(activityUrl)) {
-                f.v(this.bzl.getPageContext().getPageActivity(), activityUrl);
-            }
+            this.bGL.XP();
         }
+        ccVar = this.bGL.bGK;
+        if (ccVar == null) {
+            return;
+        }
+        ccVar2 = this.bGL.bGK;
+        ccVar2.a(i, i2, cmVar, arrayList);
     }
 }

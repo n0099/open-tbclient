@@ -1,50 +1,85 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.support.v4.view.MotionEventCompat;
-import com.baidu.adp.lib.util.BdLog;
-import java.io.ByteArrayInputStream;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import java.util.Arrays;
+import android.database.Cursor;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
-    public static boolean U(Context context) {
-        byte[] V = V(context);
-        return V == null || V.length == 0 || Arrays.equals(V, cT("30819f300d06092a864886f70d010101050003818d0030818902818100b17c8a1a350a202f33e461293638cbf1b6bd481877a87379cd6b99d2ec33aa123d9e16028e94c89a3ea268bd5b055869cd99bf10780e7fafa6254a4471d4d57d36589331e28f66b0044bd8e6cc0cd82dc4fa21f28887776b2094118f859739e8271811894260d9a8f36482fc4e2e9df40dc953e2c2da429ea1101524bce33fd10203010001"));
-    }
-
-    private static byte[] V(Context context) {
-        try {
-            for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {
-                if (packageInfo.packageName.equals(context.getPackageName())) {
-                    return w(packageInfo.signatures[0].toByteArray());
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e);
+    public static void tV() {
+        com.baidu.adp.base.a.b mainDBDatabaseManager;
+        if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
+            mainDBDatabaseManager.g("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
         }
-        return null;
     }
 
-    private static byte[] w(byte[] bArr) {
-        try {
-            return ((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(bArr))).getPublicKey().getEncoded();
-        } catch (CertificateException e) {
-            BdLog.e(e);
+    public static void cS(String str) {
+        if (TbadkCoreApplication.getCurrentAccount() != null) {
+            com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null && mainDBDatabaseManager != null) {
+                mainDBDatabaseManager.g("delete from chunk_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            }
+        }
+    }
+
+    public static boolean a(com.baidu.tbadk.coreExtra.data.g gVar) {
+        if (TbadkCoreApplication.getCurrentAccount() == null) {
+            return false;
+        }
+        com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        Date date = new Date();
+        if (gVar == null || mainDBDatabaseManager == null) {
+            return false;
+        }
+        mainDBDatabaseManager.g("delete from chunk_upload_data where md5=? and account=?", new String[]{gVar.getMd5(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.g("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{gVar.getMd5(), Long.valueOf(gVar.getTotalLength()), Integer.valueOf(gVar.xz()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+    }
+
+    public static com.baidu.tbadk.coreExtra.data.g cT(String str) {
+        Cursor cursor;
+        Exception e;
+        com.baidu.tbadk.coreExtra.data.g gVar;
+        if (TbadkCoreApplication.getCurrentAccount() == null) {
             return null;
         }
-    }
-
-    private static byte[] cT(String str) {
-        int length = str.length() / 2;
-        byte[] bArr = new byte[length];
-        for (int i = 0; i < length; i++) {
-            int i2 = (i * 2) + 1;
-            bArr[i] = (byte) (Integer.decode("0x" + str.substring(i * 2, i2) + str.substring(i2, i2 + 1)).intValue() & MotionEventCompat.ACTION_MASK);
+        com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        try {
+            cursor = mainDBDatabaseManager.rawQuery("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            try {
+                try {
+                    if (cursor.moveToFirst()) {
+                        gVar = new com.baidu.tbadk.coreExtra.data.g();
+                        try {
+                            gVar.setMd5(str);
+                            gVar.dD(cursor.getInt(3));
+                            gVar.L(cursor.getLong(2));
+                        } catch (Exception e2) {
+                            e = e2;
+                            mainDBDatabaseManager.a(e, "getChunkUploadDataByMd5");
+                            com.baidu.adp.lib.g.a.a(cursor);
+                            return gVar;
+                        }
+                    } else {
+                        gVar = null;
+                    }
+                    com.baidu.adp.lib.g.a.a(cursor);
+                } catch (Exception e3) {
+                    gVar = null;
+                    e = e3;
+                }
+            } catch (Throwable th) {
+                th = th;
+                com.baidu.adp.lib.g.a.a(cursor);
+                throw th;
+            }
+        } catch (Exception e4) {
+            cursor = null;
+            e = e4;
+            gVar = null;
+        } catch (Throwable th2) {
+            th = th2;
+            cursor = null;
         }
-        return bArr;
+        return gVar;
     }
 }

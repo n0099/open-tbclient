@@ -4,11 +4,11 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ AbsMsglistView cEI;
+    final /* synthetic */ AbsMsglistView cLR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AbsMsglistView absMsglistView) {
-        this.cEI = absMsglistView;
+        this.cLR = absMsglistView;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -17,21 +17,21 @@ public class h implements com.baidu.tbadk.editortools.b {
             if (aVar.code == 24) {
                 if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.l)) {
                     com.baidu.tbadk.coreExtra.data.l lVar = (com.baidu.tbadk.coreExtra.data.l) aVar.data;
-                    EmotionGroupType xI = lVar.xI();
+                    EmotionGroupType xE = lVar.xE();
                     String name = lVar.getName();
-                    if (xI != EmotionGroupType.LOCAL && name != null) {
-                        this.cEI.mContext.a(lVar);
-                        this.cEI.onSendEmotion();
+                    if (xE != EmotionGroupType.LOCAL && name != null) {
+                        this.cLR.mContext.a(lVar);
+                        this.cLR.onSendEmotion();
                     }
                 }
             } else if (aVar.code == 8) {
-                this.cEI.mContext.ang();
+                this.cLR.mContext.aoo();
             } else if (aVar.code == 4) {
                 if (aVar.data != null && (aVar.data instanceof String)) {
-                    this.cEI.mTextContent = (String) aVar.data;
+                    this.cLR.mTextContent = (String) aVar.data;
                 }
             } else if (aVar.code == 14) {
-                this.cEI.mContext.anh();
+                this.cLR.mContext.aop();
             }
         }
     }

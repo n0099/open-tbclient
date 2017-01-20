@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestCheckUserMaskMessage;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-public class BlackListModel extends e {
+public class BlackListModel extends BdBaseModel {
     public static final int ISMASK_FALSE_FROM_SERVER = 0;
     public static final int ISMASK_TRUE_FROM_SERVER = 1;
     public static final int MASK_TYPE = 10;
@@ -21,12 +21,12 @@ public class BlackListModel extends e {
         this.mMaskType = 2;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         super.cancelMessage();
         return false;

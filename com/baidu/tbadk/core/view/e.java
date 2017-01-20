@@ -3,26 +3,26 @@ package com.baidu.tbadk.core.view;
 import android.database.DataSetObserver;
 /* loaded from: classes.dex */
 class e extends DataSetObserver {
-    final /* synthetic */ HorizontalListView aeJ;
+    final /* synthetic */ HorizontalListView adU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(HorizontalListView horizontalListView) {
-        this.aeJ = horizontalListView;
+        this.adU = horizontalListView;
     }
 
     @Override // android.database.DataSetObserver
     public void onChanged() {
-        synchronized (this.aeJ) {
-            this.aeJ.aeC = true;
+        synchronized (this.adU) {
+            this.adU.adN = true;
         }
-        this.aeJ.invalidate();
-        this.aeJ.requestLayout();
+        this.adU.invalidate();
+        this.adU.requestLayout();
     }
 
     @Override // android.database.DataSetObserver
     public void onInvalidated() {
-        this.aeJ.reset();
-        this.aeJ.invalidate();
-        this.aeJ.requestLayout();
+        this.adU.reset();
+        this.adU.invalidate();
+        this.adU.requestLayout();
     }
 }

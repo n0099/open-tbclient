@@ -1,46 +1,46 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tieba.tbadkCore.f.a;
+import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.base.g {
-    final /* synthetic */ NewSubPbActivity eis;
+public class o extends com.baidu.adp.base.f {
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NewSubPbActivity newSubPbActivity) {
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.f
     public void g(Object obj) {
         ao aoVar;
-        com.baidu.tieba.tbadkCore.f.a aVar;
-        com.baidu.tieba.tbadkCore.f.a aVar2;
+        ForumManageModel forumManageModel;
+        ForumManageModel forumManageModel2;
         ao aoVar2;
         boolean z = false;
         if (obj != null) {
-            aVar2 = this.eis.eic;
-            switch (aVar2.getLoadDataMode()) {
+            forumManageModel2 = this.erC.erm;
+            switch (forumManageModel2.getLoadDataMode()) {
                 case 0:
-                    a.b bVar = (a.b) obj;
-                    if (bVar.cfs || bVar.ejf <= 0 || bVar.fiF == 1) {
+                    ForumManageModel.b bVar = (ForumManageModel.b) obj;
+                    if (bVar.clJ || bVar.esp <= 0 || bVar.frR == 1) {
                         z = true;
                     } else {
-                        com.baidu.tieba.c.a.a(this.eis.getPageContext(), 3, 1);
+                        com.baidu.tieba.c.a.a(this.erC.getPageContext(), 3, 1);
                     }
-                    this.eis.a(bVar, z);
+                    this.erC.a(bVar, z);
                     return;
                 case 1:
-                    a.d dVar = (a.d) obj;
-                    aoVar2 = this.eis.eid;
-                    aoVar2.a(1, dVar.uc, dVar.fiH, true);
+                    ForumManageModel.d dVar = (ForumManageModel.d) obj;
+                    aoVar2 = this.erC.ern;
+                    aoVar2.a(1, dVar.tT, dVar.frT, true);
                     return;
                 default:
                     return;
             }
         }
-        aoVar = this.eis.eid;
-        aVar = this.eis.eic;
-        aoVar.a(aVar.getLoadDataMode(), false, (String) null, false);
+        aoVar = this.erC.ern;
+        forumManageModel = this.erC.erm;
+        aoVar.a(forumManageModel.getLoadDataMode(), false, (String) null, false);
     }
 }

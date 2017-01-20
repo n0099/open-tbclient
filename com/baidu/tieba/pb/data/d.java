@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.tieba.tbadkCore.data.q;
+import com.baidu.tieba.tbadkCore.data.p;
 /* loaded from: classes.dex */
-public class d extends q {
+public class d extends p {
 }

@@ -1,57 +1,57 @@
 package com.baidu.tieba.personPolymeric.b;
 
-import com.baidu.tieba.d.a;
+import com.baidu.tieba.f.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements a.InterfaceC0057a {
-    final /* synthetic */ ab etS;
+    final /* synthetic */ ab eDM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar) {
-        this.etS = abVar;
+        this.eDM = abVar;
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0057a
-    public void P(int i, int i2) {
-        af afVar;
-        af afVar2;
-        af afVar3;
-        af afVar4;
-        if (aa(i2)) {
-            afVar = this.etS.etO;
-            if (afVar != null) {
-                afVar2 = this.etS.etO;
-                if (afVar2.etU != null) {
-                    afVar3 = this.etS.etO;
-                    afVar3.etU.dd(false);
-                    afVar4 = this.etS.etO;
-                    afVar4.etU.Us();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d.a.InterfaceC0057a
+    @Override // com.baidu.tieba.f.a.InterfaceC0057a
     public void Q(int i, int i2) {
         af afVar;
         af afVar2;
         af afVar3;
         af afVar4;
-        if (aa(i2)) {
-            afVar = this.etS.etO;
+        if (T(i2)) {
+            afVar = this.eDM.eDI;
             if (afVar != null) {
-                afVar2 = this.etS.etO;
-                if (afVar2.etU != null) {
-                    afVar3 = this.etS.etO;
-                    afVar3.etU.dd(true);
-                    afVar4 = this.etS.etO;
-                    afVar4.etU.Ur();
+                afVar2 = this.eDM.eDI;
+                if (afVar2.eDO != null) {
+                    afVar3 = this.eDM.eDI;
+                    afVar3.eDO.dk(false);
+                    afVar4 = this.eDM.eDI;
+                    afVar4.eDO.VN();
                 }
             }
         }
     }
 
-    private boolean aa(float f) {
+    @Override // com.baidu.tieba.f.a.InterfaceC0057a
+    public void R(int i, int i2) {
+        af afVar;
+        af afVar2;
+        af afVar3;
+        af afVar4;
+        if (T(i2)) {
+            afVar = this.eDM.eDI;
+            if (afVar != null) {
+                afVar2 = this.eDM.eDI;
+                if (afVar2.eDO != null) {
+                    afVar3 = this.eDM.eDI;
+                    afVar3.eDO.dk(true);
+                    afVar4 = this.eDM.eDI;
+                    afVar4.eDO.VM();
+                }
+            }
+        }
+    }
+
+    private boolean T(float f) {
         return Math.abs(f) >= 1.0f;
     }
 }

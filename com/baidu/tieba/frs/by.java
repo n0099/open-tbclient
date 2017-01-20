@@ -1,71 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import android.support.v4.util.LongSparseArray;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class by extends SparseArray<cd> {
-    public BdUniqueId bbl = null;
+public class by {
+    private static final by bIY = new by();
+    private LongSparseArray<LinkedList<String>> bIX = new LongSparseArray<>();
 
-    public void a(ce ceVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                cd valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(ceVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    private by() {
     }
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                cd valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public static by Zg() {
+        return bIY;
     }
 
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                cd valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.VI();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
+    public void d(long j, String str) {
+        LinkedList<String> linkedList = this.bIX.get(j);
+        if (linkedList == null) {
+            linkedList = new LinkedList<>();
+            this.bIX.put(j, linkedList);
         }
+        linkedList.add(str);
     }
 
-    public void a(int i, cd cdVar) {
-        if (i > 100) {
-            i = 100;
-        }
-        put(i, cdVar);
+    public boolean e(long j, String str) {
+        LinkedList<String> linkedList = this.bIX.get(j);
+        return linkedList != null && linkedList.contains(str);
     }
 
-    public cd hk(int i) {
-        if (i > 100) {
-            i = 100;
+    public void aV(long j) {
+        LinkedList<String> linkedList = this.bIX.get(j);
+        if (linkedList != null) {
+            linkedList.clear();
         }
-        return get(i);
     }
 }

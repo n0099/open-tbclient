@@ -5,89 +5,89 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a nn;
-    private boolean nr;
-    private List<b> ns = new ArrayList();
-    private Configuration nj = new Configuration();
+    private a ng;
+    private boolean nj;
+    private List<b> nk = new ArrayList();
+    private Configuration nc = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
-        void dR();
+        void dP();
 
         void onDismiss();
     }
 
     public g ae(int i) {
-        if (this.nr) {
+        if (this.nj) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.nj.mAlpha = i;
+        this.nc.mAlpha = i;
         return this;
     }
 
     public g o(View view) {
-        if (this.nr) {
+        if (this.nj) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.nj.bL = view;
+        this.nc.bK = view;
         return this;
     }
 
     public g af(int i) {
-        if (this.nr) {
+        if (this.nj) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.nj.nc = i;
+        this.nc.mT = i;
         return this;
     }
 
     public g x(boolean z) {
-        if (this.nr) {
+        if (this.nj) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.nj.ne = z;
+        this.nc.mV = z;
         return this;
     }
 
     public g y(boolean z) {
-        if (this.nr) {
+        if (this.nj) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.nj.nf = z;
+        this.nc.mW = z;
         return this;
     }
 
     public g a(b bVar) {
-        if (this.nr) {
+        if (this.nj) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.ns.add(bVar);
+        this.nk.add(bVar);
         return this;
     }
 
     public g z(boolean z) {
-        this.nj.na = z;
+        this.nc.mQ = z;
         return this;
     }
 
-    public d dQ() {
+    public d dO() {
         d dVar = new d();
-        dVar.a((b[]) this.ns.toArray(new b[this.ns.size()]));
-        dVar.a(this.nj);
-        dVar.a(this.nn);
-        this.ns = null;
-        this.nj = null;
-        this.nn = null;
-        this.nr = true;
+        dVar.a((b[]) this.nk.toArray(new b[this.nk.size()]));
+        dVar.a(this.nc);
+        dVar.a(this.ng);
+        this.nk = null;
+        this.nc = null;
+        this.ng = null;
+        this.nj = true;
         return dVar;
     }
 }

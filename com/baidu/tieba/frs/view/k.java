@@ -9,27 +9,27 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ c bRo;
+    final /* synthetic */ c bXS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.bRo = cVar;
+        this.bXS = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c tn() {
+    public com.baidu.tbadk.core.flow.a.c th() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-        cVar.cu(r.f.icon_dot_personal_s);
-        cVar.cv(r.f.icon_dot_personal_n);
-        cVar.setSpacing(r.e.ds10);
+        cVar.ct(r.g.icon_dot_personal_s);
+        cVar.cu(r.g.icon_dot_personal_n);
+        cVar.setSpacing(r.f.ds10);
         cVar.setGravity(85);
-        cVar.cx(r.e.ds20);
-        cVar.cw(r.e.ds16);
+        cVar.cw(r.f.ds20);
+        cVar.cv(r.f.ds16);
         return cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView Q(Context context) {
+    public TbImageView S(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         tbImageView.setGifIconSupport(false);
@@ -37,14 +37,14 @@ public class k implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e to() {
+    public com.baidu.tbadk.core.flow.a.e ti() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        eVar.setHeight(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds280));
+        eVar.setHeight(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View tp() {
-        return this.bRo.bQn;
+    public View tj() {
+        return this.bXS.bWR;
     }
 }

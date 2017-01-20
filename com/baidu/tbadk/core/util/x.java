@@ -1,73 +1,74 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.List;
+import android.content.Context;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.text.TextUtils;
 /* loaded from: classes.dex */
-public class x {
-    public static <T> void r(List<T> list) {
-        if (list != null) {
-            list.clear();
+public class x implements MediaScannerConnection.MediaScannerConnectionClient {
+    private a ZA;
+    private MediaScannerConnection Zv;
+    private String Zw;
+    private String[] Zx;
+    private String[] Zy;
+    private boolean Zz;
+    private int length;
+    private Context mContext;
+    private String mPath;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void uA();
+    }
+
+    public x(Context context) {
+        this.mContext = context;
+        this.Zv = new MediaScannerConnection(this.mContext, this);
+    }
+
+    public void dq(String str) {
+        this.mPath = str;
+        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
+        this.Zw = "image/jpeg";
+        if (substring.equals(".gif")) {
+            this.Zw = "image/gif";
+        }
+        this.Zv.connect();
+    }
+
+    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
+    public void onMediaScannerConnected() {
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.Zw)) {
+            this.Zv.scanFile(this.mPath, this.Zw);
+        }
+        if (this.Zx != null && this.Zy != null && this.Zx.length == this.Zy.length) {
+            int length = this.Zx.length;
+            for (int i = 0; i < length; i++) {
+                this.Zv.scanFile(this.Zx[i], this.Zy[i]);
+            }
         }
     }
 
-    public static <T> int s(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            return 0;
+    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+    public void onScanCompleted(String str, Uri uri) {
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.Zw) && str.equals(this.mPath)) {
+            this.Zv.disconnect();
+            this.mPath = null;
+            this.Zw = null;
+            this.Zz = true;
+        } else if (this.Zx != null && this.Zy != null && this.Zx.length == this.Zy.length) {
+            this.length--;
+            if (this.length == 0) {
+                this.Zv.disconnect();
+                this.Zx = null;
+                this.Zy = null;
+                this.Zz = true;
+            } else {
+                this.Zz = false;
+            }
         }
-        return list.size();
-    }
-
-    public static <T> T c(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return list.get(i);
-    }
-
-    public static <T> int a(List<T> list, T t) {
-        if (list == null || list.isEmpty() || t == null) {
-            return -1;
-        }
-        return list.indexOf(t);
-    }
-
-    public static <T> boolean t(List<T> list) {
-        return s(list) <= 0;
-    }
-
-    public static <T> T d(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return list.remove(i);
-    }
-
-    public static <T> boolean b(List<T> list, T t) {
-        if (list == null) {
-            return false;
-        }
-        return list.add(t);
-    }
-
-    public static <T> boolean a(List<T> list, int i, T t) {
-        if (list == null || i > list.size() || i < 0) {
-            return false;
-        }
-        list.add(i, t);
-        return true;
-    }
-
-    public static <T> List<T> a(List<T> list, int i, int i2) {
-        int s = s(list);
-        if (s > 0 && i >= 0 && i2 <= s) {
-            return list.subList(i, i2);
-        }
-        return null;
-    }
-
-    public static <T> void b(List<T> list, int i, int i2) {
-        int s = s(list);
-        if (s > 0 && i >= 0 && i2 <= s) {
-            r(list.subList(i, i2));
+        if (this.Zz && this.ZA != null) {
+            this.ZA.uA();
         }
     }
 }

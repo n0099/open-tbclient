@@ -5,7 +5,7 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.base.h;
+import com.baidu.adp.base.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -22,7 +22,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             return;
         }
         initLoadingView(stringExtra);
-        PluginPackageManager.iB().a(stringExtra, new a(this));
+        PluginPackageManager.iz().a(stringExtra, new a(this));
     }
 
     private void initLoadingView(String str) {
@@ -47,8 +47,8 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.base.i
-    public h<LoadingActivity> getPageContext() {
+    @Override // com.baidu.adp.base.h
+    public g<LoadingActivity> getPageContext() {
         return null;
     }
 }

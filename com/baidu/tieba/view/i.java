@@ -3,19 +3,19 @@ package com.baidu.tieba.view;
 import android.view.View;
 /* loaded from: classes.dex */
 class i implements View.OnClickListener {
-    final /* synthetic */ h fut;
-    private final /* synthetic */ m fuu;
+    final /* synthetic */ h fDo;
+    private final /* synthetic */ m fDp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, m mVar) {
-        this.fut = hVar;
-        this.fuu = mVar;
+        this.fDo = hVar;
+        this.fDp = mVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.personPolymeric.event.a aVar = new com.baidu.tieba.personPolymeric.event.a();
-        aVar.bsn = 9;
-        this.fuu.a(view, aVar);
+        aVar.bzY = 9;
+        this.fDp.a(view, aVar);
     }
 }

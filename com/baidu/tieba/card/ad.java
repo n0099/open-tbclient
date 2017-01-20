@@ -1,16 +1,29 @@
 package com.baidu.tieba.card;
+
+import android.os.Handler;
+import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements Runnable {
-    final /* synthetic */ t bcw;
+public class ad implements v.d {
+    final /* synthetic */ x bml;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(t tVar) {
-        this.bcw = tVar;
+    public ad(x xVar) {
+        this.bml = xVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.bcw.e(true, 4);
+    @Override // com.baidu.tieba.play.v.d
+    public void onPrepared(com.baidu.tieba.play.v vVar) {
+        Handler handler;
+        if (vVar != null) {
+            try {
+                vVar.setVolume(0.0f, 0.0f);
+                vVar.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            handler = this.bml.aNu;
+            handler.sendEmptyMessageDelayed(202, 300L);
+        }
     }
 }

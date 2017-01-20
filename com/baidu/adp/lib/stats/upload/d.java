@@ -11,7 +11,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 class d {
     public static String a(com.baidu.adp.lib.stats.base.a aVar, f fVar) {
-        if (aVar.fw() != null && (aVar.fw().equals("omp") || aVar.fw().equals("mon"))) {
+        if (aVar.fu() != null && (aVar.fu().equals("omp") || aVar.fu().equals("mon"))) {
             return a(fVar);
         }
         return a(true, fVar);
@@ -21,19 +21,19 @@ class d {
         HashMap<String, Object> hashMap = new HashMap<>();
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", fVar.mAppVersion);
-        a(hashMap, "_phone_imei", fVar.pU);
+        a(hashMap, "_phone_imei", fVar.pO);
         a(hashMap, "_client_id", fVar.mClientId);
-        a(hashMap, "subapp_type", fVar.pV);
-        a(hashMap, "from", fVar.pS);
-        a(hashMap, "net_type", fVar.pZ);
+        a(hashMap, "subapp_type", fVar.pP);
+        a(hashMap, "from", fVar.pM);
+        a(hashMap, "net_type", fVar.pT);
         a(hashMap, SocialConstants.PARAM_CUID, fVar.mCuid);
-        a(hashMap, "model", fVar.pW);
+        a(hashMap, "model", fVar.pQ);
         if (TextUtils.isEmpty(fVar.mUid)) {
             fVar.mUid = "0";
         }
         a(hashMap, SapiAccountManager.SESSION_UID, fVar.mUid);
-        a(hashMap, "un", fVar.pX);
-        a(hashMap, "BDUSS", fVar.pY);
+        a(hashMap, "un", fVar.pR);
+        a(hashMap, "BDUSS", fVar.pS);
         if (z) {
             a(hashMap, "find_bug", "2");
         } else {
@@ -56,11 +56,11 @@ class d {
         try {
             sb.append("product");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.pQ, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.pK, "utf-8"));
             sb.append("&");
             sb.append("sub_sys");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.pR, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.pL, "utf-8"));
             sb.append("&");
             sb.append("version");
             sb.append("=");
@@ -72,23 +72,23 @@ class d {
             sb.append("&");
             sb.append("os_version");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.qa, "utf-8"));
-            if (!TextUtils.isEmpty(fVar.pS)) {
+            sb.append(URLEncoder.encode(fVar.pU, "utf-8"));
+            if (!TextUtils.isEmpty(fVar.pM)) {
                 sb.append("&");
                 sb.append("from");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pS, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pM, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.pT)) {
+            if (!TextUtils.isEmpty(fVar.pN)) {
                 sb.append("&");
                 sb.append("cfrom");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pT, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pN, "utf-8"));
             }
             sb.append("&");
             sb.append("phone");
             sb.append("=");
-            sb.append(URLEncoder.encode(fVar.pW, "utf-8"));
+            sb.append(URLEncoder.encode(fVar.pQ, "utf-8"));
             if (!TextUtils.isEmpty(fVar.mUid)) {
                 sb.append("&");
                 sb.append(SapiAccountManager.SESSION_UID);
@@ -101,17 +101,17 @@ class d {
                 sb.append("=");
                 sb.append(URLEncoder.encode(fVar.mClientId, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.pU)) {
+            if (!TextUtils.isEmpty(fVar.pO)) {
                 sb.append("&");
                 sb.append("imei");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pU, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pO, "utf-8"));
             }
-            if (!TextUtils.isEmpty(fVar.pX)) {
+            if (!TextUtils.isEmpty(fVar.pR)) {
                 sb.append("&");
                 sb.append("uname");
                 sb.append("=");
-                sb.append(URLEncoder.encode(fVar.pX, "utf-8"));
+                sb.append(URLEncoder.encode(fVar.pR, "utf-8"));
             }
             if (!TextUtils.isEmpty(fVar.mCuid)) {
                 sb.append("&");
@@ -151,22 +151,22 @@ class d {
         StringBuilder sb = new StringBuilder();
         sb.append("_client_type=2");
         a(sb, "_client_version", fVar.mAppVersion, z);
-        a(sb, "_phone_imei", fVar.pU, z);
+        a(sb, "_phone_imei", fVar.pO, z);
         a(sb, "_client_id", fVar.mClientId, z);
-        a(sb, "subapp_type", fVar.pV, z);
-        a(sb, "os_version", fVar.qa, z);
-        a(sb, "from", fVar.pS, z);
-        a(sb, "cfrom", fVar.pT, z);
-        a(sb, "net_type", fVar.pZ, z);
+        a(sb, "subapp_type", fVar.pP, z);
+        a(sb, "os_version", fVar.pU, z);
+        a(sb, "from", fVar.pM, z);
+        a(sb, "cfrom", fVar.pN, z);
+        a(sb, "net_type", fVar.pT, z);
         a(sb, SocialConstants.PARAM_CUID, fVar.mCuid, z);
-        a(sb, "model", fVar.pW, z);
+        a(sb, "model", fVar.pQ, z);
         if (TextUtils.isEmpty(fVar.mUid)) {
             a(sb, SapiAccountManager.SESSION_UID, "0", z);
         } else {
             a(sb, SapiAccountManager.SESSION_UID, fVar.mUid, z);
         }
-        a(sb, "un", fVar.pX, z);
-        a(sb, "BDUSS", fVar.pY, z);
+        a(sb, "un", fVar.pR, z);
+        a(sb, "BDUSS", fVar.pS, z);
         return sb.toString();
     }
 }

@@ -4,6 +4,7 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.homepage.mygod.RecommendGodCacheModel;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
 public class RecommendGodSocketResponsedMessage extends MvcSocketResponsedMessage<com.baidu.tieba.homepage.recommendfrs.data.c, GodFeedResIdl> {
@@ -23,7 +24,7 @@ public class RecommendGodSocketResponsedMessage extends MvcSocketResponsedMessag
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof e) {
                 e eVar = (e) mvcNetMessage.getRequestData();
-                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.b.a.sX().M("RecommendGodCache", TbadkCoreApplication.getCurrentAccount())) != null) {
+                if (eVar.getPn() == 1 && (M = com.baidu.tbadk.core.c.a.sR().M(RecommendGodCacheModel.TABLE_NAME, TbadkCoreApplication.getCurrentAccount())) != null) {
                     M.k(new StringBuilder(String.valueOf(eVar.getTagCode())).toString(), bArr);
                 }
             }

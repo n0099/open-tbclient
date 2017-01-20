@@ -1,22 +1,43 @@
 package com.baidu.tbadk.core.util;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class an implements Runnable {
-    final /* synthetic */ aj abg;
-    private final /* synthetic */ String abh;
-    private final /* synthetic */ String abk;
-    private final /* synthetic */ int abl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(aj ajVar, String str, String str2, int i) {
-        this.abg = ajVar;
-        this.abk = str;
-        this.abh = str2;
-        this.abl = i;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.HashMap;
+/* loaded from: classes.dex */
+public class an {
+    private static final an aaC = new an();
+    private final HashMap<Class<?>, Class<?>> aaD = new HashMap<>();
+
+    public static final an uY() {
+        return aaC;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.abg.c(this.abk, this.abh, this.abl);
+    private an() {
+    }
+
+    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
+        this.aaD.put(cls, cls2);
+    }
+
+    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
+        if (!this.aaD.containsKey(cls)) {
+            this.aaD.put(cls, cls2);
+        } else {
+            BdLog.e("register Intent failed, " + cls.getName() + " exist");
+        }
+    }
+
+    public boolean appResponseToIntentClass(Class<?> cls) {
+        return getIntentClass(cls) != null;
+    }
+
+    public int uZ() {
+        return this.aaD.size();
+    }
+
+    public Class<?> getIntentClass(Class<?> cls) {
+        if (this.aaD != null) {
+            return this.aaD.get(cls);
+        }
+        return null;
     }
 }

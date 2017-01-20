@@ -3,44 +3,44 @@ package com.baidu.tieba.write.video;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.location.d;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements d.a {
-    final /* synthetic */ WriteLocationView fAu;
+public class a implements LocationModel.a {
+    final /* synthetic */ WriteLocationView fIQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WriteLocationView writeLocationView) {
-        this.fAu = writeLocationView;
+        this.fIQ = writeLocationView;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void Dt() {
+    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
+    public void Do() {
         BaseActivity baseActivity;
-        baseActivity = this.fAu.bFA;
-        baseActivity.showToast(r.j.no_network_guide);
-        this.fAu.c(0, true, null);
+        baseActivity = this.fIQ.mBaseActivity;
+        baseActivity.showToast(r.l.no_network_guide);
+        this.fIQ.c(0, true, null);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void fJ(String str) {
+    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
+    public void fG(String str) {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        baseActivity = this.fAu.bFA;
+        baseActivity = this.fIQ.mBaseActivity;
         if (StringUtils.isNull(str)) {
-            baseActivity2 = this.fAu.bFA;
-            str = baseActivity2.getResources().getString(r.j.location_fail);
+            baseActivity2 = this.fIQ.mBaseActivity;
+            str = baseActivity2.getResources().getString(r.l.location_fail);
         }
         baseActivity.showToast(str);
-        this.fAu.c(0, true, null);
+        this.fIQ.c(0, true, null);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.d.a
+    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
     public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        if (aVar == null || StringUtils.isNull(aVar.bgA())) {
-            fJ(null);
+        if (aVar == null || StringUtils.isNull(aVar.bip())) {
+            fG(null);
         } else {
-            this.fAu.c(2, true, aVar.bgA());
+            this.fIQ.c(2, true, aVar.bip());
         }
     }
 }

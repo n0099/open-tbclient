@@ -6,7 +6,7 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.l;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -65,7 +65,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = m.rC + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = l.ru + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(String.valueOf(str) + "/" + i);
             if (file.exists() && file.isDirectory()) {

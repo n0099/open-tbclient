@@ -4,6 +4,7 @@ import tbclient.Feedback;
 import tbclient.Profile.UserGodInfo;
 import tbclient.TbBookrack;
 import tbclient.User;
+import tbclient.UserManChannelInfo;
 /* loaded from: classes.dex */
 public interface b {
     User GetUser();
@@ -15,6 +16,8 @@ public interface b {
     Feedback getFeedBack();
 
     f getUcCardData();
+
+    UserManChannelInfo getUserChannelInfo();
 
     UserGodInfo getUserGodInfo();
 }

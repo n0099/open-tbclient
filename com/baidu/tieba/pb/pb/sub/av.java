@@ -3,18 +3,18 @@ package com.baidu.tieba.pb.pb.sub;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.pb.pb.sub.ba;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ao ejb;
+    final /* synthetic */ ao esl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(ao aoVar) {
-        this.ejb = aoVar;
+        this.esl = aoVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -22,43 +22,43 @@ public class av implements AdapterView.OnItemClickListener {
         NewSubPbActivity newSubPbActivity;
         b bVar;
         ArrayList arrayList;
-        com.baidu.tbadk.editortools.e.p pVar;
-        com.baidu.tbadk.editortools.e.p pVar2;
-        bc bcVar;
+        com.baidu.tbadk.editortools.pb.n nVar;
+        com.baidu.tbadk.editortools.pb.n nVar2;
+        SubPbModel subPbModel;
         b bVar2;
-        newSubPbActivity = this.ejb.eiy;
-        if (bh.ai(newSubPbActivity.getPageContext().getPageActivity())) {
-            bVar = this.ejb.eip;
+        newSubPbActivity = this.esl.erI;
+        if (bf.ak(newSubPbActivity.getPageContext().getPageActivity())) {
+            bVar = this.esl.erz;
             if (bVar != null) {
-                bVar2 = this.ejb.eip;
-                bVar2.aMM();
+                bVar2 = this.esl.erz;
+                bVar2.aOH();
             }
-            this.ejb.aMY();
+            this.esl.aOU();
             if (view == null || !(view.getTag() instanceof ba.a)) {
-                arrayList = this.ejb.eiS;
-                com.baidu.tieba.tbadkCore.data.q qVar = (com.baidu.tieba.tbadkCore.data.q) com.baidu.tbadk.core.util.x.c(arrayList, i);
-                if (qVar == null) {
-                    this.ejb.eiT = null;
+                arrayList = this.esl.esc;
+                com.baidu.tieba.tbadkCore.data.p pVar = (com.baidu.tieba.tbadkCore.data.p) com.baidu.tbadk.core.util.w.c(arrayList, i);
+                if (pVar == null) {
+                    this.esl.esd = null;
                 } else {
-                    this.ejb.eiT = qVar.getId();
+                    this.esl.esd = pVar.getId();
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 if (sparseArray != null) {
-                    String str = (String) sparseArray.get(r.g.tag_photo_username);
-                    String str2 = (String) sparseArray.get(r.g.tag_photo_userid);
+                    String str = (String) sparseArray.get(r.h.tag_photo_username);
+                    String str2 = (String) sparseArray.get(r.h.tag_photo_userid);
                     if (str != null) {
-                        pVar = this.ejb.ddg;
-                        pVar.setReplyId(str2);
-                        pVar2 = this.ejb.ddg;
-                        pVar2.fP(str);
+                        nVar = this.esl.dkr;
+                        nVar.setReplyId(str2);
+                        nVar2 = this.esl.dkr;
+                        nVar2.fM(str);
                     }
                 }
-                this.ejb.aMZ();
+                this.esl.aOV();
                 return;
             }
-            this.ejb.aNa();
-            bcVar = this.ejb.eib;
-            bcVar.aNu();
+            this.esl.aOW();
+            subPbModel = this.esl.erl;
+            subPbModel.aPq();
         }
     }
 }

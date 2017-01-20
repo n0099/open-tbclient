@@ -9,75 +9,75 @@ import com.baidu.tieba.r;
 import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements a.InterfaceC0032a {
-    final /* synthetic */ NewSubPbActivity eis;
+public class l implements a.InterfaceC0031a {
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(NewSubPbActivity newSubPbActivity) {
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
-    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0032a
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0031a
     public void a(boolean z, boolean z2, String str) {
         com.baidu.tbadk.baseEditMark.a aVar;
         com.baidu.tbadk.baseEditMark.a aVar2;
-        bc bcVar;
-        bc bcVar2;
+        SubPbModel subPbModel;
+        SubPbModel subPbModel2;
         ao aoVar;
         ao aoVar2;
         com.baidu.tbadk.baseEditMark.a aVar3;
         ao aoVar3;
         ao aoVar4;
-        bc bcVar3;
-        bc bcVar4;
-        bc bcVar5;
+        SubPbModel subPbModel3;
+        SubPbModel subPbModel4;
+        SubPbModel subPbModel5;
         com.baidu.tbadk.baseEditMark.a aVar4;
         if (z) {
-            aVar = this.eis.dxb;
+            aVar = this.erC.dGi;
             if (aVar != null) {
-                aVar4 = this.eis.dxb;
+                aVar4 = this.erC.dGi;
                 aVar4.ad(z2);
             }
-            aVar2 = this.eis.dxb;
-            MarkData nC = aVar2.nC();
+            aVar2 = this.erC.dGi;
+            MarkData nw = aVar2.nw();
             com.baidu.tieba.pb.d dVar = new com.baidu.tieba.pb.d();
             dVar.setType(2);
             if (z2) {
-                dVar.setData(nC);
-                aVar3 = this.eis.dxb;
+                dVar.setData(nw);
+                aVar3 = this.erC.dGi;
                 if (aVar3 != null) {
-                    if (nC != null) {
-                        bcVar3 = this.eis.eib;
-                        bcVar3.iA(true);
-                        bcVar4 = this.eis.eib;
-                        bcVar5 = this.eis.eib;
-                        bcVar4.op(bcVar5.CX());
-                        this.eis.showToast(MessageFormat.format(this.eis.getPageContext().getString(r.j.add_mark_on_pb), Integer.valueOf(nC.getFloor())));
+                    if (nw != null) {
+                        subPbModel3 = this.erC.erl;
+                        subPbModel3.iK(true);
+                        subPbModel4 = this.erC.erl;
+                        subPbModel5 = this.erC.erl;
+                        subPbModel4.oF(subPbModel5.CS());
+                        this.erC.showToast(MessageFormat.format(this.erC.getPageContext().getString(r.l.add_mark_on_pb), Integer.valueOf(nw.getFloor())));
                     } else {
-                        this.eis.showToast(this.eis.getPageContext().getString(r.j.add_mark));
+                        this.erC.showToast(this.erC.getPageContext().getString(r.l.add_mark));
                     }
-                    aoVar3 = this.eis.eid;
+                    aoVar3 = this.erC.ern;
                     if (aoVar3 != null) {
-                        aoVar4 = this.eis.eid;
-                        aoVar4.iR(true);
+                        aoVar4 = this.erC.ern;
+                        aoVar4.jd(true);
                     }
                 }
             } else {
                 dVar.setData(null);
-                bcVar = this.eis.eib;
-                bcVar.iA(false);
-                bcVar2 = this.eis.eib;
-                bcVar2.op(null);
-                this.eis.showToast(this.eis.getPageContext().getString(r.j.remove_mark));
-                aoVar = this.eis.eid;
+                subPbModel = this.erC.erl;
+                subPbModel.iK(false);
+                subPbModel2 = this.erC.erl;
+                subPbModel2.oF(null);
+                this.erC.showToast(this.erC.getPageContext().getString(r.l.remove_mark));
+                aoVar = this.erC.ern;
                 if (aoVar != null) {
-                    aoVar2 = this.eis.eid;
-                    aoVar2.iR(false);
+                    aoVar2 = this.erC.ern;
+                    aoVar2.jd(false);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, dVar));
             return;
         }
-        this.eis.showToast(this.eis.getPageContext().getString(r.j.update_mark_failed));
+        this.erC.showToast(this.erC.getPageContext().getString(r.l.update_mark_failed));
     }
 }

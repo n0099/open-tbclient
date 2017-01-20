@@ -16,7 +16,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.megapp.ma.MAActivity;
 /* loaded from: classes.dex */
-public abstract class BdBaseActivity<T> extends MAActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i<T>, k {
+public abstract class BdBaseActivity<T> extends MAActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, h<T>, j {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
@@ -126,7 +126,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -137,7 +137,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.g.c.eA().d(this.mId);
+        com.baidu.adp.lib.f.c.ey().d(this.mId);
         a.aS().i(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
@@ -146,7 +146,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.g.c.eA().e(this.mId);
+        com.baidu.adp.lib.f.c.ey().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -163,21 +163,21 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.kt();
+            onGetPreLoadListView.cancelRefresh();
         }
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public void onPreLoad(BdListView bdListView) {
     }
 
@@ -217,7 +217,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = j.aY().getResources();
+        Resources resources = i.aY().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

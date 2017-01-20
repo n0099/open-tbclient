@@ -5,24 +5,23 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.o;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements o.a {
-    final /* synthetic */ a cqb;
+class b implements o.a {
+    final /* synthetic */ a cxb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cqb = aVar;
+        this.cxb = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.o.a
     public void a(com.baidu.tieba.card.data.c cVar) {
         if (cVar != null) {
-            TiebaStatic.log(new at("c11693").ab("obj_locate", "1").ab("tid", cVar.Ty).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new ar("c11693").ab("obj_locate", "1").ab("tid", cVar.SK).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
@@ -39,19 +38,19 @@ public class b implements o.a {
                 int i2 = i;
                 if (i2 < arrayList.size()) {
                     int intValue = arrayList.get(i2).intValue();
-                    if (intValue == r.g.reason_checkbox1) {
+                    if (intValue == r.h.reason_checkbox1) {
                         str = "2";
-                    } else if (intValue == r.g.reason_checkbox2) {
+                    } else if (intValue == r.h.reason_checkbox2) {
                         str = TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
                     } else {
-                        str = intValue == r.g.reason_checkbox3 ? "4" : "";
+                        str = intValue == r.h.reason_checkbox3 ? "4" : "";
                     }
                     if (!"".equals(str)) {
-                        TiebaStatic.log(new at("c11693").ab("obj_locate", str).ab("tid", cVar.Ty).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+                        TiebaStatic.log(new ar("c11693").ab("obj_locate", str).ab("tid", cVar.SK).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
                     }
                     i = i2 + 1;
                 } else {
-                    TiebaStatic.log(new at("c11693").ab("obj_locate", "5").ab("tid", cVar.Ty).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new ar("c11693").ab("obj_locate", "5").ab("tid", cVar.SK).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
                     return;
                 }
             }

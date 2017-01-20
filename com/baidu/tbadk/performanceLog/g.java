@@ -3,33 +3,33 @@ package com.baidu.tbadk.performanceLog;
 import com.baidu.tbadk.performanceLog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.InterfaceC0048a {
-    final /* synthetic */ e aBB;
+public class g implements a.InterfaceC0047a {
+    final /* synthetic */ e aAt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.aBB = eVar;
+        this.aAt = eVar;
     }
 
-    @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0048a
-    public void fd(int i) {
+    @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0047a
+    public void fe(int i) {
         int i2;
         int i3;
         int i4;
         a aVar;
         a aVar2;
-        e eVar = this.aBB;
-        i2 = eVar.aBy;
-        eVar.aBy = i2 + 1;
-        i3 = this.aBB.aBt;
-        i4 = this.aBB.aBy;
+        e eVar = this.aAt;
+        i2 = eVar.aAq;
+        eVar.aAq = i2 + 1;
+        i3 = this.aAt.aAl;
+        i4 = this.aAt.aAq;
         if (i3 == i4) {
-            aVar = this.aBB.aBw;
-            aVar.a((a.InterfaceC0048a) null);
-            aVar2 = this.aBB.aBw;
+            aVar = this.aAt.aAo;
+            aVar.a((a.InterfaceC0047a) null);
+            aVar2 = this.aAt.aAo;
             aVar2.stop();
-            this.aBB.FI();
+            this.aAt.FC();
         }
-        this.aBB.fe(i);
+        this.aAt.ff(i);
     }
 }

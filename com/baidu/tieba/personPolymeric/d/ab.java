@@ -1,46 +1,34 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.f.i;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends CustomMessageListener {
-    final /* synthetic */ x evO;
+public class ab implements BdListView.e {
+    final /* synthetic */ z eFM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(x xVar, int i) {
-        super(i);
-        this.evO = xVar;
+    public ab(z zVar) {
+        this.eFM = zVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.view.w wVar;
-        com.baidu.tieba.view.w wVar2;
-        com.baidu.tieba.view.w wVar3;
-        if (customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.f.i)) {
-            SparseArray<i.a> sparseArray = ((com.baidu.tieba.f.i) customResponsedMessage.getData()).eQl;
-            if (sparseArray.size() > 0) {
-                i.a aVar = sparseArray.get(2);
-                if (aVar != null && this.evO.fuE != null && this.evO.fuE.fvh != null) {
-                    this.evO.fuE.fvh.lp(aVar.aQE);
-                }
-                wVar = this.evO.fuD;
-                if (wVar instanceof com.baidu.tieba.view.j) {
-                    i.a aVar2 = sparseArray.get(5);
-                    if (aVar2 != null) {
-                        wVar3 = this.evO.fuD;
-                        wVar3.G(5, aVar2.aQE);
-                    }
-                    i.a aVar3 = sparseArray.get(6);
-                    if (aVar3 != null) {
-                        wVar2 = this.evO.fuD;
-                        wVar2.G(6, aVar3.aQE);
-                    }
+    @Override // com.baidu.adp.widget.ListView.BdListView.e
+    public void kp() {
+        PbListView pbListView;
+        com.baidu.tieba.model.a aVar;
+        com.baidu.tieba.model.a aVar2;
+        PbListView pbListView2;
+        com.baidu.tieba.model.a aVar3;
+        pbListView = this.eFM.aLK;
+        if (pbListView != null) {
+            aVar = this.eFM.fDB;
+            if (aVar != null) {
+                aVar2 = this.eFM.fDB;
+                if (aVar2.Py()) {
+                    pbListView2 = this.eFM.aLK;
+                    pbListView2.wk();
+                    aVar3 = this.eFM.fDB;
+                    aVar3.MR();
                 }
             }
         }

@@ -2,15 +2,15 @@ package com.baidu.tieba.imMessageCenter.chatmessage;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class ChatMessageActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
-        IR();
+        Jf();
     }
 
-    private static void IR() {
-        bc.vz().a(new b());
+    private static void Jf() {
+        ba.vt().a(new b());
     }
 }

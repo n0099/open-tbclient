@@ -30,19 +30,19 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(r.h.account_restore_activity);
+        setContentView(r.j.account_restore_activity);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(this.jsPromptInterface);
         this.mPageType = getIntent().getStringExtra("page_type");
-        this.mNavigationBar = (NavigationBar) findViewById(r.g.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) findViewById(r.h.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(r.j.anti_account_restore));
-        ((LinearLayout.LayoutParams) ((TextView) findViewById(r.g.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mWebView = (BaseWebView) findViewById(r.g.webview_acc_restore);
+        this.mNavigationBar.setTitleText(getPageContext().getString(r.l.anti_account_restore));
+        ((LinearLayout.LayoutParams) ((TextView) findViewById(r.h.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mWebView = (BaseWebView) findViewById(r.h.webview_acc_restore);
         this.mWebView.setOnJsPromptCallback(this.jsCallback);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
         this.mWebView.removeJavascriptInterface("searchBoxJavaBridge_");
-        com.baidu.tbadk.browser.f.P(getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.f.R(getPageContext().getPageActivity());
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }
 

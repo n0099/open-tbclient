@@ -8,11 +8,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity cEF;
+    final /* synthetic */ AbsMsgImageActivity cLO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.cEF = absMsgImageActivity;
+        this.cLO = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.cEF.getListMenu();
+        listMenu = this.cLO.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.cEF.cEt;
+                        multiImageView = this.cLO.cLC;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.cEF.cEt;
+                            multiImageView2 = this.cLO.cLC;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.cEF.cEq = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.cEF.cEq;
+                            this.cLO.cLz = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.cLO.cLz;
                             aVar.execute(new String[0]);
-                            this.cEF.cEr.setClickable(false);
+                            this.cLO.cLA.setClickable(false);
                         } else {
-                            this.cEF.showToast(this.cEF.getPageContext().getString(r.j.no_data));
+                            this.cLO.showToast(this.cLO.getPageContext().getString(r.l.no_data));
                         }
                         break;
                     } catch (Exception e) {

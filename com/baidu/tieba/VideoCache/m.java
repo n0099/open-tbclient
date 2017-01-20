@@ -6,11 +6,11 @@ import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Handler.Callback {
-    final /* synthetic */ l aPX;
+    final /* synthetic */ l aPa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.aPX = lVar;
+        this.aPa = lVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -32,26 +32,26 @@ public class m implements Handler.Callback {
             }
         } else if (message.what == 2) {
             if (message.obj instanceof String) {
-                hVar = this.aPX.aPV;
+                hVar = this.aPa.aOY;
                 hVar.setVideoUrl((String) message.obj);
-                hVar2 = this.aPX.aPV;
+                hVar2 = this.aPa.aOY;
                 hVar2.run();
             }
         } else if (message.what == 3) {
-            bVar4 = this.aPX.aPW;
+            bVar4 = this.aPa.aOZ;
             if (bVar4 != null) {
-                bVar5 = this.aPX.aPW;
-                bVar5.Kd();
+                bVar5 = this.aPa.aOZ;
+                bVar5.Ks();
             }
         } else if (message.what == 4) {
             if (message.obj instanceof String) {
-                bVar3 = this.aPX.aPW;
-                bVar3.gM((String) message.obj);
+                bVar3 = this.aPa.aOZ;
+                bVar3.gN((String) message.obj);
             }
         } else if (message.what == 5) {
-            bVar = this.aPX.aPW;
+            bVar = this.aPa.aOZ;
             if (bVar != null) {
-                bVar2 = this.aPX.aPW;
+                bVar2 = this.aPa.aOZ;
                 bVar2.clearCache();
             }
         }

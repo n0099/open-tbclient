@@ -12,7 +12,6 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
@@ -23,56 +22,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.a {
-    private TextView FZ;
-    private RelativeLayout dKv;
-    private boolean dYU;
-    private GridView dyJ;
-    private o fxZ;
-    private AlbumActivity fyo;
-    private View fyp;
-    private h fzD;
-    private View fzE;
-    private com.baidu.tieba.write.view.a fzF;
-    private ab fzG;
+    private TextView Fj;
+    private GridView dHR;
+    private RelativeLayout dTs;
+    private boolean ehC;
+    private o fGE;
+    private AlbumActivity fGS;
+    private View fGT;
+    private h fIg;
+    private View fIh;
+    private com.baidu.tieba.write.view.a fIi;
+    private ab fIj;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.core.view.w mNoDataView;
+    private com.baidu.tbadk.core.view.x mNoDataView;
     private View mView;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fyo = (AlbumActivity) getBaseFragmentActivity();
-        this.fxZ = this.fyo.bls();
-        p.blO().a(this);
-        this.fzD = new h(this.fyo.getPageContext().getPageActivity());
-        this.fzF = new com.baidu.tieba.write.view.a(this.fyo);
-        this.fxZ.re("-1");
+        this.fGS = (AlbumActivity) getBaseFragmentActivity();
+        this.fGE = this.fGS.bmQ();
+        p.bnm().a(this);
+        this.fIg = new h(this.fGS.getPageContext().getPageActivity());
+        this.fIi = new com.baidu.tieba.write.view.a(this.fGS);
+        this.fGE.rx("-1");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mView = layoutInflater.inflate(r.h.album_image_list_view, (ViewGroup) null);
-        this.dKv = (RelativeLayout) this.mView.findViewById(r.g.album_image_list_root);
-        this.mNavigationBar = (NavigationBar) this.mView.findViewById(r.g.view_navigation_bar);
-        this.fyp = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.fyo);
-        this.fzE = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, r.h.album_iamge_title_layout, (View.OnClickListener) null);
-        this.FZ = (TextView) this.fzE.findViewById(r.g.navigationTitle_frs);
-        this.dyJ = (GridView) this.mView.findViewById(r.g.gv_image_list);
-        this.fzG = new ab(this.fyo, this.fxZ);
-        this.dyJ.setAdapter((ListAdapter) this.fzG);
-        this.dyJ.setOnScrollListener(this);
-        this.dyJ.setSelector(r.d.transparent);
+        this.mView = layoutInflater.inflate(r.j.album_image_list_view, (ViewGroup) null);
+        this.dTs = (RelativeLayout) this.mView.findViewById(r.h.album_image_list_root);
+        this.mNavigationBar = (NavigationBar) this.mView.findViewById(r.h.view_navigation_bar);
+        this.fGT = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.fGS);
+        this.fIh = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, r.j.album_iamge_title_layout, (View.OnClickListener) null);
+        this.Fj = (TextView) this.fIh.findViewById(r.h.navigationTitle_frs);
+        this.dHR = (GridView) this.mView.findViewById(r.h.gv_image_list);
+        this.fIj = new ab(this.fGS, this.fGE);
+        this.dHR.setAdapter((ListAdapter) this.fIj);
+        this.dHR.setOnScrollListener(this);
+        this.dHR.setSelector(r.e.transparent);
         ah ahVar = new ah(this);
         ai aiVar = new ai(this);
         aj ajVar = new aj(this);
         ak akVar = new ak(this);
         al alVar = new al(this);
-        this.fzE.setOnClickListener(akVar);
-        this.fzF.a(alVar);
-        this.fzG.a(ahVar);
-        this.fzG.a(aiVar);
-        this.fzG.a(ajVar);
-        this.mNoDataView = NoDataViewFactory.a(this.fyo.getPageContext().getPageActivity(), this.dKv, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.x(r.j.album_list_no_data, r.j.album_list_no_data_1), null);
+        this.fIh.setOnClickListener(akVar);
+        this.fIi.a(alVar);
+        this.fIj.a(ahVar);
+        this.fIj.a(aiVar);
+        this.fIj.a(ajVar);
+        this.mNoDataView = NoDataViewFactory.a(this.fGS.getPageContext().getPageActivity(), this.dTs, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.y(r.l.album_list_no_data, r.l.album_list_no_data_1), null);
         return this.mView;
     }
 
@@ -84,23 +83,23 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.dYU = false;
+        this.ehC = false;
         if (isShow()) {
-            blD();
+            bnb();
         }
     }
 
-    private void blC() {
-        if (this.fxZ == null && this.fyo != null) {
-            this.fxZ = this.fyo.bls();
+    private void bna() {
+        if (this.fGE == null && this.fGS != null) {
+            this.fGE = this.fGS.bmQ();
         }
-        if (this.fxZ != null && this.fxZ.blL() == null) {
-            setData(blU(), true);
-            rg("-1");
+        if (this.fGE != null && this.fGE.bnj() == null) {
+            setData(bns(), true);
+            rz("-1");
         }
     }
 
-    private List<ImageFileInfo> blU() {
+    private List<ImageFileInfo> bns() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 20; i++) {
             arrayList.add(new ImageFileInfo());
@@ -111,65 +110,65 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
         return arrayList;
     }
 
-    private void rg(String str) {
+    private void rz(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fzD.a(str, new am(this, str));
+            this.fIg.a(str, new am(this, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blV() {
-        this.fzD.a(new an(this));
+    public void bnt() {
+        this.fIg.a(new an(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setData(List<ImageFileInfo> list, boolean z) {
-        if (this.fzG != null) {
-            this.fxZ.dm(list);
-            this.fzG.setData(list, z);
+        if (this.fIj != null) {
+            this.fGE.dr(list);
+            this.fIj.setData(list, z);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fyo.getLayoutMode().ai(i == 1);
-        this.fyo.getLayoutMode().x(this.mView);
-        if (this.fzG != null) {
-            this.fzG.notifyDataSetChanged();
+        this.fGS.getLayoutMode().ai(i == 1);
+        this.fGS.getLayoutMode().v(this.mView);
+        if (this.fIj != null) {
+            this.fIj.notifyDataSetChanged();
         }
-        this.mNavigationBar.onChangeSkinType(this.fyo.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.fGS.getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
     }
 
-    public View baC() {
-        return this.fyp;
+    public View bcs() {
+        return this.fGT;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fzD != null) {
-            this.fzD.blF();
+        if (this.fIg != null) {
+            this.fIg.bnd();
         }
-        p.blO().b(this);
+        p.bnm().b(this);
     }
 
     public void K(int i, boolean z) {
-        if (this.dyJ != null) {
-            int firstVisiblePosition = this.dyJ.getFirstVisiblePosition();
-            int lastVisiblePosition = this.dyJ.getLastVisiblePosition();
+        if (this.dHR != null) {
+            int firstVisiblePosition = this.dHR.getFirstVisiblePosition();
+            int lastVisiblePosition = this.dHR.getLastVisiblePosition();
             if (i >= firstVisiblePosition && i <= lastVisiblePosition) {
-                View childAt = this.dyJ.getChildAt(i - firstVisiblePosition);
+                View childAt = this.dHR.getChildAt(i - firstVisiblePosition);
                 if (childAt != null) {
                     childAt.invalidate();
-                    ImageView imageView = (ImageView) childAt.findViewById(r.g.select_icon);
+                    ImageView imageView = (ImageView) childAt.findViewById(r.h.select_icon);
                     if (z) {
-                        ar.k(imageView, r.f.btn_choose_photo_s);
+                        com.baidu.tbadk.core.util.ap.j(imageView, r.g.btn_choose_photo_s);
                     } else {
-                        ar.k(imageView, r.f.btn_choose_photo_n);
+                        com.baidu.tbadk.core.util.ap.j(imageView, r.g.btn_choose_photo_n);
                     }
                 }
             }
@@ -177,15 +176,15 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     }
 
     public void g(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.fzG != null) {
-            K(this.fzG.i(imageFileInfo), z);
+        if (imageFileInfo != null && this.fIj != null) {
+            K(this.fIj.i(imageFileInfo), z);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.dYU = true;
+        this.ehC = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -194,13 +193,13 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     }
 
     @Override // com.baidu.tieba.write.album.p.a
-    public void ly(boolean z) {
-        blD();
+    public void lI(boolean z) {
+        bnb();
     }
 
-    private void blD() {
-        if (!isHidden() && !this.dYU) {
-            blC();
+    private void bnb() {
+        if (!isHidden() && !this.ehC) {
+            bna();
         }
     }
 
@@ -213,32 +212,32 @@ public class ag extends BaseFragment implements AbsListView.OnScrollListener, p.
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.fzG.lA(true);
-        } else if (this.fzG.isScroll()) {
-            this.fzG.lA(false);
-            blW();
+            this.fIj.lK(true);
+        } else if (this.fIj.isScroll()) {
+            this.fIj.lK(false);
+            bnu();
         }
     }
 
-    private void blW() {
-        int childCount = this.dyJ.getChildCount();
-        int firstVisiblePosition = this.dyJ.getFirstVisiblePosition();
+    private void bnu() {
+        int childCount = this.dHR.getChildCount();
+        int firstVisiblePosition = this.dHR.getFirstVisiblePosition();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.dyJ.getChildAt(i);
+            View childAt = this.dHR.getChildAt(i);
             if (childAt != null) {
-                HeadImageView headImageView = (HeadImageView) childAt.findViewById(r.g.pic);
-                ImageFileInfo item = this.fzG.getItem(firstVisiblePosition + i);
+                HeadImageView headImageView = (HeadImageView) childAt.findViewById(r.h.pic);
+                ImageFileInfo item = this.fIj.getItem(firstVisiblePosition + i);
                 if (item != null && headImageView != null) {
                     headImageView.setTag(item.toCachedKey(false));
-                    this.fyo.ahb().a(item, new ao(this), false, false);
+                    this.fGS.aii().a(item, new ao(this), false, false);
                 }
             }
         }
     }
 
     public void refresh() {
-        if (this.fzG != null) {
-            this.fzG.notifyDataSetChanged();
+        if (this.fIj != null) {
+            this.fIj.notifyDataSetChanged();
         }
     }
 }

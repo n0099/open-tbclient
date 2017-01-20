@@ -1,79 +1,64 @@
 package com.baidu.tieba.play;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.Iterator;
-import tbclient.VideoDesc;
-import tbclient.VideoInfo;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.MediaController;
+import com.baidu.tieba.play.au;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av {
-    private int duration;
-    private long eJZ;
-    private String eKa;
-    private String videoUrl;
+public class av extends Handler {
+    final /* synthetic */ au eTs;
 
-    public void a(VideoInfo videoInfo, boolean z) {
-        String str;
-        String str2;
-        String str3;
-        VideoDesc videoDesc;
-        if (videoInfo != null) {
-            String str4 = videoInfo.video_url;
-            String num = videoInfo.video_width.toString();
-            String num2 = videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.x.t(videoInfo.video_desc)) {
-                Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        videoDesc = null;
-                        break;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public av(au auVar, Looper looper) {
+        super(looper);
+        this.eTs = auVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        boolean z2;
+        MediaController.MediaPlayerControl mediaPlayerControl;
+        MediaController.MediaPlayerControl mediaPlayerControl2;
+        int and;
+        au.b bVar;
+        int i;
+        int i2;
+        au.b bVar2;
+        switch (message.what) {
+            case 1:
+                z = this.eTs.cKy;
+                if (!z) {
+                    z2 = this.eTs.cKz;
+                    if (z2) {
+                        mediaPlayerControl = this.eTs.cKv;
+                        if (mediaPlayerControl != null) {
+                            mediaPlayerControl2 = this.eTs.cKv;
+                            if (!mediaPlayerControl2.isPlaying()) {
+                                return;
+                            }
+                            and = this.eTs.and();
+                            bVar = this.eTs.dyt;
+                            if (bVar != null) {
+                                bVar2 = this.eTs.dyt;
+                                bVar2.mQ(and);
+                            }
+                            Message obtainMessage = obtainMessage(1);
+                            i = this.eTs.cKu;
+                            i2 = this.eTs.cKu;
+                            sendMessageDelayed(obtainMessage, i - (and % i2));
+                            return;
+                        }
+                        return;
                     }
-                    videoDesc = it.next();
-                    if (videoDesc != null && !StringUtils.isNull(videoDesc.video_url) && ((videoDesc.video_id.intValue() == 2 && com.baidu.adp.lib.util.i.gn()) || (videoDesc.video_id.intValue() == 3 && com.baidu.adp.lib.util.i.go()))) {
-                        break;
-                    }
+                    return;
                 }
-                if (videoDesc != null) {
-                    str3 = videoDesc.video_url;
-                    str2 = videoDesc.video_width;
-                    str = videoDesc.video_height;
-                    this.videoUrl = str3;
-                    this.eJZ = videoInfo.video_length.intValue();
-                    this.duration = videoInfo.video_duration.intValue();
-                    this.eKa = String.valueOf(str2) + "x" + str;
-                }
-            }
-            str = num2;
-            str2 = num;
-            str3 = str4;
-            this.videoUrl = str3;
-            this.eJZ = videoInfo.video_length.intValue();
-            this.duration = videoInfo.video_duration.intValue();
-            this.eKa = String.valueOf(str2) + "x" + str;
+                return;
+            default:
+                return;
         }
-    }
-
-    public void c(VideoInfo videoInfo) {
-        a(videoInfo, false);
-    }
-
-    public void e(com.baidu.tbadk.widget.richText.n nVar) {
-        if (nVar != null) {
-            this.videoUrl = nVar.getVideoUrl();
-            this.eJZ = nVar.Ik();
-            this.duration = nVar.getDuration();
-            this.eKa = String.valueOf(nVar.getWidth()) + "x" + nVar.getHeight();
-        }
-    }
-
-    public long aWJ() {
-        return this.eJZ;
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public String aWK() {
-        return this.eKa;
     }
 }

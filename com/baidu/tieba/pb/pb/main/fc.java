@@ -1,24 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.animation.Animation;
+import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fc extends CustomMessageListener {
-    final /* synthetic */ er egZ;
+public class fc implements c.InterfaceC0072c {
+    final /* synthetic */ ez eqf;
+    private final /* synthetic */ Animation eqg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fc(er erVar, int i) {
-        super(i);
-        this.egZ = erVar;
+    public fc(ez ezVar, Animation animation) {
+        this.eqf = ezVar;
+        this.eqg = animation;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.egZ.ega = false;
+    @Override // com.baidu.tieba.play.c.InterfaceC0072c
+    public void iZ(boolean z) {
+        Animation.AnimationListener animationListener;
+        if (this.eqf.enK != null) {
+            this.eqg.setAnimationListener(null);
+            this.eqf.enK.aOw().clearAnimation();
+            this.eqf.enK.aOD();
+            if (z) {
+                Animation animation = this.eqg;
+                animationListener = this.eqf.dvW;
+                animation.setAnimationListener(animationListener);
+                this.eqf.enK.aOw().startAnimation(this.eqg);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.play.c.InterfaceC0072c
+    public void aOr() {
+        if (this.eqf.enK != null) {
+            this.eqf.enK.aOC();
         }
     }
 }

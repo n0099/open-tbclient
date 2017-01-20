@@ -9,11 +9,11 @@ import android.webkit.WebViewClient;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends WebViewClient {
-    final /* synthetic */ QALoginActivity dTy;
+    final /* synthetic */ QALoginActivity ecr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(QALoginActivity qALoginActivity) {
-        this.dTy = qALoginActivity;
+        this.ecr = qALoginActivity;
     }
 
     @Override // android.webkit.WebViewClient
@@ -34,7 +34,7 @@ public class x extends WebViewClient {
         WebView webView3;
         String str4;
         super.onPageStarted(webView, str, bitmap);
-        str2 = this.dTy.dTw;
+        str2 = this.ecr.ecp;
         if (str.startsWith(str2)) {
             String cookie = CookieManager.getInstance().getCookie(str);
             if (cookie.contains("BDUSS=")) {
@@ -46,24 +46,24 @@ public class x extends WebViewClient {
                     } else if (!split[i].contains("BDUSS") || i + 1 >= split.length) {
                         i++;
                     } else {
-                        this.dTy.pY = split[i + 1];
+                        this.ecr.pS = split[i + 1];
                         break;
                     }
                 }
             }
-            str3 = this.dTy.pY;
+            str3 = this.ecr.pS;
             if (str3 != null) {
-                str4 = this.dTy.pY;
+                str4 = this.ecr.pS;
                 if (str4.length() > 0) {
-                    this.dTy.aHl();
+                    this.ecr.aIZ();
                     return;
                 }
             }
-            this.dTy.showToast("登录失败");
-            if (com.baidu.adp.lib.util.i.gm()) {
-                webView2 = this.dTy.mWebView;
+            this.ecr.showToast("登录失败");
+            if (com.baidu.adp.lib.util.i.gk()) {
+                webView2 = this.ecr.mWebView;
                 if (webView2 != null) {
-                    webView3 = this.dTy.mWebView;
+                    webView3 = this.ecr.mWebView;
                     webView3.reload();
                 }
             }

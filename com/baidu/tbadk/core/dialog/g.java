@@ -10,31 +10,31 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private TbPageContext<?> Gf;
-    private ArrayList<h> Wv = new ArrayList<>();
+    private TbPageContext<?> Fp;
+    private ArrayList<h> VL = new ArrayList<>();
 
     public g(TbPageContext<?> tbPageContext) {
-        this.Gf = tbPageContext;
+        this.Fp = tbPageContext;
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.Wv = arrayList;
+        this.VL = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.Wv.size();
+        return this.VL.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.Wv.get(i);
+        return this.VL.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,53 +45,53 @@ public class g extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        h hVar = this.Wv.get(i);
+        h hVar = this.VL.get(i);
         if (hVar == null) {
             return null;
         }
         if (view == null) {
-            view = LayoutInflater.from(this.Gf.getPageActivity()).inflate(r.h.dialog_rich_bdlist_item, viewGroup, false);
+            view = LayoutInflater.from(this.Fp.getPageActivity()).inflate(r.j.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a(this, null);
-            aVar2.Ww = (TextView) view.findViewById(r.g.text_tip);
-            aVar2.Wx = (TextView) view.findViewById(r.g.text_desc);
-            aVar2.Wy = (CheckBox) view.findViewById(r.g.checked_icon);
-            aVar2.Wz = view.findViewById(r.g.line);
+            aVar2.VM = (TextView) view.findViewById(r.h.text_tip);
+            aVar2.VN = (TextView) view.findViewById(r.h.text_desc);
+            aVar2.VO = (CheckBox) view.findViewById(r.h.checked_icon);
+            aVar2.VP = view.findViewById(r.h.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.Ww.setText(hVar.tk());
+        aVar.VM.setText(hVar.te());
         if (StringUtils.isNull(hVar.getDesc())) {
-            aVar.Wx.setVisibility(8);
+            aVar.VN.setVisibility(8);
         } else {
-            aVar.Wx.setText(hVar.getDesc());
-            aVar.Wx.setVisibility(0);
+            aVar.VN.setText(hVar.getDesc());
+            aVar.VN.setVisibility(0);
         }
-        aVar.Wy.setChecked(hVar.isChecked());
-        aVar.Wy.setButtonDrawable(hVar.isChecked() ? ar.getDrawable(r.f.icon_set_list_ok_s) : new ColorDrawable(r.d.common_color_10022));
-        if (cs(i)) {
-            aVar.Wz.setVisibility(8);
-            ar.k(view, r.f.dialog_single_button_bg_selector);
+        aVar.VO.setChecked(hVar.isChecked());
+        aVar.VO.setButtonDrawable(hVar.isChecked() ? ap.getDrawable(r.g.icon_set_list_ok_s) : new ColorDrawable(r.e.common_color_10022));
+        if (cr(i)) {
+            aVar.VP.setVisibility(8);
+            ap.j(view, r.g.dialog_single_button_bg_selector);
         } else {
-            aVar.Wz.setVisibility(0);
-            ar.k(view, r.f.dialg_alert_btn_bg);
+            aVar.VP.setVisibility(0);
+            ap.j(view, r.g.dialg_alert_btn_bg);
         }
         view.setTag(aVar);
-        this.Gf.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.Gf.getLayoutMode().x(view);
+        this.Fp.getLayoutMode().ai(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.Fp.getLayoutMode().v(view);
         return view;
     }
 
-    private boolean cs(int i) {
-        return this.Wv != null && i == this.Wv.size() + (-1);
+    private boolean cr(int i) {
+        return this.VL != null && i == this.VL.size() + (-1);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TextView Ww;
-        TextView Wx;
-        CheckBox Wy;
-        View Wz;
+        TextView VM;
+        TextView VN;
+        CheckBox VO;
+        View VP;
 
         private a() {
         }

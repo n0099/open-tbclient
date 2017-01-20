@@ -17,8 +17,8 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class v {
-    public static final Charset sG = Charset.forName("UTF-8");
-    private static final byte[] sH = {-92, 11, -56, 52, -42, -107, -13, 19};
+    public static final Charset sy = Charset.forName("UTF-8");
+    private static final byte[] sz = {-92, 11, -56, 52, -42, -107, -13, 19};
 
     public static PublicKey p(byte[] bArr) throws Exception {
         return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
@@ -36,13 +36,13 @@ public class v {
         return cipher.doFinal(bArr);
     }
 
-    public static SecretKey aV(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static SecretKey aU(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         char[] cArr = new char[str.length()];
         for (int i = 0; i < cArr.length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, sH, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, sz, 5, 256));
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {

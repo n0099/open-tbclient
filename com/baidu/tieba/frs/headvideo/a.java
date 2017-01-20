@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
-    private static int bKm = 1;
+    private static int bQE = 1;
 
-    public static int aah() {
-        if (bKm == 1) {
-            int i = com.baidu.tbadk.core.sharedPref.b.tW().getInt(aaj(), 0);
+    public static int abm() {
+        if (bQE == 1) {
+            int i = com.baidu.tbadk.core.sharedPref.b.tQ().getInt(abo(), 0);
             if (i >= 2) {
                 return 0;
             }
@@ -17,20 +17,20 @@ public class a {
         return 0;
     }
 
-    public static void aai() {
-        String aaj = aaj();
-        int i = com.baidu.tbadk.core.sharedPref.b.tW().getInt(aaj, 0) + 1;
-        com.baidu.tbadk.core.sharedPref.b.tW().putInt(aaj, i);
+    public static void abn() {
+        String abo = abo();
+        int i = com.baidu.tbadk.core.sharedPref.b.tQ().getInt(abo, 0) + 1;
+        com.baidu.tbadk.core.sharedPref.b.tQ().putInt(abo, i);
         if (i >= 2) {
-            bKm = 0;
+            bQE = 0;
         } else if (i == 0 || i == 1) {
-            bKm = 1;
+            bQE = 1;
         } else {
-            bKm = 0;
+            bQE = 0;
         }
     }
 
-    private static String aaj() {
+    private static String abo() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(currentAccount)) {
             return "frs_head_video_guide_by_count";

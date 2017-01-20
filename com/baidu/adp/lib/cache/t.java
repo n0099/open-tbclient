@@ -1,17 +1,17 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 class t implements Runnable {
-    final /* synthetic */ p mB;
-    private final /* synthetic */ String mD;
+    final /* synthetic */ p mu;
+    private final /* synthetic */ String mw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(p pVar, String str) {
-        this.mB = pVar;
-        this.mD = str;
+        this.mu = pVar;
+        this.mw = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.mB.remove(this.mD);
+        this.mu.remove(this.mw);
     }
 }

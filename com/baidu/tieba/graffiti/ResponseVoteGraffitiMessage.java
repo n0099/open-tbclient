@@ -29,7 +29,7 @@ public class ResponseVoteGraffitiMessage extends JsonHttpResponsedMessage {
     public ResponseVoteGraffitiMessage(int i) {
         super(i);
         this.mErrCode = -1;
-        this.mErrMsg = TbadkCoreApplication.m9getInst().getResources().getString(r.j.tb_err_unknown);
+        this.mErrMsg = TbadkCoreApplication.m9getInst().getResources().getString(r.l.tb_err_unknown);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

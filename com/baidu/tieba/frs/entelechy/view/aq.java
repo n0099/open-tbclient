@@ -10,19 +10,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements View.OnClickListener {
-    private final /* synthetic */ ThemeCardInUserData bEW;
-    final /* synthetic */ am bGv;
+    private final /* synthetic */ ThemeCardInUserData bLp;
+    final /* synthetic */ am bMK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(am amVar, ThemeCardInUserData themeCardInUserData) {
-        this.bGv = amVar;
-        this.bEW = themeCardInUserData;
+        this.bMK = amVar;
+        this.bLp = themeCardInUserData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbPageContext tbPageContext;
-        tbPageContext = this.bGv.GO;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bEW.getCardId())));
+        tbPageContext = this.bMK.FY;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), this.bLp.getCardId())));
     }
 }

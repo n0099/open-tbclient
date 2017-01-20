@@ -5,7 +5,7 @@ import com.baidu.adp.lib.stats.b.j;
 import com.baidu.adp.lib.stats.switchs.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0008a {
+public class c implements a.InterfaceC0007a {
     final /* synthetic */ a this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,14 +13,14 @@ public class c implements a.InterfaceC0008a {
         this.this$0 = aVar;
     }
 
-    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0008a
-    public void eW() {
+    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0007a
+    public void eU() {
         Handler handler;
         Handler handler2;
         Handler handler3;
-        this.this$0.pI = true;
-        if (this.this$0.pH) {
-            j.fL().fS();
+        this.this$0.pC = true;
+        if (this.this$0.pB) {
+            j.fJ().fQ();
         }
         handler = a.mHandler;
         handler.removeMessages(2);

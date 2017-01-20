@@ -1,19 +1,28 @@
 package com.baidu.tbadk.widget.richText;
 
-import tbclient.PbContent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.lib.a.b.a.a.i {
-    public int aIM;
-    public String link;
+class k extends CustomMessageListener {
+    final /* synthetic */ TbRichTextView aIy;
 
-    public k(PbContent pbContent) {
-        if (pbContent != null) {
-            this.aIM = pbContent.btn_type.intValue();
-            this.link = pbContent.link;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(TbRichTextView tbRichTextView, int i) {
+        super(i);
+        this.aIy = tbRichTextView;
     }
 
-    public String getLink() {
-        return this.link;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        z = this.aIy.aIr;
+        if (z) {
+            this.aIy.setTextSize(TbConfig.getContentSizeOfLzl(this.aIy.getContext()));
+        } else {
+            this.aIy.setTextSize(TbConfig.getContentSize());
+        }
     }
 }

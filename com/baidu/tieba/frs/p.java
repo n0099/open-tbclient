@@ -1,126 +1,126 @@
 package com.baidu.tieba.frs;
 
 import android.widget.AbsListView;
-import com.baidu.tbadk.performanceLog.e;
+import com.baidu.tieba.frs.f.a;
 /* loaded from: classes.dex */
 class p implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity bzl;
-    private int aMh = 0;
-    private int aMg = 0;
+    final /* synthetic */ FrsActivity bGL;
+    private int aLi = 0;
+    private int aLh = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsActivity frsActivity) {
-        this.bzl = frsActivity;
+        this.bGL = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         com.baidu.tieba.frs.entelechy.b.d dVar;
-        com.baidu.tieba.frs.h.a aVar;
-        com.baidu.tieba.frs.h.an anVar;
+        a aVar;
+        com.baidu.tieba.frs.f.aq aqVar;
         int i4;
-        com.baidu.tieba.frs.f.d dVar2;
-        cg cgVar;
-        cg cgVar2;
-        com.baidu.tieba.frs.h.s sVar;
-        com.baidu.tieba.frs.f.d dVar3;
-        com.baidu.tieba.frs.h.an anVar2;
-        com.baidu.tieba.frs.h.an anVar3;
-        com.baidu.tieba.frs.h.a aVar2;
-        com.baidu.tieba.frs.entelechy.b.d dVar4;
-        com.baidu.tieba.frs.h.s sVar2;
-        dVar = this.bzl.byw;
+        com.baidu.tieba.frs.smartsort.c cVar;
+        ce ceVar;
+        ce ceVar2;
+        com.baidu.tieba.frs.f.u uVar;
+        com.baidu.tieba.frs.smartsort.c cVar2;
+        com.baidu.tieba.frs.f.aq aqVar2;
+        com.baidu.tieba.frs.f.aq aqVar3;
+        a aVar2;
+        com.baidu.tieba.frs.entelechy.b.d dVar2;
+        com.baidu.tieba.frs.f.u uVar2;
+        dVar = this.bGL.bFV;
         if (dVar != null) {
-            dVar4 = this.bzl.byw;
-            sVar2 = this.bzl.bys;
-            dVar4.a(absListView, i, i2, i3, sVar2.acb());
+            dVar2 = this.bGL.bFV;
+            uVar2 = this.bGL.bFR;
+            dVar2.a(absListView, i, i2, i3, uVar2.adi());
         }
-        aVar = this.bzl.byG;
+        aVar = this.bGL.bGf;
         if (aVar != null) {
-            aVar2 = this.bzl.byG;
-            aVar2.abw();
+            aVar2 = this.bGL.bGf;
+            aVar2.acD();
         }
-        anVar = this.bzl.byJ;
-        if (anVar != null) {
-            anVar2 = this.bzl.byJ;
-            anVar2.a(absListView, i);
-            anVar3 = this.bzl.byJ;
-            i4 = anVar3.ace();
+        aqVar = this.bGL.bGg;
+        if (aqVar != null) {
+            aqVar2 = this.bGL.bGg;
+            aqVar2.a(absListView, i);
+            aqVar3 = this.bGL.bGg;
+            i4 = aqVar3.adn();
         } else {
             i4 = 0;
         }
-        dVar2 = this.bzl.byz;
-        if (dVar2 != null) {
-            dVar3 = this.bzl.byz;
-            dVar3.abl();
+        cVar = this.bGL.bFY;
+        if (cVar != null) {
+            cVar2 = this.bGL.bFY;
+            cVar2.acs();
         }
-        cgVar = this.bzl.byC;
-        if (cgVar != null) {
-            cgVar2 = this.bzl.byC;
-            sVar = this.bzl.bys;
-            cgVar2.a(absListView, i + i4, i2, i3, sVar.acb() - i4, this.bzl.Wv());
+        ceVar = this.bGL.bGb;
+        if (ceVar != null) {
+            ceVar2 = this.bGL.bGb;
+            uVar = this.bGL.bFR;
+            ceVar2.a(absListView, i + i4, i2, i3, uVar.adi() - i4, this.bGL.XM());
         }
-        if (this.bzl.byh != null && this.bzl.byg != null && this.bzl.byg.Xu() != null) {
-            this.aMh = i;
-            this.aMg = (i + i2) - 1;
-            this.bzl.byg.ad(this.aMh, this.aMg);
+        if (this.bGL.bFG != null && this.bGL.bFF != null && this.bGL.bFF.YH() != null) {
+            this.aLi = i;
+            this.aLh = (i + i2) - 1;
+            this.bGL.bFF.ac(this.aLi, this.aLh);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.tieba.frs.h.s sVar;
-        com.baidu.tieba.frs.h.an anVar;
+        com.baidu.tieba.frs.f.u uVar;
+        com.baidu.tieba.frs.f.aq aqVar;
         int i2;
-        cg cgVar;
+        ce ceVar;
         boolean z;
         com.baidu.adp.widget.ListView.x xVar;
-        cg cgVar2;
-        com.baidu.tieba.frs.h.an anVar2;
-        com.baidu.tieba.frs.h.an anVar3;
-        com.baidu.tieba.frs.h.s sVar2;
-        sVar = this.bzl.bys;
-        if (sVar != null) {
-            sVar2 = this.bzl.bys;
-            sVar2.setScrollState(i);
+        ce ceVar2;
+        com.baidu.tieba.frs.f.aq aqVar2;
+        com.baidu.tieba.frs.f.aq aqVar3;
+        com.baidu.tieba.frs.f.u uVar2;
+        uVar = this.bGL.bFR;
+        if (uVar != null) {
+            uVar2 = this.bGL.bFR;
+            uVar2.setScrollState(i);
         }
-        anVar = this.bzl.byJ;
-        if (anVar != null) {
-            anVar2 = this.bzl.byJ;
-            anVar2.onScrollStateChanged(absListView, i);
-            anVar3 = this.bzl.byJ;
-            i2 = anVar3.ace();
+        aqVar = this.bGL.bGg;
+        if (aqVar != null) {
+            aqVar2 = this.bGL.bGg;
+            aqVar2.onScrollStateChanged(absListView, i);
+            aqVar3 = this.bGL.bGg;
+            i2 = aqVar3.adn();
         } else {
             i2 = 0;
         }
-        cgVar = this.bzl.byC;
-        if (cgVar != null) {
-            cgVar2 = this.bzl.byC;
-            cgVar2.a(absListView, i, i2);
+        ceVar = this.bGL.bGb;
+        if (ceVar != null) {
+            ceVar2 = this.bGL.bGb;
+            ceVar2.a(absListView, i, i2);
         }
         if (i == 2 || i == 1) {
-            z = this.bzl.byn;
+            z = this.bGL.bFM;
             if (!z) {
-                this.bzl.byn = true;
-                this.bzl.byg.Xx();
+                this.bGL.bFM = true;
+                this.bGL.bFF.YK();
             }
         }
-        if (this.bzl.byo == null) {
-            this.bzl.byo = new e();
-            this.bzl.byo.fg(1000);
+        if (this.bGL.bFN == null) {
+            this.bGL.bFN = new com.baidu.tbadk.performanceLog.e();
+            this.bGL.bFN.fh(1000);
         }
         if (i != 0) {
-            this.bzl.byg.a((com.baidu.adp.widget.ListView.x) null);
+            this.bGL.bFF.setOnAdapterItemLongClickListener(null);
         } else {
-            com.baidu.tieba.card.bz.OH().cz(true);
-            ax axVar = this.bzl.byg;
-            xVar = this.bzl.bzj;
-            axVar.a(xVar);
-            this.bzl.byg.ac(this.aMh, this.aMg);
+            com.baidu.tieba.card.cc.Rx().cN(true);
+            ax axVar = this.bGL.bFF;
+            xVar = this.bGL.bGJ;
+            axVar.setOnAdapterItemLongClickListener(xVar);
+            this.bGL.bFF.ab(this.aLi, this.aLh);
         }
-        this.bzl.byo.FB();
+        this.bGL.bFN.Fv();
         if (i == 0) {
-            com.baidu.tieba.frs.utils.s.a(this.bzl.byg, this.bzl.byh, this.bzl.getForumId(), false, null);
+            com.baidu.tieba.frs.utils.s.a(this.bGL.bFF, this.bGL.bFG, this.bGL.getForumId(), false, null);
         }
     }
 }

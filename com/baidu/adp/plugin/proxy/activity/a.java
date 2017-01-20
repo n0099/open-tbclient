@@ -4,20 +4,20 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 /* loaded from: classes.dex */
 class a implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ LoadingActivity yD;
+    final /* synthetic */ LoadingActivity yu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(LoadingActivity loadingActivity) {
-        this.yD = loadingActivity;
+        this.yu = loadingActivity;
     }
 
     @Override // com.baidu.adp.plugin.install.b
     public void B(String str, String str2) {
-        this.yD.showToast(PluginCenter.getInstance().getCommonErrorShowText());
+        this.yu.showToast(PluginCenter.getInstance().getCommonErrorShowText());
     }
 
     @Override // com.baidu.adp.plugin.install.b
-    public void bc(String str) {
+    public void bb(String str) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
         if (plugin2 != null) {
             plugin2.asyncInit(str, new b(this, plugin2));

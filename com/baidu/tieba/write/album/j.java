@@ -14,20 +14,20 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends PagerAdapter {
-    private com.baidu.tbadk.img.b ari;
-    private Map<Integer, Boolean> fyF = new HashMap();
-    private ColorDrawable fyG;
-    private AlbumActivity fyo;
+    private com.baidu.tbadk.img.b aqo;
+    private AlbumActivity fGS;
+    private Map<Integer, Boolean> fHj = new HashMap();
+    private ColorDrawable fHk;
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
-    private int vj;
+    private int va;
 
     public j(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.fyo = albumActivity;
-        this.ari = bVar;
-        this.vj = com.baidu.adp.lib.util.k.I(this.fyo.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.J(this.fyo.getPageContext().getContext()) - ((int) this.fyo.getResources().getDimension(r.e.ds166));
-        this.fyG = new ColorDrawable(this.fyo.getResources().getColor(r.d.black_alpha100));
+        this.fGS = albumActivity;
+        this.aqo = bVar;
+        this.va = com.baidu.adp.lib.util.k.I(this.fGS.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.J(this.fGS.getPageContext().getContext()) - ((int) this.fGS.getResources().getDimension(r.f.ds166));
+        this.fHk = new ColorDrawable(this.fGS.getResources().getColor(r.e.black_alpha100));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -38,7 +38,7 @@ public class j extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         if (this.mList != null) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, 0);
+            ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.w.c(this.mList, 0);
             if (imageFileInfo != null && "-2".equals(imageFileInfo.getAlbumId()) && this.mList.size() > 1) {
                 return this.mList.size() - 1;
             }
@@ -57,43 +57,43 @@ public class j extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo sf(int i) {
-        return (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, i);
+    public ImageFileInfo sQ(int i) {
+        return (ImageFileInfo) com.baidu.tbadk.core.util.w.c(this.mList, i);
     }
 
-    public boolean sg(int i) {
-        if (this.fyF.get(Integer.valueOf(i)) == null) {
+    public boolean sR(int i) {
+        if (this.fHj.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.fyF.get(Integer.valueOf(i)).booleanValue();
+        return this.fHj.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ImageFileInfo sf;
-        View inflate = LayoutInflater.from(this.fyo.getPageContext().getContext()).inflate(r.h.album_big_image_item, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(r.g.big_image);
+        ImageFileInfo sQ;
+        View inflate = LayoutInflater.from(this.fGS.getPageContext().getContext()).inflate(r.j.album_big_image_item, (ViewGroup) null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(r.h.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultErrorResource(0);
-        tbImageView.setDefaultBgResource(r.d.black_alpha100);
-        tbImageView.setBg(this.fyG);
-        ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, 0);
+        tbImageView.setDefaultBgResource(r.e.black_alpha100);
+        tbImageView.setBg(this.fHk);
+        ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.w.c(this.mList, 0);
         if (imageFileInfo != null && "-2".equals(imageFileInfo.getAlbumId())) {
-            sf = sf(i + 1);
+            sQ = sQ(i + 1);
         } else {
-            sf = sf(i);
+            sQ = sQ(i);
         }
-        this.fyF.put(Integer.valueOf(i), false);
-        if (sf != null) {
-            sf.clearPageActions();
-            sf.addPageAction(com.baidu.tbadk.img.effect.d.F(this.vj, this.mMaxHeight));
-            tbImageView.setTag(sf.toCachedKey(false));
-            if (this.ari.a(sf, false) != null) {
+        this.fHj.put(Integer.valueOf(i), false);
+        if (sQ != null) {
+            sQ.clearPageActions();
+            sQ.addPageAction(com.baidu.tbadk.img.effect.d.G(this.va, this.mMaxHeight));
+            tbImageView.setTag(sQ.toCachedKey(false));
+            if (this.aqo.a(sQ, false) != null) {
                 tbImageView.invalidate();
-                this.fyF.put(Integer.valueOf(i), true);
+                this.fHj.put(Integer.valueOf(i), true);
             } else {
-                this.ari.a(sf, new k(this, viewGroup, i), false);
+                this.aqo.a(sQ, new k(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

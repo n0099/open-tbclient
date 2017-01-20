@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
@@ -17,12 +17,12 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Er() {
+    public com.baidu.tbadk.mainTab.c Em() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.azA = new f();
+        cVar.ayv = new f();
         cVar.type = 1;
-        cVar.azB = r.j.home;
-        cVar.azC = r.f.s_tabbar_icon_two_bg;
+        cVar.ayw = r.l.home;
+        cVar.ayx = r.g.s_tabbar_icon_two_bg;
         return cVar;
     }
 
@@ -30,16 +30,16 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
         d dVar = new d(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
         dVar.setPriority(2);
         MessageManager.getInstance().registerListener(dVar);
-        SX();
+        Us();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator an(Context context) {
-        this.azn = (FragmentTabIndicator) LayoutInflater.from(context).inflate(r.h.fragmenttabindicator, (ViewGroup) null);
-        return this.azn;
+    public FragmentTabIndicator ap(Context context) {
+        this.ayi = (FragmentTabIndicator) LayoutInflater.from(context).inflate(r.j.fragmenttabindicator, (ViewGroup) null);
+        return this.ayi;
     }
 
-    private static void SX() {
-        bc.vz().a(new e());
+    private static void Us() {
+        ba.vt().a(new e());
     }
 }

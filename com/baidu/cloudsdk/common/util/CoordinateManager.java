@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.util.Log;
 import com.ak;
 import com.al;
+import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes.dex */
 public class CoordinateManager {
     private static final String a = CoordinateManager.class.getSimpleName();
@@ -73,7 +74,7 @@ public class CoordinateManager {
     }
 
     private static boolean a(Location location) {
-        return location != null && System.currentTimeMillis() - location.getTime() < 300000;
+        return location != null && System.currentTimeMillis() - location.getTime() < ReportUserInfoModel.TIME_INTERVAL;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x003a A[ADDED_TO_REGION] */

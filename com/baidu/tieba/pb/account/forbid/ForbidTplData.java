@@ -1,16 +1,16 @@
 package com.baidu.tieba.pb.account.forbid;
 
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ForbidTplData extends i implements Serializable {
+public class ForbidTplData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -2159666579341742989L;
-    public a error;
+    public ErrorInfo error;
     public String[] reason = new String[0];
     public int type = 0;
 
     /* loaded from: classes.dex */
-    public static class a extends i {
+    public static class ErrorInfo extends OrmObject {
         public int errno = 0;
         public String errMsg = "";
         public String userMsg = "";
@@ -18,6 +18,6 @@ public class ForbidTplData extends i implements Serializable {
 
     public ForbidTplData() {
         this.error = null;
-        this.error = new a();
+        this.error = new ErrorInfo();
     }
 }

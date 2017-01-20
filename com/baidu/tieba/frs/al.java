@@ -1,14 +1,16 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import tbclient.FrsPage.FrsPageResIdl;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* loaded from: classes.dex */
-class al extends BdAsyncTask<Void, Void, Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.y.a(com.baidu.tieba.tbadkCore.m.WIRE, FrsPageResIdl.class);
+class al implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(FrsActivity.class);
+        }
         return null;
     }
 }

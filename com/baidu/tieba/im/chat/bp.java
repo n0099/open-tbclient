@@ -1,44 +1,28 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp {
-    BaseActivity aSs;
-    String mUrl;
+public class bp extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ bo cNF;
 
-    public bp(String str, BaseActivity baseActivity) {
-        this.mUrl = null;
-        this.mUrl = str;
-        this.aSs = baseActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bp(bo boVar) {
+        this.cNF = boVar;
     }
 
-    public void execute() {
-        try {
-            if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.aSs.getPageContext().getString(r.j.save_error));
-            }
-            com.baidu.adp.lib.g.c.eA().a(this.mUrl, 10, new bq(this), this.aSs.getUniqueId());
-        } catch (Exception e) {
-            showToast(this.aSs.getPageContext().getString(r.j.save_error));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        String k;
+        super.onLoaded((bp) aVar, str, i);
+        if (aVar != null) {
+            bo boVar = this.cNF;
+            k = this.cNF.k(this.cNF.mUrl, aVar.jW());
+            boVar.showToast(k);
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String k(String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.m.a(str, bArr, this.aSs.getPageContext().getPageActivity())) {
-            case -2:
-                return com.baidu.tbadk.core.util.m.ud();
-            case -1:
-            default:
-                return this.aSs.getPageContext().getString(r.j.save_error);
-            case 0:
-                return this.aSs.getPageContext().getString(r.j.save_image_to_album);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void showToast(String str) {
-        this.aSs.showToast(str);
+        this.cNF.showToast(this.cNF.aWr.getPageContext().getString(r.l.save_error));
     }
 }

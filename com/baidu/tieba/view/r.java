@@ -8,13 +8,13 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class r extends LinkMovementMethod {
-    private static r fuL;
+    private static r fDF;
 
-    public static r bko() {
-        if (fuL == null) {
-            fuL = new r();
+    public static r blQ() {
+        if (fDF == null) {
+            fDF = new r();
         }
-        return fuL;
+        return fDF;
     }
 
     @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod

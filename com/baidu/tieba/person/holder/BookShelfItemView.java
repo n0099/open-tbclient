@@ -6,68 +6,68 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.base.l;
+import com.baidu.adp.base.k;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class BookShelfItemView extends LinearLayout {
-    private TbPageContext<?> GO;
-    private View.OnClickListener aMS;
-    private com.baidu.tieba.personInfo.b eoI;
-    private TbImageView eoJ;
-    private TextView eoK;
-    private TextView eoL;
+    private TbPageContext<?> FY;
+    private View.OnClickListener aLT;
+    private com.baidu.tieba.personInfo.b eyD;
+    private TbImageView eyE;
+    private TextView eyF;
+    private TextView eyG;
     private Context mContext;
     private View mRootView;
 
     public BookShelfItemView(Context context) {
         super(context);
-        this.aMS = new b(this);
+        this.aLT = new b(this);
         this.mContext = context;
         initView();
     }
 
     public BookShelfItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aMS = new b(this);
+        this.aLT = new b(this);
         this.mContext = context;
         initView();
     }
 
     public BookShelfItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aMS = new b(this);
+        this.aLT = new b(this);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.GO = (TbPageContext) l.C(this.mContext);
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(r.h.personinfo_book_shelf_item, this);
-        this.eoJ = (TbImageView) this.mRootView.findViewById(r.g.book_icon);
-        this.eoK = (TextView) this.mRootView.findViewById(r.g.book_title);
-        this.eoL = (TextView) this.mRootView.findViewById(r.g.book_desc);
-        this.eoJ.setOnClickListener(this.aMS);
-        this.eoK.setOnClickListener(this.aMS);
-        this.eoL.setOnClickListener(this.aMS);
+        this.FY = (TbPageContext) k.C(this.mContext);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(r.j.personinfo_book_shelf_item, this);
+        this.eyE = (TbImageView) this.mRootView.findViewById(r.h.book_icon);
+        this.eyF = (TextView) this.mRootView.findViewById(r.h.book_title);
+        this.eyG = (TextView) this.mRootView.findViewById(r.h.book_desc);
+        this.eyE.setOnClickListener(this.aLT);
+        this.eyF.setOnClickListener(this.aLT);
+        this.eyG.setOnClickListener(this.aLT);
     }
 
     public void a(com.baidu.tieba.personInfo.b bVar) {
         if (bVar != null) {
-            this.eoI = bVar;
-            this.eoJ.c(this.eoI.dOC, 10, false);
-            this.eoK.setText(this.eoI.dxm);
-            if (this.eoI.Qn == 1) {
-                this.eoL.setText("共" + this.eoI.Qe + "章");
+            this.eyD = bVar;
+            this.eyE.c(this.eyD.dXy, 10, false);
+            this.eyF.setText(this.eyD.dGt);
+            if (this.eyD.Pw == 1) {
+                this.eyG.setText("共" + this.eyD.Pn + "章");
             } else {
-                this.eoL.setText("更新" + this.eoI.Qe + "章");
+                this.eyG.setText("更新" + this.eyD.Pn + "章");
             }
-            tm();
+            tg();
         }
     }
 
-    public void tm() {
-        com.baidu.tbadk.i.a.a(this.GO, this.mRootView);
+    public void tg() {
+        com.baidu.tbadk.i.a.a(this.FY, this.mRootView);
     }
 }

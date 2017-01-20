@@ -1,52 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d.a;
-import com.baidu.tieba.r;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ci implements a.InterfaceC0057a {
-    final /* synthetic */ cg bBO;
-    final int bBP = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(r.e.ds98);
+public class ci implements Animation.AnimationListener {
+    final /* synthetic */ ce bJh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(cg cgVar) {
-        this.bBO = cgVar;
+    public ci(ce ceVar) {
+        this.bJh = ceVar;
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0057a
-    public void P(int i, int i2) {
-        ax axVar;
-        ax axVar2;
-        if (aa(i2)) {
-            this.bBO.dd(false);
-            this.bBO.Us();
-        }
-        axVar = this.bBO.bBI;
-        if (axVar != null) {
-            axVar2 = this.bBO.bBI;
-            axVar2.dC(true);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0057a
-    public void Q(int i, int i2) {
-        ax axVar;
-        ax axVar2;
-        if (aa(i2)) {
-            this.bBO.dd(true);
-            if (Math.abs(i2) > this.bBP) {
-                this.bBO.Ur();
-            }
-        }
-        axVar = this.bBO.bBI;
-        if (axVar != null) {
-            axVar2 = this.bBO.bBI;
-            axVar2.dC(false);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    private boolean aa(float f) {
-        return Math.abs(f) >= 1.0f;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ViewGroup viewGroup;
+        ViewGroup viewGroup2;
+        ViewGroup viewGroup3;
+        viewGroup = this.bJh.bJb;
+        if (viewGroup != null) {
+            viewGroup2 = this.bJh.bJb;
+            viewGroup2.clearAnimation();
+            viewGroup3 = this.bJh.bJb;
+            viewGroup3.setVisibility(0);
+            this.bJh.dl(false);
+        }
     }
 }

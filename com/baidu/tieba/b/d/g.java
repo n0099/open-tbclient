@@ -1,22 +1,30 @@
 package com.baidu.tieba.b.d;
 
-import android.opengl.GLSurfaceView;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLDisplay;
+import com.baidu.tieba.b.d.d;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements GLSurfaceView.EGLConfigChooser {
-    final /* synthetic */ f aZS;
+public class g implements Runnable {
+    final /* synthetic */ d bjx;
+    private final /* synthetic */ h bjy;
+    private final /* synthetic */ int bjz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.aZS = fVar;
+    public g(d dVar, int i, h hVar) {
+        this.bjx = dVar;
+        this.bjz = i;
+        this.bjy = hVar;
     }
 
-    @Override // android.opengl.GLSurfaceView.EGLConfigChooser
-    public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
-        EGLConfig[] eGLConfigArr = new EGLConfig[1];
-        egl10.eglChooseConfig(eGLDisplay, new int[]{12339, 4, 12324, 8, 12323, 8, 12322, 8, 12325, 16, 12338, 1, 12337, 2, 12344}, eGLConfigArr, 1, new int[1]);
-        return eGLConfigArr[0];
+    @Override // java.lang.Runnable
+    public void run() {
+        d.a aVar;
+        d.a aVar2;
+        aVar = this.bjx.bjw;
+        if (aVar != null && this.bjz != 0) {
+            aVar2 = this.bjx.bjw;
+            aVar2.k(this.bjz, false);
+        }
+        this.bjx.a(this.bjy, true);
+        this.bjy.QL();
     }
 }

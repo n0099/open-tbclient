@@ -1,44 +1,76 @@
 package com.baidu.tieba.homepage.personalize.b;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.homepage.personalize.b.t;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements AdapterView.OnItemClickListener {
-    final /* synthetic */ t.a crm;
+public class u extends BaseAdapter {
+    private com.baidu.tieba.homepage.personalize.data.f cyj;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t.a aVar) {
-        this.crm = aVar;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.cyj == null || this.cyj.cyZ == null) {
+            return 0;
+        }
+        return this.cyj.cyZ.size();
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        s sVar;
-        s sVar2;
-        t tVar;
-        s sVar3;
-        t tVar2;
-        Context context;
-        if (!com.baidu.adp.lib.util.i.gm()) {
-            tVar2 = t.this;
-            context = tVar2.mContext;
-            com.baidu.adp.lib.util.k.showToast(context, r.j.neterror);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: ko */
+    public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
+        if (this.cyj == null || this.cyj.cyZ == null) {
+            return null;
         }
-        sVar = this.crm.crj;
-        com.baidu.tieba.homepage.personalize.data.g item = sVar.getItem(i);
-        item.crV = !item.crV;
-        sVar2 = this.crm.crj;
-        sVar2.notifyDataSetChanged();
-        tVar = t.this;
-        sVar3 = this.crm.crj;
-        tVar.b(sVar3.ajo());
-        TiebaStatic.log(new at("c10986").ab("obj_name", item.PR));
+        return this.cyj.cyZ.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        TextView textView;
+        if (view instanceof TextView) {
+            textView = (TextView) view;
+        } else {
+            int dimensionPixelSize = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds10);
+            textView = new TextView(viewGroup.getContext());
+            textView.setSingleLine();
+            textView.setEllipsize(TextUtils.TruncateAt.END);
+            textView.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+            textView.setGravity(17);
+            textView.setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.fontsize28));
+            textView.setLayoutParams(new AbsListView.LayoutParams(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds146), TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds60)));
+        }
+        com.baidu.tieba.homepage.personalize.data.g item = getItem(i);
+        if (item != null) {
+            textView.setText(item.OZ);
+            if (item.czb) {
+                ap.i((View) textView, r.e.cp_cont_g);
+                ap.j((View) textView, r.g.shape_semi_circle_all_selected);
+            } else {
+                ap.i((View) textView, r.e.cp_cont_f);
+                ap.j((View) textView, r.g.shape_semi_circle_all_line);
+            }
+        }
+        return textView;
+    }
+
+    public void a(com.baidu.tieba.homepage.personalize.data.f fVar) {
+        this.cyj = fVar;
+        notifyDataSetChanged();
+    }
+
+    public com.baidu.tieba.homepage.personalize.data.f akv() {
+        return this.cyj;
     }
 }

@@ -1,29 +1,30 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bd implements AbsListView.OnScrollListener {
-    final /* synthetic */ bb ddm;
+class bd extends CustomMessageListener {
+    final /* synthetic */ ReplyMessageActivity dkB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(bb bbVar) {
-        this.ddm = bbVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bd(ReplyMessageActivity replyMessageActivity, int i) {
+        super(i);
+        this.dkB = replyMessageActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.tbadk.editortools.e.p pVar;
-        com.baidu.tbadk.editortools.e.p pVar2;
-        if (i != 0) {
-            pVar = this.ddm.ddg;
-            if (pVar != null) {
-                pVar2 = this.ddm.ddg;
-                pVar2.DA();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ReplyMeModelController replyMeModelController;
+        ReplyMeModelController replyMeModelController2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
+            Intent intent = (Intent) customResponsedMessage.getData();
+            replyMeModelController = this.dkB.dkz;
+            if (replyMeModelController != null) {
+                replyMeModelController2 = this.dkB.dkz;
+                replyMeModelController2.lN();
             }
         }
     }

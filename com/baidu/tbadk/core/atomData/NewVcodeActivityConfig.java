@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.adp.lib.h.b;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;

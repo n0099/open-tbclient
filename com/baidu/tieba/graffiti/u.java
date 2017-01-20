@@ -1,9 +1,33 @@
 package com.baidu.tieba.graffiti;
-
-import com.baidu.tbadk.core.data.ad;
 /* loaded from: classes.dex */
-public interface u {
-    void a(com.baidu.adp.base.h hVar, ad adVar, long j, long j2, int i);
+public class u {
+    private int errorCode;
+    private String errorString;
+    public int height;
+    private String picId;
+    public int width;
 
-    void destroy();
+    public String getErrorString() {
+        return this.errorString;
+    }
+
+    public void setErrorString(String str) {
+        this.errorString = str;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
+    }
+
+    public void setPicId(String str) {
+        this.picId = str;
+    }
+
+    public String getPicId() {
+        return this.picId;
+    }
 }

@@ -11,38 +11,38 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
 /* loaded from: classes.dex */
 public class g extends l {
-    private Rect kF;
-    private Path vE;
-    private final Paint vF = new Paint();
-    private final Paint vG = new Paint();
-    private boolean vs;
+    private Rect ky;
+    private boolean vj;
+    private Path vv;
+    private final Paint vw = new Paint();
+    private final Paint vx = new Paint();
 
     public g() {
-        this.vF.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.vF.setStyle(Paint.Style.FILL);
-        this.vF.setAntiAlias(true);
-        this.vG.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.vw.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.vw.setStyle(Paint.Style.FILL);
+        this.vw.setAntiAlias(true);
+        this.vx.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     private void c(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.vE == null || this.vs != this.uW.vs) {
+            if (this.vv == null || this.vj != this.uN.vj) {
                 z = true;
             }
-            if (this.kF == null || !this.kF.contains(rect)) {
+            if (this.ky == null || !this.ky.contains(rect)) {
                 z = true;
             }
-            this.vs = this.uW.vs;
+            this.vj = this.uN.vj;
             if (z) {
-                this.kF = rect;
-                this.vE = new Path();
-                if (this.vs) {
-                    this.vE.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+                this.ky = rect;
+                this.vv = new Path();
+                if (this.vj) {
+                    this.vv.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.vE.addRoundRect(new RectF(rect), this.uW.mRadius, this.uW.mRadius, Path.Direction.CCW);
+                    this.vv.addRoundRect(new RectF(rect), this.uN.mRadius, this.uN.mRadius, Path.Direction.CCW);
                 }
-                this.vE.close();
+                this.vv.close();
             }
         }
     }
@@ -52,7 +52,7 @@ public class g extends l {
         canvas.save();
         c(drawable.getBounds());
         try {
-            canvas.clipPath(this.vE);
+            canvas.clipPath(this.vv);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

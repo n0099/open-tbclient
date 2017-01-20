@@ -1,32 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.style.ImageSpan;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ImageProblemActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements TbFaceManager.a {
-    final /* synthetic */ WriteActivity fDQ;
+public class ag implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.fDQ = writeActivity;
+        this.fMl = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
-    public ImageSpan fT(String str) {
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.a.a.class);
-        com.baidu.adp.widget.a.a aVar = runTask != null ? (com.baidu.adp.widget.a.a) runTask.getData() : null;
-        if (aVar == null) {
-            return null;
-        }
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.jV());
-        int width = aVar.getWidth();
-        bitmapDrawable.setBounds(0, 0, width, width);
-        bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
-        return new ImageSpan(bitmapDrawable, 0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.fMl.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ImageProblemActivityConfig(this.fMl.getPageContext().getPageActivity())));
     }
 }

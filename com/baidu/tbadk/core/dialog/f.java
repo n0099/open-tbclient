@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.h.j;
+import com.baidu.adp.lib.g.j;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,76 +18,76 @@ import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
-    private AdapterView.OnItemClickListener BH;
-    private BdListView Ck;
-    private TbPageContext<?> Gf;
-    private AlertDialog VA;
-    private ViewGroup VB;
-    private TextView VO;
-    private View VP;
-    private g Wf;
+    private BdListView Bw;
+    private TbPageContext<?> Fp;
+    private AlertDialog UQ;
+    private ViewGroup UR;
+    private TextView Ve;
+    private View Vf;
+    private g Vv;
     private ArrayList<h> mItems;
+    private AdapterView.OnItemClickListener mOnItemClickListener;
     private String mTitle;
-    private int VR = -1;
-    private int Vp = -1;
-    private boolean VD = false;
+    private int Vh = -1;
+    private int UE = -1;
+    private boolean UT = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int VZ = r.k.dialog_ani_b2t;
-        public static final int Wa = r.k.dialog_ani_t2b;
-        public static final int Wb = r.k.dialog_ani_l2r;
-        public static final int Wc = r.k.dialog_ani_r2l;
+        public static final int Vp = r.m.dialog_ani_b2t;
+        public static final int Vq = r.m.dialog_ani_t2b;
+        public static final int Vr = r.m.dialog_ani_l2r;
+        public static final int Vs = r.m.dialog_ani_r2l;
     }
 
     public f(TbPageContext<?> tbPageContext) {
-        this.Gf = tbPageContext;
-        this.VB = (ViewGroup) LayoutInflater.from(this.Gf.getPageActivity()).inflate(r.h.dialog_rich_layout, (ViewGroup) null);
-        this.VO = (TextView) this.VB.findViewById(r.g.dialog_title_list);
-        this.Ck = (BdListView) this.VB.findViewById(r.g.dialog_content_list);
-        this.VP = this.VB.findViewById(r.g.line_bg);
-        this.Wf = new g(this.Gf);
+        this.Fp = tbPageContext;
+        this.UR = (ViewGroup) LayoutInflater.from(this.Fp.getPageActivity()).inflate(r.j.dialog_rich_layout, (ViewGroup) null);
+        this.Ve = (TextView) this.UR.findViewById(r.h.dialog_title_list);
+        this.Bw = (BdListView) this.UR.findViewById(r.h.dialog_content_list);
+        this.Vf = this.UR.findViewById(r.h.line_bg);
+        this.Vv = new g(this.Fp);
     }
 
-    public f cI(String str) {
+    public f cG(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public f ck(int i) {
-        return cI(this.Gf.getResources().getString(i));
+    public f cj(int i) {
+        return cG(this.Fp.getResources().getString(i));
     }
 
     public f a(ArrayList<h> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
         if (arrayList != null && arrayList.size() > 0) {
             this.mItems = arrayList;
             if (onItemClickListener != null) {
-                this.BH = onItemClickListener;
-                this.Ck.setOnItemClickListener(this.BH);
+                this.mOnItemClickListener = onItemClickListener;
+                this.Bw.setOnItemClickListener(this.mOnItemClickListener);
             }
         }
         return this;
     }
 
-    public f tf() {
-        if (!this.VD) {
-            this.VD = true;
+    public f sZ() {
+        if (!this.UT) {
+            this.UT = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.VO.setText(this.mTitle);
-                this.VO.setVisibility(0);
-                this.VP.setVisibility(0);
+                this.Ve.setText(this.mTitle);
+                this.Ve.setVisibility(0);
+                this.Vf.setVisibility(0);
             } else {
-                this.VO.setVisibility(8);
-                this.VP.setVisibility(8);
+                this.Ve.setVisibility(8);
+                this.Vf.setVisibility(8);
             }
-            this.Ck.setAdapter((ListAdapter) this.Wf);
-            this.Wf.setData(this.mItems);
-            c(this.Gf);
+            this.Bw.setAdapter((ListAdapter) this.Vv);
+            this.Vv.setData(this.mItems);
+            c(this.Fp);
         }
         return this;
     }
 
-    public void cl(int i) {
+    public void ck(int i) {
         for (int i2 = 0; i2 < this.mItems.size(); i2++) {
             if (i2 == i) {
                 this.mItems.get(i2).setChecked(true);
@@ -95,49 +95,49 @@ public class f {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.Wf.setData(this.mItems);
+        this.Vv.setData(this.mItems);
     }
 
-    public f tg() {
-        if (!this.VD) {
+    public f ta() {
+        if (!this.UT) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.VA != null) {
-            j.a(this.VA, this.Gf);
+        if (this.UQ != null) {
+            j.a(this.UQ, this.Fp);
         } else {
-            this.VA = new AlertDialog.Builder(this.Gf.getPageActivity()).create();
-            this.VA.setCanceledOnTouchOutside(true);
-            if (j.a(this.VA, this.Gf.getPageActivity())) {
-                Window window = this.VA.getWindow();
-                if (this.VR == -1) {
-                    this.VR = a.VZ;
+            this.UQ = new AlertDialog.Builder(this.Fp.getPageActivity()).create();
+            this.UQ.setCanceledOnTouchOutside(true);
+            if (j.a(this.UQ, this.Fp.getPageActivity())) {
+                Window window = this.UQ.getWindow();
+                if (this.Vh == -1) {
+                    this.Vh = a.Vp;
                 }
-                if (this.Vp == -1) {
-                    this.Vp = 17;
+                if (this.UE == -1) {
+                    this.UE = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.Vp);
-                window.setBackgroundDrawableResource(r.f.transparent_bg);
-                window.setContentView(this.VB);
+                window.setGravity(this.UE);
+                window.setBackgroundDrawableResource(r.g.transparent_bg);
+                window.setContentView(this.UR);
             }
         }
         return this;
     }
 
-    private void c(com.baidu.adp.base.h<?> hVar) {
+    private void c(com.baidu.adp.base.g<?> gVar) {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-        if (hVar instanceof TbPageContext) {
-            ((TbPageContext) hVar).getLayoutMode().ai(skinType == 1);
-            ((TbPageContext) hVar).getLayoutMode().x(this.VB);
+        if (gVar instanceof TbPageContext) {
+            ((TbPageContext) gVar).getLayoutMode().ai(skinType == 1);
+            ((TbPageContext) gVar).getLayoutMode().v(this.UR);
         }
-        this.VB.setBackgroundResource(r.f.transparent_bg);
+        this.UR.setBackgroundResource(r.g.transparent_bg);
     }
 
     public void dismiss() {
-        if (this.VA != null) {
-            j.b(this.VA, this.Gf.getPageActivity());
+        if (this.UQ != null) {
+            j.b(this.UQ, this.Fp.getPageActivity());
         }
     }
 }

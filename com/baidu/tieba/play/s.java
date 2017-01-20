@@ -1,19 +1,26 @@
 package com.baidu.tieba.play;
 
-import android.view.View;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface s {
-    int getCurrentPosition();
+public class s implements Animation.AnimationListener {
+    final /* synthetic */ c eSu;
 
-    String getPlayUrl();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(c cVar) {
+        this.eSu = cVar;
+    }
 
-    View getVideoContainer();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
 
-    boolean isPlayStarted();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.eSu.dvv = false;
+    }
 
-    boolean isPlaying();
-
-    void startPlay();
-
-    void stopPlay();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
 }

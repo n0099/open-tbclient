@@ -4,62 +4,59 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.card.ap;
-import com.baidu.tieba.card.bz;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.at;
+import com.baidu.tieba.card.cc;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h>> {
-    private TbPageContext<?> GO;
-    private BdUniqueId bbl;
-    private com.baidu.tieba.card.h cqO;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
-    @Override // com.baidu.adp.widget.ListView.a
-    protected /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.h> aVar) {
-        return a2(i, view, viewGroup, bVar, (com.baidu.tieba.card.a.a) aVar);
-    }
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.b.a<com.baidu.tieba.card.h>> {
+    private TbPageContext<?> FY;
+    private BdUniqueId aUC;
+    private com.baidu.tieba.card.h cxP;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.crQ);
-        this.GO = tbPageContext;
-        this.cqO = new com.baidu.tieba.card.h(this.GO);
-        this.cqO.j("c10714", "c10739", "c10712", "c10738");
-        this.cqO.setFrom("home");
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.cyW);
+        this.FY = tbPageContext;
+        this.cxP = new com.baidu.tieba.card.h(this.FY);
+        this.cxP.k("c10714", "c10739", "c10712", "c10738");
+        this.cxP.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.bbl = bdUniqueId;
-        if (this.cqO != null) {
-            this.cqO.i(this.bbl);
+        this.aUC = bdUniqueId;
+        if (this.cxP != null) {
+            this.cxP.i(this.aUC);
         }
     }
 
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    protected View a2(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.Po() == null) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.b.a aVar) {
+        if (aVar.Sd() == null) {
             return null;
         }
-        aVar.Po().onBindDataToView(bVar);
-        bz.OH().a(new at("c10714").ab("obj_param3", ap.OA()));
+        aVar.Sd().onBindDataToView(bVar);
+        cc.Rx().a(new ar("c10714").ab("obj_param3", at.Rr()));
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
-    public com.baidu.tieba.card.a.a a(ViewGroup viewGroup) {
-        if (this.cqO == null) {
-            this.cqO = new com.baidu.tieba.card.h(this.GO);
-            this.cqO.i(this.bbl);
-            this.cqO.j("c10714", "c10739", "c10712", "c10738");
+    /* renamed from: k */
+    public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
+        if (this.cxP == null) {
+            this.cxP = new com.baidu.tieba.card.h(this.FY);
+            this.cxP.i(this.aUC);
+            this.cxP.k("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.cqO);
+        return new com.baidu.tieba.card.b.a(this.cxP);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.cqO != null) {
-            this.cqO.onChangeSkinType(this.GO, i);
+        if (this.cxP != null) {
+            this.cxP.onChangeSkinType(this.FY, i);
         }
     }
 }

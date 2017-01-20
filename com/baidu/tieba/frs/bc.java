@@ -1,40 +1,28 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements com.baidu.tbadk.widget.layout.i {
-    final /* synthetic */ ax bAv;
+public class bc implements c.b {
+    final /* synthetic */ ax bHQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(ax axVar) {
-        this.bAv = axVar;
+        this.bHQ = axVar;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.i
-    public void a(View view, int i, int i2, int i3, int i4) {
-        View view2;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        View view3;
-        View view4;
-        View view5;
-        View view6;
-        view2 = this.bAv.bAg;
-        if (view2 != null) {
-            view3 = this.bAv.bAg;
-            if (view3.getLayoutParams() != null && i2 != i4) {
-                view4 = this.bAv.bAg;
-                view4.getLayoutParams().height = i2;
-                view5 = this.bAv.bAg;
-                view6 = this.bAv.bAg;
-                view5.setLayoutParams(view6.getLayoutParams());
-            }
-        }
-        frsActivity = this.bAv.bzH;
-        if (frsActivity.Wa() != null) {
-            frsActivity2 = this.bAv.bzH;
-            frsActivity2.Wa().p(view, i2);
+        cVar.dismiss();
+        if (i == 0) {
+            frsActivity2 = this.bHQ.bHh;
+            frsActivity2.Ot();
+        } else if (i == 1) {
+            frsActivity = this.bHQ.bHh;
+            com.baidu.tbadk.core.util.ao.p(frsActivity.getPageContext().getPageActivity());
         }
     }
 }

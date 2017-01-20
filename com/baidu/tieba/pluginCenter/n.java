@@ -7,11 +7,11 @@ import com.baidu.tieba.pluginCenter.PluginDownloadActivity;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ PluginDownloadActivity.a eKy;
+    final /* synthetic */ PluginDownloadActivity.a eTV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PluginDownloadActivity.a aVar) {
-        this.eKy = aVar;
+        this.eTV = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,21 +22,21 @@ class n implements View.OnClickListener {
         TextView textView3;
         PluginDownloadActivity pluginDownloadActivity2;
         PluginDownloadActivity pluginDownloadActivity3;
-        if (!com.baidu.adp.lib.util.i.gm()) {
+        if (!com.baidu.adp.lib.util.i.gk()) {
             pluginDownloadActivity3 = PluginDownloadActivity.this;
-            pluginDownloadActivity3.showToast(r.j.neterror);
+            pluginDownloadActivity3.showToast(r.l.neterror);
             return;
         }
         pluginDownloadActivity = PluginDownloadActivity.this;
-        pluginDownloadActivity.eKo = true;
-        textView = this.eKy.eKs;
+        pluginDownloadActivity.eTL = true;
+        textView = this.eTV.eTP;
         textView.setVisibility(8);
-        textView2 = this.eKy.aVB;
+        textView2 = this.eTV.aRb;
         textView2.setVisibility(8);
-        textView3 = this.eKy.dyq;
+        textView3 = this.eTV.dHy;
         textView3.setVisibility(0);
-        PluginPackageManager iB = PluginPackageManager.iB();
+        PluginPackageManager iz = PluginPackageManager.iz();
         pluginDownloadActivity2 = PluginDownloadActivity.this;
-        iB.a(pluginDownloadActivity2.eKl, new o(this));
+        iz.a(pluginDownloadActivity2.eTI, new o(this));
     }
 }

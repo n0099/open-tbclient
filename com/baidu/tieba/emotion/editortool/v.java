@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static v boH = new v();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> boI;
+    private static v bwu = new v();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> bwv;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized v Sy() {
+    public static synchronized v TU() {
         v vVar;
         synchronized (v.class) {
-            vVar = boH;
+            vVar = bwu;
         }
         return vVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.boI;
+        return this.bwv;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0041a interfaceC0041a) {
-        if (this.boI == null || this.boI.isEmpty()) {
-            this.boI = new LinkedList<>();
-            if (TbFaceManager.DW().CP() > 0) {
+        if (this.bwv == null || this.bwv.isEmpty()) {
+            this.bwv = new LinkedList<>();
+            if (TbFaceManager.DR().CK() > 0) {
                 u uVar = new u();
-                this.boI.add(uVar);
+                this.bwv.add(uVar);
                 if (interfaceC0041a != null) {
                     interfaceC0041a.a(uVar);
                     return;
@@ -42,7 +42,7 @@ public class v extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.boI.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.bwv.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0041a != null) {
@@ -52,10 +52,10 @@ public class v extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void CO() {
+    public void CJ() {
     }
 
     public boolean isEmpty() {
-        return this.boI == null || this.boI.size() == 0;
+        return this.bwv == null || this.bwv.size() == 0;
     }
 }

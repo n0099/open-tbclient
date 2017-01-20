@@ -8,13 +8,13 @@ import com.baidu.tieba.r;
 import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 /* loaded from: classes.dex */
 class ad extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity eis;
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,38 +23,38 @@ class ad extends CustomMessageListener {
         BdUniqueId bdUniqueId;
         ao aoVar;
         com.baidu.tbadk.core.view.h hVar;
-        com.baidu.adp.base.h hVar2;
-        com.baidu.adp.base.h hVar3;
-        com.baidu.tbadk.core.view.h hVar4;
-        com.baidu.adp.base.h hVar5;
+        com.baidu.adp.base.g gVar;
+        com.baidu.adp.base.g gVar2;
+        com.baidu.tbadk.core.view.h hVar2;
+        com.baidu.adp.base.g gVar3;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eis.ein;
+            bdUniqueId = this.erC.erx;
             if (tag == bdUniqueId) {
-                aoVar = this.eis.eid;
-                aoVar.aHa();
+                aoVar = this.erC.ern;
+                aoVar.aIO();
                 UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                 if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                    hVar4 = this.eis.dZA;
-                    hVar5 = this.eis.dZz;
-                    hVar4.c(hVar5.getResources().getString(r.j.mute_success));
+                    hVar2 = this.erC.eil;
+                    gVar3 = this.erC.eik;
+                    hVar2.c(gVar3.getResources().getString(r.l.mute_success));
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                     String errorString = userMuteAddResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        hVar3 = this.eis.dZz;
-                        errorString = hVar3.getResources().getString(r.j.mute_error_beyond_limit);
+                        gVar2 = this.erC.eik;
+                        errorString = gVar2.getResources().getString(r.l.mute_error_beyond_limit);
                     }
-                    this.eis.fL(errorString);
+                    this.erC.fI(errorString);
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() != 1990043) {
                     String errorString2 = userMuteAddResponseMessage.getErrorString();
-                    if (com.baidu.tbadk.core.util.av.isEmpty(errorString2)) {
-                        hVar2 = this.eis.dZz;
-                        errorString2 = hVar2.getResources().getString(r.j.mute_fail);
+                    if (com.baidu.tbadk.core.util.at.isEmpty(errorString2)) {
+                        gVar = this.erC.eik;
+                        errorString2 = gVar.getResources().getString(r.l.mute_fail);
                     }
-                    hVar = this.eis.dZA;
+                    hVar = this.erC.eil;
                     hVar.d(errorString2);
                 } else {
-                    this.eis.aJF();
+                    this.erC.aLs();
                 }
             }
         }

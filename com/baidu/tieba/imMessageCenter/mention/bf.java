@@ -1,20 +1,25 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
-public class bf implements BdListView.f {
-    final /* synthetic */ bb ddm;
-
+class bf extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(bb bbVar) {
-        this.ddm = bbVar;
+    public bf(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.f
-    public void t(BdListView bdListView) {
-        ReplyMessageActivity replyMessageActivity;
-        replyMessageActivity = this.ddm.dcV;
-        replyMessageActivity.IV();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+            if (TbadkCoreApplication.isLogin()) {
+                ah.avW().start();
+            } else {
+                ah.avW().destroy();
+            }
+        }
     }
 }

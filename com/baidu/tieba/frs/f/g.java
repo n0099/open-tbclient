@@ -1,30 +1,20 @@
 package com.baidu.tieba.frs.f;
 
-import com.baidu.adp.lib.cache.o;
-import java.util.ArrayList;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.frs.f.f;
 /* loaded from: classes.dex */
-public class g implements o.a<String> {
-    final /* synthetic */ f bMJ;
+class g implements a.b {
+    final /* synthetic */ f.a bVg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.bMJ = fVar;
+    public g(f.a aVar) {
+        this.bVg = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.cache.o.a
-    /* renamed from: aI */
-    public void m(String str, String str2) {
-        ArrayList iK;
-        HashMap hashMap;
-        if (str2 != null) {
-            String abg = this.bMJ.abg();
-            iK = this.bMJ.iK(str2);
-            hashMap = this.bMJ.bMH;
-            hashMap.put(abg, iK);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        if (aVar != null) {
+            aVar.dismiss();
         }
-        this.bMJ.bMz = true;
     }
 }

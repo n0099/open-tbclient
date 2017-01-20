@@ -8,12 +8,12 @@ public class BannerThreadInfoData implements Serializable {
     public static final int FORUM_FROM_NORMAL = 0;
     private static final long serialVersionUID = -5446966999595522426L;
     public int from = 0;
-    public bg threadData;
+    public bh threadData;
 
     public void parserProtobuf(BannerThreadInfo bannerThreadInfo) {
         if (bannerThreadInfo != null) {
             if (this.threadData == null) {
-                this.threadData = new bg();
+                this.threadData = new bh();
             }
             this.threadData.a(bannerThreadInfo.thread_info);
             if (bannerThreadInfo.from instanceof Integer) {

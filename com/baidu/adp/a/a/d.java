@@ -5,23 +5,23 @@ import com.baidu.adp.a.a.e;
 import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
+    private static int gs = 0;
+    private static String gt = null;
+    private static String gu = null;
     private static int gv = 0;
-    private static String gw = null;
+    private static int gw = 0;
     private static String gx = null;
-    private static int gy = 0;
-    private static int gz = 0;
-    private static String gA = null;
-    private static e.a gB = null;
-    private static e.a gC = null;
+    private static e.a gy = null;
+    private static e.a gz = null;
     public static Handler mHandler = null;
     @Deprecated
-    public static int gD = 0;
-    public static boolean gE = false;
-    public static boolean gF = false;
-    public static boolean gG = false;
+    public static int gA = 0;
+    public static boolean gB = false;
+    public static boolean gC = false;
+    public static boolean gD = false;
 
     public static void H(int i) {
-        gv = i;
+        gs = i;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(0);
@@ -32,7 +32,7 @@ public class d {
     }
 
     public static void a(e.a aVar) {
-        gB = aVar;
+        gy = aVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -43,7 +43,7 @@ public class d {
     }
 
     public static e.a be() {
-        return gC;
+        return gz;
     }
 
     public static double a(double d) {

@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class h extends BaseViewPager {
-    private PointF aop;
-    private com.baidu.tbadk.widget.a aoq;
-    private com.baidu.tbadk.widget.a aor;
+    private PointF anv;
+    private com.baidu.tbadk.widget.a anw;
+    private com.baidu.tbadk.widget.a anx;
 
     public h(Context context) {
         super(context);
     }
 
     public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.aoq = aVar;
+        this.anw = aVar;
     }
 
     public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.aoq;
+        return this.anw;
     }
 
     private float[] h(MotionEvent motionEvent) {
@@ -28,9 +28,9 @@ public class h extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.aop.x, pointF.y - this.aop.y};
+                return new float[]{pointF.x - this.anv.x, pointF.y - this.anv.y};
             case 0:
-                this.aop = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.anv = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -40,25 +40,25 @@ public class h extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.aoq != null) {
-                this.aoq.GK();
+            if (this.anw != null) {
+                this.anw.GC();
             }
         }
-        if (this.aoq == null) {
+        if (this.anw == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] h = h(motionEvent);
-        if (this.aoq.GL()) {
+        if (this.anw.GD()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (h != null && this.aoq.GP() && h[0] < 0.0f) {
+        if (h != null && this.anw.GH() && h[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (h != null && this.aoq.GQ() && h[0] > 0.0f) {
+        if (h != null && this.anw.GI() && h[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (h == null) {
-            if (this.aoq.GQ() || this.aoq.GP()) {
+            if (this.anw.GI() || this.anw.GH()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -72,20 +72,20 @@ public class h extends BaseViewPager {
             super.onInterceptTouchEvent(motionEvent);
         }
         float[] h = h(motionEvent);
-        if (this.aoq == null) {
+        if (this.anw == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.aoq.GL()) {
+        if (this.anw.GD()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (h != null && this.aoq.GP() && h[0] < 0.0f) {
+        if (h != null && this.anw.GH() && h[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (h != null && this.aoq.GQ() && h[0] > 0.0f) {
+        if (h != null && this.anw.GI() && h[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (h == null) {
-            if (this.aoq.GQ() || this.aoq.GP()) {
+            if (this.anw.GI() || this.anw.GH()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -94,10 +94,10 @@ public class h extends BaseViewPager {
     }
 
     public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
-        this.aor = aVar;
+        this.anx = aVar;
     }
 
     public com.baidu.tbadk.widget.a getSelectedView() {
-        return this.aor;
+        return this.anx;
     }
 }

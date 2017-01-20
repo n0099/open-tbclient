@@ -1,44 +1,34 @@
 package com.baidu.adp.plugin.install;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.os.Messenger;
-import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.plugin.install.c;
+import com.baidu.adp.plugin.packageManager.status.PluginStatus;
+import java.util.Comparator;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class k implements ServiceConnection {
-    final /* synthetic */ d this$0;
-    private final /* synthetic */ Context val$context;
-    private final /* synthetic */ Intent wP;
+class k implements Comparator<String> {
+    final /* synthetic */ c.a wI;
+    private final /* synthetic */ HashMap wJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(d dVar, Intent intent, Context context) {
-        this.this$0 = dVar;
-        this.wP = intent;
-        this.val$context = context;
+    public k(c.a aVar, HashMap hashMap) {
+        this.wI = aVar;
+        this.wJ = hashMap;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        this.this$0.id();
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        c cVar;
-        c cVar2;
-        this.this$0.messenger = new Messenger(iBinder);
-        String stringExtra = this.wP.getStringExtra("package_name");
-        cVar = this.this$0.wF;
-        if (cVar == null) {
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    public int compare(String str, String str2) {
+        PluginStatus pluginStatus = (PluginStatus) this.wJ.get(str);
+        PluginStatus pluginStatus2 = (PluginStatus) this.wJ.get(str2);
+        if (pluginStatus != null && pluginStatus2 != null) {
+            return pluginStatus2.getPriority() - pluginStatus.getPriority();
         }
-        cVar2 = this.this$0.wF;
-        if (TextUtils.equals(stringExtra, cVar2.vT)) {
-            this.val$context.startService(this.wP);
+        if (pluginStatus != null && pluginStatus2 == null) {
+            return -1;
         }
+        if (pluginStatus == null && pluginStatus2 != null) {
+            return 1;
+        }
+        return 0;
     }
 }

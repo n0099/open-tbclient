@@ -1,40 +1,44 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.gif.GifView;
+import android.content.DialogInterface;
+import android.content.Intent;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bn implements com.baidu.adp.lib.f.c<GifView> {
-    final /* synthetic */ PbActivity eah;
+public class bn implements DialogInterface.OnCancelListener {
+    final /* synthetic */ PbActivity eiV;
+    private final /* synthetic */ MarkData ejh;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a eji;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PbActivity pbActivity) {
-        this.eah = pbActivity;
+    public bn(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
+        this.eiV = pbActivity;
+        this.ejh = markData;
+        this.eji = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: aJH */
-    public GifView ez() {
-        return new GifView(this.eah.getPageContext().getPageActivity());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: g */
-    public void o(GifView gifView) {
-        gifView.onDestroy();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: h */
-    public GifView p(GifView gifView) {
-        return gifView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.c
-    /* renamed from: i */
-    public GifView q(GifView gifView) {
-        return gifView;
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ez ezVar;
+        ez ezVar2;
+        ez ezVar3;
+        dialogInterface.dismiss();
+        int[] iArr = new int[2];
+        ezVar = this.eiV.ehV;
+        if (ezVar != null) {
+            ezVar2 = this.eiV.ehV;
+            if (ezVar2.getView() != null) {
+                ezVar3 = this.eiV.ehV;
+                ezVar3.getView().getLocationOnScreen(iArr);
+            }
+        }
+        if (iArr[0] > 0) {
+            Intent intent = new Intent();
+            intent.putExtra(PbActivityConfig.KEY_MARK, this.ejh);
+            this.eiV.setResult(-1, intent);
+            this.eji.dismiss();
+            this.eiV.aKY();
+        }
     }
 }

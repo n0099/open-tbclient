@@ -10,25 +10,25 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class b {
-    private static b axs = new b();
-    private GameInfoData axt;
-    private final com.baidu.adp.framework.listener.e axu = new c(this, 303009);
+    private static b aww = new b();
+    private GameInfoData awx;
+    private final com.baidu.adp.framework.listener.e awy = new c(this, 303009);
     private String mUrl;
 
     private b() {
-        MessageManager.getInstance().registerListener(this.axu);
+        MessageManager.getInstance().registerListener(this.awy);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new d(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static b DK() {
-        return axs;
+    public static b DF() {
+        return aww;
     }
 
     public void ap(String str, String str2) {
         this.mUrl = str2;
-        this.axt = null;
+        this.awx = null;
         if (!TextUtils.isEmpty(str)) {
             RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
             requestGameDetailMessage.setGameId(str);
@@ -36,21 +36,21 @@ public class b {
         }
     }
 
-    private GameInfoData DL() {
+    private GameInfoData DG() {
         GameInfoData gameInfoData = new GameInfoData();
-        gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(r.j.default_share_to_game_title));
+        gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(r.l.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
         gameInfoData.setGameId("default");
         gameInfoData.setIconUrl("default");
-        gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(r.j.default_share_to_game_content));
+        gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(r.l.default_share_to_game_content));
         return gameInfoData;
     }
 
     public GameInfoData getGameInfoData() {
-        return this.axt == null ? DL() : this.axt;
+        return this.awx == null ? DG() : this.awx;
     }
 
-    public ShareFromGameCenterMsgData DM() {
+    public ShareFromGameCenterMsgData DH() {
         GameInfoData gameInfoData = getGameInfoData();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
         shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? gameInfoData.getGameName() : GameShareJsBridge.getInstance().getShareTitle());

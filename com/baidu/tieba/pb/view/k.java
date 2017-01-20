@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class k {
@@ -22,22 +22,22 @@ public class k {
             Resources resources = TbadkCoreApplication.m9getInst().getResources();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
             if (z2 && z3) {
-                layoutParams.setMargins((int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds8), (int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds18));
+                layoutParams.setMargins((int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds8), (int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds18));
             } else if (z) {
-                layoutParams.setMargins(0, (int) resources.getDimension(r.e.ds8), 0, 0);
+                layoutParams.setMargins(0, (int) resources.getDimension(r.f.ds8), 0, 0);
             } else if (!z2) {
-                layoutParams.setMargins(0, (int) resources.getDimension(r.e.ds8), (int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds14));
+                layoutParams.setMargins(0, (int) resources.getDimension(r.f.ds8), (int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds14));
             } else {
-                layoutParams.setMargins((int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds8), (int) resources.getDimension(r.e.ds32), (int) resources.getDimension(r.e.ds14));
+                layoutParams.setMargins((int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds8), (int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds14));
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) "icon");
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            Drawable drawable = ar.getDrawable(r.f.icon_pb_tail);
-            int e = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds32);
+            Drawable drawable = ap.getDrawable(r.g.icon_pb_tail);
+            int e = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.f.ds32);
             drawable.setBounds(0, 0, e, e);
             com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(drawable);
-            fVar.fq(com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.e.ds4));
+            fVar.fr(com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.f.ds4));
             spannableStringBuilder.setSpan(fVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);

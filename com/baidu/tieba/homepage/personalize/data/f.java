@@ -9,13 +9,13 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.TagStruct;
 /* loaded from: classes.dex */
 public class f implements v {
-    public static final BdUniqueId crS = BdUniqueId.gen();
-    public List<g> crT = new ArrayList();
-    public String crU;
+    public static final BdUniqueId cyY = BdUniqueId.gen();
+    public List<g> cyZ = new ArrayList();
+    public String cza;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return crS;
+        return cyY;
     }
 
     public static f a(DataRes.Builder builder) {
@@ -26,24 +26,24 @@ public class f implements v {
         f fVar = new f();
         for (TagStruct tagStruct : builder.interestion) {
             if (tagStruct != null && (a = g.a(tagStruct)) != null) {
-                fVar.crT.add(a);
+                fVar.cyZ.add(a);
             }
         }
         StringBuilder sb = new StringBuilder();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < fVar.crT.size()) {
-                g gVar = fVar.crT.get(i2);
-                if (gVar != null && !StringUtils.isNull(gVar.PR)) {
-                    sb.append(gVar.PR);
-                    if (i2 != fVar.crT.size() - 1) {
+            if (i2 < fVar.cyZ.size()) {
+                g gVar = fVar.cyZ.get(i2);
+                if (gVar != null && !StringUtils.isNull(gVar.OZ)) {
+                    sb.append(gVar.OZ);
+                    if (i2 != fVar.cyZ.size() - 1) {
                         sb.append("_");
                     }
                 }
                 i = i2 + 1;
             } else {
-                fVar.crU = sb.toString();
+                fVar.cza = sb.toString();
                 return fVar;
             }
         }

@@ -3,42 +3,42 @@ package com.baidu.tieba.pb.pb.sub;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.b;
 /* loaded from: classes.dex */
-class s implements b.d {
-    final /* synthetic */ NewSubPbActivity eis;
+class s implements NewWriteModel.d {
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.b.d
+    @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
     public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.q qVar, WriteData writeData, AntiData antiData) {
         ao aoVar;
-        com.baidu.tbadk.editortools.e.p pVar;
-        com.baidu.tbadk.editortools.e.p pVar2;
-        com.baidu.tbadk.editortools.e.p pVar3;
-        bc bcVar;
-        bc bcVar2;
+        com.baidu.tbadk.editortools.pb.n nVar;
+        com.baidu.tbadk.editortools.pb.n nVar2;
+        com.baidu.tbadk.editortools.pb.n nVar3;
+        SubPbModel subPbModel;
+        SubPbModel subPbModel2;
         if (z) {
-            pVar = this.eis.ddg;
-            if (pVar != null) {
-                pVar2 = this.eis.ddg;
-                if (pVar2.CB() != null) {
-                    pVar3 = this.eis.ddg;
-                    pVar3.CB().hide();
-                    bcVar = this.eis.eib;
-                    if (bcVar.aNy()) {
-                        com.baidu.tbadk.core.util.at atVar = new com.baidu.tbadk.core.util.at("c10367");
-                        bcVar2 = this.eis.eib;
-                        TiebaStatic.log(atVar.ab("post_id", bcVar2.CX()));
+            nVar = this.erC.dkr;
+            if (nVar != null) {
+                nVar2 = this.erC.dkr;
+                if (nVar2.Cw() != null) {
+                    nVar3 = this.erC.dkr;
+                    nVar3.Cw().hide();
+                    subPbModel = this.erC.erl;
+                    if (subPbModel.aPu()) {
+                        com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c10367");
+                        subPbModel2 = this.erC.erl;
+                        TiebaStatic.log(arVar.ab("post_id", subPbModel2.CS()));
                     }
                 }
             }
         }
-        aoVar = this.eis.eid;
-        aoVar.aNf();
+        aoVar = this.erC.ern;
+        aoVar.aPb();
     }
 }

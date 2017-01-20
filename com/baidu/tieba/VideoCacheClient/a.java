@@ -5,37 +5,37 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a aQc;
-    private List<String> aQd = new ArrayList();
+    private static a aPf;
+    private List<String> aPg = new ArrayList();
     private Object mLock = new Object();
-    private boolean aQe = false;
-    private byte[] aQg = new byte[1024];
-    private Runnable CJ = new b(this);
-    private Thread aQf = new Thread(this.CJ);
+    private boolean aPh = false;
+    private byte[] mBuffer = new byte[1024];
+    private Runnable BU = new b(this);
+    private Thread aPi = new Thread(this.BU);
 
     private a() {
-        this.aQf.start();
+        this.aPi.start();
     }
 
-    public static a Kt() {
-        if (aQc == null) {
+    public static a KI() {
+        if (aPf == null) {
             synchronized (a.class) {
-                if (aQc == null) {
-                    aQc = new a();
+                if (aPf == null) {
+                    aPf = new a();
                 }
             }
         }
-        return aQc;
+        return aPf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String Ku() {
-        return this.aQd.isEmpty() ? null : this.aQd.get(0);
+    public synchronized String KJ() {
+        return this.aPg.isEmpty() ? null : this.aPg.get(0);
     }
 
-    public synchronized void hb(String str) {
-        this.aQd.clear();
-        this.aQd.add(str);
+    public synchronized void hc(String str) {
+        this.aPg.clear();
+        this.aPg.add(str);
         synchronized (this.mLock) {
             this.mLock.notify();
         }

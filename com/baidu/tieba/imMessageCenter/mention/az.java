@@ -1,83 +1,82 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.HashMap;
-import tbclient.ReplyMe.DataReq;
-import tbclient.ReplyMe.ReplyMeReqIdl;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.editortools.pb.DataModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int ddd;
-    private String ids;
-    private int mPn = 1;
+public class az extends DataModel<ad> {
+    final /* synthetic */ au dky;
 
-    public void f(FeedData feedData) {
-        if (feedData != null) {
-            this.ids = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public az(au auVar, com.baidu.adp.base.g gVar) {
+        super(gVar);
+        this.dky = auVar;
     }
 
-    public void toNextPage() {
-        this.mPn++;
-        this.ddd = 4;
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
     }
 
-    public void reset() {
-        this.mPn = 1;
-        this.ddd = 1;
-        this.ids = null;
+    @Override // com.baidu.adp.base.BdBaseModel
+    protected boolean LoadData() {
+        return false;
     }
 
-    public int getUpdateType() {
-        return this.ddd;
+    @Override // com.baidu.tbadk.editortools.pb.DataModel
+    public boolean CR() {
+        return false;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> mb() {
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.ddd == 4 && !TextUtils.isEmpty(this.ids)) {
-            hashMap.put("ids", this.ids);
-        }
-        return hashMap;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.k
-    public Object aa(boolean z) {
-        try {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.mPn);
-            builder.ids = this.ids;
-            if (z) {
-                com.baidu.tbadk.util.n.a(builder, true);
+    @Override // com.baidu.tbadk.editortools.pb.DataModel
+    public WriteData fy(String str) {
+        String str2;
+        FeedData feedData;
+        FeedData feedData2;
+        FeedData feedData3;
+        FeedData feedData4;
+        long j;
+        long j2;
+        long j3;
+        FeedData feedData5;
+        String quote_pid;
+        long j4;
+        WriteData writeData = new WriteData();
+        str2 = this.dky.mForumId;
+        writeData.setForumId(str2);
+        feedData = this.dky.dks;
+        writeData.setForumName(feedData.getFname());
+        feedData2 = this.dky.dks;
+        writeData.setThreadId(feedData2.getThread_id());
+        writeData.setIsAd(false);
+        writeData.setFloorNum(0);
+        feedData3 = this.dky.dks;
+        if (!feedData3.getIsFloor()) {
+            feedData4 = this.dky.dks;
+            writeData.setFloor(feedData4.getPost_id());
+        } else {
+            j3 = this.dky.dkt;
+            if (j3 <= 0) {
+                feedData5 = this.dky.dks;
+                quote_pid = feedData5.getQuote_pid();
+            } else {
+                j4 = this.dky.dkt;
+                quote_pid = String.valueOf(j4);
             }
-            ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        } catch (Exception e) {
-            return null;
+            writeData.setFloor(quote_pid);
         }
+        j = this.dky.dku;
+        if (j > 0) {
+            j2 = this.dky.dku;
+            writeData.setRepostId(String.valueOf(j2));
+        }
+        writeData.setType(2);
+        return writeData;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "replyme_cache";
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public String Ev() {
-        return "tb_user_replyme";
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ew() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean isNeedUid() {
-        return true;
+    @Override // com.baidu.tbadk.editortools.pb.DataModel
+    public String CS() {
+        return null;
     }
 }

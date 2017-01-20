@@ -10,8 +10,8 @@ import com.baidu.tbadk.editortools.x;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class a extends x {
-    private static final int[] avC = {4, 17, 24, 3, 9, 6, 44};
-    private InputView avD;
+    private static final int[] auH = {4, 17, 24, 3, 9, 6, 44};
+    private InputView auI;
 
     public a(Context context, boolean z) {
         super(context, (String) null, 3);
@@ -21,37 +21,37 @@ public class a extends x {
     public a(Context context, boolean z, boolean z2) {
         super(context, (String) null, 3);
         init(context, z);
-        if (this.avD != null) {
-            this.avD.setNeedFaceMaxCount(z2);
+        if (this.auI != null) {
+            this.auI.setNeedFaceMaxCount(z2);
         }
     }
 
     private void init(Context context, boolean z) {
-        this.auV = false;
-        this.auU = 2;
-        this.auW = avC;
-        this.avD = new InputView(context, z);
-        this.auh = this.avD;
+        this.aua = false;
+        this.atZ = 2;
+        this.aub = auH;
+        this.auI = new InputView(context, z);
+        this.atm = this.auI;
         v.a aVar = new v.a(0, -2);
-        aVar.topMargin = context.getResources().getDimensionPixelSize(r.e.ds22);
-        aVar.bottomMargin = context.getResources().getDimensionPixelSize(r.e.ds20);
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(r.e.ds10);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(r.e.ds10);
+        aVar.topMargin = context.getResources().getDimensionPixelSize(r.f.ds22);
+        aVar.bottomMargin = context.getResources().getDimensionPixelSize(r.f.ds20);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(r.f.ds10);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(r.f.ds10);
         aVar.weight = 1.0f;
-        ((View) this.auh).setLayoutParams(aVar);
+        ((View) this.atm).setLayoutParams(aVar);
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        ((InputView) this.auh).setIsOnlyLocalEmotion(z);
+        ((InputView) this.atm).setIsOnlyLocalEmotion(z);
     }
 
     public void b(TextWatcher textWatcher) {
-        ((InputView) this.auh).setOutTextWather(textWatcher);
+        ((InputView) this.atm).setOutTextWather(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.auh != null && !StringUtils.isNull(str)) {
-            ((EditText) this.auh).setHint(str);
+        if (this.atm != null && !StringUtils.isNull(str)) {
+            ((EditText) this.atm).setHint(str);
         }
     }
 }

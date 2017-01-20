@@ -1,30 +1,36 @@
 package com.baidu.tieba.b.d;
 
-import com.baidu.tieba.b.d.b;
+import com.baidu.tieba.b.b.g;
+import com.baidu.tieba.b.d.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Runnable {
-    final /* synthetic */ b aZJ;
-    private final /* synthetic */ f aZK;
-    private final /* synthetic */ int aZL;
+public class e implements g.a {
+    final /* synthetic */ d bjx;
+    private final /* synthetic */ h bjy;
+    private final /* synthetic */ int bjz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(b bVar, int i, f fVar) {
-        this.aZJ = bVar;
-        this.aZL = i;
-        this.aZK = fVar;
+    public e(d dVar, h hVar, int i) {
+        this.bjx = dVar;
+        this.bjy = hVar;
+        this.bjz = i;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        b.a aVar;
-        b.a aVar2;
-        aVar = this.aZJ.aZI;
-        if (aVar != null && this.aZL != 0) {
-            aVar2 = this.aZJ.aZI;
-            aVar2.l(this.aZL, false);
+    @Override // com.baidu.tieba.b.b.g.a
+    public void cE(boolean z) {
+        d.a aVar;
+        d.a aVar2;
+        if (z) {
+            this.bjy.setVisibility(8);
+            this.bjy.setClickable(false);
+            return;
         }
-        this.aZJ.a(this.aZK, true);
-        this.aZK.NS();
+        this.bjy.setVisibility(0);
+        this.bjy.setClickable(true);
+        aVar = this.bjx.bjw;
+        if (aVar != null) {
+            aVar2 = this.bjx.bjw;
+            aVar2.k(this.bjz, true);
+        }
     }
 }

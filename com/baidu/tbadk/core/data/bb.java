@@ -1,83 +1,57 @@
 package com.baidu.tbadk.core.data;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.Banner;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bb {
-    protected float tagNameRatio;
-    protected String tagNameUrl;
-    protected String img_url = null;
-    protected String link = null;
-    protected String Td = null;
+public class bb extends bh {
+    public static final BdUniqueId Sl = BdUniqueId.gen();
+    private PhotoLiveCardData Sm;
 
-    public String pS() {
-        return this.img_url;
-    }
-
-    public void cs(String str) {
-        this.img_url = str;
-    }
-
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String str) {
-        this.link = str;
-    }
-
-    public void ct(String str) {
-        this.tagNameUrl = str;
-    }
-
-    public String pJ() {
-        return this.tagNameUrl;
-    }
-
-    public void cu(String str) {
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                int g = com.baidu.adp.lib.h.b.g(split[0], 1);
-                int g2 = com.baidu.adp.lib.h.b.g(split[1], 1);
-                if (g2 != 0) {
-                    this.tagNameRatio = g / g2;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public PhotoLiveCardData b(bh bhVar, int i) {
+        if (this.Sm == null) {
+            if (bhVar == null) {
+                return null;
             }
-        }
-    }
-
-    public float re() {
-        return this.tagNameRatio;
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            a(banner, null);
-        }
-    }
-
-    public void a(Banner banner, Context context) {
-        if (banner != null) {
-            try {
-                cs(banner.pic_url);
-                setLink(banner.link);
-                ct(banner.tag_name_url);
-                cu(banner.tag_name_wh);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+            this.Sm = new PhotoLiveCardData();
+            MetaData author = bhVar.getAuthor();
+            if (author != null) {
+                this.Sm.setAuthorName(author.getUserName());
+                this.Sm.setAuthorPortrait(author.getPortrait());
+                this.Sm.setFansNum(author.getFansNum());
+                this.Sm.setNickName(author.getFansNickName());
+                this.Sm.setAuthorId(author.getUserId());
+                this.Sm.setGodInfo(author.getGodInfo());
             }
+            PraiseData rn = bhVar.rn();
+            if (rn != null) {
+                this.Sm.setPraiseNum((int) rn.getNum());
+            }
+            this.Sm.setDiscussNum(bhVar.rp());
+            this.Sm.setPostNum(bhVar.getPost_num());
+            this.Sm.setTitle(bhVar.getTitle());
+            this.Sm.setLastModifiedTime(bhVar.rr());
+            this.Sm.setPhotoLiveCover(bhVar.getPhotoLiveCover());
+            this.Sm.setContent(bhVar.rE());
+            this.Sm.setThreadId(com.baidu.adp.lib.g.b.c(bhVar.getTid(), 0L));
+            this.Sm.setHeadlive(bhVar.isHeadLive());
+            this.Sm.setExpressionDatas(bhVar.rP());
+            if (this.Sm.getShowStyle() < 0) {
+                this.Sm.setShowStyle(PhotoLiveCardData.getRandom(3, i));
+            }
+            this.Sm.setShowExpressionViewIndexList(this.Sm.getExpressionDatas());
         }
+        cu(bhVar.getTid());
+        setId(bhVar.getId());
+        setThreadType(bhVar.getThreadType());
+        cv(bhVar.rB());
+        return this.Sm;
     }
 
-    public String rf() {
-        return this.Td;
+    public PhotoLiveCardData qT() {
+        return this.Sm;
     }
 
-    public void cv(String str) {
-        this.Td = str;
+    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return Sl;
     }
 }

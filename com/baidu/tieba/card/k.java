@@ -2,38 +2,39 @@ package com.baidu.tieba.card;
 
 import android.content.Context;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.base.g {
-    final /* synthetic */ h bbB;
+public class k extends com.baidu.adp.base.f {
+    final /* synthetic */ h blo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.bbB = hVar;
+        this.blo = hVar;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.f
     public void g(Object obj) {
-        com.baidu.tieba.tbadkCore.w wVar;
-        com.baidu.tieba.tbadkCore.w wVar2;
-        com.baidu.tieba.tbadkCore.w wVar3;
-        com.baidu.tieba.tbadkCore.w wVar4;
-        if (obj instanceof com.baidu.tieba.tbadkCore.x) {
-            wVar4 = this.bbB.Gg;
-            if (wVar4.getErrorCode() == 0) {
+        LikeModel likeModel;
+        LikeModel likeModel2;
+        LikeModel likeModel3;
+        LikeModel likeModel4;
+        if (obj instanceof com.baidu.tieba.tbadkCore.v) {
+            likeModel4 = this.blo.Fq;
+            if (likeModel4.getErrorCode() == 0) {
                 return;
             }
         }
-        wVar = this.bbB.Gg;
-        if (AntiHelper.rp(wVar.getErrorCode())) {
-            Context context = this.bbB.getContext();
-            wVar3 = this.bbB.Gg;
-            AntiHelper.S(context, wVar3.getErrorString());
+        likeModel = this.blo.Fq;
+        if (AntiHelper.sa(likeModel.getErrorCode())) {
+            Context context = this.blo.getContext();
+            likeModel3 = this.blo.Fq;
+            AntiHelper.T(context, likeModel3.getErrorString());
             return;
         }
-        TbPageContext<?> tbPageContext = this.bbB.getTbPageContext();
-        wVar2 = this.bbB.Gg;
-        tbPageContext.showToast(wVar2.getErrorString());
+        TbPageContext<?> tbPageContext = this.blo.getTbPageContext();
+        likeModel2 = this.blo.Fq;
+        tbPageContext.showToast(likeModel2.getErrorString());
     }
 }

@@ -7,99 +7,99 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
     private DownloadStaticsData downloadStaticsData;
-    private JSONObject eOA;
-    private int eOB;
-    private int eOC;
-    private int eOD;
-    private String eOE;
-    private String eOF;
-    private String eOG;
-    private String eOH;
-    private String eOI;
-    private JSONObject eOv;
-    private int eOw;
-    private int eOx;
-    private long eOy = System.currentTimeMillis() / 1000;
-    private String eOz;
+    private JSONObject eXY;
+    private int eXZ;
+    private int eYa;
+    private long eYb = System.currentTimeMillis() / 1000;
+    private String eYc;
+    private JSONObject eYd;
+    private int eYe;
+    private int eYf;
+    private int eYg;
+    private String eYh;
+    private String eYi;
+    private String eYj;
+    private String eYk;
+    private String eYl;
     private String extInfo;
     private int pageNumber;
 
-    public void pB(String str) {
+    public void pV(String str) {
         this.extInfo = str;
     }
 
-    public void qj(int i) {
-        this.eOw = i;
+    public void qT(int i) {
+        this.eXZ = i;
     }
 
-    public void qk(int i) {
-        this.eOx = i;
+    public void qU(int i) {
+        this.eYa = i;
     }
 
     public void setPageNumber(int i) {
         this.pageNumber = i;
     }
 
-    public void pC(String str) {
-        this.eOz = str;
+    public void pW(String str) {
+        this.eYc = str;
     }
 
-    public void ql(int i) {
-        this.eOB = i;
+    public void qV(int i) {
+        this.eYe = i;
     }
 
-    public void qm(int i) {
-        this.eOD = i;
+    public void qW(int i) {
+        this.eYg = i;
     }
 
-    public void qn(int i) {
-        this.eOC = i;
+    public void qX(int i) {
+        this.eYf = i;
     }
 
-    public void pD(String str) {
-        this.eOE = str;
+    public void pX(String str) {
+        this.eYh = str;
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
         if (downloadStaticsData != null) {
-            this.eOx = com.baidu.adp.lib.h.b.g(downloadStaticsData.getAdPosition(), 0);
-            this.eOz = downloadStaticsData.getPrice();
+            this.eYa = com.baidu.adp.lib.g.b.g(downloadStaticsData.getAdPosition(), 0);
+            this.eYc = downloadStaticsData.getPrice();
             this.extInfo = downloadStaticsData.getExtensionInfo();
         }
     }
 
-    public void bS(String str, String str2) {
-        if (this.eOv == null) {
-            this.eOv = new JSONObject();
+    public void cb(String str, String str2) {
+        if (this.eXY == null) {
+            this.eXY = new JSONObject();
         }
         try {
-            this.eOv.put(str, str2);
+            this.eXY.put(str, str2);
         } catch (Exception e) {
         }
     }
 
-    public JSONObject aYr() {
-        if (this.eOA != null) {
-            return this.eOA;
+    public JSONObject bah() {
+        if (this.eYd != null) {
+            return this.eYd;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.eOx);
-            jSONObject.put("da_type", this.eOw);
+            jSONObject.put("da_locate", this.eYa);
+            jSONObject.put("da_type", this.eXZ);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.eOy);
+            jSONObject.put("origin_time", this.eYb);
             jSONObject.put("da_page_num", this.pageNumber);
-            jSONObject.put("da_price", this.eOz);
+            jSONObject.put("da_price", this.eYc);
             jSONObject.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.eOB);
-            jSONObject.put("ext3", this.eOD);
-            jSONObject.put("ext2", this.eOC);
-            jSONObject.put("da_menu1", this.eOF);
-            jSONObject.put("da_menu2", this.eOG);
-            jSONObject.put("da_menu3", this.eOH);
-            jSONObject.put("da_page", this.eOI);
-            jSONObject.put("lego_extra", this.eOE);
+            jSONObject.put("ext1", this.eYe);
+            jSONObject.put("ext3", this.eYg);
+            jSONObject.put("ext2", this.eYf);
+            jSONObject.put("da_menu1", this.eYi);
+            jSONObject.put("da_menu2", this.eYj);
+            jSONObject.put("da_menu3", this.eYk);
+            jSONObject.put("da_page", this.eYl);
+            jSONObject.put("lego_extra", this.eYh);
             if (this.downloadStaticsData != null) {
                 jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
                 jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
@@ -109,29 +109,29 @@ public class a {
             }
         } catch (JSONException e) {
         }
-        if (this.eOv != null) {
+        if (this.eXY != null) {
             try {
-                jSONObject.put("ext", this.eOv);
+                jSONObject.put("ext", this.eXY);
             } catch (Exception e2) {
             }
         }
-        this.eOA = jSONObject;
+        this.eYd = jSONObject;
         return jSONObject;
     }
 
-    public void pE(String str) {
-        this.eOF = str;
+    public void pY(String str) {
+        this.eYi = str;
     }
 
-    public void pF(String str) {
-        this.eOG = str;
+    public void pZ(String str) {
+        this.eYj = str;
     }
 
-    public void pG(String str) {
-        this.eOH = str;
+    public void qa(String str) {
+        this.eYk = str;
     }
 
-    public void pH(String str) {
-        this.eOI = str;
+    public void qb(String str) {
+        this.eYl = str;
     }
 }

@@ -6,7 +6,7 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.j;
+import com.baidu.adp.base.i;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
@@ -45,7 +45,7 @@ public class PluginContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        PluginSetting findPluginSetting = c.je().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.jc().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {
@@ -61,7 +61,7 @@ public class PluginContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        PluginSetting findPluginSetting = c.je().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.jc().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {
@@ -69,7 +69,7 @@ public class PluginContextWrapper extends ContextWrapper {
             }
             return plugin2.getPluginResources();
         }
-        Resources resources = j.aY().getResources();
+        Resources resources = i.aY().getResources();
         return resources == null ? super.getResources() : resources;
     }
 

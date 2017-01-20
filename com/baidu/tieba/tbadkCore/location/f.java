@@ -1,34 +1,46 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import android.location.Address;
-import com.baidu.adp.lib.e.a;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.tieba.tbadkCore.location.d;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements a.InterfaceC0005a {
-    final /* synthetic */ d fiB;
+public class f extends CustomMessageListener {
+    final /* synthetic */ LocationModel frN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.fiB = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(LocationModel locationModel, int i) {
+        super(i);
+        this.frN = locationModel;
     }
 
-    @Override // com.baidu.adp.lib.e.a.InterfaceC0005a
-    public void b(int i, String str, Address address) {
-        d.a aVar;
-        d.a aVar2;
-        if (i == 0 && address != null) {
-            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + address.getLatitude());
-            this.fiB.bZ(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
-            return;
-        }
-        BdLog.i("mGetLonAndLatCallback error!");
-        aVar = this.fiB.fit;
-        if (aVar != null) {
-            aVar2 = this.fiB.fit;
-            aVar2.fJ(str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LocationModel.b bVar;
+        LocationModel.b bVar2;
+        LocationModel.b bVar3;
+        LocationModel.b bVar4;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                this.frN.lk(false);
+                this.frN.cj(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                bVar3 = this.frN.frI;
+                if (bVar3 != null) {
+                    bVar4 = this.frN.frI;
+                    bVar4.fH(responsedSelectLocation.getName());
+                    return;
+                }
+                return;
+            }
+            this.frN.lk(true);
+            bVar = this.frN.frI;
+            if (bVar != null) {
+                bVar2 = this.frN.frI;
+                bVar2.Dp();
+            }
         }
     }
 }

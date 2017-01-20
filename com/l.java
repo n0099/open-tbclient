@@ -11,10 +11,10 @@ import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
 import com.baidu.cloudsdk.social.share.handler.WeixinShareActivity;
 /* loaded from: classes.dex */
 public class l implements Weixin.IWXResponseHandler {
-    final /* synthetic */ WeixinShareActivity cP;
+    final /* synthetic */ WeixinShareActivity cN;
 
     public l(WeixinShareActivity weixinShareActivity) {
-        this.cP = weixinShareActivity;
+        this.cN = weixinShareActivity;
     }
 
     @Override // com.baidu.cloudsdk.social.core.util.Weixin.IWXResponseHandler
@@ -41,7 +41,7 @@ public class l implements Weixin.IWXResponseHandler {
         } else {
             q.onComplete();
             if (r != null) {
-                SocialShareStatisticsManager.getInstance(this.cP).statistics(MediaType.WEIXIN, r);
+                SocialShareStatisticsManager.getInstance(this.cN).statistics(MediaType.WEIXIN, r);
                 return;
             }
             str3 = WeixinShareActivity.a;

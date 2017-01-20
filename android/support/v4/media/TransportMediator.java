@@ -22,12 +22,12 @@ public class TransportMediator extends TransportController {
     public static final int KEYCODE_MEDIA_PLAY = 126;
     public static final int KEYCODE_MEDIA_RECORD = 130;
     final TransportPerformer bD;
-    final AudioManager bE;
-    final Object bF;
-    final d bG;
-    final ArrayList<TransportStateListener> bH;
-    final c bI;
-    final KeyEvent.Callback bJ;
+    final Object bE;
+    final d bF;
+    final ArrayList<TransportStateListener> bG;
+    final c bH;
+    final KeyEvent.Callback bI;
+    final AudioManager mAudioManager;
     final Context mContext;
     final View mView;
 
@@ -60,48 +60,48 @@ public class TransportMediator extends TransportController {
     }
 
     private TransportMediator(Activity activity, View view, TransportPerformer transportPerformer) {
-        this.bH = new ArrayList<>();
-        this.bI = new a(this);
-        this.bJ = new b(this);
+        this.bG = new ArrayList<>();
+        this.bH = new a(this);
+        this.bI = new b(this);
         this.mContext = activity != null ? activity : view.getContext();
         this.bD = transportPerformer;
-        this.bE = (AudioManager) this.mContext.getSystemService("audio");
+        this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
         this.mView = activity != null ? activity.getWindow().getDecorView() : view;
-        this.bF = KeyEventCompat.getKeyDispatcherState(this.mView);
+        this.bE = KeyEventCompat.getKeyDispatcherState(this.mView);
         if (Build.VERSION.SDK_INT >= 18) {
-            this.bG = new d(this.mContext, this.bE, this.mView, this.bI);
+            this.bF = new d(this.mContext, this.mAudioManager, this.mView, this.bH);
         } else {
-            this.bG = null;
+            this.bF = null;
         }
     }
 
     public Object getRemoteControlClient() {
-        if (this.bG != null) {
-            return this.bG.getRemoteControlClient();
+        if (this.bF != null) {
+            return this.bF.getRemoteControlClient();
         }
         return null;
     }
 
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return KeyEventCompat.dispatch(keyEvent, this.bJ, this.bF, this);
+        return KeyEventCompat.dispatch(keyEvent, this.bI, this.bE, this);
     }
 
     @Override // android.support.v4.media.TransportController
     public void registerStateListener(TransportStateListener transportStateListener) {
-        this.bH.add(transportStateListener);
+        this.bG.add(transportStateListener);
     }
 
     @Override // android.support.v4.media.TransportController
     public void unregisterStateListener(TransportStateListener transportStateListener) {
-        this.bH.remove(transportStateListener);
+        this.bG.remove(transportStateListener);
     }
 
     private TransportStateListener[] C() {
-        if (this.bH.size() <= 0) {
+        if (this.bG.size() <= 0) {
             return null;
         }
-        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.bH.size()];
-        this.bH.toArray(transportStateListenerArr);
+        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.bG.size()];
+        this.bG.toArray(transportStateListenerArr);
         return transportStateListenerArr;
     }
 
@@ -124,8 +124,8 @@ public class TransportMediator extends TransportController {
     }
 
     private void F() {
-        if (this.bG != null) {
-            this.bG.a(this.bD.onIsPlaying(), this.bD.onGetCurrentPosition(), this.bD.onGetTransportControlFlags());
+        if (this.bF != null) {
+            this.bF.a(this.bD.onIsPlaying(), this.bD.onGetCurrentPosition(), this.bD.onGetTransportControlFlags());
         }
     }
 
@@ -137,8 +137,8 @@ public class TransportMediator extends TransportController {
 
     @Override // android.support.v4.media.TransportController
     public void startPlaying() {
-        if (this.bG != null) {
-            this.bG.startPlaying();
+        if (this.bF != null) {
+            this.bF.startPlaying();
         }
         this.bD.onStart();
         F();
@@ -147,8 +147,8 @@ public class TransportMediator extends TransportController {
 
     @Override // android.support.v4.media.TransportController
     public void pausePlaying() {
-        if (this.bG != null) {
-            this.bG.pausePlaying();
+        if (this.bF != null) {
+            this.bF.pausePlaying();
         }
         this.bD.onPause();
         F();
@@ -157,8 +157,8 @@ public class TransportMediator extends TransportController {
 
     @Override // android.support.v4.media.TransportController
     public void stopPlaying() {
-        if (this.bG != null) {
-            this.bG.stopPlaying();
+        if (this.bF != null) {
+            this.bF.stopPlaying();
         }
         this.bD.onStop();
         F();
@@ -196,6 +196,6 @@ public class TransportMediator extends TransportController {
     }
 
     public void destroy() {
-        this.bG.destroy();
+        this.bF.destroy();
     }
 }

@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.acrossForum.AcrossForumViewData;
 /* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ACROSS_FROUM_DATA = "across_forum_data";
     public static final String ADD_SEARCH = "add_search";
+    public static final String ALA_IS_ONLIVING = "ala_is_living";
     public static final String BACK_SPECIAL = "back_special";
     public static final String CONTENT_SHOW = "content_show";
     public static final String FLAG = "flag";
@@ -50,6 +50,21 @@ public class FrsActivityConfig extends IntentConfig {
 
     public FrsActivityConfig createNormalCfg(String str, String str2) {
         return createBackSpecialCfg(str, str2, false, false);
+    }
+
+    public FrsActivityConfig createJumpLiveTabCfg(String str, String str2, boolean z) {
+        Intent intent = getIntent();
+        intent.putExtra("name", str);
+        intent.putExtra("from", str2);
+        intent.putExtra("back_special", false);
+        intent.putExtra(GOOD, false);
+        intent.putExtra(FOLLOWED_HAS_NEW, false);
+        intent.putExtra(ALA_IS_ONLIVING, z);
+        if (!(getContext() instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        return this;
     }
 
     public FrsActivityConfig createNormalCfg(String str, String str2, boolean z) {
@@ -130,11 +145,5 @@ public class FrsActivityConfig extends IntentConfig {
         intent.putExtra(ADD_SEARCH, i);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         return this;
-    }
-
-    public void setIsFromAcrossForum(AcrossForumViewData acrossForumViewData) {
-        if (getIntent() != null && acrossForumViewData != null) {
-            getIntent().putExtra(ACROSS_FROUM_DATA, acrossForumViewData);
-        }
     }
 }

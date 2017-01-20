@@ -1,72 +1,98 @@
 package com.baidu.tieba.d;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.d.a {
-    private ScaleGestureDetector bnx;
-    private a bny;
+class c implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ b buc;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void cU(boolean z);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(b bVar) {
+        this.buc = bVar;
     }
 
-    public c(Context context) {
-        this.bnx = new ScaleGestureDetector(context, new b(this, null));
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        a aVar;
+        TbPageContext tbPageContext;
+        a aVar2;
+        String str;
+        a aVar3;
+        TbPageContext tbPageContext2;
+        a aVar4;
+        TbPageContext tbPageContext3;
+        a aVar5;
+        TbPageContext tbPageContext4;
+        a aVar6;
+        TbPageContext tbPageContext5;
+        a aVar7;
+        TbPageContext tbPageContext6;
+        a aVar8;
+        TbPageContext tbPageContext7;
+        a aVar9;
+        int i;
+        aVar = this.buc.bub;
+        tbPageContext = aVar.FY;
+        TextView textView = new TextView(tbPageContext.getPageActivity());
+        aVar2 = this.buc.bub;
+        str = aVar2.mMessage;
+        textView.setText(str);
+        textView.setGravity(17);
+        ap.i((View) textView, r.e.cp_cont_i);
+        aVar3 = this.buc.bub;
+        tbPageContext2 = aVar3.FY;
+        textView.setTextSize(0, tbPageContext2.getResources().getDimensionPixelSize(r.f.fontsize28));
+        aVar4 = this.buc.bub;
+        tbPageContext3 = aVar4.FY;
+        textView.setHeight(tbPageContext3.getResources().getDimensionPixelSize(r.f.ds76));
+        aVar5 = this.buc.bub;
+        tbPageContext4 = aVar5.FY;
+        int dimensionPixelSize = tbPageContext4.getResources().getDimensionPixelSize(r.f.ds24);
+        aVar6 = this.buc.bub;
+        tbPageContext5 = aVar6.FY;
+        int dimensionPixelSize2 = tbPageContext5.getResources().getDimensionPixelSize(r.f.ds24);
+        aVar7 = this.buc.bub;
+        tbPageContext6 = aVar7.FY;
+        int dimensionPixelSize3 = tbPageContext6.getResources().getDimensionPixelSize(r.f.ds24);
+        aVar8 = this.buc.bub;
+        tbPageContext7 = aVar8.FY;
+        textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize3, tbPageContext7.getResources().getDimensionPixelSize(r.f.ds10));
+        textView.setSingleLine(true);
+        aVar9 = this.buc.bub;
+        i = aVar9.btV;
+        ap.j((View) textView, i);
+        return textView;
     }
 
-    public void a(a aVar) {
-        this.bny = aVar;
+    @Override // com.baidu.adp.lib.guide.b
+    public int dM() {
+        return 4;
     }
 
-    /* loaded from: classes.dex */
-    private final class b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        private boolean bnz;
-
-        private b() {
-            this.bnz = false;
-        }
-
-        /* synthetic */ b(c cVar, b bVar) {
-            this();
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-            this.bnz = false;
-            return true;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            if (scaleGestureDetector != null && c.this.bny != null) {
-                float scaleFactor = scaleGestureDetector.getScaleFactor();
-                if (!this.bnz && scaleFactor > 1.0f) {
-                    this.bnz = true;
-                    c.this.bny.cU(true);
-                } else if (!this.bnz && scaleFactor > 0.0f && scaleFactor < 1.0f) {
-                    this.bnz = true;
-                    c.this.bny.cU(false);
-                }
-            }
-            return true;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-            this.bnz = true;
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public int dN() {
+        return 48;
     }
 
-    @Override // com.baidu.tieba.d.a
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        try {
-            this.bnx.onTouchEvent(motionEvent);
-            return super.onTouchEvent(motionEvent);
-        } catch (Exception e) {
-            return false;
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        a aVar;
+        int i;
+        aVar = this.buc.bub;
+        i = aVar.aew;
+        return i;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        a aVar;
+        int i;
+        aVar = this.buc.bub;
+        i = aVar.aex;
+        return i;
     }
 }

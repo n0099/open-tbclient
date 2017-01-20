@@ -6,14 +6,14 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String jY = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String jZ = String.valueOf(this.jY) + "/baidu/";
-    private String kb;
+    private final String jS = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String jT = String.valueOf(this.jS) + "/baidu/";
+    private String jU;
 
     public b() {
-        this.kb = null;
+        this.jU = null;
         try {
-            this.kb = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
+            this.jU = String.valueOf(BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath()) + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -21,32 +21,32 @@ public class b {
 
     public void E(String str) {
         if (str != null) {
-            this.jZ = String.valueOf(this.jY) + "/" + str + "/";
+            this.jT = String.valueOf(this.jS) + "/" + str + "/";
         }
     }
 
-    public boolean cA() {
+    public boolean cy() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public String b(String str, boolean z, boolean z2) {
         String str2;
         if (z2) {
-            if (!cA()) {
+            if (!cy()) {
                 return null;
             }
             if (str != null) {
-                str2 = String.valueOf(this.jZ) + str + "/";
+                str2 = String.valueOf(this.jT) + str + "/";
             } else {
-                str2 = this.jZ;
+                str2 = this.jT;
             }
-        } else if (this.kb == null) {
+        } else if (this.jU == null) {
             return null;
         } else {
             if (str != null) {
-                str2 = String.valueOf(this.kb) + str + "/";
+                str2 = String.valueOf(this.jU) + str + "/";
             } else {
-                str2 = this.kb;
+                str2 = this.jU;
             }
         }
         File file = new File(str2);

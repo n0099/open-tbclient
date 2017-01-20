@@ -1,17 +1,25 @@
 package com.baidu.tieba.frs;
-
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-class x implements ce {
-    final /* synthetic */ FrsActivity bzl;
+class x implements Runnable {
+    final /* synthetic */ w bGN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(FrsActivity frsActivity) {
-        this.bzl = frsActivity;
+    public x(w wVar) {
+        this.bGN = wVar;
     }
 
-    @Override // com.baidu.tieba.frs.ce
-    public void a(int i, int i2, co coVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        com.baidu.adp.lib.h.h.eG().post(new y(this));
+    @Override // java.lang.Runnable
+    public void run() {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        FrsActivity frsActivity3;
+        frsActivity = this.bGN.bGL;
+        if (frsActivity.bFF != null) {
+            frsActivity2 = this.bGN.bGL;
+            if (frsActivity2.bFF.Sx()) {
+                frsActivity3 = this.bGN.bGL;
+                frsActivity3.Ya();
+            }
+        }
     }
 }

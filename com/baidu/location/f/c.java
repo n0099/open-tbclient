@@ -2,7 +2,7 @@ package com.baidu.location.f;
 /* loaded from: classes.dex */
 public final class c {
     public static String a(int i) {
-        if (k.no().g()) {
+        if (k.ng().g()) {
             return "WIFI";
         }
         switch (i) {
@@ -29,7 +29,7 @@ public final class c {
         }
     }
 
-    public static d nf() {
-        return b.na();
+    public static d mX() {
+        return b.mS();
     }
 }

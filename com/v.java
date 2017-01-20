@@ -7,10 +7,10 @@ import android.widget.EditText;
 import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
 /* loaded from: classes.dex */
 public class v extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ ShareDialog fS;
+    final /* synthetic */ ShareDialog fP;
 
     public v(ShareDialog shareDialog) {
-        this.fS = shareDialog;
+        this.fP = shareDialog;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -19,8 +19,8 @@ public class v extends GestureDetector.SimpleOnGestureListener {
         if (motionEvent2.getY() - motionEvent.getY() <= 100.0f || Math.abs(f2) <= 200.0f) {
             return true;
         }
-        editText = this.fS.m;
-        ((InputMethodManager) this.fS.getContext().getSystemService("input_method")).hideSoftInputFromWindow(editText.getApplicationWindowToken(), 0);
+        editText = this.fP.m;
+        ((InputMethodManager) this.fP.getContext().getSystemService("input_method")).hideSoftInputFromWindow(editText.getApplicationWindowToken(), 0);
         return true;
     }
 }

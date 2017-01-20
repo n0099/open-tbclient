@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements bc.a {
-    @Override // com.baidu.tbadk.core.util.bc.a
+public class n implements ba.a {
+    @Override // com.baidu.tbadk.core.util.ba.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         PbActivityConfig createNormalCfg;
         boolean a;

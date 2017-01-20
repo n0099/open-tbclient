@@ -1,8 +1,9 @@
 package com.baidu.tieba.im.settingcache;
 
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class PersonalSettingItemData extends com.baidu.tieba.im.pushNotify.a implements Serializable {
+public class PersonalSettingItemData extends ChatSetting implements Serializable {
     private static final long serialVersionUID = 6507309561121772239L;
     private boolean isHide;
     private String myUid;

@@ -7,26 +7,26 @@ import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class k extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ InviteFriendListActivity daL;
+    final /* synthetic */ InviteFriendListActivity dhY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(InviteFriendListActivity inviteFriendListActivity, int i) {
         super(i);
-        this.daL = inviteFriendListActivity;
+        this.dhY = inviteFriendListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.daL.closeLoadingDialog();
+        this.dhY.closeLoadingDialog();
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205002 && (socketResponsedMessage instanceof ResponseCommitInviteMessage)) {
             ResponseCommitInviteMessage responseCommitInviteMessage = (ResponseCommitInviteMessage) socketResponsedMessage;
             if (responseCommitInviteMessage.getError() != 0) {
-                this.daL.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.daL.getResources().getString(r.j.neterror) : responseCommitInviteMessage.getErrorString());
+                this.dhY.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.dhY.getResources().getString(r.l.neterror) : responseCommitInviteMessage.getErrorString());
                 return;
             }
-            this.daL.showToast(this.daL.getPageContext().getString(r.j.send_success), false);
+            this.dhY.showToast(this.dhY.getPageContext().getString(r.l.send_success), false);
             new Handler().postDelayed(new l(this), 400L);
         }
     }

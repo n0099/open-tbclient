@@ -17,7 +17,7 @@ class e extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.this$0.fkJ = true;
+            this.this$0.ftR = true;
         }
     }
 }

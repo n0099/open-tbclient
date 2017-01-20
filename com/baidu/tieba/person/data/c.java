@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements v {
-    public static final BdUniqueId eow = BdUniqueId.gen();
-    private String enS;
-    private String enT;
-    private List<f.a> enU;
-    private List<com.baidu.tieba.personCenter.c.c> eox;
+    public static final BdUniqueId eyq = BdUniqueId.gen();
+    private String exM;
+    private String exN;
+    private List<f.a> exO;
+    private List<com.baidu.tieba.personCenter.c.c> eyr;
     private String icon;
     private String name;
 
@@ -35,63 +35,63 @@ public class c implements v {
         this.icon = str;
     }
 
-    public String aOA() {
-        return this.enS;
+    public String aQA() {
+        return this.exM;
     }
 
-    public void or(String str) {
-        this.enS = str;
+    public void oJ(String str) {
+        this.exM = str;
     }
 
-    public String aOB() {
-        return this.enT;
+    public String aQB() {
+        return this.exN;
     }
 
-    public void os(String str) {
-        this.enT = str;
+    public void oK(String str) {
+        this.exN = str;
     }
 
-    public List<f.a> aOC() {
-        return this.enU;
+    public List<f.a> aQC() {
+        return this.exO;
     }
 
-    public void ct(List<f.a> list) {
-        if (this.enU == null) {
-            this.enU = new ArrayList();
+    public void cy(List<f.a> list) {
+        if (this.exO == null) {
+            this.exO = new ArrayList();
         } else {
-            this.enU.clear();
+            this.exO.clear();
         }
-        if (this.eox == null) {
-            this.eox = new ArrayList();
+        if (this.eyr == null) {
+            this.eyr = new ArrayList();
         } else {
-            this.eox.clear();
+            this.eyr.clear();
         }
-        cu(list);
+        cz(list);
     }
 
-    private void cu(List<f.a> list) {
+    private void cz(List<f.a> list) {
         if (list != null) {
             for (f.a aVar : list) {
                 if (aVar != null && !StringUtils.isNull(aVar.title)) {
-                    if (aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.j.person_wallet_record))) {
+                    if (aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.l.person_wallet_record))) {
                         com.baidu.tieba.personCenter.c.c cVar = new com.baidu.tieba.personCenter.c.c();
-                        cVar.iconId = r.f.icon_mine_buy;
-                        cVar.title = TbadkCoreApplication.m9getInst().getString(r.j.person_center_buy_record);
-                        cVar.epB = new com.baidu.tieba.personCenter.d.a();
-                        cVar.epB.bsn = 13;
-                        cVar.epB.bso = new Bundle();
-                        cVar.epB.bso.putString("type_center_consume_url", aVar.enT);
-                        this.eox.add(cVar);
-                    } else if (aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.j.person_wallet_money)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.j.person_wallet_bankCard)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.j.person_wallet_card_coupons)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.j.person_wallet_getTbeans))) {
-                        this.enU.add(aVar);
+                        cVar.iconId = r.g.icon_mine_buy;
+                        cVar.title = TbadkCoreApplication.m9getInst().getString(r.l.consumption_records);
+                        cVar.ezy = new com.baidu.tieba.personCenter.d.a();
+                        cVar.ezy.bzY = 13;
+                        cVar.ezy.bzZ = new Bundle();
+                        cVar.ezy.bzZ.putString("type_center_consume_url", aVar.exN);
+                        this.eyr.add(cVar);
+                    } else if (aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.l.person_wallet_money)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.l.person_wallet_bankCard)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.l.person_wallet_card_coupons)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(r.l.get_tdou))) {
+                        this.exO.add(aVar);
                     }
                 }
             }
         }
     }
 
-    public com.baidu.tieba.personCenter.c.c ot(String str) {
-        for (com.baidu.tieba.personCenter.c.c cVar : this.eox) {
+    public com.baidu.tieba.personCenter.c.c oL(String str) {
+        for (com.baidu.tieba.personCenter.c.c cVar : this.eyr) {
             if (cVar != null && str != null && str.equals(cVar.title)) {
                 return cVar;
             }
@@ -101,6 +101,6 @@ public class c implements v {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eow;
+        return eyq;
     }
 }

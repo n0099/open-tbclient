@@ -1,46 +1,46 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.adp.lib.c.a;
-import com.baidu.adp.lib.c.e;
+import com.baidu.adp.lib.b.a;
+import com.baidu.adp.lib.b.e;
 import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes.dex */
 public class ImmersiveStickySwitchStatic extends a {
     static {
-        e.dN().n(ImmersiveStickySwitchStatic.class);
+        e.dL().n(ImmersiveStickySwitchStatic.class);
     }
 
-    @Override // com.baidu.adp.lib.c.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
         return "android_immersive_switch";
     }
 
-    @Override // com.baidu.adp.lib.c.a
+    @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.c.a
+    @Override // com.baidu.adp.lib.b.a
     protected int getDefaultType() {
         return 1;
     }
 
-    @Override // com.baidu.adp.lib.c.a
+    @Override // com.baidu.adp.lib.b.a
     protected int getOffType() {
         return 0;
     }
 
-    @Override // com.baidu.adp.lib.c.a
+    @Override // com.baidu.adp.lib.b.a
     protected int getMaxCrashTimes() {
         return 10;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.c.a
+    @Override // com.baidu.adp.lib.b.a
     public void changeSettingByType(int i) {
         if (i == 1) {
-            b.tW().putBoolean("switch_immersive_sticky_status", true);
+            b.tQ().putBoolean("switch_immersive_sticky_status", true);
         } else {
-            b.tW().putBoolean("switch_immersive_sticky_status", false);
+            b.tQ().putBoolean("switch_immersive_sticky_status", false);
         }
     }
 }

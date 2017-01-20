@@ -1,10 +1,10 @@
 package com.baidu.adp.framework.message;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public abstract class Message<T> extends i {
+public abstract class Message<T> extends OrmObject {
     private long clientLogID;
     private final int mCmd;
     private BdUniqueId mTag;
@@ -26,14 +26,14 @@ public abstract class Message<T> extends i {
     public Message(int i) {
         this.mCmd = i;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.eI().eK();
+        this.clientLogID = com.baidu.adp.lib.stats.a.eG().eI();
     }
 
     public Message(int i, BdUniqueId bdUniqueId) {
         this.mCmd = i;
         this.mTag = bdUniqueId;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.eI().eK();
+        this.clientLogID = com.baidu.adp.lib.stats.a.eG().eI();
     }
 
     private void check() {

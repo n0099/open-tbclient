@@ -8,11 +8,11 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends WebViewClient {
-    final /* synthetic */ c fxY;
+    final /* synthetic */ c fGD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.fxY = cVar;
+        this.fGD = cVar;
     }
 
     @Override // android.webkit.WebViewClient
@@ -22,18 +22,18 @@ public class g extends WebViewClient {
         a aVar2;
         a aVar3;
         if (!StringUtils.isNull(str)) {
-            aVar = this.fxY.fxQ;
+            aVar = this.fGD.fGw;
             if (aVar != null) {
-                z = this.fxY.cki;
+                z = this.fGD.onPageFinishHasBeenCalled;
                 if (z) {
-                    aVar2 = this.fxY.fxQ;
-                    return aVar2.qY(str);
+                    aVar2 = this.fGD.fGw;
+                    return aVar2.rs(str);
                 }
-                this.fxY.cki = true;
-                this.fxY.lv(false);
-                this.fxY.bll();
-                aVar3 = this.fxY.fxQ;
-                aVar3.blh();
+                this.fGD.onPageFinishHasBeenCalled = true;
+                this.fGD.showWebLoadingView(false);
+                this.fGD.bmJ();
+                aVar3 = this.fGD.fGw;
+                aVar3.bmG();
                 return true;
             }
         }
@@ -45,11 +45,11 @@ public class g extends WebViewClient {
         a aVar;
         a aVar2;
         super.onPageFinished(webView, str);
-        this.fxY.cki = true;
-        aVar = this.fxY.fxQ;
+        this.fGD.onPageFinishHasBeenCalled = true;
+        aVar = this.fGD.fGw;
         if (aVar != null) {
-            aVar2 = this.fxY.fxQ;
-            aVar2.blh();
+            aVar2 = this.fGD.fGw;
+            aVar2.bmG();
         }
     }
 
@@ -58,10 +58,10 @@ public class g extends WebViewClient {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
         super.onReceivedError(webView, i, str, str2);
-        this.fxY.lv(false);
-        baseActivity = this.fxY.awe;
-        baseActivity.showToast(r.j.neterror);
-        baseActivity2 = this.fxY.awe;
+        this.fGD.showWebLoadingView(false);
+        baseActivity = this.fGD.mContext;
+        baseActivity.showToast(r.l.neterror);
+        baseActivity2 = this.fGD.mContext;
         baseActivity2.finish();
     }
 }

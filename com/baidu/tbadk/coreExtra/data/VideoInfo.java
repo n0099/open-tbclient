@@ -1,12 +1,13 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.content.Intent;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class VideoInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+public class VideoInfo extends OrmObject implements Serializable {
     public static final String DRAFT_JSON_NAME = "new_video_info";
     public static final int VIDEO_TYPE_RECORD = 1;
     public static final int VIDEO_TYPE_UPLOAD = 2;

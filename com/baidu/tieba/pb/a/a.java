@@ -5,40 +5,40 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0066a dXg;
+    private InterfaceC0068a egc;
     private int count = 0;
-    private long dXe = 0;
-    private long dXf = 0;
-    private long dXh = 500;
+    private long ega = 0;
+    private long egb = 0;
+    private long egd = 500;
     private Handler mHandler = new b(this);
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0066a {
-        void XO();
+    public interface InterfaceC0068a {
+        void YV();
 
-        void XP();
+        void YW();
     }
 
-    public a(InterfaceC0066a interfaceC0066a) {
-        this.dXg = interfaceC0066a;
+    public a(InterfaceC0068a interfaceC0068a) {
+        this.egc = interfaceC0068a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.dXg == null) {
+            if (this.egc == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.dXe = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.dXh);
+                this.ega = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.egd);
                 return true;
             } else if (this.count == 2) {
-                this.dXf = System.currentTimeMillis();
-                if (this.dXf - this.dXe < this.dXh) {
-                    this.dXg.XP();
+                this.egb = System.currentTimeMillis();
+                if (this.egb - this.ega < this.egd) {
+                    this.egc.YW();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

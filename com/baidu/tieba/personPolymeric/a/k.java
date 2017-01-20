@@ -5,39 +5,40 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.bn;
+import com.baidu.tieba.card.br;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadData, com.baidu.tieba.card.a.a<bn>> {
-    private TbPageContext<?> GO;
-    private com.baidu.adp.lib.f.b<com.baidu.tbadk.widget.layout.c> bFm;
-    private com.baidu.adp.lib.f.b<TbImageView> bFn;
+public class k extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadData, com.baidu.tieba.card.b.a<br>> {
+    private TbPageContext<?> FY;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.c> bLE;
+    private com.baidu.adp.lib.e.b<TbImageView> bLF;
 
     public k(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.beU);
-        this.bFm = new com.baidu.adp.lib.f.b<>(new l(this), 6, 0);
-        this.bFn = new com.baidu.adp.lib.f.b<>(new m(this), 12, 0);
-        this.GO = tbPageContext;
+        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.boP);
+        this.bLE = new com.baidu.adp.lib.e.b<>(new l(this), 6, 0);
+        this.bLF = new com.baidu.adp.lib.e.b<>(new m(this), 12, 0);
+        this.FY = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
-    public com.baidu.tieba.card.a.a<bn> a(ViewGroup viewGroup) {
-        bn bnVar = new bn(this.GO);
-        bnVar.setConstrainLayoutPool(this.bFm);
-        bnVar.setConstrainImagePool(this.bFn);
-        bnVar.setOnSubCardOnClickListenner(new n(this));
-        return new com.baidu.tieba.card.a.a<>(bnVar);
+    /* renamed from: k */
+    public com.baidu.tieba.card.b.a<br> onCreateViewHolder(ViewGroup viewGroup) {
+        br brVar = new br(this.FY);
+        brVar.setConstrainLayoutPool(this.bLE);
+        brVar.setConstrainImagePool(this.bLF);
+        brVar.setOnSubCardOnClickListenner(new n(this));
+        return new com.baidu.tieba.card.b.a<>(brVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, com.baidu.tieba.card.a.a<bn> aVar) {
-        aVar.Po().onChangeSkinType(this.GO, TbadkCoreApplication.m9getInst().getSkinType());
-        aVar.Po().onBindDataToView(cardPersonDynamicThreadData);
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, com.baidu.tieba.card.b.a<br> aVar) {
+        aVar.Sd().onChangeSkinType(this.FY, TbadkCoreApplication.m9getInst().getSkinType());
+        aVar.Sd().onBindDataToView(cardPersonDynamicThreadData);
         return aVar.getView();
     }
 }

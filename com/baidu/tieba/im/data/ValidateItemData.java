@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ValidateItemData extends com.baidu.tbadk.core.util.a implements Serializable {
+public class ValidateItemData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = 3854743775726463617L;
     private String UserId;
     private String applyReason;
@@ -42,7 +43,7 @@ public class ValidateItemData extends com.baidu.tbadk.core.util.a implements Ser
     }
 
     public String toJsonString() {
-        return i.jsonStrWithObject(this);
+        return OrmObject.jsonStrWithObject(this);
     }
 
     public String getUserName() {
@@ -133,14 +134,14 @@ public class ValidateItemData extends com.baidu.tbadk.core.util.a implements Ser
         this.ext = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(getPortrait());
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(getPortrait());

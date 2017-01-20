@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class n {
-    private String ts;
-    private int uf;
-    private int ug;
-    private boolean uh;
-    private boolean ui;
-    private int uj;
-    private int uk;
-    private boolean ul;
-    private boolean um;
+    private int tW;
+    private int tX;
+    private boolean tY;
+    private boolean tZ;
+    private String th;
+    private int ua;
+    private int ub;
+    private boolean uc;
+    private boolean ud;
 
     public n() {
-        this.ts = null;
-        this.uf = 32768;
-        this.ug = 131072;
-        this.uh = false;
-        this.ui = true;
-        this.uj = 30000;
-        this.uk = 30000;
-        this.ul = true;
-        this.um = true;
-        this.ts = null;
+        this.th = null;
+        this.tW = 32768;
+        this.tX = 131072;
+        this.tY = false;
+        this.tZ = true;
+        this.ua = 30000;
+        this.ub = 30000;
+        this.uc = true;
+        this.ud = true;
+        this.th = null;
     }
 
     public n(n nVar) {
-        this.ts = null;
-        this.uf = nVar.uf;
-        this.ug = nVar.ug;
-        this.uh = nVar.uh;
-        this.ui = nVar.ui;
-        this.uj = nVar.uj;
-        this.uk = nVar.uk;
-        this.ul = nVar.ul;
-        this.um = nVar.um;
-        this.ts = nVar.ts;
+        this.th = null;
+        this.tW = nVar.tW;
+        this.tX = nVar.tX;
+        this.tY = nVar.tY;
+        this.tZ = nVar.tZ;
+        this.ua = nVar.ua;
+        this.ub = nVar.ub;
+        this.uc = nVar.uc;
+        this.ud = nVar.ud;
+        this.th = nVar.th;
     }
 
-    public boolean hq() {
-        return this.uh;
+    public boolean ho() {
+        return this.tY;
     }
 
-    public int hr() {
-        return this.uf;
+    public int hp() {
+        return this.tW;
     }
 
-    public int hs() {
-        return this.ug;
+    public int hq() {
+        return this.tX;
     }
 
     public boolean getTcpNoDelay() {
-        return this.ui;
+        return this.tZ;
     }
 
-    public int ht() {
-        return this.uj;
+    public int hr() {
+        return this.ua;
     }
 
-    public int hu() {
-        return this.uk;
+    public int hs() {
+        return this.ub;
     }
 
-    public boolean hv() {
-        return this.ul;
+    public boolean ht() {
+        return this.uc;
     }
 
-    public boolean hw() {
-        return this.um;
+    public boolean hu() {
+        return this.ud;
     }
 
-    public String hx() {
-        return this.ts;
+    public String hv() {
+        return this.th;
     }
 
-    public void aX(String str) {
-        this.ts = str;
+    public void aW(String str) {
+        this.th = str;
     }
 }

@@ -1,30 +1,27 @@
 package com.baidu.tieba.pb.pb.main.view;
 
 import android.view.View;
-import android.widget.TextView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    public final TextView VO;
-    public final View aDT;
-    private View.OnClickListener aMS = new f(this);
-    private PbActivity dYB;
-    public final View ehG;
+public class e implements View.OnClickListener {
+    final /* synthetic */ d eqQ;
 
-    public e(PbActivity pbActivity) {
-        this.dYB = pbActivity;
-        this.aDT = this.dYB.findViewById(r.g.manga_navigation_bar_back);
-        this.VO = (TextView) this.dYB.findViewById(r.g.manga_navigation_bar_title);
-        this.ehG = this.dYB.findViewById(r.g.manga_browser_navigation_bar);
-        this.aDT.setOnClickListener(this.aMS);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(d dVar) {
+        this.eqQ = dVar;
     }
 
-    public void setTitle(String str) {
-        this.VO.setText(str);
-    }
-
-    public void show() {
-        this.ehG.setVisibility(0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        if (view == this.eqQ.aCJ) {
+            pbActivity = this.eqQ.ehi;
+            if (pbActivity != null) {
+                pbActivity2 = this.eqQ.ehi;
+                pbActivity2.finish();
+            }
+        }
     }
 }

@@ -2,25 +2,25 @@ package com.baidu.tieba.frs.view;
 
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext aDH;
-    final /* synthetic */ ForumMemberIconView bPR;
+    private final /* synthetic */ TbPageContext aCz;
+    final /* synthetic */ ForumMemberIconView bWw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ForumMemberIconView forumMemberIconView, TbPageContext tbPageContext) {
-        this.bPR = forumMemberIconView;
-        this.aDH = tbPageContext;
+        this.bWw = forumMemberIconView;
+        this.aCz = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        bc vz = bc.vz();
-        TbPageContext<?> tbPageContext = this.aDH;
-        str = this.bPR.mUrl;
-        vz.c(tbPageContext, new String[]{str});
+        ba vt = ba.vt();
+        TbPageContext<?> tbPageContext = this.aCz;
+        str = this.bWw.mUrl;
+        vt.c(tbPageContext, new String[]{str});
     }
 }

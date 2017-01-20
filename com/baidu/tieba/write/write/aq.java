@@ -1,17 +1,32 @@
 package com.baidu.tieba.write.write;
+
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aq implements Runnable {
-    final /* synthetic */ ap fDR;
+public class aq implements a.b {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ap apVar) {
-        this.fDR = apVar;
+    public aq(WriteActivity writeActivity) {
+        this.fMl = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        WriteActivity writeActivity;
-        writeActivity = this.fDR.fDQ;
-        writeActivity.finish();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        aVar.dismiss();
+        writeData = this.fMl.mData;
+        int type = writeData.getType();
+        if (type == 0) {
+            writeData3 = this.fMl.mData;
+            com.baidu.tieba.tbadkCore.aa.b(writeData3.getForumId(), (WriteData) null);
+        } else if (type == 1) {
+            writeData2 = this.fMl.mData;
+            com.baidu.tieba.tbadkCore.aa.c(writeData2.getThreadId(), (WriteData) null);
+        }
+        this.fMl.finish();
     }
 }

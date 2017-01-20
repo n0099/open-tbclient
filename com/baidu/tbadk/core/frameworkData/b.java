@@ -10,11 +10,11 @@ import android.os.RemoteException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements ServiceConnection {
-    final /* synthetic */ IntentConfig Xa;
+    final /* synthetic */ IntentConfig Wq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(IntentConfig intentConfig) {
-        this.Xa = intentConfig;
+        this.Wq = intentConfig;
     }
 
     @Override // android.content.ServiceConnection
@@ -27,19 +27,19 @@ public class b implements ServiceConnection {
         Messenger messenger2;
         Messenger messenger3;
         if (iBinder != null) {
-            this.Xa.mReplyMessenger = new Messenger(iBinder);
-            messenger = this.Xa.mReplyMessenger;
+            this.Wq.mReplyMessenger = new Messenger(iBinder);
+            messenger = this.Wq.mReplyMessenger;
             if (messenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.Xa.mComponentClass != null) {
-                    bundle.putString("class", this.Xa.mComponentClass.getName());
+                if (this.Wq.mComponentClass != null) {
+                    bundle.putString("class", this.Wq.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                messenger2 = this.Xa.mClientMessenger;
+                messenger2 = this.Wq.mClientMessenger;
                 obtain.replyTo = messenger2;
                 try {
-                    messenger3 = this.Xa.mReplyMessenger;
+                    messenger3 = this.Wq.mReplyMessenger;
                     messenger3.send(obtain);
                 } catch (RemoteException e) {
                     e.printStackTrace();

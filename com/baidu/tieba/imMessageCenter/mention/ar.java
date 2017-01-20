@@ -1,23 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ar implements View.OnClickListener {
-    final /* synthetic */ ap dcT;
+public class ar extends CustomMessageListener {
+    final /* synthetic */ ReplyMeModelController dkn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(ap apVar) {
-        this.dcT = apVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ar(ReplyMeModelController replyMeModelController, int i) {
+        super(i);
+        this.dkn = replyMeModelController;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ViewEventCenter lI;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9485, this.dcT.getData(), null, null);
-        lI = this.dcT.lI();
-        lI.dispatchMvcEvent(bVar);
-        TiebaStatic.log("c10095");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ReplyMessageActivity replyMessageActivity;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+            replyMessageActivity = this.dkn.dkj;
+            replyMessageActivity.avQ();
+        }
     }
 }

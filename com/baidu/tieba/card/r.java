@@ -21,46 +21,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r extends com.baidu.tieba.card.a<CardHListViewData> {
-    private TbPageContext<?> GO;
-    private CardGroupDividerView bbM;
-    private View bbN;
-    private HTypeListView bbO;
-    private e bbP;
-    private String bbQ;
+    private TbPageContext<?> FY;
+    private View blA;
+    private HTypeListView blB;
+    private e blC;
+    private String blD;
+    private CardHListViewData blE;
+    private CardGroupDividerView blz;
     private int mSkinType;
 
     public r(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.GO = tbPageContext;
-        this.bbM = (CardGroupDividerView) getView().findViewById(r.g.header_divider);
-        this.bbN = getView().findViewById(r.g.card_bottom_divider);
-        this.bbO = (HTypeListView) getView().findViewById(r.g.hlistview);
-        this.bbO.setHeaderDividersEnabled(false);
-        this.bbO.setFooterDividersEnabled(false);
-        this.bbO.setSelector(r.f.list_selector_transparent);
-        this.bbM.c(0, com.baidu.adp.lib.util.k.e(this.GO.getPageActivity(), r.e.ds28));
-        this.bbQ = this.GO.getString(r.j.frs_guess_like_title);
-        this.bbM.y(this.bbQ, true);
-        this.bbP = new e(tbPageContext, this.bbO);
+        this.FY = tbPageContext;
+        this.blz = (CardGroupDividerView) getView().findViewById(r.h.header_divider);
+        this.blA = getView().findViewById(r.h.card_bottom_divider);
+        this.blB = (HTypeListView) getView().findViewById(r.h.hlistview);
+        this.blB.setHeaderDividersEnabled(false);
+        this.blB.setFooterDividersEnabled(false);
+        this.blB.setSelector(r.g.list_selector_transparent);
+        this.blz.d(0, com.baidu.adp.lib.util.k.e(this.FY.getPageActivity(), r.f.ds28));
+        this.blD = this.FY.getString(r.l.frs_guess_like_title);
+        this.blz.A(this.blD, true);
+        this.blC = new e(tbPageContext, this.blB);
     }
 
     @Override // com.baidu.tieba.card.a
-    public void setOnSubCardOnClickListenner(cb<CardHListViewData> cbVar) {
-        super.setOnSubCardOnClickListenner(cbVar);
-        this.bbP.setOnSubCardOnClickListenner(cbVar);
+    public void setOnSubCardOnClickListenner(cf<CardHListViewData> cfVar) {
+        super.setOnSubCardOnClickListenner(cfVar);
+        this.blC.setOnSubCardOnClickListenner(cfVar);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ar.l(getView(), r.d.cp_bg_line_d);
-            com.baidu.tbadk.core.util.ar.l(this.bbN, r.d.cp_bg_line_c);
-            if (this.bbM != null) {
-                this.bbM.tm();
+            com.baidu.tbadk.core.util.ap.k(getView(), r.e.cp_bg_line_d);
+            com.baidu.tbadk.core.util.ap.k(this.blA, r.e.cp_bg_line_c);
+            if (this.blz != null) {
+                this.blz.tg();
             }
-            if (this.bbP != null) {
-                this.bbP.onChangeSkinType(i);
+            if (this.blC != null) {
+                this.blC.onChangeSkinType(i);
             }
             this.mSkinType = i;
         }
@@ -68,7 +69,7 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return r.h.card_hlistview_thread_view;
+        return r.j.card_hlistview_thread_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,20 +77,24 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
     /* renamed from: a */
     public void onBindDataToView(CardHListViewData cardHListViewData) {
         if (cardHListViewData != null) {
-            if (this.bbM != null) {
+            if (this.blz != null) {
                 if (cardHListViewData.showTopDivider) {
-                    this.bbM.y(!TextUtils.isEmpty(cardHListViewData.title) ? cardHListViewData.title : this.bbQ, true);
+                    this.blz.A(!TextUtils.isEmpty(cardHListViewData.title) ? cardHListViewData.title : this.blD, true);
                 } else {
-                    this.bbM.Pn();
+                    this.blz.Sc();
                 }
             }
-            if (this.bbN != null) {
-                this.bbN.setVisibility(cardHListViewData.showBottomDivider ? 0 : 8);
+            if (this.blA != null) {
+                this.blA.setVisibility(cardHListViewData.showBottomDivider ? 0 : 8);
             }
-            if (this.bbP != null) {
-                this.bbP.setDatas(X(cardHListViewData.getDataList()));
+            if (this.blC != null) {
+                this.blC.setDatas(Z(cardHListViewData.getDataList()));
+                if (this.blE != cardHListViewData) {
+                    this.blE = cardHListViewData;
+                    this.blB.setSelection(0);
+                }
             }
-            onChangeSkinType(this.GO, TbadkCoreApplication.m9getInst().getSkinType());
+            onChangeSkinType(this.FY, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
@@ -97,11 +102,11 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
     public void onClick(View view) {
     }
 
-    private List<com.baidu.adp.widget.ListView.v> X(List<com.baidu.adp.widget.ListView.v> list) {
-        if (com.baidu.tbadk.core.util.x.s(list) > 0) {
+    private List<com.baidu.adp.widget.ListView.v> Z(List<com.baidu.adp.widget.ListView.v> list) {
+        if (com.baidu.tbadk.core.util.w.r(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            com.baidu.tbadk.core.util.x.a(arrayList, 0, new com.baidu.tieba.card.data.l());
-            com.baidu.tbadk.core.util.x.b(arrayList, new com.baidu.tieba.card.data.l());
+            com.baidu.tbadk.core.util.w.a(arrayList, 0, new com.baidu.tieba.card.data.l());
+            com.baidu.tbadk.core.util.w.b(arrayList, new com.baidu.tieba.card.data.l());
             return arrayList;
         }
         return list;
@@ -109,42 +114,42 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
 
     /* loaded from: classes.dex */
     public static class e {
-        private HTypeListView bbO;
-        private c bbW;
-        private a bbX;
+        private HTypeListView blB;
+        private c blJ;
+        private a blK;
         private TbPageContext mTbPageContext;
         private int mSkinType = 3;
-        private List<com.baidu.adp.widget.ListView.a> bbV = new ArrayList();
+        private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
         public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
             this.mTbPageContext = tbPageContext;
-            this.bbO = hTypeListView;
-            Ou();
+            this.blB = hTypeListView;
+            initAdapters();
         }
 
-        private void Ou() {
-            this.bbW = new c(this.mTbPageContext, CardHListViewNormalItemData.TYPE);
-            this.bbX = new a(this.mTbPageContext, com.baidu.tieba.card.data.l.TYPE);
-            this.bbV.add(this.bbW);
-            this.bbV.add(this.bbX);
-            this.bbO.g(this.bbV);
+        private void initAdapters() {
+            this.blJ = new c(this.mTbPageContext, CardHListViewNormalItemData.TYPE);
+            this.blK = new a(this.mTbPageContext, com.baidu.tieba.card.data.l.TYPE);
+            this.mAdapters.add(this.blJ);
+            this.mAdapters.add(this.blK);
+            this.blB.addAdapters(this.mAdapters);
         }
 
-        public void setOnSubCardOnClickListenner(cb<CardHListViewData> cbVar) {
-            this.bbW.setOnSubCardOnClickListenner(cbVar);
+        public void setOnSubCardOnClickListenner(cf<CardHListViewData> cfVar) {
+            this.blJ.setOnSubCardOnClickListenner(cfVar);
         }
 
         public void setDatas(List<com.baidu.adp.widget.ListView.v> list) {
-            if (this.bbO != null) {
-                this.bbO.setData(list);
+            if (this.blB != null) {
+                this.blB.setData(list);
             }
         }
 
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
-                int count = this.bbO.getCount();
+                int count = this.blB.getCount();
                 for (int i2 = 0; i2 < count; i2++) {
-                    View childAt = this.bbO.getChildAt(i2);
+                    View childAt = this.blB.getChildAt(i2);
                     if (childAt != null) {
                         if (childAt.getTag() instanceof d) {
                             ((d) childAt.getTag()).onChangeSkinType(i);
@@ -160,11 +165,11 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
 
     /* loaded from: classes.dex */
     public static class c extends com.baidu.adp.widget.ListView.a<CardHListViewNormalItemData, d> {
-        private cb<CardHListViewData> baA;
+        private cf<CardHListViewData> bko;
         private View.OnClickListener mOnClickListener;
 
-        public void setOnSubCardOnClickListenner(cb<CardHListViewData> cbVar) {
-            this.baA = cbVar;
+        public void setOnSubCardOnClickListenner(cf<CardHListViewData> cfVar) {
+            this.bko = cfVar;
         }
 
         public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -175,27 +180,28 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.widget.ListView.a
-        /* renamed from: h */
-        public d a(ViewGroup viewGroup) {
-            return new d(LayoutInflater.from(this.mContext).inflate(r.h.card_hlistview_normal_item, viewGroup, false));
+        /* renamed from: j */
+        public d onCreateViewHolder(ViewGroup viewGroup) {
+            return new d(LayoutInflater.from(this.mContext).inflate(r.j.card_hlistview_normal_item, viewGroup, false));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.widget.ListView.a
-        public View a(int i, View view, ViewGroup viewGroup, CardHListViewNormalItemData cardHListViewNormalItemData, d dVar) {
+        /* renamed from: a */
+        public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewNormalItemData cardHListViewNormalItemData, d dVar) {
             if (dVar == null || cardHListViewNormalItemData == null) {
                 return null;
             }
-            dVar.bbU.setClickable(false);
-            dVar.bbU.c(cardHListViewNormalItemData.recomCover, 10, false);
-            f(dVar.aMQ, cardHListViewNormalItemData.title);
-            e(dVar.bbT, cardHListViewNormalItemData.forumName);
-            c(dVar.agT, cardHListViewNormalItemData.replyNum);
-            dVar.bbT.setTag(r.g.fourm_name, cardHListViewNormalItemData);
-            dVar.mView.setTag(r.g.hlistview_item_layout_root, cardHListViewNormalItemData);
+            dVar.blI.setClickable(false);
+            dVar.blI.c(cardHListViewNormalItemData.recomCover, 10, false);
+            f(dVar.aLR, cardHListViewNormalItemData.title);
+            e(dVar.blH, cardHListViewNormalItemData.forumName);
+            c(dVar.agg, cardHListViewNormalItemData.replyNum);
+            dVar.blH.setTag(r.h.fourm_name, cardHListViewNormalItemData);
+            dVar.mView.setTag(r.h.hlistview_item_layout_root, cardHListViewNormalItemData);
             dVar.mView.setOnClickListener(this.mOnClickListener);
-            dVar.bbT.setOnClickListener(this.mOnClickListener);
+            dVar.blH.setOnClickListener(this.mOnClickListener);
             dVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
             return dVar.getView();
         }
@@ -204,9 +210,9 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
             if (textView != null) {
                 if (j > 0) {
                     textView.setVisibility(0);
-                    String v = com.baidu.tbadk.core.util.av.v(j);
-                    textView.setText(String.format(this.mContext.getString(r.j.reply_num_tip), v));
-                    textView.setContentDescription(String.valueOf(this.mContext.getString(r.j.reply_num)) + v);
+                    String u = com.baidu.tbadk.core.util.at.u(j);
+                    textView.setText(String.format(this.mContext.getString(r.l.reply_num_tip), u));
+                    textView.setContentDescription(String.valueOf(this.mContext.getString(r.l.reply_num)) + u);
                     return;
                 }
                 textView.setVisibility(4);
@@ -216,7 +222,7 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
         private void e(TextView textView, String str) {
             if (!StringUtils.isNull(str)) {
                 textView.setVisibility(0);
-                String string = this.mContext.getString(r.j.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 5, true));
+                String string = this.mContext.getString(r.l.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 5, true));
                 textView.setText(string);
                 textView.setContentDescription(string);
                 textView.setClickable(true);
@@ -239,29 +245,29 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
 
     /* loaded from: classes.dex */
     public static class d extends y.a {
-        public TextView aMQ;
-        public TextView agT;
-        public TextView bbT;
-        public TbImageView bbU;
+        public TextView aLR;
+        public TextView agg;
+        public TextView blH;
+        public TbImageView blI;
         private int mSkinType;
         public View mView;
 
         public d(View view) {
             super(view);
             this.mSkinType = 3;
-            this.mView = view.findViewById(r.g.hlistview_item_layout_root);
-            this.aMQ = (TextView) view.findViewById(r.g.text_title);
-            this.bbT = (TextView) view.findViewById(r.g.fourm_name);
-            this.agT = (TextView) view.findViewById(r.g.thread_commont_num);
-            this.bbU = (TbImageView) view.findViewById(r.g.thread_image);
+            this.mView = view.findViewById(r.h.hlistview_item_layout_root);
+            this.aLR = (TextView) view.findViewById(r.h.text_title);
+            this.blH = (TextView) view.findViewById(r.h.fourm_name);
+            this.agg = (TextView) view.findViewById(r.h.thread_commont_num);
+            this.blI = (TbImageView) view.findViewById(r.h.thread_image);
         }
 
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
-                com.baidu.tbadk.core.util.ar.l(getView(), r.d.cp_bg_line_d);
-                com.baidu.tbadk.core.util.ar.j((View) this.aMQ, r.d.cp_cont_b);
-                com.baidu.tbadk.core.util.ar.j((View) this.bbT, r.d.cp_cont_c);
-                com.baidu.tbadk.core.util.ar.j((View) this.agT, r.d.cp_cont_c);
+                com.baidu.tbadk.core.util.ap.k(getView(), r.e.cp_bg_line_d);
+                com.baidu.tbadk.core.util.ap.i((View) this.aLR, r.e.cp_cont_b);
+                com.baidu.tbadk.core.util.ap.i((View) this.blH, r.e.cp_cont_c);
+                com.baidu.tbadk.core.util.ap.i((View) this.agg, r.e.cp_cont_c);
                 this.mSkinType = i;
             }
         }
@@ -276,11 +282,11 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.widget.ListView.a
-        /* renamed from: g */
-        public b a(ViewGroup viewGroup) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(r.h.card_hlistview_interval_item, viewGroup, false);
-            int e = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds420);
-            int e2 = com.baidu.adp.lib.util.k.e(this.mContext, r.e.ds12);
+        /* renamed from: i */
+        public b onCreateViewHolder(ViewGroup viewGroup) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(r.j.card_hlistview_interval_item, viewGroup, false);
+            int e = com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds420);
+            int e2 = com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds12);
             ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
             layoutParams.height = e;
             layoutParams.width = e2;
@@ -292,7 +298,8 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.widget.ListView.a
-        public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, b bVar) {
+        /* renamed from: a */
+        public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, b bVar) {
             if (lVar != null && bVar != null) {
                 bVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
             }
@@ -302,18 +309,18 @@ public class r extends com.baidu.tieba.card.a<CardHListViewData> {
 
     /* loaded from: classes.dex */
     public static class b extends y.a {
-        public View bbR;
+        public View blF;
         private int mSkinType;
 
         public b(View view) {
             super(view);
             this.mSkinType = 3;
-            this.bbR = view.findViewById(r.g.hlistview_interval_item);
+            this.blF = view.findViewById(r.h.hlistview_interval_item);
         }
 
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
-                com.baidu.tbadk.core.util.ar.l(getView(), r.d.cp_bg_line_d);
+                com.baidu.tbadk.core.util.ap.k(getView(), r.e.cp_bg_line_d);
                 this.mSkinType = i;
             }
         }

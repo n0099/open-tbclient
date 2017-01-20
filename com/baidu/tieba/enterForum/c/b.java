@@ -1,33 +1,32 @@
 package com.baidu.tieba.enterForum.c;
-
-import java.util.Collections;
-import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
-    public static <T> void c(List<T> list, int i, int i2) {
-        if (list != null && i != i2 && i >= 0 && i < list.size() && i2 >= 0 && i2 < list.size()) {
-            if (i < i2) {
-                while (i < i2) {
-                    Collections.swap(list, i, i + 1);
-                    i++;
-                }
-                return;
-            }
-            while (i > i2) {
-                Collections.swap(list, i, i - 1);
-                i--;
-            }
-        }
+public class b implements Runnable {
+    final /* synthetic */ a byE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.byE = aVar;
     }
 
-    public static int a(float f, int i, int i2) {
-        int i3 = 0;
-        if (f < i / 2) {
-            i3 = ((int) f) - (i / 2);
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        i = this.byE.mOffset;
+        if (i != 0) {
+            a aVar = this.byE;
+            i2 = this.byE.mOffset;
+            if (i2 > 0) {
+                i4 = this.byE.byC;
+            } else {
+                i3 = this.byE.byC;
+                i4 = -i3;
+            }
+            aVar.smoothScrollBy(i4, 200);
         }
-        if (f > i2 - (i / 2)) {
-            return (((int) f) - i2) + (i / 2);
-        }
-        return i3;
+        com.baidu.adp.lib.g.h.eE().postDelayed(this, 200L);
     }
 }

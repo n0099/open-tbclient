@@ -1,67 +1,129 @@
 package com.baidu.tieba.frs.view;
 
-import com.baidu.tieba.frs.ax;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.SpannableStringBuilder;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tieba.r;
+import java.util.List;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ u bSc;
-    private final /* synthetic */ String bSd;
+public class w extends BaseAdapter implements com.baidu.tieba.frs.e.e {
+    private List<bh> aPE;
+    private com.baidu.adp.widget.ListView.w bYC;
+    private com.baidu.adp.widget.ListView.x bYF;
+    private Context mContext;
+    private boolean bYD = false;
+    private View.OnClickListener bYE = new x(this);
+    private View.OnLongClickListener bYG = new y(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar, String str) {
-        this.bSc = uVar;
-        this.bSd = str;
+    public w(Context context) {
+        this.mContext = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        ax axVar;
-        ax axVar2;
-        ax axVar3;
-        ax axVar4;
-        ax axVar5;
-        ax axVar6;
-        ax axVar7;
-        ax axVar8;
-        ax axVar9;
-        ax axVar10;
-        if (aVar == null) {
-            axVar9 = this.bSc.bRW;
-            axVar9.XD().setVisibility(8);
-            axVar10 = this.bSc.bRW;
-            axVar10.XC().setVisibility(8);
-            return;
-        }
-        if (aVar.cY()) {
-            axVar5 = this.bSc.bRW;
-            axVar5.XD().setVisibility(0);
-            axVar6 = this.bSc.bRW;
-            axVar6.XC().setVisibility(8);
-            com.baidu.tbadk.gif.a aVar2 = new com.baidu.tbadk.gif.a();
-            aVar2.axE = this.bSd;
-            aVar2.axC = this.bSd;
-            axVar7 = this.bSc.bRW;
-            axVar7.XD().a(aVar2);
-            u uVar = this.bSc;
-            axVar8 = this.bSc.bRW;
-            uVar.bSa = axVar8.XD();
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return com.baidu.tbadk.core.util.w.r(this.aPE);
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return com.baidu.tbadk.core.util.w.c(this.aPE, i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        boolean z = false;
+        if (view == null) {
+            aVar = new a(this, null);
+            view = LayoutInflater.from(this.mContext).inflate(r.j.frs_header_top_item, (ViewGroup) null);
+            aVar.bYI = view;
+            aVar.bYJ = (TextView) view.findViewById(r.h.top_item_type);
+            aVar.bYK = (TextView) view.findViewById(r.h.top_item_title);
+            aVar.VP = view.findViewById(r.h.top_item_divider);
+            view.setTag(aVar);
         } else {
-            axVar = this.bSc.bRW;
-            axVar.XD().setVisibility(8);
-            axVar2 = this.bSc.bRW;
-            axVar2.XC().setVisibility(0);
-            axVar3 = this.bSc.bRW;
-            axVar3.XC().c(this.bSd, 17, false);
-            u uVar2 = this.bSc;
-            axVar4 = this.bSc.bRW;
-            uVar2.bSa = axVar4.XC();
+            aVar = (a) view.getTag();
         }
-        this.bSc.aJ("c11103", null);
-        if (this.bSc.bSa != null) {
-            this.bSc.bSa.setOnClickListener(new x(this));
-            this.bSc.bb(8000L);
+        bh bhVar = (bh) com.baidu.tbadk.core.util.w.c(this.aPE, i);
+        if (bhVar != null) {
+            aVar.bYJ.setText(TbadkCoreApplication.m9getInst().getString(r.l.top));
+            bhVar.sf();
+            SpannableStringBuilder rV = bhVar.rV();
+            aVar.bYK.setOnTouchListener(new com.baidu.tieba.view.x(rV));
+            aVar.bYK.setText(rV);
+            aVar.bYI.setOnClickListener(this.bYE);
+            aVar.bYI.setOnLongClickListener(this.bYG);
+            if (this.bYD && i == 0) {
+                aVar.VP.setVisibility(8);
+            } else {
+                aVar.VP.setVisibility(0);
+            }
+            com.baidu.tieba.tbadkCore.util.r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.qP(bhVar.getId())) {
+                z = true;
+            }
+            a(aVar, z);
+        }
+        aVar.position = i;
+        com.baidu.tieba.frs.e.b.acx().a(bTj, bhVar);
+        return view;
+    }
+
+    private void a(a aVar, boolean z) {
+        if (aVar != null) {
+            ap.i((View) aVar.bYJ, r.e.cp_link_tip_a);
+            if (z) {
+                ap.i((View) aVar.bYK, r.e.cp_cont_c);
+            } else {
+                ap.i((View) aVar.bYK, r.e.cp_cont_b);
+            }
+            ap.j(aVar.bYI, r.g.home_thread_card_item_bg);
+            ap.j(aVar.VP, r.e.cp_bg_line_c);
+        }
+    }
+
+    public void b(com.baidu.adp.widget.ListView.w wVar) {
+        this.bYC = wVar;
+    }
+
+    public void b(com.baidu.adp.widget.ListView.x xVar) {
+        this.bYF = xVar;
+    }
+
+    public void setData(List<bh> list) {
+        this.aPE = list;
+    }
+
+    public void er(boolean z) {
+        this.bYD = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a {
+        View VP;
+        View bYI;
+        TextView bYJ;
+        TextView bYK;
+        int position;
+
+        private a() {
+        }
+
+        /* synthetic */ a(w wVar, a aVar) {
+            this();
         }
     }
 }

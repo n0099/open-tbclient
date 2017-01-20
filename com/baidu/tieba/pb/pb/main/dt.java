@@ -1,25 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dt implements View.OnClickListener {
-    final /* synthetic */ dq edg;
-    private final /* synthetic */ String edh;
+public class dt implements Runnable {
+    final /* synthetic */ ds elD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dt(dq dqVar, String str) {
-        this.edg = dqVar;
-        this.edh = str;
+    public dt(ds dsVar) {
+        this.elD = dsVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!StringUtils.isNull(this.edh) && com.baidu.adp.lib.util.k.gD()) {
-            TiebaStatic.log("c10854");
-            com.baidu.tbadk.browser.f.v(this.edg.dYB.getActivity(), this.edh);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        View view;
+        PbActivity pbActivity;
+        view = this.elD.bjY;
+        pbActivity = this.elD.elA;
+        view.setBackgroundColor(pbActivity.getResources().getColor(r.e.common_color_10082));
     }
 }

@@ -16,7 +16,7 @@ public class PageDialogHelper {
         DIALOG,
         NORMAL;
 
-        /* JADX DEBUG: Replace access to removed values field (aEE) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aDu) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PayForm[] valuesCustom() {
             PayForm[] valuesCustom = values();
@@ -52,7 +52,7 @@ public class PageDialogHelper {
             activity.setTheme(16973835);
             activity.requestWindowFeature(1);
         } else {
-            activity.setTheme(r.k.swipeback_activity_style);
+            activity.setTheme(r.m.swipeback_activity_style);
         }
         return z;
     }

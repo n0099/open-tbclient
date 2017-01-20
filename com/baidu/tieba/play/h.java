@@ -1,31 +1,39 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.play.c;
+import android.widget.SeekBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements a.b {
-    final /* synthetic */ c eIS;
+public class h implements SeekBar.OnSeekBarChangeListener {
+    final /* synthetic */ c eSu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.eIS = cVar;
+        this.eSu = cVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        String str;
-        c.d dVar;
-        c.d dVar2;
-        com.baidu.tbadk.core.sharedPref.b.tW().putBoolean("video_list_confirm_play_in_mobile", true);
-        c cVar = this.eIS;
-        str = this.eIS.aPj;
-        cVar.startPlay(str);
-        dVar = this.eIS.aSj;
-        if (dVar != null) {
-            dVar2 = this.eIS.aSj;
-            dVar2.Ls();
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+        boolean z2;
+        if (z) {
+            z2 = this.eSu.dvw;
+            if (z2) {
+                this.eSu.azD();
+            }
         }
-        aVar.dismiss();
+    }
+
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onStartTrackingTouch(SeekBar seekBar) {
+    }
+
+    @Override // android.widget.SeekBar.OnSeekBarChangeListener
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        String str;
+        if (!this.eSu.azz() && this.eSu.azq() != null) {
+            this.eSu.setStartPosition(this.eSu.azq().getSeekPosition());
+            c cVar = this.eSu;
+            str = this.eSu.aOm;
+            cVar.startPlay(str);
+        }
     }
 }

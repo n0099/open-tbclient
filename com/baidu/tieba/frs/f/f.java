@@ -1,151 +1,72 @@
 package com.baidu.tieba.frs.f;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.cache.o;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tieba.frs.FrsActivity;
+import java.net.URLEncoder;
+import tbclient.PopInfo;
 /* loaded from: classes.dex */
 public class f {
-    private static volatile f bMI;
-    private boolean bMz = false;
-    private final HashMap<String, ArrayList<i>> bMH = new HashMap<>();
+    private final FrsActivity bMj;
+    private a bVe;
 
-    private f() {
+    public f(FrsActivity frsActivity) {
+        this.bMj = frsActivity;
     }
 
-    public static f abm() {
-        if (bMI == null) {
-            synchronized (f.class) {
-                if (bMI == null) {
-                    bMI = new f();
-                }
-            }
+    public void refresh() {
+        if (TbadkCoreApplication.isLogin() && this.bMj != null && this.bMj.XW() != null && this.bMj.XW().aJY() != null && !StringUtils.isNull(this.bMj.XW().aJY().getName()) && this.bMj.XW().fnZ != null && acN() && this.bVe == null) {
+            this.bVe = new a(this, null);
+            this.bVe.execute(new Void[0]);
         }
-        return bMI;
-    }
-
-    public String abg() {
-        return "frs_sorttype_" + TbadkCoreApplication.getCurrentAccount();
-    }
-
-    public synchronized void f(String str, int i, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i != 4) {
-            String abg = abg();
-            ArrayList<i> arrayList = this.bMH.get(abg);
-            ArrayList<i> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            i iL = iL(str);
-            boolean z = false;
-            if (iL != null) {
-                if (iL.bMK != i) {
-                    iL.bMK = i;
-                    z = true;
-                }
-            } else {
-                i iVar = new i();
-                iVar.forumName = str;
-                iVar.bMK = i;
-                arrayList2.add(iVar);
-                z = true;
-            }
-            if (z) {
-                f(abg, arrayList2);
-            }
-        }
-    }
-
-    private synchronized void f(String str, ArrayList<i> arrayList) {
-        JSONObject abp;
-        if (!TextUtils.isEmpty(str) && arrayList != null) {
-            JSONArray jSONArray = new JSONArray();
-            int min = Math.min(30, arrayList.size());
-            int size = arrayList.size() > 30 ? arrayList.size() - 30 : 0;
-            ArrayList<i> arrayList2 = new ArrayList<>();
-            for (int i = size; i < min; i++) {
-                i iVar = arrayList.get(i);
-                if (iVar != null && !TextUtils.isEmpty(iVar.forumName) && (abp = iVar.abp()) != null) {
-                    jSONArray.put(abp);
-                    arrayList2.add(iVar);
-                }
-            }
-            if (!x.t(arrayList2)) {
-                this.bMH.put(str, arrayList2);
-                if (!this.bMz) {
-                    abn();
-                } else {
-                    iM(jSONArray.toString());
-                }
-            }
-        }
-    }
-
-    public synchronized i iL(String str) {
-        i iVar;
-        if (!TextUtils.isEmpty(str)) {
-            ArrayList<i> arrayList = this.bMH.get(abg());
-            if (arrayList != null) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 < arrayList.size()) {
-                        iVar = arrayList.get(i2);
-                        if (str.equalsIgnoreCase(iVar.forumName)) {
-                            break;
-                        }
-                        i = i2 + 1;
-                    } else {
-                        iVar = null;
-                        break;
-                    }
-                }
-            } else {
-                iVar = null;
-            }
-        } else {
-            iVar = null;
-        }
-        return iVar;
-    }
-
-    private void iM(String str) {
-        o<String> abi = abi();
-        if (abi != null) {
-            abi.l("frs_sortType", str);
-        }
-    }
-
-    public void abn() {
-        o<String> abi = abi();
-        if (abi != null) {
-            abi.a("frs_sortType", new g(this));
-        }
-    }
-
-    private o<String> abi() {
-        return com.baidu.tbadk.core.b.a.sX().N("frs_sortType", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<i> iK(String str) {
-        ArrayList<i> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(new i(jSONArray.optJSONObject(i)));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return arrayList;
+    public boolean acN() {
+        PopInfo popInfo = this.bMj.XW().fnZ;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.bMj.XW().fnZ.if_pop.intValue() == 0) ? false : true;
     }
 
-    public void abo() {
-        iM("");
-        this.bMH.remove(abg());
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a extends BdAsyncTask<Void, Void, Boolean> {
+        private a() {
+        }
+
+        /* synthetic */ a(f fVar, a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(Void... voidArr) {
+            com.baidu.adp.lib.cache.o<String> cB = com.baidu.tbadk.core.c.a.sR().cB("tb.enter_frs_dialog_list");
+            String encode = URLEncoder.encode(f.this.bMj.XW().aJY().getName());
+            if (cB.get(encode) == null) {
+                cB.k(encode, "1");
+                return true;
+            }
+            return false;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(Boolean bool) {
+            if (bool.booleanValue() && f.this.acN()) {
+                PopInfo popInfo = f.this.bMj.XW().fnZ;
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(f.this.bMj.getActivity());
+                aVar.cD(popInfo.title);
+                aVar.cE(popInfo.v_title);
+                aVar.sS();
+                aVar.b(popInfo.ok_info, new g(this));
+                aVar.a(popInfo.ahead_info, new h(this, popInfo));
+                aVar.b(f.this.bMj.getPageContext()).sV();
+            }
+        }
     }
 }

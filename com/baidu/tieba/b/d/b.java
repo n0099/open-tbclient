@@ -1,299 +1,516 @@
 package com.baidu.tieba.b.d;
 
-import android.content.Context;
-import android.os.Handler;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.x;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.opengl.GLException;
+import java.io.IOException;
+import java.io.Writer;
+import javax.microedition.khronos.egl.EGL10;
+import javax.microedition.khronos.egl.EGL11;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.egl.EGLContext;
+import javax.microedition.khronos.egl.EGLDisplay;
+import javax.microedition.khronos.egl.EGLSurface;
 /* loaded from: classes.dex */
-public class b extends LinearLayout {
-    private boolean aZF;
-    private List<Runnable> aZG;
-    private ArrayList<f> aZH;
-    private a aZI;
-    private Handler handler;
-    private Context mContext;
+class b implements EGL11 {
+    private EGL10 bje;
+    Writer bjf;
+    boolean bjg;
+    boolean bjh;
+    private int bji;
 
-    public b(Context context) {
-        super(context);
-        this.aZF = false;
-        this.handler = new Handler();
-        this.aZG = new ArrayList();
-        this.aZH = new ArrayList<>();
-        this.mContext = null;
-        this.mContext = context;
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglChooseConfig(EGLDisplay eGLDisplay, int[] iArr, EGLConfig[] eGLConfigArr, int i, int[] iArr2) {
+        ia("eglChooseConfig");
+        a("display", eGLDisplay);
+        a("attrib_list", iArr);
+        K("config_size", i);
+        end();
+        boolean eglChooseConfig = this.bje.eglChooseConfig(eGLDisplay, iArr, eGLConfigArr, i, iArr2);
+        l("configs", eGLConfigArr);
+        a("num_config", iArr2);
+        cF(eglChooseConfig);
+        QH();
+        return eglChooseConfig;
     }
 
-    public void setShadeViewContainer(a aVar) {
-        this.aZI = aVar;
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglCopyBuffers(EGLDisplay eGLDisplay, EGLSurface eGLSurface, Object obj) {
+        ia("eglCopyBuffers");
+        a("display", eGLDisplay);
+        a("surface", eGLSurface);
+        o("native_pixmap", obj);
+        end();
+        boolean eglCopyBuffers = this.bje.eglCopyBuffers(eGLDisplay, eGLSurface, obj);
+        cF(eglCopyBuffers);
+        QH();
+        return eglCopyBuffers;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(f fVar, boolean z) {
-        if (fVar != null) {
-            if (z) {
-                fVar.setVisibility(0);
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLContext eglCreateContext(EGLDisplay eGLDisplay, EGLConfig eGLConfig, EGLContext eGLContext, int[] iArr) {
+        ia("eglCreateContext");
+        a("display", eGLDisplay);
+        o("config", eGLConfig);
+        a("share_context", eGLContext);
+        a("attrib_list", iArr);
+        end();
+        EGLContext eglCreateContext = this.bje.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
+        L(eglCreateContext);
+        QH();
+        return eglCreateContext;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLSurface eglCreatePbufferSurface(EGLDisplay eGLDisplay, EGLConfig eGLConfig, int[] iArr) {
+        ia("eglCreatePbufferSurface");
+        a("display", eGLDisplay);
+        o("config", eGLConfig);
+        a("attrib_list", iArr);
+        end();
+        EGLSurface eglCreatePbufferSurface = this.bje.eglCreatePbufferSurface(eGLDisplay, eGLConfig, iArr);
+        L(eglCreatePbufferSurface);
+        QH();
+        return eglCreatePbufferSurface;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLSurface eglCreatePixmapSurface(EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj, int[] iArr) {
+        ia("eglCreatePixmapSurface");
+        a("display", eGLDisplay);
+        o("config", eGLConfig);
+        o("native_pixmap", obj);
+        a("attrib_list", iArr);
+        end();
+        EGLSurface eglCreatePixmapSurface = this.bje.eglCreatePixmapSurface(eGLDisplay, eGLConfig, obj, iArr);
+        L(eglCreatePixmapSurface);
+        QH();
+        return eglCreatePixmapSurface;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLSurface eglCreateWindowSurface(EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj, int[] iArr) {
+        ia("eglCreateWindowSurface");
+        a("display", eGLDisplay);
+        o("config", eGLConfig);
+        o("native_window", obj);
+        a("attrib_list", iArr);
+        end();
+        EGLSurface eglCreateWindowSurface = this.bje.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, iArr);
+        L(eglCreateWindowSurface);
+        QH();
+        return eglCreateWindowSurface;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglDestroyContext(EGLDisplay eGLDisplay, EGLContext eGLContext) {
+        ia("eglDestroyContext");
+        a("display", eGLDisplay);
+        a("context", eGLContext);
+        end();
+        boolean eglDestroyContext = this.bje.eglDestroyContext(eGLDisplay, eGLContext);
+        cF(eglDestroyContext);
+        QH();
+        return eglDestroyContext;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglDestroySurface(EGLDisplay eGLDisplay, EGLSurface eGLSurface) {
+        ia("eglDestroySurface");
+        a("display", eGLDisplay);
+        a("surface", eGLSurface);
+        end();
+        boolean eglDestroySurface = this.bje.eglDestroySurface(eGLDisplay, eGLSurface);
+        cF(eglDestroySurface);
+        QH();
+        return eglDestroySurface;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglGetConfigAttrib(EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int[] iArr) {
+        ia("eglGetConfigAttrib");
+        a("display", eGLDisplay);
+        o("config", eGLConfig);
+        K("attribute", i);
+        end();
+        boolean eglGetConfigAttrib = this.bje.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, iArr);
+        a("value", iArr);
+        cF(eglGetConfigAttrib);
+        QH();
+        return false;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglGetConfigs(EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr, int i, int[] iArr) {
+        ia("eglGetConfigs");
+        a("display", eGLDisplay);
+        K("config_size", i);
+        end();
+        boolean eglGetConfigs = this.bje.eglGetConfigs(eGLDisplay, eGLConfigArr, i, iArr);
+        l("configs", eGLConfigArr);
+        a("num_config", iArr);
+        cF(eglGetConfigs);
+        QH();
+        return eglGetConfigs;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLContext eglGetCurrentContext() {
+        ia("eglGetCurrentContext");
+        end();
+        EGLContext eglGetCurrentContext = this.bje.eglGetCurrentContext();
+        L(eglGetCurrentContext);
+        QH();
+        return eglGetCurrentContext;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLDisplay eglGetCurrentDisplay() {
+        ia("eglGetCurrentDisplay");
+        end();
+        EGLDisplay eglGetCurrentDisplay = this.bje.eglGetCurrentDisplay();
+        L(eglGetCurrentDisplay);
+        QH();
+        return eglGetCurrentDisplay;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLSurface eglGetCurrentSurface(int i) {
+        ia("eglGetCurrentSurface");
+        K("readdraw", i);
+        end();
+        EGLSurface eglGetCurrentSurface = this.bje.eglGetCurrentSurface(i);
+        L(eglGetCurrentSurface);
+        QH();
+        return eglGetCurrentSurface;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public EGLDisplay eglGetDisplay(Object obj) {
+        ia("eglGetDisplay");
+        o("native_display", obj);
+        end();
+        EGLDisplay eglGetDisplay = this.bje.eglGetDisplay(obj);
+        L(eglGetDisplay);
+        QH();
+        return eglGetDisplay;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public int eglGetError() {
+        ia("eglGetError");
+        end();
+        int eglGetError = this.bje.eglGetError();
+        ib(gF(eglGetError));
+        return eglGetError;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglInitialize(EGLDisplay eGLDisplay, int[] iArr) {
+        ia("eglInitialize");
+        a("display", eGLDisplay);
+        end();
+        boolean eglInitialize = this.bje.eglInitialize(eGLDisplay, iArr);
+        cF(eglInitialize);
+        a("major_minor", iArr);
+        QH();
+        return eglInitialize;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglMakeCurrent(EGLDisplay eGLDisplay, EGLSurface eGLSurface, EGLSurface eGLSurface2, EGLContext eGLContext) {
+        ia("eglMakeCurrent");
+        a("display", eGLDisplay);
+        a("draw", eGLSurface);
+        a("read", eGLSurface2);
+        a("context", eGLContext);
+        end();
+        boolean eglMakeCurrent = this.bje.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface2, eGLContext);
+        cF(eglMakeCurrent);
+        QH();
+        return eglMakeCurrent;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglQueryContext(EGLDisplay eGLDisplay, EGLContext eGLContext, int i, int[] iArr) {
+        ia("eglQueryContext");
+        a("display", eGLDisplay);
+        a("context", eGLContext);
+        K("attribute", i);
+        end();
+        boolean eglQueryContext = this.bje.eglQueryContext(eGLDisplay, eGLContext, i, iArr);
+        gD(iArr[0]);
+        cF(eglQueryContext);
+        QH();
+        return eglQueryContext;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public String eglQueryString(EGLDisplay eGLDisplay, int i) {
+        ia("eglQueryString");
+        a("display", eGLDisplay);
+        K("name", i);
+        end();
+        String eglQueryString = this.bje.eglQueryString(eGLDisplay, i);
+        ib(eglQueryString);
+        QH();
+        return eglQueryString;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglQuerySurface(EGLDisplay eGLDisplay, EGLSurface eGLSurface, int i, int[] iArr) {
+        ia("eglQuerySurface");
+        a("display", eGLDisplay);
+        a("surface", eGLSurface);
+        K("attribute", i);
+        end();
+        boolean eglQuerySurface = this.bje.eglQuerySurface(eGLDisplay, eGLSurface, i, iArr);
+        gD(iArr[0]);
+        cF(eglQuerySurface);
+        QH();
+        return eglQuerySurface;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglSwapBuffers(EGLDisplay eGLDisplay, EGLSurface eGLSurface) {
+        ia("eglInitialize");
+        a("display", eGLDisplay);
+        a("surface", eGLSurface);
+        end();
+        boolean eglSwapBuffers = this.bje.eglSwapBuffers(eGLDisplay, eGLSurface);
+        cF(eglSwapBuffers);
+        QH();
+        return eglSwapBuffers;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglTerminate(EGLDisplay eGLDisplay) {
+        ia("eglTerminate");
+        a("display", eGLDisplay);
+        end();
+        boolean eglTerminate = this.bje.eglTerminate(eGLDisplay);
+        cF(eglTerminate);
+        QH();
+        return eglTerminate;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglWaitGL() {
+        ia("eglWaitGL");
+        end();
+        boolean eglWaitGL = this.bje.eglWaitGL();
+        cF(eglWaitGL);
+        QH();
+        return eglWaitGL;
+    }
+
+    @Override // javax.microedition.khronos.egl.EGL10
+    public boolean eglWaitNative(int i, Object obj) {
+        ia("eglWaitNative");
+        K("engine", i);
+        o("bindTarget", obj);
+        end();
+        boolean eglWaitNative = this.bje.eglWaitNative(i, obj);
+        cF(eglWaitNative);
+        QH();
+        return eglWaitNative;
+    }
+
+    private void QH() {
+        int eglGetError = this.bje.eglGetError();
+        if (eglGetError != 12288) {
+            String str = "eglError: " + gF(eglGetError);
+            hZ(str);
+            if (this.bjh) {
+                throw new GLException(eglGetError, str);
+            }
+        }
+    }
+
+    private void hZ(String str) {
+        log(String.valueOf(str) + '\n');
+    }
+
+    private void log(String str) {
+        try {
+            this.bjf.write(str);
+        } catch (IOException e) {
+        }
+    }
+
+    private void ia(String str) {
+        log(String.valueOf(str) + '(');
+        this.bji = 0;
+    }
+
+    private void aA(String str, String str2) {
+        int i = this.bji;
+        this.bji = i + 1;
+        if (i > 0) {
+            log(", ");
+        }
+        if (this.bjg) {
+            log(String.valueOf(str) + "=");
+        }
+        log(str2);
+    }
+
+    private void end() {
+        log(");\n");
+        flush();
+    }
+
+    private void flush() {
+        try {
+            this.bjf.flush();
+        } catch (IOException e) {
+            this.bjf = null;
+        }
+    }
+
+    private void K(String str, int i) {
+        aA(str, Integer.toString(i));
+    }
+
+    private void o(String str, Object obj) {
+        aA(str, M(obj));
+    }
+
+    private void a(String str, EGLDisplay eGLDisplay) {
+        if (eGLDisplay == EGL10.EGL_DEFAULT_DISPLAY) {
+            aA(str, "EGL10.EGL_DEFAULT_DISPLAY");
+        } else if (eGLDisplay == EGL_NO_DISPLAY) {
+            aA(str, "EGL10.EGL_NO_DISPLAY");
+        } else {
+            aA(str, M(eGLDisplay));
+        }
+    }
+
+    private void a(String str, EGLContext eGLContext) {
+        if (eGLContext == EGL10.EGL_NO_CONTEXT) {
+            aA(str, "EGL10.EGL_NO_CONTEXT");
+        } else {
+            aA(str, M(eGLContext));
+        }
+    }
+
+    private void a(String str, EGLSurface eGLSurface) {
+        if (eGLSurface == EGL10.EGL_NO_SURFACE) {
+            aA(str, "EGL10.EGL_NO_SURFACE");
+        } else {
+            aA(str, M(eGLSurface));
+        }
+    }
+
+    private void ib(String str) {
+        log(" returns " + str + ";\n");
+        flush();
+    }
+
+    private void gD(int i) {
+        ib(Integer.toString(i));
+    }
+
+    private void cF(boolean z) {
+        ib(Boolean.toString(z));
+    }
+
+    private void L(Object obj) {
+        ib(M(obj));
+    }
+
+    private String M(Object obj) {
+        return obj == null ? "null" : obj.toString();
+    }
+
+    private void a(String str, int[] iArr) {
+        if (iArr == null) {
+            aA(str, "null");
+        } else {
+            aA(str, a(iArr.length, iArr, 0));
+        }
+    }
+
+    private void l(String str, Object[] objArr) {
+        if (objArr == null) {
+            aA(str, "null");
+        } else {
+            aA(str, a(objArr.length, objArr, 0));
+        }
+    }
+
+    private String a(int i, int[] iArr, int i2) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\n");
+        int length = iArr.length;
+        for (int i3 = 0; i3 < i; i3++) {
+            int i4 = i2 + i3;
+            sb.append(" [" + i4 + "] = ");
+            if (i4 < 0 || i4 >= length) {
+                sb.append("out of bounds");
             } else {
-                fVar.setVisibility(8);
+                sb.append(iArr[i4]);
             }
+            sb.append('\n');
         }
+        sb.append("}");
+        return sb.toString();
     }
 
-    @Override // android.view.View
-    public void setVisibility(int i) {
-        if (i == 8 && !ge(1)) {
-            NU();
-        }
-        super.setVisibility(i);
-    }
-
-    public void setWriteViewList(ArrayList<f> arrayList) {
-        boolean z;
-        if (!x.t(arrayList)) {
-            if (arrayList.get(0) != x.c(this.aZH, 0) || getChildCount() <= 1) {
-                z = true;
+    private String a(int i, Object[] objArr, int i2) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\n");
+        int length = objArr.length;
+        for (int i3 = 0; i3 < i; i3++) {
+            int i4 = i2 + i3;
+            sb.append(" [" + i4 + "] = ");
+            if (i4 < 0 || i4 >= length) {
+                sb.append("out of bounds");
             } else {
-                removeViews(0, getChildCount() - 1);
-                z = false;
+                sb.append(objArr[i4]);
             }
-            this.aZH = arrayList;
-            int size = this.aZH.size();
-            if (this.aZI != null) {
-                this.aZI.setShadeCount(size);
-            }
-            for (int i = 0; i < size; i++) {
-                f fVar = this.aZH.get(i);
-                if (fVar != null) {
-                    if (i != 0) {
-                        fVar.setRotateRadius((-1.5f) - i);
-                        fVar.setWriteEndCallBack(new c(this, fVar, i));
-                        a(fVar, false);
-                        fVar.setClickable(false);
-                    } else {
-                        fVar.setRotateRadius(0.0f);
-                        a(fVar, true);
-                        if (this.aZI != null) {
-                            this.aZI.l(0, true);
-                        }
-                    }
-                    if (i != 0 || z) {
-                        addView(fVar, 0);
-                    }
-                }
-            }
+            sb.append('\n');
         }
+        sb.append("}");
+        return sb.toString();
     }
 
-    public void NQ() {
-        for (Runnable runnable : this.aZG) {
-            if (runnable != null) {
-                this.handler.removeCallbacks(runnable);
-            }
-        }
+    private static String gE(int i) {
+        return "0x" + Integer.toHexString(i);
     }
 
-    public void onPause() {
-        if (this.aZH != null) {
-            Iterator<f> it = this.aZH.iterator();
-            while (it.hasNext()) {
-                f next = it.next();
-                if (next != null) {
-                    next.onPause();
-                }
-            }
-        }
-    }
-
-    public void onResume() {
-        if (this.aZH != null) {
-            Iterator<f> it = this.aZH.iterator();
-            while (it.hasNext()) {
-                f next = it.next();
-                if (next != null) {
-                    next.onResume();
-                }
-            }
-        }
-    }
-
-    public void NR() {
-        this.aZF = false;
-        NQ();
-        int size = this.aZH.size();
-        for (int i = 0; i < size; i++) {
-            f fVar = this.aZH.get(i);
-            if (fVar != null) {
-                d dVar = new d(this, i, fVar);
-                this.handler.postDelayed(dVar, i * 110);
-                this.aZG.add(dVar);
-            }
-        }
-    }
-
-    public void NS() {
-        if (ge(3)) {
-            this.aZF = false;
-            NQ();
-            int size = this.aZH.size();
-            for (int i = 0; i < size; i++) {
-                f fVar = this.aZH.get(i);
-                if (fVar != null) {
-                    e eVar = new e(this, i, fVar);
-                    this.handler.postDelayed(eVar, ((size - i) - 1) * 110);
-                    this.aZG.add(eVar);
-                }
-            }
-        }
-    }
-
-    public boolean ge(int i) {
-        Iterator<f> it = this.aZH.iterator();
-        boolean z = true;
-        while (it.hasNext()) {
-            f next = it.next();
-            if (next != null) {
-                boolean z2 = next.ge(i) && z;
-                if (!z2) {
-                    return z2;
-                }
-                z = z2;
-            }
-        }
-        return z;
-    }
-
-    public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        if (onClickListener != null && this.aZH != null) {
-            Iterator<f> it = this.aZH.iterator();
-            while (it.hasNext()) {
-                f next = it.next();
-                if (next != null) {
-                    next.setOnClickListener(onClickListener);
-                }
-            }
-        }
-    }
-
-    public void NT() {
-        if (this.aZH != null) {
-            Iterator<f> it = this.aZH.iterator();
-            while (it.hasNext()) {
-                f next = it.next();
-                if (next != null) {
-                    next.NT();
-                }
-            }
-        }
-    }
-
-    public void NU() {
-        if (this.aZH != null) {
-            int size = this.aZH.size();
-            for (int i = 0; i < size; i++) {
-                f fVar = this.aZH.get(i);
-                if (fVar != null) {
-                    if (this.aZI != null) {
-                        if (i == 0) {
-                            this.aZI.l(i, true);
-                        } else {
-                            this.aZI.l(i, false);
-                            fVar.setClickable(false);
-                        }
-                    }
-                    fVar.vL();
-                }
-            }
-            this.aZF = false;
-        }
-    }
-
-    public void setIsNeedIgnoreParentTouch(boolean z) {
-        this.aZF = z;
-    }
-
-    public boolean NV() {
-        return this.aZF;
-    }
-
-    /* loaded from: classes.dex */
-    public static class a extends LinearLayout {
-        ArrayList<TbImageView> aZM;
-        private int mSkinType;
-
-        public a(Context context) {
-            super(context);
-            this.aZM = new ArrayList<>();
-            this.mSkinType = 3;
-            NW();
-        }
-
-        public void NW() {
-            setOrientation(1);
-        }
-
-        public void setShadeCount(int i) {
-            if (i <= 0) {
-                this.aZM.clear();
-                removeAllViews();
-                return;
-            }
-            int size = i - this.aZM.size();
-            if (size > 0) {
-                while (true) {
-                    int i2 = size - 1;
-                    if (size > 0) {
-                        TbImageView aJ = aJ(getContext());
-                        aJ.setVisibility(8);
-                        addView(aJ, 0);
-                        this.aZM.add(aJ);
-                        size = i2;
-                    } else {
-                        return;
-                    }
-                }
-            } else {
-                while (true) {
-                    int i3 = size + 1;
-                    if (size < 0) {
-                        if (this.aZM.size() > 0) {
-                            removeView(this.aZM.get(0));
-                            this.aZM.remove(0);
-                        }
-                        size = i3;
-                    } else {
-                        return;
-                    }
-                }
-            }
-        }
-
-        private TbImageView aJ(Context context) {
-            TbImageView tbImageView = new TbImageView(context);
-            int e = k.e(context, r.e.ds124);
-            tbImageView.setLayoutParams(new LinearLayout.LayoutParams(e, e));
-            tbImageView.setImageResource(r.f.write_shade);
-            return tbImageView;
-        }
-
-        public void onChangeSkinType(int i) {
-        }
-
-        public void l(int i, boolean z) {
-            ImageView imageView = (ImageView) x.c(this.aZM, i);
-            if (imageView != null) {
-                if (z) {
-                    imageView.setVisibility(0);
-                } else {
-                    imageView.setVisibility(8);
-                }
-            }
+    public static String gF(int i) {
+        switch (i) {
+            case 12288:
+                return "EGL_SUCCESS";
+            case 12289:
+                return "EGL_NOT_INITIALIZED";
+            case 12290:
+                return "EGL_BAD_ACCESS";
+            case 12291:
+                return "EGL_BAD_ALLOC";
+            case 12292:
+                return "EGL_BAD_ATTRIBUTE";
+            case 12293:
+                return "EGL_BAD_CONFIG";
+            case 12294:
+                return "EGL_BAD_CONTEXT";
+            case 12295:
+                return "EGL_BAD_CURRENT_SURFACE";
+            case 12296:
+                return "EGL_BAD_DISPLAY";
+            case 12297:
+                return "EGL_BAD_MATCH";
+            case 12298:
+                return "EGL_BAD_NATIVE_PIXMAP";
+            case 12299:
+                return "EGL_BAD_NATIVE_WINDOW";
+            case 12300:
+                return "EGL_BAD_PARAMETER";
+            case 12301:
+                return "EGL_BAD_SURFACE";
+            case 12302:
+                return "EGL_CONTEXT_LOST";
+            default:
+                return gE(i);
         }
     }
 }

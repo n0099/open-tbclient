@@ -4,15 +4,15 @@ import android.view.animation.Animation;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.lib.h.d {
-    final /* synthetic */ o cob;
+public class p extends com.baidu.adp.lib.g.d {
+    final /* synthetic */ o cvd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.cob = oVar;
+        this.cvd = oVar;
     }
 
-    @Override // com.baidu.adp.lib.h.d
+    @Override // com.baidu.adp.lib.g.d
     public void b(Animation animation) {
         TextView textView;
         Animation animation2;
@@ -21,21 +21,21 @@ public class p extends com.baidu.adp.lib.h.d {
         TextView textView3;
         TextView textView4;
         TextView textView5;
-        textView = this.cob.cnU;
+        textView = this.cvd.cuW;
         if (textView != null) {
-            animation2 = this.cob.cnX;
+            animation2 = this.cvd.cuZ;
             if (animation == animation2) {
-                textView4 = this.cob.cnU;
+                textView4 = this.cvd.cuW;
                 textView4.setVisibility(0);
-                textView5 = this.cob.cnU;
+                textView5 = this.cvd.cuW;
                 textView5.setClickable(true);
                 return;
             }
-            animation3 = this.cob.cnY;
+            animation3 = this.cvd.cva;
             if (animation == animation3) {
-                textView2 = this.cob.cnU;
+                textView2 = this.cvd.cuW;
                 textView2.setVisibility(8);
-                textView3 = this.cob.cnU;
+                textView3 = this.cvd.cuW;
                 textView3.setClickable(false);
             }
         }

@@ -1,38 +1,31 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import com.baidu.tieba.person.listview.BdPersonListView;
+import android.view.View;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements BdPersonListView.a {
-    final /* synthetic */ x evO;
+public class aa implements View.OnClickListener {
+    com.baidu.tieba.personPolymeric.event.a eFF = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ z eFM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(x xVar) {
-        this.evO = xVar;
+    public aa(z zVar) {
+        this.eFM = zVar;
     }
 
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void kj() {
-        com.baidu.tieba.model.a aVar;
-        com.baidu.tieba.model.a aVar2;
-        if (com.baidu.adp.lib.util.i.gm()) {
-            aVar = this.evO.fuG;
-            aVar.resetData();
-            aVar2 = this.evO.fuG;
-            aVar2.Tj();
-            ((t) this.evO.fuE).kh();
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.view.m mVar;
+        ImageView imageView;
+        com.baidu.tieba.view.m mVar2;
+        mVar = this.eFM.ezb;
+        if (mVar != null) {
+            imageView = this.eFM.brH;
+            if (imageView == view) {
+                this.eFF.bzY = 8;
+            }
+            mVar2 = this.eFM.ezb;
+            mVar2.a(view, this.eFF);
         }
-        ((t) this.evO.fuE).abt();
-    }
-
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void ki() {
-        ((t) this.evO.fuE).abt();
-    }
-
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void G(float f) {
-        ((t) this.evO.fuE).F(f);
     }
 }

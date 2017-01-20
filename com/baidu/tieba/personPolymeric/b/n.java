@@ -6,28 +6,28 @@ import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements j.a {
-    final /* synthetic */ h ety;
+    final /* synthetic */ h eDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(h hVar) {
-        this.ety = hVar;
+        this.eDs = hVar;
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void og() {
+    public void oa() {
         MorePopupWindow morePopupWindow;
         TbPageContext tbPageContext;
-        morePopupWindow = this.ety.etp;
-        tbPageContext = this.ety.GO;
-        com.baidu.adp.lib.h.j.a(morePopupWindow, tbPageContext.getPageActivity());
+        morePopupWindow = this.eDs.eDj;
+        tbPageContext = this.eDs.FY;
+        com.baidu.adp.lib.g.j.a(morePopupWindow, tbPageContext.getPageActivity());
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void oh() {
+    public void ob() {
         MorePopupWindow morePopupWindow;
         TbPageContext tbPageContext;
-        morePopupWindow = this.ety.etp;
-        tbPageContext = this.ety.GO;
-        com.baidu.adp.lib.h.j.a(morePopupWindow, tbPageContext.getPageActivity());
+        morePopupWindow = this.eDs.eDj;
+        tbPageContext = this.eDs.FY;
+        com.baidu.adp.lib.g.j.a(morePopupWindow, tbPageContext.getPageActivity());
     }
 }

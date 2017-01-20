@@ -1,8 +1,11 @@
 package com.baidu.tbadk.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
@@ -15,13 +18,15 @@ import tbclient.Icon;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.core.view.userLike.a, Serializable {
+public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.userLike.a, Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
+    public AlaUserInfoData alaUserData;
     private String fansNickName;
     private int gender;
     private boolean isGod;
     private int is_myfriend;
-    private k pendantData;
+    private j pendantData;
+    private String virtualUserUrl;
     private boolean isLikeStatusFromNet = false;
     private int is_like = 0;
     private GodUserData godUserData = new GodUserData();
@@ -96,7 +101,7 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.t
     }
 
     public long getUserIdLong() {
-        return com.baidu.adp.lib.h.b.c(this.userId, 0L);
+        return com.baidu.adp.lib.g.b.c(this.userId, 0L);
     }
 
     public void setType(int i) {
@@ -150,6 +155,10 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.t
 
     public void setPortraitH(String str) {
         this.portraith = str;
+    }
+
+    public AlaUserInfoData getAlaUserData() {
+        return this.alaUserData;
     }
 
     public String getPortraitH() {
@@ -345,11 +354,18 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.t
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new k();
+                this.pendantData = new j();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
+            if (user.ala_info != null) {
+                this.alaUserData = new AlaUserInfoData();
+                this.alaUserData.a(user.ala_info);
+            }
             this.sealPrefix = user.seal_prefix;
+            if (user.spring_virtual_user != null && user.spring_virtual_user.is_virtual.intValue() == 1 && !StringUtils.isNull(user.spring_virtual_user.url)) {
+                this.virtualUserUrl = user.spring_virtual_user.url;
+            }
         }
     }
 
@@ -419,6 +435,16 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.t
                     this.themeCard.parser(optJSONObject3);
                 }
                 this.isLikeStatusFromNet = true;
+                this.alaUserData = new AlaUserInfoData();
+                this.alaUserData.parserJson(jSONObject.optJSONObject("ala_info"));
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("spring_virtual_user");
+                if (optJSONObject4 != null) {
+                    int optInt = optJSONObject4.optInt("is_virtual");
+                    String optString = optJSONObject4.optString("url");
+                    if (optInt == 1 && !StringUtils.isNull(optString)) {
+                        this.virtualUserUrl = optString;
+                    }
+                }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -429,11 +455,19 @@ public class MetaData extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.t
         return this.themeCard;
     }
 
-    public k getPendantData() {
+    public j getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(k kVar) {
-        this.pendantData = kVar;
+    public void setPendantData(j jVar) {
+        this.pendantData = jVar;
+    }
+
+    public String getVirtualUserUrl() {
+        return this.virtualUserUrl;
+    }
+
+    public void setVirtualUserUrl(String str) {
+        this.virtualUserUrl = str;
     }
 }

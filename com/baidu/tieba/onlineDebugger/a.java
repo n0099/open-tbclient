@@ -10,19 +10,19 @@ import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes.dex */
 public class a {
     private String code;
-    private Stack<Object> dSJ = new Stack<>();
+    private Stack<Object> ebC = new Stack<>();
 
     public a(String str) {
         this.code = str.substring(str.indexOf(" ") + 1);
-        this.dSJ.add("#");
+        this.ebC.add("#");
     }
 
     public Object get() {
         prepare();
-        if (this.dSJ.isEmpty()) {
+        if (this.ebC.isEmpty()) {
             return null;
         }
-        return this.dSJ.pop();
+        return this.ebC.pop();
     }
 
     private void prepare() {
@@ -38,9 +38,9 @@ public class a {
                     case '$':
                         int length = "$.getInstance().get( )".length() + i2;
                         try {
-                            Object aHc = com.baidu.tieba.onlineDebugger.e.b.nC("get " + this.code.substring(i2, length)).aHc();
-                            if (aHc != null) {
-                                this.dSJ.add(aHc);
+                            Object aIQ = com.baidu.tieba.onlineDebugger.e.b.nT("get " + this.code.substring(i2, length)).aIQ();
+                            if (aIQ != null) {
+                                this.ebC.add(aIQ);
                             }
                         } catch (Exception e) {
                             BdLog.e(e);
@@ -49,32 +49,32 @@ public class a {
                         i = i2;
                         break;
                     case '%':
-                    case r.l.PullToRefresh_adapterViewBackground /* 38 */:
-                    case r.l.PullToRefresh_headerBackground /* 39 */:
+                    case r.n.PullToRefresh_adapterViewBackground /* 38 */:
+                    case r.n.PullToRefresh_headerBackground /* 39 */:
                     case '*':
                     case '+':
                     default:
                         i2 = i5;
                         i = i2;
                         break;
-                    case r.l.PullToRefresh_headerTextColor /* 40 */:
-                        this.dSJ.add(this.code.substring(i5 + 1, i2).trim());
-                        this.dSJ.add("(");
+                    case r.n.PullToRefresh_headerTextColor /* 40 */:
+                        this.ebC.add(this.code.substring(i5 + 1, i2).trim());
+                        this.ebC.add("(");
                         i = i2;
                         break;
-                    case r.l.PullToRefresh_mode /* 41 */:
+                    case r.n.PullToRefresh_mode /* 41 */:
                         String trim = this.code.substring(i5 + 1, i2).trim();
                         if (!trim.isEmpty()) {
-                            this.dSJ.add(trim);
+                            this.ebC.add(trim);
                         }
-                        this.dSJ.add(")");
+                        this.ebC.add(")");
                         Stack stack = new Stack();
                         LinkedBlockingQueue linkedBlockingQueue = new LinkedBlockingQueue();
                         while (true) {
-                            if (!this.dSJ.isEmpty()) {
-                                if (this.dSJ.peek().equals("(")) {
-                                    stack.add(this.dSJ.pop());
-                                    stack.add(this.dSJ.pop());
+                            if (!this.ebC.isEmpty()) {
+                                if (this.ebC.peek().equals("(")) {
+                                    stack.add(this.ebC.pop());
+                                    stack.add(this.ebC.pop());
                                     String str = (String) stack.pop();
                                     while (!stack.isEmpty()) {
                                         Object pop = stack.pop();
@@ -84,10 +84,10 @@ public class a {
                                     }
                                     Object a = a(str, linkedBlockingQueue);
                                     if (a != null) {
-                                        this.dSJ.add(a);
+                                        this.ebC.add(a);
                                     }
                                 } else {
-                                    stack.add(this.dSJ.pop());
+                                    stack.add(this.ebC.pop());
                                 }
                             }
                         }
@@ -96,9 +96,9 @@ public class a {
                     case ',':
                         String substring = this.code.substring(i5 + 1, i2);
                         if (!substring.isEmpty()) {
-                            this.dSJ.add(substring.trim());
+                            this.ebC.add(substring.trim());
                         }
-                        this.dSJ.add(",");
+                        this.ebC.add(",");
                         i = i2;
                         break;
                 }
@@ -112,7 +112,7 @@ public class a {
     private Object a(String str, Queue<Object> queue) {
         Constructor<?>[] constructors;
         try {
-            Class<?> cls = Class.forName(nj(str));
+            Class<?> cls = Class.forName(nA(str));
             int size = queue.size();
             for (Constructor<?> constructor : cls.getConstructors()) {
                 if (constructor.getParameterTypes().length == size) {
@@ -130,7 +130,7 @@ public class a {
         return null;
     }
 
-    private String nj(String str) {
+    private String nA(String str) {
         if (str.startsWith("new")) {
             return str.substring(str.indexOf(" ") + 1);
         }
@@ -143,19 +143,19 @@ public class a {
             case 0:
                 return constructor.newInstance(new Object[0]);
             case 1:
-                return constructor.newInstance(T(array[0]));
+                return constructor.newInstance(W(array[0]));
             case 2:
-                return constructor.newInstance(T(array[0]), T(array[1]));
+                return constructor.newInstance(W(array[0]), W(array[1]));
             case 3:
-                return constructor.newInstance(T(array[0]), T(array[1]), T(array[2]));
+                return constructor.newInstance(W(array[0]), W(array[1]), W(array[2]));
             case 4:
-                return constructor.newInstance(T(array[0]), T(array[1]), T(array[2]), T(array[3]));
+                return constructor.newInstance(W(array[0]), W(array[1]), W(array[2]), W(array[3]));
             default:
                 return null;
         }
     }
 
-    private Object T(Object obj) {
+    private Object W(Object obj) {
         if (obj instanceof String) {
             String obj2 = obj.toString();
             try {

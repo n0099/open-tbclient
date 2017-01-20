@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class k extends c {
-    private a vL;
-    protected Path vJ = new Path();
-    protected Paint vK = null;
-    protected boolean vM = false;
+    private a vC;
+    protected Path vA = new Path();
+    protected Paint vB = null;
+    protected boolean vD = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,42 +23,42 @@ public abstract class k extends c {
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(dVar, imageView, scaleType);
-        if (this.vL != null && (a2 = this.vL.a(hE())) != null) {
-            this.vJ.set(a2);
-            if (this.vK == null) {
-                this.vK = new Paint();
-                this.vK.setStyle(Paint.Style.STROKE);
-                this.vK.setAntiAlias(true);
-                this.vK.setColor(637534208);
-                this.vK.setDither(true);
-                this.vK.setStrokeWidth(2.0f);
+        if (this.vC != null && (a2 = this.vC.a(hC())) != null) {
+            this.vA.set(a2);
+            if (this.vB == null) {
+                this.vB = new Paint();
+                this.vB.setStyle(Paint.Style.STROKE);
+                this.vB.setAntiAlias(true);
+                this.vB.setColor(637534208);
+                this.vB.setDither(true);
+                this.vB.setStrokeWidth(2.0f);
             }
-            hM();
+            hK();
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.vM) {
-            canvas.drawPath(this.vJ, this.vK);
-            if (this.vL != null) {
-                this.vL.c(canvas);
+        if (this.vD) {
+            canvas.drawPath(this.vA, this.vB);
+            if (this.vC != null) {
+                this.vC.c(canvas);
             }
         }
     }
 
-    public void hM() {
+    public void hK() {
     }
 
-    public void hN() {
+    public void hL() {
     }
 
     public void a(a aVar) {
-        this.vL = aVar;
+        this.vC = aVar;
     }
 
     public void J(boolean z) {
-        this.vM = z;
+        this.vD = z;
     }
 }

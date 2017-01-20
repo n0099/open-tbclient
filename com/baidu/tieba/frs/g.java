@@ -1,39 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import java.util.concurrent.atomic.AtomicReference;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class g implements cb {
-    public static final AtomicReference<cb> bxP = new AtomicReference<>(null);
-    private static final cb bxQ = new g();
+class g extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bGL;
 
-    private g() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bGL = frsActivity;
     }
 
-    public static cb VZ() {
-        cb cbVar = bxP.get();
-        return cbVar == null ? bxQ : cbVar;
-    }
-
-    @Override // com.baidu.tieba.frs.cb
-    public au<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
-    }
-
-    @Override // com.baidu.tieba.frs.cb
-    public com.baidu.adp.widget.ListView.a<? extends com.baidu.tbadk.core.data.bg, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
-    }
-
-    @Override // com.baidu.tieba.frs.cb
-    public com.baidu.adp.widget.ListView.a<? extends com.baidu.tbadk.core.data.bg, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Integer num;
+        UserData userData;
+        com.baidu.tieba.frs.f.u uVar;
+        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && this.bGL.bFG != null && (userData = this.bGL.bFG.getUserData()) != null) {
+            userData.setIsMem(num.intValue());
+            if (num.intValue() != 0) {
+                uVar = this.bGL.bFR;
+                uVar.a(num);
+            }
+        }
     }
 }

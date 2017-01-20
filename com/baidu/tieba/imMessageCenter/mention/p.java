@@ -1,31 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdapter;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends CustomMessageListener {
-    final /* synthetic */ o dcz;
+public class p implements View.OnClickListener {
+    final /* synthetic */ l djK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(o oVar, int i) {
-        super(i);
-        this.dcz = oVar;
+    public p(l lVar) {
+        this.djK = lVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        MessageAggregationListAdapter messageAggregationListAdapter;
-        MessageAggregationListAdapter messageAggregationListAdapter2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            messageAggregationListAdapter = this.dcz.dcr;
-            if (messageAggregationListAdapter != null) {
-                messageAggregationListAdapter2 = this.dcz.dcr;
-                messageAggregationListAdapter2.notifyDataSetChanged();
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean isLogin;
+        isLogin = this.djK.isLogin();
+        if (isLogin) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig((Context) this.djK.getPageContext().getPageActivity(), true, true)));
         }
     }
 }

@@ -11,7 +11,7 @@ public class NightResourceStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        c.NS = true;
+        c.Ne = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NIGHT_PLUGIN_INSATLLED));
     }
 }

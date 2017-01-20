@@ -37,10 +37,10 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.g;
 import com.baidu.adp.base.h;
 import com.baidu.adp.base.i;
 import com.baidu.adp.base.j;
-import com.baidu.adp.base.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -52,7 +52,7 @@ import com.baidu.megapp.ma.MAActivity;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class ActivityProxy extends MAActivity implements Handler.Callback, i, k, com.baidu.adp.plugin.a.a {
+public class ActivityProxy extends MAActivity implements Handler.Callback, h, j, com.baidu.adp.plugin.a.a {
     private PluginBaseActivity mEntity = null;
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory2
@@ -290,7 +290,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = j.aY().getResources();
+            Resources resources = i.aY().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -1578,7 +1578,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
         return super.getApplicationContext();
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public BdUniqueId getUniqueId() {
         if (this.mEntity != null) {
             return this.mEntity.getUniqueId();
@@ -1586,7 +1586,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
         return null;
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public boolean isScroll() {
         if (this.mEntity != null) {
             return this.mEntity.isScroll();
@@ -1594,14 +1594,14 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
         return false;
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public void setIsScroll(boolean z) {
         if (this.mEntity != null) {
             this.mEntity.setIsScroll(z);
         }
     }
 
-    @Override // com.baidu.adp.base.k
+    @Override // com.baidu.adp.base.j
     public void onPreLoad(BdListView bdListView) {
         if (this.mEntity != null) {
             this.mEntity.onPreLoad(bdListView);
@@ -1616,9 +1616,9 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, i, k,
         return false;
     }
 
-    @Override // com.baidu.adp.base.i
-    public h getPageContext() {
-        if (this.mEntity == null || !(this.mEntity instanceof i)) {
+    @Override // com.baidu.adp.base.h
+    public g getPageContext() {
+        if (this.mEntity == null || !(this.mEntity instanceof h)) {
             return null;
         }
         return this.mEntity.getPageContext();

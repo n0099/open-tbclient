@@ -1,38 +1,46 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.message.ResponseReportUserInfoMessage;
-import com.baidu.tieba.model.e;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f extends HttpMessageListener {
-    final /* synthetic */ e dIJ;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(e eVar, int i) {
-        super(i);
-        this.dIJ = eVar;
+public class f {
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        e.a aVar;
-        e.a aVar2;
-        e.a aVar3;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522) {
-            aVar = this.dIJ.dIH;
-            if (aVar != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
-                ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
-                if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    aVar3 = this.dIJ.dIH;
-                    aVar3.mT(responseReportUserInfoMessage.getTimeInterval());
-                    return;
+    public void parserJson(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        if (jSONObject != null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("config");
+                if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("switch")) != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        if (jSONObject2 != null) {
+                            String optString = jSONObject2.optString("name");
+                            Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
+                            if ("switch_login_passv6".equals(optString)) {
+                                com.baidu.adp.lib.b.e.dL().d(optString, valueOf.intValue());
+                                com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
+                            }
+                            if (TextUtils.equals("uninstall_feed_back_switch", optString)) {
+                                com.baidu.adp.lib.b.e.dL().d(optString, valueOf.intValue());
+                            }
+                            if (TextUtils.equals("switch_low_version_login_passv6", optString)) {
+                                com.baidu.adp.lib.b.e.dL().d(optString, valueOf.intValue());
+                                com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
+                            }
+                        }
+                    }
                 }
-                aVar2 = this.dIJ.dIH;
-                aVar2.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

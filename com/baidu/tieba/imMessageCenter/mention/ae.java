@@ -1,24 +1,39 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
-    final /* synthetic */ o dcz;
+public class ae extends CustomMessageListener {
+    final /* synthetic */ ad djP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(o oVar) {
-        this.dcz = oVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ae(ad adVar, int i) {
+        super(i);
+        this.djP = adVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        hVar = this.dcz.mContext;
-        TiebaStatic.eventStat(hVar.getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
-        hVar2 = this.dcz.mContext;
-        com.baidu.tbadk.core.util.bh.ag(hVar2.getPageActivity());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        l lVar;
+        l lVar2;
+        l lVar3;
+        l lVar4;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            lVar = this.djP.djM;
+            if (lVar != null) {
+                lVar4 = this.djP.djM;
+                lVar4.gC(true);
+            }
+            MentionActivityConfig.newJumpIn = true;
+            lVar2 = this.djP.djM;
+            if (lVar2 != null) {
+                lVar3 = this.djP.djM;
+                lVar3.aak();
+            }
+        }
     }
 }

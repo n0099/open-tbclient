@@ -1,26 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.view.c;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fz implements c.a {
-    final /* synthetic */ er egZ;
+public class fz implements View.OnClickListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fz(er erVar) {
-        this.egZ = erVar;
+    public fz(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.view.c.a
-    public void i(com.baidu.tieba.tbadkCore.data.q qVar) {
-        com.baidu.tieba.pb.pb.main.view.c cVar;
-        cj cjVar;
-        cv cvVar;
-        cVar = this.egZ.ebe;
-        cVar.j(qVar);
-        cjVar = this.egZ.efp;
-        cjVar.notifyDataSetChanged();
-        cvVar = this.egZ.egt;
-        cvVar.aJT();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        this.eqf.aOb();
+        pbActivity = this.eqf.ehi;
+        if (pbActivity.bHz != null) {
+            pbActivity2 = this.eqf.ehi;
+            pbActivity2.bHz.onClick(view);
+        }
     }
 }

@@ -7,6 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
+    private int liveLevel;
     private String mDisplayName;
     private int mGodType;
     private boolean mIsSelectTail;
@@ -199,5 +200,13 @@ public class AccountData implements Serializable {
 
     public void setPersonalBgUrl(String str) {
         this.personalBgUrl = str;
+    }
+
+    public int getLiveLevel() {
+        return this.liveLevel;
+    }
+
+    public void setLiveLevel(int i) {
+        this.liveLevel = i;
     }
 }

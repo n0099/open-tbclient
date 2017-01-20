@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class g implements d {
     @Override // com.baidu.tbadk.download.d
-    public void b(DownloadData downloadData) {
+    public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
-            h.Cy().f(downloadData);
+            h.Ct().b(downloadData);
         }
     }
 
     @Override // com.baidu.tbadk.download.d
-    public boolean a(DownloadData downloadData) {
+    public boolean onPreDownload(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
         }
@@ -21,7 +21,7 @@ public class g implements d {
     }
 
     @Override // com.baidu.tbadk.download.d
-    public boolean c(DownloadData downloadData) {
+    public boolean onFileDownloaded(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
         }
@@ -30,9 +30,9 @@ public class g implements d {
     }
 
     @Override // com.baidu.tbadk.download.d
-    public void d(DownloadData downloadData) {
+    public void onFileDownloadSucceed(DownloadData downloadData) {
         if (downloadData != null) {
-            h.Cy().f(downloadData);
+            h.Ct().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.m9getInst().getApp(), downloadData.getPath());
             }
@@ -40,8 +40,8 @@ public class g implements d {
     }
 
     @Override // com.baidu.tbadk.download.d
-    public void a(DownloadData downloadData, int i, String str) {
-        h.Cy().o(downloadData);
-        h.Cy().f(downloadData);
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        h.Ct().k(downloadData);
+        h.Ct().b(downloadData);
     }
 }

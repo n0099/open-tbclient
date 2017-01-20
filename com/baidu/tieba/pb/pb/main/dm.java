@@ -1,23 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.SignData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm implements Runnable {
-    final /* synthetic */ dl ecL;
+public class dm extends CustomMessageListener {
+    final /* synthetic */ PbModel ekY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dm(dl dlVar) {
-        this.ecL = dlVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dm(PbModel pbModel, int i) {
+        super(i);
+        this.ekY = pbModel;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        PbActivity pbActivity;
-        view = this.ecL.bai;
-        pbActivity = this.ecL.ecI;
-        view.setBackgroundColor(pbActivity.getResources().getColor(r.d.common_color_10082));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SignData)) {
+            SignData signData = (SignData) customResponsedMessage.getData();
+            if (this.ekY.getPbData() != null && this.ekY.getPbData().aJY() != null && this.ekY.getPbData().aJY().getSignData() != null && signData.forumId.equals(this.ekY.getPbData().getForumId())) {
+                this.ekY.getPbData().aJY().getSignData().is_signed = signData.is_signed;
+            }
+        }
     }
 }

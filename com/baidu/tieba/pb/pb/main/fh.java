@@ -1,35 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.tieba.r;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fh implements View.OnClickListener {
-    final /* synthetic */ er egZ;
-    private final /* synthetic */ String val$url;
+public class fh implements Animation.AnimationListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fh(er erVar, String str) {
-        this.egZ = erVar;
-        this.val$url = str;
+    public fh(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.k.gD()) {
-            pbActivity = this.egZ.dYB;
-            pbActivity.showToast(r.j.neterror);
-            return;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        com.baidu.tbadk.editortools.j jVar;
+        View view2;
+        com.baidu.tbadk.editortools.j jVar2;
+        ez ezVar = this.eqf;
+        view = this.eqf.epb;
+        ezVar.epg = view.getVisibility() == 0;
+        jVar = this.eqf.DX;
+        if (jVar != null) {
+            jVar2 = this.eqf.DX;
+            jVar2.hide();
         }
-        com.baidu.tbadk.core.util.bc vz = com.baidu.tbadk.core.util.bc.vz();
-        pbActivity2 = this.egZ.dYB;
-        vz.c(pbActivity2.getPageContext(), new String[]{this.val$url});
-        pbActivity3 = this.egZ.dYB;
-        pbActivity3.finish();
+        view2 = this.eqf.epb;
+        view2.setVisibility(8);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

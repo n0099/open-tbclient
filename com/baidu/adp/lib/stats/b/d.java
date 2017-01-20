@@ -4,25 +4,25 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 /* loaded from: classes.dex */
 public class d {
     public static void c(com.baidu.adp.lib.stats.base.a aVar, boolean z) {
-        if (aVar != null && aVar.fj() != 0) {
-            e eVar = new e(com.baidu.adp.lib.stats.a.eI().eM(), aVar.fo(), DiskFileOperate.Action.APPEND, aVar, z);
-            eVar.t(aVar.fz());
-            eVar.setContent(aVar.fx().toString());
-            aVar.fs();
-            if (!aVar.fA()) {
+        if (aVar != null && aVar.fh() != 0) {
+            e eVar = new e(com.baidu.adp.lib.stats.a.eG().eK(), aVar.fm(), DiskFileOperate.Action.APPEND, aVar, z);
+            eVar.t(aVar.fx());
+            eVar.setContent(aVar.fv().toString());
+            aVar.fq();
+            if (!aVar.fy()) {
                 eVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 eVar.Y(3);
             }
-            com.baidu.adp.lib.Disk.d.cB().c(eVar);
+            com.baidu.adp.lib.Disk.d.cz().c(eVar);
         }
     }
 
     public static void c(com.baidu.adp.lib.stats.base.a aVar, boolean z, boolean z2, boolean z3) {
         if (aVar != null) {
-            f fVar = new f(com.baidu.adp.lib.stats.a.eI().eM(), aVar.fo(), com.baidu.adp.lib.stats.a.eI().eM(), aVar.fp(), DiskFileOperate.Action.RENAME, aVar, z, z2, z3);
-            fVar.t(aVar.fz());
+            f fVar = new f(com.baidu.adp.lib.stats.a.eG().eK(), aVar.fm(), com.baidu.adp.lib.stats.a.eG().eK(), aVar.fn(), DiskFileOperate.Action.RENAME, aVar, z, z2, z3);
+            fVar.t(aVar.fx());
             fVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            com.baidu.adp.lib.Disk.d.cB().c(fVar);
+            com.baidu.adp.lib.Disk.d.cz().c(fVar);
         }
     }
 
@@ -30,21 +30,21 @@ public class d {
         if (aVar == null) {
             return -1L;
         }
-        if (aVar.fq() <= 0) {
-            g gVar = new g(com.baidu.adp.lib.stats.a.eI().eM(), aVar.fo(), DiskFileOperate.Action.INFO, aVar);
-            gVar.t(aVar.fz());
+        if (aVar.fo() <= 0) {
+            g gVar = new g(com.baidu.adp.lib.stats.a.eG().eK(), aVar.fm(), DiskFileOperate.Action.INFO, aVar);
+            gVar.t(aVar.fx());
             gVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (com.baidu.adp.lib.Disk.d.cB().c(gVar)) {
-                return aVar.fq();
+            if (com.baidu.adp.lib.Disk.d.cz().c(gVar)) {
+                return aVar.fo();
             }
         }
-        return aVar.fq();
+        return aVar.fo();
     }
 
     public static void a(String str, String str2, com.baidu.adp.lib.stats.base.a aVar) {
         DiskFileOperate diskFileOperate = new DiskFileOperate(str, str2, DiskFileOperate.Action.DELETE);
-        diskFileOperate.t(aVar.fz());
+        diskFileOperate.t(aVar.fx());
         diskFileOperate.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        com.baidu.adp.lib.Disk.d.cB().c(diskFileOperate);
+        com.baidu.adp.lib.Disk.d.cz().c(diskFileOperate);
     }
 }

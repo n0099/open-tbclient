@@ -5,10 +5,10 @@ import tbclient.App;
 public class a extends com.baidu.tieba.card.data.d {
     public void b(App app) {
         if (app != null) {
-            if (this.beh == null) {
-                this.beh = new com.baidu.tbadk.core.data.c();
+            if (this.boc == null) {
+                this.boc = new com.baidu.tbadk.core.data.c();
             }
-            this.beh.a(app);
+            this.boc.a(app);
         }
     }
 }

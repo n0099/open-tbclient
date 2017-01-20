@@ -1,26 +1,20 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import org.json.JSONObject;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends an implements com.baidu.tbadk.mvc.b.f {
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "atme_cache";
+public class i implements BdListView.f {
+    final /* synthetic */ g djw;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(g gVar) {
+        this.djw = gVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.f
-    public String Ex() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.f
-    public boolean ge(String str) {
-        try {
-            i(new JSONObject(str));
-            return true;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return false;
-        }
+    @Override // com.baidu.adp.widget.ListView.BdListView.f
+    public void a(BdListView bdListView) {
+        AtMessageActivity atMessageActivity;
+        atMessageActivity = this.djw.djn;
+        atMessageActivity.Jj();
     }
 }

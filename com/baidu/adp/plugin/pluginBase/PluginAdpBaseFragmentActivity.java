@@ -11,16 +11,16 @@ import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.j;
-import com.baidu.adp.base.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.g.c;
+import com.baidu.adp.lib.f.c;
+import com.baidu.adp.lib.util.k;
 import com.baidu.adp.newwidget.a.i;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, k {
+public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, j {
     private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
@@ -69,7 +69,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     }
 
     public void showToast(String str) {
-        com.baidu.adp.lib.util.k.showToast(getApplicationContext(), str);
+        k.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -130,7 +130,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         MessageManager.getInstance().registerListener(i, aVar);
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -141,7 +141,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.eA().d(this.mId);
+        c.ey().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
         com.baidu.adp.base.a.aS().i(getPageContext().getPageActivity());
     }
@@ -150,7 +150,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.eA().e(this.mId);
+        c.ey().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -167,21 +167,21 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.kt();
+            onGetPreLoadListView.cancelRefresh();
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.k
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.j
     public void onPreLoad(BdListView bdListView) {
     }
 
@@ -216,7 +216,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginContextWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = j.aY().getResources();
+        Resources resources = com.baidu.adp.base.i.aY().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

@@ -1,69 +1,84 @@
 package com.baidu.tieba.personPolymeric.d;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.animation.Animation;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class w extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.k> {
-    private ImageView bJZ;
-    private TbImageView evI;
-    private TextView evJ;
-    private com.baidu.tieba.personPolymeric.c.k evK;
-    private View mRootView;
+class w implements Animation.AnimationListener {
+    final /* synthetic */ t eFG;
 
-    public w(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.mRootView = getView();
-        this.evI = (TbImageView) this.mRootView.findViewById(r.g.polymeric_vedio_pic);
-        this.evJ = (TextView) this.mRootView.findViewById(r.g.polymeric_vedio_des);
-        this.bJZ = (ImageView) this.mRootView.findViewById(r.g.polymeric_vedio_play_icon);
-        this.evJ.setOnClickListener(this);
-        this.mRootView.setOnClickListener(this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(t tVar) {
+        this.eFG = tVar;
     }
 
-    @Override // com.baidu.tieba.card.a
-    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            this.mSkinType = i;
-            ar.l(this.mRootView, r.d.cp_bg_line_d);
-            ar.c(this.evJ, r.d.cp_cont_b, 1);
-            ar.c(this.bJZ, r.f.icon_play_video, i);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        View view;
+        Animation animation2;
+        int i;
+        View view2;
+        TextView textView;
+        TextView textView2;
+        Context context;
+        int i2;
+        Animation animation3;
+        UserData userData;
+        View view3;
+        TextView textView3;
+        TextView textView4;
+        Context context2;
+        View view4;
+        TextView textView5;
+        TextView textView6;
+        Context context3;
+        view = this.eFG.eFz;
+        animation2 = this.eFG.eFE;
+        view.setAnimation(animation2);
+        i = this.eFG.eFA;
+        if (i % 2 == 1) {
+            userData = this.eFG.mUserData;
+            if (userData.getLiveStatus() == 1) {
+                view4 = this.eFG.eFz;
+                view4.findViewById(r.h.person_polymeric_header_livepoint).setVisibility(0);
+                textView5 = this.eFG.eFC;
+                textView5.setVisibility(8);
+                textView6 = this.eFG.eFB;
+                context3 = this.eFG.mContext;
+                textView6.setText(context3.getResources().getString(r.l.person_polymeric_ala_entry_live));
+            } else {
+                view3 = this.eFG.eFz;
+                view3.findViewById(r.h.person_polymeric_header_livepoint).setVisibility(8);
+                textView3 = this.eFG.eFC;
+                textView3.setVisibility(0);
+                textView4 = this.eFG.eFB;
+                context2 = this.eFG.mContext;
+                textView4.setText(context2.getResources().getString(r.l.go_to_live_post_prefix));
+            }
+        } else {
+            view2 = this.eFG.eFz;
+            view2.findViewById(r.h.person_polymeric_header_livepoint).setVisibility(8);
+            textView = this.eFG.eFC;
+            textView.setVisibility(0);
+            textView2 = this.eFG.eFB;
+            context = this.eFG.mContext;
+            textView2.setText(context.getResources().getString(r.l.person_polymeric_ala_live_title));
         }
+        t tVar = this.eFG;
+        i2 = tVar.eFA;
+        tVar.eFA = i2 + 1;
+        animation3 = this.eFG.eFE;
+        animation3.start();
     }
 
-    @Override // com.baidu.tieba.card.a
-    public int getLayout() {
-        return r.h.person_polymeric_vedio_item_layout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.card.a
-    /* renamed from: a */
-    public void onBindDataToView(com.baidu.tieba.personPolymeric.c.k kVar) {
-        if (kVar != null) {
-            this.evK = kVar;
-            this.evI.c(kVar.Rt, 10, false);
-            this.evJ.setText(kVar.title);
-            onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.evJ == view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(this.evK.Ty, this.evK.postId, "")));
-        } else if (this.mRootView == view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoListActivityConfig(this.mContext).createNormalCfg(this.evK.fid, this.evK.Ty, "")));
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

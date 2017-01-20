@@ -7,22 +7,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<String> Sd;
+    private ArrayList<String> Rm;
     private UserData mUser;
 
     public f() {
         this.mUser = null;
-        this.Sd = null;
+        this.Rm = null;
         this.mUser = new UserData();
-        this.Sd = new ArrayList<>(3);
+        this.Rm = new ArrayList<>(3);
     }
 
     public UserData getUser() {
         return this.mUser;
     }
 
-    public ArrayList<String> xC() {
-        return this.Sd;
+    public ArrayList<String> xy() {
+        return this.Rm;
     }
 
     public void parserJson(String str) {
@@ -39,7 +39,7 @@ public class f {
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.Sd.add(optJSONArray.optString(i, null));
+                    this.Rm.add(optJSONArray.optString(i, null));
                 }
             }
         } catch (Exception e) {

@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d {
-    public static final Class<?> nk(String str) {
+    public static final Class<?> nB(String str) {
         if (str == null) {
             return null;
         }
@@ -47,14 +47,14 @@ public class d {
     }
 
     public static final Object c(String str, Class<?> cls) {
-        h nC;
+        h nT;
         if (str == null) {
             return null;
         }
         String trim = str.trim();
-        if (trim.startsWith("$") && (nC = com.baidu.tieba.onlineDebugger.e.b.nC("get " + trim)) != null) {
+        if (trim.startsWith("$") && (nT = com.baidu.tieba.onlineDebugger.e.b.nT("get " + trim)) != null) {
             try {
-                return nC.aHc();
+                return nT.aIQ();
             } catch (Exception e) {
                 return null;
             }
@@ -133,12 +133,12 @@ public class d {
         }
     }
 
-    public static String U(Object obj) {
+    public static String X(Object obj) {
         StringBuilder sb = new StringBuilder();
         if (obj instanceof List) {
             sb.append('[');
             for (Object obj2 : (List) obj) {
-                sb.append(U(obj2));
+                sb.append(X(obj2));
                 sb.append('\n');
             }
             sb.append(']');
@@ -146,7 +146,7 @@ public class d {
         if (obj.getClass().isArray()) {
             sb.append('[');
             for (Object obj3 : (Object[]) obj) {
-                sb.append(U(obj3));
+                sb.append(X(obj3));
                 sb.append('\n');
             }
             sb.append(']');
@@ -154,7 +154,7 @@ public class d {
         if (obj instanceof Set) {
             sb.append('(');
             for (Object obj4 : (Set) obj) {
-                sb.append(U(obj4));
+                sb.append(X(obj4));
                 sb.append('\n');
             }
             sb.append(')');
@@ -162,9 +162,9 @@ public class d {
         if (obj instanceof Map) {
             sb.append('{');
             for (Map.Entry entry : ((Map) obj).entrySet()) {
-                sb.append(U(entry.getKey()));
+                sb.append(X(entry.getKey()));
                 sb.append(':');
-                sb.append(U(entry.getValue()));
+                sb.append(X(entry.getValue()));
                 sb.append('\n');
             }
             sb.append('}');
@@ -177,7 +177,7 @@ public class d {
                 Object obj5 = sparseArray.get(keyAt);
                 sb.append(keyAt);
                 sb.append(':');
-                sb.append(U(obj5));
+                sb.append(X(obj5));
                 sb.append('\n');
             }
             sb.append("]}");

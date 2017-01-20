@@ -8,6 +8,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class EditHeadActivityConfig extends IntentConfig {
     public static final String ACCOUNTDATA = "account_data";
+    public static final int ALA_PERSON_TYPE = 3;
+    public static final int CHANNEL_AVATAR = 4;
+    public static final int CHANNEL_COVER = 5;
     public static final String CUT_IMAGE_HEIGHT_SCALE = "cut_image_height_scale";
     public static final String EDITTYPE = "edit_type";
     public static final String FROMCODE = "request";

@@ -9,34 +9,34 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static g fEF = null;
-    private IWXAPIEventHandler fEI;
-    private IWXAPIEventHandler fEJ = new h(this);
-    private IWXAPI fEG = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-    private ConcurrentHashMap<String, IWXAPIEventHandler> fEH = new ConcurrentHashMap<>();
+    private static g fMY = null;
+    private IWXAPIEventHandler fNb;
+    private IWXAPIEventHandler fNc = new h(this);
+    private IWXAPI fMZ = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+    private ConcurrentHashMap<String, IWXAPIEventHandler> fNa = new ConcurrentHashMap<>();
 
-    public static g bnQ() {
-        if (fEF == null) {
+    public static g bpo() {
+        if (fMY == null) {
             synchronized (g.class) {
-                if (fEF == null) {
-                    fEF = new g();
+                if (fMY == null) {
+                    fMY = new g();
                 }
             }
         }
-        return fEF;
+        return fMY;
     }
 
     private g() {
         if (isAvailable()) {
-            this.fEG.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
+            this.fMZ.registerApp(TbConfig.WEIXIN_SHARE_APP_ID);
         }
     }
 
     public boolean isAvailable() {
-        return this.fEG.isWXAppInstalled() && this.fEG.isWXAppSupportAPI();
+        return this.fMZ.isWXAppInstalled() && this.fMZ.isWXAppSupportAPI();
     }
 
     public void G(Intent intent) {
-        this.fEG.handleIntent(intent, this.fEJ);
+        this.fMZ.handleIntent(intent, this.fNc);
     }
 }

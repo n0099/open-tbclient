@@ -2,7 +2,7 @@ package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.h.k;
+import com.baidu.adp.lib.g.k;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,32 +13,32 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b axy;
+    private static b awC;
 
     private b() {
     }
 
-    public static b DP() {
-        if (axy == null) {
+    public static b DK() {
+        if (awC == null) {
             synchronized (b.class) {
-                if (axy == null) {
-                    axy = new b();
+                if (awC == null) {
+                    awC = new b();
                 }
             }
         }
-        return axy;
+        return awC;
     }
 
-    public void DQ() {
+    public void DL() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void DR() {
+    public void DM() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
-            getUserInfoRequstData.setUid(com.baidu.adp.lib.h.b.c(currentAccountObj.getID(), 0L));
+            getUserInfoRequstData.setUid(com.baidu.adp.lib.g.b.c(currentAccountObj.getID(), 0L));
         }
         MessageManager.getInstance().sendMessage(getUserInfoRequstData);
     }
@@ -71,12 +71,12 @@ public class b {
             }
             com.baidu.tbadk.data.c closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BN());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BO());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.BI());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.BJ());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.eH().e(new c(this, currentAccountObj));
+            k.eF().e(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

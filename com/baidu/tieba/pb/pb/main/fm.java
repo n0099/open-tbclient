@@ -1,26 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
+import android.app.Dialog;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fm implements DialogInterface.OnCancelListener {
-    final /* synthetic */ er egZ;
+public class fm implements View.OnClickListener {
+    private final /* synthetic */ boolean eiX;
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fm(er erVar) {
-        this.egZ = erVar;
+    public fm(ez ezVar, boolean z) {
+        this.eqf = ezVar;
+        this.eiX = z;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        Runnable runnable;
-        Runnable runnable2;
-        runnable = this.egZ.egq;
-        if (runnable == null) {
-            this.egZ.egq = new fn(this);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        PbActivity pbActivity;
+        Dialog dialog2;
+        Dialog dialog3;
+        PbActivity pbActivity2;
+        dialog = this.eqf.eoD;
+        if (dialog != null) {
+            dialog2 = this.eqf.eoD;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.eqf.eoD;
+                pbActivity2 = this.eqf.ehi;
+                com.baidu.adp.lib.g.j.b(dialog3, pbActivity2.getPageContext());
+            }
         }
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable2 = this.egZ.egq;
-        eG.postDelayed(runnable2, 150L);
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            pbActivity = this.eqf.ehi;
+            pbActivity.a(this.eiX, (String) sparseArray.get(r.h.tag_user_mute_mute_userid), sparseArray);
+        }
     }
 }

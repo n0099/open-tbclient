@@ -16,47 +16,47 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    private static String oJ;
-    private static String oK;
-    private static String oL;
-    private static boolean oM;
-    private static String oN;
-    private f oO;
-    private d oP;
-    private long oQ;
+    private static String oC;
+    private static String oD;
+    private static String oE;
+    private static boolean oF;
+    private static String oG;
+    private f oH;
+    private d oI;
+    private long oJ;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.oQ = com.baidu.adp.lib.stats.a.eI().eK();
+        this.oJ = com.baidu.adp.lib.stats.a.eG().eI();
     }
 
     public static void af(String str) {
-        oJ = str;
+        oC = str;
     }
 
     public static void ag(String str) {
-        oN = str;
+        oG = str;
     }
 
     public static void setUserAgent(String str) {
-        oK = str;
+        oD = str;
     }
 
     public static void setUid(String str) {
-        oL = str;
+        oE = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        oM = z;
+        oF = z;
     }
 
     public h a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.oO = new f();
-        a(this.oO, z);
-        this.oO.ep().setUrl(str);
-        this.oP = new d(this.oO);
-        this.oP.e(i, i3, i4);
-        return this.oO.eq();
+        this.oH = new f();
+        a(this.oH, z);
+        this.oH.en().setUrl(str);
+        this.oI = new d(this.oH);
+        this.oI.d(i, i3, i4);
+        return this.oH.eo();
     }
 
     public h a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -64,52 +64,52 @@ public class a {
     }
 
     public h a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.oO = new f();
-        a(this.oO, z);
-        this.oO.ep().setUrl(str);
+        this.oH = new f();
+        a(this.oH, z);
+        this.oH.en().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.oO.ep().a(basicNameValuePair);
+                this.oH.en().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.oO.ep().o(next.getName(), next.getValue());
+                this.oH.en().o(next.getName(), next.getValue());
             }
         }
-        this.oP = new d(this.oO);
-        this.oP.g(i, i2, -1);
-        return this.oO.eq();
+        this.oI = new d(this.oH);
+        this.oI.f(i, i2, -1);
+        return this.oH.eo();
     }
 
     public h a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.oO = new f();
-        a(this.oO, z);
-        this.oO.ep().setUrl(str);
+        this.oH = new f();
+        a(this.oH, z);
+        this.oH.en().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.oO.ep().o(next.getName(), next.getValue());
+                this.oH.en().o(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.oO.ep().n(next2.getName(), next2.getValue());
+                this.oH.en().n(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.oO.ep().d(entry.getKey(), entry.getValue());
+                this.oH.en().d(entry.getKey(), entry.getValue());
             }
         }
-        this.oP = new d(this.oO);
-        this.oP.g(i, i2, -1);
-        return this.oO.eq();
+        this.oI = new d(this.oH);
+        this.oI.f(i, i2, -1);
+        return this.oH.eo();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, i iVar, boolean z2) {
@@ -117,11 +117,11 @@ public class a {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, i iVar, boolean z2, boolean z3) {
-        this.oO = new f();
-        b(this.oO);
-        this.oO.ep().setUrl(str);
-        this.oP = new d(this.oO);
-        return this.oP.a(str2, iVar, i, i2, i3, i4, z2, z3);
+        this.oH = new f();
+        b(this.oH);
+        this.oH.en().setUrl(str);
+        this.oI = new d(this.oH);
+        return this.oI.a(str2, iVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -129,54 +129,54 @@ public class a {
     }
 
     public void cancel() {
-        if (this.oP != null) {
-            this.oP.cancel();
+        if (this.oI != null) {
+            this.oI.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.oP != null) {
-            return this.oP.ei();
+        if (this.oI != null) {
+            return this.oI.eg();
         }
         return false;
     }
 
-    public void ej() {
-        if (this.oP != null) {
-            this.oP.ej();
+    public void eh() {
+        if (this.oI != null) {
+            this.oI.eh();
         }
     }
 
-    public f ex() {
-        return this.oO;
+    public f ev() {
+        return this.oH;
     }
 
     private void a(f fVar, boolean z) {
         if (fVar != null) {
-            if (!TextUtils.isEmpty(oJ)) {
-                fVar.ep().o("Cookie", oJ);
+            if (!TextUtils.isEmpty(oC)) {
+                fVar.en().o("Cookie", oC);
             } else {
-                fVar.ep().o("Cookie", "");
+                fVar.en().o("Cookie", "");
             }
-            if (!TextUtils.isEmpty(oL)) {
-                fVar.ep().o("client_user_token", oL);
+            if (!TextUtils.isEmpty(oE)) {
+                fVar.en().o("client_user_token", oE);
             }
-            if (!TextUtils.isEmpty(oK)) {
-                fVar.ep().o("User-Agent", oK);
+            if (!TextUtils.isEmpty(oD)) {
+                fVar.en().o("User-Agent", oD);
             }
             if (z) {
-                fVar.ep().o("Accept-Encoding", "gzip");
+                fVar.en().o("Accept-Encoding", "gzip");
             } else {
-                fVar.ep().o("Accept-Encoding", "");
+                fVar.en().o("Accept-Encoding", "");
             }
-            if (oM) {
-                fVar.ep().o("Connection", "Keep-Alive");
+            if (oF) {
+                fVar.en().o("Connection", "Keep-Alive");
             } else {
-                fVar.ep().o("Connection", IntentConfig.CLOSE);
+                fVar.en().o("Connection", IntentConfig.CLOSE);
             }
-            fVar.ep().o("client_logid", String.valueOf(this.oQ));
-            if (!TextUtils.isEmpty(oN)) {
-                fVar.ep().o(SocialConstants.PARAM_CUID, oN);
+            fVar.en().o("client_logid", String.valueOf(this.oJ));
+            if (!TextUtils.isEmpty(oG)) {
+                fVar.en().o(SocialConstants.PARAM_CUID, oG);
             }
         }
     }

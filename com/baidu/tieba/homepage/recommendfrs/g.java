@@ -6,25 +6,25 @@ import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends s<Object> {
-    private final /* synthetic */ int VX;
-    final /* synthetic */ b csS;
+    private final /* synthetic */ int Vn;
+    final /* synthetic */ b czW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar, int i) {
-        this.csS = bVar;
-        this.VX = i;
+        this.czW = bVar;
+        this.Vn = i;
     }
 
     @Override // com.baidu.tbadk.util.s
     public Object doInBackground() {
         String str;
         String str2;
-        com.baidu.tbadk.core.b.a sX = com.baidu.tbadk.core.b.a.sX();
-        str = this.csS.cnx;
-        o<String> N = sX.N(str, TbadkCoreApplication.getCurrentAccount());
+        com.baidu.tbadk.core.c.a sR = com.baidu.tbadk.core.c.a.sR();
+        str = this.czW.cuz;
+        o<String> N = sR.N(str, TbadkCoreApplication.getCurrentAccount());
         if (N != null) {
-            str2 = this.csS.cny;
-            N.a(str2, Integer.toString(this.VX), 43200000L);
+            str2 = this.czW.cuA;
+            N.a(str2, Integer.toString(this.Vn), 43200000L);
             return null;
         }
         return null;

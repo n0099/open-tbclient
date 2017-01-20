@@ -6,6 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class GuildActivityConfig extends IntentConfig {
     public static final String CUSTOM_GUIDE_SHOWED = "custom_guide_showed";
+    public static final String CUSTOM_GUIDE_SHOWED_TIME = "custom_guide_showed_time";
     public static final String FROM_ABOUT_PAGE = "from_about_page";
     public static final String FROM_LOGO_PAGE = "from_logo_page";
     public static final String FROM_PAGE = "from_page";
@@ -13,7 +14,6 @@ public class GuildActivityConfig extends IntentConfig {
     public static final int GUIDE_TYPE_APP = 3;
     public static final int GUIDE_TYPE_CUSTOM = 2;
     public static final int GUIDE_TYPE_VERSION = 1;
-    public static final String IS_CUSTOM = "show_custom";
 
     public GuildActivityConfig(Context context) {
         super(context);

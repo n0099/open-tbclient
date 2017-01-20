@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class NewVcodeExceptionStatic {
     static {
-        MessageManager.getInstance().registerListener(new u(CmdConfigCustom.UEXCEPTION_MESSAGE));
+        MessageManager.getInstance().registerListener(new t(CmdConfigCustom.UEXCEPTION_MESSAGE));
     }
 }

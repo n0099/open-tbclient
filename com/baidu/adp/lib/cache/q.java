@@ -3,19 +3,19 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.o;
 /* loaded from: classes.dex */
 class q implements Runnable {
-    final /* synthetic */ p mB;
-    private final /* synthetic */ String mD;
-    private final /* synthetic */ o.a mE;
+    final /* synthetic */ p mu;
+    private final /* synthetic */ String mw;
+    private final /* synthetic */ o.a mx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, String str, o.a aVar) {
-        this.mB = pVar;
-        this.mD = str;
-        this.mE = aVar;
+        this.mu = pVar;
+        this.mw = str;
+        this.mx = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.mE.m(this.mD, this.mB.get(this.mD));
+        this.mx.m(this.mw, this.mu.get(this.mw));
     }
 }

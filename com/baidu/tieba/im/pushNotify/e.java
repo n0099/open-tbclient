@@ -1,32 +1,31 @@
 package com.baidu.tieba.im.pushNotify;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.RequestGetGroupInfoMessage;
+import com.baidu.tieba.im.util.g;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ d cVR;
+class e extends CustomMessageListener {
+    final /* synthetic */ c ddc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(d dVar, int i) {
+    public e(c cVar, int i) {
         super(i);
-        this.cVR = dVar;
+        this.ddc = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null) {
-            switch (socketResponsedMessage.getCmd()) {
-                case 202006:
-                    if (!(socketResponsedMessage instanceof PushNotifyMessage)) {
-                        return;
-                    }
-                    this.cVR.a((PushNotifyMessage) socketResponsedMessage);
-                    return;
-                default:
-                    return;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImMessageCenterPojo imMessageCenterPojo;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016014 && (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) != null) {
+            if (imMessageCenterPojo.getCustomGroupType() == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L))));
             }
+            com.baidu.tieba.im.b.b.atq().a(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L), g.bM(imMessageCenterPojo.getPulled_msgId()), 0L, true);
         }
     }
 }

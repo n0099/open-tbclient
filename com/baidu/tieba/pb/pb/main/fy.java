@@ -1,54 +1,33 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fy implements View.OnClickListener {
-    final /* synthetic */ er egZ;
+    final /* synthetic */ ez eqf;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.p eqm;
+    private final /* synthetic */ com.baidu.tieba.pb.data.f eqn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fy(er erVar) {
-        this.egZ = erVar;
+    public fy(ez ezVar, com.baidu.tieba.tbadkCore.data.p pVar, com.baidu.tieba.pb.data.f fVar) {
+        this.eqf = ezVar;
+        this.eqm = pVar;
+        this.eqn = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        PbActivity pbActivity3;
-        PbActivity pbActivity4;
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            boolean booleanValue = sparseArray.get(r.g.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.g.tag_should_manage_visible)).booleanValue() : false;
-            boolean booleanValue2 = sparseArray.get(r.g.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.g.tag_user_mute_visible)).booleanValue() : false;
-            boolean booleanValue3 = sparseArray.get(r.g.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(r.g.tag_should_delete_visible)).booleanValue() : false;
-            if (booleanValue) {
-                if (com.baidu.tieba.c.a.Od()) {
-                    pbActivity3 = this.egZ.dYB;
-                    Context baseContext = pbActivity3.getBaseContext();
-                    pbActivity4 = this.egZ.dYB;
-                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aJc().getThreadID(), (String) sparseArray.get(r.g.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(r.g.tag_manage_user_identity)).intValue())) {
-                        return;
-                    }
-                }
-                if (booleanValue2) {
-                    sparseArray.put(r.g.tag_from, 1);
-                    pbActivity2 = this.egZ.dYB;
-                    pbActivity2.d(sparseArray);
-                    return;
-                }
-                this.egZ.aW(view);
-            } else if (booleanValue2) {
-                sparseArray.put(r.g.tag_from, 0);
-                sparseArray.put(r.g.tag_check_mute_from, 1);
-                pbActivity = this.egZ.dYB;
-                pbActivity.d(sparseArray);
-            } else if (booleanValue3) {
-                this.egZ.a(((Integer) sparseArray.get(r.g.tag_del_post_type)).intValue(), (String) sparseArray.get(r.g.tag_del_post_id), ((Integer) sparseArray.get(r.g.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(r.g.tag_del_post_is_self)).booleanValue());
-            }
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c10630").ab("obj_id", this.eqm.getAuthor().getUserId()));
+        if (this.eqn.aJZ() != null && this.eqn.aJZ().rN() != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11923").s("obj_id", 3));
+        }
+        pbActivity = this.eqf.ehi;
+        if (pbActivity.ehW.eqy != null) {
+            pbActivity2 = this.eqf.ehi;
+            pbActivity2.ehW.eqy.onClick(view);
         }
     }
 }

@@ -7,42 +7,43 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.r;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.im.data.a> Wv;
-    private View.OnClickListener aTB = new g(this);
-    private IMBlackListActivity dau;
+    private ArrayList<BlackListItemData> VL;
+    private View.OnClickListener bYE = new g(this);
+    private IMBlackListActivity dhI;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(IMBlackListActivity iMBlackListActivity) {
-        this.dau = iMBlackListActivity;
+        this.dhI = iMBlackListActivity;
     }
 
-    public void setData(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.Wv = arrayList;
+    public void setData(ArrayList<BlackListItemData> arrayList) {
+        this.VL = arrayList;
     }
 
-    public void b(com.baidu.tieba.im.data.a aVar) {
-        if (this.Wv != null) {
-            this.Wv.remove(aVar);
+    public void b(BlackListItemData blackListItemData) {
+        if (this.VL != null) {
+            this.VL.remove(blackListItemData);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Wv != null) {
-            return this.Wv.size();
+        if (this.VL != null) {
+            return this.VL.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.Wv != null) {
-            return this.Wv.get(i);
+        if (this.VL != null) {
+            return this.VL.get(i);
         }
         return null;
     }
@@ -55,58 +56,58 @@ public class f extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        com.baidu.tieba.im.data.a aVar2 = (com.baidu.tieba.im.data.a) getItem(i);
-        if (aVar2 != null) {
-            aVar = a(view != null ? view.getTag() : null, aVar2);
+        BlackListItemData blackListItemData = (BlackListItemData) getItem(i);
+        if (blackListItemData != null) {
+            aVar = a(view != null ? view.getTag() : null, blackListItemData);
         } else {
             aVar = null;
         }
         if (aVar != null) {
-            return aVar.aAK;
+            return aVar.rootView;
         }
         return null;
     }
 
-    private a auc() {
+    private a avi() {
         a aVar = new a(this, null);
-        aVar.aAK = LayoutInflater.from(this.dau.getPageContext().getContext()).inflate(r.h.im_black_list_item, (ViewGroup) null);
-        aVar.daw = (HeadImageView) aVar.aAK.findViewById(r.g.header_view);
-        aVar.daw.setIsRound(true);
-        aVar.bbH = (TextView) aVar.aAK.findViewById(r.g.user_name);
-        aVar.dax = (Button) aVar.aAK.findViewById(r.g.remove_button);
-        aVar.aAK.setTag(aVar);
-        aVar.dax.setOnClickListener(this.aTB);
+        aVar.rootView = LayoutInflater.from(this.dhI.getPageContext().getContext()).inflate(r.j.im_black_list_item, (ViewGroup) null);
+        aVar.dhK = (HeadImageView) aVar.rootView.findViewById(r.h.header_view);
+        aVar.dhK.setIsRound(true);
+        aVar.blu = (TextView) aVar.rootView.findViewById(r.h.user_name);
+        aVar.dhL = (Button) aVar.rootView.findViewById(r.h.remove_button);
+        aVar.rootView.setTag(aVar);
+        aVar.dhL.setOnClickListener(this.bYE);
         return aVar;
     }
 
-    private a a(Object obj, com.baidu.tieba.im.data.a aVar) {
-        a aVar2;
+    private a a(Object obj, BlackListItemData blackListItemData) {
+        a aVar;
         if (obj == null) {
-            aVar2 = auc();
+            aVar = avi();
         } else {
-            aVar2 = (a) obj;
+            aVar = (a) obj;
         }
-        a(aVar2, aVar.aoQ());
-        aVar2.bbH.setText(aVar.getUserName());
-        aVar2.dax.setTag(aVar);
-        this.dau.getLayoutMode().x(aVar2.aAK);
-        return aVar2;
+        a(aVar, blackListItemData.apX());
+        aVar.blu.setText(blackListItemData.getUserName());
+        aVar.dhL.setTag(blackListItemData);
+        this.dhI.getLayoutMode().v(aVar.rootView);
+        return aVar;
     }
 
     private void a(a aVar, String str) {
         if (str != null) {
-            aVar.daw.setTag(str);
-            aVar.daw.c(str, 12, false);
+            aVar.dhK.setTag(str);
+            aVar.dhK.c(str, 12, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public View aAK;
-        public TextView bbH;
-        public HeadImageView daw;
-        public Button dax;
+        public TextView blu;
+        public HeadImageView dhK;
+        public Button dhL;
+        public View rootView;
 
         private a() {
         }

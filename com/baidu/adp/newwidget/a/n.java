@@ -6,27 +6,27 @@ import android.graphics.Rect;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class n extends k {
-    protected Rect kF = new Rect();
+    protected Rect ky = new Rect();
 
     @Override // com.baidu.adp.newwidget.a.c, com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        if (this.uQ != null) {
-            canvas.concat(this.uQ);
+        if (this.uH != null) {
+            canvas.concat(this.uH);
         }
         canvas.save();
-        if (this.vM) {
+        if (this.vD) {
             try {
-                canvas.clipPath(this.vJ);
+                canvas.clipPath(this.vA);
             } catch (Error e) {
             }
         }
-        if (dVar.hJ()) {
-            Bitmap bitmap = dVar.vq.getBitmap();
-            this.kF.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.kF, this.uR, this.mPaint);
+        if (dVar.hH()) {
+            Bitmap bitmap = dVar.vh.getBitmap();
+            this.ky.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            canvas.drawBitmap(bitmap, this.ky, this.uI, this.mPaint);
         } else {
-            this.kF.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.vr.a(canvas, this.kF, this.uR, this.mPaint);
+            this.ky.set(0, 0, dVar.getWidth(), dVar.getHeight());
+            dVar.vi.a(canvas, this.ky, this.uI, this.mPaint);
         }
         canvas.restore();
     }

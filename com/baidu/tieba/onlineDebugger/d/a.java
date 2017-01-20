@@ -5,31 +5,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    public static final String[] dTc = {"com.baidu.adp", "com.baidu.tbadk", TbConfig.MAIN_PACKAGE_NAME};
-    private int dTd;
-    private String dTe;
-    private Map<String, Integer> dTf = new HashMap();
+    public static final String[] ebV = {"com.baidu.adp", "com.baidu.tbadk", TbConfig.MAIN_PACKAGE_NAME};
+    private int ebW;
+    private String ebX;
+    private Map<String, Integer> ebY = new HashMap();
     private String msgContent;
     private int msgType;
     private String toUid;
 
     public a() {
-        this.dTf.put("get", 3);
-        this.dTf.put("set", 3);
-        this.dTf.put("exe", 3);
-        this.dTf.put("shell", 3);
-        this.dTf.put("upload", 5);
-        this.dTf.put("show", 4);
-        this.dTf.put("new", 6);
-        this.dTf.put("sendcmd", 7);
+        this.ebY.put("get", 3);
+        this.ebY.put("set", 3);
+        this.ebY.put("exe", 3);
+        this.ebY.put("shell", 3);
+        this.ebY.put("upload", 5);
+        this.ebY.put("show", 4);
+        this.ebY.put("new", 6);
+        this.ebY.put("sendcmd", 7);
     }
 
-    public int aHg() {
-        return this.dTd;
+    public int aIU() {
+        return this.ebW;
     }
 
-    public String aHh() {
-        return this.dTe;
+    public String aIV() {
+        return this.ebX;
     }
 
     public String getToUid() {
@@ -44,8 +44,8 @@ public class a {
         return this.msgContent;
     }
 
-    public void nv(String str) {
-        this.dTe = str;
+    public void nM(String str) {
+        this.ebX = str;
     }
 
     public void setToUid(String str) {
@@ -61,8 +61,8 @@ public class a {
         this.msgContent = str.trim();
         if (this.msgType == 0 && (indexOf = str.indexOf(" ")) != -1) {
             String trim = str.substring(0, indexOf).trim();
-            if (this.dTf.containsKey(trim)) {
-                setMsgType(this.dTf.get(trim).intValue());
+            if (this.ebY.containsKey(trim)) {
+                setMsgType(this.ebY.get(trim).intValue());
             }
         }
     }

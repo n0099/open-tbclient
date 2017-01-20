@@ -1,35 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class cn extends CustomMessageListener {
-    final /* synthetic */ cj eaQ;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cn(cj cjVar, int i) {
-        super(i);
-        this.eaQ = cjVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
-        com.baidu.tieba.pb.data.f fVar;
-        if (customResponsedMessage == null) {
-            return;
+class cn implements com.baidu.tbadk.ala.f {
+    @Override // com.baidu.tbadk.ala.f
+    public View Q(Context context) {
+        TextView P = com.baidu.tbadk.ala.d.P(context);
+        if (P != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(com.baidu.adp.lib.util.k.e(context, r.f.ds4), -com.baidu.adp.lib.util.k.e(context, r.f.ds6), -com.baidu.adp.lib.util.k.e(context, r.f.ds6), 0);
+            layoutParams.gravity = 16;
+            P.setLayoutParams(layoutParams);
         }
-        list = this.eaQ.bEG;
-        if (!com.baidu.tbadk.core.util.x.t(list)) {
-            return;
-        }
-        this.eaQ.YR();
-        cj cjVar = this.eaQ;
-        fVar = this.eaQ.dXl;
-        cjVar.b(fVar);
+        return P;
     }
 }

@@ -4,36 +4,36 @@ import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.core.util.l;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    public static final String anu = m.rC + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public String ans;
-    public String shareAbstract;
-    public boolean anm = false;
-    public boolean ann = false;
-    public boolean ano = false;
-    public boolean anp = false;
-    public boolean anq = false;
+    public static final String amB = l.ru + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String amy;
+    public String amz;
+    public boolean ams = false;
+    public boolean amt = false;
+    public boolean amu = false;
+    public boolean amv = false;
+    public boolean amw = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
     public Uri imageUri = null;
     public Location location = null;
-    private WeakReference<Bitmap> ant = null;
-    public String anr = null;
+    private WeakReference<Bitmap> amA = null;
+    public String amx = null;
     public String extData = null;
 
     public Bitmap getImageData() {
         Bitmap bitmap;
-        if (this.ant == null || (bitmap = this.ant.get()) == null || bitmap.isRecycled()) {
+        if (this.amA == null || (bitmap = this.amA.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void i(Bitmap bitmap) {
-        this.ant = new WeakReference<>(bitmap);
+        this.amA = new WeakReference<>(bitmap);
     }
 }

@@ -13,7 +13,7 @@ class a extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
-            com.baidu.adp.lib.stats.a.eI().al((String) customResponsedMessage.getData());
+            com.baidu.adp.lib.stats.a.eG().ak((String) customResponsedMessage.getData());
         }
     }
 }

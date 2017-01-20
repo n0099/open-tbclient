@@ -1,23 +1,24 @@
 package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.view.z;
+import com.baidu.tbadk.core.view.aa;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements z.b {
-    final /* synthetic */ l bqi;
+public class af implements aa.b {
+    final /* synthetic */ l bxV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(l lVar) {
-        this.bqi = lVar;
+        this.bxV = lVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.z.b
+    @Override // com.baidu.tbadk.core.view.aa.b
     public void aM(boolean z) {
-        com.baidu.tieba.enterForum.c.c cVar;
+        EnterForumModel enterForumModel;
         String str;
-        cVar = this.bqi.bpR;
-        str = this.bqi.bpT;
-        cVar.da(!StringUtils.isNull(str));
+        enterForumModel = this.bxV.bxD;
+        str = this.bxV.bxF;
+        enterForumModel.dh(!StringUtils.isNull(str));
     }
 }

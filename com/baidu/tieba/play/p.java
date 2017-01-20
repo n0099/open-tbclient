@@ -1,33 +1,26 @@
 package com.baidu.tieba.play;
 
-import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tieba.play.QuickVideoView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements Animation.AnimationListener {
-    final /* synthetic */ c eIS;
+public class p implements QuickVideoView.b {
+    final /* synthetic */ c eSu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(c cVar) {
-        this.eIS = cVar;
+        this.eSu = cVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        View view2;
-        view = this.eIS.aSa;
-        if (view != null) {
-            view2 = this.eIS.aSa;
-            view2.setVisibility(8);
-            this.eIS.dnz = false;
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // com.baidu.tieba.play.QuickVideoView.b
+    public void onSurfaceDestroyed() {
+        Runnable runnable;
+        Runnable runnable2;
+        this.eSu.dvu = false;
+        com.baidu.adp.lib.g.h eE = com.baidu.adp.lib.g.h.eE();
+        runnable = this.eSu.dvS;
+        eE.removeCallbacks(runnable);
+        com.baidu.adp.lib.g.h eE2 = com.baidu.adp.lib.g.h.eE();
+        runnable2 = this.eSu.dvU;
+        eE2.removeCallbacks(runnable2);
     }
 }

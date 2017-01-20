@@ -2,37 +2,37 @@ package com.baidu.tbadk.mvc.model;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.model.a;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.CacheModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a azU;
+    final /* synthetic */ CacheModel ayP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(a aVar, int i) {
+    public b(CacheModel cacheModel, int i) {
         super(i);
-        this.azU = aVar;
+        this.ayP = cacheModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        a.InterfaceC0047a interfaceC0047a;
-        a.InterfaceC0047a interfaceC0047a2;
-        this.azU.yk = false;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof ReadCacheRespMsg)) {
-            ReadCacheRespMsg readCacheRespMsg = (ReadCacheRespMsg) customResponsedMessage;
-            ReadCacheMessage readCacheMessage = null;
-            if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
-                readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
+        CacheModel.a aVar;
+        CacheModel.a aVar2;
+        this.ayP.ayO = false;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
+            WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
+            WriteCacheMessage writeCacheMessage = null;
+            if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
+                writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
             }
-            interfaceC0047a = this.azU.azO;
-            if (interfaceC0047a != null) {
-                interfaceC0047a2 = this.azU.azO;
-                interfaceC0047a2.a(readCacheRespMsg, readCacheMessage);
+            aVar = this.ayP.ayJ;
+            if (aVar != null) {
+                aVar2 = this.ayP.ayJ;
+                aVar2.a(writeCacheRespMsg, writeCacheMessage);
             }
         }
     }

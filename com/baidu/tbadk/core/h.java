@@ -3,45 +3,45 @@ package com.baidu.tbadk.core;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
 public class h {
-    protected com.baidu.tbadk.core.util.z NX;
-    protected NewErrorData NY = null;
+    protected NewErrorData Nj = null;
+    protected com.baidu.tbadk.core.util.y mNetWork;
 
     public h() {
-        this.NX = null;
-        this.NX = new com.baidu.tbadk.core.util.z();
+        this.mNetWork = null;
+        this.mNetWork = new com.baidu.tbadk.core.util.y();
     }
 
     public void cancel() {
-        if (this.NX != null) {
-            this.NX.eg();
+        if (this.mNetWork != null) {
+            this.mNetWork.ee();
         }
     }
 
     protected void setUrl(String str) {
-        this.NX.setUrl(str);
+        this.mNetWork.setUrl(str);
     }
 
     public void n(String str, String str2) {
-        this.NX.n(str, str2);
+        this.mNetWork.n(str, str2);
     }
 
     protected String getResult() {
-        String uk = this.NX.uk();
-        this.NY = new NewErrorData();
-        this.NY.parserJson(uk);
-        return uk;
+        String ud = this.mNetWork.ud();
+        this.Nj = new NewErrorData();
+        this.Nj.parserJson(ud);
+        return ud;
     }
 
-    public boolean oH() {
-        if (this.NX != null) {
-            return this.NX.uI().vC().oH();
+    public boolean isRequestSuccess() {
+        if (this.mNetWork != null) {
+            return this.mNetWork.uC().vw().isRequestSuccess();
         }
         return false;
     }
 
-    public String oI() {
-        if (this.NX != null) {
-            return this.NX.getErrorString();
+    public String oB() {
+        if (this.mNetWork != null) {
+            return this.mNetWork.getErrorString();
         }
         return null;
     }

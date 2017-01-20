@@ -1,92 +1,66 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
-public class e extends BitmapDrawable {
-    private Context mContext;
-    private int mId;
-    private String mKey;
-    private Rect kF = null;
-    private Matrix mMatrix = null;
+public class e {
+    private String QU;
+    private int aHu;
+    private String aHv;
+    private int aHw;
+    private int aHx;
+    private int duration;
+    private int height;
+    private String videoUrl;
+    private int width;
 
-    public e(Context context, int i) {
-        this.mId = 0;
-        this.mContext = null;
-        this.mKey = null;
-        this.mContext = context;
-        this.mId = i;
-        this.mKey = String.valueOf(this.mId);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
-        this.kF = new Rect(i, i2, i3, i4);
-        this.mMatrix = null;
-        super.setBounds(i, i2, i3, i4);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
-        this.kF = new Rect(rect);
-        this.mMatrix = null;
-        super.setBounds(rect);
-    }
-
-    public void L(int i, int i2) {
-        if (this.kF != null) {
-            super.setBounds(this.kF.left, this.kF.top, this.kF.right + i, this.kF.bottom + i2);
+    public void a(PbContent pbContent) {
+        if (pbContent != null) {
+            this.videoUrl = pbContent.link;
+            this.QU = pbContent.src;
+            this.width = pbContent.width.intValue();
+            this.height = pbContent.height.intValue();
+            this.aHu = pbContent.e_type.intValue();
+            this.aHv = pbContent.text;
+            this.duration = pbContent.during_time.intValue();
+            this.aHw = pbContent.count.intValue();
+            this.aHx = pbContent.origin_size.intValue();
         }
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        com.baidu.adp.widget.a.a aVar;
-        if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.c DX = com.baidu.tbadk.imageManager.c.DX();
-            com.baidu.adp.widget.a.a fW = (DX == null || this.mKey == null) ? null : DX.fW(this.mKey);
-            if (fW == null) {
-                Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
-                if (resBitmap != null) {
-                    fW = new com.baidu.adp.widget.a.a(resBitmap, false, null);
-                }
-                if (DX != null && fW != null && this.mKey != null) {
-                    DX.c(this.mKey, fW);
-                }
-                aVar = fW;
-            } else {
-                aVar = fW;
-            }
-            if (aVar != null) {
-                int width = aVar.getWidth();
-                int height = aVar.getHeight();
-                if (width > 0 && height > 0 && this.kF != null) {
-                    canvas.save();
-                    canvas.clipRect(super.getBounds());
-                    if (height > this.kF.bottom - this.kF.top || width > this.kF.right - this.kF.left) {
-                        if (this.mMatrix == null) {
-                            this.mMatrix = new Matrix();
-                            this.mMatrix.postTranslate(0.0f, 0.0f);
-                            float f = (this.kF.right - this.kF.left) / width;
-                            float f2 = (this.kF.bottom - this.kF.top) / height;
-                            if (f >= f2) {
-                                f = f2;
-                            }
-                            this.mMatrix.postScale(f, f);
-                        }
-                        aVar.a(canvas, this.mMatrix, null);
-                    } else {
-                        aVar.a(canvas, 0.0f, 0.0f, (Paint) null);
-                    }
-                    canvas.restore();
-                }
-            }
-        }
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
+
+    public String qa() {
+        return this.QU;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String HZ() {
+        return this.aHv;
+    }
+
+    public boolean Ia() {
+        return this.aHu == 15;
+    }
+
+    public boolean isAvaliable() {
+        return !StringUtils.isNull(this.videoUrl) && this.width > 0 && this.height > 0;
+    }
+
+    public int Ib() {
+        return this.aHw;
+    }
+
+    public void fC(int i) {
+        this.aHw = i;
     }
 }

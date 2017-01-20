@@ -8,11 +8,11 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ RecommendFrsControlFragment cnd;
+    final /* synthetic */ RecommendFrsControlFragment cud;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cnd = recommendFrsControlFragment;
+        this.cud = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -21,14 +21,14 @@ public class p implements CustomMessageTask.CustomRunnable<Boolean> {
         ScrollFragmentTabHost scrollFragmentTabHost2;
         ScrollFragmentTabHost scrollFragmentTabHost3;
         ScrollFragmentTabHost scrollFragmentTabHost4;
-        scrollFragmentTabHost = this.cnd.cmP;
-        if (scrollFragmentTabHost.aiv()) {
-            scrollFragmentTabHost2 = this.cnd.cmP;
-            if (scrollFragmentTabHost2.cnK) {
-                scrollFragmentTabHost3 = this.cnd.cmP;
-                scrollFragmentTabHost3.aiw();
-                scrollFragmentTabHost4 = this.cnd.cmP;
-                scrollFragmentTabHost4.cnK = false;
+        scrollFragmentTabHost = this.cud.ctP;
+        if (scrollFragmentTabHost.ajD()) {
+            scrollFragmentTabHost2 = this.cud.ctP;
+            if (scrollFragmentTabHost2.cuM) {
+                scrollFragmentTabHost3 = this.cud.ctP;
+                scrollFragmentTabHost3.ajE();
+                scrollFragmentTabHost4 = this.cud.ctP;
+                scrollFragmentTabHost4.cuM = false;
             }
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, true);
         }

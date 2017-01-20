@@ -9,18 +9,18 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends JsonHttpResponseHandler {
     final /* synthetic */ ShareContent a;
-    final /* synthetic */ c cJ;
+    final /* synthetic */ c cH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, ShareContent shareContent) {
-        this.cJ = cVar;
+        this.cH = cVar;
         this.a = shareContent;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onFailure(Throwable th, String str) {
-        this.cJ.a(this.a);
+        this.cH.a(this.a);
     }
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
@@ -32,6 +32,6 @@ public class d extends JsonHttpResponseHandler {
             }
         } catch (JSONException e) {
         }
-        this.cJ.a(this.a);
+        this.cH.a(this.a);
     }
 }

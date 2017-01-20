@@ -1,39 +1,30 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.tbadkCore.aa;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab extends Handler {
-    final /* synthetic */ aa ffl;
+public class ab extends BdAsyncTask<Void, Void, Void> {
+    private final /* synthetic */ String bxX;
+    private final /* synthetic */ WriteData foK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(aa aaVar) {
-        this.ffl = aaVar;
+    public ab(WriteData writeData, String str) {
+        this.foK = writeData;
+        this.bxX = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        aa.a aVar;
-        aa.a aVar2;
-        if (message.what == 2) {
-            this.ffl.count = 0;
-            this.ffl.dXe = 0L;
-            this.ffl.dXf = 0L;
-        } else if (message.what == 1) {
-            i = this.ffl.count;
-            if (i == 1) {
-                aVar = this.ffl.ffk;
-                if (aVar != null) {
-                    aVar2 = this.ffl.ffk;
-                    aVar2.XO();
-                }
-                this.ffl.count = 0;
-                this.ffl.dXe = 0L;
-                this.ffl.dXf = 0L;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        com.baidu.adp.lib.cache.o<String> cB = com.baidu.tbadk.core.c.a.sR().cB("tb.pb_editor");
+        if (this.foK != null && this.foK.hasContentToSave()) {
+            cB.a(aa.qC(this.bxX), this.foK.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            return null;
         }
+        cB.remove(aa.qC(this.bxX));
+        return null;
     }
 }

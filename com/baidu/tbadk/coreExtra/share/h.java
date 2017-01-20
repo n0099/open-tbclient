@@ -6,101 +6,101 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class h {
-    private static c anv = null;
-    private static boolean anw = false;
-    private a anx;
-    private b any;
+    private static c amC = null;
+    private static boolean amD = false;
+    private a amE;
+    private b amF;
+    private String amG = TbadkCoreApplication.m9getInst().getContext().getString(r.l.share_tail);
+    private String amH = String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(r.l.weibo_share_tail)) + this.amG;
     private final Context mContext;
-    private String anz = TbadkCoreApplication.m9getInst().getContext().getString(r.j.share_tail);
-    private String anA = String.valueOf(TbadkCoreApplication.m9getInst().getContext().getString(r.j.weibo_share_tail)) + this.anz;
 
     public h(Context context, a aVar) {
-        this.anx = null;
-        this.any = null;
+        this.amE = null;
+        this.amF = null;
         this.mContext = context;
         if (aVar != null) {
-            this.anx = aVar;
+            this.amE = aVar;
         }
-        ak(this.mContext);
-        if (anv != null) {
-            this.any = anv.createWorker(this.mContext, this.anx);
+        am(this.mContext);
+        if (amC != null) {
+            this.amF = amC.createWorker(this.mContext, this.amE);
         }
     }
 
-    public static boolean ak(Context context) {
+    public static boolean am(Context context) {
         if (context == null) {
             return false;
         }
-        if (!anw) {
+        if (!amD) {
             try {
-                anv = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
+                amC = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            anw = true;
+            amD = true;
         }
-        return anv != null;
+        return amC != null;
     }
 
     public void c(f fVar) {
-        if (this.any != null && fVar != null) {
-            if (!StringUtils.isNull(fVar.shareAbstract)) {
-                fVar.content = fVar.shareAbstract;
+        if (this.amF != null && fVar != null) {
+            if (!StringUtils.isNull(fVar.amy)) {
+                fVar.content = fVar.amy;
             }
-            fVar.content = b(fVar.content, 80, 20, this.anz);
-            this.any.a(a(fVar, "weixin"), 3, false);
+            fVar.content = b(fVar.content, 80, 20, this.amG);
+            this.amF.a(a(fVar, "weixin"), 3, false);
         }
     }
 
     public void d(f fVar) {
-        if (this.any != null && fVar != null) {
-            fVar.content = b(fVar.content, 80, 20, this.anz);
-            if (StringUtils.isNull(fVar.ans)) {
+        if (this.amF != null && fVar != null) {
+            fVar.content = b(fVar.content, 80, 20, this.amG);
+            if (StringUtils.isNull(fVar.amz)) {
                 fVar.title = fVar.content;
             } else {
-                fVar.title = fVar.ans;
+                fVar.title = fVar.amz;
             }
-            this.any.a(a(fVar, "weixin_timeline"), 2, false);
+            this.amF.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void e(f fVar) {
-        if (this.any != null && fVar != null) {
-            fVar.content = b(fVar.content, 80, 32, this.anz);
-            this.any.a(a(fVar, "qqfriend"), 8, true);
+        if (this.amF != null && fVar != null) {
+            fVar.content = b(fVar.content, 80, 32, this.amG);
+            this.amF.a(a(fVar, "qqfriend"), 8, true);
         }
     }
 
     public void f(f fVar) {
-        if (this.any != null) {
-            fVar.content = b(fVar.content, 80, 32, this.anz);
-            this.any.a(a(fVar, "qzone"), 4, true);
+        if (this.amF != null) {
+            fVar.content = b(fVar.content, 80, 32, this.amG);
+            this.amF.a(a(fVar, "qzone"), 4, true);
         }
     }
 
     public void g(f fVar) {
-        if (this.any != null) {
-            fVar.content = b(fVar.content, 140, 20, this.anz);
-            this.any.a(a(fVar, "tencent_weibo"), 5, true);
+        if (this.amF != null) {
+            fVar.content = b(fVar.content, 140, 20, this.amG);
+            this.amF.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void h(f fVar) {
-        if (this.any != null) {
-            fVar.content = b(fVar.content, 140, 20, this.anA);
-            this.any.a(a(fVar, "sina_weibo"), 6, true);
+        if (this.amF != null) {
+            fVar.content = b(fVar.content, 140, 20, this.amH);
+            this.amF.a(a(fVar, "sina_weibo"), 6, true);
         }
     }
 
     public void i(f fVar) {
-        if (this.any != null) {
-            fVar.content = b(fVar.content, 140, 20, this.anz);
-            this.any.a(a(fVar, "renren"), 7, true);
+        if (this.amF != null) {
+            fVar.content = b(fVar.content, 140, 20, this.amG);
+            this.amF.a(a(fVar, "renren"), 7, true);
         }
     }
 
@@ -125,27 +125,27 @@ public class h {
         }
         if (fVar.imageUri != null && !fVar.imageUri.equals("")) {
             String uri = fVar.imageUri.toString();
-            if (!eL(uri)) {
+            if (!eI(uri)) {
                 fVar.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 fVar.imageUri = Uri.parse(uri);
                 aj(uri, "sfc=" + str);
             }
         }
-        fVar.linkUrl = aj(av.isEmpty(fVar.linkUrl) ? TbDomainConfig.DOMAIN_HTTPS_TIEBA : fVar.linkUrl, "sfc=" + str);
+        fVar.linkUrl = aj(at.isEmpty(fVar.linkUrl) ? TbDomainConfig.DOMAIN_HTTPS_TIEBA : fVar.linkUrl, "sfc=" + str);
         return fVar;
     }
 
     private String aj(String str, String str2) {
-        if (av.isEmpty(Uri.parse(str).getQuery())) {
+        if (at.isEmpty(Uri.parse(str).getQuery())) {
             str = String.valueOf(str) + "?";
         }
         return String.valueOf(str) + "&" + str2;
     }
 
-    private boolean eL(String str) {
+    private boolean eI(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (bc.vz().dN(str)) {
+        if (ba.vt().dL(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

@@ -35,7 +35,7 @@ public class DistributeRequest extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
         builder.Ad = this.adReqList;
-        n.a(builder, false);
+        n.bindCommonParamsToProtobufData(builder, false);
         builder2.data = builder.build(false);
         return builder2.build(false);
     }

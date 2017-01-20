@@ -1,42 +1,30 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj {
-    private int dcF = 0;
-    private int dcG = 0;
-    private int dcH = 0;
-    private int chat = 0;
-    private int bookmark = 0;
+public class aj extends Handler {
+    final /* synthetic */ ah djW;
 
-    public int auM() {
-        return this.dcF;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(ah ahVar) {
+        this.djW = ahVar;
     }
 
-    public int auN() {
-        return this.dcG;
-    }
-
-    public int auO() {
-        return this.dcH;
-    }
-
-    public int auP() {
-        return this.bookmark;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.dcF = jSONObject.optInt("replyme", 0);
-                this.dcG = jSONObject.optInt("atme", 0);
-                this.dcH = jSONObject.optInt("fans", 0);
-                this.chat = jSONObject.optInt("pletter", 0);
-                this.bookmark = jSONObject.optInt("bookmark", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        Handler handler2;
+        if (message.what == 1) {
+            this.djW.djV = System.currentTimeMillis();
+            if ((!MessageManager.getInstance().getSocketClient().isValid()) && com.baidu.adp.lib.util.i.gk()) {
+                this.djW.avX();
             }
+            handler = this.djW.mHandler;
+            handler2 = this.djW.mHandler;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
         }
     }
 }

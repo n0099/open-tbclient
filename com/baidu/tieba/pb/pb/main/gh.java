@@ -1,48 +1,54 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.pb.pb.main.dc;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.b.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class gh implements dc.a {
-    final /* synthetic */ ReaderPbService ehh;
+public class gh implements View.OnClickListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gh(ReaderPbService readerPbService) {
-        this.ehh = readerPbService;
+    public gh(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.dc.a
-    public void c(com.baidu.tieba.pb.data.f fVar) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.dc.a
-    public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.dc.a
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
-        boolean z2;
-        eb ebVar;
-        ee eeVar;
-        eb ebVar2;
-        ee eeVar2;
-        ee eeVar3;
-        ee eeVar4;
-        z2 = this.ehh.isAlive;
-        if (!z2) {
-            ebVar = this.ehh.mReaderManager;
-            if (ebVar != null) {
-                eeVar = this.ehh.mReaderModel;
-                if (eeVar != null) {
-                    ebVar2 = this.ehh.mReaderManager;
-                    eeVar2 = this.ehh.mReaderModel;
-                    com.baidu.tieba.pb.data.f pbData = eeVar2.getPbData();
-                    eeVar3 = this.ehh.mReaderModel;
-                    boolean aLs = eeVar3.aLs();
-                    eeVar4 = this.ehh.mReaderModel;
-                    ebVar2.b(pbData, aLs, i2, eeVar4.aLt());
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        View view2;
+        View view3;
+        PbActivity pbActivity2;
+        com.baidu.tbadk.editortools.j jVar3;
+        a.InterfaceC0074a interfaceC0074a;
+        String str;
+        pbActivity = this.eqf.ehi;
+        if (pbActivity.checkUpIsLogin()) {
+            jVar = this.eqf.DX;
+            if (jVar != null) {
+                this.eqf.aNC();
             }
+            jVar2 = this.eqf.DX;
+            if (jVar2 != null) {
+                this.eqf.epg = false;
+                pbActivity2 = this.eqf.ehi;
+                jVar3 = this.eqf.DX;
+                interfaceC0074a = this.eqf.epC;
+                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) jVar3.eD(2).atm, false, interfaceC0074a);
+            }
+            view2 = this.eqf.epb;
+            if (view2 != null) {
+                view3 = this.eqf.epb;
+                view3.setVisibility(8);
+                this.eqf.epg = false;
+            }
+            this.eqf.aLT();
+            return;
         }
+        com.baidu.tbadk.core.util.ar s = new com.baidu.tbadk.core.util.ar("c10517").s("obj_locate", 2);
+        str = this.eqf.mForumId;
+        TiebaStatic.log(s.ab("fid", str));
     }
 }

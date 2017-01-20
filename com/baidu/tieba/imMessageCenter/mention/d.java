@@ -1,21 +1,27 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import android.view.View;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements View.OnClickListener {
-    final /* synthetic */ b dca;
+public class d extends CustomMessageListener {
+    final /* synthetic */ AtMeModelController djt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(b bVar) {
-        this.dca = bVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(AtMeModelController atMeModelController, int i) {
+        super(i);
+        this.djt = atMeModelController;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ViewEventCenter lI;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9484, this.dca.getData(), null, null);
-        lI = this.dca.lI();
-        lI.dispatchMvcEvent(bVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        AtMessageActivity atMessageActivity;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+            atMessageActivity = this.djt.djn;
+            atMessageActivity.avQ();
+        }
     }
 }

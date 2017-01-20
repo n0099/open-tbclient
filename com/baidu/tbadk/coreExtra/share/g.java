@@ -29,11 +29,11 @@ class g implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
                 Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                 while (it.hasNext()) {
                     Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                    TextView B = dVar.B(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
+                    TextView C = dVar.C(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue());
                     if (data.isInsertBack) {
-                        dVar.a(B, dVar.Au(), (View.OnClickListener) ((Pair) next.second).second);
+                        dVar.a(C, dVar.Ap(), (View.OnClickListener) ((Pair) next.second).second);
                     } else {
-                        dVar.a(B, (View.OnClickListener) ((Pair) next.second).second);
+                        dVar.a(C, (View.OnClickListener) ((Pair) next.second).second);
                     }
                 }
             }

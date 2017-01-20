@@ -1,84 +1,163 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.Timgs;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.r;
+import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String fgk;
-    private int fgl;
-    private String fgm;
-    private String fgn;
-    private String fgo;
+public class k {
+    private String c;
     private int height;
-    private String subTitle;
     private int width;
+    private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+    private static final Pattern fpH = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private int type = 0;
+    private String text = null;
+    private String link = null;
+    private String fpF = null;
+    private SpannableStringBuilder fpG = null;
+    private boolean fpE = false;
 
-    public k(Timgs timgs) {
-        this.fgk = null;
-        this.fgl = 0;
-        this.fgm = null;
-        this.fgn = null;
-        this.fgo = null;
-        this.subTitle = null;
-        this.width = 1;
-        this.height = 1;
-        if (timgs != null) {
-            this.fgk = timgs.img_url;
-            this.fgl = timgs.flag.intValue();
-            this.fgm = timgs.url;
-            this.fgn = timgs.big_cdn_url;
-            this.fgo = timgs.des_main;
-            this.subTitle = timgs.des_sub;
-            String str = timgs.bsize;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.width = com.baidu.adp.lib.h.b.g(split[0], 1);
-                    this.height = com.baidu.adp.lib.h.b.g(split[1], 1);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
+    public static boolean bm(int i, int i2) {
+        return i == 0 && i2 != 3;
+    }
+
+    public static boolean bn(int i, int i2) {
+        return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public String bhA() {
+        return this.c;
+    }
+
+    public SpannableStringBuilder bhB() {
+        return this.fpG;
+    }
+
+    public SpannableStringBuilder a(SpannableString spannableString) {
+        if (this.fpG == null) {
+            this.fpG = new SpannableStringBuilder();
+        }
+        this.fpG.append((CharSequence) spannableString);
+        return this.fpG;
+    }
+
+    public SpannableString bs(Context context) {
+        String str;
+        switch (this.type) {
+            case 0:
+                return new SpannableString(this.text);
+            case 1:
+                if (!this.text.endsWith(" ")) {
+                    this.text = String.valueOf(this.text) + " ";
                 }
-            }
-            if (this.width <= 0) {
-                this.width = 1;
-            }
-            if (this.height <= 0) {
-                this.height = 1;
-            }
+                SpannableString spannableString = new SpannableString(this.text);
+                spannableString.setSpan(new m(this, context), 0, this.text.length() - 1, 33);
+                return spannableString;
+            case 2:
+                SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
+                com.baidu.adp.widget.a.a face = TbadkCoreApplication.m9getInst().getFace(this.text);
+                if (face != null) {
+                    BitmapDrawable jV = face.jV();
+                    jV.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(jV, 1), 0, this.text.length(), 33);
+                    return spannableString2;
+                }
+                return spannableString2;
+            case 3:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            default:
+                return null;
+            case 4:
+                if (!this.text.endsWith(" ")) {
+                    this.text = String.valueOf(this.text) + " ";
+                }
+                SpannableString spannableString3 = new SpannableString(this.text);
+                spannableString3.setSpan(new n(this, context), 0, this.text.length() - 1, 33);
+                return spannableString3;
+            case 5:
+                if (!this.text.endsWith(" ")) {
+                    this.text = String.valueOf(this.text) + " ";
+                }
+                String string = context.getString(r.l.video);
+                SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.text);
+                spannableString4.setSpan(new l(this, context), string.length(), str.length() - 1, 33);
+                return spannableString4;
         }
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.fgk;
+    public String getLink() {
+        return this.link;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String pI() {
-        return this.fgm;
-    }
-
-    public String bfH() {
-        return this.fgk;
-    }
-
-    public String bfI() {
-        return this.fgo;
-    }
-
-    public String getSubTitle() {
-        return this.subTitle;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public String bfJ() {
-        return this.fgn;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.type = jSONObject.optInt("type", 0);
+                if (this.type == 3) {
+                    this.link = jSONObject.optString("src");
+                    this.text = jSONObject.optString("bsize");
+                    this.fpF = jSONObject.optString("cdn_src", null);
+                    if (this.text != null && this.text.length() > 0) {
+                        String[] split = this.text.split(",");
+                        if (split.length > 1) {
+                            this.width = Integer.valueOf(split[0]).intValue();
+                            this.height = Integer.valueOf(split[1]).intValue();
+                        }
+                    }
+                    if (this.width <= 0) {
+                        this.width = 1;
+                    }
+                    if (this.height <= 0) {
+                        this.height = 1;
+                    }
+                    if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
+                        this.fpE = true;
+                    }
+                } else if (this.type == 4) {
+                    this.text = jSONObject.optString("text");
+                    this.link = jSONObject.optString(SapiAccountManager.SESSION_UID);
+                } else if (this.type == 11) {
+                    this.c = jSONObject.optString("c");
+                } else {
+                    this.text = jSONObject.optString("text");
+                    this.link = jSONObject.optString("link");
+                    if (this.type == 2 && TbFaceManager.DR().fn(this.text) == 0) {
+                        this.type = 0;
+                        this.text = "[" + jSONObject.optString("c") + "]";
+                    }
+                }
+                if (this.type != 0) {
+                    this.text = this.text.replaceAll("\n", "");
+                    this.link = this.link.replaceAll("\n", "");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

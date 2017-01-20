@@ -4,48 +4,48 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ u arl;
-    private final /* synthetic */ boolean aro;
+public class z extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ u aqr;
+    private final /* synthetic */ boolean aqu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(u uVar, boolean z) {
-        this.arl = uVar;
-        this.aro = z;
+        this.aqr = uVar;
+        this.aqu = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+    @Override // com.baidu.adp.lib.f.b
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         boolean z;
-        this.arl.bq(this.aro);
-        z = this.arl.arb;
+        this.aqr.bq(this.aqu);
+        z = this.aqr.aqh;
         if (!z) {
             if (aVar != null) {
-                Bitmap jV = aVar.jV();
-                if (jV != null) {
-                    this.arl.ara = true;
-                    if (aVar.cY()) {
-                        byte[] ka = aVar.ka();
-                        if (ka == null) {
-                            ka = BitmapHelper.Bitmap2Bytes(jV, 100);
+                Bitmap jT = aVar.jT();
+                if (jT != null) {
+                    this.aqr.aqg = true;
+                    if (aVar.cW()) {
+                        byte[] jY = aVar.jY();
+                        if (jY == null) {
+                            jY = BitmapHelper.Bitmap2Bytes(jT, 100);
                         }
-                        this.arl.aqU.a(ka, jV);
-                        this.arl.aqU.invalidate();
-                        this.arl.aqU.play();
-                        this.arl.arg = false;
+                        this.aqr.aqa.a(jY, jT);
+                        this.aqr.aqa.invalidate();
+                        this.aqr.aqa.play();
+                        this.aqr.aqm = false;
                     } else {
-                        this.arl.aqU.setImageBitmap(jV);
-                        this.arl.aqU.setImageData(aVar.ka());
+                        this.aqr.aqa.setImageBitmap(jT);
+                        this.aqr.aqa.setImageData(aVar.jY());
                     }
-                    this.arl.Bd();
-                    this.arl.Bf();
-                } else if (!this.aro) {
-                    this.arl.aqU.GR();
+                    this.aqr.AY();
+                    this.aqr.Ba();
+                } else if (!this.aqu) {
+                    this.aqr.aqa.GJ();
                 }
-            } else if (!this.aro) {
-                this.arl.aqU.GR();
+            } else if (!this.aqu) {
+                this.aqr.aqa.GJ();
             }
         }
     }

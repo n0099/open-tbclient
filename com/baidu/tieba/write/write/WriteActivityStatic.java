@@ -13,37 +13,38 @@ import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 /* loaded from: classes.dex */
 public class WriteActivityStatic {
-    private static int fDT = 11;
-    private static int fDU = 18;
+    private static int fMo = 11;
+    private static int fMp = 18;
 
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteVideoActivityConfig.class, WriteVideoActivity.class);
-        com.baidu.tieba.tbadkCore.location.d.bgK();
-        com.baidu.tbadk.core.util.bc.vz().a("feedback:", new bl());
+        LocationModel.biy();
+        com.baidu.tbadk.core.util.ba.vt().a("feedback:", new bk());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void G(TbPageContext<?> tbPageContext) {
-        com.baidu.adp.lib.stats.a.eI().eR();
-        if (Build.VERSION.SDK_INT <= fDU && Build.VERSION.SDK_INT >= fDT) {
-            H(tbPageContext);
+    public static void E(TbPageContext<?> tbPageContext) {
+        com.baidu.adp.lib.stats.a.eG().eP();
+        if (Build.VERSION.SDK_INT <= fMp && Build.VERSION.SDK_INT >= fMo) {
+            F(tbPageContext);
         } else {
-            I(tbPageContext);
+            G(tbPageContext);
         }
     }
 
-    private static void H(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), TbadkCoreApplication.m9getInst().getString(r.j.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+    private static void F(TbPageContext<?> tbPageContext) {
+        com.baidu.tbadk.browser.f.a(tbPageContext.getPageActivity(), TbadkCoreApplication.m9getInst().getString(r.l.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
     }
 
-    private static void I(TbPageContext<?> tbPageContext) {
+    private static void G(TbPageContext<?> tbPageContext) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m9getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(r.j.login_feedback), true, 12008)));
+            TbadkCoreApplication.m9getInst().login(tbPageContext, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(r.l.login_feedback), true, 12008)));
             return;
         }
         AntiData antiData = new AntiData();

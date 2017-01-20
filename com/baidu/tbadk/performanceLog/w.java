@@ -1,104 +1,104 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class w extends z {
-    public static int aCq = 100;
-    public static int aCr = 10;
+    public static int aBi = 100;
+    public static int aBj = 10;
 
-    public static void FS() {
-        if (aa.FU().FV()) {
-            if (b.aCv > aCr) {
-                b.FM();
+    public static void FM() {
+        if (aa.FO().FP()) {
+            if (b.aBn > aBj) {
+                b.FG();
             }
-            if (a.aCs > aCr) {
-                a.FM();
+            if (a.aBk > aBj) {
+                a.FG();
             }
         }
     }
 
     public static void b(boolean z, boolean z2, boolean z3) {
-        a.aCs++;
+        a.aBk++;
         if (z2) {
-            a.aCt++;
+            a.aBl++;
         } else if (z3) {
-            a.aCu++;
+            a.aBm++;
         }
-        if (a.aCs > aCq) {
-            a.FM();
+        if (a.aBk > aBi) {
+            a.FG();
         }
     }
 
     public void c(p pVar) {
-        if (aa.FU().FV()) {
-            if (b.aCv < aCq) {
-                b.aCw += pVar.nV;
-                b.aCx += pVar.yU;
-                b.aCy += pVar.aBM;
-                b.aCz += pVar.aBN;
-                b.aCB += pVar.AA;
-                b.aCA += pVar.aBD;
-                b.aCv++;
+        if (aa.FO().FP()) {
+            if (b.aBn < aBi) {
+                b.aBo += pVar.nO;
+                b.aBp += pVar.yL;
+                b.aBq += pVar.aAE;
+                b.aBr += pVar.aAF;
+                b.aBt += pVar.Aq;
+                b.aBs += pVar.aAv;
+                b.aBn++;
                 return;
             }
-            b.FM();
+            b.FG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static int aCs;
-        public static int aCt;
-        public static int aCu;
+        public static int aBk;
+        public static int aBl;
+        public static int aBm;
 
-        public static void FM() {
-            com.baidu.adp.lib.stats.d eB = w.eB();
-            eB.q("action", "imbusy");
-            eB.q("totalNum", String.valueOf(aCs));
-            eB.q("tfailNum", String.valueOf(aCt));
-            eB.q("qfailNum", String.valueOf(aCu));
-            com.baidu.adp.lib.stats.a.eI().a("im", eB);
+        public static void FG() {
+            com.baidu.adp.lib.stats.d ez = w.ez();
+            ez.q("action", "imbusy");
+            ez.q("totalNum", String.valueOf(aBk));
+            ez.q("tfailNum", String.valueOf(aBl));
+            ez.q("qfailNum", String.valueOf(aBm));
+            com.baidu.adp.lib.stats.a.eG().a("im", ez);
             resetData();
         }
 
         public static void resetData() {
-            aCs = 0;
-            aCt = 0;
-            aCu = 0;
+            aBk = 0;
+            aBl = 0;
+            aBm = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        public static int aCA;
-        public static long aCB;
-        public static int aCv;
-        public static long aCw;
-        public static long aCx;
-        public static long aCy;
-        public static int aCz;
+        public static int aBn;
+        public static long aBo;
+        public static long aBp;
+        public static long aBq;
+        public static int aBr;
+        public static int aBs;
+        public static long aBt;
 
-        public static void FM() {
-            com.baidu.adp.lib.stats.d eB = w.eB();
-            eB.q("action", "imcost");
-            eB.q("dect", String.valueOf(aCw));
-            eB.q("dlsize", String.valueOf(aCx));
-            eB.q("dbt", String.valueOf(aCy));
-            eB.q("pnum", String.valueOf(aCz));
-            eB.q("reqcost", String.valueOf(aCB));
-            eB.q("cpu", String.valueOf(aCA));
-            eB.q("totalNum", String.valueOf(aCv));
-            com.baidu.adp.lib.stats.a.eI().a("im", eB);
-            FT();
+        public static void FG() {
+            com.baidu.adp.lib.stats.d ez = w.ez();
+            ez.q("action", "imcost");
+            ez.q("dect", String.valueOf(aBo));
+            ez.q("dlsize", String.valueOf(aBp));
+            ez.q("dbt", String.valueOf(aBq));
+            ez.q("pnum", String.valueOf(aBr));
+            ez.q("reqcost", String.valueOf(aBt));
+            ez.q("cpu", String.valueOf(aBs));
+            ez.q("totalNum", String.valueOf(aBn));
+            com.baidu.adp.lib.stats.a.eG().a("im", ez);
+            FN();
         }
 
-        public static void FT() {
-            aCv = 0;
-            aCw = 0L;
-            aCx = 0L;
-            aCy = 0L;
-            aCz = 0;
-            aCA = 0;
+        public static void FN() {
+            aBn = 0;
+            aBo = 0L;
+            aBp = 0L;
+            aBq = 0L;
+            aBr = 0;
+            aBs = 0;
         }
     }
 }

@@ -1,37 +1,14 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.util.LongSparseArray;
-import java.util.LinkedList;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class ca {
-    private static final ca bBE = new ca();
-    private LongSparseArray<LinkedList<String>> bBD = new LongSparseArray<>();
+public interface ca {
+    void a(TbPageContext tbPageContext, View view, int i, boolean z);
 
-    private ca() {
-    }
+    void b(com.baidu.tieba.tbadkCore.n nVar);
 
-    public static ca XZ() {
-        return bBE;
-    }
+    void changeSkinType(int i);
 
-    public void g(long j, String str) {
-        LinkedList<String> linkedList = this.bBD.get(j);
-        if (linkedList == null) {
-            linkedList = new LinkedList<>();
-            this.bBD.put(j, linkedList);
-        }
-        linkedList.add(str);
-    }
-
-    public boolean h(long j, String str) {
-        LinkedList<String> linkedList = this.bBD.get(j);
-        return linkedList != null && linkedList.contains(str);
-    }
-
-    public void aZ(long j) {
-        LinkedList<String> linkedList = this.bBD.get(j);
-        if (linkedList != null) {
-            linkedList.clear();
-        }
-    }
+    void hide();
 }

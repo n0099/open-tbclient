@@ -1,125 +1,93 @@
 package com.baidu.tieba.pb.pb.main.view;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.pb.pb.sub.SubPbRequestMessage;
-import com.baidu.tieba.tbadkCore.data.q;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
+import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
+import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
+import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.data.p;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.tbadk.editortools.e.a {
-    private TbPageContext GO;
-    private com.baidu.adp.framework.listener.a bCL;
-    private com.baidu.tieba.pb.data.j ehB;
-    private boolean ehC;
-    private SubPbRequestMessage ehD;
-    private a ehE;
-    private String mPostId;
+public class c extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ PbFakeFloorModel eqO;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void i(q qVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(PbFakeFloorModel pbFakeFloorModel, int i, int i2) {
+        super(i, i2);
+        this.eqO = pbFakeFloorModel;
     }
 
-    public void a(a aVar) {
-        this.ehE = aVar;
-    }
-
-    public c(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.ehB = null;
-        this.ehC = false;
-        this.ehE = null;
-        this.bCL = new d(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
-        this.GO = tbPageContext;
-        registerListener(this.bCL);
-    }
-
-    @Override // com.baidu.adp.base.e
-    public void setUniqueId(BdUniqueId bdUniqueId) {
-        super.setUniqueId(bdUniqueId);
-        registerListener(this.bCL);
-    }
-
-    public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(getUniqueId());
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public WriteData fB(String str) {
-        if (this.ehB == null || this.ehB.aIL() == null || this.ehB.IU() == null || this.ehB.aIF() == null) {
-            return null;
-        }
-        WriteData writeData = new WriteData();
-        writeData.setForumName(this.ehB.aIL().getName());
-        writeData.setForumId(this.ehB.aIL().getId());
-        writeData.setFloor(this.ehB.aIF().getId());
-        writeData.setType(2);
-        writeData.setThreadId(this.ehB.IU().getId());
-        writeData.setFloorNum(0);
-        return writeData;
-    }
-
-    public void c(com.baidu.tieba.pb.data.j jVar) {
-        this.ehB = jVar;
-    }
-
-    public void aMC() {
-        if (!this.ehC) {
-            cancelMessage();
-            this.ehD = aMD();
-            if (this.ehD != null) {
-                sendMessage(this.ehD);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        BdUniqueId bdUniqueId;
+        PbFakeFloorModel.a aVar;
+        PbFakeFloorModel.a aVar2;
+        com.baidu.tieba.pb.data.j jVar;
+        com.baidu.tieba.pb.data.j jVar2;
+        com.baidu.tieba.pb.data.j jVar3;
+        TbPageContext tbPageContext;
+        com.baidu.tieba.pb.data.j jVar4;
+        com.baidu.tieba.pb.data.j jVar5;
+        String errorString;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        boolean z = false;
+        if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
+            bdUniqueId = this.eqO.unique_id;
+            if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
+                this.eqO.eqK = false;
+                if (responsedMessage.hasError()) {
+                    if (StringUtils.isNull(responsedMessage.getErrorString())) {
+                        tbPageContext3 = this.eqO.FY;
+                        errorString = tbPageContext3.getPageActivity().getResources().getString(r.l.neterror);
+                    } else {
+                        errorString = responsedMessage.getErrorString();
+                    }
+                    tbPageContext2 = this.eqO.FY;
+                    tbPageContext2.showToast(errorString);
+                    return;
+                }
+                com.baidu.tieba.pb.data.j jVar6 = null;
+                if (responsedMessage instanceof SubPbHttpResponseMessage) {
+                    jVar6 = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
+                } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
+                    jVar6 = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
+                }
+                if (jVar6 != null && jVar6.aKA() != null) {
+                    p pVar = (p) w.c(jVar6.aKA(), jVar6.aKA().size() - 1);
+                    if (pVar != null) {
+                        jVar = this.eqO.eqJ;
+                        if (jVar != null) {
+                            jVar2 = this.eqO.eqJ;
+                            if (jVar2.aKw() != null) {
+                                jVar3 = this.eqO.eqJ;
+                                if (jVar3.Ji() != null) {
+                                    jVar4 = this.eqO.eqJ;
+                                    if (jVar4.Ji().getAuthor() != null && pVar.getAuthor() != null) {
+                                        jVar5 = this.eqO.eqJ;
+                                        String userId = jVar5.Ji().getAuthor().getUserId();
+                                        if (userId != null && userId.equals(pVar.getAuthor().getUserId())) {
+                                            z = true;
+                                        }
+                                    }
+                                }
+                                tbPageContext = this.eqO.FY;
+                                pVar.b(tbPageContext, z);
+                            }
+                        }
+                    }
+                    aVar = this.eqO.eqM;
+                    if (aVar != null) {
+                        aVar2 = this.eqO.eqM;
+                        aVar2.h(pVar);
+                    }
+                }
             }
         }
-    }
-
-    public void j(q qVar) {
-        if (qVar != null) {
-            this.ehB.aIF().t(qVar);
-            this.ehB.aIF().u(qVar);
-            this.ehB.aIF().kV(true);
-        }
-    }
-
-    private SubPbRequestMessage aMD() {
-        if (this.ehB == null || this.ehB.IU() == null || this.ehB.IU().getId() == null || this.ehB.aIF() == null || this.ehB.aIF().getId() == null) {
-            this.ehC = false;
-            return null;
-        }
-        this.ehC = true;
-        float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
-        int I = com.baidu.adp.lib.util.k.I(TbadkCoreApplication.m9getInst().getApp());
-        int J = com.baidu.adp.lib.util.k.J(TbadkCoreApplication.m9getInst().getApp());
-        long c = com.baidu.adp.lib.h.b.c(this.ehB.aIF().getId(), 0L);
-        return new SubPbRequestMessage(this.GO.getPageActivity(), com.baidu.adp.lib.h.b.c(this.ehB.IU().getId(), 0L), c, 0L, 1, I, J, f, "", 1);
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public boolean CW() {
-        aMC();
-        return true;
-    }
-
-    public void setPostId(String str) {
-        this.mPostId = str;
-    }
-
-    @Override // com.baidu.tbadk.editortools.e.a
-    public String CX() {
-        return this.mPostId;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
     }
 }

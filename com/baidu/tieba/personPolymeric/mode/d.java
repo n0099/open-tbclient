@@ -1,47 +1,53 @@
 package com.baidu.tieba.personPolymeric.mode;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.personPolymeric.c.n;
-import com.baidu.tieba.personPolymeric.mode.message.PersonPolymericHttpResMsg;
-import com.baidu.tieba.personPolymeric.mode.message.PersonPolymericSocketResMsg;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.at;
+import tbclient.UserMuteCheck.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ c euM;
+public class d extends CustomMessageListener {
+    final /* synthetic */ PersonPolymericModel eEG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(c cVar, int i, int i2) {
-        super(i, i2);
-        this.euM = cVar;
+    public d(PersonPolymericModel personPolymericModel, int i) {
+        super(i);
+        this.eEG = personPolymericModel;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        b bVar;
-        n nVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        a aVar;
         int i;
-        n nVar2;
-        b bVar2;
-        n nVar3;
-        n nVar4;
-        if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-            if (((responsedMessage instanceof PersonPolymericHttpResMsg) || (responsedMessage instanceof PersonPolymericSocketResMsg)) && this.euM.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                if (responsedMessage.getError() != 0) {
-                    bVar = this.euM.euJ;
-                    nVar = this.euM.mPersonPolymericData;
-                    bVar.a(null, nVar.hasMore());
-                    return;
+        String str;
+        String str2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.eEG.unique_id;
+            if (tag == bdUniqueId) {
+                com.baidu.tieba.usermute.a aVar2 = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
+                DataRes dataRes = aVar2.fCi;
+                if (aVar2.error == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
+                    if (dataRes.is_mute.equals("0")) {
+                        this.eEG.eDd = 0;
+                        this.eEG.eDe = dataRes.mute_confirm;
+                        str2 = this.eEG.eDe;
+                        if (at.isEmpty(str2)) {
+                            this.eEG.eDe = "确定禁言？";
+                        }
+                    } else if (dataRes.is_mute.equals("1")) {
+                        this.eEG.eDd = 1;
+                    }
+                    aVar = this.eEG.eEE;
+                    i = this.eEG.eDd;
+                    str = this.eEG.eDe;
+                    aVar.a(0, i, str, aVar2.error, aVar2.errorString);
                 }
-                c cVar = this.euM;
-                i = cVar.pageIndex;
-                cVar.pageIndex = i + 1;
-                nVar2 = this.euM.mPersonPolymericData;
-                nVar2.aPP();
-                bVar2 = this.euM.euJ;
-                nVar3 = this.euM.mPersonPolymericData;
-                nVar4 = this.euM.mPersonPolymericData;
-                bVar2.a(nVar3, nVar4.hasMore());
             }
         }
     }

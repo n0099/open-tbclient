@@ -9,17 +9,17 @@ import java.util.ArrayList;
 public class b {
     public static File[] c(boolean z, boolean z2) {
         File[] listFiles;
-        DiskFileOperate diskFileOperate = new DiskFileOperate(com.baidu.adp.lib.stats.a.eI().eM(), null, DiskFileOperate.Action.INFO);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(com.baidu.adp.lib.stats.a.eG().eK(), null, DiskFileOperate.Action.INFO);
         diskFileOperate.t(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.cB().b(diskFileOperate);
-        File[] listFiles2 = (diskFileOperate.cQ() == null || diskFileOperate.cQ().listFiles() == null) ? null : diskFileOperate.cQ().listFiles();
+        com.baidu.adp.lib.Disk.d.cz().b(diskFileOperate);
+        File[] listFiles2 = (diskFileOperate.cO() == null || diskFileOperate.cO().listFiles() == null) ? null : diskFileOperate.cO().listFiles();
         if (z2) {
-            DiskFileOperate diskFileOperate2 = new DiskFileOperate(com.baidu.adp.lib.stats.a.eI().eN(), null, DiskFileOperate.Action.INFO);
+            DiskFileOperate diskFileOperate2 = new DiskFileOperate(com.baidu.adp.lib.stats.a.eG().eL(), null, DiskFileOperate.Action.INFO);
             diskFileOperate2.t(z);
             diskFileOperate2.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            com.baidu.adp.lib.Disk.d.cB().b(diskFileOperate2);
-            if (diskFileOperate2.cQ() != null && (listFiles = diskFileOperate2.cQ().listFiles()) != null && listFiles.length != 0) {
+            com.baidu.adp.lib.Disk.d.cz().b(diskFileOperate2);
+            if (diskFileOperate2.cO() != null && (listFiles = diskFileOperate2.cO().listFiles()) != null && listFiles.length != 0) {
                 if (listFiles2 == null || listFiles2.length == 0) {
                     return listFiles;
                 }
@@ -49,9 +49,9 @@ public class b {
     }
 
     public static void a(ArrayList<String> arrayList, boolean z) {
-        e eVar = new e(com.baidu.adp.lib.stats.a.eI().eM(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
+        e eVar = new e(com.baidu.adp.lib.stats.a.eG().eK(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
         eVar.t(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.cB().c(eVar);
+        com.baidu.adp.lib.Disk.d.cz().c(eVar);
     }
 }

@@ -6,55 +6,56 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    private static d arE = new d();
-    private int arA;
-    private long arB;
-    private final SparseArray<a> arC;
-    private final HashSet<Integer> arD;
-    private int arF;
-    private boolean arz;
+    private static d aqK = new d();
+    private boolean aqF;
+    private int aqG;
+    private long aqH;
+    private final SparseArray<a> aqI;
+    private final HashSet<Integer> aqJ;
+    private int aqL;
 
-    public static d Bv() {
-        return arE;
+    public static d Bq() {
+        return aqK;
     }
 
     private d() {
         super(1001);
-        this.arA = 3;
-        this.arB = 300000L;
-        this.arC = new SparseArray<>();
-        this.arD = new HashSet<>();
-        this.arF = 0;
+        this.aqG = 3;
+        this.aqH = ReportUserInfoModel.TIME_INTERVAL;
+        this.aqI = new SparseArray<>();
+        this.aqJ = new HashSet<>();
+        this.aqL = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
-    public boolean em(int i) {
-        this.arF = 0;
-        if (this.arz) {
-            this.arF = 3;
+    public boolean en(int i) {
+        this.aqL = 0;
+        if (this.aqF) {
+            this.aqL = 3;
             return false;
-        } else if (this.arD.contains(Integer.valueOf(i))) {
-            this.arF = 6;
+        } else if (this.aqJ.contains(Integer.valueOf(i))) {
+            this.aqL = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.arF = 1;
+            this.aqL = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().bL() > PingManager.Bz().BB() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().bL() > PingManager.Bu().Bw() + 20000) {
             com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.arF = 2;
+            this.aqL = 2;
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
             return false;
         } else {
-            a aVar = this.arC.get(i);
-            if (aVar != null && aVar.arH) {
-                if (Math.abs(System.currentTimeMillis() - aVar.arI) > this.arB) {
+            a aVar = this.aqI.get(i);
+            if (aVar != null && aVar.aqM) {
+                if (Math.abs(System.currentTimeMillis() - aVar.aqN) > this.aqH) {
                     aVar.reset();
                 } else {
-                    this.arF = 4;
+                    this.aqL = 4;
                     return false;
                 }
             }
@@ -66,8 +67,8 @@ public class d extends com.baidu.adp.framework.listener.e {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.arC.size()) {
-                this.arC.valueAt(i2).reset();
+            if (i2 < this.aqI.size()) {
+                this.aqI.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -75,41 +76,41 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
     }
 
-    public void en(int i) {
-        a aVar = this.arC.get(i);
+    public void eo(int i) {
+        a aVar = this.aqI.get(i);
         if (aVar == null) {
             aVar = new a(null);
-            this.arC.append(i, aVar);
+            this.aqI.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.arA);
+            aVar.onError(this.aqG);
         }
-        this.arF = 5;
+        this.aqL = 5;
     }
 
-    public void eo(int i) {
-        this.arC.remove(i);
+    public void ep(int i) {
+        this.aqI.remove(i);
     }
 
     public void bt(boolean z) {
-        this.arz = z;
+        this.aqF = z;
     }
 
     public void d(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.arD.clear();
+            this.aqJ.clear();
             for (int i : iArr) {
-                this.arD.add(Integer.valueOf(i));
+                this.aqJ.add(Integer.valueOf(i));
             }
         }
     }
 
-    public void ep(int i) {
-        this.arA = i;
+    public void eq(int i) {
+        this.aqG = i;
     }
 
-    public void N(long j) {
-        this.arB = j;
+    public void M(long j) {
+        this.aqH = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,9 +124,9 @@ public class d extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int arG;
-        public boolean arH;
-        public long arI;
+        public boolean aqM;
+        public long aqN;
+        public int errorCount;
 
         private a() {
         }
@@ -135,23 +136,23 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
 
         public void reset() {
-            this.arG = 0;
-            if (this.arH) {
-                this.arH = false;
-                this.arI = 0L;
+            this.errorCount = 0;
+            if (this.aqM) {
+                this.aqM = false;
+                this.aqN = 0L;
             }
         }
 
         public void onError(int i) {
-            this.arG++;
-            if (!this.arH && this.arG >= i) {
-                this.arH = true;
-                this.arI = System.currentTimeMillis();
+            this.errorCount++;
+            if (!this.aqM && this.errorCount >= i) {
+                this.aqM = true;
+                this.aqN = System.currentTimeMillis();
             }
         }
     }
 
-    public int Bw() {
-        return this.arF;
+    public int Br() {
+        return this.aqL;
     }
 }

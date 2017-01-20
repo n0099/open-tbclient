@@ -2,7 +2,7 @@ package com.baidu.tbadk.online;
 
 import com.baidu.adp.framework.listener.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.h.h;
+import com.baidu.adp.lib.g.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,20 +20,20 @@ public class b extends e {
         boolean z;
         Runnable runnable2;
         if (!(socketResponsedMessage instanceof ResponseOnlineMessage) || socketResponsedMessage.hasError()) {
-            h eG = h.eG();
+            h eE = h.eE();
             runnable = GetOnLineInfoStatic.mRunnable;
-            eG.removeCallbacks(runnable);
+            eE.removeCallbacks(runnable);
             return;
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.tW().getLong("get_online_info_last_time", 0L);
+        long j = com.baidu.tbadk.core.sharedPref.b.tQ().getLong("get_online_info_last_time", 0L);
         long currentTimeMillis = System.currentTimeMillis();
-        z = GetOnLineInfoStatic.aAN;
+        z = GetOnLineInfoStatic.azF;
         if (z || currentTimeMillis - j >= 3600000) {
-            GetOnLineInfoStatic.aAN = false;
-            com.baidu.tbadk.core.sharedPref.b.tW().putLong("get_online_info_last_time", currentTimeMillis);
-            h eG2 = h.eG();
+            GetOnLineInfoStatic.azF = false;
+            com.baidu.tbadk.core.sharedPref.b.tQ().putLong("get_online_info_last_time", currentTimeMillis);
+            h eE2 = h.eE();
             runnable2 = GetOnLineInfoStatic.mRunnable;
-            eG2.postDelayed(runnable2, TbConfig.NOTIFY_SOUND_INTERVAL);
+            eE2.postDelayed(runnable2, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 }

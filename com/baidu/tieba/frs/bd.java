@@ -1,70 +1,44 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.BdExpandListView;
-import java.util.HashSet;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class bd implements TbImageView.a {
-    final /* synthetic */ ax bAv;
+public class bd extends at<be, bf> {
+    private final int bHR;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(ax axVar) {
-        this.bAv = axVar;
+    public bd(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
+        this.bHR = (com.baidu.adp.lib.util.k.J(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds90);
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void v(String str, boolean z) {
-        BannerView bannerView;
-        BannerView bannerView2;
-        boolean z2;
-        BdExpandListView bdExpandListView;
-        com.baidu.tbadk.core.data.v vVar;
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        BdExpandListView bdExpandListView2;
-        BannerView bannerView3;
-        com.baidu.tbadk.core.data.v vVar2;
-        HashSet hashSet;
-        if (z) {
-            bannerView = this.bAv.bAb;
-            if (bannerView != null) {
-                bannerView2 = this.bAv.bAb;
-                if (bannerView2.AA()) {
-                    z2 = this.bAv.bAd;
-                    if (!z2) {
-                        bdExpandListView = this.bAv.bzO;
-                        if (bdExpandListView != null) {
-                            this.bAv.bAd = true;
-                            vVar = this.bAv.anZ;
-                            if (vVar != null) {
-                                vVar2 = this.bAv.anZ;
-                                String pA = vVar2.pA();
-                                if (!StringUtils.isNULL(pA)) {
-                                    hashSet = this.bAv.bAl;
-                                    if (hashSet.add(pA)) {
-                                        this.bAv.iB(pA);
-                                    }
-                                }
-                            }
-                            frsActivity = this.bAv.bzH;
-                            com.baidu.tieba.frs.entelechy.b.b Wb = frsActivity.Wb();
-                            if (Wb != null) {
-                                frsActivity2 = this.bAv.bzH;
-                                bdExpandListView2 = this.bAv.bzO;
-                                bannerView3 = this.bAv.bAb;
-                                Wb.a(frsActivity2, bdExpandListView2, bannerView3);
-                            }
-                        }
-                    }
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: t */
+    public bf onCreateViewHolder(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(r.j.frs_no_list_item_view, viewGroup, false);
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bHR));
+        return new bf(inflate);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.at, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, be beVar, bf bfVar) {
+        super.onFillViewHolder(i, view, viewGroup, beVar, bfVar);
+        if (beVar.YX() == 6) {
+            bfVar.bHU.setText(r.l.attention_no_post_tip);
+        } else {
+            bfVar.bHU.setText(r.l.no_data_text);
         }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+        com.baidu.tbadk.core.util.ap.c(bfVar.bHU, r.e.cp_cont_d, 1);
+        return view;
     }
 }

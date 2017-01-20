@@ -1,20 +1,20 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import com.baidu.tbadk.core.view.z;
+import com.baidu.tbadk.core.view.aa;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 /* loaded from: classes.dex */
-class l implements z.b {
-    final /* synthetic */ f cZJ;
+class l implements aa.b {
+    final /* synthetic */ f dgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(f fVar) {
-        this.cZJ = fVar;
+        this.dgY = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.z.b
+    @Override // com.baidu.tbadk.core.view.aa.b
     public void aM(boolean z) {
         if (!z) {
-            this.cZJ.sendMessage(new RequestMemoryListMessage(1));
+            this.dgY.sendMessage(new RequestMemoryListMessage(1));
         }
     }
 }

@@ -1,75 +1,75 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.d.a;
+import com.baidu.tieba.f.a;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class aq implements a.InterfaceC0057a {
-    final int bBP;
-    final /* synthetic */ PbActivity eah;
+    final int beq;
+    final /* synthetic */ PbActivity eiV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PbActivity pbActivity) {
-        this.eah = pbActivity;
-        this.bBP = (int) pbActivity.getResources().getDimension(r.e.ds98);
+        this.eiV = pbActivity;
+        this.beq = (int) pbActivity.getResources().getDimension(r.f.ds98);
     }
 
-    @Override // com.baidu.tieba.d.a.InterfaceC0057a
-    public void P(int i, int i2) {
-        er erVar;
-        com.baidu.tieba.pb.pb.main.a.j jVar;
-        er erVar2;
-        com.baidu.tieba.pb.pb.main.a.j jVar2;
-        com.baidu.tieba.pb.pb.main.a.j jVar3;
-        if (aa(i2)) {
-            erVar = this.eah.dZk;
-            if (erVar != null) {
-                jVar = this.eah.dYS;
-                if (jVar != null) {
-                    erVar2 = this.eah.dZk;
-                    erVar2.aMn();
-                    jVar2 = this.eah.dYS;
-                    jVar2.dd(false);
-                    jVar3 = this.eah.dYS;
-                    jVar3.Us();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d.a.InterfaceC0057a
+    @Override // com.baidu.tieba.f.a.InterfaceC0057a
     public void Q(int i, int i2) {
-        er erVar;
-        com.baidu.tieba.pb.pb.main.a.j jVar;
-        com.baidu.tieba.pb.pb.main.a.j jVar2;
-        er erVar2;
-        er erVar3;
-        er erVar4;
-        com.baidu.tieba.pb.pb.main.a.j jVar3;
-        if (aa(i2)) {
-            erVar = this.eah.dZk;
-            if (erVar != null) {
-                jVar = this.eah.dYS;
-                if (jVar != null) {
-                    jVar2 = this.eah.dYS;
-                    jVar2.dd(true);
-                    if (Math.abs(i2) > this.bBP) {
-                        erVar4 = this.eah.dZk;
-                        erVar4.aMm();
-                        jVar3 = this.eah.dYS;
-                        jVar3.Ur();
+        ez ezVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        ez ezVar2;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (T(i2)) {
+            ezVar = this.eiV.ehV;
+            if (ezVar != null) {
+                fVar = this.eiV.ehA;
+                if (fVar != null) {
+                    ezVar2 = this.eiV.ehV;
+                    ezVar2.aOd();
+                    fVar2 = this.eiV.ehA;
+                    fVar2.dk(false);
+                    fVar3 = this.eiV.ehA;
+                    fVar3.VN();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.f.a.InterfaceC0057a
+    public void R(int i, int i2) {
+        ez ezVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar;
+        com.baidu.tieba.pb.pb.main.a.f fVar2;
+        ez ezVar2;
+        ez ezVar3;
+        ez ezVar4;
+        com.baidu.tieba.pb.pb.main.a.f fVar3;
+        if (T(i2)) {
+            ezVar = this.eiV.ehV;
+            if (ezVar != null) {
+                fVar = this.eiV.ehA;
+                if (fVar != null) {
+                    fVar2 = this.eiV.ehA;
+                    fVar2.dk(true);
+                    if (Math.abs(i2) > this.beq) {
+                        ezVar4 = this.eiV.ehV;
+                        ezVar4.aOc();
+                        fVar3 = this.eiV.ehA;
+                        fVar3.VM();
                     }
-                    if (this.eah.aJu()) {
-                        erVar2 = this.eah.dZk;
-                        erVar2.aLL();
-                        erVar3 = this.eah.dZk;
-                        erVar3.aLM();
+                    if (this.eiV.aLh()) {
+                        ezVar2 = this.eiV.ehV;
+                        ezVar2.aNz();
+                        ezVar3 = this.eiV.ehV;
+                        ezVar3.aNA();
                     }
                 }
             }
         }
     }
 
-    private boolean aa(float f) {
+    private boolean T(float f) {
         return Math.abs(f) >= 1.0f;
     }
 }

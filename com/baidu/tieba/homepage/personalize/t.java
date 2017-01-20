@@ -31,8 +31,8 @@ public class t extends CustomMessageListener {
         DataRes.Builder builder3;
         DataRes.Builder builder4;
         DataRes.Builder builder5;
-        com.baidu.tieba.homepage.personalize.b.ab abVar;
-        com.baidu.tieba.homepage.personalize.b.ab abVar2;
+        com.baidu.tieba.homepage.personalize.b.ad adVar;
+        com.baidu.tieba.homepage.personalize.b.ad adVar2;
         List list3;
         DataRes.Builder builder6;
         DataRes.Builder builder7;
@@ -40,15 +40,15 @@ public class t extends CustomMessageListener {
         List list4;
         List list5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-            builder = this.this$0.cqf;
+            builder = this.this$0.cxf;
             if (builder != null) {
-                builder2 = this.this$0.cqf;
-                if (com.baidu.tbadk.core.util.x.s(builder2.thread_list) != 0) {
-                    list = this.this$0.aNw;
-                    if (com.baidu.tbadk.core.util.x.s(list) != 0) {
+                builder2 = this.this$0.cxf;
+                if (com.baidu.tbadk.core.util.w.r(builder2.thread_list) != 0) {
+                    list = this.this$0.aMy;
+                    if (com.baidu.tbadk.core.util.w.r(list) != 0) {
                         String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
                         if (!StringUtils.isNull(optString)) {
-                            list2 = this.this$0.aNw;
+                            list2 = this.this$0.aMy;
                             Iterator it = list2.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
@@ -57,35 +57,35 @@ public class t extends CustomMessageListener {
                                 com.baidu.adp.widget.ListView.v vVar = (com.baidu.adp.widget.ListView.v) it.next();
                                 if (vVar instanceof com.baidu.tieba.card.data.c) {
                                     com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) vVar;
-                                    if (cVar.IU() != null && cVar.IU().getTid() != null && cVar.IU().getTid().equals(optString)) {
+                                    if (cVar.Ji() != null && cVar.Ji().getTid() != null && cVar.Ji().getTid().equals(optString)) {
                                         it.remove();
-                                        list5 = this.this$0.aNw;
-                                        com.baidu.tieba.homepage.personalize.c.c.bs(list5);
+                                        list5 = this.this$0.aMy;
+                                        com.baidu.tieba.homepage.personalize.model.c.by(list5);
                                         break;
                                     }
                                 }
                             }
-                            builder3 = this.this$0.cqf;
+                            builder3 = this.this$0.cxf;
                             if (builder3 != null) {
-                                builder4 = this.this$0.cqf;
+                                builder4 = this.this$0.cxf;
                                 if (builder4.thread_list != null) {
-                                    long c = com.baidu.adp.lib.h.b.c(optString, 0L);
+                                    long c = com.baidu.adp.lib.g.b.c(optString, 0L);
                                     int i = 0;
                                     while (true) {
                                         int i2 = i;
-                                        builder5 = this.this$0.cqf;
+                                        builder5 = this.this$0.cxf;
                                         if (i2 < builder5.thread_list.size()) {
-                                            builder6 = this.this$0.cqf;
+                                            builder6 = this.this$0.cxf;
                                             ThreadInfo threadInfo = builder6.thread_list.get(i2);
                                             if (threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() == c) {
-                                                builder7 = this.this$0.cqf;
+                                                builder7 = this.this$0.cxf;
                                                 builder7.thread_list.remove(i2);
-                                                this.this$0.ajf();
+                                                this.this$0.akm();
                                                 long longValue = threadInfo.tid.longValue();
-                                                builder8 = this.this$0.cqf;
+                                                builder8 = this.this$0.cxf;
                                                 List<ThreadInfo> list6 = builder8.thread_list;
-                                                list4 = this.this$0.aNw;
-                                                com.baidu.tieba.homepage.personalize.d.f.a(longValue, i2, list6, list4);
+                                                list4 = this.this$0.aMy;
+                                                com.baidu.tieba.homepage.personalize.c.f.a(longValue, i2, list6, list4);
                                                 break;
                                             }
                                             i = i2 + 1;
@@ -93,11 +93,11 @@ public class t extends CustomMessageListener {
                                             break;
                                         }
                                     }
-                                    abVar = this.this$0.cqk;
-                                    if (abVar != null) {
-                                        abVar2 = this.this$0.cqk;
-                                        list3 = this.this$0.aNw;
-                                        abVar2.bq(new ArrayList(list3));
+                                    adVar = this.this$0.cxk;
+                                    if (adVar != null) {
+                                        adVar2 = this.this$0.cxk;
+                                        list3 = this.this$0.aMy;
+                                        adVar2.bw(new ArrayList(list3));
                                     }
                                 }
                             }

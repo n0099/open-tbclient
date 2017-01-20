@@ -4,6 +4,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RequestEnterForumDataMessage;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
@@ -15,16 +16,16 @@ public class c extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.enterForum.c.c cVar;
-        com.baidu.tieba.enterForum.c.c cVar2;
+        EnterForumModel enterForumModel;
+        EnterForumModel enterForumModel2;
         if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
             if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                cVar2 = CoreSearchRequestStatic.bpD;
-                cVar2.db(true);
+                enterForumModel2 = CoreSearchRequestStatic.bxp;
+                enterForumModel2.di(true);
                 return;
             }
-            cVar = CoreSearchRequestStatic.bpD;
-            cVar.da(true);
+            enterForumModel = CoreSearchRequestStatic.bxp;
+            enterForumModel.dh(true);
         }
     }
 }

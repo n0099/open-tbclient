@@ -8,17 +8,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements ap {
-    final /* synthetic */ ag fzH;
-    private final /* synthetic */ String fzI;
+    final /* synthetic */ ag fIk;
+    private final /* synthetic */ String fIl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ag agVar, String str) {
-        this.fzH = agVar;
-        this.fzI = str;
+        this.fIk = agVar;
+        this.fIl = str;
     }
 
     @Override // com.baidu.tieba.write.album.ap
-    public void ks() {
+    public void ko() {
     }
 
     @Override // com.baidu.tieba.write.album.ap
@@ -30,25 +30,25 @@ public class am implements ap {
         o oVar;
         o oVar2;
         ArrayList arrayList = new ArrayList();
-        if (!com.baidu.tbadk.core.util.x.t(list2)) {
+        if (!com.baidu.tbadk.core.util.w.s(list2)) {
             arrayList.addAll(list2);
         }
-        if (!this.fzI.equals("-1")) {
-            textView = this.fzH.FZ;
+        if (!this.fIl.equals("-1")) {
+            textView = this.fIk.Fj;
             textView.setText(str);
-            this.fzH.blV();
+            this.fIk.bnt();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
-            if (!com.baidu.tbadk.core.util.x.t(list)) {
+            if (!com.baidu.tbadk.core.util.w.s(list)) {
                 arrayList2.addAll(list);
             }
             d dVar = new d();
-            dVar.rb("-1");
-            albumActivity = this.fzH.fyo;
-            String string = albumActivity.getPageContext().getString(r.j.write_album_all);
+            dVar.ru("-1");
+            albumActivity = this.fIk.fGS;
+            String string = albumActivity.getPageContext().getString(r.l.write_album_all);
             dVar.setName(string);
-            dVar.rc(String.valueOf(arrayList.size()));
+            dVar.rv(String.valueOf(arrayList.size()));
             if (arrayList.size() > 0) {
                 dVar.f((ImageFileInfo) arrayList.get(0));
             }
@@ -56,14 +56,14 @@ public class am implements ap {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.fzH.FZ;
+            textView2 = this.fIk.Fj;
             textView2.setText(string);
-            oVar = this.fzH.fxZ;
-            oVar.dn(arrayList2);
-            oVar2 = this.fzH.fxZ;
-            oVar2.m25do(arrayList);
+            oVar = this.fIk.fGE;
+            oVar.ds(arrayList2);
+            oVar2 = this.fIk.fGE;
+            oVar2.dt(arrayList);
             z = true;
         }
-        this.fzH.setData(arrayList, z);
+        this.fIk.setData(arrayList, z);
     }
 }

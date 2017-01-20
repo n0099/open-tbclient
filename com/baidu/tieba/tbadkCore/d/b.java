@@ -3,60 +3,60 @@ package com.baidu.tieba.tbadkCore.d;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.d fhr;
-    private final int fhs = 10;
-    private final int fht = 3000;
-    public String fhu = null;
-    public boolean acT = false;
+    private com.baidu.adp.lib.stats.d fqF;
+    private final int fqG = 10;
+    private final int fqH = 3000;
+    public String fqI = null;
+    public boolean acf = false;
 
     public b(String str) {
         V(str, false);
     }
 
     public void V(String str, boolean z) {
-        this.fhu = str;
-        this.acT = z;
-        this.fhr = new com.baidu.adp.lib.stats.d("dbg");
-        c.i(str, getNetType(), z);
+        this.fqI = str;
+        this.acf = z;
+        this.fqF = new com.baidu.adp.lib.stats.d("dbg");
+        c.j(str, getNetType(), z);
     }
 
     public void start() {
-        this.fhr.eY();
+        this.fqF.eW();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f bgp;
-        if (this.fhr != null && (bgp = bgp()) != null) {
+        f bie;
+        if (this.fqF != null && (bie = bie()) != null) {
             if (z) {
-                if (bgp.fhz != null) {
-                    bgp.fhz.num++;
+                if (bie.fqN != null) {
+                    bie.fqN.num++;
                     if (z2) {
-                        bgp.fhz.fhw += j2;
-                        bgp.fhz.size += j;
+                        bie.fqN.fqK += j2;
+                        bie.fqN.size += j;
                     } else {
-                        bgp.fhz.fhx++;
+                        bie.fqN.fqL++;
                     }
                 } else {
                     return;
                 }
-            } else if (bgp.fhA != null) {
-                bgp.fhA.num++;
+            } else if (bie.fqO != null) {
+                bie.fqO.num++;
                 if (z2) {
-                    bgp.fhA.fhw += j3;
-                    bgp.fhA.size += j;
+                    bie.fqO.fqK += j3;
+                    bie.fqO.size += j;
                     j2 = j3;
                 } else {
-                    bgp.fhA.fhx++;
+                    bie.fqO.fqL++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.fhr = null;
+            this.fqF = null;
             if (z2) {
-                c.a(bgp, 10);
+                c.a(bie, 10);
             }
-            if (this.fhu == "frsStat") {
+            if (this.fqI == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
                     dVar.q("act", "frs");
@@ -66,41 +66,41 @@ public class b {
                     dVar.q("errCode", String.valueOf(i));
                     dVar.q("errMsg", str);
                     dVar.q("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.a.eI().b("frs", dVar);
+                    com.baidu.adp.lib.stats.a.eG().b("frs", dVar);
                 }
             }
         }
     }
 
     public void destory() {
-        f bgp;
-        if (this.fhr != null && (bgp = bgp()) != null && bgp.fhB != null) {
-            long eZ = this.fhr.eZ();
-            if (eZ > 3000) {
-                e eVar = bgp.fhB;
-                eVar.fhw = eZ + eVar.fhw;
-                bgp.fhB.num++;
-                c.a(bgp, 10);
+        f bie;
+        if (this.fqF != null && (bie = bie()) != null && bie.fqP != null) {
+            long eX = this.fqF.eX();
+            if (eX > 3000) {
+                e eVar = bie.fqP;
+                eVar.fqK = eX + eVar.fqK;
+                bie.fqP.num++;
+                c.a(bie, 10);
             }
         }
     }
 
-    private f bgp() {
-        return c.j(this.fhu, getNetType(), this.acT);
+    private f bie() {
+        return c.k(this.fqI, getNetType(), this.acf);
     }
 
     private String getNetType() {
-        int gs = i.gs();
-        if (gs == 0) {
+        int gq = i.gq();
+        if (gq == 0) {
             return "N";
         }
-        if (gs == 1) {
+        if (gq == 1) {
             return "WIFI";
         }
-        if (gs == 3) {
+        if (gq == 3) {
             return "3G";
         }
-        if (gs != 2) {
+        if (gq != 2) {
             return "N";
         }
         return "2G";

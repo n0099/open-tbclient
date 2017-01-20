@@ -1,85 +1,178 @@
 package com.baidu.tieba.graffiti;
 
 import android.content.Context;
-import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GraffitiPaintActivityConfig;
-import com.baidu.tbadk.core.atomData.GraffitiTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.l;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.UploadedImageInfo;
-import com.baidu.tbadk.switchs.GraffitiSwitchStatic;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.util.Error;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextGraffitiInfo;
+import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.util.o;
 /* loaded from: classes.dex */
-public class d {
-    private static final GraffitiSwitchStatic che = new GraffitiSwitchStatic();
+public class d extends RelativeLayout implements View.OnClickListener {
+    static final int cny = k.e(TbadkCoreApplication.m9getInst(), r.f.ds150);
+    static final int cnz = k.e(TbadkCoreApplication.m9getInst(), r.f.ds30);
+    private TbRichTextGraffitiInfo aHe;
+    private boolean aIa;
+    private View bxu;
+    private final View.OnLongClickListener bzG;
+    private RelativeLayout.LayoutParams cnA;
+    private RelativeLayout.LayoutParams cnB;
+    private TbImageView cnC;
+    private View cnD;
+    private TextView cnE;
+    private boolean cnF;
+    private final com.baidu.tbadk.util.e<Error> cnG;
+    public final View.OnClickListener cnH;
 
-    public static boolean b(Context context, String str, String str2, int i) {
-        return a(context, str, str2, null, i);
+    public d(Context context) {
+        super(context);
+        this.cnA = new RelativeLayout.LayoutParams(-2, -2);
+        this.cnB = new RelativeLayout.LayoutParams(-1, -2);
+        this.cnC = null;
+        this.bxu = null;
+        this.cnD = null;
+        this.cnE = null;
+        this.aIa = true;
+        this.cnF = false;
+        this.bzG = new e(this);
+        this.cnG = new f(this);
+        this.cnH = new g(this);
+        init(context);
     }
 
-    public static boolean a(Context context, String str, String str2, String str3, int i) {
-        o oVar;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, o.class);
-        if (runTask != null && (oVar = (o) runTask.getData()) != null) {
-            if (oVar.ahn() <= 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i, str, str2)));
-            } else {
-                new GraffitiTabActivityConfig(context, str, str2, str3).start();
-            }
-            return true;
-        }
-        return false;
+    private void init(Context context) {
+        View inflate = LayoutInflater.from(context).inflate(r.j.tb_richtext_graffitiview, this);
+        this.bxu = inflate.findViewById(r.h.root_layout);
+        this.cnC = (TbImageView) inflate.findViewById(r.h.graffiti_image);
+        this.cnC.setGifIconSupport(false);
+        this.cnD = inflate.findViewById(r.h.save_layout);
+        this.cnE = (TextView) inflate.findViewById(r.h.tv_save);
+        this.cnC.setDrawBorder(true);
+        this.cnC.setBorderColor(ap.getColor(r.e.cp_bg_line_k));
+        this.cnC.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds1));
+        this.cnC.setFocusable(false);
+        this.cnD.setClickable(true);
+        this.cnC.setOnClickListener(this.cnH);
+        this.cnC.setGifIconSupport(false);
+        this.cnC.setAdjustViewBounds(false);
+        this.cnE.setClickable(true);
+        this.cnE.setOnClickListener(this);
+        this.cnE.setLongClickable(true);
+        this.cnE.setOnLongClickListener(this.bzG);
     }
 
-    public static void k(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_GRAFFITI_JUMP_PAINT, new GraffitiPaintActivityConfig(context, i)));
-    }
-
-    public static boolean agr() {
-        return che.eX() && TbadkCoreApplication.m9getInst().appResponseToIntentClass(GraffitiPaintActivityConfig.class);
-    }
-
-    public static boolean ak(View view) {
-        boolean eX = che.eX();
-        if (view != null && view.getVisibility() != 8) {
-            view.setVisibility(eX ? 8 : 0);
-        }
-        return !eX;
-    }
-
-    public static String f(String str, int i, int i2) {
-        return com.baidu.adp.lib.util.t.aU(String.format("%s_%d_%d_%s", str, Integer.valueOf(i), Integer.valueOf(i2), "graffiti@TB#ub2016"));
-    }
-
-    public static String a(UploadedImageInfo uploadedImageInfo) {
-        if (uploadedImageInfo == null || StringUtils.isNull(uploadedImageInfo.getPic_id())) {
-            return null;
-        }
-        return String.format("#(graffiti,%s,%d,%d,%s)", uploadedImageInfo.getPic_id(), Integer.valueOf(uploadedImageInfo.getWidth()), Integer.valueOf(uploadedImageInfo.getHeight()), f(uploadedImageInfo.getPic_id(), uploadedImageInfo.getWidth(), uploadedImageInfo.getHeight()));
-    }
-
-    public static void n(Intent intent) {
-        if (intent != null || agr()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new j(intent.getStringExtra(GraffitiPaintActivityConfig.GRAFFITO_FILE_NAME), intent.getIntExtra("from", -1))));
-        }
-    }
-
-    public static void b(WriteData writeData) {
-        if (writeData == null || StringUtils.isNull(writeData.getGraffitiImageId())) {
+    public void a(TbRichTextGraffitiInfo tbRichTextGraffitiInfo, int i, String str, int i2, int i3, boolean z) {
+        if (tbRichTextGraffitiInfo == null) {
+            setVisibility(8);
             return;
         }
-        TiebaStatic.log(new at("c11001").ab("obj_id", writeData.getGraffitiImageId()).s("obj_source", writeData.getType() == 0 ? 1 : 2));
+        if (getVisibility() != 0) {
+            setVisibility(0);
+        }
+        this.aHe = tbRichTextGraffitiInfo;
+        a(tbRichTextGraffitiInfo, i, i2, i3);
+        if (!c.ahy() || !z) {
+            this.cnD.setVisibility(8);
+            this.bxu.setLayoutParams(this.cnA);
+        } else {
+            this.cnD.setVisibility(0);
+            this.bxu.setLayoutParams(this.cnB);
+        }
+        boolean oI = l.oC().oI();
+        this.cnC.setDefaultBgResource(r.e.cp_bg_line_c);
+        if (oI) {
+            this.cnC.setInterceptOnClick(false);
+            this.cnC.setDefaultResource(r.g.transparent_bg);
+        } else {
+            this.cnC.setDefaultResource(r.g.icon_click);
+            this.cnC.setInterceptOnClick(true);
+        }
+        this.cnC.c(tbRichTextGraffitiInfo.url, 17, false);
+        this.cnC.setTag(tbRichTextGraffitiInfo.url);
+        onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
-    public static boolean o(Intent intent) {
-        return intent != null && intent.getIntExtra("from", -1) == 5;
+    private void a(TbRichTextGraffitiInfo tbRichTextGraffitiInfo, int i, int i2, int i3) {
+        ViewGroup.LayoutParams layoutParams;
+        if (tbRichTextGraffitiInfo != null && (layoutParams = this.cnC.getLayoutParams()) != null && i2 > cny) {
+            int i4 = tbRichTextGraffitiInfo.width;
+            int i5 = (i2 - cny) - cnz;
+            if (i5 <= 0 || i4 <= i5) {
+                i5 = i4;
+            }
+            if (layoutParams.width != i5 || layoutParams.height != i5) {
+                layoutParams.width = i5;
+                layoutParams.height = i5;
+                this.cnC.setLayoutParams(layoutParams);
+            }
+            this.cnD.setPadding(Math.min(i3, ((i2 - cny) - i5) / 2), 0, 0, 0);
+        }
+    }
+
+    public void j(boolean z, boolean z2) {
+        if (this.aIa != z) {
+            this.aIa = z;
+            if (z2) {
+                requestLayout();
+            }
+        }
+    }
+
+    public TbImageView getGraffitiImageView() {
+        return this.cnC;
+    }
+
+    public View getSaveBtn() {
+        return this.cnD;
+    }
+
+    public void onChangeSkinType(int i) {
+        ap.c(this.cnE, r.e.cp_link_tip_a, 1);
+        ap.j((View) this.cnE, r.g.btn_tuya_save_n);
+    }
+
+    public void reset() {
+        this.aHe = null;
+        this.cnC.setImageResource(0);
+        this.cnD.setBackgroundResource(0);
+        this.cnE.setBackgroundResource(0);
+        setTag(null);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        o oVar;
+        ahz();
+        if (view == this.cnE && this.aHe != null && bf.ak(getContext()) && !com.baidu.tbadk.util.d.isFastDoubleClick() && !this.cnF) {
+            this.cnF = true;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GRAFFITI_COMMON_MANAGER, o.class);
+            if (runTask != null && (oVar = (o) runTask.getData()) != null) {
+                oVar.b(this.aHe.url, this.cnG);
+            }
+            TiebaStatic.log(new ar("c10964"));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ahz() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
+    }
+
+    public static com.baidu.adp.lib.e.b<View> m(Context context, int i) {
+        return new com.baidu.adp.lib.e.b<>(new h(context), i, 0);
     }
 }

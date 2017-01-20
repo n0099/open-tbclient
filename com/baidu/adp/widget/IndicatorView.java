@@ -13,14 +13,14 @@ import android.view.View;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-    private boolean AC;
-    private int AD;
-    private float AE;
-    private Drawable AF;
-    private Drawable AG;
-    private final j AH;
+    private boolean As;
+    private int At;
+    private float Au;
+    private Drawable Av;
+    private Drawable Aw;
+    private final j Ax;
+    private int mCount;
     private float mPosition;
-    private int qh;
 
     public IndicatorView(Context context) {
         this(context, null, 0);
@@ -32,71 +32,71 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.AH = new a();
+        this.Ax = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.AD = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
-        this.qh = obtainStyledAttributes.getInteger(4, 0);
-        this.AF = obtainStyledAttributes.getDrawable(1);
-        if (this.AF != null) {
-            this.AF.setBounds(0, 0, this.AF.getIntrinsicWidth(), this.AF.getIntrinsicHeight());
+        this.At = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.mCount = obtainStyledAttributes.getInteger(4, 0);
+        this.Av = obtainStyledAttributes.getDrawable(1);
+        if (this.Av != null) {
+            this.Av.setBounds(0, 0, this.Av.getIntrinsicWidth(), this.Av.getIntrinsicHeight());
         }
-        this.AG = obtainStyledAttributes.getDrawable(2);
-        if (this.AG != null) {
-            this.AG.setBounds(0, 0, this.AG.getIntrinsicWidth(), this.AG.getIntrinsicHeight());
+        this.Aw = obtainStyledAttributes.getDrawable(2);
+        if (this.Aw != null) {
+            this.Aw.setBounds(0, 0, this.Aw.getIntrinsicWidth(), this.Aw.getIntrinsicHeight());
         }
-        this.AC = obtainStyledAttributes.getBoolean(3, false);
+        this.As = obtainStyledAttributes.getBoolean(3, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.AH.measure(i, i2);
+        this.Ax.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.AH.draw(canvas);
+        this.Ax.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.AC = z;
+        this.As = z;
     }
 
     public void setDrawable(Drawable drawable) {
-        this.AF = drawable;
+        this.Av = drawable;
         requestLayout();
         invalidate();
     }
 
     public Drawable getDrawable() {
-        return this.AF;
+        return this.Av;
     }
 
     public void setSelector(Drawable drawable) {
-        this.AG = drawable;
+        this.Aw = drawable;
         requestLayout();
         invalidate();
     }
 
     public Drawable getSelector() {
-        return this.AG;
+        return this.Aw;
     }
 
     public void setSpacing(int i) {
-        this.AD = i;
+        this.At = i;
         requestLayout();
         invalidate();
     }
 
     public int getSpacing() {
-        return this.AD;
+        return this.At;
     }
 
     public int getCount() {
-        return this.qh;
+        return this.mCount;
     }
 
     public void setCount(int i) {
-        this.qh = i;
+        this.mCount = i;
         requestLayout();
         invalidate();
     }
@@ -113,21 +113,21 @@ public class IndicatorView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements j {
-        private final int AI;
-        private long AJ;
-        private long AK;
-        private int AL;
-        private float AM;
-        private boolean AN;
-        private final HandlerC0014a AO = new HandlerC0014a(this, null);
+        private long AA;
+        private int AB;
+        private float AC;
+        private boolean AD;
+        private final HandlerC0013a AE = new HandlerC0013a(this, null);
+        private final int Ay;
+        private long Az;
 
         a() {
-            this.AI = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.Ay = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
         @Override // com.baidu.adp.widget.j
         public void measure(int i, int i2) {
-            if (IndicatorView.this.AF == null || IndicatorView.this.AG == null || IndicatorView.this.qh == 0) {
+            if (IndicatorView.this.Av == null || IndicatorView.this.Aw == null || IndicatorView.this.mCount == 0) {
                 IndicatorView.this.setWillNotDraw(true);
                 IndicatorView.this.setMeasuredDimension(0, 0);
                 return;
@@ -139,21 +139,21 @@ public class IndicatorView extends View {
         private int aI(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = (IndicatorView.this.AD * (IndicatorView.this.qh - 1)) + (Math.max(IndicatorView.this.AF.getIntrinsicWidth(), IndicatorView.this.AG.getIntrinsicWidth()) * IndicatorView.this.qh);
+            int max = (IndicatorView.this.At * (IndicatorView.this.mCount - 1)) + (Math.max(IndicatorView.this.Av.getIntrinsicWidth(), IndicatorView.this.Aw.getIntrinsicWidth()) * IndicatorView.this.mCount);
             switch (i2) {
                 case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                     int min = Math.min(i3, max);
-                    IndicatorView.this.AF.setBounds(0, 0, IndicatorView.this.AF.getIntrinsicWidth(), IndicatorView.this.AF.getBounds().height());
-                    IndicatorView.this.AG.setBounds(0, 0, IndicatorView.this.AG.getIntrinsicWidth(), IndicatorView.this.AG.getBounds().height());
+                    IndicatorView.this.Av.setBounds(0, 0, IndicatorView.this.Av.getIntrinsicWidth(), IndicatorView.this.Av.getBounds().height());
+                    IndicatorView.this.Aw.setBounds(0, 0, IndicatorView.this.Aw.getIntrinsicWidth(), IndicatorView.this.Aw.getBounds().height());
                     return min;
                 case 0:
-                    IndicatorView.this.AF.setBounds(0, 0, IndicatorView.this.AF.getIntrinsicWidth(), 0);
-                    IndicatorView.this.AG.setBounds(0, 0, IndicatorView.this.AG.getIntrinsicWidth(), 0);
+                    IndicatorView.this.Av.setBounds(0, 0, IndicatorView.this.Av.getIntrinsicWidth(), 0);
+                    IndicatorView.this.Aw.setBounds(0, 0, IndicatorView.this.Aw.getIntrinsicWidth(), 0);
                     return max;
                 case 1073741824:
-                    int i4 = (int) ((i3 - (IndicatorView.this.AD * (IndicatorView.this.qh - 1))) / IndicatorView.this.qh);
-                    IndicatorView.this.AG.setBounds(0, 0, i4, IndicatorView.this.AG.getBounds().height());
-                    IndicatorView.this.AF.setBounds(0, 0, i4, IndicatorView.this.AF.getBounds().height());
+                    int i4 = (int) ((i3 - (IndicatorView.this.At * (IndicatorView.this.mCount - 1))) / IndicatorView.this.mCount);
+                    IndicatorView.this.Aw.setBounds(0, 0, i4, IndicatorView.this.Aw.getBounds().height());
+                    IndicatorView.this.Av.setBounds(0, 0, i4, IndicatorView.this.Av.getBounds().height());
                     return i3;
                 default:
                     return i3;
@@ -163,20 +163,20 @@ public class IndicatorView extends View {
         private int aJ(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = Math.max(IndicatorView.this.AF.getIntrinsicHeight(), IndicatorView.this.AG.getIntrinsicHeight());
+            int max = Math.max(IndicatorView.this.Av.getIntrinsicHeight(), IndicatorView.this.Aw.getIntrinsicHeight());
             switch (i2) {
                 case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                     int min = Math.min(i3, max);
-                    IndicatorView.this.AF.setBounds(0, 0, IndicatorView.this.AF.getBounds().width(), min);
-                    IndicatorView.this.AG.setBounds(0, 0, IndicatorView.this.AG.getBounds().width(), min);
+                    IndicatorView.this.Av.setBounds(0, 0, IndicatorView.this.Av.getBounds().width(), min);
+                    IndicatorView.this.Aw.setBounds(0, 0, IndicatorView.this.Aw.getBounds().width(), min);
                     return min;
                 case 0:
-                    IndicatorView.this.AF.setBounds(0, 0, IndicatorView.this.AF.getBounds().width(), max);
-                    IndicatorView.this.AG.setBounds(0, 0, IndicatorView.this.AG.getBounds().width(), max);
+                    IndicatorView.this.Av.setBounds(0, 0, IndicatorView.this.Av.getBounds().width(), max);
+                    IndicatorView.this.Aw.setBounds(0, 0, IndicatorView.this.Aw.getBounds().width(), max);
                     return max;
                 case 1073741824:
-                    IndicatorView.this.AF.setBounds(0, 0, IndicatorView.this.AF.getBounds().width(), i3);
-                    IndicatorView.this.AG.setBounds(0, 0, IndicatorView.this.AG.getBounds().width(), i3);
+                    IndicatorView.this.Av.setBounds(0, 0, IndicatorView.this.Av.getBounds().width(), i3);
+                    IndicatorView.this.Aw.setBounds(0, 0, IndicatorView.this.Aw.getBounds().width(), i3);
                     return i3;
                 default:
                     return i3;
@@ -186,41 +186,41 @@ public class IndicatorView extends View {
         @Override // com.baidu.adp.widget.j
         public void draw(Canvas canvas) {
             int save = canvas.save();
-            for (int i = 0; i < IndicatorView.this.qh; i++) {
+            for (int i = 0; i < IndicatorView.this.mCount; i++) {
                 if (i != 0) {
-                    canvas.translate(IndicatorView.this.AF.getBounds().width() + IndicatorView.this.AD, 0.0f);
+                    canvas.translate(IndicatorView.this.Av.getBounds().width() + IndicatorView.this.At, 0.0f);
                 }
-                IndicatorView.this.AF.draw(canvas);
+                IndicatorView.this.Av.draw(canvas);
             }
             canvas.restoreToCount(save);
             int save2 = canvas.save();
-            canvas.translate((IndicatorView.this.AG.getBounds().width() + IndicatorView.this.AD) * IndicatorView.this.mPosition, 0.0f);
-            IndicatorView.this.AG.draw(canvas);
+            canvas.translate((IndicatorView.this.Aw.getBounds().width() + IndicatorView.this.At) * IndicatorView.this.mPosition, 0.0f);
+            IndicatorView.this.Aw.draw(canvas);
             canvas.restoreToCount(save2);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void jE() {
+        public void jC() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.AM = ((((float) (uptimeMillis - this.AJ)) / 1000.0f) * this.AL) + this.AM;
-            this.AJ = uptimeMillis;
-            this.AK = this.AJ + 16;
-            if (this.AL < 0) {
-                if (this.AM < IndicatorView.this.AE) {
-                    IndicatorView.this.mPosition = IndicatorView.this.AE;
-                    this.AN = false;
+            this.AC = ((((float) (uptimeMillis - this.Az)) / 1000.0f) * this.AB) + this.AC;
+            this.Az = uptimeMillis;
+            this.AA = this.Az + 16;
+            if (this.AB < 0) {
+                if (this.AC < IndicatorView.this.Au) {
+                    IndicatorView.this.mPosition = IndicatorView.this.Au;
+                    this.AD = false;
                 } else {
-                    IndicatorView.this.mPosition = this.AM;
-                    this.AO.removeMessages(1000);
-                    this.AO.sendEmptyMessageAtTime(1000, this.AK);
+                    IndicatorView.this.mPosition = this.AC;
+                    this.AE.removeMessages(1000);
+                    this.AE.sendEmptyMessageAtTime(1000, this.AA);
                 }
-            } else if (this.AM > IndicatorView.this.AE) {
-                IndicatorView.this.mPosition = IndicatorView.this.AE;
-                this.AN = false;
+            } else if (this.AC > IndicatorView.this.Au) {
+                IndicatorView.this.mPosition = IndicatorView.this.Au;
+                this.AD = false;
             } else {
-                IndicatorView.this.mPosition = this.AM;
-                this.AO.removeMessages(1000);
-                this.AO.sendEmptyMessageAtTime(1000, this.AK);
+                IndicatorView.this.mPosition = this.AC;
+                this.AE.removeMessages(1000);
+                this.AE.sendEmptyMessageAtTime(1000, this.AA);
             }
             IndicatorView.this.invalidate();
         }
@@ -228,11 +228,11 @@ public class IndicatorView extends View {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.adp.widget.IndicatorView$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class HandlerC0014a extends Handler {
-            private HandlerC0014a() {
+        public class HandlerC0013a extends Handler {
+            private HandlerC0013a() {
             }
 
-            /* synthetic */ HandlerC0014a(a aVar, HandlerC0014a handlerC0014a) {
+            /* synthetic */ HandlerC0013a(a aVar, HandlerC0013a handlerC0013a) {
                 this();
             }
 
@@ -240,7 +240,7 @@ public class IndicatorView extends View {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1000:
-                        a.this.jE();
+                        a.this.jC();
                         return;
                     default:
                         return;

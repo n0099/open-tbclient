@@ -1,21 +1,29 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tieba.tbadkCore.b.a;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements a.InterfaceC0072a {
-    final /* synthetic */ WriteActivity fDQ;
+public class w implements a.b {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WriteActivity writeActivity) {
-        this.fDQ = writeActivity;
+        this.fMl = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0072a
-    public void kj() {
-        com.baidu.tbadk.editortools.j jVar;
-        this.fDQ.dzm = null;
-        this.fDQ.lF(false);
-        jVar = this.fDQ.aun;
-        jVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        LocationModel.a aVar2;
+        LocationModel locationModel;
+        if (!com.baidu.adp.lib.util.i.gk()) {
+            aVar2 = this.fMl.avr;
+            aVar2.Do();
+        } else {
+            this.fMl.b(1, true, null);
+            locationModel = this.fMl.avd;
+            locationModel.OL();
+        }
+        aVar.dismiss();
     }
 }

@@ -7,23 +7,23 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean ahY;
+    private boolean ahm;
     private float x;
     private float y;
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.ahY = false;
+        this.ahm = false;
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ahY = false;
+        this.ahm = false;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.ahY = z;
+        this.ahm = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -32,7 +32,7 @@ public class BdBaseViewPager extends ViewPager {
         if (g(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.ahY) {
+        if (motionEvent.getPointerCount() > 1 && this.ahm) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);

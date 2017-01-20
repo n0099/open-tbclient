@@ -5,10 +5,10 @@ import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class i extends a {
-    private int aaU;
+    private int procType;
 
     public i(int i) {
-        this.aaU = i;
+        this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -27,26 +27,26 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vO() {
+    public boolean vI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vP() {
+    public boolean vJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.a.a fW = com.baidu.tbadk.imageManager.c.DX().fW(str);
-        if (fW == null || fW.jV() == null) {
+        com.baidu.adp.widget.a.a fT = com.baidu.tbadk.imageManager.c.DS().fT(str);
+        if (fT == null || fT.jT() == null) {
             return null;
         }
-        return fW;
+        return fT;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.widget.a.a b(String str, String str2, com.baidu.adp.lib.g.a aVar, Object... objArr) {
+    public com.baidu.adp.widget.a.a b(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         Bitmap decodeFile;
         if (StringUtils.isNull(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
             return null;
@@ -55,7 +55,7 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int vQ() {
-        return this.aaU;
+    public int vK() {
+        return this.procType;
     }
 }

@@ -14,7 +14,7 @@ public class i extends k {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
-    public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+    public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         StringBuilder sb = new StringBuilder(200);
         if (socketMessage instanceof MessageSyncMessage) {
             SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();

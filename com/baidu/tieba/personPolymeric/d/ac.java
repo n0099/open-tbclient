@@ -1,24 +1,38 @@
 package com.baidu.tieba.personPolymeric.d;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.person.listview.BdPersonListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac extends CustomMessageListener {
-    final /* synthetic */ x evO;
+public class ac implements BdPersonListView.a {
+    final /* synthetic */ z eFM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(x xVar, int i) {
-        super(i);
-        this.evO = xVar;
+    public ac(z zVar) {
+        this.eFM = zVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.data.k kVar;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.k) && (kVar = (com.baidu.tbadk.data.k) customResponsedMessage.getData()) != null) {
-            this.evO.fuE.ox(kVar.pS());
+    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
+    public void kf() {
+        com.baidu.tieba.model.a aVar;
+        com.baidu.tieba.model.a aVar2;
+        if (com.baidu.adp.lib.util.i.gk()) {
+            aVar = this.eFM.fDB;
+            aVar.resetData();
+            aVar2 = this.eFM.fDB;
+            aVar2.MR();
+            ((t) this.eFM.fDz).kd();
+            return;
         }
+        ((t) this.eFM.fDz).acA();
+    }
+
+    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
+    public void ke() {
+        ((t) this.eFM.fDz).acA();
+    }
+
+    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
+    public void G(float f) {
+        ((t) this.eFM.fDz).F(f);
     }
 }

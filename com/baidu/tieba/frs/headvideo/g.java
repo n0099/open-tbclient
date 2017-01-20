@@ -1,40 +1,61 @@
 package com.baidu.tieba.frs.headvideo;
 
-import android.content.Context;
-import android.os.Build;
 import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.frs.headvideo.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    private final View.OnTouchListener aJN = new h(this);
-    private ForumHeadVideoView bKN;
-    private GestureDetector bKO;
-    private boolean bKP;
-    private u.a bKQ;
-    private Context mContext;
+public class g implements View.OnTouchListener {
+    final /* synthetic */ f bRk;
+    private float mLastX;
+    private float mLastY;
 
-    public g(Context context, ForumHeadVideoView forumHeadVideoView, u.a aVar) {
-        this.bKP = false;
-        this.mContext = context;
-        this.bKN = forumHeadVideoView;
-        this.bKQ = aVar;
-        this.bKP = aas();
-        aar();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(f fVar) {
+        this.bRk = fVar;
     }
 
-    private void aar() {
-        if (this.bKO == null && this.mContext != null && this.bKN != null) {
-            this.bKO = new GestureDetector(this.mContext, new i(this));
-            this.bKN.setOnTouchListener(this.aJN);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        GestureDetector gestureDetector;
+        ForumHeadVideoView forumHeadVideoView;
+        boolean z;
+        ForumHeadVideoView forumHeadVideoView2;
+        GestureDetector gestureDetector2;
+        ForumHeadVideoView forumHeadVideoView3;
+        gestureDetector = this.bRk.bRh;
+        if (gestureDetector != null) {
+            forumHeadVideoView = this.bRk.bRg;
+            if (forumHeadVideoView != null) {
+                z = this.bRk.bRi;
+                if (z) {
+                    forumHeadVideoView3 = this.bRk.bRg;
+                    forumHeadVideoView3.requestDisallowInterceptTouchEvent(true);
+                }
+                switch (motionEvent.getAction()) {
+                    case 0:
+                        this.mLastY = motionEvent.getY();
+                        this.mLastX = motionEvent.getX();
+                        break;
+                    case 1:
+                    case 3:
+                        this.mLastY = 0.0f;
+                        this.mLastX = 0.0f;
+                        break;
+                    case 2:
+                        float y = this.mLastY - motionEvent.getY();
+                        if (3.0f * Math.abs(y) > Math.abs(this.mLastX - motionEvent.getX()) && y >= 0.0f) {
+                            forumHeadVideoView2 = this.bRk.bRg;
+                            forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
+                            break;
+                        }
+                        break;
+                }
+                gestureDetector2 = this.bRk.bRh;
+                gestureDetector2.onTouchEvent(motionEvent);
+                return true;
+            }
         }
-    }
-
-    public boolean aas() {
-        if (Build.MODEL == null) {
-            return false;
-        }
-        String str = Build.MODEL;
-        return "MI 5".equals(str) || "MX4".equals(str);
+        return false;
     }
 }

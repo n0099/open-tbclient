@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
 public class g {
-    private String dwT;
+    private String dGa;
     private String icon;
     private String obj_id;
     private int time;
@@ -20,7 +20,7 @@ public class g {
         this.icon = str;
     }
 
-    public void qU(int i) {
+    public void rG(int i) {
         this.weight = i;
     }
 
@@ -48,12 +48,12 @@ public class g {
         this.time = i;
     }
 
-    public String bdU() {
+    public String bfH() {
         return this.obj_id;
     }
 
-    public String aAH() {
-        return this.dwT;
+    public String aCw() {
+        return this.dGa;
     }
 
     public void a(StarEnter starEnter) {
@@ -62,8 +62,8 @@ public class g {
         setTitle(starEnter.title);
         setType(starEnter.type.intValue());
         setUrl(starEnter.url);
-        qU(starEnter.weight.intValue());
+        rG(starEnter.weight.intValue());
         this.obj_id = starEnter.obj_id;
-        this.dwT = starEnter.text;
+        this.dGa = starEnter.text;
     }
 }

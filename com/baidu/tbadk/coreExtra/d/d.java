@@ -19,15 +19,15 @@ import org.json.JSONObject;
 public class d {
     private String mConfigVersion;
     private int mFaceShopVersion;
-    private int alW = 0;
-    private VersionData alP = new VersionData();
-    private i alQ = new i();
-    private j alR = new j();
-    private CombineDownload alS = new CombineDownload();
-    private n alT = new n();
-    private r alU = new r();
-    private k alX = new k();
-    private com.baidu.tbadk.coreExtra.data.b alV = new com.baidu.tbadk.coreExtra.data.b();
+    private int alb = 0;
+    private VersionData akU = new VersionData();
+    private i akV = new i();
+    private j akW = new j();
+    private CombineDownload akX = new CombineDownload();
+    private n akY = new n();
+    private r akZ = new r();
+    private k alc = new k();
+    private com.baidu.tbadk.coreExtra.data.b ala = new com.baidu.tbadk.coreExtra.data.b();
     private com.baidu.tbadk.coreExtra.data.a mAdAdSense = new com.baidu.tbadk.coreExtra.data.a();
 
     public void parserJson(String str) {
@@ -41,17 +41,17 @@ public class d {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.alP.parserJson(jSONObject.optJSONObject("version"));
-                this.alQ.parserJson(jSONObject.optJSONObject("client"));
-                com.baidu.tbadk.core.util.e.setIp(jSONObject.optString("client_ip", null));
-                this.alR.parserJson(jSONObject.optJSONObject("config"));
-                this.alU.parserJson(jSONObject.optJSONObject("wl_config"));
-                this.alX.parserJson(jSONObject.optJSONObject("consume_path"));
-                TbadkCoreApplication.m9getInst().setConsumePathData(this.alX);
+                this.akU.parserJson(jSONObject.optJSONObject("version"));
+                this.akV.parserJson(jSONObject.optJSONObject("client"));
+                com.baidu.tbadk.core.util.d.setIp(jSONObject.optString("client_ip", null));
+                this.akW.parserJson(jSONObject.optJSONObject("config"));
+                this.akZ.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.alc.parserJson(jSONObject.optJSONObject("consume_path"));
+                TbadkCoreApplication.m9getInst().setConsumePathData(this.alc);
                 this.mConfigVersion = jSONObject.optString("config_version");
-                this.alS.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.alT.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.alW = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                this.akX.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.akY.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.alb = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_ADS_EMOTION, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
                 if (this.mFaceShopVersion > TbadkCoreApplication.m9getInst().getFaceShopVersion()) {
@@ -62,9 +62,9 @@ public class d {
                 if (optJSONObject != null) {
                     TbadkCoreApplication.m9getInst().setLcsSwitchStratgy(optJSONObject.toString());
                 }
-                new b().l(jSONObject.optJSONObject("dis_adv_config"));
+                new b().m(jSONObject.optJSONObject("dis_adv_config"));
                 new WhiteListData().saveJson(jSONObject.optJSONArray("whitelist"));
-                this.alV.parserJson(jSONObject.optJSONObject("app_entrance"));
+                this.ala.parserJson(jSONObject.optJSONObject("app_entrance"));
                 this.mAdAdSense.parserJson(jSONObject.optJSONObject("ad_adsense"));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -72,32 +72,32 @@ public class d {
         }
     }
 
-    public j zw() {
-        return this.alR;
+    public j zr() {
+        return this.akW;
     }
 
-    public String zx() {
+    public String zs() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload zy() {
-        return this.alS;
+    public CombineDownload zt() {
+        return this.akX;
     }
 
-    public VersionData zz() {
-        return this.alP;
+    public VersionData zu() {
+        return this.akU;
     }
 
-    public i zA() {
-        return this.alQ;
+    public i zv() {
+        return this.akV;
     }
 
-    public r zB() {
-        return this.alU;
+    public r zw() {
+        return this.akZ;
     }
 
-    public com.baidu.tbadk.coreExtra.data.b zC() {
-        return this.alV;
+    public com.baidu.tbadk.coreExtra.data.b zx() {
+        return this.ala;
     }
 
     public com.baidu.tbadk.coreExtra.data.a getAdAdSense() {

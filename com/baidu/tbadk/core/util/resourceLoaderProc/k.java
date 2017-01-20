@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class k extends a {
-    private int aaU;
+    private int procType;
 
     public k(int i) {
-        this.aaU = 0;
-        this.aaU = i;
+        this.procType = 0;
+        this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -31,18 +31,18 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vO() {
+    public boolean vI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vP() {
+    public boolean vJ() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.lib.Disk.ops.c dS(String str) {
+    public com.baidu.adp.lib.Disk.ops.c dQ(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -56,7 +56,7 @@ public class k extends a {
         cVar.k(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
-            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.cX());
+            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.cV());
         }
         return null;
     }
@@ -78,7 +78,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int vQ() {
-        return this.aaU;
+    public int vK() {
+        return this.procType;
     }
 }

@@ -14,7 +14,7 @@ public abstract class f {
     public String h = null;
     public int i = 3;
     public String j = null;
-    public Map<String, Object> LJ = null;
+    public Map<String, Object> KS = null;
     public String l = null;
     public byte[] m = null;
     public String n = null;

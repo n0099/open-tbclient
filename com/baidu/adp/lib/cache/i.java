@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public class i {
-    public String lS;
+    public String lM;
+    public String lY;
     public int maxSize;
-    public String mf;
-    public String mj;
-    public int mk;
-    public long ml;
+    public String mc;
+    public int md;
+    public long mf;
 }

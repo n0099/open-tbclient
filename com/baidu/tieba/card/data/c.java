@@ -1,69 +1,72 @@
 package com.baidu.tieba.card.data;
 
 import android.util.SparseArray;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.card.ap;
+import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tieba.card.at;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public abstract class c extends b implements ai {
-    public String Ty;
-    private String bec;
-    private int bed;
-    private String bee;
-    private String bef;
-    public SparseArray<String> beg = null;
+public abstract class c extends b implements ag {
+    public String SK;
+    private String bnX;
+    private int bnY;
+    private String bnZ;
+    private String boa;
+    public SparseArray<String> bob = null;
     private String mSource;
 
     public void setWeight(String str) {
-        this.bec = str;
+        this.bnX = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void gj(int i) {
-        this.bed = i;
+    public void gL(int i) {
+        this.bnY = i;
     }
 
-    public void hP(String str) {
-        this.bee = str;
+    public void ii(String str) {
+        this.bnZ = str;
     }
 
-    public int OJ() {
-        return this.bed;
+    public int Rz() {
+        return this.bnY;
     }
 
-    public String OK() {
-        return String.valueOf(this.mSource) + "#" + this.bed + "#" + this.bee;
+    public String RA() {
+        return String.valueOf(this.mSource) + "#" + this.bnY + "#" + this.bnZ;
     }
 
     public String getWeight() {
-        return this.bec;
+        return this.bnX;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String OL() {
-        return this.bee;
+    public String RB() {
+        return this.bnZ;
     }
 
-    public String OM() {
-        return this.bef;
+    public String RC() {
+        return this.boa;
     }
 
-    public void hQ(String str) {
-        this.bef = str;
+    public void ij(String str) {
+        this.boa = str;
     }
 
-    public bg IU() {
+    public bh Ji() {
         return null;
     }
 
@@ -71,34 +74,34 @@ public abstract class c extends b implements ai {
         return true;
     }
 
-    public at hR(String str) {
-        return x(str, false);
+    public ar ik(String str) {
+        return z(str, false);
     }
 
-    public at x(String str, boolean z) {
-        bg IU = IU();
-        if (IU == null) {
+    public ar z(String str, boolean z) {
+        bh Ji = Ji();
+        if (Ji == null) {
             return null;
         }
-        at ab = new at(str).ab("fid", String.valueOf(IU.getFid())).ab("tid", String.valueOf(IU.getTid())).ab("obj_param1", getWeight()).ab("obj_source", getSource()).s("obj_locate", OJ()).ab("obj_name", OL()).ab("obj_param3", ap.OA());
+        ar ab = new ar(str).ab("fid", String.valueOf(Ji.getFid())).ab("tid", String.valueOf(Ji.getTid())).s("obj_id", m(Ji)).s("obj_param2", 1).ab("obj_param1", getWeight()).ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", Rz()).ab("obj_name", RB()).ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).ab("obj_param3", at.Rr());
         if (!z) {
-            ab.s("obj_type", ON());
+            ab.s("obj_type", RD());
             return ab;
         }
         return ab;
     }
 
-    private int ON() {
+    private int RD() {
         int i;
-        bg IU = IU();
-        if (IU == null) {
+        bh Ji = Ji();
+        if (Ji == null) {
             return 0;
         }
-        ArrayList<MediaData> rP = IU.rP();
-        if (rP == null) {
+        ArrayList<MediaData> rG = Ji.rG();
+        if (rG == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = rP.iterator();
+            Iterator<MediaData> it = rG.iterator();
             i = 0;
             while (it.hasNext()) {
                 MediaData next = it.next();
@@ -110,12 +113,19 @@ public abstract class c extends b implements ai {
         return i;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
-    public ArrayList<ah> getImages() {
-        bg IU = IU();
-        if (IU != null) {
-            return IU.getImages();
+    @Override // com.baidu.tbadk.core.util.ag
+    public ArrayList<PreLoadImageInfo> getImages() {
+        bh Ji = Ji();
+        if (Ji != null) {
+            return Ji.getImages();
         }
         return null;
+    }
+
+    private int m(bh bhVar) {
+        if (bhVar.sz() == null || bhVar.sz().channelId <= 0) {
+            return 0;
+        }
+        return (int) bhVar.sz().channelId;
     }
 }

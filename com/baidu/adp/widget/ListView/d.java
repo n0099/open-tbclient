@@ -8,9 +8,9 @@ import java.security.InvalidParameterException;
 public abstract class d {
     private Context mContext;
     private View mView = null;
-    private boolean Bw = true;
-    private int Bx = 0;
-    private int By = 0;
+    private boolean Bh = true;
+    private int Bi = 0;
+    private int Bj = 0;
 
     public abstract void R(boolean z);
 
@@ -18,13 +18,13 @@ public abstract class d {
 
     public abstract void T(boolean z);
 
-    public abstract View kk();
+    public abstract View kg();
 
-    public abstract void kl();
+    public abstract void kh();
 
-    public abstract void km();
+    public abstract void ki();
 
-    public abstract void kn();
+    public abstract void kj();
 
     public d(Context context) {
         this.mContext = null;
@@ -40,13 +40,13 @@ public abstract class d {
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = kk();
+            this.mView = kg();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
-            r(this.mView);
-            this.Bx = this.mView.getMeasuredHeight();
-            this.By = this.mView.getMeasuredWidth();
+            q(this.mView);
+            this.Bi = this.mView.getMeasuredHeight();
+            this.Bj = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -57,15 +57,15 @@ public abstract class d {
         }
     }
 
-    public boolean ko() {
-        return this.Bw;
+    public boolean kk() {
+        return this.Bh;
     }
 
     public void U(boolean z) {
-        this.Bw = z;
+        this.Bh = z;
     }
 
-    private void r(View view) {
+    private void q(View view) {
         int makeMeasureSpec;
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
@@ -81,7 +81,7 @@ public abstract class d {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int kp() {
-        return this.Bx;
+    public int kl() {
+        return this.Bi;
     }
 }

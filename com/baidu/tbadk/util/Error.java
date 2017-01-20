@@ -1,8 +1,9 @@
 package com.baidu.tbadk.util;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class Error extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+public class Error extends OrmObject implements Serializable {
     private static final long serialVersionUID = 8237735171200223481L;
     private int mCode;
     private String mMessage;

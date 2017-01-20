@@ -1,9 +1,22 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class bd {
-    public boolean Te;
-    public String Tf;
-    public String Tg;
-    public com.baidu.tbadk.widget.richText.a Th;
-    public String threadTitle;
+    private int Rt;
+    private Object data;
+
+    public int qY() {
+        return this.Rt;
+    }
+
+    public void bR(int i) {
+        this.Rt = i;
+    }
+
+    public Object getData() {
+        return this.data;
+    }
+
+    public void setData(Object obj) {
+        this.data = obj;
+    }
 }

@@ -13,7 +13,7 @@ public final class PrintHelper {
     public static final int ORIENTATION_PORTRAIT = 2;
     public static final int SCALE_MODE_FILL = 2;
     public static final int SCALE_MODE_FIT = 1;
-    c bY;
+    c bX;
 
     /* loaded from: classes.dex */
     interface c {
@@ -40,14 +40,14 @@ public final class PrintHelper {
 
     /* loaded from: classes.dex */
     private static final class b implements c {
-        int ca;
-        int cc;
+        int bZ;
+        int mOrientation;
         int mScaleMode;
 
         private b() {
             this.mScaleMode = 2;
-            this.ca = 2;
-            this.cc = 1;
+            this.bZ = 2;
+            this.mOrientation = 1;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
@@ -57,22 +57,22 @@ public final class PrintHelper {
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getColorMode() {
-            return this.ca;
+            return this.bZ;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setColorMode(int i) {
-            this.ca = i;
+            this.bZ = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setOrientation(int i) {
-            this.cc = i;
+            this.mOrientation = i;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getOrientation() {
-            return this.cc;
+            return this.mOrientation;
         }
 
         @Override // android.support.v4.print.PrintHelper.c
@@ -91,90 +91,90 @@ public final class PrintHelper {
 
     /* loaded from: classes.dex */
     private static final class a implements c {
-        private final android.support.v4.print.a bZ;
+        private final android.support.v4.print.a bY;
 
         a(Context context) {
-            this.bZ = new android.support.v4.print.a(context);
+            this.bY = new android.support.v4.print.a(context);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setScaleMode(int i) {
-            this.bZ.setScaleMode(i);
+            this.bY.setScaleMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getScaleMode() {
-            return this.bZ.getScaleMode();
+            return this.bY.getScaleMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setColorMode(int i) {
-            this.bZ.setColorMode(i);
+            this.bY.setColorMode(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getColorMode() {
-            return this.bZ.getColorMode();
+            return this.bY.getColorMode();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void setOrientation(int i) {
-            this.bZ.setOrientation(i);
+            this.bY.setOrientation(i);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public int getOrientation() {
-            return this.bZ.getOrientation();
+            return this.bY.getOrientation();
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void printBitmap(String str, Bitmap bitmap) {
-            this.bZ.printBitmap(str, bitmap);
+            this.bY.printBitmap(str, bitmap);
         }
 
         @Override // android.support.v4.print.PrintHelper.c
         public void printBitmap(String str, Uri uri) throws FileNotFoundException {
-            this.bZ.printBitmap(str, uri);
+            this.bY.printBitmap(str, uri);
         }
     }
 
     public PrintHelper(Context context) {
         if (systemSupportsPrint()) {
-            this.bY = new a(context);
+            this.bX = new a(context);
         } else {
-            this.bY = new b();
+            this.bX = new b();
         }
     }
 
     public void setScaleMode(int i) {
-        this.bY.setScaleMode(i);
+        this.bX.setScaleMode(i);
     }
 
     public int getScaleMode() {
-        return this.bY.getScaleMode();
+        return this.bX.getScaleMode();
     }
 
     public void setColorMode(int i) {
-        this.bY.setColorMode(i);
+        this.bX.setColorMode(i);
     }
 
     public int getColorMode() {
-        return this.bY.getColorMode();
+        return this.bX.getColorMode();
     }
 
     public void setOrientation(int i) {
-        this.bY.setOrientation(i);
+        this.bX.setOrientation(i);
     }
 
     public int getOrientation() {
-        return this.bY.getOrientation();
+        return this.bX.getOrientation();
     }
 
     public void printBitmap(String str, Bitmap bitmap) {
-        this.bY.printBitmap(str, bitmap);
+        this.bX.printBitmap(str, bitmap);
     }
 
     public void printBitmap(String str, Uri uri) throws FileNotFoundException {
-        this.bY.printBitmap(str, uri);
+        this.bX.printBitmap(str, uri);
     }
 }

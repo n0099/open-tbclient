@@ -8,7 +8,7 @@ public class u {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int gy(String str) {
+    public static int gv(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -24,7 +24,7 @@ public class u {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String fm(int i) {
+    public static String fn(int i) {
         if (i >= 100000000) {
             return String.valueOf(i / 100000000) + "亿+";
         }
@@ -38,7 +38,7 @@ public class u {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gy(str) > i) {
+        if (gv(str) > i) {
             return String.valueOf(d(str, 0, i - 2)) + "...";
         }
         return str;
@@ -48,7 +48,7 @@ public class u {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (gy(str) > i) {
+        if (gv(str) > i) {
             return d(str, 0, i);
         }
         return str;

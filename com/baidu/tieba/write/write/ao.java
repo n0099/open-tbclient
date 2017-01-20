@@ -1,54 +1,54 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.os.Handler;
 import android.widget.EditText;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fDQ;
+public class ao implements a.b {
+    final /* synthetic */ WriteActivity fMl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(WriteActivity writeActivity) {
-        this.fDQ = writeActivity;
+        this.fMl = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
+        EditText boV;
         WriteData writeData2;
-        InputMethodManager inputMethodManager;
-        EditText bnx;
-        InputMethodManager inputMethodManager2;
-        EditText bnw;
-        com.baidu.tbadk.editortools.j jVar;
-        boolean z;
-        writeData = this.fDQ.eWm;
-        if (writeData.getVideoInfo() != null) {
-            TiebaStatic.log("c10063");
+        EditText boU;
+        WriteData writeData3;
+        WriteData writeData4;
+        WriteData writeData5;
+        Handler handler;
+        WriteData writeData6;
+        WriteData writeData7;
+        aVar.dismiss();
+        writeData = this.fMl.mData;
+        boV = this.fMl.boV();
+        writeData.setTitle(boV.getText().toString());
+        writeData2 = this.fMl.mData;
+        boU = this.fMl.boU();
+        writeData2.setContent(boU.getText().toString());
+        writeData3 = this.fMl.mData;
+        int type = writeData3.getType();
+        if (type == 0) {
+            writeData6 = this.fMl.mData;
+            String forumId = writeData6.getForumId();
+            writeData7 = this.fMl.mData;
+            com.baidu.tieba.tbadkCore.aa.b(forumId, writeData7);
+        } else if (type == 1) {
+            writeData4 = this.fMl.mData;
+            String threadId = writeData4.getThreadId();
+            writeData5 = this.fMl.mData;
+            com.baidu.tieba.tbadkCore.aa.c(threadId, writeData5);
         }
-        if (!com.baidu.tieba.write.d.a.isFastDoubleClick()) {
-            writeData2 = this.fDQ.eWm;
-            if (writeData2.getVideoInfo() != null) {
-                TiebaStatic.log("c10063");
-            }
-            WriteActivity writeActivity = this.fDQ;
-            inputMethodManager = this.fDQ.mInputManager;
-            bnx = this.fDQ.bnx();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, bnx);
-            WriteActivity writeActivity2 = this.fDQ;
-            inputMethodManager2 = this.fDQ.mInputManager;
-            bnw = this.fDQ.bnw();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bnw);
-            jVar = this.fDQ.aun;
-            jVar.AP();
-            this.fDQ.bmG();
-            z = this.fDQ.fCF;
-            if (z) {
-                com.baidu.adp.lib.stats.a.eI().eR();
-            }
-        }
+        this.fMl.showToast(r.l.draft_save_success);
+        handler = this.fMl.mHandler;
+        handler.postDelayed(new ap(this), 1000L);
     }
 }

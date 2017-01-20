@@ -1,6 +1,6 @@
 package com.baidu.tieba.VideoCache;
 
-import com.baidu.tieba.play.aw;
+import com.baidu.tieba.play.ay;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,14 +14,14 @@ import java.util.Collections;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c aPy;
+    final /* synthetic */ c aOB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aPy = cVar;
+        this.aOB = cVar;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:129:0x0509 */
+    /* JADX WARN: Incorrect condition in loop: B:129:0x050d */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -111,50 +111,50 @@ public class d implements Runnable {
         String str29;
         String str30;
         str = c.TAG;
-        k.log(str, "test run in " + this.aPy);
-        while (f.Kh().t(this.aPy)) {
-            f Kh = f.Kh();
-            str28 = this.aPy.aPj;
-            Kh.gQ(str28);
+        k.log(str, "test run in " + this.aOB);
+        while (f.Kw().t(this.aOB)) {
+            f Kw = f.Kw();
+            str28 = this.aOB.aOm;
+            Kw.gR(str28);
             try {
                 str29 = c.TAG;
-                k.log(str29, "mDownloadRunnable sleep in..." + this.aPy);
+                k.log(str29, "mDownloadRunnable sleep in..." + this.aOB);
                 Thread.sleep(100L);
                 str30 = c.TAG;
-                k.log(str30, "mDownloadRunnable sleep out..." + this.aPy);
+                k.log(str30, "mDownloadRunnable sleep out..." + this.aOB);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            z16 = this.aPy.aPq;
+            z16 = this.aOB.aOt;
             if (z16) {
                 break;
             }
         }
-        z = this.aPy.aPq;
+        z = this.aOB.aOt;
         if (!z) {
-            f.Kh().r(this.aPy);
+            f.Kw().r(this.aOB);
         }
         while (true) {
-            z2 = this.aPy.aPq;
+            z2 = this.aOB.aOt;
             if (z2) {
                 break;
             }
             str3 = c.TAG;
-            k.log(str3, "download in " + this.aPy);
-            str4 = this.aPy.aPv;
-            long gZ = o.gZ(str4);
-            j = this.aPy.ajS;
-            if (gZ <= j) {
-                this.aPy.aPt = -1L;
-                str7 = this.aPy.aPr;
+            k.log(str3, "download in " + this.aOB);
+            str4 = this.aOB.aOy;
+            long ha = o.ha(str4);
+            j = this.aOB.ajf;
+            if (ha <= j) {
+                this.aOB.aOw = -1L;
+                str7 = this.aOB.aOu;
                 File file2 = new File(str7);
-                j2 = this.aPy.aPm;
-                j3 = this.aPy.aPl;
+                j2 = this.aOB.aOp;
+                j3 = this.aOB.aOo;
                 File[] listFiles = file2.listFiles();
                 ArrayList arrayList = new ArrayList();
                 if (listFiles != null) {
                     for (File file3 : listFiles) {
-                        z15 = this.aPy.aPq;
+                        z15 = this.aOB.aOt;
                         if (z15) {
                             break;
                         }
@@ -173,7 +173,7 @@ public class d implements Runnable {
                         }
                     }
                 }
-                z3 = this.aPy.aPq;
+                z3 = this.aOB.aOt;
                 if (z3) {
                     break;
                 }
@@ -197,7 +197,7 @@ public class d implements Runnable {
                     int i3 = 0;
                     while (true) {
                         if (i3 < fileArr.length) {
-                            z14 = this.aPy.aPq;
+                            z14 = this.aOB.aOt;
                             if (z14) {
                                 j4 = 0;
                                 j5 = 0;
@@ -210,9 +210,9 @@ public class d implements Runnable {
                                 long parseInt2 = Integer.parseInt(file4.getName());
                                 long fileSize = o.getFileSize(file4);
                                 long j27 = (parseInt2 + fileSize) - 1;
-                                j25 = this.aPy.aPm;
+                                j25 = this.aOB.aOp;
                                 if (j25 >= parseInt2) {
-                                    j26 = this.aPy.aPm;
+                                    j26 = this.aOB.aOp;
                                     if (j26 <= j27) {
                                         file = file4;
                                         j24 = parseInt2 + fileSize;
@@ -241,7 +241,7 @@ public class d implements Runnable {
                             j6 = j3;
                             break;
                         }
-                        z13 = this.aPy.aPq;
+                        z13 = this.aOB.aOt;
                         if (z13) {
                             j2 = j24;
                             j6 = j3;
@@ -260,14 +260,14 @@ public class d implements Runnable {
                         }
                     }
                 }
-                z4 = this.aPy.aPq;
+                z4 = this.aOB.aOt;
                 if (z4) {
                     break;
                 }
                 if (file == null) {
-                    str8 = this.aPy.aPr;
+                    str8 = this.aOB.aOu;
                     StringBuilder append = new StringBuilder(String.valueOf(str8)).append("/");
-                    j7 = this.aPy.aPm;
+                    j7 = this.aOB.aOp;
                     sb = append.append(j7).toString();
                     try {
                         new File(sb).createNewFile();
@@ -301,34 +301,34 @@ public class d implements Runnable {
                     }
                 }
                 try {
-                    this.aPy.aPp = new FileInputStream(str9);
+                    this.aOB.aOs = new FileInputStream(str9);
                     if (file != null) {
                         try {
-                            fileInputStream = this.aPy.aPp;
-                            j9 = this.aPy.aPm;
+                            fileInputStream = this.aOB.aOs;
+                            j9 = this.aOB.aOp;
                             fileInputStream.skip(j9 - j4);
                         } catch (Exception e6) {
                             e6.printStackTrace();
                         }
                     }
                     if (file != null) {
-                        this.aPy.aPo = j4 + j5;
+                        this.aOB.aOr = j4 + j5;
                     }
-                    this.aPy.aPs = true;
-                    obj = this.aPy.mLock;
+                    this.aOB.aOv = true;
+                    obj = this.aOB.mLock;
                     synchronized (obj) {
-                        obj2 = this.aPy.mLock;
+                        obj2 = this.aOB.mLock;
                         obj2.notify();
                     }
                     if (file != null) {
-                        j23 = this.aPy.aPl;
+                        j23 = this.aOB.aOo;
                         if (j2 > j23) {
                             str27 = c.TAG;
-                            k.log(str27, "do not download, return " + this.aPy);
+                            k.log(str27, "do not download, return " + this.aOB);
                             break;
                         }
                     }
-                    z6 = this.aPy.aPq;
+                    z6 = this.aOB.aOt;
                     if (z6) {
                         break;
                     }
@@ -336,23 +336,23 @@ public class d implements Runnable {
                     k.log(str10, "download range is " + j2 + "-" + j8);
                     if (j2 <= j8 && !z5) {
                         try {
-                            str17 = this.aPy.aPj;
+                            str17 = this.aOB.aOm;
                             URL url = new URL(str17);
                             str18 = c.TAG;
-                            k.log(str18, "url opt 1 " + this.aPy);
+                            k.log(str18, "url opt 1 " + this.aOB);
                             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                             str19 = c.TAG;
-                            k.log(str19, "url opt 2 " + this.aPy);
+                            k.log(str19, "url opt 2 " + this.aOB);
                             httpURLConnection.setRequestProperty("Range", "bytes=" + j2 + "-" + j8);
                             httpURLConnection.setConnectTimeout(5000);
                             httpURLConnection.setReadTimeout(5000);
                             str20 = c.TAG;
-                            k.log(str20, "url opt 3 " + this.aPy);
+                            k.log(str20, "url opt 3 " + this.aOB);
                             InputStream inputStream = httpURLConnection.getInputStream();
                             while (inputStream == null) {
                                 str26 = c.TAG;
-                                k.log(str26, "conn input is null " + this.aPy);
-                                z12 = this.aPy.aPq;
+                                k.log(str26, "conn input is null " + this.aOB);
+                                z12 = this.aOB.aOt;
                                 if (z12) {
                                     break;
                                 }
@@ -364,59 +364,59 @@ public class d implements Runnable {
                                 inputStream = httpURLConnection.getInputStream();
                             }
                             str21 = c.TAG;
-                            k.log(str21, "got conn input " + this.aPy);
+                            k.log(str21, "got conn input " + this.aOB);
                             str22 = c.TAG;
-                            k.log(str22, "url opt 4 " + this.aPy);
+                            k.log(str22, "url opt 4 " + this.aOB);
                             int i5 = 0;
                             FileOutputStream fileOutputStream = new FileOutputStream(str9, true);
                             str23 = c.TAG;
-                            k.log(str23, "read start ..." + this.aPy);
+                            k.log(str23, "read start ..." + this.aOB);
                             while (true) {
                                 try {
-                                    bArr = this.aPy.aPw;
+                                    bArr = this.aOB.aOz;
                                     int read = inputStream.read(bArr);
                                     if (read == -1) {
                                         break;
                                     }
-                                    z11 = this.aPy.aPq;
+                                    z11 = this.aOB.aOt;
                                     if (z11) {
                                         break;
                                     }
-                                    bArr2 = this.aPy.aPw;
+                                    bArr2 = this.aOB.aOz;
                                     fileOutputStream.write(bArr2, 0, read);
-                                    c cVar = this.aPy;
-                                    j22 = cVar.aPo;
-                                    cVar.aPo = j22 + read;
+                                    c cVar = this.aOB;
+                                    j22 = cVar.aOr;
+                                    cVar.aOr = j22 + read;
                                     i5 += read;
-                                    obj3 = this.aPy.mLock;
+                                    obj3 = this.aOB.mLock;
                                     synchronized (obj3) {
-                                        obj4 = this.aPy.mLock;
+                                        obj4 = this.aOB.mLock;
                                         obj4.notify();
                                     }
                                 } catch (Exception e8) {
                                     e8.printStackTrace();
                                 }
                             }
-                            str25 = this.aPy.aPj;
-                            j21 = this.aPy.ajS;
-                            aw.i(str25, i5, (int) j21);
+                            str25 = this.aOB.aOm;
+                            j21 = this.aOB.ajf;
+                            ay.i(str25, i5, (int) j21);
                             str24 = c.TAG;
-                            k.log(str24, "read end ..." + this.aPy);
+                            k.log(str24, "read end ..." + this.aOB);
                             fileOutputStream.close();
-                            l.Kp().n(inputStream);
-                            this.aPy.aPt = j8;
+                            l.KE().n(inputStream);
+                            this.aOB.aOw = j8;
                         } catch (Exception e9) {
                             str16 = c.TAG;
-                            k.log(str16, "download exception " + this.aPy);
+                            k.log(str16, "download exception " + this.aOB);
                             e9.printStackTrace();
                         }
                     } else {
-                        this.aPy.aPt = (j4 + j5) - 1;
+                        this.aOB.aOw = (j4 + j5) - 1;
                     }
                     str11 = c.TAG;
-                    k.log(str11, "download out " + this.aPy);
+                    k.log(str11, "download out " + this.aOB);
                     while (j10 < j11) {
-                        z9 = this.aPy.aPq;
+                        z9 = this.aOB.aOt;
                         if (z9) {
                             break;
                         }
@@ -425,39 +425,39 @@ public class d implements Runnable {
                         } catch (InterruptedException e10) {
                             e10.printStackTrace();
                         }
-                        z10 = this.aPy.aPq;
+                        z10 = this.aOB.aOt;
                         if (z10) {
                             break;
                         }
                     }
-                    z7 = this.aPy.aPq;
+                    z7 = this.aOB.aOt;
                     if (z7) {
                         break;
                     }
-                    j12 = this.aPy.aPn;
+                    j12 = this.aOB.aOq;
                     int i6 = 0;
                     for (int i7 = 0; i7 < fileArr.length; i7++) {
-                        z8 = this.aPy.aPq;
+                        z8 = this.aOB.aOt;
                         if (z8) {
                             break;
                         }
                         int length2 = (fileArr.length - 1) - i7;
                         File file5 = fileArr[length2];
                         if (file5 != null && file5.exists()) {
-                            if (this.aPy.aPu) {
+                            if (this.aOB.aOx) {
                                 if (length2 != 0) {
                                     file5.delete();
                                     str15 = c.TAG;
-                                    k.log(str15, "release some cached slices " + this.aPy);
+                                    k.log(str15, "release some cached slices " + this.aOB);
                                 }
                             } else {
                                 long fileSize2 = o.getFileSize(file5);
                                 if ((Integer.parseInt(file5.getName()) + fileSize2) - 1 < j12 && (i6 = (int) (i6 + fileSize2)) > 31457280) {
-                                    this.aPy.aPu = true;
+                                    this.aOB.aOx = true;
                                     if (length2 != 0) {
                                         file5.delete();
                                         str14 = c.TAG;
-                                        k.log(str14, "release some cached slices " + this.aPy);
+                                        k.log(str14, "release some cached slices " + this.aOB);
                                     }
                                 }
                             }
@@ -465,50 +465,50 @@ public class d implements Runnable {
                     }
                     str12 = c.TAG;
                     StringBuilder sb2 = new StringBuilder("mLastRequestRangeEnd ");
-                    j13 = this.aPy.aPt;
+                    j13 = this.aOB.aOw;
                     StringBuilder append2 = sb2.append(j13).append(" mReadPosition ");
-                    j14 = this.aPy.aPn;
-                    k.log(str12, append2.append(j14).append(" ").append(" ").append(this.aPy).toString());
-                    j15 = this.aPy.aPt;
+                    j14 = this.aOB.aOq;
+                    k.log(str12, append2.append(j14).append(" ").append(" ").append(this.aOB).toString());
+                    j15 = this.aOB.aOw;
                     if (j15 == -1) {
                         break;
                     }
-                    j16 = this.aPy.aPn;
-                    j17 = this.aPy.aPt;
+                    j16 = this.aOB.aOq;
+                    j17 = this.aOB.aOw;
                     if (j16 <= j17) {
                         break;
                     }
-                    j18 = this.aPy.aPt;
-                    j19 = this.aPy.aPl;
+                    j18 = this.aOB.aOw;
+                    j19 = this.aOB.aOo;
                     if (j18 >= j19) {
                         break;
                     }
                     try {
-                        fileInputStream2 = this.aPy.aPp;
+                        fileInputStream2 = this.aOB.aOs;
                         fileInputStream2.close();
                     } catch (Exception e11) {
                         e11.printStackTrace();
                     }
-                    this.aPy.aPs = false;
-                    c cVar2 = this.aPy;
-                    j20 = this.aPy.aPt;
-                    cVar2.aPm = j20 + 1;
+                    this.aOB.aOv = false;
+                    c cVar2 = this.aOB;
+                    j20 = this.aOB.aOw;
+                    cVar2.aOp = j20 + 1;
                     str13 = c.TAG;
-                    k.log(str13, "continue to download... " + this.aPy);
+                    k.log(str13, "continue to download... " + this.aOB);
                 } catch (FileNotFoundException e12) {
                     e12.printStackTrace();
                 }
             } else {
-                StringBuilder sb3 = new StringBuilder(String.valueOf(j.aPS));
-                str5 = this.aPy.aPv;
+                StringBuilder sb3 = new StringBuilder(String.valueOf(j.aOV));
+                str5 = this.aOB.aOy;
                 o.w(new File(sb3.append(str5).append("/").append("segments").toString()));
                 str6 = c.TAG;
                 k.log(str6, "cache error !");
                 break;
             }
         }
-        f.Kh().s(this.aPy);
+        f.Kw().s(this.aOB);
         str2 = c.TAG;
-        k.log(str2, "test run out ***************************************************************" + this.aPy);
+        k.log(str2, "test run out ***************************************************************" + this.aOB);
     }
 }

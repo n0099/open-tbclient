@@ -3,27 +3,27 @@ package com.baidu.tieba.onlineDebugger.command;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class f implements h {
-    public Class<?> dSP;
-    public Stack<com.baidu.tieba.onlineDebugger.a.b> dSQ = new Stack<>();
+    public Class<?> ebI;
+    public Stack<com.baidu.tieba.onlineDebugger.a.b> ebJ = new Stack<>();
 
     public f(Class<?> cls, Stack<com.baidu.tieba.onlineDebugger.a.b> stack) {
-        this.dSP = cls;
-        this.dSQ.addAll(stack);
+        this.ebI = cls;
+        this.ebJ.addAll(stack);
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public Object aHc() {
+    public Object aIQ() {
         Object obj;
-        if (this.dSQ != null && this.dSQ.size() > 0) {
-            Object obj2 = this.dSP;
+        if (this.ebJ != null && this.ebJ.size() > 0) {
+            Object obj2 = this.ebI;
             while (true) {
                 obj = obj2;
-                if (this.dSQ.size() <= 0 || obj == null || (obj instanceof Void)) {
+                if (this.ebJ.size() <= 0 || obj == null || (obj instanceof Void)) {
                     break;
                 }
-                obj2 = this.dSQ.pop().V(obj);
+                obj2 = this.ebJ.pop().Y(obj);
             }
-            if (this.dSQ.size() != 0) {
+            if (this.ebJ.size() != 0) {
                 throw new RuntimeException("process command error");
             }
             return obj;
@@ -32,9 +32,9 @@ public class f implements h {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public boolean aHd() {
-        String name = this.dSP.getPackage().getName();
-        for (String str : com.baidu.tieba.onlineDebugger.d.a.dTc) {
+    public boolean aIR() {
+        String name = this.ebI.getPackage().getName();
+        for (String str : com.baidu.tieba.onlineDebugger.d.a.ebV) {
             if (name.startsWith(str)) {
                 return true;
             }

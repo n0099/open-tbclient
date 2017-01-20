@@ -1,152 +1,93 @@
 package com.baidu.tieba.frs.f;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.cache.o;
+import android.app.Activity;
+import android.os.Handler;
+import android.view.View;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.x;
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-public class a {
-    private static volatile a bMB;
-    private boolean bMz = false;
-    private final HashMap<String, ArrayList<h>> bMA = new HashMap<>();
+public class a implements View.OnClickListener {
+    private TbPageContext FY;
+    private boolean bUD;
+    private boolean bUE;
+    private View bUF;
+    private PopupWindow bUG;
+    private int bUC = r.l.attention_post_update_tip;
+    private Handler mHandler = new Handler();
+    private Runnable bUH = new b(this);
 
-    private a() {
+    public a(TbPageContext tbPageContext, boolean z) {
+        this.FY = tbPageContext;
+        this.bUE = z;
     }
 
-    public static a abf() {
-        if (bMB == null) {
-            synchronized (a.class) {
-                if (bMB == null) {
-                    bMB = new a();
+    public void an(View view) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (this.FY != null && view != null && !StringUtils.isNull(currentAccount)) {
+            this.bUF = view;
+            if (this.bUD) {
+                this.bUC = r.l.smart_frs_tip;
+                String str = "smart_frs_smart_sort_tip_show_counts_" + currentAccount;
+                int i = com.baidu.tbadk.core.sharedPref.b.tQ().getInt(str, 0);
+                if (i < 1) {
+                    com.baidu.tbadk.core.sharedPref.b.tQ().putInt(str, i + 1);
+                    this.mHandler.postDelayed(this.bUH, 500L);
+                    return;
                 }
             }
-        }
-        return bMB;
-    }
-
-    public String abg() {
-        return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
-    }
-
-    public synchronized long iH(String str) {
-        h iI;
-        iI = iI(str);
-        return iI != null ? iI.lastTime : 0L;
-    }
-
-    public synchronized void i(String str, long j) {
-        if (!TextUtils.isEmpty(str)) {
-            String abg = abg();
-            ArrayList<h> arrayList = this.bMA.get(abg);
-            ArrayList<h> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            h iI = iI(str);
-            boolean z = false;
-            if (iI != null) {
-                if (iI.lastTime != j) {
-                    iI.lastTime = j;
-                    z = true;
+            if (this.bUE) {
+                this.bUC = r.l.attention_post_update_tip;
+                String str2 = String.valueOf(currentAccount) + "frs_god_new_post_tip_count";
+                int i2 = com.baidu.tbadk.core.sharedPref.b.tQ().getInt(str2, 0);
+                if (i2 >= 3) {
+                    this.bUE = false;
+                    return;
                 }
-            } else {
-                h hVar = new h();
-                hVar.forumName = str;
-                hVar.lastTime = j;
-                arrayList2.add(hVar);
-                z = true;
-            }
-            if (z) {
-                d(abg, arrayList2);
+                com.baidu.tbadk.core.sharedPref.b.tQ().putInt(str2, i2 + 1);
+                this.bUE = false;
+                this.mHandler.postDelayed(this.bUH, 500L);
             }
         }
-    }
-
-    private synchronized void d(String str, ArrayList<h> arrayList) {
-        JSONObject abp;
-        if (!TextUtils.isEmpty(str) && arrayList != null) {
-            JSONArray jSONArray = new JSONArray();
-            int min = Math.min(30, arrayList.size());
-            int size = arrayList.size() > 30 ? arrayList.size() - 30 : 0;
-            ArrayList<h> arrayList2 = new ArrayList<>();
-            for (int i = size; i < min; i++) {
-                h hVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(hVar.forumName) && (abp = hVar.abp()) != null) {
-                    jSONArray.put(abp);
-                    arrayList2.add(hVar);
-                }
-            }
-            if (!x.t(arrayList2)) {
-                this.bMA.put(str, arrayList2);
-                if (!this.bMz) {
-                    abh();
-                } else {
-                    iJ(jSONArray.toString());
-                }
-            }
-        }
-    }
-
-    private synchronized h iI(String str) {
-        h hVar;
-        if (!TextUtils.isEmpty(str)) {
-            ArrayList<h> arrayList = this.bMA.get(abg());
-            if (arrayList != null) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 < arrayList.size()) {
-                        hVar = arrayList.get(i2);
-                        if (str.equalsIgnoreCase(hVar.forumName)) {
-                            break;
-                        }
-                        i = i2 + 1;
-                    } else {
-                        hVar = null;
-                        break;
-                    }
-                }
-            } else {
-                hVar = null;
-            }
-        } else {
-            hVar = null;
-        }
-        return hVar;
-    }
-
-    private void iJ(String str) {
-        o<String> abi = abi();
-        if (abi != null) {
-            abi.l("frs_smart_sort_last_time", str);
-        }
-    }
-
-    public void abh() {
-        o<String> abi = abi();
-        if (abi != null) {
-            abi.a("frs_smart_sort_last_time", new b(this));
-        }
-    }
-
-    private o<String> abi() {
-        return com.baidu.tbadk.core.b.a.sX().N("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<h> iK(String str) {
-        ArrayList<h> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(new h(jSONArray.optJSONObject(i)));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public View e(Activity activity, int i) {
+        TextView textView = new TextView(activity);
+        int e = com.baidu.adp.lib.util.k.e(activity, r.f.ds20);
+        textView.setPadding(e, 0 - activity.getResources().getDimensionPixelSize(r.f.ds12), e, 0);
+        textView.setHeight(activity.getResources().getDimensionPixelSize(r.f.ds76));
+        textView.setGravity(17);
+        textView.setTextSize(0, com.baidu.adp.lib.util.k.e(activity, r.f.fontsize28));
+        textView.setText(i);
+        textView.setOnClickListener(this);
+        com.baidu.tbadk.core.util.ap.j((View) textView, r.g.bg_tip_blue_left);
+        com.baidu.tbadk.core.util.ap.i((View) textView, r.e.cp_cont_i);
+        textView.setOnClickListener(this);
+        return textView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        acD();
+    }
+
+    public void acD() {
+        if (this.bUG != null) {
+            this.bUG.dismiss();
+            this.bUG = null;
         }
-        return arrayList;
+    }
+
+    public void ce(boolean z) {
+        this.bUD = z;
+    }
+
+    public void destory() {
+        this.mHandler.removeCallbacksAndMessages(null);
+        acD();
     }
 }

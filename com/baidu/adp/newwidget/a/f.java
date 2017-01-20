@@ -1,13 +1,13 @@
 package com.baidu.adp.newwidget.a;
 /* loaded from: classes.dex */
 public class f {
-    public static f vD = new f();
+    public static f vu = new f();
 
     private f() {
     }
 
-    public static f hL() {
-        return vD;
+    public static f hJ() {
+        return vu;
     }
 
     public a aC(int i) {

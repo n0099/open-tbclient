@@ -1,32 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.pb.a.a;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fv implements a.InterfaceC0066a {
-    final /* synthetic */ er egZ;
+public class fv implements DialogInterface.OnCancelListener {
+    final /* synthetic */ ez eqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fv(er erVar) {
-        this.egZ = erVar;
+    public fv(ez ezVar) {
+        this.eqf = ezVar;
     }
 
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
-    public void XP() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.egZ.aMc;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.egZ.aMc;
-            bdTypeListView2.setSelection(0);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        Runnable runnable;
+        Runnable runnable2;
+        runnable = this.eqf.epw;
+        if (runnable == null) {
+            this.eqf.epw = new fw(this);
         }
-    }
-
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
-    public void XO() {
-        PbActivity pbActivity;
-        pbActivity = this.egZ.dYB;
-        pbActivity.WE();
+        com.baidu.adp.lib.g.h eE = com.baidu.adp.lib.g.h.eE();
+        runnable2 = this.eqf.epw;
+        eE.postDelayed(runnable2, 150L);
     }
 }

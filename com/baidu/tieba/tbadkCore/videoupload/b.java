@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void bhc() {
+    public static void biN() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
             mainDBDatabaseManager.x("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
         }
     }
 
-    public static void qx(String str) {
+    public static void qR(String str) {
         BdLog.e("deleteVieoChunkUploadData Called");
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
@@ -25,7 +25,7 @@ public class b {
         }
     }
 
-    public static boolean m(String str, String str2, int i) {
+    public static boolean n(String str, String str2, int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
             return false;
@@ -35,7 +35,7 @@ public class b {
         return mainDBDatabaseManager.g("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static c qy(String str) {
+    public static c qS(String str) {
         Cursor cursor;
         Exception e;
         c cVar;
@@ -50,21 +50,21 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.fiX = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.fiY = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.fsj = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.fsk = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.a(e, "getChunkUploadDataByMd5");
-                            com.baidu.adp.lib.h.a.a(cursor);
+                            com.baidu.adp.lib.g.a.a(cursor);
                             return cVar;
                         }
                     } else {
                         cVar = null;
                     }
-                    com.baidu.adp.lib.h.a.a(cursor);
+                    com.baidu.adp.lib.g.a.a(cursor);
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.adp.lib.h.a.a(cursor);
+                    com.baidu.adp.lib.g.a.a(cursor);
                     throw th;
                 }
             } catch (Exception e3) {
@@ -78,7 +78,7 @@ public class b {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.adp.lib.h.a.a(cursor);
+            com.baidu.adp.lib.g.a.a(cursor);
             throw th;
         }
         return cVar;

@@ -1,25 +1,38 @@
 package com.baidu.tieba.play;
 
-import com.baidu.tieba.play.QuickVideoView;
+import android.view.View;
+import com.baidu.tieba.play.v;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements QuickVideoView.b {
-    final /* synthetic */ c eIS;
+public class n implements v.b {
+    final /* synthetic */ c eSu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(c cVar) {
-        this.eIS = cVar;
+        this.eSu = cVar;
     }
 
-    @Override // com.baidu.tieba.play.QuickVideoView.b
-    public void onSurfaceDestroyed() {
-        Runnable runnable;
-        Runnable runnable2;
-        this.eIS.eIy = false;
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.eIS.eIO;
-        eG.removeCallbacks(runnable);
-        com.baidu.adp.lib.h.h eG2 = com.baidu.adp.lib.h.h.eG();
-        runnable2 = this.eIS.eIQ;
-        eG2.removeCallbacks(runnable2);
+    @Override // com.baidu.tieba.play.v.b
+    public boolean onError(v vVar, int i, int i2) {
+        View view;
+        View view2;
+        View view3;
+        v.b bVar;
+        v.b bVar2;
+        view = this.eSu.aNh;
+        view.setVisibility(0);
+        view2 = this.eSu.bQO;
+        view2.setVisibility(8);
+        view3 = this.eSu.eSk;
+        view3.setVisibility(8);
+        this.eSu.afl = 4;
+        this.eSu.aMY.setRecoveryState(4);
+        bVar = this.eSu.dvs;
+        if (bVar != null) {
+            bVar2 = this.eSu.dvs;
+            bVar2.onError(vVar, i, i2);
+            return true;
+        }
+        return true;
     }
 }

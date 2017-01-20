@@ -1,28 +1,18 @@
 package com.baidu.tieba.imMessageCenter.mention;
-
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.ReplyMe.ReplyMeResIdl;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends an implements com.baidu.tbadk.mvc.b.c {
-    @Override // com.baidu.tbadk.mvc.b.b
-    public boolean z(byte[] bArr) {
-        try {
-            a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+public class ba implements com.baidu.tbadk.editortools.pb.b {
+    final /* synthetic */ au dky;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ba(au auVar) {
+        this.dky = auVar;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Eu() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "replyme_cache";
+    @Override // com.baidu.tbadk.editortools.pb.b
+    public void CU() {
+        ReplyMessageActivity replyMessageActivity;
+        replyMessageActivity = this.dky.dkg;
+        replyMessageActivity.showProgressBar();
     }
 }

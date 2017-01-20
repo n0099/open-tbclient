@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a agr;
+    private a afD;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,44 +22,44 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        wx();
+        ws();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        ww();
+        wr();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        ww();
+        wr();
     }
 
-    private void ww() {
-        setOnClickListener(new y(this));
-        wx();
+    private void wr() {
+        setOnClickListener(new z(this));
+        ws();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.agr = aVar;
+        this.afD = aVar;
     }
 
-    public void wx() {
-        if (wy()) {
-            com.baidu.tbadk.core.util.ar.c(this, r.f.icon_set_list_ok_s);
-            setContentDescription(getResources().getString(r.j.check_box_checked));
+    public void ws() {
+        if (wt()) {
+            com.baidu.tbadk.core.util.ap.c(this, r.g.icon_set_list_ok_s);
+            setContentDescription(getResources().getString(r.l.check_box_checked));
             return;
         }
-        com.baidu.tbadk.core.util.ar.c(this, r.f.icon_set_list_ok_n);
-        setContentDescription(getResources().getString(r.j.check_box_not_checked));
+        com.baidu.tbadk.core.util.ap.c(this, r.g.icon_set_list_ok_n);
+        setContentDescription(getResources().getString(r.l.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return wy();
+        return wt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wy() {
+    public boolean wt() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -72,9 +72,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        wx();
-        if (this.agr != null) {
-            this.agr.a(this, z, getTag());
+        ws();
+        if (this.afD != null) {
+            this.afD.a(this, z, getTag());
         }
     }
 }

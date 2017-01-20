@@ -8,32 +8,32 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity eis;
+    final /* synthetic */ NewSubPbActivity erC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.eis = newSubPbActivity;
+        this.erC = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
     public void g(Object obj) {
-        bc bcVar;
-        bc bcVar2;
-        bc bcVar3;
-        bc bcVar4;
-        bc bcVar5;
-        bc bcVar6;
-        bc bcVar7;
+        SubPbModel subPbModel;
+        SubPbModel subPbModel2;
+        SubPbModel subPbModel3;
+        SubPbModel subPbModel4;
+        SubPbModel subPbModel5;
+        SubPbModel subPbModel6;
+        SubPbModel subPbModel7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        bcVar = this.eis.eib;
-        if (bcVar.aNr() != null) {
-            bcVar5 = this.eis.eib;
-            if (bcVar5.aNr().IU() != null) {
-                bcVar6 = this.eis.eib;
-                if (bcVar6.aNr().IU().getAuthor() != null) {
-                    bcVar7 = this.eis.eib;
-                    str = String.valueOf(bcVar7.aNr().IU().getAuthor().getUserId());
+        subPbModel = this.erC.erl;
+        if (subPbModel.aPn() != null) {
+            subPbModel5 = this.erC.erl;
+            if (subPbModel5.aPn().Ji() != null) {
+                subPbModel6 = this.erC.erl;
+                if (subPbModel6.aPn().Ji().getAuthor() != null) {
+                    subPbModel7 = this.erC.erl;
+                    str = String.valueOf(subPbModel7.aPn().Ji().getAuthor().getUserId());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class m implements NewSubPbActivity.a {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.eis;
-        Activity pageActivity = this.eis.getPageContext().getPageActivity();
-        bcVar2 = this.eis.eib;
-        String id = bcVar2.aNr().aIL().getId();
-        bcVar3 = this.eis.eib;
-        String name = bcVar3.aNr().aIL().getName();
-        bcVar4 = this.eis.eib;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, bcVar4.aNr().IU().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.erC;
+        Activity pageActivity = this.erC.getPageContext().getPageActivity();
+        subPbModel2 = this.erC.erl;
+        String id = subPbModel2.aPn().aKC().getId();
+        subPbModel3 = this.erC.erl;
+        String name = subPbModel3.aPn().aKC().getName();
+        subPbModel4 = this.erC.erl;
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, subPbModel4.aPn().Ji().getId(), str, str2, str3)));
     }
 }

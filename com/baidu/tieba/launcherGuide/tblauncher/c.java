@@ -6,11 +6,11 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.tieba.r;
 /* loaded from: classes.dex */
 class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GuideActivity diy;
+    final /* synthetic */ GuideActivity dpI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GuideActivity guideActivity) {
-        this.diy = guideActivity;
+        this.dpI = guideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -20,55 +20,59 @@ class c implements ViewPager.OnPageChangeListener {
         int i3;
         IndicatorView indicatorView;
         IndicatorView indicatorView2;
-        View view2;
         IndicatorView indicatorView3;
+        View view2;
+        IndicatorView indicatorView4;
         View view3;
         int i4;
         View view4;
         View view5;
         View view6;
-        i2 = this.diy.dit;
+        i2 = this.dpI.dpD;
         if (i != i2 - 1) {
-            view = this.diy.din;
+            view = this.dpI.dpw;
             view.setVisibility(8);
-            this.diy.lI(r.e.ds120);
-            i3 = this.diy.dis;
+            this.dpI.mv(r.f.ds120);
+            i3 = this.dpI.dpC;
             switch (i3) {
                 case 1:
-                    indicatorView2 = this.diy.dim;
+                    indicatorView3 = this.dpI.dpv;
+                    indicatorView3.setVisibility(0);
+                    break;
+                case 2:
+                    indicatorView2 = this.dpI.dpv;
                     indicatorView2.setVisibility(0);
                     break;
                 case 3:
-                    indicatorView = this.diy.dim;
+                    indicatorView = this.dpI.dpv;
                     indicatorView.setVisibility(0);
                     break;
             }
         } else {
-            i4 = this.diy.dis;
+            i4 = this.dpI.dpC;
             switch (i4) {
                 case 1:
-                    this.diy.lI(r.e.ds90);
-                    view5 = this.diy.din;
-                    view5.setVisibility(0);
+                    view5 = this.dpI.dpw;
+                    view5.setVisibility(8);
                     break;
                 case 2:
                 default:
-                    view6 = this.diy.din;
+                    view6 = this.dpI.dpw;
                     view6.setVisibility(8);
                     break;
                 case 3:
-                    view4 = this.diy.din;
+                    view4 = this.dpI.dpw;
                     view4.setVisibility(8);
                     break;
             }
         }
-        view2 = this.diy.din;
+        view2 = this.dpI.dpw;
         if (view2.getVisibility() == 0) {
-            view3 = this.diy.din;
+            view3 = this.dpI.dpw;
             view3.requestFocus();
         }
-        indicatorView3 = this.diy.dim;
-        indicatorView3.setPosition(i);
+        indicatorView4 = this.dpI.dpv;
+        indicatorView4.setPosition(i);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

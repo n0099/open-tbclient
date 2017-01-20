@@ -4,21 +4,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class d<T> extends f<T> {
-    protected View gh;
+public class d<T> extends e<T> {
+    protected View ge;
 
-    public d(h<T> hVar, int i) {
-        super(hVar);
-        this.gh = null;
-        this.gh = LayoutInflater.from(hVar.getContext()).inflate(i, (ViewGroup) null);
-        this.gh.setTag(this);
+    public d(g<T> gVar, int i) {
+        super(gVar);
+        this.ge = null;
+        this.ge = LayoutInflater.from(gVar.getContext()).inflate(i, (ViewGroup) null);
+        this.ge.setTag(this);
     }
 
     public View aX() {
-        return this.gh;
+        return this.ge;
     }
 
     public View findViewById(int i) {
-        return this.gh.findViewById(i);
+        return this.ge.findViewById(i);
     }
 }

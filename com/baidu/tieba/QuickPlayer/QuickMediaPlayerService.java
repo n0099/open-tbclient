@@ -29,7 +29,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         }
 
         @Override // com.baidu.tieba.QuickPlayer.d
-        public b IH() throws RemoteException {
+        public b IU() throws RemoteException {
             return new h(QuickMediaPlayerService.this);
         }
     }
@@ -62,5 +62,22 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         synchronized (QuickMediaPlayerService.class) {
             this.mPlayerList.remove(iMediaPlayer);
         }
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.a
+    public boolean isExistInRemote(IMediaPlayer iMediaPlayer) {
+        synchronized (QuickMediaPlayerService.class) {
+            if (iMediaPlayer != null) {
+                if (this.mPlayerList != null && !this.mPlayerList.isEmpty()) {
+                    for (IMediaPlayer iMediaPlayer2 : this.mPlayerList) {
+                        if (iMediaPlayer2 != null && iMediaPlayer2 == iMediaPlayer) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return false;
     }
 }

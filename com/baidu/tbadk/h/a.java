@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.h;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.a.j;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +25,7 @@ public class a extends com.baidu.adp.framework.a.d {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
-    /* renamed from: d */
-    public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
             TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
             a(httpMessage, tbHttpMessageTask);
@@ -46,9 +45,9 @@ public class a extends com.baidu.adp.framework.a.d {
         if (tbHttpMessageTask.isNeedAddCommenParam()) {
             c(httpMessage, tbHttpMessageTask);
         }
-        e(httpMessage);
+        d(httpMessage);
         if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST && tbHttpMessageTask.isBaiduServer()) {
-            d(httpMessage);
+            addSign(httpMessage);
         }
     }
 
@@ -112,8 +111,8 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = j.getNetType();
         if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.xm().xn()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xm().xo()));
+            if (com.baidu.tbadk.coreExtra.b.a.xg().xh()) {
+                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xg().xi()));
             }
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m9getInst().getKeepaliveWifi() == 1) {
@@ -142,7 +141,7 @@ public class a extends com.baidu.adp.framework.a.d {
         }
     }
 
-    private void d(HttpMessage httpMessage) {
+    private void addSign(HttpMessage httpMessage) {
         StringBuffer stringBuffer = new StringBuffer(1024);
         List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
         for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
@@ -157,22 +156,22 @@ public class a extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.aU(stringBuffer.toString()));
+        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.aT(stringBuffer.toString()));
     }
 
-    private void e(HttpMessage httpMessage) {
-        ad.a uS = ad.uS();
-        if (uS != null) {
-            httpMessage.addParam("stTime", String.valueOf(uS.mTime));
-            httpMessage.addParam("stSize", String.valueOf(uS.aaI));
-            httpMessage.addParam("stTimesNum", String.valueOf(uS.aaJ));
-            httpMessage.addParam("stMode", String.valueOf(uS.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(uS.aaH));
+    private void d(HttpMessage httpMessage) {
+        ac.a uM = ac.uM();
+        if (uM != null) {
+            httpMessage.addParam("stTime", String.valueOf(uM.mTime));
+            httpMessage.addParam("stSize", String.valueOf(uM.ZW));
+            httpMessage.addParam("stTimesNum", String.valueOf(uM.ZX));
+            httpMessage.addParam("stMode", String.valueOf(uM.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(uM.ZV));
         }
-        int cH = ad.cH(0);
-        if (cH == 0 && uS != null) {
-            cH = uS.aaJ;
+        int cG = ac.cG(0);
+        if (cG == 0 && uM != null) {
+            cG = uM.ZX;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cH));
+        httpMessage.addParam("stErrorNums", String.valueOf(cG));
     }
 }

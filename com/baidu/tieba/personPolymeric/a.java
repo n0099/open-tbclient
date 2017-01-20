@@ -2,17 +2,17 @@ package com.baidu.tieba.personPolymeric;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.h.b;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.util.x;
 /* loaded from: classes.dex */
-class a implements bc.a {
-    @Override // com.baidu.tbadk.core.util.bc.a
+class a implements ba.a {
+    @Override // com.baidu.tbadk.core.util.ba.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;

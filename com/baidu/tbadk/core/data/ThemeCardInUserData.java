@@ -1,10 +1,11 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThemeCardInUser;
 /* loaded from: classes.dex */
-public class ThemeCardInUserData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+public class ThemeCardInUserData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 1;
     private long cardId;
     private String cardImageUrlAndroid;

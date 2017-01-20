@@ -7,39 +7,39 @@ import com.baidu.tieba.QuickPlayer.c;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g extends c.a {
-    private WeakReference<Handler> aLr;
+    private WeakReference<Handler> aKt;
 
     public g(Handler handler) {
-        this.aLr = new WeakReference<>(handler);
+        this.aKt = new WeakReference<>(handler);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.c
-    public void IF() throws RemoteException {
+    public void IS() throws RemoteException {
         sendMessage(6);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.c
-    public void IG() throws RemoteException {
+    public void IT() throws RemoteException {
         sendMessage(7);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.c
-    public void N(int i, int i2) throws RemoteException {
-        q(8, i, i2);
+    public void O(int i, int i2) throws RemoteException {
+        p(8, i, i2);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.c
-    public void O(int i, int i2) throws RemoteException {
-        q(9, i, i2);
+    public void P(int i, int i2) throws RemoteException {
+        p(9, i, i2);
     }
 
     private void sendMessage(int i) {
-        q(i, 0, 0);
+        p(i, 0, 0);
     }
 
-    private void q(int i, int i2, int i3) {
-        if (this.aLr != null && this.aLr.get() != null) {
-            Handler handler = this.aLr.get();
+    private void p(int i, int i2, int i3) {
+        if (this.aKt != null && this.aKt.get() != null) {
+            Handler handler = this.aKt.get();
             Message obtainMessage = handler.obtainMessage(i);
             obtainMessage.arg1 = i2;
             obtainMessage.arg2 = i3;

@@ -1,31 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.e.b;
 /* loaded from: classes.dex */
-public class cw implements Animation.AnimationListener {
-    final /* synthetic */ cs bCv;
+class cw implements ViewGroup.OnHierarchyChangeListener {
+    final /* synthetic */ TabMenuPopView bJS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cs csVar) {
-        this.bCv = csVar;
+    public cw(TabMenuPopView tabMenuPopView) {
+        this.bJS = tabMenuPopView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewRemoved(View view, View view2) {
+        b bVar;
+        if (view2 instanceof TextView) {
+            bVar = this.bJS.aHD;
+            bVar.n((TextView) view2);
+        }
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        Runnable runnable;
-        int i;
-        com.baidu.adp.lib.h.h eG = com.baidu.adp.lib.h.h.eG();
-        runnable = this.bCv.bCu;
-        i = this.bCv.bCr;
-        eG.postDelayed(runnable, i);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // android.view.ViewGroup.OnHierarchyChangeListener
+    public void onChildViewAdded(View view, View view2) {
     }
 }

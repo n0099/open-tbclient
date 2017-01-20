@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.plugin.PluginErrorTipView;
@@ -18,78 +18,78 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class n {
-    protected TbPageContext Gf;
-    private com.baidu.tbadk.f.f HB;
-    protected NoNetworkView Hj;
-    private boolean bAr = true;
-    protected PluginErrorTipView bpH;
-    protected m epg;
-    protected w fuD;
-    public t fuE;
-    protected BdPersonListView fuF;
-    protected com.baidu.tieba.model.a fuG;
-    private v fuH;
-    protected int fuI;
+    protected TbPageContext Fp;
+    private com.baidu.tbadk.f.f GL;
+    protected NoNetworkView Gt;
+    private boolean bdP = true;
+    protected int bdR;
+    protected PluginErrorTipView bxt;
+    protected m ezb;
+    protected BdPersonListView fDA;
+    protected com.baidu.tieba.model.a fDB;
+    private v fDC;
+    protected w fDy;
+    public t fDz;
     protected NavigationBar mNavigationBar;
-    protected com.baidu.tbadk.core.view.w mNoDataView;
+    protected com.baidu.tbadk.core.view.x mNoDataView;
     public View mRootView;
     private com.baidu.tbadk.f.h refreshView;
 
     protected abstract void a(float f, boolean z);
 
     public n(TbPageContext tbPageContext) {
-        this.Gf = tbPageContext;
+        this.Fp = tbPageContext;
     }
 
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mRootView = layoutInflater.inflate(r.h.fragment_person_center_layout, (ViewGroup) null);
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(r.g.person_center_navigation_bar);
-        this.Hj = (NoNetworkView) this.mRootView.findViewById(r.g.person_center_no_network_view);
-        this.bpH = (PluginErrorTipView) this.mRootView.findViewById(r.g.person_center_plugin_error_tip_view);
-        this.fuF = (BdPersonListView) this.mRootView.findViewById(r.g.person_center_listview);
+        this.mRootView = layoutInflater.inflate(r.j.fragment_person_center_layout, (ViewGroup) null);
+        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(r.h.person_center_navigation_bar);
+        this.Gt = (NoNetworkView) this.mRootView.findViewById(r.h.person_center_no_network_view);
+        this.bxt = (PluginErrorTipView) this.mRootView.findViewById(r.h.person_center_plugin_error_tip_view);
+        this.fDA = (BdPersonListView) this.mRootView.findViewById(r.h.person_center_listview);
         return this.mRootView;
     }
 
     public void initUI() {
         this.mNavigationBar.showBottomLine(false);
-        this.fuD.a(this.Gf.getPageActivity(), this.mNavigationBar);
-        this.fuF.setOnScrollListener(new o(this));
+        this.fDy.a(this.Fp.getPageActivity(), this.mNavigationBar);
+        this.fDA.setOnScrollListener(new o(this));
     }
 
     public void onChangeSkinType(int i) {
-        ar.k(this.mRootView, r.d.cp_bg_line_d);
+        ap.j(this.mRootView, r.e.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(null, i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
-        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ar.cR(r.f.s_navbar_bg)));
-        this.fuD.onChangeSkinType(i);
-        this.Hj.onChangeSkinType(this.Gf, i);
-        this.bpH.onChangeSkinType(this.Gf, i);
-        this.fuE.onChangeSkinType(i);
-        if (this.fuF.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.fuF.getAdapter()).notifyDataSetChanged();
+        this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(ap.cQ(r.g.s_navbar_bg)));
+        this.fDy.onChangeSkinType(i);
+        this.Gt.onChangeSkinType(this.Fp, i);
+        this.bxt.onChangeSkinType(this.Fp, i);
+        this.fDz.onChangeSkinType(i);
+        if (this.fDA.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.fDA.getAdapter()).notifyDataSetChanged();
         }
-        if (this.HB != null) {
-            this.HB.tm();
+        if (this.GL != null) {
+            this.GL.tg();
         }
         if (this.refreshView != null) {
-            this.refreshView.tm();
+            this.refreshView.tg();
         }
     }
 
     public void setOnViewResponseListener(m mVar) {
-        this.epg = mVar;
-        this.fuD.setOnViewResponseListener(mVar);
+        this.ezb = mVar;
+        this.fDy.setOnViewResponseListener(mVar);
     }
 
     public void a(com.baidu.tieba.model.a aVar) {
-        this.fuG = aVar;
+        this.fDB = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bkl() {
-        if (Build.VERSION.SDK_INT >= 11 && this.fuE != null) {
-            int dimension = (int) this.Gf.getResources().getDimension(r.e.ds98);
-            int i = this.fuI - (-this.fuE.anz().getTop());
+    public void Pw() {
+        if (Build.VERSION.SDK_INT >= 11 && this.fDz != null) {
+            int dimension = (int) this.Fp.getResources().getDimension(r.f.ds98);
+            int i = this.bdR - (-this.fDz.PG().getTop());
             if (i < dimension) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -103,7 +103,7 @@ public abstract class n {
                 this.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
             }
-            if (this.fuF.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+            if (this.fDA.getFirstVisiblePosition() > 0 && this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                 this.mNavigationBar.getBarBgView().setAlpha(1.0f);
                 this.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
@@ -111,90 +111,91 @@ public abstract class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bkm() {
+    public void Px() {
         if (2 != TbadkCoreApplication.m9getInst().getSkinType()) {
             float alpha = this.mNavigationBar.getBarBgView().getAlpha();
             if (alpha < 0.5f) {
-                if (!this.bAr) {
-                    this.bAr = true;
+                if (!this.bdP) {
+                    this.bdP = true;
                 }
-            } else if (this.bAr) {
-                this.bAr = false;
+            } else if (this.bdP) {
+                this.bdP = false;
             }
-            a(alpha, !this.bAr);
-            this.fuD.c(alpha, this.bAr ? false : true);
+            a(alpha, !this.bdP);
+            this.fDy.c(alpha, this.bdP ? false : true);
         }
     }
 
-    public void dj(List<com.baidu.adp.widget.ListView.v> list) {
-        if (com.baidu.tbadk.core.util.x.t(list)) {
+    /* renamed from: do  reason: not valid java name */
+    public void m17do(List<com.baidu.adp.widget.ListView.v> list) {
+        if (com.baidu.tbadk.core.util.w.s(list)) {
             list = new ArrayList<>();
         }
-        this.fuF.setVisibility(0);
-        this.fuF.setData(list);
+        this.fDA.setVisibility(0);
+        this.fDA.setData(list);
     }
 
     public void g(boolean z, int i) {
-        if (!alL()) {
-            if (this.HB == null) {
+        if (!amS()) {
+            if (this.GL == null) {
                 if (i < 0) {
-                    this.HB = new com.baidu.tbadk.f.f(this.Gf.getPageActivity());
+                    this.GL = new com.baidu.tbadk.f.f(this.Fp.getPageActivity());
                 } else {
-                    this.HB = new com.baidu.tbadk.f.f(this.Gf.getPageActivity(), i);
+                    this.GL = new com.baidu.tbadk.f.f(this.Fp.getPageActivity(), i);
                 }
-                this.HB.tm();
+                this.GL.tg();
             }
-            this.HB.b(this.mRootView, z);
-            this.fuF.setVisibility(8);
+            this.GL.b(this.mRootView, z);
+            this.fDA.setVisibility(8);
         }
     }
 
-    public void Jj() {
-        if (this.HB != null) {
-            this.HB.M(this.mRootView);
-            this.HB = null;
+    public void Jx() {
+        if (this.GL != null) {
+            this.GL.K(this.mRootView);
+            this.GL = null;
         }
     }
 
-    private boolean alL() {
-        if (this.HB != null) {
-            return this.HB.Eh();
+    private boolean amS() {
+        if (this.GL != null) {
+            return this.GL.Ec();
         }
         return false;
     }
 
-    public void H(String str, boolean z) {
-        if (!aiS()) {
+    public void G(String str, boolean z) {
+        if (!ajZ()) {
             if (this.refreshView == null) {
-                this.refreshView = new com.baidu.tbadk.f.h(this.Gf.getPageActivity(), new p(this));
+                this.refreshView = new com.baidu.tbadk.f.h(this.Fp.getPageActivity(), new p(this));
             }
-            this.refreshView.eW(this.Gf.getResources().getDimensionPixelSize(r.e.ds280));
-            this.refreshView.gb(str);
+            this.refreshView.eX(this.Fp.getResources().getDimensionPixelSize(r.f.ds280));
+            this.refreshView.fY(str);
             this.refreshView.b(this.mRootView, z);
-            this.refreshView.Eo();
-            this.fuF.setVisibility(8);
+            this.refreshView.Ej();
+            this.fDA.setVisibility(8);
         }
     }
 
-    public void Jk() {
+    public void Jy() {
         if (this.refreshView != null) {
-            this.refreshView.M(this.mRootView);
+            this.refreshView.K(this.mRootView);
             this.refreshView = null;
         }
     }
 
-    public boolean aiS() {
+    public boolean ajZ() {
         if (this.refreshView != null) {
-            return this.refreshView.Eh();
+            return this.refreshView.Ec();
         }
         return false;
     }
 
     public void a(v vVar) {
-        this.fuH = vVar;
+        this.fDC = vVar;
     }
 
-    public View bkn() {
+    public View blP() {
         return this.mNavigationBar;
     }
 }

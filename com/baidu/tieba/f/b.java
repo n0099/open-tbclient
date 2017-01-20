@@ -1,25 +1,35 @@
 package com.baidu.tieba.f;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tieba.f.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends CustomMessageListener {
-    final /* synthetic */ a eQj;
+public class b implements Handler.Callback {
+    final /* synthetic */ a bvj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(a aVar, int i) {
-        super(i);
-        this.eQj = aVar;
+    public b(a aVar) {
+        this.bvj = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120) {
-            return;
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        a.InterfaceC0057a interfaceC0057a;
+        a.InterfaceC0057a interfaceC0057a2;
+        int i = message.arg1;
+        int i2 = message.arg2;
+        switch (message.what) {
+            case 0:
+                interfaceC0057a2 = this.bvj.aLl;
+                interfaceC0057a2.Q(i, i2);
+                return true;
+            case 1:
+                interfaceC0057a = this.bvj.aLl;
+                interfaceC0057a.R(i, i2);
+                return true;
+            default:
+                return false;
         }
-        this.eQj.d(customResponsedMessage);
     }
 }

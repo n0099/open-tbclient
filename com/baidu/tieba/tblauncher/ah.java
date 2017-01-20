@@ -1,24 +1,32 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah implements View.OnClickListener {
-    final /* synthetic */ ad flb;
+public class ah implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aqv;
+    final /* synthetic */ aa fuh;
+    private final /* synthetic */ int val$type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ad adVar) {
-        this.flb = adVar;
+    public ah(aa aaVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
+        this.fuh = aaVar;
+        this.aqv = aVar;
+        this.val$type = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.flb.hy(false);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM));
-        com.baidu.tbadk.core.sharedPref.b.tW().putBoolean("enter_forum_edit_mode", false);
-        TiebaStatic.log("c10099");
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        this.aqv.dismiss();
+        if (this.val$type == 0) {
+            mainTabActivity2 = this.fuh.fua;
+            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
+        } else if (this.val$type == 1) {
+            mainTabActivity = this.fuh.fua;
+            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
+        }
     }
 }

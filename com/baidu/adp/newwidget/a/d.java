@@ -4,49 +4,49 @@ import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
     public volatile boolean isDefault = true;
-    public BitmapDrawable vq;
-    public com.baidu.adp.widget.a.a vr;
+    public BitmapDrawable vh;
+    public com.baidu.adp.widget.a.a vi;
 
-    public boolean hJ() {
-        return (this.vq == null || this.vq.getBitmap() == null || this.vq.getBitmap().isRecycled()) ? false : true;
+    public boolean hH() {
+        return (this.vh == null || this.vh.getBitmap() == null || this.vh.getBitmap().isRecycled()) ? false : true;
     }
 
-    public boolean hK() {
-        return this.vr != null && this.vr.jW();
+    public boolean hI() {
+        return this.vi != null && this.vi.jU();
     }
 
     public boolean isAvailable() {
-        return hJ() || hK();
+        return hH() || hI();
     }
 
     public int getWidth() {
-        if (hJ()) {
-            return this.vq.getIntrinsicWidth();
+        if (hH()) {
+            return this.vh.getIntrinsicWidth();
         }
-        if (hK()) {
-            return this.vr.getWidth();
+        if (hI()) {
+            return this.vi.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (hJ()) {
-            return this.vq.getIntrinsicHeight();
+        if (hH()) {
+            return this.vh.getIntrinsicHeight();
         }
-        if (hK()) {
-            return this.vr.getHeight();
+        if (hI()) {
+            return this.vi.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.vr = null;
-        this.vq = null;
+        this.vi = null;
+        this.vh = null;
     }
 
-    public boolean cY() {
-        if (hK()) {
-            return this.vr.cY();
+    public boolean cW() {
+        if (hI()) {
+            return this.vi.cW();
         }
         return false;
     }

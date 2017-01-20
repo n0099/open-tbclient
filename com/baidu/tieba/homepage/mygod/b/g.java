@@ -6,29 +6,29 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.core.flow.a.b {
-    final /* synthetic */ a cpI;
+    final /* synthetic */ a cwI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.cpI = aVar;
+        this.cwI = aVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e to() {
+    public com.baidu.tbadk.core.flow.a.e ti() {
         TbPageContext tbPageContext;
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        tbPageContext = this.cpI.Gf;
+        tbPageContext = this.cwI.Fp;
         eVar.setHeight((int) (k.I(tbPageContext.getPageActivity()) / 3.5294118f));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c tn() {
-        com.baidu.tbadk.core.flow.a.c tn = super.tn();
-        if (tn != null) {
-            tn.setGravity(81);
-            tn.cw(r.e.ds20);
+    public com.baidu.tbadk.core.flow.a.c th() {
+        com.baidu.tbadk.core.flow.a.c th = super.th();
+        if (th != null) {
+            th.setGravity(81);
+            th.cv(r.f.ds20);
         }
-        return tn;
+        return th;
     }
 }

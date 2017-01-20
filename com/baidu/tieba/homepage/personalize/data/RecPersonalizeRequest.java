@@ -90,7 +90,7 @@ public class RecPersonalizeRequest extends NetMessage {
     protected Object encode(boolean z) {
         int i = 1;
         DataReq.Builder builder = new DataReq.Builder();
-        n.a(builder, true, false, true);
+        n.bindCommonParamsToProtobufData(builder, true, false, true);
         builder.need_tags = Integer.valueOf(this.needTag ? 1 : 0);
         builder.load_type = Integer.valueOf(this.loadType);
         builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -101,7 +101,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.scr_h = Integer.valueOf(k.J(TbadkCoreApplication.m9getInst()));
         builder.scr_dip = Double.valueOf(k.K(TbadkCoreApplication.m9getInst()));
         builder.q_type = 1;
-        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.tW().getBoolean("has_requested_new_user_guide", false)) {
+        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.tQ().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;
         }
         builder.need_age_module = Integer.valueOf(i);

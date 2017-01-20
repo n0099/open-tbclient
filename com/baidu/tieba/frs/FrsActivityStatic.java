@@ -7,31 +7,72 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.acrossForum.message.AcrossAwardHttpResMsg;
-import com.baidu.tieba.frs.acrossForum.message.AcrossAwardSocketMsg;
 import com.baidu.tieba.frs.headvideo.ForumHeadVideoListHttpResponseMessage;
 import com.baidu.tieba.frs.headvideo.ForumHeadVideoListSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
+import com.baidu.tieba.tbadkCore.a.a;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* loaded from: classes.dex */
 public class FrsActivityStatic {
-    public static boolean bzr = true;
-    public static boolean bzs = true;
-    public static final CustomMessageListener bzt = new aj(CmdConfigCustom.MSG_NEW);
-    private static final CustomMessageListener bzu = new ak(CmdConfigCustom.MSG_READ);
+    public static boolean bGR = true;
+    public static boolean bGS = true;
+    public static final CustomMessageListener bGT = new ai(CmdConfigCustom.MSG_NEW);
+    private static final CustomMessageListener bGU = new aj(CmdConfigCustom.MSG_READ);
 
     static {
-        WN();
-        WO();
-        WQ();
-        WP();
-        WR();
-        WS();
-        WT();
-        MessageManager.getInstance().registerListener(bzt);
-        MessageManager.getInstance().registerListener(bzu);
-        com.baidu.tieba.tbadkCore.a.a.a(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aB(TbConfig.FRS_ADDRESS, 301001));
+        Yj();
+        Yd();
+        Ye();
+        Yg();
+        Yf();
+        Yh();
+        Yi();
+        LocationModel.biy();
+        Yk();
+        MessageManager.getInstance().registerListener(bGT);
+        MessageManager.getInstance().registerListener(bGU);
+    }
+
+    private static void Yd() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_START_NORMAL, new ak());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void Ye() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_REFRESH, new al());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    private static void Yf() {
+        a.a(309387, ForumHeadVideoListSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_HEAD_VIDEO_LIST, a.aC(TbConfig.FRS_HEAD_VIDEO_LIST, 309387));
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setResponsedClass(ForumHeadVideoListHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    private static void Yg() {
+        com.baidu.tbadk.core.util.ba.vt().a(new am());
+    }
+
+    private static void Yh() {
+        MessageManager.getInstance().registerListener(new an(CmdConfigCustom.CMD_KV_CACHE_SUCC));
+    }
+
+    private static void Yi() {
+        MessageManager.getInstance().registerListener(new ao(CmdConfigCustom.CMD_CLEAN_SMART_FRS_COOKIE));
+    }
+
+    public static void Yj() {
+        com.baidu.tbadk.ala.c.np().a(1, new ap());
+    }
+
+    public static void Yk() {
+        a.a(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, a.aC(TbConfig.FRS_ADDRESS, 301001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -40,47 +81,9 @@ public class FrsActivityStatic {
         tbHttpMessageTask.setIsImm(true);
         tbHttpMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.bgK();
-        al alVar = new al();
-        alVar.setSelfExecute(true);
-        alVar.setPriority(4);
-        alVar.execute(new Void[0]);
-    }
-
-    private static void WN() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_START_NORMAL, new am());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    private static void WO() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_REFRESH, new an());
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    private static void WP() {
-        com.baidu.tieba.tbadkCore.a.a.a(309387, ForumHeadVideoListSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_HEAD_VIDEO_LIST, com.baidu.tieba.tbadkCore.a.a.aB(TbConfig.FRS_HEAD_VIDEO_LIST, 309387));
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setResponsedClass(ForumHeadVideoListHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    private static void WQ() {
-        com.baidu.tbadk.core.util.bc.vz().a(new ao());
-    }
-
-    private static void WR() {
-        MessageManager.getInstance().registerListener(new ap(CmdConfigCustom.CMD_KV_CACHE_SUCC));
-    }
-
-    private static void WS() {
-        MessageManager.getInstance().registerListener(new aq(CmdConfigCustom.CMD_CLEAN_SMART_FRS_COOKIE));
-    }
-
-    private static void WT() {
-        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigHttp.CMD_ACROSS_AWARD, 309425, TbConfig.ACROSS_AWARD, AcrossAwardHttpResMsg.class, AcrossAwardSocketMsg.class);
-        MessageManager.getInstance().registerListener(new ar(CmdConfigCustom.CMD_EXIT_APP));
+        aq aqVar = new aq();
+        aqVar.setSelfExecute(true);
+        aqVar.setPriority(4);
+        aqVar.execute(new Void[0]);
     }
 }

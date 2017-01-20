@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
 public class j extends a {
-    private int aaU;
+    private int procType;
 
     public j(int i) {
-        this.aaU = i;
+        this.procType = i;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -27,33 +27,33 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vO() {
+    public boolean vI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vP() {
+    public boolean vJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
         String str3 = String.valueOf(str) + (TbadkCoreApplication.m9getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a fW = com.baidu.tbadk.imageManager.c.DX().fW(str3);
-        if (fW == null) {
-            Bitmap cQ = ar.cQ(com.baidu.adp.lib.h.b.g(str2, 0));
-            if (cQ == null) {
+        com.baidu.adp.widget.a.a fT = com.baidu.tbadk.imageManager.c.DS().fT(str3);
+        if (fT == null) {
+            Bitmap cP = ap.cP(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cP == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cQ, false, str2);
-            com.baidu.tbadk.imageManager.c.DX().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cP, false, str2);
+            com.baidu.tbadk.imageManager.c.DS().c(str3, aVar);
             return aVar;
         }
-        return fW;
+        return fT;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int vQ() {
-        return this.aaU;
+    public int vK() {
+        return this.procType;
     }
 }

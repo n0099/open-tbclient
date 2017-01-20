@@ -4,19 +4,19 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class j implements h {
-    private String dSU;
+    private String ebN;
 
-    public void np(String str) {
-        this.dSU = str;
+    public void nG(String str) {
+        this.ebN = str;
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public Object aHc() {
-        if (this.dSU == null) {
+    public Object aIQ() {
+        if (this.ebN == null) {
             return null;
         }
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(this.dSU).getInputStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(this.ebN).getInputStream()));
             StringBuffer stringBuffer = new StringBuffer(100);
             while (true) {
                 String readLine = bufferedReader.readLine();
@@ -33,7 +33,7 @@ public class j implements h {
     }
 
     @Override // com.baidu.tieba.onlineDebugger.command.h
-    public boolean aHd() {
+    public boolean aIR() {
         return false;
     }
 }

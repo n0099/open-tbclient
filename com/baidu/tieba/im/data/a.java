@@ -1,40 +1,58 @@
 package com.baidu.tieba.im.data;
-
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.core.util.a {
-    private String cKS;
-    private long userId;
-    private String userName;
+public class a {
+    private int cSd;
+    private String content;
+    private long id;
+    private String name;
+    private String portrait;
+    private int status;
 
-    @Override // com.baidu.tbadk.core.util.a
-    public ArrayList<String> getPhotoUrl() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(aoQ());
-        return arrayList;
+    public long getId() {
+        return this.id;
     }
 
-    public long getUserId() {
-        return this.userId;
+    public void setId(long j) {
+        this.id = j;
     }
 
-    public void setUserId(long j) {
-        this.userId = j;
+    public String getName() {
+        return this.name;
     }
 
-    public String getUserName() {
-        return this.userName;
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public void setUserName(String str) {
-        this.userName = str;
+    public String getPortrait() {
+        return this.portrait;
     }
 
-    public String aoQ() {
-        return this.cKS;
+    public void setPortrait(String str) {
+        this.portrait = str;
     }
 
-    public void kk(String str) {
-        this.cKS = str;
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public int apY() {
+        return this.cSd;
+    }
+
+    public void lv(int i) {
+        this.cSd = i;
     }
 }

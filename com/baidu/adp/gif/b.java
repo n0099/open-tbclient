@@ -12,7 +12,7 @@ public interface b {
 
     void close();
 
-    int cx();
+    int cv();
 
     int getHeight();
 

@@ -8,23 +8,23 @@ import com.baidu.tieba.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements BaseWebView.d {
-    final /* synthetic */ d bKj;
+    final /* synthetic */ d bQB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.bKj = dVar;
+        this.bQB = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public void a(WebView webView, String str) {
         boolean z;
-        z = this.bKj.bKg;
+        z = this.bQB.bQy;
         if (!z) {
-            this.bKj.ws();
-            ViewGroup.LayoutParams layoutParams = this.bKj.getLayoutParams();
-            layoutParams.height = (com.baidu.adp.lib.util.k.J(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.e.ds90);
-            this.bKj.setLayoutParams(layoutParams);
+            this.bQB.wn();
+            ViewGroup.LayoutParams layoutParams = this.bQB.getLayoutParams();
+            layoutParams.height = (com.baidu.adp.lib.util.k.J(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds90);
+            this.bQB.setLayoutParams(layoutParams);
         }
-        this.bKj.bKi = false;
+        this.bQB.bQA = false;
     }
 }

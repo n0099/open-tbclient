@@ -30,7 +30,7 @@ public class UserMuteCheckRequestMessage extends NetMessage {
         builder.user_id_f = Long.valueOf(this.userIdF);
         builder.user_id_t = Long.valueOf(this.userIdT);
         if (z) {
-            n.a(builder, true);
+            n.bindCommonParamsToProtobufData(builder, true);
         }
         UserMuteCheckReqIdl.Builder builder2 = new UserMuteCheckReqIdl.Builder();
         builder2.data = builder.build(false);

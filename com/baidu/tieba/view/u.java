@@ -1,32 +1,32 @@
 package com.baidu.tieba.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.lib.g.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ t fvi;
+public class u extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ t fEc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.fvi = tVar;
+        this.fEc = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+    @Override // com.baidu.adp.lib.f.b
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         if (aVar != null) {
-            aVar.e(this.fvi.fva);
+            aVar.e(this.fEc.fDU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
+    @Override // com.baidu.adp.lib.f.b
     public void onProgressUpdate(Object... objArr) {
         super.onProgressUpdate(objArr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.g.b
-    public void ai(String str) {
-        super.ai(str);
+    @Override // com.baidu.adp.lib.f.b
+    public void onCancelled(String str) {
+        super.onCancelled(str);
     }
 }

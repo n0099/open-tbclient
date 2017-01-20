@@ -1,9 +1,10 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class BaseGroupData extends com.baidu.tbadk.core.util.a implements Serializable {
+public class BaseGroupData extends AbstractImageProvider implements Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private String album;
     private long authorId;
@@ -177,7 +178,7 @@ public class BaseGroupData extends com.baidu.tbadk.core.util.a implements Serial
         this.groupType = i;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(this.portrait);

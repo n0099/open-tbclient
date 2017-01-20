@@ -3,12 +3,13 @@ package com.baidu.tieba.im.data;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.AbstractImageProvider;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.ag;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends com.baidu.tbadk.core.util.a implements v, ai, Serializable {
+public class GroupInfoData extends AbstractImageProvider implements v, ag, Serializable {
     public static final BdUniqueId TYPE_FRS_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5616188082014345808L;
     private long authorId;
@@ -152,20 +153,20 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements v, ai,
         this.isMemGroup = z;
     }
 
-    @Override // com.baidu.tbadk.core.util.a
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(this.portrait);
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.ai
-    public ArrayList<ah> getImages() {
-        ArrayList<ah> arrayList = new ArrayList<>();
-        ah ahVar = new ah();
-        ahVar.imgUrl = this.portrait;
-        ahVar.aaU = 10;
-        arrayList.add(ahVar);
+    @Override // com.baidu.tbadk.core.util.ag
+    public ArrayList<PreLoadImageInfo> getImages() {
+        ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
+        PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+        preLoadImageInfo.imgUrl = this.portrait;
+        preLoadImageInfo.procType = 10;
+        arrayList.add(preLoadImageInfo);
         return arrayList;
     }
 

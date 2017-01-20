@@ -19,7 +19,7 @@ public class PluginInstallerService extends HighPriorityIntentService {
 
     public PluginInstallerService() {
         super(PluginInstallerService.class.getSimpleName());
-        this.handler = new n(this, Looper.getMainLooper());
+        this.handler = new m(this, Looper.getMainLooper());
         this.messenger = new Messenger(this.handler);
     }
 
@@ -54,6 +54,6 @@ public class PluginInstallerService extends HighPriorityIntentService {
 
     @Override // com.baidu.adp.plugin.install.HighPriorityIntentService
     protected void onHandleIntent(Intent intent) {
-        m.onHandleIntent(intent);
+        l.onHandleIntent(intent);
     }
 }

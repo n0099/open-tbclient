@@ -1,37 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.FrsPage.NtSpreadInfo;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
-public class x extends bg {
-    public static final BdUniqueId Rk = BdUniqueId.gen();
-    public String Rl;
-    public String Rm;
-    public String linkUrl;
-    public List<String> pics;
-    public Integer position;
-    public String tips;
-    public String title;
-    public String type;
-    public String userName;
+public class x {
+    private String Qo;
+    private String Qp;
+    private String Qq;
+    private String Qr;
+    private int Qs;
 
-    public void a(NtSpreadInfo ntSpreadInfo) {
-        if (ntSpreadInfo != null) {
-            this.userName = ntSpreadInfo.user_name;
-            this.Rl = ntSpreadInfo.user_avatar;
-            this.tips = ntSpreadInfo.tips;
-            this.type = ntSpreadInfo.type;
-            this.title = ntSpreadInfo.title;
-            this.pics = ntSpreadInfo.pics;
-            this.linkUrl = ntSpreadInfo.link_url;
-            this.position = ntSpreadInfo.position;
-            this.Rm = ntSpreadInfo.publish_date;
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.Qo = headSdk.head_pic;
+            this.Qp = headSdk.head_text;
+            this.Qq = headSdk.sdk_name;
+            this.Qr = headSdk.sdk_params;
+            this.Qs = headSdk.head_type.intValue();
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Rk;
+    public String pQ() {
+        return this.Qo;
+    }
+
+    public String pR() {
+        return this.Qp;
+    }
+
+    public String pS() {
+        return this.Qr;
+    }
+
+    public int pT() {
+        return this.Qs;
     }
 }

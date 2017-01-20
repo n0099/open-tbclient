@@ -1,44 +1,44 @@
 package com.baidu.tieba.launcherGuide.topRec;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.tbadkCore.w;
-import com.baidu.tieba.tbadkCore.x;
+import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tbadkCore.v;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.base.g {
-    private final /* synthetic */ int VX;
-    final /* synthetic */ TopRecActivity diJ;
+class c extends com.baidu.adp.base.f {
+    private final /* synthetic */ int Vn;
+    final /* synthetic */ TopRecActivity dpT;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(TopRecActivity topRecActivity, int i, int i2) {
-        this.diJ = topRecActivity;
-        this.VX = i;
+        this.dpT = topRecActivity;
+        this.Vn = i;
         this.val$id = i2;
     }
 
-    @Override // com.baidu.adp.base.g
+    @Override // com.baidu.adp.base.f
     public void g(Object obj) {
-        w wVar;
-        w wVar2;
+        LikeModel likeModel;
+        LikeModel likeModel2;
         d dVar;
-        if (this.diJ.diD != null && this.diJ.diD.forum_list[this.VX] != null) {
-            wVar = this.diJ.Gg;
-            if (wVar.getErrorCode() != 22) {
-                wVar2 = this.diJ.Gg;
-                if (wVar2.getErrorCode() != 0) {
-                    this.diJ.aU(this.VX, this.val$id);
+        if (this.dpT.dpN != null && this.dpT.dpN.forum_list[this.Vn] != null) {
+            likeModel = this.dpT.Fq;
+            if (likeModel.getErrorCode() != 22) {
+                likeModel2 = this.dpT.Fq;
+                if (likeModel2.getErrorCode() != 0) {
+                    this.dpT.aU(this.Vn, this.val$id);
                     return;
-                } else if (((x) obj) == null) {
-                    this.diJ.aU(this.VX, this.val$id);
+                } else if (((v) obj) == null) {
+                    this.dpT.aU(this.Vn, this.val$id);
                     return;
                 } else {
-                    this.diJ.awH();
-                    TbadkApplication.getInst().addLikeForum(this.diJ.diD.forum_list[this.VX].forum_name);
+                    this.dpT.axO();
+                    TbadkApplication.getInst().addLikeForum(this.dpT.dpN.forum_list[this.Vn].forum_name);
                     return;
                 }
             }
-            this.diJ.diD.forum_list[this.VX].is_like = 1;
-            dVar = this.diJ.diA;
+            this.dpT.dpN.forum_list[this.Vn].is_like = 1;
+            dVar = this.dpT.dpK;
             dVar.notifyDataSetChanged();
         }
     }

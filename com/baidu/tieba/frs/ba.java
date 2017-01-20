@@ -1,40 +1,43 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tbadk.core.view.UserPhotoLayout;
-import com.baidu.tieba.r;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tieba.tbadkCore.y;
+import com.baidu.tieba.view.BdExpandListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements AbsListView.RecyclerListener {
-    final /* synthetic */ ax bAv;
+public class ba implements y.a {
+    final /* synthetic */ ax bHQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(ax axVar) {
-        this.bAv = axVar;
+        this.bHQ = axVar;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        com.baidu.tieba.play.aa aaVar;
-        com.baidu.tieba.play.aa aaVar2;
-        aaVar = this.bAv.aMd;
-        if (aaVar != null) {
-            aaVar2 = this.bAv.aMd;
-            aaVar2.bi(view);
-        }
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(r.g.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.reset();
-        }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(r.g.abstract_img_layout);
-        if (frsCommonImageLayout != null) {
-            frsCommonImageLayout.reset();
-        }
-        if (view instanceof UserPhotoLayout) {
-            ((UserPhotoLayout) view).reset();
+    @Override // com.baidu.tieba.tbadkCore.y.a
+    public void YV() {
+        FrsActivity frsActivity;
+        frsActivity = this.bHQ.bHh;
+        frsActivity.XV();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.y.a
+    public void YW() {
+        BdExpandListView bdExpandListView;
+        BdExpandListView bdExpandListView2;
+        com.baidu.tieba.play.ac acVar;
+        com.baidu.tieba.play.ac acVar2;
+        int i;
+        int i2;
+        bdExpandListView = this.bHQ.bHo;
+        if (bdExpandListView != null) {
+            bdExpandListView2 = this.bHQ.bHo;
+            bdExpandListView2.setSelection(0);
+            acVar = this.bHQ.aLe;
+            if (acVar != null) {
+                acVar2 = this.bHQ.aLe;
+                i = this.bHQ.aLi;
+                i2 = this.bHQ.aLh;
+                acVar2.a(i, i2, false, true);
+            }
         }
     }
 }

@@ -5,5 +5,7 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 public interface a {
     void addPlayer(IMediaPlayer iMediaPlayer);
 
+    boolean isExistInRemote(IMediaPlayer iMediaPlayer);
+
     void removePlayer(IMediaPlayer iMediaPlayer);
 }

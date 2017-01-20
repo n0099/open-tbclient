@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
@@ -21,13 +21,13 @@ public class PersonInfoActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new c());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        IQ();
-        bc.vz().a(new d());
+        Je();
+        ba.vt().a(new d());
     }
 
-    private static void IQ() {
+    private static void Je() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aB("c/u/user/profile", 303012));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.aC("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -48,7 +48,7 @@ public class PersonInfoActivityStatic {
         if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith("-")) {
             Intent intent = personInfoActivityConfig.getIntent();
             intent.setClass(context, PersonPolymericActivity.class);
-            intent.putExtra("user_id", com.baidu.adp.lib.h.b.c(stringExtra, 0L));
+            intent.putExtra("user_id", com.baidu.adp.lib.g.b.c(stringExtra, 0L));
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 intent.putExtra(PersonPolymericActivityConfig.IS_USER_SELF, TbadkCoreApplication.getCurrentAccount().equals(stringExtra));
             } else {
