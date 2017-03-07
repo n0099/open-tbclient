@@ -9,26 +9,26 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.adp.widget.ListView.y.a;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public abstract class at<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int bGW;
-    protected static final int bGX;
-    protected static final int bGY;
-    protected BaseActivity<?> aWr;
-    protected com.baidu.tieba.tbadkCore.n bFG;
-    protected int bFz;
-    protected ar bGZ;
-    protected ListView bHa;
-    protected as bHb;
+    protected static final int bOf;
+    protected static final int bOg;
+    protected static final int bOh;
+    protected int bMH;
+    protected com.baidu.tieba.tbadkCore.n bMO;
+    protected ar bOi;
+    protected ListView bOj;
+    protected as bOk;
+    protected BaseActivity<?> bcF;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.m9getInst().getContext().getResources();
-        bGW = resources.getDimensionPixelSize(r.f.ds8);
-        bGX = resources.getDimensionPixelSize(r.f.ds16);
-        bGY = resources.getDimensionPixelSize(r.f.ds1);
+        bOf = resources.getDimensionPixelSize(w.f.ds8);
+        bOg = resources.getDimensionPixelSize(w.f.ds16);
+        bOh = resources.getDimensionPixelSize(w.f.ds1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,19 +41,19 @@ public abstract class at<T, V extends y.a> extends com.baidu.adp.widget.ListView
     public void e(BaseActivity<?> baseActivity) {
         if (baseActivity != null) {
             this.mContext = baseActivity.getActivity();
-            this.aWr = baseActivity;
+            this.bcF = baseActivity;
         }
     }
 
     public void release() {
         this.mContext = null;
-        this.aWr = null;
-        this.bGZ = null;
+        this.bcF = null;
+        this.bOi = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.bHb != null) {
-            this.bHb.destory();
-            this.bHb = null;
+        if (this.bOk != null) {
+            this.bOk.destory();
+            this.bOk = null;
         }
     }
 
@@ -61,7 +61,7 @@ public abstract class at<T, V extends y.a> extends com.baidu.adp.widget.ListView
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-        this.bHa = (ListView) viewGroup;
+        this.bOj = (ListView) viewGroup;
         return null;
     }
 
@@ -70,18 +70,18 @@ public abstract class at<T, V extends y.a> extends com.baidu.adp.widget.ListView
     }
 
     public void a(com.baidu.tieba.tbadkCore.n nVar) {
-        this.bFG = nVar;
+        this.bMO = nVar;
     }
 
     public void a(ar arVar) {
-        this.bGZ = arVar;
+        this.bOi = arVar;
     }
 
-    public void hP(int i) {
-        this.bFz = i;
+    public void hL(int i) {
+        this.bMH = i;
     }
 
     public void a(as asVar) {
-        this.bHb = asVar;
+        this.bOk = asVar;
     }
 }

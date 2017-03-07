@@ -1,73 +1,98 @@
 package com.baidu.tieba.f;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tieba.view.m;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class a {
-    private InterfaceC0057a aLl;
-    private float bvh;
-    private float bvi;
-    private Handler.Callback aKM = new b(this);
-    private Handler mHandler = new Handler(this.aKM);
+public class a implements m {
+    protected TbPageContext ajF;
+    protected int bHd = 1;
+    protected int userType = 2;
 
-    /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0057a {
-        void Q(int i, int i2);
-
-        void R(int i, int i2);
+    public a(TbPageContext tbPageContext) {
+        this.ajF = tbPageContext;
     }
 
-    public void a(InterfaceC0057a interfaceC0057a) {
-        this.aLl = interfaceC0057a;
-    }
-
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.bvi = motionEvent.getRawY();
-                return true;
-            case 1:
-            default:
-                return true;
-            case 2:
-                float rawX = motionEvent.getRawX();
-                float rawY = motionEvent.getRawY();
-                int i = (int) (rawX - this.bvh);
-                int i2 = (int) (rawY - this.bvi);
-                if (this.aLl != null) {
-                    if (i2 > 0) {
-                        U(i, i2);
-                    } else {
-                        V(i, i2);
+    @Override // com.baidu.tieba.view.m
+    public void a(View view, b bVar) {
+        if (bVar != null) {
+            UserData userData = null;
+            if (bVar.bHf != null && (userData = (UserData) bVar.bHf.getSerializable(UserData.TYPE_USER)) != null) {
+                this.bHd = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+                this.userType = userData.isGod() ? 1 : 2;
+            }
+            switch (bVar.bHe) {
+                case 2:
+                    if (bg.aI(this.ajF.getPageActivity()) && bVar.bHf != null) {
+                        bb.vQ().c(this.ajF, new String[]{bVar.bHf.getString("vip_user_jump")});
+                        return;
                     }
-                }
-                this.bvh = rawX;
-                this.bvi = rawY;
-                return true;
+                    return;
+                case 3:
+                    if (userData != null) {
+                        com.baidu.tbadk.browser.f.a(this.ajF.getPageActivity(), this.ajF.getString(w.l.user_icon_web_view_title), String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + userData.getUserId(), true, true, true);
+                        return;
+                    }
+                    return;
+                case 4:
+                    if (userData != null) {
+                        if (bVar instanceof com.baidu.tieba.personCenter.d.a) {
+                            TiebaStatic.log(new as("c11586"));
+                        } else {
+                            TiebaStatic.log(new as("c11597").s("obj_locate", 2).s("obj_type", this.bHd).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        }
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.ajF.getPageActivity(), true, userData.getUserId(), userData.getSex())));
+                        return;
+                    }
+                    return;
+                case 5:
+                    com.baidu.tieba.g.a.baa().E(2, false);
+                    if (userData != null) {
+                        TiebaStatic.log(new as("c11597").s("obj_locate", 3).s("obj_type", this.bHd).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.ajF.getPageActivity(), false, userData.getUserId(), userData.getSex())));
+                        return;
+                    }
+                    return;
+                case 6:
+                    if (userData != null) {
+                        TiebaStatic.log(new as("c11597").s("obj_locate", 1).s("obj_type", this.bHd).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.ajF.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
+                        return;
+                    }
+                    return;
+                case 7:
+                    if (userData != null) {
+                        TiebaStatic.log(new as("c11597").s("obj_locate", 4).s("obj_type", this.bHd).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.ajF.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
         }
     }
 
-    public void U(int i, int i2) {
-        this.mHandler.removeMessages(1);
-        if (!this.mHandler.hasMessages(0)) {
-            Message message = new Message();
-            message.what = 0;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.mHandler.sendMessageDelayed(message, 60L);
-        }
-    }
-
-    public void V(int i, int i2) {
-        this.mHandler.removeMessages(0);
-        if (!this.mHandler.hasMessages(1)) {
-            Message message = new Message();
-            message.what = 1;
-            message.arg1 = i;
-            message.arg2 = i2;
-            this.mHandler.sendMessageDelayed(message, 100L);
-        }
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=4] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void hu(int i) {
+        BdToast.b(this.ajF.getPageActivity(), String.format(this.ajF.getPageActivity().getString(w.l.person_privacy_toast), au.cS(i)), w.g.icon_toast_game_error).tA();
     }
 }

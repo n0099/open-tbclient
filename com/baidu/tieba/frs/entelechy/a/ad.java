@@ -9,15 +9,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.at;
 import com.baidu.tieba.frs.bj;
 import com.baidu.tieba.frs.entelechy.view.bb;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ad extends at<bj, bb> {
-    private TbPageContext<?> FY;
+    private TbPageContext<?> ajF;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ad(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.FY = baseActivity.getPageContext();
+        this.ajF = baseActivity.getPageContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class ad extends at<bj, bb> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: A */
     public bb onCreateViewHolder(ViewGroup viewGroup) {
-        return new bb(LayoutInflater.from(this.mContext).inflate(r.j.frs_read_progress_item, viewGroup, false), this.FY.getPageActivity());
+        return new bb(LayoutInflater.from(this.mContext).inflate(w.j.frs_read_progress_item, viewGroup, false), this.ajF.getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

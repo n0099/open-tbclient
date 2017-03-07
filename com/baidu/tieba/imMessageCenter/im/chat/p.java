@@ -6,23 +6,23 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.util.x;
 /* loaded from: classes.dex */
-class p implements ba.a {
-    @Override // com.baidu.tbadk.core.util.ba.a
+class p implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
         String str = strArr[0];
         if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_chat=1")) {
-            String at = x.at(str, "userid=");
-            String at2 = x.at(str, "username=");
-            String at3 = x.at(str, "portrait=");
-            if (at != null && at.length() > 0) {
+            String aq = x.aq(str, "userid=");
+            String aq2 = x.aq(str, "username=");
+            String aq3 = x.aq(str, "portrait=");
+            if (aq != null && aq.length() > 0) {
                 try {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(at), at2, at3, 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(aq), aq2, aq3, 0)));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

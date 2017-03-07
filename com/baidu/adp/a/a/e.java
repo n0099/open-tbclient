@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int gE;
-    private a gF;
+    private a oA;
+    private int oz;
 
-    public a bf() throws IOException {
+    public a co() throws IOException {
         a aVar = new a();
-        aVar.gH = y(String.valueOf("/proc/uid_stat/") + this.gE + "/tcp_rcv");
-        aVar.gI = y(String.valueOf("/proc/uid_stat/") + this.gE + "/tcp_snd");
-        aVar.gG = d.a(aVar.gH + aVar.gI);
+        aVar.oC = x(String.valueOf("/proc/uid_stat/") + this.oz + "/tcp_rcv");
+        aVar.oD = x(String.valueOf("/proc/uid_stat/") + this.oz + "/tcp_snd");
+        aVar.oB = d.a(aVar.oC + aVar.oD);
         return aVar;
     }
 
-    public a bg() throws IOException {
-        a bf = bf();
-        this.gF.gH = d.a(bf.gH - d.be().gH);
-        this.gF.gI = d.a(bf.gI - d.be().gI);
-        this.gF.gG = d.a(bf.gG - d.be().gG);
-        return this.gF;
+    public a cp() throws IOException {
+        a co = co();
+        this.oA.oC = d.a(co.oC - d.cn().oC);
+        this.oA.oD = d.a(co.oD - d.cn().oD);
+        this.oA.oB = d.a(co.oB - d.cn().oB);
+        return this.oA;
     }
 
-    public double y(String str) {
+    public double x(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(bg());
+                d.a(cp());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!bc()) {
+            if (!cl()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double gG = 0.0d;
-        double gH = 0.0d;
-        double gI = 0.0d;
+        double oB = 0.0d;
+        double oC = 0.0d;
+        double oD = 0.0d;
 
         public a() {
         }

@@ -1,39 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.n;
+import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements n.a {
-    final /* synthetic */ d aKg;
+public class e extends CustomMessageListener {
+    final /* synthetic */ b aPf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar) {
-        this.aKg = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(b bVar, int i) {
+        super(i);
+        this.aPf = bVar;
     }
 
-    @Override // com.baidu.tieba.n.a
-    public void onCompleted() {
-        LogoActivity logoActivity;
-        LogoActivity logoActivity2;
-        LogoActivity logoActivity3;
-        LogoActivity logoActivity4;
-        LogoActivity logoActivity5;
-        if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
-            logoActivity = this.aKg.aKf;
-            logoActivity2 = this.aKg.aKf;
-            logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(logoActivity2.getPageContext().getPageActivity()).createNormalCfg(1)));
-        } else {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.tQ().getBoolean("has_shown_app_guide", false);
-            logoActivity4 = this.aKg.aKf;
-            logoActivity5 = this.aKg.aKf;
-            logoActivity4.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(logoActivity5.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, z ? 1 : 3)));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        long j;
+        boolean IO;
+        boolean IO2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520) {
+            j = this.aPf.aOW;
+            if (j != 0) {
+                Object data = customResponsedMessage.getData();
+                if (!(data instanceof BaseActivity)) {
+                    if (!(data instanceof BaseFragmentActivity)) {
+                        return;
+                    }
+                    IO = this.aPf.IO();
+                    if (IO) {
+                        BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
+                        Intent intent = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
+                        intent.putExtra("splash", true);
+                        intent.setFlags(65536);
+                        baseFragmentActivity.getActivity().startActivity(intent);
+                        return;
+                    }
+                    return;
+                }
+                IO2 = this.aPf.IO();
+                if (IO2) {
+                    BaseActivity baseActivity = (BaseActivity) data;
+                    Intent intent2 = new Intent(baseActivity.getActivity(), LogoActivity.class);
+                    intent2.putExtra("splash", true);
+                    intent2.setFlags(65536);
+                    baseActivity.startActivity(intent2);
+                }
+            }
         }
-        com.baidu.adp.lib.g.k.eF().f(new f(this));
-        logoActivity3 = this.aKg.aKf;
-        logoActivity3.finish();
     }
 }

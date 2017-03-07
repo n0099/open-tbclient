@@ -1,26 +1,45 @@
 package com.baidu.tbadk.core.data;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.ThreadInfo;
+import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
-public class ab {
-    public long QB;
-    public String QC;
-    public long QD;
-    public int QE;
-    public String QF;
-    public long QG;
-    public long QH;
-    public long QI;
-    public long QJ;
-    public int QK;
-    public int QL;
-    public int QM;
-    public int QN;
-    public int accountType;
-    public String desc;
-    public int id;
-    public String name;
-    public long postId;
-    public int sendCount;
-    public long threadId;
-    public long toUserId;
-    public String toUserName;
+public class ab extends bj {
+    public static final BdUniqueId VM = BdUniqueId.gen();
+    private PhotoLiveCardData VN = null;
+
+    public PhotoLiveCardData qm() {
+        return this.VN;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bj
+    public void a(ThreadInfo threadInfo) {
+        super.a(threadInfo);
+        if (threadInfo.twzhibo_info != null) {
+            a(threadInfo.twzhibo_info);
+        }
+    }
+
+    private void a(ZhiBoInfoTW zhiBoInfoTW) {
+        if (zhiBoInfoTW != null) {
+            if (this.VN == null) {
+                this.VN = new PhotoLiveCardData();
+            }
+            this.VN.parserProtobuf(zhiBoInfoTW);
+            this.VN.setShowExpressionViewIndexList(this.VN.getExpressionDatas());
+            if (StringUtils.isNull(getTid()) || getTid().equals("0")) {
+                setId(String.valueOf(this.VN.getThreadId()));
+                ci(String.valueOf(this.VN.getThreadId()));
+            }
+            if (StringUtils.isNull(rV())) {
+                co(this.VN.getForumName());
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return VM;
+    }
 }

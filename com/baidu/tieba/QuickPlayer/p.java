@@ -13,17 +13,17 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class p implements com.baidu.tieba.play.v {
     private static final String TAG = p.class.getSimpleName();
-    private b aKF;
-    private v.a aKG;
-    private v.d aKH;
-    private v.b aKI;
-    private v.c aKJ;
-    private e aKL;
+    private b aQq;
+    private v.a aQr;
+    private v.d aQs;
+    private v.b aQt;
+    private v.c aQu;
+    private e aQw;
     private Context mContext;
-    private Handler.Callback aKM = new q(this);
-    private Handler.Callback aKN = new r(this);
-    private Handler mHandler = new Handler(f.IV().getLooper(), this.aKM);
-    private Handler aKK = new Handler(Looper.getMainLooper(), this.aKN);
+    private Handler.Callback aQx = new q(this);
+    private Handler.Callback aQy = new r(this);
+    private Handler mHandler = new Handler(f.JA().getLooper(), this.aQx);
+    private Handler aQv = new Handler(Looper.getMainLooper(), this.aQy);
 
     @Override // com.baidu.tieba.play.v
     public void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture) {
@@ -31,7 +31,7 @@ public class p implements com.baidu.tieba.play.v {
         e eVar = new e();
         eVar.setUri(uri);
         eVar.setHeaders(map);
-        eVar.a(surfaceTexture);
+        eVar.b(surfaceTexture);
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = eVar;
         this.mHandler.sendMessage(obtainMessage);
@@ -39,12 +39,12 @@ public class p implements com.baidu.tieba.play.v {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar) {
-        this.aKL = eVar;
+        this.aQw = eVar;
         try {
-            this.aKF = m.IY().IU();
-            this.aKF.ch(CustomPlayerSwitchStatic.aXX() == 0);
-            this.aKF.a(new g(this.aKK));
-            this.aKF.a(this.aKL.getUri(), new Surface(this.aKL.getSurfaceTexture()));
+            this.aQq = m.JD().Jz();
+            this.aQq.cg(CustomPlayerSwitchStatic.aXB() == 0);
+            this.aQq.a(new g(this.aQv));
+            this.aQq.a(this.aQw.getUri(), new Surface(this.aQw.getSurfaceTexture()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,12 +68,12 @@ public class p implements com.baidu.tieba.play.v {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar, int i) {
-        this.aKL = eVar;
+        this.aQw = eVar;
         try {
-            this.aKF = m.IY().IU();
-            this.aKF.ch(CustomPlayerSwitchStatic.aXX() == 0);
-            this.aKF.a(new g(this.aKK));
-            this.aKF.a(this.aKL.getUri(), new Surface(this.aKL.getSurfaceTexture()));
+            this.aQq = m.JD().Jz();
+            this.aQq.cg(CustomPlayerSwitchStatic.aXB() == 0);
+            this.aQq.a(new g(this.aQv));
+            this.aQq.a(this.aQw.getUri(), new Surface(this.aQw.getSurfaceTexture()));
             if (i == 3) {
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(7), 1000L);
             } else if (i == 2) {
@@ -85,28 +85,28 @@ public class p implements com.baidu.tieba.play.v {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ja() {
-        fK(getDuration());
+    public void JF() {
+        fE(getDuration());
     }
 
     @Override // com.baidu.tieba.play.v
     public void setOnPreparedListener(v.d dVar) {
-        this.aKH = dVar;
+        this.aQs = dVar;
     }
 
     @Override // com.baidu.tieba.play.v
     public void setOnCompletionListener(v.a aVar) {
-        this.aKG = aVar;
+        this.aQr = aVar;
     }
 
     @Override // com.baidu.tieba.play.v
     public void setOnErrorListener(v.b bVar) {
-        this.aKI = bVar;
+        this.aQt = bVar;
     }
 
     @Override // com.baidu.tieba.play.v
     public void a(v.c cVar) {
-        this.aKJ = cVar;
+        this.aQu = cVar;
     }
 
     @Override // com.baidu.tieba.play.v
@@ -143,9 +143,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public int getDuration() {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                return this.aKF.getDuration();
+                return this.aQq.getDuration();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -155,9 +155,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public int getCurrentPosition() {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                return this.aKF.getCurrentPosition();
+                return this.aQq.getCurrentPosition();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -167,9 +167,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public int getVideoWidth() {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                return this.aKF.getVideoWidth();
+                return this.aQq.getVideoWidth();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -179,9 +179,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public int getVideoHeight() {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                return this.aKF.getVideoHeight();
+                return this.aQq.getVideoHeight();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -197,10 +197,10 @@ public class p implements com.baidu.tieba.play.v {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fK(int i) {
-        if (this.aKF != null) {
+    public void fE(int i) {
+        if (this.aQq != null) {
             try {
-                this.aKF.seekTo(i);
+                this.aQq.seekTo(i);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -209,9 +209,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public boolean isPlaying() {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                return this.aKF.isPlaying();
+                return this.aQq.isPlaying();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -225,7 +225,7 @@ public class p implements com.baidu.tieba.play.v {
         e eVar = new e();
         eVar.setUri(uri);
         eVar.setHeaders(map);
-        eVar.a(surfaceTexture);
+        eVar.b(surfaceTexture);
         Message obtainMessage = this.mHandler.obtainMessage(10);
         obtainMessage.obj = eVar;
         obtainMessage.arg1 = i;
@@ -234,9 +234,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public void setVolume(float f, float f2) {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                this.aKF.setVolume(f, f2);
+                this.aQq.setVolume(f, f2);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -245,9 +245,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public void setLooping(boolean z) {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                this.aKF.setLooping(z);
+                this.aQq.setLooping(z);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -256,9 +256,9 @@ public class p implements com.baidu.tieba.play.v {
 
     @Override // com.baidu.tieba.play.v
     public boolean isLooping() {
-        if (this.aKF != null) {
+        if (this.aQq != null) {
             try {
-                return this.aKF.isLooping();
+                return this.aQq.isLooping();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -267,10 +267,10 @@ public class p implements com.baidu.tieba.play.v {
     }
 
     @Override // com.baidu.tieba.play.v
-    public boolean IR() {
-        if (this.aKF != null) {
+    public boolean Jw() {
+        if (this.aQq != null) {
             try {
-                return this.aKF.IR();
+                return this.aQq.Jw();
             } catch (Exception e) {
                 e.printStackTrace();
             }

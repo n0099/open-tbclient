@@ -12,40 +12,40 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b eYm;
-    private CustomMessageListener eYo = new c(this, 2000994);
-    private d eYn = new f();
+    private static b fct;
+    private CustomMessageListener fcv = new c(this, 2000994);
+    private d fcu = new f();
 
-    public static b bai() {
-        if (eYm == null) {
+    public static b aZQ() {
+        if (fct == null) {
             synchronized (b.class) {
-                if (eYm == null) {
-                    eYm = new b();
+                if (fct == null) {
+                    fct = new b();
                 }
             }
         }
-        return eYm;
+        return fct;
     }
 
-    private boolean baj() {
-        return com.baidu.adp.lib.b.e.dL().ac("ad_log_open") == 1;
+    private boolean aZR() {
+        return com.baidu.adp.lib.b.e.eT().ab("ad_log_open") == 1;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.eYo);
+        MessageManager.getInstance().registerListener(this.fcv);
     }
 
     public void a(a aVar) {
-        if (baj() && aVar != null && this.eYn != null) {
-            if (i.gk()) {
-                this.eYn.b(aVar);
+        if (aZR() && aVar != null && this.fcu != null) {
+            if (i.he()) {
+                this.fcu.b(aVar);
             } else {
-                this.eYn.c(aVar);
+                this.fcu.c(aVar);
             }
         }
     }
 
-    public void b(String str, HashMap<String, String> hashMap) {
+    public void c(String str, HashMap<String, String> hashMap) {
         if (!TextUtils.isEmpty(str)) {
             StringBuilder sb = new StringBuilder();
             if (hashMap != null && !hashMap.isEmpty()) {

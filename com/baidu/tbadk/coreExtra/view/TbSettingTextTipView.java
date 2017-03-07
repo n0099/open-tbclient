@@ -11,42 +11,42 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    private View FN;
-    protected LinearLayout apS;
-    protected TextView apT;
-    protected TextView apU;
-    private boolean apW;
-    private View apX;
-    protected ImageView apY;
+    protected LinearLayout avm;
+    protected TextView avn;
+    protected TextView avo;
+    private boolean avq;
+    private View avr;
+    private View avs;
+    protected ImageView avt;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.apW = true;
+        this.avq = true;
         this.mContext = context;
-        AV();
+        Bo();
         d(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.apW = true;
+        this.avq = true;
         this.mContext = context;
-        AV();
+        Bo();
     }
 
     public void displayTip() {
-        if (this.apU != null) {
-            this.apU.setVisibility(0);
+        if (this.avo != null) {
+            this.avo.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.apU != null) {
-            this.apU.setTextColor(i);
+        if (this.avo != null) {
+            this.avo.setTextColor(i);
         }
     }
 
@@ -54,10 +54,10 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void f(int i, int i2, int i3, int i4) {
-        if (this.apU != null) {
+        if (this.avo != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.apU.setLayoutParams(layoutParams);
+            this.avo.setLayoutParams(layoutParams);
         }
     }
 
@@ -65,73 +65,73 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.apY.setVisibility(8);
+        this.avt.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.apT.setText(str);
+        this.avn.setText(str);
     }
 
     public void setText(int i) {
-        this.apT.setText(i);
+        this.avn.setText(i);
     }
 
     public void setTip(String str) {
-        this.apU.setText(str);
+        this.avo.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.apU.getText();
+        return this.avo.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.apU.setBackgroundDrawable(drawable);
+        this.avo.setBackgroundDrawable(drawable);
     }
 
-    protected void AV() {
-        LayoutInflater.from(this.mContext).inflate(r.j.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.apS = (LinearLayout) findViewById(r.h.container);
-        this.apT = (TextView) findViewById(r.h.text);
-        this.apU = (TextView) findViewById(r.h.tip);
-        this.apY = (ImageView) findViewById(r.h.arrow2);
-        this.FN = findViewById(r.h.bottom_line_ll);
-        this.apX = findViewById(r.h.top_line_ll);
+    protected void Bo() {
+        LayoutInflater.from(this.mContext).inflate(w.j.tb_setting_text_tip_view, (ViewGroup) this, true);
+        this.avm = (LinearLayout) findViewById(w.h.container);
+        this.avn = (TextView) findViewById(w.h.text);
+        this.avo = (TextView) findViewById(w.h.tip);
+        this.avt = (ImageView) findViewById(w.h.arrow2);
+        this.avs = findViewById(w.h.bottom_line_ll);
+        this.avr = findViewById(w.h.top_line_ll);
     }
 
     protected void d(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, r.n.TbSettingView);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, w.n.TbSettingView);
         if (obtainStyledAttributes != null) {
             String string = obtainStyledAttributes.getString(0);
             String string2 = obtainStyledAttributes.getString(3);
             if (string != null) {
-                this.apT.setText(string);
+                this.avn.setText(string);
             }
             if (string2 != null) {
-                this.apU.setText(string2);
+                this.avo.setText(string2);
             }
-            this.apW = obtainStyledAttributes.getBoolean(5, true);
+            this.avq = obtainStyledAttributes.getBoolean(5, true);
             obtainStyledAttributes.recycle();
         }
-        this.apS.setClickable(false);
-        this.apS.setFocusable(false);
-        if (!this.apW) {
-            this.apY.setVisibility(4);
+        this.avm.setClickable(false);
+        this.avm.setFocusable(false);
+        if (!this.avq) {
+            this.avt.setVisibility(4);
         }
     }
 
     public void setTopLineVisibility(boolean z) {
         if (z) {
-            this.apX.setVisibility(0);
+            this.avr.setVisibility(0);
         } else {
-            this.apX.setVisibility(8);
+            this.avr.setVisibility(8);
         }
     }
 
     public void setBottomLineVisibility(boolean z) {
         if (z) {
-            this.FN.setVisibility(0);
+            this.avs.setVisibility(0);
         } else {
-            this.FN.setVisibility(8);
+            this.avs.setVisibility(8);
         }
     }
 }

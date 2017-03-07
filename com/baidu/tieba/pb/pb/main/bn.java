@@ -1,44 +1,85 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.tbadk.widget.ForeDrawableImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class bn implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PbActivity eiV;
-    private final /* synthetic */ MarkData ejh;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a eji;
+class bn implements com.baidu.adp.lib.e.c<ImageView> {
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
-        this.eiV = pbActivity;
-        this.ejh = markData;
-        this.eji = aVar;
+    public bn(PbActivity pbActivity) {
+        this.elO = pbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        ez ezVar;
-        ez ezVar2;
-        ez ezVar3;
-        dialogInterface.dismiss();
-        int[] iArr = new int[2];
-        ezVar = this.eiV.ehV;
-        if (ezVar != null) {
-            ezVar2 = this.eiV.ehV;
-            if (ezVar2.getView() != null) {
-                ezVar3 = this.eiV.ehV;
-                ezVar3.getView().getLocationOnScreen(iArr);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: PH */
+    public ImageView fF() {
+        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.elO.getPageContext().getPageActivity());
+        boolean oW = com.baidu.tbadk.core.l.oQ().oW();
+        foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.aq.getDrawable(w.e.common_color_10220));
+        if (oW) {
+            foreDrawableImageView.setAdjustViewBounds(false);
+            foreDrawableImageView.setInterceptOnClick(false);
+        } else {
+            foreDrawableImageView.setDefaultResource(w.g.icon_click);
+            foreDrawableImageView.setAdjustViewBounds(true);
+            foreDrawableImageView.setInterceptOnClick(true);
+        }
+        return foreDrawableImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: g */
+    public void o(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof ForeDrawableImageView) {
+            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
+            ((ForeDrawableImageView) imageView).stopLoading();
+            foreDrawableImageView.setForegroundDrawable(0);
+            foreDrawableImageView.setDefaultBgResource(w.e.common_color_10220);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: f */
+    public ImageView p(ImageView imageView) {
+        if (imageView instanceof TbImageView) {
+            TbImageView tbImageView = (TbImageView) imageView;
+            tbImageView.setTag(null);
+            if (com.baidu.tbadk.core.l.oQ().oW()) {
+                tbImageView.setAdjustViewBounds(false);
+                tbImageView.setInterceptOnClick(false);
+            } else {
+                tbImageView.setDefaultResource(w.g.icon_click);
+                tbImageView.setAdjustViewBounds(true);
+                tbImageView.setInterceptOnClick(true);
             }
         }
-        if (iArr[0] > 0) {
-            Intent intent = new Intent();
-            intent.putExtra(PbActivityConfig.KEY_MARK, this.ejh);
-            this.eiV.setResult(-1, intent);
-            this.eji.dismiss();
-            this.eiV.aKY();
+        return imageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: h */
+    public ImageView q(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof ForeDrawableImageView) {
+            ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
+            ((ForeDrawableImageView) imageView).stopLoading();
+            foreDrawableImageView.setForegroundDrawable(0);
+            foreDrawableImageView.setDefaultBgResource(w.e.common_color_10220);
         }
+        return imageView;
     }
 }

@@ -10,42 +10,42 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ al bmq;
+    final /* synthetic */ al btk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(al alVar) {
-        this.bmq = alVar;
+        this.btk = alVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.bh bhVar;
-        com.baidu.tbadk.core.data.bh bhVar2;
-        com.baidu.tbadk.core.data.bh bhVar3;
-        com.baidu.tbadk.core.data.bh bhVar4;
-        com.baidu.tbadk.core.data.bh bhVar5;
+        com.baidu.tbadk.core.data.bj bjVar;
+        com.baidu.tbadk.core.data.bj bjVar2;
+        com.baidu.tbadk.core.data.bj bjVar3;
+        com.baidu.tbadk.core.data.bj bjVar4;
+        com.baidu.tbadk.core.data.bj bjVar5;
         TbPageContext tbPageContext;
-        com.baidu.tbadk.core.data.bh bhVar6;
+        com.baidu.tbadk.core.data.bj bjVar6;
         com.baidu.tieba.card.data.p pVar;
-        bhVar = this.bmq.acX;
-        if (bhVar != null) {
-            bhVar2 = this.bmq.acX;
-            if (bhVar2.getAuthor() != null) {
-                bhVar3 = this.bmq.acX;
-                if (!StringUtils.isNull(bhVar3.getAuthor().getName_show())) {
-                    bhVar4 = this.bmq.acX;
-                    if (!StringUtils.isNull(bhVar4.getAuthor().getUserId())) {
-                        bhVar5 = this.bmq.acX;
-                        if (bhVar5.rB() != null) {
-                            if (this.bmq.getOnSubCardOnClickListenner() != null) {
-                                cf<com.baidu.tieba.card.data.p> onSubCardOnClickListenner = this.bmq.getOnSubCardOnClickListenner();
-                                pVar = this.bmq.bmn;
+        bjVar = this.btk.ain;
+        if (bjVar != null) {
+            bjVar2 = this.btk.ain;
+            if (bjVar2.getAuthor() != null) {
+                bjVar3 = this.btk.ain;
+                if (!StringUtils.isNull(bjVar3.getAuthor().getName_show())) {
+                    bjVar4 = this.btk.ain;
+                    if (!StringUtils.isNull(bjVar4.getAuthor().getUserId())) {
+                        bjVar5 = this.btk.ain;
+                        if (bjVar5.rV() != null) {
+                            if (this.btk.getOnSubCardOnClickListenner() != null) {
+                                cf<com.baidu.tieba.card.data.p> onSubCardOnClickListenner = this.btk.getOnSubCardOnClickListenner();
+                                pVar = this.btk.bth;
                                 onSubCardOnClickListenner.a(view, pVar);
                             }
-                            tbPageContext = this.bmq.FY;
+                            tbPageContext = this.btk.ajF;
                             PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(tbPageContext.getPageActivity());
-                            bhVar6 = this.bmq.acX;
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(com.baidu.adp.lib.g.b.c(bhVar6.getAuthor().getUserId(), 0L), false)));
+                            bjVar6 = this.btk.ain;
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(com.baidu.adp.lib.g.b.c(bjVar6.getAuthor().getUserId(), 0L), false)));
                         }
                     }
                 }

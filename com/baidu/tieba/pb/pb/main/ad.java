@@ -2,64 +2,64 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
-class ad implements a.InterfaceC0031a {
-    final /* synthetic */ PbActivity eiV;
+class ad implements a.InterfaceC0030a {
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(PbActivity pbActivity) {
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0031a
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0030a
     public void a(boolean z, boolean z2, String str) {
-        ez ezVar;
+        fa faVar;
         com.baidu.tbadk.baseEditMark.a aVar;
         PbModel pbModel;
         PbModel pbModel2;
-        ez ezVar2;
+        fa faVar2;
         PbModel pbModel3;
         com.baidu.tbadk.baseEditMark.a aVar2;
         com.baidu.tbadk.baseEditMark.a aVar3;
         com.baidu.tbadk.baseEditMark.a aVar4;
-        ezVar = this.eiV.ehV;
-        ezVar.aNL();
+        faVar = this.elO.ekM;
+        faVar.aNe();
         if (z) {
-            aVar = this.eiV.dGi;
+            aVar = this.elO.dIP;
             if (aVar != null) {
-                aVar4 = this.eiV.dGi;
-                aVar4.ad(z2);
+                aVar4 = this.elO.dIP;
+                aVar4.ac(z2);
             }
-            pbModel = this.eiV.ehh;
-            pbModel.iw(z2);
-            pbModel2 = this.eiV.ehh;
-            if (!pbModel2.nt()) {
-                ezVar2 = this.eiV.ehV;
-                pbModel3 = this.eiV.ehh;
-                ezVar2.j(pbModel3.getPbData());
+            pbModel = this.elO.ejZ;
+            pbModel.ir(z2);
+            pbModel2 = this.elO.ejZ;
+            if (!pbModel2.nH()) {
+                faVar2 = this.elO.ekM;
+                pbModel3 = this.elO.ejZ;
+                faVar2.k(pbModel3.getPbData());
             } else {
-                this.eiV.aLc();
+                this.elO.aKx();
             }
             if (z2) {
-                aVar2 = this.eiV.dGi;
+                aVar2 = this.elO.dIP;
                 if (aVar2 != null) {
-                    aVar3 = this.eiV.dGi;
-                    MarkData nw = aVar3.nw();
-                    if (nw != null) {
-                        this.eiV.showToast(MessageFormat.format(this.eiV.getPageContext().getString(r.l.add_mark_on_pb), Integer.valueOf(nw.getFloor())));
+                    aVar3 = this.elO.dIP;
+                    MarkData nK = aVar3.nK();
+                    if (nK != null) {
+                        this.elO.showToast(MessageFormat.format(this.elO.getPageContext().getString(w.l.add_mark_on_pb), Integer.valueOf(nK.getFloor())));
                         return;
                     } else {
-                        this.eiV.showToast(this.eiV.getPageContext().getString(r.l.add_mark));
+                        this.elO.showToast(this.elO.getPageContext().getString(w.l.add_mark));
                         return;
                     }
                 }
                 return;
             }
-            this.eiV.showToast(this.eiV.getPageContext().getString(r.l.remove_mark));
+            this.elO.showToast(this.elO.getPageContext().getString(w.l.remove_mark));
             return;
         }
-        this.eiV.showToast(this.eiV.getPageContext().getString(r.l.update_mark_failed));
+        this.elO.showToast(this.elO.getPageContext().getString(w.l.update_mark_failed));
     }
 }

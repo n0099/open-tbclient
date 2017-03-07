@@ -6,13 +6,13 @@ import com.baidu.tbadk.performanceLog.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ e aAt;
+    final /* synthetic */ e aFL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(e eVar, int i) {
         super(i);
-        this.aAt = eVar;
+        this.aFL = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,13 +20,13 @@ public class i extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         e.a aVar;
         int i;
-        if (customResponsedMessage != null && (aVar = (e.a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.aAt.mId) {
-            e eVar = this.aAt;
-            i = eVar.aAm;
-            eVar.aAm = i + 1;
-            this.aAt.gf(aVar.aAu);
-            this.aAt.fg(aVar.aAv);
-            this.aAt.FC();
+        if (customResponsedMessage != null && (aVar = (e.a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.aFL.mId) {
+            e eVar = this.aFL;
+            i = eVar.aFE;
+            eVar.aFE = i + 1;
+            this.aFL.fU(aVar.aFM);
+            this.aFL.fa(aVar.aFN);
+            this.aFL.FW();
         }
     }
 }

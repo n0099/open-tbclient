@@ -16,7 +16,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
         BAR_RANK,
         BAR_SQUARE;
 
-        /* JADX DEBUG: Replace access to removed values field (NL) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (SP) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static FromType[] valuesCustom() {
             FromType[] valuesCustom = values();

@@ -1,50 +1,39 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Message;
+import com.baidu.tieba.tbadkCore.x;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnTouchListener {
-    private a foF;
-    private int count = 0;
-    private long ega = 0;
-    private long egb = 0;
-    private long egd = 500;
-    private Handler mHandler = new z(this);
+public class y extends Handler {
+    final /* synthetic */ x ftc;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void YV();
-
-        void YW();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(x xVar) {
+        this.ftc = xVar;
     }
 
-    public y(a aVar) {
-        this.foF = aVar;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            if (this.foF == null) {
-                return false;
-            }
-            this.count++;
-            if (this.count == 1) {
-                this.ega = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.egd);
-                return true;
-            } else if (this.count == 2) {
-                this.egb = System.currentTimeMillis();
-                if (this.egb - this.ega < this.egd) {
-                    this.foF.YW();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        x.a aVar;
+        x.a aVar2;
+        if (message.what == 2) {
+            this.ftc.count = 0;
+            this.ftc.eiw = 0L;
+            this.ftc.eix = 0L;
+        } else if (message.what == 1) {
+            i = this.ftc.count;
+            if (i == 1) {
+                aVar = this.ftc.ftb;
+                if (aVar != null) {
+                    aVar2 = this.ftc.ftb;
+                    aVar2.ZU();
                 }
-                this.mHandler.sendEmptyMessage(2);
-                return true;
-            } else {
-                return true;
+                this.ftc.count = 0;
+                this.ftc.eiw = 0L;
+                this.ftc.eix = 0L;
             }
         }
-        return true;
     }
 }

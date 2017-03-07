@@ -14,19 +14,19 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class i {
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-    private static boolean rL = true;
-    private static i rO;
-    private long rM;
-    private NetworkInfo rD = null;
+    private static boolean zg = true;
+    private static i zj;
+    private long zh;
+    private NetworkInfo yY = null;
     private boolean isWifi = true;
-    private boolean rE = false;
-    private boolean rF = true;
-    private int rG = 0;
-    private int rH = 0;
-    private int rI = -1;
-    private String rJ = null;
-    private int rK = -1;
-    private boolean rN = true;
+    private boolean yZ = false;
+    private boolean za = true;
+    private int zb = 0;
+    private int zc = 0;
+    private int zd = -1;
+    private String ze = null;
+    private int zf = -1;
+    private boolean zi = true;
 
     static {
         try {
@@ -38,41 +38,41 @@ public class i {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        rO = null;
+        zj = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fW() {
+    public void gR() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
         if (activeNetworkInfo != null) {
-            this.rD = activeNetworkInfo;
+            this.yY = activeNetworkInfo;
             if (activeNetworkInfo.getType() == 1) {
                 this.isWifi = true;
-                this.rE = false;
+                this.yZ = false;
             } else if (activeNetworkInfo.getType() == 0) {
                 this.isWifi = false;
-                this.rE = true;
+                this.yZ = true;
             } else {
                 this.isWifi = false;
-                this.rE = false;
+                this.yZ = false;
             }
-            this.rF = true;
-            this.rG = activeNetworkInfo.getSubtype();
-            if (this.rE) {
-                this.rH = au(this.rG);
+            this.za = true;
+            this.zb = activeNetworkInfo.getSubtype();
+            if (this.yZ) {
+                this.zc = au(this.zb);
             } else {
-                this.rH = 0;
+                this.zc = 0;
             }
         } else {
             this.isWifi = false;
-            this.rE = false;
-            this.rF = false;
-            this.rG = 0;
-            this.rG = 0;
+            this.yZ = false;
+            this.za = false;
+            this.zb = 0;
+            this.zb = 0;
         }
-        this.rI = gg();
-        this.rJ = Proxy.getDefaultHost();
-        this.rK = Proxy.getDefaultPort();
+        this.zd = ha();
+        this.ze = Proxy.getDefaultHost();
+        this.zf = Proxy.getDefaultPort();
     }
 
     private NetworkInfo getActiveNetworkInfo() {
@@ -84,7 +84,7 @@ public class i {
         }
     }
 
-    public static boolean fX() {
+    public static boolean gS() {
         NetworkInfo[] allNetworkInfo;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) BdBaseApplication.getInst().getContext().getSystemService("connectivity");
@@ -101,65 +101,65 @@ public class i {
         }
     }
 
-    public boolean fY() {
-        if (this.rD == null) {
-            fW();
+    public boolean gT() {
+        if (this.yY == null) {
+            gR();
         }
-        return this.rF;
+        return this.za;
     }
 
-    public boolean fZ() {
-        if (this.rD == null) {
-            fW();
+    public boolean gU() {
+        if (this.yY == null) {
+            gR();
         }
         return this.isWifi;
     }
 
-    public boolean ga() {
-        if (this.rD == null) {
-            fW();
+    public boolean gV() {
+        if (this.yY == null) {
+            gR();
         }
-        return this.rE;
+        return this.yZ;
     }
 
-    public int gb() {
-        if (this.rD == null) {
-            fW();
+    public int gW() {
+        if (this.yY == null) {
+            gR();
         }
-        return this.rH;
+        return this.zc;
     }
 
-    public int gd() {
-        if (this.rI == -1) {
+    public int gX() {
+        if (this.zd == -1) {
             try {
-                this.rI = gg();
+                this.zd = ha();
             } catch (Exception e) {
-                this.rI = 0;
+                this.zd = 0;
             }
         }
-        return this.rI;
+        return this.zd;
     }
 
-    public String ge() {
-        if (this.rJ == null) {
-            this.rJ = Proxy.getDefaultHost();
+    public String gY() {
+        if (this.ze == null) {
+            this.ze = Proxy.getDefaultHost();
         }
-        return this.rJ;
+        return this.ze;
     }
 
-    private long gf() {
-        return this.rM;
+    private long gZ() {
+        return this.zh;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(long j) {
-        this.rM = j;
+        this.zh = j;
     }
 
-    private static int gg() {
+    private static int ha() {
         int i;
         String networkOperator = ((TelephonyManager) BdBaseApplication.getInst().getContext().getSystemService("phone")).getNetworkOperator();
-        if (networkOperator == null || networkOperator.length() < 4 || j.aN(networkOperator)) {
+        if (networkOperator == null || networkOperator.length() < 4 || j.aH(networkOperator)) {
             return 0;
         }
         String substring = networkOperator.substring(0, 3);
@@ -213,29 +213,29 @@ public class i {
         }
     }
 
-    public int gh() {
-        if (-1 == this.rK) {
-            this.rK = Proxy.getDefaultPort();
+    public int hb() {
+        if (-1 == this.zf) {
+            this.zf = Proxy.getDefaultPort();
         }
-        return this.rK;
+        return this.zf;
     }
 
-    public boolean gi() {
-        return this.rN;
+    public boolean hc() {
+        return this.zi;
     }
 
-    public void I(boolean z) {
-        this.rN = z;
+    public void J(boolean z) {
+        this.zi = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static synchronized i gj() {
+    public static synchronized i hd() {
         i iVar;
         synchronized (i.class) {
-            if (rO == null) {
-                rO = new i();
+            if (zj == null) {
+                zj = new i();
             }
-            iVar = rO;
+            iVar = zj;
         }
         return iVar;
     }
@@ -252,17 +252,17 @@ public class i {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             try {
-                int gq = i.gq();
-                long gx = i.gx();
-                i.gj().fW();
-                if (i.gj().gi()) {
+                int hk = i.hk();
+                long hr = i.hr();
+                i.hd().gR();
+                if (i.hd().hc()) {
                     NetworkState networkState = new NetworkState();
-                    networkState.mLastNetState = gq;
-                    networkState.mCurNetState = i.gq();
-                    networkState.mlastChangedTime = gx;
+                    networkState.mLastNetState = hk;
+                    networkState.mCurNetState = i.hk();
+                    networkState.mlastChangedTime = hr;
                     long currentTimeMillis = System.currentTimeMillis();
                     networkState.mCurChangedTime = currentTimeMillis;
-                    i.gj().j(currentTimeMillis);
+                    i.hd().j(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
                 }
             } catch (Exception e) {
@@ -276,49 +276,49 @@ public class i {
     }
 
     public static void init(boolean z) {
-        gj().I(z);
-        gj().fW();
+        hd().J(z);
+        hd().gR();
     }
 
-    public static boolean gk() {
-        return gj().fY();
+    public static boolean he() {
+        return hd().gT();
     }
 
-    public static boolean gl() {
-        return gj().fZ();
+    public static boolean hf() {
+        return hd().gU();
     }
 
-    public static boolean gm() {
-        return gj().ga();
+    public static boolean hg() {
+        return hd().gV();
     }
 
-    public static boolean gn() {
-        return 3 == gj().gb();
+    public static boolean hh() {
+        return 3 == hd().gW();
     }
 
-    public static boolean go() {
-        return 2 == gj().gb();
+    public static boolean hi() {
+        return 2 == hd().gW();
     }
 
-    public static boolean gp() {
-        return 1 == gj().gb();
+    public static boolean hj() {
+        return 1 == hd().gW();
     }
 
-    public static int gq() {
-        if (gl()) {
+    public static int hk() {
+        if (hf()) {
             return 1;
         }
-        if (gp()) {
+        if (hj()) {
             return 2;
         }
-        if (go()) {
+        if (hi()) {
             return 3;
         }
-        return (gn() || gk()) ? 4 : 0;
+        return (hh() || he()) ? 4 : 0;
     }
 
-    public static String gr() {
-        switch (gq()) {
+    public static String hl() {
+        switch (hk()) {
             case 1:
                 return "wifi";
             case 2:
@@ -332,31 +332,31 @@ public class i {
         }
     }
 
-    public static String gs() {
-        String gr = gr();
-        if (gr != null) {
-            return gr.toUpperCase();
+    public static String hm() {
+        String hl = hl();
+        if (hl != null) {
+            return hl.toUpperCase();
         }
-        return gr;
+        return hl;
     }
 
-    public static int gt() {
-        return gj().gd();
+    public static int hn() {
+        return hd().gX();
     }
 
-    public static String gu() {
-        return gj().ge();
+    public static String ho() {
+        return hd().gY();
     }
 
-    public static int gv() {
-        return gj().gh();
+    public static int hp() {
+        return hd().hb();
     }
 
-    public static boolean gw() {
-        return rL;
+    public static boolean hq() {
+        return zg;
     }
 
-    public static boolean aL(String str) {
+    public static boolean aF(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }
@@ -364,11 +364,11 @@ public class i {
     }
 
     public static boolean isWap() {
-        NetworkInfo activeNetworkInfo = gj().getActiveNetworkInfo();
+        NetworkInfo activeNetworkInfo = hd().getActiveNetworkInfo();
         return (activeNetworkInfo == null || activeNetworkInfo.getExtraInfo() == null || !activeNetworkInfo.getExtraInfo().contains("wap")) ? false : true;
     }
 
-    public static long gx() {
-        return gj().gf();
+    public static long hr() {
+        return hd().gZ();
     }
 }

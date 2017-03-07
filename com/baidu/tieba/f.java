@@ -1,19 +1,33 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements Runnable {
-    final /* synthetic */ e aKh;
+public class f extends CustomMessageListener {
+    final /* synthetic */ b aPf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.aKh = eVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(b bVar, int i) {
+        super(i);
+        this.aPf = bVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        d dVar;
-        LogoActivity logoActivity;
-        dVar = this.aKh.aKg;
-        logoActivity = dVar.aKf;
-        logoActivity.IQ();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        long j;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016523) {
+            Object data = customResponsedMessage.getData();
+            if (data instanceof Boolean) {
+                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                if (((Boolean) data).booleanValue()) {
+                    b bVar = this.aPf;
+                    j = this.aPf.aOW;
+                    bVar.aOX = currentTimeMillis - j <= 1;
+                }
+            }
+        }
     }
 }

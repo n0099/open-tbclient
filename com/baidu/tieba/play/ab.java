@@ -25,14 +25,14 @@ public class ab {
         httpMessage.addParam("obj_param2", str2);
         httpMessage.addParam("obj_type", str3);
         if (bbVar != null) {
-            httpMessage.addParam("thread_id", bbVar.bjS);
-            httpMessage.addParam("forum_id", bbVar.bjT);
-            httpMessage.addParam("obj_to", bbVar.eTy);
-            httpMessage.addParam("obj_id", bbVar.Ql);
-            httpMessage.addParam("obj_param3", bbVar.eTz);
+            httpMessage.addParam("tid", bbVar.bqB);
+            httpMessage.addParam("fid", bbVar.bqC);
+            httpMessage.addParam("obj_to", bbVar.eXe);
+            httpMessage.addParam("obj_id", bbVar.Vy);
+            httpMessage.addParam("obj_param3", bbVar.eXf);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bbVar.mSource);
             httpMessage.addParam("obj_locate", bbVar.mLocate);
-            httpMessage.addParam("obj_param1", bbVar.eTA);
+            httpMessage.addParam("obj_param1", bbVar.eXg);
         }
         MessageManager.getInstance().sendMessage(httpMessage);
     }

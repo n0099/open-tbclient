@@ -1,22 +1,20 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd implements a.b {
-    private final /* synthetic */ Activity Lr;
+public class bd implements Runnable {
+    final /* synthetic */ bb agF;
+    private final /* synthetic */ bb.a agG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(Activity activity) {
-        this.Lr = activity;
+    public bd(bb bbVar, bb.a aVar) {
+        this.agF = bbVar;
+        this.agG = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        TbadkCoreApplication.m9getInst().notifyAppEnterBackground();
-        this.Lr.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.agF.b(this.agG);
     }
 }

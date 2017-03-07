@@ -4,11 +4,11 @@ import com.baidu.tieba.card.data.t;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class b implements Comparator<t> {
-    final /* synthetic */ a czi;
+    final /* synthetic */ a cAE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.czi = aVar;
+        this.cAE = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

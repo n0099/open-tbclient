@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class o implements cc {
-    final /* synthetic */ FrsActivity bGL;
+    final /* synthetic */ FrsActivity bNU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsActivity frsActivity) {
-        this.bGL = frsActivity;
+        this.bNU = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.cc
@@ -19,12 +19,12 @@ class o implements cc {
         cc ccVar2;
         com.baidu.tieba.frs.f.u uVar;
         b bVar2;
-        this.bGL.XI();
-        bVar = this.bGL.bGd;
+        this.bNU.YH();
+        bVar = this.bNU.bNl;
         if (bVar != null) {
-            uVar = this.bGL.bFR;
-            bVar2 = this.bGL.bGd;
-            uVar.ek(bVar2.ia(i));
+            uVar = this.bNU.bMZ;
+            bVar2 = this.bNU.bNl;
+            uVar.ek(bVar2.hW(i));
         }
         d.a aVar = new d.a();
         if (cmVar != null) {
@@ -32,37 +32,37 @@ class o implements cc {
             aVar.errorCode = cmVar.errCode;
             aVar.errorMsg = cmVar.errMsg;
             if (aVar.isSuccess) {
-                if (com.baidu.tbadk.core.util.w.s(arrayList)) {
-                    this.bGL.bFF.SI();
+                if (com.baidu.tbadk.core.util.x.q(arrayList)) {
+                    this.bNU.bMN.TI();
                 } else if (cmVar.hasMore) {
-                    this.bGL.bFF.YL();
-                } else if (cmVar.bJl) {
-                    this.bGL.bFF.Jv();
+                    this.bNU.bMN.ZK();
+                } else if (cmVar.bQu) {
+                    this.bNU.bMN.Ka();
                 } else {
-                    this.bGL.bFF.SI();
+                    this.bNU.bMN.TI();
                 }
             }
         } else {
             cmVar = new cm();
             cmVar.pn = 1;
             cmVar.hasMore = false;
-            cmVar.bJl = false;
+            cmVar.bQu = false;
         }
         if (i == 1) {
-            this.bGL.bFP = true;
-            this.bGL.bGw.a(this.bGL.bFQ.getType(), false, aVar);
+            this.bNU.bMX = true;
+            this.bNU.bNF.a(this.bNU.bMY.getType(), false, aVar);
         } else {
-            this.bGL.a(aVar, true);
-            if (this.bGL.bFQ.abf() != null) {
-                this.bGL.bFG = this.bGL.bFQ.abf();
+            this.bNU.a(aVar, true);
+            if (this.bNU.bMY.acc() != null) {
+                this.bNU.bMO = this.bNU.bMY.acc();
             }
-            this.bGL.XP();
+            this.bNU.YO();
         }
-        ccVar = this.bGL.bGK;
+        ccVar = this.bNU.bNT;
         if (ccVar == null) {
             return;
         }
-        ccVar2 = this.bGL.bGK;
+        ccVar2 = this.bNU.bNT;
         ccVar2.a(i, i2, cmVar, arrayList);
     }
 }

@@ -5,15 +5,15 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a bUI;
+    final /* synthetic */ a cca;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bUI = aVar;
+        this.cca = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -27,26 +27,26 @@ public class b implements Runnable {
         PopupWindow popupWindow;
         View view3;
         Handler handler;
-        tbPageContext = this.bUI.FY;
+        tbPageContext = this.cca.ajF;
         if (tbPageContext != null) {
-            view = this.bUI.bUF;
+            view = this.cca.cbX;
             if (view != null) {
-                tbPageContext2 = this.bUI.FY;
+                tbPageContext2 = this.cca.ajF;
                 Activity pageActivity = tbPageContext2.getPageActivity();
-                int e2 = com.baidu.adp.lib.util.k.e(pageActivity, r.f.ds64);
-                a aVar = this.bUI;
-                i = this.bUI.bUC;
+                int g = com.baidu.adp.lib.util.k.g(pageActivity, w.f.ds64);
+                a aVar = this.cca;
+                i = this.cca.cbU;
                 e = aVar.e(pageActivity, i);
                 int[] iArr = new int[2];
-                view2 = this.bUI.bUF;
+                view2 = this.cca.cbX;
                 view2.getLocationInWindow(iArr);
-                int e3 = com.baidu.adp.lib.util.k.e(pageActivity, r.f.ds32);
-                int e4 = com.baidu.adp.lib.util.k.e(pageActivity, r.f.ds16) + (iArr[1] - e2);
-                this.bUI.bUG = new PopupWindow(e, -2, e2);
-                popupWindow = this.bUI.bUG;
-                view3 = this.bUI.bUF;
-                popupWindow.showAtLocation(view3, 53, e3, e4);
-                handler = this.bUI.mHandler;
+                int g2 = com.baidu.adp.lib.util.k.g(pageActivity, w.f.ds32);
+                int g3 = com.baidu.adp.lib.util.k.g(pageActivity, w.f.ds16) + (iArr[1] - g);
+                this.cca.cbY = new PopupWindow(e, -2, g);
+                popupWindow = this.cca.cbY;
+                view3 = this.cca.cbX;
+                popupWindow.showAtLocation(view3, 53, g2, g3);
+                handler = this.cca.mHandler;
                 handler.postDelayed(new c(this), 3000L);
             }
         }

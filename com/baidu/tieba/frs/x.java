@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class x implements Runnable {
-    final /* synthetic */ w bGN;
+    final /* synthetic */ w bNW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.bGN = wVar;
+        this.bNW = wVar;
     }
 
     @Override // java.lang.Runnable
@@ -13,12 +13,12 @@ class x implements Runnable {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         FrsActivity frsActivity3;
-        frsActivity = this.bGN.bGL;
-        if (frsActivity.bFF != null) {
-            frsActivity2 = this.bGN.bGL;
-            if (frsActivity2.bFF.Sx()) {
-                frsActivity3 = this.bGN.bGL;
-                frsActivity3.Ya();
+        frsActivity = this.bNW.bNU;
+        if (frsActivity.bMN != null) {
+            frsActivity2 = this.bNW.bNU;
+            if (frsActivity2.bMN.Tx()) {
+                frsActivity3 = this.bNW.bNU;
+                frsActivity3.YZ();
             }
         }
     }

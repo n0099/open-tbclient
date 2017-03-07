@@ -2,7 +2,7 @@ package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class VCacheSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.e.dL().n(VCacheSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(VCacheSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

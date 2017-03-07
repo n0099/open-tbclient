@@ -2,60 +2,61 @@ package com.baidu.tbadk.performanceLog;
 
 import android.os.Debug;
 import android.os.Process;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class aa {
-    private static String aBw = "tb_perfor_samllflow_time";
-    private static volatile aa aBz;
-    private long aBy;
-    private boolean aBu = false;
-    private long aBx = 86400;
-    private long aBv = com.baidu.tbadk.core.sharedPref.b.tQ().getLong(aBw, 0);
+    private static String aGO = "tb_perfor_samllflow_time";
+    private static volatile aa aGR;
+    private long aGQ;
+    private boolean aGM = false;
+    private long aGP = 86400;
+    private long aGN = com.baidu.tbadk.core.sharedPref.b.uo().getLong(aGO, 0);
 
-    public static aa FO() {
-        if (aBz == null) {
+    public static aa Gi() {
+        if (aGR == null) {
             synchronized (aa.class) {
-                if (aBz == null) {
-                    aBz = new aa();
+                if (aGR == null) {
+                    aGR = new aa();
                 }
             }
         }
-        return aBz;
+        return aGR;
     }
 
     private aa() {
-        this.aBy = 0L;
-        this.aBy = this.aBx;
+        this.aGQ = 0L;
+        this.aGQ = this.aGP;
     }
 
-    public boolean FP() {
-        if (!this.aBu || (System.currentTimeMillis() - this.aBv) / 1000 <= this.aBy) {
-            return this.aBu;
+    public boolean Gj() {
+        if (!this.aGM || (System.currentTimeMillis() - this.aGN) / 1000 <= this.aGQ) {
+            return this.aGM;
         }
         return false;
     }
 
-    public void bW(boolean z) {
+    public void bV(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aBv || currentTimeMillis - this.aBv >= this.aBy) {
-                this.aBv = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.tQ().putLong(aBw, this.aBv);
+            if (0 == this.aGN || currentTimeMillis - this.aGN >= this.aGQ) {
+                this.aGN = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.uo().putLong(aGO, this.aGN);
             }
         } else {
-            this.aBv = 0L;
-            com.baidu.tbadk.core.sharedPref.b.tQ().putLong(aBw, this.aBv);
+            this.aGN = 0L;
+            com.baidu.tbadk.core.sharedPref.b.uo().putLong(aGO, this.aGN);
         }
-        this.aBu = z;
-        if (com.baidu.adp.lib.stats.a.eG().eN()) {
-            ab.FU().FV();
+        this.aGM = z;
+        if (BdStatisticsManager.getInstance().isMainProcess()) {
+            ab.Go().Gp();
         }
     }
 
-    public String FQ() {
+    public String Gk() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -69,7 +70,7 @@ public class aa {
         }
     }
 
-    public final String FR() {
+    public final String Gl() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / IjkMediaMeta.AV_CH_SIDE_RIGHT);
@@ -85,25 +86,25 @@ public class aa {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.gk()) {
+        if (!com.baidu.adp.lib.util.i.he()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.gl()) {
+        if (com.baidu.adp.lib.util.i.hf()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.gn()) {
+        if (com.baidu.adp.lib.util.i.hh()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.go()) {
+        if (com.baidu.adp.lib.util.i.hi()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.gp()) {
+        if (!com.baidu.adp.lib.util.i.hj()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fi(int i) {
+    public static String fc(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -116,8 +117,8 @@ public class aa {
         return "WIFI";
     }
 
-    public z fj(int i) {
-        if (FP()) {
+    public z fd(int i) {
+        if (Gj()) {
             switch (i) {
                 case 1000:
                     ac acVar = new ac();
@@ -152,7 +153,7 @@ public class aa {
 
     public void P(long j) {
         if (j > 0) {
-            this.aBy = j;
+            this.aGQ = j;
         }
     }
 
@@ -171,7 +172,7 @@ public class aa {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int FS() {
+    public int Gm() {
         BufferedReader bufferedReader;
         Process process;
         String str;

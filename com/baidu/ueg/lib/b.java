@@ -3,11 +3,11 @@ package com.baidu.ueg.lib;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected final byte fNv = 61;
-    private final int fNw;
-    private final int fNx;
-    private final int fNy;
-    protected final int rk;
+    protected final byte fRQ = 61;
+    private final int fRR;
+    private final int fRS;
+    private final int fRT;
+    protected final int yG;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -20,45 +20,45 @@ public abstract class b {
     public static class a {
         byte[] buffer;
         boolean eof;
-        long fNA;
-        int fNB;
-        int fNC;
-        int fND;
-        int fNz;
+        int fRU;
+        long fRV;
+        int fRW;
+        int fRX;
+        int fRY;
         int pos;
 
         a() {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.fNC), Boolean.valueOf(this.eof), Integer.valueOf(this.fNz), Long.valueOf(this.fNA), Integer.valueOf(this.fND), Integer.valueOf(this.pos), Integer.valueOf(this.fNB));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.fRX), Boolean.valueOf(this.eof), Integer.valueOf(this.fRU), Long.valueOf(this.fRV), Integer.valueOf(this.fRY), Integer.valueOf(this.pos), Integer.valueOf(this.fRW));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.fNw = i;
-        this.fNx = i2;
-        this.rk = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.fNy = i4;
+        this.fRR = i;
+        this.fRS = i2;
+        this.yG = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
+        this.fRT = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.fNB;
+            return aVar.pos - aVar.fRW;
         }
         return 0;
     }
 
-    protected int bpr() {
+    protected int bpi() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[bpr()];
+            aVar.buffer = new byte[bpi()];
             aVar.pos = 0;
-            aVar.fNB = 0;
+            aVar.fRW = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -77,9 +77,9 @@ public abstract class b {
             return aVar.eof ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.fNB, bArr, i, min);
-        aVar.fNB += min;
-        if (aVar.fNB >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.fRW, bArr, i, min);
+        aVar.fRW += min;
+        if (aVar.fRW >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.rR(str));
+        return decode(d.qZ(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.fNB];
+            byte[] bArr2 = new byte[aVar.pos - aVar.fRW];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -115,7 +115,7 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean F(byte[] bArr) {
+    public boolean E(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
@@ -127,10 +127,10 @@ public abstract class b {
         return false;
     }
 
-    public long G(byte[] bArr) {
-        long length = (((bArr.length + this.fNw) - 1) / this.fNw) * this.fNx;
-        if (this.rk > 0) {
-            return length + ((((this.rk + length) - 1) / this.rk) * this.fNy);
+    public long F(byte[] bArr) {
+        long length = (((bArr.length + this.fRR) - 1) / this.fRR) * this.fRS;
+        if (this.yG > 0) {
+            return length + ((((this.yG + length) - 1) / this.yG) * this.fRT);
         }
         return length;
     }

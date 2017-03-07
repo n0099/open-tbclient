@@ -4,22 +4,22 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class c implements a.b {
-    private final /* synthetic */ int bjP;
+    private final /* synthetic */ int bqy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(int i) {
-        this.bjP = i;
+        this.bqy = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         String str = "";
-        if (this.bjP == 1) {
+        if (this.bqy == 1) {
             str = "c11569";
-        } else if (this.bjP == 2) {
+        } else if (this.bqy == 2) {
             str = "c11573";
-        } else if (this.bjP == 3) {
+        } else if (this.bqy == 3) {
             str = "c11575";
         }
         TiebaStatic.log(str);

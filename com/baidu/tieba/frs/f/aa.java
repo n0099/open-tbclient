@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends com.baidu.adp.base.f {
-    final /* synthetic */ u bVP;
+    final /* synthetic */ u cdh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(u uVar) {
-        this.bVP = uVar;
+        this.cdh = uVar;
     }
 
     @Override // com.baidu.adp.base.f
@@ -34,48 +34,48 @@ public class aa extends com.baidu.adp.base.f {
         FrsActivity frsActivity5;
         LikeModel likeModel6;
         boolean z2 = false;
-        likeModel = this.bVP.Fq;
-        if (!AntiHelper.sa(likeModel.getErrorCode())) {
-            frsActivity = this.bVP.bLZ;
-            com.baidu.tieba.tbadkCore.n XW = frsActivity.XW();
-            if (XW != null && XW.aJY() != null) {
-                String name = XW.aJY().getName();
+        likeModel = this.cdh.brY;
+        if (!AntiHelper.rZ(likeModel.getErrorCode())) {
+            frsActivity = this.cdh.bTf;
+            com.baidu.tieba.tbadkCore.n YV = frsActivity.YV();
+            if (YV != null && YV.aJp() != null) {
+                String name = YV.aJp().getName();
                 if (obj != null && (obj instanceof com.baidu.tieba.tbadkCore.v)) {
-                    com.baidu.tieba.tbadkCore.c.bfG().U(name, false);
+                    com.baidu.tieba.tbadkCore.c.bft().V(name, false);
                     ((com.baidu.tieba.tbadkCore.v) obj).setLike(1);
-                    XW.c((com.baidu.tieba.tbadkCore.v) obj);
-                    XW.db(((com.baidu.tieba.tbadkCore.v) obj).bfI());
+                    YV.c((com.baidu.tieba.tbadkCore.v) obj);
+                    YV.cI(((com.baidu.tieba.tbadkCore.v) obj).bfv());
                     z2 = true;
                 }
-                frsActivity2 = this.bVP.bLZ;
+                frsActivity2 = this.cdh.bTf;
                 frsActivity2.P(Boolean.valueOf(z2));
                 if (!z2) {
-                    likeModel2 = this.bVP.Fq;
+                    likeModel2 = this.cdh.brY;
                     if (likeModel2.getErrorCode() == 22) {
-                        frsActivity4 = this.bVP.bLZ;
-                        frsActivity4.showToast(this.bVP.getPageContext().getString(r.l.had_liked_forum));
+                        frsActivity4 = this.cdh.bTf;
+                        frsActivity4.showToast(this.cdh.getPageContext().getString(w.l.had_liked_forum));
                         return;
                     }
-                    likeModel3 = this.bVP.Fq;
-                    if (!AntiHelper.sa(likeModel3.getErrorCode())) {
-                        frsActivity3 = this.bVP.bLZ;
-                        likeModel4 = this.bVP.Fq;
+                    likeModel3 = this.cdh.brY;
+                    if (!AntiHelper.rZ(likeModel3.getErrorCode())) {
+                        frsActivity3 = this.cdh.bTf;
+                        likeModel4 = this.cdh.brY;
                         frsActivity3.showToast(likeModel4.getErrorString());
                         return;
                     }
-                    Activity pageActivity = this.bVP.getPageContext().getPageActivity();
-                    likeModel5 = this.bVP.Fq;
-                    AntiHelper.T(pageActivity, likeModel5.getErrorString());
+                    Activity pageActivity = this.cdh.getPageContext().getPageActivity();
+                    likeModel5 = this.cdh.brY;
+                    AntiHelper.an(pageActivity, likeModel5.getErrorString());
                     return;
                 }
-                u uVar = this.bVP;
-                z = this.bVP.bVN;
-                uVar.a(XW, z);
-                this.bVP.bVN = true;
-                frsActivity5 = this.bVP.bLZ;
-                frsActivity5.showToast(this.bVP.getPageContext().getString(r.l.attention_success));
+                u uVar = this.cdh;
+                z = this.cdh.cdf;
+                uVar.a(YV, z);
+                this.cdh.cdf = true;
+                frsActivity5 = this.cdh.bTf;
+                frsActivity5.showToast(this.cdh.getPageContext().getString(w.l.attention_success));
                 TbadkCoreApplication.m9getInst().addLikeForum(name);
-                this.bVP.f(true, XW.aJY().getId());
+                this.cdh.f(true, YV.aJp().getId());
                 com.baidu.tieba.tbadkCore.v vVar = (com.baidu.tieba.tbadkCore.v) obj;
                 vVar.setLike(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, vVar));
@@ -83,8 +83,8 @@ public class aa extends com.baidu.adp.base.f {
             }
             return;
         }
-        Activity pageActivity2 = this.bVP.getPageContext().getPageActivity();
-        likeModel6 = this.bVP.Fq;
-        AntiHelper.T(pageActivity2, likeModel6.getErrorString());
+        Activity pageActivity2 = this.cdh.getPageContext().getPageActivity();
+        likeModel6 = this.cdh.brY;
+        AntiHelper.an(pageActivity2, likeModel6.getErrorString());
     }
 }

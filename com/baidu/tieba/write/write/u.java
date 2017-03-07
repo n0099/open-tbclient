@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class u extends HttpMessageListener {
-    final /* synthetic */ WriteActivity fMl;
+    final /* synthetic */ WriteActivity fQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(WriteActivity writeActivity, int i) {
         super(i);
-        this.fMl = writeActivity;
+        this.fQG = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,22 +26,22 @@ class u extends HttpMessageListener {
         if (httpResponsedMessage.getError() == 0) {
             String str4 = (String) MessageManager.getInstance().runTask(CmdConfigCustom.CMD_DECODE_BUBBLE, String.class, httpResponsedMessage).getData();
             if (TextUtils.isEmpty(str4)) {
-                str3 = this.fMl.dIu;
+                str3 = this.fQG.dLc;
                 if (!TextUtils.isEmpty(str3)) {
-                    this.fMl.dIu = str4;
+                    this.fQG.dLc = str4;
                     TbadkCoreApplication.m9getInst().setDefaultBubble(str4);
-                    this.fMl.lO(true);
+                    this.fQG.lN(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(str4)) {
-                str = this.fMl.dIu;
+                str = this.fQG.dLc;
                 if (!str4.equals(str)) {
-                    this.fMl.dIu = str4;
+                    this.fQG.dLc = str4;
                     TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
-                    str2 = this.fMl.dIu;
+                    str2 = this.fQG.dLc;
                     m9getInst.setDefaultBubble(str2);
-                    this.fMl.lO(true);
+                    this.fQG.lN(true);
                 }
             }
         }

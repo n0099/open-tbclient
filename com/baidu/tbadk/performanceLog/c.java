@@ -1,5 +1,5 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public interface c {
-    void gd(String str);
+    void fS(String str);
 }

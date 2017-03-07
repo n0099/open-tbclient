@@ -1,56 +1,62 @@
 package com.baidu.tieba.frs.f;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.aa;
+import com.baidu.tbadk.core.view.ab;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.ax;
 import com.baidu.tieba.frs.ce;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements aa.a {
-    final /* synthetic */ af bVV;
+public class ak implements ab.c {
+    final /* synthetic */ ah cdq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(af afVar) {
-        this.bVV = afVar;
+    public ak(ah ahVar) {
+        this.cdq = ahVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.aa.a
-    public void D(View view) {
+    @Override // com.baidu.tbadk.core.view.ab.c
+    public void aM(boolean z) {
         ax axVar;
         ce ceVar;
         u uVar;
-        com.baidu.tieba.frs.smartsort.c cVar;
+        ax axVar2;
         u uVar2;
         FrsActivity frsActivity;
-        com.baidu.tieba.frs.smartsort.c cVar2;
+        FrsActivity frsActivity2;
         u uVar3;
         u uVar4;
         u uVar5;
-        axVar = this.bVV.bFF;
+        ax axVar3;
+        ax axVar4;
+        axVar = this.cdq.bMN;
         if (axVar != null) {
-            ceVar = this.bVV.bSH;
+            ceVar = this.cdq.bZT;
             if (ceVar != null) {
-                uVar = this.bVV.bFR;
+                uVar = this.cdq.bMZ;
                 if (uVar != null) {
-                    cVar = this.bVV.bFY;
-                    if (cVar != null) {
-                        uVar2 = this.bVV.bFR;
-                        if (uVar2 != null) {
-                            uVar3 = this.bVV.bFR;
-                            if (uVar3.acU() != null) {
-                                uVar4 = this.bVV.bFR;
-                                if (uVar4.acU().adB() != null) {
-                                    uVar5 = this.bVV.bFR;
-                                    uVar5.acU().adB().setDoingPullRefresh(false);
-                                }
+                    axVar2 = this.cdq.bMN;
+                    if (axVar2 != null) {
+                        axVar3 = this.cdq.bMN;
+                        if (axVar3.KC() != null) {
+                            axVar4 = this.cdq.bMN;
+                            axVar4.KC().alL();
+                        }
+                    }
+                    uVar2 = this.cdq.bMZ;
+                    if (uVar2 != null) {
+                        uVar3 = this.cdq.bMZ;
+                        if (uVar3.adU() != null) {
+                            uVar4 = this.cdq.bMZ;
+                            if (uVar4.adU().aeB() != null) {
+                                uVar5 = this.cdq.bMZ;
+                                uVar5.adU().aeB().setDoingPullRefresh(true);
                             }
                         }
-                        frsActivity = this.bVV.bLZ;
-                        frsActivity.dA(true);
-                        cVar2 = this.bVV.bFY;
-                        cVar2.acq();
                     }
+                    frsActivity = this.cdq.bTf;
+                    frsActivity.dA(false);
+                    frsActivity2 = this.cdq.bTf;
+                    frsActivity2.mHandler.postDelayed(new al(this), 110L);
                 }
             }
         }

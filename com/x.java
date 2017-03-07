@@ -18,7 +18,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class x extends ArrayAdapter {
     private SocialShareConfig b;
-    private a fR;
+    private a nJ;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -30,7 +30,7 @@ public class x extends ArrayAdapter {
         private ImageView b;
         private TextView c;
         private TextView d;
-        private SwitchButton fS;
+        private SwitchButton nK;
 
         private b() {
         }
@@ -44,7 +44,7 @@ public class x extends ArrayAdapter {
     public x(Context context, List list, a aVar) {
         super(context, 0, list);
         int i = 0;
-        this.fR = aVar;
+        this.nJ = aVar;
         this.b = SocialShareConfig.getInstance(context);
         String string = this.b.getString("unbind");
         while (true) {
@@ -68,7 +68,7 @@ public class x extends ArrayAdapter {
         shareMediaItem.setChecked(z);
         if (z) {
             a(getContext(), shareMediaItem);
-            this.fR.onCheckStatusChanged(true, shareMediaItem.getMediaType());
+            this.nJ.onCheckStatusChanged(true, shareMediaItem.getMediaType());
         }
         notifyDataSetChanged();
     }
@@ -82,24 +82,24 @@ public class x extends ArrayAdapter {
         b bVar;
         if (view == null || view.getTag() == null) {
             bVar = new b(this, null);
-            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.g(getContext(), "bdsocialshare_sharedialogmediaitemlayout"), (ViewGroup) null);
-            bVar.b = (ImageView) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_iconview"));
-            bVar.c = (TextView) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_nameview"));
+            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.a(getContext(), "bdsocialshare_sharedialogmediaitemlayout"), (ViewGroup) null);
+            bVar.b = (ImageView) view.findViewById(p.d(getContext(), "sharedialog_mediaitem_iconview"));
+            bVar.c = (TextView) view.findViewById(p.d(getContext(), "sharedialog_mediaitem_nameview"));
             bVar.c.setTextColor(Color.parseColor(p.a(getContext())));
-            bVar.d = (TextView) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_desview"));
-            bVar.d.setTextColor(Color.parseColor(p.p(getContext())));
-            bVar.fS = (SwitchButton) view.findViewById(p.j(getContext(), "sharedialog_mediaitem_switchbutton"));
+            bVar.d = (TextView) view.findViewById(p.d(getContext(), "sharedialog_mediaitem_desview"));
+            bVar.d.setTextColor(Color.parseColor(p.N(getContext())));
+            bVar.nK = (SwitchButton) view.findViewById(p.d(getContext(), "sharedialog_mediaitem_switchbutton"));
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
         ShareMediaItem shareMediaItem = (ShareMediaItem) getItem(i);
-        bVar.b.setImageResource(shareMediaItem.isChecked() ? p.i(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.i(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
+        bVar.b.setImageResource(shareMediaItem.isChecked() ? p.c(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.c(getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
         bVar.c.setText(this.b.getString(shareMediaItem.getMediaType().toString()));
         bVar.d.setText(shareMediaItem.getUserName());
-        bVar.fS.setTag(shareMediaItem);
-        bVar.fS.setOnCheckedChangeListener(new y(this, bVar));
-        bVar.fS.setChecked(shareMediaItem.isChecked());
+        bVar.nK.setTag(shareMediaItem);
+        bVar.nK.setOnCheckedChangeListener(new y(this, bVar));
+        bVar.nK.setChecked(shareMediaItem.isChecked());
         return view;
     }
 }

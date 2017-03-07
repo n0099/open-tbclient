@@ -1,7 +1,11 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface l {
-    void ayL();
+    void aZt();
 
-    void setIsFromCDN(boolean z);
+    void ar(String str, int i);
+
+    int oX(String str);
+
+    int oY(String str);
 }

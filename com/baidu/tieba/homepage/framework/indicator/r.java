@@ -10,97 +10,97 @@ import android.view.animation.AnimationUtils;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class r {
-    private boolean auW = false;
-    private View bCq;
-    private Animation cuZ;
-    private Animation cva;
-    private ViewGroup cvg;
-    private a cvh;
-    private q cvi;
+    private boolean aAr = false;
+    private View bJx;
+    private ViewGroup cwF;
+    private a cwG;
+    private q cwH;
+    private Animation cwy;
+    private Animation cwz;
     private View rootView;
     private int topHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ajK();
+        void aiW();
     }
 
     public r(ViewGroup viewGroup) {
-        this.cvg = viewGroup;
+        this.cwF = viewGroup;
     }
 
     public void a(a aVar) {
-        this.cvh = aVar;
+        this.cwG = aVar;
     }
 
     public boolean isShowing() {
-        return this.auW;
+        return this.aAr;
     }
 
     public void a(Context context, List<TagInfo> list, int i) {
-        if (!this.auW) {
-            this.auW = true;
+        if (!this.aAr) {
+            this.aAr = true;
             this.rootView = b(context, list, i);
-            this.cvg.addView(this.rootView);
-            ap.k(this.rootView, r.e.common_color_10186);
-            this.rootView.startAnimation(aX(context));
+            this.cwF.addView(this.rootView);
+            aq.k(this.rootView, w.e.common_color_10186);
+            this.rootView.startAnimation(bw(context));
         }
     }
 
-    public void aW(Context context) {
+    public void bv(Context context) {
         if (this.rootView != null) {
-            this.rootView.startAnimation(aY(context));
+            this.rootView.startAnimation(bx(context));
         }
     }
 
     private View b(Context context, List<TagInfo> list, int i) {
-        View inflate = LayoutInflater.from(context).inflate(r.j.scroll_fragment_more, (ViewGroup) null);
-        this.bCq = inflate.findViewById(r.h.more_top_view);
-        ke(this.topHeight);
-        GridView gridView = (GridView) inflate.findViewById(r.h.scroll_fragment_more_content);
+        View inflate = LayoutInflater.from(context).inflate(w.j.scroll_fragment_more, (ViewGroup) null);
+        this.bJx = inflate.findViewById(w.h.more_top_view);
+        jJ(this.topHeight);
+        GridView gridView = (GridView) inflate.findViewById(w.h.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.cvi = new q(context, i);
-        this.cvi.bs(list);
-        gridView.setAdapter((ListAdapter) this.cvi);
+        this.cwH = new q(context, i);
+        this.cwH.aZ(list);
+        gridView.setAdapter((ListAdapter) this.cwH);
         gridView.setOnItemClickListener(new s(this, context));
         return inflate;
     }
 
-    public void ke(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bCq.getLayoutParams();
+    public void jJ(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bJx.getLayoutParams();
         layoutParams.height = i;
-        this.bCq.setLayoutParams(layoutParams);
+        this.bJx.setLayoutParams(layoutParams);
     }
 
-    private Animation aX(Context context) {
-        if (this.cuZ == null) {
-            this.cuZ = AnimationUtils.loadAnimation(context, r.a.dialog_ani_t2b_enter);
+    private Animation bw(Context context) {
+        if (this.cwy == null) {
+            this.cwy = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_enter);
         }
-        return this.cuZ;
+        return this.cwy;
     }
 
-    private Animation aY(Context context) {
-        if (this.cva == null) {
-            this.cva = AnimationUtils.loadAnimation(context, r.a.dialog_ani_t2b_exit);
+    private Animation bx(Context context) {
+        if (this.cwz == null) {
+            this.cwz = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_exit);
         }
-        this.cva.setAnimationListener(new t(this));
-        return this.cva;
+        this.cwz.setAnimationListener(new t(this));
+        return this.cwz;
     }
 
-    public void kf(int i) {
+    public void jK(int i) {
         this.topHeight = i;
     }
 
-    public void dp(int i) {
-        ap.k(this.rootView, r.e.common_color_10186);
-        if (this.cvi != null) {
-            this.cvi.notifyDataSetChanged();
+    public void dl(int i) {
+        aq.k(this.rootView, w.e.common_color_10186);
+        if (this.cwH != null) {
+            this.cwH.notifyDataSetChanged();
         }
     }
 }

@@ -2,10 +2,10 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
-class t implements ba.a {
-    @Override // com.baidu.tbadk.core.util.ba.a
+class t implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;

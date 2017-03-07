@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    private static e mP = null;
+    private static e uI = null;
     private HashMap<String, d> mSwitchs;
 
     private e() {
@@ -15,13 +15,13 @@ public class e {
         this.mSwitchs = new HashMap<>();
     }
 
-    public static synchronized e dL() {
+    public static synchronized e eT() {
         e eVar;
         synchronized (e.class) {
-            if (mP == null) {
-                mP = new e();
+            if (uI == null) {
+                uI = new e();
             }
-            eVar = mP;
+            eVar = uI;
         }
         return eVar;
     }
@@ -34,7 +34,7 @@ public class e {
 
     public void crash(String str) {
         Iterator<d> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().ab(str)) {
+        while (it.hasNext() && !it.next().aa(str)) {
         }
     }
 
@@ -46,7 +46,7 @@ public class e {
         return false;
     }
 
-    public int ac(String str) {
+    public int ab(String str) {
         d dVar = this.mSwitchs.get(str);
         if (dVar != null) {
             return dVar.getType();
@@ -60,15 +60,15 @@ public class e {
             for (d dVar : this.mSwitchs.values()) {
                 if (dVar != null) {
                     dVar.ac(0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.mK, 0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.mL, dVar.getDefaultType());
+                    edit.putInt(String.valueOf(dVar.getName()) + d.uD, 0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.uE, dVar.getDefaultType());
                 }
             }
             edit.commit();
         }
     }
 
-    public void n(Class<?> cls) {
+    public void m(Class<?> cls) {
         try {
             cls.newInstance();
         } catch (IllegalAccessException e) {

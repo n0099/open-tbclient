@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class j extends a {
     private int procType;
@@ -27,33 +27,33 @@ public class j extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vI() {
+    public boolean wf() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vJ() {
+    public boolean wg() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.widget.a.a d(String str, String str2, Object... objArr) {
+    public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
         String str3 = String.valueOf(str) + (TbadkCoreApplication.m9getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.a.a fT = com.baidu.tbadk.imageManager.c.DS().fT(str3);
-        if (fT == null) {
-            Bitmap cP = ap.cP(com.baidu.adp.lib.g.b.g(str2, 0));
-            if (cP == null) {
+        com.baidu.adp.widget.a.a fI = com.baidu.tbadk.imageManager.c.El().fI(str3);
+        if (fI == null) {
+            Bitmap cL = aq.cL(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cL == null) {
                 return null;
             }
-            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cP, false, str2);
-            com.baidu.tbadk.imageManager.c.DS().c(str3, aVar);
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cL, false, str2);
+            com.baidu.tbadk.imageManager.c.El().c(str3, aVar);
             return aVar;
         }
-        return fT;
+        return fI;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int vK() {
+    public int wh() {
         return this.procType;
     }
 }

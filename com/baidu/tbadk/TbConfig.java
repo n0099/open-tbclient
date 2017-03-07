@@ -64,6 +64,7 @@ public class TbConfig {
     public static final String CMD_GET_BOOK_COMMENT = "c/e/tbread/getBookComment";
     public static final String CMD_GET_BOOK_ONLINE_CONTENT = "c/e/tbread/getBookContent";
     public static final String CMD_GET_BOOK_SUMMARY = "c/e/tbread/getBookSummary";
+    public static final String CMD_GET_BOTTLE_FORUM_LIST = "c/f/recommend/recommendForumListForBottle";
     public static final String CMD_GET_CATEGORY_CARTOON = "c/e/cartoon/getCartoonCategoryList";
     public static final String CMD_SCREEN_LOCK_MESSAGE_MORE = "c/f/msg/getMoreMsg";
     public static final String CMD_VIDEO_SET_TOP = "c/c/video/setTop";
@@ -278,12 +279,14 @@ public class TbConfig {
     public static final String OP_BOOKRACK = "c/c/encourage/tbread/opBookrack";
     public static final int PB_DEFAULT_CONTENT_TEXT_SIZE = 16;
     public static final int PB_DEFAULT_NAME_TEXT_SIZE = 11;
+    public static final String PB_FLOOR_AGREE_URL = "c/c/agree/opAgree";
     public static final int PB_IMAGE_DIP_MAX_WIDTH = 427;
     public static final int PB_IMAGE_MAX_HEIGHT = 105;
     public static final int PB_IMAGE_MAX_WIDTH = 105;
     public static final float PB_IMAGE_NEW_SCALE = 1.6f;
     public static final int PB_PHOTO_MAX_SIZE = 80;
     public static final int PB_PHOTO_QUALITY = 80;
+    public static final String PB_SET_DECLARE_URL = "c/c/thread/setDeclare";
     public static final String PERSONAL_BACKGROUND_GET = "c/e/theme/getBackground";
     public static final String PERSONAL_BACKGROUND_GROUP_PAGE = "c/e/theme/getBgByCategory";
     public static final String PERSONAL_BACKGROUND_LIST_PAGE = "c/e/theme/getBgList";
@@ -737,7 +740,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.I(context) * k.J(context));
+            int sqrt = (int) Math.sqrt(k.ag(context) * k.ah(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

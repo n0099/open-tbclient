@@ -3,17 +3,17 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class e implements a.b {
-    final /* synthetic */ StrangerListActivity djd;
+    final /* synthetic */ StrangerListActivity dlw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(StrangerListActivity strangerListActivity) {
-        this.djd = strangerListActivity;
+        this.dlw = strangerListActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
-        aVar2 = this.djd.dja;
+        aVar2 = this.dlw.dlt;
         aVar2.dismiss();
     }
 }

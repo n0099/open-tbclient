@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.AccountData;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class b {
-    public static int axO = 0;
-    private static String pS = "";
+    public static int aDi = 0;
+    private static String xo = "";
     private static String mUserId = "";
-    private static String ND = "";
-    private static com.baidu.tbadk.coreExtra.view.j axP = null;
+    private static String SH = "";
+    private static com.baidu.tbadk.coreExtra.view.j aDj = null;
 
     public static void a(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
         try {
@@ -43,23 +43,23 @@ public class b {
     }
 
     public static void a(TbPageContext<?> tbPageContext, AccountData accountData) {
-        axP = new com.baidu.tbadk.coreExtra.view.j(tbPageContext);
-        axP.a(new c());
-        axP.b(new d());
-        axP.AD();
-        axP.i(accountData);
-        axP.Az();
+        aDj = new com.baidu.tbadk.coreExtra.view.j(tbPageContext);
+        aDj.a(new c());
+        aDj.b(new d());
+        aDj.AW();
+        aDj.i(accountData);
+        aDj.AS();
     }
 
-    public static void bN(boolean z) {
+    public static void bM(boolean z) {
         a("getUserId", new Class[0], new Object[0], new h(new g(new f(new e(z)))));
     }
 
     public static void c(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.adp.lib.g.h.eE().postDelayed(new i(customResponsedMessage), axO);
+        com.baidu.adp.lib.g.h.fM().postDelayed(new i(customResponsedMessage), aDi);
     }
 
-    public static void Ea() {
+    public static void Et() {
         a("login", new Class[0], new Object[0], new j());
     }
 }

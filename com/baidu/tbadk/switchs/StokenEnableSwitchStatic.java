@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class StokenEnableSwitchStatic extends a {
+public class StokenEnableSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(StokenEnableSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(StokenEnableSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

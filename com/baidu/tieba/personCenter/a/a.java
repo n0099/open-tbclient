@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private b exW;
-    private c eyY;
-    private i eyZ;
-    private com.baidu.tieba.person.a.b eza;
+    private b eBw;
+    private c eCx;
+    private i eCy;
+    private com.baidu.tieba.person.a.b eCz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
@@ -19,18 +19,18 @@ public class a {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.eyY = new c(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.c.ezx);
-        this.eyZ = new i(tbPageContext, com.baidu.tieba.person.data.c.eyq);
-        this.exW = new b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.ezv);
-        this.eza = new com.baidu.tieba.person.a.b(tbPageContext, com.baidu.tieba.person.data.b.eyi);
-        this.mAdapters.add(this.eyY);
-        this.mAdapters.add(this.eyZ);
-        this.mAdapters.add(this.exW);
-        this.mAdapters.add(this.eza);
+        this.eCx = new c(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.c.eCW);
+        this.eCy = new i(tbPageContext, com.baidu.tieba.person.data.c.eBP);
+        this.eBw = new b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eCU);
+        this.eCz = new com.baidu.tieba.person.a.b(tbPageContext, com.baidu.tieba.person.data.b.eBI);
+        this.mAdapters.add(this.eCx);
+        this.mAdapters.add(this.eCy);
+        this.mAdapters.add(this.eBw);
+        this.mAdapters.add(this.eCz);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
     public void setOnViewResponseListener(m mVar) {
-        this.eyY.setOnViewResponseListener(mVar);
+        this.eCx.setOnViewResponseListener(mVar);
     }
 }

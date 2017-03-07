@@ -16,10 +16,9 @@ class d extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && com.baidu.tbadk.core.e.b.tJ() == null) {
-            z zVar = new z();
-            zVar.a(this.this$0);
-            com.baidu.tbadk.core.e.b.a(zVar);
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            com.baidu.tbadk.core.util.p.aec = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            this.this$0.ajd();
         }
     }
 }

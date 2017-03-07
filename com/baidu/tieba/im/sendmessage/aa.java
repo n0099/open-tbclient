@@ -3,19 +3,19 @@ package com.baidu.tieba.im.sendmessage;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 class aa extends com.baidu.tbadk.util.s<LinkedHashMap<String, String>> {
-    final /* synthetic */ a ddN;
-    private final /* synthetic */ String ddZ;
+    final /* synthetic */ a dgf;
+    private final /* synthetic */ String dgr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(a aVar, String str) {
-        this.ddN = aVar;
-        this.ddZ = str;
+        this.dgf = aVar;
+        this.dgr = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: aug */
+    /* renamed from: atB */
     public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.k.aqv().a(this.ddZ, 2, null, 1000);
+        return com.baidu.tieba.im.db.k.apP().a(this.dgr, 2, null, 1000);
     }
 }

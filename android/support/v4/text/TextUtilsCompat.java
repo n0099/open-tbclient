@@ -1,13 +1,13 @@
 package android.support.v4.text;
 
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class TextUtilsCompat {
     public static final Locale ROOT = new Locale("", "");
-    private static String cD = "Arab";
-    private static String cE = "Hebr";
+    private static String ko = "Arab";
+    private static String kp = "Hebr";
 
     public static String htmlEncode(String str) {
         StringBuilder sb = new StringBuilder();
@@ -17,10 +17,10 @@ public class TextUtilsCompat {
                 case '\"':
                     sb.append("&quot;");
                     break;
-                case r.n.PullToRefresh_adapterViewBackground /* 38 */:
+                case w.n.PullToRefresh_adapterViewBackground /* 38 */:
                     sb.append("&amp;");
                     break;
-                case r.n.PullToRefresh_headerBackground /* 39 */:
+                case w.n.PullToRefresh_headerBackground /* 39 */:
                     sb.append("&#39;");
                     break;
                 case '<':
@@ -43,7 +43,7 @@ public class TextUtilsCompat {
             if (script == null) {
                 return c(locale);
             }
-            if (script.equalsIgnoreCase(cD) || script.equalsIgnoreCase(cE)) {
+            if (script.equalsIgnoreCase(ko) || script.equalsIgnoreCase(kp)) {
                 return 1;
             }
         }

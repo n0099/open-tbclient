@@ -6,13 +6,13 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* loaded from: classes.dex */
 class cf extends CustomMessageListener {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cf(PbActivity pbActivity, int i) {
         super(i);
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,17 +22,17 @@ class cf extends CustomMessageListener {
             com.baidu.tieba.pb.d dVar = (com.baidu.tieba.pb.d) customResponsedMessage.getData();
             switch (dVar.getType()) {
                 case 0:
-                    this.eiV.b((com.baidu.tieba.pb.data.j) dVar.getData());
+                    this.elO.b((com.baidu.tieba.pb.data.j) dVar.getData());
                     return;
                 case 1:
-                    this.eiV.a((ForumManageModel.b) dVar.getData(), false);
+                    this.elO.a((ForumManageModel.b) dVar.getData(), false);
                     return;
                 case 2:
                     if (dVar.getData() == null) {
-                        this.eiV.a(false, (MarkData) null);
+                        this.elO.a(false, (MarkData) null);
                         return;
                     } else {
-                        this.eiV.a(true, (MarkData) dVar.getData());
+                        this.elO.a(true, (MarkData) dVar.getData());
                         return;
                     }
                 default:

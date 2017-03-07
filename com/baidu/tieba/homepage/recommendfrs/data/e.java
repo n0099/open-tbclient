@@ -6,10 +6,10 @@ import tbclient.ExcFrsPage.ExcellentThreadInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.mvc.b.a {
-    private int cAi;
-    private long cAj;
-    private long cAk;
-    private long cAl;
+    private int cBE;
+    private long cBF;
+    private long cBG;
+    private long cBH;
     private String desc;
     private long excId;
     private String forumName;
@@ -19,16 +19,16 @@ public class e implements com.baidu.tbadk.mvc.b.a {
     private String title;
     private ZhiBoInfoTW twzhibo_info;
     private int type;
-    private boolean apy = true;
-    public String OZ = "";
-    public String cAm = "";
+    private boolean auS = true;
+    public String Uc = "";
+    public String cBI = "";
     public String abtest = "";
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0082: IGET  (r1v0 java.lang.Integer A[REMOVE]) = (r3v0 tbclient.ExcFrsPage.ExcellentThreadInfo) tbclient.ExcFrsPage.ExcellentThreadInfo.source java.lang.Integer)] */
     public e b(ExcellentThreadInfo excellentThreadInfo) {
         if (excellentThreadInfo != null) {
             if (excellentThreadInfo.rank != null) {
-                this.cAl = excellentThreadInfo.rank.longValue();
+                this.cBH = excellentThreadInfo.rank.longValue();
             }
             if (excellentThreadInfo.excid != null) {
                 this.excId = excellentThreadInfo.excid.longValue();
@@ -36,7 +36,7 @@ public class e implements com.baidu.tbadk.mvc.b.a {
             this.threadId = excellentThreadInfo.thread_id.longValue();
             this.title = excellentThreadInfo.title;
             this.type = excellentThreadInfo.frs_type.intValue();
-            this.cAi = excellentThreadInfo.pb_type.intValue();
+            this.cBE = excellentThreadInfo.pb_type.intValue();
             this.desc = excellentThreadInfo._abstract;
             this.thumbnail = new ArrayList();
             if (excellentThreadInfo.thumbnail != null) {
@@ -44,35 +44,35 @@ public class e implements com.baidu.tbadk.mvc.b.a {
             }
             this.forumName = excellentThreadInfo.forum_name;
             if (excellentThreadInfo.post_num != null) {
-                this.cAk = excellentThreadInfo.post_num.longValue();
+                this.cBG = excellentThreadInfo.post_num.longValue();
             }
             if (excellentThreadInfo.zansum != null) {
-                this.cAj = excellentThreadInfo.zansum.longValue();
+                this.cBF = excellentThreadInfo.zansum.longValue();
             }
             if (excellentThreadInfo.thread_type != null) {
                 this.thread_type = excellentThreadInfo.thread_type.intValue();
             }
             this.twzhibo_info = excellentThreadInfo.twzhibo_info;
-            this.OZ = excellentThreadInfo.tag_name;
-            this.cAm = new StringBuilder().append(excellentThreadInfo.source).toString();
+            this.Uc = excellentThreadInfo.tag_name;
+            this.cBI = new StringBuilder().append(excellentThreadInfo.source).toString();
             this.abtest = excellentThreadInfo.abtest;
         }
         return this;
     }
 
-    public long akM() {
-        return this.cAl;
+    public long ajY() {
+        return this.cBH;
     }
 
-    public long akN() {
-        return this.cAj;
+    public long ajZ() {
+        return this.cBF;
     }
 
-    public long akO() {
-        return this.cAk;
+    public long aka() {
+        return this.cBG;
     }
 
-    public long akP() {
+    public long akb() {
         return this.excId;
     }
 
@@ -88,7 +88,7 @@ public class e implements com.baidu.tbadk.mvc.b.a {
         return this.desc;
     }
 
-    public List<String> akQ() {
+    public List<String> akc() {
         return this.thumbnail;
     }
 
@@ -96,24 +96,24 @@ public class e implements com.baidu.tbadk.mvc.b.a {
         return this.forumName;
     }
 
-    public int akR() {
+    public int akd() {
         return this.thread_type;
     }
 
-    public ZhiBoInfoTW akS() {
+    public ZhiBoInfoTW ake() {
         return this.twzhibo_info;
     }
 
-    public boolean akK() {
-        return this.apy;
+    public boolean ajW() {
+        return this.auS;
     }
 
     public void setShowImage(boolean z) {
-        this.apy = z;
+        this.auS = z;
     }
 
-    public int akT() {
-        return this.cAi;
+    public int akf() {
+        return this.cBE;
     }
 
     public long getThreadId() {

@@ -3,28 +3,28 @@ package com.baidu.tieba.pb.pb.main.view;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class d {
-    public final TextView Ve;
-    public final View aCJ;
-    private View.OnClickListener aLT = new e(this);
-    private PbActivity ehi;
-    public final View eqP;
+    public final View aIg;
+    private View.OnClickListener aRG = new e(this);
+    public final TextView aap;
+    private PbActivity eka;
+    public final View eua;
 
     public d(PbActivity pbActivity) {
-        this.ehi = pbActivity;
-        this.aCJ = this.ehi.findViewById(r.h.manga_navigation_bar_back);
-        this.Ve = (TextView) this.ehi.findViewById(r.h.manga_navigation_bar_title);
-        this.eqP = this.ehi.findViewById(r.h.manga_browser_navigation_bar);
-        this.aCJ.setOnClickListener(this.aLT);
+        this.eka = pbActivity;
+        this.aIg = this.eka.findViewById(w.h.manga_navigation_bar_back);
+        this.aap = (TextView) this.eka.findViewById(w.h.manga_navigation_bar_title);
+        this.eua = this.eka.findViewById(w.h.manga_browser_navigation_bar);
+        this.aIg.setOnClickListener(this.aRG);
     }
 
     public void setTitle(String str) {
-        this.Ve.setText(str);
+        this.aap.setText(str);
     }
 
     public void show() {
-        this.eqP.setVisibility(0);
+        this.eua.setVisibility(0);
     }
 }

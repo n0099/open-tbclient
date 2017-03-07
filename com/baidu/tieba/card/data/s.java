@@ -3,29 +3,29 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class s extends b implements t {
-    public static final BdUniqueId bpd = BdUniqueId.gen();
-    public long bpe;
-    public String bpf;
-    public String bpg;
-    public String bph;
-    public String bpi;
-    public String bpj;
-    public long bpk;
-    public String bpl;
+    public static final BdUniqueId bvY = BdUniqueId.gen();
+    public long bvZ;
+    public String bwa;
+    public String bwb;
+    public String bwc;
+    public String bwd;
+    public String bwe;
+    public long bwf;
+    public String bwg;
     public String userName;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return bpd;
+        return bvY;
     }
 
     @Override // com.baidu.tieba.card.data.t
     public int getPosition() {
-        return (int) this.bpk;
+        return (int) this.bwf;
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public boolean RE() {
+    public boolean SC() {
         return false;
     }
 

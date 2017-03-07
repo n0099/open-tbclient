@@ -3,13 +3,13 @@ package com.baidu.adp.widget.ScrollView;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface a {
-    void kh();
+    void lb();
 
-    void ki();
+    void lc();
 
-    void kw();
+    void lq();
 
-    void kx();
+    void lr();
 
-    View ky();
+    View ls();
 }

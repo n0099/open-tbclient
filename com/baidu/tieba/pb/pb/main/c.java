@@ -10,13 +10,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b ehk;
+    final /* synthetic */ b ekc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.ehk = bVar;
+        this.ekc = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,32 +25,32 @@ public class c extends CustomMessageListener {
         PbModel pbModel;
         PbModel pbModel2;
         PbModel pbModel3;
-        com.baidu.tbadk.core.data.ae graffitiInfo;
+        com.baidu.tbadk.core.data.af graffitiInfo;
         PbModel pbModel4;
         int g;
-        pbModel = this.ehk.ehh;
+        pbModel = this.ekc.ejZ;
         if (pbModel != null) {
-            pbModel2 = this.ehk.ehh;
-            if (pbModel2.aMu() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.j)) {
+            pbModel2 = this.ekc.ejZ;
+            if (pbModel2.aLQ() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.graffiti.j)) {
                 com.baidu.tieba.graffiti.j jVar = (com.baidu.tieba.graffiti.j) customResponsedMessage.getData();
                 String threadId = jVar.getThreadId();
                 if (!TextUtils.isEmpty(threadId)) {
-                    pbModel3 = this.ehk.ehh;
-                    if (threadId.equals(pbModel3.getThreadID()) && (graffitiInfo = jVar.getGraffitiInfo()) != null && graffitiInfo.qc()) {
-                        pbModel4 = this.ehk.ehh;
-                        com.baidu.tbadk.core.data.af aLN = pbModel4.aMu().aLN();
-                        if (aLN != null) {
-                            List<com.baidu.tbadk.core.data.ae> items = aLN.getItems();
+                    pbModel3 = this.ekc.ejZ;
+                    if (threadId.equals(pbModel3.getThreadID()) && (graffitiInfo = jVar.getGraffitiInfo()) != null && graffitiInfo.qu()) {
+                        pbModel4 = this.ekc.ejZ;
+                        com.baidu.tbadk.core.data.ag aLj = pbModel4.aLQ().aLj();
+                        if (aLj != null) {
+                            List<com.baidu.tbadk.core.data.af> items = aLj.getItems();
                             if (items == null) {
                                 items = new ArrayList<>();
                             }
-                            g = this.ehk.g(graffitiInfo.getUid(), items);
+                            g = this.ekc.g(graffitiInfo.getUid(), items);
                             if (g >= 0) {
-                                com.baidu.tbadk.core.util.w.d(items, g);
+                                com.baidu.tbadk.core.util.x.d(items, g);
                             }
                             items.add(0, graffitiInfo);
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_LIST_CHANGED, aLN));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_LIST_CHANGED, aLj));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
                     }
                 }

@@ -9,84 +9,86 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.play.aj;
 import com.baidu.tieba.play.u;
 import com.baidu.tieba.play.y;
 /* loaded from: classes.dex */
 public class j implements u {
-    private bh aLS;
-    private a aMD;
-    private y aMl;
-    private aj aMm;
-    private com.baidu.tbadk.core.data.d bnU;
-    private String bnV;
+    private bj aRF;
+    private y aRY;
+    private aj aRZ;
+    private a aSq;
+    private com.baidu.tbadk.core.data.c buQ;
+    private String buR;
     private String mForumName;
-    private boolean aMk = false;
-    private y.a aMo = new k(this);
+    private boolean aRX = false;
+    private y.a aSb = new k(this);
 
     public j(a aVar) {
-        this.aMD = aVar;
-        if (this.aMD != null) {
-            this.aMl = new y();
-            this.aMl.setPlayer(this.aMD.Kb());
-            this.aMl.a(this.aMo);
-            if (this.aMD.Kb() != null) {
-                this.aMm = new aj(this.aMD.Kb().getContext());
-                this.aMD.Kb().setBusiness(this.aMm);
+        this.aSq = aVar;
+        if (this.aSq != null) {
+            this.aRY = new y();
+            this.aRY.setPlayer(this.aSq.KG());
+            this.aRY.a(this.aSb);
+            if (this.aSq.KG() != null) {
+                this.aRZ = new aj(this.aSq.KG().getContext());
+                this.aSq.KG().setBusiness(this.aRZ);
             }
         }
     }
 
-    public void a(bh bhVar, String str, String str2, boolean z) {
-        this.bnV = str2;
+    public void a(bj bjVar, String str, String str2, boolean z) {
+        this.buR = str2;
         this.mForumName = str;
-        if (bhVar != null) {
-            this.aLS = bhVar;
-            if (this.aMD != null && this.aLS.rO() != null) {
-                this.bnU = this.aLS.rO();
-                this.aMD.gI(this.bnU.cover);
-                if (this.aMm != null && this.aMm.aYn() != null) {
-                    this.aMm.aYn().a(this.bnU);
+        if (bjVar != null) {
+            this.aRF = bjVar;
+            if (this.aSq != null && this.aRF.si() != null) {
+                this.buQ = this.aRF.si();
+                this.aSq.gx(this.buQ.cover);
+                if (this.aRZ != null && this.aRZ.aXS() != null) {
+                    this.aRZ.aXS().a(this.buQ);
                 }
                 if (z) {
-                    this.aMD.setTitle(this.aLS.getTitle());
+                    this.aSq.setTitle(this.aRF.getTitle());
                 } else {
-                    this.aMD.setTitle("");
+                    this.aSq.setTitle("");
                 }
             }
         }
     }
 
     public void j(TbPageContext<?> tbPageContext) {
-        if (tbPageContext != null && this.aLS != null && this.bnU != null) {
+        if (tbPageContext != null && this.aRF != null && this.buQ != null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String str = AlaLiveRoomActivityConfig.FROM_TYPE_FRS_PLAY;
-            if (!TextUtils.isEmpty(this.mForumName)) {
-                if (this.aLS.rB().equals(this.mForumName)) {
-                    TiebaStatic.log(new ar("c11843").ab(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aLS.getFid()));
+            if (this.aRF.rH() != null) {
+                str = this.aRF.rH();
+            }
+            if (str.equals(AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY)) {
+                if (this.aRF.rV().equals(this.mForumName)) {
+                    TiebaStatic.log(new as("c11843").Z(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aRF.getFid()));
                 } else {
-                    TiebaStatic.log(new ar("c11845").ab(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aLS.getFid()));
+                    TiebaStatic.log(new as("c11845").Z(SapiAccountManager.SESSION_UID, currentAccount).g("fid", this.aRF.getFid()));
                 }
-                str = AlaLiveRoomActivityConfig.FROM_TYPE_FRS_LIVE_PLAY;
             }
             boolean z = false;
-            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.aLS.getAuthor() != null) {
-                z = TextUtils.equals(this.aLS.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && this.aRF.getAuthor() != null) {
+                z = TextUtils.equals(this.aRF.getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount());
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.setLiveID(this.bnU.live_id);
-            alaLiveInfoCoreData.setGroupID(this.bnU.group_id);
-            alaLiveInfoCoreData.setHslUrl(this.bnU.hls_url);
-            alaLiveInfoCoreData.setLiveCover(this.bnU.cover);
-            alaLiveInfoCoreData.setLiveTitle(this.bnU.description);
-            alaLiveInfoCoreData.setRtmpUrl(this.bnU.rtmp_url);
-            alaLiveInfoCoreData.setSessionID(this.bnU.session_id);
-            if (this.bnU.Pe != null) {
-                alaLiveInfoCoreData.setUserName(this.bnU.Pe.user_name);
+            alaLiveInfoCoreData.setLiveID(this.buQ.live_id);
+            alaLiveInfoCoreData.setGroupID(this.buQ.group_id);
+            alaLiveInfoCoreData.setHslUrl(this.buQ.hls_url);
+            alaLiveInfoCoreData.setLiveCover(this.buQ.cover);
+            alaLiveInfoCoreData.setLiveTitle(this.buQ.description);
+            alaLiveInfoCoreData.setRtmpUrl(this.buQ.rtmp_url);
+            alaLiveInfoCoreData.setSessionID(this.buQ.session_id);
+            if (this.buQ.Ug != null) {
+                alaLiveInfoCoreData.setUserName(this.buQ.Ug.user_name);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, "", z)));
         }
@@ -94,7 +96,7 @@ public class j implements u {
 
     @Override // com.baidu.tieba.play.u
     public boolean isPlayStarted() {
-        return this.aMk;
+        return this.aRX;
     }
 
     @Override // com.baidu.tieba.play.u
@@ -108,43 +110,43 @@ public class j implements u {
 
     @Override // com.baidu.tieba.play.u
     public void stopPlay() {
-        if (this.aMD != null && this.aMD.Kb() != null) {
-            this.aMD.Kb().stopPlayback();
-            this.aMD.Kc();
-            if (this.aMl != null) {
-                this.aMl.stop();
+        if (this.aSq != null && this.aSq.KG() != null) {
+            this.aSq.KG().stopPlayback();
+            this.aSq.KH();
+            if (this.aRY != null) {
+                this.aRY.stop();
             }
         }
-        this.aMk = false;
+        this.aRX = false;
     }
 
     @Override // com.baidu.tieba.play.u
     public View getVideoContainer() {
-        if (this.aMD != null) {
-            return this.aMD.getView();
+        if (this.aSq != null) {
+            return this.aSq.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.u
     public String getPlayUrl() {
-        if (this.aLS == null || this.aLS.rN() == null) {
+        if (this.aRF == null || this.aRF.sh() == null) {
             return null;
         }
-        return this.aLS.rN().video_url;
+        return this.aRF.sh().video_url;
     }
 
     @Override // com.baidu.tieba.play.u
     public int getCurrentPosition() {
-        if (this.aMD == null || this.aMD.Kb() == null) {
+        if (this.aSq == null || this.aSq.KG() == null) {
             return 0;
         }
-        return this.aMD.Kb().getCurrentPosition();
+        return this.aSq.KG().getCurrentPosition();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JB() {
-        if (this.aLS == null || this.aLS.rN() == null) {
+    public void Kg() {
+        if (this.aRF == null || this.aRF.sh() == null) {
         }
     }
 }

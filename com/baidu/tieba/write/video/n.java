@@ -4,17 +4,17 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements TextWatcher {
-    final /* synthetic */ m fJg;
+    final /* synthetic */ m fNz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.fJg = mVar;
+        this.fNz = mVar;
     }
 
     @Override // android.text.TextWatcher
@@ -28,22 +28,22 @@ public class n implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        long bnJ = m.fIY - this.fJg.bnJ();
-        if (bnJ >= 0) {
-            textView4 = this.fJg.fJd;
-            ap.i((View) textView4, r.e.cp_cont_e);
+        long bnw = m.fNr - this.fNz.bnw();
+        if (bnw >= 0) {
+            textView4 = this.fNz.fNw;
+            aq.i((View) textView4, w.e.cp_cont_e);
         } else {
-            textView = this.fJg.fJd;
-            ap.i((View) textView, r.e.cp_cont_h);
+            textView = this.fNz.fNw;
+            aq.i((View) textView, w.e.cp_cont_h);
         }
-        i4 = m.fIZ;
-        if (bnJ <= i4) {
-            textView3 = this.fJg.fJd;
-            textView3.setText(at.vf());
+        i4 = m.fNs;
+        if (bnw <= i4) {
+            textView3 = this.fNz.fNw;
+            textView3.setText(au.vC());
             return;
         }
-        textView2 = this.fJg.fJd;
-        textView2.setText(String.valueOf(bnJ));
+        textView2 = this.fNz.fNw;
+        textView2.setText(String.valueOf(bnw));
     }
 
     @Override // android.text.TextWatcher

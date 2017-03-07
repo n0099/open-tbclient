@@ -2,17 +2,17 @@ package com.baidu.tieba.homepage.personalize;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e cxc;
+    final /* synthetic */ e cyB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.cxc = eVar;
+        this.cyB = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         a aVar;
-        aVar = this.cxc.cxb;
-        aVar.aiP();
+        aVar = this.cyB.cyA;
+        aVar.aic();
     }
 }

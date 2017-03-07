@@ -8,76 +8,76 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends b {
-    private final Matrix aGF;
-    private float aGG;
-    private float aGH;
-    private final boolean aGI;
-    private final Animation aGs;
+    private final Animation aLP;
+    private final Matrix aMc;
+    private float aMd;
+    private float aMe;
+    private final boolean aMf;
 
     public c(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
-        this.aGI = typedArray.getBoolean(15, true);
-        this.aGw.setScaleType(ImageView.ScaleType.MATRIX);
-        this.aGF = new Matrix();
-        this.aGw.setImageMatrix(this.aGF);
-        this.aGs = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-        this.aGs.setInterpolator(aGu);
-        this.aGs.setDuration(1200L);
-        this.aGs.setRepeatCount(-1);
-        this.aGs.setRepeatMode(1);
+        this.aMf = typedArray.getBoolean(15, true);
+        this.aLT.setScaleType(ImageView.ScaleType.MATRIX);
+        this.aMc = new Matrix();
+        this.aLT.setImageMatrix(this.aMc);
+        this.aLP = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
+        this.aLP.setInterpolator(aLR);
+        this.aLP.setDuration(1200L);
+        this.aLP.setRepeatCount(-1);
+        this.aLP.setRepeatMode(1);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
     public void f(Drawable drawable) {
         if (drawable != null) {
-            this.aGG = Math.round(drawable.getIntrinsicWidth() / 2.0f);
-            this.aGH = Math.round(drawable.getIntrinsicHeight() / 2.0f);
+            this.aMd = Math.round(drawable.getIntrinsicWidth() / 2.0f);
+            this.aMe = Math.round(drawable.getIntrinsicHeight() / 2.0f);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
     protected void R(float f) {
         float max;
-        if (this.aGI) {
+        if (this.aMf) {
             max = 90.0f * f;
         } else {
             max = Math.max(0.0f, Math.min(180.0f, (360.0f * f) - 180.0f));
         }
-        this.aGF.setRotate(max, this.aGG, this.aGH);
-        this.aGw.setImageMatrix(this.aGF);
+        this.aMc.setRotate(max, this.aMd, this.aMe);
+        this.aLT.setImageMatrix(this.aMc);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hl() {
-        this.aGw.startAnimation(this.aGs);
+    protected void HK() {
+        this.aLT.startAnimation(this.aLP);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hn() {
-        this.aGw.clearAnimation();
-        Ho();
+    protected void HM() {
+        this.aLT.clearAnimation();
+        HN();
     }
 
-    private void Ho() {
-        if (this.aGF != null) {
-            this.aGF.reset();
-            this.aGw.setImageMatrix(this.aGF);
+    private void HN() {
+        if (this.aMc != null) {
+            this.aMc.reset();
+            this.aLT.setImageMatrix(this.aMc);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hk() {
+    protected void HJ() {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
-    protected void Hm() {
+    protected void HL() {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a.b
     protected int getDefaultDrawableResId() {
-        return r.g.default_ptr_rotate;
+        return w.g.default_ptr_rotate;
     }
 }

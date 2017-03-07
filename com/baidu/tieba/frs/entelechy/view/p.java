@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.entelechy.view;
 
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.card.divider.CardGroupDividerView;
 /* loaded from: classes.dex */
 public class p {
-    public static void a(bh bhVar, CardGroupDividerView cardGroupDividerView) {
-        if (cardGroupDividerView != null && bhVar != null) {
-            if (bhVar.needTopMargin && com.baidu.tieba.tbadkCore.util.s.biL()) {
-                String rU = bhVar.rU();
-                cardGroupDividerView.setTitleText(rU);
-                cardGroupDividerView.A(rU, !bhVar.isFirstFloor);
+    public static void a(bj bjVar, CardGroupDividerView cardGroupDividerView) {
+        if (cardGroupDividerView != null && bjVar != null) {
+            if (bjVar.needTopMargin && com.baidu.tieba.tbadkCore.util.s.biB()) {
+                String so = bjVar.so();
+                cardGroupDividerView.setTitleText(so);
+                cardGroupDividerView.B(so, !bjVar.isFirstFloor);
                 return;
             }
-            cardGroupDividerView.Sc();
+            cardGroupDividerView.Ta();
         }
     }
 }

@@ -1,31 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class ey {
-    public static Intent K(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
-        }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
+public class ey extends com.baidu.tbadk.core.view.userLike.c {
+    public boolean eqx;
+
+    public ey(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar) {
+        super(tbPageContext, bVar);
+        this.eqx = false;
     }
 
-    public static boolean g(com.baidu.tieba.tbadkCore.data.p pVar) {
-        if (pVar == null || pVar.bhY() == null) {
-            return false;
+    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
+    public void onClick(View view) {
+        super.onClick(view);
+        if (this.eqx && this.amA != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11924").Z("obj_id", this.amA.getUserId()));
         }
-        com.baidu.tieba.tbadkCore.data.h bhY = pVar.bhY();
-        if (bhY.fpt) {
-            int bhu = bhY.bhu();
-            return bhu == 2 || bhu == 1 || bhu == 3;
-        }
-        return false;
     }
 }

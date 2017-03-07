@@ -10,15 +10,15 @@ import com.baidu.tieba.homepage.alalivelist.view.h;
 import com.baidu.tieba.homepage.alalivelist.view.i;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.widget.ListView.a<h, a> {
-    private TbPageContext<?> FY;
-    public BdUniqueId aUC;
-    cf<h> cto;
-    private i ctr;
+    private TbPageContext<?> ajF;
+    public BdUniqueId baP;
+    cf<h> cuN;
+    private i cuQ;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cto = new g(this);
-        this.FY = tbPageContext;
+        this.cuN = new g(this);
+        this.ajF = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class f extends com.baidu.adp.widget.ListView.a<h, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: X */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.ctr = new i(this.FY);
-        this.ctr.i(this.FY.getUniqueId());
-        return new a(this.ctr);
+        this.cuQ = new i(this.ajF);
+        this.cuQ.i(this.ajF.getUniqueId());
+        return new a(this.cuQ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,19 +36,19 @@ public class f extends com.baidu.adp.widget.ListView.a<h, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
-        aVar.ctt.onBindDataToView(hVar);
-        aVar.ctt.setOnSubCardOnClickListenner(this.cto);
+        aVar.cuS.onBindDataToView(hVar);
+        aVar.cuS.setOnSubCardOnClickListenner(this.cuN);
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public i ctt;
+        public i cuS;
 
         public a(i iVar) {
             super(iVar.getView());
-            this.ctt = iVar;
+            this.cuS = iVar;
         }
     }
 }

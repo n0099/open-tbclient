@@ -17,13 +17,13 @@ public class u extends com.baidu.tbadk.util.s<DataRes> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: aks */
+    /* renamed from: ajE */
     public DataRes doInBackground() {
-        com.baidu.adp.lib.cache.o<byte[]> M = com.baidu.tbadk.core.c.a.sR().M("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
-        if (M == null) {
+        com.baidu.adp.lib.cache.o<byte[]> K = com.baidu.tbadk.core.c.a.to().K("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
+        if (K == null) {
             return null;
         }
-        byte[] bArr = M.get("0");
+        byte[] bArr = K.get("0");
         if (bArr == null || bArr.length == 0) {
             return null;
         }

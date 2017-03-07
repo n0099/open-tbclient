@@ -1,183 +1,106 @@
 package com.baidu.tbadk.coreExtra.d;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.f;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.adp.base.k;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private C0037a akO;
-    private f mLoadDataCallBack;
-
-    public a(f fVar) {
-        this.mLoadDataCallBack = fVar;
-    }
-
-    public void a(boolean z, String str, String str2) {
-        a(z, str, str2, false, "0", null, null, "0");
-    }
-
-    public void a(boolean z, String str, String str2, boolean z2, BdUniqueId bdUniqueId) {
-        a(z, str, str2, z2, "0", bdUniqueId, null, "0");
-    }
-
-    public void a(boolean z, String str, String str2, BdUniqueId bdUniqueId, String str3) {
-        a(z, str, str2, false, "0", bdUniqueId, null, str3);
-    }
-
-    public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.akO == null) {
-            this.akO = new C0037a(this, null);
-            this.akO.setPriority(2);
-            this.akO.bi(z);
-            this.akO.setPortrait(str);
-            this.akO.setToUid(str2);
-            this.akO.setIsGod(z2);
-            this.akO.setFrom(str3);
-            this.akO.setPageId(bdUniqueId);
-            this.akO.setForumId(str4);
-            this.akO.setInLive(str5);
-            this.akO.execute(new Integer[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.tbadk.coreExtra.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class C0037a extends BdAsyncTask<Integer, Integer, String> {
-        private String forumId;
-        private String from;
-        private String inLive;
-        private boolean isAttention;
-        private boolean isGod;
-        private y mNetwork;
-        private BdUniqueId pageId;
-        private String portrait;
-        private boolean showToastAfterAttentionSuc;
-        private String toUid;
-
-        private C0037a() {
-            this.mNetwork = null;
-            this.isGod = false;
-            this.from = "0";
-            this.inLive = "0";
-            this.forumId = null;
-            this.showToastAfterAttentionSuc = false;
-        }
-
-        /* synthetic */ C0037a(a aVar, C0037a c0037a) {
-            this();
-        }
-
-        public void setPortrait(String str) {
-            this.portrait = str;
-        }
-
-        public void setToUid(String str) {
-            this.toUid = str;
-        }
-
-        public void bi(boolean z) {
-            this.isAttention = z;
-        }
-
-        public void setIsGod(boolean z) {
-            this.isGod = z;
-        }
-
-        public void setFrom(String str) {
-            this.from = str;
-        }
-
-        public void setPageId(BdUniqueId bdUniqueId) {
-            this.pageId = bdUniqueId;
-        }
-
-        public void setForumId(String str) {
-            this.forumId = str;
-            if (str != null) {
-                this.showToastAfterAttentionSuc = true;
-            }
-        }
-
-        public void setInLive(String str) {
-            this.inLive = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(Integer... numArr) {
-            try {
-                if (this.portrait != null) {
-                    this.mNetwork = new y();
-                    if (this.isAttention) {
-                        this.mNetwork.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
-                    } else {
-                        this.mNetwork.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
-                    }
-                    this.mNetwork.n(IntentConfig.PORTRAIT, this.portrait);
-                    if (!StringUtils.isNull(this.from)) {
-                        this.mNetwork.n(ForumDetailActivityConfig.FROM_TYPE, this.from);
-                    }
-                    if (!StringUtils.isNull(this.forumId)) {
-                        this.mNetwork.n("forum_id", this.forumId);
-                    }
-                    this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.uC().vv().mIsNeedTbs = true;
-                    return this.mNetwork.ud();
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, a.b bVar, a.b bVar2, String str) {
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return null;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((C0037a) str);
-            a.this.akO = null;
-            if (this.mNetwork != null) {
-                UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.vJ = this.mNetwork.uC().vw().isRequestSuccess();
-                aVar.errorString = this.mNetwork.getErrorString();
-                aVar.isAttention = this.isAttention;
-                aVar.toUid = this.toUid;
-                aVar.isGod = this.isGod;
-                aVar.n(str, this.showToastAfterAttentionSuc);
-                UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
-                MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel(true);
-            if (this.mNetwork != null) {
-                this.mNetwork.ee();
-                this.mNetwork = null;
-            }
-            a.this.akO = null;
-            if (a.this.mLoadDataCallBack != null) {
-                a.this.mLoadDataCallBack.g(false);
-            }
-        }
+        String format = String.format(TbadkCoreApplication.m9getInst().getContext().getString(w.l.url_notify), str);
+        String string = TbadkCoreApplication.m9getInst().getContext().getString(w.l.del_post_tip);
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).cw(string).cx(format).a(TbadkCoreApplication.m9getInst().getContext().getString(w.l.alert_yes_button), bVar).b(TbadkCoreApplication.m9getInst().getContext().getString(w.l.alert_no_button), bVar2).b(tbPageContext);
+        b.ts();
+        return b;
     }
 
-    public void cancel() {
-        if (this.akO != null) {
-            this.akO.cancel();
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, int i, a.b bVar, a.b bVar2, boolean z) {
+        if (tbPageContext == null) {
+            return null;
         }
+        String string = TbadkCoreApplication.m9getInst().getContext().getString(w.l.setup);
+        String string2 = TbadkCoreApplication.m9getInst().getContext().getString(w.l.alert_no_button);
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+        aVar.cx(TbadkCoreApplication.m9getInst().getContext().getString(i));
+        aVar.a(string, bVar);
+        aVar.b(string2, bVar2);
+        aVar.b(tbPageContext);
+        if (z) {
+            aVar.tq();
+            return aVar;
+        }
+        aVar.ts();
+        return aVar;
+    }
+
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, int i, a.b bVar, a.b bVar2) {
+        return a(tbPageContext, i, bVar, bVar2, false);
+    }
+
+    public static c a(Context context, c.b bVar) {
+        if (k.aa(context) == null) {
+            return null;
+        }
+        c cVar = new c(k.aa(context).getPageActivity());
+        cVar.cy(TbadkCoreApplication.m9getInst().getString(w.l.operation));
+        cVar.a(new String[]{TbadkCoreApplication.m9getInst().getString(w.l.delete_user_chat)}, bVar);
+        cVar.d(k.aa(context));
+        if (context instanceof Activity) {
+            cVar.tv();
+            return cVar;
+        }
+        return cVar;
+    }
+
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, int i, int i2, int i3, int i4, a.b bVar, a.b bVar2) {
+        String str = null;
+        if (i >= 0) {
+            str = TbadkCoreApplication.m9getInst().getContext().getString(i);
+        }
+        return a(tbPageContext, str, TbadkCoreApplication.m9getInst().getContext().getString(i2), TbadkCoreApplication.m9getInst().getContext().getString(i3), TbadkCoreApplication.m9getInst().getContext().getString(i4), bVar, bVar2);
+    }
+
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, String str, String str2, String str3, String str4, a.b bVar, a.b bVar2) {
+        if (tbPageContext == null) {
+            return null;
+        }
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+        aVar.cw(str);
+        aVar.cx(str2);
+        aVar.a(str3, bVar);
+        aVar.b(str4, bVar2);
+        aVar.b(tbPageContext);
+        return aVar;
+    }
+
+    public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, String str, String str2, a.b bVar, a.b bVar2) {
+        if (tbPageContext == null) {
+            return null;
+        }
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+        aVar.cw(str);
+        aVar.cx(str2);
+        aVar.a(w.l.dialog_ok, bVar);
+        aVar.b(w.l.dialog_cancel, bVar2);
+        aVar.b(tbPageContext);
+        return aVar;
+    }
+
+    public static c a(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, c.b bVar) {
+        if (tbPageContext == null) {
+            return null;
+        }
+        c cVar = new c(tbPageContext.getPageActivity());
+        cVar.bZ(i);
+        cVar.a(charSequenceArr, bVar);
+        cVar.d(tbPageContext);
+        return cVar;
     }
 }

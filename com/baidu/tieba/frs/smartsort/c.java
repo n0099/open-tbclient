@@ -7,112 +7,112 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.ax;
 import com.baidu.tieba.frs.co;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c {
-    private int bBW;
-    private final FrsActivity bLZ;
-    private co bSR;
-    private TextView bSS;
-    private boolean bST;
-    private int bSU = -1;
+    private int bJd;
+    private final FrsActivity bTf;
+    private co cad;
+    private TextView cae;
+    private boolean caf;
+    private int cag = -1;
 
     public c(FrsActivity frsActivity) {
-        this.bBW = 0;
+        this.bJd = 0;
         if (frsActivity == null) {
             throw new NullPointerException("FrsActivity is null");
         }
-        this.bLZ = frsActivity;
+        this.bTf = frsActivity;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bBW = UtilHelper.getStatusBarHeight();
+            this.bJd = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void acq() {
-        if (this.bST && this.bSU >= 0) {
-            iv(this.bSU);
+    public void ado() {
+        if (this.caf && this.cag >= 0) {
+            ir(this.cag);
         }
-        this.bST = false;
+        this.caf = false;
     }
 
-    public void acr() {
-        if (this.bSR != null) {
-            this.bSR.hideTip();
+    public void adp() {
+        if (this.cad != null) {
+            this.cad.hideTip();
         }
     }
 
-    public void iu(int i) {
+    public void iq(int i) {
         if (i >= 0) {
             ei(true);
-            iw(i);
+            is(i);
             return;
         }
         ei(false);
-        iw(i);
+        is(i);
     }
 
-    private void iv(int i) {
+    private void ir(int i) {
         String string;
-        com.baidu.tieba.frs.entelechy.b.d XD = this.bLZ.XD();
-        ax XF = this.bLZ.XF();
-        if (XF != null && XD != null && XD.aah() != null && (XF.YI() instanceof NoPressedRelativeLayout)) {
-            if (this.bSS == null) {
-                this.bSS = new TextView(this.bLZ.getPageContext().getPageActivity());
-                this.bSS.setTextSize(0, this.bLZ.getResources().getDimensionPixelSize(r.f.fontsize28));
-                this.bSS.setGravity(17);
+        com.baidu.tieba.frs.entelechy.b.d YC = this.bTf.YC();
+        ax YE = this.bTf.YE();
+        if (YE != null && YC != null && YC.abe() != null && (YE.ZH() instanceof NoPressedRelativeLayout)) {
+            if (this.cae == null) {
+                this.cae = new TextView(this.bTf.getPageContext().getPageActivity());
+                this.cae.setTextSize(0, this.bTf.getResources().getDimensionPixelSize(w.f.fontsize28));
+                this.cae.setGravity(17);
             }
             if (i > 0) {
-                string = String.format(TbadkCoreApplication.m9getInst().getString(r.l.recommend_frs_refresh_return), Integer.valueOf(i));
+                string = String.format(TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_return), Integer.valueOf(i));
             } else {
-                string = TbadkCoreApplication.m9getInst().getString(r.l.recommend_frs_refresh_nodata);
+                string = TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_nodata);
             }
-            this.bSS.setText(string);
-            View aah = XD.aah();
-            BdTypeListView Iv = XF.Iv();
-            if (aah != null && Iv != null) {
-                int bottom = aah.getBottom();
-                ap.j((View) this.bSS, r.e.common_color_10260);
-                ap.i((View) this.bSS, r.e.cp_cont_g);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, k.e(TbadkCoreApplication.m9getInst(), r.f.ds56));
+            this.cae.setText(string);
+            View abe = YC.abe();
+            BdTypeListView listView = YE.getListView();
+            if (abe != null && listView != null) {
+                int bottom = abe.getBottom();
+                aq.j(this.cae, w.e.common_color_10260);
+                aq.i((View) this.cae, w.e.cp_cont_g);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, k.g(TbadkCoreApplication.m9getInst(), w.f.ds56));
                 layoutParams.addRule(6);
-                boolean z = XF.Yl() != null && (XF.Yl().getBottom() <= aah.getTop() || XF.Yl().getVisibility() != 0);
-                if (Iv.indexOfChild(aah) >= 0 && z) {
+                boolean z = YE.Zk() != null && (YE.Zk().getBottom() <= abe.getTop() || YE.Zk().getVisibility() != 0);
+                if (listView.indexOfChild(abe) >= 0 && z) {
                     layoutParams.topMargin = bottom;
-                    if (this.bSR == null) {
-                        this.bSR = new co();
+                    if (this.cad == null) {
+                        this.cad = new co();
                     }
-                    this.bSR.a(this.bSS, (NoPressedRelativeLayout) XF.YI(), layoutParams, 2000);
+                    this.cad.a(this.cae, (NoPressedRelativeLayout) YE.ZH(), layoutParams, 2000);
                 }
-                this.bSU = -1;
+                this.cag = -1;
             }
         }
     }
 
-    public void acs() {
-        if (this.bSS != null && this.bSS.getVisibility() == 0) {
-            com.baidu.tieba.frs.entelechy.b.d XD = this.bLZ.XD();
-            ax XF = this.bLZ.XF();
-            if (XF != null && XD != null && XD.aah() != null && (XF.YI() instanceof NoPressedRelativeLayout)) {
-                BdTypeListView Iv = XF.Iv();
-                View aah = XD.aah();
-                if (Iv != null) {
-                    boolean z = Iv.indexOfChild(aah) >= 0;
-                    if (this.bSS.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bSS.getLayoutParams();
-                        if (z && aah.getBottom() > this.bBW) {
-                            layoutParams.topMargin = aah.getBottom();
+    public void adq() {
+        if (this.cae != null && this.cae.getVisibility() == 0) {
+            com.baidu.tieba.frs.entelechy.b.d YC = this.bTf.YC();
+            ax YE = this.bTf.YE();
+            if (YE != null && YC != null && YC.abe() != null && (YE.ZH() instanceof NoPressedRelativeLayout)) {
+                BdTypeListView listView = YE.getListView();
+                View abe = YC.abe();
+                if (listView != null) {
+                    boolean z = listView.indexOfChild(abe) >= 0;
+                    if (this.cae.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cae.getLayoutParams();
+                        if (z && abe.getBottom() > this.bJd) {
+                            layoutParams.topMargin = abe.getBottom();
                         } else {
-                            layoutParams.topMargin = this.bBW;
+                            layoutParams.topMargin = this.bJd;
                         }
-                        this.bSS.setLayoutParams(layoutParams);
+                        this.cae.setLayoutParams(layoutParams);
                     }
-                    if (this.bSR != null && !z && this.bSS.getTop() <= this.bBW) {
-                        this.bSR.hideTip();
+                    if (this.cad != null && !z && this.cae.getTop() <= this.bJd) {
+                        this.cad.hideTip();
                     }
                 }
             }
@@ -120,16 +120,16 @@ public class c {
     }
 
     public void ei(boolean z) {
-        this.bST = z;
+        this.caf = z;
     }
 
-    public void iw(int i) {
-        this.bSU = i;
+    public void is(int i) {
+        this.cag = i;
     }
 
     public void onDestroy() {
-        if (this.bSR != null) {
-            this.bSR.onDestroy();
+        if (this.cad != null) {
+            this.cad.onDestroy();
         }
     }
 }

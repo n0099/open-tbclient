@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class c extends s<Boolean> {
-    final /* synthetic */ ChatVoiceView dfO;
+    final /* synthetic */ ChatVoiceView dif;
     private final /* synthetic */ CommonGroupChatMessage val$groupMsg;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ChatVoiceView chatVoiceView, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
-        this.dfO = chatVoiceView;
+        this.dif = chatVoiceView;
         this.val$groupMsg = commonGroupChatMessage;
         this.val$list = linkedList;
     }
@@ -21,6 +21,6 @@ class c extends s<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.s
     public Boolean doInBackground() {
-        return Boolean.valueOf(l.aqw().a(com.baidu.tieba.im.util.h.n(this.val$groupMsg), this.val$list, false));
+        return Boolean.valueOf(l.apQ().a(com.baidu.tieba.im.util.h.n(this.val$groupMsg), this.val$list, false));
     }
 }

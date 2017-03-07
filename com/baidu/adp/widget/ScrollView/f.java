@@ -7,11 +7,11 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e BV;
+    final /* synthetic */ e Jk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.BV = eVar;
+        this.Jk = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -31,44 +31,44 @@ public class f implements Runnable {
         int i2;
         int i3;
         int i4;
-        weakReference = this.BV.BT;
+        weakReference = this.Jk.Ji;
         if (weakReference != null) {
-            weakReference2 = this.BV.BT;
+            weakReference2 = this.Jk.Ji;
             View view = (View) weakReference2.get();
             if (view == null) {
-                this.BV.BP = true;
+                this.Jk.Je = true;
             } else {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
                 int i5 = layoutParams.topMargin;
-                i2 = this.BV.BA;
+                i2 = this.Jk.IO;
                 layoutParams.topMargin = i5 - ((int) (i2 * 1.5f));
                 int i6 = layoutParams.topMargin;
-                i3 = this.BV.BO;
+                i3 = this.Jk.Jd;
                 if (i6 <= i3) {
-                    i4 = this.BV.BO;
+                    i4 = this.Jk.Jd;
                     layoutParams.topMargin = i4;
-                    this.BV.BP = true;
+                    this.Jk.Je = true;
                 }
                 view.setLayoutParams(layoutParams);
             }
-            z = this.BV.BP;
+            z = this.Jk.Je;
             if (z) {
-                gVar = this.BV.BC;
+                gVar = this.Jk.IQ;
                 if (gVar != null) {
-                    gVar2 = this.BV.BC;
-                    gVar2.kt();
+                    gVar2 = this.Jk.IQ;
+                    gVar2.ln();
                 }
-                handler3 = this.BV.handler;
-                runnable3 = this.BV.BU;
+                handler3 = this.Jk.handler;
+                runnable3 = this.Jk.Jj;
                 handler3.removeCallbacks(runnable3);
                 return;
             }
-            handler = this.BV.handler;
-            runnable = this.BV.BU;
+            handler = this.Jk.handler;
+            runnable = this.Jk.Jj;
             handler.removeCallbacks(runnable);
-            handler2 = this.BV.handler;
-            runnable2 = this.BV.BU;
-            i = this.BV.BN;
+            handler2 = this.Jk.handler;
+            runnable2 = this.Jk.Jj;
+            i = this.Jk.Jc;
             handler2.postDelayed(runnable2, i);
         }
     }

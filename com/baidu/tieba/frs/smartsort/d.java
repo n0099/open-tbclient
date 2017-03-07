@@ -1,10 +1,8 @@
 package com.baidu.tieba.frs.smartsort;
 
-import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import java.util.ArrayList;
@@ -24,9 +22,8 @@ public class d {
         return frsRequestData != null && frsRequestData.getLoadType() == 1;
     }
 
-    public static boolean a(ArrayList<v> arrayList, String str, CardHListViewData cardHListViewData) {
-        int i;
-        if (cardHListViewData == null || w.s(arrayList) || StringUtils.isNull(str)) {
+    public static boolean a(ArrayList<v> arrayList, String str, CardHListViewData cardHListViewData, int i) {
+        if (cardHListViewData == null || x.q(arrayList) || StringUtils.isNull(str) || i < 0) {
             return false;
         }
         int size = arrayList.size();
@@ -36,22 +33,9 @@ public class d {
                 return false;
             }
         }
-        int i3 = 0;
-        while (true) {
-            if (i3 >= size) {
-                i = 0;
-                break;
-            }
-            v vVar2 = arrayList.get(i3);
-            if (!(vVar2 instanceof bh) || !TextUtils.equals(str, ((bh) vVar2).getId())) {
-                i3++;
-            } else {
-                i = i3 + 1;
-                break;
-            }
-        }
-        if (i > 0) {
-            w.a(arrayList, i, cardHListViewData);
+        int i3 = i + 1;
+        if (i3 > 0) {
+            x.a(arrayList, i3, cardHListViewData);
             return true;
         }
         return false;

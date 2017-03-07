@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements a.b {
-    final /* synthetic */ NewSubPbActivity erC;
+    final /* synthetic */ NewSubPbActivity euQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(NewSubPbActivity newSubPbActivity) {
-        this.erC = newSubPbActivity;
+        this.euQ = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -27,13 +27,13 @@ public class ag implements a.b {
         com.baidu.adp.base.g gVar2;
         if (Build.VERSION.SDK_INT < 11) {
             aVar.dismiss();
-            gVar2 = this.erC.eik;
-            ((TbPageContext) gVar2).showToast(r.l.frs_header_games_unavailable);
+            gVar2 = this.euQ.elb;
+            ((TbPageContext) gVar2).showToast(w.l.frs_header_games_unavailable);
             return;
         }
         TiebaStatic.log("c10025");
         aVar.dismiss();
-        gVar = this.erC.eik;
+        gVar = this.euQ.elb;
         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) gVar.getPageActivity(), 2, true, 4);
         if (!StringUtils.isNULL("4010001001")) {
             memberPayActivityConfig.setSceneId("4010001001");

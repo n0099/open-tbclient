@@ -1,149 +1,76 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import tbclient.LabelInfo;
-import tbclient.ZhiBoInfoTW;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class au extends bh {
-    public static final BdUniqueId RQ = BdUniqueId.gen();
-    private List<PhotoLiveCardData> RR;
-    private int RS = 0;
-    private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
+public class au {
+    private ArrayList<UserData> WY = new ArrayList<>();
+    private ArrayList<UserData> WZ = new ArrayList<>();
+    private aq mPage = new aq();
+    private int Xa = 0;
+    private int Xb = 0;
 
-    public void o(List<PhotoLiveCardData> list) {
-        this.RR = list;
+    public void a(aq aqVar) {
+        this.mPage = aqVar;
     }
 
-    public void a(bh bhVar, int i) {
-        if (bhVar != null) {
-            setAuthor(bhVar.getAuthor());
-            setTitle(bhVar.getTitle());
-            setPhotoLiveCover(bhVar.getPhotoLiveCover());
-            cv(bhVar.rB());
-            cu(bhVar.getTid());
-            n(bhVar.rr());
-            setAddress(bhVar.getAddress());
-            setId(bhVar.getId());
-            setThreadType(bhVar.getThreadType());
-            a(bhVar.rn());
-            bU(bhVar.rp());
-            setPost_num(bhVar.getPost_num());
-            cw(bhVar.rE());
-            cu(bhVar.getTid());
-            setExpressionDatas(bhVar.rP());
-            setShowExpressionViewIndexList(bhVar.rP());
-            setId(bhVar.getId());
-            this.TZ = bhVar.rS();
-            this.Ua = bhVar.rT();
-            this.Ub = bhVar.rU();
-            if (getShowStyle() < 0) {
-                this.RS = getRandom(3, i);
-            }
+    public aq getPage() {
+        return this.mPage;
+    }
+
+    public ArrayList<UserData> qU() {
+        return this.WY;
+    }
+
+    public ArrayList<UserData> qV() {
+        return this.WZ;
+    }
+
+    public int qW() {
+        return this.Xa;
+    }
+
+    public int qX() {
+        return this.Xb;
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
-    public void a(ZhiBoInfoTW zhiBoInfoTW, int i) {
-        if (zhiBoInfoTW != null) {
-            if (zhiBoInfoTW.user != null) {
-                MetaData metaData = new MetaData();
-                metaData.setUserId(String.valueOf(zhiBoInfoTW.user.id));
-                metaData.setUserName(zhiBoInfoTW.user.name);
-                metaData.setPortrait(zhiBoInfoTW.user.portrait);
-                metaData.setFansNickName(zhiBoInfoTW.user.fans_nickname);
-                metaData.setFansNum(zhiBoInfoTW.user.fans_num.intValue());
-                setAuthor(metaData);
-            }
-            cw(zhiBoInfoTW.content);
-            setFid(zhiBoInfoTW.forum_id.longValue());
-            setExpressionDatas(p(zhiBoInfoTW.labelInfo));
-            bU(zhiBoInfoTW.reply_num.intValue());
-            cv(zhiBoInfoTW.forum_name);
-            setPhotoLiveCover(zhiBoInfoTW.livecover_src);
-            n(zhiBoInfoTW.last_modified_time.longValue());
-            setPost_num(zhiBoInfoTW.post_num.intValue());
-            setTitle(zhiBoInfoTW.title);
-            setShowExpressionViewIndexList(p(zhiBoInfoTW.labelInfo));
-            this.RS = getRandom(3, i);
-            cu(String.valueOf(zhiBoInfoTW.thread_id));
-            setId(String.valueOf(zhiBoInfoTW.thread_id));
-            setThreadType(33);
-            cv(zhiBoInfoTW.forum_name);
-        }
-    }
-
-    private ArrayList<com.baidu.tbadk.coreExtra.view.n> p(List<LabelInfo> list) {
-        ArrayList<com.baidu.tbadk.coreExtra.view.n> arrayList = new ArrayList<>();
-        if (list == null || list.size() == 0) {
-            return arrayList;
-        }
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            LabelInfo labelInfo = list.get(i);
-            if (labelInfo != null) {
-                com.baidu.tbadk.coreExtra.view.n nVar = new com.baidu.tbadk.coreExtra.view.n();
-                nVar.ej(labelInfo.labelHot.intValue());
-                nVar.setLabelId(labelInfo.labelId);
-                nVar.setLabelName(labelInfo.labelContent);
-                arrayList.add(nVar);
-            }
-        }
-        return arrayList;
-    }
-
-    public int getRandom(int i, int i2) {
-        int nextInt = new Random().nextInt(i);
-        if (nextInt == i2) {
-            return (nextInt + 1) % i;
-        }
-        return nextInt;
-    }
-
-    public void setShowExpressionViewIndexList(ArrayList<com.baidu.tbadk.coreExtra.view.n> arrayList) {
-        int size = arrayList.size();
-        int i = 0;
-        int i2 = -1;
-        int i3 = -1;
-        while (i < size && i < 3) {
-            if (arrayList.get(i) != null) {
-                int random = getRandom(3, -1);
-                if (random == i2 || random == i3) {
-                    random = k(size, i2, i3);
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        userData.mAttentionType = 2;
+                        this.WY.add(userData);
+                    }
                 }
-                if (i == 0) {
-                    i2 = random;
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.WZ.add(userData2);
+                    }
                 }
-                if (i == 1) {
-                    i3 = random;
-                }
-                this.showExpressionViewIndex.add(Integer.valueOf(random));
-            }
-            i++;
-            i2 = i2;
-        }
-    }
-
-    public ArrayList<Integer> getShowExpressionViewIndex() {
-        return this.showExpressionViewIndex;
-    }
-
-    private int k(int i, int i2, int i3) {
-        for (int i4 = 0; i4 < i && i4 < 3; i4++) {
-            if (i4 != i2 && i4 != i3) {
-                return i4;
+                this.mPage.parserJson(jSONObject.optJSONObject("page"));
+                this.Xa = jSONObject.optInt("tafriendnum", 0);
+                this.Xb = jSONObject.optInt("commonfriendnum", 0);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
-        return -1;
-    }
-
-    public int getShowStyle() {
-        return this.RS;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return RQ;
     }
 }

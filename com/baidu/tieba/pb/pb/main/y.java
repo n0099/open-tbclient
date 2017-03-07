@@ -21,191 +21,160 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbListTextView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.r;
+import com.baidu.tieba.pb.pb.main.view.PbFloorAgreeView;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class y implements View.OnClickListener {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PbActivity pbActivity) {
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v130, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v134, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX DEBUG: Multi-variable search result rejected for r3v171, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Code restructure failed: missing block: B:180:0x084b, code lost:
-        if (r18 == r1.enK.aOy().Rb()) goto L178;
+    /* JADX DEBUG: Multi-variable search result rejected for r3v125, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v129, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v178, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Code restructure failed: missing block: B:178:0x0836, code lost:
+        if (r18 == r1.eqM.aNQ().RX()) goto L176;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x02a3, code lost:
-        if (r18 == r1.enK.aOy().aMS()) goto L797;
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x028e, code lost:
+        if (r18 == r1.eqM.aNQ().aMl()) goto L824;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:501:0x171a  */
-    /* JADX WARN: Removed duplicated region for block: B:504:0x17d5  */
-    /* JADX WARN: Removed duplicated region for block: B:507:0x17ed  */
-    /* JADX WARN: Removed duplicated region for block: B:509:0x17f7  */
-    /* JADX WARN: Removed duplicated region for block: B:517:0x18ef  */
-    /* JADX WARN: Removed duplicated region for block: B:524:0x19d5  */
-    /* JADX WARN: Removed duplicated region for block: B:527:0x19ec  */
-    /* JADX WARN: Removed duplicated region for block: B:530:0x1a02  */
-    /* JADX WARN: Removed duplicated region for block: B:533:0x1a14  */
-    /* JADX WARN: Removed duplicated region for block: B:535:0x1a22  */
-    /* JADX WARN: Removed duplicated region for block: B:546:0x1aa5  */
-    /* JADX WARN: Removed duplicated region for block: B:551:0x1b05  */
-    /* JADX WARN: Removed duplicated region for block: B:556:0x1bd5  */
-    /* JADX WARN: Removed duplicated region for block: B:559:0x1bed  */
-    /* JADX WARN: Removed duplicated region for block: B:562:0x1c20  */
-    /* JADX WARN: Removed duplicated region for block: B:564:0x1c23  */
-    /* JADX WARN: Removed duplicated region for block: B:565:0x1c44  */
-    /* JADX WARN: Removed duplicated region for block: B:566:0x1c57  */
-    /* JADX WARN: Removed duplicated region for block: B:567:0x1c6a  */
-    /* JADX WARN: Removed duplicated region for block: B:657:0x2102  */
-    /* JADX WARN: Removed duplicated region for block: B:658:0x2105  */
-    /* JADX WARN: Removed duplicated region for block: B:659:0x2108  */
-    /* JADX WARN: Removed duplicated region for block: B:660:0x210b  */
-    /* JADX WARN: Removed duplicated region for block: B:661:0x210e  */
-    /* JADX WARN: Removed duplicated region for block: B:662:0x2111  */
-    /* JADX WARN: Removed duplicated region for block: B:663:0x2114  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0353  */
+    /* JADX WARN: Removed duplicated region for block: B:572:0x1ad7  */
+    /* JADX WARN: Removed duplicated region for block: B:593:0x1c93  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x033e  */
     @Override // android.view.View.OnClickListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onClick(View view) {
-        ez ezVar;
-        ez ezVar2;
-        ez ezVar3;
-        ez ezVar4;
-        ez ezVar5;
+        fa faVar;
+        fa faVar2;
+        fa faVar3;
+        fa faVar4;
+        fa faVar5;
         PbModel pbModel;
         ForumManageModel forumManageModel;
-        ez ezVar6;
-        ez ezVar7;
-        ez ezVar8;
-        ez ezVar9;
-        ez ezVar10;
+        fa faVar6;
+        fa faVar7;
+        fa faVar8;
+        fa faVar9;
+        fa faVar10;
         PbModel pbModel2;
         PbModel pbModel3;
         PbModel pbModel4;
         String id;
-        ez ezVar11;
+        fa faVar11;
         ForumManageModel forumManageModel2;
-        ez ezVar12;
-        ez ezVar13;
+        fa faVar12;
+        fa faVar13;
         PbModel pbModel5;
-        ez ezVar14;
-        ez ezVar15;
-        ez ezVar16;
-        ez ezVar17;
-        ez ezVar18;
-        ez ezVar19;
+        fa faVar14;
+        fa faVar15;
+        fa faVar16;
+        fa faVar17;
+        fa faVar18;
+        fa faVar19;
         boolean z;
-        ez ezVar20;
-        ez ezVar21;
-        ez ezVar22;
+        fa faVar20;
+        fa faVar21;
+        fa faVar22;
         PbModel pbModel6;
-        String aLg;
-        ez ezVar23;
-        ez ezVar24;
-        ez ezVar25;
-        ez ezVar26;
-        ez ezVar27;
-        ez ezVar28;
-        ez ezVar29;
-        ez ezVar30;
-        ez ezVar31;
-        ez ezVar32;
-        ez ezVar33;
-        dq dqVar;
-        dq dqVar2;
-        dq dqVar3;
-        dq dqVar4;
-        dq dqVar5;
-        dq dqVar6;
-        ez ezVar34;
-        ez ezVar35;
-        dq dqVar7;
-        ez ezVar36;
-        ez ezVar37;
-        ez ezVar38;
+        String aKB;
+        fa faVar23;
+        fa faVar24;
+        fa faVar25;
+        fa faVar26;
+        fa faVar27;
+        fa faVar28;
+        fa faVar29;
+        fa faVar30;
+        fa faVar31;
+        fa faVar32;
+        fa faVar33;
+        dr drVar;
+        dr drVar2;
+        dr drVar3;
+        dr drVar4;
+        dr drVar5;
+        fa faVar34;
+        fa faVar35;
+        dr drVar6;
+        fa faVar36;
+        fa faVar37;
+        fa faVar38;
         PbModel pbModel7;
-        ez ezVar39;
+        fa faVar39;
         PbModel pbModel8;
         PbModel pbModel9;
-        PbActivity.b ol;
+        PbActivity.b ns;
         PbModel pbModel10;
         PbModel pbModel11;
         PbModel pbModel12;
-        PbActivity.b ol2;
+        PbActivity.b ns2;
         PbModel pbModel13;
         PbModel pbModel14;
         PbModel pbModel15;
         PbModel pbModel16;
-        PbActivity.b ol3;
+        PbActivity.b ns3;
         PbModel pbModel17;
         PbModel pbModel18;
         PbModel pbModel19;
         PbModel pbModel20;
         PbModel pbModel21;
-        ez ezVar40;
-        dq dqVar8;
-        dq dqVar9;
+        fa faVar40;
+        fa faVar41;
+        dr drVar7;
+        dr drVar8;
         PbModel pbModel22;
         boolean z2;
-        dq dqVar10;
-        dq dqVar11;
-        dq dqVar12;
-        dq dqVar13;
+        dr drVar9;
+        dr drVar10;
+        dr drVar11;
+        dr drVar12;
         PbModel pbModel23;
-        dq dqVar14;
-        SparseArray sparseArray;
-        dq dqVar15;
-        dq dqVar16;
-        SparseArray sparseArray2;
-        boolean booleanValue;
+        dr drVar13;
+        dr drVar14;
+        dr drVar15;
         boolean z3;
-        dq dqVar17;
-        dq dqVar18;
-        dq dqVar19;
-        dq dqVar20;
-        dq dqVar21;
-        dq dqVar22;
-        dq dqVar23;
-        SparseArray sparseArray3;
+        dr drVar16;
+        dr drVar17;
+        dr drVar18;
+        dr drVar19;
+        dr drVar20;
+        dr drVar21;
+        dr drVar22;
         boolean z4;
         boolean z5;
-        boolean io;
-        boolean isLogin;
-        dq dqVar24;
-        dq dqVar25;
-        dq dqVar26;
-        SparseArray sparseArray4;
+        boolean ij;
+        dr drVar23;
+        dr drVar24;
+        dr drVar25;
         boolean z6;
         String str;
         int i;
-        dq dqVar27;
-        dq dqVar28;
-        dq dqVar29;
-        dq dqVar30;
-        dq dqVar31;
-        dq dqVar32;
-        dq dqVar33;
-        dq dqVar34;
-        dq dqVar35;
-        dq dqVar36;
-        dq dqVar37;
-        dq dqVar38;
-        dq dqVar39;
-        dq dqVar40;
-        dq dqVar41;
-        dq dqVar42;
-        dq dqVar43;
+        dr drVar26;
+        dr drVar27;
+        dr drVar28;
+        dr drVar29;
+        dr drVar30;
+        dr drVar31;
+        dr drVar32;
+        dr drVar33;
+        dr drVar34;
+        dr drVar35;
+        dr drVar36;
+        dr drVar37;
+        dr drVar38;
+        dr drVar39;
+        dr drVar40;
         PbModel pbModel24;
-        dq dqVar44;
-        dq dqVar45;
+        dr drVar41;
         boolean z7;
         PbModel pbModel25;
         PbModel pbModel26;
@@ -215,8 +184,8 @@ class y implements View.OnClickListener {
         PbModel pbModel30;
         PbModel pbModel31;
         PbModel pbModel32;
-        int aKU;
-        int aKU2;
+        int aKp;
+        int aKp2;
         PbModel pbModel33;
         PbModel pbModel34;
         PbModel pbModel35;
@@ -225,8 +194,8 @@ class y implements View.OnClickListener {
         PbModel pbModel38;
         PbModel pbModel39;
         PbModel pbModel40;
-        int aKU3;
-        int aKU4;
+        int aKp3;
+        int aKp4;
         PbModel pbModel41;
         PbModel pbModel42;
         PbModel pbModel43;
@@ -235,134 +204,135 @@ class y implements View.OnClickListener {
         PbModel pbModel46;
         PbModel pbModel47;
         PbModel pbModel48;
-        ez ezVar41;
+        fa faVar42;
         PbModel pbModel49;
         PbModel pbModel50;
         PbModel pbModel51;
-        ez ezVar42;
+        fa faVar43;
         PbModel pbModel52;
         PbModel pbModel53;
         PbModel pbModel54;
         PbModel pbModel55;
         PbModel pbModel56;
         PbModel pbModel57;
-        com.baidu.tbadk.core.data.bn bnVar;
+        PostData postData;
         PbModel pbModel58;
         PbModel pbModel59;
         PbModel pbModel60;
-        ez ezVar43;
-        ez ezVar44;
+        com.baidu.tbadk.core.data.bp bpVar;
+        fa faVar44;
         PbModel pbModel61;
         PbModel pbModel62;
-        ez ezVar45;
-        ez ezVar46;
-        ez ezVar47;
-        ez ezVar48;
-        ez ezVar49;
         PbModel pbModel63;
+        fa faVar45;
+        fa faVar46;
         PbModel pbModel64;
         PbModel pbModel65;
+        fa faVar47;
+        fa faVar48;
+        fa faVar49;
+        fa faVar50;
+        fa faVar51;
         PbModel pbModel66;
         PbModel pbModel67;
         PbModel pbModel68;
-        ez ezVar50;
         PbModel pbModel69;
         PbModel pbModel70;
         PbModel pbModel71;
+        fa faVar52;
         PbModel pbModel72;
-        ez ezVar51;
-        ez ezVar52;
-        dq dqVar46;
-        ez ezVar53;
-        ez ezVar54;
         PbModel pbModel73;
         PbModel pbModel74;
-        ez ezVar55;
         PbModel pbModel75;
-        dq dqVar47;
+        fa faVar53;
+        fa faVar54;
+        dr drVar42;
+        fa faVar55;
+        fa faVar56;
         PbModel pbModel76;
-        dq dqVar48;
-        ez ezVar56;
         PbModel pbModel77;
-        dq dqVar49;
+        fa faVar57;
         PbModel pbModel78;
-        ez ezVar57;
+        dr drVar43;
         PbModel pbModel79;
-        dq dqVar50;
+        dr drVar44;
+        fa faVar58;
         PbModel pbModel80;
-        ez ezVar58;
-        SparseArray sparseArray5;
-        com.baidu.tieba.tbadkCore.data.p pVar;
+        dr drVar45;
+        dr drVar46;
         PbModel pbModel81;
+        fa faVar59;
+        SparseArray sparseArray;
+        PostData postData2;
         PbModel pbModel82;
-        PbActivity.b ol4;
         PbModel pbModel83;
+        PbActivity.b ns4;
         PbModel pbModel84;
-        dq dqVar51;
-        dq dqVar52;
-        ez ezVar59;
-        String aKT;
-        ez ezVar60;
-        ez ezVar61;
-        ez ezVar62;
-        ez ezVar63;
-        ez ezVar64;
         PbModel pbModel85;
         PbModel pbModel86;
-        ez ezVar65;
-        ez ezVar66;
+        dr drVar47;
+        dr drVar48;
+        fa faVar60;
+        String aKo;
+        fa faVar61;
+        fa faVar62;
+        fa faVar63;
+        fa faVar64;
+        fa faVar65;
         PbModel pbModel87;
         PbModel pbModel88;
+        fa faVar66;
+        fa faVar67;
         PbModel pbModel89;
-        ez ezVar67;
         PbModel pbModel90;
-        ez ezVar68;
-        ez ezVar69;
-        ez ezVar70;
         PbModel pbModel91;
-        ez ezVar71;
-        ez ezVar72;
+        fa faVar68;
         PbModel pbModel92;
-        ez ezVar73;
+        fa faVar69;
+        fa faVar70;
+        fa faVar71;
         PbModel pbModel93;
-        ez ezVar74;
-        ez ezVar75;
+        fa faVar72;
+        fa faVar73;
         PbModel pbModel94;
+        fa faVar74;
         PbModel pbModel95;
+        fa faVar75;
+        fa faVar76;
         PbModel pbModel96;
         PbModel pbModel97;
         PbModel pbModel98;
-        ez ezVar76;
-        ez ezVar77;
-        ez ezVar78;
-        ez ezVar79;
-        ez ezVar80;
-        ez ezVar81;
-        boolean z8;
-        ez ezVar82;
-        ez ezVar83;
-        ez ezVar84;
         PbModel pbModel99;
-        String aLg2;
-        ez ezVar85;
-        ez ezVar86;
-        ez ezVar87;
-        ez ezVar88;
-        boolean oq;
         PbModel pbModel100;
-        ez ezVar89;
+        fa faVar77;
+        fa faVar78;
+        fa faVar79;
+        fa faVar80;
+        fa faVar81;
+        fa faVar82;
+        boolean z8;
+        fa faVar83;
+        fa faVar84;
+        fa faVar85;
         PbModel pbModel101;
+        String aKB2;
+        fa faVar86;
+        fa faVar87;
+        fa faVar88;
+        fa faVar89;
+        boolean oe;
         PbModel pbModel102;
+        fa faVar90;
         PbModel pbModel103;
         PbModel pbModel104;
-        ez ezVar90;
-        ez ezVar91;
         PbModel pbModel105;
         PbModel pbModel106;
+        fa faVar91;
+        fa faVar92;
         PbModel pbModel107;
-        String name;
         PbModel pbModel108;
         PbModel pbModel109;
+        String name;
         PbModel pbModel110;
         PbModel pbModel111;
         PbModel pbModel112;
@@ -370,51 +340,52 @@ class y implements View.OnClickListener {
         PbModel pbModel114;
         PbModel pbModel115;
         PbModel pbModel116;
-        ez ezVar92;
-        ez ezVar93;
-        ez ezVar94;
         PbModel pbModel117;
-        ez ezVar95;
-        ez ezVar96;
-        ez ezVar97;
-        ez ezVar98;
         PbModel pbModel118;
-        ez ezVar99;
-        ez ezVar100;
+        fa faVar93;
+        fa faVar94;
+        fa faVar95;
         PbModel pbModel119;
+        fa faVar96;
+        fa faVar97;
+        fa faVar98;
+        fa faVar99;
         PbModel pbModel120;
-        ez ezVar101;
+        fa faVar100;
         PbModel pbModel121;
-        ez ezVar102;
-        boolean z9;
         PbModel pbModel122;
+        fa faVar101;
         PbModel pbModel123;
+        fa faVar102;
+        boolean z9;
         PbModel pbModel124;
         PbModel pbModel125;
+        PbModel pbModel126;
+        PbModel pbModel127;
         if ((view instanceof TbListTextView) && (view.getParent() instanceof TbRichTextView)) {
-            z9 = this.eiV.ehL;
+            z9 = this.elO.ekD;
             if (z9) {
-                this.eiV.ehL = false;
+                this.elO.ekD = false;
                 return;
             }
             TbRichTextView tbRichTextView = (TbRichTextView) view.getParent();
             if (tbRichTextView.getTag() instanceof SparseArray) {
-                Object obj = ((SparseArray) tbRichTextView.getTag()).get(r.h.tag_clip_board);
-                if (obj instanceof com.baidu.tieba.tbadkCore.data.p) {
-                    com.baidu.tieba.tbadkCore.data.p pVar2 = (com.baidu.tieba.tbadkCore.data.p) obj;
-                    pbModel122 = this.eiV.ehh;
-                    if (pbModel122 != null) {
-                        pbModel123 = this.eiV.ehh;
-                        if (pbModel123.getPbData() != null && this.eiV.aKO().aNp() != null && pVar2.getAuthor() != null && pVar2.bhQ() != 1 && this.eiV.checkUpIsLogin()) {
+                Object obj = ((SparseArray) tbRichTextView.getTag()).get(w.h.tag_clip_board);
+                if (obj instanceof PostData) {
+                    PostData postData3 = (PostData) obj;
+                    pbModel124 = this.elO.ejZ;
+                    if (pbModel124 != null) {
+                        pbModel125 = this.elO.ejZ;
+                        if (pbModel125.getPbData() != null && this.elO.aKj().aMI() != null && postData3.getAuthor() != null && postData3.bhD() != 1 && this.elO.checkUpIsLogin()) {
                             com.baidu.tieba.pb.data.j jVar = new com.baidu.tieba.pb.data.j();
-                            pbModel124 = this.eiV.ehh;
-                            jVar.b(pbModel124.getPbData().aJY());
-                            pbModel125 = this.eiV.ehh;
-                            jVar.h(pbModel125.getPbData().aJZ());
-                            jVar.b(pVar2);
-                            this.eiV.aKO().aNp().c(jVar);
-                            this.eiV.aKO().aNp().setPostId(pVar2.getId());
-                            this.eiV.a(view, pVar2.getAuthor().getUserId(), "");
+                            pbModel126 = this.elO.ejZ;
+                            jVar.b(pbModel126.getPbData().aJp());
+                            pbModel127 = this.elO.ejZ;
+                            jVar.h(pbModel127.getPbData().aJq());
+                            jVar.b(postData3);
+                            this.elO.aKj().aMI().c(jVar);
+                            this.elO.aKj().aMI().setPostId(postData3.getId());
+                            this.elO.a(view, postData3.getAuthor().getUserId(), "");
                             TiebaStatic.log("c11743");
                             return;
                         }
@@ -426,266 +397,263 @@ class y implements View.OnClickListener {
             }
             return;
         }
-        ezVar = this.eiV.ehV;
-        if (view == ezVar.getNextView()) {
-            pbModel121 = this.eiV.ehh;
-            if (pbModel121.iu(true)) {
-                ezVar102 = this.eiV.ehV;
-                ezVar102.aNK();
+        faVar = this.elO.ekM;
+        if (view == faVar.getNextView()) {
+            pbModel123 = this.elO.ejZ;
+            if (pbModel123.ip(true)) {
+                faVar102 = this.elO.ekM;
+                faVar102.aNd();
                 return;
             }
             return;
         }
-        ezVar2 = this.eiV.ehV;
-        if (ezVar2.enK.aOy() != null) {
-            ezVar99 = this.eiV.ehV;
-            if (view == ezVar99.enK.aOy().aMP()) {
-                ezVar100 = this.eiV.ehV;
-                ezVar100.aNB();
-                if (UtilHelper.isFloatWindowOpAllowed(this.eiV.getPageContext().getPageActivity())) {
-                    this.eiV.eib = true;
-                    PbActivity pbActivity = this.eiV;
-                    pbModel119 = this.eiV.ehh;
-                    pbActivity.a(pbModel119.getPbData(), 0, 1, true, true);
-                    com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c10830");
-                    pbModel120 = this.eiV.ehh;
-                    TiebaStatic.log(arVar.ab("tid", pbModel120.getThreadID()));
-                    ezVar101 = this.eiV.ehV;
-                    ezVar101.axs();
-                    return;
-                }
-                this.eiV.aKS();
+        faVar2 = this.elO.ekM;
+        if (view == faVar2.aMO()) {
+            faVar100 = this.elO.ekM;
+            faVar100.aMU();
+            if (UtilHelper.isFloatWindowOpAllowed(this.elO.getPageContext().getPageActivity())) {
+                this.elO.ekS = true;
+                PbActivity pbActivity = this.elO;
+                pbModel121 = this.elO.ejZ;
+                pbActivity.a(pbModel121.getPbData(), 0, 1, true, true);
+                com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c10830");
+                pbModel122 = this.elO.ejZ;
+                TiebaStatic.log(asVar.Z("tid", pbModel122.getThreadID()));
+                faVar101 = this.elO.ekM;
+                faVar101.awO();
                 return;
             }
-        }
-        ezVar3 = this.eiV.ehV;
-        if (ezVar3.enK.aOy() != null) {
-            ezVar95 = this.eiV.ehV;
-            if (view == ezVar95.enK.aOy().aMV()) {
-                if (com.baidu.adp.lib.util.i.gk()) {
-                    ezVar96 = this.eiV.ehV;
-                    ezVar96.axs();
-                    this.eiV.XU();
-                    ezVar97 = this.eiV.ehV;
-                    ezVar97.aNJ();
-                    ezVar98 = this.eiV.ehV;
-                    ezVar98.avh();
-                    pbModel118 = this.eiV.ehh;
-                    pbModel118.ov(1);
-                    return;
-                }
-                this.eiV.showToast(r.l.network_not_available);
-                return;
-            }
-        }
-        ezVar4 = this.eiV.ehV;
-        if (view == ezVar4.enK.aCJ) {
-            ezVar94 = this.eiV.ehV;
-            pbModel117 = this.eiV.ehh;
-            if (!ezVar94.iU(pbModel117.aMc())) {
-                this.eiV.ehB = false;
-                this.eiV.finish();
-                return;
-            }
-            this.eiV.XU();
+            this.elO.aKn();
             return;
         }
-        ezVar5 = this.eiV.ehV;
-        if (view != ezVar5.aNH()) {
-            ezVar14 = this.eiV.ehV;
-            if (ezVar14.enK.aOy() != null) {
-                ezVar92 = this.eiV.ehV;
-                if (view != ezVar92.enK.aOy().aMU()) {
-                    ezVar93 = this.eiV.ehV;
+        faVar3 = this.elO.ekM;
+        if (faVar3.eqM.aNQ() != null) {
+            faVar96 = this.elO.ekM;
+            if (view == faVar96.eqM.aNQ().aMo()) {
+                if (com.baidu.adp.lib.util.i.he()) {
+                    faVar97 = this.elO.ekM;
+                    faVar97.awO();
+                    this.elO.YT();
+                    faVar98 = this.elO.ekM;
+                    faVar98.aNc();
+                    faVar99 = this.elO.ekM;
+                    faVar99.auC();
+                    pbModel120 = this.elO.ejZ;
+                    pbModel120.oj(1);
+                    return;
+                }
+                this.elO.showToast(w.l.network_not_available);
+                return;
+            }
+        }
+        faVar4 = this.elO.ekM;
+        if (view == faVar4.eqM.aIg) {
+            faVar95 = this.elO.ekM;
+            pbModel119 = this.elO.ejZ;
+            if (!faVar95.iP(pbModel119.aLy())) {
+                this.elO.ekt = false;
+                this.elO.finish();
+                return;
+            }
+            this.elO.YT();
+            return;
+        }
+        faVar5 = this.elO.ekM;
+        if (view != faVar5.aNa()) {
+            faVar14 = this.elO.ekM;
+            if (faVar14.eqM.aNQ() != null) {
+                faVar93 = this.elO.ekM;
+                if (view != faVar93.eqM.aNQ().aMn()) {
+                    faVar94 = this.elO.ekM;
                 }
             }
-            ezVar15 = this.eiV.ehV;
-            if (view == ezVar15.aNX()) {
-                pbModel115 = this.eiV.ehh;
-                if (pbModel115 != null) {
-                    pbModel116 = this.eiV.ehh;
-                    com.baidu.tbadk.browser.f.u(this.eiV.getPageContext().getPageActivity(), pbModel116.getPbData().aJZ().rw().getLink());
+            faVar15 = this.elO.ekM;
+            if (view == faVar15.aNr()) {
+                pbModel117 = this.elO.ejZ;
+                if (pbModel117 != null) {
+                    pbModel118 = this.elO.ejZ;
+                    com.baidu.tbadk.browser.f.O(this.elO.getPageContext().getPageActivity(), pbModel118.getPbData().aJq().rQ().getLink());
                     return;
                 }
                 return;
             }
-            ezVar16 = this.eiV.ehV;
-            if (view != ezVar16.enK.eqR) {
-                ezVar17 = this.eiV.ehV;
-                if (view == ezVar17.enK.eqT) {
-                    pbModel101 = this.eiV.ehh;
-                    if (pbModel101 != null) {
-                        pbModel102 = this.eiV.ehh;
-                        if (pbModel102.getPbData() != null) {
-                            pbModel103 = this.eiV.ehh;
-                            ArrayList<com.baidu.tieba.tbadkCore.data.p> aKb = pbModel103.getPbData().aKb();
-                            if (aKb == null || aKb.size() <= 0) {
-                                pbModel104 = this.eiV.ehh;
-                                if (pbModel104.aLY()) {
-                                    com.baidu.adp.lib.util.k.showToast(this.eiV.getPageContext().getPageActivity(), this.eiV.getPageContext().getString(r.l.pb_no_data_tips));
+            faVar16 = this.elO.ekM;
+            if (view != faVar16.eqM.euc) {
+                faVar17 = this.elO.ekM;
+                if (view == faVar17.eqM.eue) {
+                    pbModel103 = this.elO.ejZ;
+                    if (pbModel103 != null) {
+                        pbModel104 = this.elO.ejZ;
+                        if (pbModel104.getPbData() != null) {
+                            pbModel105 = this.elO.ejZ;
+                            ArrayList<PostData> aJs = pbModel105.getPbData().aJs();
+                            if (aJs == null || aJs.size() <= 0) {
+                                pbModel106 = this.elO.ejZ;
+                                if (pbModel106.aLu()) {
+                                    com.baidu.adp.lib.util.k.showToast(this.elO.getPageContext().getPageActivity(), this.elO.getPageContext().getString(w.l.pb_no_data_tips));
                                     return;
                                 }
                             }
-                            ezVar90 = this.eiV.ehV;
-                            ezVar90.aNr();
-                            ezVar91 = this.eiV.ehV;
-                            ezVar91.aOb();
-                            this.eiV.aKV();
+                            faVar91 = this.elO.ekM;
+                            faVar91.aMK();
+                            faVar92 = this.elO.ekM;
+                            faVar92.aNv();
+                            this.elO.aKq();
                             return;
                         }
                     }
-                    com.baidu.adp.lib.util.k.showToast(this.eiV.getPageContext().getPageActivity(), this.eiV.getPageContext().getString(r.l.pb_no_data_tips));
+                    com.baidu.adp.lib.util.k.showToast(this.elO.getPageContext().getPageActivity(), this.elO.getPageContext().getString(w.l.pb_no_data_tips));
                     return;
                 }
-                ezVar18 = this.eiV.ehV;
-                if (view != ezVar18.enK.eqS && view.getId() != r.h.pb_god_user_tip_content) {
-                    ezVar25 = this.eiV.ehV;
-                    if (ezVar25.enK.aOy() != null) {
-                        ezVar87 = this.eiV.ehV;
-                        if (view == ezVar87.enK.aOy().aMz()) {
-                            if (com.baidu.adp.lib.util.i.gk()) {
-                                ezVar88 = this.eiV.ehV;
-                                ezVar88.axs();
-                                oq = this.eiV.oq(11009);
-                                if (oq) {
-                                    pbModel100 = this.eiV.ehh;
-                                    ezVar89 = this.eiV.ehV;
-                                    if (pbModel100.oB(ezVar89.aNO()) == null) {
+                faVar18 = this.elO.ekM;
+                if (view != faVar18.eqM.eud && view.getId() != w.h.pb_god_user_tip_content) {
+                    faVar25 = this.elO.ekM;
+                    if (faVar25.eqM.aNQ() != null) {
+                        faVar88 = this.elO.ekM;
+                        if (view == faVar88.eqM.aNQ().aLW()) {
+                            if (com.baidu.adp.lib.util.i.he()) {
+                                faVar89 = this.elO.ekM;
+                                faVar89.awO();
+                                oe = this.elO.oe(11009);
+                                if (oe) {
+                                    pbModel102 = this.elO.ejZ;
+                                    faVar90 = this.elO.ekM;
+                                    if (pbModel102.op(faVar90.aNh()) == null) {
                                         return;
                                     }
-                                    this.eiV.aLb();
+                                    this.elO.aKw();
                                     return;
                                 }
                                 return;
                             }
-                            this.eiV.showToast(r.l.network_not_available);
+                            this.elO.showToast(w.l.network_not_available);
                             return;
                         }
                     }
-                    ezVar26 = this.eiV.ehV;
-                    if (ezVar26.enK.aOy() != null) {
-                        ezVar79 = this.eiV.ehV;
-                        if (view == ezVar79.enK.aOy().aMR()) {
-                            if (com.baidu.adp.lib.util.i.gk()) {
-                                ezVar80 = this.eiV.ehV;
-                                ezVar80.axs();
-                                ezVar81 = this.eiV.ehV;
-                                ezVar81.aNr();
-                                z8 = this.eiV.mIsLoading;
+                    faVar26 = this.elO.ekM;
+                    if (faVar26.eqM.aNQ() != null) {
+                        faVar80 = this.elO.ekM;
+                        if (view == faVar80.eqM.aNQ().aMk()) {
+                            if (com.baidu.adp.lib.util.i.he()) {
+                                faVar81 = this.elO.ekM;
+                                faVar81.awO();
+                                faVar82 = this.elO.ekM;
+                                faVar82.aMK();
+                                z8 = this.elO.mIsLoading;
                                 if (!z8) {
-                                    this.eiV.mIsLoading = true;
-                                    ezVar82 = this.eiV.ehV;
-                                    ezVar82.enK.eqS.setEnabled(false);
-                                    ezVar83 = this.eiV.ehV;
-                                    ezVar83.ase();
-                                    this.eiV.XU();
-                                    ezVar84 = this.eiV.ehV;
-                                    ezVar84.aNJ();
-                                    pbModel99 = this.eiV.ehh;
-                                    aLg2 = this.eiV.aLg();
-                                    pbModel99.on(aLg2);
-                                    TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
-                                    ezVar85 = this.eiV.ehV;
-                                    ezVar85.aOb();
-                                    ezVar86 = this.eiV.ehV;
-                                    ezVar86.aLT();
-                                    this.eiV.or(2);
+                                    this.elO.mIsLoading = true;
+                                    faVar83 = this.elO.ekM;
+                                    faVar83.eqM.eud.setEnabled(false);
+                                    faVar84 = this.elO.ekM;
+                                    faVar84.arz();
+                                    this.elO.YT();
+                                    faVar85 = this.elO.ekM;
+                                    faVar85.aNc();
+                                    pbModel101 = this.elO.ejZ;
+                                    aKB2 = this.elO.aKB();
+                                    pbModel101.nu(aKB2);
+                                    TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
+                                    faVar86 = this.elO.ekM;
+                                    faVar86.aNv();
+                                    faVar87 = this.elO.ekM;
+                                    faVar87.aLp();
+                                    this.elO.of(2);
                                     return;
                                 }
                                 return;
                             }
-                            this.eiV.showToast(r.l.network_not_available);
+                            this.elO.showToast(w.l.network_not_available);
                             return;
                         }
                     }
-                    ezVar27 = this.eiV.ehV;
-                    if (ezVar27.enK.aOy() != null) {
-                        ezVar76 = this.eiV.ehV;
-                        if (view != ezVar76.enK.aOy().aMO()) {
-                            ezVar78 = this.eiV.ehV;
+                    faVar27 = this.elO.ekM;
+                    if (faVar27.eqM.aNQ() != null) {
+                        faVar77 = this.elO.ekM;
+                        if (view != faVar77.eqM.aNQ().getCancelView()) {
+                            faVar79 = this.elO.ekM;
                         }
-                        ezVar77 = this.eiV.ehV;
-                        ezVar77.enK.nX();
+                        faVar78 = this.elO.ekM;
+                        faVar78.eqM.ol();
                         return;
                     }
-                    ezVar28 = this.eiV.ehV;
-                    if (ezVar28.enK.aOy() != null) {
-                        ezVar74 = this.eiV.ehV;
-                        if (view == ezVar74.enK.aOy().aMQ()) {
-                            if (this.eiV.checkUpIsLogin()) {
-                                ezVar75 = this.eiV.ehV;
-                                ezVar75.axs();
-                                this.eiV.XU();
-                                this.eiV.or(2);
-                                pbModel94 = this.eiV.ehh;
-                                if (pbModel94 != null) {
-                                    pbModel95 = this.eiV.ehh;
-                                    if (pbModel95.getPbData() != null) {
-                                        pbModel96 = this.eiV.ehh;
-                                        if (pbModel96.getPbData().aKq() != null) {
-                                            pbModel97 = this.eiV.ehh;
-                                            if (!StringUtils.isNull(pbModel97.getPbData().aKq().pL(), true)) {
-                                                com.baidu.tbadk.core.util.ar arVar2 = new com.baidu.tbadk.core.util.ar("c11678");
-                                                pbModel98 = this.eiV.ehh;
-                                                TiebaStatic.log(arVar2.ab("fid", pbModel98.getPbData().getForumId()));
+                    faVar28 = this.elO.ekM;
+                    if (faVar28.eqM.aNQ() != null) {
+                        faVar75 = this.elO.ekM;
+                        if (view == faVar75.eqM.aNQ().aMj()) {
+                            if (this.elO.checkUpIsLogin()) {
+                                faVar76 = this.elO.ekM;
+                                faVar76.awO();
+                                this.elO.YT();
+                                this.elO.of(2);
+                                pbModel96 = this.elO.ejZ;
+                                if (pbModel96 != null) {
+                                    pbModel97 = this.elO.ejZ;
+                                    if (pbModel97.getPbData() != null) {
+                                        pbModel98 = this.elO.ejZ;
+                                        if (pbModel98.getPbData().aJH() != null) {
+                                            pbModel99 = this.elO.ejZ;
+                                            if (!StringUtils.isNull(pbModel99.getPbData().aJH().qd(), true)) {
+                                                com.baidu.tbadk.core.util.as asVar2 = new com.baidu.tbadk.core.util.as("c11678");
+                                                pbModel100 = this.elO.ejZ;
+                                                TiebaStatic.log(asVar2.Z("fid", pbModel100.getPbData().getForumId()));
                                             }
                                         }
                                     }
                                 }
-                                this.eiV.adT();
-                                TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11939"));
+                                this.elO.aqX();
+                                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11939"));
                                 return;
                             }
                             return;
                         }
                     }
-                    ezVar29 = this.eiV.ehV;
-                    if (ezVar29.enK.aOy() != null) {
-                        ezVar71 = this.eiV.ehV;
-                        if (view == ezVar71.enK.aOy().aMJ()) {
-                            ezVar72 = this.eiV.ehV;
-                            ezVar72.axs();
-                            pbModel92 = this.eiV.ehh;
-                            if (pbModel92.amN() != null) {
-                                ezVar73 = this.eiV.ehV;
-                                pbModel93 = this.eiV.ehh;
-                                ezVar73.a(pbModel93.amN(), this.eiV.dSL);
+                    faVar29 = this.elO.ekM;
+                    if (faVar29.eqM.aNQ() != null) {
+                        faVar72 = this.elO.ekM;
+                        if (view == faVar72.eqM.aNQ().aMe()) {
+                            faVar73 = this.elO.ekM;
+                            faVar73.awO();
+                            pbModel94 = this.elO.ejZ;
+                            if (pbModel94.ama() != null) {
+                                faVar74 = this.elO.ekM;
+                                pbModel95 = this.elO.ejZ;
+                                faVar74.a(pbModel95.ama(), this.elO.dVF);
                             }
-                            TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "pb_skip_page", "pbclick", 1, new Object[0]);
+                            TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "pb_skip_page", "pbclick", 1, new Object[0]);
                             return;
                         }
                     }
-                    ezVar30 = this.eiV.ehV;
-                    if (ezVar30.enK.aOy() != null) {
-                        ezVar68 = this.eiV.ehV;
-                        if (view == ezVar68.enK.aOy().aMK()) {
-                            ezVar69 = this.eiV.ehV;
-                            ezVar69.axs();
-                            this.eiV.or(2);
-                            this.eiV.XU();
-                            ezVar70 = this.eiV.ehV;
-                            ezVar70.aNJ();
-                            pbModel91 = this.eiV.ehh;
-                            pbModel91.aMi();
-                            TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "pb_set_desc", "pbclick", 1, new Object[0]);
+                    faVar30 = this.elO.ekM;
+                    if (faVar30.eqM.aNQ() != null) {
+                        faVar69 = this.elO.ekM;
+                        if (view == faVar69.eqM.aNQ().aMf()) {
+                            faVar70 = this.elO.ekM;
+                            faVar70.awO();
+                            this.elO.of(2);
+                            this.elO.YT();
+                            faVar71 = this.elO.ekM;
+                            faVar71.aNc();
+                            pbModel93 = this.elO.ejZ;
+                            pbModel93.aLE();
+                            TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "pb_set_desc", "pbclick", 1, new Object[0]);
                             return;
                         }
                     }
-                    ezVar31 = this.eiV.ehV;
-                    if (ezVar31.enK.aOy() != null) {
-                        ezVar66 = this.eiV.ehV;
-                        if (view == ezVar66.enK.aOy().aML()) {
-                            pbModel87 = this.eiV.ehh;
-                            if (pbModel87 != null) {
-                                pbModel88 = this.eiV.ehh;
-                                if (pbModel88.getPbData() != null) {
-                                    pbModel89 = this.eiV.ehh;
-                                    if (pbModel89.getPbData().aJZ() != null) {
-                                        ezVar67 = this.eiV.ehV;
-                                        ezVar67.enK.nX();
-                                        PbActivity pbActivity2 = this.eiV;
-                                        pbModel90 = this.eiV.ehh;
-                                        pbActivity2.oi(pbModel90.getPbData().aJZ().rM());
+                    faVar31 = this.elO.ekM;
+                    if (faVar31.eqM.aNQ() != null) {
+                        faVar67 = this.elO.ekM;
+                        if (view == faVar67.eqM.aNQ().aMg()) {
+                            pbModel89 = this.elO.ejZ;
+                            if (pbModel89 != null) {
+                                pbModel90 = this.elO.ejZ;
+                                if (pbModel90.getPbData() != null) {
+                                    pbModel91 = this.elO.ejZ;
+                                    if (pbModel91.getPbData().aJq() != null) {
+                                        faVar68 = this.elO.ekM;
+                                        faVar68.eqM.ol();
+                                        PbActivity pbActivity2 = this.elO;
+                                        pbModel92 = this.elO.ejZ;
+                                        pbActivity2.np(pbModel92.getPbData().aJq().sg());
                                         return;
                                     }
                                     return;
@@ -695,117 +663,124 @@ class y implements View.OnClickListener {
                             return;
                         }
                     }
-                    ezVar32 = this.eiV.ehV;
-                    if (ezVar32.enK.aOy() != null) {
-                        ezVar62 = this.eiV.ehV;
-                        if (view == ezVar62.enK.aOy().aMM()) {
+                    faVar32 = this.elO.ekM;
+                    if (faVar32.eqM.aNQ() != null) {
+                        faVar63 = this.elO.ekM;
+                        if (view == faVar63.eqM.aNQ().aMh()) {
                             TiebaStatic.log("c10414");
-                            ezVar63 = this.eiV.ehV;
-                            ezVar63.axs();
-                            ezVar64 = this.eiV.ehV;
-                            if (ezVar64.rl() != ez.epp) {
-                                pbModel85 = this.eiV.ehh;
-                                if (pbModel85.aMw() != null) {
-                                    pbModel86 = this.eiV.ehh;
-                                    pbModel86.aMw().ou(PbModel.UPGRADE_TO_PHOTO_LIVE);
+                            faVar64 = this.elO.ekM;
+                            faVar64.awO();
+                            faVar65 = this.elO.ekM;
+                            if (faVar65.rE() != fa.esv) {
+                                pbModel87 = this.elO.ejZ;
+                                if (pbModel87.aLS() != null) {
+                                    pbModel88 = this.elO.ejZ;
+                                    pbModel88.aLS().oi(PbModel.UPGRADE_TO_PHOTO_LIVE);
                                     return;
                                 }
                                 return;
                             }
-                            ezVar65 = this.eiV.ehV;
-                            ezVar65.aOf();
+                            faVar66 = this.elO.ekM;
+                            faVar66.aNz();
                             return;
                         }
                     }
-                    ezVar33 = this.eiV.ehV;
-                    if (ezVar33.enK.aOy() != null) {
-                        ezVar59 = this.eiV.ehV;
-                        if (view == ezVar59.enK.aOy().aMN()) {
-                            aKT = this.eiV.aKT();
-                            this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.eiV.getPageContext().getPageActivity(), null, aKT, true)));
-                            ezVar60 = this.eiV.ehV;
-                            ezVar60.enK.nX();
-                            ezVar61 = this.eiV.ehV;
-                            ezVar61.enK.aOy().aMX();
+                    faVar33 = this.elO.ekM;
+                    if (faVar33.eqM.aNQ() != null) {
+                        faVar60 = this.elO.ekM;
+                        if (view == faVar60.eqM.aNQ().aMi()) {
+                            aKo = this.elO.aKo();
+                            this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.elO.getPageContext().getPageActivity(), null, aKo, true)));
+                            faVar61 = this.elO.ekM;
+                            faVar61.eqM.ol();
+                            faVar62 = this.elO.ekM;
+                            faVar62.eqM.aNQ().aMq();
                             return;
                         }
                     }
-                    dqVar = this.eiV.eia;
-                    if (dqVar != null) {
-                        dqVar52 = this.eiV.eia;
-                        if (view == dqVar52.aMB()) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11739").s("obj_locate", 4));
-                            if (!com.baidu.adp.lib.util.i.gk()) {
-                                this.eiV.showToast(r.l.network_not_available);
+                    drVar = this.elO.ekR;
+                    if (drVar != null) {
+                        drVar48 = this.elO.ekR;
+                        if (view == drVar48.aLY()) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11739").s("obj_locate", 4));
+                            if (!com.baidu.adp.lib.util.i.he()) {
+                                this.elO.showToast(w.l.network_not_available);
                                 return;
                             }
                             Object tag = view.getTag();
                             if (!(tag instanceof String)) {
                                 if (tag instanceof SparseArray) {
-                                    SparseArray<Object> sparseArray6 = (SparseArray) tag;
-                                    if ((sparseArray6.get(r.h.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray6.get(r.h.tag_user_mute_visible)).booleanValue()) {
-                                        sparseArray6.put(r.h.tag_from, 0);
-                                        sparseArray6.put(r.h.tag_check_mute_from, 2);
-                                        this.eiV.d(sparseArray6);
+                                    SparseArray<Object> sparseArray2 = (SparseArray) tag;
+                                    if ((sparseArray2.get(w.h.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray2.get(w.h.tag_user_mute_visible)).booleanValue()) {
+                                        sparseArray2.put(w.h.tag_from, 0);
+                                        sparseArray2.put(w.h.tag_check_mute_from, 2);
+                                        this.elO.d(sparseArray2);
                                         return;
                                     }
                                     return;
                                 }
                                 return;
                             }
-                            this.eiV.oi((String) tag);
+                            this.elO.np((String) tag);
                             return;
                         }
                     }
-                    dqVar2 = this.eiV.eia;
-                    if (dqVar2 != null) {
-                        dqVar51 = this.eiV.eia;
-                        if (view == dqVar51.aMz()) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11739").s("obj_locate", 2));
-                            if (!this.eiV.checkUpIsLogin()) {
+                    drVar2 = this.elO.ekR;
+                    if (drVar2 != null) {
+                        drVar47 = this.elO.ekR;
+                        if (view == drVar47.aLW()) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11739").s("obj_locate", 2));
+                            if (!this.elO.checkUpIsLogin()) {
                                 return;
                             }
-                            this.eiV.aZ(view);
+                            this.elO.aY(view);
                             return;
                         }
                     }
-                    dqVar3 = this.eiV.eia;
-                    if (dqVar3 != null) {
-                        dqVar50 = this.eiV.eia;
-                        if (view == dqVar50.aME()) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11739").s("obj_locate", 1));
-                            if (this.eiV.checkUpIsLogin()) {
-                                pbModel80 = this.eiV.ehh;
-                                if (pbModel80.getPbData() != null) {
-                                    ezVar58 = this.eiV.ehV;
-                                    ezVar58.axs();
+                    drVar3 = this.elO.ekR;
+                    if (drVar3 != null) {
+                        drVar45 = this.elO.ekR;
+                        if (view == drVar45.aMb()) {
+                            drVar46 = this.elO.ekR;
+                            if (drVar46.aMd()) {
+                                com.baidu.tbadk.core.util.as asVar3 = new com.baidu.tbadk.core.util.as("c12007");
+                                pbModel86 = this.elO.ejZ;
+                                TiebaStatic.log(asVar3.Z("tid", pbModel86.enb));
+                            } else {
+                                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11739").s("obj_locate", 1));
+                            }
+                            if (this.elO.checkUpIsLogin()) {
+                                pbModel81 = this.elO.ejZ;
+                                if (pbModel81.getPbData() != null) {
+                                    faVar59 = this.elO.ekM;
+                                    faVar59.awO();
                                     if (!(view.getTag() instanceof SparseArray)) {
-                                        sparseArray5 = null;
+                                        sparseArray = null;
                                     } else {
-                                        sparseArray5 = (SparseArray) view.getTag();
+                                        sparseArray = (SparseArray) view.getTag();
                                     }
-                                    if (sparseArray5 == null || !(sparseArray5.get(r.h.tag_load_sub_data) instanceof com.baidu.tieba.tbadkCore.data.p)) {
-                                        pVar = null;
+                                    if (sparseArray == null || !(sparseArray.get(w.h.tag_load_sub_data) instanceof PostData)) {
+                                        postData2 = null;
                                     } else {
-                                        pVar = (com.baidu.tieba.tbadkCore.data.p) sparseArray5.get(r.h.tag_load_sub_data);
+                                        postData2 = (PostData) sparseArray.get(w.h.tag_load_sub_data);
                                     }
-                                    if (pVar != null) {
-                                        pbModel81 = this.eiV.ehh;
-                                        String threadID = pbModel81.getThreadID();
-                                        String id2 = pVar.getId();
+                                    if (postData2 != null) {
+                                        pbModel82 = this.elO.ejZ;
+                                        String threadID = pbModel82.getThreadID();
+                                        String id2 = postData2.getId();
                                         int i2 = 0;
-                                        pbModel82 = this.eiV.ehh;
-                                        if (pbModel82.getPbData() != null) {
-                                            pbModel84 = this.eiV.ehh;
-                                            i2 = pbModel84.getPbData().aKj();
+                                        pbModel83 = this.elO.ejZ;
+                                        if (pbModel83.getPbData() != null) {
+                                            pbModel85 = this.elO.ejZ;
+                                            i2 = pbModel85.getPbData().aJA();
                                         }
-                                        this.eiV.XU();
-                                        ol4 = this.eiV.ol(id2);
-                                        if (ol4 != null) {
-                                            SubPbActivityConfig subPbActivityConfig = new SubPbActivityConfig(this.eiV.getPageContext().getPageActivity());
-                                            SmallTailInfo aPB = pVar.aPB();
-                                            pbModel83 = this.eiV.ehh;
-                                            this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig.createSubPbActivityConfig(threadID, id2, "pb", true, null, true, null, i2, aPB, pbModel83.getPbData().qm(), false, pVar.getAuthor().getIconInfo()).addBigImageData(ol4.ejn, ol4.ejo, ol4.ejp, ol4.index)));
+                                        this.elO.YT();
+                                        ns4 = this.elO.ns(id2);
+                                        if (ns4 != null) {
+                                            SubPbActivityConfig subPbActivityConfig = new SubPbActivityConfig(this.elO.getPageContext().getPageActivity());
+                                            SmallTailInfo aOS = postData2.aOS();
+                                            pbModel84 = this.elO.ejZ;
+                                            this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig.createSubPbActivityConfig(threadID, id2, "pb", true, null, true, null, i2, aOS, pbModel84.getPbData().qE(), false, postData2.getAuthor().getIconInfo()).addBigImageData(ns4.emf, ns4.emg, ns4.emh, ns4.index)));
                                             return;
                                         }
                                         return;
@@ -817,142 +792,114 @@ class y implements View.OnClickListener {
                             return;
                         }
                     }
-                    dqVar4 = this.eiV.eia;
-                    if (dqVar4 != null) {
-                        dqVar49 = this.eiV.eia;
-                        if (view == dqVar49.aMG()) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11739").s("obj_locate", 3));
-                            if (view.getTag(r.h.tag_pb_floor_postion) instanceof Integer) {
-                                pbModel78 = this.eiV.ehh;
-                                if (pbModel78 != null) {
-                                    ezVar57 = this.eiV.ehV;
-                                    ezVar57.aNB();
-                                    if (!UtilHelper.isFloatWindowOpAllowed(this.eiV.getPageContext().getPageActivity())) {
-                                        this.eiV.aKS();
+                    drVar4 = this.elO.ekR;
+                    if (drVar4 != null) {
+                        drVar44 = this.elO.ekR;
+                        if (view == drVar44.aLZ()) {
+                            SparseArray sparseArray3 = (SparseArray) view.getTag();
+                            if (sparseArray3 != null && (sparseArray3.get(w.h.tag_del_post_type) instanceof Integer) && (sparseArray3.get(w.h.tag_del_post_id) instanceof String) && (sparseArray3.get(w.h.tag_manage_user_identity) instanceof Integer) && (sparseArray3.get(w.h.tag_del_post_is_self) instanceof Boolean)) {
+                                boolean booleanValue = ((Boolean) sparseArray3.get(w.h.tag_del_post_is_self)).booleanValue();
+                                int intValue = ((Integer) sparseArray3.get(w.h.tag_manage_user_identity)).intValue();
+                                if (!booleanValue && intValue != 0 && com.baidu.tieba.c.a.RO()) {
+                                    Context baseContext = this.elO.getBaseContext();
+                                    pbModel80 = this.elO.ejZ;
+                                    if (com.baidu.tieba.c.a.h(baseContext, pbModel80.getThreadID(), (String) sparseArray3.get(w.h.tag_del_post_id))) {
                                         return;
                                     }
-                                    int intValue = ((Integer) view.getTag(r.h.tag_pb_floor_postion)).intValue();
-                                    int intValue2 = ((Integer) view.getTag(r.h.tag_pb_floor_number)).intValue();
-                                    this.eiV.eib = true;
-                                    PbActivity pbActivity3 = this.eiV;
-                                    pbModel79 = this.eiV.ehh;
-                                    pbActivity3.a(pbModel79.getPbData(), intValue, intValue2, true, true);
-                                    TiebaStatic.log("c10834");
-                                    return;
                                 }
+                                faVar58 = this.elO.ekM;
+                                faVar58.a(((Integer) sparseArray3.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray3.get(w.h.tag_del_post_id), intValue, booleanValue);
                                 return;
                             }
                             return;
                         }
                     }
-                    dqVar5 = this.eiV.eia;
-                    if (dqVar5 != null) {
-                        dqVar48 = this.eiV.eia;
-                        if (view == dqVar48.aMC()) {
-                            SparseArray sparseArray7 = (SparseArray) view.getTag();
-                            if (sparseArray7 != null && (sparseArray7.get(r.h.tag_del_post_type) instanceof Integer) && (sparseArray7.get(r.h.tag_del_post_id) instanceof String) && (sparseArray7.get(r.h.tag_manage_user_identity) instanceof Integer) && (sparseArray7.get(r.h.tag_del_post_is_self) instanceof Boolean)) {
-                                boolean booleanValue2 = ((Boolean) sparseArray7.get(r.h.tag_del_post_is_self)).booleanValue();
-                                int intValue3 = ((Integer) sparseArray7.get(r.h.tag_manage_user_identity)).intValue();
-                                if (!booleanValue2 && intValue3 != 0 && com.baidu.tieba.c.a.QW()) {
-                                    Context baseContext = this.eiV.getBaseContext();
-                                    pbModel77 = this.eiV.ehh;
-                                    if (com.baidu.tieba.c.a.f(baseContext, pbModel77.getThreadID(), (String) sparseArray7.get(r.h.tag_del_post_id))) {
-                                        return;
-                                    }
-                                }
-                                ezVar56 = this.eiV.ehV;
-                                ezVar56.a(((Integer) sparseArray7.get(r.h.tag_del_post_type)).intValue(), (String) sparseArray7.get(r.h.tag_del_post_id), intValue3, booleanValue2);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    dqVar6 = this.eiV.eia;
-                    if (dqVar6 != null) {
-                        dqVar47 = this.eiV.eia;
-                        if (view == dqVar47.aMD()) {
+                    drVar5 = this.elO.ekR;
+                    if (drVar5 != null) {
+                        drVar43 = this.elO.ekR;
+                        if (view == drVar43.aMa()) {
                             long j = -1;
                             String str2 = "";
                             int i3 = 0;
-                            if (view.getTag(r.h.tag_chudian_template_id) instanceof Long) {
-                                j = ((Long) view.getTag(r.h.tag_chudian_template_id)).longValue();
+                            if (view.getTag(w.h.tag_chudian_template_id) instanceof Long) {
+                                j = ((Long) view.getTag(w.h.tag_chudian_template_id)).longValue();
                             }
-                            if (view.getTag(r.h.tag_chudian_monitor_id) instanceof String) {
-                                str2 = (String) view.getTag(r.h.tag_chudian_monitor_id);
+                            if (view.getTag(w.h.tag_chudian_monitor_id) instanceof String) {
+                                str2 = (String) view.getTag(w.h.tag_chudian_monitor_id);
                             }
-                            if (view.getTag(r.h.tag_chudian_hide_day) instanceof Integer) {
-                                i3 = ((Integer) view.getTag(r.h.tag_chudian_hide_day)).intValue();
+                            if (view.getTag(w.h.tag_chudian_hide_day) instanceof Integer) {
+                                i3 = ((Integer) view.getTag(w.h.tag_chudian_hide_day)).intValue();
                             }
-                            pbModel76 = this.eiV.ehh;
-                            com.baidu.tieba.pb.data.f pbData = pbModel76.getPbData();
+                            pbModel79 = this.elO.ejZ;
+                            com.baidu.tieba.pb.data.f pbData = pbModel79.getPbData();
                             String str3 = null;
                             String str4 = null;
                             String str5 = null;
-                            if (pbData != null && pbData.aJY() != null) {
-                                str3 = pbData.aJY().getId();
-                                str4 = pbData.aJY().getName();
+                            if (pbData != null && pbData.aJp() != null) {
+                                str3 = pbData.aJp().getId();
+                                str4 = pbData.aJp().getName();
                                 str5 = pbData.getThreadId();
                             }
                             com.baidu.tieba.pb.b.a(j, str2, null, "PB", "BTN_FB", "CLICK_FEEDBACK", "tpoint", null, null, str3, str4, str5);
-                            this.eiV.a(j, str2, str3, str4, str5, i3);
+                            this.elO.a(j, str2, str3, str4, str5, i3);
                             return;
                         }
                     }
-                    ezVar34 = this.eiV.ehV;
-                    if (ezVar34.aOg() == view) {
-                        ezVar55 = this.eiV.ehV;
-                        if (ezVar55.aOg().getIndicateStatus()) {
-                            pbModel75 = this.eiV.ehh;
-                            com.baidu.tieba.pb.data.f pbData2 = pbModel75.getPbData();
-                            if (pbData2 != null && pbData2.aJZ() != null && pbData2.aJZ().rg() != null) {
-                                String pp = pbData2.aJZ().rg().pp();
-                                if (StringUtils.isNull(pp)) {
-                                    pp = pbData2.aJZ().rg().getTaskId();
+                    faVar34 = this.elO.ekM;
+                    if (faVar34.aNA() == view) {
+                        faVar57 = this.elO.ekM;
+                        if (faVar57.aNA().getIndicateStatus()) {
+                            pbModel78 = this.elO.ejZ;
+                            com.baidu.tieba.pb.data.f pbData2 = pbModel78.getPbData();
+                            if (pbData2 != null && pbData2.aJq() != null && pbData2.aJq().rz() != null) {
+                                String pD = pbData2.aJq().rz().pD();
+                                if (StringUtils.isNull(pD)) {
+                                    pD = pbData2.aJq().rz().getTaskId();
                                 }
-                                TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11107").ab("obj_id", pp));
+                                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11107").Z("obj_id", pD));
                             }
                         } else {
-                            com.baidu.tieba.tbadkCore.d.a.cg("c10725", null);
+                            com.baidu.tieba.tbadkCore.d.a.ca("c10725", null);
                         }
-                        this.eiV.aLn();
+                        this.elO.aKI();
                         return;
                     }
-                    ezVar35 = this.eiV.ehV;
-                    if (ezVar35.aND() != view) {
-                        dqVar7 = this.eiV.eia;
-                        if (dqVar7 != null) {
-                            dqVar46 = this.eiV.eia;
-                            if (view == dqVar46.aMA()) {
-                                if (!com.baidu.adp.lib.util.i.gk()) {
-                                    this.eiV.showToast(r.l.network_not_available);
+                    faVar35 = this.elO.ekM;
+                    if (faVar35.aMW() != view) {
+                        drVar6 = this.elO.ekR;
+                        if (drVar6 != null) {
+                            drVar42 = this.elO.ekR;
+                            if (view == drVar42.aLX()) {
+                                if (!com.baidu.adp.lib.util.i.he()) {
+                                    this.elO.showToast(w.l.network_not_available);
                                     return;
                                 }
-                                SparseArray<Object> sparseArray8 = (SparseArray) view.getTag();
-                                if (sparseArray8 != null) {
-                                    if (com.baidu.tieba.c.a.QW() && sparseArray8.get(r.h.tag_del_post_id) != null) {
-                                        Context baseContext2 = this.eiV.getBaseContext();
-                                        pbModel73 = this.eiV.ehh;
-                                        if (com.baidu.tieba.c.a.f(baseContext2, pbModel73.getThreadID(), (String) sparseArray8.get(r.h.tag_del_post_id))) {
+                                SparseArray<Object> sparseArray4 = (SparseArray) view.getTag();
+                                if (sparseArray4 != null) {
+                                    if (com.baidu.tieba.c.a.RO() && sparseArray4.get(w.h.tag_del_post_id) != null) {
+                                        Context baseContext2 = this.elO.getBaseContext();
+                                        pbModel76 = this.elO.ejZ;
+                                        if (com.baidu.tieba.c.a.h(baseContext2, pbModel76.getThreadID(), (String) sparseArray4.get(w.h.tag_del_post_id))) {
                                             return;
                                         }
                                     }
-                                    boolean booleanValue3 = ((Boolean) sparseArray8.get(r.h.tag_should_manage_visible)).booleanValue();
-                                    boolean booleanValue4 = ((Boolean) sparseArray8.get(r.h.tag_should_delete_visible)).booleanValue();
-                                    boolean booleanValue5 = ((Boolean) sparseArray8.get(r.h.tag_user_mute_visible)).booleanValue();
-                                    if (booleanValue3) {
-                                        if (booleanValue5) {
-                                            sparseArray8.put(r.h.tag_from, 1);
-                                            sparseArray8.put(r.h.tag_check_mute_from, 2);
-                                            this.eiV.d(sparseArray8);
+                                    boolean booleanValue2 = ((Boolean) sparseArray4.get(w.h.tag_should_manage_visible)).booleanValue();
+                                    boolean booleanValue3 = ((Boolean) sparseArray4.get(w.h.tag_should_delete_visible)).booleanValue();
+                                    boolean booleanValue4 = ((Boolean) sparseArray4.get(w.h.tag_user_mute_visible)).booleanValue();
+                                    if (booleanValue2) {
+                                        if (booleanValue4) {
+                                            sparseArray4.put(w.h.tag_from, 1);
+                                            sparseArray4.put(w.h.tag_check_mute_from, 2);
+                                            this.elO.d(sparseArray4);
                                             return;
                                         }
-                                        sparseArray8.put(r.h.tag_check_mute_from, 2);
-                                        ezVar54 = this.eiV.ehV;
-                                        ezVar54.bd(view);
+                                        sparseArray4.put(w.h.tag_check_mute_from, 2);
+                                        faVar56 = this.elO.ekM;
+                                        faVar56.bc(view);
                                         return;
-                                    } else if (booleanValue4) {
-                                        ezVar53 = this.eiV.ehV;
-                                        ezVar53.a(((Integer) sparseArray8.get(r.h.tag_del_post_type)).intValue(), (String) sparseArray8.get(r.h.tag_del_post_id), ((Integer) sparseArray8.get(r.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray8.get(r.h.tag_del_post_is_self)).booleanValue());
+                                    } else if (booleanValue3) {
+                                        faVar55 = this.elO.ekM;
+                                        faVar55.a(((Integer) sparseArray4.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray4.get(w.h.tag_del_post_id), ((Integer) sparseArray4.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray4.get(w.h.tag_del_post_is_self)).booleanValue());
                                         return;
                                     } else {
                                         return;
@@ -961,508 +908,408 @@ class y implements View.OnClickListener {
                                 return;
                             }
                         }
-                        ezVar36 = this.eiV.ehV;
-                        if (view != ezVar36.aLU()) {
-                            ezVar37 = this.eiV.ehV;
-                            if (ezVar37.enK.aOy() != null) {
-                                ezVar47 = this.eiV.ehV;
-                                if (view == ezVar47.enK.aOy().aMW()) {
-                                    if (com.baidu.adp.lib.util.i.gk()) {
-                                        ezVar48 = this.eiV.ehV;
-                                        ezVar48.axs();
-                                        ezVar49 = this.eiV.ehV;
-                                        pbModel63 = this.eiV.ehh;
-                                        com.baidu.tieba.pb.data.f pbData3 = pbModel63.getPbData();
-                                        pbModel64 = this.eiV.ehh;
-                                        SparseArray<Object> c = ezVar49.c(pbData3, pbModel64.aLY(), 1);
+                        faVar36 = this.elO.ekM;
+                        if (view != faVar36.aLq()) {
+                            faVar37 = this.elO.ekM;
+                            if (faVar37.eqM.aNQ() != null) {
+                                faVar49 = this.elO.ekM;
+                                if (view == faVar49.eqM.aNQ().aMp()) {
+                                    if (com.baidu.adp.lib.util.i.he()) {
+                                        faVar50 = this.elO.ekM;
+                                        faVar50.awO();
+                                        faVar51 = this.elO.ekM;
+                                        pbModel66 = this.elO.ejZ;
+                                        com.baidu.tieba.pb.data.f pbData3 = pbModel66.getPbData();
+                                        pbModel67 = this.elO.ejZ;
+                                        SparseArray<Object> c = faVar51.c(pbData3, pbModel67.aLu(), 1);
                                         if (c != null) {
-                                            pbModel65 = this.eiV.ehh;
-                                            PbActivity pbActivity4 = this.eiV;
-                                            Activity pageActivity = this.eiV.getPageContext().getPageActivity();
-                                            pbModel66 = this.eiV.ehh;
-                                            String id3 = pbModel66.getPbData().aJY().getId();
-                                            pbModel67 = this.eiV.ehh;
-                                            String name2 = pbModel67.getPbData().aJY().getName();
-                                            pbModel68 = this.eiV.ehh;
-                                            pbActivity4.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id3, name2, pbModel68.getPbData().aJZ().getId(), String.valueOf(pbModel65.getPbData().getUserData().getUserId()), (String) c.get(r.h.tag_forbid_user_name), (String) c.get(r.h.tag_forbid_user_post_id))));
+                                            pbModel68 = this.elO.ejZ;
+                                            PbActivity pbActivity3 = this.elO;
+                                            Activity pageActivity = this.elO.getPageContext().getPageActivity();
+                                            pbModel69 = this.elO.ejZ;
+                                            String id3 = pbModel69.getPbData().aJp().getId();
+                                            pbModel70 = this.elO.ejZ;
+                                            String name2 = pbModel70.getPbData().aJp().getName();
+                                            pbModel71 = this.elO.ejZ;
+                                            pbActivity3.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id3, name2, pbModel71.getPbData().aJq().getId(), String.valueOf(pbModel68.getPbData().getUserData().getUserId()), (String) c.get(w.h.tag_forbid_user_name), (String) c.get(w.h.tag_forbid_user_post_id))));
                                             return;
                                         }
                                         return;
                                     }
-                                    this.eiV.showToast(r.l.network_not_available);
+                                    this.elO.showToast(w.l.network_not_available);
                                     return;
                                 }
                             }
-                            ezVar38 = this.eiV.ehV;
-                            if (ezVar38.enK.aOy() != null) {
-                                ezVar43 = this.eiV.ehV;
-                                if (view == ezVar43.enK.aOy().aMT()) {
-                                    if (com.baidu.adp.lib.util.i.gk()) {
-                                        ezVar44 = this.eiV.ehV;
-                                        pbModel61 = this.eiV.ehh;
-                                        com.baidu.tieba.pb.data.f pbData4 = pbModel61.getPbData();
-                                        pbModel62 = this.eiV.ehh;
-                                        SparseArray<Object> c2 = ezVar44.c(pbData4, pbModel62.aLY(), 1);
+                            faVar38 = this.elO.ekM;
+                            if (faVar38.eqM.aNQ() != null) {
+                                faVar45 = this.elO.ekM;
+                                if (view == faVar45.eqM.aNQ().aMm()) {
+                                    if (com.baidu.adp.lib.util.i.he()) {
+                                        faVar46 = this.elO.ekM;
+                                        pbModel64 = this.elO.ejZ;
+                                        com.baidu.tieba.pb.data.f pbData4 = pbModel64.getPbData();
+                                        pbModel65 = this.elO.ejZ;
+                                        SparseArray<Object> c2 = faVar46.c(pbData4, pbModel65.aLu(), 1);
                                         if (c2 != null) {
-                                            ezVar46 = this.eiV.ehV;
-                                            ezVar46.a(((Integer) c2.get(r.h.tag_del_post_type)).intValue(), (String) c2.get(r.h.tag_del_post_id), ((Integer) c2.get(r.h.tag_manage_user_identity)).intValue(), ((Boolean) c2.get(r.h.tag_del_post_is_self)).booleanValue());
+                                            faVar48 = this.elO.ekM;
+                                            faVar48.a(((Integer) c2.get(w.h.tag_del_post_type)).intValue(), (String) c2.get(w.h.tag_del_post_id), ((Integer) c2.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) c2.get(w.h.tag_del_post_is_self)).booleanValue());
                                         }
-                                        ezVar45 = this.eiV.ehV;
-                                        ezVar45.enK.nX();
+                                        faVar47 = this.elO.ekM;
+                                        faVar47.eqM.ol();
                                         return;
                                     }
-                                    this.eiV.showToast(r.l.network_not_available);
+                                    this.elO.showToast(w.l.network_not_available);
                                     return;
                                 }
                             }
-                            if (view.getId() != r.h.sub_pb_more && view.getId() != r.h.sub_pb_item) {
-                                ezVar40 = this.eiV.ehV;
-                                if (view == ezVar40.aKJ()) {
-                                    if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                                        long c3 = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccountInfo().getID(), 0L);
-                                        pbModel58 = this.eiV.ehh;
-                                        long c4 = com.baidu.adp.lib.g.b.c(pbModel58.getPbData().getForumId(), 0L);
-                                        pbModel59 = this.eiV.ehh;
-                                        long c5 = com.baidu.adp.lib.g.b.c(pbModel59.getThreadID(), 0L);
-                                        pbModel60 = this.eiV.ehh;
-                                        this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushThreadActivityConfig(this.eiV.getPageContext().getPageActivity(), 24008, c4, c5, c3, pbModel60.getPbData().aJZ().rQ())));
+                            if (view.getId() != w.h.sub_pb_more && view.getId() != w.h.sub_pb_item) {
+                                faVar40 = this.elO.ekM;
+                                if (view != faVar40.aKe()) {
+                                    faVar41 = this.elO.ekM;
+                                    if (view == faVar41.eqM.aNR()) {
+                                        faVar44 = this.elO.ekM;
+                                        faVar44.aNk();
                                         return;
                                     }
-                                    return;
-                                }
-                                int id4 = view.getId();
-                                if (id4 == r.h.pb_u9_text_view) {
-                                    if (this.eiV.checkUpIsLogin() && (bnVar = (com.baidu.tbadk.core.data.bn) view.getTag()) != null && !StringUtils.isNull(bnVar.sK())) {
-                                        TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "info_click", "click", 1, "page", "pb");
-                                        com.baidu.tbadk.core.util.ba.vt().c(this.eiV.getPageContext(), new String[]{bnVar.sK()});
+                                    int id4 = view.getId();
+                                    if (id4 == w.h.pb_u9_text_view) {
+                                        if (this.elO.checkUpIsLogin() && (bpVar = (com.baidu.tbadk.core.data.bp) view.getTag()) != null && !StringUtils.isNull(bpVar.th())) {
+                                            TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "info_click", "click", 1, "page", "pb");
+                                            com.baidu.tbadk.core.util.bb.vQ().c(this.elO.getPageContext(), new String[]{bpVar.th()});
+                                            return;
+                                        }
                                         return;
-                                    }
-                                    return;
-                                } else if (id4 == r.h.replybtn || id4 == r.h.cover_reply_content) {
-                                    dqVar8 = this.eiV.eia;
-                                    if (dqVar8 == null) {
-                                        this.eiV.eia = new dq(this.eiV.getPageContext(), this.eiV.bHz);
-                                        dqVar45 = this.eiV.eia;
-                                        z7 = this.eiV.mIsLogin;
-                                        dqVar45.iy(z7);
-                                    }
-                                    dqVar9 = this.eiV.eia;
-                                    dqVar9.showDialog();
-                                    TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11740"));
-                                    com.baidu.tieba.tbadkCore.data.p pVar3 = null;
-                                    if (view != null && view.getTag() != null) {
-                                        pVar3 = (com.baidu.tieba.tbadkCore.data.p) ((SparseArray) view.getTag()).get(r.h.tag_load_sub_data);
-                                        if (!this.eiV.aLh()) {
-                                            pbModel24 = this.eiV.ehh;
-                                            if (pbModel24.aMj() && TbadkCoreApplication.m9getInst().isTTSCanUse()) {
-                                                dqVar44 = this.eiV.eia;
-                                                dqVar44.aMI();
-                                                sparseArray = (SparseArray) view.getTag();
-                                                if (sparseArray.get(r.h.tag_pb_floor_postion) instanceof Integer) {
-                                                    int intValue4 = ((Integer) sparseArray.get(r.h.tag_pb_floor_postion)).intValue();
-                                                    int intValue5 = ((Integer) sparseArray.get(r.h.tag_pb_floor_number)).intValue();
-                                                    dqVar42 = this.eiV.eia;
-                                                    dqVar42.aMG().setTag(r.h.tag_pb_floor_postion, Integer.valueOf(intValue4));
-                                                    dqVar43 = this.eiV.eia;
-                                                    dqVar43.aMG().setTag(r.h.tag_pb_floor_number, Integer.valueOf(intValue5));
-                                                }
-                                                SparseArray sparseArray9 = new SparseArray();
-                                                sparseArray9.put(r.h.tag_clip_board, (com.baidu.tieba.tbadkCore.data.p) ((SparseArray) view.getTag()).get(r.h.tag_clip_board));
-                                                sparseArray9.put(r.h.tag_is_subpb, false);
-                                                dqVar15 = this.eiV.eia;
-                                                dqVar15.aMz().setTag(sparseArray9);
-                                                dqVar16 = this.eiV.eia;
-                                                dqVar16.aME().setTag(view.getTag());
-                                                sparseArray2 = (SparseArray) view.getTag();
-                                                booleanValue = ((Boolean) sparseArray2.get(r.h.tag_should_manage_visible)).booleanValue();
-                                                boolean booleanValue6 = ((Boolean) sparseArray2.get(r.h.tag_user_mute_visible)).booleanValue();
-                                                boolean booleanValue7 = ((Boolean) sparseArray2.get(r.h.tag_should_delete_visible)).booleanValue();
-                                                if (sparseArray2.get(r.h.tag_del_post_is_self) instanceof Boolean) {
-                                                    z3 = false;
-                                                } else {
-                                                    z3 = ((Boolean) sparseArray2.get(r.h.tag_del_post_is_self)).booleanValue();
-                                                }
-                                                String str6 = null;
-                                                if (sparseArray2.get(r.h.tag_forbid_user_post_id) instanceof String) {
-                                                    str6 = (String) sparseArray2.get(r.h.tag_forbid_user_post_id);
-                                                }
-                                                if (!booleanValue) {
-                                                    SparseArray sparseArray10 = new SparseArray();
-                                                    sparseArray10.put(r.h.tag_should_manage_visible, true);
-                                                    sparseArray10.put(r.h.tag_manage_user_identity, sparseArray2.get(r.h.tag_manage_user_identity));
-                                                    sparseArray10.put(r.h.tag_forbid_user_name, sparseArray2.get(r.h.tag_forbid_user_name));
-                                                    sparseArray10.put(r.h.tag_forbid_user_post_id, str6);
-                                                    if (booleanValue6) {
-                                                        sparseArray10.put(r.h.tag_user_mute_visible, true);
-                                                        sparseArray10.put(r.h.tag_is_mem, sparseArray2.get(r.h.tag_is_mem));
-                                                        sparseArray10.put(r.h.tag_user_mute_mute_userid, sparseArray2.get(r.h.tag_user_mute_mute_userid));
-                                                        sparseArray10.put(r.h.tag_user_mute_mute_username, sparseArray2.get(r.h.tag_user_mute_mute_username));
-                                                        sparseArray10.put(r.h.tag_user_mute_post_id, sparseArray2.get(r.h.tag_user_mute_post_id));
-                                                        sparseArray10.put(r.h.tag_user_mute_thread_id, sparseArray2.get(r.h.tag_user_mute_thread_id));
-                                                    } else {
-                                                        sparseArray10.put(r.h.tag_user_mute_visible, false);
-                                                    }
-                                                    if (booleanValue7) {
-                                                        sparseArray10.put(r.h.tag_should_delete_visible, true);
-                                                        sparseArray10.put(r.h.tag_del_post_is_self, Boolean.valueOf(z3));
-                                                        sparseArray10.put(r.h.tag_del_post_id, sparseArray2.get(r.h.tag_del_post_id));
-                                                        sparseArray10.put(r.h.tag_del_post_type, sparseArray2.get(r.h.tag_del_post_type));
-                                                        dqVar41 = this.eiV.eia;
-                                                        dqVar41.aMC().setVisibility(0);
-                                                    } else {
-                                                        sparseArray10.put(r.h.tag_should_delete_visible, false);
-                                                        dqVar36 = this.eiV.eia;
-                                                        dqVar36.aMC().setVisibility(8);
-                                                    }
-                                                    dqVar37 = this.eiV.eia;
-                                                    dqVar37.aMA().setTag(sparseArray10);
-                                                    dqVar38 = this.eiV.eia;
-                                                    dqVar38.aMC().setTag(sparseArray10);
-                                                    dqVar39 = this.eiV.eia;
-                                                    dqVar39.aMA().setText(r.l.bar_manager);
-                                                    dqVar40 = this.eiV.eia;
-                                                    dqVar40.aMA().setVisibility(0);
-                                                } else if (!booleanValue7) {
-                                                    dqVar17 = this.eiV.eia;
-                                                    dqVar17.aMA().setVisibility(8);
-                                                    dqVar18 = this.eiV.eia;
-                                                    dqVar18.aMC().setVisibility(8);
-                                                } else {
-                                                    SparseArray sparseArray11 = new SparseArray();
-                                                    sparseArray11.put(r.h.tag_should_manage_visible, false);
-                                                    sparseArray11.put(r.h.tag_user_mute_visible, false);
-                                                    sparseArray11.put(r.h.tag_should_delete_visible, true);
-                                                    sparseArray11.put(r.h.tag_manage_user_identity, sparseArray2.get(r.h.tag_manage_user_identity));
-                                                    sparseArray11.put(r.h.tag_del_post_is_self, Boolean.valueOf(z3));
-                                                    sparseArray11.put(r.h.tag_del_post_id, sparseArray2.get(r.h.tag_del_post_id));
-                                                    sparseArray11.put(r.h.tag_del_post_type, sparseArray2.get(r.h.tag_del_post_type));
-                                                    dqVar19 = this.eiV.eia;
-                                                    dqVar19.aMA().setTag(sparseArray11);
-                                                    dqVar20 = this.eiV.eia;
-                                                    dqVar20.aMC().setTag(sparseArray11);
-                                                    dqVar21 = this.eiV.eia;
-                                                    dqVar21.aMA().setText(r.l.delete);
-                                                    dqVar22 = this.eiV.eia;
-                                                    dqVar22.aMC().setVisibility(0);
-                                                    dqVar23 = this.eiV.eia;
-                                                    dqVar23.aMA().setVisibility(8);
-                                                }
-                                                sparseArray3 = (SparseArray) view.getTag();
-                                                if (sparseArray3.get(r.h.tag_user_mute_visible) instanceof Boolean) {
-                                                    z4 = false;
-                                                } else {
-                                                    z4 = ((Boolean) sparseArray3.get(r.h.tag_user_mute_visible)).booleanValue();
-                                                }
-                                                if (((Boolean) sparseArray3.get(r.h.tag_should_manage_visible)).booleanValue() && z4) {
-                                                    SparseArray sparseArray12 = new SparseArray();
-                                                    sparseArray12.put(r.h.tag_user_mute_visible, true);
-                                                    sparseArray12.put(r.h.tag_is_mem, sparseArray3.get(r.h.tag_is_mem));
-                                                    sparseArray12.put(r.h.tag_user_mute_mute_userid, sparseArray3.get(r.h.tag_user_mute_mute_userid));
-                                                    sparseArray12.put(r.h.tag_user_mute_mute_username, sparseArray3.get(r.h.tag_user_mute_mute_username));
-                                                    sparseArray12.put(r.h.tag_user_mute_post_id, sparseArray3.get(r.h.tag_user_mute_post_id));
-                                                    sparseArray12.put(r.h.tag_user_mute_thread_id, sparseArray3.get(r.h.tag_user_mute_thread_id));
-                                                    sparseArray12.put(r.h.tag_del_post_is_self, sparseArray3.get(r.h.tag_del_post_is_self));
-                                                    sparseArray12.put(r.h.tag_del_post_type, sparseArray3.get(r.h.tag_del_post_type));
-                                                    sparseArray12.put(r.h.tag_del_post_id, sparseArray3.get(r.h.tag_del_post_id));
-                                                    sparseArray12.put(r.h.tag_manage_user_identity, sparseArray3.get(r.h.tag_manage_user_identity));
-                                                    dqVar32 = this.eiV.eia;
-                                                    dqVar32.aMB().setTag(sparseArray12);
-                                                    dqVar33 = this.eiV.eia;
-                                                    dqVar33.aMB().setVisibility(0);
-                                                    dqVar34 = this.eiV.eia;
-                                                    dqVar34.aMA().setVisibility(8);
-                                                    dqVar35 = this.eiV.eia;
-                                                    dqVar35.aMB().setText(r.l.mute_option);
-                                                } else {
-                                                    if (sparseArray3.get(r.h.tag_del_post_is_self) instanceof Boolean) {
-                                                        z5 = false;
-                                                    } else {
-                                                        z5 = ((Boolean) sparseArray3.get(r.h.tag_del_post_is_self)).booleanValue();
-                                                    }
-                                                    String str7 = null;
-                                                    if (sparseArray3.get(r.h.tag_forbid_user_post_id) instanceof String) {
-                                                        str7 = (String) sparseArray3.get(r.h.tag_forbid_user_post_id);
-                                                    }
-                                                    io = this.eiV.io(z5);
-                                                    isLogin = io & this.eiV.isLogin();
-                                                    this.eiV.eiL = (com.baidu.tieba.tbadkCore.data.p) sparseArray3.get(r.h.tag_clip_board);
-                                                    if (!(!ey.g(this.eiV.eiL) ? false : isLogin)) {
-                                                        dqVar25 = this.eiV.eia;
-                                                        dqVar25.aMB().setVisibility(0);
-                                                        dqVar26 = this.eiV.eia;
-                                                        dqVar26.aMB().setTag(str7);
-                                                    } else {
-                                                        dqVar24 = this.eiV.eia;
-                                                        dqVar24.aMB().setVisibility(8);
-                                                    }
-                                                }
-                                                sparseArray4 = (SparseArray) view.getTag();
-                                                long j2 = 0;
-                                                if (sparseArray4.get(r.h.tag_should_hide_chudian_visible) instanceof Boolean) {
-                                                    z6 = false;
-                                                } else {
-                                                    z6 = ((Boolean) sparseArray4.get(r.h.tag_should_hide_chudian_visible)).booleanValue();
-                                                }
-                                                if (sparseArray4.get(r.h.tag_chudian_template_id) instanceof Long) {
-                                                    j2 = ((Long) sparseArray4.get(r.h.tag_chudian_template_id)).longValue();
-                                                }
-                                                if (sparseArray4.get(r.h.tag_chudian_monitor_id) instanceof String) {
-                                                    str = "";
-                                                } else {
-                                                    str = (String) sparseArray4.get(r.h.tag_chudian_monitor_id);
-                                                }
-                                                if (sparseArray4.get(r.h.tag_chudian_hide_day) instanceof Integer) {
-                                                    i = 0;
-                                                } else {
-                                                    i = ((Integer) sparseArray4.get(r.h.tag_chudian_hide_day)).intValue();
-                                                }
-                                                if (!z6) {
-                                                    dqVar28 = this.eiV.eia;
-                                                    dqVar28.aMD().setVisibility(0);
-                                                    dqVar29 = this.eiV.eia;
-                                                    dqVar29.aMD().setTag(r.h.tag_chudian_template_id, Long.valueOf(j2));
-                                                    dqVar30 = this.eiV.eia;
-                                                    dqVar30.aMD().setTag(r.h.tag_chudian_monitor_id, str);
-                                                    dqVar31 = this.eiV.eia;
-                                                    dqVar31.aMD().setTag(r.h.tag_chudian_hide_day, Integer.valueOf(i));
-                                                } else {
-                                                    dqVar27 = this.eiV.eia;
-                                                    dqVar27.aMD().setVisibility(8);
-                                                }
-                                            }
-                                        }
-                                        dqVar14 = this.eiV.eia;
-                                        dqVar14.aMH();
-                                        sparseArray = (SparseArray) view.getTag();
-                                        if (sparseArray.get(r.h.tag_pb_floor_postion) instanceof Integer) {
-                                        }
-                                        SparseArray sparseArray92 = new SparseArray();
-                                        sparseArray92.put(r.h.tag_clip_board, (com.baidu.tieba.tbadkCore.data.p) ((SparseArray) view.getTag()).get(r.h.tag_clip_board));
-                                        sparseArray92.put(r.h.tag_is_subpb, false);
-                                        dqVar15 = this.eiV.eia;
-                                        dqVar15.aMz().setTag(sparseArray92);
-                                        dqVar16 = this.eiV.eia;
-                                        dqVar16.aME().setTag(view.getTag());
-                                        sparseArray2 = (SparseArray) view.getTag();
-                                        booleanValue = ((Boolean) sparseArray2.get(r.h.tag_should_manage_visible)).booleanValue();
-                                        boolean booleanValue62 = ((Boolean) sparseArray2.get(r.h.tag_user_mute_visible)).booleanValue();
-                                        boolean booleanValue72 = ((Boolean) sparseArray2.get(r.h.tag_should_delete_visible)).booleanValue();
-                                        if (sparseArray2.get(r.h.tag_del_post_is_self) instanceof Boolean) {
-                                        }
-                                        String str62 = null;
-                                        if (sparseArray2.get(r.h.tag_forbid_user_post_id) instanceof String) {
-                                        }
-                                        if (!booleanValue) {
-                                        }
-                                        sparseArray3 = (SparseArray) view.getTag();
-                                        if (sparseArray3.get(r.h.tag_user_mute_visible) instanceof Boolean) {
-                                        }
-                                        if (((Boolean) sparseArray3.get(r.h.tag_should_manage_visible)).booleanValue()) {
-                                        }
-                                        if (sparseArray3.get(r.h.tag_del_post_is_self) instanceof Boolean) {
-                                        }
-                                        String str72 = null;
-                                        if (sparseArray3.get(r.h.tag_forbid_user_post_id) instanceof String) {
-                                        }
-                                        io = this.eiV.io(z5);
-                                        isLogin = io & this.eiV.isLogin();
-                                        this.eiV.eiL = (com.baidu.tieba.tbadkCore.data.p) sparseArray3.get(r.h.tag_clip_board);
-                                        if (!(!ey.g(this.eiV.eiL) ? false : isLogin)) {
-                                        }
-                                        sparseArray4 = (SparseArray) view.getTag();
-                                        long j22 = 0;
-                                        if (sparseArray4.get(r.h.tag_should_hide_chudian_visible) instanceof Boolean) {
-                                        }
-                                        if (sparseArray4.get(r.h.tag_chudian_template_id) instanceof Long) {
-                                        }
-                                        if (sparseArray4.get(r.h.tag_chudian_monitor_id) instanceof String) {
-                                        }
-                                        if (sparseArray4.get(r.h.tag_chudian_hide_day) instanceof Integer) {
-                                        }
-                                        if (!z6) {
-                                        }
-                                    }
-                                    pbModel22 = this.eiV.ehh;
-                                    if (pbModel22.getPbData().nt()) {
-                                        pbModel23 = this.eiV.ehh;
-                                        String ns = pbModel23.getPbData().ns();
-                                        if (pVar3 != null && !com.baidu.adp.lib.util.j.isEmpty(ns) && ns.equals(pVar3.getId())) {
-                                            z2 = true;
-                                            if (!z2) {
-                                                dqVar13 = this.eiV.eia;
-                                                dqVar13.aMz().setText(r.l.remove_mark);
+                                    } else if (id4 == w.h.pb_floor_agree && (view instanceof PbFloorAgreeView)) {
+                                        if (this.elO.checkUpIsLogin() && (postData = (PostData) view.getTag(w.h.tag_clip_board)) != null) {
+                                            if (postData.bhR()) {
+                                                postData.cB(postData.bhQ() - 1);
                                             } else {
-                                                dqVar10 = this.eiV.eia;
-                                                dqVar10.aMz().setText(r.l.mark);
+                                                postData.cB(postData.bhQ() + 1);
                                             }
-                                            dqVar11 = this.eiV.eia;
-                                            dqVar11.iz(true);
-                                            dqVar12 = this.eiV.eia;
-                                            dqVar12.vN();
+                                            postData.lh(!postData.bhR());
+                                            ((PbFloorAgreeView) view).a(postData.bhR(), postData.bhQ(), true);
+                                            pbModel58 = this.elO.ejZ;
+                                            pbModel58.aLT().bL(postData.getId(), postData.bhR() ? "0" : "1");
+                                            int i4 = 2;
+                                            if (postData.getAuthor() != null && postData.getAuthor().getUserId() != null) {
+                                                i4 = postData.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount()) ? 1 : 2;
+                                            }
+                                            if (postData.bhR()) {
+                                                com.baidu.tbadk.core.util.as asVar4 = new com.baidu.tbadk.core.util.as("c12003");
+                                                pbModel60 = this.elO.ejZ;
+                                                TiebaStatic.log(asVar4.Z("tid", pbModel60.enb).s("obj_id", i4));
+                                                return;
+                                            }
+                                            com.baidu.tbadk.core.util.as asVar5 = new com.baidu.tbadk.core.util.as("c12008");
+                                            pbModel59 = this.elO.ejZ;
+                                            TiebaStatic.log(asVar5.Z("tid", pbModel59.enb).s("obj_id", i4));
                                             return;
                                         }
-                                    }
-                                    z2 = false;
-                                    if (!z2) {
-                                    }
-                                    dqVar11 = this.eiV.eia;
-                                    dqVar11.iz(true);
-                                    dqVar12 = this.eiV.eia;
-                                    dqVar12.vN();
-                                    return;
-                                } else if (id4 == r.h.pb_act_btn) {
-                                    pbModel52 = this.eiV.ehh;
-                                    if (pbModel52.getPbData() != null) {
-                                        pbModel53 = this.eiV.ehh;
-                                        if (pbModel53.getPbData().aJZ() != null) {
-                                            pbModel54 = this.eiV.ehh;
-                                            if (pbModel54.getPbData().aJZ().sb() != null) {
-                                                Activity activity = this.eiV.getActivity();
-                                                pbModel55 = this.eiV.ehh;
-                                                com.baidu.tbadk.browser.f.u(activity, pbModel55.getPbData().aJZ().sb());
-                                                pbModel56 = this.eiV.ehh;
-                                                if (pbModel56.getPbData().aJZ().rZ() != 1) {
-                                                    pbModel57 = this.eiV.ehh;
-                                                    if (pbModel57.getPbData().aJZ().rZ() == 2) {
-                                                        TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "pb");
+                                        return;
+                                    } else if (id4 == w.h.replybtn || id4 == w.h.cover_reply_content || id4 == w.h.replybtn_top_right || id4 == w.h.cover_reply_content_top_right) {
+                                        drVar7 = this.elO.ekR;
+                                        if (drVar7 == null) {
+                                            this.elO.ekR = new dr(this.elO.getPageContext(), this.elO.bOI);
+                                            drVar41 = this.elO.ekR;
+                                            z7 = this.elO.mIsLogin;
+                                            drVar41.it(z7);
+                                        }
+                                        drVar8 = this.elO.ekR;
+                                        drVar8.showDialog();
+                                        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11740"));
+                                        PostData postData4 = null;
+                                        if (view != null && view.getTag() != null) {
+                                            postData4 = (PostData) ((SparseArray) view.getTag()).get(w.h.tag_load_sub_data);
+                                            boolean z10 = id4 == w.h.replybtn_top_right || id4 == w.h.cover_reply_content_top_right;
+                                            if (z10) {
+                                                com.baidu.tbadk.core.util.as asVar6 = new com.baidu.tbadk.core.util.as("c12006");
+                                                pbModel24 = this.elO.ejZ;
+                                                TiebaStatic.log(asVar6.Z("tid", pbModel24.enb));
+                                            }
+                                            SparseArray sparseArray5 = new SparseArray();
+                                            sparseArray5.put(w.h.tag_clip_board, (PostData) ((SparseArray) view.getTag()).get(w.h.tag_clip_board));
+                                            sparseArray5.put(w.h.tag_is_subpb, false);
+                                            drVar13 = this.elO.ekR;
+                                            drVar13.aLW().setTag(sparseArray5);
+                                            drVar14 = this.elO.ekR;
+                                            drVar14.aMb().setTag(view.getTag());
+                                            drVar15 = this.elO.ekR;
+                                            drVar15.iv(z10);
+                                            SparseArray sparseArray6 = (SparseArray) view.getTag();
+                                            boolean booleanValue5 = ((Boolean) sparseArray6.get(w.h.tag_should_manage_visible)).booleanValue();
+                                            boolean booleanValue6 = ((Boolean) sparseArray6.get(w.h.tag_user_mute_visible)).booleanValue();
+                                            boolean booleanValue7 = ((Boolean) sparseArray6.get(w.h.tag_should_delete_visible)).booleanValue();
+                                            if (!(sparseArray6.get(w.h.tag_del_post_is_self) instanceof Boolean)) {
+                                                z3 = false;
+                                            } else {
+                                                z3 = ((Boolean) sparseArray6.get(w.h.tag_del_post_is_self)).booleanValue();
+                                            }
+                                            String str6 = null;
+                                            if (sparseArray6.get(w.h.tag_forbid_user_post_id) instanceof String) {
+                                                str6 = (String) sparseArray6.get(w.h.tag_forbid_user_post_id);
+                                            }
+                                            if (booleanValue5) {
+                                                SparseArray sparseArray7 = new SparseArray();
+                                                sparseArray7.put(w.h.tag_should_manage_visible, true);
+                                                sparseArray7.put(w.h.tag_manage_user_identity, sparseArray6.get(w.h.tag_manage_user_identity));
+                                                sparseArray7.put(w.h.tag_forbid_user_name, sparseArray6.get(w.h.tag_forbid_user_name));
+                                                sparseArray7.put(w.h.tag_forbid_user_post_id, str6);
+                                                if (booleanValue6) {
+                                                    sparseArray7.put(w.h.tag_user_mute_visible, true);
+                                                    sparseArray7.put(w.h.tag_is_mem, sparseArray6.get(w.h.tag_is_mem));
+                                                    sparseArray7.put(w.h.tag_user_mute_mute_userid, sparseArray6.get(w.h.tag_user_mute_mute_userid));
+                                                    sparseArray7.put(w.h.tag_user_mute_mute_username, sparseArray6.get(w.h.tag_user_mute_mute_username));
+                                                    sparseArray7.put(w.h.tag_user_mute_post_id, sparseArray6.get(w.h.tag_user_mute_post_id));
+                                                    sparseArray7.put(w.h.tag_user_mute_thread_id, sparseArray6.get(w.h.tag_user_mute_thread_id));
+                                                } else {
+                                                    sparseArray7.put(w.h.tag_user_mute_visible, false);
+                                                }
+                                                if (booleanValue7) {
+                                                    sparseArray7.put(w.h.tag_should_delete_visible, true);
+                                                    sparseArray7.put(w.h.tag_del_post_is_self, Boolean.valueOf(z3));
+                                                    sparseArray7.put(w.h.tag_del_post_id, sparseArray6.get(w.h.tag_del_post_id));
+                                                    sparseArray7.put(w.h.tag_del_post_type, sparseArray6.get(w.h.tag_del_post_type));
+                                                    drVar40 = this.elO.ekR;
+                                                    drVar40.aLZ().setVisibility(0);
+                                                } else {
+                                                    sparseArray7.put(w.h.tag_should_delete_visible, false);
+                                                    drVar35 = this.elO.ekR;
+                                                    drVar35.aLZ().setVisibility(8);
+                                                }
+                                                drVar36 = this.elO.ekR;
+                                                drVar36.aLX().setTag(sparseArray7);
+                                                drVar37 = this.elO.ekR;
+                                                drVar37.aLZ().setTag(sparseArray7);
+                                                drVar38 = this.elO.ekR;
+                                                drVar38.aLX().setText(w.l.bar_manager);
+                                                drVar39 = this.elO.ekR;
+                                                drVar39.aLX().setVisibility(0);
+                                            } else if (!booleanValue7) {
+                                                drVar16 = this.elO.ekR;
+                                                drVar16.aLX().setVisibility(8);
+                                                drVar17 = this.elO.ekR;
+                                                drVar17.aLZ().setVisibility(8);
+                                            } else {
+                                                SparseArray sparseArray8 = new SparseArray();
+                                                sparseArray8.put(w.h.tag_should_manage_visible, false);
+                                                sparseArray8.put(w.h.tag_user_mute_visible, false);
+                                                sparseArray8.put(w.h.tag_should_delete_visible, true);
+                                                sparseArray8.put(w.h.tag_manage_user_identity, sparseArray6.get(w.h.tag_manage_user_identity));
+                                                sparseArray8.put(w.h.tag_del_post_is_self, Boolean.valueOf(z3));
+                                                sparseArray8.put(w.h.tag_del_post_id, sparseArray6.get(w.h.tag_del_post_id));
+                                                sparseArray8.put(w.h.tag_del_post_type, sparseArray6.get(w.h.tag_del_post_type));
+                                                drVar18 = this.elO.ekR;
+                                                drVar18.aLX().setTag(sparseArray8);
+                                                drVar19 = this.elO.ekR;
+                                                drVar19.aLZ().setTag(sparseArray8);
+                                                drVar20 = this.elO.ekR;
+                                                drVar20.aLX().setText(w.l.delete);
+                                                drVar21 = this.elO.ekR;
+                                                drVar21.aLZ().setVisibility(0);
+                                                drVar22 = this.elO.ekR;
+                                                drVar22.aLX().setVisibility(8);
+                                            }
+                                            SparseArray sparseArray9 = (SparseArray) view.getTag();
+                                            if (!(sparseArray9.get(w.h.tag_user_mute_visible) instanceof Boolean)) {
+                                                z4 = false;
+                                            } else {
+                                                z4 = ((Boolean) sparseArray9.get(w.h.tag_user_mute_visible)).booleanValue();
+                                            }
+                                            if (!((Boolean) sparseArray9.get(w.h.tag_should_manage_visible)).booleanValue() && z4) {
+                                                SparseArray sparseArray10 = new SparseArray();
+                                                sparseArray10.put(w.h.tag_user_mute_visible, true);
+                                                sparseArray10.put(w.h.tag_is_mem, sparseArray9.get(w.h.tag_is_mem));
+                                                sparseArray10.put(w.h.tag_user_mute_mute_userid, sparseArray9.get(w.h.tag_user_mute_mute_userid));
+                                                sparseArray10.put(w.h.tag_user_mute_mute_username, sparseArray9.get(w.h.tag_user_mute_mute_username));
+                                                sparseArray10.put(w.h.tag_user_mute_post_id, sparseArray9.get(w.h.tag_user_mute_post_id));
+                                                sparseArray10.put(w.h.tag_user_mute_thread_id, sparseArray9.get(w.h.tag_user_mute_thread_id));
+                                                sparseArray10.put(w.h.tag_del_post_is_self, sparseArray9.get(w.h.tag_del_post_is_self));
+                                                sparseArray10.put(w.h.tag_del_post_type, sparseArray9.get(w.h.tag_del_post_type));
+                                                sparseArray10.put(w.h.tag_del_post_id, sparseArray9.get(w.h.tag_del_post_id));
+                                                sparseArray10.put(w.h.tag_manage_user_identity, sparseArray9.get(w.h.tag_manage_user_identity));
+                                                drVar31 = this.elO.ekR;
+                                                drVar31.aLY().setTag(sparseArray10);
+                                                drVar32 = this.elO.ekR;
+                                                drVar32.aLY().setVisibility(0);
+                                                drVar33 = this.elO.ekR;
+                                                drVar33.aLX().setVisibility(8);
+                                                drVar34 = this.elO.ekR;
+                                                drVar34.aLY().setText(w.l.mute_option);
+                                            } else {
+                                                if (!(sparseArray9.get(w.h.tag_del_post_is_self) instanceof Boolean)) {
+                                                    z5 = false;
+                                                } else {
+                                                    z5 = ((Boolean) sparseArray9.get(w.h.tag_del_post_is_self)).booleanValue();
+                                                }
+                                                String str7 = null;
+                                                if (sparseArray9.get(w.h.tag_forbid_user_post_id) instanceof String) {
+                                                    str7 = (String) sparseArray9.get(w.h.tag_forbid_user_post_id);
+                                                }
+                                                ij = this.elO.ij(z5);
+                                                boolean isLogin = ij & this.elO.isLogin();
+                                                this.elO.elE = (PostData) sparseArray9.get(w.h.tag_clip_board);
+                                                if (ez.g(this.elO.elE) ? false : isLogin) {
+                                                    drVar24 = this.elO.ekR;
+                                                    drVar24.aLY().setVisibility(0);
+                                                    drVar25 = this.elO.ekR;
+                                                    drVar25.aLY().setTag(str7);
+                                                } else {
+                                                    drVar23 = this.elO.ekR;
+                                                    drVar23.aLY().setVisibility(8);
+                                                }
+                                            }
+                                            SparseArray sparseArray11 = (SparseArray) view.getTag();
+                                            long j2 = 0;
+                                            if (!(sparseArray11.get(w.h.tag_should_hide_chudian_visible) instanceof Boolean)) {
+                                                z6 = false;
+                                            } else {
+                                                z6 = ((Boolean) sparseArray11.get(w.h.tag_should_hide_chudian_visible)).booleanValue();
+                                            }
+                                            if (sparseArray11.get(w.h.tag_chudian_template_id) instanceof Long) {
+                                                j2 = ((Long) sparseArray11.get(w.h.tag_chudian_template_id)).longValue();
+                                            }
+                                            if (!(sparseArray11.get(w.h.tag_chudian_monitor_id) instanceof String)) {
+                                                str = "";
+                                            } else {
+                                                str = (String) sparseArray11.get(w.h.tag_chudian_monitor_id);
+                                            }
+                                            if (!(sparseArray11.get(w.h.tag_chudian_hide_day) instanceof Integer)) {
+                                                i = 0;
+                                            } else {
+                                                i = ((Integer) sparseArray11.get(w.h.tag_chudian_hide_day)).intValue();
+                                            }
+                                            if (z6) {
+                                                drVar27 = this.elO.ekR;
+                                                drVar27.aMa().setVisibility(0);
+                                                drVar28 = this.elO.ekR;
+                                                drVar28.aMa().setTag(w.h.tag_chudian_template_id, Long.valueOf(j2));
+                                                drVar29 = this.elO.ekR;
+                                                drVar29.aMa().setTag(w.h.tag_chudian_monitor_id, str);
+                                                drVar30 = this.elO.ekR;
+                                                drVar30.aMa().setTag(w.h.tag_chudian_hide_day, Integer.valueOf(i));
+                                            } else {
+                                                drVar26 = this.elO.ekR;
+                                                drVar26.aMa().setVisibility(8);
+                                            }
+                                        }
+                                        pbModel22 = this.elO.ejZ;
+                                        if (pbModel22.getPbData().nH()) {
+                                            pbModel23 = this.elO.ejZ;
+                                            String nG = pbModel23.getPbData().nG();
+                                            if (postData4 != null && !com.baidu.adp.lib.util.j.isEmpty(nG) && nG.equals(postData4.getId())) {
+                                                z2 = true;
+                                                if (!z2) {
+                                                    drVar12 = this.elO.ekR;
+                                                    drVar12.aLW().setText(w.l.remove_mark);
+                                                } else {
+                                                    drVar9 = this.elO.ekR;
+                                                    drVar9.aLW().setText(w.l.mark);
+                                                }
+                                                drVar10 = this.elO.ekR;
+                                                drVar10.iu(true);
+                                                drVar11 = this.elO.ekR;
+                                                drVar11.wk();
+                                                return;
+                                            }
+                                        }
+                                        z2 = false;
+                                        if (!z2) {
+                                        }
+                                        drVar10 = this.elO.ekR;
+                                        drVar10.iu(true);
+                                        drVar11 = this.elO.ekR;
+                                        drVar11.wk();
+                                        return;
+                                    } else if (id4 == w.h.pb_act_btn) {
+                                        pbModel52 = this.elO.ejZ;
+                                        if (pbModel52.getPbData() != null) {
+                                            pbModel53 = this.elO.ejZ;
+                                            if (pbModel53.getPbData().aJq() != null) {
+                                                pbModel54 = this.elO.ejZ;
+                                                if (pbModel54.getPbData().aJq().sw() != null) {
+                                                    Activity activity = this.elO.getActivity();
+                                                    pbModel55 = this.elO.ejZ;
+                                                    com.baidu.tbadk.browser.f.O(activity, pbModel55.getPbData().aJq().sw());
+                                                    pbModel56 = this.elO.ejZ;
+                                                    if (pbModel56.getPbData().aJq().su() != 1) {
+                                                        pbModel57 = this.elO.ejZ;
+                                                        if (pbModel57.getPbData().aJq().su() == 2) {
+                                                            TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "pb");
+                                                            return;
+                                                        }
+                                                        return;
+                                                    }
+                                                    TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "pb");
+                                                    return;
+                                                }
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                        return;
+                                    } else if (id4 == w.h.lottery_tail) {
+                                        if (view.getTag(w.h.tag_pb_lottery_tail_link) instanceof String) {
+                                            String str8 = (String) view.getTag(w.h.tag_pb_lottery_tail_link);
+                                            com.baidu.tbadk.core.util.as asVar7 = new com.baidu.tbadk.core.util.as("c10912");
+                                            pbModel49 = this.elO.ejZ;
+                                            com.baidu.tbadk.core.util.as Z = asVar7.Z("fid", pbModel49.getPbData().getForumId());
+                                            pbModel50 = this.elO.ejZ;
+                                            TiebaStatic.log(Z.Z("tid", pbModel50.getPbData().getThreadId()).Z("lotterytail", StringUtils.string(str8, "_", TbadkCoreApplication.getCurrentAccount())));
+                                            pbModel51 = this.elO.ejZ;
+                                            if (pbModel51.getPbData().getThreadId().equals(str8)) {
+                                                faVar43 = this.elO.ekM;
+                                                faVar43.setSelection(0);
+                                                return;
+                                            }
+                                            this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.elO.getActivity()).createNormalCfg(str8, (String) null, (String) null, (String) null)));
+                                            return;
+                                        }
+                                        return;
+                                    } else if (id4 == w.h.pb_item_tail_content) {
+                                        if (com.baidu.tbadk.core.util.bg.aI(this.elO.getPageContext().getPageActivity())) {
+                                            String string = TbadkCoreApplication.m9getInst().getString(w.l.tail_web_view_title);
+                                            String string2 = com.baidu.tbadk.core.sharedPref.b.uo().getString("tail_link", "");
+                                            if (!StringUtils.isNull(string2)) {
+                                                TiebaStatic.log("c10056");
+                                                com.baidu.tbadk.browser.f.a(view.getContext(), string, string2, true, true, true);
+                                            }
+                                            faVar42 = this.elO.ekM;
+                                            faVar42.aMK();
+                                            return;
+                                        }
+                                        return;
+                                    } else if (id4 == w.h.join_vote_tv) {
+                                        if (view != null) {
+                                            com.baidu.tbadk.browser.f.O(this.elO.getActivity(), (String) view.getTag());
+                                            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                                            aKp3 = this.elO.aKp();
+                                            if (aKp3 == 1) {
+                                                pbModel45 = this.elO.ejZ;
+                                                if (pbModel45 != null) {
+                                                    pbModel46 = this.elO.ejZ;
+                                                    if (pbModel46.getPbData() != null) {
+                                                        com.baidu.tbadk.core.util.as asVar8 = new com.baidu.tbadk.core.util.as("c10397");
+                                                        pbModel47 = this.elO.ejZ;
+                                                        com.baidu.tbadk.core.util.as Z2 = asVar8.Z("fid", pbModel47.getPbData().getForumId());
+                                                        pbModel48 = this.elO.ejZ;
+                                                        TiebaStatic.log(Z2.Z("tid", pbModel48.getPbData().getThreadId()).Z(SapiAccountManager.SESSION_UID, currentAccount));
                                                         return;
                                                     }
                                                     return;
                                                 }
-                                                TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "pb");
                                                 return;
                                             }
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    return;
-                                } else if (id4 == r.h.lottery_tail) {
-                                    if (view.getTag(r.h.tag_pb_lottery_tail_link) instanceof String) {
-                                        String str8 = (String) view.getTag(r.h.tag_pb_lottery_tail_link);
-                                        com.baidu.tbadk.core.util.ar arVar3 = new com.baidu.tbadk.core.util.ar("c10912");
-                                        pbModel49 = this.eiV.ehh;
-                                        com.baidu.tbadk.core.util.ar ab = arVar3.ab("fid", pbModel49.getPbData().getForumId());
-                                        pbModel50 = this.eiV.ehh;
-                                        TiebaStatic.log(ab.ab("tid", pbModel50.getPbData().getThreadId()).ab("lotterytail", StringUtils.string(str8, "_", TbadkCoreApplication.getCurrentAccount())));
-                                        pbModel51 = this.eiV.ehh;
-                                        if (pbModel51.getPbData().getThreadId().equals(str8)) {
-                                            ezVar42 = this.eiV.ehV;
-                                            ezVar42.setSelection(0);
-                                            return;
-                                        }
-                                        this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.eiV.getActivity()).createNormalCfg(str8, (String) null, (String) null, (String) null)));
-                                        return;
-                                    }
-                                    return;
-                                } else if (id4 == r.h.pb_item_tail_content) {
-                                    if (com.baidu.tbadk.core.util.bf.ak(this.eiV.getPageContext().getPageActivity())) {
-                                        String string = TbadkCoreApplication.m9getInst().getString(r.l.tail_web_view_title);
-                                        String string2 = com.baidu.tbadk.core.sharedPref.b.tQ().getString("tail_link", "");
-                                        if (!StringUtils.isNull(string2)) {
-                                            TiebaStatic.log("c10056");
-                                            com.baidu.tbadk.browser.f.a(view.getContext(), string, string2, true, true, true);
-                                        }
-                                        ezVar41 = this.eiV.ehV;
-                                        ezVar41.aNr();
-                                        return;
-                                    }
-                                    return;
-                                } else if (id4 == r.h.join_vote_tv) {
-                                    if (view != null) {
-                                        com.baidu.tbadk.browser.f.u(this.eiV.getActivity(), (String) view.getTag());
-                                        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                                        aKU3 = this.eiV.aKU();
-                                        if (aKU3 == 1) {
-                                            pbModel45 = this.eiV.ehh;
-                                            if (pbModel45 != null) {
-                                                pbModel46 = this.eiV.ehh;
-                                                if (pbModel46.getPbData() != null) {
-                                                    com.baidu.tbadk.core.util.ar arVar4 = new com.baidu.tbadk.core.util.ar("c10397");
-                                                    pbModel47 = this.eiV.ehh;
-                                                    com.baidu.tbadk.core.util.ar ab2 = arVar4.ab("fid", pbModel47.getPbData().getForumId());
-                                                    pbModel48 = this.eiV.ehh;
-                                                    TiebaStatic.log(ab2.ab("tid", pbModel48.getPbData().getThreadId()).ab(SapiAccountManager.SESSION_UID, currentAccount));
-                                                    return;
-                                                }
-                                                return;
-                                            }
-                                            return;
-                                        }
-                                        aKU4 = this.eiV.aKU();
-                                        if (aKU4 == 2) {
-                                            pbModel41 = this.eiV.ehh;
-                                            if (pbModel41 != null) {
-                                                pbModel42 = this.eiV.ehh;
-                                                if (pbModel42.getPbData() != null) {
-                                                    com.baidu.tbadk.core.util.ar arVar5 = new com.baidu.tbadk.core.util.ar("c10401");
-                                                    pbModel43 = this.eiV.ehh;
-                                                    com.baidu.tbadk.core.util.ar ab3 = arVar5.ab("fid", pbModel43.getPbData().getForumId());
-                                                    pbModel44 = this.eiV.ehh;
-                                                    TiebaStatic.log(ab3.ab("tid", pbModel44.getPbData().getThreadId()).ab(SapiAccountManager.SESSION_UID, currentAccount));
-                                                    return;
-                                                }
-                                                return;
-                                            }
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    return;
-                                } else if (id4 == r.h.look_all_tv) {
-                                    if (view != null) {
-                                        String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-                                        com.baidu.tbadk.browser.f.u(this.eiV.getActivity(), (String) view.getTag());
-                                        aKU = this.eiV.aKU();
-                                        if (aKU == 1) {
-                                            pbModel37 = this.eiV.ehh;
-                                            if (pbModel37 != null) {
-                                                pbModel38 = this.eiV.ehh;
-                                                if (pbModel38.getPbData() != null) {
-                                                    com.baidu.tbadk.core.util.ar arVar6 = new com.baidu.tbadk.core.util.ar("c10507");
-                                                    pbModel39 = this.eiV.ehh;
-                                                    com.baidu.tbadk.core.util.ar ab4 = arVar6.ab("fid", pbModel39.getPbData().getForumId());
-                                                    pbModel40 = this.eiV.ehh;
-                                                    TiebaStatic.log(ab4.ab("tid", pbModel40.getPbData().getThreadId()).ab(SapiAccountManager.SESSION_UID, currentAccount2));
-                                                    return;
-                                                }
-                                                return;
-                                            }
-                                            return;
-                                        }
-                                        aKU2 = this.eiV.aKU();
-                                        if (aKU2 == 2) {
-                                            pbModel33 = this.eiV.ehh;
-                                            if (pbModel33 != null) {
-                                                pbModel34 = this.eiV.ehh;
-                                                if (pbModel34.getPbData() != null) {
-                                                    com.baidu.tbadk.core.util.ar arVar7 = new com.baidu.tbadk.core.util.ar("c10508");
-                                                    pbModel35 = this.eiV.ehh;
-                                                    com.baidu.tbadk.core.util.ar ab5 = arVar7.ab("fid", pbModel35.getPbData().getForumId());
-                                                    pbModel36 = this.eiV.ehh;
-                                                    TiebaStatic.log(ab5.ab("tid", pbModel36.getPbData().getThreadId()).ab(SapiAccountManager.SESSION_UID, currentAccount2));
-                                                    return;
-                                                }
-                                                return;
-                                            }
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    return;
-                                } else if (id4 != r.h.manga_prev_btn) {
-                                    if (id4 != r.h.manga_next_btn) {
-                                        if (id4 == r.h.yule_head_img_img) {
-                                            pbModel29 = this.eiV.ehh;
-                                            if (pbModel29 != null) {
-                                                pbModel30 = this.eiV.ehh;
-                                                if (pbModel30.getPbData() != null) {
-                                                    pbModel31 = this.eiV.ehh;
-                                                    if (pbModel31.getPbData().aKq() != null) {
-                                                        pbModel32 = this.eiV.ehh;
-                                                        com.baidu.tieba.pb.data.f pbData5 = pbModel32.getPbData();
-                                                        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11679").ab("fid", pbData5.getForumId()));
-                                                        com.baidu.tbadk.core.util.ba.vt().c(this.eiV.getPageContext(), new String[]{pbData5.aKq().aKs()});
+                                            aKp4 = this.elO.aKp();
+                                            if (aKp4 == 2) {
+                                                pbModel41 = this.elO.ejZ;
+                                                if (pbModel41 != null) {
+                                                    pbModel42 = this.elO.ejZ;
+                                                    if (pbModel42.getPbData() != null) {
+                                                        com.baidu.tbadk.core.util.as asVar9 = new com.baidu.tbadk.core.util.as("c10401");
+                                                        pbModel43 = this.elO.ejZ;
+                                                        com.baidu.tbadk.core.util.as Z3 = asVar9.Z("fid", pbModel43.getPbData().getForumId());
+                                                        pbModel44 = this.elO.ejZ;
+                                                        TiebaStatic.log(Z3.Z("tid", pbModel44.getPbData().getThreadId()).Z(SapiAccountManager.SESSION_UID, currentAccount));
                                                         return;
                                                     }
                                                     return;
@@ -1470,17 +1317,40 @@ class y implements View.OnClickListener {
                                                 return;
                                             }
                                             return;
-                                        } else if (id4 == r.h.yule_head_img_all_rank) {
-                                            pbModel25 = this.eiV.ehh;
-                                            if (pbModel25 != null) {
-                                                pbModel26 = this.eiV.ehh;
-                                                if (pbModel26.getPbData() != null) {
-                                                    pbModel27 = this.eiV.ehh;
-                                                    if (pbModel27.getPbData().aKq() != null) {
-                                                        pbModel28 = this.eiV.ehh;
-                                                        com.baidu.tieba.pb.data.f pbData6 = pbModel28.getPbData();
-                                                        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11678").ab("fid", pbData6.getForumId()));
-                                                        com.baidu.tbadk.core.util.ba.vt().c(this.eiV.getPageContext(), new String[]{pbData6.aKq().aKs()});
+                                        }
+                                        return;
+                                    } else if (id4 == w.h.look_all_tv) {
+                                        if (view != null) {
+                                            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+                                            com.baidu.tbadk.browser.f.O(this.elO.getActivity(), (String) view.getTag());
+                                            aKp = this.elO.aKp();
+                                            if (aKp == 1) {
+                                                pbModel37 = this.elO.ejZ;
+                                                if (pbModel37 != null) {
+                                                    pbModel38 = this.elO.ejZ;
+                                                    if (pbModel38.getPbData() != null) {
+                                                        com.baidu.tbadk.core.util.as asVar10 = new com.baidu.tbadk.core.util.as("c10507");
+                                                        pbModel39 = this.elO.ejZ;
+                                                        com.baidu.tbadk.core.util.as Z4 = asVar10.Z("fid", pbModel39.getPbData().getForumId());
+                                                        pbModel40 = this.elO.ejZ;
+                                                        TiebaStatic.log(Z4.Z("tid", pbModel40.getPbData().getThreadId()).Z(SapiAccountManager.SESSION_UID, currentAccount2));
+                                                        return;
+                                                    }
+                                                    return;
+                                                }
+                                                return;
+                                            }
+                                            aKp2 = this.elO.aKp();
+                                            if (aKp2 == 2) {
+                                                pbModel33 = this.elO.ejZ;
+                                                if (pbModel33 != null) {
+                                                    pbModel34 = this.elO.ejZ;
+                                                    if (pbModel34.getPbData() != null) {
+                                                        com.baidu.tbadk.core.util.as asVar11 = new com.baidu.tbadk.core.util.as("c10508");
+                                                        pbModel35 = this.elO.ejZ;
+                                                        com.baidu.tbadk.core.util.as Z5 = asVar11.Z("fid", pbModel35.getPbData().getForumId());
+                                                        pbModel36 = this.elO.ejZ;
+                                                        TiebaStatic.log(Z5.Z("tid", pbModel36.getPbData().getThreadId()).Z(SapiAccountManager.SESSION_UID, currentAccount2));
                                                         return;
                                                     }
                                                     return;
@@ -1488,61 +1358,113 @@ class y implements View.OnClickListener {
                                                 return;
                                             }
                                             return;
-                                        } else {
-                                            return;
                                         }
+                                        return;
+                                    } else if (id4 != w.h.manga_prev_btn) {
+                                        if (id4 != w.h.manga_next_btn) {
+                                            if (id4 == w.h.yule_head_img_img) {
+                                                pbModel29 = this.elO.ejZ;
+                                                if (pbModel29 != null) {
+                                                    pbModel30 = this.elO.ejZ;
+                                                    if (pbModel30.getPbData() != null) {
+                                                        pbModel31 = this.elO.ejZ;
+                                                        if (pbModel31.getPbData().aJH() != null) {
+                                                            pbModel32 = this.elO.ejZ;
+                                                            com.baidu.tieba.pb.data.f pbData5 = pbModel32.getPbData();
+                                                            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11679").Z("fid", pbData5.getForumId()));
+                                                            com.baidu.tbadk.core.util.bb.vQ().c(this.elO.getPageContext(), new String[]{pbData5.aJH().aJK()});
+                                                            return;
+                                                        }
+                                                        return;
+                                                    }
+                                                    return;
+                                                }
+                                                return;
+                                            } else if (id4 == w.h.yule_head_img_all_rank) {
+                                                pbModel25 = this.elO.ejZ;
+                                                if (pbModel25 != null) {
+                                                    pbModel26 = this.elO.ejZ;
+                                                    if (pbModel26.getPbData() != null) {
+                                                        pbModel27 = this.elO.ejZ;
+                                                        if (pbModel27.getPbData().aJH() != null) {
+                                                            pbModel28 = this.elO.ejZ;
+                                                            com.baidu.tieba.pb.data.f pbData6 = pbModel28.getPbData();
+                                                            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11678").Z("fid", pbData6.getForumId()));
+                                                            com.baidu.tbadk.core.util.bb.vQ().c(this.elO.getPageContext(), new String[]{pbData6.aJH().aJK()});
+                                                            return;
+                                                        }
+                                                        return;
+                                                    }
+                                                    return;
+                                                }
+                                                return;
+                                            } else {
+                                                return;
+                                            }
+                                        }
+                                        this.elO.aKE();
+                                        return;
+                                    } else {
+                                        this.elO.aKD();
+                                        return;
                                     }
-                                    this.eiV.aLj();
+                                } else if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                                    long c3 = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccountInfo().getID(), 0L);
+                                    pbModel61 = this.elO.ejZ;
+                                    long c4 = com.baidu.adp.lib.g.b.c(pbModel61.getPbData().getForumId(), 0L);
+                                    pbModel62 = this.elO.ejZ;
+                                    long c5 = com.baidu.adp.lib.g.b.c(pbModel62.getThreadID(), 0L);
+                                    pbModel63 = this.elO.ejZ;
+                                    this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushThreadActivityConfig(this.elO.getPageContext().getPageActivity(), 24008, c4, c5, c3, pbModel63.getPbData().aJq().sk())));
                                     return;
                                 } else {
-                                    this.eiV.aLi();
                                     return;
                                 }
-                            } else if (this.eiV.checkUpIsLogin()) {
-                                pbModel7 = this.eiV.ehh;
+                            } else if (this.elO.checkUpIsLogin()) {
+                                pbModel7 = this.elO.ejZ;
                                 if (pbModel7.getPbData() != null) {
-                                    ezVar39 = this.eiV.ehV;
-                                    ezVar39.axs();
-                                    SparseArray sparseArray13 = (SparseArray) view.getTag();
-                                    com.baidu.tieba.tbadkCore.data.p pVar4 = (com.baidu.tieba.tbadkCore.data.p) sparseArray13.get(r.h.tag_load_sub_data);
-                                    View view2 = (View) sparseArray13.get(r.h.tag_load_sub_view);
-                                    if (pVar4 != null && view2 != null) {
-                                        pbModel8 = this.eiV.ehh;
+                                    faVar39 = this.elO.ekM;
+                                    faVar39.awO();
+                                    SparseArray sparseArray12 = (SparseArray) view.getTag();
+                                    PostData postData5 = (PostData) sparseArray12.get(w.h.tag_load_sub_data);
+                                    View view2 = (View) sparseArray12.get(w.h.tag_load_sub_view);
+                                    if (postData5 != null && view2 != null) {
+                                        pbModel8 = this.elO.ejZ;
                                         String threadID2 = pbModel8.getThreadID();
-                                        String id5 = pVar4.getId();
-                                        int i4 = 0;
-                                        pbModel9 = this.eiV.ehh;
+                                        String id5 = postData5.getId();
+                                        int i5 = 0;
+                                        pbModel9 = this.elO.ejZ;
                                         if (pbModel9.getPbData() != null) {
-                                            pbModel20 = this.eiV.ehh;
-                                            i4 = pbModel20.getPbData().aKj();
+                                            pbModel20 = this.elO.ejZ;
+                                            i5 = pbModel20.getPbData().aJA();
                                         }
-                                        this.eiV.XU();
-                                        if (view.getId() != r.h.replybtn) {
-                                            if (view.getId() == r.h.sub_pb_item) {
-                                                SparseArray sparseArray14 = (SparseArray) view.getTag();
-                                                String str9 = (String) sparseArray14.get(r.h.tag_photo_username);
-                                                String str10 = (String) sparseArray13.get(r.h.tag_photo_userid);
-                                                com.baidu.tieba.tbadkCore.data.p pVar5 = (com.baidu.tieba.tbadkCore.data.p) sparseArray14.get(r.h.tag_load_sub_data);
+                                        this.elO.YT();
+                                        if (view.getId() != w.h.replybtn) {
+                                            if (view.getId() == w.h.sub_pb_item) {
+                                                SparseArray sparseArray13 = (SparseArray) view.getTag();
+                                                String str9 = (String) sparseArray13.get(w.h.tag_photo_username);
+                                                String str10 = (String) sparseArray12.get(w.h.tag_photo_userid);
+                                                PostData postData6 = (PostData) sparseArray13.get(w.h.tag_load_sub_data);
                                                 String str11 = null;
-                                                if (pVar5 != null) {
-                                                    str11 = pVar5.getId();
+                                                if (postData6 != null) {
+                                                    str11 = postData6.getId();
                                                 }
                                                 TiebaStatic.log("c11741");
-                                                ol2 = this.eiV.ol(id5);
-                                                if (pVar4 != null) {
-                                                    pbModel13 = this.eiV.ehh;
+                                                ns2 = this.elO.ns(id5);
+                                                if (postData5 != null) {
+                                                    pbModel13 = this.elO.ejZ;
                                                     if (pbModel13 != null) {
-                                                        pbModel14 = this.eiV.ehh;
-                                                        if (pbModel14.getPbData() != null && ol2 != null && this.eiV.aKO().aNp() != null) {
+                                                        pbModel14 = this.elO.ejZ;
+                                                        if (pbModel14.getPbData() != null && ns2 != null && this.elO.aKj().aMI() != null) {
                                                             com.baidu.tieba.pb.data.j jVar2 = new com.baidu.tieba.pb.data.j();
-                                                            pbModel15 = this.eiV.ehh;
-                                                            jVar2.b(pbModel15.getPbData().aJY());
-                                                            pbModel16 = this.eiV.ehh;
-                                                            jVar2.h(pbModel16.getPbData().aJZ());
-                                                            jVar2.b(pVar5);
-                                                            this.eiV.aKO().aNp().c(jVar2);
-                                                            this.eiV.aKO().aNp().setPostId(str11);
-                                                            this.eiV.a(view, str10, str9);
+                                                            pbModel15 = this.elO.ejZ;
+                                                            jVar2.b(pbModel15.getPbData().aJp());
+                                                            pbModel16 = this.elO.ejZ;
+                                                            jVar2.h(pbModel16.getPbData().aJq());
+                                                            jVar2.b(postData6);
+                                                            this.elO.aKj().aMI().c(jVar2);
+                                                            this.elO.aKj().aMI().setPostId(str11);
+                                                            this.elO.a(view, str10, str9);
                                                             return;
                                                         }
                                                         return;
@@ -1552,16 +1474,16 @@ class y implements View.OnClickListener {
                                                 return;
                                             }
                                             TiebaStatic.log("c11742");
-                                            ol = this.eiV.ol(id5);
-                                            if (pVar4 != null) {
-                                                pbModel10 = this.eiV.ehh;
+                                            ns = this.elO.ns(id5);
+                                            if (postData5 != null) {
+                                                pbModel10 = this.elO.ejZ;
                                                 if (pbModel10 != null) {
-                                                    pbModel11 = this.eiV.ehh;
-                                                    if (pbModel11.getPbData() != null && ol != null) {
-                                                        SubPbActivityConfig subPbActivityConfig2 = new SubPbActivityConfig(this.eiV.getPageContext().getPageActivity());
-                                                        SmallTailInfo aPB2 = pVar4.aPB();
-                                                        pbModel12 = this.eiV.ehh;
-                                                        this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig2.createSubPbActivityConfig(threadID2, id5, "pb", true, null, false, null, i4, aPB2, pbModel12.getPbData().qm(), false, pVar4.getAuthor().getIconInfo()).addBigImageData(ol.ejn, ol.ejo, ol.ejp, ol.index)));
+                                                    pbModel11 = this.elO.ejZ;
+                                                    if (pbModel11.getPbData() != null && ns != null) {
+                                                        SubPbActivityConfig subPbActivityConfig2 = new SubPbActivityConfig(this.elO.getPageContext().getPageActivity());
+                                                        SmallTailInfo aOS2 = postData5.aOS();
+                                                        pbModel12 = this.elO.ejZ;
+                                                        this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig2.createSubPbActivityConfig(threadID2, id5, "pb", true, null, false, null, i5, aOS2, pbModel12.getPbData().qE(), false, postData5.getAuthor().getIconInfo()).addBigImageData(ns.emf, ns.emg, ns.emh, ns.index)));
                                                         return;
                                                     }
                                                     return;
@@ -1570,16 +1492,16 @@ class y implements View.OnClickListener {
                                             }
                                             return;
                                         }
-                                        ol3 = this.eiV.ol(id5);
-                                        if (pVar4 != null) {
-                                            pbModel17 = this.eiV.ehh;
+                                        ns3 = this.elO.ns(id5);
+                                        if (postData5 != null) {
+                                            pbModel17 = this.elO.ejZ;
                                             if (pbModel17 != null) {
-                                                pbModel18 = this.eiV.ehh;
-                                                if (pbModel18.getPbData() != null && ol3 != null) {
-                                                    SubPbActivityConfig subPbActivityConfig3 = new SubPbActivityConfig(this.eiV.getPageContext().getPageActivity());
-                                                    SmallTailInfo aPB3 = pVar4.aPB();
-                                                    pbModel19 = this.eiV.ehh;
-                                                    this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig3.createSubPbActivityConfig(threadID2, id5, "pb", true, null, true, null, i4, aPB3, pbModel19.getPbData().qm(), false, pVar4.getAuthor().getIconInfo()).addBigImageData(ol3.ejn, ol3.ejo, ol3.ejp, ol3.index)));
+                                                pbModel18 = this.elO.ejZ;
+                                                if (pbModel18.getPbData() != null && ns3 != null) {
+                                                    SubPbActivityConfig subPbActivityConfig3 = new SubPbActivityConfig(this.elO.getPageContext().getPageActivity());
+                                                    SmallTailInfo aOS3 = postData5.aOS();
+                                                    pbModel19 = this.elO.ejZ;
+                                                    this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, subPbActivityConfig3.createSubPbActivityConfig(threadID2, id5, "pb", true, null, true, null, i5, aOS3, pbModel19.getPbData().qE(), false, postData5.getAuthor().getIconInfo()).addBigImageData(ns3.emf, ns3.emg, ns3.emh, ns3.index)));
                                                     return;
                                                 }
                                                 return;
@@ -1592,27 +1514,27 @@ class y implements View.OnClickListener {
                                 }
                                 return;
                             } else {
-                                com.baidu.tbadk.core.util.ar s = new com.baidu.tbadk.core.util.ar("c10517").s("obj_locate", 3);
-                                pbModel21 = this.eiV.ehh;
-                                TiebaStatic.log(s.ab("fid", pbModel21.getPbData().getForumId()));
+                                com.baidu.tbadk.core.util.as s = new com.baidu.tbadk.core.util.as("c10517").s("obj_locate", 3);
+                                pbModel21 = this.elO.ejZ;
+                                TiebaStatic.log(s.Z("fid", pbModel21.getPbData().getForumId()));
                                 return;
                             }
-                        } else if (this.eiV.checkUpIsLogin()) {
-                            ezVar50 = this.eiV.ehV;
-                            if (!ezVar50.aLR()) {
-                                pbModel69 = this.eiV.ehh;
-                                if (pbModel69 != null) {
-                                    pbModel70 = this.eiV.ehh;
-                                    if (pbModel70.aMu() != null) {
-                                        pbModel71 = this.eiV.ehh;
-                                        if (pbModel71.aMu().aLN() != null) {
-                                            pbModel72 = this.eiV.ehh;
-                                            if (com.baidu.tbadk.core.util.w.r(pbModel72.aMu().aLN().getItems()) != 0) {
-                                                ezVar51 = this.eiV.ehV;
-                                                ezVar51.aLS();
+                        } else if (this.elO.checkUpIsLogin()) {
+                            faVar52 = this.elO.ekM;
+                            if (!faVar52.aLn()) {
+                                pbModel72 = this.elO.ejZ;
+                                if (pbModel72 != null) {
+                                    pbModel73 = this.elO.ejZ;
+                                    if (pbModel73.aLQ() != null) {
+                                        pbModel74 = this.elO.ejZ;
+                                        if (pbModel74.aLQ().aLj() != null) {
+                                            pbModel75 = this.elO.ejZ;
+                                            if (com.baidu.tbadk.core.util.x.p(pbModel75.aLQ().aLj().getItems()) != 0) {
+                                                faVar53 = this.elO.ekM;
+                                                faVar53.aLo();
                                                 return;
                                             }
-                                            this.eiV.showToast(r.l.graffiti_quick_vote_empty);
+                                            this.elO.showToast(w.l.graffiti_quick_vote_empty);
                                             return;
                                         }
                                         return;
@@ -1621,182 +1543,182 @@ class y implements View.OnClickListener {
                                 }
                                 return;
                             }
-                            ezVar52 = this.eiV.ehV;
-                            ezVar52.aLT();
+                            faVar54 = this.elO.ekM;
+                            faVar54.aLp();
                             return;
                         } else {
                             return;
                         }
-                    } else if (!this.eiV.checkUpIsLogin()) {
-                        com.baidu.tbadk.core.util.ar s2 = new com.baidu.tbadk.core.util.ar("c10517").s("obj_locate", 2);
-                        pbModel74 = this.eiV.ehh;
-                        TiebaStatic.log(s2.ab("fid", pbModel74.getPbData().getForumId()));
+                    } else if (!this.elO.checkUpIsLogin()) {
+                        com.baidu.tbadk.core.util.as s2 = new com.baidu.tbadk.core.util.as("c10517").s("obj_locate", 2);
+                        pbModel77 = this.elO.ejZ;
+                        TiebaStatic.log(s2.Z("fid", pbModel77.getPbData().getForumId()));
                         return;
                     } else {
-                        this.eiV.aKL();
+                        this.elO.aKg();
                         return;
                     }
-                } else if (com.baidu.adp.lib.util.i.gk()) {
-                    ezVar19 = this.eiV.ehV;
-                    ezVar19.aNr();
-                    z = this.eiV.mIsLoading;
+                } else if (com.baidu.adp.lib.util.i.he()) {
+                    faVar19 = this.elO.ekM;
+                    faVar19.aMK();
+                    z = this.elO.mIsLoading;
                     if (!z) {
-                        this.eiV.mIsLoading = true;
-                        ezVar20 = this.eiV.ehV;
-                        ezVar20.enK.eqS.setEnabled(false);
-                        ezVar21 = this.eiV.ehV;
-                        ezVar21.ase();
-                        this.eiV.XU();
-                        ezVar22 = this.eiV.ehV;
-                        ezVar22.aNJ();
-                        pbModel6 = this.eiV.ehh;
-                        aLg = this.eiV.aLg();
-                        pbModel6.on(aLg);
-                        TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
-                        ezVar23 = this.eiV.ehV;
-                        ezVar23.aOb();
-                        ezVar24 = this.eiV.ehV;
-                        ezVar24.aLT();
-                        this.eiV.or(2);
+                        this.elO.mIsLoading = true;
+                        faVar20 = this.elO.ekM;
+                        faVar20.eqM.eud.setEnabled(false);
+                        faVar21 = this.elO.ekM;
+                        faVar21.arz();
+                        this.elO.YT();
+                        faVar22 = this.elO.ekM;
+                        faVar22.aNc();
+                        pbModel6 = this.elO.ejZ;
+                        aKB = this.elO.aKB();
+                        pbModel6.nu(aKB);
+                        TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
+                        faVar23 = this.elO.ekM;
+                        faVar23.aNv();
+                        faVar24 = this.elO.ekM;
+                        faVar24.aLp();
+                        this.elO.of(2);
                         return;
                     }
                     return;
                 } else {
-                    this.eiV.showToast(r.l.network_not_available);
+                    this.elO.showToast(w.l.network_not_available);
                     return;
                 }
             }
-            TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "pb_header_forum_name", "pbclick", 1, new Object[0]);
-            pbModel105 = this.eiV.ehh;
-            if (pbModel105.getPbData() != null) {
-                pbModel112 = this.eiV.ehh;
-                if (pbModel112.getPbData().aJZ() != null) {
-                    pbModel113 = this.eiV.ehh;
-                    if (pbModel113.getPbData().aJZ().si()) {
-                        pbModel114 = this.eiV.ehh;
-                        if (pbModel114.getPbData().aJZ().rN() != null) {
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11922"));
+            TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "pb_header_forum_name", "pbclick", 1, new Object[0]);
+            pbModel107 = this.elO.ejZ;
+            if (pbModel107.getPbData() != null) {
+                pbModel114 = this.elO.ejZ;
+                if (pbModel114.getPbData().aJq() != null) {
+                    pbModel115 = this.elO.ejZ;
+                    if (pbModel115.getPbData().aJq().sD()) {
+                        pbModel116 = this.elO.ejZ;
+                        if (pbModel116.getPbData().aJq().sh() != null) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11922"));
                         }
                     }
                 }
             }
-            pbModel106 = this.eiV.ehh;
-            if (pbModel106.getErrorNo() == 4) {
-                pbModel109 = this.eiV.ehh;
-                if (StringUtils.isNull(pbModel109.aLX())) {
-                    pbModel110 = this.eiV.ehh;
-                    if (pbModel110.getAppealInfo() != null) {
-                        pbModel111 = this.eiV.ehh;
-                        name = pbModel111.getAppealInfo().forumName;
+            pbModel108 = this.elO.ejZ;
+            if (pbModel108.getErrorNo() == 4) {
+                pbModel111 = this.elO.ejZ;
+                if (StringUtils.isNull(pbModel111.aLt())) {
+                    pbModel112 = this.elO.ejZ;
+                    if (pbModel112.getAppealInfo() != null) {
+                        pbModel113 = this.elO.ejZ;
+                        name = pbModel113.getAppealInfo().forumName;
                     }
                 }
-                this.eiV.finish();
+                this.elO.finish();
                 return;
             }
-            pbModel107 = this.eiV.ehh;
-            name = pbModel107.getPbData().aJY().getName();
+            pbModel109 = this.elO.ejZ;
+            name = pbModel109.getPbData().aJp().getName();
             if (!StringUtils.isNull(name)) {
-                pbModel108 = this.eiV.ehh;
-                String aLX = pbModel108.aLX();
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.eiV.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_PB);
-                if (StringUtils.isNull(aLX)) {
-                    this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
+                pbModel110 = this.elO.ejZ;
+                String aLt = pbModel110.aLt();
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.elO.getPageContext().getPageActivity()).createNormalCfg(name, FrsActivityConfig.FRS_FROM_PB);
+                if (StringUtils.isNull(aLt)) {
+                    this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
                     return;
-                } else if (aLX.equals(name)) {
-                    this.eiV.finish();
+                } else if (aLt.equals(name)) {
+                    this.elO.finish();
                     return;
                 } else {
-                    this.eiV.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
+                    this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
                     return;
                 }
             }
-            this.eiV.finish();
+            this.elO.finish();
             return;
         }
-        if (com.baidu.adp.lib.util.i.gk()) {
-            pbModel = this.eiV.ehh;
-            if (pbModel.getPbData().aKj() == 1) {
-                forumManageModel = this.eiV.ehU;
-                if (!forumManageModel.biz()) {
-                    ezVar6 = this.eiV.ehV;
-                    ezVar6.axs();
-                    int i5 = 0;
-                    ezVar7 = this.eiV.ehV;
-                    if (ezVar7.enK.aOy() != null) {
-                        ezVar13 = this.eiV.ehV;
-                        if (view == ezVar13.enK.aOy().aMS()) {
-                            pbModel5 = this.eiV.ehh;
-                            if (pbModel5.getPbData().aJZ().rs() == 1) {
-                                i5 = 5;
+        if (com.baidu.adp.lib.util.i.he()) {
+            pbModel = this.elO.ejZ;
+            if (pbModel.getPbData().aJA() == 1) {
+                forumManageModel = this.elO.ekL;
+                if (!forumManageModel.bip()) {
+                    faVar6 = this.elO.ekM;
+                    faVar6.awO();
+                    int i6 = 0;
+                    faVar7 = this.elO.ekM;
+                    if (faVar7.eqM.aNQ() != null) {
+                        faVar13 = this.elO.ekM;
+                        if (view == faVar13.eqM.aNQ().aMl()) {
+                            pbModel5 = this.elO.ejZ;
+                            if (pbModel5.getPbData().aJq().rM() == 1) {
+                                i6 = 5;
                             } else {
-                                i5 = 4;
+                                i6 = 4;
                             }
-                            pbModel3 = this.eiV.ehh;
-                            ForumData aJY = pbModel3.getPbData().aJY();
-                            String name3 = aJY.getName();
-                            String id6 = aJY.getId();
-                            pbModel4 = this.eiV.ehh;
-                            id = pbModel4.getPbData().aJZ().getId();
-                            if (com.baidu.tieba.c.a.QW() || !com.baidu.tieba.c.a.f(this.eiV.getBaseContext(), id, null)) {
-                                ezVar11 = this.eiV.ehV;
-                                ezVar11.aNG();
-                                forumManageModel2 = this.eiV.ehU;
-                                ezVar12 = this.eiV.ehV;
-                                forumManageModel2.a(id6, name3, id, i5, ezVar12.aNI());
+                            pbModel3 = this.elO.ejZ;
+                            ForumData aJp = pbModel3.getPbData().aJp();
+                            String name3 = aJp.getName();
+                            String id6 = aJp.getId();
+                            pbModel4 = this.elO.ejZ;
+                            id = pbModel4.getPbData().aJq().getId();
+                            if (com.baidu.tieba.c.a.RO() || !com.baidu.tieba.c.a.h(this.elO.getBaseContext(), id, null)) {
+                                faVar11 = this.elO.ekM;
+                                faVar11.aMZ();
+                                forumManageModel2 = this.elO.ekL;
+                                faVar12 = this.elO.ekM;
+                                forumManageModel2.a(id6, name3, id, i6, faVar12.aNb());
                                 return;
                             }
                             return;
                         }
                     }
-                    ezVar8 = this.eiV.ehV;
-                    if (ezVar8.enK.aOy() != null) {
-                        ezVar10 = this.eiV.ehV;
-                        if (view == ezVar10.enK.aOy().aMU()) {
-                            pbModel2 = this.eiV.ehh;
-                            if (pbModel2.getPbData().aJZ().rt() == 1) {
-                                i5 = 3;
+                    faVar8 = this.elO.ekM;
+                    if (faVar8.eqM.aNQ() != null) {
+                        faVar10 = this.elO.ekM;
+                        if (view == faVar10.eqM.aNQ().aMn()) {
+                            pbModel2 = this.elO.ejZ;
+                            if (pbModel2.getPbData().aJq().rN() == 1) {
+                                i6 = 3;
                             } else {
-                                i5 = 6;
+                                i6 = 6;
                             }
-                            pbModel3 = this.eiV.ehh;
-                            ForumData aJY2 = pbModel3.getPbData().aJY();
-                            String name32 = aJY2.getName();
-                            String id62 = aJY2.getId();
-                            pbModel4 = this.eiV.ehh;
-                            id = pbModel4.getPbData().aJZ().getId();
-                            if (com.baidu.tieba.c.a.QW()) {
+                            pbModel3 = this.elO.ejZ;
+                            ForumData aJp2 = pbModel3.getPbData().aJp();
+                            String name32 = aJp2.getName();
+                            String id62 = aJp2.getId();
+                            pbModel4 = this.elO.ejZ;
+                            id = pbModel4.getPbData().aJq().getId();
+                            if (com.baidu.tieba.c.a.RO()) {
                             }
-                            ezVar11 = this.eiV.ehV;
-                            ezVar11.aNG();
-                            forumManageModel2 = this.eiV.ehU;
-                            ezVar12 = this.eiV.ehV;
-                            forumManageModel2.a(id62, name32, id, i5, ezVar12.aNI());
+                            faVar11 = this.elO.ekM;
+                            faVar11.aMZ();
+                            forumManageModel2 = this.elO.ekL;
+                            faVar12 = this.elO.ekM;
+                            forumManageModel2.a(id62, name32, id, i6, faVar12.aNb());
                             return;
                         }
                     }
-                    ezVar9 = this.eiV.ehV;
-                    if (view == ezVar9.aNH()) {
-                        i5 = 2;
+                    faVar9 = this.elO.ekM;
+                    if (view == faVar9.aNa()) {
+                        i6 = 2;
                     }
-                    pbModel3 = this.eiV.ehh;
-                    ForumData aJY22 = pbModel3.getPbData().aJY();
-                    String name322 = aJY22.getName();
-                    String id622 = aJY22.getId();
-                    pbModel4 = this.eiV.ehh;
-                    id = pbModel4.getPbData().aJZ().getId();
-                    if (com.baidu.tieba.c.a.QW()) {
+                    pbModel3 = this.elO.ejZ;
+                    ForumData aJp22 = pbModel3.getPbData().aJp();
+                    String name322 = aJp22.getName();
+                    String id622 = aJp22.getId();
+                    pbModel4 = this.elO.ejZ;
+                    id = pbModel4.getPbData().aJq().getId();
+                    if (com.baidu.tieba.c.a.RO()) {
                     }
-                    ezVar11 = this.eiV.ehV;
-                    ezVar11.aNG();
-                    forumManageModel2 = this.eiV.ehU;
-                    ezVar12 = this.eiV.ehV;
-                    forumManageModel2.a(id622, name322, id, i5, ezVar12.aNI());
+                    faVar11 = this.elO.ekM;
+                    faVar11.aMZ();
+                    forumManageModel2 = this.elO.ekL;
+                    faVar12 = this.elO.ekM;
+                    forumManageModel2.a(id622, name322, id, i6, faVar12.aNb());
                     return;
                 }
                 return;
             }
             return;
         }
-        this.eiV.showToast(r.l.network_not_available);
+        this.elO.showToast(w.l.network_not_available);
     }
 }

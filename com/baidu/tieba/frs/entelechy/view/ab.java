@@ -1,55 +1,55 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ aa bMC;
+    final /* synthetic */ aa bTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.bMC = aaVar;
+        this.bTK = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bh bhVar;
-        bh bhVar2;
-        bh bhVar3;
-        bh bhVar4;
-        bh bhVar5;
-        bh bhVar6;
-        bh bhVar7;
-        bh bhVar8;
-        bhVar = this.bMC.acX;
-        if (bhVar != null) {
-            bhVar6 = this.bMC.acX;
-            if (bhVar6.getAuthor() != null) {
-                bhVar7 = this.bMC.acX;
-                if (bhVar7.getAuthor().getGodInfo() != null) {
-                    com.baidu.tbadk.core.util.ar s = new com.baidu.tbadk.core.util.ar("c10806").s("obj_locate", 3);
-                    bhVar8 = this.bMC.acX;
-                    TiebaStatic.log(s.ab("tid", bhVar8.getId()));
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        bj bjVar4;
+        bj bjVar5;
+        bj bjVar6;
+        bj bjVar7;
+        bj bjVar8;
+        bjVar = this.bTK.ain;
+        if (bjVar != null) {
+            bjVar6 = this.bTK.ain;
+            if (bjVar6.getAuthor() != null) {
+                bjVar7 = this.bTK.ain;
+                if (bjVar7.getAuthor().getGodInfo() != null) {
+                    com.baidu.tbadk.core.util.as s = new com.baidu.tbadk.core.util.as("c10806").s("obj_locate", 3);
+                    bjVar8 = this.bTK.ain;
+                    TiebaStatic.log(s.Z("tid", bjVar8.getId()));
                 }
             }
         }
-        bhVar2 = this.bMC.acX;
-        if (bhVar2 != null) {
-            bhVar4 = this.bMC.acX;
-            if (bhVar4.rf()) {
-                com.baidu.tbadk.core.util.ar s2 = new com.baidu.tbadk.core.util.ar("c11663").s("obj_param1", 1);
-                bhVar5 = this.bMC.acX;
-                TiebaStatic.log(s2.ab("post_id", bhVar5.getTid()));
+        bjVar2 = this.bTK.ain;
+        if (bjVar2 != null) {
+            bjVar4 = this.bTK.ain;
+            if (bjVar4.ry()) {
+                com.baidu.tbadk.core.util.as s2 = new com.baidu.tbadk.core.util.as("c11663").s("obj_param1", 1);
+                bjVar5 = this.bTK.ain;
+                TiebaStatic.log(s2.Z("post_id", bjVar5.getTid()));
             }
         }
-        if (this.bMC.getOnSubCardOnClickListenner() != null) {
-            cf<bh> onSubCardOnClickListenner = this.bMC.getOnSubCardOnClickListenner();
-            bhVar3 = this.bMC.acX;
-            onSubCardOnClickListenner.a(view, bhVar3);
+        if (this.bTK.getOnSubCardOnClickListenner() != null) {
+            cf<bj> onSubCardOnClickListenner = this.bTK.getOnSubCardOnClickListenner();
+            bjVar3 = this.bTK.ain;
+            onSubCardOnClickListenner.a(view, bjVar3);
         }
-        this.bMC.Rt();
+        this.bTK.Sr();
     }
 }

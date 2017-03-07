@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ForbidActivity extends BaseActivity<ForbidActivity> {
-    private BdListView Bw;
-    private RadioGroup edD;
-    private String edE;
-    private TextView edF;
-    private TextView edG;
-    private a edH;
-    private View.OnClickListener edI = new com.baidu.tieba.pb.account.forbid.a(this);
+    private BdListView IK;
+    private RadioGroup efY;
+    private String efZ;
+    private TextView ega;
+    private TextView egb;
+    private a egc;
+    private View.OnClickListener egd = new com.baidu.tieba.pb.account.forbid.a(this);
     private String mForumId;
     private String mForumName;
     private NavigationBar mNavigationBar;
@@ -42,20 +42,20 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(r.j.account_forbid_activity);
+        setContentView(w.j.account_forbid_activity);
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m9getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(r.l.login_to_use), true, 11018)));
+            TbadkCoreApplication.m9getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(w.l.login_to_use), true, 11018)));
             return;
         }
-        this.mNavigationBar = (NavigationBar) findViewById(r.h.view_navigation_bar);
-        this.mNavigationBar.setTitleText(getPageContext().getString(r.l.forbid_page_title));
+        this.mNavigationBar = (NavigationBar) findViewById(w.h.view_navigation_bar);
+        this.mNavigationBar.setTitleText(getPageContext().getString(w.l.forbid_page_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.edF = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(r.l.forbid_btn_txt), this.edI);
-        this.edG = (TextView) findViewById(r.h.forbid_id);
-        this.Bw = (BdListView) findViewById(r.h.listview_forbid_reason);
-        this.edD = (RadioGroup) findViewById(r.h.forbid_days);
-        this.edD.setOnCheckedChangeListener(new c(this));
+        this.ega = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.forbid_btn_txt), this.egd);
+        this.egb = (TextView) findViewById(w.h.forbid_id);
+        this.IK = (BdListView) findViewById(w.h.listview_forbid_reason);
+        this.efY = (RadioGroup) findViewById(w.h.forbid_days);
+        this.efY.setOnCheckedChangeListener(new c(this));
         initData();
     }
 
@@ -64,22 +64,22 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
         this.mForumId = intent.getStringExtra("forum_id");
         this.mForumName = intent.getStringExtra("forum_name");
         this.mThreadId = intent.getStringExtra("thread_id");
-        this.edE = intent.getStringExtra(ForbidActivityConfig.MANAGER_USER_ID);
+        this.efZ = intent.getStringExtra(ForbidActivityConfig.MANAGER_USER_ID);
         this.mUserName = intent.getStringExtra("user_name");
         this.mPostId = intent.getStringExtra("post_id");
-        g.a(this.mForumId, this.edE, new d(this));
+        g.a(this.mForumId, this.efZ, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ok(int i) {
+    public void nY(int i) {
         for (int i2 = 0; i2 < 3; i2++) {
-            RadioButton radioButton = (RadioButton) this.edD.getChildAt(i2);
+            RadioButton radioButton = (RadioButton) this.efY.getChildAt(i2);
             if (radioButton.getId() == i) {
-                ap.j((View) radioButton, r.g.btn_prohibit_day_s);
-                ap.c(radioButton, r.e.cp_cont_i, 3);
+                aq.j(radioButton, w.g.btn_prohibit_day_s);
+                aq.c(radioButton, w.e.cp_cont_i, 3);
             } else {
-                ap.j((View) radioButton, r.g.btn_prohibit_day_n);
-                ap.c(radioButton, r.e.common_color_10039, 3);
+                aq.j(radioButton, w.g.btn_prohibit_day_n);
+                aq.c(radioButton, w.e.common_color_10039, 3);
             }
         }
     }
@@ -89,64 +89,64 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         boolean z = i == 1;
-        View findViewById = findViewById(r.h.root);
-        getLayoutMode().ai(z);
-        getLayoutMode().v(findViewById);
+        View findViewById = findViewById(w.h.root);
+        getLayoutMode().ah(z);
+        getLayoutMode().t(findViewById);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.edF.setTextColor(ap.getColor(r.e.cp_cont_f));
-        this.Bw.setDivider(ap.getDrawable(r.g.forbid_list_divider));
-        this.Bw.setDividerHeight(k.dip2px(getPageContext().getPageActivity(), 1.0f));
+        this.ega.setTextColor(aq.getColor(w.e.cp_cont_f));
+        this.IK.setDivider(aq.getDrawable(w.g.forbid_list_divider));
+        this.IK.setDividerHeight(k.dip2px(getPageContext().getPageActivity(), 1.0f));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BaseAdapter {
-        private String[] edL;
-        private int cnT = 0;
-        private View.OnClickListener bYE = new e(this);
+        private String[] egg;
+        private int cpr = 0;
+        private View.OnClickListener cga = new e(this);
 
         public a(String[] strArr) {
-            this.edL = strArr;
+            this.egg = strArr;
         }
 
-        public String aJC() {
-            if (this.edL == null || this.cnT >= this.edL.length) {
+        public String aIT() {
+            if (this.egg == null || this.cpr >= this.egg.length) {
                 return null;
             }
-            return this.edL[this.cnT];
+            return this.egg[this.cpr];
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.edL == null) {
+            if (this.egg == null) {
                 return 0;
             }
-            return this.edL.length;
+            return this.egg.length;
         }
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
             b bVar;
             if (view == null) {
-                view = LayoutInflater.from(viewGroup.getContext()).inflate(r.j.forbid_list_item, (ViewGroup) null);
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(w.j.forbid_list_item, (ViewGroup) null);
                 b bVar2 = new b(null);
-                bVar2.edN = (TextView) view.findViewById(r.h.reason_text);
-                bVar2.edO = (ImageView) view.findViewById(r.h.check_img);
+                bVar2.egi = (TextView) view.findViewById(w.h.reason_text);
+                bVar2.egj = (ImageView) view.findViewById(w.h.check_img);
                 view.setTag(bVar2);
-                view.setOnClickListener(this.bYE);
+                view.setOnClickListener(this.cga);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             bVar.mIndex = i;
-            bVar.edN.setText(this.edL[i]);
-            if (bVar.mIndex == this.cnT) {
-                ap.c(bVar.edO, r.g.icon_found_information_choose);
-                bVar.edO.setVisibility(0);
-                ap.c(bVar.edN, r.e.common_color_10047, 1);
+            bVar.egi.setText(this.egg[i]);
+            if (bVar.mIndex == this.cpr) {
+                aq.c(bVar.egj, w.g.icon_found_information_choose);
+                bVar.egj.setVisibility(0);
+                aq.c(bVar.egi, w.e.common_color_10047, 1);
             } else {
-                bVar.edO.setVisibility(4);
-                ap.c(bVar.edN, r.e.common_color_10039, 1);
+                bVar.egj.setVisibility(4);
+                aq.c(bVar.egi, w.e.common_color_10039, 1);
             }
             return view;
         }
@@ -165,8 +165,8 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        TextView edN;
-        ImageView edO;
+        TextView egi;
+        ImageView egj;
         int mIndex;
 
         private b() {

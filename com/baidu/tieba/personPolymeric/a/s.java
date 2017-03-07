@@ -7,18 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    private r eCP;
-    private c eCQ;
-    private k eCR;
-    private a eCS;
-    private e eCT;
-    private j eCU;
-    private o eCV;
-    private g eCW;
-    private p eCX;
-    private f eCY;
-    private com.baidu.tieba.person.a.e eCZ;
-    private com.baidu.tieba.personCenter.a.b exW;
+    private com.baidu.tieba.personCenter.a.b eBw;
+    private f eGA;
+    private com.baidu.tieba.person.a.e eGB;
+    private r eGr;
+    private c eGs;
+    private k eGt;
+    private a eGu;
+    private e eGv;
+    private j eGw;
+    private o eGx;
+    private g eGy;
+    private p eGz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public s(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
@@ -26,36 +26,36 @@ public class s {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.eCP = new r(tbPageContext);
-        this.eCQ = new c(tbPageContext);
-        this.eCR = new k(tbPageContext);
-        this.eCS = new a(tbPageContext);
-        this.eCT = new e(tbPageContext);
-        this.eCU = new j(tbPageContext);
-        this.eCV = new o(tbPageContext);
-        this.eCW = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.f.eEa);
-        this.eCX = new p(tbPageContext);
-        this.eCY = new f(tbPageContext);
-        this.eCZ = new com.baidu.tieba.person.a.e(tbPageContext, com.baidu.tieba.person.a.g.exX);
-        this.exW = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.ezv);
-        this.mAdapters.add(this.eCP);
-        this.mAdapters.add(this.eCQ);
-        this.mAdapters.add(this.eCR);
-        this.mAdapters.add(this.eCS);
-        this.mAdapters.add(this.eCT);
-        this.mAdapters.add(this.eCU);
-        this.mAdapters.add(this.eCV);
-        this.mAdapters.add(this.eCW);
-        this.mAdapters.add(this.eCX);
-        this.mAdapters.add(this.eCY);
-        this.mAdapters.add(this.eCZ);
-        this.mAdapters.add(this.exW);
+        this.eGr = new r(tbPageContext);
+        this.eGs = new c(tbPageContext);
+        this.eGt = new k(tbPageContext);
+        this.eGu = new a(tbPageContext);
+        this.eGv = new e(tbPageContext);
+        this.eGw = new j(tbPageContext);
+        this.eGx = new o(tbPageContext);
+        this.eGy = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.f.eHC);
+        this.eGz = new p(tbPageContext);
+        this.eGA = new f(tbPageContext);
+        this.eGB = new com.baidu.tieba.person.a.e(tbPageContext, com.baidu.tieba.person.a.g.eBx);
+        this.eBw = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eCU);
+        this.mAdapters.add(this.eGr);
+        this.mAdapters.add(this.eGs);
+        this.mAdapters.add(this.eGt);
+        this.mAdapters.add(this.eGu);
+        this.mAdapters.add(this.eGv);
+        this.mAdapters.add(this.eGw);
+        this.mAdapters.add(this.eGx);
+        this.mAdapters.add(this.eGy);
+        this.mAdapters.add(this.eGz);
+        this.mAdapters.add(this.eGA);
+        this.mAdapters.add(this.eGB);
+        this.mAdapters.add(this.eBw);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void M(View.OnClickListener onClickListener) {
-        if (this.eCZ != null) {
-            this.eCZ.K(onClickListener);
+    public void K(View.OnClickListener onClickListener) {
+        if (this.eGB != null) {
+            this.eGB.I(onClickListener);
         }
     }
 }

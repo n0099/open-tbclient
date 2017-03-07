@@ -1,32 +1,18 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.lib.util.StringUtils;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public abstract class q {
-    public static q YN = null;
-
-    public abstract com.baidu.tbadk.core.data.m getmCdnLogData();
-
-    public abstract void insertErrorData(int i, String str);
-
-    public abstract void insertNormalData(long j, String str);
-
-    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.m mVar);
-
-    public static q getInstance() {
-        if (YN == null) {
-            synchronized (q.class) {
-                if (YN == null) {
-                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, q.class);
-                    if (runTask != null && runTask.getData() != null) {
-                        YN = (q) runTask.getData();
-                    }
-                    return YN;
-                }
-            }
+public class q {
+    public static String dg(String str) {
+        if (StringUtils.isNull(str)) {
+            return "";
         }
-        return YN;
+        Matcher matcher = Pattern.compile("t=(\\d+)").matcher(str);
+        if (matcher.find()) {
+            return String.valueOf(str) + "&tieba_portrait_time=" + matcher.group(1);
+        }
+        return str;
     }
 }

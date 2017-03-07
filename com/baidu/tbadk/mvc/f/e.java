@@ -11,8 +11,8 @@ import com.baidu.tbadk.mvc.d.b;
 import com.baidu.tieba.tbadkCore.q;
 /* loaded from: classes.dex */
 public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements q {
-    private S ayC;
-    private final ViewEventCenter azt;
+    private S aDV;
+    private final ViewEventCenter aEM;
     private D data;
     private TbPageContext<?> pageContext;
     private final View rootView;
@@ -20,7 +20,7 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements q {
     public e(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         this.pageContext = tbPageContext;
         this.rootView = view;
-        this.azt = viewEventCenter;
+        this.aEM = viewEventCenter;
     }
 
     public View getRootView() {
@@ -28,29 +28,25 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements q {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter lA() {
-        return this.azt;
+    public ViewEventCenter Fw() {
+        return this.aEM;
     }
 
     public void a(D d, S s) {
         E(d);
-        c(s);
+        a(s);
     }
 
     public D getData() {
         return this.data;
     }
 
-    public S EX() {
-        return this.ayC;
-    }
-
     public void E(D d) {
         this.data = d;
     }
 
-    public void c(S s) {
-        this.ayC = s;
+    public void a(S s) {
+        this.aDV = s;
     }
 
     public TbPageContext<?> getPageContext() {

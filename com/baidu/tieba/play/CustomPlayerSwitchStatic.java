@@ -1,11 +1,11 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.b.a {
-    private static int eSg;
+    private static int eVK;
 
     static {
-        com.baidu.adp.lib.b.e.dL().n(CustomPlayerSwitchStatic.class);
-        eSg = 1;
+        com.baidu.adp.lib.b.e.eT().m(CustomPlayerSwitchStatic.class);
+        eVK = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,11 +38,11 @@ public class CustomPlayerSwitchStatic extends com.baidu.adp.lib.b.a {
         return 10;
     }
 
-    public static void qA(int i) {
-        eSg = i;
+    public static void qw(int i) {
+        eVK = i;
     }
 
-    public static int aXX() {
-        return eSg;
+    public static int aXB() {
+        return eVK;
     }
 }

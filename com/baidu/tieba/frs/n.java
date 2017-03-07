@@ -12,85 +12,85 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.f.a;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bGL;
+    final /* synthetic */ FrsActivity bNU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.bGL = frsActivity;
+        this.bNU = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
         bo boVar;
-        com.baidu.tieba.frs.f.am amVar;
+        com.baidu.tieba.frs.f.ao aoVar;
         bo boVar2;
         a aVar;
         com.baidu.tieba.frs.f.ad adVar;
         a aVar2;
-        if (view != this.bGL.bFF.Yv()) {
-            if (view == this.bGL.bFF.Yq()) {
-                ax axVar = this.bGL.bFF;
-                boVar = this.bGL.bFH;
+        if (view != this.bNU.bMN.Zu()) {
+            if (view == this.bNU.bMN.Zp()) {
+                ax axVar = this.bNU.bMN;
+                boVar = this.bNU.bMP;
                 axVar.a(boVar);
-                amVar = this.bGL.bFS;
-                boVar2 = this.bGL.bFH;
-                amVar.a(boVar2);
+                aoVar = this.bNU.bNa;
+                boVar2 = this.bNU.bMP;
+                aoVar.a(boVar2);
                 TiebaStatic.log("c10529");
-                TiebaStatic.eventStat(this.bGL.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
-                this.bGL.bFF.YC();
-                FrsActivityStatic.bGR = false;
-                aVar = this.bGL.bGf;
+                TiebaStatic.eventStat(this.bNU.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
+                this.bNU.bMN.ZB();
+                FrsActivityStatic.bOa = false;
+                aVar = this.bNU.bNn;
                 if (aVar != null) {
-                    aVar2 = this.bGL.bGf;
-                    aVar2.acD();
+                    aVar2 = this.bNU.bNn;
+                    aVar2.adD();
                 }
-                this.bGL.bFF.YT();
-                adVar = this.bGL.bFT;
-                adVar.aap();
-            } else if (view == this.bGL.bFF.Ys()) {
+                this.bNU.bMN.ZS();
+                adVar = this.bNU.bNb;
+                adVar.abm();
+            } else if (view == this.bNU.bMN.Zr()) {
                 long j = 0;
-                if (this.bGL.bFG != null && this.bGL.bFG.getUserData() != null && !StringUtils.isNull(this.bGL.bFG.getUserData().getUserId())) {
-                    str = this.bGL.bFG.getUserData().getUserId();
+                if (this.bNU.bMO != null && this.bNU.bMO.getUserData() != null && !StringUtils.isNull(this.bNU.bMO.getUserData().getUserId())) {
+                    str = this.bNU.bMO.getUserData().getUserId();
                 } else {
                     str = "";
                 }
-                if (this.bGL.bFG != null) {
-                    j = this.bGL.bFG.bgt();
+                if (this.bNU.bMO != null) {
+                    j = this.bNU.bMO.bgg();
                 }
-                this.bGL.bFF.Yt().setVisibility(4);
+                this.bNU.bMN.Zs().setVisibility(4);
                 ImageView imageView = (ImageView) view;
-                if (this.bGL.XM()) {
-                    com.baidu.tbadk.core.util.ap.b(imageView, r.g.btn_bottle_selector, r.g.btn_bottle_selector);
+                if (this.bNU.YL()) {
+                    com.baidu.tbadk.core.util.aq.b(imageView, w.g.btn_bottle_selector, w.g.btn_bottle_selector);
                 } else {
-                    com.baidu.tbadk.core.util.ap.b(imageView, r.g.d_btn_bottle_selector, r.g.d_btn_bottle_selector);
+                    com.baidu.tbadk.core.util.aq.b(imageView, w.g.d_btn_bottle_selector, w.g.d_btn_bottle_selector);
                 }
-                if (this.bGL.bFF.YS()) {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11946").ab(SapiAccountManager.SESSION_UID, str).g("tid", j));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bGL.getApplicationContext(), String.valueOf(this.bGL.bFG.bgt()))));
+                if (this.bNU.bMN.ZR()) {
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11946").Z(SapiAccountManager.SESSION_UID, str).g("tid", j));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bNU.getApplicationContext(), String.valueOf(this.bNU.bMO.bgg()))));
                 } else {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11944"));
-                    com.baidu.adp.lib.util.k.showToast(this.bGL.getActivity(), r.l.frs_no_drifting_bottle_tip);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bGL.getApplicationContext())));
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11944"));
+                    com.baidu.adp.lib.util.k.showToast(this.bNU.getActivity(), w.l.frs_no_drifting_bottle_tip);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bNU.getApplicationContext())));
                 }
-                this.bGL.bFF.dK(false);
-                b.tQ().putLong("drifting_bottle_tid" + TbadkCoreApplication.getCurrentAccount(), this.bGL.bFG.bgt());
+                this.bNU.bMN.dK(false);
+                b.uo().putLong("drifting_bottle_tid" + TbadkCoreApplication.getCurrentAccount(), this.bNU.bMO.bgg());
             }
         } else {
-            this.bGL.closeActivity();
+            this.bNU.closeActivity();
         }
-        if (view.getId() == r.h.game_activity_egg_layout && com.baidu.adp.lib.util.k.gB()) {
+        if (view.getId() == w.h.game_activity_egg_layout && com.baidu.adp.lib.util.k.hv()) {
             TiebaStatic.log("c10853");
-            if (this.bGL.bFF.YE()) {
-                this.bGL.bFF.YF();
+            if (this.bNU.bMN.ZD()) {
+                this.bNU.bMN.ZE();
                 return;
             }
-            String activityUrl = this.bGL.bFG.aJY().getYuleData().sO().getActivityUrl();
+            String activityUrl = this.bNU.bMO.aJp().getYuleData().tl().getActivityUrl();
             if (!StringUtils.isNull(activityUrl)) {
-                com.baidu.tbadk.browser.f.v(this.bGL.getPageContext().getPageActivity(), activityUrl);
+                com.baidu.tbadk.browser.f.P(this.bNU.getPageContext().getPageActivity(), activityUrl);
             }
         }
     }

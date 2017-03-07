@@ -7,16 +7,16 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 class a extends HttpMessageListener {
-    final /* synthetic */ CommitGraffitiModel cnv;
+    final /* synthetic */ CommitGraffitiModel coT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(CommitGraffitiModel commitGraffitiModel, int i) {
         super(i);
-        this.cnv = commitGraffitiModel;
+        this.coT = commitGraffitiModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,53 +41,53 @@ class a extends HttpMessageListener {
         String str10;
         String str11;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003081 && (httpResponsedMessage instanceof ResponseCommitGraffitiMessage)) {
-            tVar = this.cnv.cnr;
+            tVar = this.coT.coQ;
             if (tVar != null) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 ResponseCommitGraffitiMessage responseCommitGraffitiMessage = (ResponseCommitGraffitiMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    str7 = this.cnv.threadId;
+                    str7 = this.coT.threadId;
                     messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS, str7));
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    str8 = this.cnv.threadId;
-                    str9 = this.cnv.forumId;
+                    str8 = this.coT.threadId;
+                    str9 = this.coT.forumId;
                     messageManager2.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_VOTE_SUCCESS, new q(str8, str9, null)));
-                    tVar5 = this.cnv.cnr;
+                    tVar5 = this.coT.coQ;
                     String errMsg = responseCommitGraffitiMessage.getErrMsg();
-                    str10 = this.cnv.forumId;
-                    str11 = this.cnv.threadId;
+                    str10 = this.coT.forumId;
+                    str11 = this.coT.threadId;
                     tVar5.a(errMsg, str10, str11, responseCommitGraffitiMessage.getGraffitiInfo());
                     if (responseCommitGraffitiMessage.getGraffitiInfo() != null) {
-                        TiebaStatic.log(new ar("c11001").ab("obj_id", String.valueOf(responseCommitGraffitiMessage.getGraffitiInfo().getGid())).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 3));
+                        TiebaStatic.log(new as("c11001").Z("obj_id", String.valueOf(responseCommitGraffitiMessage.getGraffitiInfo().getGid())).s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 3));
                     }
                 } else if (error != 224011) {
-                    tVar2 = this.cnv.cnr;
+                    tVar2 = this.coT.coQ;
                     int error2 = responseCommitGraffitiMessage.getError();
                     String errorString = responseCommitGraffitiMessage.getErrorString();
-                    str = this.cnv.cns;
+                    str = this.coT.coR;
                     tVar2.a(error2, errorString, null, null, null, null, 0, 0, str);
                 } else {
                     com.baidu.tbadk.coreExtra.data.q vCodeData = responseCommitGraffitiMessage.getVCodeData();
-                    if (vCodeData == null || !"4".equals(vCodeData.xM()) || !responseCommitGraffitiMessage.isNeedVcode()) {
-                        tVar3 = this.cnv.cnr;
+                    if (vCodeData == null || !"4".equals(vCodeData.yi()) || !responseCommitGraffitiMessage.isNeedVcode()) {
+                        tVar3 = this.coT.coQ;
                         int error3 = responseCommitGraffitiMessage.getError();
                         String errorString2 = responseCommitGraffitiMessage.getErrorString();
-                        str2 = this.cnv.cns;
+                        str2 = this.coT.coR;
                         tVar3.a(error3, errorString2, null, null, null, null, 0, 0, str2);
                         return;
                     }
-                    tVar4 = this.cnv.cnr;
+                    tVar4 = this.coT.coQ;
                     int error4 = responseCommitGraffitiMessage.getError();
                     String errorString3 = responseCommitGraffitiMessage.getErrorString();
                     com.baidu.tbadk.coreExtra.data.q vCodeData2 = responseCommitGraffitiMessage.getVCodeData();
-                    str3 = this.cnv.forumId;
-                    str4 = this.cnv.threadId;
-                    str5 = this.cnv.picId;
-                    i = this.cnv.width;
-                    i2 = this.cnv.height;
-                    str6 = this.cnv.cns;
+                    str3 = this.coT.forumId;
+                    str4 = this.coT.threadId;
+                    str5 = this.coT.picId;
+                    i = this.coT.width;
+                    i2 = this.coT.height;
+                    str6 = this.coT.coR;
                     tVar4.a(error4, errorString3, vCodeData2, str3, str4, str5, i, i2, str6);
                 }
             }

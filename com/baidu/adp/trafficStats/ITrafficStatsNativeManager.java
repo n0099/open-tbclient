@@ -6,28 +6,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class ITrafficStatsNativeManager extends OrmObject {
-    private static volatile ITrafficStatsNativeManager yI = null;
-    private static ArrayList<a> yJ = new ArrayList<>();
+    private static volatile ITrafficStatsNativeManager FW = null;
+    private static ArrayList<a> FX = new ArrayList<>();
 
     public abstract void a(String str, long j, long j2, String str2);
 
-    public static ITrafficStatsNativeManager jp() {
-        if (yI == null) {
+    public static ITrafficStatsNativeManager kj() {
+        if (FW == null) {
             BdLog.e("trafficStatsManaer");
-            yI = new com.baidu.adp.trafficStats.a();
+            FW = new com.baidu.adp.trafficStats.a();
         }
-        return yI;
+        return FW;
     }
 
     public static void a(ITrafficStatsNativeManager iTrafficStatsNativeManager) {
-        yI = iTrafficStatsNativeManager;
-        if (yI != null) {
-            Iterator<a> it = yJ.iterator();
+        FW = iTrafficStatsNativeManager;
+        if (FW != null) {
+            Iterator<a> it = FX.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                yI.a(next.contentType, next.yK, next.yL, next.url);
+                FW.a(next.contentType, next.FY, next.FZ, next.url);
             }
-            yJ.clear();
+            FX.clear();
         }
     }
 
@@ -38,15 +38,15 @@ public abstract class ITrafficStatsNativeManager extends OrmObject {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a {
+        public long FY;
+        public long FZ;
         public String contentType;
         public String url;
-        public long yK;
-        public long yL;
 
         public a(String str, long j, long j2, String str2) {
             this.contentType = str;
-            this.yK = j;
-            this.yL = j2;
+            this.FY = j;
+            this.FZ = j2;
             this.url = str2;
         }
     }

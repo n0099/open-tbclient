@@ -7,13 +7,13 @@ import tbclient.Personalized.TagInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ RecommendFrsControlFragment cud;
+    final /* synthetic */ RecommendFrsControlFragment cvC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(RecommendFrsControlFragment recommendFrsControlFragment, int i) {
         super(i);
-        this.cud = recommendFrsControlFragment;
+        this.cvC = recommendFrsControlFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,12 +26,12 @@ public class e extends CustomMessageListener {
             Object data = customResponsedMessage.getData();
             if (data instanceof TagInfo) {
                 TagInfo tagInfo = (TagInfo) data;
-                scrollFragmentTabHost = this.cud.ctP;
+                scrollFragmentTabHost = this.cvC.cvo;
                 if (scrollFragmentTabHost != null) {
-                    scrollFragmentTabHost2 = this.cud.ctP;
+                    scrollFragmentTabHost2 = this.cvC.cvo;
                     int bk = scrollFragmentTabHost2.bk(tagInfo.tag_code.longValue());
                     if (bk >= 0) {
-                        scrollFragmentTabHost3 = this.cud.ctP;
+                        scrollFragmentTabHost3 = this.cvC.cvo;
                         scrollFragmentTabHost3.setCurrentTab(bk);
                     }
                 }

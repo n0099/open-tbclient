@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a fEt;
+    final /* synthetic */ a fIU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.fEt = aVar;
+        this.fIU = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,31 +31,31 @@ public class d implements View.OnClickListener {
         PbActivity pbActivity4;
         List list;
         VoteDataInfo voteDataInfo3;
-        if (view.getId() == r.h.btn_pb_vote) {
-            pbActivity = this.fEt.ehi;
+        if (view.getId() == w.h.btn_pb_vote) {
+            pbActivity = this.fIU.eka;
             if (pbActivity != null) {
-                pbActivity2 = this.fEt.ehi;
+                pbActivity2 = this.fIU.eka;
                 if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.fEt.fEo;
+                    voteDataInfo = this.fIU.fIP;
                     if (voteDataInfo != null) {
-                        j = this.fEt.mForumId;
+                        j = this.fIU.mForumId;
                         if (j > 0) {
-                            j2 = this.fEt.mThreadId;
+                            j2 = this.fIU.mThreadId;
                             if (j2 > 0) {
-                                z = this.fEt.fEq;
+                                z = this.fIU.fIR;
                                 if (!z) {
-                                    pbActivity3 = this.fEt.ehi;
+                                    pbActivity3 = this.fIU.eka;
                                     AddVoteModel addVoteModel = new AddVoteModel(pbActivity3);
                                     StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.fEt.fEo;
+                                    voteDataInfo2 = this.fIU.fIP;
                                     List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
                                     if (options != null) {
                                         for (com.baidu.tbadk.widget.vote.a aVar : options) {
                                             if (aVar != null && aVar.isSelected()) {
                                                 sb.append(aVar.getId()).append(",");
-                                                list = this.fEt.fEp;
+                                                list = this.fIU.fIQ;
                                                 list.add((f) aVar);
-                                                voteDataInfo3 = this.fEt.fEo;
+                                                voteDataInfo3 = this.fIU.fIP;
                                                 if (voteDataInfo3.getIsMulti() != 1) {
                                                     break;
                                                 }
@@ -65,14 +65,14 @@ public class d implements View.OnClickListener {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
                                         if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.fEt.ehi;
-                                            UtilHelper.showToast(pbActivity4.getActivity(), r.l.vote_checked_less_one);
+                                            pbActivity4 = this.fIU.eka;
+                                            UtilHelper.showToast(pbActivity4.getActivity(), w.l.vote_checked_less_one);
                                             return;
                                         }
-                                        j3 = this.fEt.mForumId;
-                                        j4 = this.fEt.mThreadId;
+                                        j3 = this.fIU.mForumId;
+                                        j4 = this.fIU.mThreadId;
                                         addVoteModel.a(j3, j4, sb.toString());
-                                        this.fEt.fEq = true;
+                                        this.fIU.fIR = true;
                                     }
                                 }
                             }

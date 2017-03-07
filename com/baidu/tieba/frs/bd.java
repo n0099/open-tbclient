@@ -7,14 +7,14 @@ import android.widget.AbsListView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class bd extends at<be, bf> {
-    private final int bHR;
+    private final int bPa;
 
     public bd(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.bHR = (com.baidu.adp.lib.util.k.J(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds90);
+        this.bPa = (com.baidu.adp.lib.util.k.ah(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class bd extends at<be, bf> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: t */
     public bf onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(r.j.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bHR));
+        View inflate = LayoutInflater.from(this.mContext).inflate(w.j.frs_no_list_item_view, viewGroup, false);
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.bPa));
         return new bf(inflate);
     }
 
@@ -33,12 +33,12 @@ public class bd extends at<be, bf> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, be beVar, bf bfVar) {
         super.onFillViewHolder(i, view, viewGroup, beVar, bfVar);
-        if (beVar.YX() == 6) {
-            bfVar.bHU.setText(r.l.attention_no_post_tip);
+        if (beVar.ZW() == 6) {
+            bfVar.bPd.setText(w.l.attention_no_post_tip);
         } else {
-            bfVar.bHU.setText(r.l.no_data_text);
+            bfVar.bPd.setText(w.l.no_data_text);
         }
-        com.baidu.tbadk.core.util.ap.c(bfVar.bHU, r.e.cp_cont_d, 1);
+        com.baidu.tbadk.core.util.aq.c(bfVar.bPd, w.e.cp_cont_d, 1);
         return view;
     }
 }

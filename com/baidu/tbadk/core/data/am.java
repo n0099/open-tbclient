@@ -1,53 +1,33 @@
 package com.baidu.tbadk.core.data;
+
+import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class am {
-    private long Rr;
-    private String Rs;
-    private String content;
-    private String link;
-    private String stat;
-    private long taskId;
+    private String WD;
+    public SparseArray<String> WE = null;
+    private String fid;
 
-    public am() {
-        this.Rr = -1L;
-        this.link = null;
-        this.content = null;
-        this.Rs = null;
-        this.stat = "";
-        this.taskId = -1L;
+    public String getTid() {
+        return this.WD;
     }
 
-    public am(long j, long j2, String str, String str2, String str3) {
-        this.Rr = -1L;
-        this.link = null;
-        this.content = null;
-        this.Rs = null;
-        this.stat = "";
-        this.taskId = -1L;
-        this.Rr = j;
-        this.taskId = j2;
-        this.link = str;
-        this.content = str2;
-        this.stat = str3;
+    public void ci(String str) {
+        this.WD = str;
     }
 
-    public String getStat() {
-        return this.stat;
+    public String getFid() {
+        return this.fid;
     }
 
-    public long qr() {
-        return this.Rr;
+    public void setFid(long j) {
+        this.fid = String.valueOf(j);
     }
 
-    public long getTaskId() {
-        return this.taskId;
+    public SparseArray<String> qJ() {
+        return this.WE;
     }
 
-    public String getLink() {
-        return this.link;
-    }
-
-    public String getContent() {
-        return this.content;
+    public void a(SparseArray<String> sparseArray) {
+        this.WE = sparseArray;
     }
 }

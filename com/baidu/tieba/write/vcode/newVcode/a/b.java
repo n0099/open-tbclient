@@ -14,11 +14,11 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements NewWriteModel.d {
-    final /* synthetic */ a fIJ;
+    final /* synthetic */ a fNd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.fIJ = aVar;
+        this.fNd = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -33,34 +33,34 @@ public class b implements NewWriteModel.d {
         String str2;
         NewVcodeView newVcodeView5;
         String str3 = null;
-        newVcodeView = this.fIJ.fIG;
+        newVcodeView = this.fNd.fNa;
         if (newVcodeView != null) {
-            newVcodeView2 = this.fIJ.fIG;
+            newVcodeView2 = this.fNd.fNa;
             newVcodeView2.showPostThreadLoadingView(false);
             if (z) {
-                this.fIJ.fIH = postWriteCallBackData;
-                if (qVar == null || qVar.xN() == null) {
+                this.fNd.fNb = postWriteCallBackData;
+                if (qVar == null || qVar.yj() == null) {
                     str = null;
                     str2 = null;
                 } else {
-                    str2 = qVar.xN().endPoint;
-                    str = qVar.xN().successImg;
-                    str3 = qVar.xN().slideEndPoint;
+                    str2 = qVar.yj().endPoint;
+                    str = qVar.yj().successImg;
+                    str3 = qVar.yj().slideEndPoint;
                 }
-                newVcodeView5 = this.fIJ.fIG;
+                newVcodeView5 = this.fNd.fNa;
                 newVcodeView5.runJsMethod(ImagesInvalidReceiver.SUCCESS, String.valueOf(str) + "," + str2 + "," + str3);
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                newVcodeView3 = this.fIJ.fIG;
+                newVcodeView3 = this.fNd.fNa;
                 newVcodeView3.getContext().setVisible(false);
                 MessageManager messageManager = MessageManager.getInstance();
-                newVcodeView4 = this.fIJ.fIG;
+                newVcodeView4 = this.fNd.fNa;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(newVcodeView4.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
             } else {
-                dVar = this.fIJ.fII;
+                dVar = this.fNd.fNc;
                 if (dVar == null) {
                     return;
                 }
-                dVar2 = this.fIJ.fII;
+                dVar2 = this.fNd.fNc;
                 dVar2.callback(false, postWriteCallBackData, qVar, writeData, antiData);
             }
         }

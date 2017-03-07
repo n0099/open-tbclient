@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements NoPressedRelativeLayout.a {
-    final /* synthetic */ i bVC;
+    final /* synthetic */ i ccU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(i iVar) {
-        this.bVC = iVar;
+        this.ccU = iVar;
     }
 
     @Override // com.baidu.tbadk.core.view.NoPressedRelativeLayout.a
@@ -17,28 +17,28 @@ public class t implements NoPressedRelativeLayout.a {
         NoPressedRelativeLayout noPressedRelativeLayout;
         NoPressedRelativeLayout noPressedRelativeLayout2;
         NoPressedRelativeLayout noPressedRelativeLayout3;
-        if (motionEvent != null && this.bVC.bVi != null && !this.bVC.bVi.QO()) {
+        if (motionEvent != null && this.ccU.ccA != null && !this.ccU.ccA.RG()) {
             if (motionEvent.getAction() == 0) {
-                noPressedRelativeLayout3 = this.bVC.bUK;
+                noPressedRelativeLayout3 = this.ccU.ccc;
                 noPressedRelativeLayout3.setNeedInterceptTouchEvent(false);
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                if (!this.bVC.bVi.gG(1)) {
-                    noPressedRelativeLayout2 = this.bVC.bUK;
+                if (!this.ccU.ccA.gD(1)) {
+                    noPressedRelativeLayout2 = this.ccU.ccc;
                     noPressedRelativeLayout2.setNeedInterceptTouchEvent(true);
-                    if (this.bVC.bVw != null) {
-                        this.bVC.bVw.setVisibility(8);
+                    if (this.ccU.ccO != null) {
+                        this.ccU.ccO.setVisibility(8);
                     }
-                    this.bVC.bVi.QL();
+                    this.ccU.ccA.RD();
                     return;
                 }
-                noPressedRelativeLayout = this.bVC.bUK;
+                noPressedRelativeLayout = this.ccU.ccc;
                 noPressedRelativeLayout.setNeedInterceptTouchEvent(false);
-                this.bVC.bVl.setVisibility(8);
-                this.bVC.bVm.setVisibility(8);
-                this.bVC.bVn.setVisibility(8);
-                this.bVC.bVo.setVisibility(8);
-                this.bVC.bVp.setVisibility(8);
-                this.bVC.bVi.QM();
+                this.ccU.ccD.setVisibility(8);
+                this.ccU.ccE.setVisibility(8);
+                this.ccU.ccF.setVisibility(8);
+                this.ccU.ccG.setVisibility(8);
+                this.ccU.ccH.setVisibility(8);
+                this.ccU.ccA.RE();
             }
         }
     }

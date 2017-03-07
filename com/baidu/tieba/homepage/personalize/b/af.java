@@ -6,22 +6,22 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends CustomMessageListener {
-    final /* synthetic */ ad cyU;
+    final /* synthetic */ ad cAq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(ad adVar, int i) {
         super(i);
-        this.cyU = adVar;
+        this.cAq = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-        if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().vJ) {
+        if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().CX) {
             return;
         }
-        this.cyU.Q(updateAttentionMessage.getData());
+        this.cAq.Q(updateAttentionMessage.getData());
     }
 }

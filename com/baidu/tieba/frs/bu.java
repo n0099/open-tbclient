@@ -3,21 +3,21 @@ package com.baidu.tieba.frs;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class bu {
-    private static bu bIS = new bu();
-    private SparseArray<bv> bIR = new SparseArray<>();
+    private static bu bQb = new bu();
+    private SparseArray<bv> bQa = new SparseArray<>();
 
     private bu() {
     }
 
-    public static bu Ze() {
-        return bIS;
+    public static bu aad() {
+        return bQb;
     }
 
     public void a(int i, bv bvVar) {
-        this.bIR.put(i, bvVar);
+        this.bQa.put(i, bvVar);
     }
 
-    public bv hV(int i) {
-        return this.bIR.get(i);
+    public bv hR(int i) {
+        return this.bQa.get(i);
     }
 }

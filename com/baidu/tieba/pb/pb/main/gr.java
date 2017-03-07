@@ -4,11 +4,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes.dex */
 class gr implements PbModel.a {
-    final /* synthetic */ ReaderPbService eqq;
+    final /* synthetic */ ReaderPbService etx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gr(ReaderPbService readerPbService) {
-        this.eqq = readerPbService;
+        this.etx = readerPbService;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
@@ -22,25 +22,25 @@ class gr implements PbModel.a {
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
     public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
         boolean z2;
-        ei eiVar;
-        el elVar;
-        ei eiVar2;
-        el elVar2;
-        el elVar3;
-        el elVar4;
-        z2 = this.eqq.isAlive;
+        ej ejVar;
+        em emVar;
+        ej ejVar2;
+        em emVar2;
+        em emVar3;
+        em emVar4;
+        z2 = this.etx.isAlive;
         if (!z2) {
-            eiVar = this.eqq.mReaderManager;
-            if (eiVar != null) {
-                elVar = this.eqq.mReaderModel;
-                if (elVar != null) {
-                    eiVar2 = this.eqq.mReaderManager;
-                    elVar2 = this.eqq.mReaderModel;
-                    com.baidu.tieba.pb.data.f pbData = elVar2.getPbData();
-                    elVar3 = this.eqq.mReaderModel;
-                    boolean aNg = elVar3.aNg();
-                    elVar4 = this.eqq.mReaderModel;
-                    eiVar2.b(pbData, aNg, i2, elVar4.aNh());
+            ejVar = this.etx.mReaderManager;
+            if (ejVar != null) {
+                emVar = this.etx.mReaderModel;
+                if (emVar != null) {
+                    ejVar2 = this.etx.mReaderManager;
+                    emVar2 = this.etx.mReaderModel;
+                    com.baidu.tieba.pb.data.f pbData = emVar2.getPbData();
+                    emVar3 = this.etx.mReaderModel;
+                    boolean aMz = emVar3.aMz();
+                    emVar4 = this.etx.mReaderModel;
+                    ejVar2.b(pbData, aMz, i2, emVar4.aMA());
                 }
             }
         }

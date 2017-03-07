@@ -5,5 +5,5 @@ import java.util.List;
 public interface f {
     int a(c cVar, List<String> list, int i, int i2);
 
-    int fs(int i);
+    int fl(int i);
 }

@@ -8,32 +8,32 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
 public class o {
-    private static float cEC = 8.0f;
-    private static float cED;
-    private final a cEA;
-    private final boolean cEB;
-    private final a cEz;
+    private static float cFY = 8.0f;
+    private static float cFZ;
+    private final a cFV;
+    private final a cFW;
+    private final boolean cFX;
     private Interpolator mInterpolator;
     private int mMode;
 
     static {
-        cED = 1.0f;
-        cED = 1.0f / Z(1.0f);
+        cFZ = 1.0f;
+        cFZ = 1.0f / V(1.0f);
     }
 
     public o(Context context) {
         this(context, null);
     }
 
-    public static float Z(float f) {
+    public static float V(float f) {
         float exp;
-        float f2 = cEC * f;
+        float f2 = cFY * f;
         if (f2 < 1.0f) {
             exp = f2 - (1.0f - ((float) Math.exp(-f2)));
         } else {
             exp = ((1.0f - ((float) Math.exp(1.0f - f2))) * (1.0f - 0.36787945f)) + 0.36787945f;
         }
-        return exp * cED;
+        return exp * cFZ;
     }
 
     public o(Context context, Interpolator interpolator) {
@@ -42,9 +42,9 @@ public class o {
 
     public o(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
-        this.cEB = z;
-        this.cEz = new a(context);
-        this.cEA = new a(context);
+        this.cFX = z;
+        this.cFV = new a(context);
+        this.cFW = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,20 +53,20 @@ public class o {
     }
 
     public final void setFriction(float f) {
-        this.cEz.setFriction(f);
-        this.cEA.setFriction(f);
+        this.cFV.setFriction(f);
+        this.cFW.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.cEz.cEL && this.cEA.cEL;
+        return this.cFV.cGh && this.cFW.cGh;
     }
 
     public final int getCurrX() {
-        return this.cEz.cEE;
+        return this.cFV.cGa;
     }
 
     public float getCurrVelocity() {
-        return FloatMath.sqrt((this.cEz.cEH * this.cEz.cEH) + (this.cEA.cEH * this.cEA.cEH));
+        return FloatMath.sqrt((this.cFV.cGd * this.cFV.cGd) + (this.cFW.cGd * this.cFW.cGd));
     }
 
     public boolean computeScrollOffset() {
@@ -76,28 +76,28 @@ public class o {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.cEz.mStartTime;
-                int i = this.cEz.BF;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.cFV.mStartTime;
+                int i = this.cFV.IT;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
-                        interpolation = Z(f);
+                        interpolation = V(f);
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.cEz.aa(interpolation);
-                    this.cEA.aa(interpolation);
+                    this.cFV.W(interpolation);
+                    this.cFW.W(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.cEz.cEL && !this.cEz.amb() && !this.cEz.ama()) {
-                    this.cEz.finish();
+                if (!this.cFV.cGh && !this.cFV.aln() && !this.cFV.alm()) {
+                    this.cFV.finish();
                 }
-                if (!this.cEA.cEL && !this.cEA.amb() && !this.cEA.ama()) {
-                    this.cEA.finish();
+                if (!this.cFW.cGh && !this.cFW.aln() && !this.cFW.alm()) {
+                    this.cFW.finish();
                     break;
                 }
                 break;
@@ -107,13 +107,13 @@ public class o {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.cEz.B(i, i3, i5);
-        this.cEA.B(i2, i4, i5);
+        this.cFV.B(i, i3, i5);
+        this.cFW.B(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.cEz.C(i, i3, i4) || this.cEA.C(i2, i5, i6);
+        return this.cFV.C(i, i3, i4) || this.cFW.C(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -122,57 +122,57 @@ public class o {
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
-        if (this.cEB && !isFinished()) {
-            float f = this.cEz.cEH;
-            float f2 = this.cEA.cEH;
+        if (this.cFX && !isFinished()) {
+            float f = this.cFV.cGd;
+            float f2 = this.cFW.cGd;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.cEz.e(i, i11, i5, i6, i9);
-                this.cEA.e(i2, i4, i7, i8, i10);
+                this.cFV.e(i, i11, i5, i6, i9);
+                this.cFW.e(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.cEz.e(i, i11, i5, i6, i9);
-        this.cEA.e(i2, i4, i7, i8, i10);
+        this.cFV.e(i, i11, i5, i6, i9);
+        this.cFW.e(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.cEz.G(i, i2, i3);
+        this.cFV.G(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.cEz.finish();
-        this.cEA.finish();
+        this.cFV.finish();
+        this.cFW.finish();
     }
 
     public boolean h(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.cEz.cEF - this.cEz.mStart)) && Math.signum(f2) == Math.signum((float) (this.cEA.cEF - this.cEA.mStart));
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.cFV.cGb - this.cFV.mStart)) && Math.signum(f2) == Math.signum((float) (this.cFW.cGb - this.cFW.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static float cEP = (float) (Math.log(0.78d) / Math.log(0.9d));
-        private static final float[] cEQ = new float[101];
-        private static final float[] cER = new float[101];
-        private int BF;
-        private int cEE;
-        private int cEF;
-        private int cEG;
-        private float cEH;
-        private float cEI;
-        private int cEJ;
-        private int cEK;
-        private int cEM;
-        private float cEO;
+        private static float cGl = (float) (Math.log(0.78d) / Math.log(0.9d));
+        private static final float[] cGm = new float[101];
+        private static final float[] cGn = new float[101];
+        private int IT;
+        private int cGa;
+        private int cGb;
+        private int cGc;
+        private float cGd;
+        private float cGe;
+        private int cGf;
+        private int cGg;
+        private int cGi;
+        private float cGk;
         private int mStart;
         private long mStartTime;
-        private float cEN = ViewConfiguration.getScrollFriction();
+        private float cGj = ViewConfiguration.getScrollFriction();
         private int mState = 0;
-        private boolean cEL = true;
+        private boolean cGh = true;
 
         static {
             float f;
@@ -198,7 +198,7 @@ public class o {
                         f9 = f;
                     }
                 }
-                cEQ[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
+                cGm[i] = (f * f * f) + (f2 * (((1.0f - f) * 0.5f) + f));
                 float f11 = 1.0f;
                 while (true) {
                     f3 = ((f11 - f5) / 2.0f) + f5;
@@ -212,28 +212,28 @@ public class o {
                         f5 = f3;
                     }
                 }
-                cER[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
+                cGn[i] = (f3 * f3 * f3) + ((((1.0f - f3) * 0.175f) + (0.35000002f * f3)) * f4);
                 i++;
                 f6 = f9;
             }
-            float[] fArr = cEQ;
-            cER[100] = 1.0f;
+            float[] fArr = cGm;
+            cGn[100] = 1.0f;
             fArr[100] = 1.0f;
         }
 
         void setFriction(float f) {
-            this.cEN = f;
+            this.cGj = f;
         }
 
         a(Context context) {
-            this.cEO = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
+            this.cGk = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
         }
 
-        void aa(float f) {
-            this.cEE = this.mStart + Math.round((this.cEF - this.mStart) * f);
+        void W(float f) {
+            this.cGa = this.mStart + Math.round((this.cGb - this.mStart) * f);
         }
 
-        private static float kX(int i) {
+        private static float kB(int i) {
             return i > 0 ? -2000.0f : 2000.0f;
         }
 
@@ -242,63 +242,63 @@ public class o {
             int i4 = (int) (100.0f * abs);
             if (i4 < 100) {
                 float f = i4 / 100.0f;
-                float f2 = cER[i4];
-                this.BF = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (cER[i4 + 1] - f2)) + f2) * this.BF);
+                float f2 = cGn[i4];
+                this.IT = (int) (((((abs - f) / (((i4 + 1) / 100.0f) - f)) * (cGn[i4 + 1] - f2)) + f2) * this.IT);
             }
         }
 
         void B(int i, int i2, int i3) {
-            this.cEL = false;
+            this.cGh = false;
             this.mStart = i;
-            this.cEF = i + i2;
+            this.cGb = i + i2;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-            this.BF = i3;
-            this.cEI = 0.0f;
-            this.cEG = 0;
+            this.IT = i3;
+            this.cGe = 0.0f;
+            this.cGc = 0;
         }
 
         void finish() {
-            this.cEE = this.cEF;
-            this.cEL = true;
+            this.cGa = this.cGb;
+            this.cGh = true;
         }
 
         boolean C(int i, int i2, int i3) {
-            this.cEL = true;
-            this.cEF = i;
+            this.cGh = true;
+            this.cGb = i;
             this.mStart = i;
-            this.cEG = 0;
+            this.cGc = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-            this.BF = 0;
+            this.IT = 0;
             if (i < i2) {
                 D(i, i2, 0);
             } else if (i > i3) {
                 D(i, i3, 0);
             }
-            return !this.cEL;
+            return !this.cGh;
         }
 
         private void D(int i, int i2, int i3) {
-            this.cEL = false;
+            this.cGh = false;
             this.mState = 1;
             this.mStart = i;
-            this.cEF = i2;
+            this.cGb = i2;
             int i4 = i - i2;
-            this.cEI = kX(i4);
-            this.cEG = -i4;
-            this.cEM = Math.abs(i4);
-            this.BF = (int) (1000.0d * Math.sqrt(((-2.0d) * i4) / this.cEI));
+            this.cGe = kB(i4);
+            this.cGc = -i4;
+            this.cGi = Math.abs(i4);
+            this.IT = (int) (1000.0d * Math.sqrt(((-2.0d) * i4) / this.cGe));
         }
 
         void e(int i, int i2, int i3, int i4, int i5) {
-            this.cEM = i5;
-            this.cEL = false;
-            this.cEG = i2;
-            this.cEH = i2;
-            this.cEJ = 0;
-            this.BF = 0;
+            this.cGi = i5;
+            this.cGh = false;
+            this.cGc = i2;
+            this.cGd = i2;
+            this.cGf = 0;
+            this.IT = 0;
             this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
             this.mStart = i;
-            this.cEE = i;
+            this.cGa = i;
             if (i > i4 || i < i3) {
                 l(i, i3, i4, i2);
                 return;
@@ -306,53 +306,53 @@ public class o {
             this.mState = 0;
             double d = 0.0d;
             if (i2 != 0) {
-                int la = la(i2);
-                this.cEJ = la;
-                this.BF = la;
-                d = kZ(i2);
+                int kE = kE(i2);
+                this.cGf = kE;
+                this.IT = kE;
+                d = kD(i2);
             }
-            this.cEK = (int) (d * Math.signum(i2));
-            this.cEF = this.cEK + i;
-            if (this.cEF < i3) {
-                A(this.mStart, this.cEF, i3);
-                this.cEF = i3;
+            this.cGg = (int) (d * Math.signum(i2));
+            this.cGb = this.cGg + i;
+            if (this.cGb < i3) {
+                A(this.mStart, this.cGb, i3);
+                this.cGb = i3;
             }
-            if (this.cEF > i4) {
-                A(this.mStart, this.cEF, i4);
-                this.cEF = i4;
+            if (this.cGb > i4) {
+                A(this.mStart, this.cGb, i4);
+                this.cGb = i4;
             }
         }
 
-        private double kY(int i) {
-            return Math.log((0.35f * Math.abs(i)) / (this.cEN * this.cEO));
+        private double kC(int i) {
+            return Math.log((0.35f * Math.abs(i)) / (this.cGj * this.cGk));
         }
 
-        private double kZ(int i) {
-            return Math.exp(kY(i) * (cEP / (cEP - 1.0d))) * this.cEN * this.cEO;
+        private double kD(int i) {
+            return Math.exp(kC(i) * (cGl / (cGl - 1.0d))) * this.cGj * this.cGk;
         }
 
-        private int la(int i) {
-            return (int) (Math.exp(kY(i) / (cEP - 1.0d)) * 1000.0d);
+        private int kE(int i) {
+            return (int) (Math.exp(kC(i) / (cGl - 1.0d)) * 1000.0d);
         }
 
         private void E(int i, int i2, int i3) {
-            float f = (-i3) / this.cEI;
-            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.cEI)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.cEI));
+            float f = (-i3) / this.cGe;
+            float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(this.cGe)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.cGe));
             this.mStartTime -= (int) ((sqrt - f) * 1000.0f);
             this.mStart = i2;
-            this.cEG = (int) ((-this.cEI) * sqrt);
+            this.cGc = (int) ((-this.cGe) * sqrt);
         }
 
         private void F(int i, int i2, int i3) {
-            this.cEI = kX(i3 == 0 ? i - i2 : i3);
+            this.cGe = kB(i3 == 0 ? i - i2 : i3);
             E(i, i2, i3);
-            alZ();
+            all();
         }
 
         private void l(int i, int i2, int i3, int i4) {
             if (i > i2 && i < i3) {
                 Log.e("OverScroller", "startAfterEdge called from a valid position");
-                this.cEL = true;
+                this.cGh = true;
                 return;
             }
             boolean z = i > i3;
@@ -360,8 +360,8 @@ public class o {
             int i6 = i - i5;
             if (i6 * i4 >= 0) {
                 F(i, i5, i4);
-            } else if (kZ(i4) > Math.abs(i6)) {
-                e(i, i4, z ? i2 : i, z ? i : i3, this.cEM);
+            } else if (kD(i4) > Math.abs(i6)) {
+                e(i, i4, z ? i2 : i, z ? i : i3, this.cGi);
             } else {
                 D(i, i5, i4);
             }
@@ -369,38 +369,38 @@ public class o {
 
         void G(int i, int i2, int i3) {
             if (this.mState == 0) {
-                this.cEM = i3;
+                this.cGi = i3;
                 this.mStartTime = AnimationUtils.currentAnimationTimeMillis();
-                l(i, i2, i2, (int) this.cEH);
+                l(i, i2, i2, (int) this.cGd);
             }
         }
 
-        private void alZ() {
-            float abs = (this.cEG * this.cEG) / (Math.abs(this.cEI) * 2.0f);
-            float signum = Math.signum(this.cEG);
-            if (abs > this.cEM) {
-                this.cEI = (((-signum) * this.cEG) * this.cEG) / (this.cEM * 2.0f);
-                abs = this.cEM;
+        private void all() {
+            float abs = (this.cGc * this.cGc) / (Math.abs(this.cGe) * 2.0f);
+            float signum = Math.signum(this.cGc);
+            if (abs > this.cGi) {
+                this.cGe = (((-signum) * this.cGc) * this.cGc) / (this.cGi * 2.0f);
+                abs = this.cGi;
             }
-            this.cEM = (int) abs;
+            this.cGi = (int) abs;
             this.mState = 2;
             int i = this.mStart;
-            if (this.cEG <= 0) {
+            if (this.cGc <= 0) {
                 abs = -abs;
             }
-            this.cEF = ((int) abs) + i;
-            this.BF = -((int) ((1000.0f * this.cEG) / this.cEI));
+            this.cGb = ((int) abs) + i;
+            this.IT = -((int) ((1000.0f * this.cGc) / this.cGe));
         }
 
-        boolean ama() {
+        boolean alm() {
             switch (this.mState) {
                 case 0:
-                    if (this.BF < this.cEJ) {
-                        this.mStart = this.cEF;
-                        this.cEG = (int) this.cEH;
-                        this.cEI = kX(this.cEG);
-                        this.mStartTime += this.BF;
-                        alZ();
+                    if (this.IT < this.cGf) {
+                        this.mStart = this.cGb;
+                        this.cGc = (int) this.cGd;
+                        this.cGe = kB(this.cGc);
+                        this.mStartTime += this.IT;
+                        all();
                         break;
                     } else {
                         return false;
@@ -408,49 +408,49 @@ public class o {
                 case 1:
                     return false;
                 case 2:
-                    this.mStartTime += this.BF;
-                    D(this.cEF, this.mStart, 0);
+                    this.mStartTime += this.IT;
+                    D(this.cGb, this.mStart, 0);
                     break;
             }
-            amb();
+            aln();
             return true;
         }
 
-        boolean amb() {
+        boolean aln() {
             long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.mStartTime;
-            if (currentAnimationTimeMillis > this.BF) {
+            if (currentAnimationTimeMillis > this.IT) {
                 return false;
             }
             double d = 0.0d;
             switch (this.mState) {
                 case 0:
-                    float f = ((float) currentAnimationTimeMillis) / this.cEJ;
+                    float f = ((float) currentAnimationTimeMillis) / this.cGf;
                     int i = (int) (100.0f * f);
                     float f2 = 1.0f;
                     float f3 = 0.0f;
                     if (i < 100) {
                         float f4 = i / 100.0f;
-                        float f5 = cEQ[i];
-                        f3 = (cEQ[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
+                        float f5 = cGm[i];
+                        f3 = (cGm[i + 1] - f5) / (((i + 1) / 100.0f) - f4);
                         f2 = ((f - f4) * f3) + f5;
                     }
-                    this.cEH = ((f3 * this.cEK) / this.cEJ) * 1000.0f;
-                    d = f2 * this.cEK;
+                    this.cGd = ((f3 * this.cGg) / this.cGf) * 1000.0f;
+                    d = f2 * this.cGg;
                     break;
                 case 1:
-                    float f6 = ((float) currentAnimationTimeMillis) / this.BF;
+                    float f6 = ((float) currentAnimationTimeMillis) / this.IT;
                     float f7 = f6 * f6;
-                    float signum = Math.signum(this.cEG);
-                    d = this.cEM * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
-                    this.cEH = ((-f6) + f7) * signum * this.cEM * 6.0f;
+                    float signum = Math.signum(this.cGc);
+                    d = this.cGi * signum * ((3.0f * f7) - ((2.0f * f6) * f7));
+                    this.cGd = ((-f6) + f7) * signum * this.cGi * 6.0f;
                     break;
                 case 2:
                     float f8 = ((float) currentAnimationTimeMillis) / 1000.0f;
-                    this.cEH = this.cEG + (this.cEI * f8);
-                    d = ((f8 * (this.cEI * f8)) / 2.0f) + (this.cEG * f8);
+                    this.cGd = this.cGc + (this.cGe * f8);
+                    d = ((f8 * (this.cGe * f8)) / 2.0f) + (this.cGc * f8);
                     break;
             }
-            this.cEE = ((int) Math.round(d)) + this.mStart;
+            this.cGa = ((int) Math.round(d)) + this.mStart;
             return true;
         }
     }

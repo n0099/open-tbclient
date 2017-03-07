@@ -5,11 +5,11 @@ import com.baidu.tbadk.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements a.d {
-    final /* synthetic */ MultiImageView aoC;
+    final /* synthetic */ MultiImageView atX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(MultiImageView multiImageView) {
-        this.aoC = multiImageView;
+        this.atX = multiImageView;
     }
 
     @Override // com.baidu.tbadk.widget.a.d
@@ -18,14 +18,14 @@ public class r implements a.d {
         boolean z;
         h hVar2;
         h hVar3;
-        hVar = this.aoC.aov;
+        hVar = this.atX.atQ;
         if (aVar == hVar.getCurrentView()) {
-            z = this.aoC.aoz;
+            z = this.atX.atU;
             if (z) {
-                hVar2 = this.aoC.aov;
+                hVar2 = this.atX.atQ;
                 int childCount = hVar2.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    hVar3 = this.aoC.aov;
+                    hVar3 = this.atX.atQ;
                     View childAt = hVar3.getChildAt(i);
                     if (childAt != null && (childAt instanceof u) && ((u) childAt).getImageView() != aVar) {
                         ((u) childAt).release();

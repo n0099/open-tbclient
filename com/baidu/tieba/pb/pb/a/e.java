@@ -2,42 +2,24 @@ package com.baidu.tieba.pb.pb.a;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.i;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d egt;
-    private final /* synthetic */ String egu;
-    private final /* synthetic */ String egv;
-    private final /* synthetic */ String egw;
+    final /* synthetic */ d eiQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, String str, String str2, String str3) {
-        this.egt = dVar;
-        this.egu = str;
-        this.egv = str2;
-        this.egw = str3;
+    public e(d dVar) {
+        this.eiQ = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        Context context2;
-        PbActivity pbActivity;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.egu) && !StringUtils.isNull(this.egv)) {
-            if (!i.gk()) {
-                pbActivity = this.egt.ehi;
-                pbActivity.showToast(r.l.neterror);
-                return;
-            }
-            context = this.egt.mContext;
-            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.egu) + "," + this.egv, this.egw, this.egw, context.getString(r.l.app_info_for_map));
-            context2 = this.egt.mContext;
-            com.baidu.tbadk.browser.f.u(context2, format);
+        context = this.eiQ.mContext;
+        if (!bg.aI(context)) {
+            return;
         }
+        this.eiQ.a(view, 300L);
     }
 }

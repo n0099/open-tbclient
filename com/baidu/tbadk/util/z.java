@@ -31,10 +31,10 @@ public class z {
         }
     }
 
-    private static Bitmap fp(int i) {
+    private static Bitmap fi(int i) {
         Exception e;
         try {
-            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.l.cW("camera.jpg"));
+            int readPictureDegree = readPictureDegree(com.baidu.tbadk.core.util.l.cP("camera.jpg"));
             Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
                 try {
@@ -51,7 +51,7 @@ public class z {
         }
     }
 
-    private static Bitmap a(Context context, String str, int i) {
+    private static Bitmap e(Context context, String str, int i) {
         try {
             return BitmapHelper.loadResizedBitmap(str, i, i);
         } catch (Exception e) {
@@ -71,10 +71,10 @@ public class z {
 
     public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
         if (i == 12001) {
-            return fp(i2);
+            return fi(i2);
         }
         if (!TextUtils.isEmpty(str)) {
-            return a(context, str, i2);
+            return e(context, str, i2);
         }
         return a(context, uri, i2);
     }

@@ -1,45 +1,31 @@
 package com.baidu.tieba.g;
 
-import android.view.View;
-import android.view.animation.Animation;
-import com.baidu.tieba.g.c;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Animation.AnimationListener {
-    final /* synthetic */ c bAk;
+public class e extends CustomMessageListener {
+    final /* synthetic */ a fdZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.bAk = cVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(a aVar, int i) {
+        super(i);
+        this.fdZ = aVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        View view2;
-        View view3;
-        c.a aVar;
-        c.a aVar2;
-        view = this.bAk.bAd;
-        if (view != null) {
-            view2 = this.bAk.bAd;
-            view2.clearAnimation();
-            view3 = this.bAk.bAd;
-            view3.setVisibility(8);
-            this.bAk.dl(true);
-            aVar = this.bAk.bAa;
-            if (aVar != null) {
-                aVar2 = this.bAk.bAa;
-                aVar2.dm(false);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        if (customResponsedMessage != null && com.baidu.tbadk.core.sharedPref.b.uo().getLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L) < TbadkCoreApplication.m9getInst().getLastUpdateThemeTime()) {
+            this.fdZ.fdL = true;
+            a aVar = this.fdZ;
+            z = this.fdZ.fdL;
+            aVar.fdD = z ? true : this.fdZ.fdD;
+            com.baidu.tbadk.core.sharedPref.b.uo().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            this.fdZ.bae();
         }
     }
 }

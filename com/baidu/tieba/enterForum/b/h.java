@@ -6,13 +6,13 @@ import java.util.List;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class h {
-    ArrayList<g> bxn = new ArrayList<>();
+    ArrayList<g> bEt = new ArrayList<>();
 
-    public List<g> Uo() {
-        return this.bxn;
+    public List<g> Vm() {
+        return this.bEt;
     }
 
-    public void ad(List<RecommendForumInfo> list) {
+    public void aa(List<RecommendForumInfo> list) {
         if (list != null && list.size() > 0) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -20,8 +20,8 @@ public class h {
                     RecommendForumInfo recommendForumInfo = list.get(i);
                     g gVar = new g();
                     if (recommendForumInfo != null && recommendForumInfo.forum_id != null && recommendForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && recommendForumInfo.is_like != null && recommendForumInfo.is_like.intValue() != 1) {
-                        gVar.b(recommendForumInfo);
-                        this.bxn.add(gVar);
+                        gVar.a(recommendForumInfo);
+                        this.bEt.add(gVar);
                     }
                 }
             }

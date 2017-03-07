@@ -1,35 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.AwardUser;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
 public class g {
-    private String Pg;
-    private int Pi;
-    private long mUserId;
-    private String mUserName;
+    private int Ul;
+    private String badge_url;
+    private String webview;
 
-    public long getUserId() {
-        return this.mUserId;
+    public String pz() {
+        return this.badge_url;
     }
 
-    public String getUserName() {
-        return this.mUserName;
+    public String pA() {
+        return String.valueOf(this.Ul);
     }
 
-    public String pi() {
-        return this.Pg;
+    public String pB() {
+        return this.webview;
     }
 
-    public int pk() {
-        return this.Pi;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Ul = jSONObject.optInt("badge_id", 0);
+                this.badge_url = jSONObject.optString("badge_url", "");
+                this.webview = jSONObject.optString("webview");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public void a(AwardUser awardUser) {
-        if (awardUser != null) {
-            this.mUserId = awardUser.user_id.longValue();
-            this.mUserName = awardUser.user_name;
-            this.Pg = awardUser.award_name;
-            this.Pi = awardUser.award_time.intValue();
+    public void a(Badges badges) {
+        if (badges != null) {
+            this.Ul = badges.badge_id.intValue();
+            this.badge_url = badges.badge_url;
+            this.webview = badges.webview;
         }
     }
 }

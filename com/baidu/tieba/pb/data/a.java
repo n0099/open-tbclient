@@ -1,15 +1,15 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.p;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import tbclient.PbPage.GodCard;
 /* loaded from: classes.dex */
-public class a extends p {
-    public static final BdUniqueId eff = BdUniqueId.gen();
-    private String OW;
+public class a extends PostData {
+    public static final BdUniqueId ehA = BdUniqueId.gen();
+    private String TZ;
     private String buttonText;
-    private String efg;
-    private int efh;
+    private String ehB;
+    private int ehC;
     private String picUrl;
     private String portrait;
     private String text;
@@ -19,12 +19,12 @@ public class a extends p {
         if (godCard != null) {
             this.userName = godCard.user_name;
             this.portrait = godCard.portrait;
-            this.efg = godCard.time_ex;
+            this.ehB = godCard.time_ex;
             this.text = godCard.text;
             this.picUrl = godCard.pic_url;
             this.buttonText = godCard.button_text;
-            this.OW = godCard.button_url;
-            this.efh = godCard.show_floor.intValue();
+            this.TZ = godCard.button_url;
+            this.ehC = godCard.show_floor.intValue();
         }
     }
 
@@ -36,9 +36,9 @@ public class a extends p {
         return this.portrait;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.p
-    public String aJM() {
-        return this.efg;
+    @Override // com.baidu.tieba.tbadkCore.data.PostData
+    public String aJd() {
+        return this.ehB;
     }
 
     public String getText() {
@@ -49,20 +49,20 @@ public class a extends p {
         return this.picUrl;
     }
 
-    public String aJN() {
+    public String aJe() {
         return this.buttonText;
     }
 
-    public String aJO() {
-        return this.OW;
+    public String aJf() {
+        return this.TZ;
     }
 
-    public int aJP() {
-        return this.efh;
+    public int aJg() {
+        return this.ehC;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.p, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eff;
+        return ehA;
     }
 }

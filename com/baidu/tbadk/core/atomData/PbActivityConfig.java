@@ -3,17 +3,18 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;
-    public static final String BIG_PIC_TYPE = "big_pic_type";
+    public static final String BIG_PIC_NAME = "big_pic_type";
     public static final String FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
     public static final String FROM_INTERVIEW_LIVE = "from_interview_live";
     public static final String FROM_READER_SERVICE = "from_reader_service";
     public static final String FROM_SEARCHBOX = "from_searchbox";
     public static final String FROM_VIDEO_LIST = "from_video_list";
+    public static final int INVALID_SMART_FRS_POSITION = -1;
     public static final int KEY_FOR_PRAISE_DATA_NO_ACTION = -1;
     public static final String KEY_FROM = "from";
     public static final String KEY_FROM_FORUM_NAME = "from_forum_name";
@@ -49,6 +50,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_MSG_OP_TYPE = "op_type";
     public static final String KEY_MSG_OP_URL = "op_url";
     public static final String KEY_POST_ID = "post_id";
+    public static final String KEY_SMART_FRS_POSITION = "KEY_SMART_FRS_POSITION";
     public static final String KEY_SQUENCE = "squence";
     public static final String KEY_ST_TYPE = "st_type";
     public static final String KEY_THREAD_ID = "thread_id";
@@ -265,13 +267,13 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bh bhVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bhVar != null) {
+    public PbActivityConfig createFromThreadCfg(bj bjVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bjVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bhVar.getId());
-            intent.putExtra("is_good", bhVar.rt());
-            intent.putExtra("is_top", bhVar.rs());
-            intent.putExtra(KEY_THREAD_TIME, bhVar.rr());
+            intent.putExtra("thread_id", bjVar.getId());
+            intent.putExtra("is_good", bjVar.rN());
+            intent.putExtra("is_top", bjVar.rM());
+            intent.putExtra(KEY_THREAD_TIME, bjVar.rL());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -281,10 +283,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bhVar.rn() == null ? 0L : bhVar.rn().getNum()));
-            if (bhVar.getAuthor() != null && bhVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bhVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bhVar.getAuthor().getGodUserData().getIsLike());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bjVar.rG() == null ? 0L : bjVar.rG().getNum()));
+            if (bjVar.getAuthor() != null && bjVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bjVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bjVar.getAuthor().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -385,6 +387,13 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
+    public void setSmartFrsPosition(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_SMART_FRS_POSITION, i);
+        }
+    }
+
     private void addMoreIntentExtraParam() {
         Intent intent = getIntent();
         if (intent != null && this.mContext != null) {
@@ -402,7 +411,7 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setBigType(boolean z) {
-        getIntent().putExtra(BIG_PIC_TYPE, z);
+    public void setUserName(String str) {
+        getIntent().putExtra(BIG_PIC_NAME, str);
     }
 }

@@ -1,47 +1,43 @@
 package com.baidu.tbadk.core.view;
 
 import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class at implements com.baidu.adp.lib.e.c<HeadImageView> {
-    private final /* synthetic */ Context val$context;
+class at implements View.OnClickListener {
+    final /* synthetic */ UserIconLayout amr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(Context context) {
-        this.val$context = context;
+    public at(UserIconLayout userIconLayout) {
+        this.amr = userIconLayout;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wB */
-    public HeadImageView ex() {
-        return new HeadImageView(this.val$context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void o(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public HeadImageView p(HeadImageView headImageView) {
-        return headImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public HeadImageView q(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-        return headImageView;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        Context context;
+        bj bjVar4;
+        bj bjVar5;
+        bjVar = this.amr.ain;
+        if (bjVar != null) {
+            bjVar2 = this.amr.ain;
+            if (bjVar2.sU() != null) {
+                bjVar3 = this.amr.ain;
+                if (bjVar3.sU().channelId > 0) {
+                    MessageManager messageManager = MessageManager.getInstance();
+                    context = this.amr.mContext;
+                    bjVar4 = this.amr.ain;
+                    long j = bjVar4.sU().channelId;
+                    bjVar5 = this.amr.ain;
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context, j, bjVar5.sU().mCurrentPage)));
+                }
+            }
+        }
     }
 }

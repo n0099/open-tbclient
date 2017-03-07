@@ -6,20 +6,21 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.data.au;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.aw;
+import com.baidu.tbadk.core.data.bj;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import tbclient.BannerList;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
+    private BannerListData bannerListData;
     private ArrayList<v> threadList;
     private HashMap<String, MetaData> userMap;
 
@@ -51,37 +52,40 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.c.a.bad().pU(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.c.a.aZL().pd(threadListResIdl.data.asp_shown_info);
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    bh bhVar = new bh();
-                    bhVar.setUserMap(this.userMap);
-                    bhVar.a(list2.get(i3));
-                    bhVar.aW(3);
-                    bhVar.sd();
-                    if (bhVar.getThreadType() == 33) {
-                        au auVar = new au();
-                        auVar.a(bhVar, 0);
+                    bj bjVar = new bj();
+                    bjVar.setUserMap(this.userMap);
+                    bjVar.a(list2.get(i3));
+                    bjVar.bU(3);
+                    bjVar.sy();
+                    if (bjVar.getThreadType() == 33) {
+                        aw awVar = new aw();
+                        awVar.a(bjVar, 0);
                         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.threadList.add(auVar);
+                            this.threadList.add(awVar);
                         }
-                    } else if (!TextUtils.isEmpty(bhVar.sq())) {
-                        ah ahVar = new ah();
-                        ahVar.co(bhVar.sq());
-                        this.threadList.add(ahVar);
+                    } else if (!TextUtils.isEmpty(bjVar.sL())) {
+                        ai aiVar = new ai();
+                        aiVar.ch(bjVar.sL());
+                        this.threadList.add(aiVar);
                     } else {
-                        this.threadList.add(bhVar);
+                        this.threadList.add(bjVar);
                     }
                 }
             }
+            this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage) && ((LoadMoreRequestMessage) orginalMessage.getExtra()).getPageType() == 1) {
-                addRecAppList(this.threadList, threadListResIdl.data.banner_list);
+                this.bannerListData = new BannerListData();
+                this.bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
             }
         }
     }
 
-    private void addRecAppList(ArrayList<v> arrayList, BannerList bannerList) {
+    public BannerListData getBannerListData() {
+        return this.bannerListData;
     }
 }

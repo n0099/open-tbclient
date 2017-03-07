@@ -11,63 +11,63 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.personCenter.f.g;
 import com.baidu.tieba.personCenter.mode.PersonCenterMode;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private BaseFragmentActivity aQU;
-    private PersonCenterMode eyV;
-    private g eyW;
-    private com.baidu.tieba.personCenter.b.a eyX;
+    private BaseFragmentActivity aXf;
+    private PersonCenterMode eCu;
+    private g eCv;
+    private com.baidu.tieba.personCenter.b.a eCw;
     private boolean mIsLogin;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.aQU = getBaseFragmentActivity();
+        this.aXf = getBaseFragmentActivity();
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eyV = new PersonCenterMode(this.aQU);
+        this.eCu = new PersonCenterMode(this.aXf);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eyW = new g(this.aQU.getPageContext());
-        return this.eyW.onCreateView(layoutInflater, viewGroup, bundle);
+        this.eCv = new g(this.aXf.getPageContext());
+        return this.eCv.onCreateView(layoutInflater, viewGroup, bundle);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.eyW.initUI();
-        this.eyW.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        this.eCv.initUI();
+        this.eCv.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.eyX = new com.baidu.tieba.personCenter.b.a(this.aQU.getPageContext(), this.eyV, this.eyW);
-        this.eyW.setOnViewResponseListener(this.eyX.aQE());
-        this.eyW.a(this.eyX);
+        this.eCw = new com.baidu.tieba.personCenter.b.a(this.aXf.getPageContext(), this.eCu, this.eCv);
+        this.eCv.setOnViewResponseListener(this.eCw.aQh());
+        this.eCv.a(this.eCw);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        com.baidu.tieba.h.a.bap().kC(isPrimary());
+        com.baidu.tieba.g.a.baa().kA(isPrimary());
         if (isPrimary() && this.mIsLogin) {
-            com.baidu.tieba.h.a.bap().baw();
-            if (i.fX()) {
-                this.eyW.Jy();
-                if (!this.eyX.hasData()) {
-                    this.eyW.g(true, getResources().getDimensionPixelSize(r.f.ds480));
+            com.baidu.tieba.g.a.baa().bah();
+            if (i.gS()) {
+                this.eCv.Kd();
+                if (!this.eCw.hasData()) {
+                    this.eCv.g(true, getResources().getDimensionPixelSize(w.f.ds480));
                 }
-                this.eyV.EH();
-            } else if (!this.eyX.hasData()) {
-                this.eyW.G(TbadkCoreApplication.m9getInst().getString(r.l.neterror), true);
+                this.eCu.Fe();
+            } else if (!this.eCw.hasData()) {
+                this.eCv.H(TbadkCoreApplication.m9getInst().getString(w.l.neterror), true);
             }
         }
     }
@@ -75,8 +75,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eyW != null) {
-            this.eyW.onChangeSkinType(i);
+        if (this.eCv != null) {
+            this.eCv.onChangeSkinType(i);
         }
     }
 

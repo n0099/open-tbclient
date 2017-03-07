@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.atomData.GraffitiVcodeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class CommitGraffitiModel extends BdBaseModel {
-    private t cnr;
-    private String cns;
-    private final HttpMessageListener cnu;
+    private t coQ;
+    private String coR;
+    private final HttpMessageListener coS;
     private String forumId;
     private int height;
     private Context mContext;
@@ -22,19 +22,19 @@ public class CommitGraffitiModel extends BdBaseModel {
 
     public CommitGraffitiModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cnu = new a(this, CmdConfigHttp.CMD_COMMIT_GRAFFITI);
+        this.coS = new a(this, CmdConfigHttp.CMD_COMMIT_GRAFFITI);
         this.mContext = baseActivity.getActivity();
         registerListener();
     }
 
     private void registerListener() {
-        this.cnu.setTag(getUniqueId());
-        this.cnu.setSelfListener(true);
-        registerListener(this.cnu);
+        this.coS.setTag(getUniqueId());
+        this.coS.setSelfListener(true);
+        registerListener(this.coS);
     }
 
     public void a(t tVar) {
-        this.cnr = tVar;
+        this.coQ = tVar;
     }
 
     public void a(String str, String str2, String str3, int i, int i2, String str4, String str5, String str6) {
@@ -43,7 +43,7 @@ public class CommitGraffitiModel extends BdBaseModel {
         this.picId = str3;
         this.width = i;
         this.height = i2;
-        this.cns = str4;
+        this.coR = str4;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_COMMIT_GRAFFITI);
         httpMessage.addParam("tid", str);
         httpMessage.addParam("fid", str2);

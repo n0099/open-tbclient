@@ -3,35 +3,35 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class e {
-    private final TbPageContext<?> Fp;
-    private final int ajb;
-    private final int ajc;
-    private final boolean ajd;
+    private final TbPageContext<?> aaI;
+    private final boolean aoA;
+    private final int aoy;
+    private final int aoz;
 
     public e(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
-        this.Fp = tbPageContext;
-        this.ajb = i;
-        this.ajc = i2;
-        this.ajd = z;
+        this.aaI = tbPageContext;
+        this.aoy = i;
+        this.aoz = i2;
+        this.aoA = z;
     }
 
     public e(TbPageContext<?> tbPageContext, int i, int i2) {
         this(tbPageContext, i, i2, false);
     }
 
-    public TbPageContext<?> xv() {
-        return this.Fp;
+    public TbPageContext<?> xR() {
+        return this.aaI;
     }
 
-    public int xw() {
-        return this.ajb;
+    public int xS() {
+        return this.aoy;
     }
 
-    public int xx() {
-        return this.ajc;
+    public int xT() {
+        return this.aoz;
     }
 
     public boolean isAvailable() {
-        return this.Fp != null && this.ajb > 0 && this.ajc > 0;
+        return this.aaI != null && this.aoy > 0 && this.aoz > 0;
     }
 }

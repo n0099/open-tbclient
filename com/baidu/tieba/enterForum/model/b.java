@@ -22,10 +22,10 @@ public class b {
 
     public static int a(float f, int i, int i2) {
         int i3 = 0;
-        if (f < i / 2) {
+        if (f < i / 2.0f) {
             i3 = ((int) f) - (i / 2);
         }
-        if (f > i2 - (i / 2)) {
+        if (f > i2 - (i / 2.0f)) {
             return (((int) f) - i2) + (i / 2);
         }
         return i3;

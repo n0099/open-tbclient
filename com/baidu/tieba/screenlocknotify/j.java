@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Handler {
-    final /* synthetic */ i fah;
+    final /* synthetic */ i feD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.fah = iVar;
+        this.feD = iVar;
     }
 
     @Override // android.os.Handler

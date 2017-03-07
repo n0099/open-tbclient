@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.adp.lib.stats.a;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.squareup.wire.Wire;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 /* loaded from: classes.dex */
@@ -39,11 +39,11 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
         if (getError() == 0) {
             if (commitPersonalMsgResIdl.data == null) {
-                a.eG().b("im", 0L, (String) null, "comment", "personalchat_resdatanull");
+                BdStatisticsManager.getInstance().error("im", 0L, (String) null, "comment", "personalchat_resdatanull");
             }
             long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(com.baidu.tieba.im.util.g.bL(longValue));
+            setMsgId(com.baidu.tieba.im.util.g.bM(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

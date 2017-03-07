@@ -1,11 +1,11 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes.dex */
 public class f extends b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bh threadData;
+    public bj threadData;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {

@@ -11,37 +11,37 @@ public class i implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> db = cVar.db();
-        if (db == Byte.class || db == Byte.TYPE) {
+        Class<?> ek = cVar.ek();
+        if (ek == Byte.class || ek == Byte.TYPE) {
             return Byte.valueOf(this.value.byteValue());
         }
-        if (db == Short.class || db == Short.TYPE) {
+        if (ek == Short.class || ek == Short.TYPE) {
             return Short.valueOf(this.value.shortValue());
         }
-        if (db == Integer.class || db == Integer.TYPE) {
+        if (ek == Integer.class || ek == Integer.TYPE) {
             return Integer.valueOf(this.value.intValue());
         }
-        if (db == Long.class || db == Long.TYPE) {
+        if (ek == Long.class || ek == Long.TYPE) {
             return Long.valueOf(this.value.longValue());
         }
-        if (db == Float.class || db == Float.TYPE) {
+        if (ek == Float.class || ek == Float.TYPE) {
             return Float.valueOf(this.value.floatValue());
         }
-        if (db == Double.class || db == Double.TYPE) {
+        if (ek == Double.class || ek == Double.TYPE) {
             return Double.valueOf(this.value.doubleValue());
         }
-        if (db == Character.class || db == Character.TYPE) {
+        if (ek == Character.class || ek == Character.TYPE) {
             return Character.valueOf((char) this.value.intValue());
         }
-        if (db == Boolean.class || db == Boolean.TYPE) {
+        if (ek == Boolean.class || ek == Boolean.TYPE) {
             return Boolean.valueOf(this.value.byteValue() == 0);
-        } else if (db == String.class) {
+        } else if (ek == String.class) {
             return String.valueOf(this.value);
         } else {
-            if (db == char[].class) {
+            if (ek == char[].class) {
                 return String.valueOf(this.value).toCharArray();
             }
-            if (db == byte[].class) {
+            if (ek == byte[].class) {
                 try {
                     return com.baidu.adp.lib.util.c.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {

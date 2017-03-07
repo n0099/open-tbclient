@@ -4,10 +4,10 @@ import android.view.View;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 /* loaded from: classes.dex */
 public final class c {
-    private static /* synthetic */ int[] aFK;
+    private static /* synthetic */ int[] aLh;
 
-    static /* synthetic */ int[] He() {
-        int[] iArr = aFK;
+    static /* synthetic */ int[] HD() {
+        int[] iArr = aLh;
         if (iArr == null) {
             iArr = new int[PullToRefreshBase.Orientation.valuesCustom().length];
             try {
@@ -18,7 +18,7 @@ public final class c {
                 iArr[PullToRefreshBase.Orientation.VERTICAL.ordinal()] = 1;
             } catch (NoSuchFieldError e2) {
             }
-            aFK = iArr;
+            aLh = iArr;
         }
         return iArr;
     }
@@ -29,7 +29,7 @@ public final class c {
 
     public static void a(PullToRefreshBase<?> pullToRefreshBase, int i, int i2, int i3, int i4, int i5, int i6, float f, boolean z) {
         int scrollX;
-        switch (He()[pullToRefreshBase.getPullToRefreshScrollDirection().ordinal()]) {
+        switch (HD()[pullToRefreshBase.getPullToRefreshScrollDirection().ordinal()]) {
             case 2:
                 scrollX = pullToRefreshBase.getScrollX();
                 break;
@@ -67,7 +67,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean N(View view) {
+    public static boolean L(View view) {
         return view.getOverScrollMode() != 2;
     }
 }

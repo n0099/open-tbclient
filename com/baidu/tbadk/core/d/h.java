@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private a WD = null;
+    private a abR = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final h WP = new h();
+        private static final h acd = new h();
     }
 
-    public static h tu() {
-        return c.WP;
+    public static h tR() {
+        return c.acd;
     }
 
     public void a(int i, l lVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.WD = new a(i, lVar, null);
-                this.WD.tw();
+                this.abR = new a(i, lVar, null);
+                this.abR.tT();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a WD;
-        private final List<Long> WN = new ArrayList(240);
-        private final List<Integer> WO = new ArrayList(15);
+        protected a abR;
+        private final List<Long> acb = new ArrayList(240);
+        private final List<Integer> acc = new ArrayList(15);
 
         public b(a aVar) {
-            this.WD = aVar;
+            this.abR = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -51,7 +51,7 @@ public class h {
                 switch (parameterTypes.length) {
                     case 1:
                         if (parameterTypes[0] == Long.TYPE) {
-                            o(((Long) objArr[0]).longValue());
+                            n(((Long) objArr[0]).longValue());
                             return null;
                         }
                         return null;
@@ -62,16 +62,16 @@ public class h {
             return null;
         }
 
-        private void o(long j) {
-            this.WN.add(Long.valueOf(j));
-            this.WD.tw();
+        private void n(long j) {
+            this.acb.add(Long.valueOf(j));
+            this.abR.tT();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.WD = null;
-            this.WN.clear();
-            this.WO.clear();
+            this.abR = null;
+            this.acb.clear();
+            this.acc.clear();
         }
     }
 
@@ -79,70 +79,70 @@ public class h {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> WE;
-        private final Object WF;
-        private final Class<?> WG;
-        private final Method WH;
-        private final Object WI;
-        private final Method WJ;
-        private final b WK;
-        private final l WL;
+        private final Class<?> abS;
+        private final Object abT;
+        private final Class<?> abU;
+        private final Method abV;
+        private final Object abW;
+        private final Method abX;
+        private final b abY;
+        private final l abZ;
         private int index;
 
         private a(int i, l lVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.WG = Class.forName("android.view.Choreographer");
-            this.WE = Class.forName("android.view.Choreographer$FrameCallback");
-            this.WK = new b(this);
-            this.WF = Proxy.newProxyInstance(this.WE.getClassLoader(), new Class[]{this.WE}, this.WK);
-            this.WH = this.WG.getMethod("getInstance", new Class[0]);
-            this.WI = this.WH.invoke(null, new Object[0]);
-            this.WJ = this.WG.getMethod("postFrameCallback", this.WE);
+            this.abU = Class.forName("android.view.Choreographer");
+            this.abS = Class.forName("android.view.Choreographer$FrameCallback");
+            this.abY = new b(this);
+            this.abT = Proxy.newProxyInstance(this.abS.getClassLoader(), new Class[]{this.abS}, this.abY);
+            this.abV = this.abU.getMethod("getInstance", new Class[0]);
+            this.abW = this.abV.invoke(null, new Object[0]);
+            this.abX = this.abU.getMethod("postFrameCallback", this.abS);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.WL = lVar;
+            this.abZ = lVar;
         }
 
         /* synthetic */ a(int i, l lVar, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this(i, lVar);
         }
 
-        private void tv() throws InvocationTargetException, IllegalAccessException {
-            this.WJ.invoke(this.WI, this.WF);
+        private void tS() throws InvocationTargetException, IllegalAccessException {
+            this.abX.invoke(this.abW, this.abT);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void tw() {
+        public void tT() {
             if (this.index >= this.MAX_FRAME_COUNT) {
-                com.baidu.adp.lib.g.h.eE().post(new i(this));
+                com.baidu.adp.lib.g.h.fM().post(new i(this));
                 return;
             }
             this.index++;
             try {
-                tv();
+                tS();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> tx() {
-            return this.WK.WN;
+        private List<Long> tU() {
+            return this.abY.acb;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.WK.destroy();
+            this.abY.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> ty() {
+        public List<Long> tV() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> tx = tx();
-            int size = tx.size();
+            List<Long> tU = tU();
+            int size = tU.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(tx.get(i2 + 1).longValue() - tx.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(tU.get(i2 + 1).longValue() - tU.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

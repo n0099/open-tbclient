@@ -5,23 +5,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e {
-    private ImageView ezO;
+    private ImageView eDn;
 
     public e(Context context, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(context).inflate(r.j.item_person_center_extra_red_tip_view, (ViewGroup) null);
-        this.ezO = (ImageView) inflate.findViewById(r.h.person_center_red_tip_extra_img);
+        View inflate = LayoutInflater.from(context).inflate(w.j.item_person_center_extra_red_tip_view, (ViewGroup) null);
+        this.eDn = (ImageView) inflate.findViewById(w.h.person_center_red_tip_extra_img);
         viewGroup.addView(inflate);
     }
 
-    public void pa(int i) {
-        this.ezO.setVisibility(i);
+    public void oW(int i) {
+        this.eDn.setVisibility(i);
     }
 
     public void onChangeSkinType(int i) {
-        ap.c(this.ezO, r.g.icon_news_down_bar_one, i);
+        aq.c(this.eDn, w.g.icon_news_down_bar_one, i);
     }
 }

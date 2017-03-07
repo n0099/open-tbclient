@@ -12,12 +12,12 @@ import com.baidu.cloudsdk.social.share.handler.ISocialShareHandler;
 public class m implements ISocialShareHandler {
     private static final String a = m.class.getSimpleName();
     private Context b;
-    private SocialShare.Theme cO;
     private View d;
+    private SocialShare.Theme kB;
 
     public m(Context context, SocialShare.Theme theme) {
         this.b = context;
-        this.cO = theme;
+        this.kB = theme;
         try {
             if (this.d == null) {
                 Activity activity = (Activity) context;
@@ -36,7 +36,7 @@ public class m implements ISocialShareHandler {
         if (this.d == null && SocialShare.getInstance(this.b).getParentView() == null) {
             Log.e(a, "if you want to show weixin dialog , pls try to add before share SocialShare.getInstance(context).setParentView(getWindow().getDecorView())");
         } else {
-            SocialShare.getInstance(this.b).show(this.d, shareContent, this.cO, iBaiduListener, true);
+            SocialShare.getInstance(this.b).show(this.d, shareContent, this.kB, iBaiduListener, true);
         }
     }
 }

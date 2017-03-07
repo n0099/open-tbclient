@@ -7,54 +7,54 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.frs.ct;
 import com.baidu.tieba.frs.tab.j;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
-    final /* synthetic */ n bTS;
+    final /* synthetic */ n cbe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.bTS = nVar;
+        this.cbe = nVar;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(r.j.tab_item_menu_item_view, (ViewGroup) null);
-            view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(r.f.ds80)));
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(w.j.tab_item_menu_item_view, (ViewGroup) null);
+            view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(w.f.ds80)));
             j.c cVar = new j.c();
-            cVar.name = (TextView) view.findViewById(r.h.tab_menu_name);
-            cVar.bTM = (ImageView) view.findViewById(r.h.tab_menu_check);
-            cVar.bTN = view.findViewById(r.h.tab_menu_line_s);
-            cVar.bTO = view.findViewById(r.h.tab_menu_line_f);
+            cVar.name = (TextView) view.findViewById(w.h.tab_menu_name);
+            cVar.caY = (ImageView) view.findViewById(w.h.tab_menu_check);
+            cVar.caZ = view.findViewById(w.h.tab_menu_line_s);
+            cVar.cba = view.findViewById(w.h.tab_menu_line_f);
             view.setTag(cVar);
         }
-        ap.j(view, r.e.cp_bg_line_d);
+        aq.j(view, w.e.cp_bg_line_d);
         j.c cVar2 = (j.c) view.getTag();
         ct item = getItem(i);
         if (item != null) {
             cVar2.name.setText(item.name);
             if (item.isSelected) {
-                ap.c(cVar2.name, r.e.cp_link_tip_a, 1);
-                ap.c(cVar2.bTM, r.g.chx_tips_list_ok);
-                cVar2.bTM.setVisibility(0);
+                aq.c(cVar2.name, w.e.cp_link_tip_a, 1);
+                aq.c(cVar2.caY, w.g.chx_tips_list_ok);
+                cVar2.caY.setVisibility(0);
             } else {
-                ap.c(cVar2.name, r.e.cp_cont_c, 1);
-                cVar2.bTM.setVisibility(8);
+                aq.c(cVar2.name, w.e.cp_cont_c, 1);
+                cVar2.caY.setVisibility(8);
             }
             if (i >= 0 && i == getCount() - 1) {
-                cVar2.bTO.setVisibility(0);
-                cVar2.bTN.setVisibility(8);
-                ap.k(cVar2.bTO, r.e.cp_bg_line_b);
+                cVar2.cba.setVisibility(0);
+                cVar2.caZ.setVisibility(8);
+                aq.k(cVar2.cba, w.e.cp_bg_line_b);
             } else {
-                cVar2.bTN.setVisibility(0);
-                cVar2.bTO.setVisibility(8);
-                ap.k(cVar2.bTN, r.e.cp_bg_line_b);
+                cVar2.caZ.setVisibility(0);
+                cVar2.cba.setVisibility(8);
+                aq.k(cVar2.caZ, w.e.cp_bg_line_b);
             }
         }
         return view;
@@ -67,13 +67,13 @@ public class o extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iD */
+    /* renamed from: iz */
     public ct getItem(int i) {
         List list;
         List list2;
-        list = this.bTS.aPE;
+        list = this.cbe.aVq;
         if (list != null) {
-            list2 = this.bTS.aPE;
+            list2 = this.cbe.aVq;
             return (ct) list2.get(i);
         }
         return null;
@@ -83,9 +83,9 @@ public class o extends BaseAdapter {
     public int getCount() {
         List list;
         List list2;
-        list = this.bTS.aPE;
+        list = this.cbe.aVq;
         if (list != null) {
-            list2 = this.bTS.aPE;
+            list2 = this.cbe.aVq;
             return list2.size();
         }
         return 0;

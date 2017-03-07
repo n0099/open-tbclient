@@ -8,14 +8,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T dfr;
+    private T dhI;
     private int subType;
     private String title;
 
     /* JADX WARN: Type inference failed for: r1v3, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v10, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int bp(String str, String str2) {
+    public int bh(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -40,7 +40,7 @@ public class a<T> {
                             r2.setTitle(optJSONObject.optString("themeTitle"));
                             r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
                             r2.setThreadType(optJSONObject.optInt("threadType"));
-                            this.dfr = r2;
+                            this.dhI = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -55,7 +55,7 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.dfr = r1;
+                            this.dhI = r1;
                             i = 1;
                         }
                     } else if (4 == this.subType) {
@@ -64,7 +64,7 @@ public class a<T> {
                         r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                         r12.setMemberNum(optJSONObject.optInt("memberNum"));
                         r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.dfr = r12;
+                        this.dhI = r12;
                         i = 2;
                     }
                 }
@@ -74,11 +74,11 @@ public class a<T> {
         return i;
     }
 
-    public int auF() {
+    public int aua() {
         return this.subType;
     }
 
-    public T auG() {
-        return this.dfr;
+    public T aub() {
+        return this.dhI;
     }
 }

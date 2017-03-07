@@ -10,20 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends BaseFragment {
-    private View LW;
-    private TextView aNb;
-    private com.baidu.tbadk.img.b aqo;
-    private int awg = -1;
-    private o fGE;
-    private AlbumActivity fGS;
-    private View fGT;
-    private j fGU;
-    private ImageView fGV;
+    private View QZ;
+    private int aBB = -1;
+    private TextView aSO;
+    private com.baidu.tbadk.img.b avJ;
+    private o fKY;
+    private AlbumActivity fLm;
+    private View fLn;
+    private j fLo;
+    private ImageView fLp;
     private NavigationBar mNavigationBar;
     private View mNoDataView;
     private ViewPager mViewPager;
@@ -31,30 +32,30 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fGS = (AlbumActivity) getBaseFragmentActivity();
-        this.fGE = this.fGS.bmQ();
+        this.fLm = (AlbumActivity) getBaseFragmentActivity();
+        this.fKY = this.fLm.bmD();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.LW = layoutInflater.inflate(r.j.album_big_image_view, (ViewGroup) null);
-        this.mNavigationBar = (NavigationBar) this.LW.findViewById(r.h.navigation_bar);
-        this.fGT = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.fGS);
-        this.aNb = this.mNavigationBar.setTitleText("");
-        View inflate = layoutInflater.inflate(r.j.album_big_image_choose, (ViewGroup) null);
-        this.fGV = (ImageView) inflate.findViewById(r.h.img_choose);
+        this.QZ = layoutInflater.inflate(w.j.album_big_image_view, (ViewGroup) null);
+        this.mNavigationBar = (NavigationBar) this.QZ.findViewById(w.h.navigation_bar);
+        this.fLn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.fLm);
+        this.aSO = this.mNavigationBar.setTitleText("");
+        View inflate = layoutInflater.inflate(w.j.album_big_image_choose, (ViewGroup) null);
+        this.fLp = (ImageView) inflate.findViewById(w.h.img_choose);
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, new f(this));
-        this.mViewPager = (ViewPager) this.LW.findViewById(r.h.viewPager);
-        this.aqo = this.fGS.aii();
+        this.mViewPager = (ViewPager) this.QZ.findViewById(w.h.viewPager);
+        this.avJ = this.fLm.ahu();
         this.mViewPager.setOnPageChangeListener(new g(this));
-        this.mNoDataView = this.LW.findViewById(r.h.album_no_data);
-        return this.LW;
+        this.mNoDataView = this.QZ.findViewById(w.h.album_no_data);
+        return this.QZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmZ() {
-        if (this.fGE.isOriginalImg()) {
-            this.fGS.bmV();
+    public void bmM() {
+        if (this.fKY.isOriginalImg()) {
+            this.fLm.bmI();
         }
     }
 
@@ -62,46 +63,46 @@ public class e extends BaseFragment {
     public void onResume() {
         super.onResume();
         if (isShow()) {
-            bnb();
+            bmO();
         }
     }
 
-    private void bna() {
+    private void bmN() {
         int currentIndex;
         ImageFileInfo imageFileInfo;
-        if (this.fGE == null && this.fGS != null) {
-            this.fGE = this.fGS.bmQ();
+        if (this.fKY == null && this.fLm != null) {
+            this.fKY = this.fLm.bmD();
         }
-        if (this.fGE != null && this.fGE.bnh() != null) {
-            if ("-1".equals(this.fGE.bng())) {
-                currentIndex = this.fGE.getCurrentIndex() - 1;
+        if (this.fKY != null && this.fKY.bmU() != null) {
+            if ("-1".equals(this.fKY.bmT())) {
+                currentIndex = this.fKY.getCurrentIndex() - 1;
             } else {
-                currentIndex = this.fGE.getCurrentIndex();
+                currentIndex = this.fKY.getCurrentIndex();
             }
             if (currentIndex >= 0) {
-                this.awg = currentIndex;
-                if (this.awg > this.fGE.bnh().size() - 1) {
-                    this.awg = this.fGE.bnh().size() - 1;
+                this.aBB = currentIndex;
+                if (this.aBB > this.fKY.bmU().size() - 1) {
+                    this.aBB = this.fKY.bmU().size() - 1;
                 }
-                this.fGE.sN(-1);
-                sP(this.awg + 1);
-                this.fGU = null;
-                this.fGU = new j(this.fGS, this.aqo);
-                this.mViewPager.setAdapter(this.fGU);
-                if (this.awg == 0 && this.fGE.bnh() != null) {
-                    if ("-1".equals(this.fGE.bng())) {
-                        imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.w.c(this.fGE.bnh(), this.awg + 1);
+                this.fKY.sM(-1);
+                sO(this.aBB + 1);
+                this.fLo = null;
+                this.fLo = new j(this.fLm, this.avJ);
+                this.mViewPager.setAdapter(this.fLo);
+                if (this.aBB == 0 && this.fKY.bmU() != null) {
+                    if ("-1".equals(this.fKY.bmT())) {
+                        imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.fKY.bmU(), this.aBB + 1);
                     } else {
-                        imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.w.c(this.fGE.bnh(), this.awg);
+                        imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.fKY.bmU(), this.aBB);
                     }
-                    if (this.fGE.isAdded(imageFileInfo)) {
-                        b(this.fGV, true);
+                    if (this.fKY.isAdded(imageFileInfo)) {
+                        b(this.fLp, true);
                     } else {
-                        b(this.fGV, false);
+                        b(this.fLp, false);
                     }
                 }
-                this.fGU.setData(this.fGE.bnh());
-                this.mViewPager.setCurrentItem(this.awg, false);
+                this.fLo.setData(this.fKY.bmU());
+                this.mViewPager.setCurrentItem(this.aBB, false);
             }
         }
     }
@@ -109,22 +110,22 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
-        if (z && this.fGU != null) {
-            this.fGU.setData(null);
+        if (z && this.fLo != null) {
+            this.fLo.setData(null);
         }
     }
 
-    public View bcs() {
-        return this.fGT;
+    public View bcd() {
+        return this.fLn;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fGS.getLayoutMode().ai(i == 1);
-        this.fGS.getLayoutMode().v(this.LW);
+        this.fLm.getLayoutMode().ah(i == 1);
+        this.fLm.getLayoutMode().t(this.QZ);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.fGS.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.fLm.getPageContext(), i);
         }
     }
 
@@ -133,51 +134,51 @@ public class e extends BaseFragment {
         if (imageView != null) {
             TbadkCoreApplication.m9getInst().getSkinType();
             if (z) {
-                com.baidu.tbadk.core.util.ap.j(imageView, r.g.btn_add_finish_s);
-                imageView.setContentDescription(getString(r.l.check_box_checked));
+                aq.j(imageView, w.g.btn_add_finish_s);
+                imageView.setContentDescription(getString(w.l.check_box_checked));
                 return;
             }
-            com.baidu.tbadk.core.util.ap.j(imageView, r.g.btn_add_finish_n);
-            imageView.setContentDescription(getString(r.l.check_box_not_checked));
+            aq.j(imageView, w.g.btn_add_finish_n);
+            imageView.setContentDescription(getString(w.l.check_box_not_checked));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sP(int i) {
+    public void sO(int i) {
         int size;
-        if (this.fGE != null && this.fGE.bnh() != null) {
-            if ("-1".equals(this.fGE.bng())) {
-                size = this.fGE.bnh().size() - 1;
+        if (this.fKY != null && this.fKY.bmU() != null) {
+            if ("-1".equals(this.fKY.bmT())) {
+                size = this.fKY.bmU().size() - 1;
             } else {
-                size = this.fGE.bnh().size();
+                size = this.fKY.bmU().size();
             }
-            String string = this.fGS.getPageContext().getContext().getString(r.l.album_big_image_title, Integer.valueOf(i), Integer.valueOf(size));
+            String string = this.fLm.getPageContext().getContext().getString(w.l.album_big_image_title, Integer.valueOf(i), Integer.valueOf(size));
             if (TextUtils.isEmpty(string)) {
                 string = "";
             }
-            this.aNb.setText(string);
+            this.aSO.setText(string);
         }
     }
 
     public void g(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo sQ;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.fGU != null) {
-            if ("-1".equals(this.fGE.bng())) {
-                sQ = this.fGU.sQ(this.awg + 1);
+        ImageFileInfo sP;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.fLo != null) {
+            if ("-1".equals(this.fKY.bmT())) {
+                sP = this.fLo.sP(this.aBB + 1);
             } else {
-                sQ = this.fGU.sQ(this.awg);
+                sP = this.fLo.sP(this.aBB);
             }
-            if (sQ != null && sQ.getFilePath() != null && sQ.getFilePath().equals(imageFileInfo.getFilePath())) {
-                b(this.fGV, z);
+            if (sP != null && sP.getFilePath() != null && sP.getFilePath().equals(imageFileInfo.getFilePath())) {
+                b(this.fLp, z);
             }
         }
     }
 
-    private void bnb() {
+    private void bmO() {
         if (!isHidden()) {
             this.mNoDataView.setVisibility(8);
             this.mViewPager.setVisibility(0);
-            bna();
+            bmN();
         }
     }
 }

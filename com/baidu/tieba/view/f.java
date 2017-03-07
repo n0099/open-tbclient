@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ CommonTipView fDe;
+    final /* synthetic */ CommonTipView fHF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(CommonTipView commonTipView) {
-        this.fDe = commonTipView;
+        this.fHF = commonTipView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -19,9 +19,9 @@ public class f implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         Runnable runnable;
         int i;
-        CommonTipView commonTipView = this.fDe;
-        runnable = this.fDe.bJK;
-        i = this.fDe.BF;
+        CommonTipView commonTipView = this.fHF;
+        runnable = this.fHF.bQQ;
+        i = this.fHF.IT;
         commonTipView.postDelayed(runnable, i);
     }
 

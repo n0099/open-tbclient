@@ -17,22 +17,22 @@ public class MsgReplyCardViewItemAdapter extends ao<MsgReplyCardView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: as */
+    /* renamed from: ar */
     public ao.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.FY);
-        return new a(msgReplyCardView.aX(), msgReplyCardView);
+        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.ajF);
+        return new a(msgReplyCardView.cg(), msgReplyCardView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.ao
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<MsgReplyCardView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView aoi = aVar.aoi();
-        aoi.a(this.FY, chatMessage, viewGroup);
-        aoi.a(this.cMG);
-        aoi.setPosition(i);
-        this.FY.getLayoutMode().ai(false);
-        this.FY.getLayoutMode().v(view);
+        MsgReplyCardView anC = aVar.anC();
+        anC.a(this.ajF, chatMessage, viewGroup);
+        anC.a(this.cOV);
+        anC.setPosition(i);
+        this.ajF.getLayoutMode().ah(false);
+        this.ajF.getLayoutMode().t(view);
         return view;
     }
 

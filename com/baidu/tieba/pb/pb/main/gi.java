@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 /* loaded from: classes.dex */
 class gi implements View.OnLongClickListener {
-    final /* synthetic */ ez eqf;
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gi(ez ezVar) {
-        this.eqf = ezVar;
+    public gi(fa faVar) {
+        this.etn = faVar;
     }
 
     @Override // android.view.View.OnLongClickListener

@@ -19,10 +19,10 @@ public class bo implements View.OnClickListener {
         boolean z;
         int i;
         boolean z2;
-        boolean rP;
+        boolean qX;
         boolean z3;
-        boolean rP2;
-        z = this.this$0.ekp;
+        boolean qX2;
+        z = this.this$0.enm;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
@@ -31,12 +31,12 @@ public class bo implements View.OnClickListener {
                 this.this$0.setResult(-1, intent);
             } else {
                 Intent intent2 = new Intent();
-                z2 = this.this$0.eAA;
+                z2 = this.this$0.eDZ;
                 if (z2) {
-                    if (this.this$0.eAt != null && !this.this$0.eAt.isRecycled()) {
+                    if (this.this$0.eDS != null && !this.this$0.eDS.isRecycled()) {
                         String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        rP = this.this$0.rP(str);
-                        if (rP) {
+                        qX = this.this$0.qX(str);
+                        if (qX) {
                             intent2.putExtra("change", true);
                             intent2.putExtra("file_name", str);
                         } else {
@@ -55,11 +55,11 @@ public class bo implements View.OnClickListener {
             return;
         }
         Intent intent3 = new Intent();
-        z3 = this.this$0.eAA;
-        if (z3 && this.this$0.eAt != null && !this.this$0.eAt.isRecycled()) {
+        z3 = this.this$0.eDZ;
+        if (z3 && this.this$0.eDS != null && !this.this$0.eDS.isRecycled()) {
             String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-            rP2 = this.this$0.rP(str2);
-            if (rP2) {
+            qX2 = this.this$0.qX(str2);
+            if (qX2) {
                 intent3.putExtra("filename", str2);
             }
         }

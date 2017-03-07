@@ -1,70 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class dd {
-    private TbPageContext FY;
-    private RelativeLayout dTs;
-    private com.baidu.tbadk.editortools.pb.n ejV;
-    private PbFakeFloorModel ejW;
+    private PbModel ejZ;
 
-    public dd(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
-        this.FY = tbPageContext;
-        this.dTs = relativeLayout;
-        this.ejW = pbFakeFloorModel;
+    public dd(PbModel pbModel) {
+        this.ejZ = pbModel;
+        Ee();
     }
 
-    public void aLG() {
-        if (this.ejV != null) {
-            this.ejV.Dv();
-        }
+    private void Ee() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_FLOOR_AGREE_URL);
+        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void aLH() {
-        if (this.dTs != null && this.ejV == null) {
-            this.ejV = (com.baidu.tbadk.editortools.pb.n) new com.baidu.tbadk.editortools.pb.r().an(this.FY.getPageActivity());
-            this.ejV.a(this.FY);
-            this.ejV.b(this.ejW);
-            this.ejV.Cw().bC(true);
-            this.ejV.f(this.FY);
-            aLI();
-        }
-    }
-
-    public void bT(String str, String str2) {
-        aLH();
-        this.ejV.setReplyId(str);
-        this.ejV.fM(str2);
-    }
-
-    private void aLI() {
-        if (this.dTs != null && this.ejV != null && this.ejV.Cw() != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(12);
-            this.dTs.addView(this.ejV.Cw(), layoutParams);
-            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        }
-    }
-
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.ejV != null) {
-            this.ejV.onActivityResult(i, i2, intent);
-        }
-    }
-
-    public void onStop() {
-        if (this.ejV != null) {
-            this.ejV.onStop();
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.ejV != null && this.ejV.Cw() != null) {
-            this.ejV.Cw().onChangeSkinType(i);
+    public void bL(String str, String str2) {
+        if (this.ejZ != null && this.ejZ.getPbData() != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+            httpMessage.addParam("post_id", str);
+            httpMessage.addParam("thread_id", this.ejZ.getPbData().getThreadId());
+            httpMessage.addParam(PbActivityConfig.KEY_MSG_OP_TYPE, str2);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

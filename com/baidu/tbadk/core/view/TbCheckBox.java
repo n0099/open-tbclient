@@ -3,10 +3,10 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a afD;
+    private a akV;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,44 +22,44 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        ws();
+        wP();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        wr();
+        wO();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        wr();
+        wO();
     }
 
-    private void wr() {
-        setOnClickListener(new z(this));
-        ws();
+    private void wO() {
+        setOnClickListener(new aa(this));
+        wP();
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.afD = aVar;
+        this.akV = aVar;
     }
 
-    public void ws() {
-        if (wt()) {
-            com.baidu.tbadk.core.util.ap.c(this, r.g.icon_set_list_ok_s);
-            setContentDescription(getResources().getString(r.l.check_box_checked));
+    public void wP() {
+        if (wQ()) {
+            com.baidu.tbadk.core.util.aq.c(this, w.g.icon_set_list_ok_s);
+            setContentDescription(getResources().getString(w.l.check_box_checked));
             return;
         }
-        com.baidu.tbadk.core.util.ap.c(this, r.g.icon_set_list_ok_n);
-        setContentDescription(getResources().getString(r.l.check_box_not_checked));
+        com.baidu.tbadk.core.util.aq.c(this, w.g.icon_set_list_ok_n);
+        setContentDescription(getResources().getString(w.l.check_box_not_checked));
     }
 
     public boolean isChecked() {
-        return wt();
+        return wQ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wt() {
+    public boolean wQ() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -72,9 +72,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        ws();
-        if (this.afD != null) {
-            this.afD.a(this, z, getTag());
+        wP();
+        if (this.akV != null) {
+            this.akV.a(this, z, getTag());
         }
     }
 }

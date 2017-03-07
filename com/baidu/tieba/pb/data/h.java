@@ -4,45 +4,45 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class h {
-    private long Qa = 0;
-    private String Qb = "";
+    private long Vn = 0;
+    private String Vo = "";
     private String imgUrl = "";
-    private int efN = Integer.MAX_VALUE;
-    private String efO = "";
-    private String efP = "";
+    private int eij = Integer.MAX_VALUE;
+    private String eik = "";
+    private String eil = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.Qa = forumHeadlineImgInfo.img_user_id.longValue();
-            this.Qb = forumHeadlineImgInfo.img_user_name;
+            this.Vn = forumHeadlineImgInfo.img_user_id.longValue();
+            this.Vo = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.efN = forumHeadlineImgInfo.rank_num.intValue();
-            this.efO = forumHeadlineImgInfo.rank_up_info;
-            this.efP = forumHeadlineImgInfo.rank_url;
+            this.eij = forumHeadlineImgInfo.rank_num.intValue();
+            this.eik = forumHeadlineImgInfo.rank_up_info;
+            this.eil = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public boolean pI() {
-        return StringUtils.isNull(this.Qb, true) || this.Qa <= 0;
+    public boolean qa() {
+        return StringUtils.isNull(this.Vo, true) || this.Vn <= 0;
     }
 
-    public String aKs() {
-        return this.efP;
+    public String aJK() {
+        return this.eil;
     }
 
-    public String pK() {
-        return this.Qb;
+    public String qc() {
+        return this.Vo;
     }
 
-    public String pL() {
+    public String qd() {
         return this.imgUrl;
     }
 
-    public int aKt() {
-        return this.efN;
+    public int aJL() {
+        return this.eij;
     }
 
-    public String aKu() {
-        return this.efO;
+    public String aJM() {
+        return this.eik;
     }
 }

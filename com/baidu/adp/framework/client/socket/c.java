@@ -101,8 +101,8 @@ public class c {
         while (it.hasNext()) {
             e next = it.next();
             if (next != null && next.canRetry()) {
-                next.bE();
-                if (next.bD() >= next.bn()) {
+                next.cN();
+                if (next.cM() >= next.cw()) {
                     return true;
                 }
             }
@@ -116,7 +116,7 @@ public class c {
             while (it.hasNext()) {
                 e next = it.next();
                 if (next != null) {
-                    next.bs();
+                    next.cB();
                 }
             }
         }
@@ -129,9 +129,9 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && next.bC() == i) {
+            if (next != null && next.cL() == i) {
                 it.remove();
-                next.bt();
+                next.cC();
                 return next;
             }
         }
@@ -139,11 +139,11 @@ public class c {
     }
 
     public static boolean b(LinkedList<e> linkedList, int i) {
-        SocketMessage bz;
+        SocketMessage cI;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (bz = next.bz()) != null && bz.getCmd() == i) {
+            if (next != null && (cI = next.cI()) != null && cI.getCmd() == i) {
                 return true;
             }
         }
@@ -151,25 +151,25 @@ public class c {
     }
 
     public static void c(LinkedList<e> linkedList, int i) {
-        SocketMessage bz;
+        SocketMessage cI;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (bz = next.bz()) != null && bz.getCmd() == i) {
+            if (next != null && (cI = next.cI()) != null && cI.getCmd() == i) {
                 it.remove();
             }
         }
     }
 
     public static boolean a(LinkedList<e> linkedList, a aVar, int i) {
-        SocketMessage bz;
+        SocketMessage cI;
         if (aVar == null) {
             return false;
         }
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (bz = next.bz()) != null && bz.getCmd() == i && aVar.onFindMessage(bz)) {
+            if (next != null && (cI = next.cI()) != null && cI.getCmd() == i && aVar.onFindMessage(cI)) {
                 return true;
             }
         }
@@ -177,11 +177,11 @@ public class c {
     }
 
     public static boolean a(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage bz;
+        SocketMessage cI;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (bz = next.bz()) != null && ((i != 0 && bz.getTag() == bdUniqueId && i == bz.getCmd()) || (i == 0 && bdUniqueId != null && bz.getTag() == bdUniqueId))) {
+            if (next != null && (cI = next.cI()) != null && ((i != 0 && cI.getTag() == bdUniqueId && i == cI.getCmd()) || (i == 0 && bdUniqueId != null && cI.getTag() == bdUniqueId))) {
                 return true;
             }
         }
@@ -189,14 +189,14 @@ public class c {
     }
 
     public static void b(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage bz;
+        SocketMessage cI;
         if (linkedList != null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && (bz = next.bz()) != null && ((i != 0 && bz.getTag() == bdUniqueId && i == bz.getCmd()) || (i == 0 && bdUniqueId != null && bz.getTag() == bdUniqueId))) {
+                if (next != null && (cI = next.cI()) != null && ((i != 0 && cI.getTag() == bdUniqueId && i == cI.getCmd()) || (i == 0 && bdUniqueId != null && cI.getTag() == bdUniqueId))) {
                     it.remove();
-                    next.bt();
+                    next.cC();
                 }
             }
         }

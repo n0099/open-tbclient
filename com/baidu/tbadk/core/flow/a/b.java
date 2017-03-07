@@ -6,22 +6,22 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.flow.b {
     @Override // com.baidu.tbadk.core.flow.b
-    public c th() {
+    public c tE() {
         c cVar = new c();
-        cVar.ct(r.g.icon_banner_n);
-        cVar.cu(r.g.icon_banner_s);
-        cVar.setSpacing(r.f.ds22);
+        cVar.cp(w.g.icon_banner_n);
+        cVar.cq(w.g.icon_banner_s);
+        cVar.setSpacing(w.f.ds22);
         cVar.setGravity(81);
-        cVar.cv(r.f.ds22);
+        cVar.cr(w.f.ds22);
         return cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView S(Context context) {
+    public TbImageView aq(Context context) {
         TbImageView tbImageView = new TbImageView(context);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         tbImageView.setGifIconSupport(false);
@@ -29,17 +29,17 @@ public class b implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public e ti() {
+    public e tF() {
         e eVar = new e();
         Resources resources = TbadkCoreApplication.m9getInst().getResources();
         if (resources != null) {
-            eVar.setHeight(resources.getDimensionPixelSize(r.f.ds330));
+            eVar.setHeight(resources.getDimensionPixelSize(w.f.ds330));
         }
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View tj() {
+    public View tG() {
         return null;
     }
 }

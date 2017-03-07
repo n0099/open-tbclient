@@ -11,13 +11,13 @@ import com.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ x.b fU;
-    final /* synthetic */ x fV;
+    final /* synthetic */ x.b nM;
+    final /* synthetic */ x nN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar, x.b bVar) {
-        this.fV = xVar;
-        this.fU = bVar;
+        this.nN = xVar;
+        this.nM = bVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -28,20 +28,20 @@ public class y implements CompoundButton.OnCheckedChangeListener {
             if (shareMediaItem.isAuthorized()) {
                 if (shareMediaItem.isChecked() != z) {
                     shareMediaItem.setChecked(z);
-                    aVar = this.fV.fR;
+                    aVar = this.nN.nJ;
                     aVar.onCheckStatusChanged(z, shareMediaItem.getMediaType());
                 }
-                this.fU.b.setImageResource(shareMediaItem.isChecked() ? p.i(this.fV.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.i(this.fV.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
+                this.nM.b.setImageResource(shareMediaItem.isChecked() ? p.c(this.nN.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : p.c(this.nN.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray"));
             } else if (shareMediaItem.isAuthorized() || !z) {
             } else {
                 Bundle bundle = new Bundle();
-                bundle.putString("client_id", SocialShare.getInstance(this.fV.getContext()).getClientId());
+                bundle.putString("client_id", SocialShare.getInstance(this.nN.getContext()).getClientId());
                 bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, shareMediaItem.getMediaType().toString());
-                Intent intent = new Intent(this.fV.getContext(), SocialOAuthActivity.class);
+                Intent intent = new Intent(this.nN.getContext(), SocialOAuthActivity.class);
                 intent.addFlags(268435456);
                 intent.putExtras(bundle);
                 SocialOAuthActivity.setListener(new z(this, shareMediaItem));
-                this.fV.getContext().getApplicationContext().startActivity(intent);
+                this.nN.getContext().getApplicationContext().startActivity(intent);
             }
         }
     }

@@ -1,55 +1,33 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class ai {
-    private ArrayList<String> Rm;
-    private int smsCodeTime = 0;
-    private UserData Rk = new UserData();
-    private AntiData Rl = new AntiData();
+public class ai extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    private boolean Wu;
+    private ICardInfo Wv;
+    private String card;
 
-    public ai() {
-        this.Rm = null;
-        this.Rm = new ArrayList<>();
-        setSmsCodeTime(0);
+    public void ch(String str) {
+        this.card = str;
     }
 
-    public UserData getUser() {
-        return this.Rk;
+    public void qC() {
+        this.Wv = com.baidu.tieba.lego.card.b.ln(this.card);
+        this.Wu = this.Wv != null;
     }
 
-    public AntiData qm() {
-        return this.Rl;
+    public ICardInfo qD() {
+        return this.Wv;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public boolean isValid() {
+        return this.Wu;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.Rk.parserJson(jSONObject.optJSONObject("user"));
-            this.Rl.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.Rm.add(optJSONArray.optString(i, null));
-                }
-            }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

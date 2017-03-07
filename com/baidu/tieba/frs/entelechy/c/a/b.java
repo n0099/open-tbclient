@@ -6,16 +6,16 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.bt;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a bMr;
+    final /* synthetic */ a bTx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bMr = aVar;
+        this.bTx = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,23 +28,23 @@ public class b implements View.OnClickListener {
         FrsActivity frsActivity;
         c.b bVar;
         FrsActivity frsActivity2;
-        if (!i.fX()) {
-            frsActivity2 = this.bMr.bMj;
-            frsActivity2.showToast(r.l.neterror);
+        if (!i.gS()) {
+            frsActivity2 = this.bTx.bTp;
+            frsActivity2.showToast(w.l.neterror);
             return;
         }
-        aVar = this.bMr.bMm;
+        aVar = this.bTx.bTs;
         if (aVar == null) {
-            a aVar4 = this.bMr;
-            frsActivity = this.bMr.bMj;
-            bVar = this.bMr.bMq;
-            aVar4.bMm = new com.baidu.tieba.frs.entelechy.c.a.a.a(frsActivity, bVar);
+            a aVar4 = this.bTx;
+            frsActivity = this.bTx.bTp;
+            bVar = this.bTx.bTw;
+            aVar4.bTs = new com.baidu.tieba.frs.entelechy.c.a.a.a(frsActivity, bVar);
         }
-        aVar2 = this.bMr.bMm;
-        list = this.bMr.bMl;
+        aVar2 = this.bTx.bTs;
+        list = this.bTx.bTr;
         aVar2.setData(list);
-        aVar3 = this.bMr.bMm;
-        hVar = this.bMr.bMj;
-        aVar3.d(hVar.getPageContext()).sY();
+        aVar3 = this.bTx.bTs;
+        hVar = this.bTx.bTp;
+        aVar3.d(hVar.getPageContext()).tv();
     }
 }

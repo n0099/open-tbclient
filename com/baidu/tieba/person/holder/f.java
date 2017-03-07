@@ -6,23 +6,23 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.view.WholeDisplayGridView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class f extends y.a {
-    public int ahp;
-    public TextView bYK;
-    public RelativeLayout eyP;
-    public TbImageView eyQ;
-    public TextView eyR;
-    public WholeDisplayGridView eyS;
+    public int amL;
+    public TextView cgg;
+    public RelativeLayout eCo;
+    public TbImageView eCp;
+    public TextView eCq;
+    public WholeDisplayGridView eCr;
 
     public f(View view) {
         super(view);
-        this.ahp = 3;
-        this.eyP = (RelativeLayout) view.findViewById(r.h.title_layout);
-        this.eyQ = (TbImageView) view.findViewById(r.h.title_icon);
-        this.bYK = (TextView) view.findViewById(r.h.title_text);
-        this.eyR = (TextView) view.findViewById(r.h.title_tip);
-        this.eyS = (WholeDisplayGridView) view.findViewById(r.h.wallet_items);
+        this.amL = 3;
+        this.eCo = (RelativeLayout) view.findViewById(w.h.title_layout);
+        this.eCp = (TbImageView) view.findViewById(w.h.title_icon);
+        this.cgg = (TextView) view.findViewById(w.h.title_text);
+        this.eCq = (TextView) view.findViewById(w.h.title_tip);
+        this.eCr = (WholeDisplayGridView) view.findViewById(w.h.wallet_items);
     }
 }

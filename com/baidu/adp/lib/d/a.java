@@ -10,19 +10,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a nz = null;
-    public long nx = 10000;
-    public long ny = 0;
-    private long nA = ReportUserInfoModel.TIME_INTERVAL;
-    private boolean nB = false;
-    private boolean nC = false;
-    private boolean nD = false;
+    private static a vo = null;
+    public long vm = 10000;
+    public long vn = 0;
+    private long vp = ReportUserInfoModel.TIME_INTERVAL;
+    private boolean vq = false;
+    private boolean vr = false;
+    private boolean vs = false;
     private int errorCode = 4;
-    private Address nE = null;
-    private ArrayList<SoftReference<InterfaceC0004a>> nF = null;
-    private ArrayList<d> nG = new ArrayList<>();
+    private Address vt = null;
+    private ArrayList<SoftReference<InterfaceC0004a>> vu = null;
+    private ArrayList<d> vv = new ArrayList<>();
     private Handler handler = null;
-    private b nH = new com.baidu.adp.lib.d.b(this);
+    private b vw = new com.baidu.adp.lib.d.b(this);
 
     /* renamed from: com.baidu.adp.lib.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -38,23 +38,23 @@ public class a {
     private a() {
     }
 
-    public static a dS() {
-        if (nz == null) {
+    public static a fa() {
+        if (vo == null) {
             synchronized (a.class) {
-                if (nz == null) {
-                    nz = new a();
+                if (vo == null) {
+                    vo = new a();
                 }
             }
         }
-        return nz;
+        return vo;
     }
 
     public void a(d dVar) {
         if (dVar != null) {
-            synchronized (this.nG) {
-                if (!this.nG.contains(dVar)) {
-                    dVar.a(this.nH);
-                    this.nG.add(dVar);
+            synchronized (this.vv) {
+                if (!this.vv.contains(dVar)) {
+                    dVar.a(this.vw);
+                    this.vv.add(dVar);
                 }
             }
         }
@@ -62,44 +62,44 @@ public class a {
 
     public void b(d dVar) {
         if (dVar != null) {
-            synchronized (this.nG) {
+            synchronized (this.vv) {
                 dVar.destroy();
-                this.nG.remove(dVar);
+                this.vv.remove(dVar);
             }
         }
     }
 
     public void initial() {
-        this.nF = new ArrayList<>();
-        dT();
+        this.vu = new ArrayList<>();
+        fb();
     }
 
-    private void dT() {
+    private void fb() {
         this.handler = new Handler(Looper.getMainLooper(), new c(this));
     }
 
-    public long dU() {
-        return this.nx;
+    public long fc() {
+        return this.vm;
     }
 
-    public Address B(boolean z) {
+    public Address C(boolean z) {
         return b(z, false);
     }
 
     public Address b(boolean z, boolean z2) {
-        if (System.currentTimeMillis() - this.ny > this.nA) {
-            this.nE = null;
+        if (System.currentTimeMillis() - this.vn > this.vp) {
+            this.vt = null;
         }
-        if (this.nE != null && !z && ((z2 && this.nB) || !z2)) {
-            return this.nE;
+        if (this.vt != null && !z && ((z2 && this.vq) || !z2)) {
+            return this.vt;
         }
-        this.nE = null;
-        if (!this.nD) {
-            C(z2);
+        this.vt = null;
+        if (!this.vs) {
+            D(z2);
             return null;
-        } else if (this.nD && z2 && !this.nC) {
-            dV();
-            C(z2);
+        } else if (this.vs && z2 && !this.vr) {
+            fd();
+            D(z2);
             return null;
         } else {
             return null;
@@ -113,21 +113,21 @@ public class a {
     public Address a(boolean z, boolean z2, InterfaceC0004a interfaceC0004a) {
         boolean z3;
         InterfaceC0004a interfaceC0004a2;
-        if (System.currentTimeMillis() - this.ny > this.nA) {
-            this.nE = null;
+        if (System.currentTimeMillis() - this.vn > this.vp) {
+            this.vt = null;
         }
-        if (this.nE != null && !z && ((z2 && this.nB) || !z2)) {
+        if (this.vt != null && !z && ((z2 && this.vq) || !z2)) {
             if (interfaceC0004a != null) {
-                interfaceC0004a.b(0, "", this.nE);
+                interfaceC0004a.b(0, "", this.vt);
             }
-            return this.nE;
+            return this.vt;
         }
         if (interfaceC0004a != null) {
-            synchronized (this.nF) {
+            synchronized (this.vu) {
                 int i = 0;
                 while (true) {
-                    if (i < this.nF.size()) {
-                        SoftReference<InterfaceC0004a> softReference = this.nF.get(i);
+                    if (i < this.vu.size()) {
+                        SoftReference<InterfaceC0004a> softReference = this.vu.get(i);
                         if (softReference == null || (interfaceC0004a2 = softReference.get()) == null || !interfaceC0004a2.equals(interfaceC0004a)) {
                             i++;
                         } else {
@@ -140,18 +140,18 @@ public class a {
                     }
                 }
                 if (!z3) {
-                    if (this.nF.size() >= 100) {
-                        this.nF.remove(0);
+                    if (this.vu.size() >= 100) {
+                        this.vu.remove(0);
                     }
-                    this.nF.add(new SoftReference<>(interfaceC0004a));
+                    this.vu.add(new SoftReference<>(interfaceC0004a));
                 }
             }
-            if (!this.nD) {
-                C(z2);
+            if (!this.vs) {
+                D(z2);
                 return null;
-            } else if (this.nD && z2 && !this.nC) {
-                dV();
-                C(z2);
+            } else if (this.vs && z2 && !this.vr) {
+                fd();
+                D(z2);
                 return null;
             }
         }
@@ -160,18 +160,18 @@ public class a {
 
     public void a(InterfaceC0004a interfaceC0004a) {
         InterfaceC0004a interfaceC0004a2;
-        synchronized (this.nF) {
+        synchronized (this.vu) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.nF.size()) {
+                if (i2 >= this.vu.size()) {
                     break;
                 }
-                SoftReference<InterfaceC0004a> softReference = this.nF.get(i2);
+                SoftReference<InterfaceC0004a> softReference = this.vu.get(i2);
                 if (softReference == null || (interfaceC0004a2 = softReference.get()) == null || !interfaceC0004a2.equals(interfaceC0004a)) {
                     i = i2 + 1;
                 } else {
-                    this.nF.remove(softReference);
+                    this.vu.remove(softReference);
                     break;
                 }
             }
@@ -179,17 +179,17 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dV() {
+    public void fd() {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        this.nD = false;
-        Iterator<d> it = this.nG.iterator();
+        this.vs = false;
+        Iterator<d> it = this.vv.iterator();
         while (it.hasNext()) {
             d next = it.next();
             if (next != null) {
                 try {
-                    next.dW();
+                    next.fe();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -197,30 +197,30 @@ public class a {
         }
     }
 
-    private void C(boolean z) {
+    private void D(boolean z) {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
         this.errorCode = 4;
-        this.nC = z;
-        this.nD = true;
-        if (this.nG == null || this.nG.isEmpty()) {
+        this.vr = z;
+        this.vs = true;
+        if (this.vv == null || this.vv.isEmpty()) {
             this.errorCode = 6;
             this.handler.sendMessage(this.handler.obtainMessage(0));
             return;
         }
-        Iterator<d> it = this.nG.iterator();
+        Iterator<d> it = this.vv.iterator();
         while (it.hasNext()) {
             d next = it.next();
             if (next != null) {
                 try {
-                    next.D(z);
+                    next.E(z);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
         }
-        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.nx);
+        this.handler.sendMessageDelayed(this.handler.obtainMessage(0), this.vm);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -230,18 +230,18 @@ public class a {
         if (this.handler.hasMessages(0)) {
             this.handler.removeMessages(0);
         }
-        if (this.nF != null) {
-            synchronized (this.nF) {
+        if (this.vu != null) {
+            synchronized (this.vu) {
                 while (true) {
                     int i3 = i2;
-                    if (i3 < this.nF.size()) {
-                        SoftReference<InterfaceC0004a> softReference = this.nF.get(i3);
+                    if (i3 < this.vu.size()) {
+                        SoftReference<InterfaceC0004a> softReference = this.vu.get(i3);
                         if (softReference != null && (interfaceC0004a = softReference.get()) != null) {
                             interfaceC0004a.b(i, str, address);
                         }
                         i2 = i3 + 1;
                     } else {
-                        this.nF.clear();
+                        this.vu.clear();
                     }
                 }
             }

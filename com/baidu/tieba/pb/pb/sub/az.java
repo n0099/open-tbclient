@@ -3,17 +3,17 @@ package com.baidu.tieba.pb.pb.sub;
 import android.app.Dialog;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az implements View.OnClickListener {
-    private final /* synthetic */ boolean eiX;
-    final /* synthetic */ ao esl;
+    private final /* synthetic */ boolean elQ;
+    final /* synthetic */ ao evz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(ao aoVar, boolean z) {
-        this.esl = aoVar;
-        this.eiX = z;
+        this.evz = aoVar;
+        this.elQ = z;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,19 +23,19 @@ public class az implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         NewSubPbActivity newSubPbActivity2;
-        dialog = this.esl.eoD;
+        dialog = this.evz.erG;
         if (dialog != null) {
-            dialog2 = this.esl.eoD;
+            dialog2 = this.evz.erG;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.esl.eoD;
-                newSubPbActivity2 = this.esl.erI;
+                dialog3 = this.evz.erG;
+                newSubPbActivity2 = this.evz.euW;
                 com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity2.getPageContext());
             }
         }
         SparseArray<Object> sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            newSubPbActivity = this.esl.erI;
-            newSubPbActivity.a(this.eiX, (String) sparseArray.get(r.h.tag_user_mute_mute_userid), sparseArray);
+            newSubPbActivity = this.evz.euW;
+            newSubPbActivity.a(this.elQ, (String) sparseArray.get(w.h.tag_user_mute_mute_userid), sparseArray);
         }
     }
 }

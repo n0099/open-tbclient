@@ -3,8 +3,8 @@ package com.baidu.tbadk.util;
 import android.content.Context;
 import android.media.AudioManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitchStatic;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.play.at;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class w {
@@ -19,25 +19,28 @@ public class w {
         return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean fo(int i) {
+    public static boolean fh(int i) {
         switch (i) {
             case 1:
             case 2:
-                return (com.baidu.adp.lib.util.i.gm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.gl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+                return (com.baidu.adp.lib.util.i.hg() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hf() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
             case 3:
             case 4:
-                return com.baidu.adp.lib.util.i.gl();
+                return com.baidu.adp.lib.util.i.hf();
             case 5:
-                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (FrsHeadVideoAutoPlaySwitchStatic.Gc() && com.baidu.adp.lib.util.i.gl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
+                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (com.baidu.tbadk.switchs.o.GB() && com.baidu.adp.lib.util.i.hf() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
             default:
-                return (com.baidu.adp.lib.util.i.gm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.gl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+                return (com.baidu.adp.lib.util.i.hg() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hf() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
         }
     }
 
-    public static boolean p(int i, String str) {
-        if (at.isEmpty(com.baidu.tieba.play.at.he(str)) || TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
-            return fo(i);
+    public static boolean q(int i, String str) {
+        if (!au.isEmpty(at.gT(str))) {
+            if (TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
+                return false;
+            }
+            return (com.baidu.adp.lib.util.i.hg() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0) ? false : true;
         }
-        return true;
+        return fh(i);
     }
 }

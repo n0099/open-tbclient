@@ -24,9 +24,9 @@ public class ag extends CustomMessageListener {
         BdTypeListView bdTypeListView3;
         bdTypeListView = this.this$0.mListView;
         if (bdTypeListView != null) {
-            acVar = this.this$0.aLe;
-            acVar.amY();
-            this.this$0.cxs = false;
+            acVar = this.this$0.aQP;
+            acVar.alL();
+            this.this$0.cyR = false;
             bdTypeListView2 = this.this$0.mListView;
             bdTypeListView2.completePullRefreshPostDelayed(2000L);
             bdTypeListView3 = this.this$0.mListView;

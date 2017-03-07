@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
-import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity erC;
+    final /* synthetic */ NewSubPbActivity euQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NewSubPbActivity newSubPbActivity) {
-        this.erC = newSubPbActivity;
+        this.euQ = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
@@ -34,27 +34,27 @@ public class n implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            forumManageModel = this.erC.erm;
-            if (!forumManageModel.biz() && objArr != null && objArr.length >= 4) {
+            forumManageModel = this.euQ.euA;
+            if (!forumManageModel.bip() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[1]), 0);
                 boolean d = com.baidu.adp.lib.g.b.d(String.valueOf(objArr[2]), false);
                 int g2 = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[3]), 0);
-                subPbModel = this.erC.erl;
+                subPbModel = this.euQ.euz;
                 if (subPbModel != null) {
-                    subPbModel2 = this.erC.erl;
-                    if (subPbModel2.aPn() != null) {
-                        subPbModel3 = this.erC.erl;
-                        if (subPbModel3.aPn().aKC() != null) {
-                            subPbModel4 = this.erC.erl;
-                            if (subPbModel4.aPn().Ji() != null) {
-                                forumManageModel2 = this.erC.erm;
-                                subPbModel5 = this.erC.erl;
-                                String id = subPbModel5.aPn().aKC().getId();
-                                subPbModel6 = this.erC.erl;
-                                String name = subPbModel6.aPn().aKC().getName();
-                                subPbModel7 = this.erC.erl;
-                                forumManageModel2.a(id, name, subPbModel7.aPn().Ji().getId(), valueOf, g2, g, d);
+                    subPbModel2 = this.euQ.euz;
+                    if (subPbModel2.aOE() != null) {
+                        subPbModel3 = this.euQ.euz;
+                        if (subPbModel3.aOE().aJU() != null) {
+                            subPbModel4 = this.euQ.euz;
+                            if (subPbModel4.aOE().JN() != null) {
+                                forumManageModel2 = this.euQ.euA;
+                                subPbModel5 = this.euQ.euz;
+                                String id = subPbModel5.aOE().aJU().getId();
+                                subPbModel6 = this.euQ.euz;
+                                String name = subPbModel6.aOE().aJU().getName();
+                                subPbModel7 = this.euQ.euz;
+                                forumManageModel2.a(id, name, subPbModel7.aOE().JN().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;
@@ -67,6 +67,6 @@ public class n implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m9getInst().login(this.erC.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.erC.getPageContext().getPageActivity(), this.erC.getPageContext().getString(r.l.login_to_use), true, 11017)));
+        TbadkCoreApplication.m9getInst().login(this.euQ.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.euQ.getPageContext().getPageActivity(), this.euQ.getPageContext().getString(w.l.login_to_use), true, 11017)));
     }
 }

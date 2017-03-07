@@ -1,22 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bu implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bUr;
-    final /* synthetic */ PbActivity eiV;
+class bu extends CustomMessageListener {
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.eiV = pbActivity;
-        this.bUr = fVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu(PbActivity pbActivity, int i) {
+        super(i);
+        this.elO = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.lib.util.a.ay(this.bUr.linkUrl);
-        com.baidu.adp.lib.util.k.showToast(this.eiV.getPageContext().getPageActivity(), view.getResources().getString(r.l.copy_pb_url_success));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.editortools.pb.c cVar;
+        fa faVar;
+        fa faVar2;
+        com.baidu.tbadk.editortools.pb.c cVar2;
+        if (customResponsedMessage != null) {
+            cVar = this.elO.ekY;
+            if (cVar != null) {
+                faVar2 = this.elO.ekM;
+                cVar2 = this.elO.ekY;
+                faVar2.gB(cVar2.Dw());
+            }
+            faVar = this.elO.ekM;
+            faVar.gC(false);
+        }
     }
 }

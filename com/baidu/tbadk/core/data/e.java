@@ -1,43 +1,31 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.AppCode;
+import tbclient.AwardInfo;
 /* loaded from: classes.dex */
 public class e {
-    private String button_text;
-    private String game_icon;
-    private String post_url;
+    private long Uh;
+    private String Ui;
+    private String Uj;
+    private long mAwardActId;
 
-    public String pg() {
-        return this.game_icon;
+    public long pv() {
+        return this.Uh;
     }
 
-    public String getPostUrl() {
-        return this.post_url;
+    public String pw() {
+        return this.Ui;
     }
 
-    public String me() {
-        return this.button_text;
+    public String px() {
+        return this.Uj;
     }
 
-    public void a(AppCode appCode) {
-        if (appCode != null) {
-            this.game_icon = appCode.game_icon;
-            this.post_url = appCode.post_url;
-            this.button_text = appCode.button_text;
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.game_icon = jSONObject.optString("game_icon");
-                this.post_url = jSONObject.optString("post_url");
-                this.button_text = jSONObject.optString("button_text");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+    public void a(AwardInfo awardInfo) {
+        if (awardInfo != null) {
+            this.Uh = awardInfo.award_id.longValue();
+            this.mAwardActId = awardInfo.award_act_id.longValue();
+            this.Ui = awardInfo.award_name;
+            this.Uj = awardInfo.award_imgsrc;
         }
     }
 }

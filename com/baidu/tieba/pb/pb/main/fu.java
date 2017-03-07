@@ -1,18 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fu implements a.b {
-    final /* synthetic */ ez eqf;
+public class fu extends CustomMessageListener {
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fu(ez ezVar) {
-        this.eqf = ezVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fu(fa faVar, int i) {
+        super(i);
+        this.etn = faVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.eqf.axs();
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.etn.esk = false;
+        }
     }
 }

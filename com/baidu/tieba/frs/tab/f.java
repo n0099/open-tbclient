@@ -8,11 +8,11 @@ import java.util.List;
 public interface f {
     void a(Context context, j jVar);
 
-    int acz();
+    int adx();
 
     View getView();
 
     void setData(List<ct> list);
 
-    void ws();
+    void wP();
 }

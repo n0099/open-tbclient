@@ -1,187 +1,188 @@
 package com.baidu.adp.lib.stats.base;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.b.q;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* loaded from: classes.dex */
 public class a {
-    private String qg;
-    protected String qq;
-    protected String qs;
-    protected q qt;
-    private StringBuffer qh = new StringBuffer();
-    private StringBuffer qi = new StringBuffer();
-    private int qj = 0;
-    private int qk = 0;
-    private long pZ = 0;
-    private long ql = 0;
-    protected long qm = 0;
-    private long qn = 0;
-    private long qo = 0;
-    protected int qp = 50;
-    protected final String qr = ".log";
+    private String xC;
+    protected String xM;
+    protected String xO;
+    protected q xP;
+    private StringBuffer xD = new StringBuffer();
+    private StringBuffer xE = new StringBuffer();
+    private int xF = 0;
+    private int xG = 0;
+    private long xv = 0;
+    private long xH = 0;
+    protected long xI = 0;
+    private long xJ = 0;
+    private long xK = 0;
+    protected int xL = 50;
+    protected final String xN = ".log";
     protected boolean mUseSdCard = true;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(q qVar) {
-        this.qt = qVar;
+        this.xP = qVar;
     }
 
-    public synchronized void a(com.baidu.adp.lib.stats.d dVar) {
-        if (dVar != null) {
+    public synchronized void a(com.baidu.adp.lib.stats.c cVar) {
+        if (cVar != null) {
             try {
-                this.qh.append(dVar.toString());
-                this.qh.append("\r\n");
-                this.qj++;
+                this.xD.append(cVar.toString());
+                this.xD.append("\r\n");
+                this.xF++;
             } catch (Exception e) {
                 BdLog.e(e);
             } catch (OutOfMemoryError e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.qt != null) {
-            this.qt.g(this);
+        if (this.xP != null) {
+            this.xP.g(this);
         }
-        this.pZ = System.currentTimeMillis();
+        this.xv = System.currentTimeMillis();
     }
 
-    public synchronized void b(com.baidu.adp.lib.stats.d dVar) {
-        if (dVar != null) {
+    public synchronized void b(com.baidu.adp.lib.stats.c cVar) {
+        if (cVar != null) {
             try {
-                this.qi.append(dVar.toString());
-                this.qi.append("\r\n");
-                this.qk++;
+                this.xE.append(cVar.toString());
+                this.xE.append("\r\n");
+                this.xG++;
             } catch (Exception e) {
                 BdLog.e(e);
             } catch (OutOfMemoryError e2) {
                 e2.printStackTrace();
             }
         }
-        if (this.qt != null) {
-            this.qt.g(this);
+        if (this.xP != null) {
+            this.xP.g(this);
         }
-        this.ql = System.currentTimeMillis();
+        this.xH = System.currentTimeMillis();
     }
 
-    public int fh() {
-        return this.qj;
+    public int gb() {
+        return this.xF;
     }
 
-    public int fi() {
-        return this.qk;
+    public int gd() {
+        return this.xG;
     }
 
-    public long fj() {
-        return this.qm;
+    public long ge() {
+        return this.xI;
     }
 
     public void g(long j) {
-        this.qm = j;
+        this.xI = j;
     }
 
-    public long fk() {
-        return this.pZ;
+    public long gf() {
+        return this.xv;
     }
 
-    public long fl() {
-        return this.ql;
+    public long gg() {
+        return this.xH;
     }
 
-    public String fm() {
-        if (TextUtils.isEmpty(this.qs)) {
+    public String gh() {
+        if (TextUtils.isEmpty(this.xO)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.qq);
-            sb.append(com.baidu.adp.lib.stats.a.eG().eM());
+            sb.append(this.xM);
+            sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(".log");
-            this.qs = sb.toString();
+            this.xO = sb.toString();
         }
-        return this.qs;
+        return this.xO;
     }
 
-    public String fn() {
+    public String gi() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.qq);
+        sb.append(this.xM);
         sb.append(System.currentTimeMillis());
-        sb.append(com.baidu.adp.lib.stats.a.eG().eM());
+        sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
         sb.append(".log");
         return sb.toString();
     }
 
-    public long fo() {
-        return this.qn;
+    public long gj() {
+        return this.xJ;
     }
 
-    public long fp() {
-        return this.qo;
+    public long gk() {
+        return this.xK;
     }
 
     public void h(long j) {
-        this.qn = j;
+        this.xJ = j;
     }
 
     public void i(long j) {
-        this.qo = j;
+        this.xK = j;
     }
 
-    public synchronized void fq() {
-        this.qh = new StringBuffer();
-        this.qj = 0;
-        this.qn = 0L;
+    public synchronized void gl() {
+        this.xD = new StringBuffer();
+        this.xF = 0;
+        this.xJ = 0L;
     }
 
-    public synchronized void fr() {
-        this.qi = new StringBuffer();
-        this.qk = 0;
-        this.qo = 0L;
+    public synchronized void gm() {
+        this.xE = new StringBuffer();
+        this.xG = 0;
+        this.xK = 0L;
     }
 
-    public void ar(String str) {
+    public void al(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.qg = str;
+            this.xC = str;
         }
     }
 
-    public String fs() {
-        return this.qg;
+    public String gn() {
+        return this.xC;
     }
 
-    public boolean ft() {
+    public boolean go() {
         return this.isUploading;
     }
 
-    public void G(boolean z) {
+    public void H(boolean z) {
         this.isUploading = z;
     }
 
-    public String fu() {
+    public String gp() {
         return "omp";
     }
 
-    public StringBuffer fv() {
-        return this.qh;
+    public StringBuffer gq() {
+        return this.xD;
     }
 
-    public StringBuffer fw() {
-        return this.qi;
+    public StringBuffer gr() {
+        return this.xE;
     }
 
-    public boolean fx() {
+    public boolean gs() {
         return this.mUseSdCard;
     }
 
-    public boolean fy() {
+    public boolean gt() {
         return this.mMustSuccess;
     }
 
-    public String fz() {
-        return this.qq;
+    public String gu() {
+        return this.xM;
     }
 
-    public static String as(String str) {
+    public static String am(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || AddFriendActivityConfig.MSG.equals(str)) {
             return "error";
         }

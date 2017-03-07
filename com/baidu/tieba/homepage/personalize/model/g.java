@@ -9,13 +9,13 @@ import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ RecPersonalizePageModel czs;
+    final /* synthetic */ RecPersonalizePageModel cAO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(RecPersonalizePageModel recPersonalizePageModel, int i, int i2) {
         super(i, i2);
-        this.czs = recPersonalizePageModel;
+        this.cAO = recPersonalizePageModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -27,7 +27,7 @@ public class g extends com.baidu.adp.framework.listener.a {
         if (responsedMessage == null) {
             return;
         }
-        aVar = this.czs.czk;
+        aVar = this.cAO.cAG;
         if (aVar != null) {
             long j = 0;
             if (responsedMessage.getOrginalMessage() != null) {
@@ -45,20 +45,20 @@ public class g extends com.baidu.adp.framework.listener.a {
                 } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                     dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                 }
-                aVar2 = this.czs.czk;
+                aVar2 = this.cAO.cAG;
                 aVar2.b(j, dataRes, z);
             } else {
-                aVar3 = this.czs.czk;
+                aVar3 = this.cAO.cAG;
                 aVar3.a(j, responsedMessage.getError(), responsedMessage.getErrorString());
             }
             if (!(responsedMessage instanceof RecPersonalizeSocketResponse)) {
                 if (!(responsedMessage instanceof RecPersonalizeHttpResponse)) {
                     return;
                 }
-                this.czs.j(responsedMessage);
+                this.cAO.h(responsedMessage);
                 return;
             }
-            this.czs.i(responsedMessage);
+            this.cAO.g(responsedMessage);
         }
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.play;
 import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
 class ai implements v.c {
-    final /* synthetic */ QuickVideoView eSP;
+    final /* synthetic */ QuickVideoView eWw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(QuickVideoView quickVideoView) {
-        this.eSP = quickVideoView;
+        this.eWw = quickVideoView;
     }
 
     @Override // com.baidu.tieba.play.v.c
@@ -16,14 +16,14 @@ class ai implements v.c {
         an anVar2;
         int i3;
         if (i == 10001) {
-            this.eSP.eSG = i2;
-            anVar = this.eSP.eSA;
+            this.eWw.eWn = i2;
+            anVar = this.eWw.eWh;
             if (anVar != null && vVar != null) {
-                anVar2 = this.eSP.eSA;
+                anVar2 = this.eWw.eWh;
                 int videoWidth = vVar.getVideoWidth();
                 int videoHeight = vVar.getVideoHeight();
-                i3 = this.eSP.eSG;
-                anVar2.O(videoWidth, videoHeight, i3);
+                i3 = this.eWw.eWn;
+                anVar2.N(videoWidth, videoHeight, i3);
                 return true;
             }
             return true;

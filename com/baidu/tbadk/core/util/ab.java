@@ -1,34 +1,34 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
 /* loaded from: classes.dex */
-public class ab {
-    private static ab ZO;
-    private static volatile int ZP = 0;
-    private static int ZQ = 300000;
-    private static int ZR = 10;
-    public static int ZS;
+class ab implements com.baidu.adp.lib.network.http.i {
+    int aeY = 0;
+    int aeZ = 0;
+    int afa = 0;
+    final /* synthetic */ aa afb;
+    private final /* synthetic */ Handler afc;
+    private final /* synthetic */ int afd;
 
-    private ab() {
-        ZS = TbadkCoreApplication.m9getInst().getNetWorkCoreType();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(aa aaVar, Handler handler, int i) {
+        this.afb = aaVar;
+        this.afc = handler;
+        this.afd = i;
     }
 
-    public static synchronized ab uL() {
-        ab abVar;
-        synchronized (ab.class) {
-            if (ZO == null) {
-                ZO = new ab();
-            }
-            abVar = ZO;
+    @Override // com.baidu.adp.lib.network.http.i
+    public void m(int i, int i2) {
+        if (i2 > 0) {
+            this.aeY = i2 / 50;
         }
-        return abVar;
-    }
-
-    public r a(com.baidu.tbadk.core.util.a.a aVar) {
-        return new z(aVar);
-    }
-
-    public static void cF(int i) {
-        ZS = i;
+        this.aeZ += i - this.afa;
+        this.afa = i;
+        if (this.afc != null) {
+            if (this.aeZ > this.aeY || i == i2) {
+                this.aeZ = 0;
+                this.afc.sendMessage(this.afc.obtainMessage(this.afd, i, i2));
+            }
+        }
     }
 }

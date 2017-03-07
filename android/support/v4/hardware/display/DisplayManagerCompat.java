@@ -8,7 +8,7 @@ import java.util.WeakHashMap;
 /* loaded from: classes.dex */
 public abstract class DisplayManagerCompat {
     public static final String DISPLAY_CATEGORY_PRESENTATION = "android.hardware.display.category.PRESENTATION";
-    private static final WeakHashMap<Context, DisplayManagerCompat> bA = new WeakHashMap<>();
+    private static final WeakHashMap<Context, DisplayManagerCompat> jl = new WeakHashMap<>();
 
     public abstract Display getDisplay(int i);
 
@@ -21,15 +21,15 @@ public abstract class DisplayManagerCompat {
 
     public static DisplayManagerCompat getInstance(Context context) {
         DisplayManagerCompat displayManagerCompat;
-        synchronized (bA) {
-            displayManagerCompat = bA.get(context);
+        synchronized (jl) {
+            displayManagerCompat = jl.get(context);
             if (displayManagerCompat == null) {
                 if (Build.VERSION.SDK_INT >= 17) {
                     displayManagerCompat = new a(context);
                 } else {
                     displayManagerCompat = new b(context);
                 }
-                bA.put(context, displayManagerCompat);
+                jl.put(context, displayManagerCompat);
             }
         }
         return displayManagerCompat;
@@ -37,15 +37,15 @@ public abstract class DisplayManagerCompat {
 
     /* loaded from: classes.dex */
     private static class b extends DisplayManagerCompat {
-        private final WindowManager bC;
+        private final WindowManager jn;
 
         public b(Context context) {
-            this.bC = (WindowManager) context.getSystemService("window");
+            this.jn = (WindowManager) context.getSystemService("window");
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display getDisplay(int i) {
-            Display defaultDisplay = this.bC.getDefaultDisplay();
+            Display defaultDisplay = this.jn.getDefaultDisplay();
             if (defaultDisplay.getDisplayId() == i) {
                 return defaultDisplay;
             }
@@ -54,7 +54,7 @@ public abstract class DisplayManagerCompat {
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays() {
-            return new Display[]{this.bC.getDefaultDisplay()};
+            return new Display[]{this.jn.getDefaultDisplay()};
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
@@ -65,25 +65,25 @@ public abstract class DisplayManagerCompat {
 
     /* loaded from: classes.dex */
     private static class a extends DisplayManagerCompat {
-        private final Object bB;
+        private final Object jm;
 
         public a(Context context) {
-            this.bB = android.support.v4.hardware.display.a.o(context);
+            this.jm = android.support.v4.hardware.display.a.M(context);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display getDisplay(int i) {
-            return android.support.v4.hardware.display.a.a(this.bB, i);
+            return android.support.v4.hardware.display.a.a(this.jm, i);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays() {
-            return android.support.v4.hardware.display.a.f(this.bB);
+            return android.support.v4.hardware.display.a.f(this.jm);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat
         public Display[] getDisplays(String str) {
-            return android.support.v4.hardware.display.a.c(this.bB, str);
+            return android.support.v4.hardware.display.a.c(this.jm, str);
         }
     }
 }

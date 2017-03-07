@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fp implements View.OnClickListener {
-    final /* synthetic */ ez eqf;
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fp(ez ezVar) {
-        this.eqf = ezVar;
+    public fp(fa faVar) {
+        this.etn = faVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,10 +17,10 @@ public class fp implements View.OnClickListener {
         Dialog dialog;
         Dialog dialog2;
         PbActivity pbActivity;
-        dialog = this.eqf.eoP;
+        dialog = this.etn.erT;
         if (dialog instanceof Dialog) {
-            dialog2 = this.eqf.eoP;
-            pbActivity = this.eqf.ehi;
+            dialog2 = this.etn.erT;
+            pbActivity = this.etn.eka;
             com.baidu.adp.lib.g.j.b(dialog2, pbActivity.getPageContext());
         }
     }

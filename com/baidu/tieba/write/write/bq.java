@@ -13,10 +13,10 @@ public class bq implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.this$0.bkd.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.eAt != null) && view.getTag() != null) {
-                this.this$0.eAA = false;
-                this.this$0.rO(view.getTag().toString());
+        if (this.this$0.bqO.getVisibility() != 0) {
+            if ((this.this$0.mBitmap != null || this.this$0.eDS != null) && view.getTag() != null) {
+                this.this$0.eDZ = false;
+                this.this$0.qW(view.getTag().toString());
             }
         }
     }

@@ -1,28 +1,28 @@
 package com.baidu.tieba.pb.video;
 
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.play.c;
+import android.animation.ValueAnimator;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements c.b {
-    final /* synthetic */ d etA;
+public class h implements ValueAnimator.AnimatorUpdateListener {
+    final /* synthetic */ d ewS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar) {
-        this.etA = dVar;
+        this.ewS = dVar;
     }
 
-    @Override // com.baidu.tieba.play.c.b
-    public void azF() {
-        PbActivity pbActivity;
-        pbActivity = this.etA.ehi;
-        pbActivity.setSwipeBackEnabled(true);
-    }
-
-    @Override // com.baidu.tieba.play.c.b
-    public void azE() {
-        PbActivity pbActivity;
-        pbActivity = this.etA.ehi;
-        pbActivity.setSwipeBackEnabled(false);
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        FrameLayout frameLayout;
+        FrameLayout frameLayout2;
+        int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+        frameLayout = this.ewS.eqD;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
+        layoutParams.topMargin = intValue;
+        frameLayout2 = this.ewS.eqD;
+        frameLayout2.setLayoutParams(layoutParams);
+        this.ewS.aPj();
     }
 }

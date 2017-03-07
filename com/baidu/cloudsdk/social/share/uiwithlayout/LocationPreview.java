@@ -30,12 +30,12 @@ public class LocationPreview extends RelativeLayout {
         super(context, attributeSet);
         this.f = false;
         this.b = SocialShareConfig.getInstance(context);
-        addView(LayoutInflater.from(context.getApplicationContext()).inflate(p.g(context, "bdsocialshare_sharedialoglocationlayout"), (ViewGroup) null));
-        this.c = (ImageView) findViewById(p.j(context, "sharedialog_location_icon"));
-        this.c.setImageResource(p.i(context, "bdsocialshare_location"));
-        this.e = (TextView) findViewById(p.j(context, "sharedialog_location_text"));
+        addView(LayoutInflater.from(context.getApplicationContext()).inflate(p.a(context, "bdsocialshare_sharedialoglocationlayout"), (ViewGroup) null));
+        this.c = (ImageView) findViewById(p.d(context, "sharedialog_location_icon"));
+        this.c.setImageResource(p.c(context, "bdsocialshare_location"));
+        this.e = (TextView) findViewById(p.d(context, "sharedialog_location_text"));
         this.e.setText(this.b.getString("insert_location"));
-        this.d = (ImageView) findViewById(p.j(context, "sharedialog_location_delete"));
+        this.d = (ImageView) findViewById(p.d(context, "sharedialog_location_delete"));
         setOnClickListener(new q(this));
     }
 
@@ -55,7 +55,7 @@ public class LocationPreview extends RelativeLayout {
         this.f = true;
         this.e.setText(str);
         this.d.setVisibility(0);
-        this.c.setImageResource(p.i(getContext(), "bdsocialshare_location_enabled"));
+        this.c.setImageResource(p.c(getContext(), "bdsocialshare_location_enabled"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

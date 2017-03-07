@@ -1,4 +1,6 @@
 package com.baidu.adp.lib.voice;
+
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class Amrnb {
     public static boolean bLoadLibrary;
@@ -25,14 +27,14 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.fV().a("amrnb", 2, new g());
+        bLoadLibrary = com.baidu.adp.lib.util.g.gQ().a("amrnb", 2, new g());
         if (bLoadLibrary) {
             try {
                 native_init();
                 bLoadLibrary = true;
             } catch (Throwable th) {
                 bLoadLibrary = false;
-                com.baidu.adp.lib.stats.a.eG().a("so", "initAmrnb", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+                BdStatisticsManager.getInstance().error("so", "initAmrnb", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
             }
         }
     }

@@ -27,11 +27,11 @@ public class n implements ISocialShareHandler {
     private static final String a = n.class.getSimpleName();
     private static Map b = new HashMap();
     private static Map c = new HashMap();
-    private Weixin cP;
     private Context d;
     private String e;
     private boolean f;
     private String h;
+    private Weixin kC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -48,10 +48,10 @@ public class n implements ISocialShareHandler {
                 n.this.a(this.b, n.this.e(bitmap));
                 return;
             }
-            IBaiduListener q = n.q(n.this.h);
-            n.r(n.this.h);
-            if (q != null) {
-                q.onError(new BaiduException("failed to load image uri "));
+            IBaiduListener p = n.p(n.this.h);
+            n.q(n.this.h);
+            if (p != null) {
+                p.onError(new BaiduException("failed to load image uri "));
             }
         }
     }
@@ -60,8 +60,8 @@ public class n implements ISocialShareHandler {
         this.d = context;
         this.e = str;
         this.f = z;
-        this.cP = new Weixin(context, str);
-        this.cP.registerApp();
+        this.kC = new Weixin(context, str);
+        this.kC.registerApp();
         this.h = a();
     }
 
@@ -71,14 +71,14 @@ public class n implements ISocialShareHandler {
 
     private void a(Bundle bundle) {
         Weixin.addBaseRequestParams(bundle, this.h, this.f);
-        if (this.cP.sendRequest(bundle)) {
+        if (this.kC.sendRequest(bundle)) {
             return;
         }
         Log.e(a, "sendMessage error");
-        IBaiduListener q = q(this.h);
-        r(this.h);
-        if (q != null) {
-            q.onError(new BaiduException("failed to start weixin app"));
+        IBaiduListener p = p(this.h);
+        q(this.h);
+        if (p != null) {
+            p.onError(new BaiduException("failed to start weixin app"));
         }
     }
 
@@ -95,12 +95,12 @@ public class n implements ISocialShareHandler {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareContent shareContent, IBaiduListener iBaiduListener) {
         SocialShareConfig socialShareConfig = SocialShareConfig.getInstance(this.d);
-        if (!this.cP.isAppInstalled()) {
+        if (!this.kC.isAppInstalled()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_not_installed"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("weixin not installed yet"));
             }
-        } else if (this.f && !this.cP.isTimelineSupported()) {
+        } else if (this.f && !this.kC.isTimelineSupported()) {
             Toast.makeText(this.d, socialShareConfig.getString("weixin_timeline_not_supported"), 1).show();
             if (iBaiduListener != null) {
                 iBaiduListener.onError(new BaiduException("this version of weixin has no support for timeline related api"));
@@ -175,10 +175,10 @@ public class n implements ISocialShareHandler {
         }
         if (wXMediaMessage == null) {
             Log.e(a, "can't new WXMessage");
-            IBaiduListener q = q(this.h);
-            r(this.h);
-            if (q != null) {
-                q.onError(new BaiduException("WXMessage can't new instance"));
+            IBaiduListener p = p(this.h);
+            q(this.h);
+            if (p != null) {
+                p.onError(new BaiduException("WXMessage can't new instance"));
                 return;
             }
             return;
@@ -191,10 +191,10 @@ public class n implements ISocialShareHandler {
             return;
         }
         Log.e(a, "sendMessage error");
-        IBaiduListener q2 = q(this.h);
-        r(this.h);
-        if (q2 != null) {
-            q2.onError(new BaiduException("WXMessage args error pls check args!"));
+        IBaiduListener p2 = p(this.h);
+        q(this.h);
+        if (p2 != null) {
+            p2.onError(new BaiduException("WXMessage args error pls check args!"));
         }
     }
 
@@ -236,7 +236,7 @@ public class n implements ISocialShareHandler {
         return null;
     }
 
-    public static IBaiduListener q(String str) {
+    public static IBaiduListener p(String str) {
         WeakReference weakReference = (WeakReference) b.get(str);
         if (weakReference != null) {
             b.remove(str);
@@ -245,7 +245,7 @@ public class n implements ISocialShareHandler {
         return null;
     }
 
-    public static ShareContent r(String str) {
+    public static ShareContent q(String str) {
         WeakReference weakReference = (WeakReference) c.get(str);
         if (weakReference != null) {
             c.remove(str);

@@ -1,35 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.List;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cu extends CustomMessageListener {
-    final /* synthetic */ cq ejI;
+public class cu implements View.OnClickListener {
+    final /* synthetic */ cp emB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cu(cq cqVar, int i) {
-        super(i);
-        this.ejI = cqVar;
+    public cu(cp cpVar) {
+        this.emB = cpVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List list;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         com.baidu.tieba.pb.data.f fVar;
-        if (customResponsedMessage == null) {
-            return;
-        }
-        list = this.ejI.bKZ;
-        if (!com.baidu.tbadk.core.util.w.s(list)) {
-            return;
-        }
-        this.ejI.ZT();
-        cq cqVar = this.ejI;
-        fVar = this.ejI.egj;
-        cqVar.b(fVar);
+        cp cpVar = this.emB;
+        fVar = this.emB.ejb;
+        cpVar.b(fVar);
+        this.emB.notifyDataSetChanged();
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11926"));
     }
 }

@@ -1,13 +1,14 @@
 package com.baidu.tbadk.util;
 
 import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class x {
-    public static String at(String str, String str2) {
+    public static String aq(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -15,12 +16,17 @@ public class x {
             while (i < str.length() && str.charAt(i) != '&') {
                 i++;
             }
-            return URLDecoder.decode(str.substring(length, i));
+            try {
+                return URLDecoder.decode(str.substring(length, i));
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+                return "";
+            }
         }
         return "";
     }
 
-    public static Bundle gw(String str) {
+    public static Bundle gl(String str) {
         URL url;
         String query;
         String[] split;
@@ -50,17 +56,17 @@ public class x {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aDE;
+        public String aJb;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aDE = "";
+            this.aJb = "";
             this.BDUSS = str;
-            this.aDE = str2;
+            this.aJb = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aDE != null ? this.aDE.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aJb != null ? this.aJb.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -76,7 +82,7 @@ public class x {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aDE == null ? aVar.aDE == null : this.aDE.equals(aVar.aDE);
+                return this.aJb == null ? aVar.aJb == null : this.aJb.equals(aVar.aJb);
             }
             return false;
         }

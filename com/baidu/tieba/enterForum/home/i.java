@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements NoNetworkView.a {
-    final /* synthetic */ f bxz;
+    final /* synthetic */ f bEF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.bxz = fVar;
+        this.bEF = fVar;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aL(boolean z) {
-        if (this.bxz.bxx == 0 && this.bxz.bxq != null) {
-            this.bxz.bxq.de(z);
+    public void aK(boolean z) {
+        if (this.bEF.bED == 0 && this.bEF.bEw != null) {
+            this.bEF.bEw.de(z);
         }
     }
 }

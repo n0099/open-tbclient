@@ -4,16 +4,16 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Animation.AnimationListener {
-    final /* synthetic */ ForumHeadVideoView bRD;
+    final /* synthetic */ ForumHeadVideoView bYL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ForumHeadVideoView forumHeadVideoView) {
-        this.bRD = forumHeadVideoView;
+        this.bYL = forumHeadVideoView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.bRD.bRp = false;
+        this.bYL.bYx = false;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,20 +25,20 @@ public class k implements Animation.AnimationListener {
         b bVar;
         b bVar2;
         b bVar3;
-        c currentVideoItemView = this.bRD.getCurrentVideoItemView();
+        c currentVideoItemView = this.bYL.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
             currentVideoItemView.clearAnimation();
-            this.bRD.e(currentVideoItemView);
-            bVar = this.bRD.bGa;
+            this.bYL.e(currentVideoItemView);
+            bVar = this.bYL.bNi;
             if (bVar != null) {
-                bVar2 = this.bRD.bGa;
-                if (!bVar2.abp()) {
-                    bVar3 = this.bRD.bGa;
+                bVar2 = this.bYL.bNi;
+                if (!bVar2.acm()) {
+                    bVar3 = this.bYL.bNi;
                     bVar3.ef(true);
-                    a.abn();
+                    a.ack();
                 }
             }
         }
-        this.bRD.bRp = true;
+        this.bYL.bYx = true;
     }
 }

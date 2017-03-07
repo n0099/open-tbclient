@@ -12,18 +12,18 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class g {
-    private HttpMessageTask.HTTP_METHOD ot;
+    private HttpMessageTask.HTTP_METHOD we;
     private String url = "";
-    protected Map<String, String> ou = new HashMap();
-    protected LinkedList<BasicNameValuePair> ov = new LinkedList<>();
-    protected HashMap<String, byte[]> ow = new HashMap<>();
+    protected Map<String, String> wf = new HashMap();
+    protected LinkedList<BasicNameValuePair> wg = new LinkedList<>();
+    protected HashMap<String, byte[]> wh = new HashMap<>();
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.ot;
+        return this.we;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.ot = http_method;
+        this.we = http_method;
     }
 
     public String getUrl() {
@@ -38,14 +38,14 @@ public class g {
         }
     }
 
-    public boolean er() {
-        return this.ow != null && this.ow.size() > 0;
+    public boolean fz() {
+        return this.wh != null && this.wh.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.ov.size() == 0) {
+        if (this.wg.size() == 0) {
             if (eVar != null) {
-                eVar.nW = this.url.length();
+                eVar.vL = this.url.length();
             }
             return this.url;
         }
@@ -59,27 +59,27 @@ public class g {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ov.size()) {
+            if (i2 >= this.wg.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.ov.get(i2).getName());
+            sb.append(this.wg.get(i2).getName());
             sb.append("=");
-            sb.append(j.aO(this.ov.get(i2).getValue()));
+            sb.append(j.aI(this.wg.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.nW = sb.length();
+            eVar.vL = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.ou != null) {
-            for (Map.Entry<String, String> entry : this.ou.entrySet()) {
+    public void e(HttpURLConnection httpURLConnection) {
+        if (httpURLConnection != null && this.wf != null) {
+            for (Map.Entry<String, String> entry : this.wf.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -87,13 +87,13 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, e eVar) throws Exception {
-        et();
+        fB();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.ov != null) {
-                    Iterator<BasicNameValuePair> it = this.ov.iterator();
+                if (this.wg != null) {
+                    Iterator<BasicNameValuePair> it = this.wg.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -110,8 +110,8 @@ public class g {
                         }
                     }
                 }
-                if (this.ow != null) {
-                    for (Map.Entry<String, byte[]> entry : this.ow.entrySet()) {
+                if (this.wh != null) {
+                    for (Map.Entry<String, byte[]> entry : this.wh.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -131,14 +131,14 @@ public class g {
             }
         }
         if (eVar != null) {
-            eVar.nW = i;
+            eVar.vL = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, e eVar) throws Exception {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = es().toString();
+            String sb = fA().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
@@ -151,14 +151,14 @@ public class g {
             }
         }
         if (eVar != null) {
-            eVar.nW = i;
+            eVar.vL = i;
         }
     }
 
-    private StringBuilder es() {
+    private StringBuilder fA() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.ov != null) {
-            Iterator<BasicNameValuePair> it = this.ov.iterator();
+        if (this.wg != null) {
+            Iterator<BasicNameValuePair> it = this.wg.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -169,7 +169,7 @@ public class g {
                         sb.append("&");
                     }
                     sb.append(String.valueOf(name) + "=");
-                    sb.append(j.aO(value));
+                    sb.append(j.aI(value));
                     i++;
                 }
             }
@@ -177,16 +177,16 @@ public class g {
         return sb;
     }
 
-    protected void et() {
+    protected void fB() {
     }
 
     public void d(HashMap<String, String> hashMap) {
-        this.ou = hashMap;
+        this.wf = hashMap;
     }
 
-    public String ae(String str) {
-        if (this.ou != null) {
-            return this.ou.get(str);
+    public String ad(String str) {
+        if (this.wf != null) {
+            return this.wf.get(str);
         }
         return null;
     }
@@ -197,9 +197,9 @@ public class g {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.ov.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.wg.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.ow.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.wh.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -209,20 +209,20 @@ public class g {
     }
 
     public void d(String str, byte[] bArr) {
-        this.ow.put(str, bArr);
+        this.wh.put(str, bArr);
     }
 
     public void n(String str, String str2) {
-        this.ov.add(new BasicNameValuePair(str, str2));
+        this.wg.add(new BasicNameValuePair(str, str2));
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.ov.add(basicNameValuePair);
+        this.wg.add(basicNameValuePair);
     }
 
     public void o(String str, String str2) {
-        if (this.ou != null) {
-            this.ou.put(str, str2);
+        if (this.wf != null) {
+            this.wf.put(str, str2);
         }
     }
 }

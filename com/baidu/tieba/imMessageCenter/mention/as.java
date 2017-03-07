@@ -8,11 +8,11 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class as implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int dko;
+    private int dmI;
     private String ids;
     private int mPn = 1;
 
-    public void f(FeedData feedData) {
+    public void g(FeedData feedData) {
         if (feedData != null) {
             this.ids = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
         }
@@ -20,32 +20,32 @@ public class as implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.dko = 4;
+        this.dmI = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.dko = 1;
+        this.dmI = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.dko;
+        return this.dmI;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> lT() {
+    public HashMap<String, Object> EL() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
         hashMap.put("pn", String.valueOf(this.mPn));
-        if (this.dko == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.dmI == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object aa(boolean z) {
+    public Object bN(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.pn = Integer.valueOf(this.mPn);
@@ -67,12 +67,12 @@ public class as implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Ep() {
+    public String EI() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Eq() {
+    public boolean EJ() {
         return true;
     }
 

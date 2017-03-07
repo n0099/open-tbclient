@@ -1,18 +1,18 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.util.List;
 /* loaded from: classes.dex */
 class o implements Runnable {
-    final /* synthetic */ ForumHeadVideoView bRD;
+    final /* synthetic */ ForumHeadVideoView bYL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(ForumHeadVideoView forumHeadVideoView) {
-        this.bRD = forumHeadVideoView;
+        this.bYL = forumHeadVideoView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0063, code lost:
-        if (r2 < com.baidu.tbadk.core.util.w.r(r1)) goto L15;
+        if (r2 < com.baidu.tbadk.core.util.x.p(r1)) goto L15;
      */
     @Override // java.lang.Runnable
     /*
@@ -24,36 +24,36 @@ class o implements Runnable {
         List list3;
         boolean hasMore;
         List list4;
-        list = this.bRD.aPE;
+        list = this.bYL.aVq;
         if (list != null) {
-            list2 = this.bRD.aPE;
+            list2 = this.bYL.aVq;
             if (list2.size() > 0) {
-                list3 = this.bRD.aPE;
-                w.d(list3, 0);
-                c currentVideoItemView = this.bRD.getCurrentVideoItemView();
-                c swapVideoItemView = this.bRD.getSwapVideoItemView();
-                currentVideoItemView.abu();
+                list3 = this.bYL.aVq;
+                x.d(list3, 0);
+                c currentVideoItemView = this.bYL.getCurrentVideoItemView();
+                c swapVideoItemView = this.bYL.getSwapVideoItemView();
+                currentVideoItemView.acr();
                 if (currentVideoItemView != null) {
                     currentVideoItemView.clearAnimation();
                     currentVideoItemView.stopPlayback();
                     currentVideoItemView.setVisibility(8);
-                    this.bRD.removeView(currentVideoItemView);
-                    int childCount = this.bRD.getChildCount();
+                    this.bYL.removeView(currentVideoItemView);
+                    int childCount = this.bYL.getChildCount();
                     if (swapVideoItemView != null) {
                         swapVideoItemView.clearAnimation();
-                        this.bRD.f(swapVideoItemView, childCount - 1, childCount);
+                        this.bYL.f(swapVideoItemView, childCount - 1, childCount);
                     }
-                    hasMore = this.bRD.hasMore();
+                    hasMore = this.bYL.hasMore();
                     if (!hasMore) {
-                        list4 = this.bRD.aPE;
+                        list4 = this.bYL.aVq;
                     }
-                    this.bRD.addView(currentVideoItemView, 0);
-                    this.bRD.abJ();
-                    this.bRD.Jj();
-                    this.bRD.iq(this.bRD.getChildCount());
+                    this.bYL.addView(currentVideoItemView, 0);
+                    this.bYL.acG();
+                    this.bYL.JO();
+                    this.bYL.im(this.bYL.getChildCount());
                 }
             }
         }
-        this.bRD.bRp = true;
+        this.bYL.bYx = true;
     }
 }

@@ -5,11 +5,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class g implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ e fGW;
+    final /* synthetic */ e fLq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.fGW = eVar;
+        this.fLq = eVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -20,39 +20,39 @@ class g implements ViewPager.OnPageChangeListener {
         o oVar2;
         j jVar2;
         int i3;
-        ImageFileInfo sQ;
+        ImageFileInfo sP;
         o oVar3;
         ImageView imageView;
         ImageView imageView2;
         j jVar3;
         int i4;
-        this.fGW.awg = i;
-        e eVar = this.fGW;
-        i2 = this.fGW.awg;
-        eVar.sP(i2 + 1);
-        jVar = this.fGW.fGU;
+        this.fLq.aBB = i;
+        e eVar = this.fLq;
+        i2 = this.fLq.aBB;
+        eVar.sO(i2 + 1);
+        jVar = this.fLq.fLo;
         if (jVar != null) {
-            oVar = this.fGW.fGE;
+            oVar = this.fLq.fKY;
             if (oVar != null) {
-                oVar2 = this.fGW.fGE;
-                if ("-1".equals(oVar2.bng())) {
-                    jVar3 = this.fGW.fGU;
-                    i4 = this.fGW.awg;
-                    sQ = jVar3.sQ(i4 + 1);
+                oVar2 = this.fLq.fKY;
+                if ("-1".equals(oVar2.bmT())) {
+                    jVar3 = this.fLq.fLo;
+                    i4 = this.fLq.aBB;
+                    sP = jVar3.sP(i4 + 1);
                 } else {
-                    jVar2 = this.fGW.fGU;
-                    i3 = this.fGW.awg;
-                    sQ = jVar2.sQ(i3);
+                    jVar2 = this.fLq.fLo;
+                    i3 = this.fLq.aBB;
+                    sP = jVar2.sP(i3);
                 }
-                oVar3 = this.fGW.fGE;
-                if (oVar3.isAdded(sQ)) {
-                    e eVar2 = this.fGW;
-                    imageView2 = this.fGW.fGV;
+                oVar3 = this.fLq.fKY;
+                if (oVar3.isAdded(sP)) {
+                    e eVar2 = this.fLq;
+                    imageView2 = this.fLq.fLp;
                     eVar2.b(imageView2, true);
                     return;
                 }
-                e eVar3 = this.fGW;
-                imageView = this.fGW.fGV;
+                e eVar3 = this.fLq;
+                imageView = this.fLq.fLp;
                 eVar3.b(imageView, false);
             }
         }

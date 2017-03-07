@@ -18,6 +18,7 @@ import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes.dex */
 public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
+    public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
     public static final String TYPE_ZAN = "zan";
     private static final long serialVersionUID = -7837936115460478133L;
@@ -161,7 +162,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = jSONObject.optInt("is_floor");
                 this.quote_pid = jSONObject.optString("quote_pid");
                 this.mPraiseItemType = jSONObject.optString("item_type");
-                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                     this.mPraiseNum = optJSONObject.optInt("num");
                     this.mPraiseLiked = optJSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED);
                     this.isAuthor = optJSONObject.optInt("consent_type") == 2;
@@ -200,7 +201,7 @@ public class FeedData implements com.baidu.tbadk.mvc.b.a, Serializable {
                 this.isFloor = replyList.is_floor.intValue();
                 this.quote_pid = String.valueOf(replyList.quote_pid);
                 this.mPraiseItemType = replyList.item_type;
-                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI)) && (zan = replyList.zan) != null) {
+                if (((!com.baidu.adp.lib.util.j.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
                     this.mPraiseNum = zan.num.intValue();
                     this.mPraiseLiked = zan.is_liked.intValue();
                     this.isAuthor = zan.consent_type.intValue() == 2;

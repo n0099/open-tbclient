@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.ax;
 import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
@@ -9,125 +8,125 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private final ax bFF;
-    private final FrsModelController bFQ;
-    private final FrsActivity bLZ;
-    private final FrsLoadMoreModel bSe;
-    private final FrsSmartLoadMoreModel bSf;
+    private final ax bMN;
+    private final FrsModelController bMY;
+    private final FrsActivity bTf;
+    private final FrsLoadMoreModel bZm;
+    private final FrsSmartLoadMoreModel bZn;
 
-    public h(FrsActivity frsActivity, s sVar) {
+    public h(FrsActivity frsActivity, v vVar) {
         if (frsActivity == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.bLZ = frsActivity;
-        this.bSe = new FrsLoadMoreModel(frsActivity, sVar);
-        this.bSf = new FrsSmartLoadMoreModel(frsActivity, sVar);
-        this.bFF = this.bLZ.XF();
-        this.bFQ = this.bLZ.Xy();
-        this.bSf.setSortType(this.bFQ.acb());
-        this.bSe.setSortType(this.bFQ.acb());
+        this.bTf = frsActivity;
+        this.bZm = new FrsLoadMoreModel(frsActivity, vVar);
+        this.bZn = new FrsSmartLoadMoreModel(frsActivity, vVar);
+        this.bMN = this.bTf.YE();
+        this.bMY = this.bTf.Yx();
+        this.bZn.setSortType(this.bMY.acY());
+        this.bZm.setSortType(this.bMY.acY());
     }
 
-    public ArrayList<v> a(boolean z, boolean z2, ArrayList<v> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
-        if (this.bFQ != null) {
-            boolean ace = this.bLZ.Xy().ace();
-            if (this.bFQ.acf()) {
-                return this.bSf.a(z, ace, arrayList);
+    public ArrayList<com.baidu.adp.widget.ListView.v> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.v> arrayList, com.baidu.tieba.tbadkCore.data.e eVar) {
+        if (this.bMY != null) {
+            boolean adb = this.bTf.Yx().adb();
+            if (this.bMY.adc()) {
+                return this.bZn.a(z, adb, arrayList);
             }
-            return this.bSe.a(z, ace, z2, arrayList, eVar);
+            return this.bZm.a(z, adb, z2, arrayList, eVar);
         }
         return arrayList;
     }
 
     public void resetData() {
-        if (this.bFQ != null) {
-            if (this.bFQ.acf()) {
-                this.bSf.resetData();
+        if (this.bMY != null) {
+            if (this.bMY.adc()) {
+                this.bZn.resetData();
             } else {
-                this.bSe.resetData();
+                this.bZm.resetData();
             }
         }
     }
 
-    public boolean aw(List<Long> list) {
-        if (this.bFQ == null || this.bFQ.acf()) {
+    public boolean at(List<Long> list) {
+        if (this.bMY == null || this.bMY.adc()) {
             return false;
         }
-        return this.bSe.aw(list);
+        return this.bZm.at(list);
     }
 
     public void a(String str, String str2, com.baidu.tieba.tbadkCore.n nVar) {
-        if (this.bFQ != null && this.bFF != null && nVar != null) {
-            if (this.bFQ.acf()) {
-                if (this.bSf.XG() == 1 && !this.bFQ.wq()) {
-                    this.bSf.setSortType(this.bFQ.acb());
-                    this.bFF.a(this.bSf.getDataList(), nVar);
-                    int pn = this.bSf.getPn();
-                    this.bSf.setPn(pn);
-                    this.bFQ.in(pn + 1);
+        if (this.bMY != null && this.bMN != null && nVar != null) {
+            if (this.bMY.adc()) {
+                if (this.bZn.YF() == 1 && !this.bMY.wN()) {
+                    this.bZn.setSortType(this.bMY.acY());
+                    this.bMN.a(this.bZn.getDataList(), nVar);
+                    int pn = this.bZn.getPn();
+                    this.bZn.setPn(pn);
+                    this.bMY.ij(pn + 1);
                 }
-            } else if (this.bFQ.abU() == 1) {
-                if (!this.bSe.isLoading && !this.bFQ.wq()) {
-                    int pn2 = this.bSe.getPn();
-                    if (this.bSe.aw(nVar.bfR())) {
-                        this.bFF.a(this.bSe.aaX(), nVar);
-                        this.bSe.setSortType(this.bFQ.acb());
-                        this.bSe.a(com.baidu.adp.lib.g.b.c(str2, 0L), nVar.bfR(), str, pn2);
-                    } else if (this.bSe.XG() == 1) {
-                        this.bFF.a(this.bSe.aaX(), nVar);
-                        this.bSe.setPn(pn2);
-                        this.bFQ.in(pn2 + 1);
-                        this.bSe.loadingDone = false;
-                        this.bSe.loadIndex = 0;
+            } else if (this.bMY.acR() == 1) {
+                if (!this.bZm.isLoading && !this.bMY.wN()) {
+                    int pn2 = this.bZm.getPn();
+                    if (this.bZm.at(nVar.bfE())) {
+                        this.bMN.a(this.bZm.abU(), nVar);
+                        this.bZm.setSortType(this.bMY.acY());
+                        this.bZm.a(com.baidu.adp.lib.g.b.c(str2, 0L), nVar.bfE(), str, pn2);
+                    } else if (this.bZm.YF() == 1) {
+                        this.bMN.a(this.bZm.abU(), nVar);
+                        this.bZm.setPn(pn2);
+                        this.bMY.ij(pn2 + 1);
+                        this.bZm.loadingDone = false;
+                        this.bZm.loadIndex = 0;
                     }
                 }
-            } else if (!this.bFQ.abX()) {
-                this.bFQ.SQ();
+            } else if (!this.bMY.acU()) {
+                this.bMY.TR();
             }
         }
     }
 
-    public int XG() {
-        if (this.bFQ == null) {
+    public int YF() {
+        if (this.bMY == null) {
             return -1;
         }
-        if (this.bFQ.acf()) {
-            return this.bSf.XG();
+        if (this.bMY.adc()) {
+            return this.bZn.YF();
         }
-        return this.bSe.XG();
+        return this.bZm.YF();
     }
 
     public void setHasMore(int i) {
-        if (this.bFQ != null) {
-            if (this.bFQ.acf()) {
-                this.bSf.setHasMore(i);
+        if (this.bMY != null) {
+            if (this.bMY.adc()) {
+                this.bZn.setHasMore(i);
             } else {
-                this.bSe.setHasMore(i);
+                this.bZm.setHasMore(i);
             }
         }
     }
 
     public int getPn() {
-        if (this.bFQ == null) {
+        if (this.bMY == null) {
             return 1;
         }
-        if (this.bFQ.acf()) {
-            return this.bSf.getPn();
+        if (this.bMY.adc()) {
+            return this.bZn.getPn();
         }
-        return this.bSe.getPn();
+        return this.bZm.getPn();
     }
 
     public void setPn(int i) {
-        if (this.bFQ != null) {
-            if (this.bFQ.acf()) {
-                this.bSf.setPn(i);
+        if (this.bMY != null) {
+            if (this.bMY.adc()) {
+                this.bZn.setPn(i);
             } else {
-                this.bSe.setPn(i);
+                this.bZm.setPn(i);
             }
         }
     }
 
-    public ArrayList<v> getDataList() {
-        return this.bFQ.acf() ? this.bSf.getDataList() : this.bFQ.abZ();
+    public ArrayList<com.baidu.adp.widget.ListView.v> getDataList() {
+        return this.bMY.adc() ? this.bZn.getDataList() : this.bMY.acW();
     }
 }

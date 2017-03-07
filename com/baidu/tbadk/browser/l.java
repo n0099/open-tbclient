@@ -4,20 +4,20 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class l implements a.b {
-    private final /* synthetic */ TbPageContext LO;
-    private final /* synthetic */ String LP;
-    private final /* synthetic */ String LQ;
+    private final /* synthetic */ TbPageContext QR;
+    private final /* synthetic */ String QS;
+    private final /* synthetic */ String QT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(TbPageContext tbPageContext, String str, String str2) {
-        this.LO = tbPageContext;
-        this.LP = str;
-        this.LQ = str2;
+        this.QR = tbPageContext;
+        this.QS = str;
+        this.QT = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        f.c(this.LO.getPageActivity(), this.LP, this.LQ);
+        f.e(this.QR.getPageActivity(), this.QS, this.QT);
     }
 }

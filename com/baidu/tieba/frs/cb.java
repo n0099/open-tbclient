@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface cb {
-    void Me();
+    void MQ();
 
     void a(int i, int i2, cj cjVar);
 

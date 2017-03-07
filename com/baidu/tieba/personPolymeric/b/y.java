@@ -7,17 +7,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements c.b {
-    private final /* synthetic */ int brs;
-    final /* synthetic */ q eDB;
-    private final /* synthetic */ com.baidu.tbadk.data.k eDC;
-    private final /* synthetic */ List eDD;
+    private final /* synthetic */ int bys;
+    final /* synthetic */ q eHd;
+    private final /* synthetic */ com.baidu.tbadk.data.k eHe;
+    private final /* synthetic */ List eHf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(q qVar, com.baidu.tbadk.data.k kVar, List list, int i) {
-        this.eDB = qVar;
-        this.eDC = kVar;
-        this.eDD = list;
-        this.brs = i;
+        this.eHd = qVar;
+        this.eHe = kVar;
+        this.eHf = list;
+        this.bys = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -25,15 +25,15 @@ public class y implements c.b {
         TbPageContext tbPageContext;
         switch (i) {
             case 0:
-                this.eDB.d(this.eDC, this.eDD, this.brs);
+                this.eHd.d(this.eHe, this.eHf, this.bys);
                 break;
             case 1:
-                com.baidu.tbadk.data.k kVar = this.eDC;
-                tbPageContext = this.eDB.FY;
+                com.baidu.tbadk.data.k kVar = this.eHe;
+                tbPageContext = this.eHd.ajF;
                 aa.a(kVar, tbPageContext.getUniqueId());
                 break;
             case 2:
-                aa.a(this.eDC, this.eDD);
+                aa.a(this.eHe, this.eHf);
                 break;
         }
         cVar.dismiss();

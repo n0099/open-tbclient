@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.aa;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements NewWriteModel.d {
-    final /* synthetic */ c avv;
+    final /* synthetic */ c aAQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.avv = cVar;
+        this.aAQ = cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -35,48 +35,48 @@ public class f implements NewWriteModel.d {
         String str;
         NewWriteModel newWriteModel2;
         if (writeData == null) {
-            newWriteModel2 = this.avv.ave;
+            newWriteModel2 = this.aAQ.aAz;
             writeData2 = newWriteModel2.getWriteData();
         } else {
             writeData2 = writeData;
         }
         if (!z) {
-            if (writeData2 != null && qVar != null && !TextUtils.isEmpty(qVar.xM())) {
+            if (writeData2 != null && qVar != null && !TextUtils.isEmpty(qVar.yi())) {
                 writeData2.setVcodeMD5(qVar.getVcode_md5());
                 writeData2.setVcodeUrl(qVar.getVcode_pic_url());
-                writeData2.setVcodeExtra(qVar.xN());
-                if (com.baidu.tbadk.j.a.gy(qVar.xM())) {
+                writeData2.setVcodeExtra(qVar.yj());
+                if (com.baidu.tbadk.j.a.gn(qVar.yi())) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    baseActivity3 = this.avv.mContext;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity3.getActivity(), 12006, writeData2, false, qVar.xM())));
+                    baseActivity3 = this.aAQ.mContext;
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity3.getActivity(), 12006, writeData2, false, qVar.yi())));
                 } else {
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    baseActivity2 = this.avv.mContext;
+                    baseActivity2 = this.aAQ.mContext;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(baseActivity2.getActivity(), writeData2, 12006)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                 MessageManager messageManager3 = MessageManager.getInstance();
-                baseActivity = this.avv.mContext;
+                baseActivity = this.aAQ.mContext;
                 messageManager3.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(baseActivity.getActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
             }
         } else {
-            this.avv.bJ(true);
-            newWriteModel = this.avv.ave;
+            this.aAQ.bI(true);
+            newWriteModel = this.aAQ.aAz;
             WriteData writeData3 = newWriteModel.getWriteData();
-            this.avv.resetData();
-            str = this.avv.mThreadId;
-            aa.c(str, (WriteData) null);
+            this.aAQ.resetData();
+            str = this.aAQ.mThreadId;
+            z.c(str, (WriteData) null);
             if (writeData3 != null) {
                 if (writeData3 != null && writeData3.getType() == 2) {
-                    aa.a(writeData3.getThreadId(), this.avv);
+                    z.a(writeData3.getThreadId(), this.aAQ);
                 }
             } else {
                 return;
             }
         }
-        dVar = this.avv.avm;
+        dVar = this.aAQ.aAH;
         if (dVar != null) {
-            dVar2 = this.avv.avm;
+            dVar2 = this.aAQ.aAH;
             dVar2.callback(z, postWriteCallBackData, qVar, writeData2, antiData);
         }
     }

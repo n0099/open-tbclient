@@ -11,33 +11,36 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class j {
     public static void a(TbPageContext tbPageContext, com.baidu.tieba.tbadkCore.n nVar, String str) {
-        if (tbPageContext != null && nVar != null && nVar.aJY() != null) {
-            if (nVar.aJY().getName() == null) {
-                tbPageContext.showToast(tbPageContext.getString(r.l.no_forum_data));
+        String name;
+        String encode;
+        if (tbPageContext != null && nVar != null && nVar.aJp() != null) {
+            if (nVar.aJp().getName() == null) {
+                tbPageContext.showToast(tbPageContext.getString(w.l.no_forum_data));
                 return;
             }
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "frs_share", "frsclick", 1, new Object[0]);
-            String name = nVar.aJY().getName();
-            String str2 = TbConfig.HTTPS_FRS_PREFIX + URLEncoder.encode(name);
-            Uri parse = nVar.aJY().getImage_url() == null ? null : Uri.parse(nVar.aJY().getImage_url());
-            String slogan = nVar.aJY().getSlogan();
-            com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-            fVar.title = String.valueOf(name) + tbPageContext.getString(r.l.forum);
-            fVar.content = slogan;
-            fVar.linkUrl = str2;
-            fVar.amt = true;
-            fVar.extData = str;
+            String str2 = TbConfig.HTTPS_FRS_PREFIX + URLEncoder.encode(nVar.aJp().getName());
+            String str3 = TbConfig.HTTPS_FRS_PREFIX + URLEncoder.encode(encode);
+            Uri parse = nVar.aJp().getImage_url() == null ? null : Uri.parse(nVar.aJp().getImage_url());
+            String slogan = nVar.aJp().getSlogan();
+            com.baidu.tbadk.coreExtra.share.g gVar = new com.baidu.tbadk.coreExtra.share.g();
+            gVar.title = String.valueOf(name) + tbPageContext.getString(w.l.forum);
+            gVar.content = slogan;
+            gVar.linkUrl = str2;
+            gVar.arR = str3;
+            gVar.arN = true;
+            gVar.extData = str;
             if (parse != null) {
-                fVar.imageUri = parse;
+                gVar.imageUri = parse;
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), fVar, true);
-            shareDialogConfig.addOutsideTextView(r.l.forum_friend, r.g.icon_unite_share_baf, new k(tbPageContext, str));
-            shareDialogConfig.setCopyLinkListener(new l(fVar, tbPageContext));
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), gVar, true);
+            shareDialogConfig.addOutsideTextView(w.l.forum_friend, w.g.icon_unite_share_baf, new k(tbPageContext, str));
+            shareDialogConfig.setCopyLinkListener(new l(str2, tbPageContext));
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
@@ -48,45 +51,45 @@ public class j {
 
     private static ShareFromFrsMsgData f(com.baidu.tieba.tbadkCore.n nVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(nVar.aJY().getImage_url());
-        shareFromFrsMsgData.setName(nVar.aJY().getName());
-        shareFromFrsMsgData.setMemberNum(nVar.aJY().getMember_num());
-        shareFromFrsMsgData.setPostNum(nVar.aJY().getPost_num());
-        shareFromFrsMsgData.setContent(nVar.aJY().getSlogan());
+        shareFromFrsMsgData.setImageUrl(nVar.aJp().getImage_url());
+        shareFromFrsMsgData.setName(nVar.aJp().getName());
+        shareFromFrsMsgData.setMemberNum(nVar.aJp().getMember_num());
+        shareFromFrsMsgData.setPostNum(nVar.aJp().getPost_num());
+        shareFromFrsMsgData.setContent(nVar.aJp().getSlogan());
         return shareFromFrsMsgData;
     }
 
     private static void a(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.n nVar, ShareFromFrsMsgData shareFromFrsMsgData, long j, String str, String str2) {
-        if (nVar != null && nVar.aJY() != null) {
+        if (nVar != null && nVar.aJp() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsActivity.getPageContext().getPageActivity());
             com.baidu.tieba.frs.view.o oVar = new com.baidu.tieba.frs.view.o(frsActivity.getPageContext().getPageActivity());
             oVar.setData(shareFromFrsMsgData);
-            aVar.cc(1);
-            aVar.x(oVar);
-            aVar.a(r.l.share, new m(frsActivity, oVar, j, str, str2, shareFromFrsMsgData));
-            aVar.b(r.l.alert_no_button, new n(frsActivity, oVar));
-            aVar.av(true);
-            aVar.b(frsActivity.getPageContext()).sV();
+            aVar.bY(1);
+            aVar.v(oVar);
+            aVar.a(w.l.share, new m(frsActivity, oVar, j, str, str2, shareFromFrsMsgData));
+            aVar.b(w.l.alert_no_button, new n(frsActivity, oVar));
+            aVar.au(true);
+            aVar.b(frsActivity.getPageContext()).ts();
             if (!com.baidu.adp.lib.util.j.isEmpty(shareFromFrsMsgData.getImageUrl())) {
-                oVar.F(shareFromFrsMsgData.getImageUrl(), false);
+                oVar.G(shareFromFrsMsgData.getImageUrl(), false);
             }
         }
     }
 
     public static void a(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.n nVar, int i, String str, long j) {
-        if (nVar != null && nVar.aJY() != null) {
+        if (nVar != null && nVar.aJp() != null) {
             ShareFromFrsMsgData f = f(nVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsActivity.getPageContext().getPageActivity());
             com.baidu.tieba.frs.view.o oVar = new com.baidu.tieba.frs.view.o(frsActivity.getPageContext().getPageActivity());
             oVar.setData(f);
-            aVar.cc(1);
-            aVar.x(oVar);
-            aVar.a(r.l.share, new o(frsActivity, oVar, i, str, j, f));
-            aVar.b(r.l.alert_no_button, new p(frsActivity, oVar));
-            aVar.av(true);
-            aVar.b(frsActivity.getPageContext()).sV();
+            aVar.bY(1);
+            aVar.v(oVar);
+            aVar.a(w.l.share, new o(frsActivity, oVar, i, str, j, f));
+            aVar.b(w.l.alert_no_button, new p(frsActivity, oVar));
+            aVar.au(true);
+            aVar.b(frsActivity.getPageContext()).ts();
             if (!com.baidu.adp.lib.util.j.isEmpty(f.getImageUrl())) {
-                oVar.F(f.getImageUrl(), false);
+                oVar.G(f.getImageUrl(), false);
             }
         }
     }

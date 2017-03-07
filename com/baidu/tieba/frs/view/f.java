@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ c bXS;
+    final /* synthetic */ c cfo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.bXS = cVar;
+        this.cfo = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((this.bXS.Fp == null || this.bXS.Fp.getOrignalPage() == null || this.bXS.Fp.getOrignalPage().checkUpIsLogin()) && this.bXS.mForumId != null && this.bXS.mForumName != null && TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.bXS.Fp.getPageActivity(), this.bXS.mForumId, this.bXS.mForumName, 0, 1)));
+        if ((this.cfo.aaI == null || this.cfo.aaI.getOrignalPage() == null || this.cfo.aaI.getOrignalPage().checkUpIsLogin()) && this.cfo.mForumId != null && this.cfo.mForumName != null && TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.cfo.aaI.getPageActivity(), this.cfo.mForumId, this.cfo.mForumName, 0, 1)));
         }
     }
 }

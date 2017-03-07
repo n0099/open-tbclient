@@ -9,39 +9,39 @@ import android.graphics.Shader;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class l extends a {
-    protected BitmapShader vF;
-    protected Matrix vE = new Matrix();
-    protected RectF vG = new RectF();
+    protected BitmapShader CT;
+    protected Matrix CS = new Matrix();
+    protected RectF CU = new RectF();
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(d dVar, ImageView imageView) {
         int width = dVar.getWidth();
         int height = dVar.getHeight();
-        PointF a = a(this.uI.left, this.uI.top, this.uH);
+        PointF a = a(this.BW.left, this.BW.top, this.BV);
         int i = (int) a.x;
         int i2 = (int) a.y;
-        PointF a2 = a(this.uI.right, this.uI.bottom, this.uH);
+        PointF a2 = a(this.BW.right, this.BW.bottom, this.BV);
         int i3 = (int) a2.x;
         int i4 = (int) a2.y;
-        this.vE.reset();
-        this.vE.postScale((i3 - i) / width, (i4 - i2) / height);
-        this.vE.postTranslate(i, i2);
-        if (dVar.hH()) {
-            this.vF = new BitmapShader(dVar.vh.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        this.CS.reset();
+        this.CS.postScale((i3 - i) / width, (i4 - i2) / height);
+        this.CS.postTranslate(i, i2);
+        if (dVar.iB()) {
+            this.CT = new BitmapShader(dVar.Cv.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         } else {
-            this.vF = dVar.vi.jZ();
+            this.CT = dVar.Cw.kT();
         }
-        if (this.vF != null) {
-            this.vF.setLocalMatrix(this.vE);
-            this.mPaint.setShader(this.vF);
+        if (this.CT != null) {
+            this.CT.setLocalMatrix(this.CS);
+            this.mPaint.setShader(this.CT);
             int width2 = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
-            this.vG.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width2), Math.min(i4, (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom()));
-            if (this.uN.vk) {
-                float f = this.uN.vl / 2.0f;
-                if (!this.uN.vo) {
-                    this.uJ.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+            this.CU.set(Math.max(i, 0), Math.max(i2, 0), Math.min(i3, width2), Math.min(i4, (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom()));
+            if (this.Cb.Cy) {
+                float f = this.Cb.Cz / 2.0f;
+                if (!this.Cb.CC) {
+                    this.BX.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
                 } else {
-                    this.uJ.set(this.vG.left + f, this.vG.top + f, this.vG.right - f, this.vG.bottom - f);
+                    this.BX.set(this.CU.left + f, this.CU.top + f, this.CU.right - f, this.CU.bottom - f);
                 }
             }
         }
@@ -49,45 +49,45 @@ public class l extends a {
 
     @Override // com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        boolean hI = dVar.hI();
-        if (hI) {
-            dVar.vi.Q(true);
+        boolean iC = dVar.iC();
+        if (iC) {
+            dVar.Cw.R(true);
         }
-        if (!this.uN.vj) {
-            canvas.drawRoundRect(this.vG, this.uN.mRadius, this.uN.mRadius, this.mPaint);
+        if (!this.Cb.Cx) {
+            canvas.drawRoundRect(this.CU, this.Cb.mRadius, this.Cb.mRadius, this.mPaint);
         } else {
-            canvas.drawCircle((this.vG.right + this.vG.left) / 2.0f, (this.vG.top + this.vG.bottom) / 2.0f, Math.min(this.vG.width(), this.vG.height()) / 2.0f, this.mPaint);
+            canvas.drawCircle((this.CU.right + this.CU.left) / 2.0f, (this.CU.top + this.CU.bottom) / 2.0f, Math.min(this.CU.width(), this.CU.height()) / 2.0f, this.mPaint);
         }
-        if (hI) {
-            dVar.vi.Q(false);
+        if (iC) {
+            dVar.Cw.R(false);
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, ImageView imageView) {
-        if (this.uN.vk) {
-            if (!this.uN.vj) {
-                canvas.drawRoundRect(this.uJ, this.uN.mRadius, this.uN.mRadius, this.uF);
+        if (this.Cb.Cy) {
+            if (!this.Cb.Cx) {
+                canvas.drawRoundRect(this.BX, this.Cb.mRadius, this.Cb.mRadius, this.BT);
             } else {
-                canvas.drawCircle((this.vG.right + this.vG.left) / 2.0f, (this.vG.top + this.vG.bottom) / 2.0f, (Math.min(this.vG.width(), this.vG.height()) / 2.0f) - (this.uN.vl / 2.0f), this.uF);
+                canvas.drawCircle((this.CU.right + this.CU.left) / 2.0f, (this.CU.top + this.CU.bottom) / 2.0f, (Math.min(this.CU.width(), this.CU.height()) / 2.0f) - (this.Cb.Cz / 2.0f), this.BT);
             }
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, ImageView imageView) {
-        if (this.uN.vs != 0) {
+        if (this.Cb.CG != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
             canvas.translate(scrollX, scrollY);
-            this.uG.setColor(this.uN.vs);
-            if (!this.uN.vj) {
-                this.uQ.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-                canvas.drawRoundRect(this.uQ, this.uN.mRadius, this.uN.mRadius, this.uG);
+            this.BU.setColor(this.Cb.CG);
+            if (!this.Cb.Cx) {
+                this.Ce.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+                canvas.drawRoundRect(this.Ce, this.Cb.mRadius, this.Cb.mRadius, this.BU);
             } else {
                 float width = imageView.getWidth() / 2.0f;
                 float height = imageView.getHeight() / 2.0f;
-                canvas.drawCircle(width, height, Math.min(width, height) - (this.uN.vl / 2.0f), this.uG);
+                canvas.drawCircle(width, height, Math.min(width, height) - (this.Cb.Cz / 2.0f), this.BU);
             }
             canvas.translate(-scrollX, -scrollY);
         }

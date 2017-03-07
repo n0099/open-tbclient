@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private Bitmap aEw;
+    private Bitmap aJT;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -35,13 +35,13 @@ public class a extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void bq(View view) {
+    public void bp(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.aEw = Bitmap.createBitmap(drawingCache);
+            this.aJT = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
@@ -55,17 +55,17 @@ public class a extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.aEw != null) {
+            if (this.mScroller.computeScrollOffset() && this.aJT != null) {
                 canvas.save();
-                canvas.drawBitmap(this.aEw, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.aJT, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.aEw != null) {
-                this.aEw.recycle();
+            if (this.aJT != null) {
+                this.aJT.recycle();
             }
-            this.aEw = null;
+            this.aJT = null;
             this.view = null;
         }
     }
@@ -74,10 +74,10 @@ public class a extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.aEw != null) {
-            this.aEw.recycle();
+        if (this.aJT != null) {
+            this.aJT.recycle();
         }
-        this.aEw = null;
+        this.aJT = null;
         this.view = null;
     }
 }

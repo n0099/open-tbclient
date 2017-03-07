@@ -16,9 +16,9 @@ class bf extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
             if (TbadkCoreApplication.isLogin()) {
-                ah.avW().start();
+                ah.avs().start();
             } else {
-                ah.avW().destroy();
+                ah.avs().destroy();
             }
         }
     }

@@ -4,18 +4,18 @@ import com.baidu.tieba.play.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements y.b {
-    final /* synthetic */ aj eTa;
+    final /* synthetic */ aj eWH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(aj ajVar) {
-        this.eTa = ajVar;
+        this.eWH = ajVar;
     }
 
     @Override // com.baidu.tieba.play.y.b
-    public void aYh() {
+    public void aXL() {
         int i;
-        aj ajVar = this.eTa;
-        i = ajVar.eSX;
-        ajVar.eSX = i + 1;
+        aj ajVar = this.eWH;
+        i = ajVar.eWE;
+        ajVar.eWE = i + 1;
     }
 }

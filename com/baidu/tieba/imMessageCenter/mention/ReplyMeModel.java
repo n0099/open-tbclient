@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 /* loaded from: classes.dex */
 public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
-    private BdUniqueId dkf;
-    private ReplyMessageActivity dkg;
-    private a dkh;
+    private ReplyMessageActivity dmA;
+    private a dmB;
+    private BdUniqueId dmz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -19,10 +19,10 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public ReplyMeModel(ReplyMessageActivity replyMessageActivity) {
-        super(com.baidu.adp.base.k.C(replyMessageActivity.getPageContext().getPageActivity()));
-        this.dkf = BdUniqueId.gen();
-        this.dkg = replyMessageActivity;
-        awa();
+        super(com.baidu.adp.base.k.aa(replyMessageActivity.getPageContext().getPageActivity()));
+        this.dmz = BdUniqueId.gen();
+        this.dmA = replyMessageActivity;
+        avw();
     }
 
     public void b(long j, int i, String str) {
@@ -30,15 +30,15 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTag(this.dkg.getUniqueId());
+        checkPostRequestMessage.setTag(this.dmA.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void awa() {
+    public void avw() {
         aq aqVar = new aq(this, 303010);
-        aqVar.setTag(this.dkg.getUniqueId());
+        aqVar.setTag(this.dmA.getUniqueId());
         aqVar.setSelfListener(true);
-        this.dkg.registerListener(aqVar);
+        this.dmA.registerListener(aqVar);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -52,6 +52,6 @@ public class ReplyMeModel extends BdBaseModel<ReplyMessageActivity> {
     }
 
     public void a(a aVar) {
-        this.dkh = aVar;
+        this.dmB = aVar;
     }
 }

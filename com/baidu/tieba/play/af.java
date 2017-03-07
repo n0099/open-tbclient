@@ -4,11 +4,11 @@ import com.baidu.tieba.play.QuickVideoView;
 import com.baidu.tieba.play.v;
 /* loaded from: classes.dex */
 class af implements v.d {
-    final /* synthetic */ QuickVideoView eSP;
+    final /* synthetic */ QuickVideoView eWw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(QuickVideoView quickVideoView) {
-        this.eSP = quickVideoView;
+        this.eWw = quickVideoView;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -21,27 +21,27 @@ class af implements v.d {
         int i;
         QuickVideoView.a aVar2;
         v.d dVar2;
-        dVar = this.eSP.aKH;
+        dVar = this.eWw.aQs;
         if (dVar != null) {
-            dVar2 = this.eSP.aKH;
+            dVar2 = this.eWw.aQs;
             dVar2.onPrepared(vVar);
         }
-        aVar = this.eSP.eSE;
+        aVar = this.eWw.eWl;
         if (aVar != null) {
-            aVar2 = this.eSP.eSE;
-            aVar2.IS();
+            aVar2 = this.eWw.eWl;
+            aVar2.Jx();
         }
-        z = this.eSP.eSD;
+        z = this.eWw.eWk;
         if (z) {
-            this.eSP.start();
+            this.eWw.start();
         }
-        anVar = this.eSP.eSA;
+        anVar = this.eWw.eWh;
         if (anVar != null && vVar != null) {
-            anVar2 = this.eSP.eSA;
+            anVar2 = this.eWw.eWh;
             int videoWidth = vVar.getVideoWidth();
             int videoHeight = vVar.getVideoHeight();
-            i = this.eSP.eSG;
-            anVar2.O(videoWidth, videoHeight, i);
+            i = this.eWw.eWn;
+            anVar2.N(videoWidth, videoHeight, i);
         }
     }
 }

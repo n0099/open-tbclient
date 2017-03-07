@@ -1,53 +1,125 @@
 package com.baidu.tieba.frs.f;
 
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.cc;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.cn;
+import com.baidu.tieba.frs.ax;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.view.BdExpandListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements Runnable {
-    final /* synthetic */ am bWd;
+public class an implements BdExpandListView.a {
+    final /* synthetic */ ah cdq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.bWd = amVar;
+    public an(ah ahVar) {
+        this.cdq = ahVar;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v11, resolved type: com.baidu.tieba.frs.FrsActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // java.lang.Runnable
-    public void run() {
-        cn cnVar;
-        cn cnVar2;
-        View.OnClickListener onClickListener;
-        cn cnVar3;
-        BdSwitchView.a aVar;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        cn cnVar4;
+    @Override // com.baidu.tieba.view.BdExpandListView.a
+    public void G(float f) {
+        ax axVar;
+        ax axVar2;
+        ax axVar3;
+        axVar = this.cdq.bMN;
+        if (axVar != null) {
+            axVar2 = this.cdq.bMN;
+            if (axVar2.Zm() instanceof com.baidu.tieba.frs.tab.h) {
+                axVar3 = this.cdq.bMN;
+                ((com.baidu.tieba.frs.tab.h) axVar3.Zm()).F(f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.view.BdExpandListView.a
+    public void kY() {
+        ax axVar;
+        ax axVar2;
+        ax axVar3;
+        axVar = this.cdq.bMN;
+        if (axVar != null) {
+            axVar2 = this.cdq.bMN;
+            if (axVar2.Zm() instanceof com.baidu.tieba.frs.tab.h) {
+                axVar3 = this.cdq.bMN;
+                ((com.baidu.tieba.frs.tab.h) axVar3.Zm()).ady();
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0079, code lost:
+        if (((com.baidu.tieba.view.BdExpandListView) r0.getListView()).bgF() == false) goto L20;
+     */
+    @Override // com.baidu.tieba.view.BdExpandListView.a
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void kZ() {
+        ax axVar;
         FrsActivity frsActivity;
-        cnVar = this.bWd.bVX;
-        cnVar.Zi();
-        cnVar2 = this.bWd.bVX;
-        onClickListener = this.bWd.bGD;
-        cnVar2.setCommonClickListener(onClickListener);
-        cnVar3 = this.bWd.bVX;
-        aVar = this.bWd.bWc;
-        cnVar3.b(aVar);
-        am amVar = this.bWd;
-        z = this.bWd.bWa;
-        amVar.em(z);
-        am amVar2 = this.bWd;
-        z2 = this.bWd.bVY;
-        amVar2.dP(z2);
-        am amVar3 = this.bWd;
-        z3 = this.bWd.bVZ;
-        amVar3.dO(z3);
-        cnVar4 = this.bWd.bVX;
-        frsActivity = this.bWd.bLZ;
-        cnVar4.c(frsActivity.getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
+        ax axVar2;
+        FrsModelController frsModelController;
+        ax axVar3;
+        ax axVar4;
+        FrsActivity frsActivity2;
+        FrsActivity frsActivity3;
+        ax axVar5;
+        FrsActivity frsActivity4;
+        FrsActivity frsActivity5;
+        FrsModelController frsModelController2;
+        ax axVar6;
+        ax axVar7;
+        ax axVar8;
+        ax axVar9;
+        ax axVar10;
+        ax axVar11;
+        axVar = this.cdq.bMN;
+        if (axVar != null) {
+            axVar10 = this.cdq.bMN;
+            if (axVar10.KC() != null) {
+                axVar11 = this.cdq.bMN;
+                axVar11.KC().alL();
+            }
+        }
+        cc.Sv().cN(false);
+        frsActivity = this.cdq.bTf;
+        com.baidu.tieba.tbadkCore.n YV = frsActivity.YV();
+        axVar2 = this.cdq.bMN;
+        if (axVar2 != null && YV != null) {
+            frsModelController = this.cdq.bMY;
+            if (frsModelController != null) {
+                if (com.baidu.adp.lib.util.i.he()) {
+                    axVar5 = this.cdq.bMN;
+                    if (axVar5.Zm() instanceof com.baidu.tieba.frs.tab.h) {
+                        axVar6 = this.cdq.bMN;
+                        if (axVar6.getListView() instanceof BdExpandListView) {
+                            axVar9 = this.cdq.bMN;
+                        }
+                        axVar7 = this.cdq.bMN;
+                        ((com.baidu.tieba.frs.tab.h) axVar7.Zm()).kX();
+                        axVar8 = this.cdq.bMN;
+                        axVar8.ce(true);
+                    }
+                    frsActivity4 = this.cdq.bTf;
+                    TiebaStatic.eventStat(frsActivity4.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
+                    if (YV.aJp() != null && YV.frI == 1) {
+                        frsModelController2 = this.cdq.bMY;
+                        com.baidu.tieba.frs.e.b.a(YV, frsModelController2.acX(), 1);
+                    }
+                    frsActivity5 = this.cdq.bTf;
+                    frsActivity5.refresh();
+                } else {
+                    axVar3 = this.cdq.bMN;
+                    if (axVar3.Zm() instanceof com.baidu.tieba.frs.tab.h) {
+                        axVar4 = this.cdq.bMN;
+                        ((com.baidu.tieba.frs.tab.h) axVar4.Zm()).ady();
+                    }
+                }
+                com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c11749");
+                frsActivity2 = this.cdq.bTf;
+                com.baidu.tbadk.core.util.as Z = asVar.Z("fid", frsActivity2.getFid());
+                frsActivity3 = this.cdq.bTf;
+                TiebaStatic.log(Z.Z("obj_locate", frsActivity3.YL() ? "2" : "1"));
+            }
+        }
     }
 }

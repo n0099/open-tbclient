@@ -7,11 +7,11 @@ import com.baidu.tieba.homepage.framework.indicator.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends com.baidu.adp.lib.g.d {
-    final /* synthetic */ r cvj;
+    final /* synthetic */ r cwI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(r rVar) {
-        this.cvj = rVar;
+        this.cwI = rVar;
     }
 
     @Override // com.baidu.adp.lib.g.d, android.view.animation.Animation.AnimationListener
@@ -20,14 +20,14 @@ public class t extends com.baidu.adp.lib.g.d {
         ViewGroup viewGroup;
         View view;
         r.a aVar2;
-        this.cvj.auW = false;
-        aVar = this.cvj.cvh;
+        this.cwI.aAr = false;
+        aVar = this.cwI.cwG;
         if (aVar != null) {
-            aVar2 = this.cvj.cvh;
-            aVar2.ajK();
+            aVar2 = this.cwI.cwG;
+            aVar2.aiW();
         }
-        viewGroup = this.cvj.cvg;
-        view = this.cvj.rootView;
+        viewGroup = this.cwI.cwF;
+        view = this.cwI.rootView;
         viewGroup.removeView(view);
     }
 }

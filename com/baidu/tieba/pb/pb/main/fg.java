@@ -5,16 +5,16 @@ import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fg implements Animation.AnimationListener {
-    final /* synthetic */ ez eqf;
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fg(ez ezVar) {
-        this.eqf = ezVar;
+    public fg(fa faVar) {
+        this.etn = faVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.eqf.enK.setTitleVisibility(false);
+        this.etn.eqM.setTitleVisibility(false);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,16 +22,16 @@ public class fg implements Animation.AnimationListener {
         ObservedChangeLinearLayout observedChangeLinearLayout;
         boolean z;
         PbActivity pbActivity;
-        observedChangeLinearLayout = this.eqf.eou;
+        observedChangeLinearLayout = this.etn.erx;
         observedChangeLinearLayout.setVisibility(0);
-        this.eqf.enK.setTitleVisibility(true);
-        this.eqf.iP(false);
-        z = this.eqf.epE;
+        this.etn.eqM.setTitleVisibility(true);
+        this.etn.iK(false);
+        z = this.etn.esK;
         if (z) {
-            this.eqf.aOd();
+            this.etn.aNx();
         }
-        pbActivity = this.eqf.ehi;
-        pbActivity.is(true);
+        pbActivity = this.etn.eka;
+        pbActivity.in(true);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

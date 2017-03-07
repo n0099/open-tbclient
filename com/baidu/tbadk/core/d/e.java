@@ -3,18 +3,18 @@ package com.baidu.tbadk.core.d;
 import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final boolean WA;
-    private static final b Wy = new a(null);
-    private static final b Wz = new c(null);
+    private static final b abM = new a(null);
+    private static final b abN = new c(null);
+    private static final boolean abO;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void p(String str, String str2, String str3);
+        void o(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.d.e.b
-        public void p(String str, String str2, String str3) {
+        public void o(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -45,35 +45,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.d.e.b
-        public void p(String str, String str2, String str3) {
-            ar arVar = new ar("c10729");
-            arVar.ab("obj_param1", str);
-            arVar.ab("obj_param2", str2);
-            arVar.ab("obj_param3", str3);
+        public void o(String str, String str2, String str3) {
+            as asVar = new as("c10729");
+            asVar.Z("obj_param1", str);
+            asVar.Z("obj_param2", str2);
+            asVar.Z("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(arVar);
+                TiebaStatic.log(asVar);
             }
         }
     }
 
+    public static void o(String str, String str2, String str3) {
+        if (abO) {
+            abM.o(str, str2, str3);
+        }
+        abN.o(str, str2, str3);
+    }
+
+    public static void cA(String str) {
+        if (abO) {
+            abM.o(null, null, str);
+        }
+    }
+
     public static void p(String str, String str2, String str3) {
-        if (WA) {
-            Wy.p(str, str2, str3);
-        }
-        Wz.p(str, str2, str3);
-    }
-
-    public static void cH(String str) {
-        if (WA) {
-            Wy.p(null, null, str);
-        }
-    }
-
-    public static void q(String str, String str2, String str3) {
-        cH(str3);
+        cA(str3);
     }
 
     static {
-        WA = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        abO = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

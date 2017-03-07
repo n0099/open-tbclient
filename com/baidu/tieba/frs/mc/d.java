@@ -5,57 +5,56 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.tbadkCore.v;
 /* loaded from: classes.dex */
-public class d extends r {
-    private final CustomMessageListener bDS;
-    public final com.baidu.adp.base.f bSb;
-    public final com.baidu.adp.base.f bSc;
+public class d extends u {
+    private final CustomMessageListener bKZ;
+    public final com.baidu.adp.base.f bZj;
+    public final com.baidu.adp.base.f bZk;
 
     public d(FrsActivity frsActivity) {
         super(frsActivity);
-        this.bDS = new e(this, CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS);
-        this.bSb = new f(this);
-        this.bSc = new g(this);
-        this.bLZ.registerListener(this.bDS);
+        this.bKZ = new e(this, CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS);
+        this.bZj = new f(this);
+        this.bZk = new g(this);
+        this.bTf.registerListener(this.bKZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(v vVar) {
+    public void b(com.baidu.tieba.tbadkCore.v vVar) {
         if (vVar != null) {
-            com.baidu.tieba.tbadkCore.n XW = this.bLZ.XW();
-            if (this.bFQ != null && this.bFS != null && this.bFR != null && this.bFF != null && XW != null && XW.aJY() != null && vVar.getFid() != null) {
+            com.baidu.tieba.tbadkCore.n YV = this.bTf.YV();
+            if (this.bMY != null && this.bNa != null && this.bMZ != null && this.bMN != null && YV != null && YV.aJp() != null && vVar.getFid() != null) {
                 boolean z = vVar.isLike() == 1;
-                if (vVar.getFid().equals(XW.aJY().getId())) {
-                    XW.aJY().setLike(vVar.isLike());
+                if (vVar.getFid().equals(YV.aJp().getId())) {
+                    YV.aJp().setLike(vVar.isLike());
                     if (!StringUtils.isNULL(vVar.getLevelName())) {
-                        XW.aJY().setLevelName(vVar.getLevelName());
+                        YV.aJp().setLevelName(vVar.getLevelName());
                     }
                     if (vVar.getUserLevel() >= 0) {
-                        XW.aJY().setUser_level(vVar.getUserLevel());
+                        YV.aJp().setUser_level(vVar.getUserLevel());
                     }
                     if (z) {
-                        this.bFR.a(XW, false);
-                        this.bFS.dO(true);
-                        TbadkCoreApplication.m9getInst().addLikeForum(this.bLZ.getForumName());
+                        this.bMZ.a(YV, false);
+                        this.bNa.dO(true);
+                        TbadkCoreApplication.m9getInst().addLikeForum(this.bTf.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.c.bfG().U(this.bLZ.getForumName(), false);
-                    XW.aJY().setLike(0);
-                    this.bFR.acZ();
-                    this.bFS.dO(false);
-                    TbadkCoreApplication.m9getInst().delLikeForum(this.bLZ.getForumName());
+                    com.baidu.tieba.tbadkCore.c.bft().V(this.bTf.getForumName(), false);
+                    YV.aJp().setLike(0);
+                    this.bMZ.adZ();
+                    this.bNa.dO(false);
+                    TbadkCoreApplication.m9getInst().delLikeForum(this.bTf.getForumName());
                     return;
                 }
                 if (vVar.isLike() == 1) {
-                    XW.qp(vVar.getFid());
-                    this.bFR.h(XW);
-                    this.bFV.a(this.bFF.Iv(), XW, this.bFQ.aca());
+                    YV.py(vVar.getFid());
+                    this.bMZ.h(YV);
+                    this.bNd.a(this.bMN.getListView(), YV, this.bMY.acX());
                 }
-                if (XW.aJY().getBannerListData() != null) {
-                    XW.aJY().getBannerListData().setFeedForumLiked(vVar.getFid(), vVar.isLike());
+                if (YV.aJp().getBannerListData() != null) {
+                    YV.aJp().getBannerListData().setFeedForumLiked(vVar.getFid(), vVar.isLike());
                 }
-                this.bFF.Yy();
+                this.bMN.Zx();
             }
         }
     }

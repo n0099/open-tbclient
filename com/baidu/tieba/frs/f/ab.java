@@ -6,31 +6,31 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.tbadkCore.ah;
+import com.baidu.tieba.tbadkCore.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements ah.a {
-    final /* synthetic */ u bVP;
+public class ab implements ag.a {
+    final /* synthetic */ u cdh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(u uVar) {
-        this.bVP = uVar;
+        this.cdh = uVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ah.a
+    @Override // com.baidu.tieba.tbadkCore.ag.a
     public void j(String str, long j) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        frsActivity = this.bVP.bLZ;
-        com.baidu.tieba.tbadkCore.n XW = frsActivity.XW();
-        if (XW != null && XW.aJY() != null) {
-            com.baidu.tieba.tbadkCore.c.bfG().U(XW.aJY().getName(), false);
-            XW.aJY().setLike(0);
-            this.bVP.iI(0);
-            frsActivity2 = this.bVP.bLZ;
+        frsActivity = this.cdh.bTf;
+        com.baidu.tieba.tbadkCore.n YV = frsActivity.YV();
+        if (YV != null && YV.aJp() != null) {
+            com.baidu.tieba.tbadkCore.c.bft().V(YV.aJp().getName(), false);
+            YV.aJp().setLike(0);
+            this.cdh.iE(0);
+            frsActivity2 = this.cdh.bTf;
             frsActivity2.O(true);
             TbadkCoreApplication.m9getInst().delLikeForum(str);
-            this.bVP.f(false, new StringBuilder(String.valueOf(j)).toString());
+            this.cdh.f(false, new StringBuilder(String.valueOf(j)).toString());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, new StringBuilder(String.valueOf(j)).toString()));
             com.baidu.tieba.tbadkCore.v vVar = new com.baidu.tieba.tbadkCore.v();
             vVar.setLike(0);
@@ -39,7 +39,7 @@ public class ab implements ah.a {
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ah.a
+    @Override // com.baidu.tieba.tbadkCore.ag.a
     public void k(String str, long j) {
     }
 }

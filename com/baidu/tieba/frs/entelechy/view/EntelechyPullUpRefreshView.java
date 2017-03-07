@@ -9,91 +9,91 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
-    private View bMT;
-    private TbImageView bMU;
-    private Animation bMV;
-    private int bMW;
+    private View bUb;
+    private TbImageView bUc;
+    private Animation bUd;
+    private int bUe;
     private int mSkinType;
 
     public EntelechyPullUpRefreshView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.bMV = null;
-        this.bMW = r.g.icon_frs_reload;
+        this.bUd = null;
+        this.bUe = w.g.icon_frs_reload;
         e(context, null);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.bMV = null;
-        this.bMW = r.g.icon_frs_reload;
+        this.bUd = null;
+        this.bUe = w.g.icon_frs_reload;
         e(context, attributeSet);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.bMV = null;
-        this.bMW = r.g.icon_frs_reload;
+        this.bUd = null;
+        this.bUe = w.g.icon_frs_reload;
         e(context, attributeSet);
     }
 
     public void setIconResource(int i) {
-        this.bMW = i;
-        com.baidu.tbadk.core.util.ap.c(this.bMU, this.bMW);
+        this.bUe = i;
+        com.baidu.tbadk.core.util.aq.c(this.bUc, this.bUe);
     }
 
     public void e(Context context, AttributeSet attributeSet) {
         if (context != null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r.n.EntelechyPullUpRefreshView);
-                this.bMW = obtainStyledAttributes.getResourceId(0, r.g.icon_frs_reload);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, w.n.EntelechyPullUpRefreshView);
+                this.bUe = obtainStyledAttributes.getResourceId(0, w.g.icon_frs_reload);
                 obtainStyledAttributes.recycle();
             }
             setOrientation(1);
             setGravity(1);
-            com.baidu.tbadk.core.util.ap.j(this, r.g.bg_pull_up_refresh_selector);
-            this.bMT = new View(context);
-            this.bMT.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(r.f.ds1)));
-            com.baidu.tbadk.core.util.ap.j(this.bMT, r.e.common_color_10208);
-            addView(this.bMT);
-            this.bMU = new TbImageView(context);
-            int e = com.baidu.adp.lib.util.k.e(getContext(), r.f.ds40);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(e, e);
-            layoutParams.topMargin = com.baidu.adp.lib.util.k.e(getContext(), r.f.ds20);
-            this.bMU.setLayoutParams(layoutParams);
-            com.baidu.tbadk.core.util.ap.c(this.bMU, this.bMW);
-            addView(this.bMU);
+            com.baidu.tbadk.core.util.aq.j(this, w.g.bg_pull_up_refresh_selector);
+            this.bUb = new View(context);
+            this.bUb.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(w.f.ds1)));
+            com.baidu.tbadk.core.util.aq.j(this.bUb, w.e.common_color_10208);
+            addView(this.bUb);
+            this.bUc = new TbImageView(context);
+            int g = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds40);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g, g);
+            layoutParams.topMargin = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds20);
+            this.bUc.setLayoutParams(layoutParams);
+            com.baidu.tbadk.core.util.aq.c(this.bUc, this.bUe);
+            addView(this.bUc);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ap.j(this.bMT, r.e.common_color_10208);
-            com.baidu.tbadk.core.util.ap.c(this.bMU, this.bMW);
-            com.baidu.tbadk.core.util.ap.j(this, r.g.bg_pull_up_refresh_selector);
+            com.baidu.tbadk.core.util.aq.j(this.bUb, w.e.common_color_10208);
+            com.baidu.tbadk.core.util.aq.c(this.bUc, this.bUe);
+            com.baidu.tbadk.core.util.aq.j(this, w.g.bg_pull_up_refresh_selector);
             this.mSkinType = i;
         }
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.bMV == null) {
-            this.bMV = AnimationUtils.loadAnimation(getContext(), r.a.refresh_rotate);
-            this.bMV.setInterpolator(new LinearInterpolator());
-            this.bMV.setFillAfter(true);
+        if (this.bUd == null) {
+            this.bUd = AnimationUtils.loadAnimation(getContext(), w.a.refresh_rotate);
+            this.bUd.setInterpolator(new LinearInterpolator());
+            this.bUd.setFillAfter(true);
         }
-        return this.bMV;
+        return this.bUd;
     }
 
-    public void aay() {
-        this.bMU.startAnimation(getClickRotateAnimation());
+    public void abv() {
+        this.bUc.startAnimation(getClickRotateAnimation());
     }
 
-    public void aaz() {
-        this.bMU.clearAnimation();
+    public void abw() {
+        this.bUc.clearAnimation();
     }
 }

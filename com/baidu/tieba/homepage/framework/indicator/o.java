@@ -10,106 +10,106 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class o {
-    private ImageView cuV;
-    private TextView cuW;
-    private View cuX;
-    private SlidingTabLayout cuY;
-    private Animation cuZ;
-    private Animation cva;
-    private boolean cvb = true;
-    private com.baidu.adp.lib.g.d cvc = new p(this);
+    private boolean cwA = true;
+    private com.baidu.adp.lib.g.d cwB = new p(this);
+    private ImageView cwu;
+    private TextView cwv;
+    private View cww;
+    private SlidingTabLayout cwx;
+    private Animation cwy;
+    private Animation cwz;
     private Context mContext;
     private View rootView;
 
     public o(Context context, View view) {
         this.mContext = context;
         this.rootView = view;
-        this.cuW = (TextView) view.findViewById(r.h.tab_widget_switch);
-        this.cuX = view.findViewById(r.h.tab_widget_line);
-        this.cuV = (ImageView) view.findViewById(r.h.tab_widget_more);
-        this.cuV.setContentDescription("展开");
-        this.cuY = (SlidingTabLayout) view.findViewById(r.h.tab_widget_sliding_tab);
+        this.cwv = (TextView) view.findViewById(w.h.tab_widget_switch);
+        this.cww = view.findViewById(w.h.tab_widget_line);
+        this.cwu = (ImageView) view.findViewById(w.h.tab_widget_more);
+        this.cwu.setContentDescription("展开");
+        this.cwx = (SlidingTabLayout) view.findViewById(w.h.tab_widget_sliding_tab);
     }
 
-    public void q(View.OnClickListener onClickListener) {
-        if (this.cuV != null) {
-            this.cuV.setOnClickListener(onClickListener);
+    public void o(View.OnClickListener onClickListener) {
+        if (this.cwu != null) {
+            this.cwu.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.cuY != null) {
-            this.cuY.setViewPager(viewPager);
+        if (this.cwx != null) {
+            this.cwx.setViewPager(viewPager);
         }
     }
 
     public void onChangeSkinType(int i) {
-        ap.k(this.rootView, r.e.common_color_10274);
-        ap.k(this.cuW, r.e.cp_bg_line_e);
-        ap.c(this.cuW, r.e.cp_cont_f, 1);
-        ap.k(this.cuX, r.e.cp_bg_line_b);
-        if (this.cvb) {
-            ap.c(this.cuV, r.g.icon_triangle_down_normal);
-            ap.j(this.cuV, r.g.rec_frs_btn_more_selector);
+        aq.k(this.rootView, w.e.common_color_10274);
+        aq.k(this.cwv, w.e.cp_bg_line_e);
+        aq.c(this.cwv, w.e.cp_cont_f, 1);
+        aq.k(this.cww, w.e.cp_bg_line_b);
+        if (this.cwA) {
+            aq.c(this.cwu, w.g.icon_triangle_down_normal);
+            aq.j(this.cwu, w.g.rec_frs_btn_more_selector);
         } else {
-            ap.c(this.cuV, r.g.icon_triangle_up_normal);
-            ap.j(this.cuV, r.g.rec_frs_btn_more_up_selector);
+            aq.c(this.cwu, w.g.icon_triangle_up_normal);
+            aq.j(this.cwu, w.g.rec_frs_btn_more_up_selector);
         }
-        if (this.cuY != null) {
-            this.cuY.onChangeSkinType(i);
+        if (this.cwx != null) {
+            this.cwx.onChangeSkinType(i);
         }
     }
 
-    public void ajL() {
-        this.cvb = false;
+    public void aiX() {
+        this.cwA = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
-        if (this.cuW != null) {
-            this.cuW.clearAnimation();
-            this.cuW.setVisibility(0);
-            this.cuW.startAnimation(getInAnimation());
+        if (this.cwv != null) {
+            this.cwv.clearAnimation();
+            this.cwv.setVisibility(0);
+            this.cwv.startAnimation(getInAnimation());
         }
-        ap.c(this.cuV, r.g.icon_triangle_up_normal);
-        ap.j(this.cuV, r.g.rec_frs_btn_more_up_selector);
-        this.cuY.setDrawBottomLine(false);
-        this.cuX.setVisibility(8);
+        aq.c(this.cwu, w.g.icon_triangle_up_normal);
+        aq.j(this.cwu, w.g.rec_frs_btn_more_up_selector);
+        this.cwx.setDrawBottomLine(false);
+        this.cww.setVisibility(8);
     }
 
-    public void ajM() {
-        this.cvb = true;
+    public void aiY() {
+        this.cwA = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
-        if (this.cuW != null) {
-            this.cuW.clearAnimation();
-            this.cuW.startAnimation(getOutAnimation());
+        if (this.cwv != null) {
+            this.cwv.clearAnimation();
+            this.cwv.startAnimation(getOutAnimation());
         }
-        ap.c(this.cuV, r.g.icon_triangle_down_normal);
-        ap.j(this.cuV, r.g.rec_frs_btn_more_selector);
-        this.cuY.setDrawBottomLine(true);
-        this.cuX.setVisibility(0);
+        aq.c(this.cwu, w.g.icon_triangle_down_normal);
+        aq.j(this.cwu, w.g.rec_frs_btn_more_selector);
+        this.cwx.setDrawBottomLine(true);
+        this.cww.setVisibility(0);
     }
 
     private Animation getInAnimation() {
-        if (this.cuZ == null) {
-            this.cuZ = AnimationUtils.loadAnimation(this.mContext, r.a.fade_in);
-            this.cuZ.setAnimationListener(this.cvc);
+        if (this.cwy == null) {
+            this.cwy = AnimationUtils.loadAnimation(this.mContext, w.a.fade_in);
+            this.cwy.setAnimationListener(this.cwB);
         }
-        return this.cuZ;
+        return this.cwy;
     }
 
     private Animation getOutAnimation() {
-        if (this.cva == null) {
-            this.cva = AnimationUtils.loadAnimation(this.mContext, r.a.fade_out);
-            this.cva.setAnimationListener(this.cvc);
+        if (this.cwz == null) {
+            this.cwz = AnimationUtils.loadAnimation(this.mContext, w.a.fade_out);
+            this.cwz.setAnimationListener(this.cwB);
         }
-        return this.cva;
+        return this.cwz;
     }
 
-    public void ap(int i, int i2) {
-        if (this.cuY != null) {
-            this.cuY.ap(i, i2);
+    public void as(int i, int i2) {
+        if (this.cwx != null) {
+            this.cwx.as(i, i2);
         }
     }
 }

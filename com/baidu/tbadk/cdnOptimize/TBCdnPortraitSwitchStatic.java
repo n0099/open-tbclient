@@ -4,7 +4,7 @@ import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class TBCdnPortraitSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(TBCdnPortraitSwitchStatic.class);
+        e.eT().m(TBCdnPortraitSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

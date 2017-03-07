@@ -1,39 +1,26 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.BdUniqueId;
-import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
-public class ax extends bh {
-    public static final BdUniqueId RW = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<az> RX = new ArrayList<>();
+public class ax extends bj {
+    public static final BdUniqueId Xg = BdUniqueId.gen();
+    private PhotoLiveCardData Xh;
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    az azVar = new az();
-                    azVar.a(schoolRecomUserInfo);
-                    this.RX.add(azVar);
-                }
-            }
-        }
+    public PhotoLiveCardData qY() {
+        return this.Xh;
     }
 
-    @Override // com.baidu.tbadk.core.data.bh
-    public String getTitle() {
-        return this.title;
+    public void a(PhotoLiveCardData photoLiveCardData) {
+        this.Xh = photoLiveCardData;
     }
 
-    public ArrayList<az> qG() {
-        return this.RX;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return RW;
+        return Xg;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bj
+    public String getTid() {
+        return this.Xh != null ? String.valueOf(this.Xh.getThreadId()) : super.getTid();
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.l;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.z;
+import com.baidu.tieba.w;
 import java.io.File;
 /* loaded from: classes.dex */
 public class FileDownloader extends Service {
@@ -60,14 +60,14 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (l.cX(fileOfUrl) != null) {
+            if (l.cQ(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new a(stringExtra, fileOfUrl);
                 this.mDowndingTask.execute(new String[0]);
                 NotificationHelper.showProgressNotification(getBaseContext(), 10, null, 0, "0/0", this.mInfo, true);
             } else {
-                k.showToast(getApplicationContext(), r.l.downloading_tip);
+                k.showToast(getApplicationContext(), w.l.downloading_tip);
             }
         }
         super.onStart(intent, i);
@@ -86,14 +86,14 @@ public class FileDownloader extends Service {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String XK;
+        private final String acY;
         private final String mUrl;
-        private y mNetWork = null;
+        private z mNetWork = null;
         private volatile boolean mCanceled = false;
 
         public a(String str, String str2) {
             this.mUrl = str;
-            this.XK = str2;
+            this.acY = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -101,15 +101,15 @@ public class FileDownloader extends Service {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            File da;
+            File cT;
             Boolean bool = false;
             while (!this.mCanceled) {
                 try {
-                    this.mNetWork = new y(this.mUrl);
-                    bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.XK) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.mNetWork.uG() == -2) {
+                    this.mNetWork = new z(this.mUrl);
+                    bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.acY) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
+                    if (bool.booleanValue() || this.mNetWork.vd() == -2) {
                         break;
-                    } else if (!this.mNetWork.uC().vw().ef()) {
+                    } else if (!this.mNetWork.uZ().vT().fn()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -119,10 +119,10 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                l.df(this.XK);
-                File cX = l.cX(String.valueOf(this.XK) + ".tmp");
-                if (cX != null && (da = l.da(this.XK)) != null) {
-                    cX.renameTo(da);
+                l.cY(this.acY);
+                File cQ = l.cQ(String.valueOf(this.acY) + ".tmp");
+                if (cQ != null && (cT = l.cT(this.acY)) != null) {
+                    cQ.renameTo(cT);
                 }
             }
             return bool;
@@ -134,7 +134,7 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.ee();
+                this.mNetWork.fm();
             }
         }
 
@@ -147,10 +147,10 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             if (bool.booleanValue()) {
                 NotificationHelper.cancelNotification(FileDownloader.this.getBaseContext(), 10);
-                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.XK), 100L);
+                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.acY), 100L);
                 return;
             }
-            NotificationHelper.showProgressNotification(FileDownloader.this.getBaseContext(), 10, null, FileDownloader.this.progress, this.mUrl, FileDownloader.this.getString(r.l.error_sd_error), false);
+            NotificationHelper.showProgressNotification(FileDownloader.this.getBaseContext(), 10, null, FileDownloader.this.progress, this.mUrl, FileDownloader.this.getString(w.l.error_sd_error), false);
             FileDownloader.this.stopSelf();
         }
     }

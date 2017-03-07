@@ -16,12 +16,12 @@ class ai extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
-                FrsActivityStatic.bGS = true;
-                FrsActivityStatic.bGR = true;
+                FrsActivityStatic.bOb = true;
+                FrsActivityStatic.bOa = true;
                 return;
             }
-            FrsActivityStatic.bGS = false;
-            FrsActivityStatic.bGR = false;
+            FrsActivityStatic.bOb = false;
+            FrsActivityStatic.bOa = false;
         }
     }
 }

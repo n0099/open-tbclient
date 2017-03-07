@@ -12,15 +12,15 @@ import java.util.Map;
 public class a implements ab {
     private String a;
     private int c;
-    private ab cF;
     private int d;
     private Map e = new HashMap();
+    private ab kq;
 
     public a(String str, int i, int i2, ab abVar) {
         this.a = str;
         this.c = i;
         this.d = i2;
-        this.cF = abVar;
+        this.kq = abVar;
     }
 
     @Override // com.ab
@@ -69,16 +69,7 @@ public class a implements ab {
         }
     }
 
-    public String c(String str) {
-        return this.a + "/" + str + ".png";
-    }
-
-    public a o(String str) {
-        this.a = str;
-        return this;
-    }
-
-    public Bitmap p(String str) {
+    public Bitmap b(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(c(str), options);
@@ -90,15 +81,24 @@ public class a implements ab {
             if (num == null) {
                 num = 0;
             }
-            if (num.intValue() + 1 < this.c || this.cF == null) {
+            if (num.intValue() + 1 < this.c || this.kq == null) {
                 this.e.put(str, Integer.valueOf(num.intValue() + 1));
                 return decodeFile;
             }
-            this.cF.a(str, decodeFile);
+            this.kq.a(str, decodeFile);
             this.e.remove(str);
             return decodeFile;
         }
         return null;
+    }
+
+    public String c(String str) {
+        return this.a + "/" + str + ".png";
+    }
+
+    public a o(String str) {
+        this.a = str;
+        return this;
     }
 
     public a p(int i) {

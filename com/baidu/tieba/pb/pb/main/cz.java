@@ -1,48 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.cy;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.Drawable;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.y.a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
-public class cz extends HttpMessageListener {
-    final /* synthetic */ cy ejR;
+public abstract class cz<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected ListView bOj;
+    private SparseArray<SoftReference<Drawable>> bYF;
+    protected PbActivity eka;
+    private SparseArray<Integer> emL;
+    protected boolean mIsFromCDN;
+    protected int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cz(cy cyVar, int i) {
-        super(i);
-        this.ejR = cyVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cz(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.mSkinType = 3;
+        this.mIsFromCDN = false;
+        this.bYF = new SparseArray<>();
+        this.emL = new SparseArray<>();
+        aa(pbActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        cy.a aVar;
-        cy.a aVar2;
-        cy.a aVar3;
-        cy.a aVar4;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803) {
-            aVar = this.ejR.ejP;
-            if (aVar != null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                String errorString = httpResponsedMessage.getErrorString();
-                if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    aVar4 = this.ejR.ejP;
-                    aVar4.onError(error, errorString);
-                    return;
-                }
-                HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
-                if (statusCode != 200 || error != 0) {
-                    aVar2 = this.ejR.ejP;
-                    aVar2.onError(error, errorString);
-                    return;
-                }
-                hideChudianPostResponseMessage.getResultFlag();
-                aVar3 = this.ejR.ejP;
-                aVar3.j(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
-            }
+    public void aa(PbActivity pbActivity) {
+        if (pbActivity != null) {
+            this.eka = pbActivity;
+            this.mContext = pbActivity.getActivity();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.bOj = (ListView) viewGroup;
+        return null;
+    }
+
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public int getDimensionPixelSize(int i) {
+        Integer num = this.emL.get(i);
+        if (num != null) {
+            return num.intValue();
+        }
+        int dimensionPixelSize = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(i);
+        this.emL.put(i, Integer.valueOf(dimensionPixelSize));
+        return dimensionPixelSize;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Drawable getDrawable(int i) {
+        Drawable drawable;
+        SoftReference<Drawable> softReference = this.bYF.get(i);
+        if (softReference == null) {
+            drawable = null;
+        } else {
+            drawable = softReference.get();
+        }
+        if (drawable == null && (drawable = com.baidu.tbadk.core.util.aq.getDrawable(i)) != null) {
+            this.bYF.put(i, new SoftReference<>(drawable));
+        }
+        return drawable;
     }
 }

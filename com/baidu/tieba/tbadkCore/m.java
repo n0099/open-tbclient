@@ -5,77 +5,77 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class m {
-    private int foa = 0;
-    private int arw = 0;
-    private String fob = null;
-    private String foc = null;
-    private int fod = 0;
-    private int foe = 0;
-    private int fof = 0;
-    private int fog = 0;
-    private int foh = 0;
-    private int foi = 0;
-    private long foj = 0;
-    private long fok = 0;
-    private boolean fol = false;
-    private long fom = 0;
-    private String fon = null;
+    private int fsy = 0;
+    private int awR = 0;
+    private String fsz = null;
+    private String fsA = null;
+    private int fsB = 0;
+    private int fsC = 0;
+    private int fsD = 0;
+    private int fsE = 0;
+    private int fsF = 0;
+    private int fsG = 0;
+    private long fsH = 0;
+    private long fsI = 0;
+    private boolean fsJ = false;
+    private long fsK = 0;
+    private String fsL = null;
 
-    public int bgu() {
-        return this.foa;
+    public int bgh() {
+        return this.fsy;
     }
 
-    public String bgv() {
-        return this.fob;
+    public String bgi() {
+        return this.fsz;
     }
 
-    public String bgw() {
-        return this.foc;
+    public String bgj() {
+        return this.fsA;
     }
 
-    public boolean bgx() {
-        return this.fol;
+    public boolean bgk() {
+        return this.fsJ;
     }
 
-    public long bgy() {
-        return this.fom;
+    public long bgl() {
+        return this.fsK;
     }
 
-    public String bgz() {
-        return this.fon;
+    public String bgm() {
+        return this.fsL;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.foa = starInfo.has_frs_star.intValue();
-            if (this.foa == 1) {
-                this.fob = starInfo.top;
-                this.foc = starInfo.head;
+            this.fsy = starInfo.has_frs_star.intValue();
+            if (this.fsy == 1) {
+                this.fsz = starInfo.top;
+                this.fsA = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.fod = fans.is_get.intValue();
-                    this.foe = fans.num.intValue();
-                    this.arw = fans.open.intValue();
-                    this.foj = fans.left_time.intValue();
+                    this.fsB = fans.is_get.intValue();
+                    this.fsC = fans.num.intValue();
+                    this.awR = fans.open.intValue();
+                    this.fsH = fans.left_time.intValue();
                 }
-                this.fok = this.foj;
+                this.fsI = this.fsH;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.fof = size.width.intValue();
-                    this.fog = size.height.intValue();
+                    this.fsD = size.width.intValue();
+                    this.fsE = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.foh = size2.width.intValue();
-                    this.foi = size2.height.intValue();
+                    this.fsF = size2.width.intValue();
+                    this.fsG = size2.height.intValue();
                 }
             }
-            this.fol = starInfo.trade != null;
-            if (this.fol) {
+            this.fsJ = starInfo.trade != null;
+            if (this.fsJ) {
                 if (starInfo.trade.time != null) {
-                    this.fom = starInfo.trade.time.intValue();
+                    this.fsK = starInfo.trade.time.intValue();
                 }
-                this.fon = starInfo.trade.url;
+                this.fsL = starInfo.trade.url;
             }
         }
     }

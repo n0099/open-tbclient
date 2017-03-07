@@ -7,30 +7,30 @@ import android.view.View;
 import com.baidu.tieba.frs.headvideo.t;
 /* loaded from: classes.dex */
 public class f {
-    private final View.OnTouchListener aIu = new g(this);
-    private ForumHeadVideoView bRg;
-    private GestureDetector bRh;
-    private boolean bRi;
-    private t.a bRj;
+    private final View.OnTouchListener aNR = new g(this);
+    private ForumHeadVideoView bYo;
+    private GestureDetector bYp;
+    private boolean bYq;
+    private t.a bYr;
     private Context mContext;
 
     public f(Context context, ForumHeadVideoView forumHeadVideoView, t.a aVar) {
-        this.bRi = false;
+        this.bYq = false;
         this.mContext = context;
-        this.bRg = forumHeadVideoView;
-        this.bRj = aVar;
-        this.bRi = aby();
-        abx();
+        this.bYo = forumHeadVideoView;
+        this.bYr = aVar;
+        this.bYq = acv();
+        acu();
     }
 
-    private void abx() {
-        if (this.bRh == null && this.mContext != null && this.bRg != null) {
-            this.bRh = new GestureDetector(this.mContext, new h(this));
-            this.bRg.setOnTouchListener(this.aIu);
+    private void acu() {
+        if (this.bYp == null && this.mContext != null && this.bYo != null) {
+            this.bYp = new GestureDetector(this.mContext, new h(this));
+            this.bYo.setOnTouchListener(this.aNR);
         }
     }
 
-    public boolean aby() {
+    public boolean acv() {
         if (Build.MODEL == null) {
             return false;
         }

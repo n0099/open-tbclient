@@ -1,26 +1,23 @@
 package com.baidu.tbadk.game;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ b awz;
+class c implements CustomMessageTask.CustomRunnable<String> {
+    final /* synthetic */ a aBU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b bVar, int i) {
-        super(i);
-        this.awz = bVar;
+    public c(a aVar) {
+        this.aBU = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
-            ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
-            if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                this.awz.awx = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
-            }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, this.aBU.Eb());
     }
 }

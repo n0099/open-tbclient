@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
 class c extends h {
     @Override // com.baidu.adp.lib.util.h
-    public void o(boolean z) {
-        NSGif.jM = z;
+    public void p(boolean z) {
+        NSGif.rI = z;
     }
 }

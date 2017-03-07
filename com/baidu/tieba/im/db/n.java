@@ -4,21 +4,21 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.util.s;
 /* loaded from: classes.dex */
 class n extends s<Void> {
-    final /* synthetic */ m cSy;
-    private final /* synthetic */ CustomResponsedMessage cSz;
+    final /* synthetic */ m cUO;
+    private final /* synthetic */ CustomResponsedMessage cUP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, CustomResponsedMessage customResponsedMessage) {
-        this.cSy = mVar;
-        this.cSz = customResponsedMessage;
+        this.cUO = mVar;
+        this.cUP = customResponsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: Li */
+    /* renamed from: LT */
     public Void doInBackground() {
-        if (this.cSz.getData() instanceof String) {
-            f.kK((String) this.cSz.getData());
+        if (this.cUP.getData() instanceof String) {
+            f.kl((String) this.cUP.getData());
             return null;
         }
         return null;

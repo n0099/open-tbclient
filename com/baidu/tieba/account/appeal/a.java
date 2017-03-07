@@ -3,15 +3,15 @@ package com.baidu.tieba.account.appeal;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class a implements TextWatcher {
-    final /* synthetic */ AppealActivity aQb;
+    final /* synthetic */ AppealActivity aVN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AppealActivity appealActivity) {
-        this.aQb = appealActivity;
+        this.aVN = appealActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,16 +28,16 @@ class a implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        textView = this.aQb.aPW;
+        textView = this.aVN.aVI;
         int length = 150 - textView.getText().toString().length();
-        textView2 = this.aQb.aPX;
+        textView2 = this.aVN.aVJ;
         textView2.setText(String.valueOf(length));
         if (length < 0) {
-            textView4 = this.aQb.aPX;
-            textView4.setTextColor(this.aQb.getResources().getColor(r.e.common_color_10253));
+            textView4 = this.aVN.aVJ;
+            textView4.setTextColor(this.aVN.getResources().getColor(w.e.common_color_10253));
             return;
         }
-        textView3 = this.aQb.aPX;
-        ap.c(textView3, r.e.common_color_10005, 1);
+        textView3 = this.aVN.aVJ;
+        aq.c(textView3, w.e.common_color_10005, 1);
     }
 }

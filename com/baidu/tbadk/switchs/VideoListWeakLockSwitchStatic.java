@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class VideoListWeakLockSwitchStatic extends a {
+public class VideoListWeakLockSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(VideoListWeakLockSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(VideoListWeakLockSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -6,15 +6,15 @@ import com.baidu.tieba.play.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements y.a {
-    final /* synthetic */ x bml;
+    final /* synthetic */ x btf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(x xVar) {
-        this.bml = xVar;
+        this.btf = xVar;
     }
 
     @Override // com.baidu.tieba.play.y.a
-    public void JD() {
+    public void Ki() {
         com.baidu.tieba.card.data.p pVar;
         com.baidu.tieba.card.data.p pVar2;
         com.baidu.tieba.card.data.p pVar3;
@@ -28,40 +28,40 @@ public class ab implements y.a {
         com.baidu.tieba.card.data.p pVar11;
         com.baidu.tieba.card.data.p pVar12;
         com.baidu.tieba.card.data.p pVar13;
-        pVar = this.bml.bmd;
+        pVar = this.btf.bsX;
         if (pVar != null) {
-            pVar2 = this.bml.bmd;
-            if (pVar2.aVi != null) {
-                pVar3 = this.bml.bmd;
-                if (pVar3.aVi.rN() != null) {
+            pVar2 = this.btf.bsX;
+            if (pVar2.bbv != null) {
+                pVar3 = this.btf.bsX;
+                if (pVar3.bbv.sh() != null) {
                     com.baidu.tieba.play.bb bbVar = new com.baidu.tieba.play.bb();
-                    pVar4 = this.bml.bmd;
+                    pVar4 = this.btf.bsX;
                     bbVar.mLocate = pVar4.sourceType == 0 ? ImageViewerConfig.INDEX : "hot_juhe";
-                    pVar5 = this.bml.bmd;
-                    bbVar.bjS = pVar5.aVi.getTid();
-                    pVar6 = this.bml.bmd;
-                    bbVar.bjT = new StringBuilder(String.valueOf(pVar6.aVi.getFid())).toString();
+                    pVar5 = this.btf.bsX;
+                    bbVar.bqB = pVar5.bbv.getTid();
+                    pVar6 = this.btf.bsX;
+                    bbVar.bqC = new StringBuilder(String.valueOf(pVar6.bbv.getFid())).toString();
                     bbVar.mUid = TbadkCoreApplication.getCurrentAccount();
-                    pVar7 = this.bml.bmd;
-                    bbVar.mSource = pVar7.aVi.TW;
-                    pVar8 = this.bml.bmd;
-                    bbVar.eTy = pVar8.aVi.TY;
-                    pVar9 = this.bml.bmd;
-                    bbVar.eTz = pVar9.aVi.TX;
-                    bbVar.eTA = "";
-                    pVar10 = this.bml.bmd;
-                    if (pVar10.aVi.sz() != null) {
-                        pVar12 = this.bml.bmd;
-                        if (pVar12.aVi.sz().channelId > 0) {
-                            pVar13 = this.bml.bmd;
-                            bbVar.Ql = new StringBuilder(String.valueOf(pVar13.aVi.sz().channelId)).toString();
-                            pVar11 = this.bml.bmd;
-                            com.baidu.tieba.play.ab.a(pVar11.aVi.rN().video_md5, "", "1", bbVar);
+                    pVar7 = this.btf.bsX;
+                    bbVar.mSource = pVar7.bbv.Zh;
+                    pVar8 = this.btf.bsX;
+                    bbVar.eXe = pVar8.bbv.Zj;
+                    pVar9 = this.btf.bsX;
+                    bbVar.eXf = pVar9.bbv.Zi;
+                    bbVar.eXg = "";
+                    pVar10 = this.btf.bsX;
+                    if (pVar10.bbv.sU() != null) {
+                        pVar12 = this.btf.bsX;
+                        if (pVar12.bbv.sU().channelId > 0) {
+                            pVar13 = this.btf.bsX;
+                            bbVar.Vy = new StringBuilder(String.valueOf(pVar13.bbv.sU().channelId)).toString();
+                            pVar11 = this.btf.bsX;
+                            com.baidu.tieba.play.ab.a(pVar11.bbv.sh().video_md5, "", "1", bbVar);
                         }
                     }
-                    bbVar.Ql = "0";
-                    pVar11 = this.bml.bmd;
-                    com.baidu.tieba.play.ab.a(pVar11.aVi.rN().video_md5, "", "1", bbVar);
+                    bbVar.Vy = "0";
+                    pVar11 = this.btf.bsX;
+                    com.baidu.tieba.play.ab.a(pVar11.bbv.sh().video_md5, "", "1", bbVar);
                 }
             }
         }

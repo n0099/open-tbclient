@@ -17,7 +17,7 @@ public class RecommendAlaLiveSocketResponseMessage extends MvcSocketResponsedMes
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if ((getOrginalMessage().getExtra() instanceof MvcNetMessage) && (((MvcNetMessage) getOrginalMessage().getExtra()).getRequestData() instanceof b)) {
-            com.baidu.tbadk.ala.a.no().putLong("recommend_auto_update_get_server_data_time", System.currentTimeMillis());
+            com.baidu.tbadk.ala.a.nC().putLong("recommend_auto_update_get_server_data_time", System.currentTimeMillis());
         }
     }
 }

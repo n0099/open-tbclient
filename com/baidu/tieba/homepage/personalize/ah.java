@@ -30,63 +30,63 @@ public class ah extends CustomMessageListener {
         List list5;
         DataRes.Builder builder2;
         DataRes.Builder builder3;
-        list = this.this$0.aMy;
+        list = this.this$0.aSl;
         if (list.size() > 0) {
-            list2 = this.this$0.aMy;
+            list2 = this.this$0.aSl;
             if (list2.get(0) instanceof com.baidu.tieba.homepage.personalize.data.h) {
-                list5 = this.this$0.aMy;
+                list5 = this.this$0.aSl;
                 com.baidu.tieba.homepage.personalize.data.h hVar = (com.baidu.tieba.homepage.personalize.data.h) list5.get(0);
                 LinkedList linkedList = new LinkedList();
                 LinkedList linkedList2 = new LinkedList();
-                if (hVar.czd != null) {
-                    for (com.baidu.tieba.homepage.personalize.data.g gVar : hVar.czd) {
+                if (hVar.cAz != null) {
+                    for (com.baidu.tieba.homepage.personalize.data.g gVar : hVar.cAz) {
                         if (gVar != null) {
                             TagStruct.Builder builder4 = new TagStruct.Builder();
-                            builder4.tag_name = gVar.OZ;
-                            builder4.selected = Integer.valueOf(gVar.czb ? 1 : 0);
+                            builder4.tag_name = gVar.Uc;
+                            builder4.selected = Integer.valueOf(gVar.cAx ? 1 : 0);
                             linkedList.add(builder4.build(false));
                         }
                     }
                 }
-                if (hVar.cze != null) {
-                    for (com.baidu.tieba.homepage.personalize.data.g gVar2 : hVar.cze) {
+                if (hVar.cAA != null) {
+                    for (com.baidu.tieba.homepage.personalize.data.g gVar2 : hVar.cAA) {
                         if (gVar2 != null) {
                             TagStruct.Builder builder5 = new TagStruct.Builder();
-                            builder5.tag_name = gVar2.OZ;
-                            builder5.selected = Integer.valueOf(gVar2.czb ? 1 : 0);
+                            builder5.tag_name = gVar2.Uc;
+                            builder5.selected = Integer.valueOf(gVar2.cAx ? 1 : 0);
                             linkedList2.add(builder5.build(false));
                         }
                     }
                 }
-                builder2 = this.this$0.cxf;
+                builder2 = this.this$0.cyE;
                 if (builder2 != null) {
                     AgeSexModule.Builder builder6 = new AgeSexModule.Builder();
                     builder6.sex_tag = linkedList;
                     builder6.age_tag = linkedList2;
-                    builder3 = this.this$0.cxf;
+                    builder3 = this.this$0.cyE;
                     builder3.age_sex = builder6.build(false);
                 }
             } else {
-                list3 = this.this$0.aMy;
+                list3 = this.this$0.aSl;
                 if (list3.get(0) instanceof com.baidu.tieba.homepage.personalize.data.f) {
-                    list4 = this.this$0.aMy;
+                    list4 = this.this$0.aSl;
                     com.baidu.tieba.homepage.personalize.data.f fVar = (com.baidu.tieba.homepage.personalize.data.f) list4.get(0);
-                    if (fVar.cyZ != null) {
+                    if (fVar.cAv != null) {
                         LinkedList linkedList3 = new LinkedList();
-                        for (com.baidu.tieba.homepage.personalize.data.g gVar3 : fVar.cyZ) {
+                        for (com.baidu.tieba.homepage.personalize.data.g gVar3 : fVar.cAv) {
                             if (gVar3 != null) {
                                 TagStruct.Builder builder7 = new TagStruct.Builder();
-                                builder7.tag_name = gVar3.OZ;
-                                builder7.selected = Integer.valueOf(gVar3.czb ? 1 : 0);
+                                builder7.tag_name = gVar3.Uc;
+                                builder7.selected = Integer.valueOf(gVar3.cAx ? 1 : 0);
                                 linkedList3.add(builder7.build(false));
                             }
                         }
-                        builder = this.this$0.cxf;
+                        builder = this.this$0.cyE;
                         builder.interestion = linkedList3;
                     }
                 }
             }
-            this.this$0.akm();
+            this.this$0.ajy();
         }
     }
 }

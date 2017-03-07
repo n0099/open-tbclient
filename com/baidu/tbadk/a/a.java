@@ -7,53 +7,53 @@ import android.content.Intent;
 import com.baidu.tbadk.coreExtra.service.LocationReportService;
 /* loaded from: classes.dex */
 public class a {
-    public static int LB = 0;
-    public static int LC = 1;
-    public static int LD = 2;
-    private PendingIntent LA;
-    private AlarmManager Lz;
+    public static int QD = 0;
+    public static int QE = 1;
+    public static int QF = 2;
+    private AlarmManager QB;
+    private PendingIntent QC;
     private Context mContext;
     private long timeInterval;
 
     public a(Context context) {
         if (context != null) {
             this.mContext = context;
-            this.LA = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
-            this.Lz = (AlarmManager) this.mContext.getSystemService("alarm");
+            this.QC = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
+            this.QB = (AlarmManager) this.mContext.getSystemService("alarm");
         }
     }
 
     public void a(int i, int i2, long j, long j2) {
-        if (this.Lz != null) {
+        if (this.QB != null) {
             this.timeInterval = j2;
-            if (i == LB) {
-                this.Lz.set(i2, j, this.LA);
-            } else if (i == LC) {
-                this.Lz.setRepeating(i2, j, j2, this.LA);
-            } else if (i == LD) {
-                this.Lz.setInexactRepeating(i2, j, j2, this.LA);
+            if (i == QD) {
+                this.QB.set(i2, j, this.QC);
+            } else if (i == QE) {
+                this.QB.setRepeating(i2, j, j2, this.QC);
+            } else if (i == QF) {
+                this.QB.setInexactRepeating(i2, j, j2, this.QC);
             } else {
-                this.Lz.set(i2, j, this.LA);
+                this.QB.set(i2, j, this.QC);
             }
         }
     }
 
     public void cancel() {
-        if (this.Lz != null && this.LA != null) {
-            this.Lz.cancel(this.LA);
+        if (this.QB != null && this.QC != null) {
+            this.QB.cancel(this.QC);
         }
     }
 
-    public void nq() {
-        if (this.Lz != null && this.LA != null) {
+    public void nE() {
+        if (this.QB != null && this.QC != null) {
             if (this.timeInterval <= 0) {
                 this.timeInterval = 3600000L;
             }
-            a(LC, 1, System.currentTimeMillis() + this.timeInterval, this.timeInterval);
+            a(QE, 1, System.currentTimeMillis() + this.timeInterval, this.timeInterval);
         }
     }
 
-    public long nr() {
+    public long nF() {
         if (this.timeInterval <= 0) {
             this.timeInterval = 3600000L;
         }

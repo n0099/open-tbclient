@@ -2,11 +2,11 @@ package com.baidu.tbadk.mvc.model;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    private static /* synthetic */ int[] aza;
+    private static /* synthetic */ int[] aEt;
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,8 +14,8 @@ public class c implements Runnable {
         this.this$0 = netModel;
     }
 
-    static /* synthetic */ int[] EO() {
-        int[] iArr = aza;
+    static /* synthetic */ int[] Fn() {
+        int[] iArr = aEt;
         if (iArr == null) {
             iArr = new int[NetModel.NetModelType.valuesCustom().length];
             try {
@@ -34,7 +34,7 @@ public class c implements Runnable {
                 iArr[NetModel.NetModelType.TYPE_SOCKET.ordinal()] = 2;
             } catch (NoSuchFieldError e4) {
             }
-            aza = iArr;
+            aEt = iArr;
         }
         return iArr;
     }
@@ -45,24 +45,24 @@ public class c implements Runnable {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
-        int[] EO = EO();
-        netModelType = this.this$0.ayT;
-        switch (EO[netModelType.ordinal()]) {
+        int[] Fn = Fn();
+        netModelType = this.this$0.aEm;
+        switch (Fn[netModelType.ordinal()]) {
             case 1:
             case 4:
                 NetModel netModel = this.this$0;
-                tbPageContext = this.this$0.FY;
-                netModel.n(-1, tbPageContext.getString(r.l.neterror));
+                tbPageContext = this.this$0.ajF;
+                netModel.o(-1, tbPageContext.getString(w.l.neterror));
                 return;
             case 2:
                 NetModel netModel2 = this.this$0;
-                tbPageContext2 = this.this$0.FY;
-                netModel2.o(-1, tbPageContext2.getString(r.l.neterror));
+                tbPageContext2 = this.this$0.ajF;
+                netModel2.p(-1, tbPageContext2.getString(w.l.neterror));
                 return;
             case 3:
                 NetModel netModel3 = this.this$0;
-                tbPageContext3 = this.this$0.FY;
-                netModel3.m(-1, tbPageContext3.getString(r.l.neterror));
+                tbPageContext3 = this.this$0.ajF;
+                netModel3.n(-1, tbPageContext3.getString(w.l.neterror));
                 return;
             default:
                 return;

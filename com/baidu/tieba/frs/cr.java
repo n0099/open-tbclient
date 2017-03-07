@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cr implements Animator.AnimatorListener {
-    final /* synthetic */ co bJL;
+    final /* synthetic */ co bQR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cr(co coVar) {
-        this.bJL = coVar;
+        this.bQR = coVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
@@ -20,10 +20,10 @@ public class cr implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         View view;
         View view2;
-        view = this.bJL.bJG;
+        view = this.bQR.bQM;
         if (view != null) {
-            this.bJL.Zs();
-            view2 = this.bJL.bJG;
+            this.bQR.aap();
+            view2 = this.bQR.bQM;
             view2.setAlpha(1.0f);
         }
     }

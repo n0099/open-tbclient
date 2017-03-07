@@ -5,16 +5,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.clientConfig.ClientConfigHttpProtoResponse;
 import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PayConfigModel azS;
+    final /* synthetic */ PayConfigModel aFk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(PayConfigModel payConfigModel, int i, int i2) {
         super(i, i2);
-        this.azS = payConfigModel;
+        this.aFk = payConfigModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -22,26 +22,26 @@ class b extends com.baidu.adp.framework.listener.a {
         boolean checkMessageIsBelongToCurPage;
         a aVar;
         a aVar2;
-        checkMessageIsBelongToCurPage = this.azS.checkMessageIsBelongToCurPage(responsedMessage);
+        checkMessageIsBelongToCurPage = this.aFk.checkMessageIsBelongToCurPage(responsedMessage);
         if (checkMessageIsBelongToCurPage) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.m9getInst().getString(r.l.neterror);
+                String string = TbadkCoreApplication.m9getInst().getString(w.l.neterror);
                 if (!StringUtils.isNull(errorString)) {
                     string = errorString;
                 }
-                aVar = this.azS.azQ;
+                aVar = this.aFk.aFi;
                 if (aVar != null) {
-                    aVar2 = this.azS.azQ;
+                    aVar2 = this.aFk.aFi;
                     aVar2.onError(string);
                 }
             } else if (!(responsedMessage instanceof ClientConfigHttpProtoResponse)) {
                 if (!(responsedMessage instanceof ClientConfigSocketResponse)) {
                     return;
                 }
-                this.azS.b(((ClientConfigSocketResponse) responsedMessage).getData());
+                this.aFk.b(((ClientConfigSocketResponse) responsedMessage).getData());
             } else {
-                this.azS.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                this.aFk.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
             }
         }
     }

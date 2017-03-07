@@ -18,13 +18,13 @@ public class RecommendFrsHttpResponsedMessage extends MvcProtobufHttpResponsedMe
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> cA;
+        o<byte[]> ct;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof d) {
                 d dVar = (d) mvcNetMessage.getRequestData();
-                if (dVar.akL() == 0 && (cA = com.baidu.tbadk.core.c.a.sR().cA(RecommendFrsCacheModel.TABLE_NAME)) != null) {
-                    cA.k(new StringBuilder(String.valueOf(dVar.getTagCode())).toString(), bArr);
+                if (dVar.ajX() == 0 && (ct = com.baidu.tbadk.core.c.a.to().ct(RecommendFrsCacheModel.TABLE_NAME)) != null) {
+                    ct.k(new StringBuilder(String.valueOf(dVar.getTagCode())).toString(), bArr);
                 }
             }
         }

@@ -4,21 +4,21 @@ import android.content.SharedPreferences;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.sharedPref.b {
-    private static a Lu;
+    private static a Qw;
 
     @Override // com.baidu.tbadk.core.sharedPref.b
     public synchronized SharedPreferences getSharedPreferences() {
         return TbadkCoreApplication.m9getInst().getSharedPreferences("ala_setting", 0);
     }
 
-    public static a no() {
-        if (Lu == null) {
+    public static a nC() {
+        if (Qw == null) {
             synchronized (a.class) {
-                if (Lu == null) {
-                    Lu = new a();
+                if (Qw == null) {
+                    Qw = new a();
                 }
             }
         }
-        return Lu;
+        return Qw;
     }
 }

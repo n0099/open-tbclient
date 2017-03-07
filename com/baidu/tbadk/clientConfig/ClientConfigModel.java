@@ -5,18 +5,18 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class ClientConfigModel extends BdBaseModel {
-    private b My;
-    private final com.baidu.adp.framework.listener.a Mz;
+    private b RB;
+    private final com.baidu.adp.framework.listener.a RC;
 
     public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, b bVar) {
         super(bdBaseFragmentActivity.getPageContext());
-        this.Mz = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.My = bVar;
-        registerListener(this.Mz);
+        this.RC = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.RB = bVar;
+        registerListener(this.RC);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -29,7 +29,7 @@ public class ClientConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void bZ(String str) {
+    public void bS(String str) {
         ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
         clientConfigNetMessage.setType(str);
         sendMessage(clientConfigNetMessage);
@@ -43,11 +43,11 @@ public class ClientConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.My != null) {
-                this.My.onError(TbadkCoreApplication.m9getInst().getString(r.l.data_load_error));
+            if (this.RB != null) {
+                this.RB.onError(TbadkCoreApplication.m9getInst().getString(w.l.data_load_error));
             }
-        } else if (this.My != null) {
-            this.My.z(dataRes);
+        } else if (this.RB != null) {
+            this.RB.z(dataRes);
         }
     }
 }

@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class UninstallFeedBackSwitchStatic extends a {
+public class UninstallFeedBackSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(UninstallFeedBackSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(UninstallFeedBackSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

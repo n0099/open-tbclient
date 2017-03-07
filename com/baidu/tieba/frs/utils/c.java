@@ -4,27 +4,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ b bTY;
-    private final /* synthetic */ View bTZ;
+    final /* synthetic */ b cbk;
+    private final /* synthetic */ View cbl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, View view) {
-        this.bTY = bVar;
-        this.bTZ = view;
+        this.cbk = bVar;
+        this.cbl = view;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return this.bTZ;
+        return this.cbl;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int dM() {
+    public int eU() {
         return 5;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int dN() {
+    public int eV() {
         return 32;
     }
 

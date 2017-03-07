@@ -3,9 +3,9 @@ package com.baidu.tieba.screenlocknotify;
 import android.text.TextUtils;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.r;
 import com.baidu.tieba.screenlocknotify.loadmore.ScreenLockLoadMoreHttpResponseMessage;
 import com.baidu.tieba.screenlocknotify.loadmore.ScreenLockLoadMoreSocketResponseMessage;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.a {
@@ -30,12 +30,12 @@ class e extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof ScreenLockLoadMoreHttpResponseMessage) || (responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    this.this$0.showToast(TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.this$0.getResources().getString(r.l.screen_notify_load_error) : responsedMessage.getErrorString());
-                    textView3 = this.this$0.eZO;
+                    this.this$0.showToast(TextUtils.isEmpty(responsedMessage.getErrorString()) ? this.this$0.getResources().getString(w.l.screen_notify_load_error) : responsedMessage.getErrorString());
+                    textView3 = this.this$0.fek;
                     if (textView3 != null) {
-                        textView4 = this.this$0.eZO;
-                        textView4.setText(this.this$0.getResources().getString(r.l.data_load_error));
-                        textView5 = this.this$0.eZO;
+                        textView4 = this.this$0.fek;
+                        textView4.setText(this.this$0.getResources().getString(w.l.data_load_error));
+                        textView5 = this.this$0.fek;
                         textView5.setEnabled(true);
                         return;
                     }
@@ -47,18 +47,18 @@ class e extends com.baidu.adp.framework.listener.a {
                     data = responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage ? ((ScreenLockLoadMoreSocketResponseMessage) responsedMessage).getData() : null;
                 }
                 if (data != null) {
-                    ArrayList<s> baJ = data.baJ();
-                    if (this.this$0.eZL != null) {
-                        this.this$0.eZL.cV(baJ);
+                    ArrayList<s> bau = data.bau();
+                    if (this.this$0.feh != null) {
+                        this.this$0.feh.cC(bau);
                     }
                     if (!data.isHasMore()) {
-                        this.this$0.eZL.setHasMore(false);
-                        textView = this.this$0.eZO;
+                        this.this$0.feh.setHasMore(false);
+                        textView = this.this$0.fek;
                         if (textView != null) {
-                            DynamicHeightListView dynamicHeightListView = this.this$0.eZK;
-                            textView2 = this.this$0.eZO;
+                            DynamicHeightListView dynamicHeightListView = this.this$0.feg;
+                            textView2 = this.this$0.fek;
                             dynamicHeightListView.removeFooterView(textView2);
-                            this.this$0.eZO = null;
+                            this.this$0.fek = null;
                         }
                     }
                 }

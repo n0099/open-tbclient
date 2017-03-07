@@ -10,11 +10,11 @@ import com.baidu.tieba.homepage.framework.q;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.homepage.recommendfrs.data.c> {
-    final /* synthetic */ q cut;
+    final /* synthetic */ q cvS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(q qVar) {
-        this.cut = qVar;
+        this.cvS = qVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
@@ -28,37 +28,37 @@ public class t implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.ho
         q.a aVar4;
         q.a aVar5;
         q.a aVar6;
-        a = this.cut.a(mvcNetMessage);
+        a = this.cvS.a(mvcNetMessage);
         if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null || a == -1) {
-            aVar = this.cut.ctf;
+            aVar = this.cvS.cuE;
             if (aVar != null) {
-                aVar2 = this.cut.ctf;
+                aVar2 = this.cvS.cuE;
                 aVar2.a(a, "", mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError(), false);
             }
         } else {
             com.baidu.tieba.homepage.recommendfrs.data.c data = mvcHttpResponsedMessage.getData();
             if (data.getThreadList() == null) {
-                aVar5 = this.cut.ctf;
+                aVar5 = this.cvS.cuE;
                 if (aVar5 != null) {
-                    aVar6 = this.cut.ctf;
+                    aVar6 = this.cvS.cuE;
                     aVar6.a(a, "", mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError(), false);
                     return;
                 }
             }
-            aVar3 = this.cut.ctf;
+            aVar3 = this.cvS.cuE;
             if (aVar3 != null) {
-                dVar = this.cut.cun;
-                boolean z2 = dVar.akL() != 0;
+                dVar = this.cvS.cvM;
+                boolean z2 = dVar.ajX() != 0;
                 if (data instanceof com.baidu.tieba.homepage.mygod.data.d) {
                     z = ((com.baidu.tieba.homepage.mygod.data.d) data).getPn() != 1;
                 } else {
                     z = z2;
                 }
-                aVar4 = this.cut.ctf;
+                aVar4 = this.cvS.cuE;
                 aVar4.a(true, data, z, a, "", false);
             }
         }
-        this.cut.a(mvcHttpResponsedMessage, mvcNetMessage);
+        this.cvS.a(mvcHttpResponsedMessage, mvcNetMessage);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
@@ -72,27 +72,27 @@ public class t implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.ho
         q.a aVar4;
         q.a aVar5;
         q.a aVar6;
-        a = this.cut.a(mvcNetMessage);
+        a = this.cvS.a(mvcNetMessage);
         if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null || a == -1) {
-            aVar = this.cut.ctf;
+            aVar = this.cvS.cuE;
             if (aVar != null) {
-                aVar2 = this.cut.ctf;
+                aVar2 = this.cvS.cuE;
                 aVar2.a(a, "", mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError(), false);
             }
         } else {
             com.baidu.tieba.homepage.recommendfrs.data.c data = mvcSocketResponsedMessage.getData();
             if (data.getThreadList() == null) {
-                aVar5 = this.cut.ctf;
+                aVar5 = this.cvS.cuE;
                 if (aVar5 != null) {
-                    aVar6 = this.cut.ctf;
+                    aVar6 = this.cvS.cuE;
                     aVar6.a(a, "", mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError(), false);
                     return;
                 }
             }
-            aVar3 = this.cut.ctf;
+            aVar3 = this.cvS.cuE;
             if (aVar3 != null) {
-                dVar = this.cut.cun;
-                boolean z2 = dVar.akL() != 0;
+                dVar = this.cvS.cvM;
+                boolean z2 = dVar.ajX() != 0;
                 if (data instanceof com.baidu.tieba.homepage.mygod.data.d) {
                     z2 = ((com.baidu.tieba.homepage.mygod.data.d) data).getPn() != 1;
                 }
@@ -101,10 +101,10 @@ public class t implements NetModel.b<com.baidu.tbadk.mvc.b.h, com.baidu.tieba.ho
                 } else {
                     z = z2;
                 }
-                aVar4 = this.cut.ctf;
+                aVar4 = this.cvS.cuE;
                 aVar4.a(true, data, z, a, "", false);
             }
         }
-        this.cut.a(mvcSocketResponsedMessage, mvcNetMessage);
+        this.cvS.a(mvcSocketResponsedMessage, mvcNetMessage);
     }
 }

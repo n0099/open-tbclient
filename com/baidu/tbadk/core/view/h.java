@@ -9,64 +9,64 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h {
-    private View adY;
-    private TextView adZ;
-    private ImageView aea;
+    private View ajn;
+    private TextView ajo;
+    private ImageView ajp;
     private Context mContext;
-    private Toast sd;
-    public long adV = 3000;
-    private int adW = -1;
-    private int adX = -1;
-    private Runnable aec = new i(this);
-    private Handler aeb = new Handler();
+    private Toast zy;
+    public long ajk = 3000;
+    private int ajl = -1;
+    private int ajm = -1;
+    private Runnable ajr = new i(this);
+    private Handler ajq = new Handler();
 
     public h() {
         this.mContext = null;
-        this.adY = null;
-        this.adZ = null;
-        this.aea = null;
+        this.ajn = null;
+        this.ajo = null;
+        this.ajp = null;
         this.mContext = TbadkCoreApplication.m9getInst().getContext();
-        this.adY = LayoutInflater.from(this.mContext).inflate(r.j.image_toast_view, (ViewGroup) null);
-        this.adZ = (TextView) this.adY.findViewById(r.h.tip_text);
-        this.aea = (ImageView) this.adY.findViewById(r.h.tip_iamge);
+        this.ajn = LayoutInflater.from(this.mContext).inflate(w.j.image_toast_view, (ViewGroup) null);
+        this.ajo = (TextView) this.ajn.findViewById(w.h.tip_text);
+        this.ajp = (ImageView) this.ajn.findViewById(w.h.tip_iamge);
     }
 
     public void showToast(int i, int i2) {
-        this.adZ.setText(i2);
-        this.aea.setImageResource(i);
-        C(this.adY);
+        this.ajo.setText(i2);
+        this.ajp.setImageResource(i);
+        A(this.ajn);
     }
 
-    public void C(View view) {
-        this.aeb.removeCallbacks(this.aec);
-        if (this.sd == null) {
-            this.sd = new Toast(this.mContext);
+    public void A(View view) {
+        this.ajq.removeCallbacks(this.ajr);
+        if (this.zy == null) {
+            this.zy = new Toast(this.mContext);
         }
-        this.aeb.postDelayed(this.aec, this.adV);
-        this.sd.setView(view);
-        this.sd.setDuration(1);
-        this.sd.setGravity(17, 0, 0);
-        this.sd.show();
+        this.ajq.postDelayed(this.ajr, this.ajk);
+        this.zy.setView(view);
+        this.zy.setDuration(1);
+        this.zy.setGravity(17, 0, 0);
+        this.zy.show();
     }
 
     public void c(CharSequence charSequence) {
-        this.adZ.setText(charSequence);
-        this.aea.setImageResource(r.g.icon_toast_game_ok);
-        C(this.adY);
+        this.ajo.setText(charSequence);
+        this.ajp.setImageResource(w.g.icon_toast_game_ok);
+        A(this.ajn);
     }
 
     public void d(CharSequence charSequence) {
-        this.adZ.setText(charSequence);
-        this.aea.setImageResource(r.g.icon_toast_game_error);
-        C(this.adY);
+        this.ajo.setText(charSequence);
+        this.ajp.setImageResource(w.g.icon_toast_game_error);
+        A(this.ajn);
     }
 
-    public void vT() {
-        if (this.sd != null) {
-            this.sd.cancel();
+    public void wq() {
+        if (this.zy != null) {
+            this.zy.cancel();
         }
     }
 }

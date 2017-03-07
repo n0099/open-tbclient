@@ -6,11 +6,11 @@ import java.io.InputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Handler.Callback {
-    final /* synthetic */ l aPa;
+    final /* synthetic */ l aUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.aPa = lVar;
+        this.aUM = lVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -32,26 +32,26 @@ public class m implements Handler.Callback {
             }
         } else if (message.what == 2) {
             if (message.obj instanceof String) {
-                hVar = this.aPa.aOY;
+                hVar = this.aUM.aUK;
                 hVar.setVideoUrl((String) message.obj);
-                hVar2 = this.aPa.aOY;
+                hVar2 = this.aUM.aUK;
                 hVar2.run();
             }
         } else if (message.what == 3) {
-            bVar4 = this.aPa.aOZ;
+            bVar4 = this.aUM.aUL;
             if (bVar4 != null) {
-                bVar5 = this.aPa.aOZ;
-                bVar5.Ks();
+                bVar5 = this.aUM.aUL;
+                bVar5.KX();
             }
         } else if (message.what == 4) {
             if (message.obj instanceof String) {
-                bVar3 = this.aPa.aOZ;
-                bVar3.gN((String) message.obj);
+                bVar3 = this.aUM.aUL;
+                bVar3.gC((String) message.obj);
             }
         } else if (message.what == 5) {
-            bVar = this.aPa.aOZ;
+            bVar = this.aUM.aUL;
             if (bVar != null) {
-                bVar2 = this.aPa.aOZ;
+                bVar2 = this.aUM.aUL;
                 bVar2.clearCache();
             }
         }

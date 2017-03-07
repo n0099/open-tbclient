@@ -8,23 +8,23 @@ import java.security.InvalidParameterException;
 public abstract class d {
     private Context mContext;
     private View mView = null;
-    private boolean Bh = true;
-    private int Bi = 0;
-    private int Bj = 0;
-
-    public abstract void R(boolean z);
+    private boolean Iu = true;
+    private int Iv = 0;
+    private int Iw = 0;
 
     public abstract void S(boolean z);
 
     public abstract void T(boolean z);
 
-    public abstract View kg();
+    public abstract void U(boolean z);
 
-    public abstract void kh();
+    public abstract View la();
 
-    public abstract void ki();
+    public abstract void lb();
 
-    public abstract void kj();
+    public abstract void lc();
+
+    public abstract void ld();
 
     public d(Context context) {
         this.mContext = null;
@@ -40,13 +40,13 @@ public abstract class d {
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = kg();
+            this.mView = la();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             q(this.mView);
-            this.Bi = this.mView.getMeasuredHeight();
-            this.Bj = this.mView.getMeasuredWidth();
+            this.Iv = this.mView.getMeasuredHeight();
+            this.Iw = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -57,12 +57,12 @@ public abstract class d {
         }
     }
 
-    public boolean kk() {
-        return this.Bh;
+    public boolean le() {
+        return this.Iu;
     }
 
-    public void U(boolean z) {
-        this.Bh = z;
+    public void V(boolean z) {
+        this.Iu = z;
     }
 
     private void q(View view) {
@@ -81,7 +81,7 @@ public abstract class d {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int kl() {
-        return this.Bi;
+    public int lf() {
+        return this.Iv;
     }
 }

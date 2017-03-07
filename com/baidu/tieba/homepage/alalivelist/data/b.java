@@ -11,12 +11,12 @@ public class b implements h {
     private long tagCode;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> lT() {
+    public HashMap<String, Object> EL() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object aa(boolean z) {
+    public Object bN(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(getPn());
         if (z) {

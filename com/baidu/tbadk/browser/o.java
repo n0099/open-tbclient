@@ -2,11 +2,11 @@ package com.baidu.tbadk.browser;
 
 import android.net.Uri;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements ba.a {
-    @Override // com.baidu.tbadk.core.util.ba.a
+public class o implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         boolean a;
         boolean a2;

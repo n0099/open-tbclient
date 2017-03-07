@@ -1,11 +1,11 @@
 package com.baidu.tbadk.ala;
 
-import com.baidu.tbadk.core.data.j;
+import com.baidu.tbadk.core.data.i;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
-public class AlaLiveInfoCoreData extends j implements Serializable {
+public class AlaLiveInfoCoreData extends i implements Serializable {
     private static final long serialVersionUID = 5768965545624138312L;
     private long groupID;
     private String hslUrl;
@@ -89,7 +89,7 @@ public class AlaLiveInfoCoreData extends j implements Serializable {
         return this.hslUrl;
     }
 
-    @Override // com.baidu.tbadk.core.data.j
+    @Override // com.baidu.tbadk.core.data.i
     public void parserJson(JSONObject jSONObject) {
     }
 

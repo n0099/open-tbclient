@@ -4,26 +4,26 @@ import android.graphics.drawable.Drawable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class as {
-    private HashMap<String, Drawable> bGV = new HashMap<>();
+    private HashMap<String, Drawable> bOe = new HashMap<>();
 
-    public Drawable r(int i, int i2) {
-        String aa = aa(i, i2);
-        Drawable drawable = this.bGV.get(aa);
+    public Drawable x(int i, int i2) {
+        String ag = ag(i, i2);
+        Drawable drawable = this.bOe.get(ag);
         if (drawable == null) {
-            Drawable r = com.baidu.tbadk.core.util.ap.r(i2, i);
-            this.bGV.put(aa, r);
-            return r.getConstantState().newDrawable();
+            Drawable x = com.baidu.tbadk.core.util.aq.x(i2, i);
+            this.bOe.put(ag, x);
+            return x.getConstantState().newDrawable();
         }
         return drawable.getConstantState().newDrawable();
     }
 
-    private String aa(int i, int i2) {
+    private String ag(int i, int i2) {
         return String.valueOf(i) + "_" + i2;
     }
 
     public void destory() {
-        if (!this.bGV.isEmpty()) {
-            this.bGV.clear();
+        if (!this.bOe.isEmpty()) {
+            this.bOe.clear();
         }
     }
 }

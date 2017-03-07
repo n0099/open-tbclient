@@ -5,11 +5,11 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements v.d {
-    final /* synthetic */ x bml;
+    final /* synthetic */ x btf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(x xVar) {
-        this.bml = xVar;
+        this.btf = xVar;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -22,7 +22,7 @@ public class ad implements v.d {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            handler = this.bml.aNu;
+            handler = this.btf.aTh;
             handler.sendEmptyMessageDelayed(202, 300L);
         }
     }

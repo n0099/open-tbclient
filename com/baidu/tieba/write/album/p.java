@@ -13,29 +13,29 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    private static p fHx;
-    private ContentObserver fHy;
+    private static p fLR;
+    private ContentObserver fLS;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private ArrayList<a> bG = new ArrayList<>();
+    private ArrayList<a> jr = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable fHz = new q(this);
+    private Runnable fLT = new q(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void lI(boolean z);
+        void lH(boolean z);
     }
 
-    public static p bnm() {
-        if (fHx == null) {
+    public static p bmZ() {
+        if (fLR == null) {
             synchronized (p.class) {
-                if (fHx == null) {
-                    fHx = new p();
-                    fHx.init(TbadkCoreApplication.m9getInst());
+                if (fLR == null) {
+                    fLR = new p();
+                    fLR.init(TbadkCoreApplication.m9getInst());
                 }
             }
         }
-        return fHx;
+        return fLR;
     }
 
     private p() {
@@ -43,7 +43,7 @@ public class p {
 
     private void init(Context context) {
         this.mReceiver = new r(this);
-        this.fHy = new s(this, this.mHandler);
+        this.fLS = new s(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -52,48 +52,48 @@ public class p {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fHy);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.fLS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void A(Intent intent) {
+    public void W(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            lH(true);
+            lG(true);
             return;
         }
-        this.handler.removeCallbacks(this.fHz);
-        this.handler.postDelayed(this.fHz, 2000L);
+        this.handler.removeCallbacks(this.fLT);
+        this.handler.postDelayed(this.fLT, 2000L);
     }
 
-    public void lH(boolean z) {
-        Iterator<a> it = this.bG.iterator();
+    public void lG(boolean z) {
+        Iterator<a> it = this.jr.iterator();
         while (it.hasNext()) {
-            it.next().lI(z);
+            it.next().lH(z);
         }
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.bG.contains(aVar)) {
-            this.bG.add(aVar);
+        if (aVar != null && !this.jr.contains(aVar)) {
+            this.jr.add(aVar);
         }
     }
 
     public void b(a aVar) {
-        if (this.bG.contains(aVar)) {
-            this.bG.remove(aVar);
+        if (this.jr.contains(aVar)) {
+            this.jr.remove(aVar);
         }
     }
 
     public void removeAllListeners() {
-        this.bG.clear();
+        this.jr.clear();
     }
 
     public void destory() {
         removeAllListeners();
         TbadkCoreApplication m9getInst = TbadkCoreApplication.m9getInst();
         m9getInst.unregisterReceiver(this.mReceiver);
-        m9getInst.getContentResolver().unregisterContentObserver(this.fHy);
-        this.handler.removeCallbacks(this.fHz);
-        fHx = null;
+        m9getInst.getContentResolver().unregisterContentObserver(this.fLS);
+        this.handler.removeCallbacks(this.fLT);
+        fLR = null;
     }
 }

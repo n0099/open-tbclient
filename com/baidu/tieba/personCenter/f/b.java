@@ -6,19 +6,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdExpandImageView;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tieba.view.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a ezI;
-    com.baidu.tieba.personCenter.d.a ezy = new com.baidu.tieba.personCenter.d.a();
+    com.baidu.tieba.personCenter.d.a eCX = new com.baidu.tieba.personCenter.d.a();
+    final /* synthetic */ a eDh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ezI = aVar;
+        this.eDh = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,47 +39,47 @@ public class b implements View.OnClickListener {
         UserData userData6;
         m mVar2;
         UserData userData7;
-        mVar = this.ezI.ezb;
+        mVar = this.eDh.eCA;
         if (mVar != null) {
-            headPendantView = this.ezI.fDV;
+            headPendantView = this.eDh.fIw;
             if (headPendantView != view) {
-                imageView = this.ezI.ezG;
+                imageView = this.eDh.eDf;
                 if (imageView != view) {
-                    bdExpandImageView = this.ezI.fDU;
+                    bdExpandImageView = this.eDh.fIv;
                     if (bdExpandImageView != view) {
-                        userIconBox = this.ezI.fDX;
+                        userIconBox = this.eDh.fIy;
                         if (userIconBox != view) {
-                            userIconBox2 = this.ezI.fDY;
+                            userIconBox2 = this.eDh.fIz;
                             if (userIconBox2 != view) {
-                                textView = this.ezI.ezH;
+                                textView = this.eDh.eDg;
                                 if (textView != view) {
-                                    textView2 = this.ezI.fEa;
+                                    textView2 = this.eDh.fIB;
                                     if (textView2 == view) {
-                                        this.ezy.bzY = 22;
+                                        this.eCX.bHe = 22;
                                     }
                                 } else {
-                                    this.ezy.bzY = 9;
+                                    this.eCX.bHe = 9;
                                 }
                             } else {
-                                this.ezy.bzY = 3;
-                                this.ezy.bzZ = new Bundle();
-                                Bundle bundle = this.ezy.bzZ;
-                                userData = this.ezI.mUserData;
+                                this.eCX.bHe = 3;
+                                this.eCX.bHf = new Bundle();
+                                Bundle bundle = this.eCX.bHf;
+                                userData = this.eDh.mUserData;
                                 bundle.putSerializable(UserData.TYPE_USER, userData);
                             }
                         } else {
-                            this.ezy.bzY = 2;
-                            userData2 = this.ezI.mUserData;
+                            this.eCX.bHe = 2;
+                            userData2 = this.eDh.mUserData;
                             if (userData2 != null) {
-                                userData3 = this.ezI.mUserData;
-                                if (!w.s(userData3.getTShowInfo())) {
-                                    userData4 = this.ezI.mUserData;
+                                userData3 = this.eDh.mUserData;
+                                if (!x.q(userData3.getTShowInfo())) {
+                                    userData4 = this.eDh.mUserData;
                                     if (userData4.getTShowInfo().get(0) != null) {
-                                        userData5 = this.ezI.mUserData;
+                                        userData5 = this.eDh.mUserData;
                                         if (userData5.getTShowInfo().get(0).getUrl() != null) {
-                                            this.ezy.bzZ = new Bundle();
-                                            Bundle bundle2 = this.ezy.bzZ;
-                                            userData6 = this.ezI.mUserData;
+                                            this.eCX.bHf = new Bundle();
+                                            Bundle bundle2 = this.eCX.bHf;
+                                            userData6 = this.eDh.mUserData;
                                             bundle2.putString("vip_user_jump", userData6.getTShowInfo().get(0).getUrl());
                                         }
                                     }
@@ -88,16 +88,16 @@ public class b implements View.OnClickListener {
                         }
                     }
                 }
-                this.ezy.bzY = 8;
+                this.eCX.bHe = 8;
             } else {
-                this.ezy.bzY = 1;
-                this.ezy.bzZ = new Bundle();
-                Bundle bundle3 = this.ezy.bzZ;
-                userData7 = this.ezI.mUserData;
+                this.eCX.bHe = 1;
+                this.eCX.bHf = new Bundle();
+                Bundle bundle3 = this.eCX.bHf;
+                userData7 = this.eDh.mUserData;
                 bundle3.putSerializable(UserData.TYPE_USER, userData7);
             }
-            mVar2 = this.ezI.ezb;
-            mVar2.a(view, this.ezy);
+            mVar2 = this.eDh.eCA;
+            mVar2.a(view, this.eCX);
         }
     }
 }

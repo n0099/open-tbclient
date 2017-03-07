@@ -10,6 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
     public static final int NEW = 0;
+    public static final int NEW_DRUFTING_BOTTLE = 7;
     public static final int NEW_PHOTO_LIVE = 4;
     public static final int NEW_VOTE = 6;
     public static final int REPLY = 1;

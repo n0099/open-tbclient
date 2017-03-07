@@ -1,143 +1,49 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.r;
-import java.util.ArrayList;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class dq extends com.baidu.tbadk.core.dialog.c {
-    private TbPageContext<?> Fp;
-    private View.OnClickListener bEV;
-    private TextView bjX;
-    private TextView eld;
-    private TextView ele;
-    private TextView elf;
-    private TextView elg;
-    private TextView elh;
-    private TextView eli;
-    private boolean elj;
+public class dq {
+    private BaseActivity bcF;
+    private PbModel ejZ;
 
-    public dq(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity());
-        this.Fp = tbPageContext;
-        this.bEV = onClickListener;
-        aMF();
+    public dq(PbModel pbModel, BaseActivity baseActivity) {
+        this.ejZ = pbModel;
+        this.bcF = baseActivity;
     }
 
-    public TextView aMz() {
-        return this.eld;
-    }
-
-    public TextView aMA() {
-        return this.ele;
-    }
-
-    public TextView aMB() {
-        return this.bjX;
-    }
-
-    public TextView aMC() {
-        return this.elg;
-    }
-
-    public TextView aMD() {
-        return this.eli;
-    }
-
-    public TextView aME() {
-        return this.elh;
-    }
-
-    private void aMF() {
-        a(new CharSequence[]{this.Fp.getString(r.l.reply_current_floor), this.Fp.getString(r.l.no_interesting), this.Fp.getString(r.l.mark), this.Fp.getString(r.l.mute), this.Fp.getString(r.l.read_post_floor), this.Fp.getString(r.l.report_text), this.Fp.getString(r.l.delete)}, new dr(this));
-        d(this.Fp);
-        this.elh = av(ch(0));
-        this.eli = av(ch(1));
-        this.eld = av(ch(2));
-        this.ele = av(ch(3));
-        this.elf = av(ch(4));
-        this.bjX = av(ch(5));
-        this.elg = av(ch(6));
-    }
-
-    public void showDialog() {
-        sY();
-    }
-
-    private TextView av(View view) {
-        return (TextView) view.findViewById(r.h.dialog_item_btn);
-    }
-
-    private View bb(View view) {
-        if (view == null) {
+    public String R(Intent intent) {
+        int length;
+        if (intent == null || intent.getData() == null) {
             return null;
         }
-        return view.findViewById(r.h.line);
-    }
-
-    public void iy(boolean z) {
-        this.bjX.setVisibility(z ? 0 : 8);
-    }
-
-    public void iz(boolean z) {
-        this.elj = z;
-    }
-
-    public void vN() {
-        View view;
-        TextView av;
-        int itemCount = getItemCount();
-        ArrayList arrayList = new ArrayList();
-        boolean z = true;
-        for (int i = itemCount - 1; i >= 0; i--) {
-            View ch = ch(i);
-            if (ch != null) {
-                TextView av2 = av(ch(i));
-                View bb = bb(ch(i));
-                if (av2 != null) {
-                    if (av2.getVisibility() == 8) {
-                        bb.setVisibility(8);
-                    } else {
-                        arrayList.add(ch);
-                        if (z) {
-                            bb.setVisibility(8);
-                            com.baidu.tbadk.core.util.ap.j(ch, r.g.dialog_single_button_bg_selector);
-                            z = false;
-                        } else {
-                            bb.setVisibility(0);
-                        }
-                    }
-                }
-            }
+        String dataString = intent.getDataString();
+        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
+            return null;
         }
-        int i2 = 0;
-        while (true) {
-            if (i2 >= itemCount) {
-                break;
-            }
-            View ch2 = ch(i2);
-            if (ch2 == null || (av = av(ch(i2))) == null || av.getVisibility() != 0) {
-                i2++;
-            } else {
-                com.baidu.tbadk.core.util.ap.j(ch2, r.g.dialog_single_button_first_bg_selector);
-                break;
-            }
+        String decode = Uri.decode(intent.getData().getEncodedPath());
+        if (StringUtils.isNull(decode)) {
+            return null;
         }
-        if (com.baidu.tbadk.core.util.w.r(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
-            com.baidu.tbadk.core.util.ap.j(view, r.g.dialog_single_button_only_one_bg_selector);
+        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
+        if (matcher.find()) {
+            if ("mpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11895").Z("tid", matcher.group(2)));
+            } else if ("bpush".equals(matcher.group(1))) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").s("obj_locate", 3).s("obj_type", 1));
+            }
+            return matcher.group(2);
         }
-    }
-
-    public TextView aMG() {
-        return this.elf;
-    }
-
-    public void aMH() {
-        this.elf.setVisibility(8);
-    }
-
-    public void aMI() {
-        this.elf.setVisibility(0);
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").s("obj_locate", 3).s("obj_type", 1));
+        int indexOf = decode.indexOf("tid=");
+        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
+            return null;
+        }
+        return decode.substring(length);
     }
 }

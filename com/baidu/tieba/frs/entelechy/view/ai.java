@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.card.cf;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements com.baidu.tbadk.widget.layout.h {
-    final /* synthetic */ aa bMC;
-    private final /* synthetic */ LinkedList bmI;
-    private final /* synthetic */ bh bmJ;
+    final /* synthetic */ aa bTK;
+    private final /* synthetic */ LinkedList btD;
+    private final /* synthetic */ bj btE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(aa aaVar, LinkedList linkedList, bh bhVar) {
-        this.bMC = aaVar;
-        this.bmI = linkedList;
-        this.bmJ = bhVar;
+    public ai(aa aaVar, LinkedList linkedList, bj bjVar) {
+        this.bTK = aaVar;
+        this.btD = linkedList;
+        this.btE = bjVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.h
     public void c(View view, int i, boolean z) {
-        bh bhVar;
-        bh bhVar2;
-        cf<bh> onSubCardOnClickListenner = this.bMC.getOnSubCardOnClickListenner();
+        bj bjVar;
+        bj bjVar2;
+        cf<bj> onSubCardOnClickListenner = this.bTK.getOnSubCardOnClickListenner();
         if (z) {
             if (onSubCardOnClickListenner != null) {
-                onSubCardOnClickListenner.aJK = true;
-                bhVar2 = this.bMC.acX;
-                onSubCardOnClickListenner.a(view, bhVar2);
+                onSubCardOnClickListenner.aPt = true;
+                bjVar2 = this.bTK.ain;
+                onSubCardOnClickListenner.a(view, bjVar2);
             }
-            this.bMC.Rt();
+            this.bTK.Sr();
             return;
         }
         if (onSubCardOnClickListenner != null) {
-            onSubCardOnClickListenner.aJK = false;
-            bhVar = this.bMC.acX;
-            onSubCardOnClickListenner.a(view, bhVar);
+            onSubCardOnClickListenner.aPt = false;
+            bjVar = this.bTK.ain;
+            onSubCardOnClickListenner.a(view, bjVar);
         }
-        this.bMC.a(this.bmI, i, this.bmJ);
+        this.bTK.a(this.btD, i, this.btE);
     }
 }

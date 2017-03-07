@@ -1,31 +1,32 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.GetMyShelf.BookInfo;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes.dex */
 public class k {
-    public String Pl;
-    public String Pm;
-    public int Pn;
-    public String Po;
-    public int Pp = -1;
-    public int Pq;
-    public int Pr;
-    public int Ps;
-    public long Pt;
-    public String authorName;
-    public long cartoonId;
-    public long forumId;
+    public String Uw;
+    public long Ux;
+    public int Uy;
 
-    public void a(BookInfo bookInfo) {
-        if (bookInfo != null) {
-            this.forumId = bookInfo.forum_id.longValue();
-            this.cartoonId = bookInfo.cartoon_id.longValue();
-            this.Pl = bookInfo.cover_img;
-            this.Pm = bookInfo.cartoon_name;
-            this.Pn = bookInfo.total_chapter.intValue();
-            this.Po = bookInfo.first_chapter_id;
-            this.Pq = bookInfo.is_finish.intValue();
-            this.authorName = bookInfo.author_name;
+    public void a(BookThread bookThread) {
+        if (bookThread != null) {
+            this.Uw = bookThread.book_id;
+            this.Ux = bookThread.chapter_id.longValue();
+            this.Uy = bookThread.book_type.intValue();
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Uw = jSONObject.optString("book_id", "0");
+                this.Ux = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+                this.Uy = jSONObject.optInt("book_type", 0);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 }

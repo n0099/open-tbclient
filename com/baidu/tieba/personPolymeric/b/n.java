@@ -6,28 +6,28 @@ import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements j.a {
-    final /* synthetic */ h eDs;
+    final /* synthetic */ h eGU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(h hVar) {
-        this.eDs = hVar;
+        this.eGU = hVar;
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void oa() {
+    public void oo() {
         MorePopupWindow morePopupWindow;
         TbPageContext tbPageContext;
-        morePopupWindow = this.eDs.eDj;
-        tbPageContext = this.eDs.FY;
+        morePopupWindow = this.eGU.eGL;
+        tbPageContext = this.eGU.ajF;
         com.baidu.adp.lib.g.j.a(morePopupWindow, tbPageContext.getPageActivity());
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void ob() {
+    public void op() {
         MorePopupWindow morePopupWindow;
         TbPageContext tbPageContext;
-        morePopupWindow = this.eDs.eDj;
-        tbPageContext = this.eDs.FY;
+        morePopupWindow = this.eGU.eGL;
+        tbPageContext = this.eGU.ajF;
         com.baidu.adp.lib.g.j.a(morePopupWindow, tbPageContext.getPageActivity());
     }
 }

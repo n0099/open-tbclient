@@ -6,135 +6,135 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f.a;
+import com.baidu.tieba.e.a;
 import com.baidu.tieba.im.model.BlackListModel;
 import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ab implements com.baidu.tieba.model.a, com.baidu.tieba.personPolymeric.mode.b {
-    private TbPageContext Fp;
-    private boolean aVU;
-    private BaseActivity aWr;
-    private com.baidu.tieba.f.c bJg;
-    private PersonPolymericModel eDE;
-    private BlackListModel eDF;
-    private com.baidu.tieba.personPolymeric.d.z eDG;
-    private com.baidu.tieba.personPolymeric.event.b eDH;
-    private af eDI;
-    private q eDJ;
-    private h eDK;
-    private a eDi;
+    private TbPageContext aaI;
+    private com.baidu.tieba.e.c bQp;
+    private BaseActivity bcF;
+    private boolean bch;
+    private a eGK;
+    private PersonPolymericModel eHg;
+    private BlackListModel eHh;
+    private com.baidu.tieba.personPolymeric.d.z eHi;
+    private com.baidu.tieba.personPolymeric.event.b eHj;
+    private af eHk;
+    private q eHl;
+    private h eHm;
     private long mUserId;
-    private boolean bDQ = true;
-    private final com.baidu.tieba.view.v eDL = new ac(this);
-    public View.OnTouchListener aIu = new ad(this);
-    private a.InterfaceC0057a aLl = new ae(this);
+    private boolean bKX = true;
+    private final com.baidu.tieba.view.v eHn = new ac(this);
+    public View.OnTouchListener aNR = new ad(this);
+    private a.InterfaceC0056a aQW = new ae(this);
 
     public ab(BaseActivity baseActivity, long j, boolean z) {
-        this.aWr = baseActivity;
-        this.Fp = baseActivity.getPageContext();
+        this.bcF = baseActivity;
+        this.aaI = baseActivity.getPageContext();
         this.mUserId = j;
-        this.aVU = z;
-        this.eDE = new PersonPolymericModel(baseActivity, z);
-        this.eDE.a(this);
-        this.eDi = new a(baseActivity.getPageContext());
-        this.eDE.a(this.eDi);
-        this.eDF = new BlackListModel(baseActivity.getPageContext());
-        this.eDG = new com.baidu.tieba.personPolymeric.d.z(baseActivity.getPageContext(), z);
-        baseActivity.setContentView(this.eDG.onCreateView(LayoutInflater.from(baseActivity.getActivity()), null, null));
-        this.eDG.initUI();
-        this.eDH = new com.baidu.tieba.personPolymeric.event.b(baseActivity.getPageContext());
-        this.eDH.c(this);
-        this.eDG.setOnViewResponseListener(this.eDH);
-        this.eDG.a(this);
-        this.bJg = new com.baidu.tieba.f.c(baseActivity.getActivity());
-        this.bJg.a(this.aLl);
-        this.eDG.a(this.eDL);
-        this.eDG.setOnTouchListener(this.aIu);
-        this.eDJ = new q(baseActivity.getPageContext());
-        this.eDG.M(this.eDJ);
-        this.eDJ.a(this.eDE);
-        this.eDK = new h(baseActivity.getPageContext(), this.eDi, this.eDF, this.eDG.blP());
+        this.bch = z;
+        this.eHg = new PersonPolymericModel(baseActivity, z);
+        this.eHg.a(this);
+        this.eGK = new a(baseActivity.getPageContext());
+        this.eHg.a(this.eGK);
+        this.eHh = new BlackListModel(baseActivity.getPageContext());
+        this.eHi = new com.baidu.tieba.personPolymeric.d.z(baseActivity.getPageContext(), z);
+        baseActivity.setContentView(this.eHi.onCreateView(LayoutInflater.from(baseActivity.getActivity()), null, null));
+        this.eHi.initUI();
+        this.eHj = new com.baidu.tieba.personPolymeric.event.b(baseActivity.getPageContext());
+        this.eHj.c(this);
+        this.eHi.setOnViewResponseListener(this.eHj);
+        this.eHi.a(this);
+        this.bQp = new com.baidu.tieba.e.c(baseActivity.getActivity());
+        this.bQp.a(this.aQW);
+        this.eHi.a(this.eHn);
+        this.eHi.setOnTouchListener(this.aNR);
+        this.eHl = new q(baseActivity.getPageContext());
+        this.eHi.K(this.eHl);
+        this.eHl.a(this.eHg);
+        this.eHm = new h(baseActivity.getPageContext(), this.eGK, this.eHh, this.eHi.blE());
     }
 
     @Override // com.baidu.tieba.model.a
-    public void MR() {
-        if (com.baidu.adp.lib.util.i.fX()) {
-            if (this.bDQ) {
-                this.eDG.g(true, this.Fp.getResources().getDimensionPixelSize(r.f.ds480));
-                this.eDE.cn(this.mUserId);
+    public void NE() {
+        if (com.baidu.adp.lib.util.i.gS()) {
+            if (this.bKX) {
+                this.eHi.g(true, this.aaI.getResources().getDimensionPixelSize(w.f.ds480));
+                this.eHg.cp(this.mUserId);
             }
-            this.eDE.cm(this.mUserId);
-        } else if (!this.eDE.hasData()) {
-            this.eDG.G(TbadkCoreApplication.m9getInst().getString(r.l.neterror), true);
+            this.eHg.co(this.mUserId);
+        } else if (!this.eHg.hasData()) {
+            this.eHi.H(TbadkCoreApplication.m9getInst().getString(w.l.neterror), true);
         }
     }
 
     @Override // com.baidu.tieba.model.a
     public void resetData() {
-        this.eDE.resetData();
+        this.eHg.resetData();
     }
 
     @Override // com.baidu.tieba.model.a
-    public boolean Py() {
-        return this.eDE.Py();
+    public boolean Qr() {
+        return this.eHg.Qr();
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.b
     public void a(com.baidu.tieba.personPolymeric.c.n nVar, boolean z) {
-        this.eDG.acA();
-        this.eDG.Jx();
+        this.eHi.ady();
+        this.eHi.Kc();
         if (!z) {
-            this.eDG.cW(!com.baidu.tbadk.core.util.w.s(nVar.aRR()));
+            this.eHi.cW(!com.baidu.tbadk.core.util.x.q(nVar.aRu()));
         }
-        if (nVar == null || com.baidu.tbadk.core.util.w.s(nVar.amM())) {
-            this.eDG.G(TbadkCoreApplication.m9getInst().getString(r.l.neterror), true);
+        if (nVar == null || com.baidu.tbadk.core.util.x.q(nVar.alZ())) {
+            this.eHi.H(TbadkCoreApplication.m9getInst().getString(w.l.neterror), true);
             return;
         }
-        this.bDQ = false;
-        if (this.aVU) {
-            com.baidu.tbadk.getUserInfo.b.DK().a(nVar.getUserData());
+        this.bKX = false;
+        if (this.bch) {
+            com.baidu.tbadk.getUserInfo.b.Ed().a(nVar.getUserData());
         }
-        if (this.eDJ != null) {
-            this.eDJ.b(nVar);
+        if (this.eHl != null) {
+            this.eHl.b(nVar);
         }
-        if (this.eDK != null) {
-            this.eDK.a(nVar);
+        if (this.eHm != null) {
+            this.eHm.a(nVar);
         }
-        this.eDG.c(nVar);
-        if ((this.eDG.mRootView instanceof RelativeLayout) && !this.aVU) {
-            if (this.eDI == null) {
-                this.eDI = new af(this.aWr, (RelativeLayout) this.eDG.mRootView, nVar.getUserData());
+        this.eHi.c(nVar);
+        if ((this.eHi.mRootView instanceof RelativeLayout) && !this.bch) {
+            if (this.eHk == null) {
+                this.eHk = new af(this.bcF, (RelativeLayout) this.eHi.mRootView, nVar.getUserData());
             } else {
-                this.eDI.setData(nVar.getUserData());
+                this.eHk.setData(nVar.getUserData());
             }
         }
     }
 
-    public q aRL() {
-        return this.eDJ;
+    public q aRo() {
+        return this.eHl;
     }
 
-    public h aRM() {
-        return this.eDK;
+    public h aRp() {
+        return this.eHm;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eDG != null) {
-            this.eDG.onChangeSkinType(i);
+        if (this.eHi != null) {
+            this.eHi.onChangeSkinType(i);
         }
-        if (this.eDI != null) {
-            this.eDI.onChangeSkinType(i);
+        if (this.eHk != null) {
+            this.eHk.onChangeSkinType(i);
         }
     }
 
     public void onDestroy() {
-        this.eDJ.onDestroy();
-        if (this.eDI != null) {
-            this.eDI.onDestroy();
+        this.eHl.onDestroy();
+        if (this.eHk != null) {
+            this.eHk.onDestroy();
         }
-        if (this.eDG != null) {
-            this.eDG.onDestory();
+        if (this.eHi != null) {
+            this.eHi.onDestory();
         }
     }
 }

@@ -4,37 +4,37 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 /* loaded from: classes.dex */
 public class k implements v {
-    public static final BdUniqueId ask = BdUniqueId.gen();
-    private String asl;
-    private String asm;
-    private boolean asn = false;
+    public static final BdUniqueId axF = BdUniqueId.gen();
+    private String axG;
+    private String axH;
+    private boolean axI = false;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return ask;
+        return axF;
     }
 
-    public String BY() {
-        return this.asl;
+    public String Cr() {
+        return this.axG;
     }
 
-    public void fc(String str) {
-        this.asl = str;
+    public void eR(String str) {
+        this.axG = str;
     }
 
     public String getSmallUrl() {
-        return this.asm;
+        return this.axH;
     }
 
-    public void fd(String str) {
-        this.asm = str;
+    public void eS(String str) {
+        this.axH = str;
     }
 
-    public boolean BZ() {
-        return this.asn;
+    public boolean Cs() {
+        return this.axI;
     }
 
-    public void bv(boolean z) {
-        this.asn = z;
+    public void bu(boolean z) {
+        this.axI = z;
     }
 }

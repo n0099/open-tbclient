@@ -6,20 +6,20 @@ import java.util.Comparator;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 class k implements Comparator<String> {
-    final /* synthetic */ c.a wI;
-    private final /* synthetic */ HashMap wJ;
+    final /* synthetic */ c.a DW;
+    private final /* synthetic */ HashMap DX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c.a aVar, HashMap hashMap) {
-        this.wI = aVar;
-        this.wJ = hashMap;
+        this.DW = aVar;
+        this.DX = hashMap;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     public int compare(String str, String str2) {
-        PluginStatus pluginStatus = (PluginStatus) this.wJ.get(str);
-        PluginStatus pluginStatus2 = (PluginStatus) this.wJ.get(str2);
+        PluginStatus pluginStatus = (PluginStatus) this.DX.get(str);
+        PluginStatus pluginStatus2 = (PluginStatus) this.DX.get(str2);
         if (pluginStatus != null && pluginStatus2 != null) {
             return pluginStatus2.getPriority() - pluginStatus.getPriority();
         }

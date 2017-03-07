@@ -3,7 +3,7 @@ package com.baidu.adp.lib.voice;
 public interface i {
     void az(int i);
 
-    void e(int i, String str);
+    void f(int i, String str);
 
     void k(String str, int i);
 }

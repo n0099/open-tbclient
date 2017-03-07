@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class UpdateDialogStyleSyncSwitchStatic extends a {
+public class UpdateDialogStyleSyncSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(UpdateDialogStyleSyncSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(UpdateDialogStyleSyncSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity erC;
+    final /* synthetic */ NewSubPbActivity euQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.erC = newSubPbActivity;
+        this.euQ = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
@@ -26,14 +26,14 @@ public class m implements NewSubPbActivity.a {
         SubPbModel subPbModel7;
         Object[] objArr = (Object[]) obj;
         String str = "";
-        subPbModel = this.erC.erl;
-        if (subPbModel.aPn() != null) {
-            subPbModel5 = this.erC.erl;
-            if (subPbModel5.aPn().Ji() != null) {
-                subPbModel6 = this.erC.erl;
-                if (subPbModel6.aPn().Ji().getAuthor() != null) {
-                    subPbModel7 = this.erC.erl;
-                    str = String.valueOf(subPbModel7.aPn().Ji().getAuthor().getUserId());
+        subPbModel = this.euQ.euz;
+        if (subPbModel.aOE() != null) {
+            subPbModel5 = this.euQ.euz;
+            if (subPbModel5.aOE().JN() != null) {
+                subPbModel6 = this.euQ.euz;
+                if (subPbModel6.aOE().JN().getAuthor() != null) {
+                    subPbModel7 = this.euQ.euz;
+                    str = String.valueOf(subPbModel7.aOE().JN().getAuthor().getUserId());
                 }
             }
         }
@@ -45,13 +45,13 @@ public class m implements NewSubPbActivity.a {
         if (objArr.length > 2) {
             str3 = String.valueOf(objArr[2]);
         }
-        NewSubPbActivity newSubPbActivity = this.erC;
-        Activity pageActivity = this.erC.getPageContext().getPageActivity();
-        subPbModel2 = this.erC.erl;
-        String id = subPbModel2.aPn().aKC().getId();
-        subPbModel3 = this.erC.erl;
-        String name = subPbModel3.aPn().aKC().getName();
-        subPbModel4 = this.erC.erl;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, subPbModel4.aPn().Ji().getId(), str, str2, str3)));
+        NewSubPbActivity newSubPbActivity = this.euQ;
+        Activity pageActivity = this.euQ.getPageContext().getPageActivity();
+        subPbModel2 = this.euQ.euz;
+        String id = subPbModel2.aOE().aJU().getId();
+        subPbModel3 = this.euQ.euz;
+        String name = subPbModel3.aOE().aJU().getName();
+        subPbModel4 = this.euQ.euz;
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, subPbModel4.aOE().JN().getId(), str, str2, str3)));
     }
 }

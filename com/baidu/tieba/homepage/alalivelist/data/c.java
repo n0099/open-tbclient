@@ -7,8 +7,8 @@ import tbclient.AlaTab.AlaTabResIdl;
 import tbclient.ForcusRecommand;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.homepage.recommendfrs.data.c {
-    public static final int ctv = ForcusRecommand.DEFAULT_TYPE.intValue();
-    public ForcusRecommand ctw;
+    public static final int cuU = ForcusRecommand.DEFAULT_TYPE.intValue();
+    public ForcusRecommand cuV;
 
     @Override // com.baidu.tieba.homepage.recommendfrs.data.c, com.baidu.tbadk.mvc.b.b
     public boolean z(byte[] bArr) {
@@ -27,10 +27,10 @@ public class c extends com.baidu.tieba.homepage.recommendfrs.data.c {
             this.mHasMore = alaTabResIdl.data.has_more.intValue() == 1;
             this.pn = alaTabResIdl.data.pn.intValue();
             if (alaTabResIdl.data.thread_list != null) {
-                this.cAf = new ArrayList();
-                this.cAf.addAll(alaTabResIdl.data.thread_list);
+                this.cBB = new ArrayList();
+                this.cBB.addAll(alaTabResIdl.data.thread_list);
             }
-            this.ctw = alaTabResIdl.data.forcus_recommand;
+            this.cuV = alaTabResIdl.data.forcus_recommand;
         }
     }
 }

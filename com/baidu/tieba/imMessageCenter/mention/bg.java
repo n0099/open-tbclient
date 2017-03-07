@@ -14,9 +14,9 @@ class bg extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (TbadkCoreApplication.isLogin()) {
-            ah.avW().avY();
+            ah.avs().avu();
         } else {
-            ah.avW().destroy();
+            ah.avs().destroy();
         }
     }
 }

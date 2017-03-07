@@ -4,32 +4,32 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class j implements View.OnTouchListener {
-    final /* synthetic */ FrsActivity bGL;
+    final /* synthetic */ FrsActivity bNU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.bGL = frsActivity;
+        this.bNU = frsActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         ce ceVar;
-        com.baidu.tieba.frs.f.aq aqVar;
-        com.baidu.tieba.frs.f.aq aqVar2;
+        com.baidu.tieba.frs.f.as asVar;
+        com.baidu.tieba.frs.f.as asVar2;
         ce ceVar2;
         ce ceVar3;
-        ceVar = this.bGL.bGb;
+        ceVar = this.bNU.bNj;
         if (ceVar != null) {
-            ceVar2 = this.bGL.bGb;
-            if (ceVar2.Zh() != null) {
-                ceVar3 = this.bGL.bGb;
-                ceVar3.Zh().onTouchEvent(motionEvent);
+            ceVar2 = this.bNU.bNj;
+            if (ceVar2.aag() != null) {
+                ceVar3 = this.bNU.bNj;
+                ceVar3.aag().onTouchEvent(motionEvent);
             }
         }
-        aqVar = this.bGL.bGg;
-        if (aqVar != null) {
-            aqVar2 = this.bGL.bGg;
-            if (aqVar2.b(motionEvent, view)) {
+        asVar = this.bNU.bNo;
+        if (asVar != null) {
+            asVar2 = this.bNU.bNo;
+            if (asVar2.b(motionEvent, view)) {
                 return true;
             }
         }

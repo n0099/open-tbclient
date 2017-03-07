@@ -5,16 +5,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
-    private List<TagInfo> cve = new ArrayList();
-    private final int cvf;
+    private List<TagInfo> cwD = new ArrayList();
+    private final int cwE;
     private Context mContext;
     private int padding;
     private int textSize;
@@ -23,32 +23,32 @@ public class q extends BaseAdapter {
         this.textSize = 0;
         this.padding = 0;
         this.mContext = context;
-        this.textSize = context.getResources().getDimensionPixelSize(r.f.fontsize28);
-        this.padding = context.getResources().getDimensionPixelSize(r.f.ds16);
-        this.cvf = i;
+        this.textSize = context.getResources().getDimensionPixelSize(w.f.fontsize28);
+        this.padding = context.getResources().getDimensionPixelSize(w.f.ds16);
+        this.cwE = i;
     }
 
-    public void bs(List<TagInfo> list) {
-        this.cve.clear();
+    public void aZ(List<TagInfo> list) {
+        this.cwD.clear();
         if (list != null && list.size() > 0) {
-            this.cve.addAll(list);
+            this.cwD.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.cve.size();
+        return this.cwD.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: kd */
+    /* renamed from: jI */
     public TagInfo getItem(int i) {
-        if (i < 0 || i >= this.cve.size()) {
+        if (i < 0 || i >= this.cwD.size()) {
             return null;
         }
-        return this.cve.get(i);
+        return this.cwD.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -67,17 +67,17 @@ public class q extends BaseAdapter {
             textView.setTextSize(0, this.textSize);
             textView.setPadding(0, this.padding, 0, this.padding);
         }
-        TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.w.c(this.cve, i);
+        TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.x.c(this.cwD, i);
         if (tagInfo == null) {
             return null;
         }
-        textView.setText(at.d(tagInfo.tag_name, 8, null));
-        ap.c(textView, r.e.cp_cont_f, 1);
-        if (i == this.cvf) {
-            ap.j((View) textView, r.g.btn_label_white_s);
+        textView.setText(au.d(tagInfo.tag_name, 8, null));
+        aq.c(textView, w.e.cp_cont_f, 1);
+        if (i == this.cwE) {
+            aq.j(textView, w.g.btn_label_white_s);
             return textView;
         }
-        ap.j((View) textView, r.g.rec_frs_btn_more_item);
+        aq.j(textView, w.g.rec_frs_btn_more_item);
         return textView;
     }
 }

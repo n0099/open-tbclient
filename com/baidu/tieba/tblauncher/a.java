@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.tblauncher.ClientStartStatic;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    private long czB;
+    private long cAX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(int i) {
@@ -21,10 +21,10 @@ class a extends CustomMessageListener {
         Boolean data;
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
             if (data.booleanValue()) {
-                this.czB = SystemClock.elapsedRealtime();
+                this.cAX = SystemClock.elapsedRealtime();
                 return;
             }
-            if (SystemClock.elapsedRealtime() - this.czB > 30000) {
+            if (SystemClock.elapsedRealtime() - this.cAX > 30000) {
                 new ClientStartStatic.a(null).execute(new Void[0]);
             }
             TiebaStatic.log("c11894");

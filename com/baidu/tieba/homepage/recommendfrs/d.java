@@ -4,15 +4,15 @@ import com.baidu.tieba.homepage.framework.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements x {
-    final /* synthetic */ b czW;
+    final /* synthetic */ b cBs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.czW = bVar;
+        this.cBs = bVar;
     }
 
     @Override // com.baidu.tieba.homepage.framework.x
-    public void jZ(int i) {
-        this.czW.czU = i;
+    public void jE(int i) {
+        this.cBs.cBq = i;
     }
 }

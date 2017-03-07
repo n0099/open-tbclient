@@ -17,33 +17,33 @@ public class f extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aa aaVar;
-        aa aaVar2;
-        aa aaVar3;
-        aa aaVar4;
-        aa aaVar5;
-        aa aaVar6;
-        aa aaVar7;
+        z zVar;
+        z zVar2;
+        z zVar3;
+        z zVar4;
+        z zVar5;
+        z zVar6;
+        z zVar7;
         if (customResponsedMessage.getData() instanceof Integer) {
             Integer num = (Integer) customResponsedMessage.getData();
             if (num.intValue() == 2) {
-                aaVar6 = this.this$0.ftN;
-                aaVar6.lp(true);
-                aaVar7 = this.this$0.ftN;
-                aaVar7.hJ(true);
+                zVar6 = this.this$0.fyl;
+                zVar6.lo(true);
+                zVar7 = this.this$0.fyl;
+                zVar7.hC(true);
             } else if (num.intValue() == 1) {
-                aaVar3 = this.this$0.ftN;
-                aaVar3.lp(true);
-                aaVar4 = this.this$0.ftN;
-                aaVar4.hJ(false);
+                zVar3 = this.this$0.fyl;
+                zVar3.lo(true);
+                zVar4 = this.this$0.fyl;
+                zVar4.hC(false);
             } else {
-                aaVar = this.this$0.ftN;
-                aaVar.lp(false);
-                aaVar2 = this.this$0.ftN;
-                aaVar2.hJ(false);
+                zVar = this.this$0.fyl;
+                zVar.lo(false);
+                zVar2 = this.this$0.fyl;
+                zVar2.hC(false);
             }
-            aaVar5 = this.this$0.ftN;
-            aaVar5.bjC();
+            zVar5 = this.this$0.fyl;
+            zVar5.bjr();
         }
     }
 }

@@ -10,20 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean aFe;
+    private boolean aKB;
 
     public TbListTextView(Context context) {
         super(context);
-        this.aFe = true;
+        this.aKB = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.aFe = z;
+        this.aKB = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.aFe) {
+        if (!this.aKB) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -36,25 +36,25 @@ public class TbListTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            H(i, i2);
+            N(i, i2);
         }
     }
 
-    private void H(int i, int i2) {
+    private void N(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            I(i, i2);
+            O(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.aFf) {
+        if (b.aKC) {
             a(i, i2, spannableStringBuilder, b);
         } else {
-            I(i, i2);
+            O(i, i2);
         }
     }
 
@@ -75,16 +75,16 @@ public class TbListTextView extends TextView {
             }
             try {
                 d(spannableStringBuilder, i, i2);
-                return a.a(arrayList, arrayList2);
+                return a.b(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.Ha();
+        return a.Hz();
     }
 
     private boolean b(CharSequence charSequence, int i) {
-        return i < 0 || charSequence.charAt(i) != ' ';
+        return charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ';
     }
 
     private void d(CharSequence charSequence, int i, int i2) {
@@ -93,7 +93,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.aFh) {
+        for (Object obj : aVar.aKE) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -103,7 +103,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.aFg) {
+        for (Object obj2 : aVar.aKD) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -120,29 +120,29 @@ public class TbListTextView extends TextView {
         }
     }
 
-    private void I(int i, int i2) {
+    private void O(int i, int i2) {
         d(getText().toString(), i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean aFf;
-        public final List<Object> aFg;
-        public final List<Object> aFh;
+        public final boolean aKC;
+        public final List<Object> aKD;
+        public final List<Object> aKE;
 
-        public static a a(List<Object> list, List<Object> list2) {
+        public static a b(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a Ha() {
+        public static a Hz() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.aFf = z;
-            this.aFg = list;
-            this.aFh = list2;
+            this.aKC = z;
+            this.aKD = list;
+            this.aKE = list2;
         }
     }
 }

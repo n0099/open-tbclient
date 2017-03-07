@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.card.cf;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends cf<com.baidu.tieba.card.data.j> {
-    final /* synthetic */ q cyg;
+    final /* synthetic */ q czC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.cyg = qVar;
+        this.czC = qVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,36 +29,36 @@ public class r extends cf<com.baidu.tieba.card.data.j> {
         com.baidu.tieba.card.m mVar7;
         com.baidu.tieba.card.m mVar8;
         if (view != null) {
-            mVar = this.cyg.cye;
+            mVar = this.czC.czA;
             if (mVar != null) {
-                mVar2 = this.cyg.cye;
-                if (mVar2.blq != null) {
-                    mVar3 = this.cyg.cye;
-                    if (mVar3.blq.blw != null) {
-                        mVar4 = this.cyg.cye;
-                        if (mVar4.blq.blt != null) {
-                            mVar5 = this.cyg.cye;
-                            if (mVar5.blq.getView() != null) {
+                mVar2 = this.czC.czA;
+                if (mVar2.bsj != null) {
+                    mVar3 = this.czC.czA;
+                    if (mVar3.bsj.bsp != null) {
+                        mVar4 = this.czC.czA;
+                        if (mVar4.bsj.bsm != null) {
+                            mVar5 = this.czC.czA;
+                            if (mVar5.bsj.getView() != null) {
                                 int id = view.getId();
-                                mVar6 = this.cyg.cye;
-                                if (id == mVar6.blq.blw.getId() && (view.getTag() instanceof MetaData)) {
+                                mVar6 = this.czC.czA;
+                                if (id == mVar6.bsj.bsp.getId() && (view.getTag() instanceof MetaData)) {
                                     if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
-                                        TiebaStatic.log(new ar("c10803").s("obj_locate", 6));
+                                        TiebaStatic.log(new as("c10803").s("obj_locate", 6));
                                         return;
                                     }
                                     return;
                                 }
                                 int id2 = view.getId();
-                                mVar7 = this.cyg.cye;
-                                if (id2 != mVar7.blq.getView().getId()) {
+                                mVar7 = this.czC.czA;
+                                if (id2 != mVar7.bsj.getView().getId()) {
                                     int id3 = view.getId();
-                                    mVar8 = this.cyg.cye;
-                                    if (id3 != mVar8.blq.blt.getId()) {
+                                    mVar8 = this.czC.czA;
+                                    if (id3 != mVar8.bsj.bsm.getId()) {
                                         return;
                                     }
                                 }
-                                if (view.getTag(r.h.rec_god_item_root) instanceof String) {
-                                    TiebaStatic.log(new ar("c11005").ab("obj_id", (String) view.getTag(r.h.rec_god_item_root)));
+                                if (view.getTag(w.h.rec_god_item_root) instanceof String) {
+                                    TiebaStatic.log(new as("c11005").Z("obj_id", (String) view.getTag(w.h.rec_god_item_root)));
                                 }
                             }
                         }

@@ -1,32 +1,51 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.ba;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes.dex */
-public class aj implements c.b {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout agx;
+class aj extends CustomMessageListener {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout alQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
-        this.agx = threadCommentAndPraiseInfoLayout;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aj(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, int i) {
+        super(i);
+        this.alQ = threadCommentAndPraiseInfoLayout;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        List list;
-        TbPageContext<?> tbPageContext;
-        list = this.agx.agl;
-        String str = (String) com.baidu.tbadk.core.util.w.c(list, i);
-        if (!StringUtils.isNull(str)) {
-            ba vt = ba.vt();
-            tbPageContext = this.agx.FY;
-            vt.c(tbPageContext, new String[]{str});
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        bj bjVar4;
+        bj bjVar5;
+        bj bjVar6;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bj)) {
+            bjVar = this.alQ.ain;
+            if (bjVar != null) {
+                bjVar2 = this.alQ.ain;
+                if (bjVar2.getId() != null) {
+                    bj bjVar7 = (bj) customResponsedMessage.getData();
+                    if (!TextUtils.isEmpty(bjVar7.getId()) && bjVar7.rG() != null) {
+                        String id = bjVar7.getId();
+                        bjVar3 = this.alQ.ain;
+                        if (id.equals(bjVar3.getId())) {
+                            bjVar4 = this.alQ.ain;
+                            if (bjVar4.rG() != null) {
+                                bjVar6 = this.alQ.ain;
+                                bjVar6.rG().setNum(bjVar7.rG().getNum());
+                            }
+                            ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.alQ;
+                            bjVar5 = this.alQ.ain;
+                            threadCommentAndPraiseInfoLayout.f(bjVar5);
+                        }
+                    }
+                }
+            }
         }
-        cVar.dismiss();
     }
 }

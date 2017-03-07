@@ -1,37 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
-import tbclient.FrsPage.NtSpreadInfo;
+import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
-public class y extends bh {
-    public static final BdUniqueId Qt = BdUniqueId.gen();
-    public String Qu;
-    public String Qv;
-    public String linkUrl;
-    public List<String> pics;
-    public Integer position;
-    public String tips;
-    public String title;
-    public String type;
-    public String userName;
+public class y {
+    private String VB;
+    private String VC;
+    private String VD;
+    private String VE;
+    private int VF;
 
-    public void a(NtSpreadInfo ntSpreadInfo) {
-        if (ntSpreadInfo != null) {
-            this.userName = ntSpreadInfo.user_name;
-            this.Qu = ntSpreadInfo.user_avatar;
-            this.tips = ntSpreadInfo.tips;
-            this.type = ntSpreadInfo.type;
-            this.title = ntSpreadInfo.title;
-            this.pics = ntSpreadInfo.pics;
-            this.linkUrl = ntSpreadInfo.link_url;
-            this.position = ntSpreadInfo.position;
-            this.Qv = ntSpreadInfo.publish_date;
+    public void a(HeadSdk headSdk) {
+        if (headSdk != null) {
+            this.VB = headSdk.head_pic;
+            this.VC = headSdk.head_text;
+            this.VD = headSdk.sdk_name;
+            this.VE = headSdk.sdk_params;
+            this.VF = headSdk.head_type.intValue();
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Qt;
+    public String qi() {
+        return this.VB;
+    }
+
+    public String qj() {
+        return this.VC;
+    }
+
+    public String qk() {
+        return this.VE;
+    }
+
+    public int ql() {
+        return this.VF;
     }
 }

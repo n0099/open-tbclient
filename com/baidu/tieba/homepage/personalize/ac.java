@@ -21,12 +21,12 @@ public class ac implements View.OnClickListener {
         BdTypeListView bdTypeListView2;
         BdTypeListView bdTypeListView3;
         co coVar2;
-        coVar = this.this$0.cxm;
+        coVar = this.this$0.cyL;
         if (coVar != null) {
-            coVar2 = this.this$0.cxm;
+            coVar2 = this.this$0.cyL;
             coVar2.hideTip();
         }
-        i = this.this$0.cxi;
+        i = this.this$0.cyH;
         if (i == 1) {
             bdTypeListView = this.this$0.mListView;
             if (bdTypeListView != null) {

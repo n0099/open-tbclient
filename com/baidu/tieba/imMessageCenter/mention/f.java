@@ -9,14 +9,14 @@ public class f extends ak implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Er() {
+    public String EK() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean gb(String str) {
+    public boolean fQ(String str) {
         try {
-            i(new JSONObject(str));
+            m(new JSONObject(str));
             return true;
         } catch (Throwable th) {
             th.printStackTrace();

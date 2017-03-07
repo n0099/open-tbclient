@@ -6,57 +6,57 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.a.d;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class s implements d.a {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.a.d.a
     public boolean a(View view, MotionEvent motionEvent) {
-        ez ezVar;
-        ez ezVar2;
-        ez ezVar3;
+        fa faVar;
+        fa faVar2;
+        fa faVar3;
         com.baidu.tbadk.editortools.pb.c cVar;
-        ez ezVar4;
-        ez ezVar5;
+        fa faVar4;
+        fa faVar5;
         com.baidu.tbadk.editortools.pb.c cVar2;
         com.baidu.tieba.pb.pb.main.a.f fVar;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
-        ez ezVar6;
-        ez ezVar7;
+        fa faVar6;
+        fa faVar7;
         com.baidu.tbadk.editortools.pb.c cVar3;
-        ezVar = this.eiV.ehV;
-        if (ezVar.aOq()) {
+        faVar = this.elO.ekM;
+        if (faVar.aNJ()) {
             return true;
         }
-        ezVar2 = this.eiV.ehV;
-        if (ezVar2 == null) {
+        faVar2 = this.elO.ekM;
+        if (faVar2 == null) {
             return false;
         }
-        ezVar3 = this.eiV.ehV;
-        ezVar3.iO(false);
-        cVar = this.eiV.eih;
+        faVar3 = this.elO.ekM;
+        faVar3.iJ(false);
+        cVar = this.elO.ekY;
         if (cVar != null) {
-            ezVar7 = this.eiV.ehV;
-            cVar3 = this.eiV.eih;
-            ezVar7.gK(cVar3.Dd());
+            faVar7 = this.elO.ekM;
+            cVar3 = this.elO.ekY;
+            faVar7.gB(cVar3.Dw());
         }
-        ezVar4 = this.eiV.ehV;
-        ezVar4.bc(view);
-        ezVar5 = this.eiV.ehV;
-        ezVar5.iO(true);
-        cVar2 = this.eiV.eih;
-        cVar2.Dg();
-        fVar = this.eiV.ehA;
+        faVar4 = this.elO.ekM;
+        faVar4.bb(view);
+        faVar5 = this.elO.ekM;
+        faVar5.iJ(true);
+        cVar2 = this.elO.ekY;
+        cVar2.Dz();
+        fVar = this.elO.eks;
         if (fVar != null) {
-            fVar2 = this.eiV.ehA;
-            ezVar6 = this.eiV.ehV;
-            fVar2.ja(ezVar6.isFullScreen());
+            fVar2 = this.elO.eks;
+            faVar6 = this.elO.ekM;
+            fVar2.iU(faVar6.isFullScreen());
             return true;
         }
         return true;
@@ -68,7 +68,7 @@ class s implements d.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00b7, code lost:
-        if (r5 == r0.aOo()) goto L27;
+        if (r5 == r0.aNI()) goto L27;
      */
     @Override // com.baidu.tieba.pb.a.d.a
     /*
@@ -76,34 +76,34 @@ class s implements d.a {
     */
     public boolean c(View view, MotionEvent motionEvent) {
         com.baidu.tbadk.editortools.pb.c cVar;
-        ez ezVar;
+        fa faVar;
         com.baidu.tbadk.editortools.pb.c cVar2;
-        ez ezVar2;
-        ez ezVar3;
+        fa faVar2;
+        fa faVar3;
         com.baidu.tbadk.editortools.pb.c cVar3;
-        ez ezVar4;
-        ez ezVar5;
-        ez ezVar6;
-        boolean aY;
+        fa faVar4;
+        fa faVar5;
+        fa faVar6;
+        boolean aX;
         if (view != null) {
-            if (view.getId() != r.h.richText) {
-                if (view.getId() == r.h.pb_list_item_layout) {
-                    if (view.getTag(r.h.tag_from) instanceof SparseArray) {
-                        this.eiV.e((SparseArray) view.getTag(r.h.tag_from));
+            if (view.getId() != w.h.richText) {
+                if (view.getId() == w.h.pb_list_item_layout) {
+                    if (view.getTag(w.h.tag_from) instanceof SparseArray) {
+                        this.elO.e((SparseArray) view.getTag(w.h.tag_from));
                     }
-                } else if (!(view instanceof TbRichTextView) && view.getId() != r.h.pb_post_header_layout) {
-                    ezVar4 = this.eiV.ehV;
-                    if (ezVar4 != null) {
-                        ezVar5 = this.eiV.ehV;
-                        if (ezVar5.aKQ()) {
-                            if (view.getId() != r.h.pb_head_user_info_root) {
-                                ezVar6 = this.eiV.ehV;
+                } else if (!(view instanceof TbRichTextView) && view.getId() != w.h.pb_post_header_layout) {
+                    faVar4 = this.elO.ekM;
+                    if (faVar4 != null) {
+                        faVar5 = this.elO.ekM;
+                        if (faVar5.aKl()) {
+                            if (view.getId() != w.h.pb_head_user_info_root) {
+                                faVar6 = this.elO.ekM;
                             }
-                            if (view.getTag(r.h.tag_user_id) instanceof String) {
-                                TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c10630").ab("obj_id", (String) view.getTag(r.h.tag_user_id)));
+                            if (view.getTag(w.h.tag_user_id) instanceof String) {
+                                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10630").Z("obj_id", (String) view.getTag(w.h.tag_user_id)));
                             }
-                            if (this.eiV.ehW != null && this.eiV.ehW.eqy != null) {
-                                this.eiV.ehW.eqy.onClick(view);
+                            if (this.elO.ekN != null && this.elO.ekN.etF != null) {
+                                this.elO.ekN.etF.onClick(view);
                             }
                         }
                     }
@@ -115,27 +115,27 @@ class s implements d.a {
                     if (sparseArray == null) {
                         return false;
                     }
-                    this.eiV.e(sparseArray);
+                    this.elO.e(sparseArray);
                 }
             } else {
-                aY = this.eiV.aY(view);
-                if (aY) {
+                aX = this.elO.aX(view);
+                if (aX) {
                     return true;
                 }
             }
         }
-        cVar = this.eiV.eih;
+        cVar = this.elO.ekY;
         if (cVar != null) {
-            ezVar3 = this.eiV.ehV;
-            cVar3 = this.eiV.eih;
-            ezVar3.gK(cVar3.Dd());
+            faVar3 = this.elO.ekM;
+            cVar3 = this.elO.ekY;
+            faVar3.gB(cVar3.Dw());
         }
-        ezVar = this.eiV.ehV;
-        ezVar.aNr();
-        cVar2 = this.eiV.eih;
-        cVar2.Dg();
-        ezVar2 = this.eiV.ehV;
-        ezVar2.axs();
+        faVar = this.elO.ekM;
+        faVar.aMK();
+        cVar2 = this.elO.ekY;
+        cVar2.Dz();
+        faVar2 = this.elO.ekM;
+        faVar2.awO();
         return true;
     }
 }

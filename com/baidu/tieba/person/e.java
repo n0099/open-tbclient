@@ -5,43 +5,43 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.e {
-    TbPageContext FY;
-    TextView exI;
-    TextView exJ;
-    TextView exK;
-    View exL;
+    TbPageContext ajF;
+    TextView eBi;
+    TextView eBj;
+    TextView eBk;
+    View eBl;
     View mView;
 
     public e(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
-        this.FY = tbPageContext;
-        a(this.FY, onClickListener);
+        this.ajF = tbPageContext;
+        a(this.ajF, onClickListener);
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(r.j.person_info_more_view, (ViewGroup) null);
-        this.exI = (TextView) this.mView.findViewById(r.h.person_info_more_view_item_friend);
-        this.exI.setOnClickListener(onClickListener);
-        this.exJ = (TextView) this.mView.findViewById(r.h.person_info_more_view_item_black);
-        this.exJ.setOnClickListener(onClickListener);
-        this.exK = (TextView) this.mView.findViewById(r.h.person_info_more_view_item_mute);
-        this.exL = this.mView.findViewById(r.h.person_info_more_view_item_line_mute);
-        this.exK.setOnClickListener(onClickListener);
+        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(w.j.person_info_more_view, (ViewGroup) null);
+        this.eBi = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_friend);
+        this.eBi.setOnClickListener(onClickListener);
+        this.eBj = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_black);
+        this.eBj.setOnClickListener(onClickListener);
+        this.eBk = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_mute);
+        this.eBl = this.mView.findViewById(w.h.person_info_more_view_item_line_mute);
+        this.eBk.setOnClickListener(onClickListener);
     }
 
-    public void z(boolean z, boolean z2) {
+    public void y(boolean z, boolean z2) {
         if (z) {
-            this.exI.setText(r.l.remove_friend);
+            this.eBi.setText(w.l.remove_friend);
         } else {
-            this.exI.setText(r.l.frs_recommend_friend_item_add);
+            this.eBi.setText(w.l.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.exJ.setText(r.l.remove_block_chat);
+            this.eBj.setText(w.l.remove_block_chat);
         } else {
-            this.exJ.setText(r.l.block_chat_message);
+            this.eBj.setText(w.l.block_chat_message);
         }
     }
 
@@ -49,25 +49,25 @@ public class e extends com.baidu.adp.base.e {
         return this.mView;
     }
 
-    public View aQw() {
-        return this.exI;
+    public View aPZ() {
+        return this.eBi;
     }
 
-    public View aQx() {
-        return this.exJ;
+    public View aQa() {
+        return this.eBj;
     }
 
-    public View aQy() {
-        return this.exK;
+    public View aQb() {
+        return this.eBk;
     }
 
-    public void oX(int i) {
-        this.exK.setVisibility(0);
-        this.exL.setVisibility(0);
+    public void oT(int i) {
+        this.eBk.setVisibility(0);
+        this.eBl.setVisibility(0);
         if (i == 0) {
-            this.exK.setText(this.FY.getResources().getString(r.l.mute));
+            this.eBk.setText(this.ajF.getResources().getString(w.l.mute));
         } else if (i == 1) {
-            this.exK.setText(this.FY.getResources().getString(r.l.un_mute));
+            this.eBk.setText(this.ajF.getResources().getString(w.l.un_mute));
         }
     }
 }

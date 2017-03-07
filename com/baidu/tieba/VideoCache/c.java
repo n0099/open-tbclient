@@ -6,45 +6,45 @@ import java.io.FileInputStream;
 /* loaded from: classes.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private String aOm;
-    private long aOn;
-    private long aOo;
-    private long aOp;
-    private long aOq;
-    private long aOr;
-    private FileInputStream aOs;
-    private String aOy;
+    private String aTZ;
+    private long aUa;
+    private long aUb;
+    private long aUc;
+    private long aUd;
+    private long aUe;
+    private FileInputStream aUf;
+    private String aUl;
     private Context mContext;
-    private boolean aOt = false;
-    private String aOu = "";
+    private boolean aUg = false;
+    private String aUh = "";
     private Object mLock = new Object();
-    private boolean aOv = false;
-    private long aOw = -1;
-    boolean aOx = false;
-    private long ajf = 0;
-    private Runnable aOA = new d(this);
-    private byte[] aOz = new byte[10240];
+    private boolean aUi = false;
+    private long aUj = -1;
+    boolean aUk = false;
+    private long aoC = 0;
+    private Runnable aUn = new d(this);
+    private byte[] aUm = new byte[10240];
 
     public c(Context context) {
         this.mContext = context;
     }
 
     public void setVideoUrl(String str) {
-        this.aOm = str;
+        this.aTZ = str;
     }
 
     public void L(long j) {
-        this.ajf = j;
+        this.aoC = j;
     }
 
     public void b(long j, long j2) {
         k.log(TAG, "open *************************************************************" + this);
-        if (this.aOm != null) {
-            this.aOn = j;
-            this.aOo = j2;
-            this.aOy = o.hb(this.aOm);
-            if (this.aOy != null) {
-                File file = new File(String.valueOf(j.aOV) + this.aOy);
+        if (this.aTZ != null) {
+            this.aUa = j;
+            this.aUb = j2;
+            this.aUl = o.gQ(this.aTZ);
+            if (this.aUl != null) {
+                File file = new File(String.valueOf(j.aUH) + this.aUl);
                 File file2 = new File(String.valueOf(file.getAbsolutePath()) + "/segments");
                 if (file != null && file2 != null) {
                     if (!file.exists()) {
@@ -53,56 +53,56 @@ public class c {
                     if (!file2.exists()) {
                         file2.mkdir();
                     }
-                    this.aOu = file2.getAbsolutePath();
-                    this.aOr = this.aOn;
-                    this.aOq = this.aOn;
-                    this.aOp = this.aOn;
-                    this.aOt = false;
-                    this.aOv = false;
-                    this.aOw = -1L;
-                    this.aOx = false;
-                    n.KF().g(this.aOA);
+                    this.aUh = file2.getAbsolutePath();
+                    this.aUe = this.aUa;
+                    this.aUd = this.aUa;
+                    this.aUc = this.aUa;
+                    this.aUg = false;
+                    this.aUi = false;
+                    this.aUj = -1L;
+                    this.aUk = false;
+                    n.Lk().g(this.aUn);
                 }
             }
         }
     }
 
     public String getVideoUrl() {
-        return this.aOm;
+        return this.aTZ;
     }
 
     public void close() {
         k.log(TAG, "close ***********************************************************************" + this);
-        this.aOt = true;
+        this.aUg = true;
         synchronized (this.mLock) {
             this.mLock.notify();
         }
         try {
-            if (this.aOs != null) {
-                this.aOs.close();
+            if (this.aUf != null) {
+                this.aUf.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        File file = new File(String.valueOf(j.aOV) + this.aOy + "/completed");
-        if (this.aOx) {
+        File file = new File(String.valueOf(j.aUH) + this.aUl + "/completed");
+        if (this.aUk) {
             return;
         }
         if (file == null || !file.exists()) {
-            l.KE().gY(this.aOm);
+            l.Lj().gN(this.aTZ);
         }
     }
 
     public boolean canRead() {
-        return !this.aOt && this.aOq <= this.aOo;
+        return !this.aUg && this.aUd <= this.aUb;
     }
 
     public int e(byte[] bArr, int i) {
-        if (this.aOt) {
+        if (this.aUg) {
             return 0;
         }
         do {
-            if (this.aOq == this.aOr || !this.aOv) {
+            if (this.aUd == this.aUe || !this.aUi) {
                 synchronized (this.mLock) {
                     try {
                         this.mLock.wait(1000L);
@@ -112,9 +112,9 @@ public class c {
                 }
             } else {
                 try {
-                    int read = this.aOs.read(bArr, 0, (int) (this.aOq + ((long) i) < this.aOr ? i : this.aOr - this.aOq));
+                    int read = this.aUf.read(bArr, 0, (int) (this.aUd + ((long) i) < this.aUe ? i : this.aUe - this.aUd));
                     if (read >= 0) {
-                        this.aOq += read;
+                        this.aUd += read;
                         return read;
                     }
                 } catch (Exception e2) {
@@ -122,7 +122,7 @@ public class c {
                 }
                 return 0;
             }
-        } while (!this.aOt);
+        } while (!this.aUg);
         return 0;
     }
 }

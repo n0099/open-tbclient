@@ -1,93 +1,43 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.r;
-import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ao {
-    public static void c(TbPageContext<?> tbPageContext) {
-        try {
-            if (!l.cy()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.tX());
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.tX());
-                }
-            } else {
-                File db = l.db("camera.jpg");
-                if (db != null) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(db, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
-                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.l.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.l.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    private static final ao afS = new ao();
+    private final HashMap<Class<?>, Class<?>> afT = new HashMap<>();
+
+    public static final ao vv() {
+        return afS;
+    }
+
+    private ao() {
+    }
+
+    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
+        this.afT.put(cls, cls2);
+    }
+
+    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
+        if (!this.afT.containsKey(cls)) {
+            this.afT.put(cls, cls2);
+        } else {
+            BdLog.e("register Intent failed, " + cls.getName() + " exist");
         }
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str) {
-        String str2;
-        try {
-            if (!l.cy()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.tX());
-                    return;
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.tX());
-                    return;
-                } else {
-                    return;
-                }
-            }
-            boolean z = false;
-            if (l.cU(l.ru + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
-                File file = new File(String.valueOf(str2) + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
-                }
-            }
-            if (!z) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.l.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(r.l.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public boolean appResponseToIntentClass(Class<?> cls) {
+        return getIntentClass(cls) != null;
     }
 
-    public static void p(Activity activity) {
-        q(activity);
+    public int vw() {
+        return this.afT.size();
     }
 
-    public static void q(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public Class<?> getIntentClass(Class<?> cls) {
+        if (this.afT != null) {
+            return this.afT.get(cls);
         }
+        return null;
     }
 }

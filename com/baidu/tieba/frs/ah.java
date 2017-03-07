@@ -3,20 +3,20 @@ package com.baidu.tieba.frs;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 class ah implements Runnable {
-    final /* synthetic */ FrsActivity.a bGP;
-    private final /* synthetic */ String bGQ;
+    final /* synthetic */ FrsActivity.a bNY;
+    private final /* synthetic */ String bNZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(FrsActivity.a aVar, String str) {
-        this.bGP = aVar;
-        this.bGQ = str;
+        this.bNY = aVar;
+        this.bNZ = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.util.y yVar = new com.baidu.tbadk.core.util.y(this.bGQ);
-        yVar.uC().vv().mIsNeedAddCommenParam = false;
-        yVar.uC().vv().mIsUseCurrentBDUSS = false;
-        yVar.ue();
+        com.baidu.tbadk.core.util.z zVar = new com.baidu.tbadk.core.util.z(this.bNZ);
+        zVar.uZ().vS().mIsNeedAddCommenParam = false;
+        zVar.uZ().vS().mIsUseCurrentBDUSS = false;
+        zVar.uC();
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements c.b {
-    private final /* synthetic */ ImMessageCenterShowItemData dgZ;
-    final /* synthetic */ l djK;
+    private final /* synthetic */ ImMessageCenterShowItemData djr;
+    final /* synthetic */ l dme;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(l lVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.djK = lVar;
-        this.dgZ = imMessageCenterShowItemData;
+        this.dme = lVar;
+        this.djr = imMessageCenterShowItemData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -23,9 +23,9 @@ public class r implements c.b {
         cVar.dismiss();
         switch (i) {
             case 0:
-                imMessageCenterModel = this.djK.dgL;
-                ImMessageCenterShowItemData imMessageCenterShowItemData = this.dgZ;
-                aVar = this.djK.cPs;
+                imMessageCenterModel = this.dme.djd;
+                ImMessageCenterShowItemData imMessageCenterShowItemData = this.djr;
+                aVar = this.dme.cRJ;
                 imMessageCenterModel.deleteItem(imMessageCenterShowItemData, aVar);
                 return;
             default:

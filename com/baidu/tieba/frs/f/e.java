@@ -8,11 +8,11 @@ import com.baidu.tieba.frs.entelechy.view.EntelechyPullUpRefreshView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d bVd;
+    final /* synthetic */ d ccv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.bVd = dVar;
+        this.ccv = dVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,21 +29,21 @@ public class e implements View.OnClickListener {
         FrsActivity frsActivity7;
         FrsActivity frsActivity8;
         FrsActivity frsActivity9;
-        frsActivity = this.bVd.bHh;
+        frsActivity = this.ccv.bOq;
         if (frsActivity != null) {
-            entelechyPullUpRefreshView = this.bVd.bUY;
+            entelechyPullUpRefreshView = this.ccv.ccq;
             if (view != entelechyPullUpRefreshView) {
-                entelechyPullUpRefreshView2 = this.bVd.bUZ;
+                entelechyPullUpRefreshView2 = this.ccv.ccr;
                 if (view != entelechyPullUpRefreshView2) {
-                    entelechyPullUpRefreshView3 = this.bVd.bVa;
+                    entelechyPullUpRefreshView3 = this.ccv.ccs;
                     if (view == entelechyPullUpRefreshView3) {
-                        frsActivity7 = this.bVd.bHh;
-                        if (frsActivity7.Xr() != null) {
-                            frsActivity8 = this.bVd.bHh;
-                            frsActivity8.Xr().adt();
-                            com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c11752");
-                            frsActivity9 = this.bVd.bHh;
-                            TiebaStatic.log(arVar.ab("fid", frsActivity9.getFid()).ab("obj_locate", "2"));
+                        frsActivity7 = this.ccv.bOq;
+                        if (frsActivity7.Yq() != null) {
+                            frsActivity8 = this.ccv.bOq;
+                            frsActivity8.Yq().aet();
+                            com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c11752");
+                            frsActivity9 = this.ccv.bOq;
+                            TiebaStatic.log(asVar.Z("fid", frsActivity9.getFid()).Z("obj_locate", "2"));
                             return;
                         }
                         return;
@@ -51,17 +51,17 @@ public class e implements View.OnClickListener {
                     return;
                 }
             }
-            frsActivity2 = this.bVd.bHh;
+            frsActivity2 = this.ccv.bOq;
             TiebaStatic.eventStat(frsActivity2.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-            frsActivity3 = this.bVd.bHh;
-            if (!frsActivity3.XX()) {
-                frsActivity4 = this.bVd.bHh;
-                if (frsActivity4.XF() != null) {
-                    com.baidu.tbadk.core.util.ar arVar2 = new com.baidu.tbadk.core.util.ar("c11752");
-                    frsActivity5 = this.bVd.bHh;
-                    TiebaStatic.log(arVar2.ab("fid", frsActivity5.getFid()).ab("obj_locate", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-                    frsActivity6 = this.bVd.bHh;
-                    frsActivity6.XF().startPullRefresh();
+            frsActivity3 = this.ccv.bOq;
+            if (!frsActivity3.YW()) {
+                frsActivity4 = this.ccv.bOq;
+                if (frsActivity4.YE() != null) {
+                    com.baidu.tbadk.core.util.as asVar2 = new com.baidu.tbadk.core.util.as("c11752");
+                    frsActivity5 = this.ccv.bOq;
+                    TiebaStatic.log(asVar2.Z("fid", frsActivity5.getFid()).Z("obj_locate", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+                    frsActivity6 = this.ccv.bOq;
+                    frsActivity6.YE().startPullRefresh();
                 }
             }
         }

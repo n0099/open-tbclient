@@ -8,79 +8,79 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
-    private int BF;
-    private TranslateAnimation bJJ;
-    private Runnable bJK;
-    private Animation fDc;
-    private a fDd;
+    private int IT;
+    private TranslateAnimation bQP;
+    private Runnable bQQ;
+    private Animation fHD;
+    private a fHE;
 
     /* loaded from: classes.dex */
     public interface a {
-        void blM();
+        void blB();
     }
 
     public CommonTipView(Context context) {
         super(context);
-        this.BF = 4000;
-        this.fDc = AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst(), r.a.fade_out);
-        this.bJJ = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(r.f.ds56), 0.0f);
-        this.bJK = new d(this);
+        this.IT = 4000;
+        this.fHD = AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst(), w.a.fade_out);
+        this.bQP = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds56), 0.0f);
+        this.bQQ = new d(this);
         init();
     }
 
     private void init() {
-        setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds24));
+        setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds24));
         setGravity(17);
-        this.fDc.setAnimationListener(new e(this));
-        this.bJJ.setDuration(400L);
-        this.bJJ.setAnimationListener(new f(this));
+        this.fHD.setAnimationListener(new e(this));
+        this.bQP.setDuration(400L);
+        this.bQP.setAnimationListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        removeCallbacks(this.bJK);
+        removeCallbacks(this.bQQ);
         if (this != null && getParent() != null) {
-            startAnimation(this.fDc);
+            startAnimation(this.fHD);
         }
     }
 
     public void b(LinearLayout linearLayout, int i) {
         if (linearLayout != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds56));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds56));
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.bJJ);
+            startAnimation(this.bQP);
         }
     }
 
     public void a(FrameLayout frameLayout, int i) {
         if (frameLayout != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds56));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds56));
             layoutParams.setMargins(0, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT), 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.bJJ);
+            startAnimation(this.bQP);
         }
     }
 
     public void setTipDuration(int i) {
         if (i > 0) {
-            this.BF = i;
+            this.IT = i;
         }
     }
 
     public void onChangeSkinType(int i) {
-        ap.d(this, r.e.common_color_10260, i);
-        ap.b(this, r.e.cp_cont_g, 1, i);
+        aq.d(this, w.e.common_color_10260, i);
+        aq.b(this, w.e.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {
-        removeCallbacks(this.bJK);
+        removeCallbacks(this.bQQ);
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements TabMenuPopView.a {
-    final /* synthetic */ WriteActivity fMl;
+    final /* synthetic */ WriteActivity fQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(WriteActivity writeActivity) {
-        this.fMl = writeActivity;
+        this.fQG = writeActivity;
     }
 
     @Override // com.baidu.tieba.frs.TabMenuPopView.a
@@ -21,13 +21,13 @@ public class ah implements TabMenuPopView.a {
         WriteData writeData;
         PostCategoryView postCategoryView2;
         if (ctVar != null) {
-            postCategoryView = this.fMl.fLx;
+            postCategoryView = this.fQG.fPS;
             postCategoryView.setText(ctVar.name);
-            writeData = this.fMl.mData;
-            writeData.setCategoryTo(ctVar.bIQ);
-            this.fMl.fLw = ctVar.bIQ;
-            postCategoryView2 = this.fMl.fLx;
-            postCategoryView2.bnW();
+            writeData = this.fQG.mData;
+            writeData.setCategoryTo(ctVar.bPZ);
+            this.fQG.fPR = ctVar.bPZ;
+            postCategoryView2 = this.fQG.fPS;
+            postCategoryView2.bnJ();
         }
     }
 }

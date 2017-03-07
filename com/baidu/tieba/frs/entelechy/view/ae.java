@@ -1,25 +1,25 @@
 package com.baidu.tieba.frs.entelechy.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    final /* synthetic */ aa bMC;
+    final /* synthetic */ aa bTK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(aa aaVar) {
-        this.bMC = aaVar;
+        this.bTK = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bh bhVar;
-        cf<bh> onSubCardOnClickListenner = this.bMC.getOnSubCardOnClickListenner();
+        bj bjVar;
+        cf<bj> onSubCardOnClickListenner = this.bTK.getOnSubCardOnClickListenner();
         if (onSubCardOnClickListenner != null) {
-            bhVar = this.bMC.acX;
-            onSubCardOnClickListenner.a(view, bhVar);
+            bjVar = this.bTK.ain;
+            onSubCardOnClickListenner.a(view, bjVar);
         }
     }
 }

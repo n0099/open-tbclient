@@ -69,8 +69,8 @@ public class AsyncHttpClient extends DefaultHttpClient {
         ConnManagerParams.setTimeout(params, 15000L);
         ConnManagerParams.setMaxConnectionsPerRoute(params, new ConnPerRouteBean(10));
         ConnManagerParams.setMaxTotalConnections(params, 10);
-        HttpConnectionParams.setSoTimeout(params, DEFAULT_CONNECT_TIMEOUT);
-        HttpConnectionParams.setConnectionTimeout(params, DEFAULT_CONNECT_TIMEOUT);
+        HttpConnectionParams.setSoTimeout(params, 15000);
+        HttpConnectionParams.setConnectionTimeout(params, 15000);
         HttpConnectionParams.setTcpNoDelay(params, true);
         HttpConnectionParams.setSocketBufferSize(params, 8192);
         HttpProtocolParams.setUserAgent(params, DEFAULT_USER_AGENT);
@@ -117,7 +117,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
 
     public void setTimeout(int i) {
         if (i <= 0) {
-            i = DEFAULT_CONNECT_TIMEOUT;
+            i = 15000;
         }
         HttpParams params = getParams();
         ConnManagerParams.setTimeout(params, i);

@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.mygod.data.b, a> {
     public b(Context context, BdUniqueId bdUniqueId) {
@@ -22,10 +22,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: Z */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         TextView textView = new TextView(this.mContext);
-        textView.setText(r.l.god_acction_notice);
-        textView.setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.fontsize28));
+        textView.setText(w.l.god_acction_notice);
+        textView.setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.fontsize28));
         textView.setGravity(17);
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds100)));
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds100)));
         return new a(textView);
     }
 
@@ -34,21 +34,21 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.mygod.data.b bVar, a aVar) {
-        if (aVar.ahp != TbadkCoreApplication.m9getInst().getSkinType()) {
-            ap.k(aVar.getView(), r.e.cp_bg_line_e);
-            ap.i(aVar.getView(), r.e.cp_cont_d);
-            aVar.ahp = TbadkCoreApplication.m9getInst().getSkinType();
+        if (aVar.amL != TbadkCoreApplication.m9getInst().getSkinType()) {
+            aq.k(aVar.getView(), w.e.cp_bg_line_e);
+            aq.i(aVar.getView(), w.e.cp_cont_d);
+            aVar.amL = TbadkCoreApplication.m9getInst().getSkinType();
         }
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public static class a extends y.a {
-        public int ahp;
+        public int amL;
 
         public a(View view) {
             super(view);
-            this.ahp = 3;
+            this.amL = 3;
         }
     }
 }

@@ -3,36 +3,36 @@ package com.baidu.tbadk.imageManager;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class c {
-    private static c axl = new c();
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> axm;
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> axn;
+    private static c aCF = new c();
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> aCG;
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> aCH;
 
-    public static c DS() {
-        return axl;
+    public static c El() {
+        return aCF;
     }
 
     private c() {
-        this.axm = null;
-        this.axn = null;
-        this.axm = new d(this, 0);
-        this.axn = new e(this, 0);
+        this.aCG = null;
+        this.aCH = null;
+        this.aCG = new d(this, 0);
+        this.aCH = new e(this, 0);
     }
 
-    public int DT() {
-        return this.axn.getMaxSize();
+    public int Em() {
+        return this.aCH.getMaxSize();
     }
 
-    public void F(int i, int i2) {
-        eT(i);
-        eU(i2);
+    public void L(int i, int i2) {
+        eO(i);
+        eP(i2);
     }
 
-    public void eT(int i) {
-        this.axm.ak(i);
+    public void eO(int i) {
+        this.aCG.ak(i);
     }
 
-    public void eU(int i) {
-        this.axn.ak(i);
+    public void eP(int i) {
+        this.aCH.ak(i);
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar) {
@@ -40,19 +40,19 @@ public class c {
     }
 
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.axm != null) {
-            this.axm.put(str, aVar);
+        if (aVar != null && this.aCG != null) {
+            this.aCG.put(str, aVar);
         }
     }
 
-    public boolean eV(int i) {
-        return this.axn.aj(i);
+    public boolean eQ(int i) {
+        return this.aCH.aj(i);
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.axn != null) {
+        if (aVar != null && this.aCH != null) {
             BdLog.isDebugMode();
-            this.axn.put(str, aVar);
+            this.aCH.put(str, aVar);
         }
     }
 
@@ -60,23 +60,23 @@ public class c {
         b(str, aVar, false);
     }
 
-    public void fR(String str) {
-        this.axm.remove(str);
+    public void fG(String str) {
+        this.aCG.remove(str);
     }
 
-    public com.baidu.adp.widget.a.a fS(String str) {
-        return this.axm.get(str);
+    public com.baidu.adp.widget.a.a fH(String str) {
+        return this.aCG.get(str);
     }
 
-    public com.baidu.adp.widget.a.a fT(String str) {
-        return this.axn.get(str);
+    public com.baidu.adp.widget.a.a fI(String str) {
+        return this.aCH.get(str);
     }
 
     public String toString() {
-        return "pic:" + this.axn.toString() + "  photo:" + this.axm.toString();
+        return "pic:" + this.aCH.toString() + "  photo:" + this.aCG.toString();
     }
 
-    public String dd() {
-        return this.axn.size() + "/" + this.axn.getMaxSize() + "/" + this.axn.evictionCount() + "_" + this.axm.size() + "/" + this.axm.getMaxSize() + "/" + this.axm.evictionCount();
+    public String em() {
+        return this.aCH.size() + "/" + this.aCH.getMaxSize() + "/" + this.aCH.evictionCount() + "_" + this.aCG.size() + "/" + this.aCG.getMaxSize() + "/" + this.aCG.evictionCount();
     }
 }

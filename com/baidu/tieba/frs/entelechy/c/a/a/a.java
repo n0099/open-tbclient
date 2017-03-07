@@ -4,37 +4,37 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.bt;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends c {
-    private c.b Vd;
-    private FrsActivity bMj;
-    private int bMs;
+    private c.b aao;
+    private FrsActivity bTp;
+    private int bTy;
     private List<bt> mDatas;
 
     public a(FrsActivity frsActivity, c.b bVar) {
         super(frsActivity.getActivity());
-        this.bMs = 0;
+        this.bTy = 0;
         if (frsActivity != null && bVar != null) {
-            this.bMj = frsActivity;
-            this.Vd = bVar;
+            this.bTp = frsActivity;
+            this.aao = bVar;
         }
     }
 
     public void setData(List<bt> list) {
-        if (!w.s(list)) {
+        if (!x.q(list)) {
             this.mDatas = new ArrayList();
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 bt btVar = new bt();
-                btVar.name = this.bMj.getResources().getString(r.l.attention_users_thread);
-                btVar.bIQ = 6;
+                btVar.name = this.bTp.getResources().getString(w.l.attention_users_thread);
+                btVar.bPZ = 6;
                 this.mDatas.add(btVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,20 +44,20 @@ public class a extends c {
                 }
             }
             reset();
-            a(arrayList, this.Vd);
+            a(arrayList, this.aao);
         }
     }
 
-    public List<bt> aaw() {
+    public List<bt> abt() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c
-    public c sY() {
-        View ch;
-        super.sY();
-        if (this.mDatas != null && (ch = ch(this.mDatas.size())) != null && (ch.findViewById(r.h.dialog_item_btn) instanceof TextView)) {
-            ap.i((View) ((TextView) ch.findViewById(r.h.dialog_item_btn)), r.e.cp_link_tip_a);
+    public c tv() {
+        View cd;
+        super.tv();
+        if (this.mDatas != null && (cd = cd(this.mDatas.size())) != null && (cd.findViewById(w.h.dialog_item_btn) instanceof TextView)) {
+            aq.i((View) ((TextView) cd.findViewById(w.h.dialog_item_btn)), w.e.cp_link_tip_a);
         }
         return this;
     }

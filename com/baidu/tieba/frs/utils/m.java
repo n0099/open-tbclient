@@ -10,27 +10,27 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 class m implements a.b {
-    private final /* synthetic */ FrsActivity bUs;
-    private final /* synthetic */ com.baidu.tieba.frs.view.o bUt;
-    private final /* synthetic */ long bUu;
-    private final /* synthetic */ String bUv;
-    private final /* synthetic */ ShareFromFrsMsgData bUw;
+    private final /* synthetic */ FrsActivity cbE;
+    private final /* synthetic */ com.baidu.tieba.frs.view.o cbF;
+    private final /* synthetic */ long cbG;
+    private final /* synthetic */ String cbH;
+    private final /* synthetic */ ShareFromFrsMsgData cbI;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsActivity frsActivity, com.baidu.tieba.frs.view.o oVar, long j, String str, String str2, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.bUs = frsActivity;
-        this.bUt = oVar;
-        this.bUu = j;
+        this.cbE = frsActivity;
+        this.cbF = oVar;
+        this.cbG = j;
         this.val$name = str;
-        this.bUv = str2;
-        this.bUw = shareFromFrsMsgData;
+        this.cbH = str2;
+        this.cbI = shareFromFrsMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.bUs.HidenSoftKeyPad((InputMethodManager) this.bUs.getSystemService("input_method"), this.bUt.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.bUs.getPageContext().getPageActivity(), this.bUu, this.val$name, this.bUv, 0, this.bUt.getLeaveMsg(), this.bUw.toChatMessageContent())));
+        this.cbE.HidenSoftKeyPad((InputMethodManager) this.cbE.getSystemService("input_method"), this.cbF.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.cbE.getPageContext().getPageActivity(), this.cbG, this.val$name, this.cbH, 0, this.cbF.getLeaveMsg(), this.cbI.toChatMessageContent())));
         aVar.dismiss();
     }
 }

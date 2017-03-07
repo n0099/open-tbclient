@@ -1,26 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        this.this$0.aOg.Kh();
-        UpdateDialog updateDialog = this.this$0;
-        z = this.this$0.aOb;
-        z2 = this.this$0.aOc;
-        z3 = this.this$0.aOd;
-        updateDialog.c(z, z2, z3);
+class ad implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        String gy;
+        if (strArr == null || strArr.length == 0) {
+            return 3;
+        }
+        String str = strArr[0];
+        if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
+            gy = TiebaStatic.gy(str);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, gy));
+            if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
+            }
+            return 0;
+        }
+        return 3;
     }
 }

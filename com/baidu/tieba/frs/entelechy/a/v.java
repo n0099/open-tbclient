@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.card.cf;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.card.data.CardHListViewNormalItemData;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends cf<CardHListViewData> {
-    final /* synthetic */ u bLJ;
+    final /* synthetic */ u bSP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.bLJ = uVar;
+        this.bSP = uVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,23 +29,23 @@ public class v extends cf<CardHListViewData> {
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
         TbPageContext tbPageContext4;
-        tbPageContext = this.bLJ.FY;
+        tbPageContext = this.bSP.ajF;
         if (tbPageContext != null) {
-            if (view.getId() == r.h.hlistview_item_layout_root) {
+            if (view.getId() == w.h.hlistview_item_layout_root) {
                 if (obj instanceof CardHListViewNormalItemData) {
                     CardHListViewNormalItemData cardHListViewNormalItemData = (CardHListViewNormalItemData) obj;
                     String valueOf = String.valueOf(cardHListViewNormalItemData.threadId);
-                    tbPageContext3 = this.bLJ.FY;
+                    tbPageContext3 = this.bSP.ajF;
                     PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext3.getPageActivity()).createNormalCfg(valueOf, null, null);
-                    tbPageContext4 = this.bLJ.FY;
+                    tbPageContext4 = this.bSP.ajF;
                     tbPageContext4.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                     u.aW(cardHListViewNormalItemData.threadId);
                 }
-            } else if (view.getId() == r.h.fourm_name && (obj instanceof CardHListViewNormalItemData)) {
+            } else if (view.getId() == w.h.fourm_name && (obj instanceof CardHListViewNormalItemData)) {
                 String valueOf2 = String.valueOf(((CardHListViewNormalItemData) obj).forumName);
-                context = this.bLJ.mContext;
+                context = this.bSP.mContext;
                 FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(context).createNormalCfg(valueOf2, "tb_frslist");
-                tbPageContext2 = this.bLJ.FY;
+                tbPageContext2 = this.bSP.ajF;
                 tbPageContext2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg2));
             }
         }

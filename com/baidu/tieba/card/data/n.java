@@ -1,34 +1,34 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class n extends c {
-    public bh threadData;
-    public static String boh = "";
-    public static String boi = "";
-    public static String boj = "";
-    public static String bok = "";
-    public static String bol = "";
-    public static String bom = "";
-    public static String bon = "";
-    public static String boo = "";
-    public static String bop = "";
-    public static String boq = "";
-    public static String bor = "";
+    public bj threadData;
+    public static String bvc = "";
+    public static String bvd = "";
+    public static String bve = "";
+    public static String bvf = "";
+    public static String bvg = "";
+    public static String bvh = "";
+    public static String bvi = "";
+    public static String bvj = "";
+    public static String bvk = "";
+    public static String bvl = "";
+    public static String bvm = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bos = BdUniqueId.gen();
-    public boolean bot = false;
-    public boolean bou = false;
-    public boolean auD = true;
+    public static final BdUniqueId bvn = BdUniqueId.gen();
+    public boolean bvo = false;
+    public boolean bvp = false;
+    public boolean azY = true;
 
-    public static boolean n(bh bhVar) {
-        if (bhVar == null) {
+    public static boolean n(bj bjVar) {
+        if (bjVar == null) {
             return false;
         }
-        return bhVar.getType() == bh.Sx || bhVar.getType() == bh.Sy;
+        return bjVar.getType() == bj.XK || bjVar.getType() == bj.XL;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -36,82 +36,82 @@ public class n extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.bot) {
-            return bos;
+        if (this.bvo) {
+            return bvn;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Ji() {
+    public bj JN() {
         return this.threadData;
     }
 
-    public boolean RO() {
-        return (this.threadData == null || w.r(this.threadData.rK()) == 0) ? false : true;
+    public boolean SM() {
+        return (this.threadData == null || x.p(this.threadData.se()) == 0) ? false : true;
     }
 
-    public ar RP() {
-        if (RO()) {
-            return ik(bom);
+    public as SN() {
+        if (SM()) {
+            return ia(bvh);
         }
-        ar ik = ik(boh);
-        if (ik != null) {
-            ik.ab("ab_tag", RB()).ab("ab_action", "show");
-            return ik;
+        as ia = ia(bvc);
+        if (ia != null) {
+            ia.Z("ab_tag", Sz()).Z("ab_action", "show");
+            return ia;
         }
-        return ik;
+        return ia;
     }
 
-    public ar RQ() {
-        if (RO()) {
-            return ik(bon);
+    public as SO() {
+        if (SM()) {
+            return ia(bvi);
         }
-        ar ik = ik(boi);
-        if (ik != null) {
-            ik.ab("ab_tag", RB()).ab("ab_action", "click");
-            return ik;
+        as ia = ia(bvd);
+        if (ia != null) {
+            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
+            return ia;
         }
-        return ik;
+        return ia;
     }
 
-    public ar RR() {
-        if (RO()) {
-            return ik(boo);
+    public as SP() {
+        if (SM()) {
+            return ia(bvj);
         }
-        ar ik = ik(boj);
-        if (ik != null) {
-            ik.ab("ab_tag", RB()).ab("ab_action", "click");
-            return ik;
+        as ia = ia(bve);
+        if (ia != null) {
+            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
+            return ia;
         }
-        return ik;
+        return ia;
     }
 
-    public ar RS() {
-        if (RO()) {
-            return ik(bop);
+    public as SQ() {
+        if (SM()) {
+            return ia(bvk);
         }
-        ar ik = ik(bok);
-        if (ik != null) {
-            ik.ab("ab_tag", RB()).ab("ab_action", "click");
-            return ik;
+        as ia = ia(bvf);
+        if (ia != null) {
+            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
+            return ia;
         }
-        return ik;
+        return ia;
     }
 
-    public ar RT() {
-        if (RO()) {
-            return ik(boq);
+    public as SR() {
+        if (SM()) {
+            return ia(bvl);
         }
-        ar ik = ik(bol);
-        if (ik != null) {
-            ik.ab("ab_tag", RB()).ab("ab_action", "click");
-            return ik;
+        as ia = ia(bvg);
+        if (ia != null) {
+            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
+            return ia;
         }
-        return ik;
+        return ia;
     }
 
-    public ar RU() {
-        return ik(bor);
+    public as SS() {
+        return ia(bvm);
     }
 }

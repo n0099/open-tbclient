@@ -4,45 +4,45 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View axV;
-    private boolean axW;
+    protected View aDp;
+    private boolean aDq;
 
     public a(View view) {
-        this.axV = view;
+        this.aDp = view;
     }
 
-    public boolean Ec() {
-        return this.axW;
+    public boolean Ev() {
+        return this.aDq;
     }
 
     public void b(View view, boolean z) {
-        if (view != null && this.axV != null && this.axV.getParent() == null) {
-            this.axW = true;
-            d.M(view).a(view, this.axV, z);
-            Ed();
+        if (view != null && this.aDp != null && this.aDp.getParent() == null) {
+            this.aDq = true;
+            d.K(view).a(view, this.aDp, z);
+            Ew();
         }
     }
 
-    public void K(View view) {
-        if (view != null && this.axV != null && this.axV.getParent() != null && (view instanceof ViewGroup)) {
+    public void I(View view) {
+        if (view != null && this.aDp != null && this.aDp.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Ee();
-                ((ViewGroup) view).removeView(this.axV);
-                this.axW = false;
+                Ex();
+                ((ViewGroup) view).removeView(this.aDp);
+                this.aDq = false;
             } catch (Exception e) {
             }
         }
     }
 
-    public void L(View view) {
+    public void J(View view) {
         b(view, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ed() {
+    public void Ew() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ee() {
+    public void Ex() {
     }
 }

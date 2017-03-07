@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k {
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
@@ -22,23 +22,23 @@ public class k {
             Resources resources = TbadkCoreApplication.m9getInst().getResources();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
             if (z2 && z3) {
-                layoutParams.setMargins((int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds8), (int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds18));
+                layoutParams.setMargins((int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds18));
             } else if (z) {
-                layoutParams.setMargins(0, (int) resources.getDimension(r.f.ds8), 0, 0);
+                layoutParams.setMargins(0, (int) resources.getDimension(w.f.ds8), 0, 0);
             } else if (!z2) {
-                layoutParams.setMargins(0, (int) resources.getDimension(r.f.ds8), (int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds14));
+                layoutParams.setMargins(0, (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds14));
             } else {
-                layoutParams.setMargins((int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds8), (int) resources.getDimension(r.f.ds32), (int) resources.getDimension(r.f.ds14));
+                layoutParams.setMargins((int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds8), (int) resources.getDimension(w.f.ds32), (int) resources.getDimension(w.f.ds14));
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) "icon");
             spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            Drawable drawable = ap.getDrawable(r.g.icon_pb_tail);
-            int e = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.f.ds32);
-            drawable.setBounds(0, 0, e, e);
-            com.baidu.tbadk.widget.f fVar = new com.baidu.tbadk.widget.f(drawable);
-            fVar.fr(com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.f.ds4));
-            spannableStringBuilder.setSpan(fVar, 0, 4, 33);
+            Drawable drawable = aq.getDrawable(w.g.icon_pb_tail);
+            int g = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds32);
+            drawable.setBounds(0, 0, g, g);
+            com.baidu.tbadk.widget.g gVar = new com.baidu.tbadk.widget.g(drawable);
+            gVar.fk(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
+            spannableStringBuilder.setSpan(gVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);
             textView.setTextColor(smallTailInfo.showColorId);

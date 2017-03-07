@@ -1,102 +1,73 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
-public class s implements com.baidu.tbadk.core.flow.a.a {
-    private String PV;
-    private String PW;
-    private boolean PX;
-    private String mImageUrl;
-    private String mSubTitle;
-    private String mTitle;
-    private String tagNameUrl;
-    private float tagRatio;
+public class s {
+    private String UW;
+    private String UX;
+    private String UY;
+    private String UZ;
+    private int Uy;
+    private String Va;
+    private String Vb;
+    private long Vc;
+    private long Vd;
+    private long Ve;
+    private long Vf;
+    private long Vg;
+    private long Vh;
+    private String author;
+    private String bookId;
 
-    public s(String str, String str2, String str3) {
-        this.mImageUrl = str;
-        this.PV = str2;
-        this.mTitle = str3;
+    public String getBookId() {
+        return this.bookId;
     }
 
-    public s() {
+    public int pM() {
+        return this.Uy;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.mImageUrl;
+    public String pN() {
+        return this.UX;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String pB() {
-        return this.PV;
+    public String pO() {
+        return this.author;
     }
 
-    public String getLinkUrl() {
-        return this.PV;
+    public long pP() {
+        return this.Vc;
     }
 
-    public String getTitle() {
-        return this.mTitle;
+    public String pQ() {
+        return this.Vb;
     }
 
-    public String pC() {
-        return this.tagNameUrl;
+    public String pR() {
+        return this.Va;
     }
 
-    public float pD() {
-        return this.tagRatio;
+    public String pS() {
+        return this.UZ;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: pE */
-    public s clone() {
-        s sVar = new s();
-        sVar.mImageUrl = this.mImageUrl;
-        sVar.PV = this.PV;
-        sVar.mTitle = this.mTitle;
-        sVar.mSubTitle = this.mSubTitle;
-        sVar.PW = this.PW;
-        sVar.tagNameUrl = this.tagNameUrl;
-        sVar.tagRatio = this.tagRatio;
-        return sVar;
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            this.mImageUrl = headImgs.img_url;
-            this.PV = headImgs.pc_url;
-            this.tagNameUrl = headImgs.tag_name_url;
-            String str = headImgs.tag_name_wh;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    int g = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
-                    if (g2 != 0) {
-                        this.tagRatio = g / g2;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (headImgs.title != null) {
-                this.mTitle = headImgs.title.trim();
-            }
-            if (headImgs.subtitle != null) {
-                this.mSubTitle = headImgs.subtitle.trim();
-            }
-            if (headImgs.btn_text != null) {
-                this.PW = headImgs.btn_text.trim();
-            }
+    public void a(ForumBookInfo forumBookInfo) {
+        if (forumBookInfo != null) {
+            this.bookId = forumBookInfo.book_id;
+            this.Uy = forumBookInfo.book_type.intValue();
+            this.UW = forumBookInfo.book_title;
+            this.UX = forumBookInfo.book_cover;
+            this.author = forumBookInfo.author;
+            this.UY = forumBookInfo.forum_pic;
+            this.UZ = forumBookInfo.show_chapter_id;
+            this.Va = forumBookInfo.show_chapter_no;
+            this.Vb = forumBookInfo.show_chapter_title;
+            this.Vc = forumBookInfo.history_page_id.longValue();
+            this.Vd = forumBookInfo.history_paragraph_id.longValue();
+            this.Ve = forumBookInfo.history_word_id.longValue();
+            this.Vf = forumBookInfo.history_percent.longValue();
+            this.Vg = forumBookInfo.show_page_id.longValue();
+            this.Vh = forumBookInfo.show_paragraph_id.longValue();
         }
-    }
-
-    public boolean pF() {
-        return this.PX;
-    }
-
-    public void an(boolean z) {
-        this.PX = z;
     }
 }

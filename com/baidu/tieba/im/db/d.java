@@ -19,21 +19,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d cSn;
+    private static d cUD;
 
-    public static d aqi() {
-        if (cSn == null) {
-            cSn = new d();
+    public static d apC() {
+        if (cUD == null) {
+            cUD = new d();
         }
-        return cSn;
+        return cUD;
     }
 
-    public void kG(String str) {
+    public void kh(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("content_status", (Integer) 2);
-                g.aql().update("tb_group_news", contentValues, "cmd=?", new String[]{str});
+                g.apF().update("tb_group_news", contentValues, "cmd=?", new String[]{str});
             }
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.markReadByCmd", new Object[0]);
@@ -43,11 +43,11 @@ public class d {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=4] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v0 int)] */
-    public int Y(String str, int i) {
+    public int R(String str, int i) {
         Cursor cursor = null;
         int i2 = 0;
         try {
-            cursor = g.aql().rawQuery(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, new StringBuilder().append(i).toString()), null);
+            cursor = g.apF().rawQuery(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, new StringBuilder().append(i).toString()), null);
             i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
         } catch (SQLiteException e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
@@ -62,11 +62,11 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
-    public int kH(String str) {
+    public int ki(String str) {
         Cursor cursor = null;
         int i = 0;
         try {
-            cursor = g.aql().rawQuery(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str), null);
+            cursor = g.apF().rawQuery(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str), null);
             i = cursor.moveToFirst() ? cursor.getInt(0) : -1;
         } catch (SQLiteException e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getCountByCmd", new Object[0]);
@@ -111,61 +111,63 @@ public class d {
 
     public Boolean l(LinkedList<GroupNewsPojo> linkedList) {
         Boolean bool = false;
-        if (linkedList == null || linkedList.size() == 0) {
-            return false;
-        }
-        try {
+        if (linkedList != null) {
             try {
-                g.aql().aqm();
-                Iterator<GroupNewsPojo> it = linkedList.iterator();
-                LinkedList<ValidateItemData> linkedList2 = null;
-                LinkedList<GroupNewsPojo> linkedList3 = null;
-                while (it.hasNext()) {
-                    GroupNewsPojo next = it.next();
-                    if (next.getCmd().equals("apply_join_group")) {
-                        if (linkedList3 == null) {
-                            linkedList3 = a(0L, Integer.MAX_VALUE, 0, "apply_join_group");
-                            List<ValidateItemData> convertToValidateItemDataList = ModelHelper.getInstance().getValidateModel() != null ? ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList3) : linkedList2;
-                            linkedList2 = convertToValidateItemDataList == null ? new LinkedList() : convertToValidateItemDataList;
-                        }
-                        if (linkedList2 != null) {
-                            ValidateItemData convertToValidateItemData = ModelHelper.getInstance().getValidateModel() != null ? ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next) : null;
-                            if (convertToValidateItemData != null) {
-                                for (ValidateItemData validateItemData : linkedList2) {
-                                    if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
-                                        kJ(validateItemData.getNotice_id());
+                if (linkedList.size() != 0) {
+                    try {
+                        g.apF().apG();
+                        Iterator<GroupNewsPojo> it = linkedList.iterator();
+                        LinkedList<ValidateItemData> linkedList2 = null;
+                        LinkedList<GroupNewsPojo> linkedList3 = null;
+                        while (it.hasNext()) {
+                            GroupNewsPojo next = it.next();
+                            if (next.getCmd().equals("apply_join_group")) {
+                                if (linkedList3 == null) {
+                                    linkedList3 = a(0L, Integer.MAX_VALUE, 0, "apply_join_group");
+                                    List<ValidateItemData> convertToValidateItemDataList = ModelHelper.getInstance().getValidateModel() != null ? ModelHelper.getInstance().getValidateModel().convertToValidateItemDataList(linkedList3) : linkedList2;
+                                    linkedList2 = convertToValidateItemDataList == null ? new LinkedList() : convertToValidateItemDataList;
+                                }
+                                if (linkedList2 != null) {
+                                    ValidateItemData convertToValidateItemData = ModelHelper.getInstance().getValidateModel() != null ? ModelHelper.getInstance().getValidateModel().convertToValidateItemData(next) : null;
+                                    if (convertToValidateItemData != null) {
+                                        for (ValidateItemData validateItemData : linkedList2) {
+                                            if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
+                                                kk(validateItemData.getNotice_id());
+                                            }
+                                        }
                                     }
                                 }
                             }
+                            LinkedList<GroupNewsPojo> linkedList4 = linkedList3;
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put(IntentConfig.CMD, next.getCmd());
+                            contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, next.getContent());
+                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
+                            contentValues.put("ext", next.getExt());
+                            contentValues.put("gid", next.getGid());
+                            contentValues.put("notice_id", next.getNotice_id());
+                            contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Long.valueOf(next.getTime()));
+                            if (g.apF().update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
+                                e(next);
+                            }
+                            bool = Boolean.valueOf(bool.booleanValue() & true);
+                            linkedList3 = linkedList4;
                         }
+                        g.apF().endTransaction();
+                        return bool;
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
+                        e.printStackTrace();
+                        g.apF().endTransaction();
+                        return false;
                     }
-                    LinkedList<GroupNewsPojo> linkedList4 = linkedList3;
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put(IntentConfig.CMD, next.getCmd());
-                    contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, next.getContent());
-                    contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                    contentValues.put("ext", next.getExt());
-                    contentValues.put("gid", next.getGid());
-                    contentValues.put("notice_id", next.getNotice_id());
-                    contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Long.valueOf(next.getTime()));
-                    if (g.aql().update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                        e(next);
-                    }
-                    bool = Boolean.valueOf(bool.booleanValue() & true);
-                    linkedList3 = linkedList4;
                 }
-                g.aql().endTransaction();
-                return bool;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
-                e.printStackTrace();
-                g.aql().endTransaction();
-                return false;
+            } catch (Throwable th) {
+                g.apF().endTransaction();
+                throw th;
             }
-        } catch (Throwable th) {
-            g.aql().endTransaction();
-            throw th;
         }
+        return false;
     }
 
     public LinkedList<GroupNewsPojo> a(long j, int i, int i2, String str) {
@@ -180,14 +182,14 @@ public class d {
         try {
             if (j <= 0) {
                 if (TextUtils.isEmpty(str)) {
-                    cursor = g.aql().rawQuery("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
+                    cursor = g.apF().rawQuery("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
                 } else {
-                    cursor = g.aql().rawQuery(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
+                    cursor = g.apF().rawQuery(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
                 }
             } else if (TextUtils.isEmpty(str)) {
-                cursor = g.aql().rawQuery("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
+                cursor = g.apF().rawQuery("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
             } else {
-                cursor = g.aql().rawQuery("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
+                cursor = g.apF().rawQuery("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {
@@ -230,19 +232,19 @@ public class d {
             }
             int size2 = arrayList.size();
             for (int i3 = 0; i3 < size2; i3++) {
-                Z((String) arrayList.get(i3), 3);
+                S((String) arrayList.get(i3), 3);
             }
         }
         return linkedList2;
     }
 
-    public GroupNewsPojo kI(String str) {
+    public GroupNewsPojo kj(String str) {
         Cursor cursor;
         Throwable th;
         GroupNewsPojo groupNewsPojo;
         GroupNewsPojo groupNewsPojo2 = null;
         try {
-            cursor = g.aql().rawQuery("select * from tb_group_news WHERE notice_id = ?", new String[]{str});
+            cursor = g.apF().rawQuery("select * from tb_group_news WHERE notice_id = ?", new String[]{str});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
@@ -288,11 +290,11 @@ public class d {
         return groupNewsPojo2;
     }
 
-    public boolean kJ(String str) {
+    public boolean kk(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {
-            g.aql().a("tb_group_news", "notice_id = ?", new String[]{str});
+            g.apF().a("tb_group_news", "notice_id = ?", new String[]{str});
             bool = true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
@@ -302,14 +304,14 @@ public class d {
         return bool.booleanValue();
     }
 
-    public int Z(String str, int i) {
+    public int S(String str, int i) {
         try {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("content_status", (Integer) 3);
-            return g.aql().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
+            return g.apF().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
             e.printStackTrace();
@@ -317,7 +319,7 @@ public class d {
         }
     }
 
-    public boolean bK(List<UpdatesItemData> list) {
+    public boolean br(List<UpdatesItemData> list) {
         Boolean bool;
         if (list == null || list.isEmpty()) {
             Boolean bool2 = false;
@@ -328,7 +330,7 @@ public class d {
             for (int i = 0; i < size; i++) {
                 UpdatesItemData updatesItemData = list.get(i);
                 if (updatesItemData != null) {
-                    g.aql().a("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
+                    g.apF().a("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
                 }
             }
             bool = false;
@@ -363,7 +365,7 @@ public class d {
             stringBuffer.append(",");
             stringBuffer.append(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-            sQLiteStatement = g.aql().compileStatement(stringBuffer.toString());
+            sQLiteStatement = g.apF().compileStatement(stringBuffer.toString());
             if (sQLiteStatement != null) {
                 sQLiteStatement.clearBindings();
                 e.a(sQLiteStatement, 1, groupNewsPojo.getCmd());
@@ -383,20 +385,20 @@ public class d {
         return j;
     }
 
-    public boolean X(String str, int i) {
+    public boolean Q(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         if (i < 1000) {
             i = 1000;
         }
         try {
-            cursor = g.aql().rawQuery("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
+            cursor = g.apF().rawQuery("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
             try {
                 try {
                     String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("notice_id")) : null;
                     com.baidu.adp.lib.util.o.a(cursor);
                     if (string != null) {
-                        g.aql().a("tb_group_news", "notice_id<?", new String[]{string});
+                        g.apF().a("tb_group_news", "notice_id<?", new String[]{string});
                     }
                     com.baidu.adp.lib.util.o.a(cursor);
                     return true;

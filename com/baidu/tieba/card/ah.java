@@ -2,15 +2,15 @@ package com.baidu.tieba.card;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements Runnable {
-    final /* synthetic */ x bml;
+    final /* synthetic */ x btf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(x xVar) {
-        this.bml = xVar;
+        this.btf = xVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bml.e(true, 4);
+        this.btf.e(true, 4);
     }
 }

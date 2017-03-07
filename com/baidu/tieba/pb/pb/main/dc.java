@@ -1,40 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.db;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class dc extends HttpMessageListener {
-    final /* synthetic */ db ejU;
+public class dc {
+    public long UL;
+    public long emO;
+    public long emP;
+    public int emQ;
+    public long mForumId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc(db dbVar, int i) {
-        super(i);
-        this.ejU = dbVar;
+    public dc() {
+        Ee();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        db.a aVar;
-        db.a aVar2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-            if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.ejU.eiP;
-                aVar.i(-1, null, null);
-                return;
-            }
-            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-            String tid = applyCopyThreadResponseMessage.getTid();
-            if (errorCode == 0) {
-                errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-            }
-            aVar2 = this.ejU.eiP;
-            aVar2.i(errorCode, errorMessage, tid);
-        }
+    public void aLb() {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
+        httpMessage.addParam("tid", this.UL);
+        httpMessage.addParam("author_uid", this.emO);
+        httpMessage.addParam("declare_id", this.emP);
+        httpMessage.addParam("forum_id", this.mForumId);
+        httpMessage.addParam("operation", this.emQ);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    private void Ee() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_SET_DECLARE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_SET_DECLARE_URL);
+        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 }

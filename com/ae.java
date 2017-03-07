@@ -53,23 +53,23 @@ public class ae extends ArrayAdapter {
         a aVar;
         if (view == null || view.getTag() == null) {
             a aVar2 = new a();
-            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.g(getContext(), "bdsocialshare_sharemenugriditem"), (ViewGroup) null);
-            aVar2.b = (ImageView) view.findViewById(p.j(getContext(), "sharemenugrid_iconview"));
-            aVar2.c = (TextView) view.findViewById(p.j(getContext(), "sharemenugrid_icontext"));
+            view = LayoutInflater.from(getContext().getApplicationContext()).inflate(p.a(getContext(), "bdsocialshare_sharemenugriditem"), (ViewGroup) null);
+            aVar2.b = (ImageView) view.findViewById(p.d(getContext(), "sharemenugrid_iconview"));
+            aVar2.c = (TextView) view.findViewById(p.d(getContext(), "sharemenugrid_icontext"));
             aVar2.c.setTextColor(Color.parseColor(p.a(getContext())));
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         MediaType item = getItem(i);
-        aVar.b.setImageResource(p.i(getContext(), "bdsocialshare_" + item.toString()));
+        aVar.b.setImageResource(p.c(getContext(), "bdsocialshare_" + item.toString()));
         aVar.c.setText(this.a.getString(item.toString()));
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.ArrayAdapter, android.widget.Adapter
-    /* renamed from: tl */
+    /* renamed from: tk */
     public MediaType getItem(int i) {
         return (MediaType) this.b.get(i);
     }

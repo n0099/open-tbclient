@@ -1,50 +1,51 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends b implements t {
-    public String bjT;
-    public com.baidu.tbadk.core.data.c boc;
+    public String bqC;
+    public AdvertAppInfo buX;
     public String mPageType;
     public int mPn;
 
-    public d(com.baidu.tbadk.core.data.c cVar) {
-        this.bjT = "";
+    public d(AdvertAppInfo advertAppInfo) {
+        this.bqC = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.boc = cVar;
+        this.buX = advertAppInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d() {
-        this.bjT = "";
+        this.bqC = "";
         this.mPn = 0;
         this.mPageType = "";
-        this.boc = null;
+        this.buX = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.boc != null && this.boc.legoCard != null) {
-            return com.baidu.tbadk.core.data.c.Os;
+        if (this.buX != null && this.buX.legoCard != null) {
+            return AdvertAppInfo.Tw;
         }
-        if (this.boc != null && this.boc.getType() == com.baidu.tbadk.core.data.c.Og) {
-            return com.baidu.tbadk.core.data.c.Op;
+        if (this.buX != null && this.buX.getType() == AdvertAppInfo.Tk) {
+            return AdvertAppInfo.Tt;
         }
-        if (this.boc != null && this.boc.getType() == com.baidu.tbadk.core.data.c.Oj) {
-            return com.baidu.tbadk.core.data.c.Or;
+        if (this.buX != null && this.buX.getType() == AdvertAppInfo.Tn) {
+            return AdvertAppInfo.Tv;
         }
-        return com.baidu.tbadk.core.data.c.Oq;
+        return AdvertAppInfo.Tu;
     }
 
     @Override // com.baidu.tieba.card.data.t
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.g(this.boc != null ? this.boc.adPosition : "-1", -1);
+        return com.baidu.adp.lib.g.b.g(this.buX != null ? this.buX.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public boolean RE() {
+    public boolean SC() {
         return false;
     }
 
@@ -56,76 +57,76 @@ public class d extends b implements t {
     public void cQ(boolean z) {
     }
 
-    public String RF() {
-        if (this.boc == null || this.boc.OF == null) {
+    public String SD() {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.userPortrait;
+        return this.buX.TJ.userPortrait;
     }
 
     public String getUserName() {
-        if (this.boc == null || this.boc.OF == null) {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.userName;
+        return this.buX.TJ.userName;
     }
 
-    public String RG() {
-        if (this.boc == null || this.boc.OF == null) {
+    public String SE() {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.OP;
+        return this.buX.TJ.TS;
     }
 
-    public String RH() {
-        if (this.boc == null || this.boc.OF == null) {
+    public String SF() {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.OQ;
+        return this.buX.TJ.TT;
     }
 
-    public String RI() {
-        if (this.boc == null || this.boc.OF == null) {
+    public String SG() {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.buttonText;
+        return this.buX.TJ.buttonText;
     }
 
-    public String RJ() {
-        if (this.boc == null || this.boc.OF == null) {
+    public String SH() {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.OW;
+        return this.buX.TJ.TZ;
     }
 
-    public String RK() {
-        if (this.boc == null || this.boc.OF == null) {
+    public String SI() {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.OR;
+        return this.buX.TJ.TU;
     }
 
-    public List<String> RL() {
-        if (this.boc == null || this.boc.OF == null) {
+    public List<String> SJ() {
+        if (this.buX == null || this.buX.TJ == null) {
             return null;
         }
-        return this.boc.OF.OX;
+        return this.buX.TJ.Ua;
     }
 
-    public com.baidu.tbadk.core.data.c RM() {
-        return this.boc;
+    public AdvertAppInfo SK() {
+        return this.buX;
     }
 
-    public boolean pe() {
-        if (this.boc != null) {
-            return this.boc.pe();
+    public boolean ps() {
+        if (this.buX != null) {
+            return this.buX.ps();
         }
         return false;
     }
 
-    public boolean pd() {
-        if (this.boc != null) {
-            return this.boc.pd();
+    public boolean pr() {
+        if (this.buX != null) {
+            return this.buX.pr();
         }
         return false;
     }

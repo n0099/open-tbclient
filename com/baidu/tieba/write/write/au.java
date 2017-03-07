@@ -8,35 +8,35 @@ import com.baidu.tieba.tbadkCore.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ WriteActivity fMl;
-    private final /* synthetic */ boolean fMn;
+    final /* synthetic */ WriteActivity fQG;
+    private final /* synthetic */ boolean fQI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(WriteActivity writeActivity, boolean z) {
-        this.fMl = writeActivity;
-        this.fMn = z;
+        this.fQG = writeActivity;
+        this.fQI = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText boU;
-        EditText boU2;
-        a.InterfaceC0074a interfaceC0074a;
+        EditText boI;
+        EditText boI2;
+        a.InterfaceC0073a interfaceC0073a;
         super.onLoaded((au) aVar, str, i);
-        if (aVar != null && aVar.jT() != null && aVar.jX() != null) {
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m9getInst().getResources(), aVar.jT(), aVar.jT().getNinePatchChunk(), aVar.jX(), null);
+        if (aVar != null && aVar.kN() != null && aVar.kR() != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m9getInst().getResources(), aVar.kN(), aVar.kN().getNinePatchChunk(), aVar.kR(), null);
             if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
                 ninePatchDrawable.getPaint().setAlpha(TbConfig.ALPHA_80);
             }
-            boU = this.fMl.boU();
-            boU.setBackgroundDrawable(ninePatchDrawable);
-            if (this.fMn) {
-                WriteActivity writeActivity = this.fMl;
-                boU2 = this.fMl.boU();
-                interfaceC0074a = this.fMl.epC;
-                com.baidu.tieba.tbadkCore.b.a.a(writeActivity, boU2, true, interfaceC0074a);
+            boI = this.fQG.boI();
+            boI.setBackgroundDrawable(ninePatchDrawable);
+            if (this.fQI) {
+                WriteActivity writeActivity = this.fQG;
+                boI2 = this.fQG.boI();
+                interfaceC0073a = this.fQG.esI;
+                com.baidu.tieba.tbadkCore.b.a.a(writeActivity, boI2, true, interfaceC0073a);
             }
         }
     }

@@ -1,19 +1,19 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 /* loaded from: classes.dex */
 public class a {
-    private long Aj;
-    private com.baidu.tbadk.coreExtra.relationship.b dgj;
+    private long Hw;
+    private com.baidu.tbadk.coreExtra.relationship.b diB;
 
     public a(com.baidu.tbadk.coreExtra.relationship.b bVar, long j) {
-        this.dgj = bVar;
-        this.Aj = j;
+        this.diB = bVar;
+        this.Hw = j;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b auZ() {
-        return this.dgj;
+    public com.baidu.tbadk.coreExtra.relationship.b auu() {
+        return this.diB;
     }
 
-    public long ava() {
-        return this.Aj;
+    public long auv() {
+        return this.Hw;
     }
 }

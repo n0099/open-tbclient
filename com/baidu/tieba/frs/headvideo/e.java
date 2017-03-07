@@ -6,37 +6,37 @@ import com.baidu.tieba.frs.headvideo.ForumHeadVideoListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ ForumHeadVideoListModel bRf;
+    final /* synthetic */ ForumHeadVideoListModel bYn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(ForumHeadVideoListModel forumHeadVideoListModel, int i, int i2) {
         super(i, i2);
-        this.bRf = forumHeadVideoListModel;
+        this.bYn = forumHeadVideoListModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        String abw;
+        String act;
         ForumHeadVideoListModel.a aVar;
         ForumHeadVideoListModel.a aVar2;
-        this.bRf.isLoading = false;
+        this.bYn.isLoading = false;
         if (responsedMessage != null) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                 String errorString = responsedMessage.getErrorString();
-                abw = this.bRf.abw();
+                act = this.bYn.act();
                 if (!StringUtils.isNull(errorString)) {
-                    abw = errorString;
+                    act = errorString;
                 }
-                aVar = this.bRf.bRd;
+                aVar = this.bYn.bYl;
                 if (aVar != null) {
-                    aVar2 = this.bRf.bRd;
-                    aVar2.fG(abw);
+                    aVar2 = this.bYn.bYl;
+                    aVar2.fv(act);
                 }
             } else if (responsedMessage instanceof ForumHeadVideoListHttpResponseMessage) {
-                this.bRf.a(((ForumHeadVideoListHttpResponseMessage) responsedMessage).getData());
+                this.bYn.a(((ForumHeadVideoListHttpResponseMessage) responsedMessage).getData());
             } else if (responsedMessage instanceof ForumHeadVideoListSocketResponseMessage) {
-                this.bRf.a(((ForumHeadVideoListSocketResponseMessage) responsedMessage).getData());
+                this.bYn.a(((ForumHeadVideoListSocketResponseMessage) responsedMessage).getData());
             }
         }
     }

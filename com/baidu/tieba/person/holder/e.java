@@ -7,58 +7,58 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.tieba.person.a.g;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends y.a {
-    public TbPageContext FY;
-    public TextView LX;
-    public int ahp;
-    public View btH;
-    public HTypeListView eyN;
-    public com.baidu.tieba.person.a.f eyO;
+    public TextView Ra;
+    public TbPageContext ajF;
+    public int amL;
+    public View bAP;
+    public HTypeListView eCm;
+    public com.baidu.tieba.person.a.f eCn;
     public View rootView;
 
     public e(View view, TbPageContext tbPageContext) {
         super(view);
-        this.ahp = 3;
+        this.amL = 3;
         this.rootView = view;
-        this.FY = tbPageContext;
-        this.btH = view.findViewById(r.h.divider_view_under_photo_album);
-        this.LX = (TextView) view.findViewById(r.h.text_view_photo_album);
-        this.eyN = (HTypeListView) view.findViewById(r.h.listview_photo_album);
-        this.eyO = new com.baidu.tieba.person.a.f(this.FY, this.eyN);
+        this.ajF = tbPageContext;
+        this.bAP = view.findViewById(w.h.divider_view_under_photo_album);
+        this.Ra = (TextView) view.findViewById(w.h.text_view_photo_album);
+        this.eCm = (HTypeListView) view.findViewById(w.h.listview_photo_album);
+        this.eCn = new com.baidu.tieba.person.a.f(this.ajF, this.eCm);
     }
 
     public void a(g gVar) {
         if (gVar != null) {
-            this.eyO.setDatas(cA(gVar.getPhotoAlbum()));
+            this.eCn.setDatas(ch(gVar.getPhotoAlbum()));
         }
     }
 
-    private List<v> cA(List<v> list) {
-        if (w.r(list) > 0) {
+    private List<v> ch(List<v> list) {
+        if (x.p(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b(k.e(this.FY.getPageActivity(), r.f.ds32), k.e(this.FY.getPageActivity(), r.f.ds120));
-            w.a(arrayList, 0, bVar);
-            w.b(arrayList, bVar);
+            com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b(k.g(this.ajF.getPageActivity(), w.f.ds32), k.g(this.ajF.getPageActivity(), w.f.ds120));
+            x.a(arrayList, 0, bVar);
+            x.b(arrayList, bVar);
             return arrayList;
         }
         return list;
     }
 
-    public void aQD() {
-        if (this.ahp != TbadkCoreApplication.m9getInst().getSkinType()) {
-            this.ahp = TbadkCoreApplication.m9getInst().getSkinType();
-            ap.k(this.rootView, r.e.cp_bg_line_d);
-            ap.k(this.btH, r.e.cp_bg_line_c);
-            ap.c(this.LX, r.e.cp_cont_d, 1);
-            this.eyO.notifyDataSetChanged();
+    public void aQg() {
+        if (this.amL != TbadkCoreApplication.m9getInst().getSkinType()) {
+            this.amL = TbadkCoreApplication.m9getInst().getSkinType();
+            aq.k(this.rootView, w.e.cp_bg_line_d);
+            aq.k(this.bAP, w.e.cp_bg_line_c);
+            aq.c(this.Ra, w.e.cp_cont_d, 1);
+            this.eCn.notifyDataSetChanged();
         }
     }
 }

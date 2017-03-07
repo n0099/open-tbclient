@@ -10,9 +10,9 @@ import java.util.Iterator;
 class a implements EnterForumModel.b {
     @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
     public void a(EnterForumModel.a aVar) {
-        com.baidu.tieba.enterForum.b.e Uf = aVar.byt.Uf();
+        com.baidu.tieba.enterForum.b.e Vd = aVar.bFz.Vd();
         ArrayList arrayList = new ArrayList();
-        Iterator<com.baidu.tieba.tbadkCore.u> it = Uf.Uk().iterator();
+        Iterator<com.baidu.tieba.tbadkCore.u> it = Vd.Vi().iterator();
         while (it.hasNext()) {
             arrayList.add(it.next().getName());
         }

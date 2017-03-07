@@ -5,7 +5,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements CompoundButton.OnCheckedChangeListener {
@@ -27,24 +27,24 @@ public class bp implements CompoundButton.OnCheckedChangeListener {
         LinearLayout linearLayout2;
         TextView textView2;
         if (z) {
-            radioButton = this.this$0.eAo;
+            radioButton = this.this$0.eDN;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.this$0.eAl;
+                horizontalScrollView2 = this.this$0.eDK;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.this$0.eAq;
+                linearLayout2 = this.this$0.eDP;
                 linearLayout2.setVisibility(8);
-                textView2 = this.this$0.Fj;
-                textView2.setText(this.this$0.getPageContext().getString(r.l.beautify));
+                textView2 = this.this$0.bIN;
+                textView2.setText(this.this$0.getPageContext().getString(w.l.beautify));
                 return;
             }
-            radioButton2 = this.this$0.eAp;
+            radioButton2 = this.this$0.eDO;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.this$0.eAl;
+                horizontalScrollView = this.this$0.eDK;
                 horizontalScrollView.setVisibility(8);
-                linearLayout = this.this$0.eAq;
+                linearLayout = this.this$0.eDP;
                 linearLayout.setVisibility(0);
-                textView = this.this$0.Fj;
-                textView.setText(this.this$0.getPageContext().getString(r.l.rotate));
+                textView = this.this$0.bIN;
+                textView.setText(this.this$0.getPageContext().getString(w.l.rotate));
             }
         }
     }

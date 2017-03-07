@@ -4,36 +4,36 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.m> {
-    private TbPageContext FY;
-    private TbImageView eFu;
-    private TextView eFv;
+    private TbPageContext ajF;
+    private TbImageView eIW;
+    private TextView eIX;
     private View mRootView;
 
     public s(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.FY = tbPageContext;
+        this.ajF = tbPageContext;
         this.mRootView.setTag(this);
-        this.eFu = (TbImageView) this.mRootView.findViewById(r.h.gift_pic);
-        this.eFv = (TextView) this.mRootView.findViewById(r.h.gift_num_text);
+        this.eIW = (TbImageView) this.mRootView.findViewById(w.h.gift_pic);
+        this.eIX = (TextView) this.mRootView.findViewById(w.h.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.k(this.mRootView, r.e.cp_bg_line_d);
-        ap.j(this.eFu, r.g.item_gift_selector);
-        ap.k(this.eFv, r.e.common_color_10294);
-        ap.i((View) this.eFv, r.e.cp_link_tip_a);
+        aq.k(this.mRootView, w.e.cp_bg_line_d);
+        aq.j(this.eIW, w.g.item_gift_selector);
+        aq.k(this.eIX, w.e.common_color_10294);
+        aq.i((View) this.eIX, w.e.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return r.j.item_gift_view;
+        return w.j.item_gift_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,20 +44,20 @@ public class s extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             this.mRootView.setVisibility(8);
             return;
         }
-        onChangeSkinType(this.FY, TbadkCoreApplication.m9getInst().getSkinType());
-        this.eFu.c(mVar.picUrl, 10, false);
+        onChangeSkinType(this.ajF, TbadkCoreApplication.m9getInst().getSkinType());
+        this.eIW.c(mVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
-        if (mVar.eEn > 0) {
-            this.eFv.setVisibility(0);
-            if (mVar.eEn > 99) {
-                this.eFv.setText("99");
+        if (mVar.eHP > 0) {
+            this.eIX.setVisibility(0);
+            if (mVar.eHP > 99) {
+                this.eIX.setText("99");
                 return;
             } else {
-                this.eFv.setText(String.valueOf(mVar.eEn));
+                this.eIX.setText(String.valueOf(mVar.eHP));
                 return;
             }
         }
-        this.eFv.setVisibility(8);
+        this.eIX.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

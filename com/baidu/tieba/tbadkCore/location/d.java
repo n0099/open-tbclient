@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ LocationModel frN;
+    final /* synthetic */ LocationModel fwk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(LocationModel locationModel, int i, boolean z) {
         super(i, z);
-        this.frN = locationModel;
+        this.fwk = locationModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,18 +22,18 @@ public class d extends com.baidu.adp.framework.listener.e {
         LocationModel.a aVar2;
         if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || !(socketResponsedMessage instanceof LocationSocketResponsedMessage)) {
             BdLog.i("mLocationListener response error!");
-            aVar = this.frN.frH;
+            aVar = this.fwk.fwe;
             if (aVar != null) {
                 String str = null;
                 if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
                     str = socketResponsedMessage.getErrorString();
                 }
-                aVar2 = this.frN.frH;
-                aVar2.fG(str);
+                aVar2 = this.fwk.fwe;
+                aVar2.fv(str);
                 return;
             }
             return;
         }
-        this.frN.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
+        this.fwk.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
     }
 }

@@ -5,60 +5,56 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private boolean ayA = true;
-    private com.baidu.tbadk.mvc.b.a ayB;
-    private com.baidu.tbadk.mvc.d.b ayC;
-    private com.baidu.tbadk.mvc.a.a ayD;
-    private int ayE;
-    private Object ayF;
-    private WeakReference<View> ayG;
-    private int ayz;
+    private int aDS;
+    private boolean aDT = true;
+    private com.baidu.tbadk.mvc.b.a aDU;
+    private com.baidu.tbadk.mvc.d.b aDV;
+    private com.baidu.tbadk.mvc.a.a aDW;
+    private int aDX;
+    private Object aDY;
+    private WeakReference<View> aDZ;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.ayz = i;
-        this.ayB = aVar;
-        this.ayC = bVar;
-        this.ayD = aVar2;
+        this.aDS = i;
+        this.aDU = aVar;
+        this.aDV = bVar;
+        this.aDW = aVar2;
     }
 
-    public int Es() {
-        return this.ayz;
+    public int EN() {
+        return this.aDS;
     }
 
-    public com.baidu.tbadk.mvc.b.a Et() {
-        return this.ayB;
+    public com.baidu.tbadk.mvc.b.a EO() {
+        return this.aDU;
     }
 
     public Object getExtra() {
-        return this.ayF;
+        return this.aDY;
     }
 
     public void setExtra(Object obj) {
-        this.ayF = obj;
+        this.aDY = obj;
     }
 
     public View getView() {
-        if (this.ayG != null) {
-            return this.ayG.get();
+        if (this.aDZ != null) {
+            return this.aDZ.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.ayG = new WeakReference<>(view);
+        this.aDZ = new WeakReference<>(view);
     }
 
-    public int Eu() {
-        return this.ayE;
+    public void eT(int i) {
+        this.aDX = i;
     }
 
-    public void eY(int i) {
-        this.ayE = i;
-    }
-
-    public boolean Ev() {
-        return this.ayA;
+    public boolean EP() {
+        return this.aDT;
     }
 
     public BdUniqueId getUniqueId() {

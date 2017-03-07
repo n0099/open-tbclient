@@ -1,86 +1,180 @@
 package com.baidu.tbadk.core.util;
 
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.RadioButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.r;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.QALoginActivityConfig;
+import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.w;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class bg implements bf.a {
-    private final /* synthetic */ int abx;
-    private final /* synthetic */ boolean aby;
+public class bg {
+    private static int agJ = -1;
+    private static int agK = -1;
+    private static boolean agL = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> agM = new com.baidu.adp.lib.e.a<>(500);
+    private static Context mAppContext = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(int i, boolean z) {
-        this.abx = i;
-        this.aby = z;
+    /* loaded from: classes.dex */
+    public interface a {
+        boolean w(View view);
     }
 
-    @Override // com.baidu.tbadk.core.util.bf.a
-    public boolean y(View view) {
-        int aH;
-        int aH2;
-        int aH3;
-        int aH4;
-        Object tag = view.getTag();
-        if (tag != null) {
-            if ("skin_text_group".equals(tag)) {
-                bf.c((TextView) view, this.abx);
-                return false;
-            } else if ("skin_text_content".equals(tag)) {
-                bf.c((TextView) view, this.abx);
-                return false;
-            } else if ("skin_text_num".equals(tag)) {
-                bf.k((TextView) view, this.abx);
-                return false;
-            } else if ("skin_check_box".equals(tag)) {
-                bf.a((CheckBox) view, this.abx);
-                return false;
-            } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TbadkCoreApplication.m9getInst().getApp(), this.aby ? r.m.sidebar_content_1 : r.m.sidebar_content);
-                return false;
-            } else if ("skin_more_up".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    aH4 = bf.aH(this.aby);
-                    ((RadioButton) view).setTextColor(aH4);
+    public static void aF(Context context) {
+        mAppContext = context;
+        agL = true;
+    }
+
+    private static void vR() {
+        if (mAppContext != null && mAppContext.getResources() != null) {
+            agK = mAppContext.getResources().getColor(w.e.common_color_10097);
+            agJ = mAppContext.getResources().getColor(w.e.common_color_10004);
+        }
+    }
+
+    private static int cU(int i) {
+        return aG(i == 1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static int aG(boolean z) {
+        if (agL) {
+            agL = false;
+            vR();
+        }
+        return z ? agJ : agK;
+    }
+
+    public static void y(View view) {
+        if (view instanceof ViewGroup) {
+            b((ViewGroup) view, TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    public static void z(View view) {
+        if (view != null) {
+            agM.remove(Integer.valueOf(System.identityHashCode(view)));
+        }
+    }
+
+    public static void b(ViewGroup viewGroup, int i) {
+        int identityHashCode = System.identityHashCode(viewGroup);
+        Integer num = agM.get(Integer.valueOf(identityHashCode));
+        if (num == null || i != num.intValue()) {
+            c(viewGroup, i);
+            agM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+        }
+    }
+
+    public static void a(ViewGroup viewGroup, boolean z, a aVar) {
+        if (!z || !aVar.w(viewGroup)) {
+            LinkedList linkedList = new LinkedList();
+            while (true) {
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (!aVar.w(childAt)) {
+                        if (childAt instanceof ViewGroup) {
+                            linkedList.addLast((ViewGroup) childAt);
+                        }
+                    } else {
+                        return;
+                    }
                 }
-                ap.j(view, r.g.more_up);
-                return false;
-            } else if ("skin_more_middle".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    aH3 = bf.aH(this.aby);
-                    ((RadioButton) view).setTextColor(aH3);
+                if (!linkedList.isEmpty()) {
+                    viewGroup = (ViewGroup) linkedList.removeFirst();
+                } else {
+                    return;
                 }
-                ap.j(view, r.g.more_middle);
-                return false;
-            } else if ("skin_more_down".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    aH2 = bf.aH(this.aby);
-                    ((RadioButton) view).setTextColor(aH2);
-                }
-                ap.j(view, r.g.more_down);
-                return false;
-            } else if ("skin_more_all".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    aH = bf.aH(this.aby);
-                    ((RadioButton) view).setTextColor(aH);
-                }
-                ap.j(view, r.g.more_all);
-                return false;
-            } else if ("skin_arrow".equals(tag)) {
-                ap.c((ImageView) view, r.g.icon_ba_top_arrow_big);
-                return false;
-            } else if ("skin_list_line".equals(tag)) {
-                bf.l(view, this.abx);
-                return false;
-            } else {
-                return false;
             }
         }
-        return false;
+    }
+
+    private static void c(ViewGroup viewGroup, int i) {
+        a(viewGroup, true, new bh(i, i == 1));
+    }
+
+    public static void l(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundColor(-14078923);
+            } else {
+                view.setBackgroundColor(-1183760);
+            }
+        }
+    }
+
+    public static void aG(Context context) {
+        if (context != null) {
+            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RegisterActivityConfig(context, 3, true)));
+        }
+    }
+
+    public static void aH(Context context) {
+        if (context != null) {
+            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            if (com.baidu.tbadk.coreExtra.a.a.aob != null && com.baidu.tbadk.coreExtra.a.a.aob == Domain.DOMAIN_QA) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new QALoginActivityConfig(context, true)));
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, 3, true)));
+            }
+        }
+    }
+
+    public static boolean aI(Context context) {
+        boolean isLogin = TbadkCoreApplication.isLogin();
+        if (!isLogin) {
+            aG(context);
+        }
+        return isLogin;
+    }
+
+    public static void j(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                textView.setTextColor(-11446171);
+            } else {
+                textView.setTextColor(-5065030);
+            }
+        }
+    }
+
+    public static void b(TextView textView, int i) {
+        if (textView != null) {
+            textView.setTextColor(cU(i));
+        }
+    }
+
+    public static void a(CheckBox checkBox, int i) {
+        if (checkBox != null) {
+            checkBox.setTextColor(cU(i));
+        }
+    }
+
+    public static void b(View view, int i, boolean z) {
+        if (view != null && view.getParent() != null) {
+            View view2 = (View) view.getParent().getParent();
+            if (view2 instanceof LinearLayout) {
+                LinearLayout linearLayout = (LinearLayout) view2;
+                linearLayout.setOrientation(1);
+                View view3 = new View(view.getContext());
+                if (z) {
+                    aq.k(view3, i);
+                } else {
+                    view3.setBackgroundResource(i);
+                }
+                linearLayout.addView(view3, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+            }
+        }
     }
 }

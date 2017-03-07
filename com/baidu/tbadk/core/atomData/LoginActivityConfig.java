@@ -9,6 +9,8 @@ public class LoginActivityConfig extends IntentConfig {
     public static final String FROM_SHARE_SDK = "from_share_sdk";
     public static final String HAS_EXIT_DIALOG = "has_exit_dialog";
     public static final String INFO = "info";
+    public static final String JUMP_AFTER_DESTROY = "jump_after_destroy";
+    public static final int JUMP_TO_MAINTAB = 1;
     public static final String LOGIN_TYPE = "login_type";
     public static final String TYPE_LOGIN = "type_login";
     public static final int TYPE_LOGIN_MOBILE = 1;
@@ -93,5 +95,9 @@ public class LoginActivityConfig extends IntentConfig {
         getIntent().putExtra(IntentConfig.CLOSE, z);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public void setJumpToAfterDestroy(int i) {
+        getIntent().putExtra(JUMP_AFTER_DESTROY, i);
     }
 }

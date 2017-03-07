@@ -6,18 +6,18 @@ import com.baidu.cloudsdk.social.core.WidgetStatisticsManager;
 /* loaded from: classes.dex */
 public class aq extends HttpResponseHandler {
     final /* synthetic */ String b;
-    final /* synthetic */ WidgetPreferenceManager fQW;
-    final /* synthetic */ WidgetStatisticsManager fQX;
+    final /* synthetic */ WidgetPreferenceManager gdA;
+    final /* synthetic */ WidgetStatisticsManager gdB;
 
     public aq(WidgetStatisticsManager widgetStatisticsManager, WidgetPreferenceManager widgetPreferenceManager, String str) {
-        this.fQX = widgetStatisticsManager;
-        this.fQW = widgetPreferenceManager;
+        this.gdB = widgetStatisticsManager;
+        this.gdA = widgetPreferenceManager;
         this.b = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onSuccess(int i, String str) {
-        this.fQW.setWidgetActivated(this.b);
+        this.gdA.setWidgetActivated(this.b);
     }
 }

@@ -11,7 +11,7 @@ public abstract class BdBaseService extends MAService {
     public void onCreate() {
         super.onCreate();
         if (sCallBack != null) {
-            sCallBack.cg();
+            sCallBack.dp();
         }
     }
 

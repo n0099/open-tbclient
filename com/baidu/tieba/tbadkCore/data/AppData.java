@@ -4,7 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
 import tbclient.App;
@@ -26,7 +27,7 @@ public class AppData extends OrmObject {
     public final AppGoods[] goods_info;
     public final String id;
     public final String ios_url;
-    public ICardInfo legoCard;
+    public AdvertAppInfo.ILegoAdvert legoCard;
     public final String name;
     public final int plan_id;
     public final String pos_name;
@@ -64,7 +65,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo lM;
+        ICardInfo ln;
         this.legoCard = null;
         if (app == null) {
             this.id = null;
@@ -115,9 +116,15 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.e.dL().ac("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (lM = com.baidu.tieba.lego.card.b.lM(this.goods.lego_card)) != null) {
-                        this.legoCard = lM.getViewItem(0, 1);
-                        return;
+                    if (com.baidu.adp.lib.b.e.eT().ab("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (ln = com.baidu.tieba.lego.card.b.ln(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = ln.getViewItem(0, 1);
+                        if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
+                            this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
+                            return;
+                        } else {
+                            this.legoCard = null;
+                            return;
+                        }
                     }
                     return;
                 }
@@ -125,7 +132,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public boolean pc() {
+    public boolean pq() {
         if (this.goods == null || !this.goods.c(this.legoCard)) {
             return false;
         }
@@ -133,16 +140,16 @@ public class AppData extends OrmObject {
             if (this.url_type == 2) {
                 return false;
             }
-            return pd() || pe();
+            return pr() || ps();
         }
         return true;
     }
 
-    public boolean pd() {
+    public boolean pr() {
         return (this.url_type != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
-    public boolean pe() {
+    public boolean ps() {
         if (this.url_type == 1) {
             if (!StringUtils.isNull(this.url)) {
                 return true;
@@ -223,7 +230,7 @@ public class AppData extends OrmObject {
             this.id = goodsInfo.id.intValue();
             this.user_name = goodsInfo.user_name;
             this.user_portrait = goodsInfo.user_portrait;
-            this.thread_title = at.c(goodsInfo.thread_title, 29, "...");
+            this.thread_title = au.c(goodsInfo.thread_title, 29, "...");
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
             this.goods_style = goodsInfo.goods_style.intValue();
@@ -262,9 +269,9 @@ public class AppData extends OrmObject {
         }
 
         public boolean c(ICardInfo iCardInfo) {
-            int ac = com.baidu.adp.lib.b.e.dL().ac("is_support_lego_ad_style");
+            int ab = com.baidu.adp.lib.b.e.eT().ab("is_support_lego_ad_style");
             if (!TextUtils.isEmpty(this.lego_card)) {
-                return (ac == 0 || iCardInfo == null) ? false : true;
+                return (ab == 0 || iCardInfo == null) ? false : true;
             } else if (this.goods_style == 1001) {
                 return true;
             } else {

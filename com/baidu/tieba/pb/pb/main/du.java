@@ -1,21 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
+
+import android.view.View;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class du {
-    public boolean elE = false;
-    public boolean elF = false;
-    public boolean elG = false;
-    public boolean efY = false;
-    public boolean elH = false;
-    public boolean elI = false;
-    public boolean elJ = false;
-    public boolean elK = false;
-    public boolean elL = false;
-    public boolean elM = false;
-    public boolean elN = false;
-    public boolean elO = false;
-    public boolean elP = false;
-    public boolean elQ = false;
-    public boolean elR = false;
-    public boolean elS = false;
-    public boolean isHostOnly = false;
+public class du implements Runnable {
+    final /* synthetic */ dt eoB;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public du(dt dtVar) {
+        this.eoB = dtVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        View view;
+        PbActivity pbActivity;
+        view = this.eoB.bqJ;
+        pbActivity = this.eoB.eoy;
+        view.setBackgroundColor(pbActivity.getResources().getColor(w.e.common_color_10082));
+    }
 }

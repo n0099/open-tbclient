@@ -17,7 +17,7 @@ public class ad implements CustomMessageTask.CustomRunnable<Intent> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(com.baidu.adp.base.a.aS().aT() == null ? this.this$0.getApp() : com.baidu.adp.base.a.aS().aT(), customMessage.getData());
+        UtilHelper.commenDealIntent(com.baidu.adp.base.a.cb().cc() == null ? this.this$0.getApp() : com.baidu.adp.base.a.cb().cc(), customMessage.getData());
         return null;
     }
 }

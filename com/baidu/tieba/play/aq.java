@@ -4,15 +4,15 @@ import com.baidu.tieba.play.ar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements ar.a {
-    final /* synthetic */ ao eTk;
+    final /* synthetic */ ao eWR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ao aoVar) {
-        this.eTk = aoVar;
+        this.eWR = aoVar;
     }
 
     @Override // com.baidu.tieba.play.ar.a
     public void onChange(boolean z) {
-        this.eTk.eTh = z;
+        this.eWR.eWO = z;
     }
 }

@@ -2,12 +2,11 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class HeadImageView extends TbClipImageView {
-    private int acQ;
-    private int acR;
+public class HeadImageView extends com.baidu.tbadk.widget.d {
+    private int aig;
+    private int aih;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -25,8 +24,8 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.acQ = r.g.transparent_bg;
-        this.acR = r.e.cp_bg_line_e;
+        this.aig = w.g.transparent_bg;
+        this.aih = w.e.cp_bg_line_e;
         init();
     }
 
@@ -34,9 +33,9 @@ public class HeadImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.acR);
-        setDefaultResource(this.acQ);
-        setDefaultErrorResource(r.g.icon_default_avatar100);
+        setDefaultBgResource(this.aih);
+        setDefaultResource(this.aig);
+        setDefaultErrorResource(w.g.icon_default_avatar100);
     }
 
     public void setUrl(String str) {
@@ -57,10 +56,10 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setUserName(String str) {
-        ae(str, String.valueOf(str) + getResources().getString(r.l.somebodys_portrait));
+        ac(str, String.valueOf(str) + getResources().getString(w.l.somebodys_portrait));
     }
 
-    public void ae(String str, String str2) {
+    public void ac(String str, String str2) {
         this.user_name = str;
         setContentDescription(str2);
     }
@@ -70,11 +69,11 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void vQ() {
-        if (!this.aER) {
-            this.aER = true;
-        } else if (this.aEU != null && this.aEU.aAO) {
-            this.aEU.FH();
+    public void wn() {
+        if (!this.aKo) {
+            this.aKo = true;
+        } else if (this.aKr != null && this.aKr.aGg) {
+            this.aKr.Gb();
         }
     }
 }

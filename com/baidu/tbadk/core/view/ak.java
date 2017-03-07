@@ -1,43 +1,32 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.core.util.bb;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak extends ImageSpan {
-    private int offset;
-    private WeakReference<Drawable> zb;
+public class ak implements c.b {
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout alQ;
 
-    public ak(Drawable drawable) {
-        super(drawable);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
+        this.alQ = threadCommentAndPraiseInfoLayout;
     }
 
-    public void setOffset(int i) {
-        this.offset = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable jw = jw();
-        canvas.save();
-        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - jw.getBounds().height()) / 2) + this.offset);
-        jw.draw(canvas);
-        canvas.restore();
-    }
-
-    private Drawable jw() {
-        WeakReference<Drawable> weakReference = this.zb;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        List list;
+        TbPageContext<?> tbPageContext;
+        list = this.alQ.alD;
+        String str = (String) com.baidu.tbadk.core.util.x.c(list, i);
+        if (!StringUtils.isNull(str)) {
+            bb vQ = bb.vQ();
+            tbPageContext = this.alQ.ajF;
+            vQ.c(tbPageContext, new String[]{str});
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.zb = new WeakReference<>(drawable2);
-            return drawable2;
-        }
-        return drawable;
+        cVar.dismiss();
     }
 }

@@ -1,76 +1,102 @@
 package com.baidu.tbadk.widget;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.performanceLog.u;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.graphics.Paint;
+import android.os.Build;
+import android.util.AttributeSet;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import java.lang.reflect.Method;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView aFd;
+public class d extends TbImageView {
+    private static Method aKe;
+    private boolean aKf;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(TbImageView tbImageView) {
-        this.aFd = tbImageView;
+    static {
+        aKe = null;
+        try {
+            aKe = d.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+        } catch (NoSuchMethodException e) {
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        TbImageView.a aVar2;
-        long j;
-        TbImageView.a aVar3;
-        int i2;
-        this.aFd.stopLoading();
-        BdLog.i("imagecallback. resourceFrom-" + i);
-        if (aVar == null) {
-            TbImageView tbImageView = this.aFd;
-            i2 = this.aFd.aEK;
-            tbImageView.aEL = i2;
-        }
-        aVar2 = this.aFd.aEJ;
-        if (aVar2 != null) {
-            if (aVar != null) {
-                this.aFd.aEX = aVar.getWidth();
-                this.aFd.aEY = aVar.getHeight();
+    public d(Context context) {
+        this(context, null, 0);
+    }
+
+    public d(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.aKf = false;
+        b(context, attributeSet, i);
+    }
+
+    public d(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    private void b(Context context, AttributeSet attributeSet, int i) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        String trim = Build.MODEL.trim();
+        if (trim != null) {
+            String[] strArr = {"M040", "M045"};
+            int length = strArr.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    z3 = false;
+                    break;
+                } else if (strArr[i2].equalsIgnoreCase(trim)) {
+                    z3 = true;
+                    break;
+                } else {
+                    i2++;
+                }
             }
-            aVar3 = this.aFd.aEJ;
-            aVar3.v(str, aVar != null);
-        }
-        if (aVar != null) {
-            if (aVar.An != null) {
-                this.aFd.aEU.Ap = aVar.An.Ap;
-                this.aFd.aEU.isSuccess = aVar.An.Ar;
-                this.aFd.aEU.Aq = aVar.An.Aq;
+            String[] strArr2 = {"HTC T329D"};
+            int length2 = strArr2.length;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= length2) {
+                    z2 = z3;
+                    z = false;
+                    break;
+                } else if (strArr2[i3].equalsIgnoreCase(trim)) {
+                    z2 = z3;
+                    z = true;
+                    break;
+                } else {
+                    i3++;
+                }
             }
         } else {
-            this.aFd.aEU.Ap = "net";
-            this.aFd.aEU.isSuccess = false;
-            u uVar = this.aFd.aEU;
-            long currentTimeMillis = System.currentTimeMillis();
-            j = this.aFd.aEW;
-            uVar.Aq = currentTimeMillis - j;
+            z = false;
+            z2 = false;
         }
-        this.aFd.vQ();
+        if (Build.VERSION.SDK_INT >= 11) {
+            CompatibleUtile.getInstance().closeViewGpu(this);
+            try {
+                if (aKe != null) {
+                    aKe.invoke(this, 1, null);
+                }
+            } catch (Exception e) {
+            }
+        }
+        if (z2 || z) {
+            this.aKf = false;
+        } else {
+            this.aKf = true;
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onCancelled(String str) {
-        TbImageView.a aVar;
-        TbImageView.a aVar2;
-        super.onCancelled(str);
-        this.aFd.stopLoading();
-        aVar = this.aFd.aEJ;
-        if (aVar != null) {
-            aVar2 = this.aFd.aEJ;
-            aVar2.onCancel();
+    @Override // com.baidu.adp.newwidget.a.b
+    public void setDrawerType(int i) {
+        if (i == 0) {
+            super.setDrawerType(i);
+        } else if (i == 1) {
+            super.setDrawerType(this.aKf ? 4 : 5);
+        } else {
+            super.setDrawerType(i);
         }
     }
 }

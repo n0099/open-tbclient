@@ -6,22 +6,22 @@ import java.io.File;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class DiskFileOperate {
-    private OperateType ki;
-    protected boolean kj;
-    protected Action kk;
-    protected volatile byte[] kl;
-    private volatile boolean km;
-    private boolean kn;
-    private File ko;
-    private boolean kp;
-    private int kq;
-    private String kr;
-    private String ks;
-    private e.a kt;
     protected volatile Object mLock;
     protected String mName;
     private OutputStream mOutputStream;
     protected String mPath;
+    private OperateType sd;
+    protected boolean se;
+    protected Action sf;
+    protected volatile byte[] sg;
+    private volatile boolean sh;
+    private boolean si;
+    private File sj;
+    private boolean sk;
+    private int sl;
+    private String sm;
+    private String so;
+    private e.a sq;
 
     /* loaded from: classes.dex */
     public enum Action {
@@ -36,7 +36,7 @@ public class DiskFileOperate {
         RENAME,
         CUSTOM;
 
-        /* JADX DEBUG: Replace access to removed values field (ku) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (sr) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static Action[] valuesCustom() {
             Action[] valuesCustom = values();
@@ -52,7 +52,7 @@ public class DiskFileOperate {
         MUST_SUCCESS,
         TRY_SUCCESS;
 
-        /* JADX DEBUG: Replace access to removed values field (kv) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ss) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static OperateType[] valuesCustom() {
             OperateType[] valuesCustom = values();
@@ -64,56 +64,56 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.ki = OperateType.MUST_SUCCESS;
-        this.kj = false;
-        this.kk = Action.READ;
-        this.kl = null;
+        this.sd = OperateType.MUST_SUCCESS;
+        this.se = false;
+        this.sf = Action.READ;
+        this.sg = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.km = false;
-        this.kn = true;
+        this.sh = false;
+        this.si = true;
         this.mOutputStream = null;
-        this.ko = null;
-        this.kp = true;
-        this.kq = 0;
-        this.kr = null;
-        this.ks = null;
-        this.kt = null;
+        this.sj = null;
+        this.sk = true;
+        this.sl = 0;
+        this.sm = null;
+        this.so = null;
+        this.sq = null;
         this.mPath = str;
         this.mName = str2;
-        this.kk = action;
+        this.sf = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.ki = OperateType.MUST_SUCCESS;
-        this.kj = false;
-        this.kk = Action.READ;
-        this.kl = null;
+        this.sd = OperateType.MUST_SUCCESS;
+        this.se = false;
+        this.sf = Action.READ;
+        this.sg = null;
         this.mLock = null;
         this.mName = null;
         this.mPath = null;
-        this.km = false;
-        this.kn = true;
+        this.sh = false;
+        this.si = true;
         this.mOutputStream = null;
-        this.ko = null;
-        this.kp = true;
-        this.kq = 0;
-        this.kr = null;
-        this.ks = null;
-        this.kt = null;
+        this.sj = null;
+        this.sk = true;
+        this.sl = 0;
+        this.sm = null;
+        this.so = null;
+        this.sq = null;
         this.mPath = str;
         this.mName = str2;
-        this.kr = str3;
-        this.ks = str4;
-        this.kk = action;
+        this.sm = str3;
+        this.so = str4;
+        this.sf = action;
     }
 
     public void k(Object obj) {
         this.mLock = obj;
     }
 
-    public void cH() {
+    public void dQ() {
         if (this.mLock != null) {
             try {
                 synchronized (this.mLock) {
@@ -126,11 +126,11 @@ public class DiskFileOperate {
     }
 
     public byte[] getData() {
-        return this.kl;
+        return this.sg;
     }
 
     public void setData(byte[] bArr) {
-        this.kl = bArr;
+        this.sg = bArr;
     }
 
     public String getName() {
@@ -141,32 +141,32 @@ public class DiskFileOperate {
         return this.mPath;
     }
 
-    public Action cI() {
-        return this.kk;
+    public Action dR() {
+        return this.sf;
     }
 
     public boolean k(byte[] bArr) {
         return true;
     }
 
-    public byte[] cJ() {
+    public byte[] dS() {
         return null;
     }
 
     public boolean isSuccess() {
-        return this.km;
+        return this.sh;
     }
 
     public void setSuccess(boolean z) {
-        this.km = z;
+        this.sh = z;
     }
 
-    public void r(boolean z) {
-        this.kj = z;
+    public void s(boolean z) {
+        this.se = z;
     }
 
-    public String cK() {
-        if (this.kj && this.mName != null) {
+    public String dT() {
+        if (this.se && this.mName != null) {
             int hashCode = this.mName.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
@@ -180,38 +180,38 @@ public class DiskFileOperate {
         return this.mPath;
     }
 
-    public String cL() {
-        if (this.kj && this.ks != null) {
-            int hashCode = this.ks.hashCode();
+    public String dU() {
+        if (this.se && this.so != null) {
+            int hashCode = this.so.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
             }
             int i = (hashCode % 100) + 1;
-            if (this.kr == null) {
+            if (this.sm == null) {
                 return String.valueOf(i);
             }
-            return String.valueOf(this.kr) + "/" + i;
+            return String.valueOf(this.sm) + "/" + i;
         }
-        return this.kr;
+        return this.sm;
     }
 
-    public OperateType cM() {
-        return this.ki;
+    public OperateType dV() {
+        return this.sd;
     }
 
     public void a(OperateType operateType) {
-        this.ki = operateType;
+        this.sd = operateType;
     }
 
-    public void o(boolean z) {
+    public void p(boolean z) {
     }
 
-    public boolean cN() {
-        return this.kn;
+    public boolean dW() {
+        return this.si;
     }
 
-    public void s(boolean z) {
-        this.kn = z;
+    public void t(boolean z) {
+        this.si = z;
     }
 
     protected void finalize() throws Throwable {
@@ -245,43 +245,43 @@ public class DiskFileOperate {
         }
     }
 
-    public File cO() {
-        return this.ko;
+    public File dX() {
+        return this.sj;
     }
 
     public void e(File file) {
-        this.ko = file;
+        this.sj = file;
     }
 
-    public boolean cP() {
-        return this.kp;
+    public boolean dY() {
+        return this.sk;
     }
 
-    public void t(boolean z) {
-        this.kp = z;
+    public void u(boolean z) {
+        this.sk = z;
     }
 
-    public boolean cA() {
-        return com.baidu.adp.lib.Disk.d.cz().b(this);
+    public boolean dJ() {
+        return com.baidu.adp.lib.Disk.d.dI().b(this);
     }
 
-    public int cQ() {
-        return this.kq;
+    public int dZ() {
+        return this.sl;
     }
 
     public void Y(int i) {
-        this.kq = i;
+        this.sl = i;
     }
 
-    public String cR() {
-        return this.kr;
+    public String ea() {
+        return this.sm;
     }
 
-    public String cS() {
-        return this.ks;
+    public String eb() {
+        return this.so;
     }
 
-    public e.a cT() {
-        return this.kt;
+    public e.a ec() {
+        return this.sq;
     }
 }

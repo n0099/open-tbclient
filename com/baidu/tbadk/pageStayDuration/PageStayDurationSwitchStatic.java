@@ -2,13 +2,13 @@ package com.baidu.tbadk.pageStayDuration;
 /* loaded from: classes.dex */
 public class PageStayDurationSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.e.dL().n(PageStayDurationSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(PageStayDurationSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void changeSettingByType(int i) {
-        e.Fj().bV(1 == i);
+        e.FD().bU(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a

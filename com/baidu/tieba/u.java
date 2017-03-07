@@ -1,40 +1,32 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
+import android.view.animation.Animation;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.gif.GifView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements View.OnClickListener {
-    final /* synthetic */ t aNZ;
+public class u implements Animation.AnimationListener {
+    private final /* synthetic */ GifView aPX;
+    private final /* synthetic */ TextView aQa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar) {
-        this.aNZ = tVar;
+    public u(GifView gifView, TextView textView) {
+        this.aPX = gifView;
+        this.aQa = textView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        boolean z;
-        t.a aVar;
-        boolean z2;
-        TextView textView2;
-        com.baidu.tbadk.core.util.TiebaStatic.log("c10003");
-        textView = this.aNZ.aNJ;
-        textView.setEnabled(false);
-        this.aNZ.aNA = true;
-        z = this.aNZ.aNz;
-        if (z) {
-            Drawable drawable = ap.getDrawable(r.g.btn_dailog_choose_d);
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            textView2 = this.aNZ.aNH;
-            textView2.setCompoundDrawables(drawable, null, null, null);
-        }
-        aVar = this.aNZ.aNU;
-        z2 = this.aNZ.aNz;
-        aVar.cj(z2);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.aPX.setVisibility(0);
+        this.aPX.Eg();
+        com.baidu.adp.lib.g.h.fM().postDelayed(new v(this, this.aQa), 800L);
     }
 }

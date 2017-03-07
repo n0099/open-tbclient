@@ -5,47 +5,47 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.r;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements c.b {
-    final /* synthetic */ PbActivity eiV;
-    private final /* synthetic */ SparseArray eiW;
-    private final /* synthetic */ boolean eiX;
-    private final /* synthetic */ String eiY;
-    private final /* synthetic */ String eiZ;
+    final /* synthetic */ PbActivity elO;
+    private final /* synthetic */ SparseArray elP;
+    private final /* synthetic */ boolean elQ;
+    private final /* synthetic */ String elR;
+    private final /* synthetic */ String elS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
-        this.eiV = pbActivity;
-        this.eiW = sparseArray;
-        this.eiX = z;
-        this.eiY = str;
-        this.eiZ = str2;
+        this.elO = pbActivity;
+        this.elP = sparseArray;
+        this.elQ = z;
+        this.elR = str;
+        this.elS = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         BdUniqueId bdUniqueId;
         BdUniqueId bdUniqueId2;
-        ez ezVar;
+        fa faVar;
         switch (i) {
             case 0:
-                ezVar = this.eiV.ehV;
-                ezVar.a(((Integer) this.eiW.get(r.h.tag_del_post_type)).intValue(), (String) this.eiW.get(r.h.tag_del_post_id), ((Integer) this.eiW.get(r.h.tag_manage_user_identity)).intValue(), ((Boolean) this.eiW.get(r.h.tag_del_post_is_self)).booleanValue());
+                faVar = this.elO.ekM;
+                faVar.a(((Integer) this.elP.get(w.h.tag_del_post_type)).intValue(), (String) this.elP.get(w.h.tag_del_post_id), ((Integer) this.elP.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) this.elP.get(w.h.tag_del_post_is_self)).booleanValue());
                 break;
             case 1:
-                String str = (String) this.eiW.get(r.h.tag_user_mute_mute_username);
+                String str = (String) this.elP.get(w.h.tag_user_mute_mute_username);
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                boolean z = this.eiX;
-                String str2 = this.eiY;
-                String str3 = this.eiZ;
-                bdUniqueId = this.eiV.eim;
-                userMuteAddAndDelCustomMessage.setData(z, str2, str, (String) this.eiW.get(r.h.tag_user_mute_thread_id), (String) this.eiW.get(r.h.tag_user_mute_post_id), 1, str3, bdUniqueId);
-                bdUniqueId2 = this.eiV.eim;
+                boolean z = this.elQ;
+                String str2 = this.elR;
+                String str3 = this.elS;
+                bdUniqueId = this.elO.eld;
+                userMuteAddAndDelCustomMessage.setData(z, str2, str, (String) this.elP.get(w.h.tag_user_mute_thread_id), (String) this.elP.get(w.h.tag_user_mute_post_id), 1, str3, bdUniqueId);
+                bdUniqueId2 = this.elO.eld;
                 userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
-                this.eiV.a(this.eiX, userMuteAddAndDelCustomMessage, this.eiZ, str);
+                this.elO.a(this.elQ, userMuteAddAndDelCustomMessage, this.elS, str);
                 break;
         }
         cVar.dismiss();

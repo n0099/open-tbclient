@@ -16,7 +16,7 @@ class k extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof bw)) {
             bw bwVar = (bw) customResponsedMessage.getData();
             i iVar = new i();
-            iVar.setTag(bwVar.aUC);
+            iVar.setTag(bwVar.baP);
             bwVar.a(100, iVar);
         }
     }

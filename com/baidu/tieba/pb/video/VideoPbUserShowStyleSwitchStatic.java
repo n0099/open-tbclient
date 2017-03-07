@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.video;
 /* loaded from: classes.dex */
 public class VideoPbUserShowStyleSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.e.dL().n(VideoPbUserShowStyleSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(VideoPbUserShowStyleSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

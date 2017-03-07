@@ -1,106 +1,107 @@
 package com.baidu.tieba.tbadkCore.d;
 
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.d fqF;
-    private final int fqG = 10;
-    private final int fqH = 3000;
-    public String fqI = null;
-    public boolean acf = false;
+    private com.baidu.adp.lib.stats.c fvd;
+    private final int fve = 10;
+    private final int fvf = 3000;
+    public String fvg = null;
+    public boolean ahv = false;
 
     public b(String str) {
-        V(str, false);
+        W(str, false);
     }
 
-    public void V(String str, boolean z) {
-        this.fqI = str;
-        this.acf = z;
-        this.fqF = new com.baidu.adp.lib.stats.d("dbg");
+    public void W(String str, boolean z) {
+        this.fvg = str;
+        this.ahv = z;
+        this.fvd = new com.baidu.adp.lib.stats.c("dbg");
         c.j(str, getNetType(), z);
     }
 
     public void start() {
-        this.fqF.eW();
+        this.fvd.fQ();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f bie;
-        if (this.fqF != null && (bie = bie()) != null) {
+        f bhU;
+        if (this.fvd != null && (bhU = bhU()) != null) {
             if (z) {
-                if (bie.fqN != null) {
-                    bie.fqN.num++;
+                if (bhU.fvl != null) {
+                    bhU.fvl.num++;
                     if (z2) {
-                        bie.fqN.fqK += j2;
-                        bie.fqN.size += j;
+                        bhU.fvl.fvi += j2;
+                        bhU.fvl.size += j;
                     } else {
-                        bie.fqN.fqL++;
+                        bhU.fvl.fvj++;
                     }
                 } else {
                     return;
                 }
-            } else if (bie.fqO != null) {
-                bie.fqO.num++;
+            } else if (bhU.fvm != null) {
+                bhU.fvm.num++;
                 if (z2) {
-                    bie.fqO.fqK += j3;
-                    bie.fqO.size += j;
+                    bhU.fvm.fvi += j3;
+                    bhU.fvm.size += j;
                     j2 = j3;
                 } else {
-                    bie.fqO.fqL++;
+                    bhU.fvm.fvj++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.fqF = null;
+            this.fvd = null;
             if (z2) {
-                c.a(bie, 10);
+                c.a(bhU, 10);
             }
-            if (this.fqI == "frsStat") {
+            if (this.fvg == "frsStat") {
                 if (!z2 || j2 > 3000) {
-                    com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
-                    dVar.q("act", "frs");
-                    dVar.q("result", z2 ? "0" : "1");
-                    dVar.q("isHttp", z ? "1" : "0");
-                    dVar.q("timeCost", String.valueOf(j2));
-                    dVar.q("errCode", String.valueOf(i));
-                    dVar.q("errMsg", str);
-                    dVar.q("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.a.eG().b("frs", dVar);
+                    com.baidu.adp.lib.stats.c cVar = new com.baidu.adp.lib.stats.c("dbg");
+                    cVar.p("act", "frs");
+                    cVar.p("result", z2 ? "0" : "1");
+                    cVar.p("isHttp", z ? "1" : "0");
+                    cVar.p("timeCost", String.valueOf(j2));
+                    cVar.p("errCode", String.valueOf(i));
+                    cVar.p("errMsg", str);
+                    cVar.p("down", String.valueOf(j));
+                    BdStatisticsManager.getInstance().debug("frs", cVar);
                 }
             }
         }
     }
 
     public void destory() {
-        f bie;
-        if (this.fqF != null && (bie = bie()) != null && bie.fqP != null) {
-            long eX = this.fqF.eX();
-            if (eX > 3000) {
-                e eVar = bie.fqP;
-                eVar.fqK = eX + eVar.fqK;
-                bie.fqP.num++;
-                c.a(bie, 10);
+        f bhU;
+        if (this.fvd != null && (bhU = bhU()) != null && bhU.fvn != null) {
+            long fR = this.fvd.fR();
+            if (fR > 3000) {
+                e eVar = bhU.fvn;
+                eVar.fvi = fR + eVar.fvi;
+                bhU.fvn.num++;
+                c.a(bhU, 10);
             }
         }
     }
 
-    private f bie() {
-        return c.k(this.fqI, getNetType(), this.acf);
+    private f bhU() {
+        return c.k(this.fvg, getNetType(), this.ahv);
     }
 
     private String getNetType() {
-        int gq = i.gq();
-        if (gq == 0) {
+        int hk = i.hk();
+        if (hk == 0) {
             return "N";
         }
-        if (gq == 1) {
+        if (hk == 1) {
             return "WIFI";
         }
-        if (gq == 3) {
+        if (hk == 3) {
             return "3G";
         }
-        if (gq != 2) {
+        if (hk != 2) {
             return "N";
         }
         return "2G";

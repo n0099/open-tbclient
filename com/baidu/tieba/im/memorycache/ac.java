@@ -25,14 +25,14 @@ public class ac extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryModifyLastMsgMessage.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
-            b.asO().a(data.customGroupType, data.dbq, data.id, data.type);
-            ImMessageCenterPojo af = b.asO().af(data.id, data.customGroupType);
-            if (af != null) {
+            b.asj().a(data.customGroupType, data.ddJ, data.id, data.type);
+            ImMessageCenterPojo Y = b.asj().Y(data.id, data.customGroupType);
+            if (Y != null) {
                 ImMessageCenterPojo imMessageCenterPojo = null;
-                if (af.getCustomGroupType() == 4) {
-                    imMessageCenterPojo = b.asO().af("-1000", -8);
+                if (Y.getCustomGroupType() == 4) {
+                    imMessageCenterPojo = b.asj().Y("-1000", -8);
                 }
-                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ad(this, af, imMessageCenterPojo));
+                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ad(this, Y, imMessageCenterPojo));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                 customMessageTask.setPriority(4);

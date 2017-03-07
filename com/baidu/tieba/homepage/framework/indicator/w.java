@@ -7,20 +7,20 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class w extends LinearLayout {
-    public static final int cvw = r.e.cp_cont_f;
-    private int cjp;
-    private boolean cvA;
-    private final int cvB;
-    private int cvC;
-    private int cvD;
-    private int cvE;
-    private final int cvx;
-    private final Paint cvy;
-    private final Paint cvz;
+    public static final int cwV = w.e.cp_cont_f;
+    private int ckM;
+    private final int cwW;
+    private final Paint cwX;
+    private final Paint cwY;
+    private boolean cwZ;
+    private final int cxa;
+    private int cxb;
+    private int cxc;
+    private int cxd;
 
     public w(Context context) {
         this(context, null);
@@ -28,15 +28,15 @@ public class w extends LinearLayout {
 
     public w(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cvA = true;
+        this.cwZ = true;
         setWillNotDraw(false);
-        this.cvx = getResources().getDimensionPixelSize(r.f.ds6);
-        this.cvC = getResources().getDimensionPixelSize(r.f.ds20);
-        this.cvy = new Paint();
-        this.cvy.setColor(ap.d((Resources) null, r.e.cp_link_tip_a));
-        this.cvz = new Paint();
-        this.cvz.setColor(ap.getColor(r.e.cp_bg_line_b));
-        this.cvB = getResources().getDimensionPixelSize(r.f.ds1);
+        this.cwW = getResources().getDimensionPixelSize(w.f.ds6);
+        this.cxb = getResources().getDimensionPixelSize(w.f.ds20);
+        this.cwX = new Paint();
+        this.cwX.setColor(aq.d((Resources) null, w.e.cp_link_tip_a));
+        this.cwY = new Paint();
+        this.cwY.setColor(aq.getColor(w.e.cp_bg_line_b));
+        this.cxa = getResources().getDimensionPixelSize(w.f.ds1);
     }
 
     public void e(int i, float f) {
@@ -46,12 +46,12 @@ public class w extends LinearLayout {
 
     private void f(int i, float f) {
         View childAt = getChildAt(i);
-        this.cvD = childAt.getLeft();
-        this.cvE = childAt.getRight();
+        this.cxc = childAt.getLeft();
+        this.cxd = childAt.getRight();
         if (f >= 0.0f && i < getChildCount() - 1) {
             View childAt2 = getChildAt(i + 1);
-            this.cvD = (int) ((childAt2.getLeft() * f) + ((1.0f - f) * this.cvD));
-            this.cvE = (int) ((childAt2.getRight() * f) + ((1.0f - f) * this.cvE));
+            this.cxc = (int) ((childAt2.getLeft() * f) + ((1.0f - f) * this.cxc));
+            this.cxd = (int) ((childAt2.getRight() * f) + ((1.0f - f) * this.cxd));
         }
     }
 
@@ -61,7 +61,7 @@ public class w extends LinearLayout {
         int i4;
         int i5 = 0;
         View childAt = getChildAt(i);
-        View childAt2 = getChildAt(this.cjp);
+        View childAt2 = getChildAt(this.ckM);
         if (childAt != null) {
             i3 = childAt.getLeft();
             i2 = childAt.getWidth();
@@ -75,32 +75,32 @@ public class w extends LinearLayout {
         } else {
             i4 = 0;
         }
-        this.cvD = (int) (((i4 - i3) * f) + i3);
-        this.cvE = ((int) ((i5 - i2) * f)) + i2 + this.cvD;
+        this.cxc = (int) (((i4 - i3) * f) + i3);
+        this.cxd = ((int) ((i5 - i2) * f)) + i2 + this.cxc;
         invalidate();
     }
 
-    public void au(int i, int i2) {
+    public void ax(int i, int i2) {
         if (i != i2) {
-            this.cjp = i;
+            this.ckM = i;
             int childCount = getChildCount();
             if (i >= 0 && i < childCount) {
                 View childAt = getChildAt(i);
                 if (childAt instanceof x) {
-                    ap.c(((x) childAt).getTextView(), r.e.cp_link_tip_a, 1);
+                    aq.c(((x) childAt).getTextView(), w.e.cp_link_tip_a, 1);
                 }
             }
             if (i2 >= 0 && i2 < childCount) {
                 View childAt2 = getChildAt(i2);
                 if (childAt2 instanceof x) {
-                    ap.c(((x) childAt2).getTextView(), cvw, 1);
+                    aq.c(((x) childAt2).getTextView(), cwV, 1);
                 }
             }
         }
     }
 
     public void setDrawBottomLine(boolean z) {
-        this.cvA = z;
+        this.cwZ = z;
         invalidate();
     }
 
@@ -108,24 +108,24 @@ public class w extends LinearLayout {
     protected void onDraw(Canvas canvas) {
         if (getChildCount() > 0 && canvas != null) {
             int height = getHeight();
-            if (this.cvA) {
-                canvas.drawRect(0.0f, height - this.cvB, getRight(), height, this.cvz);
+            if (this.cwZ) {
+                canvas.drawRect(0.0f, height - this.cxa, getRight(), height, this.cwY);
             }
             a(canvas, height);
         }
     }
 
     private void a(Canvas canvas, int i) {
-        if (this.cvE <= 0 && this.cjp >= 0 && this.cjp < getChildCount()) {
-            this.cvE = getChildAt(this.cjp).getRight();
+        if (this.cxd <= 0 && this.ckM >= 0 && this.ckM < getChildCount()) {
+            this.cxd = getChildAt(this.ckM).getRight();
         }
-        int i2 = (((this.cvE - this.cvD) / 2) + this.cvD) - (this.cvC / 2);
-        canvas.drawRect(i2, i - this.cvx, i2 + this.cvC, i, this.cvy);
+        int i2 = (((this.cxd - this.cxc) / 2) + this.cxc) - (this.cxb / 2);
+        canvas.drawRect(i2, i - this.cwW, i2 + this.cxb, i, this.cwX);
     }
 
     public void onChangeSkinType(int i) {
-        this.cvy.setColor(ap.d((Resources) null, r.e.cp_link_tip_a));
-        this.cvz.setColor(ap.getColor(r.e.cp_bg_line_b));
+        this.cwX.setColor(aq.d((Resources) null, w.e.cp_link_tip_a));
+        this.cwY.setColor(aq.getColor(w.e.cp_bg_line_b));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {
@@ -133,11 +133,11 @@ public class w extends LinearLayout {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof x) {
                     x xVar = (x) childAt;
-                    xVar.tg();
-                    if (i2 == this.cjp) {
-                        ap.c(xVar.getTextView(), r.e.cp_link_tip_a, 1);
+                    xVar.tD();
+                    if (i2 == this.ckM) {
+                        aq.c(xVar.getTextView(), w.e.cp_link_tip_a, 1);
                     } else {
-                        ap.c(xVar.getTextView(), cvw, 1);
+                        aq.c(xVar.getTextView(), cwV, 1);
                     }
                 }
             }

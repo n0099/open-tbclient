@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a gK;
-    private SparseArray<String> gL;
+    private static volatile a oF;
+    private SparseArray<String> oG;
 
-    public static a bh() {
-        if (gK == null) {
+    public static a cq() {
+        if (oF == null) {
             synchronized (a.class) {
-                if (gK == null) {
-                    gK = new a();
+                if (oF == null) {
+                    oF = new a();
                 }
             }
         }
-        return gK;
+        return oF;
     }
 
     private a() {
-        this.gL = null;
-        this.gL = new SparseArray<>();
+        this.oG = null;
+        this.oG = new SparseArray<>();
     }
 
     public void c(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                z(str);
+                y(str);
             }
         }
     }
 
-    private void z(String str) {
+    private void y(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.gL.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.gL.get(i) + " 重复");
+                    if (this.oG.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.oG.get(i) + " 重复");
                     }
-                    this.gL.put(i, name);
+                    this.oG.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -60,7 +60,7 @@ public class a {
     }
 
     public String I(int i) {
-        String str = this.gL.get(i);
+        String str = this.oG.get(i);
         if (str != null) {
             return str;
         }

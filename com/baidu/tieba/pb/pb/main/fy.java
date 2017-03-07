@@ -2,32 +2,33 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fy implements View.OnClickListener {
-    final /* synthetic */ ez eqf;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.p eqm;
-    private final /* synthetic */ com.baidu.tieba.pb.data.f eqn;
+    final /* synthetic */ fa etn;
+    private final /* synthetic */ PostData ett;
+    private final /* synthetic */ com.baidu.tieba.pb.data.f etu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fy(ez ezVar, com.baidu.tieba.tbadkCore.data.p pVar, com.baidu.tieba.pb.data.f fVar) {
-        this.eqf = ezVar;
-        this.eqm = pVar;
-        this.eqn = fVar;
+    public fy(fa faVar, PostData postData, com.baidu.tieba.pb.data.f fVar) {
+        this.etn = faVar;
+        this.ett = postData;
+        this.etu = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c10630").ab("obj_id", this.eqm.getAuthor().getUserId()));
-        if (this.eqn.aJZ() != null && this.eqn.aJZ().rN() != null) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11923").s("obj_id", 3));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10630").Z("obj_id", this.ett.getAuthor().getUserId()));
+        if (this.etu.aJq() != null && this.etu.aJq().sh() != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11923").s("obj_id", 3));
         }
-        pbActivity = this.eqf.ehi;
-        if (pbActivity.ehW.eqy != null) {
-            pbActivity2 = this.eqf.ehi;
-            pbActivity2.ehW.eqy.onClick(view);
+        pbActivity = this.etn.eka;
+        if (pbActivity.ekN.etF != null) {
+            pbActivity2 = this.etn.eka;
+            pbActivity2.ekN.etF.onClick(view);
         }
     }
 }

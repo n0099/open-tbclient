@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.tbadk.editortools.y;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    private final /* synthetic */ y aul;
+    private final /* synthetic */ y azG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(y yVar) {
-        this.aul = yVar;
+        this.azG = yVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aul != null) {
-            this.aul.b(new com.baidu.tbadk.editortools.a(14, -1, true));
+        if (this.azG != null) {
+            this.azG.b(new com.baidu.tbadk.editortools.a(14, -1, true));
         }
     }
 }

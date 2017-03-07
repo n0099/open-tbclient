@@ -8,15 +8,15 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.play.c;
 import com.baidu.tieba.play.v;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements v.a {
-    final /* synthetic */ c eSu;
+    final /* synthetic */ c eWb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(c cVar) {
-        this.eSu = cVar;
+        this.eWb = cVar;
     }
 
     @Override // com.baidu.tieba.play.v.a
@@ -25,7 +25,7 @@ public class m implements v.a {
         ProgressBar progressBar;
         ProgressBar progressBar2;
         ProgressBar progressBar3;
-        c.InterfaceC0072c interfaceC0072c;
+        c.InterfaceC0071c interfaceC0071c;
         View view2;
         ImageView imageView;
         TextView textView;
@@ -40,66 +40,64 @@ public class m implements v.a {
         ImageView imageView2;
         TextView textView2;
         View view5;
-        c.InterfaceC0072c interfaceC0072c2;
-        this.eSu.dvu = false;
-        this.eSu.dvz = 0;
-        if (this.eSu.cFI) {
-            this.eSu.azm();
-        }
-        view = this.eSu.bQI;
+        c.InterfaceC0071c interfaceC0071c2;
+        this.eWb.dxS = false;
+        this.eWb.dxX = 0;
+        this.eWb.ayI();
+        view = this.eWb.bXQ;
         view.setVisibility(0);
-        progressBar = this.eSu.eSl;
+        progressBar = this.eWb.eVP;
         progressBar.setVisibility(8);
-        progressBar2 = this.eSu.eSl;
-        progressBar3 = this.eSu.eSl;
+        progressBar2 = this.eWb.eVP;
+        progressBar3 = this.eWb.eVP;
         progressBar2.setProgress(progressBar3.getMax());
-        interfaceC0072c = this.eSu.eSr;
-        if (interfaceC0072c != null) {
-            interfaceC0072c2 = this.eSu.eSr;
-            interfaceC0072c2.iZ(false);
+        interfaceC0071c = this.eWb.eVX;
+        if (interfaceC0071c != null) {
+            interfaceC0071c2 = this.eWb.eVX;
+            interfaceC0071c2.je(false);
         }
-        if (this.eSu.cFI) {
-            view4 = this.eSu.duX;
+        if (this.eWb.cHf) {
+            view4 = this.eWb.dxx;
             view4.setVisibility(0);
-            imageView2 = this.eSu.dvt;
+            imageView2 = this.eWb.dxR;
             imageView2.setVisibility(0);
-            textView2 = this.eSu.bQK;
+            textView2 = this.eWb.bXS;
             textView2.setVisibility(0);
-            view5 = this.eSu.eSm;
+            view5 = this.eWb.eVQ;
             view5.setVisibility(8);
         } else {
-            view2 = this.eSu.duX;
+            view2 = this.eWb.dxx;
             view2.setVisibility(8);
-            imageView = this.eSu.dvt;
+            imageView = this.eWb.dxR;
             imageView.setVisibility(8);
-            textView = this.eSu.bQK;
+            textView = this.eWb.bXS;
             textView.setVisibility(8);
-            view3 = this.eSu.eSm;
+            view3 = this.eWb.eVQ;
             view3.setVisibility(8);
         }
-        this.eSu.eSn.setVisibility(0);
-        str = this.eSu.etw;
+        this.eWb.eVR.setVisibility(0);
+        str = this.eWb.ewL;
         if (TextUtils.isEmpty(str)) {
-            this.eSu.eSo.setVisibility(8);
-            this.eSu.eSp.setVisibility(8);
+            this.eWb.eVS.setVisibility(8);
+            this.eWb.eVT.setVisibility(8);
         } else {
-            this.eSu.eSo.setVisibility(0);
-            this.eSu.eSp.setVisibility(0);
-            TextView textView3 = this.eSu.eSp;
-            tbPageContext = this.eSu.Fp;
-            StringBuilder sb = new StringBuilder(String.valueOf(tbPageContext.getString(r.l.video_play_nextvideo)));
-            str2 = this.eSu.etw;
+            this.eWb.eVS.setVisibility(0);
+            this.eWb.eVT.setVisibility(0);
+            TextView textView3 = this.eWb.eVT;
+            tbPageContext = this.eWb.aaI;
+            StringBuilder sb = new StringBuilder(String.valueOf(tbPageContext.getString(w.l.video_play_nextvideo)));
+            str2 = this.eWb.ewL;
             textView3.setText(sb.append(str2).toString());
         }
-        az aYy = az.aYy();
-        str3 = this.eSu.aOm;
-        aYy.remove(str3);
-        aVar = this.eSu.dvq;
+        az aYd = az.aYd();
+        str3 = this.eWb.aTZ;
+        aYd.remove(str3);
+        aVar = this.eWb.eVU;
         if (aVar != null) {
-            aVar2 = this.eSu.dvq;
+            aVar2 = this.eWb.eVU;
             aVar2.onCompletion(vVar);
         }
-        this.eSu.afl = 3;
-        this.eSu.aMY.setRecoveryState(3);
+        this.eWb.akD = 3;
+        this.eWb.aSL.setRecoveryState(3);
     }
 }

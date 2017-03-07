@@ -1,16 +1,69 @@
 package com.baidu.tbadk.game;
 
-import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GameWebViewActivityConfig;
+import com.baidu.adp.framework.listener.e;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class a extends m {
-    public static void b(Context context, String str, String str2, String str3) {
-        b.DF().ap(str3, str2);
-        e.DI().D(str3, 2);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameWebViewActivityConfig(context, str, str2, str3, true)));
+public class a {
+    private static a aBR = new a();
+    private GameInfoData aBS;
+    private final e aBT = new b(this, 303009);
+    private String mUrl;
+
+    private a() {
+        MessageManager.getInstance().registerListener(this.aBT);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new c(this));
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
+    }
+
+    public static a DY() {
+        return aBR;
+    }
+
+    private GameInfoData DZ() {
+        GameInfoData gameInfoData = new GameInfoData();
+        gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(w.l.default_share_to_game_title));
+        gameInfoData.setGameLink(this.mUrl);
+        gameInfoData.setGameId("default");
+        gameInfoData.setIconUrl("default");
+        gameInfoData.setIntroduce(TbadkApplication.getInst().getContext().getString(w.l.default_share_to_game_content));
+        return gameInfoData;
+    }
+
+    public GameInfoData Ea() {
+        return this.aBS == null ? DZ() : this.aBS;
+    }
+
+    public ShareFromGameCenterMsgData Eb() {
+        GameInfoData Ea = Ea();
+        ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
+        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? Ea.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
+        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? Ea.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
+        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? Ea.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
+        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? Ea.getGameName() : GameShareJsBridge.getInstance().getShareName());
+        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? Ea.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
+        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? Ea.getGameId() : GameShareJsBridge.getInstance().getGameId();
+        if ("default".equals(gameId)) {
+            shareFromGameCenterMsgData.setShareSourceUrl(gameId);
+        } else {
+            shareFromGameCenterMsgData.setShareSourceUrl("game:detail:TBCGameID=" + gameId);
+        }
+        String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
+        if (StringUtils.isNull(shareContentUrl)) {
+            shareContentUrl = Ea.getGameLink();
+        }
+        if (StringUtils.isNull(shareContentUrl, true)) {
+            shareContentUrl = "";
+        } else if (!shareContentUrl.contains("tbgametype")) {
+            shareContentUrl = shareContentUrl + "&tbgametype=1";
+        }
+        shareFromGameCenterMsgData.setShareUrl(shareContentUrl.toString());
+        return shareFromGameCenterMsgData;
     }
 }
