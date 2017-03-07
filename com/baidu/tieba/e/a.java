@@ -1,41 +1,73 @@
 package com.baidu.tieba.e;
 
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.sharedPref.b;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private static a bud;
-    private DateFormat bue = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private InterfaceC0056a aQW;
+    private float bCn;
+    private float bCo;
+    private Handler.Callback aQx = new b(this);
+    private Handler mHandler = new Handler(this.aQx);
 
-    public static synchronized a Tj() {
-        a aVar;
-        synchronized (a.class) {
-            if (bud == null) {
-                bud = new a();
-            }
-            aVar = bud;
-        }
-        return aVar;
+    /* renamed from: com.baidu.tieba.e.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0056a {
+        void V(int i, int i2);
+
+        void W(int i, int i2);
     }
 
-    public boolean Tk() {
-        try {
-            Date parse = this.bue.parse("2017-01-27 00:00:00");
-            Date parse2 = this.bue.parse("2017-01-29 23:59:59");
-            Date date = new Date(System.currentTimeMillis());
-            if (date.getTime() - parse.getTime() < 0 || parse2.getTime() - date.getTime() < 0) {
-                return false;
-            }
-            return new Date(b.tQ().getLong(GuildActivityConfig.CUSTOM_GUIDE_SHOWED_TIME, 0L)).getTime() - parse.getTime() < 0;
-        } catch (Exception e) {
-            return false;
+    public void a(InterfaceC0056a interfaceC0056a) {
+        this.aQW = interfaceC0056a;
+    }
+
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        switch (motionEvent.getAction()) {
+            case 0:
+                this.bCo = motionEvent.getRawY();
+                return true;
+            case 1:
+            default:
+                return true;
+            case 2:
+                float rawX = motionEvent.getRawX();
+                float rawY = motionEvent.getRawY();
+                int i = (int) (rawX - this.bCn);
+                int i2 = (int) (rawY - this.bCo);
+                if (this.aQW != null) {
+                    if (i2 > 0) {
+                        aa(i, i2);
+                    } else {
+                        ab(i, i2);
+                    }
+                }
+                this.bCn = rawX;
+                this.bCo = rawY;
+                return true;
         }
     }
 
-    public void Tl() {
-        b.tQ().putLong(GuildActivityConfig.CUSTOM_GUIDE_SHOWED_TIME, System.currentTimeMillis());
+    public void aa(int i, int i2) {
+        this.mHandler.removeMessages(1);
+        if (!this.mHandler.hasMessages(0)) {
+            Message message = new Message();
+            message.what = 0;
+            message.arg1 = i;
+            message.arg2 = i2;
+            this.mHandler.sendMessageDelayed(message, 60L);
+        }
+    }
+
+    public void ab(int i, int i2) {
+        this.mHandler.removeMessages(0);
+        if (!this.mHandler.hasMessages(1)) {
+            Message message = new Message();
+            message.what = 1;
+            message.arg1 = i;
+            message.arg2 = i2;
+            this.mHandler.sendMessageDelayed(message, 100L);
+        }
     }
 }

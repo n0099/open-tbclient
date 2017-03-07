@@ -15,23 +15,23 @@ public interface o<T> {
     /* loaded from: classes.dex */
     public static class c<T> {
         public String key;
-        public T lj;
-        public long mb;
-        public long mr;
+        public long tW;
+        public T te;
+        public long ul;
     }
 
     /* loaded from: classes.dex */
     public interface d<T> extends o<T> {
-        String dB();
+        String eK();
 
-        n<T> dC();
+        n<T> eL();
 
-        void dD();
+        void eM();
     }
 
-    c<T> T(String str);
+    c<T> S(String str);
 
-    void U(String str);
+    void T(String str);
 
     void a(String str, a<T> aVar);
 

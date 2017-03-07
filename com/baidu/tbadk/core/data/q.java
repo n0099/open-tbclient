@@ -1,41 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
+import tbclient.DeclareInfo;
 /* loaded from: classes.dex */
 public class q {
-    private String PG;
-    private int PH;
-    private ArrayList<s> PI = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+    public int UM;
+    public String UN;
+    public String UO;
+    public long UQ;
+    public boolean UR;
+    public int US;
 
-    public ArrayList<s> ps() {
-        return this.PI;
-    }
-
-    public void g(ArrayList<s> arrayList) {
-        this.PI = arrayList;
-    }
-
-    public String pt() {
-        return this.obj_id;
-    }
-
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
-            this.PH = activityHead.activity_type.intValue();
-            this.PG = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            for (HeadImgs headImgs : activityHead.head_imgs) {
-                s sVar = new s();
-                sVar.a(headImgs);
-                this.PI.add(sVar);
-            }
+    public void a(DeclareInfo declareInfo) {
+        if (declareInfo != null) {
+            this.UM = declareInfo.declare_id.intValue();
+            this.UN = declareInfo.declare_url;
+            this.UO = declareInfo.declare_text;
+            this.UR = declareInfo.is_declare.intValue() == 1;
+            this.UQ = declareInfo.declare_num.longValue();
+            this.UR = this.UQ > 0 ? this.UR : false;
         }
     }
 }

@@ -3,31 +3,31 @@ package com.baidu.tieba.frs.headvideo;
 import com.baidu.tieba.frs.f.u;
 /* loaded from: classes.dex */
 public class b {
-    private u bJd;
-    private boolean bQF = false;
-    private boolean bQG = false;
+    private u bQm;
+    private boolean bXN = false;
+    private boolean bXO = false;
 
-    public boolean abp() {
-        return this.bQF;
+    public boolean acm() {
+        return this.bXN;
     }
 
     public void ef(boolean z) {
-        this.bQF = z;
+        this.bXN = z;
     }
 
     public b(u uVar) {
-        this.bJd = uVar;
+        this.bQm = uVar;
     }
 
     public void eg(boolean z) {
-        ForumHeadVideoView adB;
-        this.bQG = z;
-        if (this.bQG && this.bJd != null && this.bJd.acU() != null && (adB = this.bJd.acU().adB()) != null) {
-            adB.stopPlay();
+        ForumHeadVideoView aeB;
+        this.bXO = z;
+        if (this.bXO && this.bQm != null && this.bQm.adU() != null && (aeB = this.bQm.adU().aeB()) != null) {
+            aeB.stopPlay();
         }
     }
 
-    public boolean abq() {
-        return this.bQG;
+    public boolean acn() {
+        return this.bXO;
     }
 }

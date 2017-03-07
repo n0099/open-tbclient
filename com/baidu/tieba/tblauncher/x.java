@@ -1,17 +1,23 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class x implements CustomMessageTask.CustomRunnable<Integer> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
-            return new NewMsgArriveResponsedMessage(((NewMsgArriveRequestMessage) customMessage).getData().intValue());
+class x implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
-        return null;
+        String str = strArr[0];
+        if (StringUtils.isNull(str) || !str.startsWith("tiebavr:") || TbadkCoreApplication.m9getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
+            return 3;
+        }
+        tbPageContext.showToast(w.l.vr_plugin_not_available);
+        return 1;
     }
 }

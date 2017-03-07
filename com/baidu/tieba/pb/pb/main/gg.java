@@ -4,29 +4,32 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tieba.pb.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class gg implements a.InterfaceC0068a {
-    final /* synthetic */ ez eqf;
+public class gg implements a.InterfaceC0067a {
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gg(ez ezVar) {
-        this.eqf = ezVar;
+    public gg(fa faVar) {
+        this.etn = faVar;
     }
 
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0068a
-    public void YW() {
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0067a
+    public void ZV() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        bdTypeListView = this.eqf.mListView;
+        com.baidu.tieba.pb.video.d dVar;
+        bdTypeListView = this.etn.mListView;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.eqf.mListView;
+            bdTypeListView2 = this.etn.mListView;
             bdTypeListView2.setSelection(0);
+            dVar = this.etn.eqF;
+            dVar.aPi();
         }
     }
 
-    @Override // com.baidu.tieba.pb.a.a.InterfaceC0068a
-    public void YV() {
+    @Override // com.baidu.tieba.pb.a.a.InterfaceC0067a
+    public void ZU() {
         PbActivity pbActivity;
-        pbActivity = this.eqf.ehi;
-        pbActivity.XV();
+        pbActivity = this.etn.eka;
+        pbActivity.YU();
     }
 }

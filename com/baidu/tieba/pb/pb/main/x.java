@@ -1,48 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class x implements a.b {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PbActivity pbActivity) {
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         PbModel pbModel;
-        ez ezVar;
-        ez ezVar2;
-        ez ezVar3;
+        fa faVar;
+        fa faVar2;
+        fa faVar3;
         PbModel pbModel2;
-        ez ezVar4;
-        this.eiV.XV();
-        pbModel = this.eiV.ehh;
-        com.baidu.tbadk.core.data.ao amN = pbModel.amN();
-        ezVar = this.eiV.ehV;
-        int pageNum = ezVar.getPageNum();
+        fa faVar4;
+        this.elO.YU();
+        pbModel = this.elO.ejZ;
+        com.baidu.tbadk.core.data.aq ama = pbModel.ama();
+        faVar = this.elO.ekM;
+        int pageNum = faVar.getPageNum();
         if (pageNum <= 0) {
-            this.eiV.showToast(r.l.pb_page_error);
-        } else if (amN == null || pageNum <= amN.qs()) {
-            ezVar2 = this.eiV.ehV;
-            ezVar2.axs();
-            this.eiV.or(2);
-            this.eiV.XU();
-            ezVar3 = this.eiV.ehV;
-            ezVar3.aNJ();
-            if (com.baidu.adp.lib.util.i.gk()) {
-                pbModel2 = this.eiV.ehh;
-                ezVar4 = this.eiV.ehV;
-                pbModel2.ov(ezVar4.getPageNum());
+            this.elO.showToast(w.l.pb_page_error);
+        } else if (ama == null || pageNum <= ama.qL()) {
+            faVar2 = this.elO.ekM;
+            faVar2.awO();
+            this.elO.of(2);
+            this.elO.YT();
+            faVar3 = this.elO.ekM;
+            faVar3.aNc();
+            if (com.baidu.adp.lib.util.i.he()) {
+                pbModel2 = this.elO.ejZ;
+                faVar4 = this.elO.ekM;
+                pbModel2.oj(faVar4.getPageNum());
             } else {
-                this.eiV.showToast(r.l.neterror);
+                this.elO.showToast(w.l.neterror);
             }
             aVar.dismiss();
         } else {
-            this.eiV.showToast(r.l.pb_page_error);
+            this.elO.showToast(w.l.pb_page_error);
         }
     }
 }

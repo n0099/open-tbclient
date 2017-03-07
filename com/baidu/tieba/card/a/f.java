@@ -3,15 +3,15 @@ package com.baidu.tieba.card.a;
 import com.baidu.tieba.play.QuickVideoView;
 /* loaded from: classes.dex */
 class f implements QuickVideoView.b {
-    final /* synthetic */ a bnT;
+    final /* synthetic */ a buP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.bnT = aVar;
+        this.buP = aVar;
     }
 
     @Override // com.baidu.tieba.play.QuickVideoView.b
     public void onSurfaceDestroyed() {
-        this.bnT.Kc();
+        this.buP.KH();
     }
 }

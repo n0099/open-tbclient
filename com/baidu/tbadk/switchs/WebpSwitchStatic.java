@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class WebpSwitchStatic extends a {
+public class WebpSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(WebpSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(WebpSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

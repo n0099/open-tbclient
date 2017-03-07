@@ -8,14 +8,20 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ c eSu;
+    final /* synthetic */ c eWb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar) {
-        this.eSu = cVar;
+        this.eWb = cVar;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0058, code lost:
+        if (r0 == 2) goto L13;
+     */
     @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void run() {
         Runnable runnable;
         View view;
@@ -23,55 +29,61 @@ public class l implements Runnable {
         View view3;
         View view4;
         TbImageView tbImageView;
+        int i;
         View view5;
         VideoListMediaControllerView videoListMediaControllerView;
-        v.d dVar;
-        v.d dVar2;
         View view6;
         View view7;
         ProgressBar progressBar;
-        c.InterfaceC0072c interfaceC0072c;
-        c.InterfaceC0072c interfaceC0072c2;
-        if (this.eSu.aMY.getCurrentPosition() > 100) {
-            this.eSu.dvu = true;
-            view = this.eSu.bQI;
+        c.InterfaceC0071c interfaceC0071c;
+        c.InterfaceC0071c interfaceC0071c2;
+        v.d dVar;
+        v.d dVar2;
+        int i2;
+        if (this.eWb.aSL.getCurrentPosition() > 100) {
+            this.eWb.dxS = true;
+            view = this.eWb.bXQ;
             view.setVisibility(8);
-            view2 = this.eSu.aNh;
+            view2 = this.eWb.aSU;
             view2.setVisibility(8);
-            view3 = this.eSu.bQO;
+            view3 = this.eWb.bXW;
             view3.setVisibility(8);
-            view4 = this.eSu.eSk;
+            view4 = this.eWb.eVO;
             view4.setVisibility(8);
-            tbImageView = this.eSu.bQJ;
+            tbImageView = this.eWb.bXR;
             tbImageView.setVisibility(8);
-            this.eSu.azC();
-            view5 = this.eSu.duX;
+            this.eWb.aza();
+            i = this.eWb.akD;
+            if (i != 1) {
+                i2 = this.eWb.akD;
+            }
+            view5 = this.eWb.dxx;
             if (view5 != null) {
-                view6 = this.eSu.duX;
+                view6 = this.eWb.dxx;
                 view6.setVisibility(0);
-                view7 = this.eSu.eSm;
+                view7 = this.eWb.eVQ;
                 view7.setVisibility(0);
-                progressBar = this.eSu.eSl;
+                progressBar = this.eWb.eVP;
                 progressBar.setVisibility(8);
-                interfaceC0072c = this.eSu.eSr;
-                if (interfaceC0072c != null) {
-                    interfaceC0072c2 = this.eSu.eSr;
-                    interfaceC0072c2.iZ(false);
+                interfaceC0071c = this.eWb.eVX;
+                if (interfaceC0071c != null) {
+                    interfaceC0071c2 = this.eWb.eVX;
+                    interfaceC0071c2.je(false);
                 }
             }
-            videoListMediaControllerView = this.eSu.dvh;
+            videoListMediaControllerView = this.eWb.dxH;
             videoListMediaControllerView.showProgress();
-            this.eSu.azD();
-            dVar = this.eSu.dvp;
+            this.eWb.azb();
+            dVar = this.eWb.dxP;
             if (dVar != null) {
-                dVar2 = this.eSu.dvp;
-                dVar2.onPrepared(this.eSu.aMY.getPlayer());
+                dVar2 = this.eWb.dxP;
+                dVar2.onPrepared(this.eWb.aSL.getPlayer());
                 return;
             }
             return;
         }
-        com.baidu.adp.lib.g.h eE = com.baidu.adp.lib.g.h.eE();
-        runnable = this.eSu.dvS;
-        eE.postDelayed(runnable, 20L);
+        com.baidu.adp.lib.g.h fM = com.baidu.adp.lib.g.h.fM();
+        runnable = this.eWb.dyq;
+        fM.postDelayed(runnable, 20L);
     }
 }

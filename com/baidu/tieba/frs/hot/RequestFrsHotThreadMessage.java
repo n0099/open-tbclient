@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.l;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.util.n;
 import tbclient.GetHotThread.DataReq;
 import tbclient.GetHotThread.GetHotThreadReqIdl;
@@ -23,11 +23,11 @@ public class RequestFrsHotThreadMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.scr_w = Integer.valueOf(k.I(TbadkCoreApplication.m9getInst()));
-        builder.scr_h = Integer.valueOf(k.J(TbadkCoreApplication.m9getInst()));
+        builder.scr_w = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
+        builder.scr_h = Integer.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density);
-        builder.q_type = Integer.valueOf(au.vg().vi() ? 2 : 1);
-        if (l.oC().oI()) {
+        builder.q_type = Integer.valueOf(av.vD().vF() ? 2 : 1);
+        if (l.oQ().oW()) {
             builder.rn = 35;
         } else {
             builder.rn = 50;

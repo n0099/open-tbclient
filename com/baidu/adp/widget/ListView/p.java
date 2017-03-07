@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class p implements AdapterView.OnItemSelectedListener {
-    final /* synthetic */ BdListView Br;
+    final /* synthetic */ BdListView IF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(BdListView bdListView) {
-        this.Br = bdListView;
+        this.IF = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
@@ -18,16 +18,16 @@ class p implements AdapterView.OnItemSelectedListener {
         e eVar2;
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        eVar = this.Br.mBdListAdpter;
+        eVar = this.IF.mBdListAdpter;
         int headersCount = eVar.getHeadersCount();
         if (i >= headersCount) {
             int i2 = i - headersCount;
-            eVar2 = this.Br.mBdListAdpter;
+            eVar2 = this.IF.mBdListAdpter;
             ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
             if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-                onItemSelectedListener = this.Br.mOnItemSelectedListener;
+                onItemSelectedListener = this.IF.mOnItemSelectedListener;
                 if (onItemSelectedListener != null) {
-                    onItemSelectedListener2 = this.Br.mOnItemSelectedListener;
+                    onItemSelectedListener2 = this.IF.mOnItemSelectedListener;
                     onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
                 }
             }
@@ -38,9 +38,9 @@ class p implements AdapterView.OnItemSelectedListener {
     public void onNothingSelected(AdapterView<?> adapterView) {
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        onItemSelectedListener = this.Br.mOnItemSelectedListener;
+        onItemSelectedListener = this.IF.mOnItemSelectedListener;
         if (onItemSelectedListener != null) {
-            onItemSelectedListener2 = this.Br.mOnItemSelectedListener;
+            onItemSelectedListener2 = this.IF.mOnItemSelectedListener;
             onItemSelectedListener2.onNothingSelected(adapterView);
         }
     }

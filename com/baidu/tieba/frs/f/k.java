@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.f;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class k implements a.b {
-    final /* synthetic */ i bVC;
+    final /* synthetic */ i ccU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.bVC = iVar;
+        this.ccU = iVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

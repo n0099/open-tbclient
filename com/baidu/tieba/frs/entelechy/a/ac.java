@@ -2,29 +2,29 @@ package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements com.baidu.adp.lib.e.c<TbImageView> {
-    final /* synthetic */ z bLR;
+    final /* synthetic */ z bSX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(z zVar) {
-        this.bLR = zVar;
+        this.bSX = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wz */
-    public TbImageView ex() {
+    /* renamed from: wW */
+    public TbImageView fF() {
         TbPageContext tbPageContext;
-        tbPageContext = this.bLR.FY;
+        tbPageContext = this.bSX.ajF;
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         tbImageView.setDrawBorder(true);
-        tbImageView.setBorderColor(ap.getColor(r.e.common_color_10043));
-        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(r.f.ds1));
+        tbImageView.setBorderColor(aq.getColor(w.e.common_color_10043));
+        tbImageView.setBorderWidth(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds1));
         return tbImageView;
     }
 

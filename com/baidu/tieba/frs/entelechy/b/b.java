@@ -17,9 +17,9 @@ public interface b {
 
     void a(boolean z, d dVar, u uVar, ax axVar, n nVar);
 
-    void ai(View view);
+    void ag(View view);
 
     View b(Context context, BdTypeListView bdTypeListView);
 
-    boolean ia(int i);
+    boolean hW(int i);
 }

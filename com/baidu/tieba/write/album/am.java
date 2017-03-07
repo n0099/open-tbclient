@@ -2,23 +2,23 @@ package com.baidu.tieba.write.album;
 
 import android.widget.TextView;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements ap {
-    final /* synthetic */ ag fIk;
-    private final /* synthetic */ String fIl;
+    final /* synthetic */ ag fME;
+    private final /* synthetic */ String fMF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ag agVar, String str) {
-        this.fIk = agVar;
-        this.fIl = str;
+        this.fME = agVar;
+        this.fMF = str;
     }
 
     @Override // com.baidu.tieba.write.album.ap
-    public void ko() {
+    public void li() {
     }
 
     @Override // com.baidu.tieba.write.album.ap
@@ -30,25 +30,25 @@ public class am implements ap {
         o oVar;
         o oVar2;
         ArrayList arrayList = new ArrayList();
-        if (!com.baidu.tbadk.core.util.w.s(list2)) {
+        if (!com.baidu.tbadk.core.util.x.q(list2)) {
             arrayList.addAll(list2);
         }
-        if (!this.fIl.equals("-1")) {
-            textView = this.fIk.Fj;
+        if (!this.fMF.equals("-1")) {
+            textView = this.fME.bIN;
             textView.setText(str);
-            this.fIk.bnt();
+            this.fME.bng();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
-            if (!com.baidu.tbadk.core.util.w.s(list)) {
+            if (!com.baidu.tbadk.core.util.x.q(list)) {
                 arrayList2.addAll(list);
             }
             d dVar = new d();
-            dVar.ru("-1");
-            albumActivity = this.fIk.fGS;
-            String string = albumActivity.getPageContext().getString(r.l.write_album_all);
+            dVar.qC("-1");
+            albumActivity = this.fME.fLm;
+            String string = albumActivity.getPageContext().getString(w.l.write_album_all);
             dVar.setName(string);
-            dVar.rv(String.valueOf(arrayList.size()));
+            dVar.qD(String.valueOf(arrayList.size()));
             if (arrayList.size() > 0) {
                 dVar.f((ImageFileInfo) arrayList.get(0));
             }
@@ -56,14 +56,14 @@ public class am implements ap {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.fIk.Fj;
+            textView2 = this.fME.bIN;
             textView2.setText(string);
-            oVar = this.fIk.fGE;
-            oVar.ds(arrayList2);
-            oVar2 = this.fIk.fGE;
-            oVar2.dt(arrayList);
+            oVar = this.fME.fKY;
+            oVar.cZ(arrayList2);
+            oVar2 = this.fME.fKY;
+            oVar2.da(arrayList);
             z = true;
         }
-        this.fIk.setData(arrayList, z);
+        this.fME.setData(arrayList, z);
     }
 }

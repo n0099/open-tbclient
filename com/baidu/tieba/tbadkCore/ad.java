@@ -1,30 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.tbadkCore.PraiseModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ WriteData foK;
-    private final /* synthetic */ String foL;
+public class ad extends HttpMessageListener {
+    final /* synthetic */ PraiseModel ftk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(WriteData writeData, String str) {
-        this.foK = writeData;
-        this.foL = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(PraiseModel praiseModel, int i) {
+        super(i);
+        this.ftk = praiseModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.adp.lib.cache.o<String> cB = com.baidu.tbadk.core.c.a.sR().cB("tb.pb_editor");
-        if (this.foK != null && this.foK.hasContentToSave()) {
-            cB.a(aa.qA(this.foL), this.foK.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
-            return null;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PraiseModel.a aVar;
+        PraiseModel.a aVar2;
+        PraiseModel.a aVar3;
+        PraiseModel.a aVar4;
+        PraiseModel.a aVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
+            int statusCode = httpResponsedMessage.getStatusCode();
+            if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
+                aVar = this.ftk.ftj;
+                if (aVar != null) {
+                    aVar2 = this.ftk.ftj;
+                    aVar2.w(statusCode, null);
+                    return;
+                }
+                return;
+            }
+            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
+            if (praiseResponseMessage.getError() == 0) {
+                aVar5 = this.ftk.ftj;
+                aVar5.hi(praiseResponseMessage.getErrMsg());
+                return;
+            }
+            aVar3 = this.ftk.ftj;
+            if (aVar3 != null) {
+                aVar4 = this.ftk.ftj;
+                aVar4.w(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+            }
         }
-        cB.remove(aa.qA(this.foL));
-        return null;
     }
 }

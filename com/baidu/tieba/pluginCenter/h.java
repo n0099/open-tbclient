@@ -4,16 +4,16 @@ import android.widget.TextView;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements a.b {
-    final /* synthetic */ PluginDetailActivity eTJ;
+    final /* synthetic */ PluginDetailActivity eXp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PluginDetailActivity pluginDetailActivity) {
-        this.eTJ = pluginDetailActivity;
+        this.eXp = pluginDetailActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -22,14 +22,14 @@ public class h implements a.b {
         TextView textView2;
         PluginNetConfigInfos.PluginConfig pluginConfig;
         com.baidu.adp.plugin.packageManager.e eVar;
-        textView = this.eTJ.eTH;
-        ap.c(textView, r.e.cp_cont_d, 1);
-        textView2 = this.eTJ.eTH;
+        textView = this.eXp.eXn;
+        aq.c(textView, w.e.cp_cont_d, 1);
+        textView2 = this.eXp.eXn;
         textView2.setEnabled(false);
-        PluginPackageManager iz = PluginPackageManager.iz();
-        pluginConfig = this.eTJ.eTI;
-        eVar = this.eTJ.xz;
-        iz.a(pluginConfig, eVar);
+        PluginPackageManager jt = PluginPackageManager.jt();
+        pluginConfig = this.eXp.eXo;
+        eVar = this.eXp.EN;
+        jt.a(pluginConfig, eVar);
         aVar.dismiss();
     }
 }

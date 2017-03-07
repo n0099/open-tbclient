@@ -18,26 +18,26 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int gr = 0;
+    private static int oj = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
         try {
             Class<?> cls = obj.getClass();
             if (str == null || str.equals("")) {
-                stringBuffer.append(String.valueOf(bd()) + cls.getSimpleName() + " = {\n");
+                stringBuffer.append(String.valueOf(cm()) + cls.getSimpleName() + " = {\n");
             } else {
                 stringBuffer.append(String.valueOf(str) + " = {\n");
             }
             while (cls != null && j(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    gr++;
+                    oj++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    gr--;
+                    oj--;
                 }
                 cls = cls.getSuperclass();
             }
-            stringBuffer.append(String.valueOf(bd()) + "}\n");
+            stringBuffer.append(String.valueOf(cm()) + "}\n");
         } catch (IllegalAccessException e) {
             stringBuffer.append(e.toString());
         }
@@ -57,14 +57,14 @@ public class b {
         for (int i = 0; i < fieldArr.length; i++) {
             fieldArr[i].setAccessible(true);
             if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                stringBuffer.append(c(String.valueOf(bd()) + fieldArr[i].getName(), fieldArr[i].get(obj), list));
+                stringBuffer.append(c(String.valueOf(cm()) + fieldArr[i].getName(), fieldArr[i].get(obj), list));
             }
         }
     }
 
-    private static String bd() {
+    private static String cm() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < gr; i++) {
+        for (int i = 0; i < oj; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -231,7 +231,7 @@ public class b {
 
     public static void i(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.gD) {
+        if (d.oy) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(h("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

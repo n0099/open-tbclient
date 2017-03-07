@@ -1,17 +1,16 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.tieba.tbadkCore.b.a;
 /* loaded from: classes.dex */
-class fb implements View.OnLongClickListener {
-    final /* synthetic */ ez eqf;
+class fb implements a.InterfaceC0073a {
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fb(ez ezVar) {
-        this.eqf = ezVar;
+    public fb(fa faVar) {
+        this.etn = faVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        return false;
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0073a
+    public void kZ() {
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class ac extends CustomMessageListener {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(PbActivity pbActivity, int i) {
         super(i);
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,87 +23,87 @@ class ac extends CustomMessageListener {
         boolean z;
         PbModel pbModel;
         int i;
-        ez ezVar;
+        fa faVar;
         PbModel pbModel2;
         PbModel pbModel3;
         PbModel pbModel4;
         boolean z2;
-        ez ezVar2;
-        ez ezVar3;
-        ez ezVar4;
+        fa faVar2;
+        fa faVar3;
+        fa faVar4;
         PbModel pbModel5;
-        String aLg;
+        String aKB;
         boolean z3;
         PbModel pbModel6;
         PbModel pbModel7;
-        ez ezVar5;
-        ez ezVar6;
+        fa faVar5;
+        fa faVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.b.a)) {
             com.baidu.tieba.pb.b.a aVar = (com.baidu.tieba.pb.b.a) customResponsedMessage.getData();
-            if (aVar.tag == this.eiV.getUniqueId()) {
-                switch (aVar.esX) {
+            if (aVar.tag == this.elO.getUniqueId()) {
+                switch (aVar.ewl) {
                     case 0:
-                        z3 = this.eiV.mIsLogin;
+                        z3 = this.elO.mIsLogin;
                         if (z3) {
-                            pbModel6 = this.eiV.ehh;
-                            if (!pbModel6.iu(false)) {
-                                pbModel7 = this.eiV.ehh;
+                            pbModel6 = this.elO.ejZ;
+                            if (!pbModel6.ip(false)) {
+                                pbModel7 = this.elO.ejZ;
                                 if (pbModel7.getPbData() != null) {
-                                    ezVar5 = this.eiV.ehV;
-                                    ezVar5.aNY();
+                                    faVar5 = this.elO.ekM;
+                                    faVar5.aNs();
                                     return;
                                 }
                                 return;
                             }
-                            ezVar6 = this.eiV.ehV;
-                            ezVar6.aNK();
+                            faVar6 = this.elO.ekM;
+                            faVar6.aNd();
                             return;
                         }
                         return;
                     case 1:
-                        z2 = this.eiV.mIsLoading;
+                        z2 = this.elO.mIsLoading;
                         if (!z2) {
-                            this.eiV.mIsLoading = true;
-                            ezVar2 = this.eiV.ehV;
-                            ezVar2.enK.eqS.setEnabled(false);
-                            ezVar3 = this.eiV.ehV;
-                            ezVar3.ase();
-                            this.eiV.XU();
-                            ezVar4 = this.eiV.ehV;
-                            ezVar4.aNJ();
-                            pbModel5 = this.eiV.ehh;
-                            aLg = this.eiV.aLg();
-                            pbModel5.on(aLg);
+                            this.elO.mIsLoading = true;
+                            faVar2 = this.elO.ekM;
+                            faVar2.eqM.eud.setEnabled(false);
+                            faVar3 = this.elO.ekM;
+                            faVar3.arz();
+                            this.elO.YT();
+                            faVar4 = this.elO.ekM;
+                            faVar4.aNc();
+                            pbModel5 = this.elO.ejZ;
+                            aKB = this.elO.aKB();
+                            pbModel5.nu(aKB);
                             return;
                         }
                         return;
                     case 2:
-                        z = this.eiV.ehC;
+                        z = this.elO.eku;
                         if (z) {
-                            pbModel2 = this.eiV.ehh;
+                            pbModel2 = this.elO.ejZ;
                             boolean hostMode = pbModel2.getHostMode();
-                            pbModel3 = this.eiV.ehh;
-                            boolean aLY = pbModel3.aLY();
-                            pbModel4 = this.eiV.ehh;
+                            pbModel3 = this.elO.ejZ;
+                            boolean aLu = pbModel3.aLu();
+                            pbModel4 = this.elO.ejZ;
                             String threadID = pbModel4.getThreadID();
                             String str = aVar.postId;
-                            int i2 = aVar.esY;
-                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.eiV.getPageContext().getPageActivity());
-                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, aLY, null);
+                            int i2 = aVar.ewm;
+                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.elO.getPageContext().getPageActivity());
+                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, aLu, null);
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-                            this.eiV.eib = false;
-                            this.eiV.finish();
+                            this.elO.ekS = false;
+                            this.elO.finish();
                             return;
                         }
-                        int i3 = aVar.esY;
-                        pbModel = this.eiV.ehh;
+                        int i3 = aVar.ewm;
+                        pbModel = this.elO.ejZ;
                         if (pbModel.getHostMode()) {
                             i = i3 + 3;
                         } else {
                             i = i3 + 2;
                         }
-                        ezVar = this.eiV.ehV;
-                        ezVar.getListView().setSelection(i);
+                        faVar = this.elO.ekM;
+                        faVar.getListView().setSelection(i);
                         return;
                     default:
                         return;

@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ci implements Animation.AnimationListener {
-    final /* synthetic */ ce bJh;
+    final /* synthetic */ ce bQq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ci(ce ceVar) {
-        this.bJh = ceVar;
+        this.bQq = ceVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,13 +25,13 @@ public class ci implements Animation.AnimationListener {
         ViewGroup viewGroup;
         ViewGroup viewGroup2;
         ViewGroup viewGroup3;
-        viewGroup = this.bJh.bJb;
+        viewGroup = this.bQq.bQk;
         if (viewGroup != null) {
-            viewGroup2 = this.bJh.bJb;
+            viewGroup2 = this.bQq.bQk;
             viewGroup2.clearAnimation();
-            viewGroup3 = this.bJh.bJb;
+            viewGroup3 = this.bQq.bQk;
             viewGroup3.setVisibility(0);
-            this.bJh.dl(false);
+            this.bQq.dl(false);
         }
     }
 }

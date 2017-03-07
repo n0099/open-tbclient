@@ -16,13 +16,13 @@ public interface d {
 
     void a(cb cbVar);
 
-    TabData aaf();
+    TabData abc();
 
-    View aag();
+    View abd();
 
-    View aah();
+    View abe();
 
-    void aj(View view);
+    void ah(View view);
 
     void b(BdListView bdListView);
 

@@ -5,11 +5,11 @@ import java.util.Comparator;
 import java.util.Map;
 /* loaded from: classes.dex */
 class b implements Comparator<Map.Entry<String, Integer>> {
-    final /* synthetic */ a.b aqC;
+    final /* synthetic */ a.b avX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a.b bVar) {
-        this.aqC = bVar;
+        this.avX = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

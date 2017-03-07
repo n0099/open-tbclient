@@ -12,6 +12,6 @@ class h implements AudioManager.OnAudioFocusChangeListener {
 
     @Override // android.media.AudioManager.OnAudioFocusChangeListener
     public void onAudioFocusChange(int i) {
-        this.this$0.bL.k(i);
+        this.this$0.jw.k(i);
     }
 }

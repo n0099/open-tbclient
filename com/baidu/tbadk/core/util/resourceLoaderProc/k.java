@@ -31,18 +31,18 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vI() {
+    public boolean wf() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vJ() {
+    public boolean wg() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.lib.Disk.ops.c dQ(String str) {
+    public com.baidu.adp.lib.Disk.ops.c dK(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -56,7 +56,7 @@ public class k extends a {
         cVar.k(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
-            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.cV());
+            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.ee());
         }
         return null;
     }
@@ -78,7 +78,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public int vK() {
+    public int wh() {
         return this.procType;
     }
 }

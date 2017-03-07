@@ -7,39 +7,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a wX;
-    private c wY;
-    private ArrayList<b> wZ = new ArrayList<>();
-    private C0010a xa;
+    private static a El;
+    private c Em;
+    private ArrayList<b> En = new ArrayList<>();
+    private C0009a Eo;
 
     /* loaded from: classes.dex */
     public interface c {
-        void E(String str, String str2);
+        void C(String str, String str2);
     }
 
     private a() {
     }
 
-    public static a is() {
-        if (wX == null) {
+    public static a jm() {
+        if (El == null) {
             synchronized (a.class) {
-                if (wX == null) {
-                    wX = new a();
+                if (El == null) {
+                    El = new a();
                 }
             }
         }
-        return wX;
+        return El;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.wY = cVar;
+            this.Em = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.wZ.iterator();
+                    Iterator<b> it2 = this.En.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -50,30 +50,30 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.wZ.add(next);
+                        this.En.add(next);
                     }
                 }
             }
-            it();
+            jn();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void it() {
-        if (this.wZ.size() != 0 && this.xa == null) {
-            this.xa = new C0010a(this.wZ.get(0));
-            this.xa.execute(new String[0]);
+    public void jn() {
+        if (this.En.size() != 0 && this.Eo == null) {
+            this.Eo = new C0009a(this.En.get(0));
+            this.Eo.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0010a extends BdAsyncTask<String, Integer, Boolean> {
-        private b xb;
+    public class C0009a extends BdAsyncTask<String, Integer, Boolean> {
+        private b Ep;
 
-        public C0010a(b bVar) {
-            this.xb = bVar;
+        public C0009a(b bVar) {
+            this.Ep = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            if (this.xb != null) {
-                return Boolean.valueOf(bh(this.xb.apkPath));
+            if (this.Ep != null) {
+                return Boolean.valueOf(bb(this.Ep.apkPath));
             }
             return false;
         }
@@ -93,35 +93,35 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            a.this.xa = null;
-            if (a.this.wZ.size() > 0) {
-                Iterator it = a.this.wZ.iterator();
+            a.this.Eo = null;
+            if (a.this.En.size() > 0) {
+                Iterator it = a.this.En.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.xb, bVar)) {
-                        a.this.wZ.remove(bVar);
+                    if (a.this.a(this.Ep, bVar)) {
+                        a.this.En.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.wY != null) {
-                a.this.wY.E(this.xb.packageName, this.xb.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.Em != null) {
+                a.this.Em.C(this.Ep.packageName, this.Ep.apkPath);
             }
-            a.this.it();
+            a.this.jn();
         }
 
-        private boolean bh(String str) {
+        private boolean bb(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             try {
                 com.baidu.adp.lib.util.e.h(new File(str));
-                com.baidu.adp.plugin.b.a.im().e("plugin_del_unuse", "delete_unuse", str, null);
+                com.baidu.adp.plugin.b.a.jg().e("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.im().e("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.jg().e("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
             }
             int length = str.length();
             if (length >= 4) {
@@ -129,9 +129,9 @@ public class a {
                 if (file.exists() && file.isDirectory()) {
                     try {
                         com.baidu.adp.lib.util.e.h(file);
-                        com.baidu.adp.plugin.b.a.im().e("plugin_del_unuse", "delete_unuse", str, null);
+                        com.baidu.adp.plugin.b.a.jg().e("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
-                        com.baidu.adp.plugin.b.a.im().e("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
+                        com.baidu.adp.plugin.b.a.jg().e("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
                     }
                 }
                 return true;

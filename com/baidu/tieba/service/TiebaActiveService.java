@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.l;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.z;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -26,21 +26,21 @@ public class TiebaActiveService extends BdBaseService {
     private Runnable mRunnable = new f(this);
 
     private String getChannelByShare() {
-        return com.baidu.tbadk.core.sharedPref.b.tQ().getString("channel_id", null);
+        return com.baidu.tbadk.core.sharedPref.b.uo().getString("channel_id", null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.tQ().putString("channel_id", str);
+            com.baidu.tbadk.core.sharedPref.b.uo().putString("channel_id", str);
         }
     }
 
     private String getChannelyFile() {
         String str = null;
         try {
-            File cX = l.cX(TbConfig.CHANNEL_FILE);
-            if (cX != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(cX));
+            File cQ = l.cQ(TbConfig.CHANNEL_FILE);
+            if (cQ != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(cQ));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -56,9 +56,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File db = l.db(TbConfig.CHANNEL_FILE);
-                if (db != null) {
-                    FileWriter fileWriter = new FileWriter(db);
+                File cU = l.cU(TbConfig.CHANNEL_FILE);
+                if (cU != null) {
+                    FileWriter fileWriter = new FileWriter(cU);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -101,7 +101,7 @@ public class TiebaActiveService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && com.baidu.tbadk.core.sharedPref.b.tQ().getInt("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.uo().getInt("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();
@@ -130,10 +130,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        y faK;
+        z ffg;
 
         private a() {
-            this.faK = null;
+            this.ffg = null;
         }
 
         /* synthetic */ a(TiebaActiveService tiebaActiveService, a aVar) {
@@ -145,22 +145,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String ud;
+            String uB;
             try {
-                this.faK = new y("http://114.113.149.3:8086/partnersService");
-                this.faK.n("apk", TbadkCoreApplication.m9getInst().getApp().getPackageName());
-                this.faK.n("imei", TbadkCoreApplication.m9getInst().getImei());
-                this.faK.n("model", Build.MODEL);
-                this.faK.n("edition", TbConfig.getVersion());
-                this.faK.n("system", Build.VERSION.SDK);
-                this.faK.uC().vv().vy().mIsBaiduServer = false;
-                ud = this.faK.ud();
+                this.ffg = new z("http://114.113.149.3:8086/partnersService");
+                this.ffg.n("apk", TbadkCoreApplication.m9getInst().getApp().getPackageName());
+                this.ffg.n("imei", TbadkCoreApplication.m9getInst().getImei());
+                this.ffg.n("model", Build.MODEL);
+                this.ffg.n("edition", TbConfig.getVersion());
+                this.ffg.n("system", Build.VERSION.SDK);
+                this.ffg.uZ().vS().vV().mIsBaiduServer = false;
+                uB = this.ffg.uB();
             } catch (Exception e) {
-                com.baidu.tbadk.core.sharedPref.b.tQ().putInt("active", 1);
+                com.baidu.tbadk.core.sharedPref.b.uo().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.faK.uF()) {
-                return ud;
+            if (this.ffg.vc()) {
+                return uB;
             }
             return null;
         }
@@ -168,8 +168,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.faK != null) {
-                this.faK.ee();
+            if (this.ffg != null) {
+                this.ffg.fm();
             }
             super.cancel(true);
         }
@@ -186,11 +186,11 @@ public class TiebaActiveService extends BdBaseService {
                     TiebaActiveService.this.mHandler.removeCallbacks(TiebaActiveService.this.mRunnable);
                     TiebaActiveService.this.mHandler.postDelayed(TiebaActiveService.this.mRunnable, TbConfig.USE_TIME_INTERVAL);
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.tQ().putInt("active", 1);
+                    com.baidu.tbadk.core.sharedPref.b.uo().putInt("active", 1);
                     TiebaActiveService.this.stopSelf();
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.tQ().putInt("active", 2);
+            com.baidu.tbadk.core.sharedPref.b.uo().putInt("active", 2);
             TiebaActiveService.this.stopSelf();
         }
     }

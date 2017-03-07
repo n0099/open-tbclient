@@ -1,7 +1,7 @@
 package com.baidu.tbadk;
 
 import android.app.Activity;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ActivityPendingTransitionFactory {
     public static final int TYPE_BIG_IMAGE = 2;
@@ -10,14 +10,14 @@ public class ActivityPendingTransitionFactory {
     public static final int TYPE_NORMAL = 1;
     public static final int TYPE_NO_ANIMATION = 0;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;
-    public static int RES_NFADE_IN = r.a.fade_in;
-    public static int RES_FADE_OUT = r.a.fade_out;
-    public static int RES_NORMAL_IN_FROM_RIGHT = r.a.in_from_right;
-    public static int RES_NORMAL_IN_FROM_BOTTOM = r.a.in_from_bottom;
-    public static int RES_NORMAL_OUT_TO_RIGHT = r.a.out_to_right;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = r.a.out_to_bottom;
-    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = r.a.big_imageview_in;
-    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = r.a.big_imageview_out;
+    public static int RES_NFADE_IN = w.a.fade_in;
+    public static int RES_FADE_OUT = w.a.fade_out;
+    public static int RES_NORMAL_IN_FROM_RIGHT = w.a.in_from_right;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = w.a.in_from_bottom;
+    public static int RES_NORMAL_OUT_TO_RIGHT = w.a.out_to_right;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = w.a.out_to_bottom;
+    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = w.a.big_imageview_in;
+    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = w.a.big_imageview_out;
     public static int RES_CUSTOM_FADE_IN = 0;
     public static int RES_CUSTOM_FADE_OUT = 0;
     public static int RES_CUSTOM_IN_FROM_RIGHT = 0;

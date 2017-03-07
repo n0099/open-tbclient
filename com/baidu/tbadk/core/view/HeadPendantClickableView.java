@@ -7,98 +7,98 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tbadk.core.data.bo;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class HeadPendantClickableView extends HeadPendantView {
-    private bh acX;
-    private View.OnClickListener acY;
-    private int acZ;
-    private final int ada;
-    public boolean adb;
-    public boolean adc;
-    private int ade;
-    private Drawable adf;
+    private bj ain;
+    private View.OnClickListener aio;
+    private int aip;
+    private final int aiq;
+    public boolean air;
+    public boolean ais;
+    private int ait;
+    private Drawable aiu;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
     public HeadPendantClickableView(Context context) {
         super(context);
-        this.acZ = 0;
-        this.adb = false;
-        this.adc = false;
-        this.ade = 0;
-        this.adf = null;
+        this.aip = 0;
+        this.air = false;
+        this.ais = false;
+        this.ait = 0;
+        this.aiu = null;
         this.mOnClickListener = new d(this);
         this.mContext = context;
-        this.ada = com.baidu.adp.lib.util.k.e(context, r.f.ds6);
+        this.aiq = com.baidu.adp.lib.util.k.g(context, w.f.ds6);
         setOnClickListener(this.mOnClickListener);
     }
 
     public HeadPendantClickableView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.acZ = 0;
-        this.adb = false;
-        this.adc = false;
-        this.ade = 0;
-        this.adf = null;
+        this.aip = 0;
+        this.air = false;
+        this.ais = false;
+        this.ait = 0;
+        this.aiu = null;
         this.mOnClickListener = new d(this);
         this.mContext = context;
-        this.ada = com.baidu.adp.lib.util.k.e(context, r.f.ds6);
+        this.aiq = com.baidu.adp.lib.util.k.g(context, w.f.ds6);
         setOnClickListener(this.mOnClickListener);
     }
 
-    public void setData(bh bhVar) {
-        if (bhVar != null && bhVar.getAuthor() != null) {
-            this.acX = bhVar;
-            setContentDescription(String.valueOf(bhVar.getAuthor().getName_show()) + this.mContext.getString(r.l.somebodys_portrait));
-            bo sz = bhVar.sz();
-            if (sz != null && sz.channelId > 0) {
-                getHeadView().c(sz.channelAvatar, 10, false);
+    public void setData(bj bjVar) {
+        if (bjVar != null && bjVar.getAuthor() != null) {
+            this.ain = bjVar;
+            setContentDescription(String.valueOf(bjVar.getAuthor().getName_show()) + this.mContext.getString(w.l.somebodys_portrait));
+            bq sU = bjVar.sU();
+            if (sU != null && sU.channelId > 0) {
+                getHeadView().c(sU.channelAvatar, 10, false);
             } else {
-                getHeadView().c(bhVar.getAuthor().getPortrait(), 28, false);
+                getHeadView().c(bjVar.getAuthor().getPortrait(), 28, false);
             }
-            com.baidu.tbadk.data.j pendantData = bhVar.getAuthor().getPendantData();
-            if (sz != null && sz.channelId > 0) {
-                dU(null);
+            com.baidu.tbadk.data.j pendantData = bjVar.getAuthor().getPendantData();
+            if (sU != null && sU.channelId > 0) {
+                dO(null);
             } else if (pendantData != null) {
-                dU(bhVar.getAuthor().getPendantData().pL());
+                dO(bjVar.getAuthor().getPendantData().qd());
             } else {
-                dU(null);
+                dO(null);
             }
         }
     }
 
     public void setData(MetaData metaData) {
         if (metaData != null) {
-            bh bhVar = new bh();
-            bhVar.setAuthor(metaData);
-            setData(bhVar);
+            bj bjVar = new bj();
+            bjVar.setAuthor(metaData);
+            setData(bjVar);
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.acY = onClickListener;
+        this.aio = onClickListener;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.ade != 0) {
+            if (this.ait != 0) {
                 Paint paint = new Paint();
-                paint.setColor(this.ade);
+                paint.setColor(this.ait);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            if (this.adb && !this.adc && !vR()) {
-                Drawable drawable = this.adf == null ? com.baidu.tbadk.core.util.ap.getDrawable(r.g.pic_home_shen_avatar) : this.adf;
+            if (this.air && !this.ais && !wo()) {
+                Drawable drawable = this.aiu == null ? com.baidu.tbadk.core.util.aq.getDrawable(w.g.pic_home_shen_avatar) : this.aiu;
                 if (drawable != null) {
-                    int e = com.baidu.adp.lib.util.k.e(this.mContext, r.f.ds30);
+                    int g = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds30);
                     int width = getWidth();
                     int height = getHeight();
-                    if (this.adb) {
-                        drawable.setBounds((width - e) - this.acZ, (height - e) - this.acZ, width - this.acZ, height - this.acZ);
+                    if (this.air) {
+                        drawable.setBounds((width - g) - this.aip, (height - g) - this.aip, width - this.aip, height - this.aip);
                     }
                     drawable.draw(canvas);
                 }
@@ -107,16 +107,16 @@ public class HeadPendantClickableView extends HeadPendantView {
     }
 
     public void setGodIconMargin(int i) {
-        this.adb = true;
+        this.air = true;
         getHeadView().setDefaultResource(17170445);
-        getHeadView().setDefaultErrorResource(r.g.icon_default_avatar100);
-        getHeadView().setDefaultBgResource(r.e.cp_bg_line_e);
+        getHeadView().setDefaultErrorResource(w.g.icon_default_avatar100);
+        getHeadView().setDefaultBgResource(w.e.cp_bg_line_e);
         getHeadView().setIsRound(true);
         if (i > 0) {
-            this.acZ = com.baidu.adp.lib.util.k.e(this.mContext, i);
+            this.aip = com.baidu.adp.lib.util.k.g(this.mContext, i);
         }
         if (i < 0) {
-            this.adb = false;
+            this.air = false;
         }
         invalidate();
     }
@@ -126,24 +126,24 @@ public class HeadPendantClickableView extends HeadPendantView {
             setGodIconMargin(0);
             return;
         }
-        this.adb = false;
+        this.air = false;
         getHeadView().setDefaultResource(17170445);
-        getHeadView().setDefaultErrorResource(r.g.icon_default_avatar100);
-        getHeadView().setDefaultBgResource(r.e.cp_bg_line_e);
+        getHeadView().setDefaultErrorResource(w.g.icon_default_avatar100);
+        getHeadView().setDefaultBgResource(w.e.cp_bg_line_e);
         getHeadView().setIsRound(true);
-        this.acZ = 0;
+        this.aip = 0;
         invalidate();
     }
 
     public void setMaskColor(int i) {
-        this.ade = i;
+        this.ait = i;
     }
 
     public void setCustomGodIcon(Drawable drawable) {
-        this.adf = drawable;
+        this.aiu = drawable;
     }
 
     public void setIsBigV(boolean z) {
-        this.adc = z;
+        this.ais = z;
     }
 }

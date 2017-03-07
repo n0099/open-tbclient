@@ -1,40 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
+import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class x extends bh {
-    public static final BdUniqueId foC = BdUniqueId.gen();
-    private boolean foD;
-    private o foE;
-    private String fortune_desc;
+public class x implements View.OnTouchListener {
+    private a ftb;
+    private int count = 0;
+    private long eiw = 0;
+    private long eix = 0;
+    private long eiz = 500;
+    private Handler mHandler = new y(this);
 
-    public boolean bhb() {
-        return this.foD;
+    /* loaded from: classes.dex */
+    public interface a {
+        void ZU();
+
+        void ZV();
     }
 
-    public void lf(boolean z) {
-        this.foD = z;
+    public x(a aVar) {
+        this.ftb = aVar;
     }
 
-    public String bhc() {
-        return this.fortune_desc;
-    }
-
-    public void qz(String str) {
-        this.fortune_desc = str;
-    }
-
-    public o bhd() {
-        return this.foE;
-    }
-
-    public void b(o oVar) {
-        this.foE = oVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.bh, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return foC;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            if (this.ftb == null) {
+                return false;
+            }
+            this.count++;
+            if (this.count == 1) {
+                this.eiw = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.eiz);
+                return true;
+            } else if (this.count == 2) {
+                this.eix = System.currentTimeMillis();
+                if (this.eix - this.eiw < this.eiz) {
+                    this.ftb.ZV();
+                }
+                this.mHandler.sendEmptyMessage(2);
+                return true;
+            } else {
+                return true;
+            }
+        }
+        return true;
     }
 }

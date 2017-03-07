@@ -104,9 +104,9 @@ public class SocialOAuthDialog extends Dialog implements View.OnClickListener {
         this.d = str2;
         this.e = iBaiduListener;
         this.f = SocialConfig.getInstance(context);
-        setContentView(p.g(getContext(), "bdsocialshare_socialoauthdialoglayout"));
+        setContentView(p.a(getContext(), "bdsocialshare_socialoauthdialoglayout"));
         this.h = new WebView(context);
-        ((LinearLayout) findViewById(p.j(getContext(), "socialoauthdialog_rootlayout"))).addView(this.h, new ViewGroup.LayoutParams(-1, -1));
+        ((LinearLayout) findViewById(p.d(getContext(), "socialoauthdialog_rootlayout"))).addView(this.h, new ViewGroup.LayoutParams(-1, -1));
         if (this.f.getInt(b) == 1) {
             if (com.baidu.cloudsdk.Build.DEBUG) {
                 Log.d("SocialOAuthActivity", "resumeTimers");
@@ -127,21 +127,21 @@ public class SocialOAuthDialog extends Dialog implements View.OnClickListener {
     }
 
     private void a(Context context) {
-        this.i = p.j(getContext(), "socialoauthdialog_button_back");
-        this.j = p.j(getContext(), "socialoauthdialog_button_refresh");
-        ((RelativeLayout) findViewById(p.j(getContext(), "socialoauthdialog_titlebar"))).setBackgroundResource(p.h(getContext(), "bdsocialshare_titlebar_bg"));
-        int h = p.h(getContext(), "bdsocialshare_sharedialog_button");
+        this.i = p.d(getContext(), "socialoauthdialog_button_back");
+        this.j = p.d(getContext(), "socialoauthdialog_button_refresh");
+        ((RelativeLayout) findViewById(p.d(getContext(), "socialoauthdialog_titlebar"))).setBackgroundResource(p.b(getContext(), "bdsocialshare_titlebar_bg"));
+        int b2 = p.b(getContext(), "bdsocialshare_sharedialog_button");
         Button button = (Button) findViewById(this.i);
         button.setText(this.f.getString("back"));
         button.setTextColor(Color.parseColor(p.e(getContext())));
-        button.setBackgroundResource(h);
+        button.setBackgroundResource(b2);
         Button button2 = (Button) findViewById(this.j);
         button2.setText(this.f.getString("refresh"));
         button2.setTextColor(Color.parseColor(p.e(getContext())));
-        button2.setBackgroundResource(h);
+        button2.setBackgroundResource(b2);
         button.setOnClickListener(this);
         button2.setOnClickListener(this);
-        TextView textView = (TextView) findViewById(p.j(getContext(), "socialoauthdialog_textview_title"));
+        TextView textView = (TextView) findViewById(p.d(getContext(), "socialoauthdialog_textview_title"));
         textView.setTextColor(Color.parseColor(p.f(getContext())));
         textView.setText(this.f.getString("auth_dialog_title"));
     }

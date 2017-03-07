@@ -5,61 +5,61 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class gp extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService eqq;
+    final /* synthetic */ ReaderPbService etx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gp(ReaderPbService readerPbService, int i) {
         super(i);
-        this.eqq = readerPbService;
+        this.etx = readerPbService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ei eiVar;
-        ei eiVar2;
-        ei eiVar3;
-        ei eiVar4;
-        ei eiVar5;
-        ei eiVar6;
+        ej ejVar;
+        ej ejVar2;
+        ej ejVar3;
+        ej ejVar4;
+        ej ejVar5;
+        ej ejVar6;
         BdUniqueId bdUniqueId;
-        el elVar;
+        em emVar;
         BdUniqueId bdUniqueId2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof eh)) {
-            eh ehVar = (eh) customResponsedMessage.getData();
-            BdUniqueId bdUniqueId3 = ehVar.tag;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ei)) {
+            ei eiVar = (ei) customResponsedMessage.getData();
+            BdUniqueId bdUniqueId3 = eiVar.tag;
             if (bdUniqueId3 != null) {
-                bdUniqueId = this.eqq.mTagId;
+                bdUniqueId = this.etx.mTagId;
                 if (bdUniqueId.getId() != bdUniqueId3.getId()) {
-                    this.eqq.mTagId = bdUniqueId3;
-                    elVar = this.eqq.mReaderModel;
-                    bdUniqueId2 = this.eqq.mTagId;
-                    elVar.q(bdUniqueId2);
+                    this.etx.mTagId = bdUniqueId3;
+                    emVar = this.etx.mReaderModel;
+                    bdUniqueId2 = this.etx.mTagId;
+                    emVar.p(bdUniqueId2);
                 }
             }
-            this.eqq.threadId = ehVar.threadId;
-            this.eqq.postId = ehVar.postId;
-            this.eqq.isAlive = ehVar.isAlive;
-            this.eqq.setReadModel(ehVar);
-            if (ehVar.emS >= 0) {
-                eiVar2 = this.eqq.mReaderManager;
-                eiVar2.a(ehVar.pbData, ehVar.isSquence, ehVar.loadType, ehVar.emR, false);
-                eiVar3 = this.eqq.mReaderManager;
-                int aNa = eiVar3.aNa();
-                if (aNa == 1 || aNa == 3) {
-                    eiVar4 = this.eqq.mReaderManager;
-                    eiVar4.oD(0);
+            this.etx.threadId = eiVar.threadId;
+            this.etx.postId = eiVar.postId;
+            this.etx.isAlive = eiVar.isAlive;
+            this.etx.setReadModel(eiVar);
+            if (eiVar.epS >= 0) {
+                ejVar2 = this.etx.mReaderManager;
+                ejVar2.a(eiVar.pbData, eiVar.isSquence, eiVar.loadType, eiVar.epR, false);
+                ejVar3 = this.etx.mReaderManager;
+                int aMt = ejVar3.aMt();
+                if (aMt == 1 || aMt == 3) {
+                    ejVar4 = this.etx.mReaderManager;
+                    ejVar4.or(0);
                 } else {
-                    eiVar6 = this.eqq.mReaderManager;
-                    eiVar6.oD(1);
+                    ejVar6 = this.etx.mReaderManager;
+                    ejVar6.or(1);
                 }
-                eiVar5 = this.eqq.mReaderManager;
-                eiVar5.A(ehVar.emS, ehVar.emU);
+                ejVar5 = this.etx.mReaderManager;
+                ejVar5.A(eiVar.epS, eiVar.epU);
                 return;
             }
-            eiVar = this.eqq.mReaderManager;
-            eiVar.a(ehVar.pbData, ehVar.isSquence, ehVar.loadType, ehVar.emR, true);
+            ejVar = this.etx.mReaderManager;
+            ejVar.a(eiVar.pbData, eiVar.isSquence, eiVar.loadType, eiVar.epR, true);
         }
     }
 }

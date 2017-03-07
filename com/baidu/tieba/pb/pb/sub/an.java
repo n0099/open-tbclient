@@ -3,39 +3,39 @@ package com.baidu.tieba.pb.pb.sub;
 import com.baidu.tieba.pb.pb.sub.b;
 /* loaded from: classes.dex */
 class an implements b.a {
-    final /* synthetic */ NewSubPbActivity erC;
-    private boolean erE = false;
+    final /* synthetic */ NewSubPbActivity euQ;
+    private boolean euS = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(NewSubPbActivity newSubPbActivity) {
-        this.erC = newSubPbActivity;
+        this.euQ = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.b.a
-    public void aOK() {
+    public void aOb() {
         ao aoVar;
-        aoVar = this.erC.ern;
-        aoVar.jc(false);
-        this.erE = true;
+        aoVar = this.euQ.euB;
+        aoVar.iY(false);
+        this.euS = true;
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.b.a
-    public void aOL() {
+    public void aOc() {
     }
 
     @Override // com.baidu.tieba.pb.pb.sub.b.a
-    public boolean aOM() {
+    public boolean aOd() {
         ao aoVar;
         ao aoVar2;
-        if (!this.erE) {
-            aoVar = this.erC.ern;
-            if (aoVar.aOS() != null) {
-                aoVar2 = this.erC.ern;
-                return aoVar2.aOS().getTop() == 0;
+        if (!this.euS) {
+            aoVar = this.euQ.euB;
+            if (aoVar.aOj() != null) {
+                aoVar2 = this.euQ.euB;
+                return aoVar2.aOj().getTop() == 0;
             }
             return false;
         }
-        this.erE = false;
+        this.euS = false;
         return false;
     }
 }

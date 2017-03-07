@@ -1,33 +1,26 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import java.util.List;
+import tbclient.TwAnchorProfitItem;
+import tbclient.TwZhiBoUser;
 /* loaded from: classes.dex */
-public class ah extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private boolean Ri;
-    private ICardInfo Rj;
-    private String card;
+public class ah {
+    private TwZhiBoUser Ws;
+    private List<TwAnchorProfitItem> Wt;
 
-    public void co(String str) {
-        this.card = str;
+    public TwZhiBoUser qA() {
+        return this.Ws;
     }
 
-    public void qk() {
-        this.Rj = com.baidu.tieba.lego.card.b.lM(this.card);
-        this.Ri = this.Rj != null;
+    public void a(TwZhiBoUser twZhiBoUser) {
+        this.Ws = twZhiBoUser;
     }
 
-    public ICardInfo ql() {
-        return this.Rj;
+    public List<TwAnchorProfitItem> qB() {
+        return this.Wt;
     }
 
-    public boolean isValid() {
-        return this.Ri;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return TYPE;
+    public void l(List<TwAnchorProfitItem> list) {
+        this.Wt = list;
     }
 }

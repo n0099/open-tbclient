@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
-class b implements ba.a {
-    @Override // com.baidu.tbadk.core.util.ba.a
+class b implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (strArr == null || strArr.length == 0 || strArr[0] == null) {
             return 3;

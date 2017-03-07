@@ -3,17 +3,18 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.r;
+import com.baidu.tieba.tbadkCore.n;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ FrsLoadMoreModel bRZ;
+    final /* synthetic */ FrsLoadMoreModel bZh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(FrsLoadMoreModel frsLoadMoreModel, int i, int i2) {
         super(i, i2);
-        this.bRZ = frsLoadMoreModel;
+        this.bZh = frsLoadMoreModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,31 +26,40 @@ public class a extends com.baidu.adp.framework.listener.a {
         FrsActivity frsActivity5;
         FrsActivity frsActivity6;
         FrsActivity frsActivity7;
-        this.bRZ.isLoading = false;
+        FrsActivity frsActivity8;
+        this.bZh.isLoading = false;
         if (responsedMessage == null) {
-            frsActivity6 = this.bRZ.bHh;
-            frsActivity7 = this.bRZ.bHh;
-            frsActivity6.iP(frsActivity7.getPageContext().getString(r.l.neterror));
-        } else if (responsedMessage.getError() != 0) {
-            if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                frsActivity5 = this.bRZ.bHh;
-                frsActivity5.iP(responsedMessage.getErrorString());
-                return;
-            }
-            frsActivity3 = this.bRZ.bHh;
-            frsActivity4 = this.bRZ.bHh;
-            frsActivity3.iP(frsActivity4.getPageContext().getString(r.l.neterror));
-        } else {
+            frsActivity7 = this.bZh.bOq;
+            frsActivity8 = this.bZh.bOq;
+            frsActivity7.iF(frsActivity8.getPageContext().getString(w.l.neterror));
+        } else if (responsedMessage.getError() == 0) {
+            frsActivity = this.bZh.bOq;
+            n YV = frsActivity.YV();
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                frsActivity2 = this.bRZ.bHh;
-                frsActivity2.F(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
-                this.bRZ.a((LoadMoreHttpResponseMessage) responsedMessage);
+                LoadMoreHttpResponseMessage loadMoreHttpResponseMessage = (LoadMoreHttpResponseMessage) responsedMessage;
+                if (YV != null) {
+                    YV.a(loadMoreHttpResponseMessage.getBannerListData());
+                }
+                frsActivity3 = this.bZh.bOq;
+                frsActivity3.E(loadMoreHttpResponseMessage.getThreadList());
+                this.bZh.a((LoadMoreHttpResponseMessage) responsedMessage);
             } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                frsActivity = this.bRZ.bHh;
-                frsActivity.F(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
-                this.bRZ.a((LoadMoreResponseSocketMessage) responsedMessage);
+                LoadMoreResponseSocketMessage loadMoreResponseSocketMessage = (LoadMoreResponseSocketMessage) responsedMessage;
+                if (YV != null) {
+                    YV.a(loadMoreResponseSocketMessage.getBannerListData());
+                }
+                frsActivity2 = this.bZh.bOq;
+                frsActivity2.E(loadMoreResponseSocketMessage.getThreadList());
+                this.bZh.a((LoadMoreResponseSocketMessage) responsedMessage);
             }
-            this.bRZ.loadIndex++;
+            this.bZh.loadIndex++;
+        } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
+            frsActivity6 = this.bZh.bOq;
+            frsActivity6.iF(responsedMessage.getErrorString());
+        } else {
+            frsActivity4 = this.bZh.bOq;
+            frsActivity5 = this.bZh.bOq;
+            frsActivity4.iF(frsActivity5.getPageContext().getString(w.l.neterror));
         }
     }
 }

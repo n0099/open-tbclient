@@ -3,39 +3,39 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class b implements h {
-    private boolean kK;
+    private boolean value;
 
     public b(boolean z) {
-        this.kK = z;
+        this.value = z;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> db = cVar.db();
-        if (db == Boolean.class || db == Boolean.TYPE) {
-            return Boolean.valueOf(this.kK);
+        Class<?> ek = cVar.ek();
+        if (ek == Boolean.class || ek == Boolean.TYPE) {
+            return Boolean.valueOf(this.value);
         }
-        if (db == Short.class || db == Short.TYPE) {
-            return Short.valueOf(this.kK ? (short) 0 : (short) 1);
-        } else if (db == Integer.class || db == Integer.TYPE) {
-            return Integer.valueOf(this.kK ? (short) 0 : (short) 1);
-        } else if (db == Long.class || db == Long.TYPE) {
-            return Long.valueOf(this.kK ? (short) 0 : (short) 1);
-        } else if (db == Float.class || db == Float.TYPE) {
-            return Float.valueOf(this.kK ? (short) 0 : (short) 1);
-        } else if (db == Double.class || db == Double.TYPE) {
-            return Double.valueOf(this.kK ? (short) 0 : (short) 1);
-        } else if (db == Character.class || db == Character.TYPE) {
-            return Character.valueOf((char) (this.kK ? (short) 0 : (short) 1));
-        } else if (db == String.class) {
-            return String.valueOf(this.kK);
+        if (ek == Short.class || ek == Short.TYPE) {
+            return Short.valueOf(this.value ? (short) 0 : (short) 1);
+        } else if (ek == Integer.class || ek == Integer.TYPE) {
+            return Integer.valueOf(this.value ? (short) 0 : (short) 1);
+        } else if (ek == Long.class || ek == Long.TYPE) {
+            return Long.valueOf(this.value ? (short) 0 : (short) 1);
+        } else if (ek == Float.class || ek == Float.TYPE) {
+            return Float.valueOf(this.value ? (short) 0 : (short) 1);
+        } else if (ek == Double.class || ek == Double.TYPE) {
+            return Double.valueOf(this.value ? (short) 0 : (short) 1);
+        } else if (ek == Character.class || ek == Character.TYPE) {
+            return Character.valueOf((char) (this.value ? (short) 0 : (short) 1));
+        } else if (ek == String.class) {
+            return String.valueOf(this.value);
         } else {
-            if (db == char[].class) {
-                return String.valueOf(this.kK).toCharArray();
+            if (ek == char[].class) {
+                return String.valueOf(this.value).toCharArray();
             }
-            if (db == byte[].class) {
+            if (ek == byte[].class) {
                 try {
-                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.kK), 0);
+                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -6,59 +6,59 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private LinearLayout aCL;
-    private TextView aIK;
-    private EditText bYj;
-    private TbImageView cKs;
-    private BarImageView dfs;
-    private TextView dft;
-    protected TextView dfu;
-    private ShareFromGameCenterMsgData dfv;
+    private LinearLayout aIi;
+    private TextView aOh;
+    private TbImageView cMd;
+    private EditText cfF;
+    private BarImageView dhJ;
+    private TextView dhK;
+    protected TextView dhL;
+    private ShareFromGameCenterMsgData dhM;
 
     public EditText getChatMsgView() {
-        return this.bYj;
+        return this.cfF;
     }
 
     public b(Context context) {
         super(context);
-        aT(context);
+        bs(context);
     }
 
-    private void aT(Context context) {
-        LayoutInflater.from(context).inflate(r.j.game_to_group_share_dialog, this);
+    private void bs(Context context) {
+        LayoutInflater.from(context).inflate(w.j.game_to_group_share_dialog, this);
         setOrientation(1);
-        this.aCL = (LinearLayout) findViewById(r.h.game_to_group_share_dialog_content);
-        this.dft = (TextView) findViewById(r.h.share_title_view);
-        this.bYj = (EditText) findViewById(r.h.game_to_group_share_chat_msg);
-        this.cKs = (TbImageView) findViewById(r.h.game_to_group_share_img);
-        this.dfs = (BarImageView) findViewById(r.h.game_to_group_share_icon);
-        this.aIK = (TextView) findViewById(r.h.game_to_group_share_desc);
-        ap.c(this.dft, r.e.cp_cont_b, 1);
-        ap.c(this.bYj, r.e.cp_cont_b, 2);
-        this.bYj.setHintTextColor(ap.getColor(r.e.cp_cont_e));
-        ap.c(this.aIK, r.e.cp_cont_f, 1);
-        this.bYj.setPadding(context.getResources().getDimensionPixelSize(r.f.ds20), 0, 0, 0);
-        this.dfu = (TextView) findViewById(r.h.game_to_group_share);
-        ap.c(this.dfu, r.e.cp_cont_c, 1);
-        adF();
+        this.aIi = (LinearLayout) findViewById(w.h.game_to_group_share_dialog_content);
+        this.dhK = (TextView) findViewById(w.h.share_title_view);
+        this.cfF = (EditText) findViewById(w.h.game_to_group_share_chat_msg);
+        this.cMd = (TbImageView) findViewById(w.h.game_to_group_share_img);
+        this.dhJ = (BarImageView) findViewById(w.h.game_to_group_share_icon);
+        this.aOh = (TextView) findViewById(w.h.game_to_group_share_desc);
+        aq.c(this.dhK, w.e.cp_cont_b, 1);
+        aq.c(this.cfF, w.e.cp_cont_b, 2);
+        this.cfF.setHintTextColor(aq.getColor(w.e.cp_cont_e));
+        aq.c(this.aOh, w.e.cp_cont_f, 1);
+        this.cfF.setPadding(context.getResources().getDimensionPixelSize(w.f.ds20), 0, 0, 0);
+        this.dhL = (TextView) findViewById(w.h.game_to_group_share);
+        aq.c(this.dhL, w.e.cp_cont_c, 1);
+        aeF();
     }
 
-    public void adF() {
-        this.aCL.setFocusable(true);
-        this.aCL.setFocusableInTouchMode(true);
-        this.aCL.requestFocus();
+    public void aeF() {
+        this.aIi.setFocusable(true);
+        this.aIi.setFocusableInTouchMode(true);
+        this.aIi.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.bYj != null) {
-            return j.a(this.bYj.getText(), null);
+        if (this.cfF != null) {
+            return j.a(this.cfF.getText(), null);
         }
         return null;
     }
@@ -69,17 +69,17 @@ public class b extends LinearLayout {
     }
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData) {
-        this.dfv = shareFromGameCenterMsgData;
-        wb();
+        this.dhM = shareFromGameCenterMsgData;
+        wy();
     }
 
-    private void wb() {
-        this.dft.setText(this.dfv.getTitle());
-        this.cKs.setTag(this.dfv.getImageUrl());
-        this.cKs.c(this.dfv.getImageUrl(), 17, false);
-        this.dfs.setTag(this.dfv.getShareSourceIcon());
-        this.dfs.c(this.dfv.getShareSourceIcon(), 17, false);
-        this.aIK.setText(this.dfv.getContent());
-        this.dfu.setText("来自" + this.dfv.getShareSource());
+    private void wy() {
+        this.dhK.setText(this.dhM.getTitle());
+        this.cMd.setTag(this.dhM.getImageUrl());
+        this.cMd.c(this.dhM.getImageUrl(), 17, false);
+        this.dhJ.setTag(this.dhM.getShareSourceIcon());
+        this.dhJ.c(this.dhM.getShareSourceIcon(), 17, false);
+        this.aOh.setText(this.dhM.getContent());
+        this.dhL.setText("来自" + this.dhM.getShareSource());
     }
 }

@@ -6,48 +6,48 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g wd;
-    private Map<String, a> we;
+    private static volatile g Dr;
+    private Map<String, a> Ds;
 
-    public static g hQ() {
-        if (wd == null) {
+    public static g iK() {
+        if (Dr == null) {
             synchronized (g.class) {
-                if (wd == null) {
-                    wd = new g();
+                if (Dr == null) {
+                    Dr = new g();
                 }
             }
         }
-        return wd;
+        return Dr;
     }
 
     private g() {
-        this.we = null;
-        this.we = new HashMap();
+        this.Ds = null;
+        this.Ds = new HashMap();
     }
 
     public synchronized void a(String str, a aVar) {
-        this.we.put(str, aVar);
+        this.Ds.put(str, aVar);
     }
 
-    public synchronized a aY(String str) {
-        return this.we.get(str);
+    public synchronized a aS(String str) {
+        return this.Ds.get(str);
     }
 
-    public synchronized void aZ(String str) {
-        this.we.remove(str);
+    public synchronized void aT(String str) {
+        this.Ds.remove(str);
     }
 
-    public int hR() {
-        return this.we.size();
+    public int iL() {
+        return this.Ds.size();
     }
 
     /* loaded from: classes.dex */
     public static class a {
+        public ServiceProxy Dt;
         public Intent mIntent;
-        public ServiceProxy wf;
 
         public a(ServiceProxy serviceProxy, Intent intent) {
-            this.wf = serviceProxy;
+            this.Dt = serviceProxy;
             this.mIntent = intent;
         }
     }

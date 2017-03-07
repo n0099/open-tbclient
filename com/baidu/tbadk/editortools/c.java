@@ -6,12 +6,12 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends ImageView implements p {
-    private int asV;
-    private boolean asW;
+    private int ayq;
+    private boolean ayr;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -19,7 +19,7 @@ public class c extends ImageView implements p {
     public c(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.asW = false;
+        this.ayr = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -28,8 +28,8 @@ public class c extends ImageView implements p {
     }
 
     public void setIcon(int i) {
-        this.asV = i;
-        ap.c((ImageView) this, this.asV, this.mSkinType);
+        this.ayq = i;
+        aq.c((ImageView) this, this.ayq, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -42,17 +42,17 @@ public class c extends ImageView implements p {
     }
 
     @Override // com.baidu.tbadk.editortools.p
-    public void lr() {
+    public void ml() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.p
     public void hide() {
-        Cv();
+        CO();
         setVisibility(8);
     }
 
-    public void fl(String str) {
+    public void fa(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -67,23 +67,23 @@ public class c extends ImageView implements p {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            ap.b(this.mTip, r.e.cp_cont_g, 1, this.mSkinType);
+            aq.b(this.mTip, w.e.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                ap.d(this.mTip, r.g.icon_news_head_prompt_one, this.mSkinType);
+                aq.d(this.mTip, w.g.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                ap.d(this.mTip, r.g.icon_news_down_bar_one, this.mSkinType);
+                aq.d(this.mTip, w.g.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void Cv() {
+    public void CO() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class c extends ImageView implements p {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Cv();
+                CO();
             } else if (aVar.data instanceof String) {
-                fl((String) aVar.data);
+                fa((String) aVar.data);
             }
         }
     }
@@ -108,23 +108,23 @@ public class c extends ImageView implements p {
     @Override // com.baidu.tbadk.editortools.p
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        ap.c((ImageView) this, this.asV, i);
+        aq.c((ImageView) this, this.ayq, i);
         if (this.mTip != null) {
-            ap.b(this.mTip, r.e.cp_cont_g, 1, i);
+            aq.b(this.mTip, w.e.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                ap.d(this.mTip, r.g.icon_news_head_prompt_one, i);
+                aq.d(this.mTip, w.g.icon_news_head_prompt_one, i);
             } else {
-                ap.d(this.mTip, r.g.icon_news_down_bar_one, i);
+                aq.d(this.mTip, w.g.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.asW;
+        return this.ayr;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.asW = z;
+        this.ayr = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

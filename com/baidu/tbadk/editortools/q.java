@@ -3,30 +3,30 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseIntArray;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class q extends com.baidu.tbadk.editortools.view.c {
-    private SparseIntArray atM;
-    LinkedList<p> atn;
+    LinkedList<p> ayI;
+    private SparseIntArray azh;
 
     public q(Context context) {
         super(context);
-        this.atM = new SparseIntArray();
-        setBackgroundColorId(r.e.common_color_10255);
+        this.azh = new SparseIntArray();
+        setBackgroundColorId(w.e.common_color_10255);
         setToolId(2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(LinkedList<p> linkedList) {
-        this.atn = linkedList;
+        this.ayI = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.y
     public void init() {
         setShowDelete(false);
         r rVar = new r();
-        rVar.h(this.atn);
+        rVar.h(this.ayI);
         b(rVar);
     }
 
@@ -35,12 +35,12 @@ public class q extends com.baidu.tbadk.editortools.view.c {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            CF();
+            CY();
         }
     }
 
     private void c(a aVar) {
-        Integer valueOf = Integer.valueOf(this.atM.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.azh.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             intValue = 0;
@@ -52,13 +52,13 @@ public class q extends com.baidu.tbadk.editortools.view.c {
                 intValue = TextUtils.isEmpty(str.trim()) ? 1 : com.baidu.adp.lib.g.b.g(str, 1);
             }
         }
-        this.atM.put(aVar.id, intValue >= 0 ? intValue : 0);
+        this.azh.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void CF() {
+    private void CY() {
         int i = 0;
-        for (int i2 = 0; i2 < this.atM.size(); i2++) {
-            i += this.atM.valueAt(i2);
+        for (int i2 = 0; i2 < this.azh.size(); i2++) {
+            i += this.azh.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));
@@ -68,7 +68,7 @@ public class q extends com.baidu.tbadk.editortools.view.c {
     }
 
     @Override // com.baidu.tbadk.editortools.view.c, com.baidu.tbadk.editortools.y
-    public void lr() {
-        super.lr();
+    public void ml() {
+        super.ml();
     }
 }

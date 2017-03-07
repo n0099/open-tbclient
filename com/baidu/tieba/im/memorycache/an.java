@@ -19,20 +19,20 @@ public class an implements CustomMessageTask.CustomRunnable<Integer> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        List<ImMessageCenterPojo> asX;
+        List<ImMessageCenterPojo> ass;
         if (customMessage == null || !(customMessage instanceof RequestMemoryListMessage)) {
             return null;
         }
         int intValue = ((RequestMemoryListMessage) customMessage).getData().intValue();
         if (intValue == 3) {
-            asX = b.asO().asW();
+            ass = b.asj().asr();
         } else if (intValue == 2) {
-            asX = b.asO().asV();
+            ass = b.asj().asq();
         } else if (intValue == 1) {
-            asX = b.asO().asT();
+            ass = b.asj().aso();
         } else {
-            asX = intValue == 4 ? b.asO().asX() : null;
+            ass = intValue == 4 ? b.asj().ass() : null;
         }
-        return new ResponsedMemoryListMessage(asX, intValue);
+        return new ResponsedMemoryListMessage(ass, intValue);
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.tieba.personInfo;
 import android.os.Bundle;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mainTab.e;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,12 +13,12 @@ class c extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c En;
+        com.baidu.tbadk.mainTab.c EG;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
-            ((e) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-            if (((e) customResponsedMessage.getData()).getContext() != null && (En = personInfoDelegateStatic.En()) != null) {
-                En.ayv.setArguments(new Bundle());
+            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (EG = personInfoDelegateStatic.EG()) != null) {
+                EG.aDP.setArguments(new Bundle());
             }
         }
     }

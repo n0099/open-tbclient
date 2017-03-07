@@ -7,135 +7,135 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int NP;
-    private int NQ;
-    private int NR;
-    private int NS;
-    private int NT;
-    private int NU;
-    private String NV;
-    private int NW = 1;
-    private int NX = 1;
-    private int NY;
-    private ba NZ;
+    private int ST;
+    private int SU;
+    private int SV;
+    private int SW;
+    private int SX;
+    private int SY;
+    private String SZ;
+    private int Ta = 1;
+    private int Tb = 1;
+    private int Tc;
+    private bc Td;
     private boolean mIsSenior;
     private int status;
     private int total_num;
     private String url;
 
-    public int oT() {
-        return this.NP;
+    public int ph() {
+        return this.ST;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int oU() {
-        return this.NQ;
+    public int pi() {
+        return this.SU;
     }
 
-    public int oV() {
-        return this.NR;
+    public int pj() {
+        return this.SV;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int oW() {
+    public int pk() {
         return this.total_num;
     }
 
     public int getActivityId() {
-        return this.NS;
+        return this.SW;
     }
 
-    public int oX() {
-        return this.NT;
+    public int pl() {
+        return this.SX;
     }
 
-    public int oY() {
-        return this.NU;
+    public int pm() {
+        return this.SY;
     }
 
     public boolean getIsSenior() {
         return this.mIsSenior;
     }
 
-    public String oZ() {
-        return this.NV;
+    public String pn() {
+        return this.SZ;
     }
 
-    public int pa() {
-        return this.NY;
+    public int po() {
+        return this.Tc;
     }
 
-    public ba pb() {
-        return this.NZ;
+    public bc pp() {
+        return this.Td;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
-            this.NP = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
+            this.ST = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.NQ = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.NR = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.SU = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.SV = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.NS = actInfo.activity_id.intValue();
-            this.NT = actInfo.award_act_id.intValue();
-            this.NU = actInfo.component_id.intValue();
+            this.SW = actInfo.activity_id.intValue();
+            this.SX = actInfo.award_act_id.intValue();
+            this.SY = actInfo.component_id.intValue();
             this.mIsSenior = actInfo.is_senior.booleanValue();
-            this.NV = actInfo.banner_img;
-            this.NY = actInfo.show_total_num.intValue();
+            this.SZ = actInfo.banner_img;
+            this.Tc = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
-            if (!com.baidu.tbadk.core.util.at.isEmpty(str)) {
+            if (!com.baidu.tbadk.core.util.au.isEmpty(str)) {
                 try {
                     String[] split = str.split(",");
-                    this.NW = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.NX = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Ta = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Tb = com.baidu.adp.lib.g.b.g(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.NW <= 0) {
-                this.NW = 1;
+            if (this.Ta <= 0) {
+                this.Ta = 1;
             }
-            if (this.NX <= 0) {
-                this.NX = 1;
+            if (this.Tb <= 0) {
+                this.Tb = 1;
             }
-            this.NZ = new ba();
-            this.NZ.a(actInfo.lottery_senior);
+            this.Td = new bc();
+            this.Td.a(actInfo.lottery_senior);
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.NP = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.ST = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt("status");
-                this.NQ = jSONObject.optInt("begin_time");
-                this.NR = jSONObject.optInt("end_time");
+                this.SU = jSONObject.optInt("begin_time");
+                this.SV = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.NS = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
-                this.NT = jSONObject.optInt("award_act_id");
-                this.NU = jSONObject.optInt("component_id");
+                this.SW = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.SX = jSONObject.optInt("award_act_id");
+                this.SY = jSONObject.optInt("component_id");
                 this.mIsSenior = jSONObject.optBoolean("is_senior");
-                this.NV = jSONObject.optString("banner_img");
-                this.NY = jSONObject.optInt("show_total_num");
+                this.SZ = jSONObject.optString("banner_img");
+                this.Tc = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
-                if (!com.baidu.tbadk.core.util.at.isEmpty(optString)) {
+                if (!com.baidu.tbadk.core.util.au.isEmpty(optString)) {
                     String[] split = optString.split(",");
-                    this.NW = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.NX = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.Ta = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    this.Tb = com.baidu.adp.lib.g.b.g(split[1], 1);
                 }
-                if (this.NW <= 0) {
-                    this.NW = 1;
+                if (this.Ta <= 0) {
+                    this.Ta = 1;
                 }
-                if (this.NX <= 0) {
-                    this.NX = 1;
+                if (this.Tb <= 0) {
+                    this.Tb = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

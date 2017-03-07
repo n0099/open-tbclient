@@ -93,6 +93,6 @@ public abstract class a<T, V extends y.a> {
         if (this.mAdapter == null || this.mType == null) {
             return -1;
         }
-        return this.mAdapter.m(i, this.mType.getId());
+        return this.mAdapter.t(i, this.mType.getId());
     }
 }

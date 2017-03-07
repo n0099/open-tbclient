@@ -1,99 +1,41 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import org.json.JSONObject;
+import tbclient.FrsPage.CarrierEnter;
 /* loaded from: classes.dex */
 public class m {
-    private int PA = 25;
-    private int PC = 25;
-    private int PD = 10;
-    private boolean Px;
-    private int Py;
-    private int Pz;
-    private int time;
+    private String headline_cover;
+    private String obj_id;
+    private String text;
+    private String title;
+    private String url;
 
-    public int getSuccRank() {
-        return this.PA;
-    }
-
-    public int getErrRank() {
-        return this.PC;
-    }
-
-    public int getSlowRank() {
-        return this.PD;
-    }
-
-    public boolean ismSwitch() {
-        return this.Px;
-    }
-
-    public void setmSwitch(boolean z) {
-        if (this.Px != z) {
-            com.baidu.adp.lib.stats.d ez = com.baidu.tbadk.core.util.t.ez();
-            ez.q("act", "fallback");
-            ez.q("result", z ? "1" : "0");
-            ez.q("type", "switch");
-            com.baidu.adp.lib.stats.a.eG().b("img", ez);
-        }
-        this.Px = z;
-    }
-
-    public int getSlowNumber() {
-        return this.Py;
-    }
-
-    public int getTime() {
-        return this.time;
-    }
-
-    public int getErrNumber() {
-        return this.Pz;
-    }
-
-    public void parseJson(String str) {
-        try {
-            if (!TextUtils.isEmpty(str)) {
-                parseJson(new JSONObject(str));
-            }
-        } catch (Exception e) {
-            this.Px = false;
-            BdLog.e(e.getMessage());
+    public void a(CarrierEnter carrierEnter) {
+        if (carrierEnter != null) {
+            this.title = carrierEnter.title;
+            this.text = carrierEnter.text;
+            this.headline_cover = carrierEnter.headline_cover;
+            this.url = carrierEnter.url;
+            this.obj_id = carrierEnter.obj_id;
         }
     }
 
-    private void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                if (jSONObject.optInt("switch") == 1) {
-                    this.Px = true;
-                } else {
-                    this.Px = false;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("err");
-                if (optJSONObject != null) {
-                    this.Pz = optJSONObject.optInt("num");
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
-                if (optJSONObject2 != null) {
-                    this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.Py = optJSONObject2.optInt("num");
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
-                if (optJSONObject3 != null) {
-                    this.PA = optJSONObject3.optInt("succ");
-                    this.PC = optJSONObject3.optInt("err");
-                    this.PD = optJSONObject3.optInt("slow");
-                }
-                if (this.time <= 0 || this.Py <= 0 || this.Pz <= 0) {
-                    this.Px = false;
-                }
-            } catch (Exception e) {
-                this.Px = false;
-                BdLog.e(e.getMessage());
-            }
-        }
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public String pC() {
+        return this.headline_cover;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public String pD() {
+        return this.obj_id;
     }
 }

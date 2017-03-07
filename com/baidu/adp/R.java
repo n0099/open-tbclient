@@ -86,13 +86,13 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int adp_down_arrow = 0x7f02000c;
-        public static final int bg_switch_close = 0x7f0202c3;
-        public static final int bg_switch_open = 0x7f0202c4;
-        public static final int btn_handle = 0x7f020457;
-        public static final int icon_gif = 0x7f02099a;
-        public static final int listview_pull_refresh01 = 0x7f020f8a;
-        public static final int listview_pull_refresh02 = 0x7f020f8c;
+        public static final int adp_down_arrow = 0x7f02000e;
+        public static final int bg_switch_close = 0x7f0202c4;
+        public static final int bg_switch_open = 0x7f0202c5;
+        public static final int btn_handle = 0x7f020453;
+        public static final int icon_gif = 0x7f0209f6;
+        public static final int listview_pull_refresh01 = 0x7f020fda;
+        public static final int listview_pull_refresh02 = 0x7f020fdc;
     }
 
     /* loaded from: classes.dex */
@@ -100,32 +100,32 @@ public final class R {
         public static final int both = 0x7f070005;
         public static final int common = 0x7f070000;
         public static final int disabled = 0x7f070002;
-        public static final int foot_layout_progress = 0x7f07033e;
-        public static final int foot_layout_text = 0x7f07033d;
-        public static final int foot_ly = 0x7f070340;
-        public static final int head_layout_left_arrow = 0x7f07033b;
-        public static final int head_layout_left_progressbar = 0x7f07033c;
-        public static final int head_layout_refresh_time = 0x7f07033a;
-        public static final int head_layout_title = 0x7f070339;
-        public static final int head_ly = 0x7f07033f;
-        public static final int head_text_container = 0x7f070338;
+        public static final int foot_layout_progress = 0x7f070345;
+        public static final int foot_layout_text = 0x7f070344;
+        public static final int foot_ly = 0x7f070347;
+        public static final int head_layout_left_arrow = 0x7f070342;
+        public static final int head_layout_left_progressbar = 0x7f070343;
+        public static final int head_layout_refresh_time = 0x7f070341;
+        public static final int head_layout_title = 0x7f070340;
+        public static final int head_ly = 0x7f070346;
+        public static final int head_text_container = 0x7f07033f;
         public static final int manualOnly = 0x7f070006;
         public static final int pullFromEnd = 0x7f070004;
         public static final int pullFromStart = 0x7f070003;
-        public static final int pull_content = 0x7f0713ef;
-        public static final int pull_image = 0x7f0713ee;
-        public static final int pull_root = 0x7f0713ed;
-        public static final int pull_text = 0x7f0713f0;
-        public static final int pull_time = 0x7f0713f1;
+        public static final int pull_content = 0x7f0713c9;
+        public static final int pull_image = 0x7f0713c8;
+        public static final int pull_root = 0x7f0713c7;
+        public static final int pull_text = 0x7f0713ca;
+        public static final int pull_time = 0x7f0713cb;
         public static final int shader = 0x7f070001;
     }
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int adp_default_header_layout = 0x7f030025;
-        public static final int adp_detault_footer_layout = 0x7f030026;
-        public static final int adp_pull_refresh_scroll_view = 0x7f030027;
-        public static final int pull_view = 0x7f03039e;
+        public static final int adp_default_header_layout = 0x7f030027;
+        public static final int adp_detault_footer_layout = 0x7f030028;
+        public static final int adp_pull_refresh_scroll_view = 0x7f030029;
+        public static final int pull_view = 0x7f030399;
     }
 
     /* loaded from: classes.dex */

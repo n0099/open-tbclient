@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class am implements ba.a {
-    @Override // com.baidu.tbadk.core.util.ba.a
+class am implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
         boolean z;
         String substring;
@@ -67,7 +67,7 @@ class am implements ba.a {
             } else if (!lowerCase.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) || !lowerCase.contains("kw=")) {
                 return 3;
             } else {
-                str2 = com.baidu.tbadk.util.x.at(lowerCase, "kw=");
+                str2 = com.baidu.tbadk.util.x.aq(lowerCase, "kw=");
                 if (!TextUtils.isEmpty(str2) && tbPageContext != null) {
                     tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
                     return 0;
@@ -83,11 +83,11 @@ class am implements ba.a {
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
             return 1;
         } else if (z && !TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.g.i.c(TbadkCoreApplication.m9getInst(), com.baidu.tieba.frs.utils.t.K(TbadkCoreApplication.m9getInst(), str2));
-            com.baidu.tieba.frs.utils.s.aj(2, 2);
+            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m9getInst(), com.baidu.tieba.frs.utils.t.ae(TbadkCoreApplication.m9getInst(), str2));
+            com.baidu.tieba.frs.utils.s.ap(2, 2);
             return 1;
         } else if (z3) {
-            tbPageContext.showToast(r.l.page_not_found);
+            tbPageContext.showToast(w.l.page_not_found);
             return 1;
         } else {
             return 3;

@@ -4,51 +4,51 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tieba.frs.entelechy.b.f {
-    final /* synthetic */ ad bVS;
+    final /* synthetic */ ad cdk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ad adVar) {
-        this.bVS = adVar;
+        this.cdk = adVar;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.f
-    public void aal() {
+    public void abi() {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        this.bVS.aal();
-        frsActivity = this.bVS.bLZ;
-        if (frsActivity.XF() != null) {
-            frsActivity2 = this.bVS.bLZ;
-            frsActivity2.XF().dB(false);
+        this.cdk.abi();
+        frsActivity = this.cdk.bTf;
+        if (frsActivity.YE() != null) {
+            frsActivity2 = this.cdk.bTf;
+            frsActivity2.YE().dB(false);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.f
-    public void aam() {
-        this.bVS.aam();
+    public void abj() {
+        this.cdk.abj();
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.f
-    public void aan() {
+    public void abk() {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        this.bVS.bVR = true;
-        frsActivity = this.bVS.bLZ;
-        if (frsActivity.XF() != null) {
-            frsActivity2 = this.bVS.bLZ;
-            frsActivity2.XF().dB(false);
+        this.cdk.cdj = true;
+        frsActivity = this.cdk.bTf;
+        if (frsActivity.YE() != null) {
+            frsActivity2 = this.cdk.bTf;
+            frsActivity2.YE().dB(false);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.f
-    public void aao() {
+    public void abl() {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        this.bVS.bVR = false;
-        frsActivity = this.bVS.bLZ;
-        if (frsActivity.XF() != null) {
-            frsActivity2 = this.bVS.bLZ;
-            frsActivity2.XF().dB(true);
+        this.cdk.cdj = false;
+        frsActivity = this.cdk.bTf;
+        if (frsActivity.YE() != null) {
+            frsActivity2 = this.cdk.bTf;
+            frsActivity2.YE().dB(true);
         }
     }
 }

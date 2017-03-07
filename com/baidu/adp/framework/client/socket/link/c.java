@@ -19,13 +19,13 @@ class c extends l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void B(String str) {
+    public void A(String str) {
         e eVar;
         e eVar2;
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            eVar2.B(str);
+            eVar2.A(str);
         }
     }
 
@@ -46,7 +46,7 @@ class c extends l {
         e eVar;
         e eVar2;
         k.a("linkservice", 0, 0, "onOpen", 0, "LinkService:onOpen");
-        k.bS();
+        k.db();
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         eVar = BdSocketLinkService.connStateCallBack;
@@ -57,7 +57,7 @@ class c extends l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void d(int i, String str) {
+    public void e(int i, String str) {
         Handler handler;
         e eVar;
         h hVar;
@@ -65,16 +65,16 @@ class c extends l {
         boolean z = false;
         k.a("linkservice", 0, 0, "onClose", i, str);
         if (i == 6 || i == 5 || i == 2 || i == 3 || i == 4) {
-            k.bS();
+            k.db();
         }
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            z = eVar2.c(i, null);
+            z = eVar2.d(i, null);
         }
-        if (!z && i != 1 && com.baidu.adp.lib.util.k.gB()) {
+        if (!z && i != 1 && com.baidu.adp.lib.util.k.hv()) {
             hVar = BdSocketLinkService.reConnStra;
             hVar.start("onClose:" + i + ":" + str);
         }

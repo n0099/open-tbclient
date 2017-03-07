@@ -2,57 +2,65 @@ package com.baidu.tieba.card;
 
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class p extends com.baidu.tieba.horizonalList.widget.n {
-    private TbPageContext Fp;
-    private com.baidu.tbadk.core.view.userLike.c bkN;
-    public ClickableHeaderImageView blt;
-    public TextView blu;
-    public TextView blv;
-    public EntelechyUserLikeButton blw;
-    private com.baidu.tieba.card.data.k blx;
+    private TbPageContext aaI;
+    private com.baidu.tbadk.core.view.userLike.c brF;
+    public ClickableHeaderImageView bsm;
+    public TextView bsn;
+    public TextView bso;
+    public EntelechyUserLikeButton bsp;
+    private com.baidu.tieba.card.data.k bsq;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
+    private BdUniqueId uniqueId;
 
     public p(View view, TbPageContext tbPageContext) {
         super(view);
         this.mSkinType = 3;
         this.mOnClickListener = new q(this);
-        this.Fp = tbPageContext;
-        this.blt = (ClickableHeaderImageView) view.findViewById(r.h.rec_god_item_header);
-        this.blt.setGodIconMargin(r.f.ds6);
-        this.blu = (TextView) view.findViewById(r.h.rec_god_item_user_name);
-        this.blv = (TextView) view.findViewById(r.h.rec_god_item_user_describe);
-        this.blw = (EntelechyUserLikeButton) view.findViewById(r.h.rec_god_item_user_like_btn);
-        this.bkN = new com.baidu.tbadk.core.view.userLike.c(this.Fp, this.blw);
+        this.aaI = tbPageContext;
+        this.bsm = (ClickableHeaderImageView) view.findViewById(w.h.rec_god_item_header);
+        this.bsm.setGodIconMargin(w.f.ds6);
+        this.bsn = (TextView) view.findViewById(w.h.rec_god_item_user_name);
+        this.bso = (TextView) view.findViewById(w.h.rec_god_item_user_describe);
+        this.bsp = (EntelechyUserLikeButton) view.findViewById(w.h.rec_god_item_user_like_btn);
+        this.brF = new com.baidu.tbadk.core.view.userLike.c(this.aaI, this.bsp);
+    }
+
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        this.uniqueId = bdUniqueId;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.n
-    public com.baidu.tieba.horizonalList.widget.n X(View view) {
-        return new p(view, this.Fp);
+    public com.baidu.tieba.horizonalList.widget.n V(View view) {
+        p pVar = new p(view, this.aaI);
+        pVar.brF.i(this.uniqueId);
+        return pVar;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.n
     public void a(com.baidu.tieba.horizonalList.widget.l lVar) {
         if (lVar instanceof com.baidu.tieba.card.data.k) {
-            this.blx = (com.baidu.tieba.card.data.k) lVar;
-            if (this.blx.author != null) {
-                getView().setTag(r.h.rec_god_item_root, this.blx.author.getUserId());
-                this.blt.setTag(r.h.rec_god_item_root, this.blx.author.getUserId());
-                this.blw.setTag(this.blx.author);
-                this.blt.setData(this.blx.author);
-                this.blt.setAfterClickListener(this.ani);
-                this.blu.setText(com.baidu.tbadk.core.util.at.t(this.blx.author.getName_show(), 5));
+            this.bsq = (com.baidu.tieba.card.data.k) lVar;
+            if (this.bsq.author != null) {
+                getView().setTag(w.h.rec_god_item_root, this.bsq.author.getUserId());
+                this.bsm.setTag(w.h.rec_god_item_root, this.bsq.author.getUserId());
+                this.bsp.setTag(this.bsq.author);
+                this.bsm.setData(this.bsq.author);
+                this.bsm.setAfterClickListener(this.asD);
+                this.bsn.setText(com.baidu.tbadk.core.util.au.t(this.bsq.author.getName_show(), 5));
                 getView().setOnClickListener(this.mOnClickListener);
-                if (this.blx.author.getGodUserData() != null) {
-                    this.blv.setText(com.baidu.tbadk.core.util.at.t(this.blx.author.getGodUserData().getIntro(), 6));
+                if (this.bsq.author.getGodUserData() != null) {
+                    this.bso.setText(com.baidu.tbadk.core.util.au.t(this.bsq.author.getGodUserData().getIntro(), 6));
                 }
-                this.bkN.a(this.blx.author);
+                this.brF.a(this.bsq.author);
                 onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
@@ -61,10 +69,10 @@ public class p extends com.baidu.tieba.horizonalList.widget.n {
     @Override // com.baidu.tieba.horizonalList.widget.n
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ap.i((View) this.blu, r.e.cp_cont_b);
-            com.baidu.tbadk.core.util.ap.i((View) this.blv, r.e.cp_cont_d);
-            if (this.blw != null) {
-                this.blw.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.aq.i((View) this.bsn, w.e.cp_cont_b);
+            com.baidu.tbadk.core.util.aq.i((View) this.bso, w.e.cp_cont_d);
+            if (this.bsp != null) {
+                this.bsp.onChangeSkinType(i);
             }
         }
         this.mSkinType = i;

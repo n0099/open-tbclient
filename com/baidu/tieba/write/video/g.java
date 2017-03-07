@@ -15,11 +15,11 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class g implements NewWriteModel.d {
-    final /* synthetic */ WriteVideoActivity fIX;
+    final /* synthetic */ WriteVideoActivity fNq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteVideoActivity writeVideoActivity) {
-        this.fIX = writeVideoActivity;
+        this.fNq = writeVideoActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -28,17 +28,17 @@ class g implements NewWriteModel.d {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        this.fIX.closeLoadingDialog();
+        this.fNq.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.fIX.mData;
+            writeData2 = this.fNq.mData;
             if (writeData2 != null) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.tQ().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
-                writeData3 = this.fIX.mData;
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.uo().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
+                writeData3 = this.fNq.mData;
                 if (writeData3 != null) {
-                    writeData4 = this.fIX.mData;
+                    writeData4 = this.fNq.mData;
                     if (writeData4.getVideoInfo() != null && writeData != null) {
                         if (!z2) {
-                            writeData5 = this.fIX.mData;
+                            writeData5 = this.fNq.mData;
                             if (writeData5.getVideoInfo().getVideoDuration() > 8) {
                                 writeData.setVideoReviewType(1);
                             }
@@ -51,27 +51,27 @@ class g implements NewWriteModel.d {
                         if (qVar != null && writeData != null && qVar.getVcode_pic_url() != null) {
                             writeData.setVcodeMD5(qVar.getVcode_md5());
                             writeData.setVcodeUrl(qVar.getVcode_pic_url());
-                            writeData.setVcodeExtra(qVar.xN());
-                            if (com.baidu.tbadk.j.a.gy(qVar.xM())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.fIX.getPageContext().getPageActivity(), 12006, writeData, false, qVar.xM())));
+                            writeData.setVcodeExtra(qVar.yj());
+                            if (com.baidu.tbadk.j.a.gn(qVar.yi())) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.fNq.getPageContext().getPageActivity(), 12006, writeData, false, qVar.yi())));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fIX.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fNq.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.fIX.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.fNq.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.fIX.a(false, postWriteCallBackData);
+                    this.fNq.a(false, postWriteCallBackData);
                     return;
                 }
-                this.fIX.bnE();
-                this.fIX.a(true, postWriteCallBackData);
-                this.fIX.b(postWriteCallBackData);
+                this.fNq.bnr();
+                this.fNq.a(true, postWriteCallBackData);
+                this.fNq.b(postWriteCallBackData);
             }
         }
     }

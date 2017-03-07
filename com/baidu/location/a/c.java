@@ -10,18 +10,18 @@ import java.util.Locale;
 public class c {
     private String p;
     private boolean q = true;
-    private static c Hu = null;
+    private static c MC = null;
     private static String b = "Temp_in.dat";
     private static File c = new File(com.baidu.location.h.h.a, b);
-    private static StringBuffer Hv = null;
+    private static StringBuffer MD = null;
     private static boolean e = true;
     private static int f = 0;
     private static int g = 0;
     private static long h = 0;
     private static long i = 0;
     private static long j = 0;
-    private static double Hw = 0.0d;
-    private static double Hx = 0.0d;
+    private static double k = 0.0d;
+    private static double ME = 0.0d;
     private static int m = 0;
     private static int n = 0;
     private static int o = 0;
@@ -69,77 +69,77 @@ public class c {
     }
 
     private static boolean a(int i2, int i3, int i4) {
-        if (i2 < 0 || i2 > com.baidu.location.h.i.Le) {
+        if (i2 < 0 || i2 > com.baidu.location.h.i.Qj) {
             return false;
         }
         if (i3 < 0 || i3 > i2 + 1) {
             return false;
         }
-        return i4 >= 1 && i4 <= i2 + 1 && i4 <= com.baidu.location.h.i.Le;
+        return i4 >= 1 && i4 <= i2 + 1 && i4 <= com.baidu.location.h.i.Qj;
     }
 
     private boolean a(Location location, int i2, int i3) {
-        if (location != null && com.baidu.location.h.i.Lb && this.q) {
+        if (location != null && com.baidu.location.h.i.X && this.q) {
             if (com.baidu.location.h.i.Z < 5) {
                 com.baidu.location.h.i.Z = 5;
             } else if (com.baidu.location.h.i.Z > 1000) {
                 com.baidu.location.h.i.Z = 1000;
             }
-            if (com.baidu.location.h.i.Ld < 5) {
-                com.baidu.location.h.i.Ld = 5;
-            } else if (com.baidu.location.h.i.Ld > 3600) {
-                com.baidu.location.h.i.Ld = 3600;
+            if (com.baidu.location.h.i.Qi < 5) {
+                com.baidu.location.h.i.Qi = 5;
+            } else if (com.baidu.location.h.i.Qi > 3600) {
+                com.baidu.location.h.i.Qi = 3600;
             }
             double longitude = location.getLongitude();
             double latitude = location.getLatitude();
             long time = location.getTime() / 1000;
             if (e) {
                 f = 1;
-                Hv = new StringBuffer("");
-                Hv.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = Hv.length();
+                MD = new StringBuffer("");
+                MD.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                g = MD.length();
                 h = time;
-                Hw = longitude;
-                Hx = latitude;
+                k = longitude;
+                ME = latitude;
                 i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
                 j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
                 e = false;
                 return true;
             }
             float[] fArr = new float[1];
-            Location.distanceBetween(latitude, longitude, Hx, Hw, fArr);
+            Location.distanceBetween(latitude, longitude, ME, k, fArr);
             long j2 = time - h;
-            if (fArr[0] >= com.baidu.location.h.i.Z || j2 >= com.baidu.location.h.i.Ld) {
-                if (Hv == null) {
+            if (fArr[0] >= com.baidu.location.h.i.Z || j2 >= com.baidu.location.h.i.Qi) {
+                if (MD == null) {
                     f++;
                     g = 0;
-                    Hv = new StringBuffer("");
-                    Hv.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = Hv.length();
+                    MD = new StringBuffer("");
+                    MD.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                    g = MD.length();
                     h = time;
-                    Hw = longitude;
-                    Hx = latitude;
+                    k = longitude;
+                    ME = latitude;
                     i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
                     j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
                 } else {
-                    Hw = longitude;
-                    Hx = latitude;
+                    k = longitude;
+                    ME = latitude;
                     long floor = (long) Math.floor((longitude * 100000.0d) + 0.5d);
                     long floor2 = (long) Math.floor((latitude * 100000.0d) + 0.5d);
                     m = (int) (time - h);
                     n = (int) (floor - i);
                     o = (int) (floor2 - j);
-                    Hv.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = Hv.length();
+                    MD.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
+                    g = MD.length();
                     h = time;
                     i = floor;
                     j = floor2;
                 }
                 if (g + 15 > 750) {
-                    a(Hv.toString());
-                    Hv = null;
+                    a(MD.toString());
+                    MD = null;
                 }
-                if (f >= com.baidu.location.h.i.Le) {
+                if (f >= com.baidu.location.h.i.Qj) {
                     this.q = false;
                 }
                 return true;
@@ -165,9 +165,9 @@ public class c {
                     d();
                     return false;
                 }
-                if (com.baidu.location.h.i.Lc) {
-                    if (readInt == com.baidu.location.h.i.Le) {
-                        if (str.equals(a(readInt3 == 1 ? com.baidu.location.h.i.Le : readInt3 - 1))) {
+                if (com.baidu.location.h.i.Qh) {
+                    if (readInt == com.baidu.location.h.i.Qj) {
+                        if (str.equals(a(readInt3 == 1 ? com.baidu.location.h.i.Qj : readInt3 - 1))) {
                             randomAccessFile.close();
                             return false;
                         }
@@ -194,29 +194,29 @@ public class c {
                     randomAccessFile.writeInt(1);
                     randomAccessFile.writeInt(1);
                     randomAccessFile.writeInt(2);
-                } else if (readInt < com.baidu.location.h.i.Le - 1) {
+                } else if (readInt < com.baidu.location.h.i.Qj - 1) {
                     randomAccessFile.seek(0L);
                     randomAccessFile.writeInt(readInt + 1);
                     randomAccessFile.seek(8L);
                     randomAccessFile.writeInt(readInt + 2);
-                } else if (readInt == com.baidu.location.h.i.Le - 1) {
+                } else if (readInt == com.baidu.location.h.i.Qj - 1) {
                     randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(com.baidu.location.h.i.Le);
+                    randomAccessFile.writeInt(com.baidu.location.h.i.Qj);
                     if (readInt2 == 0 || readInt2 == 1) {
                         randomAccessFile.writeInt(2);
                     }
                     randomAccessFile.seek(8L);
                     randomAccessFile.writeInt(1);
                 } else if (readInt3 == readInt2) {
-                    int i2 = readInt3 == com.baidu.location.h.i.Le ? 1 : readInt3 + 1;
-                    int i3 = i2 == com.baidu.location.h.i.Le ? 1 : i2 + 1;
+                    int i2 = readInt3 == com.baidu.location.h.i.Qj ? 1 : readInt3 + 1;
+                    int i3 = i2 == com.baidu.location.h.i.Qj ? 1 : i2 + 1;
                     randomAccessFile.seek(4L);
                     randomAccessFile.writeInt(i3);
                     randomAccessFile.writeInt(i2);
                 } else {
-                    int i4 = readInt3 == com.baidu.location.h.i.Le ? 1 : readInt3 + 1;
+                    int i4 = readInt3 == com.baidu.location.h.i.Qj ? 1 : readInt3 + 1;
                     if (i4 == readInt2) {
-                        int i5 = i4 == com.baidu.location.h.i.Le ? 1 : i4 + 1;
+                        int i5 = i4 == com.baidu.location.h.i.Qj ? 1 : i4 + 1;
                         randomAccessFile.seek(4L);
                         randomAccessFile.writeInt(i5);
                     }
@@ -257,7 +257,7 @@ public class c {
                         bArr[i2] = randomAccessFile.readByte();
                     }
                     String str = new String(bArr);
-                    int i3 = readInt < com.baidu.location.h.i.Le ? readInt2 + 1 : readInt2 == com.baidu.location.h.i.Le ? 1 : readInt2 + 1;
+                    int i3 = readInt < com.baidu.location.h.i.Qj ? readInt2 + 1 : readInt2 == com.baidu.location.h.i.Qj ? 1 : readInt2 + 1;
                     randomAccessFile.seek(4L);
                     randomAccessFile.writeInt(i3);
                     randomAccessFile.close();
@@ -272,14 +272,14 @@ public class c {
 
     private static void c() {
         e = true;
-        Hv = null;
+        MD = null;
         f = 0;
         g = 0;
         h = 0L;
         i = 0L;
         j = 0L;
-        Hw = 0.0d;
-        Hx = 0.0d;
+        k = 0.0d;
+        ME = 0.0d;
         m = 0;
         n = 0;
         o = 0;
@@ -307,14 +307,14 @@ public class c {
         }
     }
 
-    public static c mj() {
-        if (Hu == null) {
-            Hu = new c(com.baidu.location.h.c.nh().c());
+    public static c mx() {
+        if (MC == null) {
+            MC = new c(com.baidu.location.h.c.nv().c());
         }
-        return Hu;
+        return MC;
     }
 
     public boolean a(Location location) {
-        return a(location, com.baidu.location.h.i.Z, com.baidu.location.h.i.Ld);
+        return a(location, com.baidu.location.h.i.Z, com.baidu.location.h.i.Qi);
     }
 }

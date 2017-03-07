@@ -141,22 +141,6 @@ public class a {
         }
     }
 
-    public static final List<Method> l(Class<?> cls) {
-        LinkedList linkedList = new LinkedList();
-        while (cls != Object.class) {
-            Method[] declaredMethods = cls.getDeclaredMethods();
-            if (declaredMethods != null) {
-                for (Method method : declaredMethods) {
-                    if (method != null) {
-                        linkedList.add(method);
-                    }
-                }
-            }
-            cls = cls.getSuperclass();
-        }
-        return linkedList;
-    }
-
     public static final Method a(Class<?> cls, String str, Object... objArr) {
         Method method;
         Method method2 = null;
@@ -197,7 +181,7 @@ public class a {
         return method2;
     }
 
-    public static final List<Field> m(Class<?> cls) {
+    public static final List<Field> l(Class<?> cls) {
         LinkedList linkedList = new LinkedList();
         while (cls != Object.class) {
             Field[] declaredFields = cls.getDeclaredFields();

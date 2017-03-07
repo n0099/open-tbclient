@@ -10,11 +10,11 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void d(int i, String str) {
+    public void e(int i, String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void B(String str) {
+    public void A(String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
@@ -30,7 +30,7 @@ public class l implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void gX() {
+    public void hR() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

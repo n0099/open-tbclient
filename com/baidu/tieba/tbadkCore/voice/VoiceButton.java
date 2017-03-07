@@ -11,30 +11,30 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes.dex */
 public class VoiceButton extends ImageView {
-    j fsN;
-    private boolean fsO;
+    j fxl;
+    private boolean fxm;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fsO = false;
+        this.fxm = false;
     }
 
     public void setRecorderView(j jVar) {
-        this.fsN = jVar;
+        this.fxl = jVar;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         a recorderManager = getRecorderManager();
         if (motionEvent.getAction() == 0) {
-            if (recorderManager == null || !recorderManager.lp()) {
+            if (recorderManager == null || !recorderManager.mj()) {
                 return false;
             }
-            this.fsO = recorderManager.a(this.fsN, -1);
+            this.fxm = recorderManager.a(this.fxl, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.fsO && recorderManager != null) {
-                recorderManager.lq();
+            if (this.fxm && recorderManager != null) {
+                recorderManager.mk();
             }
             setPressed(false);
         } else if (!isPressed()) {
@@ -49,7 +49,7 @@ public class VoiceButton extends ImageView {
         if (context instanceof VoiceManager.c) {
             return ((VoiceManager.c) context).getVoiceManager();
         }
-        if ((k.C(getContext()) instanceof g) && (tbPageContext = (TbPageContext) k.C(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
+        if ((k.aa(getContext()) instanceof g) && (tbPageContext = (TbPageContext) k.aa(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
             return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
         }
         return null;

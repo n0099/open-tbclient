@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface e {
-    boolean Yx();
+    boolean Zw();
 
-    void aai();
+    void abf();
 
-    void aaj();
+    void abg();
 
-    void aak();
+    void abh();
 
     void dB(boolean z);
 

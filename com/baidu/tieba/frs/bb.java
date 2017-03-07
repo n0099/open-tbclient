@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements com.baidu.tbadk.widget.layout.i {
-    final /* synthetic */ ax bHQ;
+    final /* synthetic */ ax bOZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ax axVar) {
-        this.bHQ = axVar;
+        this.bOZ = axVar;
     }
 
     @Override // com.baidu.tbadk.widget.layout.i
@@ -20,21 +20,21 @@ public class bb implements com.baidu.tbadk.widget.layout.i {
         View view4;
         View view5;
         View view6;
-        view2 = this.bHQ.bHE;
+        view2 = this.bOZ.bON;
         if (view2 != null) {
-            view3 = this.bHQ.bHE;
+            view3 = this.bOZ.bON;
             if (view3.getLayoutParams() != null && i2 != i4) {
-                view4 = this.bHQ.bHE;
+                view4 = this.bOZ.bON;
                 view4.getLayoutParams().height = i2;
-                view5 = this.bHQ.bHE;
-                view6 = this.bHQ.bHE;
+                view5 = this.bOZ.bON;
+                view6 = this.bOZ.bON;
                 view5.setLayoutParams(view6.getLayoutParams());
             }
         }
-        frsActivity = this.bHQ.bHh;
-        if (frsActivity.Xr() != null) {
-            frsActivity2 = this.bHQ.bHh;
-            frsActivity2.Xr().p(view, i2);
+        frsActivity = this.bOZ.bOq;
+        if (frsActivity.Yq() != null) {
+            frsActivity2 = this.bOZ.bOq;
+            frsActivity2.Yq().p(view, i2);
         }
     }
 }

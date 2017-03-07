@@ -1,78 +1,71 @@
 package com.baidu.tbadk.widget;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import java.lang.ref.WeakReference;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.lang.reflect.Method;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends ImageSpan {
-    private int aFj;
-    private int paddingLeft;
-    private int paddingRight;
-    private WeakReference<Drawable> zb;
+public class f extends CustomMessageListener {
+    final /* synthetic */ TbImageView aKA;
 
-    public f(Drawable drawable) {
-        super(drawable);
-        this.aFj = 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(TbImageView tbImageView, int i) {
+        super(i);
+        this.aKA = tbImageView;
     }
 
-    public void fq(int i) {
-        this.paddingLeft = i;
-    }
-
-    public void fr(int i) {
-        this.paddingRight = i;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Drawable jw = jw();
-        if (jw == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-        }
-        Rect bounds = jw.getBounds();
-        if (fontMetricsInt != null) {
-            Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-            int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-            int i4 = bounds.bottom - bounds.top;
-            int i5 = (i4 / 2) - (i3 / 4);
-            int i6 = (i3 / 4) + (i4 / 2);
-            fontMetricsInt.ascent = -i6;
-            fontMetricsInt.top = -i6;
-            fontMetricsInt.bottom = i5;
-            fontMetricsInt.descent = i5;
-        }
-        return bounds.right + this.paddingLeft + this.paddingRight;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable jw = jw();
-        if (jw != null) {
-            canvas.save();
-            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - jw.getBounds().bottom) / 2) + i3) - this.aFj);
-            jw.draw(canvas);
-            canvas.restore();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        String str;
+        int i;
+        Method method;
+        Method method2;
+        Method method3;
+        Method method4;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str2 = (String) customResponsedMessage.getData();
+            com.baidu.adp.lib.f.c fG = com.baidu.adp.lib.f.c.fG();
+            str = this.aKA.mUrl;
+            i = this.aKA.mType;
+            String f = fG.f(str, i);
+            if (f != null && f.equals(str2)) {
+                this.aKA.destroyDrawingCache();
+                Hy();
+                method = TbImageView.aKw;
+                com.baidu.adp.lib.OrmObject.a.a.a(method, this.aKA, TbImageView.class);
+                method2 = TbImageView.aKx;
+                com.baidu.adp.lib.OrmObject.a.a.a(method2, this.aKA, TbImageView.class, false);
+                method3 = TbImageView.aKy;
+                com.baidu.adp.lib.OrmObject.a.a.a(method3, this.aKA, TbImageView.class);
+                method4 = TbImageView.aKz;
+                com.baidu.adp.lib.OrmObject.a.a.a(method4, this.aKA, TbImageView.class);
+                this.aKA.invalidate();
+            }
         }
     }
 
-    private Drawable jw() {
-        WeakReference<Drawable> weakReference = this.zb;
-        Drawable drawable = null;
-        if (weakReference != null) {
-            drawable = weakReference.get();
+    private void Hy() {
+        Method method;
+        Method method2;
+        Method method3;
+        Method method4;
+        method = TbImageView.aKw;
+        if (method == null) {
+            TbImageView.aKw = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "destroyLayer", new Object[0]);
         }
-        if (drawable == null) {
-            Drawable drawable2 = getDrawable();
-            this.zb = new WeakReference<>(drawable2);
-            return drawable2;
+        method2 = TbImageView.aKx;
+        if (method2 == null) {
+            TbImageView.aKx = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "destroyLayer", false);
         }
-        return drawable;
-    }
-
-    public void setVerticalOffset(int i) {
-        this.aFj = i;
+        method3 = TbImageView.aKy;
+        if (method3 == null) {
+            TbImageView.aKy = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "clearDisplayList", new Object[0]);
+        }
+        method4 = TbImageView.aKz;
+        if (method4 == null) {
+            TbImageView.aKz = com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) TbImageView.class, "resetDisplayList", new Object[0]);
+        }
     }
 }

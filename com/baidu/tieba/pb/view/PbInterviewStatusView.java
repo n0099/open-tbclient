@@ -18,167 +18,167 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class PbInterviewStatusView extends FrameLayout {
-    private String Ql;
-    private TextView eue;
-    private ImageView euf;
-    private FrameLayout eug;
-    private TextView euh;
-    private ImageView eui;
-    private ImageView euj;
-    private View euk;
-    private Animation eul;
-    private com.baidu.tbadk.core.dialog.a eum;
-    private CountDownTimer eun;
-    private CountDownTimer euo;
-    private CountDownTimer eup;
-    private boolean euq;
-    private boolean eur;
-    private a eus;
+    private String Vy;
+    private TextView exB;
+    private ImageView exC;
+    private FrameLayout exD;
+    private TextView exE;
+    private ImageView exF;
+    private ImageView exG;
+    private View exH;
+    private Animation exI;
+    private com.baidu.tbadk.core.dialog.a exJ;
+    private CountDownTimer exK;
+    private CountDownTimer exL;
+    private CountDownTimer exM;
+    private boolean exN;
+    private boolean exO;
+    private a exP;
     private View mRootView;
 
     /* loaded from: classes.dex */
     public interface a {
-        void o(boolean z);
+        void p(boolean z);
     }
 
     public void setCallback(a aVar) {
-        this.eus = aVar;
+        this.exP = aVar;
     }
 
     public PbInterviewStatusView(Context context) {
         super(context);
         this.mRootView = null;
-        this.eum = null;
-        this.eun = null;
-        this.euo = null;
-        this.eup = null;
-        this.euq = true;
-        this.eur = false;
-        this.Ql = null;
-        this.eus = null;
+        this.exJ = null;
+        this.exK = null;
+        this.exL = null;
+        this.exM = null;
+        this.exN = true;
+        this.exO = false;
+        this.Vy = null;
+        this.exP = null;
         init(context);
     }
 
     public PbInterviewStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mRootView = null;
-        this.eum = null;
-        this.eun = null;
-        this.euo = null;
-        this.eup = null;
-        this.euq = true;
-        this.eur = false;
-        this.Ql = null;
-        this.eus = null;
+        this.exJ = null;
+        this.exK = null;
+        this.exL = null;
+        this.exM = null;
+        this.exN = true;
+        this.exO = false;
+        this.Vy = null;
+        this.exP = null;
         init(context);
     }
 
     public PbInterviewStatusView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mRootView = null;
-        this.eum = null;
-        this.eun = null;
-        this.euo = null;
-        this.eup = null;
-        this.euq = true;
-        this.eur = false;
-        this.Ql = null;
-        this.eus = null;
+        this.exJ = null;
+        this.exK = null;
+        this.exL = null;
+        this.exM = null;
+        this.exN = true;
+        this.exO = false;
+        this.Vy = null;
+        this.exP = null;
         init(context);
     }
 
     private void init(Context context) {
-        this.mRootView = LayoutInflater.from(context).inflate(r.j.pb_interview_status, (ViewGroup) this, true);
-        this.eue = (TextView) this.mRootView.findViewById(r.h.interview_live_status_btn);
-        this.eug = (FrameLayout) this.mRootView.findViewById(r.h.count_container);
-        this.euf = (ImageView) this.mRootView.findViewById(r.h.interview_mic);
-        this.euj = (ImageView) this.mRootView.findViewById(r.h.interview_arrow);
-        this.euh = (TextView) this.mRootView.findViewById(r.h.count_text);
-        this.eui = (ImageView) this.mRootView.findViewById(r.h.count_bg);
-        this.euk = this.mRootView.findViewById(r.h.interview_live_status_divider);
+        this.mRootView = LayoutInflater.from(context).inflate(w.j.pb_interview_status, (ViewGroup) this, true);
+        this.exB = (TextView) this.mRootView.findViewById(w.h.interview_live_status_btn);
+        this.exD = (FrameLayout) this.mRootView.findViewById(w.h.count_container);
+        this.exC = (ImageView) this.mRootView.findViewById(w.h.interview_mic);
+        this.exG = (ImageView) this.mRootView.findViewById(w.h.interview_arrow);
+        this.exE = (TextView) this.mRootView.findViewById(w.h.count_text);
+        this.exF = (ImageView) this.mRootView.findViewById(w.h.count_bg);
+        this.exH = this.mRootView.findViewById(w.h.interview_live_status_divider);
         this.mRootView.setAlpha(0.8f);
-        ap.k(this.mRootView, r.e.cp_link_tip_a);
-        ap.i((View) this.eue, r.e.cp_cont_g);
-        ap.j(this.eui, r.g.icon_interview_loding);
-        ap.i((View) this.euh, r.e.cp_cont_g);
-        ap.j(this.euf, r.g.icon_interview_mic);
-        ap.j(this.euj, r.g.icon_arrow_tip_white);
-        ap.k(this.euk, r.e.cp_bg_line_c);
+        aq.k(this.mRootView, w.e.cp_link_tip_a);
+        aq.i((View) this.exB, w.e.cp_cont_g);
+        aq.j(this.exF, w.g.icon_interview_loding);
+        aq.i((View) this.exE, w.e.cp_cont_g);
+        aq.j(this.exC, w.g.icon_interview_mic);
+        aq.j(this.exG, w.g.icon_arrow_tip_white);
+        aq.k(this.exH, w.e.cp_bg_line_c);
     }
 
     public void a(PbActivity pbActivity, com.baidu.tieba.pb.data.f fVar) {
-        this.Ql = fVar.aJZ().rg().pp();
-        if (StringUtils.isNull(this.Ql)) {
-            this.Ql = fVar.aJZ().rg().getTaskId();
+        this.Vy = fVar.aJq().rz().pD();
+        if (StringUtils.isNull(this.Vy)) {
+            this.Vy = fVar.aJq().rz().getTaskId();
         }
-        this.euq = !PbActivityConfig.FROM_INTERVIEW_LIVE.equals(pbActivity.aLp());
+        this.exN = !PbActivityConfig.FROM_INTERVIEW_LIVE.equals(pbActivity.aKK());
         b(pbActivity, fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PbActivity pbActivity, com.baidu.tieba.pb.data.f fVar) {
-        int rX = fVar.aJZ().rX();
-        switch (rX) {
+        int ss = fVar.aJq().ss();
+        switch (ss) {
             case 1:
-                long millis = TimeUnit.SECONDS.toMillis(fVar.aJZ().rg().qZ()) - System.currentTimeMillis();
+                long millis = TimeUnit.SECONDS.toMillis(fVar.aJq().rz().rs()) - System.currentTimeMillis();
                 if (millis > TimeUnit.SECONDS.toMillis(61L)) {
                     long millis2 = millis - TimeUnit.SECONDS.toMillis(61L);
-                    this.eun = new e(this, millis2, millis2, pbActivity, fVar).start();
+                    this.exK = new e(this, millis2, millis2, pbActivity, fVar).start();
                     this.mRootView.setVisibility(8);
-                    if (this.eus != null) {
-                        this.eus.o(false);
+                    if (this.exP != null) {
+                        this.exP.p(false);
                     }
                 } else {
-                    TiebaStatic.log(new ar("c11105").ab("obj_id", this.Ql));
+                    TiebaStatic.log(new as("c11105").Z("obj_id", this.Vy));
                     this.mRootView.setVisibility(0);
-                    if (this.eus != null) {
-                        this.eus.o(true);
+                    if (this.exP != null) {
+                        this.exP.p(true);
                     }
-                    this.eue.setText(pbActivity.getPageContext().getPageActivity().getString(r.l.interview_live_before_start));
-                    this.eue.setTextSize(0, com.baidu.adp.lib.util.k.e(pbActivity.getPageContext().getPageActivity(), r.f.fontsize24));
-                    this.euf.setVisibility(8);
-                    this.euj.setVisibility(8);
-                    this.euk.setVisibility(8);
-                    com.baidu.tieba.tbadkCore.a.a(pbActivity, this.eui, ad(pbActivity), (Animation.AnimationListener) null);
-                    if (this.euo != null) {
-                        this.euo.cancel();
+                    this.exB.setText(pbActivity.getPageContext().getPageActivity().getString(w.l.interview_live_before_start));
+                    this.exB.setTextSize(0, com.baidu.adp.lib.util.k.g(pbActivity.getPageContext().getPageActivity(), w.f.fontsize24));
+                    this.exC.setVisibility(8);
+                    this.exG.setVisibility(8);
+                    this.exH.setVisibility(8);
+                    com.baidu.tieba.tbadkCore.a.a(pbActivity, this.exF, ac(pbActivity), (Animation.AnimationListener) null);
+                    if (this.exL != null) {
+                        this.exL.cancel();
                     }
-                    this.euo = new f(this, millis, TimeUnit.SECONDS.toMillis(1L), pbActivity).start();
+                    this.exL = new f(this, millis, TimeUnit.SECONDS.toMillis(1L), pbActivity).start();
                 }
                 setClickable(false);
                 return;
             case 2:
             case 3:
                 this.mRootView.setVisibility(0);
-                if (this.eus != null) {
-                    this.eus.o(true);
+                if (this.exP != null) {
+                    this.exP.p(true);
                 }
-                this.euf.setVisibility(8);
-                this.euj.setVisibility(8);
-                this.eug.setVisibility(8);
-                this.euk.setVisibility(0);
-                this.eue.setTextSize(0, com.baidu.adp.lib.util.k.e(pbActivity.getPageContext().getPageActivity(), r.f.fontsize28));
-                ap.k(this.mRootView, r.e.cp_bg_line_e);
-                ap.i((View) this.eue, r.e.cp_cont_f);
-                ap.k(this.euk, r.e.cp_bg_line_c);
+                this.exC.setVisibility(8);
+                this.exG.setVisibility(8);
+                this.exD.setVisibility(8);
+                this.exH.setVisibility(0);
+                this.exB.setTextSize(0, com.baidu.adp.lib.util.k.g(pbActivity.getPageContext().getPageActivity(), w.f.fontsize28));
+                aq.k(this.mRootView, w.e.cp_bg_line_e);
+                aq.i((View) this.exB, w.e.cp_cont_f);
+                aq.k(this.exH, w.e.cp_bg_line_c);
                 this.mRootView.setAlpha(0.95f);
                 setClickable(true);
-                if (rX == 2) {
-                    this.eue.setText(pbActivity.getPageContext().getPageActivity().getString(r.l.interview_live_in_process));
-                    if (this.euq) {
-                        ac(pbActivity);
+                if (ss == 2) {
+                    this.exB.setText(pbActivity.getPageContext().getPageActivity().getString(w.l.interview_live_in_process));
+                    if (this.exN) {
+                        ab(pbActivity);
                         return;
                     }
                     return;
                 }
-                this.eue.setText(pbActivity.getPageContext().getPageActivity().getString(r.l.interview_live_finished));
+                this.exB.setText(pbActivity.getPageContext().getPageActivity().getString(w.l.interview_live_finished));
                 return;
             default:
                 this.mRootView.setVisibility(8);
@@ -186,59 +186,59 @@ public class PbInterviewStatusView extends FrameLayout {
         }
     }
 
-    private void ac(PbActivity pbActivity) {
+    private void ab(PbActivity pbActivity) {
         if (MessageManager.getInstance().findTask(CmdConfigHttp.SPECIAL_PAGE_HTTP_CMD) != null) {
-            View inflate = LayoutInflater.from(pbActivity.getPageContext().getPageActivity()).inflate(r.j.interview_transfer_dialog, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(r.h.transfer_count_down);
-            View findViewById = inflate.findViewById(r.h.line_left);
-            View findViewById2 = inflate.findViewById(r.h.line_right);
-            ap.j((ImageView) inflate.findViewById(r.h.pop_live), r.g.pic_pop_live_n);
-            ap.i((View) ((TextView) inflate.findViewById(r.h.transfer_tip_txt)), r.e.cp_cont_b);
-            ap.i((View) ((TextView) inflate.findViewById(r.h.transfer_tip_txt_1)), r.e.cp_cont_b);
-            ap.k(findViewById, r.e.cp_bg_line_a);
-            ap.k(findViewById2, r.e.cp_bg_line_a);
-            ap.i((View) textView, r.e.cp_cont_f);
-            this.eum = new com.baidu.tbadk.core.dialog.a(pbActivity.getPageContext().getPageActivity());
-            this.eum.x(inflate);
-            this.eum.a((String) null, (a.b) null);
-            this.eum.b(r.l.cancel, new g(this));
-            this.eum.au(false);
-            this.eum.b(pbActivity.getPageContext());
-            com.baidu.adp.lib.g.h.eE().postDelayed(new h(this), TimeUnit.MICROSECONDS.toMillis(200L));
-            this.eup = new i(this, TimeUnit.MILLISECONDS.toMillis(3300L), TimeUnit.SECONDS.toMillis(1L), textView, pbActivity).start();
+            View inflate = LayoutInflater.from(pbActivity.getPageContext().getPageActivity()).inflate(w.j.interview_transfer_dialog, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(w.h.transfer_count_down);
+            View findViewById = inflate.findViewById(w.h.line_left);
+            View findViewById2 = inflate.findViewById(w.h.line_right);
+            aq.j((ImageView) inflate.findViewById(w.h.pop_live), w.g.pic_pop_live_n);
+            aq.i((View) ((TextView) inflate.findViewById(w.h.transfer_tip_txt)), w.e.cp_cont_b);
+            aq.i((View) ((TextView) inflate.findViewById(w.h.transfer_tip_txt_1)), w.e.cp_cont_b);
+            aq.k(findViewById, w.e.cp_bg_line_a);
+            aq.k(findViewById2, w.e.cp_bg_line_a);
+            aq.i((View) textView, w.e.cp_cont_f);
+            this.exJ = new com.baidu.tbadk.core.dialog.a(pbActivity.getPageContext().getPageActivity());
+            this.exJ.v(inflate);
+            this.exJ.a((String) null, (a.b) null);
+            this.exJ.b(w.l.cancel, new g(this));
+            this.exJ.at(false);
+            this.exJ.b(pbActivity.getPageContext());
+            com.baidu.adp.lib.g.h.fM().postDelayed(new h(this), TimeUnit.MICROSECONDS.toMillis(200L));
+            this.exM = new i(this, TimeUnit.MILLISECONDS.toMillis(3300L), TimeUnit.SECONDS.toMillis(1L), textView, pbActivity).start();
         }
     }
 
-    private Animation ad(PbActivity pbActivity) {
-        if (this.eul == null) {
-            this.eul = AnimationUtils.loadAnimation(pbActivity.getPageContext().getPageActivity(), r.a.rotate_anim);
-            this.eul.setDuration(TimeUnit.SECONDS.toMillis(3L));
-            this.eul.setInterpolator(new LinearInterpolator());
-            this.eul.setFillAfter(true);
+    private Animation ac(PbActivity pbActivity) {
+        if (this.exI == null) {
+            this.exI = AnimationUtils.loadAnimation(pbActivity.getPageContext().getPageActivity(), w.a.rotate_anim);
+            this.exI.setDuration(TimeUnit.SECONDS.toMillis(3L));
+            this.exI.setInterpolator(new LinearInterpolator());
+            this.exI.setFillAfter(true);
         }
-        return this.eul;
+        return this.exI;
     }
 
     public boolean getIndicateStatus() {
-        return this.eur;
+        return this.exO;
     }
 
     public void clearStatus() {
-        if (this.eun != null) {
-            this.eun.cancel();
-            this.eun = null;
+        if (this.exK != null) {
+            this.exK.cancel();
+            this.exK = null;
         }
-        if (this.euo != null) {
-            this.euo.cancel();
-            this.euo = null;
+        if (this.exL != null) {
+            this.exL.cancel();
+            this.exL = null;
         }
-        if (this.eup != null) {
-            this.eup.cancel();
-            this.eup = null;
+        if (this.exM != null) {
+            this.exM.cancel();
+            this.exM = null;
         }
-        if (this.eum != null) {
-            this.eum.dismiss();
-            this.eum = null;
+        if (this.exJ != null) {
+            this.exJ.dismiss();
+            this.exJ = null;
         }
     }
 }

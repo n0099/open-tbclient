@@ -2,6 +2,7 @@ package com.baidu.adp.framework.message;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class Message<T> extends OrmObject {
@@ -26,14 +27,14 @@ public abstract class Message<T> extends OrmObject {
     public Message(int i) {
         this.mCmd = i;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.eG().eI();
+        this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public Message(int i, BdUniqueId bdUniqueId) {
         this.mCmd = i;
         this.mTag = bdUniqueId;
         check();
-        this.clientLogID = com.baidu.adp.lib.stats.a.eG().eI();
+        this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     private void check() {

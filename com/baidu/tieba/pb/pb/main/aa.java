@@ -8,60 +8,60 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class aa implements PbModel.a {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PbActivity pbActivity) {
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
     public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
-        ez ezVar;
-        ez ezVar2;
-        ez ezVar3;
-        ez ezVar4;
+        fa faVar;
+        fa faVar2;
+        fa faVar3;
+        fa faVar4;
         boolean z2;
-        ez ezVar5;
+        fa faVar5;
         boolean z3;
         boolean z4;
-        ez ezVar6;
-        ez ezVar7;
-        ez ezVar8;
-        ez ezVar9;
+        fa faVar6;
+        fa faVar7;
+        fa faVar8;
+        fa faVar9;
         PbModel pbModel;
-        ez ezVar10;
+        fa faVar10;
         PbModel pbModel2;
         PbModel pbModel3;
-        ez ezVar11;
+        fa faVar11;
         PbModel pbModel4;
         PbModel pbModel5;
-        ez ezVar12;
+        fa faVar12;
         PbModel pbModel6;
         PbModel pbModel7;
-        ez ezVar13;
+        fa faVar13;
         PbModel pbModel8;
-        ez ezVar14;
-        ez ezVar15;
+        fa faVar14;
+        fa faVar15;
         com.baidu.tbadk.editortools.pb.c cVar;
         PbModel pbModel9;
         com.baidu.tbadk.editortools.pb.c cVar2;
         com.baidu.tbadk.baseEditMark.a aVar;
-        ez ezVar16;
+        fa faVar16;
         boolean z5;
         boolean z6;
         boolean z7;
         boolean z8;
         PbModel pbModel10;
-        ez ezVar17;
+        fa faVar17;
         PbModel pbModel11;
         PbModel pbModel12;
-        ez ezVar18;
+        fa faVar18;
         PbModel pbModel13;
-        ez ezVar19;
+        fa faVar19;
         PbModel pbModel14;
         PbModel pbModel15;
         String str2;
@@ -70,9 +70,9 @@ class aa implements PbModel.a {
         com.baidu.tbadk.editortools.pb.c cVar5;
         String str3;
         View.OnClickListener onClickListener;
-        ez ezVar20;
+        fa faVar20;
         PbModel pbModel16;
-        ez ezVar21;
+        fa faVar21;
         PbModel pbModel17;
         PbModel pbModel18;
         com.baidu.tbadk.baseEditMark.a aVar2;
@@ -83,154 +83,154 @@ class aa implements PbModel.a {
         PbModel pbModel20;
         PbModel pbModel21;
         PbModel pbModel22;
-        ez ezVar22;
+        fa faVar22;
         com.baidu.tbadk.editortools.pb.c cVar9;
-        ez ezVar23;
-        ez ezVar24;
-        ez ezVar25;
+        fa faVar23;
+        fa faVar24;
+        fa faVar25;
         PbModel pbModel23;
-        if (!z || fVar == null || fVar.aKi() != null || com.baidu.tbadk.core.util.w.r(fVar.aKb()) >= 1) {
-            this.eiV.dJT = true;
+        if (!z || fVar == null || fVar.aJz() != null || com.baidu.tbadk.core.util.x.p(fVar.aJs()) >= 1) {
+            this.elO.dMB = true;
             long currentTimeMillis = System.currentTimeMillis();
-            ezVar = this.eiV.ehV;
-            ezVar.aNL();
-            if (fVar != null && fVar.aKg()) {
-                ezVar25 = this.eiV.ehV;
-                if (ezVar25.aNm() == null) {
-                    this.eiV.eij = true;
+            faVar = this.elO.ekM;
+            faVar.aNe();
+            if (fVar != null && fVar.aJx()) {
+                faVar25 = this.elO.ekM;
+                if (faVar25.aMF() == null) {
+                    this.elO.ela = true;
                 }
             } else {
-                PbActivity pbActivity = this.eiV;
-                ezVar2 = this.eiV.ehV;
-                pbActivity.hideLoadingView(ezVar2.getView());
+                PbActivity pbActivity = this.elO;
+                faVar2 = this.elO.ekM;
+                pbActivity.hideLoadingView(faVar2.getView());
             }
-            ezVar3 = this.eiV.ehV;
-            ezVar3.asd();
-            ezVar4 = this.eiV.ehV;
-            ezVar4.aNF();
-            z2 = this.eiV.ehO;
+            faVar3 = this.elO.ekM;
+            faVar3.ary();
+            faVar4 = this.elO.ekM;
+            faVar4.aMY();
+            z2 = this.elO.ekG;
             if (z2) {
-                ezVar24 = this.eiV.ehV;
-                ezVar24.aOa();
+                faVar24 = this.elO.ekM;
+                faVar24.aNu();
             } else {
-                ezVar5 = this.eiV.ehV;
-                ezVar5.gL(false);
+                faVar5 = this.elO.ekM;
+                faVar5.gC(false);
             }
-            z3 = this.eiV.mIsLoading;
+            z3 = this.elO.mIsLoading;
             if (z3) {
-                this.eiV.mIsLoading = false;
-                ezVar23 = this.eiV.ehV;
-                ezVar23.enK.eqS.setEnabled(true);
+                this.elO.mIsLoading = false;
+                faVar23 = this.elO.ekM;
+                faVar23.eqM.eud.setEnabled(true);
             }
             if (i4 == 0 && fVar != null) {
-                this.eiV.eie = true;
+                this.elO.ekV = true;
             }
             if (z && fVar != null) {
-                ezVar14 = this.eiV.ehV;
-                ezVar14.JU();
-                ezVar15 = this.eiV.ehV;
-                ezVar15.iW(fVar.aKg());
-                if (fVar.aJZ() != null && fVar.aJZ().sr() != null) {
-                    this.eiV.a(fVar.aJZ().sr());
+                faVar14 = this.elO.ekM;
+                faVar14.Kz();
+                faVar15 = this.elO.ekM;
+                faVar15.iR(fVar.aJx());
+                if (fVar.aJq() != null && fVar.aJq().sM() != null) {
+                    this.elO.a(fVar.aJq().sM());
                 }
-                cVar = this.eiV.eih;
+                cVar = this.elO.ekY;
                 if (cVar != null) {
-                    ezVar22 = this.eiV.ehV;
-                    cVar9 = this.eiV.eih;
-                    ezVar22.gK(cVar9.Dd());
+                    faVar22 = this.elO.ekM;
+                    cVar9 = this.elO.ekY;
+                    faVar22.gB(cVar9.Dw());
                 }
                 TbadkCoreApplication.m9getInst().setDefaultBubble(fVar.getUserData().getBimg_url());
                 TbadkCoreApplication.m9getInst().setDefaultBubbleEndTime(fVar.getUserData().getBimg_end_time());
-                if (fVar.aKb() != null && fVar.aKb().size() >= 1 && fVar.aKb().get(0) != null) {
-                    String id = fVar.aKb().get(0).getId();
-                    pbModel22 = this.eiV.ehh;
-                    pbModel22.op(id);
-                } else if (fVar.aKi() != null) {
-                    String id2 = fVar.aKi().getId();
-                    pbModel9 = this.eiV.ehh;
-                    pbModel9.op(id2);
+                if (fVar.aJs() != null && fVar.aJs().size() >= 1 && fVar.aJs().get(0) != null) {
+                    String id = fVar.aJs().get(0).getId();
+                    pbModel22 = this.elO.ejZ;
+                    pbModel22.nw(id);
+                } else if (fVar.aJz() != null) {
+                    String id2 = fVar.aJz().getId();
+                    pbModel9 = this.elO.ejZ;
+                    pbModel9.nw(id2);
                 }
-                cVar2 = this.eiV.eih;
+                cVar2 = this.elO.ekY;
                 if (cVar2 != null) {
-                    cVar6 = this.eiV.eih;
-                    cVar6.a(fVar.qm());
-                    cVar7 = this.eiV.eih;
-                    cVar7.a(fVar.aJY(), fVar.getUserData());
-                    cVar8 = this.eiV.eih;
-                    pbModel19 = this.eiV.ehh;
-                    MetaData aMf = pbModel19.aMf();
-                    pbModel20 = this.eiV.ehh;
+                    cVar6 = this.elO.ekY;
+                    cVar6.a(fVar.qE());
+                    cVar7 = this.elO.ekY;
+                    cVar7.a(fVar.aJp(), fVar.getUserData());
+                    cVar8 = this.elO.ekY;
+                    pbModel19 = this.elO.ejZ;
+                    MetaData aLB = pbModel19.aLB();
+                    pbModel20 = this.elO.ejZ;
                     String threadID = pbModel20.getThreadID();
-                    pbModel21 = this.eiV.ehh;
-                    cVar8.a(aMf, threadID, pbModel21.aMx());
+                    pbModel21 = this.elO.ejZ;
+                    cVar8.a(aLB, threadID, pbModel21.aLU());
                 }
-                aVar = this.eiV.dGi;
+                aVar = this.elO.dIP;
                 if (aVar != null) {
-                    aVar2 = this.eiV.dGi;
-                    aVar2.ad(fVar.nt());
+                    aVar2 = this.elO.dIP;
+                    aVar2.ac(fVar.nH());
                 }
-                if (fVar == null || fVar.aKk() != 1) {
-                    this.eiV.mIsFromCDN = false;
+                if (fVar == null || fVar.aJB() != 1) {
+                    this.elO.mIsFromCDN = false;
                 } else {
-                    this.eiV.mIsFromCDN = true;
+                    this.elO.mIsFromCDN = true;
                 }
-                ezVar16 = this.eiV.ehV;
-                z5 = this.eiV.mIsFromCDN;
-                ezVar16.iV(z5);
-                z6 = this.eiV.eib;
+                faVar16 = this.elO.ekM;
+                z5 = this.elO.mIsFromCDN;
+                faVar16.iQ(z5);
+                z6 = this.elO.ekS;
                 if (!z6) {
-                    z7 = this.eiV.eic;
+                    z7 = this.elO.ekT;
                     if (z7) {
-                        z8 = this.eiV.eid;
+                        z8 = this.elO.ekU;
                         if (!z8) {
-                            PbActivity pbActivity2 = this.eiV;
-                            pbModel10 = this.eiV.ehh;
+                            PbActivity pbActivity2 = this.elO;
+                            pbModel10 = this.elO.ejZ;
                             pbActivity2.a(pbModel10.getPbData(), -1, false, true);
-                            this.eiV.eid = true;
-                            this.eiV.eib = true;
+                            this.elO.ekU = true;
+                            this.elO.ekS = true;
                         }
                     }
                 } else {
-                    PbActivity pbActivity3 = this.eiV;
-                    pbModel18 = this.eiV.ehh;
+                    PbActivity pbActivity3 = this.elO;
+                    pbModel18 = this.elO.ejZ;
                     pbActivity3.a(pbModel18.getPbData(), -1, 0, false, true);
                 }
-                ezVar17 = this.eiV.ehV;
-                pbModel11 = this.eiV.ehh;
-                boolean aLY = pbModel11.aLY();
-                pbModel12 = this.eiV.ehh;
-                ezVar17.a(fVar, i2, i3, aLY, i4, pbModel12.getIsFromMark());
-                ezVar18 = this.eiV.ehV;
-                pbModel13 = this.eiV.ehh;
-                ezVar18.a(fVar, pbModel13.aLY(), false, i2);
-                ezVar19 = this.eiV.ehV;
-                pbModel14 = this.eiV.ehh;
-                ezVar19.iT(pbModel14.getHostMode());
-                pbModel15 = this.eiV.ehh;
-                if (pbModel15.aMu() != null) {
-                    ezVar20 = this.eiV.ehV;
-                    pbModel16 = this.eiV.ehh;
-                    ezVar20.b(pbModel16.aMu().aLN());
-                    ezVar21 = this.eiV.ehV;
-                    pbModel17 = this.eiV.ehh;
-                    ezVar21.iR(pbModel17.aMu().aLO());
+                faVar17 = this.elO.ekM;
+                pbModel11 = this.elO.ejZ;
+                boolean aLu = pbModel11.aLu();
+                pbModel12 = this.elO.ejZ;
+                faVar17.a(fVar, i2, i3, aLu, i4, pbModel12.getIsFromMark());
+                faVar18 = this.elO.ekM;
+                pbModel13 = this.elO.ejZ;
+                faVar18.e(fVar, pbModel13.aLu());
+                faVar19 = this.elO.ekM;
+                pbModel14 = this.elO.ejZ;
+                faVar19.iO(pbModel14.getHostMode());
+                pbModel15 = this.elO.ejZ;
+                if (pbModel15.aLQ() != null) {
+                    faVar20 = this.elO.ekM;
+                    pbModel16 = this.elO.ejZ;
+                    faVar20.b(pbModel16.aLQ().aLj());
+                    faVar21 = this.elO.ekM;
+                    pbModel17 = this.elO.ejZ;
+                    faVar21.iM(pbModel17.aLQ().aLk());
                 }
-                AntiData qm = fVar.qm();
-                if (qm != null) {
-                    this.eiV.avj = qm.getVoice_message();
-                    str2 = this.eiV.avj;
+                AntiData qE = fVar.qE();
+                if (qE != null) {
+                    this.elO.aAE = qE.getVoice_message();
+                    str2 = this.elO.aAE;
                     if (!StringUtils.isNull(str2)) {
-                        cVar3 = this.eiV.eih;
+                        cVar3 = this.elO.ekY;
                         if (cVar3 != null) {
-                            cVar4 = this.eiV.eih;
-                            if (cVar4.Cw() != null) {
-                                cVar5 = this.eiV.eih;
-                                com.baidu.tbadk.editortools.p eB = cVar5.Cw().eB(6);
-                                if (eB != null) {
-                                    str3 = this.eiV.avj;
+                            cVar4 = this.elO.ekY;
+                            if (cVar4.CP() != null) {
+                                cVar5 = this.elO.ekY;
+                                com.baidu.tbadk.editortools.p ew = cVar5.CP().ew(6);
+                                if (ew != null) {
+                                    str3 = this.elO.aAE;
                                     if (!TextUtils.isEmpty(str3)) {
-                                        onClickListener = this.eiV.dnJ;
-                                        ((View) eB).setOnClickListener(onClickListener);
+                                        onClickListener = this.elO.dqd;
+                                        ((View) ew).setOnClickListener(onClickListener);
                                     }
                                 }
                             }
@@ -238,59 +238,59 @@ class aa implements PbModel.a {
                     }
                 }
             } else if (str != null) {
-                z4 = this.eiV.eie;
+                z4 = this.elO.ekV;
                 if (!z4 && i4 == 1) {
                     if (i2 == 3 || i2 == 4 || i2 == 6) {
                         if (i == 4) {
-                            pbModel = this.eiV.ehh;
+                            pbModel = this.elO.ejZ;
                             if (pbModel != null) {
-                                pbModel2 = this.eiV.ehh;
+                                pbModel2 = this.elO.ejZ;
                                 if (pbModel2.getAppealInfo() != null) {
-                                    pbModel3 = this.eiV.ehh;
-                                    if (!StringUtils.isNull(pbModel3.getAppealInfo().efo)) {
-                                        ezVar11 = this.eiV.ehV;
-                                        pbModel4 = this.eiV.ehh;
-                                        ezVar11.a(pbModel4.getAppealInfo());
+                                    pbModel3 = this.elO.ejZ;
+                                    if (!StringUtils.isNull(pbModel3.getAppealInfo().ehJ)) {
+                                        faVar11 = this.elO.ekM;
+                                        pbModel4 = this.elO.ejZ;
+                                        faVar11.a(pbModel4.getAppealInfo());
                                     }
                                 }
                             }
-                            PbActivity pbActivity4 = this.eiV;
-                            ezVar10 = this.eiV.ehV;
-                            pbActivity4.showNetRefreshView(ezVar10.getView(), this.eiV.getPageContext().getResources().getString(r.l.net_error_text, str, Integer.valueOf(i)), true);
-                            this.eiV.setNetRefreshViewEmotionDefMarginTop();
+                            PbActivity pbActivity4 = this.elO;
+                            faVar10 = this.elO.ekM;
+                            pbActivity4.showNetRefreshView(faVar10.getView(), this.elO.getPageContext().getResources().getString(w.l.net_error_text, str, Integer.valueOf(i)), true);
+                            this.elO.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.elO.getApplicationContext(), w.f.ds200));
                         } else {
-                            PbActivity pbActivity5 = this.eiV;
-                            ezVar8 = this.eiV.ehV;
-                            pbActivity5.showNetRefreshView(ezVar8.getView(), this.eiV.getPageContext().getResources().getString(r.l.net_error_text, str, Integer.valueOf(i)), true);
-                            this.eiV.setNetRefreshViewEmotionDefMarginTop();
+                            PbActivity pbActivity5 = this.elO;
+                            faVar8 = this.elO.ekM;
+                            pbActivity5.showNetRefreshView(faVar8.getView(), this.elO.getPageContext().getResources().getString(w.l.net_error_text, str, Integer.valueOf(i)), true);
+                            this.elO.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.elO.getApplicationContext(), w.f.ds200));
                         }
-                        ezVar9 = this.eiV.ehV;
-                        ezVar9.aOa();
+                        faVar9 = this.elO.ekM;
+                        faVar9.aNu();
                     }
                 } else {
-                    this.eiV.showToast(str);
+                    this.elO.showToast(str);
                 }
-                ezVar6 = this.eiV.ehV;
-                ezVar6.os(this.eiV.getResources().getString(r.l.list_no_more));
-                ezVar7 = this.eiV.ehV;
-                ezVar7.wl();
+                faVar6 = this.elO.ekM;
+                faVar6.nz(this.elO.getResources().getString(w.l.list_no_more));
+                faVar7 = this.elO.ekM;
+                faVar7.wI();
             }
-            this.eiV.aAX = System.currentTimeMillis() - currentTimeMillis;
-            if (!this.eiV.aKP().aLY() || this.eiV.aKP().getPbData().getPage().qy() != 0 || this.eiV.aKP().aMs()) {
-                this.eiV.eii = true;
+            this.elO.aGp = System.currentTimeMillis() - currentTimeMillis;
+            if (!this.elO.aKk().aLu() || this.elO.aKk().getPbData().getPage().qR() != 0 || this.elO.aKk().aLO()) {
+                this.elO.ekZ = true;
             }
-            pbModel5 = this.eiV.ehh;
+            pbModel5 = this.elO.ejZ;
             if (pbModel5 != null) {
-                ezVar12 = this.eiV.ehV;
-                if (ezVar12 != null) {
-                    pbModel6 = this.eiV.ehh;
-                    if (pbModel6.aMu() != null) {
-                        pbModel7 = this.eiV.ehh;
-                        if (pbModel7.aMu().aLK()) {
-                            ezVar13 = this.eiV.ehV;
-                            ezVar13.aLS();
-                            pbModel8 = this.eiV.ehh;
-                            pbModel8.aMu().aLM();
+                faVar12 = this.elO.ekM;
+                if (faVar12 != null) {
+                    pbModel6 = this.elO.ejZ;
+                    if (pbModel6.aLQ() != null) {
+                        pbModel7 = this.elO.ejZ;
+                        if (pbModel7.aLQ().aLg()) {
+                            faVar13 = this.elO.ekM;
+                            faVar13.aLo();
+                            pbModel8 = this.elO.ejZ;
+                            pbModel8.aLQ().aLi();
                             return;
                         }
                         return;
@@ -301,15 +301,15 @@ class aa implements PbModel.a {
             }
             return;
         }
-        pbModel23 = this.eiV.ehh;
-        pbModel23.ov(1);
+        pbModel23 = this.elO.ejZ;
+        pbModel23.oj(1);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
     public void c(com.baidu.tieba.pb.data.f fVar) {
-        ez ezVar;
-        ezVar = this.eiV.ehV;
-        ezVar.j(fVar);
+        fa faVar;
+        faVar = this.elO.ekM;
+        faVar.k(fVar);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
@@ -319,22 +319,22 @@ class aa implements PbModel.a {
         long j4;
         long j5;
         long j6;
-        if (com.baidu.tbadk.performanceLog.aa.FO().FP()) {
+        if (com.baidu.tbadk.performanceLog.aa.Gi().Gj()) {
             if (z2) {
                 j2 = j;
             } else {
                 long currentTimeMillis = System.currentTimeMillis();
-                j6 = this.eiV.bxH;
+                j6 = this.elO.bEN;
                 j2 = currentTimeMillis - j6;
             }
-            j3 = this.eiV.aAP;
-            j4 = this.eiV.createTime;
-            j5 = this.eiV.aAX;
+            j3 = this.elO.aGh;
+            j4 = this.elO.createTime;
+            j5 = this.elO.aGp;
             com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v(i, z, responsedMessage, j3, j4, j5, z2, j2);
-            this.eiV.createTime = 0L;
-            this.eiV.aAP = 0L;
+            this.elO.createTime = 0L;
+            this.elO.aGh = 0L;
             if (vVar != null) {
-                vVar.FJ();
+                vVar.Gd();
             }
         }
     }

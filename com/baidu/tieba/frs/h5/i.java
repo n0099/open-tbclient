@@ -9,31 +9,31 @@ import com.baidu.tieba.frs.cm;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class i implements cb {
-    private cc bDO;
+    private cc bKV;
 
     public void setTag(BdUniqueId bdUniqueId) {
     }
 
     @Override // com.baidu.tieba.frs.cb
     public void a(int i, int i2, cj cjVar) {
-        if (i > 100 && this.bDO != null && cjVar != null && cjVar.bJi != null && (cjVar.bJi instanceof String)) {
+        if (i > 100 && this.bKV != null && cjVar != null && cjVar.bQr != null && (cjVar.bQr instanceof String)) {
             ArrayList<v> arrayList = new ArrayList<>();
-            h hVar = new h((String) cjVar.bJi);
+            h hVar = new h((String) cjVar.bQr);
             hVar.stType = cjVar.stType;
             arrayList.add(hVar);
             cm cmVar = new cm();
             cmVar.hasMore = false;
-            cmVar.bJk = false;
-            cmVar.bJl = false;
+            cmVar.bQt = false;
+            cmVar.bQu = false;
             cmVar.pn = cjVar.pn;
-            cmVar.bJi = cjVar.bJi;
-            this.bDO.a(i, i2, cmVar, arrayList);
+            cmVar.bQr = cjVar.bQr;
+            this.bKV.a(i, i2, cmVar, arrayList);
         }
     }
 
     @Override // com.baidu.tieba.frs.cb
     public void a(cc ccVar) {
-        this.bDO = ccVar;
+        this.bKV = ccVar;
     }
 
     @Override // com.baidu.tieba.frs.cb
@@ -41,6 +41,6 @@ public class i implements cb {
     }
 
     @Override // com.baidu.tieba.frs.cb
-    public void Me() {
+    public void MQ() {
     }
 }

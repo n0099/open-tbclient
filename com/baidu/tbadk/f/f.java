@@ -8,95 +8,106 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class f extends a {
-    private Runnable BU;
-    private TextView apT;
-    private ImageView axX;
-    private String[] axY;
-    private TextView axZ;
-    private final int aya;
+    private Runnable Jj;
+    private ImageView aDr;
+    private String[] aDs;
+    private TextView aDt;
+    private final int aDu;
+    private TextView avn;
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Ef() {
+    public int Ey() {
         this.currentIndex++;
-        if (this.currentIndex >= this.aya) {
+        if (this.currentIndex >= this.aDu) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
     }
 
     public f(Context context) {
-        this(context, context.getResources().getDimensionPixelSize(r.f.ds484));
+        this(context, context.getResources().getDimensionPixelSize(w.f.ds484));
     }
 
     public f(Context context, int i) {
-        super(LayoutInflater.from(context).inflate(r.j.loading_view_layout, (ViewGroup) null));
+        super(LayoutInflater.from(context).inflate(w.j.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
-        this.BU = new g(this);
-        this.axX = (ImageView) this.axV.findViewById(r.h.loading_animate_view);
+        this.Jj = new g(this);
+        this.aDr = (ImageView) this.aDp.findViewById(w.h.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.axX.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.aDr.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.axX.setLayoutParams(marginLayoutParams);
+                this.aDr.setLayoutParams(marginLayoutParams);
             }
         }
-        this.apT = (TextView) this.axV.findViewById(r.h.loading_anim_ellipsis);
-        this.axZ = (TextView) this.axV.findViewById(r.h.loading_text);
-        this.axY = context.getResources().getStringArray(r.b.loading_anim_text_array);
-        this.aya = this.axY.length;
+        this.avn = (TextView) this.aDp.findViewById(w.h.loading_anim_ellipsis);
+        this.aDt = (TextView) this.aDp.findViewById(w.h.loading_text);
+        this.aDs = context.getResources().getStringArray(w.b.loading_anim_text_array);
+        this.aDu = this.aDs.length;
     }
 
-    private void Eg() {
-        if (this.axX != null && (this.axX.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.axX.getBackground()).start();
+    private void Ez() {
+        if (this.aDr != null && (this.aDr.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aDr.getBackground()).start();
         }
     }
 
-    private void Eh() {
-        if (this.axX != null && (this.axX.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.axX.getBackground()).stop();
+    private void EA() {
+        if (this.aDr != null && (this.aDr.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.aDr.getBackground()).stop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.f.a
-    public void Ed() {
-        ap.j(this.axX, r.g.loading_animation);
-        Eg();
-        ap.c(this.apT, r.e.cp_cont_c, 1);
-        ap.c(this.axZ, r.e.cp_cont_c, 1);
-        ap.k(this.axV, r.e.cp_bg_line_d);
-        this.apT.setText(this.axY[0]);
-        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.BU);
-        TbadkCoreApplication.m9getInst().handler.postDelayed(this.BU, 200L);
-        this.axV.setClickable(true);
+    public void Ew() {
+        aq.j(this.aDr, w.g.loading_animation);
+        Ez();
+        aq.c(this.avn, w.e.cp_cont_c, 1);
+        aq.c(this.aDt, w.e.cp_cont_c, 1);
+        aq.k(this.aDp, w.e.cp_bg_line_d);
+        this.avn.setText(this.aDs[0]);
+        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.Jj);
+        TbadkCoreApplication.m9getInst().handler.postDelayed(this.Jj, 200L);
+        this.aDp.setClickable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.f.a
-    public void Ee() {
-        Eh();
-        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.BU);
-        this.axX.setBackgroundResource(0);
+    public void Ex() {
+        EA();
+        TbadkCoreApplication.m9getInst().handler.removeCallbacks(this.Jj);
+        this.aDr.setBackgroundResource(0);
     }
 
-    public void tg() {
-        if (Ec()) {
-            ap.j(this.axX, r.g.loading_animation);
-            Eg();
-            ap.c(this.apT, r.e.cp_cont_c, 1);
-            ap.c(this.axZ, r.e.cp_cont_c, 1);
-            ap.k(this.axV, r.e.cp_bg_line_d);
+    public void tD() {
+        if (Ev()) {
+            aq.j(this.aDr, w.g.loading_animation);
+            Ez();
+            aq.c(this.avn, w.e.cp_cont_c, 1);
+            aq.c(this.aDt, w.e.cp_cont_c, 1);
+            aq.k(this.aDp, w.e.cp_bg_line_d);
         }
     }
 
-    public View Ei() {
-        return this.axV;
+    public View EB() {
+        return this.aDp;
+    }
+
+    public void setTopMargin(int i) {
+        if (this.aDr != null) {
+            ViewGroup.LayoutParams layoutParams = this.aDr.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.topMargin = i;
+                this.aDr.setLayoutParams(marginLayoutParams);
+            }
+        }
     }
 }

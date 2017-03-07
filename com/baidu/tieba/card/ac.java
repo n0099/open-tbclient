@@ -5,11 +5,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements Animation.AnimationListener {
-    final /* synthetic */ x bml;
+    final /* synthetic */ x btf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(x xVar) {
-        this.bml = xVar;
+        this.btf = xVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,9 +20,9 @@ public class ac implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         TbImageView tbImageView;
         TbImageView tbImageView2;
-        tbImageView = this.bml.blO;
+        tbImageView = this.btf.bsH;
         if (tbImageView != null) {
-            tbImageView2 = this.bml.blO;
+            tbImageView2 = this.btf.bsH;
             tbImageView2.setVisibility(8);
         }
     }

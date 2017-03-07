@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class RemindForumBroadcastSwitchStatic extends a {
+public class RemindForumBroadcastSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(RemindForumBroadcastSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(RemindForumBroadcastSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

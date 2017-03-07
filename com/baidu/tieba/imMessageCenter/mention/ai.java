@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends HttpMessageListener {
-    final /* synthetic */ ah djW;
+    final /* synthetic */ ah dmq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(ah ahVar, int i) {
         super(i);
-        this.djW = ahVar;
+        this.dmq = ahVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,18 +19,18 @@ public class ai extends HttpMessageListener {
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
             ag msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
-            if (!com.baidu.tbadk.coreExtra.messageCenter.a.yv() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yS()) {
-                if (msgData.avV() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgBookmark(msgData.avV());
+            if (!com.baidu.tbadk.coreExtra.messageCenter.a.yM() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.zh().zj()) {
+                if (msgData.avr() >= 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgBookmark(msgData.avr());
                 }
-                if (msgData.avT() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yV()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgAtme(msgData.avT());
+                if (msgData.avp() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.zh().zm()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgAtme(msgData.avp());
                 }
-                if (msgData.avS() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yX()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgReplyme(msgData.avS());
+                if (msgData.avo() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.zh().zo()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgReplyme(msgData.avo());
                 }
-                if (msgData.avU() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.yQ().yW()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.yt().setMsgFans(msgData.avU());
+                if (msgData.avq() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.zh().zn()) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgFans(msgData.avq());
                 }
             }
         }

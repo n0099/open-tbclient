@@ -1,47 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.tieba.LogoActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class c implements Runnable {
-    final /* synthetic */ LogoActivity aKf;
+class c extends CustomMessageListener {
+    final /* synthetic */ b aPf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(LogoActivity logoActivity) {
-        this.aKf = logoActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(b bVar, int i) {
+        super(i);
+        this.aPf = bVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        LogoActivity.a aVar;
-        LogoActivity.a aVar2;
-        RelativeLayout relativeLayout;
-        View view2;
-        RelativeLayout relativeLayout2;
-        RelativeLayout relativeLayout3;
-        View view3;
-        view = this.aKf.aJT;
-        if (view != null) {
-            relativeLayout = this.aKf.mRootView;
-            if (relativeLayout != null) {
-                view2 = this.aKf.aJT;
-                if (view2.getParent() == null) {
-                    relativeLayout3 = this.aKf.mRootView;
-                    view3 = this.aKf.aJT;
-                    relativeLayout3.addView(view3);
-                }
-                relativeLayout2 = this.aKf.mRootView;
-                relativeLayout2.setFocusable(true);
-                com.baidu.tbadk.performanceLog.ab.FU().aa(System.currentTimeMillis());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && com.baidu.tieba.recapp.r.aZD().aZC() != null) {
+            com.baidu.tieba.recapp.r.aZD().aZC().aZv();
         }
-        com.baidu.adp.lib.g.h eE = com.baidu.adp.lib.g.h.eE();
-        aVar = this.aKf.aJZ;
-        eE.removeCallbacks(aVar);
-        com.baidu.adp.lib.g.h eE2 = com.baidu.adp.lib.g.h.eE();
-        aVar2 = this.aKf.aJZ;
-        eE2.postDelayed(aVar2, 3100L);
     }
 }

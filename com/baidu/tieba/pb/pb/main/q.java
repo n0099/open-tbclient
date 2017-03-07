@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 class q extends CustomMessageListener {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(PbActivity pbActivity, int i) {
         super(i);
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,16 +20,16 @@ class q extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null) {
-                if (!updateAttentionMessage.getData().vJ) {
+                if (!updateAttentionMessage.getData().CX) {
                     if (updateAttentionMessage.getData().errorString != null) {
-                        this.eiV.showToast(updateAttentionMessage.getData().errorString);
+                        this.elO.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
                     return;
                 }
-                this.eiV.b(updateAttentionMessage);
-                this.eiV.a(updateAttentionMessage);
-                this.eiV.c(updateAttentionMessage);
+                this.elO.b(updateAttentionMessage);
+                this.elO.a(updateAttentionMessage);
+                this.elO.c(updateAttentionMessage);
             }
         }
     }

@@ -1,57 +1,80 @@
 package com.baidu.tieba.frs.f;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.frs.ax;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.RequestSetCommForumStateNetMessage;
+import com.baidu.tieba.frs.cn;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements Handler.Callback {
-    final /* synthetic */ aq bWq;
+public class ar implements BdSwitchView.a {
+    final /* synthetic */ ao cdy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(aq aqVar) {
-        this.bWq = aqVar;
+    public ar(ao aoVar) {
+        this.cdy = aoVar;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        BdTypeListView bdTypeListView;
-        boolean z;
-        BdTypeListView bdTypeListView2;
-        BdTypeListView bdTypeListView3;
-        Handler handler;
-        BdTypeListView bdTypeListView4;
-        BdTypeListView bdTypeListView5;
-        ax axVar;
-        bdTypeListView = this.bWq.mListView;
-        if (bdTypeListView != null) {
-            if (message.what == 0) {
-                z = this.bWq.bWl;
-                if (z) {
-                    bdTypeListView2 = this.bWq.mListView;
-                    if (bdTypeListView2.getFirstVisiblePosition() != 0) {
-                        bdTypeListView3 = this.bWq.mListView;
-                        if (bdTypeListView3.getFirstVisiblePosition() > 8) {
-                            bdTypeListView4 = this.bWq.mListView;
-                            bdTypeListView4.setSelection(8);
-                            bdTypeListView5 = this.bWq.mListView;
-                            bdTypeListView5.smoothScrollToPosition(0);
-                        }
-                        handler = this.bWq.mHandler;
-                        handler.sendEmptyMessageDelayed(0, 50L);
-                    } else {
-                        this.bWq.iM(0);
-                        axVar = this.bWq.bJc;
-                        axVar.dG(false);
-                        this.bWq.bWl = false;
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        cn cnVar;
+        cn cnVar2;
+        cn cnVar3;
+        cn cnVar4;
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        FrsActivity frsActivity3;
+        com.baidu.adp.base.g gVar;
+        cnVar = this.cdy.cds;
+        if (cnVar != null) {
+            cnVar2 = this.cdy.cds;
+            if (view != cnVar2.aak()) {
+                cnVar3 = this.cdy.cds;
+                if (view != cnVar3.aal()) {
+                    cnVar4 = this.cdy.cds;
+                    if (view == cnVar4.aam()) {
+                        com.baidu.tbadk.core.sharedPref.b.uo().putBoolean(com.baidu.tbadk.core.sharedPref.b.cI("frs_guess_like_switch"), switchState == BdSwitchView.SwitchState.ON);
+                        return;
                     }
+                    return;
+                } else if (!com.baidu.adp.lib.util.i.he()) {
+                    frsActivity = this.cdy.bTf;
+                    frsActivity.showToast(w.l.neterror);
+                    return;
+                } else {
+                    RequestSetCommForumStateNetMessage requestSetCommForumStateNetMessage = new RequestSetCommForumStateNetMessage();
+                    frsActivity2 = this.cdy.bTf;
+                    requestSetCommForumStateNetMessage.setForumId(com.baidu.adp.lib.g.b.c(frsActivity2.getForumId(), 0L));
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        requestSetCommForumStateNetMessage.setOperation(1);
+                    } else {
+                        requestSetCommForumStateNetMessage.setOperation(0);
+                    }
+                    frsActivity3 = this.cdy.bTf;
+                    frsActivity3.sendMessage(requestSetCommForumStateNetMessage);
+                    return;
                 }
             }
-            if (message.what == 1) {
-                this.bWq.ads();
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                if (TbadkCoreApplication.m9getInst().getSkinType() != 1) {
+                    TiebaStatic.eventStat(this.cdy.getPageContext().getPageActivity(), "frs_night_mode", "frsclick", 1, new Object[0]);
+                    TbadkCoreApplication.m9getInst().setSkinType(1);
+                    gVar = this.cdy.mContext;
+                    TiebaStatic.eventStat(gVar.getPageActivity(), TbConfig.ST_TYPE_EYESHIELD_MODE, null, 1, new Object[0]);
+                } else {
+                    return;
+                }
+            } else if (TbadkCoreApplication.m9getInst().getSkinType() != 0) {
+                TbadkCoreApplication.m9getInst().setSkinType(0);
+            } else {
+                return;
             }
+            BitmapHelper.clearCashBitmap();
         }
-        return false;
     }
 }

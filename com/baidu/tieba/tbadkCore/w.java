@@ -1,23 +1,40 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.app.Activity;
-import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes.dex */
-public class w implements Runnable {
-    private Activity activity;
-    private int distance;
-    private ListView foA;
-    private int foB;
-    private com.baidu.tbadk.editortools.pb.c foz;
-    private int position;
+public class w extends bj {
+    public static final BdUniqueId fsY = BdUniqueId.gen();
+    private String fortune_desc;
+    private boolean fsZ;
+    private o fta;
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        if (this.foz != null && this.foz.Cw() != null) {
-            this.foz.Cw().getLocationInWindow(iArr);
-            this.foA.setSelectionFromTop(this.position + this.foA.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.foB) - com.baidu.adp.lib.util.k.m(this.activity));
-            this.foA.invalidate();
-        }
+    public boolean bgO() {
+        return this.fsZ;
+    }
+
+    public void ld(boolean z) {
+        this.fsZ = z;
+    }
+
+    public String bgP() {
+        return this.fortune_desc;
+    }
+
+    public void pH(String str) {
+        this.fortune_desc = str;
+    }
+
+    public o bgQ() {
+        return this.fta;
+    }
+
+    public void b(o oVar) {
+        this.fta = oVar;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return fsY;
     }
 }

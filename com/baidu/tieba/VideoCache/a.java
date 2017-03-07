@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private List<e> aOj = new ArrayList();
-    private long aOk = 0;
+    private List<e> aTW = new ArrayList();
+    private long aTX = 0;
 
-    public List<e> Kn() {
-        return this.aOj;
+    public List<e> KS() {
+        return this.aTW;
     }
 
-    public long Ko() {
-        return this.aOk;
+    public long KT() {
+        return this.aTX;
     }
 
     public void a(e eVar) {
-        if (this.aOj != null) {
-            this.aOj.add(eVar);
+        if (this.aTW != null) {
+            this.aTW.add(eVar);
             if (eVar != null) {
-                this.aOk += eVar.Kv();
+                this.aTX += eVar.La();
             }
         }
     }
 
     public void b(e eVar) {
-        if (this.aOj != null) {
-            this.aOj.remove(eVar);
+        if (this.aTW != null) {
+            this.aTW.remove(eVar);
             if (eVar != null) {
-                this.aOk -= eVar.Kv();
+                this.aTX -= eVar.La();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.aOj != null) {
-            e eVar = this.aOj.get(i);
+        if (this.aTW != null) {
+            e eVar = this.aTW.get(i);
             if (eVar != null) {
-                this.aOk -= eVar.Kv();
+                this.aTX -= eVar.La();
             }
-            this.aOj.remove(i);
+            this.aTW.remove(i);
         }
     }
 
-    public int Kp() {
-        if (this.aOj != null) {
-            return this.aOj.size();
+    public int KU() {
+        if (this.aTW != null) {
+            return this.aTW.size();
         }
         return 0;
     }
 
-    public e fN(int i) {
-        if (this.aOj != null) {
-            return this.aOj.get(i);
+    public e fH(int i) {
+        if (this.aTW != null) {
+            return this.aTW.get(i);
         }
         return null;
     }

@@ -18,11 +18,11 @@ public class z extends com.baidu.adp.framework.listener.e {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-            this.this$0.daa = (ResponseOnlineMessage) socketResponsedMessage;
-            if (!b.asO().cZL.get()) {
+            this.this$0.dct = (ResponseOnlineMessage) socketResponsedMessage;
+            if (!b.asj().dce.get()) {
                 return;
             }
-            this.this$0.atb();
+            this.this$0.asw();
         }
     }
 }

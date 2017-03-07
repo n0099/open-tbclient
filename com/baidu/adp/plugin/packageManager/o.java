@@ -21,25 +21,25 @@ public class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        PluginSettings iZ;
-        PluginNetConfigInfos iX;
+        PluginSettings jT;
+        PluginNetConfigInfos jR;
         List<PluginNetConfigInfos.PluginConfig> configs;
         String e;
         String str;
-        boolean H;
+        boolean F;
         boolean z = false;
         Object data = customResponsedMessage.getData();
-        if (data != null && (data instanceof PluginNetConfigInfos.PluginConfig) && (iZ = com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().iZ()) != null) {
-            if (iZ != null) {
+        if (data != null && (data instanceof PluginNetConfigInfos.PluginConfig) && (jT = com.baidu.adp.plugin.packageManager.pluginSettings.c.jW().jT()) != null) {
+            if (jT != null) {
                 PluginPackageManager pluginPackageManager = this.this$0;
-                str = this.this$0.xs;
-                H = pluginPackageManager.H(str, iZ.getContainerVersion());
-                if (H) {
+                str = this.this$0.EG;
+                F = pluginPackageManager.F(str, jT.getContainerVersion());
+                if (F) {
                     return;
                 }
             }
             PluginNetConfigInfos.PluginConfig pluginConfig = (PluginNetConfigInfos.PluginConfig) data;
-            if (!TextUtils.isEmpty(pluginConfig.package_name) && (iX = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.iW().iX()) != null && (configs = iX.getConfigs()) != null) {
+            if (!TextUtils.isEmpty(pluginConfig.package_name) && (jR = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jQ().jR()) != null && (configs = jR.getConfigs()) != null) {
                 int i = 0;
                 while (true) {
                     if (i >= configs.size()) {
@@ -55,10 +55,10 @@ public class o extends CustomMessageListener {
                 if (z) {
                     configs.add(pluginConfig);
                 }
-                this.this$0.a(com.baidu.adp.plugin.packageManager.pluginServerConfig.d.iW().c(com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().iZ()), pluginConfig);
+                this.this$0.a(com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jQ().c(com.baidu.adp.plugin.packageManager.pluginSettings.c.jW().jT()), pluginConfig);
                 e = this.this$0.e(configs);
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().setForbiddenFeatures(e);
-                this.this$0.iK();
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.jW().setForbiddenFeatures(e);
+                this.this$0.jE();
             }
         }
     }

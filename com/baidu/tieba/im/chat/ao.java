@@ -9,54 +9,54 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class ao<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected TbPageContext<MsglistActivity<?>> FY;
-    protected com.baidu.adp.lib.c.a cMG;
-    protected com.baidu.adp.lib.c.b cMH;
-    protected long cMN;
-    private boolean cMO;
-    private boolean cMP;
-    protected int cMQ;
+    protected TbPageContext<MsglistActivity<?>> ajF;
+    protected com.baidu.adp.lib.c.a cOV;
+    protected com.baidu.adp.lib.c.b cOW;
+    protected long cPc;
+    private boolean cPd;
+    private boolean cPe;
+    protected int cPf;
 
     public ao(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cMG = null;
-        this.cMH = null;
-        this.cMN = 0L;
-        this.cMO = false;
-        this.cMP = false;
-        this.FY = tbPageContext;
+        this.cOV = null;
+        this.cOW = null;
+        this.cPc = 0L;
+        this.cPd = false;
+        this.cPe = false;
+        this.ajF = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.cMG = aVar;
+        this.cOV = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.cMH = bVar;
+        this.cOW = bVar;
     }
 
-    private void aof() {
-        this.cMN = System.currentTimeMillis() / 1000;
+    private void anz() {
+        this.cPc = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aog() {
-        return this.cMO;
+    public boolean anA() {
+        return this.cPd;
     }
 
-    public void fy(boolean z) {
-        this.cMO = z;
+    public void fo(boolean z) {
+        this.cPd = z;
     }
 
-    public boolean aoh() {
-        return this.cMP;
+    public boolean anB() {
+        return this.cPe;
     }
 
-    public void fz(boolean z) {
-        this.cMP = z;
+    public void fp(boolean z) {
+        this.cPe = z;
     }
 
-    public void lm(int i) {
-        this.cMQ = i;
+    public void lc(int i) {
+        this.cPf = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,21 +67,21 @@ public abstract class ao<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aof();
+        anz();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends y.a {
-        private T cMR;
+        private T cPg;
 
         public a(View view, T t) {
             super(view);
-            this.cMR = t;
+            this.cPg = t;
         }
 
-        public T aoi() {
-            return this.cMR;
+        public T anC() {
+            return this.cPg;
         }
     }
 }

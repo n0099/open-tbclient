@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class ScreenLockSyncSwitchStatic extends a {
+public class ScreenLockSyncSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(ScreenLockSyncSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(ScreenLockSyncSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

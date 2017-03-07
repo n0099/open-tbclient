@@ -9,7 +9,7 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 public final class ay implements Parcelable.Creator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: j */
+    /* renamed from: o */
     public ShareContent createFromParcel(Parcel parcel) {
         String readString = parcel.readString();
         String readString2 = parcel.readString();
@@ -47,7 +47,7 @@ public final class ay implements Parcelable.Creator {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: tm */
+    /* renamed from: tT */
     public ShareContent[] newArray(int i) {
         return new ShareContent[i];
     }

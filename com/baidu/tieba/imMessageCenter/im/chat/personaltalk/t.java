@@ -5,17 +5,17 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.r;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ r dhu;
+    final /* synthetic */ r djM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(r rVar, int i) {
         super(i);
-        this.dhu = rVar;
+        this.djM = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,30 +32,30 @@ public class t extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.dhu.dhs;
+                personalTalkSettingActivity = this.djM.djK;
                 if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.dhu.dhs;
+                    personalTalkSettingActivity2 = this.djM.djK;
                     personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.dhu.isAttention = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.dhu.dhs;
+            this.djM.isAttention = updateAttentionMessage.isAttention();
+            personalTalkSettingActivity3 = this.djM.djK;
             if (personalTalkSettingActivity3 != null) {
-                z = this.dhu.isAttention;
+                z = this.djM.isAttention;
                 if (z) {
-                    personalTalkSettingActivity5 = this.dhu.dhs;
-                    personalTalkSettingActivity5.showToast(r.l.add_black_success);
+                    personalTalkSettingActivity5 = this.djM.djK;
+                    personalTalkSettingActivity5.showToast(w.l.add_black_success);
                 } else {
-                    personalTalkSettingActivity4 = this.dhu.dhs;
-                    personalTalkSettingActivity4.showToast(r.l.remove_succ);
+                    personalTalkSettingActivity4 = this.djM.djK;
+                    personalTalkSettingActivity4.showToast(w.l.remove_succ);
                 }
             }
-            aVar = this.dhu.dht;
+            aVar = this.djM.djL;
             if (aVar != null) {
-                aVar2 = this.dhu.dht;
-                aVar2.wb();
+                aVar2 = this.djM.djL;
+                aVar2.wy();
             }
         }
     }

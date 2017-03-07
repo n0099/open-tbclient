@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class gc implements a.b {
-    final /* synthetic */ ez eqf;
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gc(ez ezVar) {
-        this.eqf = ezVar;
+    public gc(fa faVar) {
+        this.etn = faVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

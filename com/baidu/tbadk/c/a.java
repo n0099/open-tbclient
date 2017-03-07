@@ -3,5 +3,5 @@ package com.baidu.tbadk.c;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface a {
-    boolean u(View view);
+    boolean s(View view);
 }

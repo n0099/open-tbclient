@@ -10,7 +10,7 @@ public class y implements com.baidu.adp.framework.client.socket.link.j {
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.j
-    public void cg() {
-        com.baidu.tbadk.util.c.Gj().a(new z(this));
+    public void dp() {
+        com.baidu.tbadk.util.c.GI().a(new z(this));
     }
 }

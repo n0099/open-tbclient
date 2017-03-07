@@ -94,32 +94,32 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             this.context = context;
         }
 
-        public a ci(String str) {
+        public a cb(String str) {
             this.postID = str;
             return this;
         }
 
-        public a cj(String str) {
+        public a cc(String str) {
             this.stType = str;
             return this;
         }
 
-        public a ck(String str) {
+        public a cd(String str) {
             this.from = str;
             return this;
         }
 
-        public a cl(String str) {
+        public a ce(String str) {
             this.locate = str;
             return this;
         }
 
-        public a bF(int i) {
+        public a bz(int i) {
             this.requestCode = i;
             return this;
         }
 
-        public PhotoLiveActivityConfig oS() {
+        public PhotoLiveActivityConfig pg() {
             return new PhotoLiveActivityConfig(this, null);
         }
     }

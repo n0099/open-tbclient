@@ -1,5 +1,6 @@
 package com.baidu.tieba.recapp.c;
 
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.i;
@@ -10,25 +11,25 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a eXX;
-    private String eXV;
-    private String eXW = b.tQ().getString("asp_shown_info", "");
-    private long lZ;
+    private static a fcb;
+    private String fbZ;
+    private String fca = b.uo().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
+    private long tU;
 
     private a() {
     }
 
-    public static a bad() {
-        if (eXX == null) {
+    public static a aZL() {
+        if (fcb == null) {
             synchronized (c.class) {
-                if (eXX == null) {
-                    eXX = new a();
+                if (fcb == null) {
+                    fcb = new a();
                 }
             }
         }
-        return eXX;
+        return fcb;
     }
 
     public void setLongitude(String str) {
@@ -39,38 +40,43 @@ public class a {
         this.latitude = str;
     }
 
-    public void cu(long j) {
-        this.lZ = j;
+    public void cw(long j) {
+        this.tU = j;
     }
 
-    private String bae() {
-        if (TextUtils.isEmpty(this.eXV)) {
-            this.eXV = ((WifiManager) TbadkCoreApplication.m9getInst().getSystemService("wifi")).getConnectionInfo().getBSSID();
+    private String aZM() {
+        if (TextUtils.isEmpty(this.fbZ)) {
+            WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.m9getInst().getSystemService("wifi")).getConnectionInfo();
+            if (connectionInfo != null) {
+                this.fbZ = connectionInfo.getBSSID();
+            } else {
+                this.fbZ = "";
+            }
         }
-        return this.eXV;
+        return this.fbZ;
     }
 
-    public void pT(String str) {
-        this.eXV = str;
+    public void pc(String str) {
+        this.fbZ = str;
     }
 
-    public void pU(String str) {
-        this.eXW = str;
+    public void pd(String str) {
+        this.fca = str;
     }
 
-    public void baf() {
-        b.tQ().putString("asp_shown_info", this.eXW);
+    public void aZN() {
+        b.uo().putString("asp_shown_info", this.fca);
     }
 
-    public AppPosInfo bag() {
+    public AppPosInfo aZO() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = bae();
-        builder.ap_connected = Boolean.valueOf(i.gl());
+        builder.ap_mac = aZM();
+        builder.ap_connected = Boolean.valueOf(i.hf());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
-        builder.addr_timestamp = Long.valueOf(this.lZ);
+        builder.addr_timestamp = Long.valueOf(this.tU);
         builder.coordinate_type = BDLocation.BDLOCATION_GCJ02_TO_BD09LL;
-        builder.asp_shown_info = this.eXW;
+        builder.asp_shown_info = this.fca;
         return builder.build(false);
     }
 }

@@ -1,54 +1,22 @@
 package com.baidu.tbadk.core.util;
-
-import com.baidu.tbadk.TbConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am extends Thread {
-    private String aaA;
-    private boolean aaB;
-    private String mObjTp;
-    private String mParam;
-    private String mType;
+public class am implements Runnable {
+    final /* synthetic */ ai afI;
+    private final /* synthetic */ String afJ;
+    private final /* synthetic */ String afM;
+    private final /* synthetic */ int afN;
 
-    public am(String str, boolean z) {
-        this.mType = null;
-        this.mParam = null;
-        this.aaA = null;
-        this.mObjTp = null;
-        this.aaB = false;
-        this.mType = str;
-        this.aaB = z;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public am(ai aiVar, String str, String str2, int i) {
+        this.afI = aiVar;
+        this.afM = str;
+        this.afJ = str2;
+        this.afN = i;
     }
 
-    public am(String str, String str2) {
-        this.mType = null;
-        this.mParam = null;
-        this.aaA = null;
-        this.mObjTp = null;
-        this.aaB = false;
-        this.mType = str;
-        this.mParam = str2;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        String str;
-        super.run();
-        if (this.aaB) {
-            str = TbConfig.IN_PV_ADDRESS;
-        } else {
-            str = TbConfig.LOAD_REG_PV_ADDRESS;
-        }
-        y yVar = new y(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-        yVar.n("st_type", this.mType);
-        if (this.mParam != null) {
-            yVar.n("st_param", this.mParam);
-        }
-        if (this.aaA != null) {
-            yVar.n("obj", this.aaA);
-        }
-        if (this.mObjTp != null) {
-            yVar.n("obj_tp", this.mObjTp);
-        }
-        yVar.ud();
+        this.afI.c(this.afM, this.afJ, this.afN);
     }
 }

@@ -2,20 +2,20 @@ package com.baidu.tieba.write.write;
 
 import com.baidu.tieba.tbadkCore.b.a;
 /* loaded from: classes.dex */
-class v implements a.InterfaceC0074a {
-    final /* synthetic */ WriteActivity fMl;
+class v implements a.InterfaceC0073a {
+    final /* synthetic */ WriteActivity fQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(WriteActivity writeActivity) {
-        this.fMl = writeActivity;
+        this.fQG = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0074a
-    public void kf() {
+    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0073a
+    public void kZ() {
         com.baidu.tbadk.editortools.j jVar;
-        this.fMl.dIu = null;
-        this.fMl.lO(false);
-        jVar = this.fMl.ats;
+        this.fQG.dLc = null;
+        this.fQG.lN(false);
+        jVar = this.fQG.ayN;
         jVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
     }
 }

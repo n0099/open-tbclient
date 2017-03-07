@@ -18,48 +18,48 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private l djM;
-    private ViewEventCenter djz;
-    private boolean djN = false;
-    private CustomMessageListener djO = new ae(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private CustomMessageListener djA = new af(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
+    private ViewEventCenter dlT;
+    private l dmg;
+    private boolean dmh = false;
+    private CustomMessageListener dmi = new ae(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private CustomMessageListener dlU = new af(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.djM = new l(this);
+        this.dmg = new l(this);
         if (bundle != null) {
-            this.djM.g(bundle);
-            this.djM.g(bundle);
+            this.dmg.g(bundle);
+            this.dmg.g(bundle);
         } else {
-            this.djM.g((Bundle) null);
-            this.djM.g((Bundle) null);
+            this.dmg.g((Bundle) null);
+            this.dmg.g((Bundle) null);
         }
-        View lW = this.djM.lW();
-        this.djM.gE(this.djN);
-        this.djM.a(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
-        lA().addEventDelegate(this);
-        registerListener(this.djO);
-        registerListener(this.djA);
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11941"));
-        return lW;
+        View TS = this.dmg.TS();
+        this.dmg.gv(this.dmh);
+        this.dmg.b(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
+        Fw().addEventDelegate(this);
+        registerListener(this.dmi);
+        registerListener(this.dlU);
+        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11941"));
+        return TS;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && s(getActivity().getIntent())) {
-            this.djM.onNewIntent(getActivity().getIntent());
+        if (getActivity() != null && O(getActivity().getIntent())) {
+            this.dmg.onNewIntent(getActivity().getIntent());
         } else {
-            this.djM.aak();
+            this.dmg.abh();
         }
         super.onViewCreated(view, bundle);
     }
 
-    private boolean s(Intent intent) {
+    private boolean O(Intent intent) {
         return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean lD() {
+    public boolean EM() {
         return false;
     }
 
@@ -68,17 +68,17 @@ public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
         return bVar == null;
     }
 
-    public ViewEventCenter lA() {
-        if (this.djz == null) {
-            this.djz = new ViewEventCenter();
+    public ViewEventCenter Fw() {
+        if (this.dlT == null) {
+            this.dlT = new ViewEventCenter();
         }
-        return this.djz;
+        return this.dlT;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.djM != null) {
-            this.djM.a(getPageContext(), i);
+        if (this.dmg != null) {
+            this.dmg.b(getPageContext(), i);
         }
     }
 
@@ -117,10 +117,10 @@ public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.djM.onActivityDestroy();
+        this.dmg.onActivityDestroy();
     }
 
-    public void gF(boolean z) {
-        this.djN = z;
+    public void gw(boolean z) {
+        this.dmh = z;
     }
 }

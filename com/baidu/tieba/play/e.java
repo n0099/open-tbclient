@@ -1,16 +1,15 @@
 package com.baidu.tieba.play;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements Runnable {
-    final /* synthetic */ c eSu;
+class e implements Runnable {
+    final /* synthetic */ c eWb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.eSu = cVar;
+        this.eWb = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.eSu.azA();
+        this.eWb.ayY();
     }
 }

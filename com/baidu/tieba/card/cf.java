@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public class cf<T extends com.baidu.tieba.card.data.b> {
-    public Object aJK;
+    public Object aPt;
 
     public void a(View view, T t) {
     }

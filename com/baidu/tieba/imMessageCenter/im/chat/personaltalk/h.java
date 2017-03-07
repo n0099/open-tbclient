@@ -3,18 +3,18 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class h implements a.b {
-    final /* synthetic */ PersonalTalkSettingActivity dhm;
+    final /* synthetic */ PersonalTalkSettingActivity djE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.dhm = personalTalkSettingActivity;
+        this.djE = personalTalkSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         r rVar;
         aVar.dismiss();
-        rVar = this.dhm.dhk;
-        rVar.gy(false);
+        rVar = this.djE.djC;
+        rVar.gp(false);
     }
 }

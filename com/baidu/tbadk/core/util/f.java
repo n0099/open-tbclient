@@ -7,9 +7,9 @@ class f implements Runnable {
     public void run() {
         Toast toast;
         Toast toast2;
-        toast = e.sd;
+        toast = e.zy;
         if (toast != null) {
-            toast2 = e.sd;
+            toast2 = e.zy;
             toast2.cancel();
         }
     }

@@ -4,15 +4,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class c implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ b buc;
+    final /* synthetic */ b bBl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.buc = bVar;
+        this.bBl = bVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
@@ -35,46 +35,46 @@ class c implements com.baidu.adp.lib.guide.b {
         TbPageContext tbPageContext7;
         a aVar9;
         int i;
-        aVar = this.buc.bub;
-        tbPageContext = aVar.FY;
+        aVar = this.bBl.bBk;
+        tbPageContext = aVar.ajF;
         TextView textView = new TextView(tbPageContext.getPageActivity());
-        aVar2 = this.buc.bub;
+        aVar2 = this.bBl.bBk;
         str = aVar2.mMessage;
         textView.setText(str);
         textView.setGravity(17);
-        ap.i((View) textView, r.e.cp_cont_i);
-        aVar3 = this.buc.bub;
-        tbPageContext2 = aVar3.FY;
-        textView.setTextSize(0, tbPageContext2.getResources().getDimensionPixelSize(r.f.fontsize28));
-        aVar4 = this.buc.bub;
-        tbPageContext3 = aVar4.FY;
-        textView.setHeight(tbPageContext3.getResources().getDimensionPixelSize(r.f.ds76));
-        aVar5 = this.buc.bub;
-        tbPageContext4 = aVar5.FY;
-        int dimensionPixelSize = tbPageContext4.getResources().getDimensionPixelSize(r.f.ds24);
-        aVar6 = this.buc.bub;
-        tbPageContext5 = aVar6.FY;
-        int dimensionPixelSize2 = tbPageContext5.getResources().getDimensionPixelSize(r.f.ds24);
-        aVar7 = this.buc.bub;
-        tbPageContext6 = aVar7.FY;
-        int dimensionPixelSize3 = tbPageContext6.getResources().getDimensionPixelSize(r.f.ds24);
-        aVar8 = this.buc.bub;
-        tbPageContext7 = aVar8.FY;
-        textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize3, tbPageContext7.getResources().getDimensionPixelSize(r.f.ds10));
+        aq.i((View) textView, w.e.cp_cont_i);
+        aVar3 = this.bBl.bBk;
+        tbPageContext2 = aVar3.ajF;
+        textView.setTextSize(0, tbPageContext2.getResources().getDimensionPixelSize(w.f.fontsize28));
+        aVar4 = this.bBl.bBk;
+        tbPageContext3 = aVar4.ajF;
+        textView.setHeight(tbPageContext3.getResources().getDimensionPixelSize(w.f.ds76));
+        aVar5 = this.bBl.bBk;
+        tbPageContext4 = aVar5.ajF;
+        int dimensionPixelSize = tbPageContext4.getResources().getDimensionPixelSize(w.f.ds24);
+        aVar6 = this.bBl.bBk;
+        tbPageContext5 = aVar6.ajF;
+        int dimensionPixelSize2 = tbPageContext5.getResources().getDimensionPixelSize(w.f.ds24);
+        aVar7 = this.bBl.bBk;
+        tbPageContext6 = aVar7.ajF;
+        int dimensionPixelSize3 = tbPageContext6.getResources().getDimensionPixelSize(w.f.ds24);
+        aVar8 = this.bBl.bBk;
+        tbPageContext7 = aVar8.ajF;
+        textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize3, tbPageContext7.getResources().getDimensionPixelSize(w.f.ds10));
         textView.setSingleLine(true);
-        aVar9 = this.buc.bub;
-        i = aVar9.btV;
-        ap.j((View) textView, i);
+        aVar9 = this.bBl.bBk;
+        i = aVar9.bBe;
+        aq.j(textView, i);
         return textView;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int dM() {
+    public int eU() {
         return 4;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int dN() {
+    public int eV() {
         return 48;
     }
 
@@ -82,8 +82,8 @@ class c implements com.baidu.adp.lib.guide.b {
     public int getXOffset() {
         a aVar;
         int i;
-        aVar = this.buc.bub;
-        i = aVar.aew;
+        aVar = this.bBl.bBk;
+        i = aVar.ajM;
         return i;
     }
 
@@ -91,8 +91,8 @@ class c implements com.baidu.adp.lib.guide.b {
     public int getYOffset() {
         a aVar;
         int i;
-        aVar = this.buc.bub;
-        i = aVar.aex;
+        aVar = this.bBl.bBk;
+        i = aVar.mYOffset;
         return i;
     }
 }

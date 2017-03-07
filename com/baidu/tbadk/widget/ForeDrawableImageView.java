@@ -9,55 +9,55 @@ import android.view.View;
 import android.view.ViewParent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class ForeDrawableImageView extends TbImageView {
-    private Paint aEA;
-    private Drawable aEx;
-    private String aEy;
-    private int aEz;
+    private Drawable aJU;
+    private String aJV;
+    private int aJW;
+    private Paint aJX;
 
     public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aEA = new Paint();
+        this.aJX = new Paint();
     }
 
     public ForeDrawableImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aEA = new Paint();
+        this.aJX = new Paint();
     }
 
     public ForeDrawableImageView(Context context) {
         super(context);
-        this.aEA = new Paint();
+        this.aJX = new Paint();
     }
 
     public void setNoImageBottomTextSize(float f) {
         if (f > 0.0f) {
-            this.aEA.setTextSize(f);
+            this.aJX.setTextSize(f);
         }
     }
 
     public void setNoImageBottomTextColor(int i) {
-        this.aEA.setColor(ap.getColor(i));
+        this.aJX.setColor(aq.getColor(i));
     }
 
     public void setNoImageBottomText(String str) {
-        this.aEy = str;
+        this.aJV = str;
     }
 
     public void setNoImageBottomTextPadding(int i) {
-        this.aEz = i;
+        this.aJW = i;
     }
 
     public void setForegroundDrawable(int i) {
-        setForegroundDrawable(ap.getDrawable(i));
+        setForegroundDrawable(aq.getDrawable(i));
     }
 
     public void setForegroundDrawable(Drawable drawable) {
-        this.aEx = drawable;
-        if (this.aEx != null) {
-            this.aEx.setBounds(0, 0, this.aEx.getIntrinsicHeight(), this.aEx.getMinimumWidth());
+        this.aJU = drawable;
+        if (this.aJU != null) {
+            this.aJU.setBounds(0, 0, this.aJU.getIntrinsicHeight(), this.aJU.getMinimumWidth());
         }
         invalidate();
     }
@@ -65,7 +65,7 @@ public class ForeDrawableImageView extends TbImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        if (this.aEx != null && this.aEx.isStateful() && this.aEx.setState(getDrawableState())) {
+        if (this.aJU != null && this.aJU.isStateful() && this.aJU.setState(getDrawableState())) {
             invalidate();
         }
     }
@@ -75,7 +75,7 @@ public class ForeDrawableImageView extends TbImageView {
     public void onDraw(Canvas canvas) {
         int i;
         super.onDraw(canvas);
-        if (this.aEx != null) {
+        if (this.aJU != null) {
             canvas.save();
             ViewParent parent = getParent();
             if (!(parent instanceof View)) {
@@ -87,20 +87,20 @@ public class ForeDrawableImageView extends TbImageView {
             if (width <= i) {
                 i = width;
             }
-            int intrinsicWidth = this.aEx.getIntrinsicWidth();
-            int intrinsicHeight = this.aEx.getIntrinsicHeight();
+            int intrinsicWidth = this.aJU.getIntrinsicWidth();
+            int intrinsicHeight = this.aJU.getIntrinsicHeight();
             int i2 = (i / 2) - (intrinsicWidth / 2);
             int height = (getHeight() / 2) - (intrinsicHeight / 2);
             canvas.translate(i2, height);
-            this.aEx.draw(canvas);
+            this.aJU.draw(canvas);
             canvas.restore();
             a(canvas, i2 + (intrinsicWidth / 2), height + intrinsicHeight);
         }
     }
 
     private void a(Canvas canvas, int i, int i2) {
-        if (!StringUtils.isNull(this.aEy) && !l.oC().oI()) {
-            canvas.drawText(this.aEy, (int) (i - (this.aEA.measureText(this.aEy) / 2.0f)), this.aEz + i2, this.aEA);
+        if (!StringUtils.isNull(this.aJV) && !l.oQ().oW()) {
+            canvas.drawText(this.aJV, (int) (i - (this.aJX.measureText(this.aJV) / 2.0f)), this.aJW + i2, this.aJX);
         }
     }
 }

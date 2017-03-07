@@ -1,11 +1,11 @@
 package com.baidu.tbadk.browser;
 
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
-class j implements ba.c {
-    @Override // com.baidu.tbadk.core.util.ba.c
-    public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, ba.d dVar, boolean z2) {
+class j implements bb.c {
+    @Override // com.baidu.tbadk.core.util.bb.c
+    public void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, bb.d dVar, boolean z2) {
         if (!z2) {
             Static.a(tbPageContext, str2, str, z, true, true, true);
         } else {

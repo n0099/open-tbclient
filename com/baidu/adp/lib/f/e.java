@@ -12,9 +12,9 @@ public interface e<T> {
 
     T b(String str, String str2, Object... objArr);
 
-    boolean eB();
+    boolean fJ();
 
-    BdAsyncTaskParallel eC();
+    BdAsyncTaskParallel fK();
 
-    int eD();
+    int fL();
 }

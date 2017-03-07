@@ -10,45 +10,43 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class j {
     private static int BASE_ERROR_NO = -100000000;
-    public static final int hE = BASE_ERROR_NO + SapiErrorCode.NETWORK_FAILED;
-    public static final int hF = BASE_ERROR_NO + SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE;
-    public static final int hG = BASE_ERROR_NO - 210;
-    public static final int hH = BASE_ERROR_NO - 211;
-    public static final int hI = BASE_ERROR_NO - 212;
-    public static final int hJ = BASE_ERROR_NO - 220;
-    public static final int hK = BASE_ERROR_NO - 221;
-    public static final int hL = BASE_ERROR_NO - 230;
-    public static final int hM = BASE_ERROR_NO - 231;
-    public static final int hN = BASE_ERROR_NO - 232;
-    public static final int hO = BASE_ERROR_NO - 233;
-    public static final int hP = BASE_ERROR_NO - 234;
-    public static final int hQ = BASE_ERROR_NO - 235;
-    public static final int hR = BASE_ERROR_NO - 236;
-    public static final int hS = BASE_ERROR_NO - 301;
-    public static final int hT = BASE_ERROR_NO - 302;
-    public static final int hU = BASE_ERROR_NO - 303;
-    public static final int hV = BASE_ERROR_NO - 304;
-    public static final int hW = BASE_ERROR_NO - 305;
-    public static final int hX = BASE_ERROR_NO - 306;
-    public static final int hY = BASE_ERROR_NO - 307;
-    public static final int hZ = BASE_ERROR_NO - 308;
-    public static final int ia = BASE_ERROR_NO - 309;
-    public static final int ib = BASE_ERROR_NO - 310;
-    public static final int ic = BASE_ERROR_NO - 311;
-    public static final int ie = BASE_ERROR_NO - 312;
-
-    /* renamed from: if  reason: not valid java name */
-    public static final int f0if = BASE_ERROR_NO - 313;
-    public static final int ig = BASE_ERROR_NO - 314;
-    public static final int ih = BASE_ERROR_NO - 310;
-    public static final int ii = BASE_ERROR_NO - 311;
-    public static final int ij = BASE_ERROR_NO - 400;
-    public static final int ik = BASE_ERROR_NO - 501;
-    private static String il = null;
-    private static String im = null;
-    private static String[] io = null;
-    private static int[] iq = com.baidu.adp.framework.c.reconStrategy;
-    private static ArrayList<BasicNameValuePair> ir = null;
+    public static final int pE = BASE_ERROR_NO + SapiErrorCode.NETWORK_FAILED;
+    public static final int pF = BASE_ERROR_NO + SapiResult.ERROR_CODE_NETWORK_UNAVAILABLE;
+    public static final int pG = BASE_ERROR_NO - 210;
+    public static final int pH = BASE_ERROR_NO - 211;
+    public static final int pI = BASE_ERROR_NO - 212;
+    public static final int pJ = BASE_ERROR_NO - 220;
+    public static final int pK = BASE_ERROR_NO - 221;
+    public static final int pL = BASE_ERROR_NO - 230;
+    public static final int pM = BASE_ERROR_NO - 231;
+    public static final int pN = BASE_ERROR_NO - 232;
+    public static final int pO = BASE_ERROR_NO - 233;
+    public static final int pP = BASE_ERROR_NO - 234;
+    public static final int pQ = BASE_ERROR_NO - 235;
+    public static final int pR = BASE_ERROR_NO - 236;
+    public static final int pS = BASE_ERROR_NO - 301;
+    public static final int pT = BASE_ERROR_NO - 302;
+    public static final int pU = BASE_ERROR_NO - 303;
+    public static final int pV = BASE_ERROR_NO - 304;
+    public static final int pW = BASE_ERROR_NO - 305;
+    public static final int pX = BASE_ERROR_NO - 306;
+    public static final int pY = BASE_ERROR_NO - 307;
+    public static final int pZ = BASE_ERROR_NO - 308;
+    public static final int qa = BASE_ERROR_NO - 309;
+    public static final int qb = BASE_ERROR_NO - 310;
+    public static final int qc = BASE_ERROR_NO - 311;
+    public static final int qd = BASE_ERROR_NO - 312;
+    public static final int qe = BASE_ERROR_NO - 313;
+    public static final int qf = BASE_ERROR_NO - 314;
+    public static final int qg = BASE_ERROR_NO - 310;
+    public static final int qh = BASE_ERROR_NO - 311;
+    public static final int qi = BASE_ERROR_NO - 400;
+    public static final int qj = BASE_ERROR_NO - 501;
+    private static String qk = null;
+    private static String ql = null;
+    private static String[] qm = null;
+    private static int[] qn = com.baidu.adp.framework.c.reconStrategy;
+    private static ArrayList<BasicNameValuePair> qo = null;
 
     public static String Q(int i) {
         int i2 = BASE_ERROR_NO - i;
@@ -56,37 +54,37 @@ public class j {
         return (i2 <= -300 || i2 > -200) ? app.getString(R.string.im_error_default) : app.getString(R.string.im_error_codec);
     }
 
-    public static int[] bP() {
-        return iq;
+    public static int[] cY() {
+        return qn;
     }
 
     public static void b(int[] iArr) {
         if (iArr != null) {
-            iq = iArr;
+            qn = iArr;
         }
     }
 
     public static String getUrl() {
-        return il;
+        return qk;
     }
 
     public static void setUrl(String str) {
-        il = str;
+        qk = str;
     }
 
-    public static String bQ() {
-        return im;
+    public static String cZ() {
+        return ql;
     }
 
-    public static void C(String str) {
-        im = str;
+    public static void B(String str) {
+        ql = str;
     }
 
-    public static ArrayList<BasicNameValuePair> bR() {
-        return ir;
+    public static ArrayList<BasicNameValuePair> da() {
+        return qo;
     }
 
     public static void c(ArrayList<BasicNameValuePair> arrayList) {
-        ir = arrayList;
+        qo = arrayList;
     }
 }

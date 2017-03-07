@@ -3,15 +3,15 @@ package com.baidu.tieba.write.album;
 import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements y {
-    final /* synthetic */ AlbumActivity fGN;
+    final /* synthetic */ AlbumActivity fLh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AlbumActivity albumActivity) {
-        this.fGN = albumActivity;
+        this.fLh = albumActivity;
     }
 
     @Override // com.baidu.tieba.write.album.y
@@ -28,7 +28,7 @@ public class b implements y {
                 }
             }
         }
-        this.fGN.showToastWithIcon(this.fGN.getPageContext().getPageActivity().getString(r.l.uploade_attation), r.g.icon_toast_game_error);
+        this.fLh.showToastWithIcon(this.fLh.getPageContext().getPageActivity().getString(w.l.uploade_attation), w.g.icon_toast_game_error);
         return false;
     }
 }

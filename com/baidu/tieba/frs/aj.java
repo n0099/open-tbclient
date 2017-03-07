@@ -16,8 +16,8 @@ class aj extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             int g = b.g(customResponsedMessage.getData().toString(), 1);
             if (g == 1 || g == 0) {
-                FrsActivityStatic.bGS = false;
-                FrsActivityStatic.bGR = false;
+                FrsActivityStatic.bOb = false;
+                FrsActivityStatic.bOa = false;
             }
         }
     }

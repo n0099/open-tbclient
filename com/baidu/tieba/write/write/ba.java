@@ -4,20 +4,20 @@ import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements Runnable {
-    final /* synthetic */ WriteActivity fMl;
+    final /* synthetic */ WriteActivity fQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteActivity writeActivity) {
-        this.fMl = writeActivity;
+        this.fQG = writeActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tieba.write.view.PhotoLiveView.a aVar;
         GridView gridView;
-        aVar = this.fMl.fLz;
+        aVar = this.fQG.fPU;
         aVar.notifyDataSetChanged();
-        gridView = this.fMl.fLy;
+        gridView = this.fQG.fPT;
         gridView.invalidateViews();
     }
 }

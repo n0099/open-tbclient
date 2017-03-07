@@ -8,13 +8,13 @@ import com.baidu.tieba.frs.entelechy.a.am;
 public interface a {
     d C(FrsActivity frsActivity);
 
-    g ZD();
-
-    b ZE();
-
     am a(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z);
 
     com.baidu.tieba.frs.view.c a(String str, FrsActivity frsActivity, int i);
+
+    g aaA();
+
+    b aaB();
 
     c b(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout);
 

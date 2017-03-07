@@ -15,28 +15,28 @@ import com.baidu.tieba.write.vcode.newVcode.a.c;
 import com.baidu.tieba.write.vcode.newVcode.a.d;
 /* loaded from: classes.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
-    private NewWriteModel ave;
-    private NewVcodeView fIB;
-    private c fIC;
+    private NewWriteModel aAz;
+    private NewVcodeView fMV;
+    private c fMW;
     private boolean mNeedFeedBackButton;
     private WriteData mWriteData = null;
     private int mPageType = 0;
-    private NewWriteModel.d fID = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
+    private NewWriteModel.d fMX = new NewWriteModel.d() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, q qVar, WriteData writeData, AntiData antiData) {
             if (qVar != null && writeData != null && postWriteCallBackData != null && !z) {
                 NewVcodeActivity.this.mPageType = b.g("4", 0);
-                NewVcodeActivity.this.fIC.onPostThreadCancle();
-                NewVcodeActivity.this.fIC.onDestroy();
+                NewVcodeActivity.this.fMW.onPostThreadCancle();
+                NewVcodeActivity.this.fMW.onDestroy();
                 NewVcodeActivity.this.mWriteData = writeData;
                 NewVcodeActivity.this.mWriteData.setVcodeMD5(qVar.getVcode_md5());
                 NewVcodeActivity.this.mWriteData.setVcodeUrl(qVar.getVcode_pic_url());
-                NewVcodeActivity.this.mWriteData.setVcodeExtra(qVar.xN());
-                NewVcodeActivity.this.ave.setWriteData(NewVcodeActivity.this.mWriteData);
-                NewVcodeActivity.this.fIC = NewVcodeActivity.this.bnB();
-                NewVcodeActivity.this.fIC.showErrorOnStart(true, postWriteCallBackData.getErrorString());
-                NewVcodeActivity.this.fIB.setPresenter(NewVcodeActivity.this.fIC);
-                NewVcodeActivity.this.fIC.start(NewVcodeActivity.this.mNeedFeedBackButton);
+                NewVcodeActivity.this.mWriteData.setVcodeExtra(qVar.yj());
+                NewVcodeActivity.this.aAz.setWriteData(NewVcodeActivity.this.mWriteData);
+                NewVcodeActivity.this.fMW = NewVcodeActivity.this.bno();
+                NewVcodeActivity.this.fMW.showErrorOnStart(true, postWriteCallBackData.getErrorString());
+                NewVcodeActivity.this.fMV.setPresenter(NewVcodeActivity.this.fMW);
+                NewVcodeActivity.this.fMW.start(NewVcodeActivity.this.mNeedFeedBackButton);
             }
         }
     };
@@ -45,7 +45,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fIB = new NewVcodeView(this);
+        this.fMV = new NewVcodeView(this);
         if (bundle != null) {
             this.mWriteData = (WriteData) bundle.getSerializable("model");
             this.mNeedFeedBackButton = bundle.getBoolean("need_feed_back_button");
@@ -60,25 +60,25 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             finish();
             return;
         }
-        this.ave = new NewWriteModel(this);
-        this.ave.setWriteData(this.mWriteData);
+        this.aAz = new NewWriteModel(this);
+        this.aAz.setWriteData(this.mWriteData);
         if (this.mWriteData.getWriteImagesInfo() != null) {
-            this.ave.lm(this.mWriteData.getWriteImagesInfo().size() > 0);
+            this.aAz.ll(this.mWriteData.getWriteImagesInfo().size() > 0);
         }
-        this.fIC = bnB();
-        this.fIB.setPresenter(this.fIC);
-        this.fIC.start(this.mNeedFeedBackButton);
+        this.fMW = bno();
+        this.fMV.setPresenter(this.fMW);
+        this.fMW.start(this.mNeedFeedBackButton);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c bnB() {
+    public c bno() {
         c dVar;
         if (this.mPageType == b.g("5", 0)) {
-            dVar = new a(this.fIB, this.ave);
+            dVar = new a(this.fMV, this.aAz);
         } else {
-            dVar = new d(this.fIB, this.ave);
+            dVar = new d(this.fMV, this.aAz);
         }
-        dVar.c(this.fID);
+        dVar.c(this.fMX);
         return dVar;
     }
 
@@ -94,8 +94,8 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        bmm();
-        this.fIC.onDestroy();
+        blZ();
+        this.fMW.onDestroy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -108,7 +108,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 4);
     }
 
-    private void bmm() {
+    private void blZ() {
         if (this.mWriteData != null && this.mWriteData.getType() == 3) {
             com.baidu.tbadk.core.e.b.c(getPageContext().getPageActivity(), 200, false);
         }

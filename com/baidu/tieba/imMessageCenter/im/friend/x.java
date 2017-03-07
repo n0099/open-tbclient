@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
 
 import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements TbCheckBox.a {
-    final /* synthetic */ p dis;
+    final /* synthetic */ p dkK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(p pVar) {
-        this.dis = pVar;
+        this.dkK = pVar;
     }
 
     @Override // com.baidu.tbadk.core.view.TbCheckBox.a
@@ -18,25 +18,25 @@ public class x implements TbCheckBox.a {
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
         int i;
-        this.dis.avD();
+        this.dkK.auZ();
         if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
             if (z) {
-                int avE = this.dis.avE();
-                inviteFriendCandidateList = this.dis.dii;
-                if (avE <= inviteFriendCandidateList.getItemLength()) {
-                    inviteFriendListActivity = this.dis.dif;
-                    inviteFriendListActivity2 = this.dis.dif;
-                    String string = inviteFriendListActivity2.getPageContext().getString(r.l.invite_friend_exceed_max_count);
-                    i = this.dis.dil;
+                int ava = this.dkK.ava();
+                inviteFriendCandidateList = this.dkK.dkA;
+                if (ava <= inviteFriendCandidateList.getItemLength()) {
+                    inviteFriendListActivity = this.dkK.dkx;
+                    inviteFriendListActivity2 = this.dkK.dkx;
+                    String string = inviteFriendListActivity2.getPageContext().getString(w.l.invite_friend_exceed_max_count);
+                    i = this.dkK.dkD;
                     inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
                     tbCheckBox.setChecked(false);
                     ((com.baidu.tbadk.coreExtra.relationship.a) obj).setChecked(false);
                     return;
                 }
-                this.dis.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
+                this.dkK.g((com.baidu.tbadk.coreExtra.relationship.a) obj);
                 return;
             }
-            this.dis.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
+            this.dkK.h((com.baidu.tbadk.coreExtra.relationship.a) obj);
         }
     }
 }

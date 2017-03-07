@@ -11,28 +11,28 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.bh bPK;
-    private final /* synthetic */ String ejl;
-    final /* synthetic */ FeedBackTopListView fKM;
+    private final /* synthetic */ com.baidu.tbadk.core.data.bj bWS;
+    private final /* synthetic */ String bZG;
+    final /* synthetic */ FeedBackTopListView fPf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(FeedBackTopListView feedBackTopListView, com.baidu.tbadk.core.data.bh bhVar, String str) {
-        this.fKM = feedBackTopListView;
-        this.bPK = bhVar;
-        this.ejl = str;
+    public p(FeedBackTopListView feedBackTopListView, com.baidu.tbadk.core.data.bj bjVar, String str) {
+        this.fPf = feedBackTopListView;
+        this.bWS = bjVar;
+        this.bZG = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         Context context2;
-        if (this.bPK.getThreadType() == 33) {
-            context2 = this.fKM.mContext;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, this.bPK.getTid()).ci(this.bPK.rM()).oS()));
+        if (this.bWS.getThreadType() == 33) {
+            context2 = this.fPf.mContext;
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, this.bWS.getTid()).cb(this.bWS.sg()).pg()));
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.fKM.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(this.ejl, null, WriteActivityConfig.FEED_BACK)));
+        context = this.fPf.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(this.bZG, null, WriteActivityConfig.FEED_BACK)));
     }
 }

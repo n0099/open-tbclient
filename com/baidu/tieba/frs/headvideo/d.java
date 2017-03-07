@@ -7,11 +7,11 @@ import com.baidu.tieba.play.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c bRb;
+    final /* synthetic */ c bYj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bRb = cVar;
+        this.bYj = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,29 +24,29 @@ public class d implements View.OnClickListener {
         aj ajVar3;
         aj ajVar4;
         int id = view.getId();
-        imageView = this.bRb.aNc;
+        imageView = this.bYj.aSP;
         if (id == imageView.getId()) {
-            i = this.bRb.bQX;
+            i = this.bYj.bYf;
             if (i == 2) {
-                quickVideoView = this.bRb.aMY;
+                quickVideoView = this.bYj.aSL;
                 if (quickVideoView.isPlaying()) {
-                    this.bRb.pausePlay();
+                    this.bYj.pausePlay();
                     return;
                 }
-                this.bRb.startPlay();
-                ajVar3 = this.bRb.aMm;
+                this.bYj.startPlay();
+                ajVar3 = this.bYj.aRZ;
                 if (ajVar3 != null) {
-                    ajVar4 = this.bRb.aMm;
-                    ajVar4.pD("2");
+                    ajVar4 = this.bYj.aRZ;
+                    ajVar4.oM("2");
                     return;
                 }
                 return;
             }
-            this.bRb.startPlay();
-            ajVar = this.bRb.aMm;
+            this.bYj.startPlay();
+            ajVar = this.bYj.aRZ;
             if (ajVar != null) {
-                ajVar2 = this.bRb.aMm;
-                ajVar2.pD("2");
+                ajVar2 = this.bYj.aRZ;
+                ajVar2.oM("2");
             }
         }
     }

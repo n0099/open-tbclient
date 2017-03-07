@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ IMBlackListActivity dhH;
+    final /* synthetic */ IMBlackListActivity djZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(IMBlackListActivity iMBlackListActivity, int i) {
         super(i);
-        this.dhH = iMBlackListActivity;
+        this.djZ = iMBlackListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,46 +34,46 @@ class a extends com.baidu.adp.framework.listener.e {
         h hVar3;
         com.baidu.tbadk.core.dialog.a aVar4;
         h hVar4;
-        hVar = this.dhH.dhF;
-        hVar.avj();
-        this.dhH.closeLoadingDialog();
+        hVar = this.djZ.djX;
+        hVar.auE();
+        this.djZ.closeLoadingDialog();
         if (socketResponsedMessage != null) {
             if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
                 ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
                 if (responseGetMaskInfoMessage.getError() == 0) {
-                    aVar3 = this.dhH.ER;
+                    aVar3 = this.djZ.Mf;
                     if (aVar3 != null) {
-                        aVar4 = this.dhH.ER;
+                        aVar4 = this.djZ.Mf;
                         aVar4.dismiss();
                     }
-                    hVar3 = this.dhH.dhF;
+                    hVar3 = this.djZ.djX;
                     hVar3.S(responseGetMaskInfoMessage.getBlackList());
                     return;
                 }
-                this.dhH.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.dhH.getResources().getString(r.l.neterror) : responseGetMaskInfoMessage.getErrorString());
-                if (com.baidu.adp.lib.util.i.gk()) {
-                    hVar4 = this.dhH.dhF;
+                this.djZ.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.djZ.getResources().getString(w.l.neterror) : responseGetMaskInfoMessage.getErrorString());
+                if (com.baidu.adp.lib.util.i.he()) {
+                    hVar4 = this.djZ.djX;
                     hVar4.refreshData();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    aVar = this.dhH.ER;
+                    aVar = this.djZ.Mf;
                     if (aVar != null) {
-                        aVar2 = this.dhH.ER;
+                        aVar2 = this.djZ.Mf;
                         aVar2.dismiss();
                     }
-                    this.dhH.showToast(this.dhH.getPageContext().getString(r.l.black_list_remove_success));
-                    blackListItemData = this.dhH.dhG;
+                    this.djZ.showToast(this.djZ.getPageContext().getString(w.l.black_list_remove_success));
+                    blackListItemData = this.djZ.djY;
                     if (blackListItemData != null) {
-                        hVar2 = this.dhH.dhF;
-                        blackListItemData2 = this.dhH.dhG;
+                        hVar2 = this.djZ.djX;
+                        blackListItemData2 = this.djZ.djY;
                         hVar2.b(blackListItemData2);
-                        this.dhH.dhG = null;
+                        this.djZ.djY = null;
                         return;
                     }
                     return;
                 }
-                this.dhH.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                this.djZ.showToast(responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }

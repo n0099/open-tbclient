@@ -15,143 +15,143 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForcusUsers;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    private TextView aNb;
-    private HeadImageView bfP;
-    private HeadImageView bfQ;
-    private HeadImageView bfR;
-    private ImageView bfS;
-    private View cpW;
-    private LinearLayout ctA;
-    View.OnClickListener ctB;
-    private ArrayList<String> ctx;
-    private com.baidu.tieba.homepage.alalivelist.a.c cty;
-    private InterfaceC0061a ctz;
+    private TextView aSO;
+    private HeadImageView bmB;
+    private HeadImageView bmC;
+    private HeadImageView bmD;
+    private ImageView bmE;
+    private View crv;
+    private ArrayList<String> cuW;
+    private com.baidu.tieba.homepage.alalivelist.a.c cuX;
+    private InterfaceC0060a cuY;
+    private LinearLayout cuZ;
+    View.OnClickListener cva;
     private Context mContext;
     private int mSkinType;
 
     /* renamed from: com.baidu.tieba.homepage.alalivelist.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0061a {
+    public interface InterfaceC0060a {
         void a(View view, com.baidu.tieba.homepage.alalivelist.a.c cVar);
     }
 
     public a(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.ctB = new b(this);
+        this.cva = new b(this);
         this.mContext = context;
-        aJ(context);
+        bi(context);
     }
 
-    private void aJ(Context context) {
-        inflate(context, r.j.ala_attention_live_list_layout, this);
-        this.aNb = (TextView) findViewById(r.h.ala_attention_tip_title_txt);
-        this.bfS = (ImageView) findViewById(r.h.ala_attention_tip_arrow_img);
-        this.bfP = (HeadImageView) findViewById(r.h.ala_attention_tip_contribution_img1);
-        this.bfQ = (HeadImageView) findViewById(r.h.ala_attention_tip_contribution_img2);
-        this.bfR = (HeadImageView) findViewById(r.h.ala_attention_tip_contribution_img3);
-        this.ctA = (LinearLayout) findViewById(r.h.ala_attention_tip_linear);
-        this.cpW = findViewById(r.h.ala_attention_tip_bottom);
+    private void bi(Context context) {
+        inflate(context, w.j.ala_attention_live_list_layout, this);
+        this.aSO = (TextView) findViewById(w.h.ala_attention_tip_title_txt);
+        this.bmE = (ImageView) findViewById(w.h.ala_attention_tip_arrow_img);
+        this.bmB = (HeadImageView) findViewById(w.h.ala_attention_tip_contribution_img1);
+        this.bmC = (HeadImageView) findViewById(w.h.ala_attention_tip_contribution_img2);
+        this.bmD = (HeadImageView) findViewById(w.h.ala_attention_tip_contribution_img3);
+        this.cuZ = (LinearLayout) findViewById(w.h.ala_attention_tip_linear);
+        this.crv = findViewById(w.h.ala_attention_tip_bottom);
         setOnClickListener(new c(this));
-        this.bfP.setOnClickListener(this.ctB);
-        this.bfQ.setOnClickListener(this.ctB);
-        this.bfR.setOnClickListener(this.ctB);
+        this.bmB.setOnClickListener(this.cva);
+        this.bmC.setOnClickListener(this.cva);
+        this.bmD.setOnClickListener(this.cva);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, ForcusUsers forcusUsers) {
         if (forcusUsers != null) {
             if (i == 49) {
-                jV(forcusUsers.user_name);
+                jw(forcusUsers.user_name);
             } else if (i == 50) {
-                jW(String.valueOf(forcusUsers.thread_id));
+                jx(String.valueOf(forcusUsers.thread_id));
             }
         }
     }
 
-    private void jV(String str) {
-        TiebaStatic.log(new ar("c11829").ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+    private void jw(String str) {
+        TiebaStatic.log(new as("c11829").Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.mContext, "", str, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_PLAY)));
     }
 
-    private void jW(String str) {
-        TiebaStatic.log(new ar("c11830").ab(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+    private void jx(String str) {
+        TiebaStatic.log(new as("c11830").Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, "", "ala_attention")));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajl() {
+    public void aiy() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_ATTENTION_LIVE_LIST_START, new AlaAttentionLiveListActivityConfig(getContext())));
     }
 
     private void setTitle(String str) {
-        if (this.aNb != null) {
-            this.aNb.setText(str);
+        if (this.aSO != null) {
+            this.aSO.setText(str);
         }
     }
 
     public void setNextIconVisibility(int i) {
-        if (this.bfS != null) {
-            this.bfS.setVisibility(i);
+        if (this.bmE != null) {
+            this.bmE.setVisibility(i);
         }
     }
 
     private void setHeaderImages(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             if (arrayList.size() >= 1) {
-                this.bfP.setVisibility(0);
-                this.bfP.setIsRound(true);
-                this.bfP.c(arrayList.get(0), 12, false);
+                this.bmB.setVisibility(0);
+                this.bmB.setIsRound(true);
+                this.bmB.c(arrayList.get(0), 12, false);
             } else {
-                this.bfP.setVisibility(8);
+                this.bmB.setVisibility(8);
             }
             if (arrayList.size() >= 2) {
-                this.bfQ.setVisibility(0);
-                this.bfQ.setIsRound(true);
-                this.bfQ.c(arrayList.get(1), 12, false);
+                this.bmC.setVisibility(0);
+                this.bmC.setIsRound(true);
+                this.bmC.c(arrayList.get(1), 12, false);
             } else {
-                this.bfQ.setVisibility(8);
+                this.bmC.setVisibility(8);
             }
             if (arrayList.size() >= 3) {
-                this.bfR.setVisibility(0);
-                this.bfR.setIsRound(true);
-                this.bfR.c(arrayList.get(2), 12, false);
+                this.bmD.setVisibility(0);
+                this.bmD.setIsRound(true);
+                this.bmD.c(arrayList.get(2), 12, false);
                 return;
             }
-            this.bfR.setVisibility(8);
+            this.bmD.setVisibility(8);
         }
     }
 
     public void a(com.baidu.tieba.homepage.alalivelist.a.c cVar) {
-        this.cty = cVar;
-        int i = cVar.ctl;
-        List<ForcusUsers> list = cVar.ctm;
+        this.cuX = cVar;
+        int i = cVar.cuK;
+        List<ForcusUsers> list = cVar.cuL;
         if (i == 49) {
-            setTitle(this.mContext.getResources().getString(r.l.ala_attention_tip_live));
+            setTitle(this.mContext.getResources().getString(w.l.ala_attention_tip_live));
         } else if (i == 50) {
-            setTitle(this.mContext.getResources().getString(r.l.ala_attention_tip_record));
+            setTitle(this.mContext.getResources().getString(w.l.ala_attention_tip_record));
         }
-        if (this.ctx == null) {
-            this.ctx = new ArrayList<>();
+        if (this.cuW == null) {
+            this.cuW = new ArrayList<>();
         }
-        this.ctx.clear();
+        this.cuW.clear();
         int i2 = 0;
         while (true) {
             int i3 = i2;
             if (i3 < list.size()) {
-                this.ctx.add(list.get(i3).portrait);
+                this.cuW.add(list.get(i3).portrait);
                 i2 = i3 + 1;
             } else {
-                setHeaderImages(this.ctx);
+                setHeaderImages(this.cuW);
                 return;
             }
         }
@@ -159,14 +159,14 @@ public class a extends LinearLayout {
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.k(this.ctA, r.e.cp_bg_line_d);
-            ap.i((View) this.aNb, r.e.cp_cont_b);
-            ap.k(this.cpW, r.e.cp_bg_line_c);
+            aq.k(this.cuZ, w.e.cp_bg_line_d);
+            aq.i((View) this.aSO, w.e.cp_cont_b);
+            aq.k(this.crv, w.e.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
 
-    public void setAfterHeadImgOnClickListener(InterfaceC0061a interfaceC0061a) {
-        this.ctz = interfaceC0061a;
+    public void setAfterHeadImgOnClickListener(InterfaceC0060a interfaceC0060a) {
+        this.cuY = interfaceC0060a;
     }
 }

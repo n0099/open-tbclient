@@ -19,14 +19,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ba;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.PrintStream;
-import java.io.Writer;
 import java.lang.Thread;
 import java.lang.reflect.Field;
 import java.util.Iterator;
@@ -34,9 +33,9 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class v implements Thread.UncaughtExceptionHandler {
-    private static final String aDD = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
-    private final Thread.UncaughtExceptionHandler aDB = Thread.getDefaultUncaughtExceptionHandler();
-    private ExceptionData aDC = null;
+    private static final String aJa = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
+    private final Thread.UncaughtExceptionHandler aIY = Thread.getDefaultUncaughtExceptionHandler();
+    private ExceptionData aIZ = null;
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
@@ -52,10 +51,10 @@ public class v implements Thread.UncaughtExceptionHandler {
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2 = null;
         if (TbConfig.getDebugSwitch() && c(th)) {
-            Gy();
+            GX();
         }
-        int Gz = Gz();
-        if (!GB()) {
+        int GY = GY();
+        if (!Ha()) {
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
@@ -79,30 +78,30 @@ public class v implements Thread.UncaughtExceptionHandler {
             try {
                 th.printStackTrace(printStream);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
-                this.aDC = new ExceptionData();
+                this.aIZ = new ExceptionData();
                 if (z) {
-                    this.aDC.info = th.getMessage();
+                    this.aIZ.info = th.getMessage();
                 } else {
-                    this.aDC.info = new String(byteArray);
-                    this.aDC.mExcep = th;
+                    this.aIZ.info = new String(byteArray);
+                    this.aIZ.mExcep = th;
                 }
-                Gx();
+                GW();
                 if (!z) {
                     a(thread, th);
                 }
-                com.baidu.adp.lib.b.e.dL().crash(this.aDC.info);
-                if (!TextUtils.isEmpty(this.aDC.info)) {
-                    BdLog.e(this.aDC.info);
+                com.baidu.adp.lib.b.e.eT().crash(this.aIZ.info);
+                if (!TextUtils.isEmpty(this.aIZ.info)) {
+                    BdLog.e(this.aIZ.info);
                 }
-                BdLog.e("hourCrash = " + Gz);
-                if (Gz >= GA()) {
+                BdLog.e("hourCrash = " + GY);
+                if (GY >= GZ()) {
                     b(thread, th);
                 }
                 com.baidu.adp.lib.util.o.d(printStream);
                 com.baidu.adp.lib.util.o.d(byteArrayOutputStream);
                 if (!z) {
-                    if (TbConfig.getDebugSwitch() && this.aDB != null) {
-                        this.aDB.uncaughtException(thread, th);
+                    if (TbConfig.getDebugSwitch() && this.aIY != null) {
+                        this.aIY.uncaughtException(thread, th);
                     } else {
                         Process.killProcess(Process.myPid());
                     }
@@ -115,8 +114,8 @@ public class v implements Thread.UncaughtExceptionHandler {
                     com.baidu.adp.lib.util.o.d(printStream);
                     com.baidu.adp.lib.util.o.d(byteArrayOutputStream2);
                     if (!z) {
-                        if (TbConfig.getDebugSwitch() && this.aDB != null) {
-                            this.aDB.uncaughtException(thread, th);
+                        if (TbConfig.getDebugSwitch() && this.aIY != null) {
+                            this.aIY.uncaughtException(thread, th);
                         } else {
                             Process.killProcess(Process.myPid());
                         }
@@ -127,8 +126,8 @@ public class v implements Thread.UncaughtExceptionHandler {
                     com.baidu.adp.lib.util.o.d(printStream);
                     com.baidu.adp.lib.util.o.d(byteArrayOutputStream);
                     if (!z) {
-                        if (TbConfig.getDebugSwitch() && this.aDB != null) {
-                            this.aDB.uncaughtException(thread, th);
+                        if (TbConfig.getDebugSwitch() && this.aIY != null) {
+                            this.aIY.uncaughtException(thread, th);
                         } else {
                             Process.killProcess(Process.myPid());
                         }
@@ -159,38 +158,33 @@ public class v implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void Gx() {
-        if (this.aDC != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UEXCEPTION_MESSAGE, this.aDC));
-            if (this.aDC.appendInfo != null) {
-                Iterator<String> it = this.aDC.appendInfo.keySet().iterator();
+    private void GW() {
+        if (this.aIZ != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UEXCEPTION_MESSAGE, this.aIZ));
+            if (this.aIZ.appendInfo != null) {
+                Iterator<String> it = this.aIZ.appendInfo.keySet().iterator();
                 while (it.hasNext()) {
-                    ExceptionData exceptionData = this.aDC;
-                    exceptionData.info = String.valueOf(exceptionData.info) + "\n" + this.aDC.appendInfo.get(it.next());
+                    ExceptionData exceptionData = this.aIZ;
+                    exceptionData.info = String.valueOf(exceptionData.info) + "\n" + this.aIZ.appendInfo.get(it.next());
                 }
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x0224 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tbadk.core.data.ExceptionData] */
-    /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Writer] */
-    /* JADX WARN: Type inference failed for: r1v3 */
     private void a(Thread thread, Throwable th, String str) {
         FileWriter fileWriter;
+        Throwable th2;
         Exception e;
         byte[] u;
         FileWriter fileWriter2 = null;
-        ?? r1 = this.aDC;
-        try {
-            if (r1 != 0) {
-                try {
-                    File dc = com.baidu.tbadk.core.util.l.dc(str);
-                    if (dc != null && dc.length() < TbConfig.FATAL_ERROR_FILE_MAX_SIZE) {
-                        fileWriter = new FileWriter(dc, true);
+        if (this.aIZ != null) {
+            try {
+                File cV = com.baidu.tbadk.core.util.l.cV(str);
+                if (cV != null && cV.length() < TbConfig.FATAL_ERROR_FILE_MAX_SIZE) {
+                    fileWriter = new FileWriter(cV, true);
+                    try {
                         try {
-                            a(fileWriter, at.vd(), (String) null);
+                            a(fileWriter, au.vA(), (String) null);
                             a(fileWriter, "tieba_crash_new_info", (String) null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
@@ -205,7 +199,7 @@ public class v implements Thread.UncaughtExceptionHandler {
                             }
                             a(fileWriter, "imei", TbadkCoreApplication.m9getInst().getImei());
                             a(fileWriter, "uname", TbadkCoreApplication.getCurrentAccountName());
-                            a(fileWriter, "activity", az.vs());
+                            a(fileWriter, "activity", ba.vP());
                             a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
                             a(fileWriter, "crash_type", th.getClass().getName());
                             StringBuilder sb = new StringBuilder();
@@ -215,19 +209,19 @@ public class v implements Thread.UncaughtExceptionHandler {
                                     while (it.hasNext()) {
                                         Plugin next = it.next();
                                         if (next != null) {
-                                            PluginSetting bk = PluginPackageManager.iz().bk(next.getPackageName());
+                                            PluginSetting be = PluginPackageManager.jt().be(next.getPackageName());
                                             sb.append(next.getPackageName());
                                             sb.append("-");
                                             sb.append(next.getCurrentPluginMode());
                                             sb.append("-");
-                                            if (bk != null) {
-                                                sb.append(new File(bk.apkPath).exists());
+                                            if (be != null) {
+                                                sb.append(new File(be.apkPath).exists());
                                                 sb.append("-");
                                                 sb.append(next.getVersionCode());
                                                 sb.append("-");
-                                                sb.append(bk.tempVersionCode);
+                                                sb.append(be.tempVersionCode);
                                                 sb.append("-");
-                                                if (bk.enable) {
+                                                if (be.enable) {
                                                     sb.append("true");
                                                 } else {
                                                     sb.append("false");
@@ -257,8 +251,8 @@ public class v implements Thread.UncaughtExceptionHandler {
                                     }
                                 }
                             }
-                            a(fileWriter, "error", String.valueOf(this.aDC.info) + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.aS().aW());
-                            if (this.aDC.info != null && this.aDC.info.contains("java.lang.ArrayIndexOutOfBoundsException: src.length=8192 srcPos=1 dst.length=8192 dstPos=0 length=-1")) {
+                            a(fileWriter, "error", String.valueOf(this.aIZ.info) + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.cb().cf());
+                            if (this.aIZ.info != null && this.aIZ.info.contains("java.lang.ArrayIndexOutOfBoundsException: src.length=8192 srcPos=1 dst.length=8192 dstPos=0 length=-1")) {
                                 int nextInt = new Random().nextInt(100);
                                 try {
                                     Field declaredField = thread.getClass().getDeclaredField("this$0");
@@ -294,26 +288,28 @@ public class v implements Thread.UncaughtExceptionHandler {
                             com.baidu.adp.lib.util.o.a(fileWriter);
                             return;
                         }
+                    } catch (Throwable th3) {
+                        th2 = th3;
+                        com.baidu.adp.lib.util.o.a(fileWriter);
+                        throw th2;
                     }
-                    com.baidu.adp.lib.util.o.a(fileWriter2);
-                } catch (Exception e5) {
-                    fileWriter = null;
-                    e = e5;
-                } catch (Throwable th2) {
-                    r1 = 0;
-                    th = th2;
-                    com.baidu.adp.lib.util.o.a((Writer) r1);
-                    throw th;
                 }
+                com.baidu.adp.lib.util.o.a(fileWriter2);
+            } catch (Exception e5) {
+                fileWriter = null;
+                e = e5;
+            } catch (Throwable th4) {
+                fileWriter = null;
+                th2 = th4;
+                com.baidu.adp.lib.util.o.a(fileWriter);
+                throw th2;
             }
-        } catch (Throwable th3) {
-            th = th3;
         }
     }
 
     private void a(Thread thread, Throwable th) {
         String str;
-        if (this.aDC != null) {
+        if (this.aIZ != null) {
             if (TbConfig.getDebugSwitch()) {
                 str = TbConfig.FATAL_ERROR_DEBUG_FILE;
             } else {
@@ -339,25 +335,25 @@ public class v implements Thread.UncaughtExceptionHandler {
         return false;
     }
 
-    private void Gy() {
+    private void GX() {
         try {
-            File file = new File(aDD);
+            File file = new File(aJa);
             if (!file.exists()) {
                 file.mkdir();
             }
-            Debug.dumpHprofData(String.valueOf(aDD) + System.currentTimeMillis());
+            Debug.dumpHprofData(String.valueOf(aJa) + System.currentTimeMillis());
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
     }
 
-    private int Gz() {
+    private int GY() {
         int i;
         long j = 0;
-        byte[] aF = com.baidu.adp.lib.util.e.aF("crash_hour_record.log");
+        byte[] az = com.baidu.adp.lib.util.e.az("crash_hour_record.log");
         String str = null;
-        if (aF != null) {
-            str = new String(aF);
+        if (az != null) {
+            str = new String(az);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -376,50 +372,50 @@ public class v implements Thread.UncaughtExceptionHandler {
         return i2;
     }
 
-    private int GA() {
-        return com.baidu.adp.lib.stats.switchs.a.fB().getMaxAlertCount("alert_crash", 5);
+    private int GZ() {
+        return com.baidu.adp.lib.stats.switchs.a.gw().getMaxAlertCount("alert_crash", 5);
     }
 
-    private boolean GB() {
+    private boolean Ha() {
         int i;
         int i2;
         int i3 = 10;
         try {
-            int i4 = com.baidu.tbadk.core.sharedPref.b.tQ().getInt("crash_limit_count", 100);
+            int i4 = com.baidu.tbadk.core.sharedPref.b.uo().getInt("crash_limit_count", 100);
             if (i4 >= 10) {
                 i3 = i4;
             }
         } catch (Throwable th) {
             i3 = 100;
         }
-        int ve = at.ve();
-        byte[] aF = com.baidu.adp.lib.util.e.aF("crash_upload_info.log");
+        int vB = au.vB();
+        byte[] az = com.baidu.adp.lib.util.e.az("crash_upload_info.log");
         String str = null;
-        if (aF != null) {
-            str = new String(aF);
+        if (az != null) {
+            str = new String(az);
         }
         if (TextUtils.isEmpty(str)) {
-            i = ve;
+            i = vB;
             i2 = 0;
         } else {
             String[] split = str.split(":");
             if (split == null || split.length != 2) {
-                i = ve;
+                i = vB;
                 i2 = 0;
             } else {
                 int g = com.baidu.adp.lib.g.b.g(split[0], 0);
-                int g2 = com.baidu.adp.lib.g.b.g(split[1], ve);
+                int g2 = com.baidu.adp.lib.g.b.g(split[1], vB);
                 i2 = g;
                 i = g2;
             }
         }
-        if (i != ve) {
+        if (i != vB) {
             i2 = 0;
         }
         if (i2 > i3) {
             return true;
         }
-        com.baidu.adp.lib.util.e.e("crash_upload_info.log", (String.valueOf(i2 + 1) + ":" + ve).getBytes());
+        com.baidu.adp.lib.util.e.e("crash_upload_info.log", (String.valueOf(i2 + 1) + ":" + vB).getBytes());
         return false;
     }
 

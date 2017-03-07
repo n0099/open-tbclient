@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private static String go = null;
-    private static volatile SQLiteDatabase gk = null;
-    public static HashMap<String, SQLiteDatabase> cSo = new HashMap<>();
+    private static String og = null;
+    private static volatile SQLiteDatabase oc = null;
+    public static HashMap<String, SQLiteDatabase> cUE = new HashMap<>();
 
-    public static synchronized SQLiteDatabase aqj() {
+    public static synchronized SQLiteDatabase apD() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -26,34 +26,34 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (cSo.containsKey(str)) {
-                    sQLiteDatabase = cSo.get(str);
-                } else if (gk != null && str.equals(go) && gk.isOpen()) {
-                    sQLiteDatabase = gk;
+                if (cUE.containsKey(str)) {
+                    sQLiteDatabase = cUE.get(str);
+                } else if (oc != null && str.equals(og) && oc.isOpen()) {
+                    sQLiteDatabase = oc;
                 } else {
-                    if (gk != null) {
-                        com.baidu.adp.lib.util.o.h(gk);
+                    if (oc != null) {
+                        com.baidu.adp.lib.util.o.h(oc);
                     }
                     e eVar = new e(TbadkCoreApplication.m9getInst().getApp(), str);
-                    go = str;
-                    gk = eVar.getWritableDatabase();
-                    sQLiteDatabase = gk;
+                    og = str;
+                    oc = eVar.getWritableDatabase();
+                    sQLiteDatabase = oc;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> aqk() {
+    public static LinkedList<String> apE() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase aqj = aqj();
+        SQLiteDatabase apD = apD();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (aqj != null) {
+        if (apD != null) {
             try {
-                cursor2 = aqj.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = apD.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -92,20 +92,20 @@ public class f {
         return linkedList;
     }
 
-    public static void kK(String str) {
+    public static void kl(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.aql().aqm();
-                Iterator<String> it = aqk().iterator();
+                g.apF().apG();
+                Iterator<String> it = apE().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.aql().update("tb_message_center", contentValues, null, null);
+                            g.apF().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.aql().a(next, null, null);
+                            g.apF().a(next, null, null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.aql().endTransaction();
+            g.apF().endTransaction();
         }
     }
 }

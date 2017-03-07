@@ -1,61 +1,61 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class p extends c {
-    public bh aVi;
-    public static final BdUniqueId boz = BdUniqueId.gen();
-    public static final BdUniqueId boA = BdUniqueId.gen();
-    public static String boB = "";
-    public static String boC = "";
-    public static String boD = "";
-    public static String boE = "";
-    public static String boF = "";
-    public static String boG = "";
-    public static String boH = "";
-    public boolean bou = false;
-    public boolean boI = true;
+    public bj bbv;
+    public static final BdUniqueId bvu = BdUniqueId.gen();
+    public static final BdUniqueId bvv = BdUniqueId.gen();
+    public static String bvw = "";
+    public static String bvx = "";
+    public static String bvy = "";
+    public static String bvz = "";
+    public static String bvA = "";
+    public static String bvB = "";
+    public static String bvC = "";
+    public boolean bvp = false;
+    public boolean bvD = true;
     public int sourceType = 0;
 
-    public p(bh bhVar) {
-        this.aVi = bhVar;
+    public p(bj bjVar) {
+        this.bbv = bjVar;
     }
 
-    public static boolean n(bh bhVar) {
-        return (bhVar == null || bhVar.rN() == null) ? false : true;
+    public static boolean n(bj bjVar) {
+        return (bjVar == null || bjVar.sh() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.aVi == null) {
-            return boz;
+        if (this.bbv == null) {
+            return bvu;
         }
-        if (this.aVi.rz() || this.aVi.rA()) {
-            return boA;
+        if (this.bbv.rT() || this.bbv.rU()) {
+            return bvv;
         }
-        return boz;
+        return bvu;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Ji() {
-        return this.aVi;
+    public bj JN() {
+        return this.bbv;
     }
 
-    public ar RP() {
-        return ik(boE);
+    public as SN() {
+        return ia(bvz);
     }
 
-    public ar o(bh bhVar) {
-        return (bhVar.sz() == null || bhVar.sz().channelId <= 0) ? ik(boF) : ik(boG);
+    public as o(bj bjVar) {
+        return (bjVar.sU() == null || bjVar.sU().channelId <= 0) ? ia(bvA) : ia(bvB);
     }
 
-    public ar RR() {
-        return ik(boC);
+    public as SP() {
+        return ia(bvx);
     }
 
-    public ar p(bh bhVar) {
-        return (bhVar.sz() == null || bhVar.sz().channelId <= 0) ? ik(boB) : ik(boH);
+    public as p(bj bjVar) {
+        return (bjVar.sU() == null || bjVar.sU().channelId <= 0) ? ia(bvw) : ia(bvC);
     }
 }

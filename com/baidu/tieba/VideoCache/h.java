@@ -1,5 +1,7 @@
 package com.baidu.tieba.VideoCache;
 
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,15 +14,15 @@ import java.util.Collections;
 /* loaded from: classes.dex */
 public class h implements Runnable {
     private static final String TAG = h.class.getSimpleName();
-    private String aOm;
+    private String aTZ;
 
     public synchronized void setVideoUrl(String str) {
-        this.aOm = str;
+        this.aTZ = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Ky();
+        Ld();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00ca, code lost:
@@ -53,9 +55,9 @@ public class h implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void Ky() {
+    private synchronized void Ld() {
         File file;
-        long gV;
+        long gK;
         File[] fileArr;
         long j;
         long fileSize;
@@ -63,15 +65,15 @@ public class h implements Runnable {
         int i = 0;
         synchronized (this) {
             k.log(TAG, "merge ...");
-            String hb = o.hb(this.aOm);
-            if (hb != null && !hb.isEmpty() && ((file = new File(String.valueOf(j.aOV) + hb + "/completed")) == null || !file.exists())) {
-                File file2 = new File(String.valueOf(j.aOV) + hb + "/completed.temp");
+            String gQ = o.gQ(this.aTZ);
+            if (gQ != null && !gQ.isEmpty() && ((file = new File(String.valueOf(j.aUH) + gQ + "/completed")) == null || !file.exists())) {
+                File file2 = new File(String.valueOf(j.aUH) + gQ + "/completed.temp");
                 if (file2 != null && file2.exists()) {
                     file2.delete();
                 }
-                File file3 = new File(String.valueOf(j.aOV) + hb + "/segments");
+                File file3 = new File(String.valueOf(j.aUH) + gQ + "/segments");
                 if (file3 != null && file3.exists()) {
-                    gV = gV(hb);
+                    gK = gK(gQ);
                     File[] listFiles = file3.listFiles();
                     if (listFiles != null && listFiles.length != 0) {
                         ArrayList arrayList = new ArrayList();
@@ -118,7 +120,7 @@ public class h implements Runnable {
                 return;
             }
             i++;
-        } else if (o.getFileSize(fileArr[i]) + j != gV) {
+        } else if (o.getFileSize(fileArr[i]) + j != gK) {
             return;
         } else {
             i++;
@@ -127,58 +129,55 @@ public class h implements Runnable {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [156=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [163=4] */
     /* JADX WARN: Removed duplicated region for block: B:18:0x002c A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x009b A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0083 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00c1 A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean a(String str, File[] fileArr) {
-        FileChannel fileChannel;
-        FileChannel fileChannel2;
         long j;
         if (fileArr == null || fileArr.length == 0) {
             return false;
         }
-        FileChannel fileChannel3 = null;
-        FileChannel fileChannel4 = null;
+        FileChannel fileChannel = null;
+        FileChannel fileChannel2 = null;
         long j2 = 0;
         try {
-            fileChannel2 = new FileOutputStream(str).getChannel();
             try {
-                j = 0;
-                fileChannel = null;
-                for (File file : fileArr) {
-                    try {
+                FileChannel channel = new FileOutputStream(str).getChannel();
+                try {
+                    j = 0;
+                    FileChannel fileChannel3 = null;
+                    for (File file : fileArr) {
                         try {
-                            if (file != null) {
-                                fileChannel = new FileInputStream(file.getAbsolutePath()).getChannel();
-                                ByteBuffer allocate = ByteBuffer.allocate(8192);
-                                while (fileChannel.read(allocate) != -1) {
-                                    allocate.flip();
-                                    long write = fileChannel2.write(allocate) + j;
-                                    try {
-                                        allocate.clear();
-                                        j = write;
-                                    } catch (Exception e) {
-                                        e = e;
-                                        fileChannel4 = fileChannel;
-                                        fileChannel3 = fileChannel2;
-                                        j2 = write;
+                            try {
+                                if (file != null) {
+                                    fileChannel3 = new FileInputStream(file.getAbsolutePath()).getChannel();
+                                    ByteBuffer allocate = ByteBuffer.allocate(8192);
+                                    while (fileChannel3.read(allocate) != -1) {
+                                        allocate.flip();
+                                        long write = channel.write(allocate) + j;
                                         try {
+                                            allocate.clear();
+                                            j = write;
+                                        } catch (Exception e) {
+                                            e = e;
+                                            fileChannel2 = fileChannel3;
+                                            fileChannel = channel;
+                                            j2 = write;
+                                            TiebaStatic.log(new as("c12027").Z("errormsg", "合并文件出现异常").Z("error", e.getMessage()).Z("url", this.aTZ));
                                             e.printStackTrace();
-                                            if (fileChannel3 != null) {
+                                            if (fileChannel != null) {
                                                 try {
-                                                    fileChannel3.close();
+                                                    fileChannel.close();
                                                 } catch (Exception e2) {
                                                     e2.printStackTrace();
                                                 }
                                             }
-                                            if (fileChannel4 != null) {
+                                            if (fileChannel2 != null) {
                                                 try {
-                                                    fileChannel4.close();
+                                                    fileChannel2.close();
                                                     j = j2;
                                                 } catch (IOException e3) {
                                                     e3.printStackTrace();
@@ -189,75 +188,66 @@ public class h implements Runnable {
                                             }
                                             if (j <= 0) {
                                             }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            fileChannel = fileChannel4;
-                                            fileChannel2 = fileChannel3;
-                                            if (fileChannel2 != null) {
-                                            }
-                                            if (fileChannel != null) {
-                                            }
-                                            throw th;
                                         }
                                     }
+                                    continue;
                                 }
-                                continue;
+                            } catch (Exception e4) {
+                                fileChannel = channel;
+                                long j3 = j;
+                                e = e4;
+                                fileChannel2 = fileChannel3;
+                                j2 = j3;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileChannel2 != null) {
-                                try {
-                                    fileChannel2.close();
-                                } catch (Exception e4) {
-                                    e4.printStackTrace();
-                                }
-                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            fileChannel2 = fileChannel3;
+                            fileChannel = channel;
                             if (fileChannel != null) {
                                 try {
                                     fileChannel.close();
-                                } catch (IOException e5) {
+                                } catch (Exception e5) {
                                     e5.printStackTrace();
+                                }
+                            }
+                            if (fileChannel2 != null) {
+                                try {
+                                    fileChannel2.close();
+                                } catch (IOException e6) {
+                                    e6.printStackTrace();
                                 }
                             }
                             throw th;
                         }
-                    } catch (Exception e6) {
-                        fileChannel3 = fileChannel2;
-                        long j3 = j;
-                        e = e6;
-                        fileChannel4 = fileChannel;
-                        j2 = j3;
                     }
-                }
-                if (fileChannel2 != null) {
-                    try {
-                        fileChannel2.close();
-                    } catch (Exception e7) {
-                        e7.printStackTrace();
+                    if (channel != null) {
+                        try {
+                            channel.close();
+                        } catch (Exception e7) {
+                            e7.printStackTrace();
+                        }
                     }
-                }
-                if (fileChannel != null) {
-                    try {
-                        fileChannel.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                    if (fileChannel3 != null) {
+                        try {
+                            fileChannel3.close();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
+                        }
                     }
+                } catch (Exception e9) {
+                    e = e9;
+                    fileChannel = channel;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel = channel;
                 }
-            } catch (Exception e9) {
-                e = e9;
-                fileChannel3 = fileChannel2;
-            } catch (Throwable th3) {
-                th = th3;
-                fileChannel = null;
+            } catch (Exception e10) {
+                e = e10;
             }
-        } catch (Exception e10) {
-            e = e10;
-        } catch (Throwable th4) {
-            th = th4;
-            fileChannel = null;
-            fileChannel2 = null;
+            return j <= 0;
+        } catch (Throwable th3) {
+            th = th3;
         }
-        return j <= 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:57:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -265,11 +255,11 @@ public class h implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long gV(String str) {
+    private long gK(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream = null;
-        File file = new File(String.valueOf(j.aOV) + str + "/content_length");
+        File file = new File(String.valueOf(j.aUH) + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

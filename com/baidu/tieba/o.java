@@ -1,32 +1,40 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tieba.n;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.LogoActivity;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
-class o implements GifView.a {
-    private final /* synthetic */ ImageView aKk;
-    private final /* synthetic */ GifView aKl;
-    private final /* synthetic */ long aKm;
-    private final /* synthetic */ n.a aKn;
+class o implements s.a {
+    final /* synthetic */ n aPU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(ImageView imageView, GifView gifView, long j, n.a aVar) {
-        this.aKk = imageView;
-        this.aKl = gifView;
-        this.aKm = j;
-        this.aKn = aVar;
+    public o(n nVar) {
+        this.aPU = nVar;
     }
 
-    @Override // com.baidu.tbadk.gif.GifView.a
-    public void onStop() {
-        this.aKk.setVisibility(8);
-        this.aKl.release();
-        if (System.currentTimeMillis() - this.aKm > 3000) {
-            com.baidu.tbadk.core.sharedPref.b.tQ().putInt("logo_animation_overtime_count", com.baidu.tbadk.core.sharedPref.b.tQ().getInt("logo_animation_overtime_count", 0) + 1);
+    @Override // com.baidu.tieba.s.a
+    public void onCompleted() {
+        LogoActivity logoActivity;
+        boolean Jr;
+        LogoActivity logoActivity2;
+        LogoActivity.a aVar;
+        LogoActivity logoActivity3;
+        LogoActivity logoActivity4;
+        logoActivity = this.aPU.aPQ;
+        Jr = logoActivity.Jr();
+        if (Jr) {
+            MessageManager messageManager = MessageManager.getInstance();
+            logoActivity3 = this.aPU.aPQ;
+            messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VR_LOGO_OPEN, logoActivity3.getPageContext()));
+            logoActivity4 = this.aPU.aPQ;
+            logoActivity4.finish();
+            return;
         }
-        if (this.aKn != null) {
-            this.aKn.onCompleted();
-        }
+        com.baidu.adp.lib.g.h fM = com.baidu.adp.lib.g.h.fM();
+        logoActivity2 = this.aPU.aPQ;
+        aVar = logoActivity2.aPK;
+        fM.post(aVar);
     }
 }

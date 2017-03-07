@@ -4,27 +4,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.e.b;
 import com.baidu.tieba.frs.entelechy.c.a;
-import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.d;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class e implements com.baidu.tieba.tbadkCore.p {
-    final /* synthetic */ FrsActivity bGL;
+    final /* synthetic */ FrsActivity bNU;
     private long startTime = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsActivity frsActivity) {
-        this.bGL = frsActivity;
+        this.bNU = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.p
-    public void hO(int i) {
+    public void hK(int i) {
         this.startTime = System.nanoTime();
-        if (this.bGL.bFF != null) {
+        if (this.bNU.bMN != null) {
             switch (i) {
                 case 1:
                 case 2:
-                    this.bGL.bFF.Yy();
+                    this.bNU.bMN.Zx();
                     return;
                 case 3:
                 case 4:
@@ -50,136 +50,136 @@ class e implements com.baidu.tieba.tbadkCore.p {
         boolean z4;
         com.baidu.tieba.frs.f.ad adVar2;
         boolean z5;
-        z2 = this.bGL.brg;
+        z2 = this.bNU.byg;
         if (z2) {
-            this.bGL.brg = false;
-            com.baidu.tieba.frs.utils.s.a(this.bGL.bFF, this.bGL.bFG, this.bGL.getForumId(), false, null);
+            this.bNU.byg = false;
+            com.baidu.tieba.frs.utils.s.a(this.bNU.bMN, this.bNU.bMO, this.bNU.getForumId(), false, null);
         }
-        if (this.bGL.bFF.Yr() != null) {
-            z5 = this.bGL.mIsLogin;
+        if (this.bNU.bMN.Zq() != null) {
+            z5 = this.bNU.mIsLogin;
             if (z5) {
-                this.bGL.bFF.Yr().setVisibility(0);
+                this.bNU.bMN.Zq().setVisibility(0);
             }
         }
-        adVar = this.bGL.bFT;
+        adVar = this.bNU.bNb;
         if (adVar != null) {
-            z4 = this.bGL.mIsLogin;
+            z4 = this.bNU.mIsLogin;
             if (z4) {
-                adVar2 = this.bGL.bFT;
+                adVar2 = this.bNU.bNb;
                 adVar2.dX(true);
             }
         }
-        this.bGL.XI();
-        this.bGL.bFL = true;
+        this.bNU.YH();
+        this.bNU.bMT = true;
         if (aVar != null && aVar.isSuccess) {
-            this.bGL.bFF.YH().dT(com.baidu.tbadk.core.util.au.vg().vi());
-            FrsActivity.bFI = 0L;
-            FrsActivity.bFJ = 0L;
-            FrsActivity.bFK = 0;
+            this.bNU.bMN.ZG().dT(com.baidu.tbadk.core.util.av.vD().vF());
+            FrsActivity.bMQ = 0L;
+            FrsActivity.bMR = 0L;
+            FrsActivity.bMS = 0;
         } else {
-            FrsActivity.bFK = 1;
+            FrsActivity.bMS = 1;
         }
-        if (!this.bGL.bFQ.acf() && (i == 3 || i == 6)) {
-            hVar2 = this.bGL.bGi;
+        if (!this.bNU.bMY.adc() && (i == 3 || i == 6)) {
+            hVar2 = this.bNU.bNq;
             hVar2.resetData();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.bGL.bFQ.abf() != null) {
-            this.bGL.bFG = this.bGL.bFQ.abf();
+        if (this.bNU.bMY.acc() != null) {
+            this.bNU.bMO = this.bNU.bMY.acc();
         }
         if (i != 7) {
-            if (this.bGL.bFG.getPage() != null) {
-                this.bGL.setHasMore(this.bGL.bFG.getPage().qx());
+            if (this.bNU.bMO.getPage() != null) {
+                this.bNU.setHasMore(this.bNU.bMO.getPage().qQ());
             }
-            this.bGL.XJ();
-            this.bGL.bFF.YU();
+            this.bNU.YI();
+            this.bNU.bMN.ZT();
             if (i != 4) {
                 switch (i) {
                     case 1:
-                        this.bGL.bFF.Yy();
+                        this.bNU.bMN.Zx();
                         break;
                     case 2:
-                        this.bGL.bFF.Yy();
+                        this.bNU.bMN.Zx();
                         break;
                     case 3:
                     case 6:
-                        if (this.bGL.bFG != null) {
-                            this.bGL.bFG.bgB();
+                        if (this.bNU.bMO != null) {
+                            this.bNU.bMO.bgo();
                         }
-                        if (this.bGL.bGm != null) {
-                            this.bGL.bGm.refresh();
+                        if (this.bNU.bNu != null) {
+                            this.bNU.bNu.refresh();
                             break;
                         }
                         break;
                 }
-                this.bGL.XK();
+                this.bNU.YJ();
                 if (aVar == null || aVar.errorCode == 0) {
-                    if (this.bGL.bFG != null) {
-                        this.bGL.bFF.hR(i);
-                        this.bGL.n(false, i == 5);
-                        FrsActivity.bFI = (System.nanoTime() - this.startTime) / 1000000;
+                    if (this.bNU.bMO != null) {
+                        this.bNU.bMN.hN(i);
+                        this.bNU.m(false, i == 5);
+                        FrsActivity.bMQ = (System.nanoTime() - this.startTime) / 1000000;
                         if (aVar != null) {
-                            FrsActivity.bFJ = aVar.fmK;
+                            FrsActivity.bMR = aVar.frh;
                         }
                     } else {
                         return;
                     }
-                } else if (this.bGL.bFG == null || com.baidu.tbadk.core.util.w.s(this.bGL.bFG.getThreadList())) {
-                    this.bGL.a(aVar, false);
-                } else if (aVar.fmJ) {
-                    this.bGL.showToast(this.bGL.getPageContext().getResources().getString(r.l.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
+                } else if (this.bNU.bMO == null || com.baidu.tbadk.core.util.x.q(this.bNU.bMO.getThreadList())) {
+                    this.bNU.a(aVar, false);
+                } else if (aVar.frg) {
+                    this.bNU.showToast(this.bNU.getPageContext().getResources().getString(w.l.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
                 }
-                if (this.bGL.bFG.bfL() == 1) {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11384"));
+                if (this.bNU.bMO.bfy() == 1) {
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11384"));
                 }
-                if (this.bGL.bxH > -1) {
-                    com.baidu.tieba.frs.utils.s.a(this.bGL.bFQ, this.bGL.bxH);
-                    this.bGL.bxH = -1L;
+                if (this.bNU.bEN > -1) {
+                    com.baidu.tieba.frs.utils.s.a(this.bNU.bMY, this.bNU.bEN);
+                    this.bNU.bEN = -1L;
                 }
-                z3 = this.bGL.bFC;
+                z3 = this.bNU.bMK;
                 if (z3) {
-                    dVar = this.bGL.bFV;
+                    dVar = this.bNU.bNd;
                     if (dVar instanceof a) {
-                        dVar2 = this.bGL.bFV;
-                        if (((a) dVar2).aar() != null) {
-                            dVar3 = this.bGL.bFV;
-                            ((a) dVar3).aar().iz(49);
-                            this.bGL.bFC = false;
+                        dVar2 = this.bNU.bNd;
+                        if (((a) dVar2).abo() != null) {
+                            dVar3 = this.bNU.bNd;
+                            ((a) dVar3).abo().iv(49);
+                            this.bNU.bMK = false;
                         }
                     }
                 }
-                this.bGL.aAX = System.currentTimeMillis() - currentTimeMillis;
+                this.bNU.aGp = System.currentTimeMillis() - currentTimeMillis;
                 System.gc();
                 return;
             }
-            if (!this.bGL.bFQ.acf() && TbadkCoreApplication.m9getInst().isRecAppExist() && this.bGL.bFQ.abU() == 1) {
-                this.bGL.bFG.g(this.bGL);
+            if (!this.bNU.bMY.adc() && TbadkCoreApplication.m9getInst().isRecAppExist() && this.bNU.bMY.acR() == 1) {
+                this.bNU.bMO.g(this.bNU);
             }
-            hVar = this.bGL.bGi;
-            ArrayList<com.baidu.adp.widget.ListView.v> threadList = this.bGL.bFG.getThreadList();
-            eVar = this.bGL.bFB;
+            hVar = this.bNU.bNq;
+            ArrayList<com.baidu.adp.widget.ListView.v> threadList = this.bNU.bMO.getThreadList();
+            eVar = this.bNU.bMJ;
             ArrayList<com.baidu.adp.widget.ListView.v> a = hVar.a(false, false, threadList, eVar);
             if (a != null) {
-                this.bGL.bFG.ax(a);
-                this.bGL.bFG.bgD();
-                this.bGL.bFF.a(a, this.bGL.bFG);
+                this.bNU.bMO.ax(a);
+                this.bNU.bMO.bgq();
+                this.bNU.bMN.a(a, this.bNU.bMO);
             }
-            if (this.bGL.bFQ != null) {
-                b.a(this.bGL.bFG, this.bGL.bFQ.aca(), 2);
+            if (this.bNU.bMY != null) {
+                b.a(this.bNU.bMO, this.bNU.bMY.acX(), 2);
                 return;
             }
             return;
         }
-        this.bGL.hM(this.bGL.bFG.bgh());
+        this.bNU.hI(this.bNU.bMO.bfU());
     }
 
     @Override // com.baidu.tieba.tbadkCore.p
     public void b(com.baidu.tieba.tbadkCore.l lVar) {
         if (lVar != null) {
-            if (!"normal_page".equals(this.bGL.bFQ.abQ()) && !"frs_page".equals(this.bGL.bFQ.abQ()) && !"book_page".equals(this.bGL.bFQ.abQ())) {
+            if (!"normal_page".equals(this.bNU.bMY.acN()) && !"frs_page".equals(this.bNU.bMY.acN()) && !"book_page".equals(this.bNU.bMY.acN())) {
                 return;
             }
-            this.bGL.a(lVar);
+            this.bNU.a(lVar);
         }
     }
 }

@@ -1,43 +1,43 @@
 package com.baidu.tieba.frs.headvideo;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.frs.headvideo.t;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class i extends t.a {
-    final /* synthetic */ ForumHeadVideoView bRD;
+    final /* synthetic */ ForumHeadVideoView bYL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ForumHeadVideoView forumHeadVideoView) {
-        this.bRD = forumHeadVideoView;
+        this.bYL = forumHeadVideoView;
     }
 
     @Override // com.baidu.tieba.frs.headvideo.t.a
-    public boolean al(View view) {
+    public boolean aj(View view) {
         boolean x;
-        if (!com.baidu.adp.lib.util.i.gk()) {
-            com.baidu.adp.lib.util.k.m(this.bRD.getContext(), this.bRD.getContext().getString(r.l.neterror));
+        if (!com.baidu.adp.lib.util.i.he()) {
+            com.baidu.adp.lib.util.k.G(this.bYL.getContext(), this.bYL.getContext().getString(w.l.neterror));
         } else {
-            c currentVideoItemView = this.bRD.getCurrentVideoItemView();
+            c currentVideoItemView = this.bYL.getCurrentVideoItemView();
             if (currentVideoItemView != null && currentVideoItemView.getThreadInfo() != null) {
-                bh threadInfo = currentVideoItemView.getThreadInfo();
-                x = this.bRD.x(threadInfo);
+                bj threadInfo = currentVideoItemView.getThreadInfo();
+                x = this.bYL.x(threadInfo);
                 if (x) {
-                    com.baidu.adp.lib.util.k.showToast(this.bRD.getContext(), r.l.data_illegal);
+                    com.baidu.adp.lib.util.k.showToast(this.bYL.getContext(), w.l.data_illegal);
                 } else {
                     currentVideoItemView.pausePlay();
-                    this.bRD.y(threadInfo);
+                    this.bYL.y(threadInfo);
                 }
             }
         }
-        return super.al(view);
+        return super.aj(view);
     }
 
     @Override // com.baidu.tieba.frs.headvideo.t.a
-    public boolean am(View view) {
-        this.bRD.abz();
-        this.bRD.abE();
-        return super.am(view);
+    public boolean ak(View view) {
+        this.bYL.acw();
+        this.bYL.acB();
+        return super.ak(view);
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.headvideo.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ f bRk;
+    final /* synthetic */ f bYs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.bRk = fVar;
+        this.bYs = fVar;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -24,15 +24,15 @@ public class h extends GestureDetector.SimpleOnGestureListener {
         if (Math.abs(y) * 3 <= Math.abs((int) (motionEvent.getX() - motionEvent2.getX())) || y < 20 || Math.abs(f2) <= 20.0f) {
             return super.onFling(motionEvent, motionEvent2, f, f2);
         }
-        aVar = this.bRk.bRj;
+        aVar = this.bYs.bYr;
         if (aVar != null) {
-            forumHeadVideoView = this.bRk.bRg;
+            forumHeadVideoView = this.bYs.bYo;
             if (forumHeadVideoView != null) {
-                forumHeadVideoView2 = this.bRk.bRg;
+                forumHeadVideoView2 = this.bYs.bYo;
                 forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
-                aVar2 = this.bRk.bRj;
-                forumHeadVideoView3 = this.bRk.bRg;
-                aVar2.am(forumHeadVideoView3);
+                aVar2 = this.bYs.bYr;
+                forumHeadVideoView3 = this.bYs.bYo;
+                aVar2.ak(forumHeadVideoView3);
                 return true;
             }
             return true;
@@ -47,15 +47,15 @@ public class h extends GestureDetector.SimpleOnGestureListener {
         ForumHeadVideoView forumHeadVideoView2;
         t.a aVar2;
         ForumHeadVideoView forumHeadVideoView3;
-        aVar = this.bRk.bRj;
+        aVar = this.bYs.bYr;
         if (aVar != null) {
-            forumHeadVideoView = this.bRk.bRg;
+            forumHeadVideoView = this.bYs.bYo;
             if (forumHeadVideoView != null) {
-                forumHeadVideoView2 = this.bRk.bRg;
+                forumHeadVideoView2 = this.bYs.bYo;
                 forumHeadVideoView2.requestDisallowInterceptTouchEvent(true);
-                aVar2 = this.bRk.bRj;
-                forumHeadVideoView3 = this.bRk.bRg;
-                aVar2.al(forumHeadVideoView3);
+                aVar2 = this.bYs.bYr;
+                forumHeadVideoView3 = this.bYs.bYo;
+                aVar2.aj(forumHeadVideoView3);
             }
         }
         return super.onSingleTapConfirmed(motionEvent);

@@ -7,68 +7,68 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    private TbPageContext FY;
-    protected a ahe;
-    private b ahf;
-    private BdUniqueId ahi;
-    private com.baidu.tbadk.c.a ahj;
-    private String ahh = "0";
-    private CustomMessageListener ahk = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-    private com.baidu.tbadk.coreExtra.d.a ahg = new com.baidu.tbadk.coreExtra.d.a(null);
+    private TbPageContext ajF;
+    protected a amA;
+    private b amB;
+    private BdUniqueId amE;
+    private com.baidu.tbadk.c.a amF;
+    private String amD = "0";
+    private CustomMessageListener amG = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private com.baidu.tbadk.coreExtra.c.a amC = new com.baidu.tbadk.coreExtra.c.a(null);
 
     public c(TbPageContext tbPageContext) {
-        this.FY = tbPageContext;
-        tbPageContext.registerListener(this.ahk);
+        this.ajF = tbPageContext;
+        tbPageContext.registerListener(this.amG);
     }
 
     public c(TbPageContext tbPageContext, b bVar) {
-        this.FY = tbPageContext;
-        tbPageContext.registerListener(this.ahk);
+        this.ajF = tbPageContext;
+        tbPageContext.registerListener(this.amG);
         a(bVar);
     }
 
     public void i(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.ahi = bdUniqueId;
-            MessageManager.getInstance().unRegisterListener(this.ahk);
-            this.ahk.setTag(this.ahi);
-            MessageManager.getInstance().registerListener(this.ahk);
+            this.amE = bdUniqueId;
+            MessageManager.getInstance().unRegisterListener(this.amG);
+            this.amG.setTag(this.amE);
+            MessageManager.getInstance().registerListener(this.amG);
         }
     }
 
     public void a(b bVar) {
-        this.ahf = bVar;
-        if (this.ahf != null) {
-            this.ahf.g(this);
+        this.amB = bVar;
+        if (this.amB != null) {
+            this.amB.g(this);
         }
     }
 
     public void a(a aVar) {
-        this.ahe = aVar;
-        if (this.ahf != null && this.ahe != null) {
-            this.ahf.aP(aVar.getIsLike());
-            this.ahf.dr(aVar.getFansNum());
+        this.amA = aVar;
+        if (this.amB != null && this.amA != null) {
+            this.amB.aO(aVar.getIsLike());
+            this.amB.dn(aVar.getFansNum());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ahj == null || !this.ahj.u(view)) {
-            if (!i.fX()) {
-                this.FY.showToast(r.l.network_ungeilivable);
+        if (this.amF == null || !this.amF.s(view)) {
+            if (!i.gS()) {
+                this.ajF.showToast(w.l.network_ungeilivable);
             }
-            if (this.ahf != null) {
-                this.ahf.E(view);
+            if (this.amB != null) {
+                this.amB.C(view);
             }
-            if (bf.ak(this.FY.getPageActivity()) && this.ahe != null) {
-                if (this.ahi == null) {
-                    this.ahg.a(this.ahe.getIsLike() ? false : true, this.ahe.getPortrait(), this.ahe.getUserId(), this.ahe.isGod(), this.FY.getUniqueId());
+            if (bg.aI(this.ajF.getPageActivity()) && this.amA != null) {
+                if (this.amE == null) {
+                    this.amC.a(this.amA.getIsLike() ? false : true, this.amA.getPortrait(), this.amA.getUserId(), this.amA.isGod(), this.ajF.getUniqueId());
                 } else {
-                    this.ahg.a(this.ahe.getIsLike() ? false : true, this.ahe.getPortrait(), this.ahe.getUserId(), this.ahe.isGod(), this.ahi);
+                    this.amC.a(this.amA.getIsLike() ? false : true, this.amA.getPortrait(), this.amA.getUserId(), this.amA.isGod(), this.amE);
                 }
             }
         }

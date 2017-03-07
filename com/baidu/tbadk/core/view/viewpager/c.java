@@ -4,18 +4,18 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class c implements Handler.Callback {
-    final /* synthetic */ b ahD;
+    final /* synthetic */ b amZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.ahD = bVar;
+        this.amZ = bVar;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.ahD.wF();
+                this.amZ.xc();
                 return false;
             default:
                 return false;

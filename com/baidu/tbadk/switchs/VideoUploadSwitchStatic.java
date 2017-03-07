@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class VideoUploadSwitchStatic extends a {
+public class VideoUploadSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(VideoUploadSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(VideoUploadSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

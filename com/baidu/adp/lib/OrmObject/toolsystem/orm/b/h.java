@@ -15,20 +15,20 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
-    private Set<String> kY = new HashSet();
-    private Element lc;
+    private Set<String> sS = new HashSet();
+    private Element sW;
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.lc = element;
+        this.sW = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
             for (int i = 0; i < length; i++) {
                 Node item = attributes.item(i);
                 if (item != null && (nodeName2 = item.getNodeName()) != null) {
-                    this.kY.add(nodeName2);
+                    this.sS.add(nodeName2);
                 }
             }
             NodeList childNodes = element.getChildNodes();
@@ -36,15 +36,15 @@ public class h implements c {
             for (int i2 = 0; i2 < length2; i2++) {
                 Node item2 = childNodes.item(i2);
                 if (item2 != null && (nodeName = item2.getNodeName()) != null) {
-                    this.kY.add(nodeName);
+                    this.sS.add(nodeName);
                 }
             }
         }
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> cZ() {
-        return this.kY;
+    public Set<String> ei() {
+        return this.sS;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x001e */
@@ -54,9 +54,9 @@ public class h implements c {
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
     public Object getObject(String str) {
         String nodeName;
-        Object attribute = this.lc.getAttribute(str);
+        Object attribute = this.sW.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.lc.getChildNodes();
+            NodeList childNodes = this.sW.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -87,23 +87,23 @@ public class h implements c {
     public void j(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.lc.setAttribute(str, String.valueOf(obj));
+                this.sW.setAttribute(str, String.valueOf(obj));
             } else if (!obj.getClass().isArray() && !com.baidu.adp.lib.OrmObject.a.a.e(obj.getClass(), List.class) && !com.baidu.adp.lib.OrmObject.a.a.e(obj.getClass(), Queue.class) && !com.baidu.adp.lib.OrmObject.a.a.e(obj.getClass(), Set.class) && !com.baidu.adp.lib.OrmObject.a.a.e(obj.getClass(), Map.class)) {
                 com.baidu.adp.lib.OrmObject.a.a.e(obj.getClass(), SparseArray.class);
             }

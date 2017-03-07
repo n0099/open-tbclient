@@ -70,7 +70,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.e();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.efo = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.ehJ = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -90,10 +90,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                cx.aLE().a(this.cacheKey, this.isFromMark, bArr);
+                cw.aKZ().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                cx.aLE().l(this.cacheKey, bArr);
+                cw.aKZ().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

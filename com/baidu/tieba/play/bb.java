@@ -5,46 +5,46 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 /* loaded from: classes.dex */
 public class bb {
-    public String Ql;
-    public String bjS;
-    public String bjT;
-    public String eTA;
-    public String eTy;
-    public String eTz;
+    public String Vy;
+    public String bqB;
+    public String bqC;
+    public String eXe;
+    public String eXf;
+    public String eXg;
     public String mLocate;
     public String mSource;
     public String mUid;
 
-    public com.baidu.tbadk.core.util.ar f(com.baidu.tbadk.core.util.ar arVar) {
-        if (arVar != null) {
+    public com.baidu.tbadk.core.util.as f(com.baidu.tbadk.core.util.as asVar) {
+        if (asVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                arVar.ab("obj_locate", this.mLocate);
+                asVar.Z("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.bjS)) {
-                arVar.ab("tid", this.bjS);
+            if (!StringUtils.isNull(this.bqB)) {
+                asVar.Z("tid", this.bqB);
             }
-            if (!StringUtils.isNull(this.bjT)) {
-                arVar.ab("fid", this.bjT);
+            if (!StringUtils.isNull(this.bqC)) {
+                asVar.Z("fid", this.bqC);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                arVar.ab(SapiAccountManager.SESSION_UID, this.mUid);
+                asVar.Z(SapiAccountManager.SESSION_UID, this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                arVar.ab(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
+                asVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mSource);
             }
-            if (!StringUtils.isNull(this.eTy)) {
-                arVar.ab("obj_param1", this.eTy);
+            if (!StringUtils.isNull(this.eXe)) {
+                asVar.Z("obj_param1", this.eXe);
             }
-            if (!StringUtils.isNull(this.eTz)) {
-                arVar.ab("obj_param2", this.eTz);
+            if (!StringUtils.isNull(this.eXf)) {
+                asVar.Z("obj_param2", this.eXf);
             }
-            if (!StringUtils.isNull(this.eTA)) {
-                arVar.ab("obj_param3", this.eTA);
+            if (!StringUtils.isNull(this.eXg)) {
+                asVar.Z("obj_param3", this.eXg);
             }
-            if (!StringUtils.isNull(this.Ql)) {
-                arVar.ab("obj_id", this.Ql);
+            if (!StringUtils.isNull(this.Vy)) {
+                asVar.Z("obj_id", this.Vy);
             }
         }
-        return arVar;
+        return asVar;
     }
 }

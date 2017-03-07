@@ -6,11 +6,11 @@ import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements com.baidu.tieba.im.chat.a.a {
-    final /* synthetic */ l djK;
+    final /* synthetic */ l dme;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(l lVar) {
-        this.djK = lVar;
+        this.dme = lVar;
     }
 
     @Override // com.baidu.tieba.im.chat.a.a
@@ -22,22 +22,22 @@ public class y implements com.baidu.tieba.im.chat.a.a {
         boolean isLogin;
         MessageAggregationListAdapter messageAggregationListAdapter;
         ImMessageCenterModel imMessageCenterModel3;
-        bdListView = this.djK.dgO;
+        bdListView = this.dme.djg;
         if (bdListView != null) {
-            imMessageCenterModel = this.djK.dgL;
+            imMessageCenterModel = this.dme.djd;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.djK.dgO;
+                bdListView2 = this.dme.djg;
                 bdListView2.completePullRefreshPostDelayed(2000L);
-                imMessageCenterModel2 = this.djK.dgL;
+                imMessageCenterModel2 = this.dme.djd;
                 if (imMessageCenterModel2.getData() != null) {
-                    messageAggregationListAdapter = this.djK.djD;
-                    imMessageCenterModel3 = this.djK.dgL;
+                    messageAggregationListAdapter = this.dme.dlX;
+                    imMessageCenterModel3 = this.dme.djd;
                     messageAggregationListAdapter.setData(imMessageCenterModel3.getData());
                     return;
                 }
-                l lVar = this.djK;
-                isLogin = this.djK.isLogin();
-                lVar.s(isLogin, true);
+                l lVar = this.dme;
+                isLogin = this.dme.isLogin();
+                lVar.r(isLogin, true);
             }
         }
     }

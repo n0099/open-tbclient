@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     private static g sCallBack;
@@ -39,9 +40,9 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startForeground(2147483646, new Notification());
             } catch (Exception e) {
-                com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.eG().an("dbg");
-                an.q("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
-                com.baidu.adp.lib.stats.a.eG().b("PARCEL_NULLPOINT", an);
+                com.baidu.adp.lib.stats.c statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                statsItem.p("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
+                BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
         }
         bindServiceInternal();
@@ -59,22 +60,22 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             unbindService(this.conn);
         } catch (Exception e) {
-            com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.eG().an("dbg");
-            an.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-unbindService");
-            com.baidu.adp.lib.stats.a.eG().b("PARCEL_NULLPOINT", an);
+            com.baidu.adp.lib.stats.c statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            statsItem.p("loc", String.valueOf(getClass().getName()) + "-onDestroy-unbindService");
+            BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
         }
         Intent intent = new Intent();
         intent.setClass(this, BdSocketDaemonService.class);
         try {
             startService(intent);
         } catch (Exception e2) {
-            com.baidu.adp.lib.stats.d an2 = com.baidu.adp.lib.stats.a.eG().an("dbg");
-            an2.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
-            com.baidu.adp.lib.stats.a.eG().b("PARCEL_NULLPOINT", an2);
+            com.baidu.adp.lib.stats.c statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            statsItem2.p("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
+            BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
         }
     }
 
     public static void startService() {
-        com.baidu.adp.lib.g.i.c(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+        com.baidu.adp.lib.g.i.f(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
     }
 }

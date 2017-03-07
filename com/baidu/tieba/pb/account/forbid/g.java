@@ -4,12 +4,12 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String edR = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
+    private static final String egm = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,29 +24,29 @@ public class g {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String aQf;
-        private String aQg;
-        private WeakReference<b> aQj;
+        private String aVR;
+        private String aVS;
+        private WeakReference<b> aVV;
 
         public a(String str, String str2, b bVar) {
-            this.aQf = str;
-            this.aQg = str2;
-            this.aQj = new WeakReference<>(bVar);
+            this.aVR = str;
+            this.aVS = str2;
+            this.aVV = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
+        /* renamed from: A */
         public ForbidTplData doInBackground(String... strArr) {
-            y yVar = new y(g.edR);
-            yVar.n("forum_id", this.aQf);
-            yVar.n("user_id", this.aQg);
-            String ud = yVar.ud();
-            if (yVar.uC().vw().isRequestSuccess()) {
+            z zVar = new z(g.egm);
+            zVar.n("forum_id", this.aVR);
+            zVar.n("user_id", this.aVS);
+            String uB = zVar.uB();
+            if (zVar.uZ().vT().isRequestSuccess()) {
                 try {
-                    return (ForbidTplData) OrmObject.objectWithJsonStr(ud, ForbidTplData.class);
+                    return (ForbidTplData) OrmObject.objectWithJsonStr(uB, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -55,8 +55,8 @@ public class g {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = yVar.uG();
-            forbidTplData2.error.errMsg = yVar.getErrorString();
+            forbidTplData2.error.errno = zVar.vd();
+            forbidTplData2.error.errMsg = zVar.getErrorString();
             return forbidTplData2;
         }
 
@@ -66,9 +66,9 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            b bVar = this.aQj.get();
+            b bVar = this.aVV.get();
             if (bVar != null) {
-                if (forbidTplData.error.errno == 0 && at.isEmpty(forbidTplData.error.errMsg)) {
+                if (forbidTplData.error.errno == 0 && au.isEmpty(forbidTplData.error.errMsg)) {
                     bVar.a(forbidTplData);
                 } else {
                     bVar.b(forbidTplData);

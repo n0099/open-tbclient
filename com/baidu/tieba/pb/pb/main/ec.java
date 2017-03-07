@@ -1,41 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.ImageView;
-import com.baidu.tbadk.gif.GifInfo;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ec extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ dx elZ;
-    private final /* synthetic */ ed emb;
-    private final /* synthetic */ String val$url;
+public class ec implements View.OnClickListener {
+    private final /* synthetic */ String ejm;
+    private final /* synthetic */ String ejn;
+    private final /* synthetic */ String ejo;
+    final /* synthetic */ dy eoW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ec(dx dxVar, ed edVar, String str) {
-        this.elZ = dxVar;
-        this.emb = edVar;
-        this.val$url = str;
+    public ec(dy dyVar, String str, String str2, String str3) {
+        this.eoW = dyVar;
+        this.ejm = str;
+        this.ejn = str2;
+        this.ejo = str3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        if (aVar == null) {
-            this.emb.emt.setVisibility(8);
-            this.emb.emu.setVisibility(8);
-        } else if (aVar.cW()) {
-            GifInfo gifInfo = new GifInfo();
-            gifInfo.mDynamicUrl = this.val$url;
-            gifInfo.mSharpText = this.val$url;
-            this.emb.emu.setVisibility(0);
-            this.emb.emt.setVisibility(8);
-            this.emb.emu.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.emb.emu.a(gifInfo);
-        } else {
-            this.emb.emu.setVisibility(8);
-            this.emb.emt.setVisibility(0);
-            this.emb.emt.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.emb.emt.c(this.val$url, 17, false);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ejm) && !StringUtils.isNull(this.ejn)) {
+            if (com.baidu.adp.lib.util.i.he()) {
+                context = this.eoW.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ejm) + "," + this.ejn, this.ejo, this.ejo, context.getString(w.l.app_info_for_map));
+                context2 = this.eoW.mContext;
+                com.baidu.tbadk.browser.f.O(context2, format);
+                return;
+            }
+            this.eoW.eka.showToast(w.l.neterror);
         }
     }
 }

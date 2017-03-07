@@ -3,13 +3,14 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 class v implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ FrsActivity bGL;
+    final /* synthetic */ FrsActivity bNU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(FrsActivity frsActivity) {
-        this.bGL = frsActivity;
+        this.bNU = frsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.x
@@ -17,21 +18,21 @@ class v implements com.baidu.adp.widget.ListView.x {
         if (bdUniqueId == null) {
             return false;
         }
-        if (vVar instanceof com.baidu.tbadk.core.data.bh) {
-            com.baidu.tbadk.core.data.bh bhVar = (com.baidu.tbadk.core.data.bh) vVar;
-            if (!bhVar.isPhotoLiveThread() && !(bhVar instanceof com.baidu.tbadk.core.data.av)) {
-                if ((bhVar instanceof com.baidu.tbadk.core.data.c) && ((com.baidu.tbadk.core.data.c) bhVar).legoCard != null) {
+        if (vVar instanceof com.baidu.tbadk.core.data.bj) {
+            com.baidu.tbadk.core.data.bj bjVar = (com.baidu.tbadk.core.data.bj) vVar;
+            if (!bjVar.isPhotoLiveThread() && !(bjVar instanceof com.baidu.tbadk.core.data.ax)) {
+                if ((bjVar instanceof AdvertAppInfo) && ((AdvertAppInfo) bjVar).legoCard != null) {
                     return false;
                 }
-                this.bGL.mThreadId = bhVar.getId();
-                String rD = bhVar.rD();
-                if (rD == null || rD.equals("")) {
-                    this.bGL.bFD = false;
+                this.bNU.mThreadId = bjVar.getId();
+                String rX = bjVar.rX();
+                if (rX == null || rX.equals("")) {
+                    this.bNU.bML = false;
                 } else {
-                    this.bGL.bFD = true;
+                    this.bNU.bML = true;
                 }
-                this.bGL.q(bhVar);
-                this.bGL.bFF.Yw();
+                this.bNU.q(bjVar);
+                this.bNU.bMN.Zv();
             }
         }
         return true;

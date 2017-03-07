@@ -49,7 +49,7 @@ public class ImageManager {
         String md5 = Utils.md5(uri.toString());
         Bitmap a = this.a.a(md5);
         if (a == null && Utils.isUrl(uri)) {
-            a = this.b.p(md5);
+            a = this.b.b(md5);
         }
         if (a != null) {
             iAsyncImageLoaderListener.onComplete(a);

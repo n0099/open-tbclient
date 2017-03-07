@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private List<v> ahF;
-    private List<v> ahG;
-    private boolean ahH;
-    private boolean ahI;
-    private int ahJ = 2;
-    private int ahK = 1;
-    private int ahx;
+    private int amT;
+    private List<v> anb;
+    private List<v> anc;
+    private boolean and;
+    private boolean ane;
+    private int anf = 2;
+    private int ang = 1;
 
     public f(List<v> list, boolean z, int i) {
-        this.ahx = 2;
-        this.ahF = list;
-        this.ahI = z;
-        this.ahx = i;
-        t(list);
+        this.amT = 2;
+        this.anb = list;
+        this.ane = z;
+        this.amT = i;
+        r(list);
     }
 
-    public void t(List<v> list) {
-        if (list != null && list.size() >= this.ahJ && list.size() <= this.ahx) {
-            this.ahH = true;
-        } else if (list.size() > this.ahx && this.ahI) {
-            this.ahH = true;
+    public void r(List<v> list) {
+        if (list != null && list.size() >= this.anf && list.size() <= this.amT) {
+            this.and = true;
+        } else if (list.size() > this.amT && this.ane) {
+            this.and = true;
         } else {
-            this.ahH = false;
+            this.and = false;
         }
-        this.ahG = wJ();
+        this.anc = xg();
     }
 
-    private List<v> wJ() {
+    private List<v> xg() {
         ArrayList arrayList = new ArrayList();
-        if (this.ahF != null) {
-            if (this.ahH) {
-                if (this.ahF.size() > this.ahx && this.ahF.size() >= this.ahK) {
-                    arrayList.addAll(this.ahF.subList(0, this.ahx));
-                    arrayList.addAll(0, this.ahF.subList(this.ahx - this.ahK, this.ahx));
-                    arrayList.addAll(this.ahF.subList(0, this.ahK));
+        if (this.anb != null) {
+            if (this.and) {
+                if (this.anb.size() > this.amT && this.anb.size() >= this.ang) {
+                    arrayList.addAll(this.anb.subList(0, this.amT));
+                    arrayList.addAll(0, this.anb.subList(this.amT - this.ang, this.amT));
+                    arrayList.addAll(this.anb.subList(0, this.ang));
                 } else {
-                    arrayList.addAll(this.ahF);
-                    arrayList.addAll(0, this.ahF.subList(this.ahF.size() - this.ahK, this.ahF.size()));
-                    arrayList.addAll(this.ahF.subList(0, this.ahK));
+                    arrayList.addAll(this.anb);
+                    arrayList.addAll(0, this.anb.subList(this.anb.size() - this.ang, this.anb.size()));
+                    arrayList.addAll(this.anb.subList(0, this.ang));
                 }
-            } else if (this.ahF != null && this.ahF.size() > 0 && this.ahF.size() >= this.ahK) {
-                arrayList.addAll(this.ahF.subList(0, this.ahK));
+            } else if (this.anb != null && this.anb.size() > 0 && this.anb.size() >= this.ang) {
+                arrayList.addAll(this.anb.subList(0, this.ang));
             }
         }
         return arrayList;
     }
 
-    public int du(int i) {
-        if (this.ahH) {
-            int size = this.ahG.size();
+    public int dq(int i) {
+        if (this.and) {
+            int size = this.anc.size();
             if (i == 0) {
-                return (size - 1) - this.ahK;
+                return (size - 1) - this.ang;
             }
-            if (i == size - this.ahK) {
-                return this.ahK;
+            if (i == size - this.ang) {
+                return this.ang;
             }
             return i;
         }
         return i;
     }
 
-    public int dv(int i) {
-        if (this.ahH) {
-            return i - this.ahK;
+    public int dr(int i) {
+        if (this.and) {
+            return i - this.ang;
         }
         return i;
     }
 
-    public int wK() {
-        if (this.ahF == null) {
+    public int xh() {
+        if (this.anb == null) {
             return 0;
         }
-        return this.ahF.size();
+        return this.anb.size();
     }
 
-    public int wL() {
-        if (this.ahH) {
-            return this.ahK;
+    public int xi() {
+        if (this.and) {
+            return this.ang;
         }
         return 0;
     }
 
-    public void dw(int i) {
-        this.ahx = i;
-        t(this.ahF);
+    public void ds(int i) {
+        this.amT = i;
+        r(this.anb);
     }
 
-    public void dx(int i) {
-        this.ahJ = i;
-        t(this.ahF);
+    public void dt(int i) {
+        this.anf = i;
+        r(this.anb);
     }
 
-    public List<v> wM() {
-        return this.ahG;
+    public List<v> xj() {
+        return this.anc;
     }
 
-    public void dy(int i) {
-        this.ahK = i;
-        t(this.ahF);
+    public void du(int i) {
+        this.ang = i;
+        r(this.anb);
     }
 }

@@ -9,26 +9,26 @@ import com.baidu.adp.base.k;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private IndicatorView ahr;
-    private TextView ahs;
-    private a aht;
-    private f ahu;
-    private ViewPager.OnPageChangeListener ahz;
+    private IndicatorView amN;
+    private TextView amO;
+    private a amP;
+    private f amQ;
+    private ViewPager.OnPageChangeListener amV;
     private Context mContext;
     private ViewPager mViewPager;
-    private boolean ahv = false;
-    private boolean ahw = true;
-    private int ahx = 2;
-    private List<v> ahy = new ArrayList();
-    private long ahA = TbConfig.NOTIFY_SOUND_INTERVAL;
-    private final Handler.Callback ahB = new c(this);
-    private final Handler mHandler = new Handler(this.ahB);
-    private ViewPager.OnPageChangeListener ahC = new d(this);
+    private boolean amR = false;
+    private boolean amS = true;
+    private int amT = 2;
+    private List<v> amU = new ArrayList();
+    private long amW = TbConfig.NOTIFY_SOUND_INTERVAL;
+    private final Handler.Callback amX = new c(this);
+    private final Handler mHandler = new Handler(this.amX);
+    private ViewPager.OnPageChangeListener amY = new d(this);
 
     public b(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
         a(context, viewPager, indicatorView, textView);
@@ -36,89 +36,89 @@ public class b {
 
     private void a(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
         this.mViewPager = viewPager;
-        this.ahr = indicatorView;
-        this.ahs = textView;
+        this.amN = indicatorView;
+        this.amO = textView;
         this.mContext = context;
-        this.aht = new a(context);
+        this.amP = new a(context);
         if (this.mViewPager != null) {
-            this.mViewPager.setAdapter(this.aht);
-            this.mViewPager.setOnPageChangeListener(this.ahC);
+            this.mViewPager.setAdapter(this.amP);
+            this.mViewPager.setOnPageChangeListener(this.amY);
         }
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.ahx = i;
-        if (this.ahu != null) {
-            this.ahu.dw(i);
+        this.amT = i;
+        if (this.amQ != null) {
+            this.amQ.ds(i);
         }
     }
 
-    public void aR(boolean z) {
-        this.ahv = z;
+    public void aQ(boolean z) {
+        this.amR = z;
     }
 
     public void a(Context context, e<?, ?> eVar) {
-        if (this.aht != null) {
-            this.aht.a(context, eVar);
+        if (this.amP != null) {
+            this.amP.a(context, eVar);
         }
     }
 
     public void setDatas(List<v> list) {
-        if (w.r(list) != 0) {
-            this.ahy = list;
-            this.ahu = new f(this.ahy, this.ahv, this.ahx);
-            this.ahu.dx(2);
-            this.ahu.dy(1);
-            this.aht.setDatas(this.ahu.wM());
-            this.aht.notifyDataSetChanged();
-            this.mViewPager.setCurrentItem(this.ahu.wL(), false);
-            if (this.ahu.wK() > 0) {
-                if (this.ahu.wK() > this.ahx) {
-                    if (this.ahs != null) {
-                        this.ahs.setVisibility(0);
-                        this.ahs.setOnClickListener(null);
-                        if (this.ahr != null) {
-                            this.ahr.setVisibility(8);
+        if (x.p(list) != 0) {
+            this.amU = list;
+            this.amQ = new f(this.amU, this.amR, this.amT);
+            this.amQ.dt(2);
+            this.amQ.du(1);
+            this.amP.setDatas(this.amQ.xj());
+            this.amP.notifyDataSetChanged();
+            this.mViewPager.setCurrentItem(this.amQ.xi(), false);
+            if (this.amQ.xh() > 0) {
+                if (this.amQ.xh() > this.amT) {
+                    if (this.amO != null) {
+                        this.amO.setVisibility(0);
+                        this.amO.setOnClickListener(null);
+                        if (this.amN != null) {
+                            this.amN.setVisibility(8);
                         }
-                    } else if (this.ahr != null && !this.ahv) {
-                        this.ahr.setVisibility(8);
+                    } else if (this.amN != null && !this.amR) {
+                        this.amN.setVisibility(8);
                     }
-                    if (this.ahr != null && this.ahr.getVisibility() == 0 && this.ahr.getCount() != this.ahx) {
-                        this.ahr.setCount(this.ahx);
+                    if (this.amN != null && this.amN.getVisibility() == 0 && this.amN.getCount() != this.amT) {
+                        this.amN.setCount(this.amT);
                     }
-                    wG();
+                    xd();
                 }
-                if (this.ahu.wK() >= 2 && this.ahu.wK() <= this.ahx) {
-                    if (this.ahs != null) {
-                        this.ahs.setVisibility(8);
+                if (this.amQ.xh() >= 2 && this.amQ.xh() <= this.amT) {
+                    if (this.amO != null) {
+                        this.amO.setVisibility(8);
                     }
-                    if (this.ahr != null) {
-                        this.ahr.setVisibility(0);
-                        if (this.ahr.getCount() != this.ahu.wK()) {
-                            this.ahr.setCount(this.ahu.wK());
+                    if (this.amN != null) {
+                        this.amN.setVisibility(0);
+                        if (this.amN.getCount() != this.amQ.xh()) {
+                            this.amN.setCount(this.amQ.xh());
                         }
                     }
-                    wG();
+                    xd();
                 }
-                if (this.ahu.wK() < 2) {
-                    if (this.ahs != null) {
-                        this.ahs.setVisibility(8);
+                if (this.amQ.xh() < 2) {
+                    if (this.amO != null) {
+                        this.amO.setVisibility(8);
                     }
-                    if (this.ahr != null) {
-                        this.ahr.setVisibility(8);
+                    if (this.amN != null) {
+                        this.amN.setVisibility(8);
                     }
-                    wH();
+                    xe();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wF() {
+    public void xc() {
         int count;
-        if (this.mViewPager != null && this.aht != null) {
-            j A = k.A(this.mContext);
-            if ((A == null || !A.isScroll()) && (count = this.aht.getCount()) >= 2) {
+        if (this.mViewPager != null && this.amP != null) {
+            j Y = k.Y(this.mContext);
+            if ((Y == null || !Y.isScroll()) && (count = this.amP.getCount()) >= 2) {
                 int currentItem = this.mViewPager.getCurrentItem();
                 int i = count - 2;
                 if (currentItem < 1) {
@@ -136,23 +136,23 @@ public class b {
         if (j < 0) {
             j = 0;
         }
-        this.ahA = j;
+        this.amW = j;
     }
 
-    public void wG() {
-        if (this.ahw) {
+    public void xd() {
+        if (this.amS) {
             this.mHandler.removeMessages(1);
-            this.mHandler.sendEmptyMessageDelayed(1, this.ahA);
+            this.mHandler.sendEmptyMessageDelayed(1, this.amW);
             return;
         }
         this.mHandler.removeMessages(1);
     }
 
-    public void wH() {
+    public void xe() {
         this.mHandler.removeMessages(1);
     }
 
-    public void dg(int i) {
-        this.aht.dg(i);
+    public void dc(int i) {
+        this.amP.dc(i);
     }
 }

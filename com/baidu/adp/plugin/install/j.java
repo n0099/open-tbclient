@@ -10,20 +10,20 @@ import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements ServiceConnection {
+    private final /* synthetic */ Intent DU;
     final /* synthetic */ c this$0;
     private final /* synthetic */ Context val$context;
-    private final /* synthetic */ Intent wG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar, Intent intent, Context context) {
         this.this$0 = cVar;
-        this.wG = intent;
+        this.DU = intent;
         this.val$context = context;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.this$0.ib();
+        this.this$0.iV();
     }
 
     @Override // android.content.ServiceConnection
@@ -31,14 +31,14 @@ public class j implements ServiceConnection {
         PluginInstallTask pluginInstallTask;
         PluginInstallTask pluginInstallTask2;
         this.this$0.messenger = new Messenger(iBinder);
-        String stringExtra = this.wG.getStringExtra("package_name");
-        pluginInstallTask = this.this$0.ww;
+        String stringExtra = this.DU.getStringExtra("package_name");
+        pluginInstallTask = this.this$0.DK;
         if (pluginInstallTask == null) {
             return;
         }
-        pluginInstallTask2 = this.this$0.ww;
-        if (TextUtils.equals(stringExtra, pluginInstallTask2.vK)) {
-            this.val$context.startService(this.wG);
+        pluginInstallTask2 = this.this$0.DK;
+        if (TextUtils.equals(stringExtra, pluginInstallTask2.CY)) {
+            this.val$context.startService(this.DU);
         }
     }
 }

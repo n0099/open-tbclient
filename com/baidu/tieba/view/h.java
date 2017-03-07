@@ -4,44 +4,44 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h implements w {
-    private ImageView bsj;
+    private ImageView bzn;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tieba.view.w
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
-        this.bsj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.j.item_person_guess_navigation_more, (View.OnClickListener) null);
-        this.bsj.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
+        this.bzn = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.item_person_guess_navigation_more, (View.OnClickListener) null);
+        this.bzn.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
     }
 
     @Override // com.baidu.tieba.view.w
     public void setOnViewResponseListener(m mVar) {
-        if (this.bsj != null) {
-            this.bsj.setOnClickListener(new i(this, mVar));
+        if (this.bzn != null) {
+            this.bzn.setOnClickListener(new i(this, mVar));
         }
     }
 
     @Override // com.baidu.tieba.view.w
-    public void blO() {
+    public void blD() {
     }
 
     @Override // com.baidu.tieba.view.w
-    public void G(int i, boolean z) {
+    public void H(int i, boolean z) {
     }
 
     @Override // com.baidu.tieba.view.w
     public void c(float f, boolean z) {
         float f2;
-        if (this.bsj != null) {
+        if (this.bzn != null) {
             if (z) {
-                ap.b(this.bsj, r.g.icon_more_bg_s, r.g.icon_more_bg);
+                aq.b(this.bzn, w.g.icon_more_bg_s, w.g.icon_more_bg);
             } else {
-                ap.b(this.bsj, r.g.icon_more_bg, r.g.icon_more_bg_person);
+                aq.b(this.bzn, w.g.icon_more_bg, w.g.icon_more_bg_person);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -49,20 +49,20 @@ public class h implements w {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.bsj.setAlpha(f2);
+                this.bzn.setAlpha(f2);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.w
     public void onChangeSkinType(int i) {
-        if (this.bsj != null) {
+        if (this.bzn != null) {
             if (2 == i) {
-                ap.b(this.bsj, r.g.icon_more_bg_s, r.g.icon_more_bg);
+                aq.b(this.bzn, w.g.icon_more_bg_s, w.g.icon_more_bg);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                ap.b(this.bsj, r.g.icon_more_bg, r.g.icon_more_bg_s);
+                aq.b(this.bzn, w.g.icon_more_bg, w.g.icon_more_bg_s);
             } else {
-                ap.b(this.bsj, r.g.icon_more_bg_s, r.g.icon_more_bg_person);
+                aq.b(this.bzn, w.g.icon_more_bg_s, w.g.icon_more_bg_person);
             }
         }
     }

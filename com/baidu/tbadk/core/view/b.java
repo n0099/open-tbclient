@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.bh;
+import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ ClickableHeaderImageView adh;
+    final /* synthetic */ ClickableHeaderImageView aiw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClickableHeaderImageView clickableHeaderImageView) {
-        this.adh = clickableHeaderImageView;
+        this.aiw = clickableHeaderImageView;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c8  */
@@ -28,51 +28,51 @@ public class b implements View.OnClickListener {
     */
     public void onClick(View view) {
         com.baidu.tbadk.c.a aVar;
-        bh bhVar;
-        bh bhVar2;
-        bh bhVar3;
-        bh bhVar4;
-        bh bhVar5;
-        bh bhVar6;
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        bj bjVar4;
+        bj bjVar5;
+        bj bjVar6;
         Context context;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        bh bhVar7;
+        bj bjVar7;
         Context context2;
-        bh bhVar8;
-        bh bhVar9;
+        bj bjVar8;
+        bj bjVar9;
         com.baidu.tbadk.c.a aVar2;
-        aVar = this.adh.adg;
+        aVar = this.aiw.aiv;
         if (aVar != null) {
-            aVar2 = this.adh.adg;
-            if (aVar2.u(view)) {
+            aVar2 = this.aiw.aiv;
+            if (aVar2.s(view)) {
                 return;
             }
         }
-        bhVar = this.adh.acX;
-        if (bhVar != null) {
-            bhVar2 = this.adh.acX;
-            if (bhVar2.getAuthor() != null) {
-                bhVar3 = this.adh.acX;
-                if (!StringUtils.isNull(bhVar3.getAuthor().getName_show())) {
-                    bhVar4 = this.adh.acX;
-                    if (!StringUtils.isNull(bhVar4.getAuthor().getUserId())) {
-                        bhVar5 = this.adh.acX;
-                        long c = com.baidu.adp.lib.g.b.c(bhVar5.getAuthor().getUserId(), 0L);
+        bjVar = this.aiw.ain;
+        if (bjVar != null) {
+            bjVar2 = this.aiw.ain;
+            if (bjVar2.getAuthor() != null) {
+                bjVar3 = this.aiw.ain;
+                if (!StringUtils.isNull(bjVar3.getAuthor().getName_show())) {
+                    bjVar4 = this.aiw.ain;
+                    if (!StringUtils.isNull(bjVar4.getAuthor().getUserId())) {
+                        bjVar5 = this.aiw.ain;
+                        long c = com.baidu.adp.lib.g.b.c(bjVar5.getAuthor().getUserId(), 0L);
                         boolean z = c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                        bhVar6 = this.adh.acX;
-                        if (bhVar6.sz() != null) {
-                            bhVar7 = this.adh.acX;
-                            if (bhVar7.sz().channelId > 0) {
+                        bjVar6 = this.aiw.ain;
+                        if (bjVar6.sU() != null) {
+                            bjVar7 = this.aiw.ain;
+                            if (bjVar7.sU().channelId > 0) {
                                 MessageManager messageManager = MessageManager.getInstance();
-                                context2 = this.adh.mContext;
-                                bhVar8 = this.adh.acX;
-                                long j = bhVar8.sz().channelId;
-                                bhVar9 = this.adh.acX;
-                                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context2, j, bhVar9.sz().mCurrentPage)));
-                                onClickListener = this.adh.acY;
+                                context2 = this.aiw.mContext;
+                                bjVar8 = this.aiw.ain;
+                                long j = bjVar8.sU().channelId;
+                                bjVar9 = this.aiw.ain;
+                                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context2, j, bjVar9.sU().mCurrentPage)));
+                                onClickListener = this.aiw.aio;
                                 if (onClickListener == null) {
-                                    onClickListener2 = this.adh.acY;
+                                    onClickListener2 = this.aiw.aio;
                                     onClickListener2.onClick(view);
                                     return;
                                 }
@@ -80,9 +80,9 @@ public class b implements View.OnClickListener {
                             }
                         }
                         MessageManager messageManager2 = MessageManager.getInstance();
-                        context = this.adh.mContext;
+                        context = this.aiw.mContext;
                         messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(context).createNormalConfig(c, z)));
-                        onClickListener = this.adh.acY;
+                        onClickListener = this.aiw.aio;
                         if (onClickListener == null) {
                         }
                     }

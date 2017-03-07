@@ -5,23 +5,23 @@ import android.os.Looper;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class p extends t {
-    public long Aq;
-    public long aAD;
-    public long aAE;
-    public int aAF;
-    private a aAG = null;
-    private final Handler aAH = new q(this, Looper.getMainLooper());
-    public int aAv;
-    public long nO;
-    public long yL;
+    public long FZ;
+    public long HD;
+    public int aFN;
+    public long aFV;
+    public long aFW;
+    public int aFX;
+    private a aFY = null;
+    private final Handler aFZ = new q(this, Looper.getMainLooper());
+    public long vD;
 
-    public void FF() {
-        this.aAH.sendEmptyMessage(0);
+    public void FZ() {
+        this.aFZ.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FG() {
-        w wVar = (w) aa.FO().fj(this.aAN);
+    public void Ga() {
+        w wVar = (w) aa.Gi().fd(this.aGf);
         if (wVar != null) {
             wVar.c(this);
         }
@@ -38,8 +38,8 @@ public class p extends t {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            p.this.aAv = aa.FO().FS();
-            p.this.FG();
+            p.this.aFN = aa.Gi().Gm();
+            p.this.Ga();
             return Boolean.TRUE;
         }
 

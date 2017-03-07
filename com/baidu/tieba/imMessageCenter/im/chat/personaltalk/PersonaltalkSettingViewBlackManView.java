@@ -4,10 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
-    private TextView dhD;
+    private TextView djV;
 
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -20,24 +20,24 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     }
 
     private void initUI() {
-        inflate(getContext(), r.j.p2ptalk_setting_black_man_view, this);
+        inflate(getContext(), w.j.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.dhD = (TextView) findViewById(r.h.black_man_text);
+        this.djV = (TextView) findViewById(w.h.black_man_text);
     }
 
     public void setSex(int i) {
         String string;
         switch (i) {
             case 1:
-                string = getResources().getString(r.l.he);
+                string = getResources().getString(w.l.he);
                 break;
             case 2:
-                string = getResources().getString(r.l.she);
+                string = getResources().getString(w.l.she);
                 break;
             default:
-                string = getResources().getString(r.l.ta);
+                string = getResources().getString(w.l.ta);
                 break;
         }
-        this.dhD.setText(getResources().getString(r.l.in_black_desc_1, string));
+        this.djV.setText(getResources().getString(w.l.in_black_desc_1, string));
     }
 }

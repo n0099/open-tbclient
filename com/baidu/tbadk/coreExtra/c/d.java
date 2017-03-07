@@ -1,271 +1,106 @@
 package com.baidu.tbadk.coreExtra.c;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.o;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.game.GameInfoData;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.coreExtra.data.WhiteListData;
+import com.baidu.tbadk.coreExtra.data.i;
+import com.baidu.tbadk.coreExtra.data.j;
+import com.baidu.tbadk.coreExtra.data.k;
+import com.baidu.tbadk.coreExtra.data.n;
+import com.baidu.tbadk.coreExtra.data.r;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private static d aki;
+    private String mConfigVersion;
+    private int mFaceShopVersion;
+    private int aqw = 0;
+    private VersionData aqp = new VersionData();
+    private i aqq = new i();
+    private j aqr = new j();
+    private CombineDownload aqs = new CombineDownload();
+    private n aqt = new n();
+    private r aqu = new r();
+    private k aqx = new k();
+    private com.baidu.tbadk.coreExtra.data.b aqv = new com.baidu.tbadk.coreExtra.data.b();
+    private com.baidu.tbadk.coreExtra.data.a mAdAdSense = new com.baidu.tbadk.coreExtra.data.a();
 
-    private d() {
-    }
-
-    public static synchronized d yr() {
-        d dVar;
-        synchronized (d.class) {
-            if (aki == null) {
-                aki = new d();
-            }
-            dVar = aki;
-        }
-        return dVar;
-    }
-
-    public boolean b(GameInfoData gameInfoData) {
-        SQLiteDatabase yo = b.yo();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (gameInfoData == null || yo == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
-            return false;
-        }
+    public void parserJson(String str) {
         try {
-            o(yo);
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("game_id", gameInfoData.getGameId());
-            contentValues.put("game_package", gameInfoData.getPackageName());
-            contentValues.put("game_status", Integer.valueOf(gameInfoData.getUpStatus()));
-            contentValues.put("status_up", (Integer) 0);
-            if (yo.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
-                yo.insert("table_game_status" + currentAccount, null, contentValues);
-                return true;
-            }
-            return true;
+            parserJson(new JSONObject(str));
         } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "GameStatusDao.addGameInfoItem", new Object[0]);
-            return false;
+            BdLog.e(e.getMessage());
         }
     }
 
-    public boolean v(String str, int i) {
-        SQLiteDatabase yo = b.yo();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || yo == null || TextUtils.isEmpty(currentAccount)) {
-            return false;
-        }
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("game_status", Integer.valueOf(i));
-            contentValues.put("status_up", (Integer) 0);
-            if (yo.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
-                return true;
-            }
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "GameStatusDao.updateState", new Object[0]);
-        }
-        return false;
-    }
-
-    public boolean w(String str, int i) {
-        SQLiteDatabase yo = b.yo();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || yo == null || TextUtils.isEmpty(currentAccount)) {
-            return false;
-        }
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("status_up", (Integer) 1);
-            if (yo.update("table_game_status" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
-                return true;
-            }
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "GameStatusDao.signUpSuccess", new Object[0]);
-        }
-        return false;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=4] */
-    public boolean en(String str) {
-        Cursor cursor;
-        SQLiteDatabase yo = b.yo();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || yo == null || TextUtils.isEmpty(currentAccount)) {
-            return false;
-        }
-        try {
-            cursor = yo.query("table_game_status" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
-            if (cursor != null) {
-                try {
-                    try {
-                        if (cursor.getCount() > 0) {
-                            if (yo.delete("table_game_status" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
-                                o.a(cursor);
-                                return true;
-                            }
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
-                        TiebaStatic.printDBExceptionLog(e, "GameStatusDao.deleteItem", new Object[0]);
-                        o.a(cursor);
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    o.a(cursor);
-                    throw th;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.aqp.parserJson(jSONObject.optJSONObject("version"));
+                this.aqq.parserJson(jSONObject.optJSONObject("client"));
+                com.baidu.tbadk.core.util.d.setIp(jSONObject.optString("client_ip", null));
+                this.aqr.parserJson(jSONObject.optJSONObject("config"));
+                this.aqu.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.aqx.parserJson(jSONObject.optJSONObject("consume_path"));
+                TbadkCoreApplication.m9getInst().setConsumePathData(this.aqx);
+                this.mConfigVersion = jSONObject.optString("config_version");
+                this.aqs.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.aqt.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.aqw = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_ADS_EMOTION, jSONObject));
+                this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
+                if (this.mFaceShopVersion > TbadkCoreApplication.m9getInst().getFaceShopVersion()) {
+                    TbadkCoreApplication.m9getInst().setTempFaceShopVersion(this.mFaceShopVersion);
+                    TbadkCoreApplication.m9getInst().setFaceShopNew(true);
                 }
-            }
-            o.a(cursor);
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-            o.a(cursor);
-            throw th;
-        }
-        return false;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [212=4] */
-    public GameInfoData eo(String str) {
-        Cursor cursor;
-        SQLiteDatabase yo = b.yo();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (yo == null || TextUtils.isEmpty(currentAccount)) {
-            return null;
-        }
-        try {
-            cursor = yo.query("table_game_status" + currentAccount, null, "game_package= ?", new String[]{str}, null, null, null);
-            if (cursor != null) {
-                try {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            GameInfoData gameInfoData = new GameInfoData();
-                            gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("game_id")));
-                            gameInfoData.setPackageName(cursor.getString(cursor.getColumnIndex("game_package")));
-                            o.a(cursor);
-                            return gameInfoData;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
-                        TiebaStatic.printDBExceptionLog(e, "GameStatusDao.getGameItemByPackageName", new Object[0]);
-                        o.a(cursor);
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    o.a(cursor);
-                    throw th;
+                JSONObject optJSONObject = jSONObject.optJSONObject("lcs_strategy");
+                if (optJSONObject != null) {
+                    TbadkCoreApplication.m9getInst().setLcsSwitchStratgy(optJSONObject.toString());
                 }
+                new b().l(jSONObject.optJSONObject("dis_adv_config"));
+                new WhiteListData().saveJson(jSONObject.optJSONArray("whitelist"));
+                this.aqv.parserJson(jSONObject.optJSONObject("app_entrance"));
+                this.mAdAdSense.parserJson(jSONObject.optJSONObject("ad_adsense"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            o.a(cursor);
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-            o.a(cursor);
-            throw th;
         }
-        return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [249=4] */
-    public GameInfoData ep(String str) {
-        Cursor cursor;
-        SQLiteDatabase yo = b.yo();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (yo == null || TextUtils.isEmpty(currentAccount)) {
-            return null;
-        }
-        try {
-            cursor = yo.query("table_game_status" + currentAccount, null, "game_id= ?", new String[]{str}, null, null, null);
-            if (cursor != null) {
-                try {
-                    try {
-                        if (cursor.moveToFirst()) {
-                            GameInfoData gameInfoData = new GameInfoData();
-                            gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("game_id")));
-                            gameInfoData.setPackageName(cursor.getString(cursor.getColumnIndex("game_package")));
-                            gameInfoData.setUpStatus(cursor.getInt(cursor.getColumnIndex("game_status")));
-                            gameInfoData.setCurrentStatusUpSuccess(cursor.getInt(cursor.getColumnIndex("status_up")) == 1);
-                            o.a(cursor);
-                            return gameInfoData;
-                        }
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
-                        TiebaStatic.printDBExceptionLog(e, "GameStatusDao.getGameItemByPackageName", new Object[0]);
-                        o.a(cursor);
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    o.a(cursor);
-                    throw th;
-                }
-            }
-            o.a(cursor);
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-            o.a(cursor);
-            throw th;
-        }
-        return null;
+    public j zI() {
+        return this.aqr;
     }
 
-    public List<GameInfoData> ys() {
-        Cursor cursor = null;
-        SQLiteDatabase yo = b.yo();
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (yo == null || TextUtils.isEmpty(currentAccount)) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        try {
-            cursor = yo.query("table_game_status" + currentAccount, null, "status_up= ?", new String[]{"0"}, null, null, null);
-            if (cursor != null) {
-                while (cursor.moveToNext()) {
-                    GameInfoData gameInfoData = new GameInfoData();
-                    gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("game_id")));
-                    gameInfoData.setPackageName(cursor.getString(cursor.getColumnIndex("game_package")));
-                    gameInfoData.setUpStatus(cursor.getInt(cursor.getColumnIndex("game_status")));
-                    arrayList.add(gameInfoData);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            TiebaStatic.printDBExceptionLog(e, "GameStatusDao.getGameItemByPackageName", new Object[0]);
-        } finally {
-            o.a(cursor);
-        }
-        return arrayList;
+    public String zJ() {
+        return this.mConfigVersion;
     }
 
-    public void o(SQLiteDatabase sQLiteDatabase) {
-        try {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!TextUtils.isEmpty(currentAccount)) {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_game_status" + currentAccount + "(game_id TEXT PRIMARY KEY, game_status INTEGER,game_package TEXT,status_up INTEGER );");
-            }
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "GameStatusDao.createTable", new Object[0]);
-            BdLog.e("create table wrong " + e.toString());
-        }
+    public CombineDownload zK() {
+        return this.aqs;
+    }
+
+    public VersionData zL() {
+        return this.aqp;
+    }
+
+    public i zM() {
+        return this.aqq;
+    }
+
+    public r zN() {
+        return this.aqu;
+    }
+
+    public com.baidu.tbadk.coreExtra.data.b zO() {
+        return this.aqv;
+    }
+
+    public com.baidu.tbadk.coreExtra.data.a getAdAdSense() {
+        return this.mAdAdSense;
     }
 }

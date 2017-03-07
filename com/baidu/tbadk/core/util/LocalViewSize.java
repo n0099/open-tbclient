@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize Zu = null;
+    private static LocalViewSize aeK = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,17 +13,17 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize uv() {
-        if (Zu == null) {
-            Zu = new LocalViewSize();
+    public static LocalViewSize uS() {
+        if (aeK == null) {
+            aeK = new LocalViewSize();
         }
-        return Zu;
+        return aeK;
     }
 
     private LocalViewSize() {
     }
 
-    public void G(Context context) {
+    public void ae(Context context) {
         this.mContext = context;
     }
 
@@ -58,25 +58,25 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int uw() {
-        int I = com.baidu.adp.lib.util.k.I(this.mContext);
-        if (I >= 1080) {
+    public int uT() {
+        int ag = com.baidu.adp.lib.util.k.ag(this.mContext);
+        if (ag >= 1080) {
             return 1080;
         }
-        return (I < 720 || I >= 1080) ? 480 : 720;
+        return (ag < 720 || ag >= 1080) ? 480 : 720;
     }
 
-    public ImageSize ux() {
+    public ImageSize uU() {
         int i = 240;
-        int I = com.baidu.adp.lib.util.k.I(this.mContext);
-        if (I < 240) {
-            i = I / 3;
-        } else if (I <= 320) {
+        int ag = com.baidu.adp.lib.util.k.ag(this.mContext);
+        if (ag < 240) {
+            i = ag / 3;
+        } else if (ag <= 320) {
             i = 80;
-        } else if (I <= 480) {
+        } else if (ag <= 480) {
             i = 160;
-        } else if (I > 720) {
-            i = I / 3;
+        } else if (ag > 720) {
+            i = ag / 3;
         }
         ImageSize imageSize = new ImageSize();
         imageSize.height = i;
@@ -84,15 +84,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize uy() {
+    public ImageSize uV() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.k.J(this.mContext);
-        imageSize.width = com.baidu.adp.lib.util.k.I(this.mContext);
+        imageSize.height = com.baidu.adp.lib.util.k.ah(this.mContext);
+        imageSize.width = com.baidu.adp.lib.util.k.ag(this.mContext);
         return imageSize;
     }
 
-    public int uz() {
-        ImageSize ux = ux();
-        return ux.height >= ux.width ? ux.height : ux.width;
+    public int uW() {
+        ImageSize uU = uU();
+        return uU.height >= uU.width ? uU.height : uU.width;
     }
 }

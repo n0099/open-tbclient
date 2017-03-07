@@ -4,23 +4,23 @@ import android.os.Handler;
 import android.widget.EditText;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements a.b {
-    final /* synthetic */ WriteActivity fMl;
+    final /* synthetic */ WriteActivity fQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(WriteActivity writeActivity) {
-        this.fMl = writeActivity;
+        this.fQG = writeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
-        EditText boV;
+        EditText boJ;
         WriteData writeData2;
-        EditText boU;
+        EditText boI;
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
@@ -28,27 +28,27 @@ public class ao implements a.b {
         WriteData writeData6;
         WriteData writeData7;
         aVar.dismiss();
-        writeData = this.fMl.mData;
-        boV = this.fMl.boV();
-        writeData.setTitle(boV.getText().toString());
-        writeData2 = this.fMl.mData;
-        boU = this.fMl.boU();
-        writeData2.setContent(boU.getText().toString());
-        writeData3 = this.fMl.mData;
+        writeData = this.fQG.mData;
+        boJ = this.fQG.boJ();
+        writeData.setTitle(boJ.getText().toString());
+        writeData2 = this.fQG.mData;
+        boI = this.fQG.boI();
+        writeData2.setContent(boI.getText().toString());
+        writeData3 = this.fQG.mData;
         int type = writeData3.getType();
         if (type == 0) {
-            writeData6 = this.fMl.mData;
+            writeData6 = this.fQG.mData;
             String forumId = writeData6.getForumId();
-            writeData7 = this.fMl.mData;
-            com.baidu.tieba.tbadkCore.aa.b(forumId, writeData7);
+            writeData7 = this.fQG.mData;
+            com.baidu.tieba.tbadkCore.z.b(forumId, writeData7);
         } else if (type == 1) {
-            writeData4 = this.fMl.mData;
+            writeData4 = this.fQG.mData;
             String threadId = writeData4.getThreadId();
-            writeData5 = this.fMl.mData;
-            com.baidu.tieba.tbadkCore.aa.c(threadId, writeData5);
+            writeData5 = this.fQG.mData;
+            com.baidu.tieba.tbadkCore.z.c(threadId, writeData5);
         }
-        this.fMl.showToast(r.l.draft_save_success);
-        handler = this.fMl.mHandler;
+        this.fQG.showToast(w.l.draft_save_success);
+        handler = this.fQG.mHandler;
         handler.postDelayed(new ap(this), 1000L);
     }
 }

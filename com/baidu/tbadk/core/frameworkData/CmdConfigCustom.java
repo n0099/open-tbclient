@@ -42,8 +42,12 @@ public class CmdConfigCustom {
     public static final int CMD_APPLY_PASSFRIEND = 2001221;
     public static final int CMD_APPLY_REPLY_MESSAGE = 2001219;
     public static final int CMD_APP_DOWNLOAD_MSG = 2016484;
+    public static final int CMD_APP_ENTER_BACKGROUND = 2016521;
+    public static final int CMD_APP_ENTER_FOREGROUND = 2016520;
+    public static final int CMD_APP_SCREEN_LOCK_STATE_CHANGED = 2016523;
     public static final int CMD_AUDIO_VIEW_SHOW_WHEN_LOCK_DESTROY = 2016434;
     public static final int CMD_AUDIO_VIEW_START_PALY = 2016437;
+    public static final int CMD_AUTO_PAY_SUCC = 2016525;
     public static final int CMD_BACKGROUND_SWTICH = 2001011;
     public static final int CMD_BAIDU_LOCATION_SWITCH = 2001330;
     public static final int CMD_BAIDU_YUN_PUSH_SWITCH_CHANGE = 2001439;
@@ -168,6 +172,9 @@ public class CmdConfigCustom {
     public static final int CMD_FRS_SET_COMMON_ACCESS_FORUM = 2003017;
     public static final int CMD_FRS_TAB_LIVE_START = 2001607;
     public static final int CMD_GAME_ADD_ITEM = 2001242;
+    public static final int CMD_GAME_CENTER_CHECK_UPDATE = 2016510;
+    public static final int CMD_GAME_CENTER_INIT = 2016509;
+    public static final int CMD_GAME_CENTER_START = 2016508;
     public static final int CMD_GAME_DELETE_ITEM = 2001243;
     public static final int CMD_GAME_GET_DOWN_DATA = 2001240;
     public static final int CMD_GAME_GET_ITEM_BY_PACKAGE = 2001246;
@@ -225,6 +232,7 @@ public class CmdConfigCustom {
     public static final int CMD_GRAFFITI_VOTE_SUCCESS = 2016453;
     public static final int CMD_GROUP_MEMBER_CHANGE = 2001109;
     public static final int CMD_GUIDE_SET_CACHE = 2001400;
+    public static final int CMD_HIDE_NEGATIVE_FEED_BACK_WIN = 2016524;
     public static final int CMD_HOMEWORK = 2902070;
     public static final int CMD_HOME_EXTRA_INIT_OK = 2001407;
     public static final int CMD_HOME_PAGE_LOAD_DATA_FROM_NET = 2016320;
@@ -233,6 +241,7 @@ public class CmdConfigCustom {
     public static final int CMD_HOME_PAGE_WRITE_CACHE = 2016315;
     public static final int CMD_HOME_TAB_LAST_READ_POSITION = 2001422;
     public static final int CMD_HOT_GROUPS_LOCAL = 2001113;
+    public static final int CMD_HOT_SPLASH_SHOW = 2016522;
     public static final int CMD_HOT_TOPIC_SELECT_CACHE = 2016491;
     public static final int CMD_HOT_TOPIC_TOOL_CRTL = 2016489;
     public static final int CMD_IMMERSIVE_STICKY_SWITCH_STATUS_CHANGE = 2016323;
@@ -362,10 +371,21 @@ public class CmdConfigCustom {
     public static final int CMD_PLUGIN_NETCONFIG_GET = 2001224;
     public static final int CMD_PRIVILEGE_CTRL = 2001282;
     public static final int CMD_PRIVILEGE_TOOL_CRTL = 2001343;
+    public static final int CMD_PROXY_GAME_DOWNLOAD_PROVIDER_READY = 2016518;
+    public static final int CMD_PROXY_GAME_DOWNLOAD_SERVICE_READY = 2016519;
     public static final int CMD_PUBLISHER_ENTER_LIVEGROUP = 2001203;
     public static final int CMD_PUBLISHER_UPDATE_LIVEGROUP = 2001197;
     public static final int CMD_PULL_BGCOLOR_CHANGE = 2016204;
     public static final int CMD_PULL_IMAGE_CHANGE = 2016203;
+    public static final int CMD_PUSH_COMMANDSERVICE_ONSTARTCOMMAND = 2016527;
+    public static final int CMD_PUSH_PUSHMESSAGERECEIVER_ONRECEIVE = 2016528;
+    public static final int CMD_PUSH_PUSHSERVICERECEIVER_ONRECEIVE = 2016534;
+    public static final int CMD_PUSH_PUSHSERVICE_ONBIND = 2016532;
+    public static final int CMD_PUSH_PUSHSERVICE_ONCREATE = 2016529;
+    public static final int CMD_PUSH_PUSHSERVICE_ONDESTROY = 2016531;
+    public static final int CMD_PUSH_PUSHSERVICE_ONSTARTCOMMAND = 2016530;
+    public static final int CMD_PUSH_PUSHSERVICE_ONUNBIND = 2016533;
+    public static final int CMD_PUSH_REGISTRATIONRECEIVER_ONRECEIVE = 2016535;
     public static final int CMD_QEURY_FILE_DOWNLOAD = 2001119;
     public static final int CMD_QUERY_CONTACT_LIST = 2001184;
     public static final int CMD_QUERY_LOCAL_ADDRESSLIST = 2001178;
@@ -431,7 +451,6 @@ public class CmdConfigCustom {
     public static final int CMD_SHARE_DIALOG_SHOW = 2001276;
     public static final int CMD_SHARE_SDK_RESULT = 2001250;
     public static final int CMD_SHOW_FLOATING_LAYER_MAINTAB = 2001307;
-    public static final int CMD_SHOW_GAME_ICON = 2001251;
     public static final int CMD_SHOW_GAME_MSG_TIP = 2001230;
     public static final int CMD_SHOW_GO_TO_MY_LIVE_TIPS = 2016305;
     public static final int CMD_SHOW_SPRING_EGG = 2001121;
@@ -531,6 +550,7 @@ public class CmdConfigCustom {
     public static final int CMD_WX_SHARE_SUCCESS = 2016450;
     public static final int CMD_XIAOMI_PUSH_SWITCH_CHANGE = 2001310;
     public static final int CMD_YINJIN_CHANGE = 2001372;
+    public static final int CMD_YUN_PUSH = 2016526;
     public static final int CMD_ZXING_CAPTURE = 2902030;
     public static final int COLLECT_TAB_ADD_FRAGMENT = 2016207;
     public static final int COLLECT_TAB_NAVI_EDIT_ACTION = 2022208;

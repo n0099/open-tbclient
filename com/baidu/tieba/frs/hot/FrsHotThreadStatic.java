@@ -6,7 +6,7 @@ import com.baidu.tieba.frs.bx;
 /* loaded from: classes.dex */
 public class FrsHotThreadStatic {
     static {
-        bx.Zf().hX(2);
+        bx.aae().hT(2);
         MessageManager.getInstance().registerListener(new c(CmdConfigCustom.CMD_FRS_ADD_MODEL));
     }
 }

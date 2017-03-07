@@ -19,15 +19,15 @@ class b extends CustomMessageListener {
         Handler handler2;
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                z = ImagesInvalidServiceStatic.VS;
+                z = ImagesInvalidServiceStatic.abf;
                 if (!z) {
-                    handler2 = ImagesInvalidServiceStatic.hg;
+                    handler2 = ImagesInvalidServiceStatic.pa;
                     handler2.sendEmptyMessageDelayed(1, 10000L);
                     return;
                 }
                 return;
             }
-            handler = ImagesInvalidServiceStatic.hg;
+            handler = ImagesInvalidServiceStatic.pa;
             handler.removeMessages(1);
             ImagesInvalidServiceStatic.stopService();
         }

@@ -3,17 +3,17 @@ package com.baidu.tieba.account;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class r implements DialogInterface.OnCancelListener {
-    final /* synthetic */ q aPT;
+    final /* synthetic */ q aVF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.aPT = qVar;
+        this.aVF = qVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         NotLoginGuideActivity notLoginGuideActivity;
-        notLoginGuideActivity = this.aPT.aPS;
+        notLoginGuideActivity = this.aVF.aVE;
         notLoginGuideActivity.destroyWaitingDialog();
     }
 }

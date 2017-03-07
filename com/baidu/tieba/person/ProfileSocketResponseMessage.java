@@ -145,17 +145,17 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        o<String> N;
+        o<String> L;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (N = com.baidu.tbadk.core.c.a.sR().N("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<f.a> list = this.ucCardData.exO;
-            list.get(4).Aj = 8L;
+        if (this.ucCardData != null && (L = com.baidu.tbadk.core.c.a.to().L("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<f.a> list = this.ucCardData.eBo;
+            list.get(4).Hw = 8L;
             if (list != null) {
                 for (f.a aVar : list) {
-                    if (aVar.Aj > com.baidu.adp.lib.g.b.c(N.get(aVar.title), 0L)) {
-                        aVar.exP = true;
+                    if (aVar.Hw > com.baidu.adp.lib.g.b.c(L.get(aVar.title), 0L)) {
+                        aVar.eBp = true;
                     } else {
-                        aVar.exP = false;
+                        aVar.eBp = false;
                     }
                 }
             }
@@ -165,9 +165,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> M = com.baidu.tbadk.core.c.a.sR().M("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        o<byte[]> K = com.baidu.tbadk.core.c.a.to().K("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            M.k(PROFILE_CACHE_KEY, bArr);
+            K.k(PROFILE_CACHE_KEY, bArr);
         }
     }
 

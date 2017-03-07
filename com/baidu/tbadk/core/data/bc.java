@@ -1,83 +1,68 @@
 package com.baidu.tbadk.core.data;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.Banner;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SeniorLottery;
 /* loaded from: classes.dex */
 public class bc {
-    protected float tagNameRatio;
-    protected String tagNameUrl;
-    protected String img_url = null;
-    protected String link = null;
-    protected String Sn = null;
+    private al Xs;
+    private List<e> Xt;
+    private String Xu;
+    private List<f> Xv;
+    private String Xw;
+    private List<ak> Xx;
 
-    public String pL() {
-        return this.img_url;
+    public al rg() {
+        return this.Xs;
     }
 
-    public void cq(String str) {
-        this.img_url = str;
+    public List<e> rh() {
+        return this.Xt;
     }
 
-    public String getLink() {
-        return this.link;
+    public String ri() {
+        return this.Xu;
     }
 
-    public void setLink(String str) {
-        this.link = str;
+    public List<f> rj() {
+        return this.Xv;
     }
 
-    public void cr(String str) {
-        this.tagNameUrl = str;
+    public String rk() {
+        return this.Xw;
     }
 
-    public String pC() {
-        return this.tagNameUrl;
+    public List<ak> rl() {
+        return this.Xx;
     }
 
-    public void cs(String str) {
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                int g = com.baidu.adp.lib.g.b.g(split[0], 1);
-                int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
-                if (g2 != 0) {
-                    this.tagNameRatio = g / g2;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public void a(SeniorLottery seniorLottery) {
+        if (seniorLottery != null) {
+            this.Xs = new al();
+            this.Xs.a(seniorLottery.theme);
+            this.Xt = new ArrayList();
+            int size = seniorLottery.award_info.size();
+            for (int i = 0; i < size; i++) {
+                e eVar = new e();
+                eVar.a(seniorLottery.award_info.get(i));
+                this.Xt.add(eVar);
+            }
+            this.Xu = seniorLottery.myaward;
+            this.Xv = new ArrayList();
+            int size2 = seniorLottery.luck_users.size();
+            for (int i2 = 0; i2 < size2; i2++) {
+                f fVar = new f();
+                fVar.a(seniorLottery.luck_users.get(i2));
+                this.Xv.add(fVar);
+            }
+            this.Xw = seniorLottery.act_desc;
+            this.Xx = new ArrayList();
+            int size3 = seniorLottery.act_regular.size();
+            for (int i3 = 0; i3 < size3; i3++) {
+                ak akVar = new ak();
+                akVar.a(seniorLottery.act_regular.get(i3));
+                this.Xx.add(akVar);
             }
         }
-    }
-
-    public float qW() {
-        return this.tagNameRatio;
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            a(banner, null);
-        }
-    }
-
-    public void a(Banner banner, Context context) {
-        if (banner != null) {
-            try {
-                cq(banner.pic_url);
-                setLink(banner.link);
-                cr(banner.tag_name_url);
-                cs(banner.tag_name_wh);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public String qX() {
-        return this.Sn;
-    }
-
-    public void ct(String str) {
-        this.Sn = str;
     }
 }

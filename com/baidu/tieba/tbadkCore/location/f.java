@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ LocationModel frN;
+    final /* synthetic */ LocationModel fwk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(LocationModel locationModel, int i) {
         super(i);
-        this.frN = locationModel;
+        this.fwk = locationModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,21 +25,21 @@ public class f extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                this.frN.lk(false);
-                this.frN.cj(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                bVar3 = this.frN.frI;
+                this.fwk.lj(false);
+                this.fwk.cd(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                bVar3 = this.fwk.fwf;
                 if (bVar3 != null) {
-                    bVar4 = this.frN.frI;
-                    bVar4.fH(responsedSelectLocation.getName());
+                    bVar4 = this.fwk.fwf;
+                    bVar4.fw(responsedSelectLocation.getName());
                     return;
                 }
                 return;
             }
-            this.frN.lk(true);
-            bVar = this.frN.frI;
+            this.fwk.lj(true);
+            bVar = this.fwk.fwf;
             if (bVar != null) {
-                bVar2 = this.frN.frI;
-                bVar2.Dp();
+                bVar2 = this.fwk.fwf;
+                bVar2.DI();
             }
         }
     }

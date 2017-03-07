@@ -9,11 +9,11 @@ import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends cf<com.baidu.tieba.card.data.o> {
-    final /* synthetic */ b cxR;
+    final /* synthetic */ b czn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cxR = bVar;
+        this.czn = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,45 +31,45 @@ public class c extends cf<com.baidu.tieba.card.data.o> {
         bk bkVar10;
         bk bkVar11;
         bk bkVar12;
-        cc.Rx().cM(true);
+        cc.Sv().cM(true);
         if (view != null) {
-            bkVar = this.cxR.cxQ;
+            bkVar = this.czn.czm;
             if (bkVar != null) {
-                bkVar2 = this.cxR.cxQ;
+                bkVar2 = this.czn.czm;
                 if (bkVar2.getView() != null) {
-                    bkVar3 = this.cxR.cxQ;
-                    if (bkVar3.bmP != null && oVar != null && oVar.Ji() != null && !StringUtils.isNull(oVar.Ji().getTid())) {
+                    bkVar3 = this.czn.czm;
+                    if (bkVar3.btK != null && oVar != null && oVar.JN() != null && !StringUtils.isNull(oVar.JN().getTid())) {
                         int id = view.getId();
-                        bkVar4 = this.cxR.cxQ;
+                        bkVar4 = this.czn.czm;
                         if (id != bkVar4.getView().getId()) {
-                            bkVar5 = this.cxR.cxQ;
-                            if (bkVar5.bmP.bmX != null) {
-                                bkVar11 = this.cxR.cxQ;
-                                if (bkVar11.bmP.bmX.getBarNameTv() != null) {
+                            bkVar5 = this.czn.czm;
+                            if (bkVar5.btK.btS != null) {
+                                bkVar11 = this.czn.czm;
+                                if (bkVar11.btK.btS.getBarNameTv() != null) {
                                     int id2 = view.getId();
-                                    bkVar12 = this.cxR.cxQ;
-                                    if (id2 == bkVar12.bmP.bmX.getBarNameTv().getId()) {
-                                        TiebaStatic.log(oVar.RY());
+                                    bkVar12 = this.czn.czm;
+                                    if (id2 == bkVar12.btK.btS.getBarNameTv().getId()) {
+                                        TiebaStatic.log(oVar.SW());
                                         return;
                                     }
                                 }
                             }
-                            bkVar6 = this.cxR.cxQ;
-                            if (bkVar6.bmP.aUT != null) {
+                            bkVar6 = this.czn.czm;
+                            if (bkVar6.btK.bbg != null) {
                                 int id3 = view.getId();
-                                bkVar10 = this.cxR.cxQ;
-                                if (id3 == bkVar10.bmP.aUT.getId()) {
-                                    TiebaStatic.log(oVar.RZ());
+                                bkVar10 = this.czn.czm;
+                                if (id3 == bkVar10.btK.bbg.getId()) {
+                                    TiebaStatic.log(oVar.SX());
                                     return;
                                 }
                             }
-                            bkVar7 = this.cxR.cxQ;
-                            if (bkVar7.bmP.bmB != null) {
-                                bkVar8 = this.cxR.cxQ;
-                                if (bkVar8.bmP.bmB.agJ != null) {
-                                    bkVar9 = this.cxR.cxQ;
-                                    if (bkVar9.bmP.bmB.agJ.getId() == view.getId()) {
-                                        TiebaStatic.log(oVar.RZ());
+                            bkVar7 = this.czn.czm;
+                            if (bkVar7.btK.btw != null) {
+                                bkVar8 = this.czn.czm;
+                                if (bkVar8.btK.btw.amc != null) {
+                                    bkVar9 = this.czn.czm;
+                                    if (bkVar9.btK.btw.amc.getId() == view.getId()) {
+                                        TiebaStatic.log(oVar.SX());
                                         return;
                                     }
                                     return;
@@ -78,7 +78,7 @@ public class c extends cf<com.baidu.tieba.card.data.o> {
                             }
                             return;
                         }
-                        TiebaStatic.log(oVar.RW());
+                        TiebaStatic.log(oVar.SU());
                     }
                 }
             }

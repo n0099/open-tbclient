@@ -1,28 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.SignData;
+import com.baidu.tieba.pb.pb.main.PbModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm extends CustomMessageListener {
-    final /* synthetic */ PbModel ekY;
+public class dm implements Runnable {
+    final /* synthetic */ dl enX;
+    private final /* synthetic */ PbPageReadLocalResponseMessage enY;
+    private final /* synthetic */ com.baidu.tieba.pb.data.f enZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dm(PbModel pbModel, int i) {
-        super(i);
-        this.ekY = pbModel;
+    public dm(dl dlVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.data.f fVar) {
+        this.enX = dlVar;
+        this.enY = pbPageReadLocalResponseMessage;
+        this.enZ = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SignData)) {
-            SignData signData = (SignData) customResponsedMessage.getData();
-            if (this.ekY.getPbData() != null && this.ekY.getPbData().aJY() != null && this.ekY.getPbData().aJY().getSignData() != null && signData.forumId.equals(this.ekY.getPbData().getForumId())) {
-                this.ekY.getPbData().aJY().getSignData().is_signed = signData.is_signed;
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        PbModel pbModel;
+        PbModel.a aVar;
+        pbModel = this.enX.enW;
+        aVar = pbModel.enx;
+        aVar.a(true, 0, this.enY.getUpdateType(), 0, this.enZ, this.enY.getErrorString(), 0);
     }
 }

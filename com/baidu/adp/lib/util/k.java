@@ -25,90 +25,90 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float sa;
-    static int sb;
-    static int sc;
-    private static String sf;
-    static boolean rZ = false;
-    private static Toast sd = null;
-    private static a se = null;
+    private static String zA;
+    private static float zv;
+    static int zw;
+    static int zx;
+    static boolean zu = false;
+    private static Toast zy = null;
+    private static a zz = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
     /* loaded from: classes.dex */
     public interface a {
-        void aS(String str);
+        void aM(String str);
 
-        View gH();
+        View hB();
     }
 
-    public static void H(Context context) {
+    public static void af(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            sb = displayMetrics.heightPixels;
-            sc = displayMetrics.widthPixels;
+            zw = displayMetrics.heightPixels;
+            zx = displayMetrics.widthPixels;
         } else {
-            sb = displayMetrics.widthPixels;
-            sc = displayMetrics.heightPixels;
+            zw = displayMetrics.widthPixels;
+            zx = displayMetrics.heightPixels;
         }
-        sa = displayMetrics.density;
-        rZ = true;
+        zv = displayMetrics.density;
+        zu = true;
     }
 
-    public static int I(Context context) {
-        if (!rZ) {
-            H(context);
+    public static int ag(Context context) {
+        if (!zu) {
+            af(context);
         }
-        return sb;
+        return zw;
     }
 
-    public static int J(Context context) {
-        if (!rZ) {
-            H(context);
+    public static int ah(Context context) {
+        if (!zu) {
+            af(context);
         }
-        return sc;
+        return zx;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!rZ) {
-            H(context);
+        if (!zu) {
+            af(context);
         }
-        return (int) ((sa * f) + 0.5f);
+        return (int) ((zv * f) + 0.5f);
     }
 
-    public static float K(Context context) {
-        if (!rZ) {
-            H(context);
+    public static float ai(Context context) {
+        if (!zu) {
+            af(context);
         }
-        return sa;
+        return zv;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (sd == null) {
-                if (se == null || se.gH() == null) {
-                    sd = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (zy == null) {
+                if (zz == null || zz.hB() == null) {
+                    zy = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    sd = new Toast(BdBaseApplication.getInst().getApp());
-                    sd.setDuration(0);
-                    se.aS(str);
-                    sd.setView(se.gH());
+                    zy = new Toast(BdBaseApplication.getInst().getApp());
+                    zy.setDuration(0);
+                    zz.aM(str);
+                    zy.setView(zz.hB());
                 }
-                sd.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else if (!str.equals(sf)) {
-                if (se == null || se.gH() == null) {
-                    sd.setText(str);
+                zy.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else if (!str.equals(zA)) {
+                if (zz == null || zz.hB() == null) {
+                    zy.setText(str);
                 } else {
-                    se.aS(str);
+                    zz.aM(str);
                 }
             }
-            sf = str;
+            zA = str;
             mHandler.postDelayed(mRunnable, i);
-            sd.show();
+            zy.show();
         }
     }
 
@@ -120,12 +120,12 @@ public class k {
         showToast(context, context.getResources().getString(i));
     }
 
-    public static void m(Context context, String str) {
+    public static void G(Context context, String str) {
         showToast(context, str, 3500);
     }
 
-    public static void d(Context context, int i) {
-        m(context, context.getResources().getString(i));
+    public static void f(Context context, int i) {
+        G(context, context.getResources().getString(i));
     }
 
     public static void b(Context context, View view) {
@@ -182,7 +182,7 @@ public class k {
         return i;
     }
 
-    public static int[] L(Context context) {
+    public static int[] aj(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
     }
@@ -288,11 +288,11 @@ public class k {
         return iArr;
     }
 
-    public static int e(Context context, int i) {
+    public static int g(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 
-    public static boolean n(Context context, String str) {
+    public static boolean H(Context context, String str) {
         List<PackageInfo> installedPackages;
         if (str == null || str.length() == 0 || (installedPackages = context.getPackageManager().getInstalledPackages(0)) == null) {
             return false;
@@ -305,31 +305,31 @@ public class k {
         return false;
     }
 
-    public static void gz() {
+    public static void ht() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (gA() ? false : true) {
-                StringBuilder sb2 = new StringBuilder(100);
+            if (hu() ? false : true) {
+                StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
-                    sb2.append(stackTrace[i].getClassName());
-                    sb2.append(".");
-                    sb2.append(stackTrace[i].getMethodName());
-                    sb2.append("  lines = ");
-                    sb2.append(stackTrace[i].getLineNumber());
-                    sb2.append("\n");
+                    sb.append(stackTrace[i].getClassName());
+                    sb.append(".");
+                    sb.append(stackTrace[i].getMethodName());
+                    sb.append("  lines = ");
+                    sb.append(stackTrace[i].getLineNumber());
+                    sb.append("\n");
                 }
-                BdLog.e("can not be call not thread! trace = \n" + sb2.toString());
-                throw new Error("can not be call not thread! trace = " + sb2.toString());
+                BdLog.e("can not be call not thread! trace = \n" + sb.toString());
+                throw new Error("can not be call not thread! trace = " + sb.toString());
             }
         }
     }
 
-    public static boolean gA() {
+    public static boolean hu() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean gB() {
-        return i.gk();
+    public static boolean hv() {
+        return i.he();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -341,7 +341,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String gC() {
+    public static String hw() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -374,7 +374,7 @@ public class k {
         return str;
     }
 
-    public static String gD() {
+    public static String hx() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -407,12 +407,12 @@ public class k {
         return str;
     }
 
-    public static boolean gE() {
-        String aR;
+    public static boolean hy() {
+        String aL;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (aR = aR(str)) != null && aR.length() >= 3) {
-            int g = com.baidu.adp.lib.g.b.g(aR(aR.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.g.b.g(aR(aR.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (aL = aL(str)) != null && aL.length() >= 3) {
+            int g = com.baidu.adp.lib.g.b.g(aL(aL.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.g.b.g(aL(aL.substring(1, 2)), 0);
             if (g > 3) {
                 return true;
             }
@@ -423,18 +423,18 @@ public class k {
         return false;
     }
 
-    public static String aR(String str) {
+    public static String aL(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a gF() {
-        return se;
+    public static a hz() {
+        return zz;
     }
 
     public static void a(a aVar) {
-        se = aVar;
+        zz = aVar;
     }
 }

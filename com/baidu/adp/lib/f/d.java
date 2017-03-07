@@ -1,72 +1,74 @@
 package com.baidu.adp.lib.f;
+
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class d {
-    private static int pe = 0;
-    private static int pf = 0;
-    private static int pg = 0;
-    private static int ph = 0;
-    private static int pi = 0;
-    private static int pj = 0;
-    private static Object pl = new Object();
+    private static int wN = 0;
+    private static int wO = 0;
+    private static int wP = 0;
+    private static int wQ = 0;
+    private static int wR = 0;
+    private static int wS = 0;
+    private static Object wT = new Object();
 
-    public static com.baidu.adp.lib.stats.d ez() {
-        return com.baidu.adp.lib.stats.a.eG().an("dbg");
+    public static com.baidu.adp.lib.stats.c fH() {
+        return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
-    public static void a(com.baidu.adp.lib.stats.d dVar, com.baidu.adp.lib.stats.d dVar2) {
-        if (dVar != null || dVar2 != null) {
-            synchronized (pl) {
-                if (dVar != null) {
-                    pg = (int) (pg + dVar.eX());
+    public static void a(com.baidu.adp.lib.stats.c cVar, com.baidu.adp.lib.stats.c cVar2) {
+        if (cVar != null || cVar2 != null) {
+            synchronized (wT) {
+                if (cVar != null) {
+                    wP = (int) (wP + cVar.fR());
                 }
-                if (dVar2 != null) {
-                    pf = (int) (pf + dVar2.eX());
+                if (cVar2 != null) {
+                    wO = (int) (wO + cVar2.fR());
                 }
-                int i = pe + 1;
-                pe = i;
-                if (i + ph > 100) {
-                    eA();
+                int i = wN + 1;
+                wN = i;
+                if (i + wQ > 100) {
+                    fI();
                 }
             }
         }
     }
 
-    public static void b(com.baidu.adp.lib.stats.d dVar, com.baidu.adp.lib.stats.d dVar2) {
-        if (dVar != null || dVar2 != null) {
-            synchronized (pl) {
-                if (dVar != null) {
-                    pj = (int) (pj + dVar.eX());
+    public static void b(com.baidu.adp.lib.stats.c cVar, com.baidu.adp.lib.stats.c cVar2) {
+        if (cVar != null || cVar2 != null) {
+            synchronized (wT) {
+                if (cVar != null) {
+                    wS = (int) (wS + cVar.fR());
                 }
-                if (dVar2 != null) {
-                    pi = (int) (pi + dVar2.eX());
+                if (cVar2 != null) {
+                    wR = (int) (wR + cVar2.fR());
                 }
-                int i = ph + 1;
-                ph = i;
-                if (i + pe > 100) {
-                    eA();
+                int i = wQ + 1;
+                wQ = i;
+                if (i + wN > 100) {
+                    fI();
                 }
             }
         }
     }
 
-    public static void eA() {
-        if (pe + ph > 10) {
-            com.baidu.adp.lib.stats.d ez = ez();
-            ez.q("act", "allStat");
-            ez.q("diskTaskCostTime", String.valueOf(pg));
-            ez.q("diskCostTime", String.valueOf(pf));
-            ez.q("diskNum", String.valueOf(pe));
-            ez.q("netTaskCostTime", String.valueOf(pj));
-            ez.q("netCostTime", String.valueOf(pi));
-            ez.q("netNum", String.valueOf(ph));
-            ez.q("isWifi", "1");
-            com.baidu.adp.lib.stats.a.eG().b("img", ez);
-            pf = 0;
-            pe = 0;
-            pi = 0;
-            ph = 0;
-            pg = 0;
-            pj = 0;
+    public static void fI() {
+        if (wN + wQ > 10) {
+            com.baidu.adp.lib.stats.c fH = fH();
+            fH.p("act", "allStat");
+            fH.p("diskTaskCostTime", String.valueOf(wP));
+            fH.p("diskCostTime", String.valueOf(wO));
+            fH.p("diskNum", String.valueOf(wN));
+            fH.p("netTaskCostTime", String.valueOf(wS));
+            fH.p("netCostTime", String.valueOf(wR));
+            fH.p("netNum", String.valueOf(wQ));
+            fH.p("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", fH);
+            wO = 0;
+            wN = 0;
+            wR = 0;
+            wQ = 0;
+            wP = 0;
+            wS = 0;
         }
     }
 }

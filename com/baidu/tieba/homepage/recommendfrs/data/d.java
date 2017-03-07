@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.recommendfrs.data;
 
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.mvc.b.h;
 import com.baidu.tbadk.util.n;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import tbclient.ExcFrsPage.DataReq;
 import tbclient.ExcFrsPage.ExcFrsPageReqIdl;
 /* loaded from: classes.dex */
 public class d implements h {
-    private long cAh;
+    private long cBD;
     private int pn;
     private long tagCode;
 
@@ -26,29 +26,29 @@ public class d implements h {
         this.tagCode = j;
     }
 
-    public long akL() {
-        return this.cAh;
+    public long ajX() {
+        return this.cBD;
     }
 
     public void bs(long j) {
-        this.cAh = j;
+        this.cBD = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> lT() {
+    public HashMap<String, Object> EL() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object aa(boolean z) {
+    public Object bN(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.pn);
-        builder.scr_w = Integer.valueOf(k.I(TbadkCoreApplication.m9getInst()));
-        builder.scr_h = Integer.valueOf(k.J(TbadkCoreApplication.m9getInst()));
-        builder.scr_dip = Double.valueOf(k.K(TbadkCoreApplication.m9getInst()));
+        builder.scr_w = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
+        builder.scr_h = Integer.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
+        builder.scr_dip = Double.valueOf(k.ai(TbadkCoreApplication.m9getInst()));
         builder.tag_code = Long.valueOf(this.tagCode);
-        builder.q_type = Integer.valueOf(au.vg().vi() ? 2 : 1);
-        builder.last_rank = Long.valueOf(this.cAh);
+        builder.q_type = Integer.valueOf(av.vD().vF() ? 2 : 1);
+        builder.last_rank = Long.valueOf(this.cBD);
         ExcFrsPageReqIdl.Builder builder2 = new ExcFrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
         n.bindCommonParamsToProtobufData(builder2.data, true);

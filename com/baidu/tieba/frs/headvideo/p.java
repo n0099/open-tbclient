@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.headvideo;
 
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.play.v;
 import java.util.List;
 /* loaded from: classes.dex */
 class p implements v.d {
-    final /* synthetic */ ForumHeadVideoView bRD;
+    final /* synthetic */ ForumHeadVideoView bYL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ForumHeadVideoView forumHeadVideoView) {
-        this.bRD = forumHeadVideoView;
+        this.bYL = forumHeadVideoView;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -22,16 +22,16 @@ class p implements v.d {
                 e.printStackTrace();
             }
         }
-        c currentVideoItemView = this.bRD.getCurrentVideoItemView();
+        c currentVideoItemView = this.bYL.getCurrentVideoItemView();
         if (currentVideoItemView != null) {
-            list = this.bRD.aPE;
-            if (w.r(list) > 1) {
+            list = this.bYL.aVq;
+            if (x.p(list) > 1) {
                 currentVideoItemView.setLooping(false);
             } else {
                 currentVideoItemView.setLooping(true);
             }
             currentVideoItemView.setVideoPlayState(3);
-            this.bRD.z(currentVideoItemView.getThreadInfo());
+            this.bYL.z(currentVideoItemView.getThreadInfo());
         }
     }
 }

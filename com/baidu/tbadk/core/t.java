@@ -4,15 +4,15 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
 class t implements c.a {
-    final /* synthetic */ s Nz;
+    final /* synthetic */ s SD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.Nz = sVar;
+        this.SD = sVar;
     }
 
     @Override // com.baidu.tbadk.util.c.a
-    public void am(boolean z) {
+    public void al(boolean z) {
         if (!z) {
             BdSocketLinkService.startService(false, "restart");
         }

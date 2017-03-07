@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class g extends b {
     public static BdUniqueId TYPE = BdUniqueId.gen();
-    public f bod;
+    public f buY;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {

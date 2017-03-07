@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsGoodActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.cb;
 import com.baidu.tieba.frs.cc;
 import com.baidu.tieba.frs.cj;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements cb {
-    final /* synthetic */ a bMi;
+    final /* synthetic */ a bTo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bMi = aVar;
+        this.bTo = aVar;
     }
 
     @Override // com.baidu.tieba.frs.cb
@@ -51,65 +51,65 @@ public class b implements cb {
         FrsActivity frsActivity8;
         FrsActivity frsActivity9;
         if (i > 100) {
-            if (cjVar != null && (cjVar.bJi instanceof String)) {
-                this.bMi.aK((String) cjVar.bJi, "c10079");
+            if (cjVar != null && (cjVar.bQr instanceof String)) {
+                this.bTo.aI((String) cjVar.bQr, "c10079");
             }
         } else {
-            ar arVar = new ar("c10074");
-            arVar.s("obj_type", i);
-            frsActivity = this.bMi.bLZ;
-            arVar.ab("fid", frsActivity.getForumId());
-            TiebaStatic.log(arVar);
+            as asVar = new as("c10074");
+            asVar.s("obj_type", i);
+            frsActivity = this.bTo.bTf;
+            asVar.Z("fid", frsActivity.getForumId());
+            TiebaStatic.log(asVar);
             if (i == 99) {
-                ar arVar2 = new ar("c11500");
-                arVar2.ab("obj_param1", "2").ab("obj_param2", "1");
-                TiebaStatic.log(arVar2);
+                as asVar2 = new as("c11500");
+                asVar2.Z("obj_param1", "2").Z("obj_param2", "1");
+                TiebaStatic.log(asVar2);
             }
         }
-        if (HorizontalTabView.iB(i) && cjVar != null) {
-            String str = (String) cjVar.bJi;
+        if (HorizontalTabView.ix(i) && cjVar != null) {
+            String str = (String) cjVar.bQr;
             if (!StringUtils.isNull(str)) {
                 if ((str.contains("nohead:url") || str.contains("booktown")) && !TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    frsActivity8 = this.bMi.bLZ;
-                    k.showToast(frsActivity8.getPageContext().getPageActivity(), r.l.book_plugin_not_install_tip);
+                    frsActivity8 = this.bTo.bTf;
+                    k.showToast(frsActivity8.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
                     return;
                 }
-                ba vt = ba.vt();
-                frsActivity9 = this.bMi.bLZ;
-                vt.c(frsActivity9.getPageContext(), new String[]{str});
+                bb vQ = bb.vQ();
+                frsActivity9 = this.bTo.bTf;
+                vQ.c(frsActivity9.getPageContext(), new String[]{str});
             }
         } else if (i == 301) {
-            frsActivity2 = this.bMi.bLZ;
+            frsActivity2 = this.bTo.bTf;
             if (frsActivity2 != null) {
-                frsActivity3 = this.bMi.bLZ;
+                frsActivity3 = this.bTo.bTf;
                 if (frsActivity3.getPageContext() != null) {
-                    frsActivity4 = this.bMi.bLZ;
+                    frsActivity4 = this.bTo.bTf;
                     if (frsActivity4.getPageContext().getPageActivity() != null) {
-                        frsActivity5 = this.bMi.bLZ;
-                        frsActivity6 = this.bMi.bLZ;
+                        frsActivity5 = this.bTo.bTf;
+                        frsActivity6 = this.bTo.bTf;
                         FrsGoodActivityConfig frsGoodActivityConfig = new FrsGoodActivityConfig(frsActivity6.getPageContext().getPageActivity());
-                        frsActivity7 = this.bMi.bLZ;
-                        frsActivity5.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity7.bFw, FrsActivityConfig.FRS_FROM_LIKE)));
+                        frsActivity7 = this.bTo.bTf;
+                        frsActivity5.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity7.bME, FrsActivityConfig.FRS_FROM_LIKE)));
                     }
                 }
             }
         } else {
             if (i == 1) {
-                aVar3 = this.bMi.bMb;
-                aVar3.aau();
+                aVar3 = this.bTo.bTh;
+                aVar3.abr();
             } else {
-                aVar = this.bMi.bMb;
-                aVar.aav();
+                aVar = this.bTo.bTh;
+                aVar.abs();
             }
-            cbVar = this.bMi.bMc;
+            cbVar = this.bTo.bTi;
             if (cbVar != null) {
-                aVar2 = this.bMi.bMb;
-                if (aVar2.aat() != 4 || i != 1) {
-                    cbVar2 = this.bMi.bMc;
+                aVar2 = this.bTo.bTh;
+                if (aVar2.abq() != 4 || i != 1) {
+                    cbVar2 = this.bTo.bTi;
                     cbVar2.a(i, i2, cjVar);
                     return;
                 }
-                cbVar3 = this.bMi.bMc;
+                cbVar3 = this.bTo.bTi;
                 cbVar3.a(2, i2, cjVar);
             }
         }
@@ -120,6 +120,6 @@ public class b implements cb {
     }
 
     @Override // com.baidu.tieba.frs.cb
-    public void Me() {
+    public void MQ() {
     }
 }

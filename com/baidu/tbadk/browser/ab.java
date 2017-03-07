@@ -4,19 +4,19 @@ import com.baidu.tbadk.core.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements j.a {
-    final /* synthetic */ y Mm;
+    final /* synthetic */ y Rp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(y yVar) {
-        this.Mm = yVar;
+        this.Rp = yVar;
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void oa() {
-        this.Mm.nW();
+    public void oo() {
+        this.Rp.ok();
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
-    public void ob() {
+    public void op() {
     }
 }

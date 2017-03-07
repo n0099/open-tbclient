@@ -41,18 +41,18 @@ public class g {
 
     public String b() {
         StringBuffer stringBuffer = new StringBuffer();
-        if (com.baidu.location.f.j.nb().g()) {
+        if (com.baidu.location.f.j.np().g()) {
             this.f = "&cn=32";
         } else {
-            this.f = String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.f.b.mS().e()));
+            this.f = String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.f.b.ng().e()));
         }
         stringBuffer.append(this.f);
         stringBuffer.append(String.format(Locale.CHINA, "&fir=%d&tim=%d&dsc=%d&det=%d&ded=%d&typ=%s", Integer.valueOf(this.e), Long.valueOf(this.a), Long.valueOf(this.b - this.a), Long.valueOf(this.c - this.b), Long.valueOf(this.d - this.c), this.g));
         if (this.h != null) {
             stringBuffer.append(this.h);
         }
-        stringBuffer.append(com.baidu.location.h.c.nh().a(false));
-        stringBuffer.append(com.baidu.location.a.a.mi().c());
+        stringBuffer.append(com.baidu.location.h.c.nv().a(false));
+        stringBuffer.append(com.baidu.location.a.a.mw().c());
         return stringBuffer.toString();
     }
 
@@ -72,7 +72,7 @@ public class g {
         this.c = j;
     }
 
-    public void l(long j) {
+    public void d(long j) {
         this.d = j;
     }
 }

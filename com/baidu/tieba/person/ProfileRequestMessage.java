@@ -126,12 +126,12 @@ public class ProfileRequestMessage extends NetMessage {
             builder.pn = get_pn();
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
-            int I = k.I(TbadkCoreApplication.m9getInst().getApp());
-            int J = k.J(TbadkCoreApplication.m9getInst().getApp());
-            int viewImageQuality = l.oC().getViewImageQuality();
-            builder.scr_w = Integer.valueOf(I);
-            builder.scr_h = Integer.valueOf(J);
-            builder.scr_dip = Double.valueOf(k.K(TbadkCoreApplication.m9getInst().getApp()));
+            int ag = k.ag(TbadkCoreApplication.m9getInst().getApp());
+            int ah = k.ah(TbadkCoreApplication.m9getInst().getApp());
+            int viewImageQuality = l.oQ().getViewImageQuality();
+            builder.scr_w = Integer.valueOf(ag);
+            builder.scr_h = Integer.valueOf(ah);
+            builder.scr_dip = Double.valueOf(k.ai(TbadkCoreApplication.m9getInst().getApp()));
             builder.q_type = Integer.valueOf(viewImageQuality);
             if (z) {
                 n.bindCommonParamsToProtobufData(builder, true);

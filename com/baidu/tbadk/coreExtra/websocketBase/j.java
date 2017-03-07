@@ -6,37 +6,37 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements g.a {
-    final /* synthetic */ i ark;
+    final /* synthetic */ i awF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.ark = iVar;
+        this.awF = iVar;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void e(Map<String, String> map) {
         int i;
-        i = this.ark.arf;
+        i = this.awF.awA;
         if (i >= 5) {
             com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.j.getUrl());
-            a.Bf().eR(com.baidu.adp.framework.client.socket.j.getUrl());
-            a.Bf().Bj();
+            a.By().eG(com.baidu.adp.framework.client.socket.j.getUrl());
+            a.By().BC();
         }
-        this.ark.arf = 0;
+        this.awF.awA = 0;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void d(int i, String str) {
+    public void e(int i, String str) {
         int i2;
         int i3;
-        if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.gk()) {
-            i iVar = this.ark;
-            i2 = iVar.arf;
-            iVar.arf = i2 + 1;
-            i3 = this.ark.arf;
+        if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.he()) {
+            i iVar = this.awF;
+            i2 = iVar.awA;
+            iVar.awA = i2 + 1;
+            i3 = this.awF.awA;
             if (i3 >= 5) {
                 com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                this.ark.BB();
+                this.awF.BU();
             }
         }
     }
@@ -46,11 +46,11 @@ public class j implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void gX() {
+    public void hR() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void B(String str) {
+    public void A(String str) {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

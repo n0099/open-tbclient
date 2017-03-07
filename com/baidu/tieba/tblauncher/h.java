@@ -2,7 +2,7 @@ package com.baidu.tieba.tblauncher;
 
 import android.content.Intent;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class h implements a.b {
     final /* synthetic */ MainTabActivity this$0;
@@ -18,7 +18,7 @@ class h implements a.b {
             this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
             aVar.dismiss();
         } catch (Exception e) {
-            this.this$0.showToast(r.l.goto_developActivity_error_toast);
+            this.this$0.showToast(w.l.goto_developActivity_error_toast);
         }
     }
 }

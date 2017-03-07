@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class DrawableCompat {
-    static final b bz;
+    static final b jk;
 
     /* loaded from: classes.dex */
     interface b {
@@ -64,23 +64,23 @@ public class DrawableCompat {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 19) {
-            bz = new d();
+            jk = new d();
         } else if (i >= 11) {
-            bz = new c();
+            jk = new c();
         } else {
-            bz = new a();
+            jk = new a();
         }
     }
 
     public static void jumpToCurrentState(Drawable drawable) {
-        bz.jumpToCurrentState(drawable);
+        jk.jumpToCurrentState(drawable);
     }
 
     public static void setAutoMirrored(Drawable drawable, boolean z) {
-        bz.setAutoMirrored(drawable, z);
+        jk.setAutoMirrored(drawable, z);
     }
 
     public static boolean isAutoMirrored(Drawable drawable) {
-        return bz.isAutoMirrored(drawable);
+        return jk.isAutoMirrored(drawable);
     }
 }

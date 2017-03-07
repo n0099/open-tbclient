@@ -6,18 +6,18 @@ import com.baidu.tieba.pb.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements d.a {
-    final /* synthetic */ ao esl;
+    final /* synthetic */ ao evz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(ao aoVar) {
-        this.esl = aoVar;
+        this.evz = aoVar;
     }
 
     @Override // com.baidu.tieba.pb.a.d.a
     public boolean a(View view, MotionEvent motionEvent) {
-        this.esl.iO(false);
-        this.esl.bc(view);
-        this.esl.iO(true);
+        this.evz.iJ(false);
+        this.evz.bb(view);
+        this.evz.iJ(true);
         return true;
     }
 

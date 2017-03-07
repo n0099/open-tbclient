@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 /* loaded from: classes.dex */
 class k implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ f dgY;
+    final /* synthetic */ f djq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.dgY = fVar;
+        this.djq = fVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -19,14 +19,14 @@ class k implements AdapterView.OnItemLongClickListener {
         if (i < 0) {
             return false;
         }
-        f fVar = this.dgY;
-        imMessageCenterListAdapter = this.dgY.dgP;
-        fVar.dgN = imMessageCenterListAdapter.getItem(i);
-        f fVar2 = this.dgY;
-        imMessageCenterShowItemData = this.dgY.dgN;
+        f fVar = this.djq;
+        imMessageCenterListAdapter = this.djq.djh;
+        fVar.djf = imMessageCenterListAdapter.getItem(i);
+        f fVar2 = this.djq;
+        imMessageCenterShowItemData = this.djq.djf;
         fVar2.c(imMessageCenterShowItemData);
-        if (this.dgY.dgS != null) {
-            this.dgY.dgS.sY();
+        if (this.djq.djk != null) {
+            this.djq.djk.tv();
         }
         return true;
     }

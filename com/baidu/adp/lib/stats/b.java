@@ -1,22 +1,31 @@
 package com.baidu.adp.lib.stats;
 
 import android.os.Handler;
-import android.os.Message;
+import com.baidu.adp.lib.stats.b.j;
+import com.baidu.adp.lib.stats.switchs.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b extends Handler {
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case 1:
-                a.eG().eO();
-                a.eG().eR();
-                return;
-            case 2:
-                removeMessages(2);
-                a.eG().eQ();
-                return;
-            default:
-                return;
+public class b implements a.InterfaceC0006a {
+    final /* synthetic */ BdStatisticsManager this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(BdStatisticsManager bdStatisticsManager) {
+        this.this$0 = bdStatisticsManager;
+    }
+
+    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0006a
+    public void fO() {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        this.this$0.isSwitchReady = true;
+        if (this.this$0.mIsMainProcess) {
+            j.gE().gL();
         }
+        handler = BdStatisticsManager.mHandler;
+        handler.removeMessages(2);
+        handler2 = BdStatisticsManager.mHandler;
+        handler3 = BdStatisticsManager.mHandler;
+        handler2.sendMessageDelayed(handler3.obtainMessage(2), 15000L);
     }
 }

@@ -4,20 +4,20 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements DialogInterface.OnDismissListener {
-    final /* synthetic */ WriteActivity fMl;
+    final /* synthetic */ WriteActivity fQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.fMl = writeActivity;
+        this.fQG = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         boolean z;
-        z = this.fMl.fLS;
+        z = this.fQG.fQn;
         if (z) {
-            com.baidu.adp.lib.util.k.b(this.fMl.getPageContext().getPageActivity(), this.fMl.getCurrentFocus());
-            this.fMl.fLT = System.currentTimeMillis();
+            com.baidu.adp.lib.util.k.b(this.fQG.getPageContext().getPageActivity(), this.fQG.getCurrentFocus());
+            this.fQG.fQo = System.currentTimeMillis();
         }
     }
 }

@@ -14,10 +14,10 @@ class an extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-            com.baidu.tieba.frs.smartsort.e.act().acu();
-            a.acm().aco();
-            if (com.baidu.tieba.recapp.p.aZV().aZU() != null) {
-                com.baidu.tieba.recapp.p.aZV().aZU().aZR();
+            com.baidu.tieba.frs.smartsort.e.adr().ads();
+            a.adj().adl();
+            if (com.baidu.tieba.recapp.r.aZD().aZB() != null) {
+                com.baidu.tieba.recapp.r.aZD().aZB().aZt();
             }
         }
     }

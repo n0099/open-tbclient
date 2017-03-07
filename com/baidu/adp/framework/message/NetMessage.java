@@ -1,6 +1,7 @@
 package com.baidu.adp.framework.message;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public abstract class NetMessage {
     private static final String HTTP_DATA_KEY = "data";
@@ -23,7 +24,7 @@ public abstract class NetMessage {
         HTTP,
         AUTO;
 
-        /* JADX DEBUG: Replace access to removed values field (ji) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (rd) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetType[] valuesCustom() {
             NetType[] valuesCustom = values();
@@ -53,7 +54,7 @@ public abstract class NetMessage {
         this.httpCmd = i;
         this.socketCmd = i2;
         this.tag = bdUniqueId;
-        this.clientLogID = com.baidu.adp.lib.stats.a.eG().eI();
+        this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public void resetData() {

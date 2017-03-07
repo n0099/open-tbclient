@@ -47,10 +47,10 @@ public class PersonPolymericReqMsg extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.uid = Long.valueOf(this.uid);
         builder.pn = Integer.valueOf(this.pn);
-        builder.scr_w = Integer.valueOf(k.I(TbadkCoreApplication.m9getInst().getApp()));
-        builder.scr_h = Integer.valueOf(k.J(TbadkCoreApplication.m9getInst().getApp()));
-        builder.q_type = Integer.valueOf(l.oC().getViewImageQuality());
-        builder.scr_dip = Double.valueOf(k.K(TbadkCoreApplication.m9getInst().getApp()));
+        builder.scr_w = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp()));
+        builder.scr_h = Integer.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp()));
+        builder.q_type = Integer.valueOf(l.oQ().getViewImageQuality());
+        builder.scr_dip = Double.valueOf(k.ai(TbadkCoreApplication.m9getInst().getApp()));
         if (z) {
             com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true);
         }

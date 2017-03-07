@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.packageManager.pluginSettings;
 /* loaded from: classes.dex */
 public interface e {
-    void jf();
+    void jZ();
 
-    void jg();
+    void ka();
 }

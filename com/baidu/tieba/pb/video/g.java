@@ -1,16 +1,36 @@
 package com.baidu.tieba.pb.video;
 
-import com.baidu.tieba.play.c;
+import android.animation.Animator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements c.e {
-    final /* synthetic */ d etA;
+public class g implements Animator.AnimatorListener {
+    final /* synthetic */ d ewS;
+    private final /* synthetic */ boolean ewT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(d dVar) {
-        this.etA = dVar;
+    public g(d dVar, boolean z) {
+        this.ewS = dVar;
+        this.ewT = z;
     }
 
-    @Override // com.baidu.tieba.play.c.e
-    public void aPK() {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        if (this.ewT) {
+            this.ewS.aPl();
+        } else {
+            this.ewS.aPj();
+        }
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
     }
 }

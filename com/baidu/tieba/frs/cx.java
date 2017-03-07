@@ -1,44 +1,44 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.widget.vote.a;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class cx implements a {
-    private int bJT = -1;
-    private String bJU = null;
+    private int bQZ = -1;
+    private String bRa = null;
     private int mPercent = 0;
-    private boolean bJV = false;
-    private int[] bJW = {r.g.icon_grade_vote_num1, r.g.icon_grade_vote_num2, r.g.icon_grade_vote_num3};
-    private int[] bJX = {r.g.icon_grade_vote_no1, r.g.icon_grade_vote_no2, r.g.icon_grade_vote_no3};
+    private boolean bRb = false;
+    private int[] bRc = {w.g.icon_grade_vote_num1, w.g.icon_grade_vote_num2, w.g.icon_grade_vote_num3};
+    private int[] bRd = {w.g.icon_grade_vote_no1, w.g.icon_grade_vote_no2, w.g.icon_grade_vote_no3};
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Cd() {
-        return this.bJT;
+    public int Cw() {
+        return this.bQZ;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Ca() {
-        return this.bJU;
+    public String Ct() {
+        return this.bRa;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cb() {
+    public String Cu() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Ce() {
+    public int Cx() {
         return this.mPercent;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cc() {
+    public String Cv() {
         return String.valueOf(this.mPercent) + "%";
     }
 
     public void dS(boolean z) {
-        this.bJV = z;
+        this.bRb = z;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -47,22 +47,22 @@ public class cx implements a {
     }
 
     public void a(int i, PollOption pollOption, long j) {
-        int[] iArr = this.bJV ? this.bJW : this.bJX;
+        int[] iArr = this.bRb ? this.bRc : this.bRd;
         switch (i) {
             case 1:
-                this.bJT = iArr[0];
+                this.bQZ = iArr[0];
                 break;
             case 2:
-                this.bJT = iArr[1];
+                this.bQZ = iArr[1];
                 break;
             case 3:
-                this.bJT = iArr[2];
+                this.bQZ = iArr[2];
                 break;
             default:
-                this.bJT = -1;
+                this.bQZ = -1;
                 break;
         }
-        this.bJU = pollOption.text;
+        this.bRa = pollOption.text;
         if (j > 0) {
             this.mPercent = (int) ((pollOption.num.longValue() * 100) / j);
         } else {
@@ -71,7 +71,7 @@ public class cx implements a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cf() {
+    public String Cy() {
         return null;
     }
 

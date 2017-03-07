@@ -1,20 +1,20 @@
 package com.baidu.tieba.personPolymeric.a;
 
-import com.baidu.tieba.tbadkCore.ah;
+import com.baidu.tieba.tbadkCore.ag;
 /* loaded from: classes.dex */
-class b implements ah.a {
-    final /* synthetic */ a eCL;
+class b implements ag.a {
+    final /* synthetic */ a eGn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.eCL = aVar;
+        this.eGn = aVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ah.a
+    @Override // com.baidu.tieba.tbadkCore.ag.a
     public void j(String str, long j) {
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ah.a
+    @Override // com.baidu.tieba.tbadkCore.ag.a
     public void k(String str, long j) {
     }
 }

@@ -2,63 +2,71 @@ package com.baidu.tieba.pb.video;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.b.a;
-import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.bq;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.bg;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ b ets;
+    final /* synthetic */ b ewF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.ets = bVar;
+        this.ewF = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bo boVar;
-        bo boVar2;
-        bo boVar3;
-        bo boVar4;
-        bo boVar5;
+        bq bqVar;
+        bq bqVar2;
+        ImageView imageView;
+        bq bqVar3;
+        bq bqVar4;
+        bq bqVar5;
         if (view != null) {
-            if (view == this.ets.eto || view == this.ets.etp) {
-                boVar = this.ets.etr;
-                if (boVar != null) {
-                    Activity activity = this.ets.aWr.getActivity();
-                    boVar2 = this.ets.etr;
-                    this.ets.aWr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(activity, boVar2.channelId, 2)));
-                }
-                TiebaStatic.log(new ar("c11923").s("obj_id", 1));
-            } else if (view == this.ets.etq) {
-                if (com.baidu.adp.lib.util.k.gB()) {
-                    boVar3 = this.ets.etr;
-                    if (boVar3 != null) {
-                        boVar4 = this.ets.etr;
-                        if (boVar4.channelId > 0) {
-                            if (TbadkCoreApplication.isLogin()) {
-                                boVar5 = this.ets.etr;
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0033a.a(boVar5.channelId, this.ets.aWr.getUniqueId())));
+            if (view != this.ewF.ewB && view != this.ewF.ewC) {
+                imageView = this.ewF.amg;
+                if (view != imageView) {
+                    if (view == this.ewF.ewD) {
+                        if (com.baidu.adp.lib.util.k.hv()) {
+                            bqVar3 = this.ewF.ewE;
+                            if (bqVar3 != null) {
+                                bqVar4 = this.ewF.ewE;
+                                if (bqVar4.channelId > 0) {
+                                    if (TbadkCoreApplication.isLogin()) {
+                                        bqVar5 = this.ewF.ewE;
+                                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0032a.a(bqVar5.channelId, this.ewF.bcF.getUniqueId())));
+                                        return;
+                                    }
+                                    bg.aH(this.ewF.bcF.getActivity());
+                                    return;
+                                }
                                 return;
                             }
-                            bf.aj(this.ets.aWr.getActivity());
                             return;
                         }
+                        this.ewF.bcF.showToast(w.l.no_network_guide);
                         return;
                     }
                     return;
                 }
-                this.ets.aWr.showToast(r.l.no_network_guide);
             }
+            bqVar = this.ewF.ewE;
+            if (bqVar != null) {
+                Activity activity = this.ewF.bcF.getActivity();
+                bqVar2 = this.ewF.ewE;
+                this.ewF.bcF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(activity, bqVar2.channelId, 2)));
+            }
+            TiebaStatic.log(new as("c11923").s("obj_id", 1));
         }
     }
 }

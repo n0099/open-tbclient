@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements ba.a {
-    @Override // com.baidu.tbadk.core.util.ba.a
+public class k implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        Bundle gw;
+        Bundle gl;
         if (tbPageContext == null || strArr == null || strArr.length == 0) {
             return 3;
         }
@@ -40,19 +40,19 @@ public class k implements ba.a {
             String substring = str.substring(4);
             String str4 = "";
             if (str.contains("body=")) {
-                str4 = com.baidu.tbadk.util.x.at(str, "body=");
+                str4 = com.baidu.tbadk.util.x.aq(str, "body=");
                 substring = substring.substring(0, substring.indexOf("?") - 1);
             }
             UtilHelper.smsTo(tbPageContext.getPageActivity(), substring, str4);
             return 0;
         } else if (str.contains("jump=outer")) {
-            f.w(tbPageContext.getPageActivity(), str);
+            f.Q(tbPageContext.getPageActivity(), str);
             return 1;
         } else if (str.contains("jump=finish_this_page") && tbPageContext.getPageActivity() != null) {
             tbPageContext.getPageActivity().finish();
             return 1;
         } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("pay=1") && (tbPageContext instanceof Activity)) {
-            UtilHelper.showToast(tbPageContext.getPageActivity(), r.l.buy_sucess);
+            UtilHelper.showToast(tbPageContext.getPageActivity(), w.l.buy_sucess);
             ((Activity) tbPageContext).finish();
             return 0;
         } else if (str.startsWith("tieba://focusforum")) {
@@ -65,11 +65,15 @@ public class k implements ba.a {
             intent.setFlags(268435456);
             tbPageContext.getPageActivity().startActivity(intent);
             return 0;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.x.at(str, "bindid=")));
+        } else if (str.contains("tieba.baidu.com/mo/q/tbeanrights?") && str.contains("from=autopay")) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_AUTO_PAY_SUCC, true));
             tbPageContext.getPageActivity().finish();
             return 1;
-        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gw = com.baidu.tbadk.util.x.gw(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gw.getString("path"))) {
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, com.baidu.tbadk.util.x.aq(str, "bindid=")));
+            tbPageContext.getPageActivity().finish();
+            return 1;
+        } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (gl = com.baidu.tbadk.util.x.gl(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(gl.getString("path"))) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_YINJIN_CHANGE));
             return 0;
         } else {
@@ -85,16 +89,16 @@ public class k implements ba.a {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_RANK, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring2, str2)));
                             }
                         } else {
-                            Static.c(tbPageContext, str.substring(3), tbPageContext.getString(r.l.kn_zhibo), false, true, false, false);
+                            Static.c(tbPageContext, str.substring(3), tbPageContext.getString(w.l.kn_zhibo), false, true, false, false);
                         }
                     } else {
                         Static.c(tbPageContext, str3, str.substring(6), false, true, true, false);
                     }
                 } else {
-                    Static.c(tbPageContext, f.L(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
+                    Static.c(tbPageContext, f.J(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
                 }
             } else {
-                Static.c(tbPageContext, f.L(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
+                Static.c(tbPageContext, f.J(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
             }
             return 3;
         }

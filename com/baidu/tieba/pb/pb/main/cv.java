@@ -1,24 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Comparator;
 /* loaded from: classes.dex */
-public class cv implements View.OnClickListener {
-    final /* synthetic */ cq ejI;
+class cv implements Comparator<Integer> {
+    final /* synthetic */ cp emB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(cq cqVar) {
-        this.ejI = cqVar;
+    public cv(cp cpVar) {
+        this.emB = cpVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.pb.data.f fVar;
-        cq cqVar = this.ejI;
-        fVar = this.ejI.egj;
-        cqVar.b(fVar);
-        this.ejI.notifyDataSetChanged();
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11926"));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    public int compare(Integer num, Integer num2) {
+        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
     }
 }

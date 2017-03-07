@@ -1,68 +1,108 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.frs.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
-import com.baidu.tieba.frs.ResponseIncrForumAccessCountSocketMessage;
-import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
-import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.tbadkCore.PraiseModel;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class q {
-    public q() {
-        aci();
-        acj();
-        ack();
+public class q extends u {
+    private final CustomMessageListener alP;
+    private boolean bVr;
+    private String bVs;
+    private bj bZQ;
+    private PraiseModel bZR;
+
+    public q(FrsActivity frsActivity) {
+        super(frsActivity);
+        this.alP = new r(this, CmdConfigCustom.PB_ACTION_PRAISE);
+        this.bTf.registerListener(this.alP);
+        this.bZR = ade();
     }
 
-    private void aci() {
-        com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
-        a.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
-        a.l(true);
-        a.m(false);
-        a.a(SocketMessageTask.DupLicateMode.NONE);
-        MessageManager.getInstance().registerTask(a);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, com.baidu.tieba.tbadkCore.a.a.aC(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedTbs(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(false);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-        tbHttpMessageTask.setResponsedClass(ResponseIncrForumAccessCountHttpMessage.class);
-        tbHttpMessageTask.setIsImm(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public final PraiseModel ade() {
+        if (this.bZR == null) {
+            this.bZR = new PraiseModel(this.bTf.getPageContext(), new s(this));
+        }
+        return this.bZR;
     }
 
-    private void acj() {
-        com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
-        a.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
-        a.l(true);
-        a.m(false);
-        a.a(SocketMessageTask.DupLicateMode.NONE);
-        MessageManager.getInstance().registerTask(a);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, com.baidu.tieba.tbadkCore.a.a.aC(TbConfig.SET_COMMON_FORUM_STATE, 309365));
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedTbs(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(false);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-        tbHttpMessageTask.setResponsedClass(ResponseSetCommForumStateHttpMessage.class);
-        tbHttpMessageTask.setIsImm(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    /* renamed from: if  reason: not valid java name */
+    public void m14if(int i) {
+        ArrayList<com.baidu.adp.widget.ListView.v> threadList;
+        com.baidu.tieba.tbadkCore.n YV = this.bTf.YV();
+        if (YV != null && this.bMN != null && (threadList = YV.getThreadList()) != null) {
+            Iterator<com.baidu.adp.widget.ListView.v> it = threadList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                com.baidu.adp.widget.ListView.v next = it.next();
+                if (next instanceof bj) {
+                    bj bjVar = (bj) next;
+                    if (bjVar == this.bZQ) {
+                        c(bjVar, i);
+                        this.bZQ = null;
+                        break;
+                    } else if (bjVar.getId() != null && bjVar.getId().equals(this.bVs)) {
+                        c(bjVar, i);
+                        this.bVs = null;
+                        break;
+                    }
+                }
+            }
+            this.bMN.ZG().b(threadList, YV);
+            this.bMN.ZG().notifyDataSetChanged();
+        }
     }
 
-    private void ack() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_MY_POST + "?cmd=303111");
-        tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(303111);
-        bVar.setResponsedClass(GetMyPostSocketResponseMessage.class);
-        bVar.l(true);
-        bVar.m(false);
-        bVar.a(SocketMessageTask.DupLicateMode.NONE);
-        messageManager.registerTask(bVar);
+    public void c(bj bjVar, int i) {
+        if (bjVar != null) {
+            if (i == 1) {
+                PraiseData rG = bjVar.rG();
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.setName_show(currentAccountObj.getAccount());
+                    metaData.setPortrait(currentAccountObj.getPortrait());
+                    metaData.setUserId(currentAccountObj.getID());
+                    if (rG == null) {
+                        PraiseData praiseData = new PraiseData();
+                        praiseData.setIsLike(i);
+                        praiseData.setNum(1L);
+                        praiseData.getUser().add(0, metaData);
+                        bjVar.a(praiseData);
+                        return;
+                    }
+                    bjVar.rG().getUser().add(0, metaData);
+                    bjVar.rG().setNum(bjVar.rG().getNum() + 1);
+                    bjVar.rG().setIsLike(i);
+                }
+            } else if (bjVar.rG() != null) {
+                bjVar.rG().setIsLike(i);
+                bjVar.rG().setNum(bjVar.rG().getNum() - 1);
+                ArrayList<MetaData> user = bjVar.rG().getUser();
+                if (user != null) {
+                    Iterator<MetaData> it = user.iterator();
+                    while (it.hasNext()) {
+                        MetaData next = it.next();
+                        if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
+                            bjVar.rG().getUser().remove(next);
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void eh(boolean z) {
+        this.bVr = z;
     }
 }

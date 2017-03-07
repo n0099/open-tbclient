@@ -1,31 +1,116 @@
 package com.baidu.adp.lib.stats;
 
-import android.os.Handler;
-import com.baidu.adp.lib.stats.b.j;
-import com.baidu.adp.lib.stats.switchs.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class c implements a.InterfaceC0007a {
-    final /* synthetic */ a this$0;
+public class c {
+    private long mStartTime;
+    public String mType;
+    public long sequenceID;
+    public long xc;
+    boolean xd;
+    private ArrayList<BasicNameValuePair> xe;
+    private StringBuilder xf;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.this$0 = aVar;
+    public c(String str) {
+        this.xc = 1L;
+        this.sequenceID = -1L;
+        this.xd = false;
+        this.mType = null;
+        this.xf = new StringBuilder(100);
+        this.mType = str;
+        this.xd = false;
+        this.xc = -1L;
+        this.sequenceID = -1L;
     }
 
-    @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0007a
-    public void eU() {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        this.this$0.pC = true;
-        if (this.this$0.pB) {
-            j.fJ().fQ();
+    public c() {
+        this.xc = 1L;
+        this.sequenceID = -1L;
+        this.xd = false;
+        this.mType = null;
+        this.xf = new StringBuilder(100);
+    }
+
+    public void c(Object obj, Object obj2) {
+        if (obj != null && obj2 != null) {
+            if (this.xe == null) {
+                this.xe = new ArrayList<>();
+            }
+            this.xe.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
-        handler = a.mHandler;
-        handler.removeMessages(2);
-        handler2 = a.mHandler;
-        handler3 = a.mHandler;
-        handler2.sendMessageDelayed(handler3.obtainMessage(2), 15000L);
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder(200);
+        if (this.xf.length() > 0) {
+            sb.append((CharSequence) this.xf);
+        }
+        if (this.xe != null) {
+            Iterator<BasicNameValuePair> it = this.xe.iterator();
+            while (it.hasNext()) {
+                BasicNameValuePair next = it.next();
+                if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
+                    if (sb.length() > 0) {
+                        sb.append('&');
+                    }
+                    sb.append(next.getName());
+                    sb.append('=');
+                    try {
+                        sb.append(URLEncoder.encode(ai(next.getValue()), "utf-8"));
+                    } catch (UnsupportedEncodingException e) {
+                        BdLog.e(e);
+                        sb.append(ai(next.getValue()));
+                    }
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    public void d(Object... objArr) {
+        if (objArr != null) {
+            for (int i = 0; i < objArr.length / 2; i++) {
+                if ((i * 2) + 1 < objArr.length) {
+                    c(objArr[i * 2], objArr[(i * 2) + 1]);
+                }
+            }
+        }
+    }
+
+    public void p(String str, String str2) {
+        if (!TextUtils.isEmpty(str)) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (this.xf.length() > 0) {
+                this.xf.append('&');
+            }
+            this.xf.append(str);
+            this.xf.append("=");
+            try {
+                this.xf.append(URLEncoder.encode(ai(str2), "utf-8"));
+            } catch (Throwable th) {
+                BdLog.e(th);
+                this.xf.append(ai(str2));
+            }
+        }
+    }
+
+    public void fQ() {
+        this.mStartTime = System.currentTimeMillis();
+    }
+
+    public long fR() {
+        return System.currentTimeMillis() - this.mStartTime;
+    }
+
+    public static String ai(String str) {
+        return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

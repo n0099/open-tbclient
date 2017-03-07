@@ -5,70 +5,70 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.im.model.BlackListModel;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    private com.baidu.tbadk.core.dialog.a ER;
-    private com.baidu.adp.framework.listener.e caD = new a(this, 0);
-    private BlackListModel dhE;
-    private h dhF;
-    private BlackListItemData dhG;
+    private com.baidu.tbadk.core.dialog.a Mf;
+    private com.baidu.adp.framework.listener.e cOh = new a(this, 0);
+    private BlackListModel djW;
+    private h djX;
+    private BlackListItemData djY;
 
     private void initView() {
-        this.dhF = new h(this);
+        this.djX = new h(this);
     }
 
-    private void aa() {
-        this.dhE = new BlackListModel(getPageContext());
-        this.dhE.setUniqueId(getUniqueId());
+    private void bk() {
+        this.djW = new BlackListModel(getPageContext());
+        this.djW.setUniqueId(getUniqueId());
     }
 
-    private void MR() {
-        this.dhE.loadBlackList();
-        this.dhF.DD();
+    private void NE() {
+        this.djW.loadBlackList();
+        this.djX.DW();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(104103, this.caD);
-        registerListener(104102, this.caD);
+        registerListener(104103, this.cOh);
+        registerListener(104102, this.cOh);
         initView();
-        aa();
-        MR();
+        bk();
+        NE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.dhE != null) {
-            this.dhE.cancelLoadData();
+        if (this.djW != null) {
+            this.djW.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avh() {
+    public void auC() {
         showLoadingDialog((String) null, new b(this));
     }
 
     private void a(BlackListItemData blackListItemData) {
-        lt(String.format(getPageContext().getString(r.l.black_list_ensure_toremove_text), blackListItemData.getUserName()));
-        this.ER.sV();
+        kU(String.format(getPageContext().getString(w.l.black_list_ensure_toremove_text), blackListItemData.getUserName()));
+        this.Mf.ts();
     }
 
-    private void lt(String str) {
-        this.ER = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.ER.cE(str);
-        this.ER.a(r.l.confirm, new c(this));
-        this.ER.b(r.l.alert_no_button, new d(this));
-        this.ER.b(getPageContext());
+    private void kU(String str) {
+        this.Mf = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.Mf.cx(str);
+        this.Mf.a(w.l.confirm, new c(this));
+        this.Mf.b(w.l.alert_no_button, new d(this));
+        this.Mf.b(getPageContext());
     }
 
     public void a(View view, BlackListItemData blackListItemData) {
         if (blackListItemData != null && blackListItemData.getUserId() > 0) {
-            this.dhG = blackListItemData;
+            this.djY = blackListItemData;
             a(blackListItemData);
         }
     }

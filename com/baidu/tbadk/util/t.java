@@ -7,14 +7,14 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class t {
-    private static final BdUniqueId aDy = BdUniqueId.gen();
-    private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, aDy);
+    private static final BdUniqueId aIV = BdUniqueId.gen();
+    private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, aIV);
 
     public static <T> void a(s<T> sVar, f<T> fVar) {
         if (sVar != null) {
             a aVar = new a(sVar, fVar);
             aVar.setParallel(sBdAsyncTaskParallel);
-            aVar.setTag(aDy);
+            aVar.setTag(aIV);
             aVar.setPriority(4);
             aVar.execute(new String[0]);
         }
@@ -24,7 +24,7 @@ public class t {
         if (sVar != null) {
             a aVar = new a(sVar, fVar);
             aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(aDy);
+            aVar.setTag(aIV);
             aVar.setPriority(4);
             aVar.execute(new String[0]);
         }
@@ -33,14 +33,14 @@ public class t {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a<T> extends BdAsyncTask<String, Object, T> {
-        private f<T> aDA;
-        private s<T> aDz;
+        private s<T> aIW;
+        private f<T> aIX;
 
         public a(s<T> sVar, f<T> fVar) {
-            this.aDz = null;
-            this.aDA = null;
-            this.aDz = sVar;
-            this.aDA = fVar;
+            this.aIW = null;
+            this.aIX = null;
+            this.aIW = sVar;
+            this.aIX = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,10 +49,10 @@ public class t {
         /* renamed from: h */
         public T doInBackground(String... strArr) {
             try {
-                if (this.aDz == null) {
+                if (this.aIW == null) {
                     return null;
                 }
-                return this.aDz.doInBackground();
+                return this.aIW.doInBackground();
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return null;
@@ -62,13 +62,13 @@ public class t {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
-            if (this.aDA != null) {
-                this.aDA.onReturnDataInUI(t);
+            if (this.aIX != null) {
+                this.aIX.onReturnDataInUI(t);
             }
         }
     }
 
-    public static void Gw() {
-        BdAsyncTask.removeAllTask(aDy);
+    public static void GV() {
+        BdAsyncTask.removeAllTask(aIV);
     }
 }

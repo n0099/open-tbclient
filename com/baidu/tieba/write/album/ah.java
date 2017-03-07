@@ -3,11 +3,11 @@ package com.baidu.tieba.write.album;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ah implements aa {
-    final /* synthetic */ ag fIk;
+    final /* synthetic */ ag fME;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ag agVar) {
-        this.fIk = agVar;
+        this.fME = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.aa
@@ -17,17 +17,17 @@ class ah implements aa {
         o oVar;
         AlbumActivity albumActivity3;
         if (z) {
-            albumActivity2 = this.fIk.fGS;
+            albumActivity2 = this.fME.fLm;
             boolean c = albumActivity2.c(imageFileInfo);
-            oVar = this.fIk.fGE;
+            oVar = this.fME.fKY;
             if (oVar.isOriginalImg()) {
-                albumActivity3 = this.fIk.fGS;
-                albumActivity3.bmV();
+                albumActivity3 = this.fME.fLm;
+                albumActivity3.bmI();
                 return c;
             }
             return c;
         }
-        albumActivity = this.fIk.fGS;
+        albumActivity = this.fME.fLm;
         return albumActivity.d(imageFileInfo);
     }
 }

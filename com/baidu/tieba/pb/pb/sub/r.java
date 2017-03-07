@@ -2,14 +2,15 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements c.b {
-    final /* synthetic */ NewSubPbActivity erC;
+    final /* synthetic */ NewSubPbActivity euQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(NewSubPbActivity newSubPbActivity) {
-        this.erC = newSubPbActivity;
+        this.euQ = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -17,17 +18,17 @@ public class r implements c.b {
         SubPbModel subPbModel;
         SubPbModel subPbModel2;
         cVar.dismiss();
-        com.baidu.tieba.tbadkCore.data.p pVar = null;
-        subPbModel = this.erC.erl;
-        if (subPbModel.aPn() != null) {
-            subPbModel2 = this.erC.erl;
-            pVar = subPbModel2.aPn().aKw();
+        PostData postData = null;
+        subPbModel = this.euQ.euz;
+        if (subPbModel.aOE() != null) {
+            subPbModel2 = this.euQ.euz;
+            postData = subPbModel2.aOE().aJO();
         }
-        if (pVar != null) {
+        if (postData != null) {
             if (i == 0) {
-                pVar.bu(this.erC.getPageContext().getPageActivity());
+                postData.bS(this.euQ.getPageContext().getPageActivity());
             } else if (i == 1) {
-                this.erC.d(pVar);
+                this.euQ.d(postData);
             }
         }
     }

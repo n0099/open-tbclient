@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class bx {
-    private static bx bIW = new bx();
-    private final SparseArray<String> bIV = new SparseArray<>();
+    private static bx bQf = new bx();
+    private final SparseArray<String> bQe = new SparseArray<>();
 
     private bx() {
     }
 
-    public static bx Zf() {
-        return bIW;
+    public static bx aae() {
+        return bQf;
     }
 
-    public void hX(int i) {
-        this.bIV.put(i, "1");
+    public void hT(int i) {
+        this.bQe.put(i, "1");
     }
 
-    public boolean hY(int i) {
+    public boolean hU(int i) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.bIV.get(i));
+        return !TextUtils.isEmpty(this.bQe.get(i));
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PayTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class TbJsBridge {
@@ -25,7 +25,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!at.isEmpty(str)) {
+        if (!au.isEmpty(str)) {
             Toast.makeText(this.mTbPageContext.getPageActivity(), str, 0).show();
         }
         this.mTbPageContext.getPageActivity().finish();
@@ -38,14 +38,14 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void showShareDialog(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-        fVar.title = str;
-        fVar.content = str2;
-        fVar.linkUrl = str4;
-        if (!at.isEmpty(str3)) {
-            fVar.imageUri = Uri.parse(str3);
+        com.baidu.tbadk.coreExtra.share.g gVar = new com.baidu.tbadk.coreExtra.share.g();
+        gVar.title = str;
+        gVar.content = str2;
+        gVar.linkUrl = str4;
+        if (!au.isEmpty(str3)) {
+            gVar.imageUri = Uri.parse(str3);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), fVar, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), gVar, true)));
     }
 
     @JavascriptInterface
@@ -57,6 +57,6 @@ public class TbJsBridge {
         intent.putExtra(PayTBeanActivityConfig.QUAN_NUM, str3);
         intent.putExtra("is_left", str4);
         intent.putExtra("props_mon", str5);
-        com.baidu.adp.lib.g.i.c(this.mTbPageContext.getPageActivity(), intent);
+        com.baidu.adp.lib.g.i.f(this.mTbPageContext.getPageActivity(), intent);
     }
 }

@@ -1,156 +1,88 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.os.Parcelable;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eq {
-    private boolean ekh;
-    private boolean ekj;
-    private com.baidu.tieba.pb.data.f ekv;
-    private String ent;
-    private boolean enu;
-    private boolean env;
-    private Parcelable enw;
+public class eq implements View.OnClickListener {
+    final /* synthetic */ ep eqr;
 
-    static {
-        MessageManager.getInstance().registerListener(new er(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
-        MessageManager.getInstance().registerListener(new es(CmdConfigCustom.PB_RECORDER_RESET_CMD));
-        MessageManager.getInstance().registerListener(new et(CmdConfigCustom.CMD_LIKE_FORUM));
-        MessageManager.getInstance().registerListener(new eu(CmdConfigCustom.CMD_UNLIKE_FORUM));
-        MessageManager.getInstance().registerListener(new ev(CmdConfigCustom.CMD_UPDATE_PENDANT));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public eq(ep epVar) {
+        this.eqr = epVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a {
-        private static eq enx = new eq(null);
-    }
-
-    public static eq aNi() {
-        return a.enx;
-    }
-
-    private eq() {
-        this.ent = null;
-        this.enu = false;
-        this.ekv = null;
-        this.env = false;
-        this.enw = null;
-        this.ekj = true;
-        this.ekh = false;
-    }
-
-    /* synthetic */ eq(eq eqVar) {
-        this();
-    }
-
-    public void N(String str, boolean z) {
-        this.enu = false;
-        if (z) {
-            str = null;
-        }
-        if (str == null || str.length() < 1) {
-            reset();
-            this.ent = null;
-        } else if (!str.equals(this.ent)) {
-            reset();
-            this.ent = str;
-        } else {
-            this.enu = true;
-        }
-    }
-
-    public com.baidu.tieba.pb.data.f getPbData() {
-        if (!this.enu) {
-            this.env = false;
-            return null;
-        } else if (this.ekv != null && this.ekv.aKb() != null && this.ekv.aKb().size() > 0) {
-            this.env = true;
-            com.baidu.tieba.pb.data.f fVar = this.ekv;
-            this.ekv = null;
-            return fVar;
-        } else {
-            this.env = false;
-            this.ekv = null;
-            return null;
-        }
-    }
-
-    public Parcelable aNj() {
-        if (this.env) {
-            this.env = false;
-            Parcelable parcelable = this.enw;
-            this.enw = null;
-            return parcelable;
-        }
-        this.enw = null;
-        return null;
-    }
-
-    public boolean aLY() {
-        return this.ekj;
-    }
-
-    public boolean aNk() {
-        return this.ekh;
-    }
-
-    public boolean a(com.baidu.tieba.pb.data.f fVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.enu = false;
-        if (this.ent == null) {
-            reset();
-            return false;
-        } else if (fVar == null) {
-            reset();
-            return false;
-        } else if (fVar.aKb() == null) {
-            reset();
-            return false;
-        } else if (fVar.aKb().size() < 1) {
-            reset();
-            return false;
-        } else if (parcelable == null) {
-            reset();
-            return false;
-        } else {
-            this.ekv = fVar;
-            this.env = false;
-            this.enw = parcelable;
-            this.ekj = z;
-            this.ekh = z2;
-            return true;
-        }
-    }
-
-    public void reset() {
-        this.enu = false;
-        this.ekv = null;
-        this.env = false;
-        this.enw = null;
-    }
-
-    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.ekv != null && this.ekv.aJY() != null) {
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.c(this.ekv.aJY().getId(), 0L)) {
-                this.ekv.aJY().setLike(i);
-            }
-        }
-    }
-
-    public void a(com.baidu.tbadk.data.j jVar) {
-        if (jVar != null && this.ekv != null && this.ekv.aKb() != null && this.ekv.aKb().size() > 0) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount)) {
-                int size = this.ekv.aKb().size();
-                for (int i = 0; i < size; i++) {
-                    if (this.ekv.aKb().get(i) != null && this.ekv.aKb().get(i).getAuthor() != null && currentAccount.equals(this.ekv.aKb().get(i).getAuthor().getUserId()) && this.ekv.aKb().get(i).getAuthor().getPendantData() != null) {
-                        this.ekv.aKb().get(i).getAuthor().getPendantData().cq(jVar.pL());
-                        this.ekv.aKb().get(i).getAuthor().getPendantData().N(jVar.BX());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        com.baidu.tbadk.core.data.at atVar;
+        com.baidu.tbadk.core.data.at atVar2;
+        com.baidu.tbadk.core.data.at atVar3;
+        TbPageContext tbPageContext2;
+        com.baidu.tbadk.core.data.at atVar4;
+        com.baidu.tbadk.core.data.at atVar5;
+        TbPageContext tbPageContext3;
+        com.baidu.tbadk.core.data.at atVar6;
+        TbPageContext tbPageContext4;
+        com.baidu.tbadk.core.data.at atVar7;
+        com.baidu.tbadk.core.data.at atVar8;
+        TbPageContext tbPageContext5;
+        com.baidu.tbadk.core.data.at atVar9;
+        TbPageContext tbPageContext6;
+        tbPageContext = this.eqr.aaI;
+        if (com.baidu.tbadk.core.util.bg.aI(tbPageContext.getPageActivity()) && com.baidu.adp.lib.util.k.hv()) {
+            atVar = this.eqr.eqq;
+            if (atVar != null) {
+                atVar2 = this.eqr.eqq;
+                if (!StringUtils.isNull(atVar2.bookId)) {
+                    if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                        tbPageContext6 = this.eqr.aaI;
+                        com.baidu.adp.lib.util.k.showToast(tbPageContext6.getPageActivity(), w.l.book_plugin_not_install_tip);
+                    } else if (view == this.eqr.eqn) {
+                        atVar8 = this.eqr.eqq;
+                        String str = atVar8.bookId;
+                        com.baidu.tbadk.core.data.ap apVar = new com.baidu.tbadk.core.data.ap();
+                        tbPageContext5 = this.eqr.aaI;
+                        apVar.pageContext = (TbPageContext) com.baidu.adp.base.k.aa(tbPageContext5.getPageActivity());
+                        apVar.bookId = str;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_OPTION_TO_NOVEL_READER, apVar));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11387").s(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 6).Z("obj_locate", "0").Z("obj_param1", str));
+                        com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c11442");
+                        atVar9 = this.eqr.eqq;
+                        TiebaStatic.log(asVar.Z("obj_id", atVar9.bookId).Z("obj_locate", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+                    } else if (view == this.eqr.eqp) {
+                        tbPageContext3 = this.eqr.aaI;
+                        Activity pageActivity = tbPageContext3.getPageActivity();
+                        atVar6 = this.eqr.eqq;
+                        CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BookCoverActivityConfig(pageActivity, atVar6.bookId));
+                        tbPageContext4 = this.eqr.aaI;
+                        tbPageContext4.sendMessage(customMessage);
+                        com.baidu.tbadk.core.util.as asVar2 = new com.baidu.tbadk.core.util.as("c11442");
+                        atVar7 = this.eqr.eqq;
+                        TiebaStatic.log(asVar2.Z("obj_id", atVar7.bookId).Z("obj_locate", "1"));
+                    } else if (view == this.eqr.eqi) {
+                        atVar3 = this.eqr.eqq;
+                        if (!StringUtils.isNull(atVar3.WU)) {
+                            com.baidu.tbadk.core.util.bb vQ = com.baidu.tbadk.core.util.bb.vQ();
+                            tbPageContext2 = this.eqr.aaI;
+                            atVar4 = this.eqr.eqq;
+                            vQ.c((TbPageContext) com.baidu.adp.base.k.aa(tbPageContext2.getPageActivity()), new String[]{atVar4.WU});
+                            com.baidu.tbadk.core.util.as asVar3 = new com.baidu.tbadk.core.util.as("c11442");
+                            atVar5 = this.eqr.eqq;
+                            TiebaStatic.log(asVar3.Z("obj_id", atVar5.bookId).Z("obj_locate", "2"));
+                        }
                     }
                 }
             }

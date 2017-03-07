@@ -2,69 +2,69 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bh;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.card.at;
 /* loaded from: classes.dex */
 public class o extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bh aVi;
-    private ar bov;
-    private ar bow;
-    private ar box;
-    private ar boy;
+    public bj bbv;
+    private as bvq;
+    private as bvr;
+    private as bvs;
+    private as bvt;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
         return TYPE;
     }
 
-    public o(bh bhVar) {
-        this.aVi = bhVar;
+    public o(bj bjVar) {
+        this.bbv = bjVar;
     }
 
-    public static boolean n(bh bhVar) {
-        return bhVar != null && bhVar.getThreadType() == 33;
+    public static boolean n(bj bjVar) {
+        return bjVar != null && bjVar.getThreadType() == 33;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bh Ji() {
-        return this.aVi;
+    public bj JN() {
+        return this.bbv;
     }
 
-    public int RV() {
-        return (this.aVi == null || StringUtils.isNull(this.aVi.getPhotoLiveCover())) ? 0 : 1;
+    public int ST() {
+        return (this.bbv == null || StringUtils.isNull(this.bbv.getPhotoLiveCover())) ? 0 : 1;
     }
 
-    public void b(ar arVar) {
-        this.bov = arVar;
+    public void b(as asVar) {
+        this.bvq = asVar;
     }
 
-    public void c(ar arVar) {
-        this.bow = arVar;
+    public void c(as asVar) {
+        this.bvr = asVar;
     }
 
-    public void d(ar arVar) {
-        this.box = arVar;
+    public void d(as asVar) {
+        this.bvs = asVar;
     }
 
-    public void e(ar arVar) {
-        this.boy = arVar;
+    public void e(as asVar) {
+        this.bvt = asVar;
     }
 
-    public ar RW() {
-        return this.bov != null ? this.bov.ab("obj_param3", at.Rr()) : this.bov;
+    public as SU() {
+        return this.bvq != null ? this.bvq.Z("obj_param3", at.Sp()) : this.bvq;
     }
 
-    public ar RX() {
-        return this.bow != null ? this.bow.ab("obj_param3", at.Rr()) : this.bow;
+    public as SV() {
+        return this.bvr != null ? this.bvr.Z("obj_param3", at.Sp()) : this.bvr;
     }
 
-    public ar RY() {
-        return this.boy != null ? this.boy.ab("obj_param3", at.Rr()) : this.boy;
+    public as SW() {
+        return this.bvt != null ? this.bvt.Z("obj_param3", at.Sp()) : this.bvt;
     }
 
-    public ar RZ() {
-        return this.box != null ? this.box.ab("obj_param3", at.Rr()) : this.box;
+    public as SX() {
+        return this.bvs != null ? this.bvs.Z("obj_param3", at.Sp()) : this.bvs;
     }
 }

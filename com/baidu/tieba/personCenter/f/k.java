@@ -3,19 +3,19 @@ package com.baidu.tieba.personCenter.f;
 import android.util.SparseArray;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.h.i;
+import com.baidu.tieba.g.i;
 import com.baidu.tieba.person.listview.BdPersonListView;
 import com.baidu.tieba.view.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends CustomMessageListener {
-    final /* synthetic */ g ezT;
+    final /* synthetic */ g eDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(g gVar, int i) {
         super(i);
-        this.ezT = gVar;
+        this.eDs = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,59 +47,59 @@ public class k extends CustomMessageListener {
         com.baidu.tieba.personCenter.c.a aVar12;
         com.baidu.tieba.personCenter.c.a aVar13;
         com.baidu.tieba.personCenter.c.a aVar14;
-        if (customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.h.i)) {
-            SparseArray<i.a> sparseArray = ((com.baidu.tieba.h.i) customResponsedMessage.getData()).eZG;
+        if (customResponsedMessage.getCmd() == 2001435 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.g.i)) {
+            SparseArray<i.a> sparseArray = ((com.baidu.tieba.g.i) customResponsedMessage.getData()).feb;
             if (sparseArray.size() > 0) {
                 i.a aVar15 = sparseArray.get(4);
                 i.a aVar16 = sparseArray.get(3);
                 i.a aVar17 = sparseArray.get(1);
                 i.a aVar18 = sparseArray.get(7);
-                aVar = this.ezT.ezS;
+                aVar = this.eDs.eDr;
                 if (aVar != null) {
-                    aVar2 = this.ezT.ezS;
-                    if (aVar2.ezs != null) {
-                        aVar13 = this.ezT.ezS;
-                        if (aVar13.ezs.bzZ != null && aVar15 != null) {
-                            aVar14 = this.ezT.ezS;
-                            aVar14.ezs.bzZ.putBoolean("person_center_item_red_tip_show", aVar15.eZH);
+                    aVar2 = this.eDs.eDr;
+                    if (aVar2.eCR != null) {
+                        aVar13 = this.eDs.eDr;
+                        if (aVar13.eCR.bHf != null && aVar15 != null) {
+                            aVar14 = this.eDs.eDr;
+                            aVar14.eCR.bHf.putBoolean("person_center_item_red_tip_show", aVar15.fec);
                             z = true;
                             if (aVar16 != null) {
-                                aVar10 = this.ezT.ezS;
-                                if (aVar10.ezr != null) {
-                                    aVar11 = this.ezT.ezS;
-                                    if (aVar11.ezr.bzZ != null) {
-                                        aVar12 = this.ezT.ezS;
-                                        aVar12.ezr.bzZ.putBoolean("person_center_item_red_tip_show", aVar16.eZH);
+                                aVar10 = this.eDs.eDr;
+                                if (aVar10.eCQ != null) {
+                                    aVar11 = this.eDs.eDr;
+                                    if (aVar11.eCQ.bHf != null) {
+                                        aVar12 = this.eDs.eDr;
+                                        aVar12.eCQ.bHf.putBoolean("person_center_item_red_tip_show", aVar16.fec);
                                         z = true;
                                     }
                                 }
                             }
                             if (aVar17 != null) {
-                                aVar7 = this.ezT.ezS;
-                                if (aVar7.ezp != null) {
-                                    aVar8 = this.ezT.ezS;
-                                    if (aVar8.ezp.bzZ != null) {
-                                        aVar9 = this.ezT.ezS;
-                                        aVar9.ezp.bzZ.putBoolean("person_center_item_red_tip_show", aVar17.eZH);
+                                aVar7 = this.eDs.eDr;
+                                if (aVar7.eCO != null) {
+                                    aVar8 = this.eDs.eDr;
+                                    if (aVar8.eCO.bHf != null) {
+                                        aVar9 = this.eDs.eDr;
+                                        aVar9.eCO.bHf.putBoolean("person_center_item_red_tip_show", aVar17.fec);
                                         z = true;
                                     }
                                 }
                             }
                             if (aVar18 != null) {
-                                aVar4 = this.ezT.ezS;
-                                if (aVar4.ezt != null) {
-                                    aVar5 = this.ezT.ezS;
-                                    if (aVar5.ezt.bzZ != null) {
-                                        aVar6 = this.ezT.ezS;
-                                        aVar6.ezt.bzZ.putBoolean("person_center_item_red_tip_show", aVar18.eZH);
+                                aVar4 = this.eDs.eDr;
+                                if (aVar4.eCS != null) {
+                                    aVar5 = this.eDs.eDr;
+                                    if (aVar5.eCS.bHf != null) {
+                                        aVar6 = this.eDs.eDr;
+                                        aVar6.eCS.bHf.putBoolean("person_center_item_red_tip_show", aVar18.fec);
                                         z = true;
                                     }
                                 }
                             }
                             if (z) {
-                                bdPersonListView = this.ezT.fDA;
-                                aVar3 = this.ezT.ezS;
-                                bdPersonListView.setData(aVar3.amM());
+                                bdPersonListView = this.eDs.fIb;
+                                aVar3 = this.eDs.eDr;
+                                bdPersonListView.setData(aVar3.alZ());
                             }
                         }
                     }
@@ -114,20 +114,20 @@ public class k extends CustomMessageListener {
                     }
                 }
                 i.a aVar19 = sparseArray.get(2);
-                if (aVar19 != null && this.ezT.fDz != null && this.ezT.fDz.fEb != null) {
-                    this.ezT.fDz.fEb.lB(aVar19.eZH);
+                if (aVar19 != null && this.eDs.fIa != null && this.eDs.fIa.fIC != null) {
+                    this.eDs.fIa.fIC.lA(aVar19.fec);
                 }
-                wVar = this.ezT.fDy;
+                wVar = this.eDs.fHZ;
                 if (wVar instanceof com.baidu.tieba.view.j) {
                     i.a aVar20 = sparseArray.get(5);
                     if (aVar20 != null) {
-                        wVar3 = this.ezT.fDy;
-                        wVar3.G(5, aVar20.eZH);
+                        wVar3 = this.eDs.fHZ;
+                        wVar3.H(5, aVar20.fec);
                     }
                     i.a aVar21 = sparseArray.get(6);
                     if (aVar21 != null) {
-                        wVar2 = this.ezT.fDy;
-                        wVar2.G(6, aVar21.eZH);
+                        wVar2 = this.eDs.fHZ;
+                        wVar2.H(6, aVar21.fec);
                     }
                 }
             }

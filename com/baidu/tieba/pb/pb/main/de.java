@@ -1,70 +1,70 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r;
+import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 /* loaded from: classes.dex */
-public class de extends da<com.baidu.tieba.pb.data.a, df> implements View.OnClickListener {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public de(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class de {
+    private TbPageContext ajF;
+    private RelativeLayout dWm;
+    private com.baidu.tbadk.editortools.pb.n emR;
+    private PbFakeFloorModel emS;
+
+    public de(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
+        this.ajF = tbPageContext;
+        this.dWm = relativeLayout;
+        this.emS = pbFakeFloorModel;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aX */
-    public df onCreateViewHolder(ViewGroup viewGroup) {
-        df dfVar = new df(LayoutInflater.from(this.mContext).inflate(r.j.god_card_list_item, (ViewGroup) null));
-        a(dfVar);
-        return dfVar;
-    }
-
-    private void a(df dfVar) {
-        if (dfVar != null) {
-            int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            if (dfVar.mSkinType != skinType) {
-                com.baidu.tbadk.i.a.a(this.ehi.getPageContext(), dfVar.getView());
-            }
-            dfVar.mSkinType = skinType;
+    public void aLc() {
+        if (this.emR != null) {
+            this.emR.DO();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.da, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, df dfVar) {
-        super.onFillViewHolder(i, view, viewGroup, aVar, dfVar);
-        a(dfVar);
-        dfVar.ejY.setOnClickListener(this);
-        dfVar.ejX.setOnClickListener(this);
-        dfVar.ejY.setTag(aVar);
-        dfVar.ejX.setTag(aVar);
-        if (aVar != null) {
-            dfVar.bQc.c(aVar.getPortrait(), 28, false);
-            dfVar.blu.setText(aVar.getUserName());
-            dfVar.cOh.setText(aVar.aJM());
-            dfVar.cjL.setText(aVar.getText());
-            dfVar.ejX.c(aVar.getPicUrl(), 10, false);
-            dfVar.ejY.setText(aVar.aJN());
+    private void aLd() {
+        if (this.dWm != null && this.emR == null) {
+            this.emR = (com.baidu.tbadk.editortools.pb.n) new com.baidu.tbadk.editortools.pb.r().aL(this.ajF.getPageActivity());
+            this.emR.a(this.ajF);
+            this.emR.b(this.emS);
+            this.emR.CP().bB(true);
+            this.emR.f(this.ajF);
+            aLe();
         }
-        return view;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && com.baidu.tbadk.core.util.bf.ak(this.mContext)) {
-            String aJO = ((com.baidu.tieba.pb.data.a) view.getTag()).aJO();
-            if (!StringUtils.isNull(aJO)) {
-                com.baidu.tbadk.core.util.ba.vt().c(this.ehi.getPageContext(), new String[]{aJO});
-            }
+    public void bM(String str, String str2) {
+        aLd();
+        this.emR.setReplyId(str);
+        this.emR.fB(str2);
+    }
+
+    private void aLe() {
+        if (this.dWm != null && this.emR != null && this.emR.CP() != null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.addRule(12);
+            this.dWm.addView(this.emR.CP(), layoutParams);
+            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (this.emR != null) {
+            this.emR.onActivityResult(i, i2, intent);
+        }
+    }
+
+    public void onStop() {
+        if (this.emR != null) {
+            this.emR.onStop();
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.emR != null && this.emR.CP() != null) {
+            this.emR.CP().onChangeSkinType(i);
         }
     }
 }

@@ -8,6 +8,7 @@ public class PayConfig implements Serializable {
     public static final int PAYTYPE_PAY_DIRECT = 3;
     public static final int PAYTYPE_TDOU = 2;
     private static final long serialVersionUID = 1473520404420820966L;
+    private int isAutoPay;
     public long mCategoryId;
     private String mIsLeft;
     private boolean mIsPay;
@@ -198,5 +199,13 @@ public class PayConfig implements Serializable {
 
     public void setTBeanNum(int i) {
         this.tBeanNum = i;
+    }
+
+    public int isAutoPay() {
+        return this.isAutoPay;
+    }
+
+    public void setAutoPay(int i) {
+        this.isAutoPay = i;
     }
 }

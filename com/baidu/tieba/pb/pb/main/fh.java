@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fh implements Animation.AnimationListener {
-    final /* synthetic */ ez eqf;
+    final /* synthetic */ fa etn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fh(ez ezVar) {
-        this.eqf = ezVar;
+    public fh(fa faVar) {
+        this.etn = faVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,15 +22,15 @@ public class fh implements Animation.AnimationListener {
         com.baidu.tbadk.editortools.j jVar;
         View view2;
         com.baidu.tbadk.editortools.j jVar2;
-        ez ezVar = this.eqf;
-        view = this.eqf.epb;
-        ezVar.epg = view.getVisibility() == 0;
-        jVar = this.eqf.DX;
+        fa faVar = this.etn;
+        view = this.etn.esf;
+        faVar.esk = view.getVisibility() == 0;
+        jVar = this.etn.Ll;
         if (jVar != null) {
-            jVar2 = this.eqf.DX;
+            jVar2 = this.etn.Ll;
             jVar2.hide();
         }
-        view2 = this.eqf.epb;
+        view2 = this.etn.esf;
         view2.setVisibility(8);
     }
 

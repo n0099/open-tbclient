@@ -6,26 +6,26 @@ import tbclient.GetClientConfig.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.clientConfig.b {
-    final /* synthetic */ b fun;
+    final /* synthetic */ b fyM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.fun = bVar;
+        this.fyM = bVar;
     }
 
     @Override // com.baidu.tbadk.clientConfig.b
     public void z(Object obj) {
-        this.fun.ful = false;
+        this.fyM.fyK = false;
         if (obj != null && (obj instanceof DataRes)) {
             DataRes dataRes = (DataRes) obj;
             if (dataRes.local_dialog != null) {
                 String c = a.c(dataRes);
                 if (!TextUtils.isEmpty(c)) {
-                    TbadkSettings.getInst().saveString(this.fun.qZ("remind_recommend_info"), c);
-                    TbadkSettings.getInst().saveInt(this.fun.qZ("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                    TbadkSettings.getInst().saveString(this.fun.qZ("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                    this.fun.lq(true);
-                    TbadkSettings.getInst().saveLong(this.fun.qZ("remind_recommend_data_time"), System.currentTimeMillis());
+                    TbadkSettings.getInst().saveString(this.fyM.qh("remind_recommend_info"), c);
+                    TbadkSettings.getInst().saveInt(this.fyM.qh("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                    TbadkSettings.getInst().saveString(this.fyM.qh("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                    this.fyM.lp(true);
+                    TbadkSettings.getInst().saveLong(this.fyM.qh("remind_recommend_data_time"), System.currentTimeMillis());
                 }
             }
         }
@@ -33,6 +33,6 @@ public class c implements com.baidu.tbadk.clientConfig.b {
 
     @Override // com.baidu.tbadk.clientConfig.b
     public void onError(String str) {
-        this.fun.ful = false;
+        this.fyM.fyK = false;
     }
 }

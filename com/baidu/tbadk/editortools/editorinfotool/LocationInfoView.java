@@ -7,10 +7,10 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import com.baidu.adp.base.k;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 import com.baidu.tieba.tbadkCore.a;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class LocationInfoView extends EditorInfoView {
     private int mState;
@@ -23,28 +23,28 @@ public class LocationInfoView extends EditorInfoView {
         super(context, attributeSet);
         setMaxEms(8);
         setEllipsize(TextUtils.TruncateAt.END);
-        j(0, null);
+        k(0, null);
     }
 
-    public void j(int i, String str) {
+    public void k(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(r.l.location_loading);
+                str = getResources().getString(w.l.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(r.l.location_default);
+                str = getResources().getString(w.l.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(r.l.location_default);
+                str = getResources().getString(w.l.location_default);
             }
             setText(str);
         }
-        CI();
+        Db();
     }
 
     public int getState() {
@@ -52,25 +52,25 @@ public class LocationInfoView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    protected void tg() {
-        super.tg();
-        CI();
+    protected void tD() {
+        super.tD();
+        Db();
     }
 
-    private void CI() {
+    private void Db() {
         if (this.mState == 1) {
-            Animatable animatable = (Animatable) ap.getDrawable(r.g.icon_posts_pin_loading_anim);
+            Animatable animatable = (Animatable) aq.getDrawable(w.g.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
-            a.a((TbPageContextSupport) k.B(getContext()), animatable);
-            setPadding(this.foI + com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f), this.foJ, this.foI, this.foJ);
+            a.a((TbPageContextSupport) k.Z(getContext()), animatable);
+            setPadding(this.fte + com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f), this.ftf, this.fte, this.ftf);
             setCompoundDrawablePadding(com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
-            setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(r.g.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.foI, this.foJ, this.foI, this.foJ);
+            setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.fte, this.ftf, this.fte, this.ftf);
             setCompoundDrawablePadding(0);
         } else {
-            setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(r.g.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.foI, this.foJ, this.foI, this.foJ);
+            setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.fte, this.ftf, this.fte, this.ftf);
             setCompoundDrawablePadding(0);
         }
     }

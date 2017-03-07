@@ -6,24 +6,24 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements BaseWebView.c {
-    final /* synthetic */ d bQB;
+    final /* synthetic */ d bXJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.bQB = dVar;
+        this.bXJ = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
     public void onPageFinished(WebView webView, String str) {
         boolean z;
-        this.bQB.isLoading = false;
-        z = this.bQB.bQA;
+        this.bXJ.isLoading = false;
+        z = this.bXJ.bXI;
         if (!z) {
-            this.bQB.abj();
-            ViewGroup.LayoutParams layoutParams = this.bQB.getLayoutParams();
+            this.bXJ.acg();
+            ViewGroup.LayoutParams layoutParams = this.bXJ.getLayoutParams();
             layoutParams.height = -2;
-            this.bQB.setLayoutParams(layoutParams);
+            this.bXJ.setLayoutParams(layoutParams);
         }
-        this.bQB.bQy = true;
+        this.bXJ.bXG = true;
     }
 }

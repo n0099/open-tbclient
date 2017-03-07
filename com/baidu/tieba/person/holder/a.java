@@ -7,88 +7,88 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends y.a {
-    private BookShelfItemView eyA;
-    private LinearLayout eyB;
-    private View eyC;
-    private RelativeLayout eys;
-    private ImageView eyt;
-    private TextView eyu;
-    private TextView eyv;
-    private ImageView eyw;
-    private BookShelfItemView eyx;
-    private BookShelfItemView eyy;
-    private BookShelfItemView eyz;
+    private RelativeLayout eBR;
+    private ImageView eBS;
+    private TextView eBT;
+    private TextView eBU;
+    private ImageView eBV;
+    private BookShelfItemView eBW;
+    private BookShelfItemView eBX;
+    private BookShelfItemView eBY;
+    private BookShelfItemView eBZ;
+    private LinearLayout eCa;
+    private View eCb;
 
     public a(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.eys = (RelativeLayout) view.findViewById(r.h.book_info);
-        this.eyt = (ImageView) view.findViewById(r.h.person_book_icon);
-        this.eyu = (TextView) view.findViewById(r.h.book_title);
-        this.eyv = (TextView) view.findViewById(r.h.book_hint);
-        this.eyw = (ImageView) view.findViewById(r.h.nav_indicator);
-        this.eyC = view.findViewById(r.h.book_divider);
-        this.eyB = (LinearLayout) view.findViewById(r.h.book_items);
-        this.eyx = (BookShelfItemView) view.findViewById(r.h.book_1);
-        this.eyy = (BookShelfItemView) view.findViewById(r.h.book_2);
-        this.eyz = (BookShelfItemView) view.findViewById(r.h.book_3);
-        this.eyA = (BookShelfItemView) view.findViewById(r.h.book_4);
+        this.eBR = (RelativeLayout) view.findViewById(w.h.book_info);
+        this.eBS = (ImageView) view.findViewById(w.h.person_book_icon);
+        this.eBT = (TextView) view.findViewById(w.h.book_title);
+        this.eBU = (TextView) view.findViewById(w.h.book_hint);
+        this.eBV = (ImageView) view.findViewById(w.h.nav_indicator);
+        this.eCb = view.findViewById(w.h.book_divider);
+        this.eCa = (LinearLayout) view.findViewById(w.h.book_items);
+        this.eBW = (BookShelfItemView) view.findViewById(w.h.book_1);
+        this.eBX = (BookShelfItemView) view.findViewById(w.h.book_2);
+        this.eBY = (BookShelfItemView) view.findViewById(w.h.book_3);
+        this.eBZ = (BookShelfItemView) view.findViewById(w.h.book_4);
         if (onClickListener != null) {
-            this.eys.setOnClickListener(onClickListener);
+            this.eBR.setOnClickListener(onClickListener);
         }
-        ap.k(this.eys, r.e.cp_bg_line_d);
-        ap.c(this.eyt, r.g.icon_mine_book);
-        ap.c(this.eyu, r.e.cp_cont_b, 1);
-        ap.c(this.eyv, r.e.cp_cont_d, 1);
-        ap.c(this.eyw, r.g.icon_arrow_tab);
-        ap.k(this.eyC, r.e.cp_bg_line_c);
+        aq.k(this.eBR, w.e.cp_bg_line_d);
+        aq.c(this.eBS, w.g.icon_mine_book);
+        aq.c(this.eBT, w.e.cp_cont_b, 1);
+        aq.c(this.eBU, w.e.cp_cont_d, 1);
+        aq.c(this.eBV, w.g.icon_arrow_tab);
+        aq.k(this.eCb, w.e.cp_bg_line_c);
     }
 
     public void a(com.baidu.tieba.person.data.b bVar) {
         if (bVar != null) {
-            this.eyu.setText(bVar.eyj);
-            if (bVar.eyo > 0) {
-                this.eyv.setText(String.valueOf(bVar.eyo));
-            } else if (!StringUtils.isNull(bVar.eyn)) {
-                this.eyv.setText(bVar.eyn);
+            this.eBT.setText(bVar.eBJ);
+            if (bVar.eBN > 0) {
+                this.eBU.setText(String.valueOf(bVar.eBN));
+            } else if (!StringUtils.isNull(bVar.eBM)) {
+                this.eBU.setText(bVar.eBM);
             }
-            if (bVar.eyp != null && bVar.eyp.size() > 0) {
-                this.eyB.setVisibility(0);
-                this.eyC.setVisibility(0);
-                List<com.baidu.tieba.personInfo.b> list = bVar.eyp;
+            if (bVar.eBO != null && bVar.eBO.size() > 0) {
+                this.eCa.setVisibility(0);
+                this.eCb.setVisibility(0);
+                List<com.baidu.tieba.personInfo.b> list = bVar.eBO;
                 if (list.size() > 0) {
-                    this.eyx.a(list.get(0));
-                    this.eyx.setVisibility(0);
+                    this.eBW.a(list.get(0));
+                    this.eBW.setVisibility(0);
                 } else {
-                    this.eyx.setVisibility(4);
+                    this.eBW.setVisibility(4);
                 }
                 if (list.size() > 1) {
-                    this.eyy.a(list.get(1));
-                    this.eyy.setVisibility(0);
+                    this.eBX.a(list.get(1));
+                    this.eBX.setVisibility(0);
                 } else {
-                    this.eyy.setVisibility(4);
+                    this.eBX.setVisibility(4);
                 }
                 if (list.size() > 2) {
-                    this.eyz.a(list.get(2));
-                    this.eyz.setVisibility(0);
+                    this.eBY.a(list.get(2));
+                    this.eBY.setVisibility(0);
                 } else {
-                    this.eyz.setVisibility(4);
+                    this.eBY.setVisibility(4);
                 }
                 if (list.size() > 3) {
-                    this.eyA.a(list.get(3));
-                    this.eyA.setVisibility(0);
+                    this.eBZ.a(list.get(3));
+                    this.eBZ.setVisibility(0);
                 } else {
-                    this.eyA.setVisibility(4);
+                    this.eBZ.setVisibility(4);
                 }
             } else {
-                this.eyB.setVisibility(8);
-                this.eyC.setVisibility(8);
+                this.eCa.setVisibility(8);
+                this.eCb.setVisibility(8);
             }
-            ap.j(this.eyt, r.g.icon_mine_book);
+            aq.c(this.eBS, w.g.icon_mine_book);
         }
     }
 }

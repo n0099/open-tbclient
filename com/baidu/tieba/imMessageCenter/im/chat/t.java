@@ -3,21 +3,21 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements Animation.AnimationListener {
-    private final /* synthetic */ String cMK;
-    final /* synthetic */ PersonalChatView dgF;
-    private final /* synthetic */ Animation dgG;
-    private final /* synthetic */ String dgH;
+    private final /* synthetic */ String cOZ;
+    final /* synthetic */ PersonalChatView diX;
+    private final /* synthetic */ Animation diY;
+    private final /* synthetic */ String diZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.dgF = personalChatView;
-        this.cMK = str;
-        this.dgH = str2;
-        this.dgG = animation;
+        this.diX = personalChatView;
+        this.cOZ = str;
+        this.diZ = str2;
+        this.diY = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class t implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.dgF.dgy;
+        linearLayout = this.diX.diQ;
         linearLayout.clearAnimation();
-        textView = this.dgF.dgz;
-        personalChatActivity = this.dgF.dgw;
-        textView.setText(personalChatActivity.getResources().getString(r.l.add_friend_agree_title, this.cMK));
-        textView2 = this.dgF.dgA;
-        textView2.setText(this.dgH);
-        linearLayout2 = this.dgF.dgy;
-        linearLayout2.setAnimation(this.dgG);
+        textView = this.diX.diR;
+        personalChatActivity = this.diX.diO;
+        textView.setText(personalChatActivity.getResources().getString(w.l.add_friend_agree_title, this.cOZ));
+        textView2 = this.diX.diS;
+        textView2.setText(this.diZ);
+        linearLayout2 = this.diX.diQ;
+        linearLayout2.setAnimation(this.diY);
     }
 }

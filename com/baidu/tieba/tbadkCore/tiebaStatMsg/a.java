@@ -3,6 +3,7 @@ package com.baidu.tieba.tbadkCore.tiebaStatMsg;
 import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
@@ -30,7 +31,7 @@ class a extends CustomMessageListener {
                     if (jSONObject.optLong("continue_time") > 0) {
                         bdUploadStatMsgData.deadLineTime = System.currentTimeMillis() + (jSONObject.optLong("continue_time") * 1000);
                     }
-                    com.baidu.adp.lib.stats.a.eG().a(bdUploadStatMsgData.parentType, bdUploadStatMsgData.childType, bdUploadStatMsgData);
+                    BdStatisticsManager.getInstance().addEntryToTmpSwitchConfDic(bdUploadStatMsgData.parentType, bdUploadStatMsgData.childType, bdUploadStatMsgData);
                 } catch (Exception e) {
                 }
             }

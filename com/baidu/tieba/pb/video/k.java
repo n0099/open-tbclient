@@ -1,35 +1,51 @@
 package com.baidu.tieba.pb.video;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.da;
-import com.baidu.tieba.r;
+import android.view.animation.Animation;
+import com.baidu.tieba.play.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends da<l, p> {
-    public k(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class k implements c.InterfaceC0071c {
+    final /* synthetic */ d ewS;
+    private final /* synthetic */ Animation ewU;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(d dVar, Animation animation) {
+        this.ewS = dVar;
+        this.ewU = animation;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
-    public p onCreateViewHolder(ViewGroup viewGroup) {
-        return new p(this.ehi.getPageContext(), LayoutInflater.from(this.mContext).inflate(r.j.pb_recommend_video_item_layout, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.da, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, l lVar, p pVar) {
-        super.onFillViewHolder(i, view, viewGroup, lVar, pVar);
-        if (lVar != null) {
-            pVar.a(lVar);
+    @Override // com.baidu.tieba.play.c.InterfaceC0071c
+    public void je(boolean z) {
+        boolean aPk;
+        com.baidu.tieba.pb.pb.main.view.f fVar;
+        com.baidu.tieba.pb.pb.main.view.f fVar2;
+        Animation.AnimationListener animationListener;
+        com.baidu.tieba.pb.pb.main.view.f fVar3;
+        aPk = this.ewS.aPk();
+        if (aPk) {
+            fVar = this.ewS.ewH;
+            if (fVar != null) {
+                this.ewU.setAnimationListener(null);
+                fVar2 = this.ewS.ewH;
+                fVar2.aNO().clearAnimation();
+                this.ewS.aNU();
+                if (z) {
+                    Animation animation = this.ewU;
+                    animationListener = this.ewS.dyu;
+                    animation.setAnimationListener(animationListener);
+                    fVar3 = this.ewS.ewH;
+                    fVar3.aNO().startAnimation(this.ewU);
+                }
+            }
         }
-        return view;
+    }
+
+    @Override // com.baidu.tieba.play.c.InterfaceC0071c
+    public void aPn() {
+        boolean aPk;
+        aPk = this.ewS.aPk();
+        if (aPk) {
+            this.ewS.aNT();
+        }
     }
 }

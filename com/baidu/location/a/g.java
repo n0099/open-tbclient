@@ -17,7 +17,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends com.baidu.location.h.f {
-    private static g HZ = null;
+    private static g Ng = null;
     String a = null;
     String b = null;
     String c = null;
@@ -157,7 +157,7 @@ public class g extends com.baidu.location.h.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.a != null && com.baidu.location.f.k.ng().g()) {
+        if (this.a != null && com.baidu.location.f.k.nu().g()) {
             new o(this).start();
         }
     }
@@ -194,11 +194,11 @@ public class g extends com.baidu.location.h.f {
         }
     }
 
-    public static g mo() {
-        if (HZ == null) {
-            HZ = new g();
+    public static g mC() {
+        if (Ng == null) {
+            Ng = new g();
         }
-        return HZ;
+        return Ng;
     }
 
     @Override // com.baidu.location.h.f
@@ -212,12 +212,12 @@ public class g extends com.baidu.location.h.f {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.h.c.nh().b == null) {
+        if (com.baidu.location.h.c.nv().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.h.c.nh().a);
+            stringBuffer.append(com.baidu.location.h.c.nv().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.h.c.nh().b);
+            stringBuffer.append(com.baidu.location.h.c.nv().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -277,11 +277,11 @@ public class g extends com.baidu.location.h.f {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.h.d.ni().a(System.currentTimeMillis());
+        com.baidu.location.h.d.nw().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.h.d.ni().b() > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.location.h.d.nw().b() > 86400000) {
             f().postDelayed(new l(this), 10000L);
             f().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
         }

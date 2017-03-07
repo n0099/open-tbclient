@@ -1,9 +1,9 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public interface a {
-    void MR();
+    void NE();
 
-    boolean Py();
+    boolean Qr();
 
     void resetData();
 }

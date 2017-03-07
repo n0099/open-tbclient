@@ -10,7 +10,7 @@ public class r implements com.baidu.adp.framework.client.socket.link.f {
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.f
-    public boolean cd() {
+    public boolean dm() {
         return !this.this$0.isExitAppCloseWebSocket();
     }
 }

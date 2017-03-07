@@ -12,17 +12,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    private g IS;
-    private static volatile f IQ = null;
+    private g NY;
+    private static volatile f NW = null;
     private static String c = "LogSDK";
     private static int d = 5;
     private static int e = 1024;
     private static final String f = com.baidu.location.h.h.a + "/llg.dat";
     private static final String g = com.baidu.location.h.h.a + "/ller.dat";
     public static final String a = com.baidu.location.h.h.a + "/llin.dat";
-    private SimpleDateFormat IR = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private g IT = null;
-    private a IU = null;
+    private SimpleDateFormat NX = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private g NZ = null;
+    private a Oa = null;
     private long l = 0;
 
     /* loaded from: classes.dex */
@@ -31,14 +31,14 @@ public class f {
         private boolean c = false;
 
         a() {
-            this.KS = new HashMap();
+            this.PZ = new HashMap();
         }
 
         @Override // com.baidu.location.h.f
         public void a() {
-            this.KS.clear();
-            this.KS.put("qt", "stat");
-            this.KS.put("req", this.b);
+            this.PZ.clear();
+            this.PZ.put("qt", "stat");
+            this.PZ.put("req", this.b);
             this.h = "http://loc.map.baidu.com/statloc";
         }
 
@@ -69,9 +69,9 @@ public class f {
     }
 
     private f() {
-        this.IS = null;
-        if (this.IS == null) {
-            this.IS = new g();
+        this.NY = null;
+        if (this.NY == null) {
+            this.NY = new g();
         }
     }
 
@@ -190,15 +190,15 @@ public class f {
         }
     }
 
-    public static f mB() {
-        if (IQ == null) {
+    public static f mP() {
+        if (NW == null) {
             synchronized (f.class) {
-                if (IQ == null) {
-                    IQ = new f();
+                if (NW == null) {
+                    NW = new f();
                 }
             }
         }
-        return IQ;
+        return NW;
     }
 
     public void a(g gVar) {
@@ -211,13 +211,13 @@ public class f {
         if (str != null) {
             try {
                 StringBuffer stringBuffer = new StringBuffer();
-                String format = this.IR.format(new Date());
+                String format = this.NX.format(new Date());
                 stringBuffer.append("&time=");
                 stringBuffer.append(format);
                 stringBuffer.append("&err=");
                 stringBuffer.append(str);
-                stringBuffer.append(com.baidu.location.h.c.nh().a(false));
-                stringBuffer.append(com.baidu.location.a.a.mi().c());
+                stringBuffer.append(com.baidu.location.h.c.nv().a(false));
+                stringBuffer.append(com.baidu.location.a.a.mw().c());
                 a(g, Jni.encode(stringBuffer.toString()));
             } catch (Exception e2) {
             }
@@ -225,19 +225,19 @@ public class f {
     }
 
     public void c() {
-        if (this.IS != null) {
-            a(f, Jni.encode(this.IS.b()));
-            this.IS.a();
+        if (this.NY != null) {
+            a(f, Jni.encode(this.NY.b()));
+            this.NY.a();
         }
     }
 
     public void d() {
         boolean z;
         boolean z2;
-        if (this.IU == null) {
-            this.IU = new a();
+        if (this.Oa == null) {
+            this.Oa = new a();
         }
-        if (System.currentTimeMillis() - this.l >= 3600000 && !this.IU.b()) {
+        if (System.currentTimeMillis() - this.l >= 3600000 && !this.Oa.b()) {
             try {
                 ArrayList arrayList = new ArrayList();
                 a(g, arrayList);
@@ -269,14 +269,14 @@ public class f {
                     } else {
                         jSONObject.put("loctc", jSONArray);
                     }
-                    this.IU.a(jSONObject.toString());
+                    this.Oa.a(jSONObject.toString());
                 }
             } catch (Exception e2) {
             }
         }
     }
 
-    public g mC() {
-        return this.IS;
+    public g mQ() {
+        return this.NY;
     }
 }

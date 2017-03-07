@@ -3,7 +3,7 @@ package com.baidu.tbadk.data;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tieba.tbadkCore.data.p;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -131,7 +131,7 @@ public class VoteDataInfo implements v, Serializable {
                     if (pollOption2 != null) {
                         l lVar = new l(pollOption2.id.intValue(), pollOption2.text, pollOption2.image, pollOption2.num.longValue());
                         if (this.mTotalPoll > 0) {
-                            lVar.ci((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
+                            lVar.ce((int) ((pollOption2.num.longValue() * 100) / this.mTotalPoll));
                         }
                         if (a(strArr, String.valueOf(pollOption2.id))) {
                             lVar.setSelected(true);
@@ -157,6 +157,6 @@ public class VoteDataInfo implements v, Serializable {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return p.fpN;
+        return PostData.fui;
     }
 }

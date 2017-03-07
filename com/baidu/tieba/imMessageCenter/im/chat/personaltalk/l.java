@@ -3,14 +3,14 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class l implements com.baidu.tbadk.util.f<Boolean> {
-    final /* synthetic */ j dho;
+    final /* synthetic */ j djG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.dho = jVar;
+        this.djG = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ class l implements com.baidu.tbadk.util.f<Boolean> {
         PersonalTalkSettingActivity personalTalkSettingActivity2;
         PersonalTalkSettingActivity personalTalkSettingActivity3;
         long j;
-        personalTalkSettingActivity = this.dho.dhm;
+        personalTalkSettingActivity = this.djG.djE;
         personalTalkSettingActivity.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.dho.dhm;
-        personalTalkSettingActivity2.showToast(r.l.delete_success, false);
-        personalTalkSettingActivity3 = this.dho.dhm;
+        personalTalkSettingActivity2 = this.djG.djE;
+        personalTalkSettingActivity2.showToast(w.l.delete_success, false);
+        personalTalkSettingActivity3 = this.djG.djE;
         j = personalTalkSettingActivity3.userId;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(j), 2, null, 1)));
     }

@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.a;
 /* loaded from: classes.dex */
 public class e implements h {
-    private char kN;
+    private char sI;
 
     public e(char c) {
-        this.kN = c;
+        this.sI = c;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return String.valueOf(this.kN);
+        return String.valueOf(this.sI);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Character.valueOf(this.kN);
+        return Character.valueOf(this.sI);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -24,16 +24,16 @@ public class e implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Character.valueOf(this.kN);
+        return Character.valueOf(this.sI);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object e(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return String.valueOf(this.kN);
+        return String.valueOf(this.sI);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Character.valueOf(this.kN);
+        return Character.valueOf(this.sI);
     }
 }

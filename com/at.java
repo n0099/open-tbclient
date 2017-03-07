@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as fQZ;
+    final /* synthetic */ as gdD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.fQZ = asVar;
+        this.gdD = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.fQZ.a = asInterface.getPackageName();
-            this.fQZ.b = asInterface.getActivityName();
-            if (!this.fQZ.startSingleSignOn()) {
-                this.fQZ.startAuthDialog();
+            this.gdD.a = asInterface.getPackageName();
+            this.gdD.b = asInterface.getActivityName();
+            if (!this.gdD.startSingleSignOn()) {
+                this.gdD.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.fQZ.startAuthDialog();
+            this.gdD.startAuthDialog();
         } finally {
-            Context applicationContext = this.fQZ.mActivity.getApplicationContext();
-            serviceConnection = this.fQZ.fQY;
+            Context applicationContext = this.gdD.mActivity.getApplicationContext();
+            serviceConnection = this.gdD.gdC;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.fQZ.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.gdD.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.fQZ.startAuthDialog();
+            this.gdD.startAuthDialog();
         }
     }
 }

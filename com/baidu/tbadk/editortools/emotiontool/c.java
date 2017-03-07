@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a aug;
-    private com.baidu.adp.widget.a.a auh;
-    private int aui;
+    private com.baidu.adp.widget.a.a azB;
+    private com.baidu.adp.widget.a.a azC;
+    private int azD;
     private int cols;
 
-    public abstract boolean CL();
+    public abstract boolean Dd();
 
-    public abstract EmotionGroupType CM();
+    public abstract EmotionGroupType De();
 
-    public abstract String eG(int i);
+    public abstract String eB(int i);
 
-    public abstract boolean fq(String str);
+    public abstract boolean ff(String str);
 
-    public abstract com.baidu.adp.widget.a.a fr(String str);
+    public abstract com.baidu.adp.widget.a.a fg(String str);
 
-    public abstract com.baidu.adp.widget.a.a fs(String str);
+    public abstract com.baidu.adp.widget.a.a fh(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,26 +30,26 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a CN() {
-        return this.aug;
+    public com.baidu.adp.widget.a.a Df() {
+        return this.azB;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.jT();
+            aVar.kN();
         }
-        this.aug = aVar;
+        this.azB = aVar;
     }
 
-    public com.baidu.adp.widget.a.a CO() {
-        return this.auh;
+    public com.baidu.adp.widget.a.a Dg() {
+        return this.azC;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.jT();
+            aVar.kN();
         }
-        this.auh = aVar;
+        this.azC = aVar;
     }
 
     public int getCols() {
@@ -57,16 +57,16 @@ public abstract class c {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eH(int i) {
+    public void eC(int i) {
         this.cols = i;
     }
 
-    public int CP() {
-        return this.aui;
+    public int Dh() {
+        return this.azD;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eI(int i) {
-        this.aui = i;
+    public void eD(int i) {
+        this.azD = i;
     }
 }

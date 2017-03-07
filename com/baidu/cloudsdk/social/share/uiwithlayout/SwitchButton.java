@@ -62,15 +62,15 @@ public class SwitchButton extends CheckBox {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final Handler a = new HandlerC0015a(null);
+        private static final Handler a = new HandlerC0014a(null);
 
         /* renamed from: com.baidu.cloudsdk.social.share.uiwithlayout.SwitchButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        static class HandlerC0015a extends Handler {
-            private HandlerC0015a() {
+        static class HandlerC0014a extends Handler {
+            private HandlerC0014a() {
             }
 
-            /* synthetic */ HandlerC0015a(ai aiVar) {
+            /* synthetic */ HandlerC0014a(ai aiVar) {
                 this();
             }
 
@@ -165,11 +165,11 @@ public class SwitchButton extends CheckBox {
         Resources resources = context.getApplicationContext().getResources();
         this.u = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
         this.v = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.c = BitmapFactory.decodeResource(resources, p.h(context, "bdsocialshare_switch_background"));
-        this.e = BitmapFactory.decodeResource(resources, p.i(context, "bdsocialshare_switch_round"));
+        this.c = BitmapFactory.decodeResource(resources, p.b(context, "bdsocialshare_switch_background"));
+        this.e = BitmapFactory.decodeResource(resources, p.c(context, "bdsocialshare_switch_round"));
         this.f = this.e;
-        this.g = BitmapFactory.decodeResource(resources, p.h(context, "bdsocialshare_switch_frame"));
-        this.h = BitmapFactory.decodeResource(resources, p.i(context, "bdsocialshare_switch_mask"));
+        this.g = BitmapFactory.decodeResource(resources, p.b(context, "bdsocialshare_switch_frame"));
+        this.h = BitmapFactory.decodeResource(resources, p.c(context, "bdsocialshare_switch_mask"));
         this.d = this.f;
         this.s = this.e.getWidth();
         this.q = this.h.getWidth();

@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class HeadPendantView extends FrameLayout {
-    private TbImageView adu;
-    private HeadImageView adv;
-    private boolean adw;
-    private boolean adx;
-    private boolean ady;
+    private TbImageView aiJ;
+    private HeadImageView aiK;
+    private boolean aiL;
+    private boolean aiM;
+    private boolean aiN;
     private Context mContext;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
@@ -33,24 +33,24 @@ public class HeadPendantView extends FrameLayout {
         init();
     }
 
-    public boolean vR() {
-        return this.ady;
+    public boolean wo() {
+        return this.aiN;
     }
 
-    public void vS() {
-        this.adw = true;
-        if (this.adu == null) {
-            this.adu = new TbImageView(this.mContext);
-            this.adu.setDefaultBgResource(0);
-            this.adu.setDefaultResource(0);
-            this.adu.setDefaultErrorResource(0);
-            this.adu.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            addView(this.adu);
+    public void wp() {
+        this.aiL = true;
+        if (this.aiJ == null) {
+            this.aiJ = new TbImageView(this.mContext);
+            this.aiJ.setDefaultBgResource(0);
+            this.aiJ.setDefaultResource(0);
+            this.aiJ.setDefaultErrorResource(0);
+            this.aiJ.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            addView(this.aiJ);
         }
     }
 
     public void setHasPendantStyle(boolean z) {
-        this.adw = z;
+        this.aiL = z;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -61,48 +61,48 @@ public class HeadPendantView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.adw && !this.adx) {
+        if (this.aiL && !this.aiM) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.adx = true;
-            this.adv.setPadding((int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f), (int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f));
+            this.aiM = true;
+            this.aiK.setPadding((int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f), (int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f));
         }
     }
 
-    public void dU(String str) {
-        if (this.adu != null) {
+    public void dO(String str) {
+        if (this.aiJ != null) {
             if (!StringUtils.isNull(str)) {
-                this.ady = true;
-                this.adu.setVisibility(0);
-                this.adu.c(str, 10, false);
+                this.aiN = true;
+                this.aiJ.setVisibility(0);
+                this.aiJ.c(str, 10, false);
                 return;
             }
-            this.adu.setVisibility(8);
-            this.ady = false;
+            this.aiJ.setVisibility(8);
+            this.aiN = false;
         }
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.adu.setAutoChangeStyle(z);
-        this.adv.setAutoChangeStyle(z);
+        this.aiJ.setAutoChangeStyle(z);
+        this.aiK.setAutoChangeStyle(z);
     }
 
     private void init() {
-        this.adv = new HeadImageView(this.mContext);
-        this.adv.setDefaultBgResource(r.g.transparent_bg);
-        this.adv.setDefaultResource(r.e.cp_bg_line_e);
-        this.adv.setDefaultErrorResource(r.g.icon_default_avatar100);
+        this.aiK = new HeadImageView(this.mContext);
+        this.aiK.setDefaultBgResource(w.g.transparent_bg);
+        this.aiK.setDefaultResource(w.e.cp_bg_line_e);
+        this.aiK.setDefaultErrorResource(w.g.icon_default_avatar100);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.adv.setLayoutParams(layoutParams);
-        addView(this.adv);
+        this.aiK.setLayoutParams(layoutParams);
+        addView(this.aiK);
     }
 
     public TbImageView getPendantView() {
-        return this.adu;
+        return this.aiJ;
     }
 
     public HeadImageView getHeadView() {
-        return this.adv;
+        return this.aiK;
     }
 }

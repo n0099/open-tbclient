@@ -4,18 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ i bVC;
+    final /* synthetic */ i ccU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(i iVar) {
-        this.bVC = iVar;
+        this.ccU = iVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bVC.acT()) {
+        if (this.ccU.adT()) {
             return;
         }
-        this.bVC.acP();
+        this.ccU.adP();
     }
 }

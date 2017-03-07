@@ -6,21 +6,21 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.frs.bg;
 import com.baidu.tieba.frs.bp;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends y.a {
-    public TextView bRR;
-    public LinearLayout bRS;
-    public TextView bRT;
-    public View bRU;
-    public bg bRV;
-    public bp bRW;
+    public TextView bYZ;
+    public LinearLayout bZa;
+    public TextView bZb;
+    public View bZc;
+    public bg bZd;
+    public bp bZe;
 
     public e(View view) {
         super(view);
-        this.bRR = (TextView) view.findViewById(r.h.storecard_title);
-        this.bRS = (LinearLayout) view.findViewById(r.h.storecard_middle_layout);
-        this.bRT = (TextView) view.findViewById(r.h.storecard_all_list);
-        this.bRU = view.findViewById(r.h.storecard_close_click);
+        this.bYZ = (TextView) view.findViewById(w.h.storecard_title);
+        this.bZa = (LinearLayout) view.findViewById(w.h.storecard_middle_layout);
+        this.bZb = (TextView) view.findViewById(w.h.storecard_all_list);
+        this.bZc = view.findViewById(w.h.storecard_close_click);
     }
 }

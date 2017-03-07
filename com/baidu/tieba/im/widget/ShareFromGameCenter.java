@@ -13,20 +13,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.r;
 import com.baidu.tieba.tbadkCore.util.m;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ShareFromGameCenter extends LinearLayout {
-    private TextView aNb;
-    private LinearLayout cQe;
-    private TextView dfA;
-    private HeadImageView dfB;
-    private Button dfC;
-    private TbImageView dfD;
-    private LinearLayout dfE;
-    private LinearLayout dfF;
-    private TextView dfG;
-    private ShareFromGameCenterMsgData dfv;
+    private TextView aSO;
+    private LinearLayout cSw;
+    private ShareFromGameCenterMsgData dhM;
+    private TextView dhR;
+    private HeadImageView dhS;
+    private Button dhT;
+    private TbImageView dhU;
+    private LinearLayout dhV;
+    private LinearLayout dhW;
+    private TextView dhX;
     private Context mContext;
 
     public ShareFromGameCenter(Context context, AttributeSet attributeSet) {
@@ -42,88 +42,88 @@ public class ShareFromGameCenter extends LinearLayout {
     }
 
     public void initUI() {
-        LayoutInflater.from(getContext()).inflate(r.j.share_from_game_center_pic_and_word, this);
+        LayoutInflater.from(getContext()).inflate(w.j.share_from_game_center_pic_and_word, this);
         setOrientation(1);
-        this.dfE = (LinearLayout) findViewById(r.h.share_info_layout);
-        this.dfF = (LinearLayout) findViewById(r.h.game_share_content);
-        this.cQe = (LinearLayout) findViewById(r.h.small_tail);
-        this.aNb = (TextView) findViewById(r.h.game_title);
-        this.dfA = (TextView) findViewById(r.h.game_desc);
-        this.dfB = (HeadImageView) findViewById(r.h.game_img);
-        this.dfB.setDefaultResource(r.g.pic_avatar_ba_140);
-        this.dfB.setAutoChangeStyle(false);
-        this.dfC = (Button) findViewById(r.h.accept_invite_button);
-        this.dfD = (TbImageView) findViewById(r.h.tail_icon);
-        this.dfD.setDefaultResource(r.g.icon);
-        this.dfD.setAutoChangeStyle(false);
-        this.dfG = (TextView) findViewById(r.h.tail_game_from);
+        this.dhV = (LinearLayout) findViewById(w.h.share_info_layout);
+        this.dhW = (LinearLayout) findViewById(w.h.game_share_content);
+        this.cSw = (LinearLayout) findViewById(w.h.small_tail);
+        this.aSO = (TextView) findViewById(w.h.game_title);
+        this.dhR = (TextView) findViewById(w.h.game_desc);
+        this.dhS = (HeadImageView) findViewById(w.h.game_img);
+        this.dhS.setDefaultResource(w.g.pic_avatar_ba_140);
+        this.dhS.setAutoChangeStyle(false);
+        this.dhT = (Button) findViewById(w.h.accept_invite_button);
+        this.dhU = (TbImageView) findViewById(w.h.tail_icon);
+        this.dhU.setDefaultResource(w.g.icon);
+        this.dhU.setAutoChangeStyle(false);
+        this.dhX = (TextView) findViewById(w.h.tail_game_from);
     }
 
     public void a(ShareFromGameCenterMsgData shareFromGameCenterMsgData, boolean z) {
         if (shareFromGameCenterMsgData != null) {
-            this.dfv = shareFromGameCenterMsgData;
-            gq(z);
+            this.dhM = shareFromGameCenterMsgData;
+            gh(z);
         }
     }
 
-    private void gq(boolean z) {
+    private void gh(boolean z) {
         if (z) {
-            this.dfE.setBackgroundDrawable(this.mContext.getResources().getDrawable(r.g.selector_msg_text_bubble_me));
-            this.aNb.setTextColor(this.mContext.getResources().getColor(r.e.cp_cont_g));
-            this.dfA.setTextColor(this.mContext.getResources().getColor(r.e.cp_cont_g));
+            this.dhV.setBackgroundDrawable(this.mContext.getResources().getDrawable(w.g.selector_msg_text_bubble_me));
+            this.aSO.setTextColor(this.mContext.getResources().getColor(w.e.cp_cont_g));
+            this.dhR.setTextColor(this.mContext.getResources().getColor(w.e.cp_cont_g));
         } else {
-            this.aNb.setTextColor(this.mContext.getResources().getColor(r.e.cp_cont_b));
-            this.dfA.setTextColor(this.mContext.getResources().getColor(r.e.cp_cont_f));
-            this.dfE.setBackgroundDrawable(this.mContext.getResources().getDrawable(r.g.selector_msg_text_bubble_other));
+            this.aSO.setTextColor(this.mContext.getResources().getColor(w.e.cp_cont_b));
+            this.dhR.setTextColor(this.mContext.getResources().getColor(w.e.cp_cont_f));
+            this.dhV.setBackgroundDrawable(this.mContext.getResources().getDrawable(w.g.selector_msg_text_bubble_other));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(k.e(getContext(), r.f.ds14), 0, 0, 0);
-            layoutParams.height = k.e(getContext(), r.f.ds48);
-            this.cQe.setLayoutParams(layoutParams);
+            layoutParams.setMargins(k.g(getContext(), w.f.ds14), 0, 0, 0);
+            layoutParams.height = k.g(getContext(), w.f.ds48);
+            this.cSw.setLayoutParams(layoutParams);
         }
-        this.aNb.setText(this.dfv.getTitle());
-        this.dfB.setDefaultResource(r.g.pic_avatar_ba_140);
-        this.dfB.setAutoChangeStyle(false);
-        this.dfB.c(this.dfv.getImageUrl(), 10, false);
-        this.dfA.setText(this.dfv.getContent());
-        this.dfC.setTextColor(this.mContext.getResources().getColor(r.e.cp_cont_b));
-        this.dfC.setBackgroundResource(r.g.btn_appdownload);
-        if (!TextUtils.isEmpty(this.dfv.getButton())) {
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, k.e(getContext(), r.f.ds60));
-            int e = k.e(getContext(), r.f.ds30);
-            layoutParams2.setMargins(e, k.e(getContext(), r.f.ds18), e, e);
-            this.dfC.setLayoutParams(layoutParams2);
-            this.dfC.setVisibility(0);
-            this.dfC.setText(this.dfv.getButton());
+        this.aSO.setText(this.dhM.getTitle());
+        this.dhS.setDefaultResource(w.g.pic_avatar_ba_140);
+        this.dhS.setAutoChangeStyle(false);
+        this.dhS.c(this.dhM.getImageUrl(), 10, false);
+        this.dhR.setText(this.dhM.getContent());
+        this.dhT.setTextColor(this.mContext.getResources().getColor(w.e.cp_cont_b));
+        this.dhT.setBackgroundResource(w.g.btn_appdownload);
+        if (!TextUtils.isEmpty(this.dhM.getButton())) {
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, k.g(getContext(), w.f.ds60));
+            int g = k.g(getContext(), w.f.ds30);
+            layoutParams2.setMargins(g, k.g(getContext(), w.f.ds18), g, g);
+            this.dhT.setLayoutParams(layoutParams2);
+            this.dhT.setVisibility(0);
+            this.dhT.setText(this.dhM.getButton());
         } else {
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-            int e2 = k.e(getContext(), r.f.ds30);
-            layoutParams3.setMargins(e2, k.e(getContext(), r.f.ds20), e2, e2);
-            this.dfC.setVisibility(8);
-            this.dfF.setLayoutParams(layoutParams3);
+            int g2 = k.g(getContext(), w.f.ds30);
+            layoutParams3.setMargins(g2, k.g(getContext(), w.f.ds20), g2, g2);
+            this.dhT.setVisibility(8);
+            this.dhW.setLayoutParams(layoutParams3);
         }
-        if (TextUtils.isEmpty(this.dfv.getShareSource())) {
-            this.cQe.setVisibility(8);
+        if (TextUtils.isEmpty(this.dhM.getShareSource())) {
+            this.cSw.setVisibility(8);
         }
-        this.dfG.setText(this.dfv.getShareSource());
-        this.dfD.setDefaultResource(r.g.icon);
-        this.dfD.setAutoChangeStyle(false);
-        this.dfD.c(this.dfv.getShareSourceIcon(), 10, false);
-        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", m.qL(this.dfv.getShareSourceUrl()), "ref_id", "2000801");
+        this.dhX.setText(this.dhM.getShareSource());
+        this.dhU.setDefaultResource(w.g.icon);
+        this.dhU.setAutoChangeStyle(false);
+        this.dhU.c(this.dhM.getShareSourceIcon(), 10, false);
+        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", m.pT(this.dhM.getShareSourceUrl()), "ref_id", "2000801");
     }
 
     public LinearLayout getTail() {
-        return this.cQe;
+        return this.cSw;
     }
 
     public LinearLayout getContentBody() {
-        return this.dfE;
+        return this.dhV;
     }
 
     public ImageView getTiebaIcon() {
-        return this.dfD;
+        return this.dhU;
     }
 
     public void setTiebaIcon(TbImageView tbImageView) {
-        this.dfD = tbImageView;
+        this.dhU = tbImageView;
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CookeryGodHallActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class m {
-    public static int dm(String str) {
+    public static int df(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("game:detail")) {
                 return 1;
@@ -30,19 +30,19 @@ public class m {
 
     public static void a(TbPageContext<?> tbPageContext, String str) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null && !StringUtils.isNull(str)) {
-            PluginPackageManager.PluginStatus bt = PluginPackageManager.iz().bt("com.baidu.tieba.pluginCookeryGod");
-            if (TbadkCoreApplication.m9getInst().getIntentClass(CookeryGodHallActivityConfig.class) != null && bt != PluginPackageManager.PluginStatus.FORBIDDEN) {
+            PluginPackageManager.PluginStatus bn = PluginPackageManager.jt().bn("com.baidu.tieba.pluginCookeryGod");
+            if (TbadkCoreApplication.m9getInst().getIntentClass(CookeryGodHallActivityConfig.class) != null && bn != PluginPackageManager.PluginStatus.FORBIDDEN) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
-            } else if (bt == PluginPackageManager.PluginStatus.NROMAL) {
+            } else if (bn == PluginPackageManager.PluginStatus.NROMAL) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
-            } else if (bt == PluginPackageManager.PluginStatus.UNINSTALLED || bt == PluginPackageManager.PluginStatus.DISABLE) {
-                if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.iW().iX() != null && com.baidu.adp.plugin.packageManager.pluginServerConfig.d.iW().iX().getPluginConfig("com.baidu.tieba.pluginCookeryGod") == null) {
-                    tbPageContext.showToast(r.l.plugin_config_no_tip);
+            } else if (bn == PluginPackageManager.PluginStatus.UNINSTALLED || bn == PluginPackageManager.PluginStatus.DISABLE) {
+                if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jQ().jR() != null && com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jQ().jR().getPluginConfig("com.baidu.tieba.pluginCookeryGod") == null) {
+                    tbPageContext.showToast(w.l.plugin_config_no_tip);
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(tbPageContext.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
                 }
-            } else if (bt == PluginPackageManager.PluginStatus.FORBIDDEN) {
-                com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, r.l.plugin_cookery_god_forbidden, new n(tbPageContext), new o());
+            } else if (bn == PluginPackageManager.PluginStatus.FORBIDDEN) {
+                com.baidu.tbadk.coreExtra.d.a.a(tbPageContext, w.l.plugin_cookery_god_forbidden, new n(tbPageContext), new o());
             }
         }
     }

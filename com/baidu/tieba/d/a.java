@@ -4,90 +4,78 @@ import android.os.Handler;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext FY;
-    private View bK;
-    private boolean btT;
-    private String btU;
+    private TbPageContext ajF;
+    private boolean bBc;
+    private String bBd;
+    private View jv;
     private String mMessage;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.d GD = null;
-    private int btV = r.g.pic_sign_tip;
-    private int btW = 0;
-    private int btX = 1;
-    private int btY = 1000;
-    private int btZ = 3000;
-    private int aew = 5;
-    private int aex = 0;
-    private Runnable baT = new b(this);
-    private Runnable bua = new d(this);
+    private com.baidu.adp.lib.guide.d bBb = null;
+    private int bBe = w.g.pic_sign_tip;
+    private int bBf = 0;
+    private int bBg = 1;
+    private int bBh = 1000;
+    private int bBi = 3000;
+    private int ajM = 5;
+    private int mYOffset = 0;
+    private Runnable bhE = new b(this);
+    private Runnable bBj = new d(this);
 
     public a(TbPageContext tbPageContext, View view) {
-        this.FY = tbPageContext;
-        this.bK = view;
+        this.ajF = tbPageContext;
+        this.jv = view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tf() {
-        com.baidu.tbadk.core.sharedPref.b.tQ().putInt(this.btU, this.btW + 1);
+    public void Ui() {
+        com.baidu.tbadk.core.sharedPref.b.uo().putInt(this.bBd, this.bBf + 1);
     }
 
-    public void aC(String str, String str2) {
+    public void aA(String str, String str2) {
         e(str, str2, false);
     }
 
     public void e(String str, String str2, boolean z) {
-        if (!this.btT && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.bK != null && this.bK.getVisibility() != 8) {
+        if (!this.bBc && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && this.jv != null && this.jv.getVisibility() == 0) {
             this.mMessage = str;
-            this.btU = str2;
-            this.btW = com.baidu.tbadk.core.sharedPref.b.tQ().getInt(str2, 0);
-            if (this.btW < this.btX) {
+            this.bBd = str2;
+            this.bBf = com.baidu.tbadk.core.sharedPref.b.uo().getInt(str2, 0);
+            if (this.bBf < this.bBg) {
                 if (z) {
-                    Tf();
-                    this.btT = true;
+                    Ui();
+                    this.bBc = true;
                 }
                 if (this.mHandler == null) {
                     this.mHandler = new Handler();
                 }
-                this.mHandler.postDelayed(this.baT, this.btY);
+                this.mHandler.postDelayed(this.bhE, this.bBh);
             }
         }
     }
 
-    public void Tg() {
-        if (this.GD != null) {
-            this.GD.dismiss();
-            this.GD = null;
+    public void Uj() {
+        if (this.bBb != null) {
+            this.bBb.dismiss();
+            this.bBb = null;
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.baT);
-            this.mHandler.removeCallbacks(this.bua);
+            this.mHandler.removeCallbacks(this.bhE);
+            this.mHandler.removeCallbacks(this.bBj);
         }
     }
 
-    public void gY(int i) {
+    public void gV(int i) {
         if (i > 0) {
-            this.btZ = i;
+            this.bBi = i;
         }
     }
 
-    public void gZ(int i) {
+    public void gW(int i) {
         if (i > 0) {
-            this.btX = i;
+            this.bBg = i;
         }
-    }
-
-    public void ha(int i) {
-        this.aew = i;
-    }
-
-    public boolean Th() {
-        return this.btT;
-    }
-
-    public boolean Ti() {
-        return com.baidu.tbadk.core.sharedPref.b.tQ().getInt(this.btU, 0) < this.btX;
     }
 }

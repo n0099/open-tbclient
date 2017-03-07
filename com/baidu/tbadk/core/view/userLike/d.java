@@ -8,13 +8,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c ahl;
+    final /* synthetic */ c amH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.ahl = cVar;
+        this.amH = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,27 +27,27 @@ public class d extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-            if (this.ahl.ahe != null && !StringUtils.isNull(this.ahl.ahe.getUserId()) && data != null && this.ahl.ahe.getUserId().equals(data.toUid)) {
-                if (!data.vJ) {
-                    tbPageContext = this.ahl.FY;
+            if (this.amH.amA != null && !StringUtils.isNull(this.amH.amA.getUserId()) && data != null && this.amH.amA.getUserId().equals(data.toUid)) {
+                if (!data.CX) {
+                    tbPageContext = this.amH.ajF;
                     tbPageContext.showToast(updateAttentionMessage.getData().errorString);
                     return;
                 }
-                int fansNum = this.ahl.ahe.getFansNum();
-                if (data.isAttention && !this.ahl.ahe.getIsLike()) {
+                int fansNum = this.amH.amA.getFansNum();
+                if (data.isAttention && !this.amH.amA.getIsLike()) {
                     fansNum++;
-                } else if (!data.isAttention && this.ahl.ahe.getIsLike()) {
+                } else if (!data.isAttention && this.amH.amA.getIsLike()) {
                     fansNum--;
                 }
-                this.ahl.ahe.setIsLike(data.isAttention);
-                this.ahl.ahe.setIsFromNetWork(false);
-                this.ahl.ahe.setFansNum(fansNum);
-                bVar = this.ahl.ahf;
+                this.amH.amA.setIsLike(data.isAttention);
+                this.amH.amA.setIsFromNetWork(false);
+                this.amH.amA.setFansNum(fansNum);
+                bVar = this.amH.amB;
                 if (bVar != null) {
-                    bVar2 = this.ahl.ahf;
-                    bVar2.dr(fansNum);
-                    bVar3 = this.ahl.ahf;
-                    bVar3.aP(data.isAttention);
+                    bVar2 = this.amH.amB;
+                    bVar2.dn(fansNum);
+                    bVar3 = this.amH.amB;
+                    bVar3.aO(data.isAttention);
                 }
             }
         }

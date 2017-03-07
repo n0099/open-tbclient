@@ -3,11 +3,11 @@ package com.baidu.tbadk.editortools.pb;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class q implements a.b {
-    final /* synthetic */ n avI;
+    final /* synthetic */ n aBd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(n nVar) {
-        this.avI = nVar;
+        this.aBd = nVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

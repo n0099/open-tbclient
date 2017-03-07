@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.text.TextPaint;
 import android.view.View;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends com.baidu.tieba.view.q {
-    com.baidu.tieba.personPolymeric.event.a eFF = new com.baidu.tieba.personPolymeric.event.a();
-    final /* synthetic */ t eFG;
+    com.baidu.tieba.personPolymeric.event.a eJh = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ t eJi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.eFG = tVar;
+        this.eJi = tVar;
     }
 
     @Override // android.text.style.ClickableSpan
@@ -22,15 +22,15 @@ public class v extends com.baidu.tieba.view.q {
         com.baidu.tieba.view.m mVar;
         UserData userData;
         com.baidu.tieba.view.m mVar2;
-        mVar = this.eFG.ezb;
+        mVar = this.eJi.eCA;
         if (mVar != null) {
-            this.eFF.bzY = 11;
-            this.eFF.bzZ = new Bundle();
-            Bundle bundle = this.eFF.bzZ;
-            userData = this.eFG.mUserData;
+            this.eJh.bHe = 11;
+            this.eJh.bHf = new Bundle();
+            Bundle bundle = this.eJh.bHf;
+            userData = this.eJi.mUserData;
             bundle.putSerializable(UserData.TYPE_USER, userData);
-            mVar2 = this.eFG.ezb;
-            mVar2.a(view, this.eFF);
+            mVar2 = this.eJi.eCA;
+            mVar2.a(view, this.eJh);
         }
     }
 
@@ -40,11 +40,11 @@ public class v extends com.baidu.tieba.view.q {
         int color;
         Context context2;
         if (z) {
-            context2 = this.eFG.mContext;
-            color = context2.getResources().getColor(r.e.cp_cont_i);
+            context2 = this.eJi.mContext;
+            color = context2.getResources().getColor(w.e.cp_cont_i);
         } else {
-            context = this.eFG.mContext;
-            color = context.getResources().getColor(r.e.cp_bg_line_d_alpha70);
+            context = this.eJi.mContext;
+            color = context.getResources().getColor(w.e.cp_bg_line_d_alpha70);
         }
         textPaint.setColor(color);
     }

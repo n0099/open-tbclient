@@ -18,22 +18,22 @@ public class RecommendAlaLiveNetModel extends NetAutoModel<h, c, BaseFragmentAct
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage<com.baidu.tieba.homepage.alalivelist.data.c, ?>> lS() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage<com.baidu.tieba.homepage.alalivelist.data.c, ?>> Fg() {
         return RecommendAlaLiveHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage<com.baidu.tieba.homepage.alalivelist.data.c, ?>> lR() {
+    protected Class<? extends MvcSocketResponsedMessage<com.baidu.tieba.homepage.alalivelist.data.c, ?>> Fi() {
         return RecommendAlaLiveSocketResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int lO() {
+    protected int Fa() {
         return CmdConfigHttp.CMD_ALA_LIVE_LIST;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String lP() {
+    protected String Fc() {
         return TbConfig.ALA_GET_LIVE_LIST_URL;
     }
 
@@ -43,7 +43,7 @@ public class RecommendAlaLiveNetModel extends NetAutoModel<h, c, BaseFragmentAct
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int lQ() {
+    protected int Fb() {
         return 309431;
     }
 }

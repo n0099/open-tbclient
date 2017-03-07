@@ -7,15 +7,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ m bls;
+    final /* synthetic */ m bsl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.bls = mVar;
+        this.bsl = mVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,12 +23,12 @@ public class o implements View.OnClickListener {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
-            tbPageContext2 = this.bls.Fp;
-            tbPageContext2.showToast(r.l.pluginstatus_tip_timeout_last);
+            tbPageContext2 = this.bsl.aaI;
+            tbPageContext2.showToast(w.l.pluginstatus_tip_timeout_last);
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.bls.Fp;
+        tbPageContext = this.bsl.aaI;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GodSquareActivityConfig(tbPageContext.getPageActivity())));
     }
 }

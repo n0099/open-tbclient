@@ -7,7 +7,7 @@ import com.baidu.tieba.frs.entelechy.a.am;
 /* loaded from: classes.dex */
 public class i implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.g ZD() {
+    public com.baidu.tieba.frs.entelechy.b.g aaA() {
         return new com.baidu.tieba.frs.d.a();
     }
 
@@ -17,7 +17,7 @@ public class i implements com.baidu.tieba.frs.entelechy.b.a {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b ZE() {
+    public com.baidu.tieba.frs.entelechy.b.b aaB() {
         return new t();
     }
 
@@ -34,8 +34,8 @@ public class i implements com.baidu.tieba.frs.entelechy.b.a {
         } else {
             jVar = new j(frsActivity, null, null, i);
         }
-        jVar.a(frsActivity.Xt());
-        jVar.a(frsActivity.Xu());
+        jVar.a(frsActivity.Ys());
+        jVar.a(frsActivity.Yt());
         return jVar;
     }
 

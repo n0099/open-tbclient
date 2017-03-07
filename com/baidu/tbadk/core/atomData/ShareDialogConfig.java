@@ -5,7 +5,7 @@ import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.share.f;
+import com.baidu.tbadk.coreExtra.share.g;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareDialogConfig extends IntentConfig {
@@ -14,35 +14,35 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isInsertBack;
     public boolean isSetCopyLink;
     public SparseArray<String> mtjStatistics;
-    public f shareItem;
+    public g shareItem;
     public boolean showLocation;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 
-    public ShareDialogConfig(Context context, f fVar, boolean z) {
+    public ShareDialogConfig(Context context, g gVar, boolean z) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
-        this.shareItem = fVar;
+        this.shareItem = gVar;
         this.showLocation = z;
     }
 
-    public ShareDialogConfig(Context context, f fVar, boolean z, SparseArray<String> sparseArray) {
+    public ShareDialogConfig(Context context, g gVar, boolean z, SparseArray<String> sparseArray) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
-        this.shareItem = fVar;
+        this.shareItem = gVar;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
     }
 
-    public ShareDialogConfig(Context context, f fVar, boolean z, boolean z2) {
+    public ShareDialogConfig(Context context, g gVar, boolean z, boolean z2) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
         this.isCopyLink = false;
-        this.shareItem = fVar;
+        this.shareItem = gVar;
         this.showLocation = z;
         this.isInsertBack = z2;
     }

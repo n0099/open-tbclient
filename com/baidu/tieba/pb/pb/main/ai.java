@@ -1,29 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.aa;
+import com.baidu.tbadk.core.view.ab;
 /* loaded from: classes.dex */
-class ai implements aa.b {
-    final /* synthetic */ PbActivity eiV;
+class ai implements ab.b {
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PbActivity pbActivity) {
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.aa.b
-    public void aM(boolean z) {
+    @Override // com.baidu.tbadk.core.view.ab.b
+    public void aL(boolean z) {
         PbModel pbModel;
-        ez ezVar;
-        if (this.eiV.aLh()) {
-            this.eiV.finish();
+        fa faVar;
+        if (this.elO.aKC()) {
+            this.elO.finish();
         }
-        pbModel = this.eiV.ehh;
-        if (!pbModel.iv(true)) {
-            ezVar = this.eiV.ehV;
-            ezVar.aNM();
+        pbModel = this.elO.ejZ;
+        if (!pbModel.iq(true)) {
+            faVar = this.elO.ekM;
+            faVar.aNf();
             return;
         }
-        TiebaStatic.eventStat(this.eiV.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
+        TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

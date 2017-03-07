@@ -3,27 +3,28 @@ package com.baidu.tieba.write.album;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import com.baidu.tieba.write.album.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements View.OnClickListener {
-    private final /* synthetic */ int Vn;
-    final /* synthetic */ ab fHY;
-    private final /* synthetic */ ab.a fHZ;
-    private final /* synthetic */ ImageFileInfo fIa;
-    private final /* synthetic */ o fIb;
-    private final /* synthetic */ ab.b fIc;
+    private final /* synthetic */ int aay;
+    final /* synthetic */ ab fMs;
+    private final /* synthetic */ ab.a fMt;
+    private final /* synthetic */ ImageFileInfo fMu;
+    private final /* synthetic */ o fMv;
+    private final /* synthetic */ ab.b fMw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ab abVar, ab.a aVar, o oVar, ImageFileInfo imageFileInfo, int i, ab.b bVar) {
-        this.fHY = abVar;
-        this.fHZ = aVar;
-        this.fIb = oVar;
-        this.fIa = imageFileInfo;
-        this.Vn = i;
-        this.fIc = bVar;
+        this.fMs = abVar;
+        this.fMt = aVar;
+        this.fMv = oVar;
+        this.fMu = imageFileInfo;
+        this.aay = i;
+        this.fMw = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,24 +34,24 @@ public class af implements View.OnClickListener {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         AlbumActivity albumActivity3;
-        aaVar = this.fHY.fHX;
-        if (aaVar != null && this.fHZ.fId) {
-            boolean isAdded = this.fIb.isAdded(this.fIa);
-            aaVar2 = this.fHY.fHX;
-            if (aaVar2.a(this.Vn, this.fIa, !isAdded)) {
+        aaVar = this.fMs.fMr;
+        if (aaVar != null && this.fMt.fMx) {
+            boolean isAdded = this.fMv.isAdded(this.fMu);
+            aaVar2 = this.fMs.fMr;
+            if (aaVar2.a(this.aay, this.fMu, !isAdded)) {
                 if (!isAdded) {
-                    com.baidu.tbadk.core.util.ap.j(this.fIc.fuD, r.g.chx_camera_pic_s);
-                    albumActivity2 = this.fHY.fGS;
-                    this.fIc.fuD.startAnimation(AnimationUtils.loadAnimation(albumActivity2.getPageContext().getPageActivity(), r.a.album_choose_icon));
-                    ImageView imageView = this.fIc.fuD;
-                    albumActivity3 = this.fHY.fGS;
-                    imageView.setContentDescription(albumActivity3.getResources().getString(r.l.check_box_checked));
+                    aq.j(this.fMw.fzc, w.g.chx_camera_pic_s);
+                    albumActivity2 = this.fMs.fLm;
+                    this.fMw.fzc.startAnimation(AnimationUtils.loadAnimation(albumActivity2.getPageContext().getPageActivity(), w.a.album_choose_icon));
+                    ImageView imageView = this.fMw.fzc;
+                    albumActivity3 = this.fMs.fLm;
+                    imageView.setContentDescription(albumActivity3.getResources().getString(w.l.check_box_checked));
                     return;
                 }
-                com.baidu.tbadk.core.util.ap.j(this.fIc.fuD, r.g.chx_camera_pic_n);
-                ImageView imageView2 = this.fIc.fuD;
-                albumActivity = this.fHY.fGS;
-                imageView2.setContentDescription(albumActivity.getResources().getString(r.l.check_box_not_checked));
+                aq.j(this.fMw.fzc, w.g.chx_camera_pic_n);
+                ImageView imageView2 = this.fMw.fzc;
+                albumActivity = this.fMs.fLm;
+                imageView2.setContentDescription(albumActivity.getResources().getString(w.l.check_box_not_checked));
             }
         }
     }

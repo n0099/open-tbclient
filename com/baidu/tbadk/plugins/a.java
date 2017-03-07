@@ -9,16 +9,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern aCx = Pattern.compile("#.+?#", 2);
+    private static final Pattern aHP = Pattern.compile("#.+?#", 2);
 
-    public static boolean bZ(boolean z) {
+    public static boolean bY(boolean z) {
         boolean appResponseToIntentClass;
-        if (PluginPackageManager.iz().bj("com.baidu.tieba.pluginHotTopic")) {
+        if (PluginPackageManager.jt().bd("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
                 appResponseToIntentClass = TbadkCoreApplication.m9getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
             } else {
@@ -29,29 +29,29 @@ public class a {
         return false;
     }
 
-    public static boolean Gb() {
-        return PluginPackageManager.iz().bp("com.baidu.tieba.pluginHotTopic");
+    public static boolean Gv() {
+        return PluginPackageManager.jt().bj("com.baidu.tieba.pluginHotTopic");
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
-        if (PluginPackageManager.iz().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
-            String string = tbPageContext.getResources().getString(r.l.plugin_hottopic_not_install);
+        if (PluginPackageManager.jt().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
+            String string = tbPageContext.getResources().getString(w.l.plugin_hottopic_not_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string, null);
                 return true;
             }
             return true;
-        } else if (!bZ(z2)) {
-            String string2 = tbPageContext.getResources().getString(r.l.plugin_hottopic_install_tips);
-            String string3 = tbPageContext.getResources().getString(r.l.plugin_go_install);
+        } else if (!bY(z2)) {
+            String string2 = tbPageContext.getResources().getString(w.l.plugin_hottopic_install_tips);
+            String string3 = tbPageContext.getResources().getString(w.l.plugin_go_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string2, string3);
                 return true;
             }
             return true;
-        } else if (Gb()) {
-            String string4 = tbPageContext.getResources().getString(r.l.plugin_hottopic_not_active);
-            String string5 = tbPageContext.getResources().getString(r.l.setup);
+        } else if (Gv()) {
+            String string4 = tbPageContext.getResources().getString(w.l.plugin_hottopic_not_active);
+            String string5 = tbPageContext.getResources().getString(w.l.setup);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string4, string5);
                 return true;
@@ -70,22 +70,22 @@ public class a {
         Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cE(str);
+            aVar.cx(str);
             if (TextUtils.isEmpty(str2)) {
-                aVar.b(r.l.know, new b());
+                aVar.b(w.l.know, new b());
             } else {
                 aVar.a(str2, new c(pageActivity, tbPageContext));
-                aVar.b(r.l.cancel, new d());
+                aVar.b(w.l.cancel, new d());
             }
-            aVar.b(tbPageContext).sV();
+            aVar.b(tbPageContext).ts();
         }
     }
 
-    public static SpannableString gg(String str) {
+    public static SpannableString fV(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = aCx.matcher(str);
+        Matcher matcher = aHP.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new e(18, ""), matcher.start(), matcher.end(), 33);

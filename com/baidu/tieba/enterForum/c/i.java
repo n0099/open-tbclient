@@ -3,11 +3,11 @@ package com.baidu.tieba.enterForum.c;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 class i implements Runnable {
-    final /* synthetic */ h byS;
+    final /* synthetic */ h bFY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.byS = hVar;
+        this.bFY = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,14 +18,14 @@ class i implements Runnable {
         com.baidu.tieba.enterForum.model.e eVar4;
         e eVar5;
         BdListView bdListView;
-        eVar = this.byS.byQ;
-        eVar2 = eVar.byJ;
-        if (eVar2.UT() != null) {
-            eVar3 = this.byS.byQ;
-            eVar4 = eVar3.byJ;
-            eVar4.UT().setVisibility(0);
-            eVar5 = this.byS.byQ;
-            bdListView = eVar5.bbC;
+        eVar = this.bFY.bFW;
+        eVar2 = eVar.bFP;
+        if (eVar2.VR() != null) {
+            eVar3 = this.bFY.bFW;
+            eVar4 = eVar3.bFP;
+            eVar4.VR().setVisibility(0);
+            eVar5 = this.bFY.bFW;
+            bdListView = eVar5.bip;
             bdListView.setVisibility(8);
         }
     }

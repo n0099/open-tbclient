@@ -70,6 +70,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_BOOK_ONLINE_CONTENT = 1003156;
     public static final int CMD_GET_BOOK_PAY_PANEL = 1003161;
     public static final int CMD_GET_BOOK_SUMMARY = 1003158;
+    public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;
     public static final int CMD_GET_CARD_BY_CATEGORY = 1003093;
     public static final int CMD_GET_CARD_DETAIL = 1003094;
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
@@ -125,6 +126,8 @@ public class CmdConfigHttp {
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
     public static final int CMD_PAYMENT_PAY = 1001537;
     public static final int CMD_PAY_NEW_VCODE = 1001539;
+    public static final int CMD_PB_FLOOR_AGREE = 1001601;
+    public static final int CMD_PB_SET_DECLARE = 1001602;
     public static final int CMD_PERSONAL_BACKGROUND_GET = 1003035;
     public static final int CMD_PERSONAL_BACKGROUND_GROUP = 1003033;
     public static final int CMD_PERSONAL_BACKGROUND_LIST = 1003034;

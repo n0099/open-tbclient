@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ag {
-    private List<com.baidu.tieba.enterForum.b.g> aMy = new ArrayList();
-    private ViewEventCenter bxK;
-    private SoftReference<ac> bzS;
-    private int bzT;
+    private List<com.baidu.tieba.enterForum.b.g> aSl = new ArrayList();
+    private ViewEventCenter bEQ;
+    private SoftReference<ac> bGY;
+    private int bGZ;
 
     public ag(ViewEventCenter viewEventCenter) {
-        this.bxK = viewEventCenter;
+        this.bEQ = viewEventCenter;
     }
 
     public void a(Context context, List<com.baidu.tieba.enterForum.b.g> list, TbPageContext<BaseFragmentActivity> tbPageContext) {
         int i;
         ac acVar;
-        this.aMy.clear();
+        this.aSl.clear();
         if (list != null) {
-            this.aMy.addAll(list);
+            this.aSl.addAll(list);
         }
         if (TbadkCoreApplication.isLogin()) {
             i = 3;
@@ -32,32 +32,32 @@ public class ag {
             i = 4;
         }
         boolean z = false;
-        if (this.aMy.size() > i) {
+        if (this.aSl.size() > i) {
             z = true;
         }
-        if (this.bzS != null && this.bzS.get() != null) {
-            acVar = this.bzS.get();
+        if (this.bGY != null && this.bGY.get() != null) {
+            acVar = this.bGY.get();
         } else if (context != null) {
             acVar = new ac(context);
-            this.bzS = new SoftReference<>(acVar);
-            acVar.setEventCenter(this.bxK);
+            this.bGY = new SoftReference<>(acVar);
+            acVar.setEventCenter(this.bEQ);
         } else {
             return;
         }
         if (acVar != null && tbPageContext != null) {
-            this.bzT -= acVar.getItemViewCount();
-            acVar.c(VB(), tbPageContext);
+            this.bGZ -= acVar.getItemViewCount();
+            acVar.c(Wz(), tbPageContext);
             acVar.setChangeViewVisibility(z);
         }
     }
 
     public void p(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        if (this.bzS != null && this.bzS.get() != null && tbPageContext != null) {
-            this.bzS.get().c(VB(), tbPageContext);
+        if (this.bGY != null && this.bGY.get() != null && tbPageContext != null) {
+            this.bGY.get().c(Wz(), tbPageContext);
         }
     }
 
-    private List<com.baidu.tieba.enterForum.b.g> VB() {
+    private List<com.baidu.tieba.enterForum.b.g> Wz() {
         int i;
         if (TbadkCoreApplication.isLogin()) {
             i = 3;
@@ -65,24 +65,24 @@ public class ag {
             i = 4;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.bzT < 0 || this.bzT >= this.aMy.size()) {
-            this.bzT = 0;
+        if (this.bGZ < 0 || this.bGZ >= this.aSl.size()) {
+            this.bGZ = 0;
         }
-        int i2 = this.bzT;
-        int size = this.aMy.size();
+        int i2 = this.bGZ;
+        int size = this.aSl.size();
         for (int i3 = i2; i3 < size; i3++) {
-            if (this.aMy.get(i3) != null && arrayList.size() < i) {
-                arrayList.add(this.aMy.get(i3));
-                this.bzT++;
+            if (this.aSl.get(i3) != null && arrayList.size() < i) {
+                arrayList.add(this.aSl.get(i3));
+                this.bGZ++;
             }
         }
         return arrayList;
     }
 
-    public ac VC() {
-        if (this.bzS == null) {
+    public ac WA() {
+        if (this.bGY == null) {
             return null;
         }
-        return this.bzS.get();
+        return this.bGY.get();
     }
 }

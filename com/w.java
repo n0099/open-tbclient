@@ -6,16 +6,16 @@ import android.view.View;
 import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
 /* loaded from: classes.dex */
 public class w implements View.OnTouchListener {
-    final /* synthetic */ ShareDialog dC;
-    final /* synthetic */ GestureDetector fQ;
+    final /* synthetic */ ShareDialog lp;
+    final /* synthetic */ GestureDetector nI;
 
     public w(ShareDialog shareDialog, GestureDetector gestureDetector) {
-        this.dC = shareDialog;
-        this.fQ = gestureDetector;
+        this.lp = shareDialog;
+        this.nI = gestureDetector;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        return this.fQ.onTouchEvent(motionEvent);
+        return this.nI.onTouchEvent(motionEvent);
     }
 }

@@ -1,34 +1,34 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class as {
-    private int eqo = 0;
-    private int eTl = 0;
-    private boolean eTm = false;
-    private boolean eTn = true;
+    private int etv = 0;
+    private int eWS = 0;
+    private boolean eWT = false;
+    private boolean eWU = true;
 
-    public int aYq() {
-        return this.eqo;
+    public int aXV() {
+        return this.etv;
     }
 
-    public int aYr() {
-        return this.eTl;
+    public int aXW() {
+        return this.eWS;
     }
 
-    public boolean aYs() {
-        return this.eTm;
+    public boolean aXX() {
+        return this.eWT;
     }
 
-    public boolean aYt() {
-        return this.eTn;
+    public boolean aXY() {
+        return this.eWU;
     }
 
     public void g(int i, int i2, boolean z) {
-        this.eqo = i;
-        this.eTl = i2;
-        this.eTm = z;
+        this.etv = i;
+        this.eWS = i2;
+        this.eWT = z;
     }
 
-    public void gV(boolean z) {
-        this.eTn = z;
+    public void gM(boolean z) {
+        this.eWU = z;
     }
 }

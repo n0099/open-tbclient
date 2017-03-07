@@ -5,6 +5,6 @@ public class cm extends cj {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean bJk = true;
-    public boolean bJl = true;
+    public boolean bQt = true;
+    public boolean bQu = true;
 }

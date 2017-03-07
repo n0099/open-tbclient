@@ -7,11 +7,11 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int aDg = com.baidu.adp.lib.util.k.e(TbadkCoreApplication.m9getInst().getContext(), r.f.ds320);
-    private static /* synthetic */ int[] aDh;
+    public static final int aID = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds320);
+    private static /* synthetic */ int[] aIE;
 
     /* loaded from: classes.dex */
     public enum HeadType {
@@ -19,7 +19,7 @@ public class BdListViewHelper {
         HASTAB,
         HAS_NO_NETWORK_BAR;
 
-        /* JADX DEBUG: Replace access to removed values field (aDi) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aIF) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HeadType[] valuesCustom() {
             HeadType[] valuesCustom = values();
@@ -30,8 +30,8 @@ public class BdListViewHelper {
         }
     }
 
-    static /* synthetic */ int[] Gi() {
-        int[] iArr = aDh;
+    static /* synthetic */ int[] GH() {
+        int[] iArr = aIE;
         if (iArr == null) {
             iArr = new int[HeadType.valuesCustom().length];
             try {
@@ -46,22 +46,22 @@ public class BdListViewHelper {
                 iArr[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
-            aDh = iArr;
+            aIE = iArr;
         }
         return iArr;
     }
 
     public static int a(HeadType headType) {
         Context context = TbadkCoreApplication.m9getInst().getContext();
-        switch (Gi()[headType.ordinal()]) {
+        switch (GH()[headType.ordinal()]) {
             case 1:
-                return com.baidu.adp.lib.util.k.e(context, r.f.ds98) + UtilHelper.getLightStatusBarHeight();
+                return com.baidu.adp.lib.util.k.g(context, w.f.ds98) + UtilHelper.getLightStatusBarHeight();
             case 2:
-                return com.baidu.adp.lib.util.k.e(context, r.f.ds176) + UtilHelper.getLightStatusBarHeight();
+                return com.baidu.adp.lib.util.k.g(context, w.f.ds176) + UtilHelper.getLightStatusBarHeight();
             case 3:
-                return com.baidu.adp.lib.util.k.e(context, r.f.ds168) + UtilHelper.getLightStatusBarHeight();
+                return com.baidu.adp.lib.util.k.g(context, w.f.ds168) + UtilHelper.getLightStatusBarHeight();
             default:
-                return com.baidu.adp.lib.util.k.e(context, r.f.ds98) + UtilHelper.getLightStatusBarHeight();
+                return com.baidu.adp.lib.util.k.g(context, w.f.ds98) + UtilHelper.getLightStatusBarHeight();
         }
     }
 
@@ -79,9 +79,9 @@ public class BdListViewHelper {
             if (z) {
                 layoutParams.height = a(headType);
             } else if (HeadType.DEFAULT == headType) {
-                layoutParams.height = com.baidu.adp.lib.util.k.e(context, r.f.ds170) + UtilHelper.getLightStatusBarHeight();
+                layoutParams.height = com.baidu.adp.lib.util.k.g(context, w.f.ds170) + UtilHelper.getLightStatusBarHeight();
             } else {
-                layoutParams.height = com.baidu.adp.lib.util.k.e(context, r.f.ds240) + UtilHelper.getLightStatusBarHeight();
+                layoutParams.height = com.baidu.adp.lib.util.k.g(context, w.f.ds240) + UtilHelper.getLightStatusBarHeight();
             }
             view.setLayoutParams(layoutParams);
         }
@@ -93,8 +93,8 @@ public class BdListViewHelper {
             return a(headType);
         }
         if (HeadType.DEFAULT == headType) {
-            return com.baidu.adp.lib.util.k.e(context, r.f.ds170) + UtilHelper.getLightStatusBarHeight();
+            return com.baidu.adp.lib.util.k.g(context, w.f.ds170) + UtilHelper.getLightStatusBarHeight();
         }
-        return com.baidu.adp.lib.util.k.e(context, r.f.ds240) + UtilHelper.getLightStatusBarHeight();
+        return com.baidu.adp.lib.util.k.g(context, w.f.ds240) + UtilHelper.getLightStatusBarHeight();
     }
 }

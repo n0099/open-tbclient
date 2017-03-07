@@ -1,39 +1,32 @@
 package com.baidu.tbadk.coreExtra.share;
 
-import android.graphics.Bitmap;
-import android.location.Location;
-import android.net.Uri;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.l;
-import java.lang.ref.WeakReference;
+import android.app.AlertDialog;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
-    public static final String amB = l.ru + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public String amy;
-    public String amz;
-    public boolean ams = false;
-    public boolean amt = false;
-    public boolean amu = false;
-    public boolean amv = false;
-    public boolean amw = false;
-    public String title = null;
-    public String content = null;
-    public String linkUrl = null;
-    public Uri imageUri = null;
-    public Location location = null;
-    private WeakReference<Bitmap> amA = null;
-    public String amx = null;
-    public String extData = null;
+public class f implements CustomMessageTask.CustomRunnable<Object> {
+    final /* synthetic */ d arK;
 
-    public Bitmap getImageData() {
-        Bitmap bitmap;
-        if (this.amA == null || (bitmap = this.amA.get()) == null || bitmap.isRecycled()) {
-            return null;
-        }
-        return bitmap;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(d dVar) {
+        this.arK = dVar;
     }
 
-    public void i(Bitmap bitmap) {
-        this.amA = new WeakReference<>(bitmap);
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        AlertDialog alertDialog;
+        AlertDialog alertDialog2;
+        alertDialog = this.arK.aab;
+        if (alertDialog != null) {
+            alertDialog2 = this.arK.aab;
+            if (alertDialog2.isShowing()) {
+                this.arK.dismiss();
+                return null;
+            }
+            return null;
+        }
+        return null;
     }
 }

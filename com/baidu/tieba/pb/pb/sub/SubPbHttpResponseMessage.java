@@ -39,7 +39,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 jVar = com.baidu.tieba.pb.data.j.a(pbFloorResIdl.data, context);
                 if (jVar != null) {
-                    jVar.efZ = pbFloorResIdl.error;
+                    jVar.eiv = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

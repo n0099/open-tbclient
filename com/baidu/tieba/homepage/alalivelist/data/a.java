@@ -4,28 +4,28 @@ import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tieba.homepage.alalivelist.model.RecommendAlaLiveCacheModel;
 /* loaded from: classes.dex */
 public class a implements e {
-    private long ctu;
+    private long cuT;
 
     public a(long j) {
-        this.ctu = j;
+        this.cuT = j;
     }
 
-    public long ajk() {
-        return this.ctu;
+    public long aix() {
+        return this.cuT;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
-        return new StringBuilder(String.valueOf(this.ctu)).toString();
+        return new StringBuilder(String.valueOf(this.cuT)).toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Ep() {
+    public String EI() {
         return RecommendAlaLiveCacheModel.TABLE_NAME;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Eq() {
+    public boolean EJ() {
         return true;
     }
 

@@ -3,66 +3,66 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* loaded from: classes.dex */
 class ag extends com.baidu.adp.base.f {
-    final /* synthetic */ PbActivity eiV;
+    final /* synthetic */ PbActivity elO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(PbActivity pbActivity) {
-        this.eiV = pbActivity;
+        this.elO = pbActivity;
     }
 
     @Override // com.baidu.adp.base.f
     public void g(Object obj) {
-        ez ezVar;
+        fa faVar;
         ForumManageModel forumManageModel;
         ForumManageModel forumManageModel2;
         ForumManageModel forumManageModel3;
-        ez ezVar2;
+        fa faVar2;
         ForumManageModel forumManageModel4;
-        ez ezVar3;
-        ez ezVar4;
+        fa faVar3;
+        fa faVar4;
         PbModel pbModel;
         boolean z = false;
         if (obj != null) {
-            forumManageModel2 = this.eiV.ehU;
+            forumManageModel2 = this.elO.ekL;
             switch (forumManageModel2.getLoadDataMode()) {
                 case 0:
-                    pbModel = this.eiV.ehh;
-                    pbModel.aMl();
+                    pbModel = this.elO.ejZ;
+                    pbModel.aLH();
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    if (bVar.clJ || bVar.esp <= 0 || bVar.frR == 0) {
+                    if (bVar.cnh || bVar.evD <= 0 || bVar.fwo == 0) {
                         z = true;
                     } else {
-                        com.baidu.tieba.c.a.a(this.eiV.getPageContext(), 2, 1);
+                        com.baidu.tieba.c.a.a(this.elO.getPageContext(), 2, 1);
                     }
-                    this.eiV.a(bVar, z);
+                    this.elO.a(bVar, z);
                     return;
                 case 1:
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                    ezVar4 = this.eiV.ehV;
-                    ezVar4.a(1, dVar.tT, dVar.frT, true);
+                    faVar4 = this.elO.ekM;
+                    faVar4.a(1, dVar.Bi, dVar.fwq, true);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    PbActivity pbActivity = this.eiV;
-                    forumManageModel3 = this.eiV.ehU;
+                    PbActivity pbActivity = this.elO;
+                    forumManageModel3 = this.elO.ekL;
                     pbActivity.a(forumManageModel3.getLoadDataMode(), (ForumManageModel.f) obj);
                     return;
                 case 6:
                     ForumManageModel.f fVar = (ForumManageModel.f) obj;
-                    ezVar2 = this.eiV.ehV;
-                    forumManageModel4 = this.eiV.ehU;
-                    ezVar2.a(forumManageModel4.getLoadDataMode(), fVar.tT, fVar.frT, false);
-                    ezVar3 = this.eiV.ehV;
-                    ezVar3.al(fVar.frV);
+                    faVar2 = this.elO.ekM;
+                    forumManageModel4 = this.elO.ekL;
+                    faVar2.a(forumManageModel4.getLoadDataMode(), fVar.Bi, fVar.fwq, false);
+                    faVar3 = this.elO.ekM;
+                    faVar3.al(fVar.fws);
                     return;
                 default:
                     return;
             }
         }
-        ezVar = this.eiV.ehV;
-        forumManageModel = this.eiV.ehU;
-        ezVar.a(forumManageModel.getLoadDataMode(), false, (String) null, false);
+        faVar = this.elO.ekM;
+        forumManageModel = this.elO.ekL;
+        faVar.a(forumManageModel.getLoadDataMode(), false, (String) null, false);
     }
 }

@@ -45,10 +45,10 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
-    public static double Ib = 0.0d;
-    public static double Ic = 0.0d;
-    public static double Id = 0.0d;
-    public static double Ie = 0.0d;
+    public static double Ni = 0.0d;
+    public static double Nj = 0.0d;
+    public static double Nk = 0.0d;
+    public static double Nl = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -66,41 +66,52 @@ public class i {
     public static int G = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
     public static float H = 2.0f;
     public static float I = 10.0f;
-    public static float KU = 50.0f;
-    public static float KV = 200.0f;
+    public static float Qb = 50.0f;
+    public static float Qc = 200.0f;
     public static int L = 16;
-    public static float KW = 0.9f;
+    public static float Qd = 0.9f;
     public static int N = 10000;
-    public static float KX = 0.5f;
-    public static float KY = 0.0f;
-    public static float KZ = 0.1f;
-    public static int La = 30;
+    public static float Qe = 0.5f;
+    public static float Qf = 0.0f;
+    public static float Qg = 0.1f;
+    public static int R = 30;
     public static int S = 100;
     public static int T = 0;
     public static int U = 0;
     public static int V = 0;
     public static int W = 420000;
-    public static boolean Lb = true;
-    public static boolean Lc = true;
+    public static boolean X = true;
+    public static boolean Qh = true;
     public static int Z = 20;
-    public static int Ld = 300;
-    public static int Le = 1000;
+    public static int Qi = 300;
+    public static int Qj = 1000;
     public static long ac = 900000;
     public static long ad = 420000;
     public static long ae = 180000;
-    public static long Lf = 0;
-    public static long Lg = 15;
-    public static long Lh = ReportUserInfoModel.TIME_INTERVAL;
+    public static long Qk = 0;
+    public static long Ql = 15;
+    public static long Qm = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
-    public static int Li = 30000;
+    public static int ak = 30000;
     public static int al = 30000;
-    public static float Lj = 10.0f;
-    public static float Lk = 6.0f;
-    public static float Ll = 10.0f;
-    public static int Lm = 60;
+    public static float Qn = 10.0f;
+    public static float Qo = 6.0f;
+    public static float Qp = 10.0f;
+    public static int ap = 60;
     public static int aq = 70;
-    public static int Ln = 6;
+    public static int ar = 6;
+
+    public static Object K(Context context, String str) {
+        if (context == null) {
+            return null;
+        }
+        try {
+            return context.getApplicationContext().getSystemService(str);
+        } catch (Throwable th) {
+            return null;
+        }
+    }
 
     public static String a() {
         Calendar calendar = Calendar.getInstance();
@@ -112,7 +123,7 @@ public class i {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.f.b.mS().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.f.b.ng().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (iVar != null) {
@@ -127,20 +138,20 @@ public class i {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = c.nh().a(i2 == 0);
+        String a2 = c.nv().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.c.b.mx().d();
+        String d2 = com.baidu.location.c.b.mL().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
         if (i2 == 0) {
         }
-        if (aVar != null && (f2 = com.baidu.location.f.c.mX().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.f.c.nl().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -153,9 +164,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < Lk && ((i3 == 1 || i3 == 0) && (d3 < Lm || e2))) {
+                if (speed < Qo && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= Ll || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= Ln))) {
+                } else if (speed >= Qp || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;
@@ -319,7 +330,7 @@ public class i {
         }
     }
 
-    public static int o(String str, String str2, String str3) {
+    public static int n(String str, String str2, String str3) {
         int indexOf;
         int length;
         int indexOf2;
@@ -331,17 +342,6 @@ public class i {
             return Integer.parseInt(substring);
         } catch (NumberFormatException e2) {
             return ExploreByTouchHelper.INVALID_ID;
-        }
-    }
-
-    public static Object q(Context context, String str) {
-        if (context == null) {
-            return null;
-        }
-        try {
-            return context.getApplicationContext().getSystemService(str);
-        } catch (Throwable th) {
-            return null;
         }
     }
 }

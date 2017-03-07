@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ah {
-    private static ah djT = null;
-    private final HttpMessageListener djU = new ai(this, CmdConfigHttp.MSG_REMINDER_CMD);
-    private long djV = 0;
+    private static ah dmn = null;
+    private final HttpMessageListener dmo = new ai(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long dmp = 0;
     private final Handler mHandler = new aj(this);
 
     static {
@@ -21,41 +21,41 @@ public class ah {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized ah avW() {
+    public static synchronized ah avs() {
         ah ahVar;
         synchronized (ah.class) {
-            if (djT == null) {
-                djT = new ah();
+            if (dmn == null) {
+                dmn = new ah();
             }
-            ahVar = djT;
+            ahVar = dmn;
         }
         return ahVar;
     }
 
     public ah() {
-        MessageManager.getInstance().registerListener(this.djU);
+        MessageManager.getInstance().registerListener(this.dmo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avX() {
+    public void avt() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
-    public void avY() {
-        this.djV = 0L;
+    public void avu() {
+        this.dmp = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.djV;
+        long currentTimeMillis = System.currentTimeMillis() - this.dmp;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 600000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
         }
-        this.djV = System.currentTimeMillis();
+        this.dmp = System.currentTimeMillis();
     }
 
     public void destroy() {

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends CustomMessageListener {
-    final /* synthetic */ ac eSz;
+    final /* synthetic */ ac eWg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(ac acVar, int i) {
         super(i);
-        this.eSz = acVar;
+        this.eWg = acVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,20 +25,20 @@ public class ad extends CustomMessageListener {
         as asVar3;
         as asVar4;
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-            this.eSz.amY();
-            z = this.eSz.dxq;
+            this.eWg.alL();
+            z = this.eWg.dzO;
             if (z) {
-                z2 = this.eSz.dxq;
+                z2 = this.eWg.dzO;
                 if (z2) {
-                    ac acVar = this.eSz;
-                    asVar = this.eSz.dxp;
-                    int aYq = asVar.aYq();
-                    asVar2 = this.eSz.dxp;
-                    int aYr = asVar2.aYr();
-                    asVar3 = this.eSz.dxp;
-                    boolean aYs = asVar3.aYs();
-                    asVar4 = this.eSz.dxp;
-                    acVar.a(aYq, aYr, aYs, asVar4.aYt());
+                    ac acVar = this.eWg;
+                    asVar = this.eWg.dzN;
+                    int aXV = asVar.aXV();
+                    asVar2 = this.eWg.dzN;
+                    int aXW = asVar2.aXW();
+                    asVar3 = this.eWg.dzN;
+                    boolean aXX = asVar3.aXX();
+                    asVar4 = this.eWg.dzN;
+                    acVar.a(aXV, aXW, aXX, asVar4.aXY());
                 }
             }
         }

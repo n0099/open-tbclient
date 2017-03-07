@@ -4,25 +4,25 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
 public class PersonalChatActivityStatic {
-    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e dgt;
-    private static CustomMessageListener dgu = new l(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e diL;
+    private static CustomMessageListener diM = new l(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     static {
-        MessageManager.getInstance().registerListener(dgu);
+        MessageManager.getInstance().registerListener(diM);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new m());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ba.vt().a(new p());
+        bb.vQ().a(new p());
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e auP() {
-        return dgt;
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e auk() {
+        return diL;
     }
 
     public static void a(com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e eVar) {
-        dgt = eVar;
+        diL = eVar;
     }
 }

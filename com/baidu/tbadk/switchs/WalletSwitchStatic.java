@@ -1,11 +1,8 @@
 package com.baidu.tbadk.switchs;
-
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
-public class WalletSwitchStatic extends a {
+public class WalletSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        e.dL().n(WalletSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eT().m(WalletSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -7,31 +7,31 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.card.cd;
 import com.baidu.tieba.card.cf;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.frs.at;
 /* loaded from: classes.dex */
 public class u extends at<CardHListViewData, com.baidu.tieba.card.b.a<com.baidu.tieba.card.r>> implements cd, com.baidu.tieba.frs.e.e {
-    private TbPageContext<?> FY;
-    private cf bLI;
+    private TbPageContext<?> ajF;
+    private cf bSO;
     private String mForumName;
 
     public static void aW(long j) {
-        if (j > 0 && bTj != null && !TextUtils.isEmpty(bTj.bTb)) {
-            ar arVar = new ar("c11958");
-            arVar.g("tid", j);
-            arVar.ab("fid", bTj.bTb);
-            TiebaStatic.log(arVar);
+        if (j > 0 && cav != null && !TextUtils.isEmpty(cav.can)) {
+            as asVar = new as("c11958");
+            asVar.g("tid", j);
+            asVar.Z("fid", cav.can);
+            TiebaStatic.log(asVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public u(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.bLI = new v(this);
-        this.FY = baseActivity.getPageContext();
+        this.bSO = new v(this);
+        this.ajF = baseActivity.getPageContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class u extends at<CardHListViewData, com.baidu.tieba.card.b.a<com.baidu.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: k */
     public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.b.a(new com.baidu.tieba.card.r(this.FY));
+        return new com.baidu.tieba.card.b.a(new com.baidu.tieba.card.r(this.ajF));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,11 +47,11 @@ public class u extends at<CardHListViewData, com.baidu.tieba.card.b.a<com.baidu.
     @Override // com.baidu.tieba.frs.at, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardHListViewData cardHListViewData, com.baidu.tieba.card.b.a aVar) {
-        if (aVar == null || aVar.Sd() == null) {
+        if (aVar == null || aVar.Tb() == null) {
             return null;
         }
-        aVar.Sd().onBindDataToView(cardHListViewData);
-        aVar.Sd().setOnSubCardOnClickListenner(this.bLI);
+        aVar.Tb().onBindDataToView(cardHListViewData);
+        aVar.Tb().setOnSubCardOnClickListenner(this.bSO);
         return aVar.getView();
     }
 

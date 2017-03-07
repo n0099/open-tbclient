@@ -7,13 +7,13 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 class ap implements com.baidu.tbadk.ala.f {
     @Override // com.baidu.tbadk.ala.f
-    public View Q(Context context) {
-        TextView P = com.baidu.tbadk.ala.d.P(context);
-        if (P != null) {
+    public View ao(Context context) {
+        TextView an = com.baidu.tbadk.ala.d.an(context);
+        if (an != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
-            P.setLayoutParams(layoutParams);
+            an.setLayoutParams(layoutParams);
         }
-        return P;
+        return an;
     }
 }

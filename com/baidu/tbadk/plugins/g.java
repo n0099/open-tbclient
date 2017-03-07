@@ -23,7 +23,7 @@ class g extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
             boolean z = true;
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.aCA;
+            String[] strArr = Static.aHS;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -34,22 +34,22 @@ class g extends CustomMessageListener {
                 if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                     i++;
                 } else {
-                    com.baidu.adp.plugin.b.a.im().bg("plugin_crash_inflate");
-                    com.baidu.tbadk.core.sharedPref.b.tQ().putBoolean("is_plugin_resource_open_local", false);
+                    com.baidu.adp.plugin.b.a.jg().ba("plugin_crash_inflate");
+                    com.baidu.tbadk.core.sharedPref.b.uo().putBoolean("is_plugin_resource_open_local", false);
                     z = false;
                     break;
                 }
             }
             if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null) {
                 try {
-                    List<PluginSetting> pluginSettingsSortLoadPriorty = com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().iZ().getPluginSettingsSortLoadPriorty();
+                    List<PluginSetting> pluginSettingsSortLoadPriorty = com.baidu.adp.plugin.packageManager.pluginSettings.c.jW().jT().getPluginSettingsSortLoadPriorty();
                     if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
                         for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                             if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {
                                 for (StackTraceElement stackTraceElement : stackTrace) {
                                     try {
                                         plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                        com.baidu.tbadk.core.sharedPref.b.tQ().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.tQ().getInt("plugin_patch_hook_failed_count", 0) + 1);
+                                        com.baidu.tbadk.core.sharedPref.b.uo().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.uo().getInt("plugin_patch_hook_failed_count", 0) + 1);
                                         break;
                                     } catch (ClassNotFoundException e) {
                                     }

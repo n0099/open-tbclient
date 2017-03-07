@@ -3,51 +3,51 @@ package com.baidu.tieba.frs.smartsort;
 import android.text.TextUtils;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a bSP;
-    private boolean bSN = false;
-    private final HashMap<String, ArrayList<g>> bSO = new HashMap<>();
+    private static volatile a cab;
+    private boolean bZZ = false;
+    private final HashMap<String, ArrayList<g>> caa = new HashMap<>();
 
     private a() {
     }
 
-    public static a acm() {
-        if (bSP == null) {
+    public static a adj() {
+        if (cab == null) {
             synchronized (a.class) {
-                if (bSP == null) {
-                    bSP = new a();
+                if (cab == null) {
+                    cab = new a();
                 }
             }
         }
-        return bSP;
+        return cab;
     }
 
-    public String acn() {
+    public String adk() {
         return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized long iU(String str) {
-        g iV;
-        iV = iV(str);
-        return iV != null ? iV.lastTime : 0L;
+    public synchronized long iL(String str) {
+        g iM;
+        iM = iM(str);
+        return iM != null ? iM.lastTime : 0L;
     }
 
     public synchronized void i(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            String acn = acn();
-            ArrayList<g> arrayList = this.bSO.get(acn);
+            String adk = adk();
+            ArrayList<g> arrayList = this.caa.get(adk);
             ArrayList<g> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            g iV = iV(str);
+            g iM = iM(str);
             boolean z = false;
-            if (iV != null) {
-                if (iV.lastTime != j) {
-                    iV.lastTime = j;
+            if (iM != null) {
+                if (iM.lastTime != j) {
+                    iM.lastTime = j;
                     z = true;
                 }
             } else {
@@ -58,13 +58,13 @@ public class a {
                 z = true;
             }
             if (z) {
-                d(acn, arrayList2);
+                d(adk, arrayList2);
             }
         }
     }
 
     private synchronized void d(String str, ArrayList<g> arrayList) {
-        JSONObject acw;
+        JSONObject adu;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -72,26 +72,26 @@ public class a {
             ArrayList<g> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 g gVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(gVar.forumName) && (acw = gVar.acw()) != null) {
-                    jSONArray.put(acw);
+                if (!TextUtils.isEmpty(gVar.forumName) && (adu = gVar.adu()) != null) {
+                    jSONArray.put(adu);
                     arrayList2.add(gVar);
                 }
             }
-            if (!w.s(arrayList2)) {
-                this.bSO.put(str, arrayList2);
-                if (!this.bSN) {
-                    aco();
+            if (!x.q(arrayList2)) {
+                this.caa.put(str, arrayList2);
+                if (!this.bZZ) {
+                    adl();
                 } else {
-                    iW(jSONArray.toString());
+                    iN(jSONArray.toString());
                 }
             }
         }
     }
 
-    private synchronized g iV(String str) {
+    private synchronized g iM(String str) {
         g gVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<g> arrayList = this.bSO.get(acn());
+            ArrayList<g> arrayList = this.caa.get(adk());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -116,26 +116,26 @@ public class a {
         return gVar;
     }
 
-    private void iW(String str) {
-        o<String> acp = acp();
-        if (acp != null) {
-            acp.l("frs_smart_sort_last_time", str);
+    private void iN(String str) {
+        o<String> adm = adm();
+        if (adm != null) {
+            adm.l("frs_smart_sort_last_time", str);
         }
     }
 
-    public void aco() {
-        o<String> acp = acp();
-        if (acp != null) {
-            acp.a("frs_smart_sort_last_time", new b(this));
+    public void adl() {
+        o<String> adm = adm();
+        if (adm != null) {
+            adm.a("frs_smart_sort_last_time", new b(this));
         }
     }
 
-    private o<String> acp() {
-        return com.baidu.tbadk.core.c.a.sR().N("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
+    private o<String> adm() {
+        return com.baidu.tbadk.core.c.a.to().L("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<g> iX(String str) {
+    public ArrayList<g> iO(String str) {
         ArrayList<g> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {

@@ -8,12 +8,12 @@ import com.baidu.cloudsdk.social.share.uiwithlayout.LocationPreview;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s extends JsonHttpResponseHandler {
-    final /* synthetic */ RequestParams dA;
-    final /* synthetic */ LocationPreview dB;
+    final /* synthetic */ RequestParams ln;
+    final /* synthetic */ LocationPreview lo;
 
     public s(LocationPreview locationPreview, RequestParams requestParams) {
-        this.dB = locationPreview;
-        this.dA = requestParams;
+        this.lo = locationPreview;
+        this.ln = requestParams;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,8 +21,8 @@ public class s extends JsonHttpResponseHandler {
     public void onFailure(Throwable th, String str) {
         String str2;
         str2 = LocationPreview.a;
-        Log.e(str2, "get city|street failed, url: http://api.map.baidu.com/geocoder/v2/?" + this.dA.getQueryString() + ", errmsg: " + th.getMessage());
-        this.dB.b();
+        Log.e(str2, "get city|street failed, url: http://api.map.baidu.com/geocoder/v2/?" + this.ln.getQueryString() + ", errmsg: " + th.getMessage());
+        this.lo.b();
     }
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
@@ -32,12 +32,12 @@ public class s extends JsonHttpResponseHandler {
         if (optJSONObject != null) {
             String optString = optJSONObject.optString("formatted_address");
             if (!TextUtils.isEmpty(optString)) {
-                this.dB.a(optString);
+                this.lo.a(optString);
                 return;
             }
         }
         str = LocationPreview.a;
-        Log.e(str, "get city|street failed, url: http://api.map.baidu.com/geocoder/v2/?" + this.dA.getQueryString());
-        this.dB.b();
+        Log.e(str, "get city|street failed, url: http://api.map.baidu.com/geocoder/v2/?" + this.ln.getQueryString());
+        this.lo.b();
     }
 }

@@ -3,17 +3,17 @@ package com.baidu.tieba.card;
 import android.view.View;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ m bls;
+    final /* synthetic */ m bsl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.bls = mVar;
+        this.bsl = mVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bls.getOnSubCardOnClickListenner() != null) {
-            this.bls.getOnSubCardOnClickListenner().a(view, null);
+        if (this.bsl.getOnSubCardOnClickListenner() != null) {
+            this.bsl.getOnSubCardOnClickListenner().a(view, null);
         }
     }
 }

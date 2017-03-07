@@ -1,7 +1,7 @@
 package com.baidu.tbadk.browser;
 
 import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
     final /* synthetic */ BaseWebViewActivity this$0;
@@ -13,8 +13,8 @@ class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!com.baidu.adp.lib.util.i.gk()) {
-            this.this$0.showToast(r.l.neterror);
+        if (!com.baidu.adp.lib.util.i.he()) {
+            this.this$0.showToast(w.l.neterror);
             return;
         }
         this.this$0.mView.hideNoDataView();

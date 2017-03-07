@@ -1,23 +1,23 @@
 package com.baidu.tieba.view;
 
 import android.view.View;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ n fDD;
+    final /* synthetic */ n fIe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.fDD = nVar;
+        this.fIe = nVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (com.baidu.adp.lib.util.i.fX()) {
-            this.fDD.Jy();
-            this.fDD.g(true, com.baidu.adp.lib.util.k.e(this.fDD.Fp.getPageActivity(), r.f.ds500));
-            if (this.fDD.fDB != null) {
-                this.fDD.fDB.MR();
+        if (com.baidu.adp.lib.util.i.gS()) {
+            this.fIe.Kd();
+            this.fIe.g(true, com.baidu.adp.lib.util.k.g(this.fIe.aaI.getPageActivity(), w.f.ds500));
+            if (this.fIe.fIc != null) {
+                this.fIe.fIc.NE();
             }
         }
     }

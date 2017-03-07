@@ -11,10 +11,10 @@ import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
 import com.baidu.cloudsdk.social.share.handler.WeixinShareActivity;
 /* loaded from: classes.dex */
 public class l implements Weixin.IWXResponseHandler {
-    final /* synthetic */ WeixinShareActivity cN;
+    final /* synthetic */ WeixinShareActivity kA;
 
     public l(WeixinShareActivity weixinShareActivity) {
-        this.cN = weixinShareActivity;
+        this.kA = weixinShareActivity;
     }
 
     @Override // com.baidu.cloudsdk.social.core.util.Weixin.IWXResponseHandler
@@ -24,9 +24,9 @@ public class l implements Weixin.IWXResponseHandler {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        IBaiduListener q = n.q(str2);
-        ShareContent r = n.r(str2);
-        if (q == null) {
+        IBaiduListener p = n.p(str2);
+        ShareContent q = n.q(str2);
+        if (p == null) {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
@@ -34,14 +34,14 @@ public class l implements Weixin.IWXResponseHandler {
             Log.e(str4, "no listener for this transaction: " + str2);
         } else if (i != 0) {
             if (i == -2) {
-                q.onCancel();
+                p.onCancel();
             } else {
-                q.onError(new BaiduException("send share message to weixin failed, errcode: " + i + ", errmsg: " + str));
+                p.onError(new BaiduException("send share message to weixin failed, errcode: " + i + ", errmsg: " + str));
             }
         } else {
-            q.onComplete();
-            if (r != null) {
-                SocialShareStatisticsManager.getInstance(this.cN).statistics(MediaType.WEIXIN, r);
+            p.onComplete();
+            if (q != null) {
+                SocialShareStatisticsManager.getInstance(this.kA).statistics(MediaType.WEIXIN, q);
                 return;
             }
             str3 = WeixinShareActivity.a;

@@ -10,14 +10,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
-    private TextView GZ;
-    private TextView apd;
-    private TbImageView dfR;
-    private TextView dfS;
-    private InviteMsgData dfT;
+    private TextView auy;
+    private TbImageView dii;
+    private TextView dij;
+    private TextView dik;
+    private InviteMsgData dil;
 
     public Invite2GroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -30,13 +30,13 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     private void initUI() {
-        LayoutInflater.from(getContext()).inflate(r.j.invite_to_group_view, this);
+        LayoutInflater.from(getContext()).inflate(w.j.invite_to_group_view, this);
         setOrientation(1);
-        this.apd = (TextView) findViewById(r.h.chat_title);
-        this.dfR = (TbImageView) findViewById(r.h.chat_group_img);
-        this.dfS = (TextView) findViewById(r.h.chat_group_desc);
-        this.GZ = (TextView) findViewById(r.h.invite_btn);
-        this.dfR.setIsRound(false);
+        this.auy = (TextView) findViewById(w.h.chat_title);
+        this.dii = (TbImageView) findViewById(w.h.chat_group_img);
+        this.dij = (TextView) findViewById(w.h.chat_group_desc);
+        this.dik = (TextView) findViewById(w.h.invite_btn);
+        this.dii.setIsRound(false);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
@@ -45,29 +45,29 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     public void a(TbPageContext<?> tbPageContext, InviteMsgData inviteMsgData) {
-        this.dfT = inviteMsgData;
-        s(tbPageContext);
+        this.dil = inviteMsgData;
+        t(tbPageContext);
     }
 
-    private void s(TbPageContext<?> tbPageContext) {
-        this.GZ.setEnabled(true);
-        this.GZ.setTag(String.valueOf(this.dfT.getGroupId()));
-        this.GZ.setText(r.l.i_want_attent);
-        this.GZ.setTextColor(getContext().getResources().getColor(r.e.cp_bg_line_d));
-        this.GZ.setOnClickListener(new a(this));
-        this.apd.setText(this.dfT.getTitle());
-        this.dfR.setTag(this.dfT.getPortrait());
-        this.dfR.c(this.dfT.getPortrait(), 10, false);
-        this.dfS.setText(this.dfT.getNotice());
+    private void t(TbPageContext<?> tbPageContext) {
+        this.dik.setEnabled(true);
+        this.dik.setTag(String.valueOf(this.dil.getGroupId()));
+        this.dik.setText(w.l.i_want_attent);
+        this.dik.setTextColor(getContext().getResources().getColor(w.e.cp_bg_line_d));
+        this.dik.setOnClickListener(new a(this));
+        this.auy.setText(this.dil.getTitle());
+        this.dii.setTag(this.dil.getPortrait());
+        this.dii.c(this.dil.getPortrait(), 10, false);
+        this.dij.setText(this.dil.getNotice());
         setOnClickListener(new b(this, tbPageContext));
-        if (com.baidu.tieba.im.memorycache.b.asO().af(String.valueOf(this.dfT.getGroupId()), 1) != null) {
-            if (String.valueOf(this.dfT.getGroupId()).equals(this.GZ.getTag())) {
-                this.GZ.setText(r.l.i_want_talk);
-                this.GZ.setOnClickListener(new c(this));
+        if (com.baidu.tieba.im.memorycache.b.asj().Y(String.valueOf(this.dil.getGroupId()), 1) != null) {
+            if (String.valueOf(this.dil.getGroupId()).equals(this.dik.getTag())) {
+                this.dik.setText(w.l.i_want_talk);
+                this.dik.setOnClickListener(new c(this));
                 return;
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.c.aui().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dfT.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
+        com.baidu.tieba.im.settingcache.c.atD().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.dil.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
     }
 }

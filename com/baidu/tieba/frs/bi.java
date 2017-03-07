@@ -4,19 +4,19 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class bi extends y.a {
-    public int ahp;
-    public TextView bIr;
-    public PhotoLiveCardView bIs;
-    public View bIt;
+    public int amL;
+    public TextView bPA;
+    public PhotoLiveCardView bPB;
+    public View bPC;
 
     public bi(View view) {
         super(view);
-        this.ahp = 3;
-        this.bIr = (TextView) view.findViewById(r.h.more_live_list);
-        this.bIs = (PhotoLiveCardView) view.findViewById(r.h.photo_live_card);
-        this.bIt = view.findViewById(r.h.make_headlines);
+        this.amL = 3;
+        this.bPA = (TextView) view.findViewById(w.h.more_live_list);
+        this.bPB = (PhotoLiveCardView) view.findViewById(w.h.photo_live_card);
+        this.bPC = view.findViewById(w.h.make_headlines);
     }
 }

@@ -5,17 +5,17 @@ import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements DialogInterface.OnCancelListener {
-    final /* synthetic */ c fGD;
+    final /* synthetic */ c fKX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.fGD = cVar;
+        this.fKX = cVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         BaseActivity baseActivity;
-        baseActivity = this.fGD.mContext;
+        baseActivity = this.fKX.mContext;
         baseActivity.finish();
     }
 }

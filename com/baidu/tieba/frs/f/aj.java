@@ -1,40 +1,47 @@
 package com.baidu.tieba.frs.f;
 
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.ab;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.ax;
-import com.baidu.tieba.frs.ce;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements Runnable {
-    final /* synthetic */ ai bVW;
+public class aj implements ab.b {
+    final /* synthetic */ ah cdq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ai aiVar) {
-        this.bVW = aiVar;
+    public aj(ah ahVar) {
+        this.cdq = ahVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        af afVar;
+    @Override // com.baidu.tbadk.core.view.ab.b
+    public void aL(boolean z) {
+        FrsActivity frsActivity;
         ax axVar;
-        af afVar2;
-        ce ceVar;
-        af afVar3;
+        FrsActivity frsActivity2;
         ax axVar2;
-        af afVar4;
-        ce ceVar2;
-        afVar = this.bVW.bVV;
-        axVar = afVar.bFF;
-        if (axVar.Yl() != null) {
-            afVar2 = this.bVW.bVV;
-            ceVar = afVar2.bSH;
-            if (ceVar != null) {
-                afVar3 = this.bVW.bVV;
-                axVar2 = afVar3.bFF;
-                if (axVar2.Yl().getVisibility() != 0) {
-                    afVar4 = this.bVW.bVV;
-                    ceVar2 = afVar4.bSH;
-                    ceVar2.VI();
-                }
+        FrsActivity frsActivity3;
+        FrsActivity frsActivity4;
+        FrsActivity frsActivity5;
+        FrsActivity frsActivity6;
+        frsActivity = this.cdq.bTf;
+        frsActivity.refresh();
+        axVar = this.cdq.bMN;
+        if (axVar != null) {
+            frsActivity2 = this.cdq.bTf;
+            if (frsActivity2.YL()) {
+                frsActivity6 = this.cdq.bTf;
+                frsActivity6.Yq().kZ();
             }
+            axVar2 = this.cdq.bMN;
+            axVar2.ce(true);
+            frsActivity3 = this.cdq.bTf;
+            frsActivity3.dA(true);
+            com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c11749");
+            frsActivity4 = this.cdq.bTf;
+            com.baidu.tbadk.core.util.as Z = asVar.Z("fid", frsActivity4.getFid());
+            frsActivity5 = this.cdq.bTf;
+            TiebaStatic.log(Z.Z("obj_locate", frsActivity5.YL() ? "2" : "1"));
         }
     }
 }

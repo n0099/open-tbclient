@@ -5,40 +5,40 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c aDk = new c();
-    private b aDl;
-    private a aDm;
+    private static c aIH = new c();
+    private b aII;
+    private a aIJ;
 
     /* loaded from: classes.dex */
     public interface a {
-        void am(boolean z);
+        void al(boolean z);
     }
 
     private c() {
     }
 
-    public static c Gj() {
-        return aDk;
+    public static c GI() {
+        return aIH;
     }
 
     public void a(a aVar) {
-        this.aDm = aVar;
-        if (this.aDl != null) {
-            this.aDl.cancel();
+        this.aIJ = aVar;
+        if (this.aII != null) {
+            this.aII.cancel();
         }
-        this.aDl = new b(this, null);
-        this.aDl.setPriority(4);
-        this.aDl.execute(new String[0]);
+        this.aII = new b(this, null);
+        this.aII.setPriority(4);
+        this.aII.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Gk() {
+    public boolean GJ() {
         int i;
         long j = 0;
-        byte[] aF = com.baidu.adp.lib.util.e.aF("crash_hour_record.log");
+        byte[] az = com.baidu.adp.lib.util.e.az("crash_hour_record.log");
         String str = null;
-        if (aF != null) {
-            str = new String(aF);
+        if (az != null) {
+            str = new String(az);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.Gk());
+            return Boolean.valueOf(c.this.GJ());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(Boolean bool) {
-            if (c.this.aDm != null && bool != null) {
-                c.this.aDm.am(bool.booleanValue());
+            if (c.this.aIJ != null && bool != null) {
+                c.this.aIJ.al(bool.booleanValue());
             }
         }
     }

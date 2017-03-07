@@ -21,12 +21,12 @@ public class a {
 
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0012a {
+    public static class C0011a {
+        public boolean FL;
         public String mErrMsg;
-        public boolean yx;
     }
 
-    public static C0012a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+    public static C0011a a(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -42,8 +42,8 @@ public class a {
         return c(classLoader, classLoader2, str, z);
     }
 
-    private static C0012a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
-        C0012a c0012a;
+    private static C0011a b(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+        C0011a c0011a;
         if (classLoader == null || classLoader2 == null) {
             return null;
         }
@@ -68,37 +68,37 @@ public class a {
                         arrayList.add(str2);
                     }
                     Collections.sort(arrayList, new b());
-                    c0012a = null;
+                    c0011a = null;
                 } catch (Exception e) {
                     a(pathClassLoader, PathClassLoader.class, "mLibPaths", d(a(pathClassLoader, PathClassLoader.class, "mLibPaths"), a(dexClassLoader, DexClassLoader.class, "mLibPaths")));
-                    c0012a = null;
+                    c0011a = null;
                 }
             } catch (IllegalAccessException e2) {
-                C0012a a = a(false, e2);
+                C0011a a = a(false, e2);
                 BdLog.e(e2);
-                c0012a = a;
+                c0011a = a;
             } catch (NoSuchFieldException e3) {
-                C0012a a2 = a(false, e3);
+                C0011a a2 = a(false, e3);
                 BdLog.e(e3);
-                c0012a = a2;
+                c0011a = a2;
             }
         } catch (NoSuchFieldError e4) {
-            C0012a a3 = a(false, e4);
+            C0011a a3 = a(false, e4);
             BdLog.e(e4);
-            c0012a = a3;
+            c0011a = a3;
         } catch (Throwable th) {
-            C0012a a4 = a(false, th);
+            C0011a a4 = a(false, th);
             BdLog.e(th);
-            c0012a = a4;
+            c0011a = a4;
         }
-        if (c0012a == null) {
+        if (c0011a == null) {
             return a(true, null);
         }
-        return c0012a;
+        return c0011a;
     }
 
-    private static C0012a c(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
-        C0012a c0012a;
+    private static C0011a c(ClassLoader classLoader, ClassLoader classLoader2, String str, boolean z) {
+        C0011a c0011a;
         Object d;
         List list;
         if (classLoader == null || classLoader2 == null) {
@@ -117,14 +117,14 @@ public class a {
             a(w, w.getClass(), "dexElements", d);
             Object d2 = d(y(w), y(w2));
             if (d2 instanceof File[]) {
-                Arrays.sort((File[]) d2, jl());
+                Arrays.sort((File[]) d2, kf());
                 list = d2;
             } else {
                 boolean z2 = d2 instanceof List;
                 list = d2;
                 if (z2) {
                     List list2 = (List) d2;
-                    Collections.sort(list2, jl());
+                    Collections.sort(list2, kf());
                     list = list2;
                 }
             }
@@ -135,47 +135,47 @@ public class a {
                 Method declaredMethod = w.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                 declaredMethod.setAccessible(true);
                 a(w, w.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(w.getClass(), arrayList, null, new ArrayList()));
-                c0012a = null;
+                c0011a = null;
             } else {
-                c0012a = null;
+                c0011a = null;
             }
         } catch (ClassNotFoundException e) {
-            C0012a a = a(false, e);
+            C0011a a = a(false, e);
             BdLog.e(e);
-            c0012a = a;
+            c0011a = a;
         } catch (IllegalAccessException e2) {
-            C0012a a2 = a(false, e2);
+            C0011a a2 = a(false, e2);
             BdLog.e(e2);
-            c0012a = a2;
+            c0011a = a2;
         } catch (IllegalArgumentException e3) {
-            C0012a a3 = a(false, e3);
+            C0011a a3 = a(false, e3);
             BdLog.e(e3);
-            c0012a = a3;
+            c0011a = a3;
         } catch (NoSuchFieldError e4) {
-            C0012a a4 = a(false, e4);
+            C0011a a4 = a(false, e4);
             BdLog.e(e4);
-            c0012a = a4;
+            c0011a = a4;
         } catch (NoSuchFieldException e5) {
-            C0012a a5 = a(false, e5);
+            C0011a a5 = a(false, e5);
             BdLog.e(e5);
-            c0012a = a5;
+            c0011a = a5;
         } catch (NoSuchMethodException e6) {
-            C0012a a6 = a(false, e6);
+            C0011a a6 = a(false, e6);
             BdLog.e(e6);
-            c0012a = a6;
+            c0011a = a6;
         } catch (SecurityException e7) {
-            C0012a a7 = a(false, e7);
+            C0011a a7 = a(false, e7);
             BdLog.e(e7);
-            c0012a = a7;
+            c0011a = a7;
         } catch (Throwable th) {
-            C0012a a8 = a(false, th);
+            C0011a a8 = a(false, th);
             BdLog.e(th);
-            c0012a = a8;
+            c0011a = a8;
         }
-        if (c0012a == null) {
+        if (c0011a == null) {
             return a(true, null);
         }
-        return c0012a;
+        return c0011a;
     }
 
     private static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
@@ -237,11 +237,11 @@ public class a {
         return newInstance;
     }
 
-    private static C0012a a(boolean z, Throwable th) {
-        C0012a c0012a = new C0012a();
-        c0012a.yx = z;
-        c0012a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
-        return c0012a;
+    private static C0011a a(boolean z, Throwable th) {
+        C0011a c0011a = new C0011a();
+        c0011a.FL = z;
+        c0011a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
+        return c0011a;
     }
 
     private static Object w(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
@@ -256,7 +256,7 @@ public class a {
         return a(obj, obj.getClass(), "nativeLibraryDirectories");
     }
 
-    public static C0012a a(Context context, ClassLoader classLoader, String str) {
+    public static C0011a a(Context context, ClassLoader classLoader, String str) {
         Object a;
         try {
             classLoader.loadClass(str);
@@ -276,12 +276,12 @@ public class a {
         }
     }
 
-    private static final Comparator<File> jl() {
+    private static final Comparator<File> kf() {
         return new c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int I(String str, String str2) {
+    public static final int G(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

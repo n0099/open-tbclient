@@ -7,31 +7,32 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.BigImgPbActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.data.UserVideoChannelInfoData;
 import com.baidu.tieba.person.f;
 import com.baidu.tieba.personInfo.PersonUserGodInfo;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import tbclient.Feedback;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<v> ezj = new ArrayList<>();
-    private PersonUserGodInfo ezk;
-    private UserVideoChannelInfoData ezl;
-    private f ezm;
-    private com.baidu.tieba.person.data.b ezn;
-    private com.baidu.tieba.person.data.c ezo;
-    public c ezp;
-    public c ezq;
-    public c ezr;
-    public c ezs;
-    public c ezt;
-    private Feedback ezu;
+    private ArrayList<v> eCI = new ArrayList<>();
+    private PersonUserGodInfo eCJ;
+    private UserVideoChannelInfoData eCK;
+    private f eCL;
+    private com.baidu.tieba.person.data.b eCM;
+    private com.baidu.tieba.person.data.c eCN;
+    public c eCO;
+    public c eCP;
+    public c eCQ;
+    public c eCR;
+    public c eCS;
+    private Feedback eCT;
     private UserData mUserData;
 
     public void a(com.baidu.tieba.person.b bVar) {
@@ -40,191 +41,191 @@ public class a {
                 this.mUserData = new UserData();
             }
             this.mUserData.parserProtobuf(bVar.GetUser());
-            if (this.ezk == null) {
-                this.ezk = new PersonUserGodInfo();
+            if (this.eCJ == null) {
+                this.eCJ = new PersonUserGodInfo();
             }
             if (bVar.getUserGodInfo() != null && bVar.getUserGodInfo().god_type.intValue() == 2) {
                 this.mUserData.setIsGod(true);
-                this.ezk.parserProtobuf(bVar.getUserGodInfo());
+                this.eCJ.parserProtobuf(bVar.getUserGodInfo());
             }
-            if (this.ezl == null) {
-                this.ezl = new UserVideoChannelInfoData();
+            if (this.eCK == null) {
+                this.eCK = new UserVideoChannelInfoData();
             }
             if (bVar.getUserChannelInfo() != null) {
-                this.ezl.parserProtobuf(bVar.getUserChannelInfo());
+                this.eCK.parserProtobuf(bVar.getUserChannelInfo());
             }
             String userId = this.mUserData.getUserId();
             if (!StringUtils.isNull(userId)) {
                 TbadkCoreApplication.m9getInst();
                 if (!userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    com.baidu.tbadk.getUserInfo.b.DK().a(this.mUserData);
+                    com.baidu.tbadk.getUserInfo.b.Ed().a(this.mUserData);
                 }
             }
-            this.ezm = bVar.getUcCardData();
+            this.eCL = bVar.getUcCardData();
             if (bVar.getBookrackData() != null) {
                 com.baidu.tieba.personInfo.a aVar = new com.baidu.tieba.personInfo.a();
                 aVar.a(bVar.getBookrackData());
-                this.ezn = new com.baidu.tieba.person.data.b(true, aVar);
+                this.eCM = new com.baidu.tieba.person.data.b(true, aVar);
             }
-            this.ezu = bVar.getFeedBack();
+            this.eCT = bVar.getFeedBack();
         }
     }
 
-    private void aQF() {
-        c oL;
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
-        this.ezp = M(r.g.icon_mine_gift, r.l.gift_received_by_me, 10);
-        if (!w.s(this.mUserData.getGift())) {
+    private void aQi() {
+        c nT;
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+        this.eCO = L(w.g.icon_mine_gift, w.l.gift_received_by_me, 10);
+        if (!x.q(this.mUserData.getGift())) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 3 && i < this.mUserData.getGift().size(); i++) {
                 arrayList.add(this.mUserData.getGift().get(i).getGiftIcon());
             }
-            this.ezp.bzZ = new Bundle();
-            this.ezp.bzZ.putSerializable("person_center_item_pic", arrayList);
-            this.ezp.bzZ.putBoolean("person_center_item_red_tip", true);
+            this.eCO.bHf = new Bundle();
+            this.eCO.bHf.putSerializable("person_center_item_pic", arrayList);
+            this.eCO.bHf.putBoolean("person_center_item_red_tip", true);
         }
-        this.ezp.ezy.bzZ = new Bundle();
-        this.ezp.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(this.ezp);
+        this.eCO.eCX.bHf = new Bundle();
+        this.eCO.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(this.eCO);
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(AlaLiveRoomActivityConfig.class)) {
-            this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-            c M = M(r.g.icon_mine_live, r.l.person_center_ala_live, 25);
-            M.bzZ = new Bundle();
-            M.ezy.bzZ = new Bundle();
-            M.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-            this.ezj.add(M);
+            this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+            c L = L(w.g.icon_mine_live, w.l.person_center_ala_live, 25);
+            L.bHf = new Bundle();
+            L.eCX.bHf = new Bundle();
+            L.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+            this.eCI.add(L);
         }
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-        c M2 = M(r.g.icon_mine_store_bluedrill, r.l.blue_drill_store, 11);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+        c L2 = L(w.g.icon_mine_store_bluedrill, w.l.blue_drill_store, 11);
         if (this.mUserData != null && this.mUserData.membershipInfo != null && !StringUtils.isNull(this.mUserData.membershipInfo.mContent)) {
-            M2.bzZ = new Bundle();
-            M2.bzZ.putString("person_center_item_txt", this.mUserData.membershipInfo.mContent);
+            L2.bHf = new Bundle();
+            L2.bHf.putString("person_center_item_txt", this.mUserData.membershipInfo.mContent);
         }
-        M2.ezy.bzZ = new Bundle();
-        M2.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(M2);
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-        this.ezt = M(r.g.icon_mine_associator, r.l.member_center, 12);
-        this.ezt.bzZ = new Bundle();
-        this.ezt.bzZ.putBoolean("person_center_item_red_tip", true);
-        this.ezt.ezy.bzZ = new Bundle();
-        this.ezt.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(this.ezt);
-        if (this.ezo != null && (oL = this.ezo.oL(TbadkCoreApplication.m9getInst().getString(r.l.consumption_records))) != null) {
-            this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-            oL.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-            this.ezj.add(oL);
+        L2.eCX.bHf = new Bundle();
+        L2.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(L2);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+        this.eCS = L(w.g.icon_mine_associator, w.l.member_center, 12);
+        this.eCS.bHf = new Bundle();
+        this.eCS.bHf.putBoolean("person_center_item_red_tip", true);
+        this.eCS.eCX.bHf = new Bundle();
+        this.eCS.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(this.eCS);
+        if (this.eCN != null && (nT = this.eCN.nT(TbadkCoreApplication.m9getInst().getString(w.l.consumption_records))) != null) {
+            this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+            nT.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+            this.eCI.add(nT);
         }
-        this.ezr = M(r.g.icon_mine_collect, r.l.my_mark, 16);
-        this.ezr.bzZ = new Bundle();
-        this.ezr.bzZ.putBoolean("person_center_item_red_tip", true);
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
-        this.ezr.ezy.bzZ = new Bundle();
-        this.ezr.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(this.ezr);
-        c M3 = M(r.g.icon_mine_history, r.l.my_history, 17);
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-        M3.ezy.bzZ = new Bundle();
-        M3.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(M3);
-        if (this.mUserData != null && this.mUserData.isShowDriftingBottle() && e.dL().ac("android_bottle_enable") == 1) {
-            TiebaStatic.log(new ar("c11947"));
-            c M4 = M(r.g.icon_mine_bottle, r.l.person_center_drifting_bottle, 23);
-            this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-            M4.ezy.bzZ = new Bundle();
-            M4.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-            this.ezj.add(M4);
+        this.eCQ = L(w.g.icon_mine_collect, w.l.my_mark, 16);
+        this.eCQ.bHf = new Bundle();
+        this.eCQ.bHf.putBoolean("person_center_item_red_tip", true);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+        this.eCQ.eCX.bHf = new Bundle();
+        this.eCQ.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(this.eCQ);
+        c L3 = L(w.g.icon_mine_history, w.l.my_history, 17);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+        L3.eCX.bHf = new Bundle();
+        L3.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(L3);
+        if (this.mUserData != null && this.mUserData.isShowDriftingBottle() && e.eT().ab("android_bottle_enable") == 1 && TbadkCoreApplication.m9getInst().appResponseToIntentClass(BigImgPbActivityConfig.class)) {
+            TiebaStatic.log(new as("c11947"));
+            c L4 = L(w.g.icon_mine_bottle, w.l.person_center_drifting_bottle, 23);
+            this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+            L4.eCX.bHf = new Bundle();
+            L4.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+            this.eCI.add(L4);
         }
-        c M5 = M(r.g.icon_mine_anchor, r.l.misson_title, 18);
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-        M5.ezy.bzZ = new Bundle();
-        M5.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(M5);
-        if (this.ezl != null) {
-            TiebaStatic.log(new ar("c11956"));
-            boolean z = this.ezl.getManChannel() == 1;
+        c L5 = L(w.g.icon_mine_anchor, w.l.misson_title, 18);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+        L5.eCX.bHf = new Bundle();
+        L5.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(L5);
+        if (this.eCK != null) {
+            TiebaStatic.log(new as("c11956"));
+            boolean z = this.eCK.getManChannel() == 1;
             if (z) {
-                this.ezq = M(r.g.icon_mine_channel, r.l.person_center_my_channel, 26);
-                this.ezq.bzZ = new Bundle();
-                this.ezq.bzZ.putBoolean("person_center_item_red_tip", true);
-                this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
-                this.ezq.ezy.bzZ = new Bundle();
-                this.ezq.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-                this.ezj.add(this.ezq);
+                this.eCP = L(w.g.icon_mine_channel, w.l.person_center_my_channel, 26);
+                this.eCP.bHf = new Bundle();
+                this.eCP.bHf.putBoolean("person_center_item_red_tip", true);
+                this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+                this.eCP.eCX.bHf = new Bundle();
+                this.eCP.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+                this.eCI.add(this.eCP);
             }
-            if (this.ezl.getFollowChannel() == 1) {
-                TiebaStatic.log(new ar("c11957"));
-                c M6 = M(r.g.icon_mine_concern, r.l.person_center_subscribe_channel, 27);
+            if (this.eCK.getFollowChannel() == 1) {
+                TiebaStatic.log(new as("c11957"));
+                c L6 = L(w.g.icon_mine_concern, w.l.person_center_subscribe_channel, 27);
                 if (z) {
-                    this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
+                    this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
                 } else {
-                    this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
+                    this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
                 }
-                M6.ezy.bzZ = new Bundle();
-                M6.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-                this.ezj.add(M6);
+                L6.eCX.bHf = new Bundle();
+                L6.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+                this.eCI.add(L6);
             }
         }
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
-        this.ezj.add(this.ezn);
-        this.ezs = M(r.g.icon_mine_friend, r.l.my_good_friends, 20);
-        this.ezs.bzZ = new Bundle();
-        this.ezs.bzZ.putBoolean("person_center_item_red_tip", true);
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
-        this.ezs.ezy.bzZ = new Bundle();
-        this.ezs.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(this.ezs);
-        c M7 = M(r.g.icon_mine_group, r.l.my_groups, 21);
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds1), r.e.cp_bg_line_c));
-        M7.ezy.bzZ = new Bundle();
-        M7.ezy.bzZ.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ezj.add(M7);
-        if (this.ezu != null && !StringUtils.isNull(this.ezu.url) && !StringUtils.isNull(this.ezu.title)) {
-            c M8 = M(r.g.icon_personalcenter_feedback, r.l.person_center_feedback, 24);
-            M8.title = UtilHelper.getFixedBarText(this.ezu.title, 6, true);
-            M8.ezy.bzZ = new Bundle();
-            M8.ezy.bzZ.putString("person_center_item_click_url", this.ezu.url);
-            this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
-            this.ezj.add(M8);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+        this.eCI.add(this.eCM);
+        this.eCR = L(w.g.icon_mine_friend, w.l.my_good_friends, 20);
+        this.eCR.bHf = new Bundle();
+        this.eCR.bHf.putBoolean("person_center_item_red_tip", true);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+        this.eCR.eCX.bHf = new Bundle();
+        this.eCR.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(this.eCR);
+        c L7 = L(w.g.icon_mine_group, w.l.my_groups, 21);
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds1), w.e.cp_bg_line_c));
+        L7.eCX.bHf = new Bundle();
+        L7.eCX.bHf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.eCI.add(L7);
+        if (this.eCT != null && !StringUtils.isNull(this.eCT.url) && !StringUtils.isNull(this.eCT.title)) {
+            c L8 = L(w.g.icon_personalcenter_feedback, w.l.person_center_feedback, 24);
+            L8.title = UtilHelper.getFixedBarText(this.eCT.title, 6, true);
+            L8.eCX.bHf = new Bundle();
+            L8.eCX.bHf.putString("person_center_item_click_url", this.eCT.url);
+            this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+            this.eCI.add(L8);
         }
-        this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds220), r.e.cp_bg_line_c));
+        this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds220), w.e.cp_bg_line_c));
     }
 
-    public void aQG() {
-        if (this.ezm != null && !w.s(this.ezm.exO)) {
-            this.ezj.add(bc(k.e(TbadkCoreApplication.m9getInst().getApplicationContext(), r.f.ds20), r.e.cp_bg_line_c));
-            this.ezo = new com.baidu.tieba.person.data.c();
-            this.ezo.setName(this.ezm.name);
-            this.ezo.oK(this.ezm.exN);
-            this.ezo.setIcon(this.ezm.icon);
-            this.ezo.oJ(this.ezm.exM);
-            this.ezo.cy(this.ezm.exO);
-            this.ezj.add(this.ezo);
+    public void aQj() {
+        if (this.eCL != null && !x.q(this.eCL.eBo)) {
+            this.eCI.add(bg(k.g(TbadkCoreApplication.m9getInst().getApplicationContext(), w.f.ds20), w.e.cp_bg_line_c));
+            this.eCN = new com.baidu.tieba.person.data.c();
+            this.eCN.setName(this.eCL.name);
+            this.eCN.nS(this.eCL.eBn);
+            this.eCN.setIcon(this.eCL.icon);
+            this.eCN.nR(this.eCL.eBm);
+            this.eCN.cf(this.eCL.eBo);
+            this.eCI.add(this.eCN);
         }
-        aQF();
+        aQi();
     }
 
-    private c M(int i, int i2, int i3) {
+    private c L(int i, int i2, int i3) {
         c cVar = new c();
         cVar.iconId = i;
         cVar.title = TbadkCoreApplication.m9getInst().getString(i2);
-        cVar.ezy = new com.baidu.tieba.personCenter.d.a();
-        cVar.ezy.bzY = i3;
+        cVar.eCX = new com.baidu.tieba.personCenter.d.a();
+        cVar.eCX.bHe = i3;
         return cVar;
     }
 
-    private b bc(int i, int i2) {
+    private b bg(int i, int i2) {
         b bVar = new b();
-        bVar.euD = i;
-        bVar.ezw = i2;
+        bVar.eya = i;
+        bVar.eCV = i2;
         return bVar;
     }
 
-    public ArrayList<v> amM() {
-        return this.ezj;
+    public ArrayList<v> alZ() {
+        return this.eCI;
     }
 
-    public UserData aQH() {
+    public UserData aQk() {
         return this.mUserData;
     }
 }

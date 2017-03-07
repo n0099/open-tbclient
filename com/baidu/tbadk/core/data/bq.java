@@ -1,35 +1,30 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.Yule;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes.dex */
 public class bq {
-    private int Uw = 0;
-    private bp Ux = new bp();
+    public int ZH;
+    public String channelAvatar;
+    public long channelId;
+    public String channelName;
+    public int mCurrentPage;
 
-    public boolean sN() {
-        return this.Uw != 0;
-    }
-
-    public bp sO() {
-        return this.Ux;
-    }
-
-    public void a(Yule yule) {
-        if (yule != null) {
-            this.Uw = yule.activity_show.intValue();
-            this.Ux.a(yule.yule_activity);
+    public void a(VideoChannelInfo videoChannelInfo) {
+        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
+            this.channelId = videoChannelInfo.channel_id.longValue();
+            this.channelName = videoChannelInfo.channel_name;
+            this.channelAvatar = videoChannelInfo.channel_avatar;
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
+    public void i(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Uw = jSONObject.optInt("activity_show");
-                this.Ux.parserJson(jSONObject.optJSONObject("yule_activity"));
+                this.channelId = jSONObject.optLong("channel_id", 0L);
+                this.channelName = jSONObject.optString("channel_name");
+                this.channelAvatar = jSONObject.optString("channel_avatar");
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
         }
     }

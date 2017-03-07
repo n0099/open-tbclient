@@ -5,37 +5,37 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.editortools.v;
 import com.baidu.tbadk.editortools.x;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends x {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.aua = false;
-        this.atZ = 2;
-        this.aub = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
-        this.atm = new SendView(context);
-        v.a aVar = new v.a(context.getResources().getDimensionPixelSize(r.f.ds100), context.getResources().getDimensionPixelSize(r.f.ds78));
+        this.azv = false;
+        this.azu = 2;
+        this.azw = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
+        this.ayH = new SendView(context);
+        v.a aVar = new v.a(context.getResources().getDimensionPixelSize(w.f.ds100), context.getResources().getDimensionPixelSize(w.f.ds78));
         aVar.gravity = 16;
-        aVar.leftMargin = context.getResources().getDimensionPixelSize(r.f.ds10);
-        aVar.rightMargin = context.getResources().getDimensionPixelSize(r.f.ds10);
-        ((View) this.atm).setLayoutParams(aVar);
+        aVar.leftMargin = context.getResources().getDimensionPixelSize(w.f.ds10);
+        aVar.rightMargin = context.getResources().getDimensionPixelSize(w.f.ds10);
+        ((View) this.ayH).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.atm != null && (this.atm instanceof TextView)) {
-            ((TextView) this.atm).setText(i);
+        if (this.ayH != null && (this.ayH instanceof TextView)) {
+            ((TextView) this.ayH).setText(i);
         }
     }
 
     public void setType(int i) {
-        if (this.atm != null) {
-            ((SendView) this.atm).setType(i);
+        if (this.ayH != null) {
+            ((SendView) this.ayH).setType(i);
         }
     }
 
-    public void eO(int i) {
-        if (this.atm != null) {
-            ((SendView) this.atm).eO(i);
+    public void eJ(int i) {
+        if (this.ayH != null) {
+            ((SendView) this.ayH).eJ(i);
         }
     }
 }

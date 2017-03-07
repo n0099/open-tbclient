@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements c.b {
-    final /* synthetic */ q eDB;
+    final /* synthetic */ q eHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(q qVar) {
-        this.eDB = qVar;
+        this.eHd = qVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.eDB.eDt = false;
+        this.eHd.eGV = false;
         switch (i) {
             case 0:
-                this.eDB.Qc();
+                this.eHd.QV();
                 break;
             case 1:
-                this.eDB.aRJ();
+                this.eHd.aRm();
                 break;
         }
         cVar.dismiss();

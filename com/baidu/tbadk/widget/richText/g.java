@@ -5,24 +5,24 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aIy;
-    private final /* synthetic */ TbRichTextData aIz;
+    final /* synthetic */ TbRichTextView aNV;
+    private final /* synthetic */ TbRichTextData aNW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
-        this.aIy = tbRichTextView;
-        this.aIz = tbRichTextData;
+        this.aNV = tbRichTextView;
+        this.aNW = tbRichTextData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbRichTextView.d dVar;
         TbRichTextView.d dVar2;
-        dVar = this.aIy.aIg;
+        dVar = this.aNV.aND;
         if (dVar != null) {
-            TbRichTextEmotionInfo HA = this.aIz.HA();
-            dVar2 = this.aIy.aIg;
-            dVar2.a(view, HA.mGifInfo.mGid, HA.mGifInfo.mPackageName, HA.mGifInfo.mIcon, HA.mGifInfo.mStaticUrl, HA.mGifInfo.mDynamicUrl, HA.mGifInfo.mSharpText, HA.mGifInfo.mGifWidth, HA.mGifInfo.mGifHeight);
+            TbRichTextEmotionInfo Ia = this.aNW.Ia();
+            dVar2 = this.aNV.aND;
+            dVar2.a(view, Ia.mGifInfo.mGid, Ia.mGifInfo.mPackageName, Ia.mGifInfo.mIcon, Ia.mGifInfo.mStaticUrl, Ia.mGifInfo.mDynamicUrl, Ia.mGifInfo.mSharpText, Ia.mGifInfo.mGifWidth, Ia.mGifInfo.mGifHeight);
         }
     }
 }

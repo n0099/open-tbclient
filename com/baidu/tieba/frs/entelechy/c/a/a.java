@@ -9,80 +9,79 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.bt;
-import com.baidu.tieba.r;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class a {
-    private ViewGroup UR;
-    private FrsActivity bMj;
-    private TextView bMk;
-    private List<bt> bMl;
-    private com.baidu.tieba.frs.entelechy.c.a.a.a bMm;
-    private int bMn = -1;
-    private boolean bMo = false;
-    private View.OnClickListener bMp = new b(this);
-    private c.b bMq = new c(this);
-    private String bjT;
+    private ViewGroup aac;
+    private FrsActivity bTp;
+    private TextView bTq;
+    private List<bt> bTr;
+    private com.baidu.tieba.frs.entelechy.c.a.a.a bTs;
+    private int bTt = -1;
+    private boolean bTu = false;
+    private View.OnClickListener bTv = new b(this);
+    private c.b bTw = new c(this);
+    private String bqC;
 
     public void setFid(String str) {
-        this.bjT = str;
+        this.bqC = str;
     }
 
-    public TextView aas() {
-        return this.bMk;
+    public TextView abp() {
+        return this.bTq;
     }
 
-    public void iS(String str) {
-        this.bMk.setText(str);
+    public void iI(String str) {
+        this.bTq.setText(str);
     }
 
-    public int aat() {
-        return this.bMn;
+    public int abq() {
+        return this.bTt;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public void m14if(int i) {
-        this.bMn = i;
+    public void ib(int i) {
+        this.bTt = i;
     }
 
     public a(FrsActivity frsActivity, ViewGroup viewGroup) {
         if (frsActivity != null && viewGroup != null) {
-            this.bMj = frsActivity;
-            this.UR = viewGroup;
-            this.bMk = new TextView(frsActivity.getActivity());
+            this.bTp = frsActivity;
+            this.aac = viewGroup;
+            this.bTq = new TextView(frsActivity.getActivity());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int e = k.e(frsActivity.getActivity(), r.f.ds30);
-            this.bMk.setPadding(e, 0, e, 0);
-            this.bMk.setGravity(17);
-            this.bMk.setTextSize(0, k.e(frsActivity.getActivity(), r.f.ds28));
-            this.bMk.setCompoundDrawablePadding(k.e(frsActivity.getActivity(), r.f.ds20));
-            this.bMk.setLayoutParams(layoutParams);
-            this.bMk.setOnClickListener(this.bMp);
-            this.UR.addView(this.bMk);
+            int g = k.g(frsActivity.getActivity(), w.f.ds30);
+            this.bTq.setPadding(g, 0, g, 0);
+            this.bTq.setGravity(17);
+            this.bTq.setTextSize(0, k.g(frsActivity.getActivity(), w.f.ds28));
+            this.bTq.setCompoundDrawablePadding(k.g(frsActivity.getActivity(), w.f.ds20));
+            this.bTq.setLayoutParams(layoutParams);
+            this.bTq.setOnClickListener(this.bTv);
+            this.aac.addView(this.bTq);
             onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bMk != null) {
-            ap.i((View) this.bMk, r.e.cp_cont_c);
-            ap.k(this.bMk, r.e.cp_bg_line_d);
-            this.bMk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(r.g.icon_frs_arrow_selector), (Drawable) null);
+        if (this.bTq != null) {
+            aq.i((View) this.bTq, w.e.cp_cont_c);
+            aq.k(this.bTq, w.e.cp_bg_line_d);
+            this.bTq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, aq.getDrawable(w.g.icon_frs_arrow_selector), (Drawable) null);
         }
     }
 
-    public void h(List<FrsTabInfo> list, int i) {
-        if (w.s(list)) {
-            aav();
-        } else if (this.bMj != null && this.bMj.Xy() != null && this.bMj.Xy().abV()) {
-            aau();
+    public void i(List<FrsTabInfo> list, int i) {
+        if (x.q(list)) {
+            abs();
+        } else if (this.bTp != null && this.bTp.Yx() != null && this.bTp.Yx().acS()) {
+            abr();
             ArrayList arrayList = new ArrayList(list);
             Iterator<FrsTabInfo> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -91,48 +90,48 @@ public class a {
                     it.remove();
                 }
             }
-            if (!au(arrayList)) {
-                if (!this.bMo) {
-                    ig(i);
+            if (!ar(arrayList)) {
+                if (!this.bTu) {
+                    ic(i);
                     return;
                 }
                 return;
             }
-            this.bMl = new ArrayList();
+            this.bTr = new ArrayList();
             for (FrsTabInfo frsTabInfo : arrayList) {
                 if (frsTabInfo != null && frsTabInfo.tab_id != null && !StringUtils.isNull(frsTabInfo.tab_name)) {
                     bt btVar = new bt();
-                    btVar.bIQ = frsTabInfo.tab_id.intValue();
+                    btVar.bPZ = frsTabInfo.tab_id.intValue();
                     btVar.name = frsTabInfo.tab_name;
-                    this.bMl.add(btVar);
+                    this.bTr.add(btVar);
                 }
             }
-            if (!this.bMo) {
-                ig(i);
+            if (!this.bTu) {
+                ic(i);
             }
         } else {
-            aav();
+            abs();
         }
     }
 
-    private void ig(int i) {
+    private void ic(int i) {
         bt btVar;
         boolean z;
         bt btVar2 = null;
         if (i <= 0) {
-            bt btVar3 = this.bMl.get(0);
+            bt btVar3 = this.bTr.get(0);
             if (btVar3 != null) {
-                m14if(btVar3.bIQ);
-                iS(btVar3.name);
-                if (this.bMj != null && this.bMj.Xy() != null) {
-                    this.bMj.Xy().it(btVar3.bIQ);
+                ib(btVar3.bPZ);
+                iI(btVar3.name);
+                if (this.bTp != null && this.bTp.Yx() != null) {
+                    this.bTp.Yx().ip(btVar3.bPZ);
                     return;
                 }
                 return;
             }
             return;
         }
-        int size = this.bMl.size();
+        int size = this.bTr.size();
         int i2 = 0;
         while (true) {
             if (i2 >= size) {
@@ -140,8 +139,8 @@ public class a {
                 z = false;
                 break;
             }
-            btVar2 = this.bMl.get(i2);
-            if (btVar2 == null || btVar2.bIQ != i) {
+            btVar2 = this.bTr.get(i2);
+            if (btVar2 == null || btVar2.bPZ != i) {
                 i2++;
             } else {
                 btVar = btVar2;
@@ -151,46 +150,46 @@ public class a {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                iS(TbadkCoreApplication.m9getInst().getResources().getString(r.l.attention_users_thread));
+                iI(TbadkCoreApplication.m9getInst().getResources().getString(w.l.attention_users_thread));
                 return;
             }
-            bt btVar4 = this.bMl.get(0);
+            bt btVar4 = this.bTr.get(0);
             if (btVar4 != null) {
-                m14if(btVar4.bIQ);
-                iS(btVar4.name);
-                if (this.bMj != null && this.bMj.Xy() != null) {
-                    this.bMj.Xy().it(btVar4.bIQ);
+                ib(btVar4.bPZ);
+                iI(btVar4.name);
+                if (this.bTp != null && this.bTp.Yx() != null) {
+                    this.bTp.Yx().ip(btVar4.bPZ);
                 }
             }
         } else if (btVar != null) {
-            m14if(btVar.bIQ);
-            iS(btVar.name);
-            if (this.bMj != null && this.bMj.Xy() != null) {
-                this.bMj.Xy().it(btVar.bIQ);
+            ib(btVar.bPZ);
+            iI(btVar.name);
+            if (this.bTp != null && this.bTp.Yx() != null) {
+                this.bTp.Yx().ip(btVar.bPZ);
             }
         }
     }
 
-    private boolean au(List<FrsTabInfo> list) {
-        if (!w.s(this.bMl) && w.r(list) == w.r(this.bMl)) {
+    private boolean ar(List<FrsTabInfo> list) {
+        if (!x.q(this.bTr) && x.p(list) == x.p(this.bTr)) {
             int i = 0;
             while (i < list.size()) {
-                i = (list.get(i) != null && this.bMl.get(i) == null) ? i + 1 : i + 1;
+                i = (list.get(i) != null && this.bTr.get(i) == null) ? i + 1 : i + 1;
             }
             return false;
         }
         return true;
     }
 
-    public void aau() {
-        if (this.bMk != null) {
-            this.bMk.setVisibility(0);
+    public void abr() {
+        if (this.bTq != null) {
+            this.bTq.setVisibility(0);
         }
     }
 
-    public void aav() {
-        if (this.bMk != null) {
-            this.bMk.setVisibility(8);
+    public void abs() {
+        if (this.bTq != null) {
+            this.bTq.setVisibility(8);
         }
     }
 }

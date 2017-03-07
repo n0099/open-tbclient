@@ -14,13 +14,13 @@ public class h implements a.c {
     }
 
     @Override // com.baidu.adp.plugin.packageManager.a.c
-    public void E(String str, String str2) {
+    public void C(String str, String str2) {
         PluginSetting findPluginSetting;
         boolean z;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().findPluginSetting(str)) != null) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.jW().findPluginSetting(str)) != null) {
             if (!TextUtils.isEmpty(findPluginSetting.apkPath) && findPluginSetting.apkPath.equals(str2)) {
-                com.baidu.adp.plugin.b.a.im().e("plugin_setting", "del_unuse_plugin_setting", findPluginSetting.packageName, "apkpath-" + findPluginSetting.apkPath + "-forbidden-" + findPluginSetting.forbidden + "-enable-" + findPluginSetting.enable + "-abandonapkpath-" + findPluginSetting.getAbandon_apk_path() + "-versioncode-" + findPluginSetting.versionCode);
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.jc().bz(str);
+                com.baidu.adp.plugin.b.a.jg().e("plugin_setting", "del_unuse_plugin_setting", findPluginSetting.packageName, "apkpath-" + findPluginSetting.apkPath + "-forbidden-" + findPluginSetting.forbidden + "-enable-" + findPluginSetting.enable + "-abandonapkpath-" + findPluginSetting.getAbandon_apk_path() + "-versioncode-" + findPluginSetting.versionCode);
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.jW().bt(str);
             } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
                 String[] split = findPluginSetting.getAbandon_apk_path().split(",");
                 String str3 = "";
@@ -32,9 +32,9 @@ public class h implements a.c {
                         str3 = String.valueOf(str3) + str4;
                     }
                 }
-                com.baidu.adp.plugin.packageManager.pluginSettings.c jc = com.baidu.adp.plugin.packageManager.pluginSettings.c.jc();
-                z = this.this$0.xr;
-                jc.a(str, str3, z);
+                com.baidu.adp.plugin.packageManager.pluginSettings.c jW = com.baidu.adp.plugin.packageManager.pluginSettings.c.jW();
+                z = this.this$0.EF;
+                jW.a(str, str3, z);
             }
         }
     }

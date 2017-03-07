@@ -5,14 +5,14 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements p {
-    private String YI;
-    private int asV;
-    private TextView asX;
-    private int asY;
+    private String adX;
+    private int ayq;
+    private TextView ays;
+    private int ayt;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -21,32 +21,32 @@ public class e extends RelativeLayout implements p {
         super(context);
         this.mSkinType = 0;
         if (i > 0 && i2 > 0) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, context.getResources().getDimensionPixelSize(r.f.ds144));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, context.getResources().getDimensionPixelSize(w.f.ds144));
             setGravity(5);
-            this.asX = new TextView(context);
+            this.ays = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.asX.setGravity(17);
-            this.asX.setTextSize(0, context.getResources().getDimensionPixelSize(r.f.fontsize24));
-            this.asY = context.getResources().getDimensionPixelSize(r.f.ds12);
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(r.f.ds16);
-            this.asX.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-            addView(this.asX, layoutParams);
+            this.ays.setGravity(17);
+            this.ays.setTextSize(0, context.getResources().getDimensionPixelSize(w.f.fontsize24));
+            this.ayt = context.getResources().getDimensionPixelSize(w.f.ds12);
+            int dimensionPixelSize = context.getResources().getDimensionPixelSize(w.f.ds16);
+            this.ays.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            addView(this.ays, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.asX.setText(str);
+        this.ays.setText(str);
     }
 
     public void setIcon(int i) {
-        this.asV = i;
+        this.ayq = i;
     }
 
     @Override // com.baidu.tbadk.editortools.p
-    public void lr() {
+    public void ml() {
         setVisibility(0);
     }
 
@@ -60,8 +60,8 @@ public class e extends RelativeLayout implements p {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = (this.asX.getRight() - this.mTip.getMeasuredWidth()) - this.asY;
-                int top = this.asX.getTop() + this.asY;
+                int right = (this.ays.getRight() - this.mTip.getMeasuredWidth()) - this.ayt;
+                int top = this.ays.getTop() + this.ayt;
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -69,35 +69,35 @@ public class e extends RelativeLayout implements p {
         }
     }
 
-    public void fl(String str) {
-        fm(str);
+    public void fa(String str) {
+        fb(str);
         this.mTip.setVisibility(0);
     }
 
-    private void fm(String str) {
+    private void fb(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.YI = str;
+            this.adX = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
             }
-            ap.b(this.mTip, r.e.common_color_10225, 1, this.mSkinType);
+            aq.b(this.mTip, w.e.common_color_10225, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(1, 10.0f);
                 this.mTip.setText(str);
-                ap.d(this.mTip, r.g.icon_news_head_prompt_one, this.mSkinType);
+                aq.d(this.mTip, w.g.icon_news_head_prompt_one, this.mSkinType);
                 return;
             }
             this.mTip.setWidth(0);
             this.mTip.setHeight(0);
             this.mTip.setText("");
-            ap.d(this.mTip, r.g.icon_news_down_bar_one, this.mSkinType);
+            aq.d(this.mTip, w.g.icon_news_down_bar_one, this.mSkinType);
         }
     }
 
-    public void Cv() {
-        this.YI = null;
+    public void CO() {
+        this.adX = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -107,9 +107,9 @@ public class e extends RelativeLayout implements p {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Cv();
+                CO();
             } else if (aVar.data instanceof String) {
-                fl((String) aVar.data);
+                fa((String) aVar.data);
             }
         }
     }
@@ -126,25 +126,25 @@ public class e extends RelativeLayout implements p {
     @Override // com.baidu.tbadk.editortools.p
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        ap.d(this.asX, r.g.btn_editor_selector, i);
-        ap.b(this.asX, r.e.cp_cont_c, 1, i);
-        if (TextUtils.isEmpty(this.asX.getText())) {
-            ap.d(this.asX, this.asV, i);
+        aq.d(this.ays, w.g.btn_editor_selector, i);
+        aq.b(this.ays, w.e.cp_cont_c, 1, i);
+        if (TextUtils.isEmpty(this.ays.getText())) {
+            aq.d(this.ays, this.ayq, i);
         } else {
-            this.asX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ap.r(i, this.asV), (Drawable) null, (Drawable) null);
+            this.ays.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aq.x(i, this.ayq), (Drawable) null, (Drawable) null);
         }
         if (this.mTip != null) {
-            ap.b(this.mTip, r.e.common_color_10225, 1, i);
+            aq.b(this.mTip, w.e.common_color_10225, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText())) {
-                ap.d(this.mTip, r.g.icon_news_head_prompt_one, i);
+                aq.d(this.mTip, w.g.icon_news_head_prompt_one, i);
             } else {
-                ap.d(this.mTip, r.g.icon_news_down_bar_one, i);
+                aq.d(this.mTip, w.g.icon_news_down_bar_one, i);
             }
             this.mTip.setPadding(0, 0, 0, 0);
         }
     }
 
     public String getText() {
-        return this.YI;
+        return this.adX;
     }
 }

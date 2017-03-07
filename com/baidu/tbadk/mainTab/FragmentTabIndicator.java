@@ -10,53 +10,53 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.w;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends LinearLayout {
-    private int ayj;
-    public int ayk;
-    private int ayl;
-    private int aym;
-    private TextView ayn;
-    private int ayo;
-    private int ayp;
-    private HashMap<String, a> ayq;
+    private int aDD;
+    public int aDE;
+    private int aDF;
+    private int aDG;
+    private TextView aDH;
+    private int aDI;
+    private int aDJ;
+    private HashMap<String, a> aDK;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.ayj = 0;
-        this.ayq = new HashMap<>();
+        this.aDD = 0;
+        this.aDK = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ayj = 0;
-        this.ayq = new HashMap<>();
+        this.aDD = 0;
+        this.aDK = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.ayo = getResources().getDimensionPixelSize(r.f.ds2);
-        this.ayp = getResources().getDimensionPixelSize(r.f.ds12);
-        this.ayn = new TextView(getContext());
+        this.aDI = getResources().getDimensionPixelSize(w.f.ds2);
+        this.aDJ = getResources().getDimensionPixelSize(w.f.ds12);
+        this.aDH = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.ayn.setLayoutParams(layoutParams);
-        this.ayn.setGravity(17);
-        this.ayn.setDuplicateParentStateEnabled(true);
-        addView(this.ayn);
+        this.aDH.setLayoutParams(layoutParams);
+        this.aDH.setGravity(17);
+        this.aDH.setDuplicateParentStateEnabled(true);
+        addView(this.aDH);
     }
 
     public void setContentTvTopMargin(int i) {
-        if (this.ayn.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ayn.getLayoutParams();
+        if (this.aDH.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aDH.getLayoutParams();
             layoutParams.topMargin = i;
-            this.ayn.setLayoutParams(layoutParams);
+            this.aDH.setLayoutParams(layoutParams);
         }
     }
 
@@ -65,7 +65,7 @@ public class FragmentTabIndicator extends LinearLayout {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, a> entry : this.ayq.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aDK.entrySet()) {
             entry.getValue().view.measure(View.MeasureSpec.makeMeasureSpec(size, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(size2, ExploreByTouchHelper.INVALID_ID));
         }
     }
@@ -76,20 +76,20 @@ public class FragmentTabIndicator extends LinearLayout {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, a>> it = this.ayq.entrySet().iterator();
-        while (it.hasNext() && this.ayn.getText() != null) {
+        Iterator<Map.Entry<String, a>> it = this.aDK.entrySet().iterator();
+        while (it.hasNext() && this.aDH.getText() != null) {
             a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.ayn.getPaint().measureText(this.ayn.getText().toString());
-            if (value.ayr) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.nv;
+            int measureText = (int) this.aDH.getPaint().measureText(this.aDH.getText().toString());
+            if (value.aDL) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.vk;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.nv) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.vk) - (measureText / 2);
             }
-            if (this.ayj == 1) {
-                i5 = measuredWidth - this.ayp;
-                measuredHeight = this.ayo;
+            if (this.aDD == 1) {
+                i5 = measuredWidth - this.aDJ;
+                measuredHeight = this.aDI;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -99,105 +99,105 @@ public class FragmentTabIndicator extends LinearLayout {
     }
 
     public void setTipPosType(int i) {
-        this.ayj = i;
+        this.aDD = i;
     }
 
     public void a(String str, a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.ayq.put(str, aVar);
+            this.aDK.put(str, aVar);
         }
     }
 
-    public a ga(String str) {
-        return this.ayq.get(str);
+    public a fP(String str) {
+        return this.aDK.get(str);
     }
 
     public void setText(int i) {
-        this.ayn.setText(i);
+        this.aDH.setText(i);
     }
 
     public void setText(String str) {
-        this.ayn.setText(str);
-        this.ayn.setContentDescription(str);
+        this.aDH.setText(str);
+        this.aDH.setContentDescription(str);
     }
 
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.ayn.getText().toString();
+        String charSequence = this.aDH.getText().toString();
         if (z) {
-            charSequence = String.valueOf(getContext().getString(r.l.talk_checked_tip)) + charSequence;
+            charSequence = String.valueOf(getContext().getString(w.l.talk_checked_tip)) + charSequence;
         }
-        this.ayn.setContentDescription(charSequence);
+        this.aDH.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.ayn.setText(spannableString);
+        this.aDH.setText(spannableString);
     }
 
     public void setCompoundDrawablesTopResId(int i) {
-        this.ayl = i;
+        this.aDF = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.aym = i;
+        this.aDG = i;
     }
 
     public void setCompoundDrawablePadding(int i) {
-        this.ayn.setCompoundDrawablePadding(i);
+        this.aDH.setCompoundDrawablePadding(i);
     }
 
     public void setTextSize(float f) {
-        this.ayn.setTextSize(f);
+        this.aDH.setTextSize(f);
     }
 
     public void setTextSize(int i, float f) {
-        this.ayn.setTextSize(i, f);
+        this.aDH.setTextSize(i, f);
     }
 
     public void setTextColorResId(int i) {
-        this.ayk = i;
+        this.aDE = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        dp(TbadkCoreApplication.m9getInst().getSkinType());
+        dl(TbadkCoreApplication.m9getInst().getSkinType());
     }
 
-    public void dp(int i) {
-        ap.c(this.ayn, this.ayk, 1);
-        if (this.ayn != null) {
-            this.ayn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ap.c((Resources) null, this.ayl), ap.getDrawable(this.aym), (Drawable) null);
+    public void dl(int i) {
+        aq.c(this.aDH, this.aDE, 1);
+        if (this.aDH != null) {
+            this.aDH.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aq.c((Resources) null, this.aDF), aq.getDrawable(this.aDG), (Drawable) null);
         }
-        for (Map.Entry<String, a> entry : this.ayq.entrySet()) {
-            entry.getValue().dp(i);
+        for (Map.Entry<String, a> entry : this.aDK.entrySet()) {
+            entry.getValue().dl(i);
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int ays;
-        public FragmentTabIndicator ayu;
-        public int nv;
+        public int aDM;
+        public FragmentTabIndicator aDO;
         public View view;
-        public boolean ayr = true;
-        public int ayt = r.e.common_color_10225;
+        public int vk;
+        public boolean aDL = true;
+        public int aDN = w.e.common_color_10225;
 
-        public void dp(int i) {
-            if (this.ays != 0) {
-                ap.j(this.view, this.ays);
+        public void dl(int i) {
+            if (this.aDM != 0) {
+                aq.j(this.view, this.aDM);
             }
             if (this.view instanceof TextView) {
-                if (this.ayt != 0) {
-                    ap.c((TextView) this.view, this.ayt, 1);
+                if (this.aDN != 0) {
+                    aq.c((TextView) this.view, this.aDN, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {
-                    ap.j((View) ((TextView) this.view), r.g.icon_news_head_prompt_one);
+                    aq.j((TextView) this.view, w.g.icon_news_head_prompt_one);
                 } else if (b >= 10 && b < 100) {
-                    ap.j((View) ((TextView) this.view), r.g.icon_news_head_prompt_two);
+                    aq.j((TextView) this.view, w.g.icon_news_head_prompt_two);
                 } else if (b >= 100) {
-                    ap.j((View) ((TextView) this.view), r.g.icon_news_head_prompt_more);
+                    aq.j((TextView) this.view, w.g.icon_news_head_prompt_more);
                 }
             }
         }

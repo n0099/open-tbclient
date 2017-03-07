@@ -1,19 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class aa implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog this$0;
+class aa implements View.OnClickListener {
+    final /* synthetic */ y aTM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
+    public aa(y yVar) {
+        this.aTM = yVar;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.this$0.aOg.dismiss();
-        this.this$0.mHandler.postDelayed(new ab(this), 100L);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        TextView textView;
+        y.a aVar;
+        boolean z2;
+        z = this.aTM.aTL;
+        if (z) {
+            com.baidu.tbadk.core.util.TiebaStatic.log("c10001");
+        } else {
+            com.baidu.tbadk.core.util.TiebaStatic.log("c10009");
+        }
+        textView = this.aTM.aTy;
+        textView.setEnabled(false);
+        aVar = this.aTM.aTH;
+        z2 = this.aTM.aTm;
+        aVar.cj(z2);
     }
 }
