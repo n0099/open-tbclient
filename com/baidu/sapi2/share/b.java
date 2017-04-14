@@ -27,6 +27,9 @@ public abstract class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c(SapiAccount sapiAccount, String str);
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void d(SapiAccount sapiAccount);
+
     public static b a() {
         b bVar = a;
         if (bVar == null) {

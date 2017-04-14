@@ -3,26 +3,26 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    private static byte qp = Byte.MIN_VALUE;
-    private static byte qq = 64;
-    private static byte qr = 8;
-    private boolean qs = false;
-    private boolean qt = false;
-    private boolean qu = false;
-    private int qv;
-    private int qw;
+    private static byte pO = Byte.MIN_VALUE;
+    private static byte pP = 64;
+    private static byte pQ = 8;
+    private boolean pR = false;
+    private boolean pS = false;
+    private boolean pT = false;
+    private int pU;
+    private int pV;
 
-    public static int dd() {
+    public static int dc() {
         return 9;
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + dd());
-        byte b = z ? (byte) (qp | 0) : (byte) 0;
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + dc());
+        byte b = z ? (byte) (pO | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | qq);
+            b = (byte) (b | pP);
         }
-        allocate.put((byte) (b | qr));
+        allocate.put((byte) (b | pQ));
         allocate.putInt(i);
         allocate.putInt(i2);
         if (bArr != null) {
@@ -33,40 +33,40 @@ public class a {
     }
 
     public static a h(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, dd());
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, dc());
         a aVar = new a();
         byte b = wrap.get();
-        if ((qp & b) != 0) {
-            aVar.qs = true;
+        if ((pO & b) != 0) {
+            aVar.pR = true;
         }
-        if ((qq & b) != 0) {
-            aVar.qt = true;
+        if ((pP & b) != 0) {
+            aVar.pS = true;
         }
-        if ((b & qr) != 0) {
-            aVar.qu = true;
+        if ((b & pQ) != 0) {
+            aVar.pT = true;
         }
-        aVar.qv = wrap.getInt();
-        aVar.qw = wrap.getInt();
+        aVar.pU = wrap.getInt();
+        aVar.pV = wrap.getInt();
         return aVar;
     }
 
-    public boolean de() {
-        return this.qt;
+    public boolean dd() {
+        return this.pS;
     }
 
-    public int df() {
-        return this.qv;
+    public int de() {
+        return this.pU;
     }
 
-    public boolean dg() {
-        return this.qs;
+    public boolean df() {
+        return this.pR;
     }
 
-    public int dh() {
-        return this.qw;
+    public int dg() {
+        return this.pV;
     }
 
-    public boolean di() {
-        return this.qu;
+    public boolean dh() {
+        return this.pT;
     }
 }

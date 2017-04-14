@@ -9,10 +9,10 @@ import com.baidu.tieba.w;
 public class b extends x {
     public b(Context context) {
         super(context, TbadkCoreApplication.m9getInst().getResources().getString(w.l.editor_record), 6);
-        this.azr = w.g.btn_pb_add_microphone;
-        this.azu = 6;
-        this.azv = true;
-        this.ayH = s.ak(context);
-        this.azw = new int[]{1, 9};
+        this.azH = w.g.btn_pb_add_microphone;
+        this.azK = 6;
+        this.azL = true;
+        this.ayX = s.aj(context);
+        this.azM = new int[]{1, 9};
     }
 }

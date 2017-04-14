@@ -4,65 +4,65 @@ import com.baidu.tieba.frs.entelechy.b.b;
 import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class o implements cc {
-    final /* synthetic */ FrsActivity bNU;
+class o implements ce {
+    final /* synthetic */ FrsActivity bNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsActivity frsActivity) {
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.cc
-    public void a(int i, int i2, cm cmVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
+    @Override // com.baidu.tieba.frs.ce
+    public void a(int i, int i2, co coVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
         b bVar;
-        cc ccVar;
-        cc ccVar2;
-        com.baidu.tieba.frs.f.u uVar;
+        ce ceVar;
+        ce ceVar2;
+        com.baidu.tieba.frs.g.u uVar;
         b bVar2;
-        this.bNU.YH();
-        bVar = this.bNU.bNl;
+        this.bNJ.Zd();
+        bVar = this.bNJ.bNa;
         if (bVar != null) {
-            uVar = this.bNU.bMZ;
-            bVar2 = this.bNU.bNl;
-            uVar.ek(bVar2.hW(i));
+            uVar = this.bNJ.bMP;
+            bVar2 = this.bNJ.bNa;
+            uVar.ek(bVar2.hZ(i));
         }
         d.a aVar = new d.a();
-        if (cmVar != null) {
-            aVar.isSuccess = cmVar.errCode == 0;
-            aVar.errorCode = cmVar.errCode;
-            aVar.errorMsg = cmVar.errMsg;
+        if (coVar != null) {
+            aVar.isSuccess = coVar.errCode == 0;
+            aVar.errorCode = coVar.errCode;
+            aVar.errorMsg = coVar.errMsg;
             if (aVar.isSuccess) {
                 if (com.baidu.tbadk.core.util.x.q(arrayList)) {
-                    this.bNU.bMN.TI();
-                } else if (cmVar.hasMore) {
-                    this.bNU.bMN.ZK();
-                } else if (cmVar.bQu) {
-                    this.bNU.bMN.Ka();
+                    this.bNJ.bMD.Ug();
+                } else if (coVar.hasMore) {
+                    this.bNJ.bMD.aai();
+                } else if (coVar.bQj) {
+                    this.bNJ.bMD.KA();
                 } else {
-                    this.bNU.bMN.TI();
+                    this.bNJ.bMD.Ug();
                 }
             }
         } else {
-            cmVar = new cm();
-            cmVar.pn = 1;
-            cmVar.hasMore = false;
-            cmVar.bQu = false;
+            coVar = new co();
+            coVar.pn = 1;
+            coVar.hasMore = false;
+            coVar.bQj = false;
         }
         if (i == 1) {
-            this.bNU.bMX = true;
-            this.bNU.bNF.a(this.bNU.bMY.getType(), false, aVar);
+            this.bNJ.bMN = true;
+            this.bNJ.bNu.a(this.bNJ.bMO.getType(), false, aVar);
         } else {
-            this.bNU.a(aVar, true);
-            if (this.bNU.bMY.acc() != null) {
-                this.bNU.bMO = this.bNU.bMY.acc();
+            this.bNJ.a(aVar, true);
+            if (this.bNJ.bMO.acy() != null) {
+                this.bNJ.bME = this.bNJ.bMO.acy();
             }
-            this.bNU.YO();
+            this.bNJ.Zk();
         }
-        ccVar = this.bNU.bNT;
-        if (ccVar == null) {
+        ceVar = this.bNJ.bNI;
+        if (ceVar == null) {
             return;
         }
-        ccVar2 = this.bNU.bNT;
-        ccVar2.a(i, i2, cmVar, arrayList);
+        ceVar2 = this.bNJ.bNI;
+        ceVar2.a(i, i2, coVar, arrayList);
     }
 }

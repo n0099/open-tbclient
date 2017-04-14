@@ -3,5 +3,5 @@ package com.baidu.tieba.im.a;
 public class b {
     public String emitTime = "－1";
     public String netType = "1";
-    public int dbM = 1;
+    public int dah = 1;
 }

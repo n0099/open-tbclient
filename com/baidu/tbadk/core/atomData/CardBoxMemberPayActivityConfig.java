@@ -1,0 +1,13 @@
+package com.baidu.tbadk.core.atomData;
+
+import android.content.Context;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+/* loaded from: classes.dex */
+public class CardBoxMemberPayActivityConfig extends IntentConfig {
+    public static final String PACKET_ID = "packet_id";
+
+    public CardBoxMemberPayActivityConfig(Context context, String str) {
+        super(context);
+        getIntent().putExtra(PACKET_ID, str);
+    }
+}

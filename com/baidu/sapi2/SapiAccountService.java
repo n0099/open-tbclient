@@ -3,7 +3,6 @@ package com.baidu.sapi2;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.FaceCheckCallback;
@@ -71,9 +70,12 @@ import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
+import com.baidu.sapi2.utils.enums.BiometricType;
+import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.TbConfig;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,12 +94,14 @@ public final class SapiAccountService {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
-        return this.c.d() + "?" + i();
+        return this.c.d() + "?" + k();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String b() {
         ArrayList arrayList = new ArrayList();
+        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
         arrayList.add(new BasicNameValuePair("banner", "1"));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
@@ -118,7 +122,7 @@ public final class SapiAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
         arrayList.add(new BasicNameValuePair("banner", "1"));
-        return this.c.g() + "?" + i() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.g() + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,44 +132,84 @@ public final class SapiAccountService {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-        return this.c.a(bindWidgetAction) + "?" + i() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.a(bindWidgetAction) + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String e() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-        return this.c.j() + "?" + i() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.j() + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String f() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
-        return this.c.k() + "?" + i() + "&" + SapiUtils.createRequestParams(arrayList);
+        return this.c.k() + "?" + k() + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String g() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl));
-        arrayList.add(new BasicNameValuePair("showtype", "phone"));
-        arrayList.add(new BasicNameValuePair("device", "wap"));
-        arrayList.add(new BasicNameValuePair("adapter", "apps"));
-        return this.c.h() + i() + "&" + SapiUtils.createRequestParams(arrayList);
+        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("clientfrom", a));
+        arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
+        arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        arrayList.add(new BasicNameValuePair("wapsec", "center"));
+        List<BiometricType> list = this.b.biometricTypeList;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == BiometricType.LIVENESS_RECOG) {
+                arrayList.add(new BasicNameValuePair("scanface", "1"));
+            } else if (list.get(i) == BiometricType.VOICE_IDENTIFY) {
+                arrayList.add(new BasicNameValuePair("voiceidentify", "1"));
+            }
+        }
+        if (this.b.accountCenterRealAutnen) {
+            arrayList.add(new BasicNameValuePair("realName", "1"));
+        } else {
+            arrayList.add(new BasicNameValuePair("realName", "0"));
+        }
+        return this.c.r() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String h() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new BasicNameValuePair("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl));
+        arrayList.add(new BasicNameValuePair("showtype", "phone"));
+        arrayList.add(new BasicNameValuePair("device", "wap"));
+        arrayList.add(new BasicNameValuePair("adapter", "apps"));
+        return this.c.h() + k() + "&" + SapiUtils.createRequestParams(arrayList);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String i() {
         return this.c.i();
     }
 
-    String i() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String j() {
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        String str = sapiConfiguration.environment.getWap() + "/wp/";
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new BasicNameValuePair("clientfrom", a));
+        arrayList.add(new BasicNameValuePair("client", "android"));
+        arrayList.add(new BasicNameValuePair("appid", sapiConfiguration.appId));
+        if (TextUtils.isEmpty(sapiConfiguration.clientId)) {
+            sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
+        }
+        arrayList.add(new BasicNameValuePair("cuid", sapiConfiguration.clientId));
+        arrayList.add(new BasicNameValuePair("tpl", sapiConfiguration.tpl));
+        return str + "?" + SapiUtils.createRequestParams(arrayList);
+    }
+
+    String k() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
-        arrayList.add(new BasicNameValuePair("client", SocialConstants.ANDROID_CLIENT_TYPE));
+        arrayList.add(new BasicNameValuePair("client", "android"));
         arrayList.add(new BasicNameValuePair("adapter", this.b.customActionBarEnabled ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : ""));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
@@ -195,6 +239,17 @@ public final class SapiAccountService {
         if (this.b.uniteVerify) {
             arrayList.add(new BasicNameValuePair("connect", "1"));
         }
+        if (this.b.language == Language.ENGLISH) {
+            arrayList.add(new BasicNameValuePair("lang", "en"));
+        }
+        List<BiometricType> list = this.b.biometricTypeList;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == BiometricType.LIVENESS_RECOG) {
+                arrayList.add(new BasicNameValuePair("scanface", "1"));
+            } else if (list.get(i) == BiometricType.VOICE_IDENTIFY) {
+                arrayList.add(new BasicNameValuePair("voiceidentify", "1"));
+            }
+        }
         return SapiUtils.createRequestParams(arrayList);
     }
 
@@ -205,9 +260,9 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
-        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACCESS_TOKEN, str));
+        arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
-        return this.c.s() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.t() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -217,9 +272,9 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("appid", this.b.qqAppID));
-        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACCESS_TOKEN, str));
+        arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
-        return this.c.s() + "?" + SapiUtils.createRequestParams(arrayList);
+        return this.c.t() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -229,38 +284,55 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("act", "special"));
         arrayList.add(new BasicNameValuePair("appid", this.b.qqAppID));
-        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACCESS_TOKEN, str));
+        arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
         arrayList.add(new BasicNameValuePair("phone", str3));
-        arrayList.add(new BasicNameValuePair("client", SocialConstants.ANDROID_CLIENT_TYPE));
-        return this.c.s() + "?" + SapiUtils.createRequestParams(arrayList);
+        arrayList.add(new BasicNameValuePair("client", "android"));
+        return this.c.t() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String j() {
+    public String a(boolean z, String str) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("type", SocialType.WEIXIN.getType() + ""));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("display", a));
-        arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
+        arrayList.add(new BasicNameValuePair("clientfrom", a));
+        arrayList.add(new BasicNameValuePair("client", "android"));
+        if (z) {
+            arrayList.add(new BasicNameValuePair("act", "bind"));
+            arrayList.add(new BasicNameValuePair("wapsec", "center"));
+            arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+            try {
+                arrayList.add(new BasicNameValuePair("u", URLEncoder.encode(str, "UTF-8")));
+            } catch (UnsupportedEncodingException e) {
+                L.e(e);
+            }
+        } else {
+            arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
+        }
         arrayList.add(new BasicNameValuePair("app_key", this.b.wxAppID));
         arrayList.add(new BasicNameValuePair("scope", "snsapi_login"));
-        return this.c.u() + "?" + SapiUtils.createRequestParams(arrayList);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String b(String str, String str2) {
-        ArrayList arrayList = new ArrayList(4);
-        arrayList.add(new BasicNameValuePair("mkey", str2));
-        arrayList.add(new BasicNameValuePair("code", str));
-        arrayList.add(new BasicNameValuePair("appid", this.b.wxAppID));
-        arrayList.add(new BasicNameValuePair("display", a));
         return this.c.v() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String k() {
-        return this.c.t();
+    public String a(String str, String str2, boolean z) {
+        ArrayList arrayList = new ArrayList(4);
+        arrayList.add(new BasicNameValuePair("mkey", str2));
+        arrayList.add(new BasicNameValuePair("code", str));
+        if (z) {
+            arrayList.add(new BasicNameValuePair("wapsec", "center"));
+            arrayList.add(new BasicNameValuePair("adapter", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE));
+        }
+        arrayList.add(new BasicNameValuePair("appid", this.b.wxAppID));
+        arrayList.add(new BasicNameValuePair("display", a));
+        return this.c.w() + "?" + SapiUtils.createRequestParams(arrayList);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String l() {
+        return this.c.u();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -271,12 +343,7 @@ public final class SapiAccountService {
         arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("guidebind", "1"));
-        return this.c.u() + "?" + SapiUtils.createRequestParams(arrayList);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String l() {
-        return this.c.v();
+        return this.c.v() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -285,8 +352,18 @@ public final class SapiAccountService {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    public String n() {
+        return this.c.x();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2) {
         return this.c.a(sapiCallBack, str, str2, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String a(Map<String, String> map, String str) {
+        return this.c.a(map, str);
     }
 
     public void cancelRequest() {
@@ -543,7 +620,11 @@ public final class SapiAccountService {
     }
 
     public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback) {
-        this.c.a(web2NativeLoginCallback);
+        this.c.a(web2NativeLoginCallback, false);
+    }
+
+    public void web2NativeLogin(Web2NativeLoginCallback web2NativeLoginCallback, boolean z) {
+        this.c.a(web2NativeLoginCallback, z);
     }
 
     public void iqiyiSSOLogin(IqiyiLoginCallback iqiyiLoginCallback, IqiyiLoginDTO iqiyiLoginDTO) {

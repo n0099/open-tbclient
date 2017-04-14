@@ -1,30 +1,42 @@
 package com.baidu.tieba.emotion.editortool;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-class j extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ EmotionTabContentView.a bCP;
+class j implements com.baidu.adp.lib.e.c<GridView> {
+    final /* synthetic */ EmotionTabContentView bCG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(EmotionTabContentView.a aVar) {
-        this.bCP = aVar;
+    public j(EmotionTabContentView emotionTabContentView) {
+        this.bCG = emotionTabContentView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EmotionTabContentView emotionTabContentView;
-        if (aVar != null) {
-            emotionTabContentView = EmotionTabContentView.this;
-            View findViewWithTag = emotionTabContentView.findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView) && str != null) {
-                TbImageView tbImageView = (TbImageView) findViewWithTag;
-                aVar.e(tbImageView);
-                tbImageView.setTag(null);
-            }
-        }
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Vd */
+    public GridView fK() {
+        return new GridView(this.bCG.getContext());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void o(GridView gridView) {
+        gridView.setAdapter((ListAdapter) null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public GridView p(GridView gridView) {
+        return gridView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public GridView q(GridView gridView) {
+        gridView.setAdapter((ListAdapter) null);
+        return gridView;
     }
 }

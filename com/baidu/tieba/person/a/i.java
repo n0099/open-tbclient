@@ -16,59 +16,59 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.person.f;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class i extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.holder.f> {
-    private TbPageContext bIK;
-    private h eBD;
+public class i extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.e> {
+    private TbPageContext bID;
+    private h ezJ;
     protected int mSkinType;
 
     public i(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
-        this.bIK = tbPageContext;
+        this.bID = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bp */
-    public com.baidu.tieba.person.holder.f onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.holder.f(LayoutInflater.from(this.mContext).inflate(w.j.personinfo_wallet_view, viewGroup, false));
+    public com.baidu.tieba.person.b.e onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.b.e(LayoutInflater.from(this.mContext).inflate(w.j.personinfo_wallet_view, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.holder.f fVar) {
-        a(fVar, cVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.c cVar, com.baidu.tieba.person.b.e eVar) {
+        a(eVar, cVar);
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
         if (this.mSkinType != skinType) {
             this.mSkinType = skinType;
-            com.baidu.tbadk.i.a.a(this.bIK, view);
+            com.baidu.tbadk.m.a.a(this.bID, view);
         }
         return view;
     }
 
-    private void a(com.baidu.tieba.person.holder.f fVar, com.baidu.tieba.person.data.c cVar) {
+    private void a(com.baidu.tieba.person.b.e eVar, com.baidu.tieba.person.data.c cVar) {
         if (cVar != null) {
-            fVar.eCp.c(cVar.getIcon(), 10, false);
-            fVar.cgg.setText(cVar.getName());
-            fVar.eCq.setText(cVar.aQd());
-            this.eBD = new h(this.bIK);
-            this.eBD.aC(cVar.aQf());
-            fVar.eCr.setAdapter((ListAdapter) this.eBD);
-            fVar.eCo.setOnClickListener(new j(this, cVar));
-            fVar.eCr.setOnItemClickListener(new k(this));
+            eVar.eAk.c(cVar.getIcon(), 10, false);
+            eVar.ceG.setText(cVar.getName());
+            eVar.eAl.setText(cVar.aQm());
+            this.ezJ = new h(this.bID);
+            this.ezJ.aB(cVar.aQo());
+            eVar.eAm.setAdapter((ListAdapter) this.ezJ);
+            eVar.eAj.setOnClickListener(new j(this, cVar));
+            eVar.eAm.setOnItemClickListener(new k(this));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nQ(String str) {
+    public void nU(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                bb.vQ().c(this.bIK, new String[]{str.substring("tieba&".length())});
+                bb.wn().c(this.bID, new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith("http:") || str.startsWith("https:")) {
-                com.baidu.tbadk.browser.f.a(this.bIK.getPageActivity(), true, str);
+                com.baidu.tbadk.browser.f.b(this.bID.getPageActivity(), true, str);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, str));
             }
@@ -77,12 +77,12 @@ public class i extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.ba
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(f.a aVar) {
-        if (aVar.eBp) {
-            aVar.eBp = false;
-            this.eBD.notifyDataSetChanged();
-            o<String> L = com.baidu.tbadk.core.c.a.to().L("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount());
-            if (L != null) {
-                L.l(aVar.title, new StringBuilder(String.valueOf(aVar.Hw)).toString());
+        if (aVar.ezv) {
+            aVar.ezv = false;
+            this.ezJ.notifyDataSetChanged();
+            o<String> M = com.baidu.tbadk.core.c.a.tM().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount());
+            if (M != null) {
+                M.l(aVar.title, new StringBuilder(String.valueOf(aVar.GX)).toString());
             }
         }
     }

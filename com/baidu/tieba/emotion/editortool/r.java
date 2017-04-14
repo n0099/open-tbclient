@@ -1,24 +1,30 @@
 package com.baidu.tieba.emotion.editortool;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ EmotionTabWidgetView bDr;
+public class r extends CustomMessageListener {
+    final /* synthetic */ q bDf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(EmotionTabWidgetView emotionTabWidgetView) {
-        this.bDr = emotionTabWidgetView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(q qVar, int i) {
+        super(i);
+        this.bDf = qVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
-        jVar = this.bDr.Ll;
-        if (jVar != null) {
-            jVar2 = this.bDr.Ll;
-            jVar2.b(new com.baidu.tbadk.editortools.a(3, -1, null));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        switch (customResponsedMessage.getCmd()) {
+            case CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED /* 2001117 */:
+                this.bDf.reset();
+                this.bDf.setup();
+                return;
+            default:
+                return;
         }
     }
 }

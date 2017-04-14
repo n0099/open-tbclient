@@ -1,39 +1,26 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.w;
+import android.view.View;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bc implements LocationModel.a {
-    final /* synthetic */ WriteActivity fQG;
+public class bc implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.fQG = writeActivity;
+        this.fSq = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-    public void DH() {
-        this.fQG.showToast(w.l.no_network_guide);
-        this.fQG.b(0, true, null);
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-    public void fv(String str) {
-        WriteActivity writeActivity = this.fQG;
-        if (StringUtils.isNull(str)) {
-            str = this.fQG.getPageContext().getString(w.l.location_fail);
-        }
-        writeActivity.showToast(str);
-        this.fQG.b(0, true, null);
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        if (aVar == null || StringUtils.isNull(aVar.bif())) {
-            fv(null);
-        } else {
-            this.fQG.b(2, true, aVar.bif());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        File file;
+        File file2;
+        file = this.fSq.fRR;
+        if (file != null) {
+            WriteActivity writeActivity = this.fSq;
+            file2 = this.fSq.fRR;
+            writeActivity.rn(file2.getAbsolutePath());
         }
     }
 }

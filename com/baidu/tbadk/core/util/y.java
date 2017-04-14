@@ -6,69 +6,69 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class y implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection aeL;
-    private String aeM;
-    private String[] aeN;
-    private String[] aeO;
-    private boolean aeP;
-    private a aeQ;
+    private MediaScannerConnection aeZ;
+    private String afa;
+    private String[] afb;
+    private String[] afc;
+    private boolean afd;
+    private a afe;
     private int length;
     private Context mContext;
     private String mPath;
 
     /* loaded from: classes.dex */
     public interface a {
-        void uX();
+        void vu();
     }
 
     public y(Context context) {
         this.mContext = context;
-        this.aeL = new MediaScannerConnection(this.mContext, this);
+        this.aeZ = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void dj(String str) {
+    public void dq(String str) {
         this.mPath = str;
         String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
-        this.aeM = "image/jpeg";
+        this.afa = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.aeM = "image/gif";
+            this.afa = "image/gif";
         }
-        this.aeL.connect();
+        this.aeZ.connect();
     }
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aeM)) {
-            this.aeL.scanFile(this.mPath, this.aeM);
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afa)) {
+            this.aeZ.scanFile(this.mPath, this.afa);
         }
-        if (this.aeN != null && this.aeO != null && this.aeN.length == this.aeO.length) {
-            int length = this.aeN.length;
+        if (this.afb != null && this.afc != null && this.afb.length == this.afc.length) {
+            int length = this.afb.length;
             for (int i = 0; i < length; i++) {
-                this.aeL.scanFile(this.aeN[i], this.aeO[i]);
+                this.aeZ.scanFile(this.afb[i], this.afc[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.aeM) && str.equals(this.mPath)) {
-            this.aeL.disconnect();
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.afa) && str.equals(this.mPath)) {
+            this.aeZ.disconnect();
             this.mPath = null;
-            this.aeM = null;
-            this.aeP = true;
-        } else if (this.aeN != null && this.aeO != null && this.aeN.length == this.aeO.length) {
+            this.afa = null;
+            this.afd = true;
+        } else if (this.afb != null && this.afc != null && this.afb.length == this.afc.length) {
             this.length--;
             if (this.length == 0) {
-                this.aeL.disconnect();
-                this.aeN = null;
-                this.aeO = null;
-                this.aeP = true;
+                this.aeZ.disconnect();
+                this.afb = null;
+                this.afc = null;
+                this.afd = true;
             } else {
-                this.aeP = false;
+                this.afd = false;
             }
         }
-        if (this.aeP && this.aeQ != null) {
-            this.aeQ.uX();
+        if (this.afd && this.afe != null) {
+            this.afe.vu();
         }
     }
 }

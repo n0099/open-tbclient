@@ -19,10 +19,10 @@ class a implements bb.a {
         }
         String str = strArr[0];
         if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
-            String aq = x.aq(str, "userid=");
-            x.aq(str, "un=");
+            String ar = x.ar(str, "userid=");
+            x.ar(str, "un=");
             long c = b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long c2 = b.c(aq, 0L);
+            long c2 = b.c(ar, 0L);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(c2, c2 == c)));
             return 1;
         }

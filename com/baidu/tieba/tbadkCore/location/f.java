@@ -1,46 +1,34 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.location.Address;
+import com.baidu.adp.lib.d.a;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ LocationModel fwk;
+public class f implements a.InterfaceC0004a {
+    final /* synthetic */ LocationModel fxU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(LocationModel locationModel, int i) {
-        super(i);
-        this.fwk = locationModel;
+    public f(LocationModel locationModel) {
+        this.fxU = locationModel;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LocationModel.b bVar;
-        LocationModel.b bVar2;
-        LocationModel.b bVar3;
-        LocationModel.b bVar4;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                this.fwk.lj(false);
-                this.fwk.cd(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                bVar3 = this.fwk.fwf;
-                if (bVar3 != null) {
-                    bVar4 = this.fwk.fwf;
-                    bVar4.fw(responsedSelectLocation.getName());
-                    return;
-                }
-                return;
-            }
-            this.fwk.lj(true);
-            bVar = this.fwk.fwf;
-            if (bVar != null) {
-                bVar2 = this.fwk.fwf;
-                bVar2.DI();
-            }
+    @Override // com.baidu.adp.lib.d.a.InterfaceC0004a
+    public void b(int i, String str, Address address) {
+        LocationModel.a aVar;
+        LocationModel.a aVar2;
+        if (i == 0 && address != null) {
+            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + address.getLatitude());
+            this.fxU.cd(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
+            return;
+        }
+        BdLog.i("mGetLonAndLatCallback error!");
+        aVar = this.fxU.fxO;
+        if (aVar != null) {
+            aVar2 = this.fxU.fxO;
+            aVar2.fB(str);
         }
     }
 }

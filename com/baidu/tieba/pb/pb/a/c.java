@@ -28,7 +28,8 @@ public class c extends com.baidu.adp.widget.ListView.a<p, d> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, p pVar, d dVar) {
         if (dVar != null) {
             dVar.a(pVar);
+            return dVar.getView();
         }
-        return dVar.getView();
+        return view;
     }
 }

@@ -11,11 +11,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements CacheModel.a<com.baidu.tieba.homepage.recommendfrs.data.c> {
-    final /* synthetic */ q cvS;
+    final /* synthetic */ q cus;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar) {
-        this.cvS = qVar;
+        this.cus = qVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:0x00d3  */
@@ -33,44 +33,44 @@ public class s implements CacheModel.a<com.baidu.tieba.homepage.recommendfrs.dat
         if (readCacheMessage != null) {
             if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.recommendfrs.data.b) {
                 i = 2;
-                j = ((com.baidu.tieba.homepage.recommendfrs.data.b) readCacheMessage.getRequestData()).aix();
+                j = ((com.baidu.tieba.homepage.recommendfrs.data.b) readCacheMessage.getRequestData()).air();
             } else if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.mygod.data.c) {
                 i = 3;
-                j = ((com.baidu.tieba.homepage.mygod.data.c) readCacheMessage.getRequestData()).aix();
+                j = ((com.baidu.tieba.homepage.mygod.data.c) readCacheMessage.getRequestData()).air();
             } else if (readCacheMessage.getRequestData() instanceof com.baidu.tieba.homepage.alalivelist.data.a) {
                 i = 7;
-                j = ((com.baidu.tieba.homepage.alalivelist.data.a) readCacheMessage.getRequestData()).aix();
+                j = ((com.baidu.tieba.homepage.alalivelist.data.a) readCacheMessage.getRequestData()).air();
             }
             if (j < 0 && readCacheMessage != null && readCacheRespMsg != null) {
-                com.baidu.tbadk.core.log.b.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
+                com.baidu.tbadk.core.e.a.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
             }
             if (readCacheRespMsg != null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-                aVar = this.cvS.cuE;
+                aVar = this.cus.cte;
                 if (aVar != null) {
-                    aVar2 = this.cvS.cuE;
+                    aVar2 = this.cus.cte;
                     aVar2.a(false, null, false, j, "", false);
                 }
             } else {
                 com.baidu.tieba.homepage.recommendfrs.data.c cVar = readCacheRespMsg.getData().get(0);
-                aVar3 = this.cvS.cuE;
+                aVar3 = this.cus.cte;
                 if (aVar3 != null) {
-                    aVar4 = this.cvS.cuE;
+                    aVar4 = this.cus.cte;
                     aVar4.a(false, cVar, false, j, "", false);
                 }
             }
-            this.cvS.a(1, j, i, 0L, 0L, "", "");
+            this.cus.a(1, j, i, 0L, 0L, "", "");
         }
         i = 0;
         j = -1;
         if (j < 0) {
-            com.baidu.tbadk.core.log.b.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
+            com.baidu.tbadk.core.e.a.a("frs", readCacheMessage.getClientLogID(), CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE, "readCache", readCacheRespMsg.getError(), "ReadCacheError ContentTag is Null", "ContentTag", Long.valueOf(j));
         }
         if (readCacheRespMsg != null) {
         }
-        aVar = this.cvS.cuE;
+        aVar = this.cus.cte;
         if (aVar != null) {
         }
-        this.cvS.a(1, j, i, 0L, 0L, "", "");
+        this.cus.a(1, j, i, 0L, 0L, "", "");
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a

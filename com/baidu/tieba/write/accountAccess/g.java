@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends WebViewClient {
-    final /* synthetic */ c fKX;
+    final /* synthetic */ c fMG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.fKX = cVar;
+        this.fMG = cVar;
     }
 
     @Override // android.webkit.WebViewClient
@@ -22,18 +22,18 @@ public class g extends WebViewClient {
         a aVar2;
         a aVar3;
         if (!StringUtils.isNull(str)) {
-            aVar = this.fKX.fKQ;
+            aVar = this.fMG.fMz;
             if (aVar != null) {
-                z = this.fKX.onPageFinishHasBeenCalled;
+                z = this.fMG.onPageFinishHasBeenCalled;
                 if (z) {
-                    aVar2 = this.fKX.fKQ;
-                    return aVar2.qA(str);
+                    aVar2 = this.fMG.fMz;
+                    return aVar2.qU(str);
                 }
-                this.fKX.onPageFinishHasBeenCalled = true;
-                this.fKX.showWebLoadingView(false);
-                this.fKX.bmw();
-                aVar3 = this.fKX.fKQ;
-                aVar3.bmt();
+                this.fMG.onPageFinishHasBeenCalled = true;
+                this.fMG.showWebLoadingView(false);
+                this.fMG.bng();
+                aVar3 = this.fMG.fMz;
+                aVar3.bnd();
                 return true;
             }
         }
@@ -45,11 +45,11 @@ public class g extends WebViewClient {
         a aVar;
         a aVar2;
         super.onPageFinished(webView, str);
-        this.fKX.onPageFinishHasBeenCalled = true;
-        aVar = this.fKX.fKQ;
+        this.fMG.onPageFinishHasBeenCalled = true;
+        aVar = this.fMG.fMz;
         if (aVar != null) {
-            aVar2 = this.fKX.fKQ;
-            aVar2.bmt();
+            aVar2 = this.fMG.fMz;
+            aVar2.bnd();
         }
     }
 
@@ -58,10 +58,10 @@ public class g extends WebViewClient {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
         super.onReceivedError(webView, i, str, str2);
-        this.fKX.showWebLoadingView(false);
-        baseActivity = this.fKX.mContext;
+        this.fMG.showWebLoadingView(false);
+        baseActivity = this.fMG.mContext;
         baseActivity.showToast(w.l.neterror);
-        baseActivity2 = this.fKX.mContext;
+        baseActivity2 = this.fMG.mContext;
         baseActivity2.finish();
     }
 }

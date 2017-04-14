@@ -30,33 +30,33 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> implements ab.b, VoiceManager.c, com.baidu.tbadk.mvc.c.a {
-    private VoiceManager bMM;
-    private ViewEventCenter dlT;
-    private CustomMessageListener dlU = new bd(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
-    private ReplyMeModelController dmS;
-    private au dmT;
+    private VoiceManager bMC;
+    private ViewEventCenter dks;
+    private CustomMessageListener dkt = new bd(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
+    private ReplyMeModelController dlr;
+    private au dls;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dmS = new ReplyMeModelController(this);
-        this.dmS.e(bundle);
-        this.dmS.setUniqueId(getUniqueId());
-        this.dmT = new au(this);
-        this.dmT.TS();
-        Fw().addEventDelegate(this);
-        this.dmS.TQ();
-        registerListener(this.dlU);
-        aiC();
+        this.dlr = new ReplyMeModelController(this);
+        this.dlr.f(bundle);
+        this.dlr.setUniqueId(getUniqueId());
+        this.dls = new au(this);
+        this.dls.Uq();
+        FU().addEventDelegate(this);
+        this.dlr.Uo();
+        registerListener(this.dkt);
+        aiw();
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.bMM = getVoiceManager();
-        this.bMM.onCreate(getPageContext());
+        this.bMC = getVoiceManager();
+        this.bMC.onCreate(getPageContext());
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean EM() {
+    public boolean Fk() {
         return false;
     }
 
@@ -65,34 +65,34 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         if (bVar == null) {
             return true;
         }
-        if (bVar.EN() == 9485) {
-            com.baidu.tbadk.mvc.b.a EO = bVar.EO();
-            if (EO instanceof FeedData) {
-                return i((FeedData) EO);
+        if (bVar.Fl() == 9485) {
+            com.baidu.tbadk.mvc.b.a Fm = bVar.Fm();
+            if (Fm instanceof FeedData) {
+                return i((FeedData) Fm);
             }
         }
-        if (bVar.EN() == 9484) {
-            com.baidu.tbadk.mvc.b.a EO2 = bVar.EO();
-            if (EO2 instanceof FeedData) {
-                return c((FeedData) EO2);
+        if (bVar.Fl() == 9484) {
+            com.baidu.tbadk.mvc.b.a Fm2 = bVar.Fm();
+            if (Fm2 instanceof FeedData) {
+                return c((FeedData) Fm2);
             }
-        } else if (bVar.EN() == 9483) {
-            com.baidu.tbadk.mvc.b.a EO3 = bVar.EO();
-            if (EO3 instanceof FeedData) {
-                return b((FeedData) EO3);
+        } else if (bVar.Fl() == 9483) {
+            com.baidu.tbadk.mvc.b.a Fm3 = bVar.Fm();
+            if (Fm3 instanceof FeedData) {
+                return b((FeedData) Fm3);
             }
-        } else if (bVar.EN() == 9486) {
-            this.dmT.d(bVar);
+        } else if (bVar.Fl() == 9486) {
+            this.dls.d(bVar);
             return true;
-        } else if (bVar.EN() == 9487) {
-            com.baidu.tbadk.mvc.b.a EO4 = bVar.EO();
-            if (EO4 instanceof FeedData) {
-                return h((FeedData) EO4);
+        } else if (bVar.Fl() == 9487) {
+            com.baidu.tbadk.mvc.b.a Fm4 = bVar.Fm();
+            if (Fm4 instanceof FeedData) {
+                return h((FeedData) Fm4);
             }
-        } else if (bVar.EN() == 9488) {
-            com.baidu.tbadk.mvc.b.a EO5 = bVar.EO();
-            if (EO5 instanceof FeedData) {
-                FeedData feedData = (FeedData) EO5;
+        } else if (bVar.Fl() == 9488) {
+            com.baidu.tbadk.mvc.b.a Fm5 = bVar.Fm();
+            if (Fm5 instanceof FeedData) {
+                FeedData feedData = (FeedData) Fm5;
                 String str = null;
                 if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
                     str = "c12011";
@@ -100,7 +100,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
                     str = "c12009";
                 }
                 if (str != null) {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).Z("tid", feedData.getThread_id()));
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).aa("tid", feedData.getThread_id()));
                 }
                 return true;
             }
@@ -113,7 +113,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
             return false;
         }
         TiebaStatic.log("c10967");
-        if (!avx()) {
+        if (!avq()) {
             UtilHelper.showToast(getActivity(), w.l.plugin_config_not_found);
             return false;
         }
@@ -123,7 +123,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, praiseListActivityConfig));
     }
 
-    private boolean avx() {
+    private boolean avq() {
         return TbadkCoreApplication.m9getInst().appResponseToIntentClass(PraiseListActivityConfig.class);
     }
 
@@ -161,7 +161,7 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
                     str = "c12010";
                 }
                 if (str != null) {
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).Z("tid", feedData.getThread_id()));
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).aa("tid", feedData.getThread_id()));
                 }
                 String thread_id = feedData.getThread_id();
                 String post_id = feedData.getPost_id();
@@ -179,11 +179,11 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
                 str = "c12010";
             }
             if (str != null) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).Z("tid", feedData.getThread_id()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).aa("tid", feedData.getThread_id()));
             }
             if (feedData.getThread_Type() == 33) {
                 TiebaStatic.log("c10384");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cb(feedData.getPost_id()).cc("mention").pg()));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).ci(feedData.getPost_id()).cj("mention").pE()));
                 return false;
             }
             return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), 1, "mention")));
@@ -208,19 +208,19 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.ab.b
-    public void aL(boolean z) {
-        this.dmS.cX(z);
+    public void aN(boolean z) {
+        this.dlr.cZ(z);
     }
 
-    public ViewEventCenter Fw() {
-        if (this.dlT == null) {
-            this.dlT = new ViewEventCenter();
+    public ViewEventCenter FU() {
+        if (this.dks == null) {
+            this.dks = new ViewEventCenter();
         }
-        return this.dlT;
+        return this.dks;
     }
 
-    public void avm() {
-        this.dmT.avm();
+    public void avf() {
+        this.dls.avf();
     }
 
     public void a(ErrorData errorData) {
@@ -229,47 +229,47 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
         }
     }
 
-    public void avn() {
-        this.dmT.avn();
+    public void avg() {
+        this.dls.avg();
     }
 
     public void b(com.baidu.tbadk.mvc.d.b bVar) {
-        this.dmT.b(bVar);
+        this.dls.b(bVar);
     }
 
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
-        this.dmT.a(aVar);
+        this.dls.a(aVar);
     }
 
-    public void JO() {
-        this.dmS.TR();
+    public void Ko() {
+        this.dlr.Up();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.dmT.onChangeSkinType(getPageContext(), i);
+        this.dls.onChangeSkinType(getPageContext(), i);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.dmT.onActivityResult(i, i2, intent);
+        this.dls.onActivityResult(i, i2, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.dmT.destroy();
+        this.dls.destroy();
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT);
-        if (this.bMM != null) {
-            this.bMM.onDestory(getPageContext());
+        if (this.bMC != null) {
+            this.bMC.onDestory(getPageContext());
         }
     }
 
-    private void aiC() {
+    private void aiw() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, new be(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -282,18 +282,18 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.bMM == null) {
-            this.bMM = VoiceManager.instance();
+        if (this.bMC == null) {
+            this.bMC = VoiceManager.instance();
         }
-        return this.bMM;
+        return this.bMC;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.bMM != null) {
-            this.bMM.onStart(getPageContext());
+        if (this.bMC != null) {
+            this.bMC.onStart(getPageContext());
         }
     }
 
@@ -301,8 +301,8 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.bMM != null) {
-            this.bMM.onPause(getPageContext());
+        if (this.bMC != null) {
+            this.bMC.onPause(getPageContext());
         }
     }
 
@@ -310,8 +310,8 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bMM != null) {
-            this.bMM.onResume(getPageContext());
+        if (this.bMC != null) {
+            this.bMC.onResume(getPageContext());
         }
     }
 
@@ -319,8 +319,8 @@ public class ReplyMessageActivity extends BaseActivity<ReplyMessageActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.bMM != null) {
-            this.bMM.onStop(getPageContext());
+        if (this.bMC != null) {
+            this.bMC.onStop(getPageContext());
         }
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tieba.play.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av extends Handler {
-    final /* synthetic */ au eWY;
+    final /* synthetic */ au eUX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public av(au auVar, Looper looper) {
         super(looper);
-        this.eWY = auVar;
+        this.eUX = auVar;
     }
 
     @Override // android.os.Handler
@@ -23,33 +23,33 @@ public class av extends Handler {
         boolean z2;
         MediaController.MediaPlayerControl mediaPlayerControl;
         MediaController.MediaPlayerControl mediaPlayerControl2;
-        int LK;
+        int Ml;
         au.b bVar;
         int i;
         int i2;
         au.b bVar2;
         switch (message.what) {
             case 1:
-                z = this.eWY.aWG;
+                z = this.eUX.aWT;
                 if (!z) {
-                    z2 = this.eWY.aWH;
+                    z2 = this.eUX.aWU;
                     if (z2) {
-                        mediaPlayerControl = this.eWY.aWD;
+                        mediaPlayerControl = this.eUX.aWQ;
                         if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.eWY.aWD;
+                            mediaPlayerControl2 = this.eUX.aWQ;
                             if (!mediaPlayerControl2.isPlaying()) {
                                 return;
                             }
-                            LK = this.eWY.LK();
-                            bVar = this.eWY.dAR;
+                            Ml = this.eUX.Ml();
+                            bVar = this.eUX.dxz;
                             if (bVar != null) {
-                                bVar2 = this.eWY.dAR;
-                                bVar2.fJ(LK);
+                                bVar2 = this.eUX.dxz;
+                                bVar2.fM(Ml);
                             }
                             Message obtainMessage = obtainMessage(1);
-                            i = this.eWY.aWC;
-                            i2 = this.eWY.aWC;
-                            sendMessageDelayed(obtainMessage, i - (LK % i2));
+                            i = this.eUX.aWP;
+                            i2 = this.eUX.aWP;
+                            sendMessageDelayed(obtainMessage, i - (Ml % i2));
                             return;
                         }
                         return;

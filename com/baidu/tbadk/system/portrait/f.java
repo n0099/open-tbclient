@@ -3,11 +3,11 @@ package com.baidu.tbadk.system.portrait;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class f implements a.b {
-    final /* synthetic */ ChangeSystemPhotoActivity aIs;
+    final /* synthetic */ ChangeSystemPhotoActivity aII;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.aIs = changeSystemPhotoActivity;
+        this.aII = changeSystemPhotoActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

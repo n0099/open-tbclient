@@ -4,35 +4,35 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements Runnable {
-    final /* synthetic */ ai afI;
-    private final /* synthetic */ String afJ;
-    private final /* synthetic */ int afK;
-    private final /* synthetic */ String afL;
+    final /* synthetic */ ai afW;
+    private final /* synthetic */ String afX;
+    private final /* synthetic */ int afY;
+    private final /* synthetic */ String afZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ai aiVar, String str, int i, String str2) {
-        this.afI = aiVar;
-        this.afJ = str;
-        this.afK = i;
-        this.afL = str2;
+        this.afW = aiVar;
+        this.afX = str;
+        this.afY = i;
+        this.afZ = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File vq;
+        File vN;
         boolean d;
-        boolean cH;
-        vq = this.afI.vq();
-        d = this.afI.d(vq, this.afJ);
+        boolean cK;
+        vN = this.afW.vN();
+        d = this.afW.d(vN, this.afX);
         if (d) {
-            this.afI.q(vq);
-            cH = this.afI.cH(this.afK);
-            if (cH) {
-                this.afI.vo();
+            this.afW.r(vN);
+            cK = this.afW.cK(this.afY);
+            if (cK) {
+                this.afW.vL();
                 return;
             }
         }
-        this.afI.vs();
-        this.afI.c(this.afL, this.afJ, this.afK);
+        this.afW.vP();
+        this.afW.c(this.afZ, this.afX, this.afY);
     }
 }

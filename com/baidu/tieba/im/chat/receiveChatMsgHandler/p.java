@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ao;
+import com.baidu.tbadk.core.data.an;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
@@ -15,18 +15,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    private static p cSr;
+    private static p cQO;
 
     private p() {
     }
 
-    public static synchronized p anZ() {
+    public static synchronized p anT() {
         p pVar;
         synchronized (p.class) {
-            if (cSr == null) {
-                cSr = new p();
+            if (cQO == null) {
+                cQO = new p();
             }
-            pVar = cSr;
+            pVar = cQO;
         }
         return pVar;
     }
@@ -37,7 +37,7 @@ public class p {
         }
     }
 
-    public long li(int i) {
+    public long lj(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 
@@ -72,7 +72,7 @@ public class p {
                 }
                 if (TbadkCoreApplication.m9getInst().isPromotedMessageOn()) {
                     CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_YY_NOTIFICATION);
-                    customMessage.setData(new ao(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                    customMessage.setData(new an(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                     MessageManager.getInstance().sendMessage(customMessage);
                 } else {
                     return;

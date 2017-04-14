@@ -11,7 +11,7 @@ import com.baidu.tieba.view.m;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.c, com.baidu.tieba.personCenter.e.b> {
-    private m eCA;
+    private m eAx;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(Context context, BdUniqueId bdUniqueId) {
@@ -39,9 +39,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     }
 
     private void a(com.baidu.tieba.personCenter.e.b bVar, com.baidu.tieba.personCenter.c.c cVar) {
-        bVar.eCZ.setText(cVar.title);
-        ((com.baidu.tieba.personCenter.b.c) bVar.eDb.getTag()).a(this.mContext, bVar.eDb, cVar.bHf);
-        bVar.eDb.setVisibility(cVar.bHf == null ? 8 : 0);
+        bVar.eAW.setText(cVar.title);
+        ((com.baidu.tieba.personCenter.b.c) bVar.eAY.getTag()).a(this.mContext, bVar.eAY, cVar.bGY);
+        bVar.eAY.setVisibility(cVar.bGY == null ? 8 : 0);
         a aVar = new a();
         aVar.a(cVar);
         bVar.getView().setOnClickListener(aVar);
@@ -49,38 +49,38 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
 
     private void b(com.baidu.tieba.personCenter.e.b bVar, com.baidu.tieba.personCenter.c.c cVar) {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-        aq.c(bVar.eCY, cVar.iconId, skinType);
-        if (bVar.amL != skinType) {
-            bVar.amL = skinType;
+        aq.c(bVar.eAV, cVar.iconId, skinType);
+        if (bVar.amZ != skinType) {
+            bVar.amZ = skinType;
             aq.j(bVar.getView(), w.g.item_person_header_attention_bg_selector);
-            aq.c(bVar.eCZ, w.e.cp_cont_b, 1);
-            aq.c(bVar.eDa, w.g.icon_arrow_tab, skinType);
-            if (cVar.bHf != null) {
-                ((com.baidu.tieba.personCenter.b.c) bVar.eDb.getTag()).onChangeSkinType(skinType);
+            aq.c(bVar.eAW, w.e.cp_cont_b, 1);
+            aq.c(bVar.eAX, w.g.icon_arrow_tab, skinType);
+            if (cVar.bGY != null) {
+                ((com.baidu.tieba.personCenter.b.c) bVar.eAY.getTag()).onChangeSkinType(skinType);
             }
         }
     }
 
     public void setOnViewResponseListener(m mVar) {
-        this.eCA = mVar;
+        this.eAx = mVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
-        private com.baidu.tieba.personCenter.c.c eCB;
+        private com.baidu.tieba.personCenter.c.c eAy;
 
         a() {
         }
 
         public void a(com.baidu.tieba.personCenter.c.c cVar) {
-            this.eCB = cVar;
+            this.eAy = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.eCA != null) {
-                c.this.eCA.a(view, this.eCB.eCX);
+            if (c.this.eAx != null) {
+                c.this.eAx.a(view, this.eAy.eAU);
             }
         }
     }

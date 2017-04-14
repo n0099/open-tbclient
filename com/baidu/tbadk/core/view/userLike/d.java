@@ -8,13 +8,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c amH;
+    final /* synthetic */ c amV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.amH = cVar;
+        this.amV = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,27 +27,27 @@ public class d extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-            if (this.amH.amA != null && !StringUtils.isNull(this.amH.amA.getUserId()) && data != null && this.amH.amA.getUserId().equals(data.toUid)) {
-                if (!data.CX) {
-                    tbPageContext = this.amH.ajF;
+            if (this.amV.amO != null && !StringUtils.isNull(this.amV.amO.getUserId()) && data != null && this.amV.amO.getUserId().equals(data.toUid)) {
+                if (!data.Cy) {
+                    tbPageContext = this.amV.ajT;
                     tbPageContext.showToast(updateAttentionMessage.getData().errorString);
                     return;
                 }
-                int fansNum = this.amH.amA.getFansNum();
-                if (data.isAttention && !this.amH.amA.getIsLike()) {
+                int fansNum = this.amV.amO.getFansNum();
+                if (data.isAttention && !this.amV.amO.getIsLike()) {
                     fansNum++;
-                } else if (!data.isAttention && this.amH.amA.getIsLike()) {
+                } else if (!data.isAttention && this.amV.amO.getIsLike()) {
                     fansNum--;
                 }
-                this.amH.amA.setIsLike(data.isAttention);
-                this.amH.amA.setIsFromNetWork(false);
-                this.amH.amA.setFansNum(fansNum);
-                bVar = this.amH.amB;
+                this.amV.amO.setIsLike(data.isAttention);
+                this.amV.amO.setIsFromNetWork(false);
+                this.amV.amO.setFansNum(fansNum);
+                bVar = this.amV.amP;
                 if (bVar != null) {
-                    bVar2 = this.amH.amB;
-                    bVar2.dn(fansNum);
-                    bVar3 = this.amH.amB;
-                    bVar3.aO(data.isAttention);
+                    bVar2 = this.amV.amP;
+                    bVar2.dq(fansNum);
+                    bVar3 = this.amV.amP;
+                    bVar3.aQ(data.isAttention);
                 }
             }
         }

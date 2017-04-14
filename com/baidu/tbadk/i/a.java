@@ -1,16 +1,48 @@
 package com.baidu.tbadk.i;
 
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    public static final boolean a(TbPageContext<?> tbPageContext, View view) {
-        if (tbPageContext == null || view == null) {
-            return false;
+    protected View aDF;
+    private boolean aDG;
+
+    public a(View view) {
+        this.aDF = view;
+    }
+
+    public boolean ET() {
+        return this.aDG;
+    }
+
+    public void b(View view, boolean z) {
+        if (view != null && this.aDF != null && this.aDF.getParent() == null) {
+            this.aDG = true;
+            d.K(view).a(view, this.aDF, z);
+            EU();
         }
-        tbPageContext.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().t(view);
-        return true;
+    }
+
+    public void I(View view) {
+        if (view != null && this.aDF != null && this.aDF.getParent() != null && (view instanceof ViewGroup)) {
+            try {
+                EV();
+                ((ViewGroup) view).removeView(this.aDF);
+                this.aDG = false;
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public void J(View view) {
+        b(view, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void EU() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void EV() {
     }
 }

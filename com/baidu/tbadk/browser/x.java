@@ -1,19 +1,15 @@
 package com.baidu.tbadk.browser;
-
-import com.baidu.tbadk.browser.TbWebViewActivity;
 /* loaded from: classes.dex */
 class x implements Runnable {
-    final /* synthetic */ TbWebViewActivity.a QX;
+    final /* synthetic */ TbWebViewActivity Rm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(TbWebViewActivity.a aVar) {
-        this.QX = aVar;
+    public x(TbWebViewActivity tbWebViewActivity) {
+        this.Rm = tbWebViewActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        TbWebViewActivity tbWebViewActivity;
-        tbWebViewActivity = TbWebViewActivity.this;
-        tbWebViewActivity.mView.on();
+        this.Rm.mView.setFullScreen();
     }
 }

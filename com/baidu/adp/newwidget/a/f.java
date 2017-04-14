@@ -1,16 +1,16 @@
 package com.baidu.adp.newwidget.a;
 /* loaded from: classes.dex */
 public class f {
-    public static f CI = new f();
+    public static f Cj = new f();
 
     private f() {
     }
 
-    public static f iD() {
-        return CI;
+    public static f iH() {
+        return Cj;
     }
 
-    public a aC(int i) {
+    public a aB(int i) {
         switch (i) {
             case 0:
                 return new c();

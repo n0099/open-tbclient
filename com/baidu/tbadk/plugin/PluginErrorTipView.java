@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.base.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
@@ -18,10 +17,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipView extends RelativeLayout implements View.OnClickListener {
-    MessageListener<?> aHA;
-    private LinkedList<PluginStatus> aHy;
-    private HashSet<Integer> aHz;
-    private TextView akA;
+    private LinkedList<PluginStatus> aHN;
+    private HashSet<Integer> aHO;
+    MessageListener<?> aHP;
+    private TextView akO;
     private Context mContext;
 
     public PluginErrorTipView(Context context) {
@@ -34,21 +33,21 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     public PluginErrorTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aHy = new LinkedList<>();
-        this.aHz = new HashSet<>(10);
-        this.aHA = new b(this, 0);
+        this.aHN = new LinkedList<>();
+        this.aHO = new HashSet<>(10);
+        this.aHP = new b(this, 0);
         init(context, attributeSet);
     }
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(w.j.plugin_error_tip_view, this);
-        this.akA = (TextView) findViewById(w.h.plugin_error_guide);
+        this.akO = (TextView) findViewById(w.h.plugin_error_guide);
         findViewById(w.h.plugin_error_close).setOnClickListener(new c(this));
         setOnClickListener(this);
-        List<PluginStatus> ke = com.baidu.adp.plugin.packageManager.status.a.kd().ke();
-        if (ke != null && ke.size() > 0) {
-            this.aHy.addAll(ke);
+        List<PluginStatus> ki = com.baidu.adp.plugin.packageManager.status.a.kh().ki();
+        if (ki != null && ki.size() > 0) {
+            this.aHN.addAll(ki);
             update();
             return;
         }
@@ -58,27 +57,27 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(2000991, this.aHA);
-        MessageManager.getInstance().registerListener(2000990, this.aHA);
+        MessageManager.getInstance().registerListener(2000991, this.aHP);
+        MessageManager.getInstance().registerListener(2000990, this.aHP);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.aHA);
+        MessageManager.getInstance().unRegisterListener(this.aHP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void update() {
-        if (this.aHy.size() > 0) {
-            PluginStatus last = this.aHy.getLast();
-            if (!this.aHz.contains(Integer.valueOf(last.getErrorCode()))) {
+        if (this.aHN.size() > 0) {
+            PluginStatus last = this.aHN.getLast();
+            if (!this.aHO.contains(Integer.valueOf(last.getErrorCode()))) {
                 if (last.getErrorCode() >= 100) {
-                    com.baidu.adp.plugin.b.a.jg().B("plugin_load_tip", last.kb());
+                    com.baidu.adp.plugin.b.a.jk().B("plugin_load_tip", last.kf());
                 } else {
-                    com.baidu.adp.plugin.b.a.jg().B("plugin_install_tip", last.kb());
+                    com.baidu.adp.plugin.b.a.jk().B("plugin_install_tip", last.kf());
                 }
-                this.akA.setText(String.valueOf(last.getErrorMsg()) + getResources().getString(w.l.pluginstatus_click_detail));
+                this.akO.setText(String.valueOf(last.getErrorMsg()) + getResources().getString(w.l.pluginstatus_click_detail));
                 setVisibility(0);
                 return;
             }
@@ -89,22 +88,22 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aHy != null && !this.aHy.isEmpty()) {
-            PluginStatus last = this.aHy.getLast();
+        if (this.aHN != null && !this.aHN.isEmpty()) {
+            PluginStatus last = this.aHN.getLast();
             PluginErrorTipActivity.a(this.mContext, last);
-            this.aHy.clear();
+            this.aHN.clear();
             update();
             if (last.getErrorCode() >= 100) {
-                com.baidu.adp.plugin.b.a.jg().B("plugin_load_tipclick", last.kb());
+                com.baidu.adp.plugin.b.a.jk().B("plugin_load_tipclick", last.kf());
             } else {
-                com.baidu.adp.plugin.b.a.jg().B("plugin_install_tipclick", last.kb());
+                com.baidu.adp.plugin.b.a.jk().B("plugin_install_tipclick", last.kf());
             }
         }
     }
 
-    public void onChangeSkinType(g<?> gVar, int i) {
+    public void onChangeSkinType(com.baidu.adp.base.g<?> gVar, int i) {
         if (gVar instanceof TbPageContext) {
-            ((TbPageContext) gVar).getLayoutMode().ah(i == 1);
+            ((TbPageContext) gVar).getLayoutMode().aj(i == 1);
             ((TbPageContext) gVar).getLayoutMode().t(this);
         }
         aq.d(this, w.g.nonetworkview_bg_selector, i);

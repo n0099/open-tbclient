@@ -18,10 +18,10 @@ import com.baidu.tieba.w;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bg {
-    private static int agJ = -1;
-    private static int agK = -1;
-    private static boolean agL = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> agM = new com.baidu.adp.lib.e.a<>(500);
+    private static int agX = -1;
+    private static int agY = -1;
+    private static boolean agZ = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> aha = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,29 +29,29 @@ public class bg {
         boolean w(View view);
     }
 
-    public static void aF(Context context) {
+    public static void aH(Context context) {
         mAppContext = context;
-        agL = true;
+        agZ = true;
     }
 
-    private static void vR() {
+    private static void wo() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            agK = mAppContext.getResources().getColor(w.e.common_color_10097);
-            agJ = mAppContext.getResources().getColor(w.e.common_color_10004);
+            agY = mAppContext.getResources().getColor(w.e.common_color_10097);
+            agX = mAppContext.getResources().getColor(w.e.common_color_10004);
         }
     }
 
-    private static int cU(int i) {
-        return aG(i == 1);
+    private static int cX(int i) {
+        return aI(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int aG(boolean z) {
-        if (agL) {
-            agL = false;
-            vR();
+    public static int aI(boolean z) {
+        if (agZ) {
+            agZ = false;
+            wo();
         }
-        return z ? agJ : agK;
+        return z ? agX : agY;
     }
 
     public static void y(View view) {
@@ -62,16 +62,16 @@ public class bg {
 
     public static void z(View view) {
         if (view != null) {
-            agM.remove(Integer.valueOf(System.identityHashCode(view)));
+            aha.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = agM.get(Integer.valueOf(identityHashCode));
+        Integer num = aha.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            agM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            aha.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -113,17 +113,17 @@ public class bg {
         }
     }
 
-    public static void aG(Context context) {
+    public static void aI(Context context) {
         if (context != null) {
-            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+            com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new RegisterActivityConfig(context, 3, true)));
         }
     }
 
-    public static void aH(Context context) {
+    public static void aJ(Context context) {
         if (context != null) {
-            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
-            if (com.baidu.tbadk.coreExtra.a.a.aob != null && com.baidu.tbadk.coreExtra.a.a.aob == Domain.DOMAIN_QA) {
+            com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            if (com.baidu.tbadk.coreExtra.a.a.aop != null && com.baidu.tbadk.coreExtra.a.a.aop == Domain.DOMAIN_QA) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new QALoginActivityConfig(context, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(context, 3, true)));
@@ -131,15 +131,15 @@ public class bg {
         }
     }
 
-    public static boolean aI(Context context) {
+    public static boolean aK(Context context) {
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (!isLogin) {
-            aG(context);
+            aI(context);
         }
         return isLogin;
     }
 
-    public static void j(TextView textView, int i) {
+    public static void h(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
                 textView.setTextColor(-11446171);
@@ -151,13 +151,13 @@ public class bg {
 
     public static void b(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cU(i));
+            textView.setTextColor(cX(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cU(i));
+            checkBox.setTextColor(cX(i));
         }
     }
 

@@ -7,13 +7,13 @@ import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ PersonPolymericModel eIi;
+    final /* synthetic */ PersonPolymericModel eGd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(PersonPolymericModel personPolymericModel, int i) {
         super(i);
-        this.eIi = personPolymericModel;
+        this.eGd = personPolymericModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,13 +25,13 @@ public class f extends CustomMessageListener {
         String str;
         if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.eIi.unique_id;
+            bdUniqueId = this.eGd.unique_id;
             if (tag == bdUniqueId) {
-                this.eIi.eGF = 0;
+                this.eGd.eEB = 0;
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
-                aVar = this.eIi.eIg;
-                i = this.eIi.eGF;
-                str = this.eIi.eGG;
+                aVar = this.eGd.eGb;
+                i = this.eGd.eEB;
+                str = this.eGd.eEC;
                 aVar.a(2, i, str, userMuteDelResponseMessage.getMuteErrorCode(), userMuteDelResponseMessage.getMuteMessage());
             }
         }

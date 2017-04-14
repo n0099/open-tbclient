@@ -2,30 +2,31 @@ package com.baidu.tieba.frs.smartsort;
 
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bj;
-import com.baidu.tieba.frs.mc.v;
+import com.baidu.tieba.frs.bl;
+import com.baidu.tieba.frs.mc.x;
 import com.baidu.tieba.tbadkCore.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
-    private v bNI;
-    private final FrsActivity bOq;
-    private int bjb;
-    private int mPn;
+    private x bNx;
+    private final FrsActivity bOf;
+    private int biU;
+    private int buQ;
     private int mSortType;
-    private final ArrayList<com.baidu.adp.widget.ListView.v> mThreadList;
+    private final ArrayList<v> mThreadList;
 
-    public FrsSmartLoadMoreModel(FrsActivity frsActivity, v vVar) {
+    public FrsSmartLoadMoreModel(FrsActivity frsActivity, x xVar) {
         super(frsActivity.getPageContext());
         this.mThreadList = new ArrayList<>();
-        this.mPn = 1;
-        this.bjb = -1;
-        this.bOq = frsActivity;
-        this.bNI = vVar;
+        this.buQ = 1;
+        this.biU = -1;
+        this.bOf = frsActivity;
+        this.bNx = xVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -42,45 +43,45 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         this.mSortType = i;
     }
 
-    public int YF() {
-        return this.bjb;
+    public int Zb() {
+        return this.biU;
     }
 
     public void setHasMore(int i) {
-        this.bjb = i;
+        this.biU = i;
     }
 
     public int getPn() {
-        return this.mPn;
+        return this.buQ;
     }
 
     public void setPn(int i) {
-        if (i > this.mPn) {
-            this.mPn = i;
+        if (i > this.buQ) {
+            this.buQ = i;
         }
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.v> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        if (x.q(arrayList)) {
-            if (this.bNI != null) {
-                this.bNI.a(this.mSortType, z2, 0, z, null);
+    public ArrayList<v> a(boolean z, boolean z2, ArrayList<v> arrayList) {
+        if (com.baidu.tbadk.core.util.x.q(arrayList)) {
+            if (this.bNx != null) {
+                this.bNx.a(this.mSortType, z2, 0, z, null);
             }
             return this.mThreadList;
         }
         synchronized (this.mThreadList) {
-            ArrayList<com.baidu.adp.widget.ListView.v> arrayList2 = new ArrayList<>();
-            ArrayList<com.baidu.adp.widget.ListView.v> arrayList3 = new ArrayList<>();
-            Iterator<com.baidu.adp.widget.ListView.v> it = arrayList.iterator();
+            ArrayList<v> arrayList2 = new ArrayList<>();
+            ArrayList<v> arrayList3 = new ArrayList<>();
+            Iterator<v> it = arrayList.iterator();
             int i = 0;
             while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.v next = it.next();
-                if (!(next instanceof bj)) {
+                v next = it.next();
+                if (!(next instanceof bl)) {
                     if (d(next)) {
                         arrayList3.add(next);
-                    } else if (next instanceof com.baidu.tbadk.core.data.bj) {
-                        com.baidu.tbadk.core.data.bj bjVar = (com.baidu.tbadk.core.data.bj) next;
-                        bjVar.as(true);
-                        if ((bjVar.sX() != null && !bjVar.sn()) || !e(bjVar.getId(), this.mThreadList)) {
+                    } else if (next instanceof bi) {
+                        bi biVar = (bi) next;
+                        biVar.au(true);
+                        if ((biVar.tv() != null && !biVar.sL()) || !e(biVar.getId(), this.mThreadList)) {
                             arrayList2.add(next);
                             i++;
                         }
@@ -93,14 +94,14 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
             if (z2) {
                 K(arrayList2);
             }
-            this.bOq.YV().a(this.bOq, true, arrayList2, this.mThreadList, this.bOq.Yx().adb());
+            this.bOf.Zr().a(this.bOf, true, arrayList2, this.mThreadList, this.bOf.YT().acV());
             if (z2) {
-                if (this.bNI != null) {
-                    this.bNI.a(this.mSortType, z2, i, z, arrayList2);
+                if (this.bNx != null) {
+                    this.bNx.a(this.mSortType, z2, i, z, arrayList2);
                 }
-                adn();
+                adh();
                 f(this.mThreadList, arrayList2);
-                av(arrayList2);
+                au(arrayList2);
                 J(arrayList3);
             } else {
                 this.mThreadList.addAll(arrayList2);
@@ -110,87 +111,87 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         return this.mThreadList;
     }
 
-    private void av(List<com.baidu.adp.widget.ListView.v> list) {
-        if (!x.q(list)) {
+    private void au(List<v> list) {
+        if (!com.baidu.tbadk.core.util.x.q(list)) {
             this.mThreadList.addAll(0, list);
         }
     }
 
-    private boolean d(com.baidu.adp.widget.ListView.v vVar) {
+    private boolean d(v vVar) {
         if (vVar == null) {
             return false;
         }
         if (vVar instanceof w) {
             return true;
         }
-        return (vVar instanceof com.baidu.tbadk.core.data.bj) && ((com.baidu.tbadk.core.data.bj) vVar).rM() == 2;
+        return (vVar instanceof bi) && ((bi) vVar).sk() == 2;
     }
 
-    private void a(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, boolean z, int i) {
+    private void a(ArrayList<v> arrayList, boolean z, int i) {
         int p;
         int i2;
-        if (arrayList != null && (p = x.p(arrayList)) > i) {
+        if (arrayList != null && (p = com.baidu.tbadk.core.util.x.p(arrayList)) > i) {
             int max = Math.max(p - i, 30);
             if (z) {
                 i2 = ((p - 20) - max) - 1;
             } else {
                 i2 = 20;
             }
-            x.b(arrayList, i2, max + i2);
+            com.baidu.tbadk.core.util.x.b(arrayList, i2, max + i2);
         }
     }
 
-    public void adn() {
-        if (!x.q(this.mThreadList)) {
+    public void adh() {
+        if (!com.baidu.tbadk.core.util.x.q(this.mThreadList)) {
             ArrayList arrayList = new ArrayList();
-            Iterator<com.baidu.adp.widget.ListView.v> it = this.mThreadList.iterator();
+            Iterator<v> it = this.mThreadList.iterator();
             while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.v next = it.next();
+                v next = it.next();
                 if (d(next)) {
                     arrayList.add(next);
-                } else if (next instanceof bj) {
+                } else if (next instanceof bl) {
                     arrayList.add(next);
                 }
             }
-            if (!x.q(arrayList)) {
+            if (!com.baidu.tbadk.core.util.x.q(arrayList)) {
                 this.mThreadList.removeAll(arrayList);
             }
         }
     }
 
-    public void J(ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        if (!x.q(arrayList) && !x.q(this.mThreadList)) {
+    public void J(ArrayList<v> arrayList) {
+        if (!com.baidu.tbadk.core.util.x.q(arrayList) && !com.baidu.tbadk.core.util.x.q(this.mThreadList)) {
             this.mThreadList.addAll(0, arrayList);
         }
     }
 
-    public void K(ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
-        if (!x.q(arrayList)) {
+    public void K(ArrayList<v> arrayList) {
+        if (!com.baidu.tbadk.core.util.x.q(arrayList)) {
             ArrayList arrayList2 = new ArrayList();
-            if (!x.q(arrayList)) {
-                Iterator<com.baidu.adp.widget.ListView.v> it = arrayList.iterator();
+            if (!com.baidu.tbadk.core.util.x.q(arrayList)) {
+                Iterator<v> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    com.baidu.adp.widget.ListView.v next = it.next();
+                    v next = it.next();
                     if (next != null) {
-                        if (next.getType() == com.baidu.tbadk.core.data.bj.YT) {
+                        if (next.getType() == bi.Zj) {
                             it.remove();
                             arrayList2.add(next);
-                        } else if ((next instanceof com.baidu.tbadk.core.data.bj) && ((com.baidu.tbadk.core.data.bj) next).rO() == 1) {
+                        } else if ((next instanceof bi) && ((bi) next).sm() == 1) {
                             it.remove();
                             arrayList2.add(next);
                         }
                     }
                 }
             }
-            if (!x.q(arrayList2)) {
-                if (!x.q(this.mThreadList)) {
-                    Iterator<com.baidu.adp.widget.ListView.v> it2 = this.mThreadList.iterator();
+            if (!com.baidu.tbadk.core.util.x.q(arrayList2)) {
+                if (!com.baidu.tbadk.core.util.x.q(this.mThreadList)) {
+                    Iterator<v> it2 = this.mThreadList.iterator();
                     while (it2.hasNext()) {
-                        com.baidu.adp.widget.ListView.v next2 = it2.next();
+                        v next2 = it2.next();
                         if (next2 != null) {
-                            if (next2.getType() == com.baidu.tbadk.core.data.bj.YT) {
+                            if (next2.getType() == bi.Zj) {
                                 it2.remove();
-                            } else if ((next2 instanceof com.baidu.tbadk.core.data.bj) && ((com.baidu.tbadk.core.data.bj) next2).rO() == 1) {
+                            } else if ((next2 instanceof bi) && ((bi) next2).sm() == 1) {
                                 it2.remove();
                             }
                         }
@@ -201,41 +202,41 @@ public class FrsSmartLoadMoreModel extends BdBaseModel<FrsActivity> {
         }
     }
 
-    private boolean e(String str, ArrayList<com.baidu.adp.widget.ListView.v> arrayList) {
+    private boolean e(String str, ArrayList<v> arrayList) {
         if (TextUtils.isEmpty(str) || arrayList == null) {
             return true;
         }
-        Iterator<com.baidu.adp.widget.ListView.v> it = arrayList.iterator();
+        Iterator<v> it = arrayList.iterator();
         while (it.hasNext()) {
-            com.baidu.adp.widget.ListView.v next = it.next();
-            if ((next instanceof com.baidu.tbadk.core.data.bj) && str.equalsIgnoreCase(((com.baidu.tbadk.core.data.bj) next).getTid())) {
+            v next = it.next();
+            if ((next instanceof bi) && str.equalsIgnoreCase(((bi) next).getTid())) {
                 return true;
             }
         }
         return false;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.v> getDataList() {
+    public ArrayList<v> getDataList() {
         return this.mThreadList;
     }
 
     public void resetData() {
         this.mThreadList.clear();
-        this.bjb = -1;
-        this.mPn = 1;
+        this.biU = -1;
+        this.buQ = 1;
     }
 
-    private void f(List<com.baidu.adp.widget.ListView.v> list, List<com.baidu.adp.widget.ListView.v> list2) {
-        if (!x.q(list) && !x.q(list2)) {
-            long iL = a.adj().iL(this.bOq.getForumName());
-            bj bjVar = new bj();
-            if (iL > 0) {
-                bjVar.aP(iL);
+    private void f(List<v> list, List<v> list2) {
+        if (!com.baidu.tbadk.core.util.x.q(list) && !com.baidu.tbadk.core.util.x.q(list2)) {
+            long iQ = a.add().iQ(this.bOf.getForumName());
+            bl blVar = new bl();
+            if (iQ > 0) {
+                blVar.aP(iQ);
             } else {
-                bjVar.aP(System.currentTimeMillis());
+                blVar.aP(System.currentTimeMillis());
             }
-            list2.add(bjVar);
-            a.adj().i(this.bOq.getForumName(), System.currentTimeMillis());
+            list2.add(blVar);
+            a.add().i(this.bOf.getForumName(), System.currentTimeMillis());
         }
     }
 }

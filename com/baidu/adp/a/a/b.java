@@ -18,33 +18,33 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int oj = 0;
+    private static int nI = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
         try {
             Class<?> cls = obj.getClass();
             if (str == null || str.equals("")) {
-                stringBuffer.append(String.valueOf(cm()) + cls.getSimpleName() + " = {\n");
+                stringBuffer.append(String.valueOf(cl()) + cls.getSimpleName() + " = {\n");
             } else {
                 stringBuffer.append(String.valueOf(str) + " = {\n");
             }
-            while (cls != null && j(cls)) {
+            while (cls != null && c(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    oj++;
+                    nI++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    oj--;
+                    nI--;
                 }
                 cls = cls.getSuperclass();
             }
-            stringBuffer.append(String.valueOf(cm()) + "}\n");
+            stringBuffer.append(String.valueOf(cl()) + "}\n");
         } catch (IllegalAccessException e) {
             stringBuffer.append(e.toString());
         }
         return stringBuffer.toString();
     }
 
-    private static boolean j(Class<?> cls) {
+    private static boolean c(Class<?> cls) {
         for (String str : new String[]{"activity", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, "listener", "view", "drawable"}) {
             if (cls.getSimpleName().toLowerCase().endsWith(str)) {
                 return false;
@@ -57,14 +57,14 @@ public class b {
         for (int i = 0; i < fieldArr.length; i++) {
             fieldArr[i].setAccessible(true);
             if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                stringBuffer.append(c(String.valueOf(cm()) + fieldArr[i].getName(), fieldArr[i].get(obj), list));
+                stringBuffer.append(c(String.valueOf(cl()) + fieldArr[i].getName(), fieldArr[i].get(obj), list));
             }
         }
     }
 
-    private static String cm() {
+    private static String cl() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < oj; i++) {
+        for (int i = 0; i < nI; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -231,7 +231,7 @@ public class b {
 
     public static void i(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.oy) {
+        if (d.nT) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(h("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

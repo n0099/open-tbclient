@@ -1,15 +1,29 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.TbErrInfo;
+import android.content.Intent;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.service.FatalErrorService;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class j {
-    private static int BASE_ERROR_NO = -100000000;
-    public static final int So = BASE_ERROR_NO - 1000;
-    public static final int Sp = BASE_ERROR_NO + TbErrInfo.ERR_IMG_GET_REMOTE;
-    public static final int Sq = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
-    public static final int Sr = BASE_ERROR_NO - 2000;
-    public static final int Ss = BASE_ERROR_NO - 2001;
-    public static final int St = BASE_ERROR_NO - 2002;
-    public static final int Su = BASE_ERROR_NO - 3000;
-    public static final int Sv = BASE_ERROR_NO - 3001;
+class j implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
+        HashMap<String, String> data = customMessage.getData();
+        Intent intent = new Intent(TbadkCoreApplication.m9getInst().getContext(), FatalErrorService.class);
+        if (data != null && IntentConfig.START.equals(data.get("type"))) {
+            intent.putExtra("uname", data.get("uname"));
+            intent.putExtra(SapiAccountManager.SESSION_UID, data.get(SapiAccountManager.SESSION_UID));
+            TbadkCoreApplication.m9getInst().getContext().startService(intent);
+            return null;
+        } else if (IntentConfig.STOP.equals(data)) {
+            TbadkCoreApplication.m9getInst().getContext().stopService(intent);
+            return null;
+        } else {
+            return null;
+        }
+    }
 }

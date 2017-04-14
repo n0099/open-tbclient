@@ -5,17 +5,17 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ BdTypeListView IY;
+    final /* synthetic */ BdTypeListView Ix;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(BdTypeListView bdTypeListView) {
-        this.IY = bdTypeListView;
+        this.Ix = bdTypeListView;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.IY.mTypeAdapter != null) {
-            return this.IY.mTypeAdapter.onItemLongClick(adapterView, view, i, j);
+        if (this.Ix.mTypeAdapter != null) {
+            return this.Ix.mTypeAdapter.onItemLongClick(adapterView, view, i, j);
         }
         return false;
     }

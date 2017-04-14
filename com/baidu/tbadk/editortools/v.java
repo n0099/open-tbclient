@@ -7,21 +7,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class v extends ViewGroup {
-    private static final Pattern azj = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
-    private final List<View> Gs;
-    private final List<View> azk;
-    private final List<View> azl;
-    private int[] azm;
-    private int azn;
-    private int azo;
-    protected final int[] azp;
+    private static final Pattern azz = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
+    private final List<View> FT;
+    private final List<View> azA;
+    private final List<View> azB;
+    private int[] azC;
+    private int azD;
+    private int azE;
+    protected final int[] azF;
 
     public v(Context context) {
         this(context, null, 0);
@@ -29,11 +28,11 @@ public class v extends ViewGroup {
 
     public v(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.azk = new ArrayList();
-        this.Gs = new ArrayList();
-        this.azl = new ArrayList();
-        this.azm = new int[3];
-        this.azp = new int[3];
+        this.azA = new ArrayList();
+        this.FT = new ArrayList();
+        this.azB = new ArrayList();
+        this.azC = new int[3];
+        this.azF = new int[3];
         b(context, attributeSet);
     }
 
@@ -43,29 +42,29 @@ public class v extends ViewGroup {
         if (string == null) {
             string = "horizontal";
         }
-        if (azj.matcher(string).matches()) {
-            this.azm = new int[3];
+        if (azz.matcher(string).matches()) {
+            this.azC = new int[3];
             String[] split = string.split("\\|");
             if (split.length == 1) {
-                int bD = bD(split[0]);
-                for (int i = 0; i < this.azm.length; i++) {
-                    this.azm[i] = bD;
+                int by = by(split[0]);
+                for (int i = 0; i < this.azC.length; i++) {
+                    this.azC[i] = by;
                 }
             } else if (split.length > 1) {
-                if (this.azm.length != split.length) {
+                if (this.azC.length != split.length) {
                     throw new RuntimeException("Raw number doesn't equal orientation definition number.");
                 }
-                for (int i2 = 0; i2 < this.azm.length; i2++) {
-                    this.azm[i2] = bD(split[i2]);
+                for (int i2 = 0; i2 < this.azC.length; i2++) {
+                    this.azC[i2] = by(split[i2]);
                 }
             }
         }
-        this.azn = obtainStyledAttributes.getDimensionPixelSize(1, 0);
-        this.azo = obtainStyledAttributes.getDimensionPixelSize(2, 0);
+        this.azD = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+        this.azE = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         obtainStyledAttributes.recycle();
     }
 
-    private int bD(String str) {
+    private int by(String str) {
         return "vertical".equals(str) ? 1 : 0;
     }
 
@@ -81,7 +80,7 @@ public class v extends ViewGroup {
         if (aVar == null) {
             aVar = generateDefaultLayoutParams();
         }
-        c(view, aVar.azq);
+        c(view, aVar.azG);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
@@ -91,13 +90,13 @@ public class v extends ViewGroup {
         if (aVar == null) {
             aVar = generateDefaultLayoutParams();
         }
-        c(view, aVar.azq);
+        c(view, aVar.azG);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
         super.removeView(view);
-        d(view, ((a) view.getLayoutParams()).azq);
+        d(view, ((a) view.getLayoutParams()).azG);
     }
 
     @Override // android.view.ViewGroup
@@ -113,28 +112,28 @@ public class v extends ViewGroup {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        this.azk.clear();
-        this.Gs.clear();
-        this.azl.clear();
+        this.azA.clear();
+        this.FT.clear();
+        this.azB.clear();
     }
 
     private void c(View view, int i) {
         switch (i) {
             case 1:
-                if (!this.azk.contains(view)) {
-                    this.azk.add(view);
+                if (!this.azA.contains(view)) {
+                    this.azA.add(view);
                     return;
                 }
                 return;
             case 2:
-                if (!this.Gs.contains(view)) {
-                    this.Gs.add(view);
+                if (!this.FT.contains(view)) {
+                    this.FT.add(view);
                     return;
                 }
                 return;
             case 3:
-                if (!this.azl.contains(view)) {
-                    this.azl.add(view);
+                if (!this.azB.contains(view)) {
+                    this.azB.add(view);
                     return;
                 }
                 return;
@@ -146,13 +145,13 @@ public class v extends ViewGroup {
     private void d(View view, int i) {
         switch (i) {
             case 1:
-                this.azk.remove(view);
+                this.azA.remove(view);
                 return;
             case 2:
-                this.Gs.remove(view);
+                this.FT.remove(view);
                 return;
             case 3:
-                this.azl.remove(view);
+                this.azB.remove(view);
                 return;
             default:
                 return;
@@ -171,34 +170,34 @@ public class v extends ViewGroup {
         int i6 = i2 & 1073741823;
         int i7 = i2 & (-1073741824);
         int i8 = i4 + i5;
-        int i9 = this.azn + this.azo;
+        int i9 = this.azD + this.azE;
         int i10 = 0;
         int i11 = 0;
         int i12 = 0;
         int i13 = 0;
         int i14 = 0;
-        for (View view : this.azk) {
+        for (View view : this.azA) {
             if (view.getVisibility() != 8) {
                 a aVar = (a) view.getLayoutParams();
                 a generateDefaultLayoutParams = aVar == null ? generateDefaultLayoutParams() : aVar;
                 measureChildWithMargins(view, i8, i14 + i9, i2, i12);
                 int measuredWidth = view.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin;
                 int measuredHeight = view.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin;
-                int i15 = i(i14, measuredWidth, this.azm[0]);
-                i12 = j(i12, measuredHeight, this.azm[0]);
+                int i15 = i(i14, measuredWidth, this.azC[0]);
+                i12 = j(i12, measuredHeight, this.azC[0]);
                 if (i7 != 0 && i12 >= i6) {
-                    setMeasuredDimension(i15, this.azn + i12);
-                    this.azp[0] = i12;
-                    this.azp[1] = -1;
-                    this.azp[2] = -1;
+                    setMeasuredDimension(i15, this.azD + i12);
+                    this.azF[0] = i12;
+                    this.azF[1] = -1;
+                    this.azF[2] = -1;
                     return;
                 }
                 i14 = i15;
             }
         }
-        this.azp[0] = i12;
+        this.azF[0] = i12;
         int i16 = 0;
-        for (View view2 : this.azl) {
+        for (View view2 : this.azB) {
             if (view2.getVisibility() != 8) {
                 a aVar2 = (a) view2.getLayoutParams();
                 if (aVar2 == null) {
@@ -207,22 +206,22 @@ public class v extends ViewGroup {
                 measureChildWithMargins(view2, i8, i11, i2, i16 + i12 + i9);
                 int measuredWidth2 = view2.getMeasuredWidth() + aVar2.leftMargin + aVar2.rightMargin;
                 int measuredHeight2 = aVar2.bottomMargin + view2.getMeasuredHeight() + aVar2.topMargin;
-                i11 = i(i11, measuredWidth2, this.azm[2]);
-                int j = j(i16, measuredHeight2, this.azm[2]);
+                i11 = i(i11, measuredWidth2, this.azC[2]);
+                int j = j(i16, measuredHeight2, this.azC[2]);
                 if (i7 != 0 && j > i6 - i12) {
-                    setMeasuredDimension(Math.max(i14, i11), i12 + j + this.azn + this.azo);
-                    this.azp[2] = j;
-                    this.azp[1] = -1;
+                    setMeasuredDimension(Math.max(i14, i11), i12 + j + this.azD + this.azE);
+                    this.azF[2] = j;
+                    this.azF[1] = -1;
                     return;
                 }
                 i16 = j;
             }
         }
-        this.azp[2] = i16;
-        if (this.azm[1] == 0) {
+        this.azF[2] = i16;
+        if (this.azC[1] == 0) {
             f = 0.0f;
             i3 = 0;
-            for (View view3 : this.Gs) {
+            for (View view3 : this.FT) {
                 if (view3.getVisibility() != 8) {
                     a aVar3 = (a) view3.getLayoutParams();
                     f += aVar3.weight;
@@ -242,11 +241,11 @@ public class v extends ViewGroup {
         int resolveSize = View.resolveSize(Math.max(paddingLeft, getSuggestedMinimumWidth()), i8) - paddingLeft;
         switch (i7) {
             case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
-                int i17 = (((i6 - i12) - i16) - this.azn) - this.azo;
+                int i17 = (((i6 - i12) - i16) - this.azD) - this.azE;
                 int i18 = resolveSize;
                 int i19 = 0;
                 int i20 = 0;
-                for (View view4 : this.Gs) {
+                for (View view4 : this.FT) {
                     if (view4.getVisibility() != 8) {
                         a aVar4 = (a) view4.getLayoutParams();
                         a generateDefaultLayoutParams2 = aVar4 == null ? generateDefaultLayoutParams() : aVar4;
@@ -259,8 +258,8 @@ public class v extends ViewGroup {
                         measureChildWithMargins(view4, i8, 0, i2, i19 + i12 + i16 + i9);
                         int measuredWidth3 = view4.getMeasuredWidth() + generateDefaultLayoutParams2.leftMargin + generateDefaultLayoutParams2.rightMargin;
                         int measuredHeight3 = generateDefaultLayoutParams2.bottomMargin + view4.getMeasuredHeight() + generateDefaultLayoutParams2.topMargin;
-                        int i22 = i(i20, measuredWidth3, this.azm[1]);
-                        i19 = j(i19, measuredHeight3, this.azm[1]);
+                        int i22 = i(i20, measuredWidth3, this.azC[1]);
+                        i19 = j(i19, measuredHeight3, this.azC[1]);
                         i20 = i22;
                         i18 = i21;
                     }
@@ -270,7 +269,7 @@ public class v extends ViewGroup {
                 break;
             case 0:
                 int i23 = resolveSize;
-                for (View view5 : this.Gs) {
+                for (View view5 : this.FT) {
                     a aVar5 = (a) view5.getLayoutParams();
                     a generateDefaultLayoutParams3 = aVar5 == null ? generateDefaultLayoutParams() : aVar5;
                     if (i23 != 0 && f > 0.0f && generateDefaultLayoutParams3.weight > 0.0f) {
@@ -282,8 +281,8 @@ public class v extends ViewGroup {
                     measureChild(view5, i4, i6);
                     int measuredWidth4 = view5.getMeasuredWidth() + generateDefaultLayoutParams3.leftMargin + generateDefaultLayoutParams3.rightMargin;
                     int measuredHeight4 = view5.getMeasuredHeight() + generateDefaultLayoutParams3.topMargin + generateDefaultLayoutParams3.bottomMargin;
-                    i10 = i(i10, measuredWidth4, this.azm[1]);
-                    i13 = j(i13, measuredHeight4, this.azm[1]);
+                    i10 = i(i10, measuredWidth4, this.azC[1]);
+                    i13 = j(i13, measuredHeight4, this.azC[1]);
                     i23 = i24;
                 }
                 break;
@@ -291,7 +290,7 @@ public class v extends ViewGroup {
                 int paddingTop = ((((i6 - i12) - i16) - i9) - getPaddingTop()) - getPaddingBottom();
                 int i25 = paddingTop;
                 int i26 = resolveSize;
-                for (View view6 : this.Gs) {
+                for (View view6 : this.FT) {
                     if (view6.getVisibility() != 8) {
                         a aVar6 = (a) view6.getLayoutParams();
                         a generateDefaultLayoutParams4 = aVar6 == null ? generateDefaultLayoutParams() : aVar6;
@@ -301,14 +300,14 @@ public class v extends ViewGroup {
                             i26 -= generateDefaultLayoutParams4.width;
                         }
                         measureChildWithMargins(view6, i8, 0, i2, i12 + i16 + i9);
-                        i25 = j(i25, view6.getMeasuredHeight() + generateDefaultLayoutParams4.topMargin + generateDefaultLayoutParams4.bottomMargin, this.azm[1]);
+                        i25 = j(i25, view6.getMeasuredHeight() + generateDefaultLayoutParams4.topMargin + generateDefaultLayoutParams4.bottomMargin, this.azC[1]);
                         i26 = i26;
                     }
                 }
                 i13 = i25;
                 break;
         }
-        this.azp[1] = i13;
+        this.azF[1] = i13;
         switch (i5) {
             case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
             case 0:
@@ -321,7 +320,7 @@ public class v extends ViewGroup {
                 max = 0;
                 break;
         }
-        setMeasuredDimension(max, i12 + i13 + i16 + this.azn + this.azo + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(max, i12 + i13 + i16 + this.azD + this.azE + getPaddingTop() + getPaddingBottom());
     }
 
     private int i(int i, int i2, int i3) {
@@ -349,14 +348,14 @@ public class v extends ViewGroup {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        if (this.azp[0] != -1) {
-            a(this.azk, paddingLeft, paddingTop, this.azp[0]);
-            int i5 = paddingTop + this.azp[0] + this.azn;
-            if (this.azp[1] != -1) {
-                a(this.Gs, paddingLeft, i5, this.azp[1]);
-                int i6 = i5 + this.azp[1] + this.azo;
-                if (this.azp[2] != -1) {
-                    a(this.azl, paddingLeft, i6, this.azp[2]);
+        if (this.azF[0] != -1) {
+            a(this.azA, paddingLeft, paddingTop, this.azF[0]);
+            int i5 = paddingTop + this.azF[0] + this.azD;
+            if (this.azF[1] != -1) {
+                a(this.FT, paddingLeft, i5, this.azF[1]);
+                int i6 = i5 + this.azF[1] + this.azE;
+                if (this.azF[2] != -1) {
+                    a(this.azB, paddingLeft, i6, this.azF[2]);
                 }
             }
         }
@@ -364,7 +363,7 @@ public class v extends ViewGroup {
 
     private void a(List<View> list, int i, int i2, int i3) {
         int i4;
-        int i5 = this.azm[0];
+        int i5 = this.azC[0];
         int measuredWidth = getMeasuredWidth();
         for (View view : list) {
             if (view.getVisibility() != 8) {
@@ -373,7 +372,7 @@ public class v extends ViewGroup {
                 if (i5 == 1) {
                     i4 = generateDefaultLayoutParams.gravity & 7;
                 } else {
-                    i4 = generateDefaultLayoutParams.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
+                    i4 = generateDefaultLayoutParams.gravity & 112;
                 }
                 switch (i4) {
                     case 1:
@@ -423,13 +422,13 @@ public class v extends ViewGroup {
 
     /* loaded from: classes.dex */
     public static class a extends LinearLayout.LayoutParams {
-        public int azq;
+        public int azG;
 
         public a(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.azq = 0;
+            this.azG = 0;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, w.n.RawLayout);
-            this.azq = obtainStyledAttributes.getInt(3, 0);
+            this.azG = obtainStyledAttributes.getInt(3, 0);
             obtainStyledAttributes.recycle();
             if (this.gravity == -1) {
                 this.gravity = 51;
@@ -438,43 +437,43 @@ public class v extends ViewGroup {
 
         public a() {
             super(-2, -2);
-            this.azq = 0;
+            this.azG = 0;
             this.gravity = 51;
         }
 
         public a(int i, int i2) {
             super(i, i2);
-            this.azq = 0;
+            this.azG = 0;
             this.gravity = 51;
         }
 
         public a(int i, int i2, int i3) {
             super(i, i2);
-            this.azq = 0;
+            this.azG = 0;
             this.gravity = i3;
         }
 
         public a(int i, int i2, int i3, int i4) {
             super(i, i2);
-            this.azq = 0;
+            this.azG = 0;
             this.gravity = i3;
-            this.azq = i4;
+            this.azG = i4;
         }
 
         public a(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.azq = 0;
+            this.azG = 0;
         }
 
-        public void eA(int i) {
-            this.azq = i;
+        public void eD(int i) {
+            this.azG = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: Da */
+    /* renamed from: Dy */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 19, 0);
     }

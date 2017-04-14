@@ -16,7 +16,7 @@ public class PayWalletActivityConfig extends IntentConfig {
     public PayWalletActivityConfig(Context context, int i, PayConfig payConfig) {
         super(context);
         getIntent().putExtra(PAY_CONFIG, payConfig);
-        getIntent().putExtra("request_code", i);
+        getIntent().putExtra(IntentConfig.REQUEST_CODE, i);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }

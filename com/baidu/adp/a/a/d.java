@@ -6,21 +6,21 @@ import java.math.BigDecimal;
 /* loaded from: classes.dex */
 public class d {
     private static int mFps = 0;
-    private static String ol = null;
-    private static String om = null;
-    private static int oo = 0;
-    private static int oq = 0;
-    private static String or = null;
-    private static e.a ot = null;
-    private static e.a ou = null;
+    private static String nJ = null;
+    private static String nK = null;
+    private static int nL = 0;
+    private static int nM = 0;
+    private static String nN = null;
+    private static e.a nO = null;
+    private static e.a nP = null;
     public static Handler mHandler = null;
     @Deprecated
-    public static int ov = 0;
-    public static boolean ow = false;
-    public static boolean ox = false;
-    public static boolean oy = false;
+    public static int nQ = 0;
+    public static boolean nR = false;
+    public static boolean nS = false;
+    public static boolean nT = false;
 
-    public static void H(int i) {
+    public static void F(int i) {
         mFps = i;
         try {
             if (mHandler != null) {
@@ -32,7 +32,7 @@ public class d {
     }
 
     public static void a(e.a aVar) {
-        ot = aVar;
+        nO = aVar;
         try {
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(6);
@@ -42,8 +42,8 @@ public class d {
         }
     }
 
-    public static e.a cn() {
-        return ou;
+    public static e.a cm() {
+        return nP;
     }
 
     public static double a(double d) {

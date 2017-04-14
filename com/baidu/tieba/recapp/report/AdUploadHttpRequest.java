@@ -15,6 +15,7 @@ public class AdUploadHttpRequest extends HttpMessage {
     private static final String KEY_AD = "ad";
     private static final String KEY_BRAND = "brand";
     private static final String KEY_NET_TYPE = "net_type";
+    private static final String KEY_OS_TYPE = "_os_type";
     private static final String KEY_OS_VERSION = "_os_version";
     private static final String KEY_PRODUCT_ID = "productId";
     private ArrayList<a> dataArray;
@@ -27,7 +28,8 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
-        addParam(KEY_NET_TYPE, i.hk());
+        addParam(KEY_NET_TYPE, i.hp());
+        addParam(KEY_OS_TYPE, 2);
     }
 
     public AdUploadHttpRequest(a aVar) {
@@ -52,7 +54,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null) {
-                jSONArray.put(next.aZP());
+                jSONArray.put(next.bay());
             }
         }
         return jSONArray.toString();

@@ -6,11 +6,11 @@ import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class l implements com.baidu.tbadk.util.f<Boolean> {
-    final /* synthetic */ j djG;
+    final /* synthetic */ j dif;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.djG = jVar;
+        this.dif = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ class l implements com.baidu.tbadk.util.f<Boolean> {
         PersonalTalkSettingActivity personalTalkSettingActivity2;
         PersonalTalkSettingActivity personalTalkSettingActivity3;
         long j;
-        personalTalkSettingActivity = this.djG.djE;
+        personalTalkSettingActivity = this.dif.did;
         personalTalkSettingActivity.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new ClearChatMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.djG.djE;
+        personalTalkSettingActivity2 = this.dif.did;
         personalTalkSettingActivity2.showToast(w.l.delete_success, false);
-        personalTalkSettingActivity3 = this.djG.djE;
+        personalTalkSettingActivity3 = this.dif.did;
         j = personalTalkSettingActivity3.userId;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(j), 2, null, 1)));
     }

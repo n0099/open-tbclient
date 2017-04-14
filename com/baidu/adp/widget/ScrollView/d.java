@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ Timer Jg;
-    final /* synthetic */ c Jh;
-    private final /* synthetic */ View zB;
+    private final /* synthetic */ Timer IG;
+    final /* synthetic */ c IH;
+    private final /* synthetic */ View zc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.Jh = cVar;
-        this.zB = view;
-        this.Jg = timer;
+        this.IH = cVar;
+        this.zc = view;
+        this.IG = timer;
     }
 
     @Override // java.lang.Runnable
@@ -31,32 +31,32 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.zB.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.zc.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.Jh.Jf;
-        i = bVar.IO;
+        bVar = this.IH.IF;
+        i = bVar.Io;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.Jh.Jf;
-        i2 = bVar2.Jd;
+        bVar2 = this.IH.IF;
+        i2 = bVar2.IC;
         if (i5 <= i2) {
-            bVar6 = this.Jh.Jf;
-            i3 = bVar6.Jd;
+            bVar6 = this.IH.IF;
+            i3 = bVar6.IC;
             layoutParams.bottomMargin = i3;
-            this.Jg.cancel();
-            bVar7 = this.Jh.Jf;
-            bVar7.Je = true;
+            this.IG.cancel();
+            bVar7 = this.IH.IF;
+            bVar7.IE = true;
         }
-        this.zB.setLayoutParams(layoutParams);
-        bVar3 = this.Jh.Jf;
-        z = bVar3.Je;
+        this.zc.setLayoutParams(layoutParams);
+        bVar3 = this.IH.IF;
+        z = bVar3.IE;
         if (z) {
-            bVar4 = this.Jh.Jf;
-            gVar = bVar4.IQ;
+            bVar4 = this.IH.IF;
+            gVar = bVar4.Iq;
             if (gVar != null) {
-                bVar5 = this.Jh.Jf;
-                gVar2 = bVar5.IQ;
-                gVar2.ln();
+                bVar5 = this.IH.IF;
+                gVar2 = bVar5.Iq;
+                gVar2.lr();
             }
         }
     }

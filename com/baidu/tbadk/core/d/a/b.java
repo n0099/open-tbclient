@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.d.a;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.d.n;
 import com.baidu.tbadk.core.d.p;
 import com.baidu.tbadk.core.d.q;
@@ -18,7 +17,7 @@ public class b extends p {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.d.p
-    public String ob() {
+    public String oy() {
         return "TBHY_EXT_FocusFeed";
     }
 
@@ -26,12 +25,12 @@ public class b extends p {
     protected void appointNotice(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("activityId");
-            int optInt2 = jSONObject.optInt(SocialConstants.PARAM_STATE);
+            int optInt2 = jSONObject.optInt("state");
             String optString = jSONObject.optString("curNum");
             i iVar = new i();
             iVar.setActivityId(optInt);
-            iVar.eo(optInt2);
-            iVar.eQ(optString);
+            iVar.er(optInt2);
+            iVar.eW(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_ADCARD, iVar));
         }
     }

@@ -14,22 +14,22 @@ import android.widget.ImageView;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public abstract class b extends ImageView implements i {
-    protected e Cb;
-    private int Cf;
-    private ImageView.ScaleType Cg;
-    private ImageView.ScaleType Ch;
-    protected a Ci;
-    private boolean Cj;
-    private boolean Ck;
-    protected boolean Cl;
-    private int Cm;
-    private int Cn;
-    private int Co;
-    private d Cp;
-    private boolean Cq;
-    private Drawable Cr;
-    private Drawable Cs;
-    private Drawable Ct;
+    protected e BC;
+    private int BG;
+    private ImageView.ScaleType BH;
+    private ImageView.ScaleType BI;
+    protected a BJ;
+    private boolean BK;
+    private boolean BL;
+    protected boolean BM;
+    private int BN;
+    private int BO;
+    private int BP;
+    private d BQ;
+    private boolean BR;
+    private Drawable BS;
+    private Drawable BT;
+    private Drawable BU;
     private int mMaxHeight;
 
     protected abstract com.baidu.adp.widget.a.a getBdImage();
@@ -38,15 +38,15 @@ public abstract class b extends ImageView implements i {
 
     public b(Context context) {
         super(context);
-        this.Cf = 0;
-        this.Cg = ImageView.ScaleType.CENTER_INSIDE;
-        this.Ch = null;
-        this.Cb = new e();
-        this.Cj = true;
-        this.Cl = true;
-        this.Co = Integer.MAX_VALUE;
+        this.BG = 0;
+        this.BH = ImageView.ScaleType.CENTER_INSIDE;
+        this.BI = null;
+        this.BC = new e();
+        this.BK = true;
+        this.BM = true;
+        this.BP = Integer.MAX_VALUE;
         this.mMaxHeight = Integer.MAX_VALUE;
-        this.Cp = new d();
+        this.BQ = new d();
         b((AttributeSet) null);
     }
 
@@ -56,70 +56,70 @@ public abstract class b extends ImageView implements i {
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Cf = 0;
-        this.Cg = ImageView.ScaleType.CENTER_INSIDE;
-        this.Ch = null;
-        this.Cb = new e();
-        this.Cj = true;
-        this.Cl = true;
-        this.Co = Integer.MAX_VALUE;
+        this.BG = 0;
+        this.BH = ImageView.ScaleType.CENTER_INSIDE;
+        this.BI = null;
+        this.BC = new e();
+        this.BK = true;
+        this.BM = true;
+        this.BP = Integer.MAX_VALUE;
         this.mMaxHeight = Integer.MAX_VALUE;
-        this.Cp = new d();
+        this.BQ = new d();
         b(attributeSet);
     }
 
     private void b(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
-            this.Cb.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, com.baidu.adp.lib.util.k.dip2px(getContext(), 4.0f));
-            this.Cb.Cx = obtainStyledAttributes.getBoolean(1, false);
-            this.Cb.Cy = obtainStyledAttributes.getBoolean(2, false);
-            this.Cb.Cz = obtainStyledAttributes.getDimensionPixelSize(3, com.baidu.adp.lib.util.k.dip2px(getContext(), 1.0f));
-            this.Cb.CA = obtainStyledAttributes.getColor(4, 201326592);
-            this.Cb.CC = obtainStyledAttributes.getBoolean(5, false);
-            this.Cb.CD = obtainStyledAttributes.getBoolean(6, true);
-            this.Cb.CE = obtainStyledAttributes.getDrawable(7);
-            if (this.Cb.CE == null) {
-                this.Cb.CE = getResources().getDrawable(R.drawable.icon_gif);
+            this.BC.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, com.baidu.adp.lib.util.k.dip2px(getContext(), 4.0f));
+            this.BC.BY = obtainStyledAttributes.getBoolean(1, false);
+            this.BC.BZ = obtainStyledAttributes.getBoolean(2, false);
+            this.BC.Ca = obtainStyledAttributes.getDimensionPixelSize(3, com.baidu.adp.lib.util.k.dip2px(getContext(), 1.0f));
+            this.BC.Cb = obtainStyledAttributes.getColor(4, 201326592);
+            this.BC.Cd = obtainStyledAttributes.getBoolean(5, false);
+            this.BC.Ce = obtainStyledAttributes.getBoolean(6, true);
+            this.BC.Cf = obtainStyledAttributes.getDrawable(7);
+            if (this.BC.Cf == null) {
+                this.BC.Cf = getResources().getDrawable(R.drawable.icon_gif);
             }
-            this.Cb.CG = obtainStyledAttributes.getColor(12, 0);
-            this.Cf = obtainStyledAttributes.getInt(8, 0);
-            this.Co = obtainStyledAttributes.getDimensionPixelSize(9, Integer.MAX_VALUE);
+            this.BC.Ch = obtainStyledAttributes.getColor(12, 0);
+            this.BG = obtainStyledAttributes.getInt(8, 0);
+            this.BP = obtainStyledAttributes.getDimensionPixelSize(9, Integer.MAX_VALUE);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(10, Integer.MAX_VALUE);
-            this.Cq = obtainStyledAttributes.getBoolean(11, false);
+            this.BR = obtainStyledAttributes.getBoolean(11, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.Cb.mRadius = com.baidu.adp.lib.util.k.dip2px(getContext(), 4.0f);
-            this.Cb.Cz = com.baidu.adp.lib.util.k.dip2px(getContext(), 1.0f);
-            this.Cb.CA = 201326592;
-            if (this.Cb.CE == null) {
-                this.Cb.CE = getResources().getDrawable(R.drawable.icon_gif);
+            this.BC.mRadius = com.baidu.adp.lib.util.k.dip2px(getContext(), 4.0f);
+            this.BC.Ca = com.baidu.adp.lib.util.k.dip2px(getContext(), 1.0f);
+            this.BC.Cb = 201326592;
+            if (this.BC.Cf == null) {
+                this.BC.Cf = getResources().getDrawable(R.drawable.icon_gif);
             }
         }
-        this.Ci = f.iD().aC(this.Cf);
-        this.Ci.a(this.Cb);
+        this.BJ = f.iH().aB(this.BG);
+        this.BJ.a(this.BC);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i, int i2) {
-        this.Cm = View.MeasureSpec.getMode(i);
-        this.Cn = View.MeasureSpec.getMode(i2);
+        this.BN = View.MeasureSpec.getMode(i);
+        this.BO = View.MeasureSpec.getMode(i2);
         View.MeasureSpec.getSize(i);
         View.MeasureSpec.getSize(i2);
         getDisplayBdImage();
-        int width = this.Cp.getWidth();
-        int height = this.Cp.getHeight();
+        int width = this.BQ.getWidth();
+        int height = this.BQ.getHeight();
         int paddingLeft = getPaddingLeft() + getPaddingRight();
         int paddingTop = getPaddingTop() + getPaddingBottom();
         int i3 = height + paddingTop;
         int max = Math.max(width + paddingLeft, getSuggestedMinimumWidth());
         int max2 = Math.max(i3, getSuggestedMinimumHeight());
-        if (max <= paddingLeft || max2 <= paddingTop || this.Cp.isDefault || !this.Cq) {
-            max = h(max, this.Co, i);
+        if (max <= paddingLeft || max2 <= paddingTop || this.BQ.isDefault || !this.BR) {
+            max = h(max, this.BP, i);
             max2 = h(max2, this.mMaxHeight, i2);
         }
-        this.Cp.reset();
+        this.BQ.reset();
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(max, 1073741824), View.MeasureSpec.makeMeasureSpec(max2, 1073741824));
     }
 
@@ -141,48 +141,48 @@ public abstract class b extends ImageView implements i {
     @Override // android.widget.ImageView
     protected boolean setFrame(int i, int i2, int i3, int i4) {
         boolean frame = super.setFrame(i, i2, i3, i4);
-        this.Ck = true;
+        this.BL = true;
         return frame;
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.Cl = true;
+        this.BM = true;
     }
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.Cp.Cv = (BitmapDrawable) getDrawable();
-        this.Cp.Cw = getBdImage();
-        if (this.Cp.iB()) {
-            this.Cp.Cw = null;
-            iy();
-            this.Cp.isDefault = false;
-            this.Ct = this.Cs;
-        } else if (this.Cp.iC()) {
-            this.Cp.Cv = null;
-            iy();
-            this.Cp.isDefault = false;
-            this.Ct = this.Cs;
+        this.BQ.BW = (BitmapDrawable) getDrawable();
+        this.BQ.BX = getBdImage();
+        if (this.BQ.iF()) {
+            this.BQ.BX = null;
+            iC();
+            this.BQ.isDefault = false;
+            this.BU = this.BT;
+        } else if (this.BQ.iG()) {
+            this.BQ.BW = null;
+            iC();
+            this.BQ.isDefault = false;
+            this.BU = this.BT;
         } else {
-            this.Cp.Cv = null;
-            this.Cp.Cw = getDefaultBdImage();
-            this.Cp.isDefault = true;
-            ImageView.ScaleType scaleType2 = this.Cp.iC() ? this.Cg : scaleType;
-            this.Ct = this.Cr;
+            this.BQ.BW = null;
+            this.BQ.BX = getDefaultBdImage();
+            this.BQ.isDefault = true;
+            ImageView.ScaleType scaleType2 = this.BQ.iG() ? this.BH : scaleType;
+            this.BU = this.BS;
             scaleType = scaleType2;
         }
-        if (this.Ch != scaleType) {
-            this.Ch = scaleType;
-            this.Cl = true;
+        if (this.BI != scaleType) {
+            this.BI = scaleType;
+            this.BM = true;
         }
     }
 
-    private void iy() {
-        if (this.Cp.isDefault) {
-            this.Cl = true;
-            if (this.Cq || this.Cm != 1073741824 || this.Cn != 1073741824) {
+    private void iC() {
+        if (this.BQ.isDefault) {
+            this.BM = true;
+            if (this.BR || this.BN != 1073741824 || this.BO != 1073741824) {
                 requestLayout();
             }
         }
@@ -191,203 +191,203 @@ public abstract class b extends ImageView implements i {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        iz();
+        iD();
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
         super.setImageResource(i);
-        iz();
+        iD();
     }
 
-    private void iz() {
+    private void iD() {
         Drawable drawable = getDrawable();
         if (drawable != null) {
             if (drawable instanceof BitmapDrawable) {
-                this.Cj = true;
+                this.BK = true;
             } else {
-                this.Cj = false;
+                this.BK = false;
             }
-            this.Cl = true;
+            this.BM = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (!this.Cj) {
+        if (!this.BK) {
             super.onDraw(canvas);
             return;
         }
         getDisplayBdImage();
-        this.Ci.a(canvas, this, this.Ct);
+        this.BJ.a(canvas, this, this.BU);
         b(canvas);
-        this.Ci.a(canvas, this);
-        this.Cp.reset();
+        this.BJ.a(canvas, this);
+        this.BQ.reset();
     }
 
-    private void iA() {
-        if (this.Ck && this.Cj && this.Cl) {
-            this.Ci.a(this.Cp, this, this.Ch);
-            this.Cl = false;
+    private void iE() {
+        if (this.BL && this.BK && this.BM) {
+            this.BJ.a(this.BQ, this, this.BI);
+            this.BM = false;
         }
     }
 
     private void b(Canvas canvas) {
-        if (this.Cp.isAvailable()) {
-            iA();
-            this.Ci.a(canvas, this.Cp, this);
+        if (this.BQ.isAvailable()) {
+            iE();
+            this.BJ.a(canvas, this.BQ, this);
         }
     }
 
     public void setDefaultScaleType(ImageView.ScaleType scaleType) {
-        if (this.Cg != scaleType) {
-            this.Cg = scaleType;
-            this.Cl = true;
+        if (this.BH != scaleType) {
+            this.BH = scaleType;
+            this.BM = true;
             invalidate();
         }
     }
 
     public void setAlphaValue(float f) {
-        if (Math.abs(this.Cb.mAlpha - f) > 1.0E-4f) {
-            this.Cb.mAlpha = f;
+        if (Math.abs(this.BC.mAlpha - f) > 1.0E-4f) {
+            this.BC.mAlpha = f;
             invalidate();
         }
     }
 
     public void setRadius(int i) {
-        if (this.Cb.mRadius != i) {
-            this.Cb.mRadius = i;
+        if (this.BC.mRadius != i) {
+            this.BC.mRadius = i;
             invalidate();
         }
     }
 
     public void setIsRound(boolean z) {
-        if (this.Cb.Cx != z) {
-            this.Cb.Cx = z;
+        if (this.BC.BY != z) {
+            this.BC.BY = z;
             invalidate();
         }
     }
 
     public void setIsNight(boolean z) {
-        if (this.Cb.CB != z) {
-            this.Cb.CB = z;
+        if (this.BC.Cc != z) {
+            this.BC.Cc = z;
             invalidate();
         }
     }
 
     public void setDrawBorder(boolean z) {
-        if (this.Cb.Cy != z) {
-            this.Cb.Cy = z;
-            this.Cl = true;
+        if (this.BC.BZ != z) {
+            this.BC.BZ = z;
+            this.BM = true;
             invalidate();
         }
     }
 
     public void setBorderWidth(int i) {
-        if (this.Cb.Cz != i) {
-            this.Cb.Cz = i;
+        if (this.BC.Ca != i) {
+            this.BC.Ca = i;
             invalidate();
         }
     }
 
     public void setBorderColor(int i) {
-        if (this.Cb.CA != i) {
-            this.Cb.CA = i;
+        if (this.BC.Cb != i) {
+            this.BC.Cb = i;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
-        if (this.Cb.CC != z) {
-            this.Cb.CC = z;
-            this.Cl = true;
+        if (this.BC.Cd != z) {
+            this.BC.Cd = z;
+            this.BM = true;
             invalidate();
         }
     }
 
     public void setGifIconSupport(boolean z) {
-        if (this.Cb.CD != z) {
-            this.Cb.CD = z;
+        if (this.BC.Ce != z) {
+            this.BC.Ce = z;
             invalidate();
         }
     }
 
     public void setGifIcon(Drawable drawable) {
-        if (this.Cb.CE != drawable) {
-            this.Cb.CE = drawable;
+        if (this.BC.Cf != drawable) {
+            this.BC.Cf = drawable;
             invalidate();
         }
     }
 
     public void setDrawerType(int i) {
-        if (this.Cf != i) {
-            this.Cf = i;
-            this.Ci = f.iD().aC(this.Cf);
-            this.Ci.a(this.Cb);
-            this.Cl = true;
+        if (this.BG != i) {
+            this.BG = i;
+            this.BJ = f.iH().aB(this.BG);
+            this.BJ.a(this.BC);
+            this.BM = true;
             invalidate();
         }
     }
 
     @Override // android.widget.ImageView
     public void setAdjustViewBounds(boolean z) {
-        if (z != this.Cq) {
-            this.Cq = z;
+        if (z != this.BR) {
+            this.BR = z;
             requestLayout();
         }
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.Cb.CF = matrix;
+        this.BC.Cg = matrix;
         invalidate();
     }
 
     @Override // android.widget.ImageView
     public void setImageMatrix(Matrix matrix) {
-        if (!this.Cj) {
+        if (!this.BK) {
             super.setImageMatrix(matrix);
-        } else if (matrix != null && this.Ch == ImageView.ScaleType.MATRIX) {
-            this.Ci.b(matrix);
-            this.Cl = true;
+        } else if (matrix != null && this.BI == ImageView.ScaleType.MATRIX) {
+            this.BJ.b(matrix);
+            this.BM = true;
             invalidate();
         }
     }
 
     @Override // android.widget.ImageView
     public Matrix getImageMatrix() {
-        return !this.Cj ? super.getImageMatrix() : this.Ci.iv();
+        return !this.BK ? super.getImageMatrix() : this.BJ.iz();
     }
 
     public RectF getImageBounds() {
-        return this.Ci.iw();
+        return this.BJ.iA();
     }
 
     public int getImageWidth() {
         getDisplayBdImage();
-        int width = this.Cp.getWidth();
-        this.Cp.reset();
+        int width = this.BQ.getWidth();
+        this.BQ.reset();
         return width;
     }
 
     public int getImageHeight() {
         getDisplayBdImage();
-        int height = this.Cp.getHeight();
-        this.Cp.reset();
+        int height = this.BQ.getHeight();
+        this.BQ.reset();
         return height;
     }
 
     public void setDefaultBg(Drawable drawable) {
-        this.Cr = drawable;
+        this.BS = drawable;
     }
 
     public void setBg(Drawable drawable) {
-        this.Cs = drawable;
+        this.BT = drawable;
     }
 
     public void setForegroundColor(int i) {
-        if (this.Cb.CG != i) {
-            this.Cb.CG = i;
+        if (this.BC.Ch != i) {
+            this.BC.Ch = i;
             invalidate();
         }
     }

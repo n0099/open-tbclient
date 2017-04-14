@@ -29,31 +29,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
-    private com.baidu.adp.framework.listener.e cOh = new m(this, 0);
+    private com.baidu.adp.framework.listener.e cME = new m(this, 0);
     private CustomMessageListener mCustomListener = new n(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void amV() {
-        super.amV();
+    public void amP() {
+        super.amP();
     }
 
-    protected void amW() {
+    protected void amQ() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        if (this.cPX != null) {
-            this.cPX.setIsAcceptNotify(booleanExtra);
+        if (this.cOu != null) {
+            this.cOu.setIsAcceptNotify(booleanExtra);
             L(intent);
         }
     }
 
-    protected void i(Bundle bundle) throws Exception {
-        this.cPX.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-        j(bundle);
+    protected void j(Bundle bundle) throws Exception {
+        this.cOu.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
+        k(bundle);
     }
 
-    protected void j(Bundle bundle) {
-        ((CommonGroupMsglistModel) this.cPX).setGroup((GroupData) bundle.getSerializable("group"));
+    protected void k(Bundle bundle) {
+        ((CommonGroupMsglistModel) this.cOu).setGroup((GroupData) bundle.getSerializable("group"));
     }
 
     protected void L(Intent intent) {
@@ -65,19 +65,19 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), TbConfig.ST_TYPE_IM, "", 1, "obj_tp", stringExtra, "group_id", valueOf);
             PvCacheModel.getInstance().addCacheData(valueOf, Long.valueOf(System.currentTimeMillis()));
         }
-        ((CommonGroupMsglistModel) this.cPX).setGroup(groupData);
+        ((CommonGroupMsglistModel) this.cOu).setGroup(groupData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean(IntentConfig.IS_ACCEPT_NOTIFY, this.cPX.getIsAcceptNotify());
-        bundle.putSerializable("group", ((CommonGroupMsglistModel) this.cPX).getGroup());
+        bundle.putBoolean(IntentConfig.IS_ACCEPT_NOTIFY, this.cOu.getIsAcceptNotify());
+        bundle.putSerializable("group", ((CommonGroupMsglistModel) this.cOu).getGroup());
     }
 
-    protected boolean amX() {
-        GroupData group = ((CommonGroupMsglistModel) this.cPX).getGroup();
+    protected boolean amR() {
+        GroupData group = ((CommonGroupMsglistModel) this.cOu).getGroup();
         return (group == null || group.getGroupId() == 0) ? false : true;
     }
 
@@ -101,7 +101,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 2:
-                ChatMessage msg3 = this.cPX.getMsg(i2);
+                ChatMessage msg3 = this.cOu.getMsg(i2);
                 if (msg3 != null && msg3.getUserInfo() != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getContext(), msg3.getUserInfo().getUserId(), msg3.getUserInfo().getUserName(), null, AddFriendActivityConfig.TYPE_IM_GROUP)));
                     return;
@@ -113,18 +113,18 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
             default:
                 return;
             case 4:
-                if (anH() && (msg2 = this.cPX.getMsg(i2)) != null && com.baidu.tieba.im.util.h.o(msg2)) {
+                if (anB() && (msg2 = this.cOu.getMsg(i2)) != null && com.baidu.tieba.im.util.h.o(msg2)) {
                     String I = com.baidu.tieba.im.util.h.I(msg2.getContent(), true);
                     String I2 = com.baidu.tieba.im.util.h.I(msg2.getContent(), false);
-                    if (I != null && (this.cPX instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.cPX).getGroup() != null) {
-                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupMsgImageActivityConfig(getPageContext().getContext(), I, ((CommonGroupMsglistModel) this.cPX).getGroup().getGroupId(), false, String.valueOf(msg2.getMsgId()), I2)));
+                    if (I != null && (this.cOu instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.cOu).getGroup() != null) {
+                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupMsgImageActivityConfig(getPageContext().getContext(), I, ((CommonGroupMsglistModel) this.cOu).getGroup().getGroupId(), false, String.valueOf(msg2.getMsgId()), I2)));
                         return;
                     }
                     return;
                 }
                 return;
             case 7:
-                if (anH() && this.cPX != null && (msg = this.cPX.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg) && (content = msg.getContent()) != null) {
+                if (anB() && this.cOu != null && (msg = this.cOu.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg) && (content = msg.getContent()) != null) {
                     try {
                         jSONArray = new JSONArray(content);
                     } catch (Exception e) {
@@ -154,12 +154,12 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void amY() {
-        super.amY();
-        registerListener(103110, this.cOh);
-        registerListener(103101, this.cOh);
-        registerListener(103112, this.cOh);
-        registerListener(103104, this.cOh);
+    public void amS() {
+        super.amS();
+        registerListener(103110, this.cME);
+        registerListener(103101, this.cME);
+        registerListener(103112, this.cME);
+        registerListener(103104, this.cME);
         registerListener((int) CmdConfigCustom.CMD_GROUP_MEMBER_CHANGE, this.mCustomListener);
         registerListener((int) CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.mCustomListener);
         registerListener((int) CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.mCustomListener);
@@ -172,16 +172,16 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void amZ() {
-        super.amZ();
-        MessageManager.getInstance().unRegisterListener(this.cOh);
+    public void amT() {
+        super.amT();
+        MessageManager.getInstance().unRegisterListener(this.cME);
         MessageManager.getInstance().unRegisterListener(this.mCustomListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(GroupNewsPojo groupNewsPojo) {
         GroupData group;
-        if (groupNewsPojo != null && this.cPX != null && (this.cPX instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cPX).getGroup()) != null) {
+        if (groupNewsPojo != null && this.cOu != null && (this.cOu instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cOu).getGroup()) != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
@@ -198,7 +198,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(GroupNewsPojo groupNewsPojo) {
         GroupData group;
-        if (groupNewsPojo != null && this.cPX != null && (this.cPX instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cPX).getGroup()) != null) {
+        if (groupNewsPojo != null && this.cOu != null && (this.cOu instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cOu).getGroup()) != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
@@ -206,7 +206,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(group.getGroupId()))) {
                     String string2 = jSONObject2.getString("groupName");
                     if (!TextUtils.isEmpty(string2)) {
-                        this.cPW.refreshHeaderFooter(string2, true);
+                        this.cOt.refreshHeaderFooter(string2, true);
                         group.setName(string2);
                     }
                 }
@@ -219,7 +219,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(GroupNewsPojo groupNewsPojo) {
         GroupData group;
-        if (groupNewsPojo != null && this.cPX != null && (this.cPX instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cPX).getGroup()) != null) {
+        if (groupNewsPojo != null && this.cOu != null && (this.cOu instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.cOu).getGroup()) != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");

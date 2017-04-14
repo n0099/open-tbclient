@@ -14,11 +14,11 @@ import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements TbRichTextView.e {
-    final /* synthetic */ NewSubPbActivity euQ;
+    final /* synthetic */ NewSubPbActivity esV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NewSubPbActivity newSubPbActivity) {
-        this.euQ = newSubPbActivity;
+        this.esV = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
@@ -49,24 +49,24 @@ public class v implements TbRichTextView.e {
         SubPbModel subPbModel10;
         int i2;
         try {
-            subPbModel = this.euQ.euz;
-            com.baidu.tieba.pb.data.j aOE = subPbModel.aOE();
-            am = this.euQ.am(str, i);
+            subPbModel = this.esV.esE;
+            com.baidu.tieba.pb.data.j aON = subPbModel.aON();
+            am = this.esV.am(str, i);
             TbRichTextData tbRichTextData = null;
-            if (am != null && am.HP() != null) {
-                ArrayList<TbRichTextData> HP = am.HP();
-                i2 = this.euQ.elC;
-                tbRichTextData = HP.get(i2);
+            if (am != null && am.Io() != null) {
+                ArrayList<TbRichTextData> Io = am.Io();
+                i2 = this.esV.ejI;
+                tbRichTextData = Io.get(i2);
             }
             if (tbRichTextData != null) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap3 = new ConcurrentHashMap<>();
-                if (tbRichTextData.HV().Ih()) {
-                    this.euQ.elD = false;
+                if (tbRichTextData.Iu().IG()) {
+                    this.esV.ejJ = false;
                     String str4 = "";
-                    TbRichText aws = aOE.aJO().aws();
+                    TbRichText awl = aON.aJV().awl();
                     int size = arrayList3.size();
-                    a = this.euQ.a(aws, am, i, i, arrayList3, concurrentHashMap3);
+                    a = this.esV.a(awl, am, i, i, arrayList3, concurrentHashMap3);
                     int size2 = arrayList3.size();
                     if (size != size2) {
                         str4 = arrayList3.get(size2 - 1);
@@ -74,76 +74,76 @@ public class v implements TbRichTextView.e {
                     String str5 = null;
                     String str6 = null;
                     String str7 = null;
-                    if (aOE == null) {
+                    if (aON == null) {
                         str2 = null;
                         z = false;
                     } else {
-                        if (aOE.aJU() != null) {
-                            str5 = aOE.aJU().getName();
-                            str6 = aOE.aJU().getId();
+                        if (aON.aKb() != null) {
+                            str5 = aON.aKb().getName();
+                            str6 = aON.aKb().getId();
                         }
-                        if (aOE.JN() != null) {
-                            str7 = aOE.JN().getId();
+                        if (aON.Kn() != null) {
+                            str7 = aON.Kn().getId();
                         }
                         str2 = str7;
                         z = true;
                     }
-                    subPbModel2 = this.euQ.euz;
-                    if (subPbModel2.aOU() != null) {
-                        subPbModel3 = this.euQ.euz;
-                        concurrentHashMap = subPbModel3.aOU();
-                        subPbModel4 = this.euQ.euz;
-                        z2 = subPbModel4.aOW();
-                        subPbModel5 = this.euQ.euz;
-                        arrayList = subPbModel5.aOV();
-                        subPbModel6 = this.euQ.euz;
+                    subPbModel2 = this.esV.esE;
+                    if (subPbModel2.aPd() != null) {
+                        subPbModel3 = this.esV.esE;
+                        concurrentHashMap = subPbModel3.aPd();
+                        subPbModel4 = this.esV.esE;
+                        z2 = subPbModel4.aPf();
+                        subPbModel5 = this.esV.esE;
+                        arrayList = subPbModel5.aPe();
+                        subPbModel6 = this.esV.esE;
                         a += subPbModel6.getOffset();
                     } else {
                         concurrentHashMap = concurrentHashMap3;
                         arrayList = arrayList3;
                         z2 = z;
                     }
-                    this.euQ.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.euQ.getPageContext().getPageActivity()).createConfig(arrayList, a, str5, str6, str2, z2, str4, true, concurrentHashMap, true, false, false)));
+                    this.esV.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.esV.getPageContext().getPageActivity()).createConfig(arrayList, a, str5, str6, str2, z2, str4, true, concurrentHashMap, true, false, false)));
                     return;
                 }
-                c = this.euQ.c(tbRichTextData);
+                c = this.esV.c(tbRichTextData);
                 arrayList3.add(c);
                 ImageUrlData imageUrlData = new ImageUrlData();
                 imageUrlData.imageUrl = str;
-                z3 = this.euQ.mIsFromCDN;
+                z3 = this.esV.mIsFromCDN;
                 imageUrlData.urlType = z3 ? 17 : 18;
                 concurrentHashMap3.put(c, imageUrlData);
                 String str8 = null;
                 String str9 = null;
                 String str10 = null;
-                if (aOE == null) {
+                if (aON == null) {
                     str3 = null;
                     z4 = false;
                 } else {
-                    if (aOE.aJU() != null) {
-                        str8 = aOE.aJU().getName();
-                        str9 = aOE.aJU().getId();
+                    if (aON.aKb() != null) {
+                        str8 = aON.aKb().getName();
+                        str9 = aON.aKb().getId();
                     }
-                    if (aOE.JN() != null) {
-                        str10 = aOE.JN().getId();
+                    if (aON.Kn() != null) {
+                        str10 = aON.Kn().getId();
                     }
                     str3 = str10;
                     z4 = true;
                 }
-                subPbModel7 = this.euQ.euz;
-                if (subPbModel7.aOU() != null) {
-                    subPbModel8 = this.euQ.euz;
-                    concurrentHashMap2 = subPbModel8.aOU();
-                    subPbModel9 = this.euQ.euz;
-                    z5 = subPbModel9.aOW();
-                    subPbModel10 = this.euQ.euz;
-                    arrayList2 = subPbModel10.aOV();
+                subPbModel7 = this.esV.esE;
+                if (subPbModel7.aPd() != null) {
+                    subPbModel8 = this.esV.esE;
+                    concurrentHashMap2 = subPbModel8.aPd();
+                    subPbModel9 = this.esV.esE;
+                    z5 = subPbModel9.aPf();
+                    subPbModel10 = this.esV.esE;
+                    arrayList2 = subPbModel10.aPe();
                 } else {
                     concurrentHashMap2 = concurrentHashMap3;
                     arrayList2 = arrayList3;
                     z5 = z4;
                 }
-                this.euQ.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.euQ.getPageContext().getPageActivity()).createConfig(arrayList2, 0, str8, str9, str3, z5, arrayList2.get(0), true, concurrentHashMap2, true, false, false)));
+                this.esV.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.esV.getPageContext().getPageActivity()).createConfig(arrayList2, 0, str8, str9, str3, z5, arrayList2.get(0), true, concurrentHashMap2, true, false, false)));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

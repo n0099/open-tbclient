@@ -1,56 +1,56 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.cx;
+import com.baidu.tieba.pb.pb.main.cv;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class l implements cx.a {
-    final /* synthetic */ PbActivity elO;
+class l implements cv.a {
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cx.a
-    public void j(int i, long j) {
+    @Override // com.baidu.tieba.pb.pb.main.cv.a
+    public void i(int i, long j) {
         PbModel pbModel;
         PbModel pbModel2;
-        fa faVar;
+        ey eyVar;
         PbModel pbModel3;
         if (i != 0) {
-            this.elO.showToast(w.l.operation_failed);
+            this.ejU.showToast(w.l.operation_failed);
             return;
         }
-        this.elO.of(2);
-        er.aMB().reset();
-        pbModel = this.elO.ejZ;
-        pbModel.aLL();
-        pbModel2 = this.elO.ejZ;
-        ArrayList<PostData> aJs = pbModel2.getPbData().aJs();
-        if (aJs != null) {
-            Iterator<PostData> it = aJs.iterator();
+        this.ejU.od(2);
+        ep.aMK().reset();
+        pbModel = this.ejU.eif;
+        pbModel.aLU();
+        pbModel2 = this.ejU.eif;
+        ArrayList<PostData> aJz = pbModel2.getPbData().aJz();
+        if (aJz != null) {
+            Iterator<PostData> it = aJz.iterator();
             boolean z = false;
             while (it.hasNext()) {
                 PostData next = it.next();
-                if (ez.g(next) && next.bhL().getTemplateId() == j) {
+                if (ex.g(next) && next.biw().getTemplateId() == j) {
                     it.remove();
                     z = true;
                 }
             }
             if (z) {
-                faVar = this.elO.ekM;
-                pbModel3 = this.elO.ejZ;
-                faVar.k(pbModel3.getPbData());
+                eyVar = this.ejU.eiS;
+                pbModel3 = this.ejU.eif;
+                eyVar.k(pbModel3.getPbData());
             }
-            this.elO.showToast(w.l.operation_success);
+            this.ejU.showToast(w.l.operation_success);
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.cx.a
+    @Override // com.baidu.tieba.pb.pb.main.cv.a
     public void onError(int i, String str) {
-        this.elO.showToast(w.l.operation_failed);
+        this.ejU.showToast(w.l.operation_failed);
     }
 }

@@ -1,39 +1,96 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
+import java.util.List;
+import tbclient.RecomTopicInfo;
+import tbclient.RecomTopicList;
 /* loaded from: classes.dex */
-public class az extends bj {
-    public static final BdUniqueId Xj = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<bb> Xk = new ArrayList<>();
+public class az {
+    private String XB;
+    private List<a> XC = new ArrayList();
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    bb bbVar = new bb();
-                    bbVar.a(schoolRecomUserInfo);
-                    this.Xk.add(bbVar);
+    public String ry() {
+        return StringUtils.isNull(this.XB) ? TbadkCoreApplication.m9getInst().getString(w.l.hot_topic_card_title) : this.XB;
+    }
+
+    public com.baidu.tieba.card.data.r rz() {
+        com.baidu.tieba.card.data.r rVar = new com.baidu.tieba.card.data.r();
+        ArrayList arrayList = null;
+        rVar.bvA = ry();
+        if (this.XC != null) {
+            ArrayList arrayList2 = new ArrayList();
+            for (a aVar : this.XC) {
+                if (aVar != null) {
+                    arrayList2.add(aVar.rB());
+                }
+            }
+            arrayList = arrayList2;
+        }
+        rVar.bvB = arrayList;
+        return rVar;
+    }
+
+    public void a(RecomTopicInfo recomTopicInfo) {
+        if (recomTopicInfo != null) {
+            this.XB = recomTopicInfo.recom_title;
+            if (com.baidu.tbadk.core.util.x.p(recomTopicInfo.topic_list) > 0) {
+                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
+                    if (recomTopicList != null) {
+                        a aVar = new a();
+                        aVar.a(recomTopicList);
+                        if (!a(aVar)) {
+                            this.XC.add(aVar);
+                        }
+                    }
                 }
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bj
-    public String getTitle() {
-        return this.title;
+    private boolean a(a aVar) {
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.rA() <= 0;
     }
 
-    public ArrayList<bb> qZ() {
-        return this.Xk;
-    }
+    /* loaded from: classes.dex */
+    public static class a {
+        private long XD;
+        private String XE;
+        private long XF;
+        private String XG;
+        private String XH;
+        private int tag;
+        private int type;
 
-    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return Xj;
+        public long rA() {
+            return this.XD;
+        }
+
+        public String getTopicName() {
+            return this.XE;
+        }
+
+        public void a(RecomTopicList recomTopicList) {
+            if (recomTopicList != null) {
+                this.XD = recomTopicList.topic_id.longValue();
+                this.XE = recomTopicList.topic_name;
+                this.type = recomTopicList.type.intValue();
+                this.XF = recomTopicList.discuss_num.longValue();
+                this.tag = recomTopicList.tag.intValue();
+                this.XG = recomTopicList.topic_desc;
+                this.XH = recomTopicList.topic_pic;
+            }
+        }
+
+        public com.baidu.tieba.card.data.q rB() {
+            com.baidu.tieba.card.data.q qVar = new com.baidu.tieba.card.data.q();
+            qVar.tag = this.tag;
+            qVar.desc = this.XG;
+            qVar.XD = this.XD;
+            qVar.XE = this.XE;
+            return qVar;
+        }
     }
 }

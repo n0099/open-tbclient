@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.PraiseModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends HttpMessageListener {
-    final /* synthetic */ PraiseModel ftk;
+    final /* synthetic */ PraiseModel fuU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(PraiseModel praiseModel, int i) {
         super(i);
-        this.ftk = praiseModel;
+        this.fuU = praiseModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class ad extends HttpMessageListener {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
             int statusCode = httpResponsedMessage.getStatusCode();
             if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.ftk.ftj;
+                aVar = this.fuU.fuT;
                 if (aVar != null) {
-                    aVar2 = this.ftk.ftj;
+                    aVar2 = this.fuU.fuT;
                     aVar2.w(statusCode, null);
                     return;
                 }
@@ -36,13 +36,13 @@ public class ad extends HttpMessageListener {
             }
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.ftk.ftj;
-                aVar5.hi(praiseResponseMessage.getErrMsg());
+                aVar5 = this.fuU.fuT;
+                aVar5.hm(praiseResponseMessage.getErrMsg());
                 return;
             }
-            aVar3 = this.ftk.ftj;
+            aVar3 = this.fuU.fuT;
             if (aVar3 != null) {
-                aVar4 = this.ftk.ftj;
+                aVar4 = this.fuU.fuT;
                 aVar4.w(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
             }
         }

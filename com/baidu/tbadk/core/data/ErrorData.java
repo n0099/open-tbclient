@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -46,8 +45,8 @@ public class ErrorData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.error_code = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0);
-                this.error_msg = jSONObject.optString(SocialConstants.PARAM_ERROR_MSG);
+                this.error_code = jSONObject.optInt("error_code", 0);
+                this.error_msg = jSONObject.optString("error_msg");
                 this.error_data = jSONObject.optString("error_data");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

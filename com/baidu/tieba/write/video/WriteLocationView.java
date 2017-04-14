@@ -15,10 +15,10 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class WriteLocationView extends LocationInfoView {
-    private int aAG;
-    private final LocationModel.a aAM;
-    private LocationModel aAy;
-    private final CustomMessageListener fwj;
+    private LocationModel aAO;
+    private int aAW;
+    private final LocationModel.a aBc;
+    private final CustomMessageListener fxT;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -27,76 +27,76 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAG = 0;
-        this.aAM = new a(this);
-        this.fwj = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
+        this.aAW = 0;
+        this.aBc = new a(this);
+        this.fxT = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
     }
 
     public void e(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.fwj);
-        this.aAy = new LocationModel(this.mBaseActivity);
-        this.aAy.a(this.aAM);
+        this.mBaseActivity.registerListener(this.fxT);
+        this.aAO = new LocationModel(this.mBaseActivity);
+        this.aAO.a(this.aBc);
         setOnClickListener(new c(this));
-        Dv();
+        DT();
     }
 
-    public boolean PB() {
-        if (this.aAy == null) {
+    public boolean PZ() {
+        if (this.aAO == null) {
             return false;
         }
-        return this.aAy.PB();
+        return this.aAO.PZ();
     }
 
-    public void Dt() {
+    public void DR() {
         if (!UtilHelper.isSystemLocationProviderEnabled(this.mBaseActivity.getPageContext().getPageActivity())) {
             this.mBaseActivity.showToast(w.l.location_system_permission_prompt);
             c(0, true, null);
         } else if (!TbadkCoreApplication.m9getInst().getLocationShared()) {
-            Du();
-        } else if (this.aAy.bin()) {
-            Ds();
+            DS();
+        } else if (this.aAO.biY()) {
+            DQ();
         } else {
-            this.aAy.lj(false);
+            this.aAO.lm(false);
             c(1, true, null);
-            this.aAy.bil();
+            this.aAO.biW();
         }
     }
 
-    private void Dv() {
-        if (this.aAy.PB()) {
-            if (this.aAy.bin()) {
-                c(2, true, com.baidu.tieba.tbadkCore.location.c.bij().getLocationData().bif());
+    private void DT() {
+        if (this.aAO.PZ()) {
+            if (this.aAO.biY()) {
+                c(2, true, com.baidu.tieba.tbadkCore.location.d.biU().getLocationData().biQ());
                 return;
             }
             c(1, true, null);
-            this.aAy.bil();
+            this.aAO.biW();
             return;
         }
         c(0, true, null);
     }
 
-    private void Du() {
+    private void DS() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mBaseActivity.getPageContext().getPageActivity());
-        aVar.bW(w.l.location_app_permission_prompt).a(w.l.isopen, new d(this)).b(w.l.cancel, new e(this)).b(this.mBaseActivity.getPageContext());
-        aVar.ts();
+        aVar.bZ(w.l.location_app_permission_prompt).a(w.l.isopen, new d(this)).b(w.l.cancel, new e(this)).b(this.mBaseActivity.getPageContext());
+        aVar.tQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bdk() {
-        if (this.aAy != null) {
-            this.aAy.cancelLoadData();
+    public void bdW() {
+        if (this.aAO != null) {
+            this.aAO.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ds() {
+    public void DQ() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectLocationActivityConfig(this.mBaseActivity.getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, boolean z, String str) {
-        this.aAG = i;
+        this.aAW = i;
         setVisibility(z ? 0 : 8);
         k(i, str);
     }

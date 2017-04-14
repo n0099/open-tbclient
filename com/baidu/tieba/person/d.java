@@ -17,7 +17,7 @@ class d implements bb.a {
         }
         String str = strArr[0];
         if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), x.aq(str, "userid="), x.aq(str, "un="))));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), x.ar(str, "userid="), x.ar(str, "un="))));
             return 1;
         }
         return 3;

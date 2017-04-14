@@ -4,7 +4,7 @@ import android.widget.CompoundButton;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.o;
@@ -13,29 +13,29 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements o.a {
-    final /* synthetic */ a cyA;
+    final /* synthetic */ a cxa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cyA = aVar;
+        this.cxa = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.o.a
-    public void a(am amVar) {
-        if (amVar != null) {
-            TiebaStatic.log(new as("c11693").Z("obj_locate", "1").Z("fid", amVar.getFid()).Z("tid", amVar.getTid()).Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
-            TiebaStatic.log(new as("c11989").Z("fid", amVar.getFid()).Z("tid", amVar.getTid()).Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+    public void a(al alVar) {
+        if (alVar != null) {
+            TiebaStatic.log(new as("c11693").aa("obj_locate", "1").aa("fid", alVar.getFid()).aa("tid", alVar.getTid()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new as("c11989").aa("fid", alVar.getFid()).aa("tid", alVar.getTid()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
     @Override // com.baidu.tbadk.core.view.o.a
-    public void a(am amVar, CompoundButton compoundButton, boolean z) {
+    public void a(al alVar, CompoundButton compoundButton, boolean z) {
     }
 
     @Override // com.baidu.tbadk.core.view.o.a
-    public void a(ArrayList<Integer> arrayList, am amVar) {
+    public void a(ArrayList<Integer> arrayList, al alVar) {
         String str;
-        if (arrayList != null && amVar != null) {
+        if (arrayList != null && alVar != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -49,11 +49,11 @@ public class b implements o.a {
                         str = intValue == w.h.reason_checkbox3 ? "4" : "";
                     }
                     if (!"".equals(str)) {
-                        TiebaStatic.log(new as("c11693").Z("obj_locate", str).Z("fid", amVar.getFid()).Z("tid", amVar.getTid()).Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+                        TiebaStatic.log(new as("c11693").aa("obj_locate", str).aa("fid", alVar.getFid()).aa("tid", alVar.getTid()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
                     }
                     i = i2 + 1;
                 } else {
-                    TiebaStatic.log(new as("c11693").Z("obj_locate", "5").Z("fid", amVar.getFid()).Z("tid", amVar.getTid()).Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new as("c11693").aa("obj_locate", "5").aa("fid", alVar.getFid()).aa("tid", alVar.getTid()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
                     return;
                 }
             }

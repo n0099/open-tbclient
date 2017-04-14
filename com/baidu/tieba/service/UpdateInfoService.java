@@ -7,7 +7,7 @@ import com.baidu.adp.lib.d.a;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes.dex */
 public class UpdateInfoService extends BdBaseService {
-    private a.InterfaceC0004a locationCallBack = new h(this);
+    private a.InterfaceC0004a locationCallBack = new g(this);
     private ReportUserInfoModel mModel;
 
     @Override // android.app.Service
@@ -19,15 +19,15 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.aFo();
+        this.mModel.aFb();
         this.mModel.cc(540000L);
-        this.mModel.a(new i(this));
+        this.mModel.a(new h(this));
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.aFm()) {
+        if (this.mModel.aEZ()) {
             findLocationFromLocal();
         }
     }
@@ -40,10 +40,10 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        com.baidu.adp.lib.d.a.fa().a(true, this.locationCallBack);
+        com.baidu.adp.lib.d.a.ff().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        com.baidu.adp.lib.d.a.fa().a(this.locationCallBack);
+        com.baidu.adp.lib.d.a.ff().a(this.locationCallBack);
     }
 }

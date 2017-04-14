@@ -3,11 +3,11 @@ package com.baidu.ueg.lib;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected final byte fRQ = 61;
-    private final int fRR;
-    private final int fRS;
-    private final int fRT;
-    protected final int yG;
+    protected final byte fTA = 61;
+    private final int fTB;
+    private final int fTC;
+    private final int fTD;
+    protected final int yh;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -20,45 +20,45 @@ public abstract class b {
     public static class a {
         byte[] buffer;
         boolean eof;
-        int fRU;
-        long fRV;
-        int fRW;
-        int fRX;
-        int fRY;
+        int fTE;
+        long fTF;
+        int fTG;
+        int fTH;
+        int fTI;
         int pos;
 
         a() {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.fRX), Boolean.valueOf(this.eof), Integer.valueOf(this.fRU), Long.valueOf(this.fRV), Integer.valueOf(this.fRY), Integer.valueOf(this.pos), Integer.valueOf(this.fRW));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.fTH), Boolean.valueOf(this.eof), Integer.valueOf(this.fTE), Long.valueOf(this.fTF), Integer.valueOf(this.fTI), Integer.valueOf(this.pos), Integer.valueOf(this.fTG));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.fRR = i;
-        this.fRS = i2;
-        this.yG = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.fRT = i4;
+        this.fTB = i;
+        this.fTC = i2;
+        this.yh = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
+        this.fTD = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.fRW;
+            return aVar.pos - aVar.fTG;
         }
         return 0;
     }
 
-    protected int bpi() {
+    protected int bpQ() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[bpi()];
+            aVar.buffer = new byte[bpQ()];
             aVar.pos = 0;
-            aVar.fRW = 0;
+            aVar.fTG = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -77,9 +77,9 @@ public abstract class b {
             return aVar.eof ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.fRW, bArr, i, min);
-        aVar.fRW += min;
-        if (aVar.fRW >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.fTG, bArr, i, min);
+        aVar.fTG += min;
+        if (aVar.fTG >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.qZ(str));
+        return decode(d.rs(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.fRW];
+            byte[] bArr2 = new byte[aVar.pos - aVar.fTG];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -128,9 +128,9 @@ public abstract class b {
     }
 
     public long F(byte[] bArr) {
-        long length = (((bArr.length + this.fRR) - 1) / this.fRR) * this.fRS;
-        if (this.yG > 0) {
-            return length + ((((this.yG + length) - 1) / this.yG) * this.fRT);
+        long length = (((bArr.length + this.fTB) - 1) / this.fTB) * this.fTC;
+        if (this.yh > 0) {
+            return length + ((((this.yh + length) - 1) / this.yh) * this.fTD);
         }
         return length;
     }

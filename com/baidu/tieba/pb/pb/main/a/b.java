@@ -14,11 +14,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a etI;
+    final /* synthetic */ a erL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.etI = aVar;
+        this.erL = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v4, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
@@ -53,20 +53,20 @@ public class b implements View.OnClickListener {
         }
         String str4 = view.getTag(w.h.tag_virtual_user_url) instanceof String ? (String) view.getTag(w.h.tag_virtual_user_url) : null;
         if (str4 != null) {
-            pbActivity4 = this.etI.eka;
+            pbActivity4 = this.erL.eig;
             if (pbActivity4.checkUpIsLogin()) {
-                bb vQ = bb.vQ();
-                pbActivity5 = this.etI.eka;
-                vQ.c(pbActivity5.getPageContext(), new String[]{str4});
+                bb wn = bb.wn();
+                pbActivity5 = this.erL.eig;
+                wn.c(pbActivity5.getPageContext(), new String[]{str4});
             }
         } else if (str3 != null) {
-            pbActivity = this.etI.eka;
-            if (pbActivity.aKk() != null) {
+            pbActivity = this.erL.eig;
+            if (pbActivity.aKr() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.etI.eka;
+                pbActivity2 = this.erL.eig;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
-                pbActivity3 = this.etI.eka;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.aKk().aLt(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                pbActivity3 = this.erL.eig;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.aKr().aLB(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

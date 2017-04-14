@@ -12,6 +12,8 @@ public class ConnectManager {
     private String mNetType;
     private String mPort;
     private String mProxy;
+    private int mSubType;
+    private String mSubTypeName;
     private boolean mUseWap;
 
     public ConnectManager(Context context) {
@@ -59,15 +61,22 @@ public class ConnectManager {
     }
 
     private void checkNetworkType(Context context) {
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-        if (activeNetworkInfo != null) {
-            if ("wifi".equals(activeNetworkInfo.getTypeName().toLowerCase())) {
+        NetworkInfo networkInfo;
+        try {
+            networkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (NullPointerException e) {
+            networkInfo = null;
+        }
+        if (networkInfo != null) {
+            if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
                 this.mNetType = "wifi";
                 this.mUseWap = false;
-                return;
+            } else {
+                checkApn(context, networkInfo);
+                this.mNetType = this.mApn;
             }
-            checkApn(context, activeNetworkInfo);
-            this.mNetType = this.mApn;
+            this.mSubType = networkInfo.getSubtype();
+            this.mSubTypeName = networkInfo.getSubtypeName();
         }
     }
 
@@ -93,6 +102,14 @@ public class ConnectManager {
 
     public String getProxyPort() {
         return this.mPort;
+    }
+
+    public int getSubType() {
+        return this.mSubType;
+    }
+
+    public String getSubTypeName() {
+        return this.mSubTypeName;
     }
 
     public boolean isWapNetwork() {

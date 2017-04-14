@@ -17,13 +17,13 @@ import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 public class PersonPolymericActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(PersonPolymericActivityConfig.class, PersonPolymericActivity.class);
-        JJ();
-        aRa();
-        aAS();
-        aRb();
+        Kj();
+        aRj();
+        aAu();
+        aRk();
     }
 
-    private static void JJ() {
+    private static void Kj() {
         com.baidu.tieba.tbadkCore.a.a.a(309408, PersonPolymericSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, com.baidu.tieba.tbadkCore.a.a.av("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -35,16 +35,16 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aRa() {
+    private static void aRj() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void aAS() {
-        bb.vQ().a(new a());
+    private static void aAu() {
+        bb.wn().a(new a());
     }
 
-    private static void aRb() {
+    private static void aRk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_USER_PICS, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

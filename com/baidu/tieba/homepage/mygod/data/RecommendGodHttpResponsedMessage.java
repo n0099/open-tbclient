@@ -20,13 +20,13 @@ public class RecommendGodHttpResponsedMessage extends MvcProtobufHttpResponsedMe
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> K;
+        o<byte[]> L;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof e) {
                 e eVar = (e) mvcNetMessage.getRequestData();
-                if (eVar.getPn() == 1 && (K = com.baidu.tbadk.core.c.a.to().K(RecommendGodCacheModel.TABLE_NAME, TbadkCoreApplication.getCurrentAccount())) != null) {
-                    K.k(new StringBuilder(String.valueOf(eVar.getTagCode())).toString(), bArr);
+                if (eVar.getPn() == 1 && (L = com.baidu.tbadk.core.c.a.tM().L(RecommendGodCacheModel.TABLE_NAME, TbadkCoreApplication.getCurrentAccount())) != null) {
+                    L.k(new StringBuilder(String.valueOf(eVar.getTagCode())).toString(), bArr);
                 }
             }
         }

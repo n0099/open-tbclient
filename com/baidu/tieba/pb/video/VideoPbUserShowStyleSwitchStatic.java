@@ -2,12 +2,12 @@ package com.baidu.tieba.pb.video;
 /* loaded from: classes.dex */
 public class VideoPbUserShowStyleSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.e.eT().m(VideoPbUserShowStyleSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eY().f(VideoPbUserShowStyleSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
-    public void changeSettingByType(int i) {
+    public void X(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -16,22 +16,22 @@ public class VideoPbUserShowStyleSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] getCrashKeys() {
+    protected String[] eP() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int getDefaultType() {
+    protected int eQ() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int getOffType() {
+    protected int eR() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int getMaxCrashTimes() {
+    protected int eS() {
         return 10;
     }
 }

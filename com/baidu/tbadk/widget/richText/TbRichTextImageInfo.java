@@ -6,45 +6,45 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextImageInfo extends OrmObject {
-    private String aMI;
-    private String aMJ;
-    private String aMK;
-    private boolean aML;
-    private boolean aMM;
-    private String aMN;
-    private long aMO;
+    private String aMY;
+    private String aMZ;
+    private String aNa;
+    private boolean aNb;
+    private boolean aNc;
+    private String aNd;
+    private long aNe;
     private int mHeight;
     private int mWidth;
 
     public TbRichTextImageInfo() {
-        this.aMI = null;
-        this.aMJ = null;
-        this.aMK = null;
+        this.aMY = null;
+        this.aMZ = null;
+        this.aNa = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aML = false;
-        this.aMM = false;
-        this.aMN = null;
-        this.aMO = 0L;
+        this.aNb = false;
+        this.aNc = false;
+        this.aNd = null;
+        this.aNe = 0L;
     }
 
     public TbRichTextImageInfo(PbContent pbContent) {
-        this.aMI = null;
-        this.aMJ = null;
-        this.aMK = null;
+        this.aMY = null;
+        this.aMZ = null;
+        this.aNa = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aML = false;
-        this.aMM = false;
-        this.aMN = null;
-        this.aMO = 0L;
+        this.aNb = false;
+        this.aNc = false;
+        this.aNd = null;
+        this.aNe = 0L;
         if (pbContent != null) {
-            this.aMI = pbContent.src;
-            this.aMJ = pbContent.cdn_src;
-            if (this.aMJ == null || this.aMJ.length() == 0) {
-                this.aMJ = this.aMI;
+            this.aMY = pbContent.src;
+            this.aMZ = pbContent.cdn_src;
+            if (this.aMZ == null || this.aMZ.length() == 0) {
+                this.aMZ = this.aMY;
             }
-            this.aMK = pbContent.big_cdn_src;
+            this.aNa = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
@@ -61,31 +61,31 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aMJ != null && this.aMJ.indexOf(".baidu.com") != -1) {
-                this.aML = true;
+            if (this.aMZ != null && this.aMZ.indexOf(".baidu.com") != -1) {
+                this.aNb = true;
             }
-            this.aMN = pbContent.origin_src;
-            this.aMO = pbContent.origin_size.intValue();
+            this.aNd = pbContent.origin_src;
+            this.aNe = pbContent.origin_size.intValue();
         }
     }
 
     public TbRichTextImageInfo(JSONObject jSONObject) {
-        this.aMI = null;
-        this.aMJ = null;
-        this.aMK = null;
+        this.aMY = null;
+        this.aMZ = null;
+        this.aNa = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aML = false;
-        this.aMM = false;
-        this.aMN = null;
-        this.aMO = 0L;
+        this.aNb = false;
+        this.aNc = false;
+        this.aNd = null;
+        this.aNe = 0L;
         if (jSONObject != null) {
-            this.aMI = jSONObject.optString("src");
-            this.aMJ = jSONObject.optString("cdn_src", "");
-            if (this.aMJ == null || this.aMJ.length() == 0) {
-                this.aMJ = this.aMI;
+            this.aMY = jSONObject.optString("src");
+            this.aMZ = jSONObject.optString("cdn_src", "");
+            if (this.aMZ == null || this.aMZ.length() == 0) {
+                this.aMZ = this.aMY;
             }
-            this.aMK = jSONObject.optString("big_cdn_src", null);
+            this.aNa = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -99,14 +99,14 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aMJ != null && this.aMJ.indexOf(".baidu.com") != -1) {
-                this.aML = true;
+            if (this.aMZ != null && this.aMZ.indexOf(".baidu.com") != -1) {
+                this.aNb = true;
             }
         }
     }
 
-    public String Ig() {
-        return this.aMK;
+    public String IF() {
+        return this.aNa;
     }
 
     public int getHeight() {
@@ -117,27 +117,27 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.mWidth;
     }
 
-    public boolean Ih() {
-        return this.aML;
+    public boolean IG() {
+        return this.aNb;
     }
 
-    public String Ii() {
-        return this.aMI;
+    public String IH() {
+        return this.aMY;
     }
 
-    public String Ij() {
-        return this.aMJ;
+    public String II() {
+        return this.aMZ;
     }
 
-    public boolean Ik() {
-        return this.aMM;
+    public boolean IJ() {
+        return this.aNc;
     }
 
-    public String Il() {
-        return this.aMN;
+    public String IK() {
+        return this.aNd;
     }
 
     public long getOriginalSize() {
-        return this.aMO;
+        return this.aNe;
     }
 }

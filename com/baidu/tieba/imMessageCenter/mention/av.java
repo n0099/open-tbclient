@@ -4,11 +4,11 @@ import com.baidu.tieba.imMessageCenter.mention.ReplyMeModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements ReplyMeModel.a {
-    final /* synthetic */ au dmR;
+    final /* synthetic */ au dlq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(au auVar) {
-        this.dmR = auVar;
+        this.dlq = auVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.a
@@ -19,23 +19,23 @@ public class av implements ReplyMeModel.a {
         FeedData feedData2;
         com.baidu.tbadk.editortools.pb.n nVar3;
         FeedData feedData3;
-        this.dmR.mForumId = String.valueOf(j);
-        this.dmR.dmN = j2;
-        this.dmR.dmO = j3;
-        nVar = this.dmR.dmL;
+        this.dlq.mForumId = String.valueOf(j);
+        this.dlq.dlm = j2;
+        this.dlq.dln = j3;
+        nVar = this.dlq.dlk;
         if (nVar != null) {
-            feedData = this.dmR.dmM;
+            feedData = this.dlq.dll;
             if (feedData.getIsFloor()) {
-                feedData2 = this.dmR.dmM;
+                feedData2 = this.dlq.dll;
                 if (feedData2.getReplyer() != null) {
-                    nVar3 = this.dmR.dmL;
-                    feedData3 = this.dmR.dmM;
-                    nVar3.fy(feedData3.getReplyer().getUserName());
+                    nVar3 = this.dlq.dlk;
+                    feedData3 = this.dlq.dll;
+                    nVar3.fE(feedData3.getReplyer().getUserName());
                     return;
                 }
             }
-            nVar2 = this.dmR.dmL;
-            nVar2.fy(null);
+            nVar2 = this.dlq.dlk;
+            nVar2.fE(null);
         }
     }
 }

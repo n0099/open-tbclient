@@ -9,22 +9,22 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class e implements com.baidu.tieba.tbadkCore.p {
-    final /* synthetic */ FrsActivity bNU;
+    final /* synthetic */ FrsActivity bNJ;
     private long startTime = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsActivity frsActivity) {
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.p
-    public void hK(int i) {
+    public void hN(int i) {
         this.startTime = System.nanoTime();
-        if (this.bNU.bMN != null) {
+        if (this.bNJ.bMD != null) {
             switch (i) {
                 case 1:
                 case 2:
-                    this.bNU.bMN.Zx();
+                    this.bNJ.bMD.ZV();
                     return;
                 case 3:
                 case 4:
@@ -39,7 +39,7 @@ class e implements com.baidu.tieba.tbadkCore.p {
     @Override // com.baidu.tieba.tbadkCore.p
     public void a(int i, boolean z, d.a aVar) {
         boolean z2;
-        com.baidu.tieba.frs.f.ad adVar;
+        com.baidu.tieba.frs.g.ad adVar;
         boolean z3;
         com.baidu.tieba.frs.entelechy.b.d dVar;
         com.baidu.tieba.frs.entelechy.b.d dVar2;
@@ -48,138 +48,138 @@ class e implements com.baidu.tieba.tbadkCore.p {
         com.baidu.tieba.tbadkCore.data.e eVar;
         com.baidu.tieba.frs.mc.h hVar2;
         boolean z4;
-        com.baidu.tieba.frs.f.ad adVar2;
+        com.baidu.tieba.frs.g.ad adVar2;
         boolean z5;
-        z2 = this.bNU.byg;
+        z2 = this.bNJ.bxZ;
         if (z2) {
-            this.bNU.byg = false;
-            com.baidu.tieba.frs.utils.s.a(this.bNU.bMN, this.bNU.bMO, this.bNU.getForumId(), false, null);
+            this.bNJ.bxZ = false;
+            com.baidu.tieba.frs.f.s.a(this.bNJ.bMD, this.bNJ.bME, this.bNJ.getForumId(), false, null);
         }
-        if (this.bNU.bMN.Zq() != null) {
-            z5 = this.bNU.mIsLogin;
+        if (this.bNJ.bMD.ZO() != null) {
+            z5 = this.bNJ.mIsLogin;
             if (z5) {
-                this.bNU.bMN.Zq().setVisibility(0);
+                this.bNJ.bMD.ZO().setVisibility(0);
             }
         }
-        adVar = this.bNU.bNb;
+        adVar = this.bNJ.bMR;
         if (adVar != null) {
-            z4 = this.bNU.mIsLogin;
+            z4 = this.bNJ.mIsLogin;
             if (z4) {
-                adVar2 = this.bNU.bNb;
-                adVar2.dX(true);
+                adVar2 = this.bNJ.bMR;
+                adVar2.dZ(true);
             }
         }
-        this.bNU.YH();
-        this.bNU.bMT = true;
+        this.bNJ.Zd();
+        this.bNJ.bMJ = true;
         if (aVar != null && aVar.isSuccess) {
-            this.bNU.bMN.ZG().dT(com.baidu.tbadk.core.util.av.vD().vF());
-            FrsActivity.bMQ = 0L;
-            FrsActivity.bMR = 0L;
-            FrsActivity.bMS = 0;
+            this.bNJ.bMD.aae().dV(com.baidu.tbadk.core.util.av.wa().wc());
+            FrsActivity.bMG = 0L;
+            FrsActivity.bMH = 0L;
+            FrsActivity.bMI = 0;
         } else {
-            FrsActivity.bMS = 1;
+            FrsActivity.bMI = 1;
         }
-        if (!this.bNU.bMY.adc() && (i == 3 || i == 6)) {
-            hVar2 = this.bNU.bNq;
+        if (!this.bNJ.bMO.acW() && (i == 3 || i == 6)) {
+            hVar2 = this.bNJ.bNf;
             hVar2.resetData();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.bNU.bMY.acc() != null) {
-            this.bNU.bMO = this.bNU.bMY.acc();
+        if (this.bNJ.bMO.acy() != null) {
+            this.bNJ.bME = this.bNJ.bMO.acy();
         }
         if (i != 7) {
-            if (this.bNU.bMO.getPage() != null) {
-                this.bNU.setHasMore(this.bNU.bMO.getPage().qQ());
+            if (this.bNJ.bME.rr() != null) {
+                this.bNJ.setHasMore(this.bNJ.bME.rr().rn());
             }
-            this.bNU.YI();
-            this.bNU.bMN.ZT();
+            this.bNJ.Ze();
+            this.bNJ.bMD.aar();
             if (i != 4) {
                 switch (i) {
                     case 1:
-                        this.bNU.bMN.Zx();
+                        this.bNJ.bMD.ZV();
                         break;
                     case 2:
-                        this.bNU.bMN.Zx();
+                        this.bNJ.bMD.ZV();
                         break;
                     case 3:
                     case 6:
-                        if (this.bNU.bMO != null) {
-                            this.bNU.bMO.bgo();
+                        if (this.bNJ.bME != null) {
+                            this.bNJ.bME.bhb();
                         }
-                        if (this.bNU.bNu != null) {
-                            this.bNU.bNu.refresh();
+                        if (this.bNJ.bNj != null) {
+                            this.bNJ.bNj.refresh();
                             break;
                         }
                         break;
                 }
-                this.bNU.YJ();
+                this.bNJ.Zf();
                 if (aVar == null || aVar.errorCode == 0) {
-                    if (this.bNU.bMO != null) {
-                        this.bNU.bMN.hN(i);
-                        this.bNU.m(false, i == 5);
-                        FrsActivity.bMQ = (System.nanoTime() - this.startTime) / 1000000;
+                    if (this.bNJ.bME != null) {
+                        this.bNJ.bMD.hQ(i);
+                        this.bNJ.m(false, i == 5);
+                        FrsActivity.bMG = (System.nanoTime() - this.startTime) / 1000000;
                         if (aVar != null) {
-                            FrsActivity.bMR = aVar.frh;
+                            FrsActivity.bMH = aVar.fsT;
                         }
                     } else {
                         return;
                     }
-                } else if (this.bNU.bMO == null || com.baidu.tbadk.core.util.x.q(this.bNU.bMO.getThreadList())) {
-                    this.bNU.a(aVar, false);
-                } else if (aVar.frg) {
-                    this.bNU.showToast(this.bNU.getPageContext().getResources().getString(w.l.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
+                } else if (this.bNJ.bME == null || com.baidu.tbadk.core.util.x.q(this.bNJ.bME.getThreadList())) {
+                    this.bNJ.a(aVar, false);
+                } else if (aVar.fsS) {
+                    this.bNJ.showToast(this.bNJ.getPageContext().getResources().getString(w.l.net_error_text, aVar.errorMsg, Integer.valueOf(aVar.errorCode)));
                 }
-                if (this.bNU.bMO.bfy() == 1) {
+                if (this.bNJ.bME.bgm() == 1) {
                     TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11384"));
                 }
-                if (this.bNU.bEN > -1) {
-                    com.baidu.tieba.frs.utils.s.a(this.bNU.bMY, this.bNU.bEN);
-                    this.bNU.bEN = -1L;
+                if (this.bNJ.bEG > -1) {
+                    com.baidu.tieba.frs.f.s.a(this.bNJ.bMO, this.bNJ.bEG);
+                    this.bNJ.bEG = -1L;
                 }
-                z3 = this.bNU.bMK;
+                z3 = this.bNJ.bMA;
                 if (z3) {
-                    dVar = this.bNU.bNd;
+                    dVar = this.bNJ.bMT;
                     if (dVar instanceof a) {
-                        dVar2 = this.bNU.bNd;
-                        if (((a) dVar2).abo() != null) {
-                            dVar3 = this.bNU.bNd;
-                            ((a) dVar3).abo().iv(49);
-                            this.bNU.bMK = false;
+                        dVar2 = this.bNJ.bMT;
+                        if (((a) dVar2).abL() != null) {
+                            dVar3 = this.bNJ.bMT;
+                            ((a) dVar3).abL().iw(49);
+                            this.bNJ.bMA = false;
                         }
                     }
                 }
-                this.bNU.aGp = System.currentTimeMillis() - currentTimeMillis;
+                this.bNJ.aGE = System.currentTimeMillis() - currentTimeMillis;
                 System.gc();
                 return;
             }
-            if (!this.bNU.bMY.adc() && TbadkCoreApplication.m9getInst().isRecAppExist() && this.bNU.bMY.acR() == 1) {
-                this.bNU.bMO.g(this.bNU);
+            if (!this.bNJ.bMO.acW() && TbadkCoreApplication.m9getInst().isRecAppExist() && this.bNJ.bMO.acL() == 1) {
+                this.bNJ.bME.g(this.bNJ);
             }
-            hVar = this.bNU.bNq;
-            ArrayList<com.baidu.adp.widget.ListView.v> threadList = this.bNU.bMO.getThreadList();
-            eVar = this.bNU.bMJ;
+            hVar = this.bNJ.bNf;
+            ArrayList<com.baidu.adp.widget.ListView.v> threadList = this.bNJ.bME.getThreadList();
+            eVar = this.bNJ.bMz;
             ArrayList<com.baidu.adp.widget.ListView.v> a = hVar.a(false, false, threadList, eVar);
             if (a != null) {
-                this.bNU.bMO.ax(a);
-                this.bNU.bMO.bgq();
-                this.bNU.bMN.a(a, this.bNU.bMO);
+                this.bNJ.bME.ax(a);
+                this.bNJ.bME.bhd();
+                this.bNJ.bMD.a(a, this.bNJ.bME);
             }
-            if (this.bNU.bMY != null) {
-                b.a(this.bNU.bMO, this.bNU.bMY.acX(), 2);
+            if (this.bNJ.bMO != null) {
+                b.a(this.bNJ.bME, this.bNJ.bMO.acR(), 2);
                 return;
             }
             return;
         }
-        this.bNU.hI(this.bNU.bMO.bfU());
+        this.bNJ.hL(this.bNJ.bME.bgH());
     }
 
     @Override // com.baidu.tieba.tbadkCore.p
     public void b(com.baidu.tieba.tbadkCore.l lVar) {
         if (lVar != null) {
-            if (!"normal_page".equals(this.bNU.bMY.acN()) && !"frs_page".equals(this.bNU.bMY.acN()) && !"book_page".equals(this.bNU.bMY.acN())) {
+            if (!"normal_page".equals(this.bNJ.bMO.acH()) && !"frs_page".equals(this.bNJ.bMO.acH()) && !"book_page".equals(this.bNJ.bMO.acH())) {
                 return;
             }
-            this.bNU.a(lVar);
+            this.bNJ.a(lVar);
         }
     }
 }

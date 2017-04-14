@@ -5,20 +5,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public ae(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008016) {
-            b.asj().reset();
+            b.asc().reset();
         }
     }
 }

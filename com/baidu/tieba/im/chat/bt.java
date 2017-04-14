@@ -6,23 +6,23 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt extends com.baidu.adp.base.f {
-    final /* synthetic */ TalkableActivity cQk;
+    final /* synthetic */ TalkableActivity cOH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(TalkableActivity talkableActivity) {
-        this.cQk = talkableActivity;
+        this.cOH = talkableActivity;
     }
 
     @Override // com.baidu.adp.base.f
     public void g(Object obj) {
         if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
             LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.cQk.cPX != null) {
-                this.cQk.cPX.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
+            if (this.cOH.cOu != null) {
+                this.cOH.cOu.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
                 return;
             }
             return;
         }
-        this.cQk.showToast(TbadkCoreApplication.m9getInst().getString(w.l.pic_parser_error));
+        this.cOH.showToast(TbadkCoreApplication.m9getInst().getString(w.l.pic_parser_error));
     }
 }

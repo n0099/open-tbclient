@@ -1,35 +1,35 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.x;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.frs.RequestGetMyPostNetMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
-    private w bOo;
-    private CustomMessageListener bZO = new p(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
+public class o implements Runnable {
+    final /* synthetic */ l bYk;
+    private final /* synthetic */ long bYl;
+    private final /* synthetic */ long bYm;
+    private final /* synthetic */ long bYn;
 
-    public o(TbPageContext tbPageContext, w wVar) {
-        this.bOo = wVar;
-        tbPageContext.registerListener(this.bZO);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(l lVar, long j, long j2, long j3) {
+        this.bYk = lVar;
+        this.bYl = j;
+        this.bYm = j2;
+        this.bYn = j3;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e(String str, List<com.baidu.adp.widget.ListView.v> list) {
-        if (x.p(list) != 0) {
-            ArrayList arrayList = new ArrayList();
-            for (com.baidu.adp.widget.ListView.v vVar : list) {
-                if (vVar instanceof bj) {
-                    bj bjVar = (bj) vVar;
-                    if (bjVar.getTid() != null && bjVar.getTid().equals(str)) {
-                        arrayList.add(bjVar);
-                    }
-                }
-            }
-            list.removeAll(arrayList);
+    @Override // java.lang.Runnable
+    public void run() {
+        int af = com.baidu.adp.lib.util.k.af(this.bYk.bST.getPageContext().getPageActivity());
+        int ag = com.baidu.adp.lib.util.k.ag(this.bYk.bST.getPageContext().getPageActivity());
+        float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
+        int i = 1;
+        if (av.wa().wc()) {
+            i = 2;
         }
+        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+        requestGetMyPostNetMessage.setParams(this.bYl, this.bYm, this.bYn, af, ag, f, i);
+        this.bYk.bST.sendMessage(requestGetMyPostNetMessage);
     }
 }

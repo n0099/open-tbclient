@@ -1,48 +1,57 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.message.GameLaunchMessage;
+import java.util.Map;
 /* loaded from: classes.dex */
-class gr implements PbModel.a {
-    final /* synthetic */ ReaderPbService etx;
+public class gr {
+    private static gr erG = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public gr(ReaderPbService readerPbService) {
-        this.etx = readerPbService;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void c(com.baidu.tieba.pb.data.f fVar) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
-        boolean z2;
-        ej ejVar;
-        em emVar;
-        ej ejVar2;
-        em emVar2;
-        em emVar3;
-        em emVar4;
-        z2 = this.etx.isAlive;
-        if (!z2) {
-            ejVar = this.etx.mReaderManager;
-            if (ejVar != null) {
-                emVar = this.etx.mReaderModel;
-                if (emVar != null) {
-                    ejVar2 = this.etx.mReaderManager;
-                    emVar2 = this.etx.mReaderModel;
-                    com.baidu.tieba.pb.data.f pbData = emVar2.getPbData();
-                    emVar3 = this.etx.mReaderModel;
-                    boolean aMz = emVar3.aMz();
-                    emVar4 = this.etx.mReaderModel;
-                    ejVar2.b(pbData, aMz, i2, emVar4.aMA());
+    public static gr aNT() {
+        if (erG == null) {
+            synchronized (gr.class) {
+                if (erG == null) {
+                    erG = new gr();
                 }
             }
         }
+        return erG;
+    }
+
+    public void g(TbPageContext tbPageContext, String str) {
+        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
+            if (str.contains("is_native_app=1")) {
+            }
+            if (nK(str)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
+            } else if (nL(str)) {
+                com.baidu.tbadk.core.util.bb.wn().a(tbPageContext, new String[]{str}, true);
+            } else {
+                com.baidu.tbadk.core.util.bb.wn().c(tbPageContext, new String[]{str});
+            }
+        }
+    }
+
+    public static boolean nJ(String str) {
+        return str != null && str.contains("bookcover:");
+    }
+
+    private boolean nK(String str) {
+        Map<String, String> dG;
+        if (!TextUtils.isEmpty(str) && (dG = com.baidu.tbadk.core.util.bb.dG(com.baidu.tbadk.core.util.bb.dH(str))) != null) {
+            String str2 = dG.get("url");
+            if (!TextUtils.isEmpty(str2)) {
+                return nK(com.baidu.adp.lib.util.j.aE(str2));
+            }
+            String str3 = dG.get("tbgametype");
+            return !TextUtils.isEmpty(str3) && str3.equals("1");
+        }
+        return false;
+    }
+
+    private boolean nL(String str) {
+        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

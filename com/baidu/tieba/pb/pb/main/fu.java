@@ -1,24 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class fu extends CustomMessageListener {
-    final /* synthetic */ fa etn;
+class fu implements Runnable {
+    final /* synthetic */ ft erA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fu(fa faVar, int i) {
-        super(i);
-        this.etn = faVar;
+    public fu(ft ftVar) {
+        this.erA = ftVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.etn.esk = false;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ey eyVar;
+        PbActivity pbActivity;
+        ey eyVar2;
+        PbActivity pbActivity2;
+        ey eyVar3;
+        RelativeLayout relativeLayout;
+        eyVar = this.erA.erv;
+        pbActivity = eyVar.eig;
+        eyVar2 = this.erA.erv;
+        pbActivity2 = eyVar2.eig;
+        eyVar3 = this.erA.erv;
+        relativeLayout = eyVar3.dTF;
+        pbActivity2.HidenSoftKeyPad((InputMethodManager) pbActivity.getSystemService("input_method"), relativeLayout);
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -35,8 +34,8 @@ public class PraiseResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.errCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE);
-            this.errMsg = jSONObject.optString(SocialConstants.PARAM_ERROR_MSG);
+            this.errCode = jSONObject.optInt("error_code");
+            this.errMsg = jSONObject.optString("error_msg");
         }
     }
 }

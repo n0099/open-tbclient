@@ -3,14 +3,14 @@ package com.baidu.adp.lib.stats.b;
 public class i extends com.baidu.adp.lib.stats.base.a {
     public i(q qVar) {
         super(qVar);
-        this.xL = 10;
-        this.xM = "stat";
+        this.xm = 10;
+        this.xn = "stat";
         this.mMustSuccess = true;
         this.mUseSdCard = false;
     }
 
     @Override // com.baidu.adp.lib.stats.base.a
-    public String gp() {
+    public String gu() {
         return "stat";
     }
 }

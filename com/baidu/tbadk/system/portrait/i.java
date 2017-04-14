@@ -14,7 +14,7 @@ public class i {
         this.url = str;
     }
 
-    public void fW(String str) {
+    public void gc(String str) {
         this.series = str;
     }
 
@@ -22,7 +22,7 @@ public class i {
         this.num = i;
     }
 
-    public void fg(int i) {
+    public void fj(int i) {
         this.myItem = i;
     }
 }

@@ -10,16 +10,16 @@ import com.baidu.tieba.write.write.WriteActivity;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements a.InterfaceC0078a {
-    final /* synthetic */ a fNJ;
+public class b implements a.InterfaceC0077a {
+    final /* synthetic */ a fPs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.fNJ = aVar;
+        this.fPs = aVar;
     }
 
-    @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0078a
-    public void sX(int i) {
+    @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0077a
+    public void sV(int i) {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
@@ -34,43 +34,43 @@ public class b implements a.InterfaceC0078a {
         j jVar4;
         j jVar5;
         LinkedList linkedList6;
-        linkedList = this.fNJ.chosedFiles;
+        linkedList = this.fPs.chosedFiles;
         if (linkedList != null) {
-            linkedList2 = this.fNJ.chosedFiles;
+            linkedList2 = this.fPs.chosedFiles;
             if (linkedList2.size() - 1 >= i) {
-                linkedList6 = this.fNJ.chosedFiles;
+                linkedList6 = this.fPs.chosedFiles;
                 ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList6.remove(i);
                 if (imageFileInfo.isTempFile()) {
-                    com.baidu.adp.lib.Disk.d.dI().c(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                    com.baidu.adp.lib.Disk.d.dH().c(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
             }
-            linkedList3 = this.fNJ.chosedFiles;
+            linkedList3 = this.fPs.chosedFiles;
             int size = linkedList3.size();
-            jVar = this.fNJ.ayu;
+            jVar = this.fPs.ayK;
             if (jVar != null) {
-                jVar2 = this.fNJ.ayu;
-                i2 = this.fNJ.azP;
+                jVar2 = this.fPs.ayK;
+                i2 = this.fPs.aAf;
                 jVar2.b(new com.baidu.tbadk.editortools.a(i2, -1, null));
                 if (size > 0) {
-                    jVar5 = this.fNJ.ayu;
+                    jVar5 = this.fPs.ayK;
                     jVar5.b(new com.baidu.tbadk.editortools.a(2, 10, String.valueOf(size)));
                 } else {
-                    jVar3 = this.fNJ.ayu;
+                    jVar3 = this.fPs.ayK;
                     jVar3.b(new com.baidu.tbadk.editortools.a(2, 10, null));
                 }
-                linkedList5 = this.fNJ.chosedFiles;
+                linkedList5 = this.fPs.chosedFiles;
                 if (linkedList5.size() == 1 && size == 0) {
-                    jVar4 = this.fNJ.ayu;
+                    jVar4 = this.fPs.ayK;
                     jVar4.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                 }
             }
-            this.fNJ.bnG();
-            baseActivity = this.fNJ.mBaseActivity;
-            linkedList4 = this.fNJ.chosedFiles;
+            this.fPs.boq();
+            baseActivity = this.fPs.mBaseActivity;
+            linkedList4 = this.fPs.chosedFiles;
             ((WriteActivity) baseActivity).o(linkedList4);
-            this.fNJ.bnD();
-            this.fNJ.notifyDataSetChanged();
-            gridView = this.fNJ.dKz;
+            this.fPs.bon();
+            this.fPs.notifyDataSetChanged();
+            gridView = this.fPs.dGY;
             gridView.invalidateViews();
         }
     }

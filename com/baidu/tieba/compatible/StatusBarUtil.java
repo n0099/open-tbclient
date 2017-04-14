@@ -7,7 +7,6 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
@@ -57,7 +56,7 @@ public final class StatusBarUtil {
             return 0;
         }
         Context applicationContext = context.getApplicationContext();
-        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", SocialConstants.ANDROID_CLIENT_TYPE);
+        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (identifier > 0) {
             return applicationContext.getResources().getDimensionPixelSize(identifier);
         }

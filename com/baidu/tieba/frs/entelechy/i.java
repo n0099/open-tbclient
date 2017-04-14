@@ -7,7 +7,7 @@ import com.baidu.tieba.frs.entelechy.a.am;
 /* loaded from: classes.dex */
 public class i implements com.baidu.tieba.frs.entelechy.b.a {
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.g aaA() {
+    public com.baidu.tieba.frs.entelechy.b.g aaY() {
         return new com.baidu.tieba.frs.d.a();
     }
 
@@ -17,8 +17,8 @@ public class i implements com.baidu.tieba.frs.entelechy.b.a {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
-    public com.baidu.tieba.frs.entelechy.b.b aaB() {
-        return new t();
+    public com.baidu.tieba.frs.entelechy.b.b aaZ() {
+        return new s();
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
@@ -30,12 +30,12 @@ public class i implements com.baidu.tieba.frs.entelechy.b.a {
         if ("book_page".equals(str)) {
             jVar = new a(frsActivity, null, null, i);
         } else if ("frs_page".equals(str)) {
-            jVar = new u(frsActivity, null, null, i);
+            jVar = new t(frsActivity, null, null, i);
         } else {
             jVar = new j(frsActivity, null, null, i);
         }
-        jVar.a(frsActivity.Ys());
-        jVar.a(frsActivity.Yt());
+        jVar.a(frsActivity.YP());
+        jVar.a(frsActivity.YQ());
         return jVar;
     }
 
@@ -47,12 +47,12 @@ public class i implements com.baidu.tieba.frs.entelechy.b.a {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.entelechy.b.a
     /* renamed from: a */
-    public com.baidu.tieba.frs.f.i c(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.f.i(frsActivity, noPressedRelativeLayout);
+    public com.baidu.tieba.frs.g.i c(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
+        return new com.baidu.tieba.frs.g.i(frsActivity, noPressedRelativeLayout);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.a
     public com.baidu.tieba.frs.entelechy.b.c b(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout) {
-        return new com.baidu.tieba.frs.f.d(frsActivity, noPressedRelativeLayout);
+        return new com.baidu.tieba.frs.g.d(frsActivity, noPressedRelativeLayout);
     }
 }

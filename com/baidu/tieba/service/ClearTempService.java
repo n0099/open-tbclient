@@ -65,7 +65,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = l.yP + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = l.yq + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(String.valueOf(str) + "/" + i);
             if (file.exists() && file.isDirectory()) {

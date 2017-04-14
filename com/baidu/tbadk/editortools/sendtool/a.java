@@ -10,32 +10,32 @@ import com.baidu.tieba.w;
 public class a extends x {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.azv = false;
-        this.azu = 2;
-        this.azw = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
-        this.ayH = new SendView(context);
+        this.azL = false;
+        this.azK = 2;
+        this.azM = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9, 40};
+        this.ayX = new SendView(context);
         v.a aVar = new v.a(context.getResources().getDimensionPixelSize(w.f.ds100), context.getResources().getDimensionPixelSize(w.f.ds78));
         aVar.gravity = 16;
         aVar.leftMargin = context.getResources().getDimensionPixelSize(w.f.ds10);
         aVar.rightMargin = context.getResources().getDimensionPixelSize(w.f.ds10);
-        ((View) this.ayH).setLayoutParams(aVar);
+        ((View) this.ayX).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.ayH != null && (this.ayH instanceof TextView)) {
-            ((TextView) this.ayH).setText(i);
+        if (this.ayX != null && (this.ayX instanceof TextView)) {
+            ((TextView) this.ayX).setText(i);
         }
     }
 
     public void setType(int i) {
-        if (this.ayH != null) {
-            ((SendView) this.ayH).setType(i);
+        if (this.ayX != null) {
+            ((SendView) this.ayX).setType(i);
         }
     }
 
-    public void eJ(int i) {
-        if (this.ayH != null) {
-            ((SendView) this.ayH).eJ(i);
+    public void eM(int i) {
+        if (this.ayX != null) {
+            ((SendView) this.ayX).eM(i);
         }
     }
 }

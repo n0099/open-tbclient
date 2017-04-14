@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int aDg = 0;
+    private int aDw = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return "rotate";
     }
 
-    public static ImageOperation eR(int i) {
+    public static ImageOperation eU(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -23,7 +23,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.aDg = Integer.parseInt(str);
+            this.aDw = Integer.parseInt(str);
         }
     }
 
@@ -32,19 +32,19 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.El().eQ(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.aDg == 0 || this.aDg == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.aDg);
+        com.baidu.tbadk.imageManager.c.EJ().eT(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (this.aDw == 0 || this.aDw == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.aDw);
         }
-        if (this.aDg == 2 || this.aDg == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.aDg);
+        if (this.aDw == 2 || this.aDw == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.aDw);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap fK(String str) throws Exception {
-        int max = Math.max(k.ag(TbadkCoreApplication.m9getInst().getApp()), k.ah(TbadkCoreApplication.m9getInst().getApp()));
+    public Bitmap fQ(String str) throws Exception {
+        int max = Math.max(k.af(TbadkCoreApplication.m9getInst().getApp()), k.ag(TbadkCoreApplication.m9getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }
 }

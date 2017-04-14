@@ -7,72 +7,72 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private final NewWriteModel.d aAO = new b(this);
-    private final c fKP;
-    private final NewWriteModel fKS;
+    private final NewWriteModel.d aBe = new b(this);
+    private final NewWriteModel fMB;
+    private final c fMy;
 
     public a(c cVar, NewWriteModel newWriteModel) {
-        this.fKP = cVar;
-        this.fKS = newWriteModel;
-        newWriteModel.b(this.aAO);
+        this.fMy = cVar;
+        this.fMB = newWriteModel;
+        newWriteModel.b(this.aBe);
     }
 
-    public boolean qA(String str) {
-        if (this.fKP == null || str == null) {
+    public boolean qU(String str) {
+        if (this.fMy == null || str == null) {
             return false;
         }
         if (str.equals("http://tieba.baidu.com/account/access/cancel")) {
-            this.fKP.getContext().finish();
+            this.fMy.getContext().finish();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/input_focus")) {
-            this.fKP.t(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-            if (this.fKP.bmv() != this.fKP.bn()) {
-                this.fKP.setRatio(this.fKP.bmv());
-                this.fKP.bmw();
+            this.fMy.t(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
+            if (this.fMy.bnf() != this.fMy.bm()) {
+                this.fMy.setRatio(this.fMy.bnf());
+                this.fMy.bng();
             }
-            this.fKP.getWebView().setVisibility(0);
+            this.fMy.getWebView().setVisibility(0);
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/valid_success")) {
-            bmu();
+            bne();
             return true;
         } else if (str.equals("http://tieba.baidu.com/account/access/feedback") || str.equals("https://tieba.baidu.com/account/access/feedback")) {
-            this.fKP.getContext().finish();
-            bb.vQ().c(this.fKP.getContext().getPageContext(), new String[]{"feedback:"});
+            this.fMy.getContext().finish();
+            bb.wn().c(this.fMy.getContext().getPageContext(), new String[]{"feedback:"});
             return true;
         } else {
             return true;
         }
     }
 
-    public void bmt() {
-        if (this.fKP != null) {
-            this.fKP.showWebViewDelay(500);
+    public void bnd() {
+        if (this.fMy != null) {
+            this.fMy.showWebViewDelay(500);
         }
     }
 
     public void start(String str) {
-        if (this.fKP != null) {
-            this.fKP.showWebLoadingView(true);
-            this.fKP.showWebView(false);
-            this.fKP.getWebView().loadUrl(str);
+        if (this.fMy != null) {
+            this.fMy.showWebLoadingView(true);
+            this.fMy.showWebView(false);
+            this.fMy.getWebView().loadUrl(str);
         }
     }
 
     public void onPostThreadCancle() {
-        if (this.fKP != null) {
-            this.fKP.showPostThreadLoadingView(false);
+        if (this.fMy != null) {
+            this.fMy.showPostThreadLoadingView(false);
         }
     }
 
-    private void bmu() {
-        if (this.fKP != null && this.fKS != null) {
-            if (!k.hv()) {
-                this.fKP.getContext().showToast(w.l.neterror);
-                this.fKP.getContext().finish();
+    private void bne() {
+        if (this.fMy != null && this.fMB != null) {
+            if (!k.hA()) {
+                this.fMy.getContext().showToast(w.l.neterror);
+                this.fMy.getContext().finish();
                 return;
             }
-            this.fKP.showPostThreadLoadingView(true);
-            this.fKS.startPostWrite();
+            this.fMy.showPostThreadLoadingView(true);
+            this.fMB.startPostWrite();
         }
     }
 }

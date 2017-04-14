@@ -8,9 +8,13 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class SapiResult {
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
+    public static final int ERROR_CODE_PARAMS_ERROR = -204;
+    public static final int ERROR_CODE_SERVER_DATA_ERROR = -205;
     public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
     public static final int ERROR_CODE_UNKNOWN = -202;
     public static final String ERROR_MSG_NETWORK_UNAVAILABLE = "网络连接不可用，请检查网络设置";
+    public static final String ERROR_MSG_PARAMS_ERROR = "参数错误";
+    public static final String ERROR_MSG_SERVER_DATA_ERROR = "服务端数据异常";
     public static final String ERROR_MSG_SSL_PEER_UNVERIFIED = "网站安全证书已过期或不可信，系统时间错误可能导致此问题";
     public static final String ERROR_MSG_UNKNOWN = "网络连接失败，请检查网络设置";
     public static final int RESULT_CODE_SUCCESS = 0;
@@ -100,6 +104,8 @@ public class SapiResult {
         this.msgMap.put(ERROR_CODE_NETWORK_UNAVAILABLE, ERROR_MSG_NETWORK_UNAVAILABLE);
         this.msgMap.put(ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
         this.msgMap.put(-203, ERROR_MSG_SSL_PEER_UNVERIFIED);
+        this.msgMap.put(ERROR_CODE_PARAMS_ERROR, ERROR_MSG_PARAMS_ERROR);
+        this.msgMap.put(ERROR_CODE_SERVER_DATA_ERROR, ERROR_MSG_SERVER_DATA_ERROR);
     }
 
     public int getResultCode() {

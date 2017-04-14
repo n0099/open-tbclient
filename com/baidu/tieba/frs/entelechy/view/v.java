@@ -8,55 +8,55 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ t bTE;
+    final /* synthetic */ t bTs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.bTE = tVar;
+        this.bTs = tVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bj bjVar;
-        bj bjVar2;
-        bj bjVar3;
-        bj bjVar4;
-        bj bjVar5;
+        bi biVar;
+        bi biVar2;
+        bi biVar3;
+        bi biVar4;
+        bi biVar5;
         TbPageContext tbPageContext;
-        bj bjVar6;
-        bj bjVar7;
-        bj bjVar8;
-        bj bjVar9;
-        bjVar = this.bTE.ain;
-        if (bjVar != null) {
-            bjVar2 = this.bTE.ain;
-            if (bjVar2.getAuthor() != null) {
-                bjVar3 = this.bTE.ain;
-                if (!StringUtils.isNull(bjVar3.getAuthor().getName_show())) {
-                    bjVar4 = this.bTE.ain;
-                    if (!StringUtils.isNull(bjVar4.getAuthor().getUserId())) {
-                        bjVar5 = this.bTE.ain;
-                        if (bjVar5.rV() != null) {
-                            if (this.bTE.getOnSubCardOnClickListenner() != null) {
-                                cf<bj> onSubCardOnClickListenner = this.bTE.getOnSubCardOnClickListenner();
-                                bjVar9 = this.bTE.ain;
-                                onSubCardOnClickListenner.a(view, bjVar9);
+        bi biVar6;
+        bi biVar7;
+        bi biVar8;
+        bi biVar9;
+        biVar = this.bTs.aiB;
+        if (biVar != null) {
+            biVar2 = this.bTs.aiB;
+            if (biVar2.getAuthor() != null) {
+                biVar3 = this.bTs.aiB;
+                if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
+                    biVar4 = this.bTs.aiB;
+                    if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
+                        biVar5 = this.bTs.aiB;
+                        if (biVar5.st() != null) {
+                            if (this.bTs.getOnSubCardOnClickListenner() != null) {
+                                cf<bi> onSubCardOnClickListenner = this.bTs.getOnSubCardOnClickListenner();
+                                biVar9 = this.bTs.aiB;
+                                onSubCardOnClickListenner.a(view, biVar9);
                             }
                             MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.bTE.ajF;
+                            tbPageContext = this.bTs.ajT;
                             Activity pageActivity = tbPageContext.getPageActivity();
-                            bjVar6 = this.bTE.ain;
-                            String userId = bjVar6.getAuthor().getUserId();
-                            bjVar7 = this.bTE.ain;
-                            String name_show = bjVar7.getAuthor().getName_show();
-                            bjVar8 = this.bTE.ain;
-                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, bjVar8.rV(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                            biVar6 = this.bTs.aiB;
+                            String userId = biVar6.getAuthor().getUserId();
+                            biVar7 = this.bTs.aiB;
+                            String name_show = biVar7.getAuthor().getName_show();
+                            biVar8 = this.bTs.aiB;
+                            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, biVar8.st(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }
                 }

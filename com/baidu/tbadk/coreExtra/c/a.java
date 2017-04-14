@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0036a aqj;
+    private C0035a aqz;
     private f mLoadDataCallBack;
 
     public a(f fVar) {
@@ -34,25 +34,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aqj == null) {
-            this.aqj = new C0036a(this, null);
-            this.aqj.setPriority(2);
-            this.aqj.bh(z);
-            this.aqj.setPortrait(str);
-            this.aqj.setToUid(str2);
-            this.aqj.setIsGod(z2);
-            this.aqj.setFrom(str3);
-            this.aqj.setPageId(bdUniqueId);
-            this.aqj.setForumId(str4);
-            this.aqj.setInLive(str5);
-            this.aqj.execute(new Integer[0]);
+        if (this.aqz == null) {
+            this.aqz = new C0035a(this, null);
+            this.aqz.setPriority(2);
+            this.aqz.bj(z);
+            this.aqz.setPortrait(str);
+            this.aqz.setToUid(str2);
+            this.aqz.setIsGod(z2);
+            this.aqz.setFrom(str3);
+            this.aqz.setPageId(bdUniqueId);
+            this.aqz.setForumId(str4);
+            this.aqz.setInLive(str5);
+            this.aqz.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0036a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0035a extends BdAsyncTask<Integer, Integer, String> {
         private String forumId;
         private String from;
         private String inLive;
@@ -64,7 +64,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0036a() {
+        private C0035a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -73,7 +73,7 @@ public class a {
             this.showToastAfterAttentionSuc = false;
         }
 
-        /* synthetic */ C0036a(a aVar, C0036a c0036a) {
+        /* synthetic */ C0035a(a aVar, C0035a c0035a) {
             this();
         }
 
@@ -85,7 +85,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bh(boolean z) {
+        public void bj(boolean z) {
             this.isAttention = z;
         }
 
@@ -132,8 +132,8 @@ public class a {
                         this.mNetwork.n("forum_id", this.forumId);
                     }
                     this.mNetwork.n("in_live", this.inLive);
-                    this.mNetwork.uZ().vS().mIsNeedTbs = true;
-                    return this.mNetwork.uB();
+                    this.mNetwork.vw().wp().mIsNeedTbs = true;
+                    return this.mNetwork.uY();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -145,11 +145,11 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0036a) str);
-            a.this.aqj = null;
+            super.onPostExecute((C0035a) str);
+            a.this.aqz = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.CX = this.mNetwork.uZ().vT().isRequestSuccess();
+                aVar.Cy = this.mNetwork.vw().wq().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
@@ -165,10 +165,10 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetwork != null) {
-                this.mNetwork.fm();
+                this.mNetwork.fr();
                 this.mNetwork = null;
             }
-            a.this.aqj = null;
+            a.this.aqz = null;
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.g(false);
             }
@@ -176,8 +176,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aqj != null) {
-            this.aqj.cancel();
+        if (this.aqz != null) {
+            this.aqz.cancel();
         }
     }
 }

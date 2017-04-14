@@ -1,22 +1,86 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.pb.ThreadSkinView;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class bi extends y.a {
-    public int amL;
-    public TextView bPA;
-    public PhotoLiveCardView bPB;
-    public View bPC;
+    public TextView alI;
+    public TextView alL;
+    public int amZ;
+    public UserIconBox ams;
+    public UserIconBox amt;
+    public int bOT;
+    public FrameLayout bOU;
+    public LinearLayout bOV;
+    public RelativeLayout bOW;
+    public TbImageView bOX;
+    public TextView bOY;
+    public PlayVoiceBnt bOZ;
+    public TextView bOb;
+    public TextView bOc;
+    public FrsCommonImageLayout bPa;
+    public TextView bPb;
+    public HeadImageView bPc;
+    public TextView bPd;
+    public TextView bPe;
+    public RelativeLayout bPf;
+    public LinearLayout bPg;
+    public LinearLayout bPh;
+    public LinearLayout bPi;
+    public View bPj;
+    public TbImageView bPk;
+    public RelativeLayout bPl;
+    public TbImageView bPm;
+    public TextView bPn;
+    public ThreadSkinView bbf;
+    public TextView mTitle;
 
-    public bi(View view) {
+    public bi(View view, int i) {
         super(view);
-        this.amL = 3;
-        this.bPA = (TextView) view.findViewById(w.h.more_live_list);
-        this.bPB = (PhotoLiveCardView) view.findViewById(w.h.photo_live_card);
-        this.bPC = view.findViewById(w.h.make_headlines);
+        this.amZ = 3;
+        this.bOT = 0;
+        this.bOT = i;
+        this.bOU = (FrameLayout) view.findViewById(w.h.frs_list);
+        this.bPf = (RelativeLayout) view.findViewById(w.h.frs_item_user_info_view);
+        this.bPg = (LinearLayout) view.findViewById(w.h.frs_item_base_user_info);
+        this.bOV = (LinearLayout) view.findViewById(w.h.frs_list_item_top_linear_layout);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bOV.getLayoutParams();
+        layoutParams.topMargin = i;
+        this.bOV.setLayoutParams(layoutParams);
+        this.bOW = (RelativeLayout) view.findViewById(w.h.frs_list_item_top_card);
+        this.bOX = (TbImageView) view.findViewById(w.h.frs_normal_item_theme_card);
+        this.bPc = (HeadImageView) view.findViewById(w.h.frs_photo);
+        this.ams = (UserIconBox) view.findViewById(w.h.frs_user_tshow_icon_box);
+        this.amt = (UserIconBox) view.findViewById(w.h.frs_user_icon_box);
+        this.bPb = (TextView) view.findViewById(w.h.frs_lv_author);
+        this.alI = (TextView) view.findViewById(w.h.frs_lv_reply_time);
+        this.mTitle = (TextView) view.findViewById(w.h.frs_lv_title);
+        this.bOY = (TextView) view.findViewById(w.h.abstract_text);
+        this.bOZ = (PlayVoiceBnt) view.findViewById(w.h.abstract_voice);
+        this.bPa = (FrsCommonImageLayout) view.findViewById(w.h.abstract_img_layout);
+        this.alL = (TextView) view.findViewById(w.h.frs_praise_num);
+        this.bPd = (TextView) view.findViewById(w.h.action_button);
+        this.bOc = (TextView) view.findViewById(w.h.frs_reply_num);
+        this.bPe = (TextView) view.findViewById(w.h.frs_more_abstract);
+        this.bPh = (LinearLayout) view.findViewById(w.h.frs_item_num);
+        this.bPi = (LinearLayout) view.findViewById(w.h.frs_item_loc_view);
+        this.bOb = (TextView) view.findViewById(w.h.frs_item_location_address);
+        this.bPj = view.findViewById(w.h.frs_item_location_sep);
+        this.bPk = (TbImageView) view.findViewById(w.h.game_activity_banner);
+        this.bPm = (TbImageView) view.findViewById(w.h.app_code_banner);
+        this.bPn = (TextView) view.findViewById(w.h.app_code_btn);
+        this.bPl = (RelativeLayout) view.findViewById(w.h.app_code_wrapper);
+        this.bbf = (ThreadSkinView) view.findViewById(w.h.frs_thread_skin);
     }
 }

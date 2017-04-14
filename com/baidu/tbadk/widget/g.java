@@ -8,31 +8,31 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g extends ImageSpan {
-    private WeakReference<Drawable> Gp;
-    private int aKG;
+    private WeakReference<Drawable> FQ;
+    private int aKW;
     private int paddingLeft;
     private int paddingRight;
 
     public g(Drawable drawable) {
         super(drawable);
-        this.aKG = 0;
+        this.aKW = 0;
     }
 
-    public void fj(int i) {
+    public void fm(int i) {
         this.paddingLeft = i;
     }
 
-    public void fk(int i) {
+    public void fn(int i) {
         this.paddingRight = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Drawable kq = kq();
-        if (kq == null) {
+        Drawable ku = ku();
+        if (ku == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
-        Rect bounds = kq.getBounds();
+        Rect bounds = ku.getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -49,30 +49,30 @@ public class g extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable kq = kq();
-        if (kq != null) {
+        Drawable ku = ku();
+        if (ku != null) {
             canvas.save();
-            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - kq.getBounds().bottom) / 2) + i3) - this.aKG);
-            kq.draw(canvas);
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - ku.getBounds().bottom) / 2) + i3) - this.aKW);
+            ku.draw(canvas);
             canvas.restore();
         }
     }
 
-    private Drawable kq() {
-        WeakReference<Drawable> weakReference = this.Gp;
+    private Drawable ku() {
+        WeakReference<Drawable> weakReference = this.FQ;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Gp = new WeakReference<>(drawable2);
+            this.FQ = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
     }
 
     public void setVerticalOffset(int i) {
-        this.aKG = i;
+        this.aKW = i;
     }
 }

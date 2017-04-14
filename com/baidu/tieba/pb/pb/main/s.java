@@ -9,54 +9,54 @@ import com.baidu.tieba.pb.a.d;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class s implements d.a {
-    final /* synthetic */ PbActivity elO;
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.a.d.a
     public boolean a(View view, MotionEvent motionEvent) {
-        fa faVar;
-        fa faVar2;
-        fa faVar3;
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
         com.baidu.tbadk.editortools.pb.c cVar;
-        fa faVar4;
-        fa faVar5;
+        ey eyVar4;
+        ey eyVar5;
         com.baidu.tbadk.editortools.pb.c cVar2;
         com.baidu.tieba.pb.pb.main.a.f fVar;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
-        fa faVar6;
-        fa faVar7;
+        ey eyVar6;
+        ey eyVar7;
         com.baidu.tbadk.editortools.pb.c cVar3;
-        faVar = this.elO.ekM;
-        if (faVar.aNJ()) {
+        eyVar = this.ejU.eiS;
+        if (eyVar.aNS()) {
             return true;
         }
-        faVar2 = this.elO.ekM;
-        if (faVar2 == null) {
+        eyVar2 = this.ejU.eiS;
+        if (eyVar2 == null) {
             return false;
         }
-        faVar3 = this.elO.ekM;
-        faVar3.iJ(false);
-        cVar = this.elO.ekY;
+        eyVar3 = this.ejU.eiS;
+        eyVar3.iI(false);
+        cVar = this.ejU.eje;
         if (cVar != null) {
-            faVar7 = this.elO.ekM;
-            cVar3 = this.elO.ekY;
-            faVar7.gB(cVar3.Dw());
+            eyVar7 = this.ejU.eiS;
+            cVar3 = this.ejU.eje;
+            eyVar7.gB(cVar3.DU());
         }
-        faVar4 = this.elO.ekM;
-        faVar4.bb(view);
-        faVar5 = this.elO.ekM;
-        faVar5.iJ(true);
-        cVar2 = this.elO.ekY;
-        cVar2.Dz();
-        fVar = this.elO.eks;
+        eyVar4 = this.ejU.eiS;
+        eyVar4.aZ(view);
+        eyVar5 = this.ejU.eiS;
+        eyVar5.iI(true);
+        cVar2 = this.ejU.eje;
+        cVar2.DX();
+        fVar = this.ejU.eiy;
         if (fVar != null) {
-            fVar2 = this.elO.eks;
-            faVar6 = this.elO.ekM;
-            fVar2.iU(faVar6.isFullScreen());
+            fVar2 = this.ejU.eiy;
+            eyVar6 = this.ejU.eiS;
+            fVar2.iT(eyVar6.isFullScreen());
             return true;
         }
         return true;
@@ -68,7 +68,7 @@ class s implements d.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00b7, code lost:
-        if (r5 == r0.aNI()) goto L27;
+        if (r5 == r0.aNR()) goto L27;
      */
     @Override // com.baidu.tieba.pb.a.d.a
     /*
@@ -76,34 +76,34 @@ class s implements d.a {
     */
     public boolean c(View view, MotionEvent motionEvent) {
         com.baidu.tbadk.editortools.pb.c cVar;
-        fa faVar;
+        ey eyVar;
         com.baidu.tbadk.editortools.pb.c cVar2;
-        fa faVar2;
-        fa faVar3;
+        ey eyVar2;
+        ey eyVar3;
         com.baidu.tbadk.editortools.pb.c cVar3;
-        fa faVar4;
-        fa faVar5;
-        fa faVar6;
-        boolean aX;
+        ey eyVar4;
+        ey eyVar5;
+        ey eyVar6;
+        boolean aV;
         if (view != null) {
             if (view.getId() != w.h.richText) {
                 if (view.getId() == w.h.pb_list_item_layout) {
                     if (view.getTag(w.h.tag_from) instanceof SparseArray) {
-                        this.elO.e((SparseArray) view.getTag(w.h.tag_from));
+                        this.ejU.e((SparseArray) view.getTag(w.h.tag_from));
                     }
                 } else if (!(view instanceof TbRichTextView) && view.getId() != w.h.pb_post_header_layout) {
-                    faVar4 = this.elO.ekM;
-                    if (faVar4 != null) {
-                        faVar5 = this.elO.ekM;
-                        if (faVar5.aKl()) {
+                    eyVar4 = this.ejU.eiS;
+                    if (eyVar4 != null) {
+                        eyVar5 = this.ejU.eiS;
+                        if (eyVar5.aKs()) {
                             if (view.getId() != w.h.pb_head_user_info_root) {
-                                faVar6 = this.elO.ekM;
+                                eyVar6 = this.ejU.eiS;
                             }
                             if (view.getTag(w.h.tag_user_id) instanceof String) {
-                                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10630").Z("obj_id", (String) view.getTag(w.h.tag_user_id)));
+                                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10630").aa("obj_id", (String) view.getTag(w.h.tag_user_id)));
                             }
-                            if (this.elO.ekN != null && this.elO.ekN.etF != null) {
-                                this.elO.ekN.etF.onClick(view);
+                            if (this.ejU.eiT != null && this.ejU.eiT.erI != null) {
+                                this.ejU.eiT.erI.onClick(view);
                             }
                         }
                     }
@@ -115,27 +115,27 @@ class s implements d.a {
                     if (sparseArray == null) {
                         return false;
                     }
-                    this.elO.e(sparseArray);
+                    this.ejU.e(sparseArray);
                 }
             } else {
-                aX = this.elO.aX(view);
-                if (aX) {
+                aV = this.ejU.aV(view);
+                if (aV) {
                     return true;
                 }
             }
         }
-        cVar = this.elO.ekY;
+        cVar = this.ejU.eje;
         if (cVar != null) {
-            faVar3 = this.elO.ekM;
-            cVar3 = this.elO.ekY;
-            faVar3.gB(cVar3.Dw());
+            eyVar3 = this.ejU.eiS;
+            cVar3 = this.ejU.eje;
+            eyVar3.gB(cVar3.DU());
         }
-        faVar = this.elO.ekM;
-        faVar.aMK();
-        cVar2 = this.elO.ekY;
-        cVar2.Dz();
-        faVar2 = this.elO.ekM;
-        faVar2.awO();
+        eyVar = this.ejU.eiS;
+        eyVar.aMT();
+        cVar2 = this.ejU.eje;
+        cVar2.DX();
+        eyVar2 = this.ejU.eiS;
+        eyVar2.awH();
         return true;
     }
 }

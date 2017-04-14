@@ -2,18 +2,18 @@ package com.baidu.tieba.enterForum.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-    final /* synthetic */ e bFW;
-    private final /* synthetic */ int bFX;
+    final /* synthetic */ e bFP;
+    private final /* synthetic */ int bFQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar, int i) {
-        this.bFW = eVar;
-        this.bFX = i;
+        this.bFP = eVar;
+        this.bFQ = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bFW.hr(this.bFX);
-        com.baidu.adp.lib.g.h.fM().post(new i(this));
+        this.bFP.hu(this.bFQ);
+        com.baidu.adp.lib.g.h.fR().post(new i(this));
     }
 }

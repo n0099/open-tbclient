@@ -1,53 +1,34 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.SpannableString;
-import android.text.TextWatcher;
-import android.widget.EditText;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.HotTopicChangeActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements TextWatcher {
-    final /* synthetic */ WriteActivity fQG;
+public class ax implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(WriteActivity writeActivity) {
-        this.fQG = writeActivity;
+        this.fSq = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        String str;
-        str = this.fQG.fQw;
-        if (!str.equals(charSequence.toString())) {
-            this.fQG.fQx = i + i3;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        WriteData writeData;
+        List list;
+        writeData = this.fSq.mData;
+        if (writeData.getType() == 7) {
+            TiebaStatic.log("c12016");
         }
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        SpannableString fV;
-        EditText editText;
-        int i;
-        EditText editText2;
-        EditText editText3;
-        int i2;
-        str = this.fQG.fQw;
-        if (!str.equals(editable.toString()) && (fV = com.baidu.tbadk.plugins.a.fV(editable.toString())) != null) {
-            this.fQG.fQw = fV.toString();
-            editText = this.fQG.fkw;
-            editText.setText(fV);
-            i = this.fQG.fQx;
-            editText2 = this.fQG.fkw;
-            if (i <= editText2.getText().length()) {
-                editText3 = this.fQG.fkw;
-                i2 = this.fQG.fQx;
-                editText3.setSelection(i2);
-            }
-        }
+        Activity pageActivity = this.fSq.getPageContext().getPageActivity();
+        list = this.fSq.mList;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicChangeActivityConfig(pageActivity, 25005, list)));
     }
 }

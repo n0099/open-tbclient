@@ -404,7 +404,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.c.a.aZL().aZO();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.bau().bax();
             com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true, false, true);
             PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
             builder2.data = builder.build(false);

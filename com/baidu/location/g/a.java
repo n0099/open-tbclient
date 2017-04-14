@@ -27,7 +27,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends Service implements LLSInterface {
-    static HandlerC0020a a = null;
+    static HandlerC0019a a = null;
     private static long f = 0;
     private Looper c;
     private HandlerThread d;
@@ -36,8 +36,8 @@ public class a extends Service implements LLSInterface {
 
     /* renamed from: com.baidu.location.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0020a extends Handler {
-        public HandlerC0020a(Looper looper) {
+    public class HandlerC0019a extends Handler {
+        public HandlerC0019a(Looper looper) {
             super(looper);
         }
 
@@ -55,13 +55,13 @@ public class a extends Service implements LLSInterface {
                         a.this.c(message);
                         break;
                     case 22:
-                        e.my().b(message);
+                        e.mR().b(message);
                         break;
                     case 28:
-                        e.my().a(true);
+                        e.mR().a(true);
                         break;
                     case w.n.PullToRefresh_mode /* 41 */:
-                        e.my().h();
+                        e.mR().h();
                         break;
                     case 401:
                         try {
@@ -89,42 +89,42 @@ public class a extends Service implements LLSInterface {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
         Log.d("baidu_location_service", "baidu location service register ...");
-        com.baidu.location.a.a.mw().a(message);
-        d.mT();
-        c.mM().d();
-        g.mC().c();
+        com.baidu.location.a.a.mP().a(message);
+        d.nm();
+        c.nf().d();
+        g.mV().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        com.baidu.location.f.c.nl().b();
-        k.nu().b();
-        com.baidu.location.h.c.nv();
-        e.my().c();
-        com.baidu.location.e.a.mS().b();
-        b.mL().b();
-        c.mM().b();
+        com.baidu.location.f.c.nF().b();
+        k.nO().b();
+        com.baidu.location.h.c.nP();
+        e.mR().c();
+        com.baidu.location.e.a.nl().b();
+        b.ne().b();
+        c.nf().b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Message message) {
-        com.baidu.location.a.a.mw().b(message);
+        com.baidu.location.a.a.mP().b(message);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        k.nu().c();
-        d.mT().n();
-        com.baidu.location.f.f.no().e();
-        h.mR().c();
-        c.mM().c();
-        b.mL().c();
-        com.baidu.location.c.a.mK().c();
-        com.baidu.location.f.c.nl().c();
-        e.my().d();
+        k.nO().c();
+        d.nm().n();
+        com.baidu.location.f.f.nI().e();
+        h.nk().c();
+        c.nf().c();
+        b.ne().c();
+        com.baidu.location.c.a.nd().c();
+        com.baidu.location.f.c.nF().c();
+        e.mR().d();
         j.e();
-        com.baidu.location.a.a.mw().b();
-        com.baidu.location.c.e.mO().b();
+        com.baidu.location.a.a.mP().b();
+        com.baidu.location.c.e.nh().b();
         Log.d("baidu_location_service", "baidu location service has stoped ...");
         if (this.e) {
             return;
@@ -134,7 +134,7 @@ public class a extends Service implements LLSInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Message message) {
-        com.baidu.location.a.a.mw().d(message);
+        com.baidu.location.a.a.mP().d(message);
     }
 
     @Override // com.baidu.location.LLSInterface
@@ -156,9 +156,9 @@ public class a extends Service implements LLSInterface {
     @Override // com.baidu.location.LLSInterface
     public void onCreate(Context context) {
         f = System.currentTimeMillis();
-        this.d = i.mF();
+        this.d = i.mY();
         this.c = this.d.getLooper();
-        a = new HandlerC0020a(this.c);
+        a = new HandlerC0019a(this.c);
         this.b = new Messenger(a);
         a.sendEmptyMessage(0);
         Log.d("baidu_location_service", "baidu location service start1 ..." + Process.myPid());

@@ -141,7 +141,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.mNetwork.n(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.mNetwork.uE();
+                                    this.mNetwork.vb();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -210,9 +210,9 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.mNetwork.uZ().vT().isRequestSuccess()) {
+                                        if (this.mNetwork.vw().wq().isRequestSuccess()) {
                                             if (z2) {
-                                                y(file);
+                                                z(file);
                                             }
                                             FileWriter fileWriter3 = new FileWriter(file, false);
                                             try {
@@ -321,7 +321,7 @@ public class FatalErrorService extends BdBaseService {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void y(File file) {
+        private void z(File file) {
             BufferedReader bufferedReader;
             BufferedReader bufferedReader2 = null;
             try {
@@ -381,18 +381,18 @@ public class FatalErrorService extends BdBaseService {
             File[] listFiles;
             boolean z = true;
             try {
-                a(l.cQ(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-                a(l.cQ(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                bax();
-                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.uo().getString("native_crash_dump_version", ""))) {
-                    com.baidu.tbadk.core.sharedPref.b.uo().putString("native_crash_dump_version", TbConfig.getVersion());
+                a(l.cX(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+                a(l.cX(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+                bbg();
+                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.uL().getString("native_crash_dump_version", ""))) {
+                    com.baidu.tbadk.core.sharedPref.b.uL().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
-                File cQ = l.cQ(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                if (cQ != null) {
-                    for (File file : cQ.listFiles()) {
+                File cX = l.cX(TbConfig.FATAL_ERROR_NATIVE_DIR);
+                if (cX != null) {
+                    for (File file : cX.listFiles()) {
                         if (file.length() >= IjkMediaMeta.AV_CH_SIDE_RIGHT && z) {
-                            z(file);
+                            A(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, FatalErrorService.ERROR_TYPE_NATIVE_C, true, true);
                         } else {
                             file.delete();
@@ -407,11 +407,11 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void bax() {
-            File cQ = l.cQ(TbConfig.FATAL_ERROR_ALERT_FILE);
-            if (cQ != null) {
+        private void bbg() {
+            File cX = l.cX(TbConfig.FATAL_ERROR_ALERT_FILE);
+            if (cX != null) {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(cQ)));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(cX)));
                     StringBuffer stringBuffer = new StringBuffer();
                     while (true) {
                         String readLine = bufferedReader.readLine();
@@ -421,7 +421,7 @@ public class FatalErrorService extends BdBaseService {
                             String stringBuffer2 = stringBuffer.toString();
                             BdLog.i("sendLogForAlert log = " + stringBuffer2);
                             BdStatisticsManager.getInstance().alert("alert_crash", stringBuffer2);
-                            cQ.delete();
+                            cX.delete();
                             return;
                         }
                     }
@@ -433,7 +433,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void z(File file) {
+        private void A(File file) {
             FileWriter fileWriter;
             if (file != null && file.exists() && file.isFile() && this.intent != null) {
                 try {
@@ -441,7 +441,7 @@ public class FatalErrorService extends BdBaseService {
                     try {
                         try {
                             fileWriter.append("\n##TIEBA_NATIVE##\n");
-                            a(fileWriter, au.vA(), null);
+                            a(fileWriter, au.vX(), null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
                             a(fileWriter, "android_version", Build.VERSION.RELEASE);
@@ -492,7 +492,7 @@ public class FatalErrorService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.fm();
+                this.mNetwork.fr();
             }
             FatalErrorService.this.mTask = null;
             super.cancel(true);

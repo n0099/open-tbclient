@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 import tbclient.FrsPage.NtSpreadInfo;
 /* loaded from: classes.dex */
-public class z extends bj {
-    public static final BdUniqueId VG = BdUniqueId.gen();
-    public String VH;
-    public String VI;
+public class z extends bi {
+    public static final BdUniqueId VX = BdUniqueId.gen();
+    public String VY;
+    public String VZ;
     public String linkUrl;
     public List<String> pics;
     public Integer position;
@@ -19,19 +19,19 @@ public class z extends bj {
     public void a(NtSpreadInfo ntSpreadInfo) {
         if (ntSpreadInfo != null) {
             this.userName = ntSpreadInfo.user_name;
-            this.VH = ntSpreadInfo.user_avatar;
+            this.VY = ntSpreadInfo.user_avatar;
             this.tips = ntSpreadInfo.tips;
             this.type = ntSpreadInfo.type;
             this.title = ntSpreadInfo.title;
             this.pics = ntSpreadInfo.pics;
             this.linkUrl = ntSpreadInfo.link_url;
             this.position = ntSpreadInfo.position;
-            this.VI = ntSpreadInfo.publish_date;
+            this.VZ = ntSpreadInfo.publish_date;
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return VG;
+        return VX;
     }
 }

@@ -7,74 +7,74 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static g xt;
-    private HashMap<String, a> xr = new HashMap<>();
-    private HashMap<String, b> xs = new HashMap<>();
+    private static g wV;
+    private HashMap<String, a> wT = new HashMap<>();
+    private HashMap<String, b> wU = new HashMap<>();
     private Handler mHandler = new h(this, Looper.getMainLooper());
 
-    public static g fS() {
-        if (xt == null) {
+    public static g fX() {
+        if (wV == null) {
             synchronized (g.class) {
-                if (xt == null) {
-                    xt = new g();
+                if (wV == null) {
+                    wV = new g();
                 }
             }
         }
-        return xt;
+        return wV;
     }
 
     public g() {
         b bVar = new b(this, null);
-        bVar.ao(3000);
-        bVar.ap(120000);
-        bVar.aq(500);
-        this.xs.put("net", bVar);
-        this.xs.put("op", bVar);
-        this.xs.put("stat", bVar);
-        this.xs.put("crash", bVar);
-        this.xs.put("pfmonitor", bVar);
+        bVar.an(3000);
+        bVar.ao(120000);
+        bVar.ap(500);
+        this.wU.put("net", bVar);
+        this.wU.put("op", bVar);
+        this.wU.put("stat", bVar);
+        this.wU.put("crash", bVar);
+        this.wU.put("pfmonitor", bVar);
         b bVar2 = new b(this, null);
-        bVar2.ao(3000);
-        bVar2.ap(120000);
-        bVar2.aq(1500);
-        this.xs.put("file", bVar2);
-        this.xs.put("db", bVar2);
-        this.xs.put("img", bVar2);
-        this.xs.put("voice", bVar2);
-        this.xs.put("error", bVar2);
+        bVar2.an(3000);
+        bVar2.ao(120000);
+        bVar2.ap(1500);
+        this.wU.put("file", bVar2);
+        this.wU.put("db", bVar2);
+        this.wU.put("img", bVar2);
+        this.wU.put("voice", bVar2);
+        this.wU.put("error", bVar2);
         b bVar3 = new b(this, null);
-        bVar3.ao(3000);
-        bVar3.ap(120000);
-        bVar3.aq(1500);
-        this.xs.put("dbg", bVar3);
+        bVar3.an(3000);
+        bVar3.ao(120000);
+        bVar3.ap(1500);
+        this.wU.put("dbg", bVar3);
     }
 
-    public synchronized boolean ak(String str) {
+    public synchronized boolean ag(String str) {
         a aVar;
         boolean z;
-        b bVar = this.xs.get(str);
+        b bVar = this.wU.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.xr.get(str);
+            a aVar2 = this.wT.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a(this, null);
                 aVar3.G(false);
                 aVar3.F(false);
                 aVar3.f(currentTimeMillis);
-                this.xr.put(str, aVar3);
+                this.wT.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.fT()) {
+            if (aVar.fY()) {
                 z = true;
             } else {
-                if (aVar.fX()) {
-                    aVar.an(aVar.fV() + 1);
-                    if (currentTimeMillis - aVar.fU() < bVar.fZ()) {
-                        if (aVar.fV() >= bVar.ga()) {
+                if (aVar.gd()) {
+                    aVar.am(aVar.ga() + 1);
+                    if (currentTimeMillis - aVar.fZ() < bVar.gf()) {
+                        if (aVar.ga() >= bVar.gg()) {
                             aVar.F(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, 99999, str, new Object[0]);
                             a(aVar);
@@ -82,10 +82,10 @@ public class g {
                         }
                     } else {
                         aVar.G(false);
-                        aVar.an(0);
+                        aVar.am(0);
                         aVar.f(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.fW() < bVar.fY()) {
+                } else if (currentTimeMillis - aVar.gb() < bVar.ge()) {
                     aVar.G(true);
                     aVar.e(currentTimeMillis);
                 } else {
@@ -109,68 +109,68 @@ public class g {
     /* loaded from: classes.dex */
     public class a {
         private int mCount;
-        private long xv;
-        private boolean xw;
-        private long xx;
-        private boolean xy;
+        private boolean mIsRunning;
+        private long wX;
+        private long wY;
+        private boolean wZ;
 
         private a() {
-            this.xw = false;
+            this.mIsRunning = false;
             this.mCount = 0;
-            this.xy = false;
+            this.wZ = false;
         }
 
         /* synthetic */ a(g gVar, a aVar) {
             this();
         }
 
-        public boolean fT() {
-            return this.xy;
+        public boolean fY() {
+            return this.wZ;
         }
 
         public void F(boolean z) {
-            this.xy = z;
+            this.wZ = z;
         }
 
-        public long fU() {
-            return this.xx;
+        public long fZ() {
+            return this.wY;
         }
 
         public void e(long j) {
-            this.xx = j;
+            this.wY = j;
         }
 
-        public int fV() {
+        public int ga() {
             return this.mCount;
         }
 
-        public void an(int i) {
+        public void am(int i) {
             this.mCount = i;
         }
 
-        public long fW() {
-            return this.xv;
+        public long gb() {
+            return this.wX;
         }
 
         public void f(long j) {
-            this.xv = j;
+            this.wX = j;
         }
 
-        public boolean fX() {
-            return this.xw;
+        public boolean gd() {
+            return this.mIsRunning;
         }
 
         public void G(boolean z) {
-            this.xw = z;
+            this.mIsRunning = z;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int xA;
-        private int xB;
-        private int xz;
+        private int xa;
+        private int xb;
+        private int xc;
 
         private b() {
         }
@@ -179,28 +179,28 @@ public class g {
             this();
         }
 
-        public int fY() {
-            return this.xz;
+        public int ge() {
+            return this.xa;
+        }
+
+        public void an(int i) {
+            this.xa = i;
+        }
+
+        public int gf() {
+            return this.xb;
         }
 
         public void ao(int i) {
-            this.xz = i;
+            this.xb = i;
         }
 
-        public int fZ() {
-            return this.xA;
+        public int gg() {
+            return this.xc;
         }
 
         public void ap(int i) {
-            this.xA = i;
-        }
-
-        public int ga() {
-            return this.xB;
-        }
-
-        public void aq(int i) {
-            this.xB = i;
+            this.xc = i;
         }
     }
 }

@@ -16,8 +16,8 @@ public class ActivityPendingTransitionFactory {
     public static int RES_NORMAL_IN_FROM_BOTTOM = w.a.in_from_bottom;
     public static int RES_NORMAL_OUT_TO_RIGHT = w.a.out_to_right;
     public static int RES_NORMAL_OUT_TO_BOTTOM = w.a.out_to_bottom;
-    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = w.a.big_imageview_in;
-    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = w.a.big_imageview_out;
+    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = w.a.anim_alpha_0_to_1_duration_300;
+    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = w.a.anim_alpha_1_to_0_duration_300;
     public static int RES_CUSTOM_FADE_IN = 0;
     public static int RES_CUSTOM_FADE_OUT = 0;
     public static int RES_CUSTOM_IN_FROM_RIGHT = 0;

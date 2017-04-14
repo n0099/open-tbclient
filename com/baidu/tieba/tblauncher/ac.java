@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ z fyG;
+    final /* synthetic */ z fAp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(z zVar) {
-        this.fyG = zVar;
+        this.fAp = zVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
-        com.baidu.tbadk.core.sharedPref.b.uo().putBoolean("enter_forum_edit_mode", false);
+        com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("enter_forum_edit_mode", false);
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.b.a;
-import com.baidu.tbadk.core.data.bq;
+import com.baidu.tbadk.core.data.bp;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
@@ -17,54 +17,54 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ b ewF;
+    final /* synthetic */ b euK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.ewF = bVar;
+        this.euK = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bq bqVar;
-        bq bqVar2;
+        bp bpVar;
+        bp bpVar2;
         ImageView imageView;
-        bq bqVar3;
-        bq bqVar4;
-        bq bqVar5;
+        bp bpVar3;
+        bp bpVar4;
+        bp bpVar5;
         if (view != null) {
-            if (view != this.ewF.ewB && view != this.ewF.ewC) {
-                imageView = this.ewF.amg;
+            if (view != this.euK.euG && view != this.euK.euH) {
+                imageView = this.euK.amu;
                 if (view != imageView) {
-                    if (view == this.ewF.ewD) {
-                        if (com.baidu.adp.lib.util.k.hv()) {
-                            bqVar3 = this.ewF.ewE;
-                            if (bqVar3 != null) {
-                                bqVar4 = this.ewF.ewE;
-                                if (bqVar4.channelId > 0) {
+                    if (view == this.euK.euI) {
+                        if (com.baidu.adp.lib.util.k.hA()) {
+                            bpVar3 = this.euK.euJ;
+                            if (bpVar3 != null) {
+                                bpVar4 = this.euK.euJ;
+                                if (bpVar4.channelId > 0) {
                                     if (TbadkCoreApplication.isLogin()) {
-                                        bqVar5 = this.ewF.ewE;
-                                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0032a.a(bqVar5.channelId, this.ewF.bcF.getUniqueId())));
+                                        bpVar5 = this.euK.euJ;
+                                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.C0031a.a(bpVar5.channelId, this.euK.bcy.getUniqueId())));
                                         return;
                                     }
-                                    bg.aH(this.ewF.bcF.getActivity());
+                                    bg.aJ(this.euK.bcy.getActivity());
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        this.ewF.bcF.showToast(w.l.no_network_guide);
+                        this.euK.bcy.showToast(w.l.no_network_guide);
                         return;
                     }
                     return;
                 }
             }
-            bqVar = this.ewF.ewE;
-            if (bqVar != null) {
-                Activity activity = this.ewF.bcF.getActivity();
-                bqVar2 = this.ewF.ewE;
-                this.ewF.bcF.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(activity, bqVar2.channelId, 2)));
+            bpVar = this.euK.euJ;
+            if (bpVar != null) {
+                Activity activity = this.euK.bcy.getActivity();
+                bpVar2 = this.euK.euJ;
+                this.euK.bcy.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(activity, bpVar2.channelId, 2)));
             }
             TiebaStatic.log(new as("c11923").s("obj_id", 1));
         }

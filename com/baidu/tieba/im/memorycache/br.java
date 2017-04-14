@@ -6,20 +6,20 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public br(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ImMessageCenterPojo Y;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (Y = b.asj().Y("-1004", -5)) != null) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (Y = b.asc().Y("-1004", -5)) != null) {
             Object data = customResponsedMessage.getData();
             if (data == null) {
                 Y.setUnread_count(0);

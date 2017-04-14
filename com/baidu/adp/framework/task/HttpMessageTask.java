@@ -18,7 +18,7 @@ public class HttpMessageTask extends MessageTask {
         GET,
         POST;
 
-        /* JADX DEBUG: Replace access to removed values field (rx) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qV) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HTTP_METHOD[] valuesCustom() {
             HTTP_METHOD[] valuesCustom = values();
@@ -93,7 +93,7 @@ public class HttpMessageTask extends MessageTask {
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.K(this.mCmd);
+        return FrameHelper.I(this.mCmd);
     }
 
     public e getConnectTimeOut() {
@@ -107,19 +107,19 @@ public class HttpMessageTask extends MessageTask {
     /* loaded from: classes.dex */
     public static class a {
         private int mCmd;
-        private String ry;
-        private boolean rz;
+        private String qW;
+        private boolean qX;
 
         public int getCmd() {
             return this.mCmd;
         }
 
-        public String dx() {
-            return this.ry;
+        public String dw() {
+            return this.qW;
         }
 
-        public boolean dy() {
-            return this.rz;
+        public boolean dx() {
+            return this.qX;
         }
     }
 }

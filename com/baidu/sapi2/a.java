@@ -35,4 +35,9 @@ final class a extends com.baidu.sapi2.share.b {
     protected void a(SapiAccount sapiAccount, SapiAccount sapiAccount2) {
         sapiAccount.a(sapiAccount2);
     }
+
+    @Override // com.baidu.sapi2.share.b
+    protected void d(SapiAccount sapiAccount) {
+        sapiAccount.b();
+    }
 }

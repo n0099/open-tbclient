@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af extends CustomMessageListener {
-    final /* synthetic */ ad dmj;
+    final /* synthetic */ ad dkI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(ad adVar, int i) {
         super(i);
-        this.dmj = adVar;
+        this.dkI = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,9 +22,9 @@ public class af extends CustomMessageListener {
         l lVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
             Intent intent = (Intent) customResponsedMessage.getData();
-            lVar = this.dmj.dmg;
+            lVar = this.dkI.dkF;
             if (lVar != null) {
-                lVar2 = this.dmj.dmg;
+                lVar2 = this.dkI.dkF;
                 lVar2.onNewIntent(intent);
             }
         }

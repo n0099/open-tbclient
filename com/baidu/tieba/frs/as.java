@@ -1,29 +1,14 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import java.util.HashMap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
-public class as {
-    private HashMap<String, Drawable> bOe = new HashMap<>();
-
-    public Drawable x(int i, int i2) {
-        String ag = ag(i, i2);
-        Drawable drawable = this.bOe.get(ag);
-        if (drawable == null) {
-            Drawable x = com.baidu.tbadk.core.util.aq.x(i2, i);
-            this.bOe.put(ag, x);
-            return x.getConstantState().newDrawable();
-        }
-        return drawable.getConstantState().newDrawable();
-    }
-
-    private String ag(int i, int i2) {
-        return String.valueOf(i) + "_" + i2;
-    }
-
-    public void destory() {
-        if (!this.bOe.isEmpty()) {
-            this.bOe.clear();
-        }
+class as extends BdAsyncTask<Void, Void, Void> {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        com.baidu.tbadk.util.y.a(com.baidu.tieba.tbadkCore.l.WIRE, FrsPageResIdl.class);
+        return null;
     }
 }

@@ -4,17 +4,17 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements BdListView.f {
-    final /* synthetic */ g dlQ;
+    final /* synthetic */ g dkp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.dlQ = gVar;
+        this.dkp = gVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.f
     public void a(BdListView bdListView) {
         AtMessageActivity atMessageActivity;
-        atMessageActivity = this.dlQ.dlG;
-        atMessageActivity.JO();
+        atMessageActivity = this.dkp.dkf;
+        atMessageActivity.Ko();
     }
 }

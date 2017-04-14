@@ -9,48 +9,48 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends GetTplStokenCallback {
-    final /* synthetic */ h SM;
-    private final /* synthetic */ h.a SN;
+    final /* synthetic */ h Te;
+    private final /* synthetic */ h.a Tf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, h.a aVar) {
-        this.SM = hVar;
-        this.SN = aVar;
+        this.Te = hVar;
+        this.Tf = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onSuccess(GetTplStokenResult getTplStokenResult) {
         if (getTplStokenResult == null) {
-            if (this.SN != null) {
-                this.SN.onFailed();
+            if (this.Tf != null) {
+                this.Tf.onFailed();
                 return;
             }
             return;
         }
         Map<String, String> map = getTplStokenResult.tplStokenMap;
         if (map == null || map.size() <= 0) {
-            if (this.SN != null) {
-                this.SN.onFailed();
+            if (this.Tf != null) {
+                this.Tf.onFailed();
                 return;
             }
             return;
         }
         String str = map.get(TbConfig.PassConfig.TPL);
         if (StringUtils.isNULL(str)) {
-            if (this.SN != null) {
-                this.SN.onFailed();
+            if (this.Tf != null) {
+                this.Tf.onFailed();
             }
-        } else if (this.SN != null) {
-            this.SN.onSuccess(str);
+        } else if (this.Tf != null) {
+            this.Tf.onSuccess(str);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     public void onFailure(GetTplStokenResult getTplStokenResult) {
-        if (this.SN != null) {
-            this.SN.onFailed();
+        if (this.Tf != null) {
+            this.Tf.onFailed();
         }
     }
 

@@ -20,15 +20,15 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ l aAV;
-    private final /* synthetic */ c aAW;
-    private final /* synthetic */ com.baidu.tbadk.editortools.j aAX;
+    final /* synthetic */ l aBl;
+    private final /* synthetic */ c aBm;
+    private final /* synthetic */ com.baidu.tbadk.editortools.j aBn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, c cVar, com.baidu.tbadk.editortools.j jVar) {
-        this.aAV = lVar;
-        this.aAW = cVar;
-        this.aAX = jVar;
+        this.aBl = lVar;
+        this.aBm = cVar;
+        this.aBn = jVar;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -42,15 +42,15 @@ class m implements com.baidu.tbadk.editortools.b {
         String str4;
         boolean z;
         boolean a3;
-        if (this.aAW != null && this.aAW.CP() != null && aVar != null) {
+        if (this.aBm != null && this.aBm.Dn() != null && aVar != null) {
             switch (aVar.code) {
                 case 4:
-                    this.aAW.fs((String) aVar.data);
-                    this.aAV.aAT = false;
+                    this.aBm.fy((String) aVar.data);
+                    this.aBl.aBj = false;
                     return;
                 case 5:
-                    if (!this.aAX.CS()) {
-                        TiebaStatic.eventStat(this.aAX.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                    if (!this.aBn.Dq()) {
+                        TiebaStatic.eventStat(this.aBn.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
                         return;
                     }
                     return;
@@ -80,143 +80,143 @@ class m implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.aAW.getContext().showToast(w.l.over_limit_tip);
-                    this.aAV.aAT = true;
+                    this.aBm.getContext().showToast(w.l.over_limit_tip);
+                    this.aBl.aBj = true;
                     return;
                 case 8:
-                    a2 = this.aAV.a(this.aAW.getContext().getPageContext(), 11001);
+                    a2 = this.aBl.a(this.aBm.getContext().getPageContext(), 11001);
                     if (a2) {
-                        this.aAW.a((String) null, (WriteData) null);
+                        this.aBm.a((String) null, (WriteData) null);
                         return;
                     }
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.aAW.setVoiceModel((VoiceData.VoiceModel) aVar.data);
+                        this.aBm.setVoiceModel((VoiceData.VoiceModel) aVar.data);
                     }
-                    this.aAX.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
+                    this.aBn.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
                     return;
                 case 11:
-                    this.aAW.setVoiceModel(null);
-                    this.aAX.b(new com.baidu.tbadk.editortools.a(2, 6, null));
+                    this.aBm.setVoiceModel(null);
+                    this.aBn.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                     return;
                 case 14:
-                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.aAW.getWriteImagesInfo().getChosedFiles() == null || this.aAW.getWriteImagesInfo().getChosedFiles().size() == 0) {
-                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.aAW.getContext().getActivity(), this.aAW.getWriteImagesInfo().toJsonString(), true, true);
-                        str = this.aAV.from;
+                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.aBm.getWriteImagesInfo().getChosedFiles() == null || this.aBm.getWriteImagesInfo().getChosedFiles().size() == 0) {
+                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.aBm.getContext().getActivity(), this.aBm.getWriteImagesInfo().toJsonString(), true, true);
+                        str = this.aBl.from;
                         if (!StringUtils.isNull(str, true)) {
                             Intent intent = albumActivityConfig.getIntent();
-                            str4 = this.aAV.from;
+                            str4 = this.aBl.from;
                             intent.putExtra("from", str4);
                         }
-                        str2 = this.aAV.forumId;
+                        str2 = this.aBl.forumId;
                         if (!StringUtils.isNull(str2, true)) {
                             Intent intent2 = albumActivityConfig.getIntent();
-                            str3 = this.aAV.forumId;
+                            str3 = this.aBl.forumId;
                             intent2.putExtra("forum_id", str3);
                         }
                         albumActivityConfig.setRequestCode(12002);
-                        if (a.Dm().getStatus() == 1) {
+                        if (a.DK().getStatus() == 1) {
                             albumActivityConfig.setRequestFrom(2);
-                            this.aAW.eH(1);
-                            if (this.aAW.getWriteImagesInfo() != null) {
-                                this.aAW.getWriteImagesInfo().setMaxImagesAllowed(1);
+                            this.aBm.eK(1);
+                            if (this.aBm.getWriteImagesInfo() != null) {
+                                this.aBm.getWriteImagesInfo().setMaxImagesAllowed(1);
                             }
                         } else {
-                            this.aAW.eH(10);
-                            if (this.aAW.getWriteImagesInfo() != null) {
-                                this.aAW.getWriteImagesInfo().setMaxImagesAllowed(10);
+                            this.aBm.eK(10);
+                            if (this.aBm.getWriteImagesInfo() != null) {
+                                this.aBm.getWriteImagesInfo().setMaxImagesAllowed(10);
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
                         return;
                     }
-                    this.aAW.DE();
+                    this.aBm.Ec();
                     return;
                 case 15:
                     int intValue = ((Integer) aVar.data).intValue();
-                    if (this.aAW.getWriteImagesInfo() != null && this.aAW.getWriteImagesInfo().getChosedFiles() != null && (size = this.aAW.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.aAW.getContext().getActivity(), 12012, this.aAW.getWriteImagesInfo(), intValue)));
+                    if (this.aBm.getWriteImagesInfo() != null && this.aBm.getWriteImagesInfo().getChosedFiles() != null && (size = this.aBm.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.aBm.getContext().getActivity(), 12012, this.aBm.getWriteImagesInfo(), intValue)));
                         return;
                     }
                     return;
                 case 16:
-                    z = this.aAV.aAT;
+                    z = this.aBl.aBj;
                     if (z) {
-                        this.aAW.getContext().showToast(w.l.over_limit_tip);
+                        this.aBm.getContext().showToast(w.l.over_limit_tip);
                     }
-                    a3 = this.aAV.a(this.aAW.getContext().getPageContext(), 11025);
+                    a3 = this.aBl.a(this.aBm.getContext().getPageContext(), 11025);
                     if (a3) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aAW.getContext().getActivity(), 12004, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aBm.getContext().getActivity(), 12004, true)));
                         return;
                     }
                     return;
                 case 18:
                     if (aVar.data != null) {
-                        this.aAW.Dv();
+                        this.aBm.DT();
                         return;
                     }
-                    switch (this.aAW.DA()) {
+                    switch (this.aBm.DY()) {
                         case 0:
-                            this.aAW.Dt();
+                            this.aBm.DR();
                             return;
                         case 1:
                         default:
                             return;
                         case 2:
-                            this.aAW.Ds();
+                            this.aBm.DQ();
                             return;
                     }
                 case 20:
-                    this.aAW.CP().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                    com.baidu.tieba.tbadkCore.location.c.bij().li(true);
+                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(2, 7, null));
+                    com.baidu.tieba.tbadkCore.location.d.biU().ll(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                     return;
                 case 27:
-                    VideoInfo videoInfo = this.aAW.getVideoInfo();
+                    VideoInfo videoInfo = this.aBm.getVideoInfo();
                     if (videoInfo != null && videoInfo.isAvaliable()) {
-                        this.aAW.CP().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
+                        this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
                         return;
-                    } else if (this.aAW.getContext() != null && this.aAW.getContext().getResources() != null) {
-                        Resources resources = this.aAW.getContext().getResources();
+                    } else if (this.aBm.getContext() != null && this.aBm.getContext().getResources() != null) {
+                        Resources resources = this.aBm.getContext().getResources();
                         if (XiaoyingUtil.isXiaoyingInstalled()) {
                             if (XiaoyingUtil.isXiaoyingForbidden()) {
-                                XiaoyingUtil.showGoPluginDetailDialog(this.aAW.getContext().getPageContext(), resources.getString(w.l.plugin_video_not_active), resources.getString(w.l.setup));
+                                XiaoyingUtil.showGoPluginDetailDialog(this.aBm.getContext().getPageContext(), resources.getString(w.l.plugin_video_not_active), resources.getString(w.l.setup));
                                 return;
                             } else {
-                                XiaoyingUtil.startXiaoying(this.aAW.getContext().getActivity());
+                                XiaoyingUtil.startXiaoying(this.aBm.getContext().getActivity());
                                 return;
                             }
                         }
-                        XiaoyingUtil.showGoPluginDetailDialog(this.aAW.getContext().getPageContext(), resources.getString(w.l.plugin_video_install_tips), resources.getString(w.l.plugin_go_install));
+                        XiaoyingUtil.showGoPluginDetailDialog(this.aBm.getContext().getPageContext(), resources.getString(w.l.plugin_video_install_tips), resources.getString(w.l.plugin_go_install));
                         return;
                     } else {
                         return;
                     }
                 case 29:
-                    this.aAW.CP().b(new com.baidu.tbadk.editortools.a(2, 19, null));
-                    this.aAW.CP().b(new com.baidu.tbadk.editortools.a(1, 2, null));
-                    this.aAW.Dx();
+                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                    this.aBm.DV();
                     return;
                 case 32:
-                    this.aAW.CP().b(new com.baidu.tbadk.editortools.a(1, 11, null));
+                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(1, 11, null));
                     return;
                 case 36:
-                    a = this.aAV.a(this.aAW.getContext().getPageContext(), 11040);
+                    a = this.aBl.a(this.aBm.getContext().getPageContext(), 11040);
                     if (a) {
-                        this.aAW.Dr();
+                        this.aBm.DP();
                         return;
                     }
                     return;
                 case w.n.PullToRefresh_headerTextColor /* 40 */:
                     if ((aVar.data instanceof String) || aVar.data == null) {
-                        this.aAW.setGraffitiFileName((String) aVar.data);
+                        this.aBm.setGraffitiFileName((String) aVar.data);
                         return;
                     }
                     return;
                 case 43:
-                    if (!com.baidu.tbadk.plugins.a.a(this.aAW.getContext().getPageContext(), true, false)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotSelectActivityConfig(this.aAW.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB)));
+                    if (!com.baidu.tbadk.plugins.a.a(this.aBm.getContext().getPageContext(), true, false)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotSelectActivityConfig(this.aBm.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB)));
                         return;
                     }
                     return;

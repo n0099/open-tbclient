@@ -4,15 +4,15 @@ import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements FrsCommonImageLayout.b {
-    final /* synthetic */ au btC;
+    final /* synthetic */ au btu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(au auVar) {
-        this.btC = auVar;
+        this.btu = auVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.b
-    public void dm(int i) {
-        this.btC.Sr();
+    public void dp(int i) {
+        this.btu.SP();
     }
 }

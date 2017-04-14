@@ -11,13 +11,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SubPbModel ewk;
+    final /* synthetic */ SubPbModel eup;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc(SubPbModel subPbModel, int i, int i2) {
         super(i, i2);
-        this.ewk = subPbModel;
+        this.eup = subPbModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -59,11 +59,11 @@ public class bc extends com.baidu.adp.framework.listener.a {
         TbPageContext tbPageContext2;
         long j4 = 0;
         String str5 = null;
-        bdUniqueId = this.ewk.unique_id;
+        bdUniqueId = this.eup.unique_id;
         if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-            this.ewk.isLoading = false;
+            this.eup.isLoading = false;
             if (responsedMessage.hasError() && responsedMessage.getError() == 4) {
-                tbPageContext2 = this.ewk.aaI;
+                tbPageContext2 = this.eup.aaX;
                 tbPageContext2.getPageActivity().finish();
             }
             if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -72,7 +72,7 @@ public class bc extends com.baidu.adp.framework.listener.a {
                 SubPbHttpResponseMessage subPbHttpResponseMessage = (SubPbHttpResponseMessage) responsedMessage;
                 if (subPbHttpResponseMessage.isTreatDelPage()) {
                     if (!subPbHttpResponseMessage.hasError()) {
-                        this.ewk.f(subPbHttpResponseMessage.pbFloorData);
+                        this.eup.f(subPbHttpResponseMessage.pbFloorData);
                         return;
                     }
                     return;
@@ -89,44 +89,44 @@ public class bc extends com.baidu.adp.framework.listener.a {
                 SubPbSocketResponseMessage subPbSocketResponseMessage = (SubPbSocketResponseMessage) responsedMessage;
                 if (subPbSocketResponseMessage.isTreatDelPage()) {
                     if (!subPbSocketResponseMessage.hasError()) {
-                        this.ewk.f(subPbSocketResponseMessage.pbFloorData);
+                        this.eup.f(subPbSocketResponseMessage.pbFloorData);
                         return;
                     }
                     return;
                 }
             }
-            arrayList = this.ewk.ewc;
+            arrayList = this.eup.euh;
             if (arrayList != null) {
-                arrayList4 = this.ewk.ewc;
+                arrayList4 = this.eup.euh;
                 if (arrayList4.size() > 0) {
                     try {
-                        arrayList6 = this.ewk.ewc;
+                        arrayList6 = this.eup.euh;
                         for (int size = arrayList6.size() - 1; size >= 0; size--) {
-                            arrayList7 = this.ewk.ewc;
+                            arrayList7 = this.eup.euh;
                             com.baidu.tieba.pb.data.j jVar5 = (com.baidu.tieba.pb.data.j) arrayList7.get(size);
-                            z4 = this.ewk.ewe;
+                            z4 = this.eup.euj;
                             if (z4) {
-                                jVar4 = this.ewk.etQ;
+                                jVar4 = this.eup.erT;
                                 jVar4.c(jVar5, true);
                             } else {
-                                jVar3 = this.ewk.etQ;
+                                jVar3 = this.eup.erT;
                                 jVar3.b(jVar5, true);
                             }
                         }
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
-                    arrayList5 = this.ewk.ewc;
+                    arrayList5 = this.eup.euh;
                     arrayList5.clear();
                 }
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
-            bVar = this.ewk.bFr;
+            bVar = this.eup.bFk;
             if (bVar == null) {
-                this.ewk.bFr = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                this.eup.bFk = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
             }
-            bVar2 = this.ewk.bFr;
+            bVar2 = this.eup.bFk;
             if (bVar2 != null) {
                 if (error == 0) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -144,15 +144,15 @@ public class bc extends com.baidu.adp.framework.listener.a {
                         j3 = j;
                         i = downSize2;
                     }
-                    bVar3 = this.ewk.bFr;
+                    bVar3 = this.eup.bFk;
                     bVar3.a(z, true, error, errorString, i, j3, j2);
-                    this.ewk.bFr = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
-                    this.ewk.bFr = null;
+                    this.eup.bFk = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                    this.eup.bFk = null;
                 }
                 if (responsedMessage == null || ((!(responsedMessage instanceof SubPbSocketResponseMessage) && !(responsedMessage instanceof SubPbHttpResponseMessage)) || responsedMessage.getError() != 0)) {
-                    aVar = this.ewk.evY;
+                    aVar = this.eup.eud;
                     if (aVar != null) {
-                        aVar2 = this.ewk.evY;
+                        aVar2 = this.eup.eud;
                         aVar2.a(false, error, errorString, null);
                     }
                 } else if (responsedMessage.getCmd() == 302002 || responsedMessage.getCmd() == 1002100) {
@@ -161,64 +161,64 @@ public class bc extends com.baidu.adp.framework.listener.a {
                     } else {
                         jVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (jVar.aJN().errorno.intValue() != 0) {
-                        aVar5 = this.ewk.evY;
+                    if (jVar.aJU().errorno.intValue() != 0) {
+                        aVar5 = this.eup.eud;
                         if (aVar5 != null) {
-                            aVar6 = this.ewk.evY;
-                            aVar6.a(false, jVar.eiv.errorno.intValue(), jVar.eiv.errmsg, null);
+                            aVar6 = this.eup.eud;
+                            aVar6.a(false, jVar.egC.errorno.intValue(), jVar.egC.errmsg, null);
                             return;
                         }
                         return;
                     }
-                    if (jVar.JN() != null && jVar.JN().getAuthor() != null) {
-                        str5 = jVar.JN().getAuthor().getUserId();
-                        if (com.baidu.tbadk.core.util.x.q(jVar.aJO().getAuthor().getIconInfo())) {
-                            arrayList2 = this.ewk.ewa;
+                    if (jVar.Kn() != null && jVar.Kn().getAuthor() != null) {
+                        str5 = jVar.Kn().getAuthor().getUserId();
+                        if (com.baidu.tbadk.core.util.x.q(jVar.aJV().getAuthor().getIconInfo())) {
+                            arrayList2 = this.eup.euf;
                             if (arrayList2 != null) {
-                                MetaData author = jVar.aJO().getAuthor();
-                                arrayList3 = this.ewk.ewa;
+                                MetaData author = jVar.aJV().getAuthor();
+                                arrayList3 = this.eup.euf;
                                 author.setIconInfo(arrayList3);
                             }
                         }
                     }
-                    z2 = this.ewk.ewe;
+                    z2 = this.eup.euj;
                     if (!z2) {
-                        for (int i2 = 0; i2 < jVar.aJS().size(); i2++) {
-                            boolean equals = str5.equals(jVar.aJS().get(i2).getAuthor().getUserId());
-                            tbPageContext = this.ewk.aaI;
-                            jVar.aJS().get(i2).b(tbPageContext, equals);
+                        for (int i2 = 0; i2 < jVar.aJZ().size(); i2++) {
+                            boolean equals = str5.equals(jVar.aJZ().get(i2).getAuthor().getUserId());
+                            tbPageContext = this.eup.aaX;
+                            jVar.aJZ().get(i2).b(tbPageContext, equals);
                         }
                     }
-                    if (jVar.aJO() != null) {
-                        this.ewk.postID = jVar.aJO().getId();
+                    if (jVar.aJV() != null) {
+                        this.eup.postID = jVar.aJV().getId();
                     }
-                    if (jVar.JN() != null) {
-                        this.ewk.threadID = jVar.JN().getId();
-                        this.ewk.eiu = jVar.nH();
-                        this.ewk.evX = jVar.JN().rZ();
+                    if (jVar.Kn() != null) {
+                        this.eup.threadID = jVar.Kn().getId();
+                        this.eup.egB = jVar.oe();
+                        this.eup.euc = jVar.Kn().sx();
                     }
-                    str = this.ewk.evX;
+                    str = this.eup.euc;
                     if (str != null) {
-                        str2 = this.ewk.postID;
+                        str2 = this.eup.postID;
                         if (str2 != null) {
-                            str3 = this.ewk.evX;
-                            str4 = this.ewk.postID;
+                            str3 = this.eup.euc;
+                            str4 = this.eup.postID;
                             if (str3.equals(str4)) {
-                                this.ewk.eiu = true;
+                                this.eup.egB = true;
                             }
                         }
                     }
-                    z3 = this.ewk.ewe;
+                    z3 = this.eup.euj;
                     if (!z3) {
-                        this.ewk.d(jVar);
+                        this.eup.d(jVar);
                     } else {
-                        this.ewk.e(jVar);
+                        this.eup.e(jVar);
                     }
-                    aVar3 = this.ewk.evY;
+                    aVar3 = this.eup.eud;
                     if (aVar3 != null) {
-                        boolean z5 = this.ewk.aOF();
-                        aVar4 = this.ewk.evY;
-                        jVar2 = this.ewk.etQ;
+                        boolean z5 = this.eup.aOO();
+                        aVar4 = this.eup.eud;
+                        jVar2 = this.eup.erT;
                         aVar4.a(z5, error, errorString, jVar2);
                     }
                 }

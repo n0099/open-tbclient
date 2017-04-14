@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ChangeSystemPhotoActivity aIs;
+    final /* synthetic */ ChangeSystemPhotoActivity aII;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.aIs = changeSystemPhotoActivity;
+        this.aII = changeSystemPhotoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,43 +24,43 @@ class a extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
         ChangeSystemPhotoActivity.a aVar4;
         super.onLoaded((a) aVar, str, i);
         if (aVar != null) {
-            if (this.aIs.aIq == null) {
-                this.aIs.aIq = new com.baidu.tbadk.core.view.a(this.aIs.getPageContext());
-                this.aIs.aIq.c(null);
+            if (this.aII.aIG == null) {
+                this.aII.aIG = new com.baidu.tbadk.core.view.a(this.aII.getPageContext());
+                this.aII.aIG.c(null);
             }
-            this.aIs.aIq.aI(true);
-            z = this.aIs.aIp;
+            this.aII.aIG.aK(true);
+            z = this.aII.aIF;
             if (z) {
-                this.aIs.aIn = aVar;
-                aVar2 = this.aIs.aIm;
+                this.aII.aID = aVar;
+                aVar2 = this.aII.aIC;
                 if (aVar2 != null) {
-                    aVar4 = this.aIs.aIm;
+                    aVar4 = this.aII.aIC;
                     aVar4.cancel();
                 }
-                this.aIs.aIm = new ChangeSystemPhotoActivity.a(this.aIs, null);
-                aVar3 = this.aIs.aIm;
+                this.aII.aIC = new ChangeSystemPhotoActivity.a(this.aII, null);
+                aVar3 = this.aII.aIC;
                 aVar3.execute(new String[0]);
                 return;
             }
-            Bitmap kN = aVar.kN();
-            if (kN != null) {
-                c = this.aIs.c(TbConfig.PERSON_USER_PIC_TEMP_FILE, kN);
+            Bitmap kR = aVar.kR();
+            if (kR != null) {
+                c = this.aII.c(TbConfig.PERSON_USER_PIC_TEMP_FILE, kR);
                 if (!c) {
-                    if (this.aIs.aIq != null) {
-                        this.aIs.aIq.aI(false);
+                    if (this.aII.aIG != null) {
+                        this.aII.aIG.aK(false);
                         return;
                     }
                     return;
                 }
-                if (this.aIs.aIq != null) {
-                    this.aIs.aIq.aI(false);
+                if (this.aII.aIG != null) {
+                    this.aII.aIG.aK(false);
                 }
                 Intent intent = new Intent();
                 intent.putExtra("upload_image_type", 2);
-                this.aIs.setResult(-1, intent);
-                this.aIs.finish();
-            } else if (this.aIs.aIq != null) {
-                this.aIs.aIq.aI(false);
+                this.aII.setResult(-1, intent);
+                this.aII.finish();
+            } else if (this.aII.aIG != null) {
+                this.aII.aIG.aK(false);
             }
         }
     }

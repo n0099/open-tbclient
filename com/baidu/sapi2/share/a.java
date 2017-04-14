@@ -40,10 +40,12 @@ public final class a {
 
     public void a(SapiAccount sapiAccount) {
         if (SapiUtils.isValidAccount(sapiAccount)) {
+            b.a().d(sapiAccount);
             if (TextUtils.isEmpty(sapiAccount.app)) {
                 sapiAccount.app = SapiUtils.getAppName(g.context);
             }
             h.a(sapiAccount);
+            h.a(sapiAccount, false);
             h.c(sapiAccount);
             h.d(sapiAccount);
             if (g.loginShareStrategy() != LoginShareStrategy.DISABLED && sapiAccount.getAccountType() != AccountType.INCOMPLETE_USER && !c()) {
@@ -200,11 +202,11 @@ public final class a {
     }
 
     public static void b() {
-        if (h.h()) {
+        if (h.g()) {
             if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
                 f();
             }
-        } else if (!h.i() && g.loginShareStrategy() == LoginShareStrategy.SILENT) {
+        } else if (!h.h() && g.loginShareStrategy() == LoginShareStrategy.SILENT) {
             f();
         }
     }
@@ -266,7 +268,7 @@ public final class a {
                                         }
                                     }
                                     AnonymousClass3.this.a.remove(0);
-                                    if (!AnonymousClass3.this.a.isEmpty() && a.h.f().size() < 5) {
+                                    if (!AnonymousClass3.this.a.isEmpty() && a.h.e().size() < 5) {
                                         AnonymousClass3.this.b.post(this);
                                     } else {
                                         AnonymousClass3.this.c.quit();
@@ -304,11 +306,11 @@ public final class a {
         Bundle bundle = new Bundle();
         d.a(g.context, g.loginShareStrategy(), shareModel);
         bundle.putParcelable(b, shareModel);
-        if (h.r() != null) {
-            bundle.putString(c, c.a(g.context, h.r().toString()));
+        if (h.s() != null) {
+            bundle.putString(c, c.a(g.context, h.s().toString()));
         }
         bundle.putSerializable(d, g.environment);
-        bundle.putInt(e, 93);
+        bundle.putInt(e, SapiAccountManager.VERSION_CODE);
         obtain.writeBundle(bundle);
         return obtain;
     }

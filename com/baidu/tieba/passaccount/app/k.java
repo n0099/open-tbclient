@@ -1,29 +1,32 @@
 package com.baidu.tieba.passaccount.app;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.bi;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.SocialLoginActivityConfig;
+import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends CustomMessageListener {
-    final /* synthetic */ LoginActivity eeH;
+public class k extends Handler {
+    final /* synthetic */ LoginActivity ecR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(LoginActivity loginActivity, int i) {
-        super(i);
-        this.eeH = loginActivity;
+    public k(LoginActivity loginActivity) {
+        this.ecR = loginActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bi)) {
-            bi biVar = (bi) customResponsedMessage.getData();
-            if (biVar.XI == 0) {
-                this.eeH.aIr();
-            } else {
-                this.eeH.nc(biVar.errorMsg);
-            }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        if (message.what == SocialType.WEIXIN.getType()) {
+            com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_weixin_start", 0, "", new Object[0]);
+            this.ecR.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WXEntryActivityConfig(this.ecR.getPageContext().getPageActivity(), 230016)));
+            return;
         }
+        com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_qq_start", 0, "", new Object[0]);
+        this.ecR.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SocialLoginActivityConfig(this.ecR.getPageContext().getPageActivity(), SocialType.getSocialType(message.what), 230012)));
     }
 }

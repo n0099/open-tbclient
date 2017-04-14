@@ -5,16 +5,16 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.widget.vote.VoteView;
-import com.baidu.tieba.frs.cx;
+import com.baidu.tieba.frs.cz;
 import com.baidu.tieba.w;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class al extends as {
-    private VoteView bTP;
+    private VoteView bTD;
 
     public al(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -28,32 +28,32 @@ public class al extends as {
             findViewById = ((ViewStub) this.mRootView.findViewById(w.h.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.bTP = (VoteView) findViewById;
-            this.bTP.setWidth(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds560));
-            this.bTP.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds20));
-            this.bTP.setDescTextColorResId(w.e.cp_cont_b);
-            this.bTP.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds8));
-            this.bTP.setDescTopMargin(0);
+            this.bTD = (VoteView) findViewById;
+            this.bTD.setWidth(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds560));
+            this.bTD.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds20));
+            this.bTD.setDescTextColorResId(w.e.cp_cont_b);
+            this.bTD.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds8));
+            this.bTD.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.bTY.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds38);
+                ((ViewGroup.MarginLayoutParams) this.bTM.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds38);
             } catch (ClassCastException e) {
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.as
-    protected void id(int i) {
-        if (this.bTP != null) {
-            this.bTP.onChangeSkinType(i);
+    protected void ig(int i) {
+        if (this.bTD != null) {
+            this.bTD.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.as
-    protected void t(bj bjVar) {
-        if (bjVar != null && bjVar.rF() != null) {
-            long longValue = bjVar.rF().total_poll.longValue();
+    protected void t(bi biVar) {
+        if (biVar != null && biVar.sd() != null) {
+            long longValue = biVar.sd().total_poll.longValue();
             long j = longValue < 0 ? 0L : longValue;
-            List<PollOption> list = bjVar.rF().options;
+            List<PollOption> list = biVar.sd().options;
             if (list != null && !list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
                 for (PollOption pollOption : list) {
@@ -61,19 +61,19 @@ public class al extends as {
                         if (linkedList.size() >= 3) {
                             break;
                         }
-                        cx cxVar = new cx();
-                        cxVar.dS(true);
-                        cxVar.a(linkedList.size() + 1, pollOption, j);
-                        linkedList.add(cxVar);
+                        cz czVar = new cz();
+                        czVar.dU(true);
+                        czVar.a(linkedList.size() + 1, pollOption, j);
+                        linkedList.add(czVar);
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.bTP.setBoallotsForListView(linkedList);
-                    this.bTP.onChangeSkinType(getSkinType());
-                    this.bTP.setVisibility(0);
+                    this.bTD.setBoallotsForListView(linkedList);
+                    this.bTD.onChangeSkinType(getSkinType());
+                    this.bTD.setVisibility(0);
                     return;
                 }
-                this.bTP.setVisibility(8);
+                this.bTD.setVisibility(8);
             }
         }
     }

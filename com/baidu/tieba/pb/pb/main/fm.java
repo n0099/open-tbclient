@@ -1,41 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.w;
+import android.widget.CompoundButton;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fm implements View.OnClickListener {
-    private final /* synthetic */ boolean elQ;
-    final /* synthetic */ fa etn;
+public class fm implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fm(fa faVar, boolean z) {
-        this.etn = faVar;
-        this.elQ = z;
+    public fm(ey eyVar) {
+        this.erv = eyVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        PbActivity pbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity2;
-        dialog = this.etn.erG;
-        if (dialog != null) {
-            dialog2 = this.etn.erG;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.etn.erG;
-                pbActivity2 = this.etn.eka;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity2.getPageContext());
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        List list;
+        List<com.baidu.tieba.pb.pb.main.view.a> list2;
+        String str;
+        String str2;
+        if (z) {
+            this.erv.eqi = (String) compoundButton.getTag();
+            list = this.erv.eoZ;
+            if (list != null) {
+                list2 = this.erv.eoZ;
+                for (com.baidu.tieba.pb.pb.main.view.a aVar : list2) {
+                    String str3 = (String) aVar.getTag();
+                    if (str3 != null) {
+                        str = this.erv.eqi;
+                        if (str != null) {
+                            str2 = this.erv.eqi;
+                            if (!str3.equals(str2)) {
+                                aVar.setChecked(false);
+                            }
+                        }
+                    }
+                }
             }
-        }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            pbActivity = this.etn.eka;
-            pbActivity.a(this.elQ, (String) sparseArray.get(w.h.tag_user_mute_mute_userid), sparseArray);
         }
     }
 }

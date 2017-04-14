@@ -1,39 +1,39 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-class aa implements cb {
-    final /* synthetic */ FrsActivity bNU;
+class aa implements cd {
+    final /* synthetic */ FrsActivity bNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FrsActivity frsActivity) {
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.cb
-    public void a(cc ccVar) {
+    @Override // com.baidu.tieba.frs.cd
+    public void a(ce ceVar) {
     }
 
-    @Override // com.baidu.tieba.frs.cb
-    public void a(int i, int i2, cj cjVar) {
+    @Override // com.baidu.tieba.frs.cd
+    public void a(int i, int i2, cl clVar) {
         if (i != 1) {
-            com.baidu.tieba.card.cc.Sv().cN(false);
+            com.baidu.tieba.card.cc.ST().cP(false);
         }
-        this.bNU.bMN.ZL();
-        if (i == 1 || i == 2) {
-            this.bNU.bMN.dD(true);
-            this.bNU.bMN.dC(false);
+        this.bNJ.bMD.aaj();
+        if (i == 1) {
+            this.bNJ.bMD.dF(true);
+            this.bNJ.bMD.dE(false);
         } else {
-            this.bNU.bMN.dE(true);
-            this.bNU.bMN.dC(true);
+            this.bNJ.bMD.dG(true);
+            this.bNJ.bMD.dE(true);
         }
-        this.bNU.YT();
-        this.bNU.bMY.a(i, i2, cjVar);
+        this.bNJ.Zp();
+        this.bNJ.bMO.a(i, i2, clVar);
     }
 
-    @Override // com.baidu.tieba.frs.cb
+    @Override // com.baidu.tieba.frs.cd
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.cb
-    public void MQ() {
+    @Override // com.baidu.tieba.frs.cd
+    public void Np() {
     }
 }

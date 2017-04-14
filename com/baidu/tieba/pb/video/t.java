@@ -6,11 +6,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.cz;
+import com.baidu.tieba.pb.pb.main.cx;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class t extends cz<u, v> {
-    public View.OnClickListener aOB;
+public class t extends cx<u, v> {
+    public View.OnClickListener aOR;
 
     public t(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -26,20 +26,20 @@ public class t extends cz<u, v> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.cz, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.pb.pb.main.cx, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, u uVar, v vVar) {
         super.onFillViewHolder(i, view, viewGroup, uVar, vVar);
         this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-        this.eka.getLayoutMode().ah(this.mSkinType == 1);
-        this.eka.getLayoutMode().t(view);
-        if (this.aOB != null) {
-            view.setOnClickListener(this.aOB);
+        this.eig.getLayoutMode().aj(this.mSkinType == 1);
+        this.eig.getLayoutMode().t(view);
+        if (this.aOR != null) {
+            view.setOnClickListener(this.aOR);
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aOB = onClickListener;
+        this.aOR = onClickListener;
     }
 }

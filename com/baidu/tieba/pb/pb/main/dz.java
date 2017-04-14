@@ -1,39 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dz implements View.OnClickListener {
-    private final /* synthetic */ String ejm;
-    private final /* synthetic */ String ejn;
-    private final /* synthetic */ String ejo;
-    final /* synthetic */ dy eoW;
+    final /* synthetic */ dw ene;
+    private final /* synthetic */ String enf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dz(dy dyVar, String str, String str2, String str3) {
-        this.eoW = dyVar;
-        this.ejm = str;
-        this.ejn = str2;
-        this.ejo = str3;
+    public dz(dw dwVar, String str) {
+        this.ene = dwVar;
+        this.enf = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ejm) && !StringUtils.isNull(this.ejn)) {
-            if (com.baidu.adp.lib.util.i.he()) {
-                context = this.eoW.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ejm) + "," + this.ejn, this.ejo, this.ejo, context.getString(w.l.app_info_for_map));
-                context2 = this.eoW.mContext;
-                com.baidu.tbadk.browser.f.O(context2, format);
-                return;
-            }
-            this.eoW.eka.showToast(w.l.neterror);
+        if (!StringUtils.isNull(this.enf) && com.baidu.adp.lib.util.k.hA()) {
+            TiebaStatic.log("c10854");
+            com.baidu.tbadk.browser.f.T(this.ene.eig.getActivity(), this.enf);
         }
     }
 }

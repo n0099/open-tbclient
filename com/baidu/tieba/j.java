@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.s;
 /* loaded from: classes.dex */
 class j implements s.a {
-    final /* synthetic */ i aPR;
+    final /* synthetic */ i aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.aPR = iVar;
+        this.aQh = iVar;
     }
 
     @Override // com.baidu.tieba.s.a
@@ -23,17 +23,17 @@ class j implements s.a {
         LogoActivity logoActivity4;
         LogoActivity logoActivity5;
         if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) == null) {
-            logoActivity = this.aPR.aPQ;
-            logoActivity2 = this.aPR.aPQ;
+            logoActivity = this.aQh.aQg;
+            logoActivity2 = this.aQh.aQg;
             logoActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(logoActivity2.getPageContext().getPageActivity()).createNormalCfg(1)));
         } else {
-            boolean z = com.baidu.tbadk.core.sharedPref.b.uo().getBoolean("has_shown_app_guide", false);
-            logoActivity4 = this.aPR.aPQ;
-            logoActivity5 = this.aPR.aPQ;
+            boolean z = com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("has_shown_app_guide", false);
+            logoActivity4 = this.aQh.aQg;
+            logoActivity5 = this.aQh.aQg;
             logoActivity4.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(logoActivity5.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, z ? 1 : 3)));
         }
-        com.baidu.adp.lib.g.k.fN().f(new k(this));
-        logoActivity3 = this.aPR.aPQ;
+        com.baidu.adp.lib.g.k.fS().f(new k(this));
+        logoActivity3 = this.aQh.aQg;
         logoActivity3.finish();
     }
 }

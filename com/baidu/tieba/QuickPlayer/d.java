@@ -8,7 +8,7 @@ import android.os.RemoteException;
 import com.baidu.tieba.QuickPlayer.b;
 /* loaded from: classes.dex */
 public interface d extends IInterface {
-    b Jz() throws RemoteException;
+    b JZ() throws RemoteException;
 
     /* loaded from: classes.dex */
     public static abstract class a extends Binder implements d {
@@ -24,7 +24,7 @@ public interface d extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
                 return (d) queryLocalInterface;
             }
-            return new C0050a(iBinder);
+            return new C0049a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -37,9 +37,9 @@ public interface d extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService");
-                    b Jz = Jz();
+                    b JZ = JZ();
                     parcel2.writeNoException();
-                    parcel2.writeStrongBinder(Jz != null ? Jz.asBinder() : null);
+                    parcel2.writeStrongBinder(JZ != null ? JZ.asBinder() : null);
                     return true;
                 case 1598968902:
                     parcel2.writeString("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService");
@@ -51,10 +51,10 @@ public interface d extends IInterface {
 
         /* renamed from: com.baidu.tieba.QuickPlayer.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        private static class C0050a implements d {
+        private static class C0049a implements d {
             private IBinder mRemote;
 
-            C0050a(IBinder iBinder) {
+            C0049a(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
@@ -64,7 +64,7 @@ public interface d extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.d
-            public b Jz() throws RemoteException {
+            public b JZ() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

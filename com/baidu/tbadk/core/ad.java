@@ -1,13 +1,7 @@
 package com.baidu.tbadk.core;
-
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements CustomMessageTask.CustomRunnable<Intent> {
+public class ad implements com.baidu.adp.framework.client.socket.link.j {
     final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,9 +9,9 @@ public class ad implements CustomMessageTask.CustomRunnable<Intent> {
         this.this$0 = tbadkCoreApplication;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(com.baidu.adp.base.a.cb().cc() == null ? this.this$0.getApp() : com.baidu.adp.base.a.cb().cc(), customMessage.getData());
-        return null;
+    @Override // com.baidu.adp.framework.client.socket.link.j
+    /* renamed from: do */
+    public void mo2do() {
+        com.baidu.tbadk.util.c.Hh().a(new ae(this));
     }
 }

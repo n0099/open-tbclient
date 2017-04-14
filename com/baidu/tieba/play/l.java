@@ -8,11 +8,11 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ c eWb;
+    final /* synthetic */ c eUa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar) {
-        this.eWb = cVar;
+        this.eUa = cVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0058, code lost:
@@ -35,55 +35,55 @@ public class l implements Runnable {
         View view6;
         View view7;
         ProgressBar progressBar;
-        c.InterfaceC0071c interfaceC0071c;
-        c.InterfaceC0071c interfaceC0071c2;
+        c.InterfaceC0070c interfaceC0070c;
+        c.InterfaceC0070c interfaceC0070c2;
         v.d dVar;
         v.d dVar2;
         int i2;
-        if (this.eWb.aSL.getCurrentPosition() > 100) {
-            this.eWb.dxS = true;
-            view = this.eWb.bXQ;
+        if (this.eUa.aTb.getCurrentPosition() > 100) {
+            this.eUa.dup = true;
+            view = this.eUa.dub;
             view.setVisibility(8);
-            view2 = this.eWb.aSU;
+            view2 = this.eUa.aTj;
             view2.setVisibility(8);
-            view3 = this.eWb.bXW;
+            view3 = this.eUa.cIH;
             view3.setVisibility(8);
-            view4 = this.eWb.eVO;
+            view4 = this.eUa.eTN;
             view4.setVisibility(8);
-            tbImageView = this.eWb.bXR;
+            tbImageView = this.eUa.duk;
             tbImageView.setVisibility(8);
-            this.eWb.aza();
-            i = this.eWb.akD;
+            this.eUa.ayE();
+            i = this.eUa.akR;
             if (i != 1) {
-                i2 = this.eWb.akD;
+                i2 = this.eUa.akR;
             }
-            view5 = this.eWb.dxx;
+            view5 = this.eUa.duh;
             if (view5 != null) {
-                view6 = this.eWb.dxx;
+                view6 = this.eUa.duh;
                 view6.setVisibility(0);
-                view7 = this.eWb.eVQ;
+                view7 = this.eUa.eTP;
                 view7.setVisibility(0);
-                progressBar = this.eWb.eVP;
+                progressBar = this.eUa.eTO;
                 progressBar.setVisibility(8);
-                interfaceC0071c = this.eWb.eVX;
-                if (interfaceC0071c != null) {
-                    interfaceC0071c2 = this.eWb.eVX;
-                    interfaceC0071c2.je(false);
+                interfaceC0070c = this.eUa.eTW;
+                if (interfaceC0070c != null) {
+                    interfaceC0070c2 = this.eUa.eTW;
+                    interfaceC0070c2.jd(false);
                 }
             }
-            videoListMediaControllerView = this.eWb.dxH;
+            videoListMediaControllerView = this.eUa.dua;
             videoListMediaControllerView.showProgress();
-            this.eWb.azb();
-            dVar = this.eWb.dxP;
+            this.eUa.ayF();
+            dVar = this.eUa.dul;
             if (dVar != null) {
-                dVar2 = this.eWb.dxP;
-                dVar2.onPrepared(this.eWb.aSL.getPlayer());
+                dVar2 = this.eUa.dul;
+                dVar2.onPrepared(this.eUa.aTb.getPlayer());
                 return;
             }
             return;
         }
-        com.baidu.adp.lib.g.h fM = com.baidu.adp.lib.g.h.fM();
-        runnable = this.eWb.dyq;
-        fM.postDelayed(runnable, 20L);
+        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
+        runnable = this.eUa.duN;
+        fR.postDelayed(runnable, 20L);
     }
 }

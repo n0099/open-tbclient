@@ -5,37 +5,37 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class at implements View.OnClickListener {
-    final /* synthetic */ UserIconLayout amr;
+    final /* synthetic */ UserIconLayout amF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(UserIconLayout userIconLayout) {
-        this.amr = userIconLayout;
+        this.amF = userIconLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bj bjVar;
-        bj bjVar2;
-        bj bjVar3;
+        bi biVar;
+        bi biVar2;
+        bi biVar3;
         Context context;
-        bj bjVar4;
-        bj bjVar5;
-        bjVar = this.amr.ain;
-        if (bjVar != null) {
-            bjVar2 = this.amr.ain;
-            if (bjVar2.sU() != null) {
-                bjVar3 = this.amr.ain;
-                if (bjVar3.sU().channelId > 0) {
+        bi biVar4;
+        bi biVar5;
+        biVar = this.amF.aiB;
+        if (biVar != null) {
+            biVar2 = this.amF.aiB;
+            if (biVar2.ts() != null) {
+                biVar3 = this.amF.aiB;
+                if (biVar3.ts().channelId > 0) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    context = this.amr.mContext;
-                    bjVar4 = this.amr.ain;
-                    long j = bjVar4.sU().channelId;
-                    bjVar5 = this.amr.ain;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context, j, bjVar5.sU().mCurrentPage)));
+                    context = this.amF.mContext;
+                    biVar4 = this.amF.aiB;
+                    long j = biVar4.ts().channelId;
+                    biVar5 = this.amF.aiB;
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context, j, biVar5.ts().mCurrentPage)));
                 }
             }
         }

@@ -3,22 +3,22 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c aDB = EF();
-    protected FragmentTabIndicator aDC;
+    protected c aDR = Fd();
+    protected FragmentTabIndicator aDS;
 
-    public abstract c EF();
+    public abstract c Fd();
 
-    public abstract FragmentTabIndicator aN(Context context);
+    public abstract FragmentTabIndicator aP(Context context);
 
     public abstract boolean isAvailable();
 
-    public void EE() {
+    public void Fc() {
     }
 
-    public void cC() {
+    public void cB() {
     }
 
-    public c EG() {
-        return this.aDB;
+    public c Fe() {
+        return this.aDR;
     }
 }

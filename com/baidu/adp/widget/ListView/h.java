@@ -4,21 +4,21 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Runnable {
-    final /* synthetic */ BdListView IF;
+    final /* synthetic */ BdListView If;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BdListView bdListView) {
-        this.IF = bdListView;
+        this.If = bdListView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BdListView.i iVar;
         BdListView.i iVar2;
-        iVar = this.IF.mPullRefresh;
+        iVar = this.If.mPullRefresh;
         if (iVar != null) {
-            iVar2 = this.IF.mPullRefresh;
-            iVar2.lm();
+            iVar2 = this.If.mPullRefresh;
+            iVar2.lq();
         }
     }
 }

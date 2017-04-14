@@ -1,90 +1,159 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
-import java.util.List;
+import android.os.Parcelable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class ep extends y.a {
-    private TbPageContext aaI;
-    View.OnClickListener akq;
-    public View devider;
-    public TextView eqh;
-    public TextView eqi;
-    public TbImageView eqj;
-    public TextView eqk;
-    public TextView eql;
-    public TextView eqm;
-    public TextView eqn;
-    public TbImageView eqo;
-    public LinearLayout eqp;
-    private com.baidu.tbadk.core.data.at eqq;
+public class ep {
+    private boolean ell;
+    private boolean eln;
+    private com.baidu.tieba.pb.data.f elz;
+    private String eoB;
+    private boolean eoC;
+    private boolean eoD;
+    private Parcelable eoE;
 
-    public ep(TbPageContext tbPageContext, View view) {
-        super(view);
-        this.akq = new eq(this);
-        this.aaI = tbPageContext;
-        this.eqh = (TextView) view.findViewById(w.h.textview_recommend_title);
-        this.eqi = (TextView) view.findViewById(w.h.textview_recommend_option_btn);
-        this.eqj = (TbImageView) view.findViewById(w.h.novel_cover);
-        this.eqk = (TextView) view.findViewById(w.h.novel_title);
-        this.eql = (TextView) view.findViewById(w.h.novel_author);
-        this.eqm = (TextView) view.findViewById(w.h.novel_read_number);
-        this.eqn = (TextView) view.findViewById(w.h.novel_read_btn);
-        this.eqp = (LinearLayout) view.findViewById(w.h.novel_recommend_item_layout);
-        this.eqo = (TbImageView) view.findViewById(w.h.novel_subscription);
-        this.eqo.setDefaultResource(w.g.transparent_bg);
-        this.eqo.setDefaultBgResource(w.g.transparent_bg);
-        this.eqo.setDefaultErrorResource(w.g.transparent_bg);
-        this.devider = view.findViewById(w.h.recommend_devider);
-        this.eqn.setOnClickListener(this.akq);
-        this.eqp.setOnClickListener(this.akq);
-        this.eqi.setOnClickListener(this.akq);
+    static {
+        MessageManager.getInstance().registerListener(new eq(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
+        MessageManager.getInstance().registerListener(new er(CmdConfigCustom.PB_RECORDER_RESET_CMD));
+        MessageManager.getInstance().registerListener(new es(CmdConfigCustom.CMD_LIKE_FORUM));
+        MessageManager.getInstance().registerListener(new et(CmdConfigCustom.CMD_UNLIKE_FORUM));
+        MessageManager.getInstance().registerListener(new eu(CmdConfigCustom.CMD_UPDATE_PENDANT));
     }
 
-    public void a(com.baidu.tbadk.core.data.at atVar) {
-        if (atVar != null) {
-            this.eqq = atVar;
-            this.eqh.setText(atVar.WS);
-            this.eqi.setText(atVar.WT);
-            this.eqo.c(atVar.WX, 10, false);
-            this.eqj.c(atVar.UX, 10, false);
-            this.eqn.setText(atVar.WW);
-            this.eqk.setText(atVar.UW);
-            List<String> list = atVar.WV;
-            if (list != null) {
-                switch (list.size()) {
-                    case 1:
-                        if (list.get(0) != null) {
-                            this.eql.setText(list.get(0));
-                            break;
-                        }
-                        break;
-                    case 2:
-                        if (list.get(0) != null) {
-                            this.eql.setText(list.get(0));
-                        }
-                        if (list.get(1) != null) {
-                            this.eqm.setText(list.get(1));
-                            break;
-                        }
-                        break;
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a {
+        private static ep eoF = new ep(null);
+    }
+
+    public static ep aMK() {
+        return a.eoF;
+    }
+
+    private ep() {
+        this.eoB = null;
+        this.eoC = false;
+        this.elz = null;
+        this.eoD = false;
+        this.eoE = null;
+        this.eln = true;
+        this.ell = false;
+    }
+
+    /* synthetic */ ep(ep epVar) {
+        this();
+    }
+
+    public void O(String str, boolean z) {
+        this.eoC = false;
+        if (z) {
+            str = null;
+        }
+        if (str == null || str.length() < 1) {
+            reset();
+            this.eoB = null;
+        } else if (!str.equals(this.eoB)) {
+            reset();
+            this.eoB = str;
+        } else {
+            this.eoC = true;
+        }
+    }
+
+    public com.baidu.tieba.pb.data.f getPbData() {
+        if (!this.eoC) {
+            this.eoD = false;
+            return null;
+        } else if (this.elz != null && this.elz.aJz() != null && this.elz.aJz().size() > 0) {
+            this.eoD = true;
+            com.baidu.tieba.pb.data.f fVar = this.elz;
+            this.elz = null;
+            return fVar;
+        } else {
+            this.eoD = false;
+            this.elz = null;
+            return null;
+        }
+    }
+
+    public Parcelable aML() {
+        if (this.eoD) {
+            this.eoD = false;
+            Parcelable parcelable = this.eoE;
+            this.eoE = null;
+            return parcelable;
+        }
+        this.eoE = null;
+        return null;
+    }
+
+    public boolean aLC() {
+        return this.eln;
+    }
+
+    public boolean aMM() {
+        return this.ell;
+    }
+
+    public boolean a(com.baidu.tieba.pb.data.f fVar, Parcelable parcelable, boolean z, boolean z2) {
+        this.eoC = false;
+        if (this.eoB == null) {
+            reset();
+            return false;
+        } else if (fVar == null) {
+            reset();
+            return false;
+        } else if (fVar.aJz() == null) {
+            reset();
+            return false;
+        } else if (fVar.aJz().size() < 1) {
+            reset();
+            return false;
+        } else if (parcelable == null) {
+            reset();
+            return false;
+        } else {
+            this.elz = fVar;
+            this.eoD = false;
+            this.eoE = parcelable;
+            this.eln = z;
+            this.ell = z2;
+            return true;
+        }
+    }
+
+    public void reset() {
+        this.eoC = false;
+        this.elz = null;
+        this.eoD = false;
+        this.eoE = null;
+    }
+
+    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && this.elz != null && this.elz.aJw() != null) {
+            Object data = customResponsedMessage.getData();
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.c(this.elz.aJw().getId(), 0L)) {
+                this.elz.aJw().setLike(i);
+            }
+        }
+    }
+
+    public void a(com.baidu.tbadk.data.j jVar) {
+        if (jVar != null && this.elz != null && this.elz.aJz() != null && this.elz.aJz().size() > 0) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (!StringUtils.isNull(currentAccount)) {
+                int size = this.elz.aJz().size();
+                for (int i = 0; i < size; i++) {
+                    if (this.elz.aJz().get(i) != null && this.elz.aJz().get(i).getAuthor() != null && currentAccount.equals(this.elz.aJz().get(i).getAuthor().getUserId()) && this.elz.aJz().get(i).getAuthor().getPendantData() != null) {
+                        this.elz.aJz().get(i).getAuthor().getPendantData().cr(jVar.qB());
+                        this.elz.aJz().get(i).getAuthor().getPendantData().N(jVar.CO());
+                    }
                 }
             }
-            com.baidu.tbadk.core.util.aq.c(this.eqh, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eqi, w.e.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eqk, w.e.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eql, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eqm, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eqn, w.e.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.aq.k(this.devider, w.e.cp_bg_line_b);
-            com.baidu.tbadk.core.util.aq.j(this.eqn, w.g.btn_pb_novel_recommend_read);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11441").Z("obj_id", this.eqq.bookId));
         }
     }
 }

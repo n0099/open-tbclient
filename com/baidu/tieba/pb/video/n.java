@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.video;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.pb.pb.main.PbActivity;
@@ -9,39 +9,39 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements c.d {
-    final /* synthetic */ d ewS;
+    final /* synthetic */ d euY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(d dVar) {
-        this.ewS = dVar;
+        this.euY = dVar;
     }
 
     @Override // com.baidu.tieba.play.c.d
-    public void aPo() {
+    public void aPx() {
         PbActivity pbActivity;
-        bj bjVar;
-        bj bjVar2;
+        bi biVar;
+        bi biVar2;
         PbActivity pbActivity2;
-        bj bjVar3;
-        bj bjVar4;
-        bj bjVar5;
-        bj bjVar6;
-        pbActivity = this.ewS.eka;
+        bi biVar3;
+        bi biVar4;
+        bi biVar5;
+        bi biVar6;
+        pbActivity = this.euY.eig;
         if (pbActivity != null) {
-            bjVar = this.ewS.ewK;
-            if (bjVar != null) {
-                bjVar2 = this.ewS.ewK;
-                if (!StringUtils.isNull(bjVar2.getId())) {
-                    pbActivity2 = this.ewS.eka;
-                    bjVar3 = this.ewS.ewK;
-                    pbActivity2.nn(bjVar3.getId());
-                    bjVar4 = this.ewS.ewJ;
-                    if (bjVar4 != null) {
+            biVar = this.euY.euQ;
+            if (biVar != null) {
+                biVar2 = this.euY.euQ;
+                if (!StringUtils.isNull(biVar2.getId())) {
+                    pbActivity2 = this.euY.eig;
+                    biVar3 = this.euY.euQ;
+                    pbActivity2.nt(biVar3.getId());
+                    biVar4 = this.euY.euP;
+                    if (biVar4 != null) {
                         long j = 0;
-                        bjVar5 = this.ewS.ewJ;
-                        if (bjVar5.sU() != null) {
-                            bjVar6 = this.ewS.ewJ;
-                            j = bjVar6.sU().channelId;
+                        biVar5 = this.euY.euP;
+                        if (biVar5.ts() != null) {
+                            biVar6 = this.euY.euP;
+                            j = biVar6.ts().channelId;
                         }
                         TiebaStatic.log(new as("c11921").g("obj_id", j));
                     }

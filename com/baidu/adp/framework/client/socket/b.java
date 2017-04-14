@@ -3,11 +3,11 @@ package com.baidu.adp.framework.client.socket;
 public interface b {
     boolean b(boolean z, String str);
 
-    void ct();
+    void cs();
 
-    void cu();
+    void ct();
 
     int getCmd();
 
-    void z(String str);
+    void u(String str);
 }

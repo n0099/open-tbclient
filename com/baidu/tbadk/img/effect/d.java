@@ -35,12 +35,12 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.El().eQ(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.EJ().eT(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.resizeBitmap(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap fK(String str) throws Exception {
+    public Bitmap fQ(String str) throws Exception {
         return b(BitmapHelper.loadResizedBitmap(str, this.maxWidth, this.maxHeight), true);
     }
 

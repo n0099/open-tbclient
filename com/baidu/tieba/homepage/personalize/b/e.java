@@ -9,21 +9,21 @@ import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends cf<com.baidu.tieba.card.data.m> {
-    final /* synthetic */ d czq;
+    final /* synthetic */ d cxQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.czq = dVar;
+        this.cxQ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.cf
     public void a(View view, com.baidu.tieba.card.data.m mVar) {
         com.baidu.tieba.card.t tVar;
-        tVar = this.czq.czo;
-        if (tVar.bsF == view) {
+        tVar = this.cxQ.cxO;
+        if (tVar.bsx == view) {
             as asVar = new as("c11824");
-            asVar.Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+            asVar.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(asVar);
         }
     }

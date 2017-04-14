@@ -1,12 +1,7 @@
 package com.baidu.tbadk.core;
-
-import android.location.Address;
-import android.text.TextUtils;
-import com.baidu.adp.lib.d.a;
-import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements a.InterfaceC0004a {
+public class w implements com.baidu.adp.framework.client.socket.link.f {
     final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,23 +9,8 @@ public class w implements a.InterfaceC0004a {
         this.this$0 = tbadkCoreApplication;
     }
 
-    @Override // com.baidu.adp.lib.d.a.InterfaceC0004a
-    public void b(int i, String str, Address address) {
-        if (i == 0 && address != null) {
-            try {
-                String valueOf = String.valueOf(address.getLatitude());
-                String valueOf2 = String.valueOf(address.getLongitude());
-                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    this.this$0.setLocationLat(valueOf);
-                    this.this$0.setLocationLng(valueOf2);
-                    this.this$0.setLocationPos(address.getAddressLine(0));
-                    com.baidu.tieba.recapp.c.a.aZL().setLatitude(valueOf);
-                    com.baidu.tieba.recapp.c.a.aZL().setLongitude(valueOf2);
-                    com.baidu.tieba.recapp.c.a.aZL().cw(System.currentTimeMillis());
-                }
-            } catch (IllegalStateException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    @Override // com.baidu.adp.framework.client.socket.link.f
+    public boolean dl() {
+        return !this.this$0.isExitAppCloseWebSocket();
     }
 }

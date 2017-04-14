@@ -1,26 +1,19 @@
 package com.baidu.tieba.passaccount.app;
 
-import com.baidu.sapi2.SapiWebView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class h implements SapiWebView.OnBackCallback {
-    final /* synthetic */ ForgetPwdActivity eey;
+class h implements Runnable {
+    final /* synthetic */ f ecS;
+    private final /* synthetic */ AccountData ecT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(ForgetPwdActivity forgetPwdActivity) {
-        this.eey = forgetPwdActivity;
+    public h(f fVar, AccountData accountData) {
+        this.ecS = fVar;
+        this.ecT = accountData;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
-    public void onBack() {
-        SapiWebView sapiWebView;
-        SapiWebView sapiWebView2;
-        sapiWebView = this.eey.eew;
-        if (sapiWebView.canGoBack()) {
-            sapiWebView2 = this.eey.eew;
-            sapiWebView2.goBack();
-            return;
-        }
-        this.eey.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.a.b.b(this.ecT);
     }
 }

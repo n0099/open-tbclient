@@ -4,20 +4,20 @@ import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends s<Void> {
-    final /* synthetic */ c dgC;
-    private final /* synthetic */ String uq;
+    final /* synthetic */ c deZ;
+    private final /* synthetic */ String val$key;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, String str) {
-        this.dgC = cVar;
-        this.uq = str;
+        this.deZ = cVar;
+        this.val$key = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: LT */
+    /* renamed from: Mw */
     public Void doInBackground() {
-        this.dgC.atC().remove(this.uq);
+        this.deZ.atv().remove(this.val$key);
         return null;
     }
 }

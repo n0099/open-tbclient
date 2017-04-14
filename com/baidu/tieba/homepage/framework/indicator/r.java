@@ -16,91 +16,92 @@ import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class r {
-    private boolean aAr = false;
-    private View bJx;
-    private ViewGroup cwF;
-    private a cwG;
-    private q cwH;
-    private Animation cwy;
-    private Animation cwz;
+    private boolean aAH = false;
+    private View bJq;
+    private Animation cuY;
+    private Animation cuZ;
+    private ViewGroup cvf;
+    private a cvg;
+    private q cvh;
     private View rootView;
     private int topHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aiW();
+        void aiQ();
     }
 
     public r(ViewGroup viewGroup) {
-        this.cwF = viewGroup;
+        this.cvf = viewGroup;
     }
 
     public void a(a aVar) {
-        this.cwG = aVar;
+        this.cvg = aVar;
     }
 
     public boolean isShowing() {
-        return this.aAr;
+        return this.aAH;
     }
 
     public void a(Context context, List<TagInfo> list, int i) {
-        if (!this.aAr) {
-            this.aAr = true;
+        if (!this.aAH) {
+            this.aAH = true;
             this.rootView = b(context, list, i);
-            this.cwF.addView(this.rootView);
+            this.cvf.addView(this.rootView);
             aq.k(this.rootView, w.e.common_color_10186);
-            this.rootView.startAnimation(bw(context));
+            this.rootView.startAnimation(bp(context));
         }
     }
 
-    public void bv(Context context) {
+    public void bo(Context context) {
         if (this.rootView != null) {
-            this.rootView.startAnimation(bx(context));
+            this.rootView.startAnimation(bq(context));
         }
     }
 
     private View b(Context context, List<TagInfo> list, int i) {
         View inflate = LayoutInflater.from(context).inflate(w.j.scroll_fragment_more, (ViewGroup) null);
-        this.bJx = inflate.findViewById(w.h.more_top_view);
-        jJ(this.topHeight);
+        this.bJq = inflate.findViewById(w.h.more_top_view);
+        jK(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(w.h.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.cwH = new q(context, i);
-        this.cwH.aZ(list);
-        gridView.setAdapter((ListAdapter) this.cwH);
+        this.cvh = new q(context, i);
+        this.cvh.aY(list);
+        gridView.setAdapter((ListAdapter) this.cvh);
         gridView.setOnItemClickListener(new s(this, context));
         return inflate;
     }
 
-    public void jJ(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bJx.getLayoutParams();
-        layoutParams.height = i;
-        this.bJx.setLayoutParams(layoutParams);
-    }
-
-    private Animation bw(Context context) {
-        if (this.cwy == null) {
-            this.cwy = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_enter);
-        }
-        return this.cwy;
-    }
-
-    private Animation bx(Context context) {
-        if (this.cwz == null) {
-            this.cwz = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_exit);
-        }
-        this.cwz.setAnimationListener(new t(this));
-        return this.cwz;
-    }
-
     public void jK(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bJq.getLayoutParams();
+        layoutParams.height = i;
+        this.bJq.setLayoutParams(layoutParams);
+    }
+
+    private Animation bp(Context context) {
+        if (this.cuY == null) {
+            this.cuY = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_enter);
+        }
+        return this.cuY;
+    }
+
+    private Animation bq(Context context) {
+        if (this.cuZ == null) {
+            this.cuZ = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_exit);
+        }
+        this.cuZ.setAnimationListener(new t(this));
+        return this.cuZ;
+    }
+
+    public void jL(int i) {
         this.topHeight = i;
     }
 
-    public void dl(int i) {
+    /* renamed from: do  reason: not valid java name */
+    public void m20do(int i) {
         aq.k(this.rootView, w.e.common_color_10186);
-        if (this.cwH != null) {
-            this.cwH.notifyDataSetChanged();
+        if (this.cvh != null) {
+            this.cvh.notifyDataSetChanged();
         }
     }
 }

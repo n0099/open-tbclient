@@ -9,13 +9,13 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 class ab implements com.baidu.tbadk.util.f<LinkedHashMap<String, String>> {
-    final /* synthetic */ a dgf;
-    private final /* synthetic */ ad dgq;
+    final /* synthetic */ a deC;
+    private final /* synthetic */ ad deN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(a aVar, ad adVar) {
-        this.dgf = aVar;
-        this.dgq = adVar;
+        this.deC = aVar;
+        this.deN = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,6 +47,6 @@ class ab implements com.baidu.tbadk.util.f<LinkedHashMap<String, String>> {
                 }
             }
         }
-        this.dgq.a(linkedHashMap2, hashMap);
+        this.deN.a(linkedHashMap2, hashMap);
     }
 }

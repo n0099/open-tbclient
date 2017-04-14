@@ -1,20 +1,12 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.tbadk.util.c;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.base.a.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements c.a {
-    final /* synthetic */ s SD;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(s sVar) {
-        this.SD = sVar;
-    }
-
-    @Override // com.baidu.tbadk.util.c.a
-    public void al(boolean z) {
-        if (!z) {
-            BdSocketLinkService.startService(false, "restart");
-        }
+public class t implements a.InterfaceC0002a {
+    @Override // com.baidu.adp.base.a.a.InterfaceC0002a
+    public void b(SQLiteDatabase sQLiteDatabase) {
+        TbadkCoreApplication.resetTDatabaseCreateTime();
     }
 }

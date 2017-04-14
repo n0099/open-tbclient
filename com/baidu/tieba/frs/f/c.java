@@ -1,25 +1,40 @@
 package com.baidu.tieba.frs.f;
 
-import android.widget.PopupWindow;
+import android.view.LayoutInflater;
+import android.view.View;
 /* loaded from: classes.dex */
-class c implements Runnable {
-    final /* synthetic */ b ccb;
+class c implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ b bZL;
+    private final /* synthetic */ View bZM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.ccb = bVar;
+    public c(b bVar, View view) {
+        this.bZL = bVar;
+        this.bZM = view;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        a aVar;
-        PopupWindow popupWindow;
-        a aVar2;
-        aVar = this.ccb.cca;
-        popupWindow = aVar.cbY;
-        if (popupWindow != null) {
-            aVar2 = this.ccb.cca;
-            aVar2.adD();
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return this.bZM;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int eZ() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int fa() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

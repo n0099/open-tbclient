@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class c {
-    public AlaUserInfoData Ug;
+    public AlaUserInfoData Uz;
     public int audience_count;
     public String cover;
     public String description;
@@ -35,7 +35,7 @@ public class c {
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
                 this.description = jSONObject.optString("description");
-                this.Ug = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
+                this.Uz = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
                 this.duration = jSONObject.optInt("duration");
                 this.audience_count = jSONObject.optInt("audience_count");
             } catch (Exception e) {
@@ -58,8 +58,8 @@ public class c {
                 this.media_id = alaLiveInfo.media_id;
                 this.media_subtitle = alaLiveInfo.media_subtitle;
                 this.description = alaLiveInfo.description;
-                this.Ug = new AlaUserInfoData();
-                this.Ug.a(alaLiveInfo.user_info);
+                this.Uz = new AlaUserInfoData();
+                this.Uz.a(alaLiveInfo.user_info);
                 this.duration = alaLiveInfo.duration.intValue();
                 this.audience_count = alaLiveInfo.audience_count.intValue();
             } catch (Exception e) {

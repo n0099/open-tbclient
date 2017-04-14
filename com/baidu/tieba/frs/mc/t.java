@@ -1,68 +1,32 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.GetMyPostHttpResponseMessage;
-import com.baidu.tieba.frs.GetMyPostSocketResponseMessage;
-import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
-import com.baidu.tieba.frs.ResponseIncrForumAccessCountSocketMessage;
-import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
-import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.bi;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t {
-    public t() {
-        adf();
-        adg();
-        adh();
+public class t extends CustomMessageListener {
+    final /* synthetic */ s bYt;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(s sVar, int i) {
+        super(i);
+        this.bYt = sVar;
     }
 
-    private void adf() {
-        com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
-        a.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
-        a.m(true);
-        a.n(false);
-        a.a(SocketMessageTask.DupLicateMode.NONE);
-        MessageManager.getInstance().registerTask(a);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, com.baidu.tieba.tbadkCore.a.a.av(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedTbs(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(false);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-        tbHttpMessageTask.setResponsedClass(ResponseIncrForumAccessCountHttpMessage.class);
-        tbHttpMessageTask.setIsImm(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    private void adg() {
-        com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
-        a.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
-        a.m(true);
-        a.n(false);
-        a.a(SocketMessageTask.DupLicateMode.NONE);
-        MessageManager.getInstance().registerTask(a);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, com.baidu.tieba.tbadkCore.a.a.av(TbConfig.SET_COMMON_FORUM_STATE, 309365));
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedTbs(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(false);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-        tbHttpMessageTask.setResponsedClass(ResponseSetCommForumStateHttpMessage.class);
-        tbHttpMessageTask.setIsImm(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    private void adh() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_MY_POST + "?cmd=303111");
-        tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(303111);
-        bVar.setResponsedClass(GetMyPostSocketResponseMessage.class);
-        bVar.m(true);
-        bVar.n(false);
-        bVar.a(SocketMessageTask.DupLicateMode.NONE);
-        messageManager.registerTask(bVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        String str;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bi)) {
+            bi biVar = (bi) customResponsedMessage.getData();
+            this.bYt.bVg = biVar.getId();
+            str = this.bYt.bVg;
+            if (!TextUtils.isEmpty(str) && biVar.se() != null) {
+                this.bYt.ii(biVar.se().getIsLike());
+            }
+        }
     }
 }

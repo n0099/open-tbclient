@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements SubPbModel.a {
-    final /* synthetic */ NewSubPbActivity euQ;
+    final /* synthetic */ NewSubPbActivity esV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(NewSubPbActivity newSubPbActivity) {
-        this.euQ = newSubPbActivity;
+        this.esV = newSubPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0050, code lost:
@@ -39,48 +39,48 @@ public class k implements SubPbModel.a {
         b bVar2;
         b bVar3;
         ao aoVar5;
-        aoVar = this.euQ.euB;
+        aoVar = this.esV.esG;
         if (aoVar != null) {
-            aoVar5 = this.euQ.euB;
-            aoVar5.aOs();
+            aoVar5 = this.esV.esG;
+            aoVar5.aOB();
         }
-        bVar = this.euQ.euN;
+        bVar = this.esV.esS;
         if (bVar != null) {
-            bVar2 = this.euQ.euN;
-            if (bVar2.aOa()) {
-                bVar3 = this.euQ.euN;
-                bVar3.oy(w.e.cp_bg_line_k_alpha40);
+            bVar2 = this.esV.esS;
+            if (bVar2.aOj()) {
+                bVar3 = this.esV.esS;
+                bVar3.ow(w.e.cp_bg_line_k_alpha40);
             }
         }
         if (z) {
-            aoVar2 = this.euQ.euB;
+            aoVar2 = this.esV.esG;
             aoVar2.hideNoDataView();
             if (jVar != null) {
-                if (jVar.aJO() == null) {
-                    subPbModel4 = this.euQ.euz;
+                if (jVar.aJV() == null) {
+                    subPbModel4 = this.esV.esE;
                 }
-                PostData aJO = jVar.aJO();
-                subPbModel = this.euQ.euz;
-                aJO.a(subPbModel.aOS());
-                aoVar3 = this.euQ.euB;
+                PostData aJV = jVar.aJV();
+                subPbModel = this.esV.esE;
+                aJV.a(subPbModel.aPb());
+                aoVar3 = this.esV.esG;
                 if (aoVar3 != null) {
-                    aoVar4 = this.euQ.euB;
-                    subPbModel2 = this.euQ.euz;
-                    int aJA = subPbModel2.aJA();
-                    subPbModel3 = this.euQ.euz;
-                    aoVar4.a(jVar, aJA, subPbModel3.aOU() != null);
-                    z2 = this.euQ.euK;
+                    aoVar4 = this.esV.esG;
+                    subPbModel2 = this.esV.esE;
+                    int aJH = subPbModel2.aJH();
+                    subPbModel3 = this.esV.esE;
+                    aoVar4.a(jVar, aJH, subPbModel3.aPd() != null);
+                    z2 = this.esV.esP;
                     if (z2) {
-                        this.euQ.aOf();
-                        this.euQ.euK = false;
+                        this.esV.aOo();
+                        this.esV.esP = false;
                     }
                 }
                 com.baidu.tieba.pb.d dVar = new com.baidu.tieba.pb.d();
                 dVar.setData(jVar);
-                nVar = this.euQ.dmL;
+                nVar = this.esV.dlk;
                 if (nVar != null) {
-                    nVar2 = this.euQ.dmL;
-                    nVar2.a(jVar.awz());
+                    nVar2 = this.esV.dlk;
+                    nVar2.a(jVar.aws());
                 }
                 dVar.setType(0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, dVar));
@@ -88,6 +88,6 @@ public class k implements SubPbModel.a {
             }
             return;
         }
-        this.euQ.M(i, str);
+        this.esV.M(i, str);
     }
 }

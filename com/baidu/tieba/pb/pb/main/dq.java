@@ -1,49 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dq {
-    private BaseActivity bcF;
-    private PbModel ejZ;
+public class dq implements c.b {
+    final /* synthetic */ dp emq;
 
-    public dq(PbModel pbModel, BaseActivity baseActivity) {
-        this.ejZ = pbModel;
-        this.bcF = baseActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dq(dp dpVar) {
+        this.emq = dpVar;
     }
 
-    public String R(Intent intent) {
-        int length;
-        if (intent == null || intent.getData() == null) {
-            return null;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        View.OnClickListener onClickListener;
+        if (cVar != null && view != null) {
+            cVar.dismiss();
+            onClickListener = this.emq.bLV;
+            onClickListener.onClick(view);
         }
-        String dataString = intent.getDataString();
-        if (StringUtils.isNull(dataString) || !dataString.startsWith("tbpb://")) {
-            return null;
-        }
-        String decode = Uri.decode(intent.getData().getEncodedPath());
-        if (StringUtils.isNull(decode)) {
-            return null;
-        }
-        Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\\\d]+).*").matcher(decode);
-        if (matcher.find()) {
-            if ("mpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11895").Z("tid", matcher.group(2)));
-            } else if ("bpush".equals(matcher.group(1))) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").s("obj_locate", 3).s("obj_type", 1));
-            }
-            return matcher.group(2);
-        }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10320").s("obj_locate", 3).s("obj_type", 1));
-        int indexOf = decode.indexOf("tid=");
-        if (indexOf < 0 || (length = indexOf + "tid=".length()) > decode.length()) {
-            return null;
-        }
-        return decode.substring(length);
     }
 }

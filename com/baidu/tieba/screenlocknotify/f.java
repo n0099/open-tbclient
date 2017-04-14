@@ -17,10 +17,10 @@ class f implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         s item;
-        if (this.this$0.feh.getCount() > 0 && (item = this.this$0.feh.getItem(0)) != null) {
+        if (this.this$0.ffI.getCount() > 0 && (item = this.this$0.ffI.getItem(0)) != null) {
             TiebaStatic.log(new as("c11704").g(PbActivityConfig.KEY_MSG_ID, item.msgId / 100).g(InterviewLiveActivityConfig.KEY_TASK_ID, item.taskId));
         }
         this.this$0.finish();
-        i.bam().feu.bar();
+        i.baV().ffV.bba();
     }
 }

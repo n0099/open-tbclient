@@ -1,7 +1,6 @@
 package com.baidu.tieba.myCollection.baseHistory;
 
 import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.mvc.b.f;
@@ -35,9 +34,9 @@ public class a implements f {
         int hashCode3;
         int hashCode4;
         if (TextUtils.isEmpty(this.threadId)) {
-            hashCode = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
+            hashCode = 120;
         } else {
-            hashCode = this.threadId.hashCode() + SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY;
+            hashCode = this.threadId.hashCode() + 119;
         }
         if (TextUtils.isEmpty(this.threadName)) {
             hashCode2 = (hashCode * 7) + 1;
@@ -58,7 +57,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean w(JSONObject jSONObject) {
+    public boolean y(JSONObject jSONObject) {
         try {
             String string = jSONObject.getString("forum_name");
             String string2 = jSONObject.getString("thread_id");
@@ -89,7 +88,7 @@ public class a implements f {
         }
     }
 
-    public JSONObject RL() {
+    public JSONObject Sj() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -144,7 +143,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aFY() {
+    public String aFL() {
         return this.threadName;
     }
 
@@ -160,7 +159,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void mw(String str) {
+    public void mA(String str) {
         this.threadName = str;
     }
 
@@ -168,27 +167,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String Dl() {
+    public String DJ() {
         return this.postID;
     }
 
-    public void mx(String str) {
+    public void mB(String str) {
         this.postID = str;
     }
 
-    public boolean aFZ() {
+    public boolean aFM() {
         return this.isHostOnly;
     }
 
-    public void hJ(boolean z) {
+    public void hG(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean aGa() {
+    public boolean aFN() {
         return this.isSquence;
     }
 
-    public void hK(boolean z) {
+    public void hH(boolean z) {
         this.isSquence = z;
     }
 
@@ -198,15 +197,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String EK() {
-        return RL().toString();
+    public String Fi() {
+        return Sj().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean fQ(String str) {
+    public boolean fW(String str) {
         if (str != null) {
             try {
-                return w(new JSONObject(str));
+                return y(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

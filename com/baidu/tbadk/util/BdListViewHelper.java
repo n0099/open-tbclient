@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int aID = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds320);
-    private static /* synthetic */ int[] aIE;
+    public static final int aIT = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds320);
+    private static /* synthetic */ int[] aIU;
 
     /* loaded from: classes.dex */
     public enum HeadType {
@@ -19,7 +19,7 @@ public class BdListViewHelper {
         HASTAB,
         HAS_NO_NETWORK_BAR;
 
-        /* JADX DEBUG: Replace access to removed values field (aIF) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aIV) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HeadType[] valuesCustom() {
             HeadType[] valuesCustom = values();
@@ -30,8 +30,8 @@ public class BdListViewHelper {
         }
     }
 
-    static /* synthetic */ int[] GH() {
-        int[] iArr = aIE;
+    static /* synthetic */ int[] Hg() {
+        int[] iArr = aIU;
         if (iArr == null) {
             iArr = new int[HeadType.valuesCustom().length];
             try {
@@ -46,14 +46,14 @@ public class BdListViewHelper {
                 iArr[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
-            aIE = iArr;
+            aIU = iArr;
         }
         return iArr;
     }
 
     public static int a(HeadType headType) {
         Context context = TbadkCoreApplication.m9getInst().getContext();
-        switch (GH()[headType.ordinal()]) {
+        switch (Hg()[headType.ordinal()]) {
             case 1:
                 return com.baidu.adp.lib.util.k.g(context, w.f.ds98) + UtilHelper.getLightStatusBarHeight();
             case 2:

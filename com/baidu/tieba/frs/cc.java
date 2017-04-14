@@ -1,7 +1,14 @@
 package com.baidu.tieba.frs;
 
-import java.util.ArrayList;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public interface cc {
-    void a(int i, int i2, cm cmVar, ArrayList<com.baidu.adp.widget.ListView.v> arrayList);
+    void a(TbPageContext tbPageContext, View view, int i, boolean z);
+
+    void b(com.baidu.tieba.tbadkCore.n nVar);
+
+    void changeSkinType(int i);
+
+    void hide();
 }

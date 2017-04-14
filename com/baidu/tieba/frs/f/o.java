@@ -1,37 +1,37 @@
 package com.baidu.tieba.frs.f;
 
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements Runnable {
-    final /* synthetic */ i ccU;
+public class o implements a.b {
+    private final /* synthetic */ FrsActivity caf;
+    private final /* synthetic */ com.baidu.tieba.frs.view.o cag;
+    private final /* synthetic */ ShareFromFrsMsgData caj;
+    private final /* synthetic */ int cak;
+    private final /* synthetic */ String cal;
+    private final /* synthetic */ long cam;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(i iVar) {
-        this.ccU = iVar;
+    public o(FrsActivity frsActivity, com.baidu.tieba.frs.view.o oVar, int i, String str, long j, ShareFromFrsMsgData shareFromFrsMsgData) {
+        this.caf = frsActivity;
+        this.cag = oVar;
+        this.cak = i;
+        this.cal = str;
+        this.cam = j;
+        this.caj = shareFromFrsMsgData;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        NoPressedRelativeLayout noPressedRelativeLayout;
-        Runnable runnable;
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(11);
-        layoutParams.addRule(12);
-        frsActivity = this.ccU.bOq;
-        layoutParams.rightMargin = frsActivity.getResources().getDimensionPixelSize(w.f.ds140);
-        frsActivity2 = this.ccU.bOq;
-        layoutParams.bottomMargin = frsActivity2.getResources().getDimensionPixelSize(w.f.ds400);
-        noPressedRelativeLayout = this.ccU.ccc;
-        noPressedRelativeLayout.addView(this.ccU.ccO, layoutParams);
-        com.baidu.adp.lib.g.h fM = com.baidu.adp.lib.g.h.fM();
-        runnable = this.ccU.ccT;
-        fM.postDelayed(runnable, TbConfig.NOTIFY_SOUND_INTERVAL);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.caf.HidenSoftKeyPad((InputMethodManager) this.caf.getSystemService("input_method"), this.cag.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.caf.getPageContext().getPageActivity(), this.cak, this.cal, this.cam, "from_share", this.cag.getLeaveMsg(), this.caj.toChatMessageContent())));
+        aVar.dismiss();
     }
 }

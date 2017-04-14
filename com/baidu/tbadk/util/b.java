@@ -3,16 +3,16 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class b {
-    private static b aIC;
+    private static b aIS;
 
-    public static b GG() {
-        if (aIC == null) {
-            aIC = new b();
+    public static b Hf() {
+        if (aIS == null) {
+            aIS = new b();
         }
-        return aIC;
+        return aIS;
     }
 
-    public String fX(String str) {
+    public String gd(String str) {
         String str2;
         if (BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi <= 240) {
             str2 = "hdpi";

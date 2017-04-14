@@ -16,28 +16,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.f> {
-    private TextView aSO;
-    private TbPageContext ajF;
-    private HTypeListView bsu;
-    private View buO;
-    private com.baidu.tieba.personPolymeric.a.t eIH;
+    private TbPageContext ajT;
+    private HTypeListView bsm;
+    private View buG;
+    private com.baidu.tieba.personPolymeric.a.t eGC;
     private View mRootView;
+    private TextView mTitle;
 
     public h(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ajF = tbPageContext;
+        this.ajT = tbPageContext;
         this.mRootView = getView();
-        this.buO = this.mRootView.findViewById(w.h.divider_view);
-        this.aSO = (TextView) this.mRootView.findViewById(w.h.gift_title);
-        this.bsu = (HTypeListView) this.mRootView.findViewById(w.h.gift_horizontal_list);
-        this.eIH = new com.baidu.tieba.personPolymeric.a.t(this.ajF, this.bsu);
+        this.buG = this.mRootView.findViewById(w.h.divider_view);
+        this.mTitle = (TextView) this.mRootView.findViewById(w.h.gift_title);
+        this.bsm = (HTypeListView) this.mRootView.findViewById(w.h.gift_horizontal_list);
+        this.eGC = new com.baidu.tieba.personPolymeric.a.t(this.ajT, this.bsm);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         aq.k(this.mRootView, w.e.cp_bg_line_d);
-        aq.k(this.buO, w.e.cp_bg_line_b);
-        aq.i((View) this.aSO, w.e.cp_cont_d);
+        aq.k(this.buG, w.e.cp_bg_line_b);
+        aq.i(this.mTitle, w.e.cp_cont_d);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -54,30 +54,30 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         i iVar = new i(this, fVar);
-        this.eIH.L(iVar);
+        this.eGC.M(iVar);
         this.mRootView.setOnClickListener(iVar);
-        this.eIH.M(iVar);
-        this.bsu.setData(ck(fVar.eHE));
-        if (fVar.bch) {
-            this.aSO.setText(w.l.gift_received_by_me);
-        } else if (fVar.eHD) {
-            this.aSO.setText(w.l.gift_received_by_him);
+        this.eGC.N(iVar);
+        this.bsm.setData(cj(fVar.eFA));
+        if (fVar.bca) {
+            this.mTitle.setText(w.l.gift_received_by_me);
+        } else if (fVar.eFz) {
+            this.mTitle.setText(w.l.gift_received_by_him);
         } else {
-            this.aSO.setText(w.l.gift_received_by_her);
+            this.mTitle.setText(w.l.gift_received_by_her);
         }
-        onChangeSkinType(this.ajF, TbadkCoreApplication.m9getInst().getSkinType());
+        onChangeSkinType(this.ajT, TbadkCoreApplication.m9getInst().getSkinType());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.personPolymeric.c.f fVar) {
         if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-            this.ajF.showToast(w.l.gift_load_fail);
-        } else if (bg.aI(this.ajF.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.ajF.getPageActivity(), fVar.mUid, fVar.xn, fVar.mSex)));
+            this.ajT.showToast(w.l.gift_load_fail);
+        } else if (bg.aK(this.ajT.getPageActivity())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.ajT.getPageActivity(), fVar.mUid, fVar.wQ, fVar.mSex)));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.v> ck(List<com.baidu.adp.widget.ListView.v> list) {
+    private List<com.baidu.adp.widget.ListView.v> cj(List<com.baidu.adp.widget.ListView.v> list) {
         int p = com.baidu.tbadk.core.util.x.p(list);
         if (p > 0) {
             List<com.baidu.adp.widget.ListView.v> arrayList = new ArrayList<>(list);

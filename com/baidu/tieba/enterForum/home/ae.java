@@ -6,13 +6,13 @@ import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ l bFb;
+    final /* synthetic */ l bEU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(l lVar, int i) {
         super(i);
-        this.bFb = lVar;
+        this.bEU = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,28 +31,28 @@ public class ae extends CustomMessageListener {
         EnterForumModel enterForumModel10;
         com.baidu.tbadk.data.e eVar = (com.baidu.tbadk.data.e) customResponsedMessage.getData();
         if (eVar != null) {
-            enterForumModel = this.bFb.bEJ;
+            enterForumModel = this.bEU.bEC;
             if (enterForumModel != null) {
-                enterForumModel2 = this.bFb.bEJ;
-                if (enterForumModel2.VM() != null) {
-                    enterForumModel3 = this.bFb.bEJ;
-                    if (enterForumModel3.VM().Va() != null) {
-                        enterForumModel4 = this.bFb.bEJ;
-                        if (enterForumModel4.VM().Va().Vf() != null) {
-                            enterForumModel5 = this.bFb.bEJ;
-                            int size = enterForumModel5.VM().Va().Vf().size();
+                enterForumModel2 = this.bEU.bEC;
+                if (enterForumModel2.Wk() != null) {
+                    enterForumModel3 = this.bEU.bEC;
+                    if (enterForumModel3.Wk().Vy() != null) {
+                        enterForumModel4 = this.bEU.bEC;
+                        if (enterForumModel4.Wk().Vy().VD() != null) {
+                            enterForumModel5 = this.bEU.bEC;
+                            int size = enterForumModel5.Wk().Vy().VD().size();
                             int i = 0;
                             while (true) {
                                 if (i >= size) {
                                     z = false;
                                     break;
                                 }
-                                enterForumModel8 = this.bFb.bEJ;
-                                if (enterForumModel8.VM().Va().Vf().get(i) != null) {
-                                    enterForumModel9 = this.bFb.bEJ;
-                                    if (enterForumModel9.VM().Va().Vf().get(i).getForumId() == eVar.getForumId()) {
-                                        enterForumModel10 = this.bFb.bEJ;
-                                        enterForumModel10.VM().Va().Vf().remove(i);
+                                enterForumModel8 = this.bEU.bEC;
+                                if (enterForumModel8.Wk().Vy().VD().get(i) != null) {
+                                    enterForumModel9 = this.bEU.bEC;
+                                    if (enterForumModel9.Wk().Vy().VD().get(i).getForumId() == eVar.getForumId()) {
+                                        enterForumModel10 = this.bEU.bEC;
+                                        enterForumModel10.Wk().Vy().VD().remove(i);
                                         z = true;
                                         break;
                                     }
@@ -60,12 +60,12 @@ public class ae extends CustomMessageListener {
                                 i++;
                             }
                             if (!z) {
-                                enterForumModel7 = this.bFb.bEJ;
-                                enterForumModel7.VM().Va().Vf().add(0, eVar);
+                                enterForumModel7 = this.bEU.bEC;
+                                enterForumModel7.Wk().Vy().VD().add(0, eVar);
                             }
-                            com.baidu.tieba.enterForum.c.e eVar2 = this.bFb.bEI;
-                            enterForumModel6 = this.bFb.bEJ;
-                            eVar2.b(enterForumModel6.VM().Va().Vf(), this.bFb.bEH.getPageContext());
+                            com.baidu.tieba.enterForum.c.e eVar2 = this.bEU.bEB;
+                            enterForumModel6 = this.bEU.bEC;
+                            eVar2.b(enterForumModel6.Wk().Vy().VD(), this.bEU.bEA.getPageContext());
                         }
                     }
                 }

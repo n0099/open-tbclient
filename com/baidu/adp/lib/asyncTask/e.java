@@ -8,13 +8,13 @@ import com.baidu.adp.lib.asyncTask.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends Handler {
-    final /* synthetic */ c tz;
+    final /* synthetic */ c sU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, Looper looper) {
         super(looper);
-        this.tz = cVar;
+        this.sU = cVar;
     }
 
     @Override // android.os.Handler
@@ -24,9 +24,9 @@ public class e extends Handler {
             if (message.obj == null || !(message.obj instanceof c.a)) {
                 return;
             }
-            this.tz.b((c.a) message.obj);
+            this.sU.b((c.a) message.obj);
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof c.a)) {
-            this.tz.e((c.a) message.obj);
+            this.sU.e((c.a) message.obj);
             BdBaseApplication.getInst().isDebugMode();
         }
     }

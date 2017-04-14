@@ -12,8 +12,8 @@ class av implements com.baidu.adp.lib.e.c<HeadImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wY */
-    public HeadImageView fF() {
+    /* renamed from: xu */
+    public HeadImageView fK() {
         return new HeadImageView(this.val$context);
     }
 

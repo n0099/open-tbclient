@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.ce;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.c, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.e>> {
-    private TbPageContext<?> ajF;
-    private ce brh;
+    private TbPageContext<?> ajT;
+    private ce bqZ;
 
     public e(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.c.eHy);
-        this.ajF = tbPageContext;
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.c.eFu);
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: k */
     public com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.e> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.e(this.ajF));
+        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.e(this.ajT));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,9 +28,9 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.c cVar, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.e> aVar) {
-        aVar.Tb().setOnCardStatisticsCallback(this.brh);
-        aVar.Tb().onChangeSkinType(this.ajF, TbadkCoreApplication.m9getInst().getSkinType());
-        aVar.Tb().onBindDataToView(cVar);
+        aVar.Tz().setOnCardStatisticsCallback(this.bqZ);
+        aVar.Tz().onChangeSkinType(this.ajT, TbadkCoreApplication.m9getInst().getSkinType());
+        aVar.Tz().onBindDataToView(cVar);
         return aVar.getView();
     }
 }

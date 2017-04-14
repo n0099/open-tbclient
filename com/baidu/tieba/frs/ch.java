@@ -1,41 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements Animation.AnimationListener {
-    final /* synthetic */ ce bQq;
+public class ch implements Handler.Callback {
+    final /* synthetic */ cg bQf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(ce ceVar) {
-        this.bQq = ceVar;
+    public ch(cg cgVar) {
+        this.bQf = cgVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        ViewGroup viewGroup;
-        ViewGroup viewGroup2;
-        viewGroup = this.bQq.bQk;
-        if (viewGroup != null) {
-            viewGroup2 = this.bQq.bQk;
-            viewGroup2.setVisibility(8);
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        Handler handler;
+        if ((message.what != 1 && message.what != 2) || !this.bQf.Xh()) {
+            switch (message.what) {
+                case 1:
+                    this.bQf.Xd();
+                    return true;
+                case 2:
+                    this.bQf.Xb();
+                    return true;
+                case 3:
+                    this.bQf.Xc();
+                    return true;
+                default:
+                    return false;
+            }
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ViewGroup viewGroup;
-        ViewGroup viewGroup2;
-        viewGroup = this.bQq.bQk;
-        if (viewGroup != null) {
-            viewGroup2 = this.bQq.bQk;
-            viewGroup2.clearAnimation();
-            this.bQq.dl(true);
-        }
+        handler = this.bQf.mHandler;
+        handler.sendEmptyMessageDelayed(message.what, 100L);
+        return true;
     }
 }

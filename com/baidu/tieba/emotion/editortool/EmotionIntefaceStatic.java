@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class EmotionIntefaceStatic {
     static {
-        com.baidu.adp.lib.f.c.fG().a(20, new com.baidu.tieba.emotion.a.a());
+        com.baidu.adp.lib.f.c.fL().a(20, new com.baidu.tieba.emotion.a.a());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
@@ -30,5 +30,6 @@ public class EmotionIntefaceStatic {
         MessageManager.getInstance().registerListener(bVar);
         cVar.setPriority(Integer.MAX_VALUE);
         MessageManager.getInstance().registerListener(cVar);
+        MessageManager.getInstance().registerListener(new h(CmdConfigCustom.EMOTION_COLLECT_GROUPS));
     }
 }

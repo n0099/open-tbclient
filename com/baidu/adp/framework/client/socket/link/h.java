@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class h {
     private boolean isRunning = false;
-    private int qG = 0;
-    private final Handler qH = new i(this, Looper.getMainLooper());
+    private int qf = 0;
+    private final Handler qg = new i(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void start(String str) {
@@ -17,20 +17,20 @@ public class h {
             stop("online failed 5");
         } else if (!this.isRunning) {
             this.isRunning = true;
-            this.qH.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.hS().hV()) {
+            this.qg.removeMessages(1);
+            if (com.baidu.adp.lib.webSocket.h.hX().ia()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 stop("in Opened");
                 return;
             }
-            m2do();
+            dn();
             BdLog.d("启动重连策略");
-            this.qG = 0;
-            int[] cY = com.baidu.adp.framework.client.socket.j.cY();
-            if (cY != null && cY.length >= 1) {
-                BdLog.i("start reconnStrategy... the first will be delay" + cY[0]);
-                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.qG));
-                this.qH.sendMessageDelayed(this.qH.obtainMessage(1), cY[0] * 1000);
+            this.qf = 0;
+            int[] cX = com.baidu.adp.framework.client.socket.j.cX();
+            if (cX != null && cX.length >= 1) {
+                BdLog.i("start reconnStrategy... the first will be delay" + cX[0]);
+                k.a("reconn", 0, 0, "reconn", BdSocketLinkService.STOP_RECONN, String.valueOf(str) + " retryTimes=" + String.valueOf(this.qf));
+                this.qg.sendMessageDelayed(this.qg.obtainMessage(1), cX[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -40,8 +40,7 @@ public class h {
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private void m2do() {
+    private void dn() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,9 +48,9 @@ public class h {
         if (this.isRunning) {
             k.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
             this.isRunning = false;
-            this.qG = 0;
+            this.qf = 0;
             BdLog.i("stop reconnStrategy");
-            this.qH.removeMessages(1);
+            this.qg.removeMessages(1);
         }
     }
 }

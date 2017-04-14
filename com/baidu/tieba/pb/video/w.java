@@ -23,91 +23,91 @@ import java.util.Iterator;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class w extends y.a {
-    private TbPageContext aaI;
-    public View bKL;
-    public TextView bXA;
-    public TbImageView exg;
-    public ImageView exh;
-    public TextView exi;
-    public TextView exj;
-    public TextView exk;
-    public View exl;
-    public View exm;
+    private TbPageContext aaX;
+    public View bKE;
+    public TextView bXp;
+    public TbImageView evm;
+    public ImageView evn;
+    public TextView evo;
+    public TextView evp;
+    public TextView evq;
+    public View evr;
+    public View evs;
     public View rootView;
 
     public w(TbPageContext tbPageContext, View view) {
         super(view);
         if (tbPageContext != null && view != null) {
             this.rootView = view;
-            this.aaI = tbPageContext;
-            this.exg = (TbImageView) view.findViewById(w.h.video_thumbnail_view);
-            this.exh = (ImageView) view.findViewById(w.h.channel_icon_view);
-            this.exg.setDefaultBgResource(w.g.pic_bg_video_frs);
-            this.exg.setDefaultErrorResource(w.g.pic_bg_video_frs);
-            this.exi = (TextView) view.findViewById(w.h.video_title_view);
-            this.exj = (TextView) view.findViewById(w.h.channel_name_view);
-            this.bXA = (TextView) view.findViewById(w.h.video_play_count_view);
-            this.exk = (TextView) view.findViewById(w.h.video_duration_view);
-            this.exl = view.findViewById(w.h.divider_view);
-            this.exm = view.findViewById(w.h.top_divider_view);
-            this.bKL = view.findViewById(w.h.top_divider_line);
+            this.aaX = tbPageContext;
+            this.evm = (TbImageView) view.findViewById(w.h.video_thumbnail_view);
+            this.evn = (ImageView) view.findViewById(w.h.channel_icon_view);
+            this.evm.setDefaultBgResource(w.g.pic_bg_video_frs);
+            this.evm.setDefaultErrorResource(w.g.pic_bg_video_frs);
+            this.evo = (TextView) view.findViewById(w.h.video_title_view);
+            this.evp = (TextView) view.findViewById(w.h.channel_name_view);
+            this.bXp = (TextView) view.findViewById(w.h.video_play_count_view);
+            this.evq = (TextView) view.findViewById(w.h.video_duration_view);
+            this.evr = view.findViewById(w.h.divider_view);
+            this.evs = view.findViewById(w.h.top_divider_view);
+            this.bKE = view.findViewById(w.h.top_divider_line);
         }
     }
 
     public void a(s sVar) {
         if (sVar != null) {
-            this.exg.c(sVar.exa, 10, false);
-            this.exi.setText(sVar.exb);
+            this.evm.c(sVar.evg, 10, false);
+            this.evo.setText(sVar.evh);
             if (sVar.videoDuration <= 0) {
-                this.exk.setText("");
+                this.evq.setText("");
             } else {
-                this.exk.setText(au.cT(sVar.videoDuration * 1000));
+                this.evq.setText(au.cW(sVar.videoDuration * 1000));
             }
-            this.bXA.setText(String.format(TbadkCoreApplication.m9getInst().getString(w.l.video_play_count), au.t(sVar.exc)));
+            this.bXp.setText(String.format(TbadkCoreApplication.m9getInst().getString(w.l.video_play_count), au.t(sVar.evi)));
             if (!StringUtils.isNull(sVar.channelName)) {
-                this.exj.setText(au.e(sVar.channelName, 14, "..."));
-                this.exj.setVisibility(0);
-                this.exh.setVisibility(0);
+                this.evp.setText(au.e(sVar.channelName, 14, "..."));
+                this.evp.setVisibility(0);
+                this.evn.setVisibility(0);
             } else {
-                if (!StringUtils.isNull(sVar.Vm)) {
-                    this.exj.setText(au.e(sVar.Vm, 14, "..."));
-                    this.exj.setVisibility(0);
+                if (!StringUtils.isNull(sVar.VE)) {
+                    this.evp.setText(au.e(sVar.VE, 14, "..."));
+                    this.evp.setVisibility(0);
                 } else {
-                    this.exj.setVisibility(8);
+                    this.evp.setVisibility(8);
                 }
-                this.exh.setVisibility(8);
+                this.evn.setVisibility(8);
             }
-            if (sVar.exd) {
-                this.exl.setVisibility(0);
+            if (sVar.evj) {
+                this.evr.setVisibility(0);
             } else {
-                this.exl.setVisibility(8);
+                this.evr.setVisibility(8);
             }
-            if (sVar.exe) {
-                this.exm.setVisibility(0);
+            if (sVar.evk) {
+                this.evs.setVisibility(0);
             } else {
-                this.exm.setVisibility(8);
+                this.evs.setVisibility(8);
             }
-            if (sVar.bXb) {
-                this.bKL.setVisibility(0);
+            if (sVar.bWQ) {
+                this.bKE.setVisibility(0);
             } else {
-                this.bKL.setVisibility(8);
+                this.bKE.setVisibility(8);
             }
             this.rootView.setOnClickListener(new x(this, sVar));
-            AO();
+            Bn();
             a(sVar, 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nP(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aaI.getPageActivity()).createNormalCfg(str, null, null)));
-        this.aaI.getPageActivity().finish();
+    public void nT(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aaX.getPageActivity()).createNormalCfg(str, null, null)));
+        this.aaX.getPageActivity().finish();
     }
 
-    public void AO() {
-        this.aaI.getLayoutMode().ah(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.aaI.getLayoutMode().t(this.rootView);
-        aq.j(this.exh, w.g.icon_weiba);
+    public void Bn() {
+        this.aaX.getLayoutMode().aj(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.aaX.getLayoutMode().t(this.rootView);
+        aq.j(this.evn, w.g.icon_weiba);
     }
 
     private void a(s sVar, ArrayList<String> arrayList) {
@@ -133,13 +133,13 @@ public class w extends y.a {
             if (z) {
                 as asVar = new as("c11960");
                 asVar.s("obj_locate", sVar.position);
-                asVar.Z("tid", sVar.threadId);
+                asVar.aa("tid", sVar.threadId);
                 asVar.g("fid", sVar.forumId);
-                asVar.Z("obj_param1", sVar.ewZ);
-                asVar.Z("obj_param2", "1");
+                asVar.aa("obj_param1", sVar.evf);
+                asVar.aa("obj_param2", "1");
                 asVar.g("obj_param3", System.currentTimeMillis() / 1000);
-                asVar.Z("obj_name", sVar.ewX);
-                asVar.Z(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, sVar.ewY);
+                asVar.aa("obj_name", sVar.evd);
+                asVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, sVar.eve);
                 asVar.g("obj_id", sVar.channelId);
                 TiebaStatic.log(asVar);
             }
@@ -147,22 +147,22 @@ public class w extends y.a {
     }
 
     private void a(s sVar, int i) {
-        ArrayList<String> oJ;
+        ArrayList<String> oH;
         if (sVar != null && !StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
             if (i < 1 || i > 10) {
                 i = 1;
             }
             if (i == 10) {
-                oJ = null;
+                oH = null;
             } else {
-                oJ = oJ(i);
+                oH = oH(i);
             }
-            a(sVar, oJ);
+            a(sVar, oH);
         }
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0018: INVOKE  (r4v1 int A[REMOVE]) = (r2v0 java.util.Random), (10 int) type: VIRTUAL call: java.util.Random.nextInt(int):int)] */
-    private ArrayList<String> oJ(int i) {
+    private ArrayList<String> oH(int i) {
         if (i <= 0) {
             return null;
         }

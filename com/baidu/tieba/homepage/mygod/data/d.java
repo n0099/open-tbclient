@@ -7,9 +7,9 @@ import tbclient.BannerInfo;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
-    private long cxP;
-    private int cxQ = -1;
-    private BannerInfo cxR = null;
+    private long cwp;
+    private int cwq = -1;
+    private BannerInfo cwr = null;
 
     @Override // com.baidu.tieba.homepage.recommendfrs.data.c, com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -17,13 +17,13 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         if ((message instanceof GodFeedResIdl) && (godFeedResIdl = (GodFeedResIdl) message) != null && godFeedResIdl.error != null && godFeedResIdl.error.errorno.intValue() == 0 && godFeedResIdl.data != null) {
             this.mHasMore = godFeedResIdl.data.has_more.intValue() == 1;
             this.pn = godFeedResIdl.data.pn.intValue();
-            this.cxP = godFeedResIdl.data.timeline.longValue();
+            this.cwp = godFeedResIdl.data.timeline.longValue();
             if (godFeedResIdl.data.thread_list != null) {
-                this.cBB = new ArrayList();
-                this.cBB.addAll(godFeedResIdl.data.thread_list);
+                this.cAa = new ArrayList();
+                this.cAa.addAll(godFeedResIdl.data.thread_list);
             }
-            this.cxQ = godFeedResIdl.data.has_attention_god.intValue();
-            this.cxR = godFeedResIdl.data.banner_info;
+            this.cwq = godFeedResIdl.data.has_attention_god.intValue();
+            this.cwr = godFeedResIdl.data.banner_info;
         }
     }
 
@@ -37,15 +37,15 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         return false;
     }
 
-    public long aji() {
-        return this.cxP;
+    public long ajc() {
+        return this.cwp;
     }
 
-    public int ajj() {
-        return this.cxQ;
+    public int ajd() {
+        return this.cwq;
     }
 
-    public BannerInfo ajk() {
-        return this.cxR;
+    public BannerInfo aje() {
+        return this.cwr;
     }
 }

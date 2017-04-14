@@ -24,6 +24,7 @@ public class PayConfig implements Serializable {
     private String mPropsMon;
     private String mTitle;
     public float mTotalPrice;
+    public String packetId;
     private int tBeanNum;
 
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z) {

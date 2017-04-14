@@ -12,7 +12,6 @@ import com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.MultipartRequestParams;
 import com.baidu.cloudsdk.common.http.RequestParams;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.FaceCheckCallback;
 import com.baidu.sapi2.callback.FaceDelCallback;
@@ -109,10 +108,10 @@ import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.shell.response.SocialResponse;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
+import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.e;
-import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
@@ -257,7 +256,7 @@ public final class b {
             SapiDataEncryptor sapiDataEncryptor = new SapiDataEncryptor();
             try {
                 this.d = new AsyncHttpClient();
-                this.d.setUserAgent(x());
+                this.d.setUserAgent(y());
                 HashMap hashMap = new HashMap();
                 hashMap.put("crypttype", "11");
                 hashMap.put("tpl", this.c.tpl);
@@ -265,7 +264,7 @@ public final class b {
                 if (TextUtils.isEmpty(this.c.clientId)) {
                     this.c.clientId = SapiUtils.getClientId(this.c.context);
                 }
-                hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+                hashMap.put("cuid", this.c.clientId);
                 hashMap.put("cert_id", String.valueOf(2));
                 hashMap.put("isdpass", "0");
                 hashMap.put("username", reloginCredentials.account);
@@ -275,9 +274,9 @@ public final class b {
                 hashMap.put(LoginActivityConfig.LOGIN_TYPE, "3");
                 hashMap.put("key", sapiDataEncryptor.a());
                 hashMap.put("sdk_version", "2");
-                hashMap.put("pinfo", e.b());
+                hashMap.put("pinfo", SapiDeviceUtils.getBrandName());
                 hashMap.put("sig", a(hashMap, this.c.appSignKey));
-                this.d.post(this.c.context, r(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.1
+                this.d.post(this.c.context, s(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.1
                     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                     public void onSuccess(int i, String str) {
                         b.this.e.e();
@@ -327,11 +326,11 @@ public final class b {
             sapiCallback.onFailure(reloginResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.b);
             a2.put("crypttype", String.valueOf(6));
             a2.put("cert_id", String.valueOf(1));
-            a2.put("bduss", reloginDTO.bduss);
+            a2.put(SapiAccountManager.SESSION_BDUSS, reloginDTO.bduss);
             final SapiDataEncryptor sapiDataEncryptor = new SapiDataEncryptor();
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -446,7 +445,7 @@ public final class b {
         SapiDataEncryptor sapiDataEncryptor = new SapiDataEncryptor();
         try {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("crypttype", "11");
             hashMap.put("tpl", this.c.tpl);
@@ -454,7 +453,7 @@ public final class b {
             if (TextUtils.isEmpty(this.c.clientId)) {
                 this.c.clientId = SapiUtils.getClientId(this.c.context);
             }
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
             hashMap.put("cert_id", "2");
             hashMap.put("isdpass", "0");
             hashMap.put("username", reloginCredentials.account);
@@ -464,13 +463,13 @@ public final class b {
             hashMap.put(LoginActivityConfig.LOGIN_TYPE, "3");
             hashMap.put("key", sapiDataEncryptor.a());
             hashMap.put("sdk_version", "2");
-            hashMap.put("pinfo", e.b());
+            hashMap.put("pinfo", SapiDeviceUtils.getBrandName());
             hashMap.put("sig", a(hashMap, this.c.appSignKey));
             ArrayList arrayList = new ArrayList();
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                 arrayList.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
             }
-            HttpUriRequest httpPost = new HttpPost(r());
+            HttpUriRequest httpPost = new HttpPost(s());
             httpPost.setEntity(new UrlEncodedFormEntity(arrayList, "UTF-8"));
             HttpResponse execute = this.d.execute(httpPost);
             if (200 == execute.getStatusLine().getStatusCode()) {
@@ -512,7 +511,7 @@ public final class b {
                 sapiAccountResponse.username = jSONObject.optString("uname");
                 sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 sapiAccountResponse.email = jSONObject.optString("email");
-                sapiAccountResponse.bduss = jSONObject.optString("bduss");
+                sapiAccountResponse.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                 sapiAccountResponse.stoken = jSONObject.optString("stoken");
                 sapiAccountResponse.authSid = jSONObject.optString("authsid");
@@ -568,7 +567,7 @@ public final class b {
             loginCallback.onFailure(loginResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.a);
             a2.put("crypttype", String.valueOf(6));
             a2.put("cert_id", String.valueOf(1));
@@ -598,7 +597,7 @@ public final class b {
                 jSONObject.put("key", sapiDataEncryptor.a());
                 a2.put("userinfo", sapiDataEncryptor.a(SapiDataEncryptor.a.b, jSONObject.toString()));
                 a2.put("sig", a(a2, this.c.appSignKey));
-                this.d.post(this.c.context, r(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.23
+                this.d.post(this.c.context, s(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.23
                     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                     protected void onStart() {
                         loginCallback.onStart();
@@ -719,7 +718,7 @@ public final class b {
             sapiCallback.onFailure(loginResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             this.d.get(this.c.context, str, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.34
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                 protected void onStart() {
@@ -766,7 +765,7 @@ public final class b {
                                             } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_UID)) {
                                                 sapiAccount.uid = newPullParser.nextText();
                                                 break;
-                                            } else if (name.equalsIgnoreCase("bduss")) {
+                                            } else if (name.equalsIgnoreCase(SapiAccountManager.SESSION_BDUSS)) {
                                                 sapiAccount.bduss = newPullParser.nextText();
                                                 break;
                                             } else if (name.equalsIgnoreCase("ptoken")) {
@@ -840,7 +839,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         this.d.get(this.c.context, this.e.a() + f.g + this.f, new BinaryHttpResponseHandler(Looper.getMainLooper(), new String[]{"image/png", "image/jpeg", "image/jpg", "image/gif"}) { // from class: com.baidu.sapi2.b.45
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
@@ -899,7 +898,7 @@ public final class b {
             getRegCodeCallback.onFailure(getRegCodeResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.h);
             a2.put("phonenum", str);
             a2.put("sig", a(a2, this.c.appSignKey));
@@ -984,7 +983,7 @@ public final class b {
             sapiCallback.onFailure(phoneRegResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.i);
             a2.put("crypttype", String.valueOf(6));
             a2.put("cert_id", String.valueOf(1));
@@ -1093,7 +1092,7 @@ public final class b {
             quickUserRegCallback.onFailure(quickUserRegResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.j);
             a2.put("crypttype", String.valueOf(6));
             a2.put("cert_id", String.valueOf(1));
@@ -1193,7 +1192,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(final Web2NativeLoginCallback web2NativeLoginCallback) {
+    public void a(final Web2NativeLoginCallback web2NativeLoginCallback, boolean z) {
         if (web2NativeLoginCallback == null) {
             throw new IllegalArgumentException(Web2NativeLoginCallback.class.getSimpleName() + " can't be null");
         }
@@ -1203,7 +1202,7 @@ public final class b {
         if (TextUtils.isEmpty(cookieBduss)) {
             web2NativeLoginResult.setResultCode(-101);
             web2NativeLoginCallback.onBdussEmpty(web2NativeLoginResult);
-        } else if (!SapiAccountManager.getInstance().isLogin()) {
+        } else if (!SapiAccountManager.getInstance().isLogin() || z) {
             a(new GetUserInfoCallback() { // from class: com.baidu.sapi2.b.58
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.LoginStatusAware
@@ -1272,7 +1271,7 @@ public final class b {
             sapiCallback.onFailure(getDynamicPwdResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.v);
             a2.put("username", str);
             a2.put("sig", a(a2, this.c.appSignKey));
@@ -1343,7 +1342,7 @@ public final class b {
             getDynamicPwdCallback.onFailure(getDynamicPwdResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.v);
             a2.put("username", str);
             a2.put("svcd", "1");
@@ -1429,7 +1428,7 @@ public final class b {
             sapiCallback.onFailure(dynamicPwdLoginResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             Map<String, String> a2 = a(f.a);
             a2.put("crypttype", String.valueOf(6));
             a2.put("cert_id", String.valueOf(1));
@@ -1444,7 +1443,7 @@ public final class b {
                 jSONObject.put("key", sapiDataEncryptor.a());
                 a2.put("userinfo", sapiDataEncryptor.a(SapiDataEncryptor.a.b, jSONObject.toString()));
                 a2.put("sig", a(a2, this.c.appSignKey));
-                this.d.post(this.c.context, r(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.4
+                this.d.post(this.c.context, s(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.4
                     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                     protected void onStart() {
                         sapiCallback.onStart();
@@ -1525,8 +1524,8 @@ public final class b {
         }
         final SapiDataEncryptor sapiDataEncryptor = new SapiDataEncryptor();
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
-        this.d.get(this.c.context, z(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.5
+        this.d.setUserAgent(y());
+        this.d.get(this.c.context, A(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.5
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onFailure(Throwable th, String str3) {
                 super.onFailure(th, str3);
@@ -1571,14 +1570,14 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final SapiCallBack<SapiAccountResponse> sapiCallBack, String str, String str2, final String str3, final String str4, final boolean z, final SapiDataEncryptor sapiDataEncryptor) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, CertificateException, JSONException {
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("crypttype", "6");
         hashMap.put("tpl", this.c.tpl);
         hashMap.put("appid", this.c.appId);
         String str5 = this.c.clientId;
         if (!TextUtils.isEmpty(str5)) {
-            hashMap.put(SocialConstants.PARAM_CUID, str5);
+            hashMap.put("cuid", str5);
         }
         hashMap.put("cert_id", str2);
         hashMap.put("isdpass", "1");
@@ -1589,10 +1588,10 @@ public final class b {
         jSONObject.put(LoginActivityConfig.LOGIN_TYPE, "3");
         jSONObject.put("key", sapiDataEncryptor.a());
         jSONObject.put("sdk_version", "2");
-        jSONObject.put("pinfo", e.b());
+        jSONObject.put("pinfo", SapiDeviceUtils.getBrandName());
         hashMap.put("userinfo", sapiDataEncryptor.a(str, jSONObject.toString()));
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
-        this.d.post(this.c.context, r(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.6
+        this.d.post(this.c.context, s(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.6
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onSuccess(int i, String str6) {
                 super.onSuccess(i, str6);
@@ -1630,7 +1629,7 @@ public final class b {
                     sapiAccountResponse.username = jSONObject.optString("uname");
                     sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                     sapiAccountResponse.email = jSONObject.optString("email");
-                    sapiAccountResponse.bduss = jSONObject.optString("bduss");
+                    sapiAccountResponse.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                     sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                     sapiAccountResponse.stoken = jSONObject.optString("stoken");
                     sapiAccountResponse.authSid = jSONObject.optString("authsid");
@@ -1677,7 +1676,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -1687,7 +1686,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put("ptoken", str2);
         }
@@ -1752,7 +1751,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -1762,7 +1761,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         String a2 = a(hashMap, this.c.appSignKey);
         MultipartRequestParams multipartRequestParams = new MultipartRequestParams();
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -1841,7 +1840,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -1851,7 +1850,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        hashMap.put("bduss", setPopularPortraitDTO.bduss);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, setPopularPortraitDTO.bduss);
         hashMap.put("serie", setPopularPortraitDTO.series);
         hashMap.put("num", String.valueOf(setPopularPortraitDTO.num));
         String a2 = a(hashMap, this.c.appSignKey);
@@ -1923,7 +1922,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -1933,7 +1932,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put("ptoken", str2);
         }
@@ -1976,6 +1975,7 @@ public final class b {
                         String optString = jSONObject.optString(IntentConfig.PORTRAIT);
                         if (!TextUtils.isEmpty(optString)) {
                             getPortraitResponse.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg", optString);
+                            getPortraitResponse.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg", optString);
                         }
                         sapiCallBack.onSuccess(getPortraitResponse);
                         return;
@@ -2011,7 +2011,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -2022,7 +2022,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        hashMap.put("bduss", getHistoryPortraitsDTO.bduss);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, getHistoryPortraitsDTO.bduss);
         String a2 = a(hashMap, this.c.appSignKey);
         RequestParams requestParams = new RequestParams();
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -2088,9 +2088,9 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         RequestParams requestParams = new RequestParams();
         for (Map.Entry entry : hashMap.entrySet()) {
             requestParams.put((String) entry.getKey(), (String) entry.getValue());
@@ -2175,7 +2175,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -2185,14 +2185,14 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         hashMap.put("sdkversion", SapiAccountManager.VERSION_NAME);
         SapiAccount b2 = c.a(this.c.context).b(str);
         if (b2 != null && !TextUtils.isEmpty(b2.k)) {
             hashMap.put("ptoken", b2.k);
         }
-        hashMap.put("client", SocialConstants.ANDROID_CLIENT_TYPE);
-        String b3 = com.baidu.sapi2.utils.d.b(f.k);
+        hashMap.put("client", "android");
+        String b3 = e.b(f.k);
         if (!TextUtils.isEmpty(b3)) {
             hashMap.put("di", b3);
         }
@@ -2228,6 +2228,7 @@ public final class b {
                             String optString = jSONObject.optString(IntentConfig.PORTRAIT);
                             if (!TextUtils.isEmpty(optString)) {
                                 getUserInfoResult.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
+                                getUserInfoResult.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg?%s", optString, getUserInfoResult.portraitSign);
                             }
                             getUserInfoResult.username = jSONObject.optString("username");
                             getUserInfoResult.uid = jSONObject.optString("userid");
@@ -2286,7 +2287,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -2301,12 +2302,12 @@ public final class b {
         if (b2 != null && !TextUtils.isEmpty(b2.k)) {
             hashMap.put("ptoken", b2.k);
         }
-        hashMap.put("client", SocialConstants.ANDROID_CLIENT_TYPE);
-        String b3 = com.baidu.sapi2.utils.d.b(f.k);
+        hashMap.put("client", "android");
+        String b3 = e.b(f.k);
         if (!TextUtils.isEmpty(b3)) {
             hashMap.put("di", b3);
         }
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         String a2 = a(hashMap, this.c.appSignKey);
         RequestParams requestParams = new RequestParams();
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
@@ -2330,6 +2331,7 @@ public final class b {
                             String optString = jSONObject.optString(IntentConfig.PORTRAIT);
                             if (!TextUtils.isEmpty(optString)) {
                                 getUserInfoResponse.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg", optString);
+                                getUserInfoResponse.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg", optString);
                             }
                             getUserInfoResponse.username = jSONObject.optString("username");
                             getUserInfoResponse.uid = jSONObject.optString("userid");
@@ -2392,7 +2394,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -2401,7 +2403,7 @@ public final class b {
         JSONObject jSONObject = new JSONObject();
         final SapiDataEncryptor sapiDataEncryptor = new SapiDataEncryptor();
         try {
-            jSONObject.put("bduss", str);
+            jSONObject.put(SapiAccountManager.SESSION_BDUSS, str);
             if (!TextUtils.isEmpty(this.c.clientId)) {
                 jSONObject.put("clientid", this.c.clientId);
             }
@@ -2435,7 +2437,7 @@ public final class b {
                             case 0:
                             case 110000:
                                 SapiAccount sapiAccount = new SapiAccount();
-                                sapiAccount.bduss = jSONObject2.optString("bduss");
+                                sapiAccount.bduss = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
                                 sapiAccount.k = jSONObject2.optString("ptoken");
                                 sapiAccount.l = jSONObject2.optString("stoken");
                                 sapiAccount.displayname = jSONObject2.optString(SapiAccountManager.SESSION_DISPLAYNAME);
@@ -2499,8 +2501,8 @@ public final class b {
         }
         final SapiDataEncryptor sapiDataEncryptor = new SapiDataEncryptor();
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
-        this.d.get(this.c.context, z(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.17
+        this.d.setUserAgent(y());
+        this.d.get(this.c.context, A(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.17
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onFailure(Throwable th, String str4) {
                 super.onFailure(th, str4);
@@ -2543,14 +2545,14 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final FillUsernameCallBack fillUsernameCallBack, String str, String str2, String str3, String str4, String str5, final SapiDataEncryptor sapiDataEncryptor) throws JSONException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException, CertificateException {
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         hashMap.put("cert_id", str5);
         hashMap.put("crypttype", String.valueOf(6));
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("bduss", str);
+        jSONObject.put(SapiAccountManager.SESSION_BDUSS, str);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             jSONObject.put("clientid", this.c.clientId);
         }
@@ -2596,14 +2598,14 @@ public final class b {
             fillUserProfileCallback.onFailure(fillUserProfileResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("appid", this.c.appId);
             hashMap.put("tpl", this.c.tpl);
             if (!TextUtils.isEmpty(this.c.clientId)) {
                 hashMap.put("clientid", this.c.clientId);
             }
-            hashMap.put("bduss", str);
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
             hashMap.put("sig", a(hashMap, this.c.appSignKey));
             this.d.post(this.c.context, this.e.a() + f.J, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.19
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -2634,7 +2636,7 @@ public final class b {
                                 }
                                 if (z && !TextUtils.isEmpty(optString3)) {
                                     b.this.d = new AsyncHttpClient();
-                                    b.this.d.setUserAgent(b.this.x());
+                                    b.this.d.setUserAgent(b.this.y());
                                     CookieStore basicCookieStore = new BasicCookieStore();
                                     BasicClientCookie basicClientCookie = new BasicClientCookie("BAIDUID", SapiUtils.getClientId(b.this.c.context));
                                     basicClientCookie.setDomain("baidu.com");
@@ -2680,7 +2682,7 @@ public final class b {
                                                                 hashMap2.put("clientid", b.this.c.clientId);
                                                             }
                                                             hashMap2.put("upsmschannel", optString3);
-                                                            hashMap2.put("bduss", str);
+                                                            hashMap2.put(SapiAccountManager.SESSION_BDUSS, str);
                                                             hashMap2.put("vcode", optString2);
                                                             hashMap2.put("sig", b.this.a(hashMap2, b.this.c.appSignKey));
                                                             b.this.a(fillUserProfileCallback, fillUserProfileResult, hashMap2);
@@ -2739,7 +2741,7 @@ public final class b {
 
     void a(final FillUserProfileCallback fillUserProfileCallback, final FillUserProfileResult fillUserProfileResult, Map<String, String> map) {
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         this.d.post(this.c.context, this.e.a() + f.K, new RequestParams(map), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.20
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
@@ -2762,7 +2764,7 @@ public final class b {
                             SapiAccount sapiAccount = new SapiAccount();
                             JSONObject jSONObject = new JSONObject(str);
                             sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-                            sapiAccount.bduss = jSONObject.optString("bduss");
+                            sapiAccount.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                             sapiAccount.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                             sapiAccount.k = jSONObject.optString("ptoken");
                             sapiAccount.l = jSONObject.optString("stoken");
@@ -2816,14 +2818,14 @@ public final class b {
             voiceCheckCallback.onFailure(voiceCheckResult);
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("appid", this.c.appId);
             hashMap.put("tpl", this.c.tpl);
             if (!TextUtils.isEmpty(this.c.clientId)) {
                 hashMap.put("clientid", this.c.clientId);
             }
-            String b2 = com.baidu.sapi2.utils.d.b(f.L);
+            String b2 = e.b(f.L);
             if (!TextUtils.isEmpty(b2)) {
                 hashMap.put("di", b2);
             }
@@ -2893,7 +2895,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -2903,12 +2905,12 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.L);
+        String b2 = e.b(f.L);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
         if (!TextUtils.isEmpty(str)) {
-            hashMap.put("bduss", str);
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         }
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put("userid", str2);
@@ -2966,7 +2968,7 @@ public final class b {
                     voiceCheckResult.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                     voiceCheckResult.signUp = "1".equals(jSONObject.optString("voice"));
                     voiceCheckResult.needVerify = "1".equals(jSONObject.optString("needverify"));
-                    voiceCheckResult.authToken = jSONObject.optString(SocialConstants.TOKEN_RESPONSE_TYPE);
+                    voiceCheckResult.authToken = jSONObject.optString("token");
                     if (!TextUtils.isEmpty(jSONObject.optString("loginswitch")) && jSONObject.optString("loginswitch").equals("1")) {
                         voiceCheckResult.switchState = Switch.ON;
                     } else {
@@ -3053,12 +3055,15 @@ public final class b {
         }
         final GetTplStokenResult getTplStokenResult = new GetTplStokenResult();
         if (list == null || list.isEmpty()) {
-            getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+            getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_TARGET_TPL_LIST_EMPTY);
+            getTplStokenResult.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
             getTplStokenCallback.onFailure(getTplStokenResult);
             return getTplStokenResult.tplStokenMap;
         }
         final SapiAccount b2 = c.a(this.c.context).b(str);
         if (b2 == null) {
+            getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_BDUSS_NOT_EXIST);
+            getTplStokenCallback.onFailure(getTplStokenResult);
             return getTplStokenResult.tplStokenMap;
         }
         final String str2 = b2.k;
@@ -3086,7 +3091,7 @@ public final class b {
                 }
             } catch (JSONException e) {
                 L.e(e);
-                getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_PARSE_DATA_FAIL);
                 getTplStokenCallback.onFailure(getTplStokenResult);
                 return getTplStokenResult.tplStokenMap;
             }
@@ -3099,17 +3104,18 @@ public final class b {
             str3 = str4;
         }
         if (TextUtils.isEmpty(str2)) {
-            getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+            getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_PTOKEN_EMPTY);
+            getTplStokenResult.failureType = GetTplStokenResult.FailureType.PTOKEN_EMPTY;
             getTplStokenCallback.onFailure(getTplStokenResult);
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, MD5Util.toMd5((this.c.appId + this.c.tpl + str + this.c.appSignKey).getBytes(), false));
-        hashMap.put("client", SocialConstants.ANDROID_CLIENT_TYPE);
+        hashMap.put("client", "android");
         hashMap.put("return_type", "1");
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put("ptoken", str2);
@@ -3144,7 +3150,7 @@ public final class b {
                                 bVar = SapiAccount.b.a(new JSONObject(b2.m));
                             }
                             bVar.i.b.putAll(b3);
-                            if (AccountType.UNKNOWN == b2.getAccountType()) {
+                            if (SocialType.UNKNOWN == b2.getSocialType()) {
                                 b2.m = bVar.i.a().toString();
                             } else {
                                 b2.m = bVar.a().toString();
@@ -3152,6 +3158,7 @@ public final class b {
                             if (list.size() == b3.size()) {
                                 if (!z) {
                                     c.a(b.this.c.context).a(b2);
+                                    c.a(b.this.c.context).a(b2, false);
                                     c.a(b.this.c.context).c(b2);
                                 } else {
                                     com.baidu.sapi2.share.a.a().a(b2);
@@ -3159,8 +3166,25 @@ public final class b {
                                 getTplStokenCallback.onSuccess(getTplStokenResult);
                                 return;
                             }
-                            getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                            getTplStokenResult.setResultCode(GetTplStokenResult.ERROR_CODE_STOKENS_NOT_MATCH);
                             getTplStokenCallback.onFailure(getTplStokenResult);
+                            return;
+                        case 8:
+                            if (!TextUtils.isEmpty(str2)) {
+                                String optString = jSONObject.optString("ssnerror");
+                                if (TextUtils.isEmpty(optString)) {
+                                    optString = "0";
+                                }
+                                int parseInt2 = Integer.parseInt(optString);
+                                if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH.ordinal()) {
+                                    getTplStokenResult.failureType = GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH;
+                                } else if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_EXPIRED.ordinal()) {
+                                    getTplStokenResult.failureType = GetTplStokenResult.FailureType.BDUSS_EXPIRED;
+                                }
+                                getTplStokenResult.setResultMsg(jSONObject.optString("errmsg"));
+                                getTplStokenCallback.onFailure(getTplStokenResult);
+                                return;
+                            }
                             return;
                         default:
                             if (!TextUtils.isEmpty(str2)) {
@@ -3173,7 +3197,7 @@ public final class b {
                 } catch (Exception e2) {
                     L.e(e2);
                     if (!TextUtils.isEmpty(str2)) {
-                        getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_UNKNOWN);
+                        getTplStokenResult.setResultCode(SapiResult.ERROR_CODE_SERVER_DATA_ERROR);
                         getTplStokenCallback.onFailure(getTplStokenResult);
                     }
                 }
@@ -3222,7 +3246,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -3232,7 +3256,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        hashMap.put("bduss", str);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str);
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
         this.d.post(this.c.context, this.e.a() + f.H, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.25
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -3255,12 +3279,12 @@ public final class b {
                     oAuthResult.setResultCode(parseInt);
                     switch (parseInt) {
                         case 0:
-                            oAuthResult.accessToken = jSONObject.optString(SocialConstants.PARAM_ACCESS_TOKEN);
-                            oAuthResult.expiresIn = jSONObject.optInt(SocialConstants.PARAM_EXPIRES_IN);
+                            oAuthResult.accessToken = jSONObject.optString("access_token");
+                            oAuthResult.expiresIn = jSONObject.optInt("expires_in");
                             oAuthResult.scope = jSONObject.optString("scope");
                             oAuthResult.refreshToken = jSONObject.optString("refresh_token");
-                            oAuthResult.sessionKey = jSONObject.optString(SocialConstants.PARAM_SESSION_KEY);
-                            oAuthResult.sessionSecret = jSONObject.optString(SocialConstants.PARAM_SESSION_SECRET);
+                            oAuthResult.sessionKey = jSONObject.optString("session_key");
+                            oAuthResult.sessionSecret = jSONObject.optString("session_secret");
                             oAuthResult.extra = str2;
                             sapiCallback.onSuccess(oAuthResult);
                             break;
@@ -3310,24 +3334,24 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.M);
+        String b2 = e.b(f.M);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
         hashMap.put("voicemd5", str);
         if (!TextUtils.isEmpty(str2)) {
-            hashMap.put("bduss", str2);
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, str2);
         }
         if (!TextUtils.isEmpty(str3)) {
             hashMap.put("authsid", str3);
@@ -3421,7 +3445,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -3431,7 +3455,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.N);
+        String b2 = e.b(f.N);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
@@ -3525,7 +3549,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -3535,12 +3559,12 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.O);
+        String b2 = e.b(f.O);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
-        hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, String.valueOf(c.a(this.c.context).v()));
-        hashMap.put("bduss", voiceCodeSetDTO.bduss);
+        hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, String.valueOf(c.a(this.c.context).w()));
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, voiceCodeSetDTO.bduss);
         hashMap.put("password", SapiDataEncryptor.c(String.valueOf(voiceCodeSetDTO.voiceCode), SapiDataEncryptor.a));
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
         this.d.post(this.c.context, this.e.a() + f.O, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.28
@@ -3613,7 +3637,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
@@ -3623,12 +3647,12 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.P);
+        String b2 = e.b(f.P);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
-        hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, String.valueOf(c.a(this.c.context).v()));
-        hashMap.put("bduss", voiceSwitchSetDTO.bduss);
+        hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, String.valueOf(c.a(this.c.context).w()));
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, voiceSwitchSetDTO.bduss);
         hashMap.put("status", voiceSwitchSetDTO.action == Switch.ON ? "1" : "0");
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
         this.d.post(this.c.context, this.e.a() + f.P, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.29
@@ -3701,18 +3725,18 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.Q);
+        String b2 = e.b(f.Q);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
@@ -3788,23 +3812,23 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.T);
+        String b2 = e.b(f.T);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
         if (!TextUtils.isEmpty(faceCheckDTO.bduss)) {
-            hashMap.put("bduss", faceCheckDTO.bduss);
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, faceCheckDTO.bduss);
         } else {
             hashMap.put("username", faceCheckDTO.account);
             if (faceCheckDTO.accountType == null || faceCheckDTO.accountType == FaceCheckDTO.AccountType.MERGE) {
@@ -3912,18 +3936,18 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.S);
+        String b2 = e.b(f.S);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
@@ -4009,23 +4033,23 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.R);
+        String b2 = e.b(f.R);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
         if (!TextUtils.isEmpty(faceRegDTO.bduss)) {
-            hashMap.put("bduss", faceRegDTO.bduss);
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, faceRegDTO.bduss);
         }
         hashMap.put("facepics", faceRegDTO.picturesEncoded);
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
@@ -4104,23 +4128,23 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.U);
+        String b2 = e.b(f.U);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
         if (!TextUtils.isEmpty(faceModifyDTO.bduss)) {
-            hashMap.put("bduss", faceModifyDTO.bduss);
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, faceModifyDTO.bduss);
         }
         hashMap.put("facepics", faceModifyDTO.picturesEncoded);
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
@@ -4196,23 +4220,23 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
         hashMap.put("tpl", this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
-            hashMap.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            hashMap.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             hashMap.put("clientip", this.c.clientIp);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(f.V);
+        String b2 = e.b(f.V);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
         if (!TextUtils.isEmpty(faceDelDTO.bduss)) {
-            hashMap.put("bduss", faceDelDTO.bduss);
+            hashMap.put(SapiAccountManager.SESSION_BDUSS, faceDelDTO.bduss);
         }
         hashMap.put("sig", a(hashMap, this.c.appSignKey));
         this.d.post(this.c.context, this.e.a() + f.V, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.36
@@ -4288,12 +4312,12 @@ public final class b {
             }
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
             hashMap.put(IntentConfig.CMD, str2);
             if (!TextUtils.isEmpty(str3)) {
-                hashMap.put("bduss", str3);
+                hashMap.put(SapiAccountManager.SESSION_BDUSS, str3);
             }
             if (!TextUtils.isEmpty(str5)) {
                 hashMap.put("ptoken", str5);
@@ -4359,11 +4383,11 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
         hashMap.put(IntentConfig.CMD, str2);
-        hashMap.put("bduss", str3);
+        hashMap.put(SapiAccountManager.SESSION_BDUSS, str3);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
         }
@@ -4453,7 +4477,7 @@ public final class b {
             }
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
             hashMap.put(IntentConfig.CMD, str2);
@@ -4512,7 +4536,7 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
         hashMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, str);
         hashMap.put(IntentConfig.CMD, str2);
@@ -4607,16 +4631,16 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         Map<String, String> a2 = a(f.W);
         if (!TextUtils.isEmpty(this.c.clientId)) {
-            a2.put(SocialConstants.PARAM_CUID, this.c.clientId);
+            a2.put("cuid", this.c.clientId);
         }
         if (!TextUtils.isEmpty(this.c.clientIp)) {
             a2.put("clientip", this.c.clientIp);
         }
         a2.put("channel_id", sSOConfirmDTO.channelID);
-        a2.put("bduss", sSOConfirmDTO.bduss);
+        a2.put(SapiAccountManager.SESSION_BDUSS, sSOConfirmDTO.bduss);
         a2.put("refuse", sSOConfirmDTO.authorized ? "0" : "1");
         a2.put("sig", a(a2, this.c.appSignKey));
         this.d.post(this.c.context, this.e.a() + f.W, new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.41
@@ -4689,7 +4713,7 @@ public final class b {
             return false;
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("username", str);
             if (!TextUtils.isEmpty(this.c.clientId)) {
@@ -4749,7 +4773,7 @@ public final class b {
             return false;
         } else {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             hashMap.put("sms", str);
             if (!TextUtils.isEmpty(this.c.clientId)) {
@@ -4828,7 +4852,7 @@ public final class b {
             };
             if (SapiUtils.checkRequestPermission("android.permission.SEND_SMS", this.c.context) ? SapiUtils.sendSms(this.c.context, str, SapiUtils.getFastRegChannel(this.c.context)) : false) {
                 this.d = new AsyncHttpClient();
-                this.d.setUserAgent(x());
+                this.d.setUserAgent(y());
                 Map<String, String> a2 = a(f.t);
                 a2.put("sms", str);
                 a2.put("sig", a(a2, this.c.appSignKey));
@@ -4928,19 +4952,19 @@ public final class b {
     public void c() {
         if (this.c != null && this.c.context != null && SapiUtils.hasActiveNetwork(this.c.context)) {
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
             if (c.a(this.c.context).a() != null) {
-                hashMap.put("device_id", e.d(this.c.context));
+                hashMap.put("device_id", SapiDeviceUtils.createDeviceID(this.c.context));
                 hashMap.put("device_token", c.a(this.c.context).a());
             }
-            this.d.get(this.c.context, y().getDeviceUrl() + f.D, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.48
+            this.d.get(this.c.context, z().getDeviceUrl() + f.D, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.48
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                 public void onSuccess(int i, String str) {
                     if (str != null) {
                         try {
                             JSONObject jSONObject = new JSONObject(str);
-                            if (jSONObject.has(SocialConstants.PARAM_ERROR_CODE) || jSONObject.has(SocialConstants.PARAM_ERROR_MSG) || jSONObject.optInt("fulfilbind") != 0) {
+                            if (jSONObject.has("error_code") || jSONObject.has("error_msg") || jSONObject.optInt("fulfilbind") != 0) {
                                 return;
                             }
                             if (jSONObject.optInt(TbConfig.ST_TYPE_REG) == 1 || jSONObject.optInt("login") == 1) {
@@ -4975,14 +4999,14 @@ public final class b {
             return false;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
-        String a2 = e.a.a(e.d(this.c.context));
+        String encryptDeviceId = SapiDeviceUtils.DeviceCrypto.encryptDeviceId(SapiDeviceUtils.createDeviceID(this.c.context));
         hashMap.put("ptpl", this.c.tpl);
-        hashMap.put("device_id", a2);
-        hashMap.put("device_info", e.d());
+        hashMap.put("device_id", encryptDeviceId);
+        hashMap.put("device_info", SapiDeviceUtils.createDeviceInfo());
         hashMap.put("package_sign", this.c.deviceLoginSignKey);
-        this.d.post(this.c.context, y().getDeviceUrl() + f.E, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.49
+        this.d.post(this.c.context, z().getDeviceUrl() + f.E, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.49
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onSuccess(int i, String str) {
                 super.onSuccess(i, str);
@@ -5008,14 +5032,14 @@ public final class b {
                 return;
             }
             this.d = new AsyncHttpClient();
-            this.d.setUserAgent(x());
+            this.d.setUserAgent(y());
             HashMap hashMap = new HashMap();
-            String a2 = e.a.a(e.d(this.c.context));
+            String encryptDeviceId = SapiDeviceUtils.DeviceCrypto.encryptDeviceId(SapiDeviceUtils.createDeviceID(this.c.context));
             hashMap.put("ptpl", this.c.tpl);
-            hashMap.put("device_id", a2);
-            hashMap.put("device_info", e.d());
+            hashMap.put("device_id", encryptDeviceId);
+            hashMap.put("device_info", SapiDeviceUtils.createDeviceInfo());
             hashMap.put("force_reg_token", str);
-            this.d.post(this.c.context, y().getDeviceUrl() + f.G, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.50
+            this.d.post(this.c.context, z().getDeviceUrl() + f.G, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.50
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                 public void onSuccess(int i, String str2) {
                     b.this.b(i, sapiCallBack, str2);
@@ -5044,14 +5068,14 @@ public final class b {
             return false;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
+        this.d.setUserAgent(y());
         HashMap hashMap = new HashMap();
-        String a2 = e.a.a(e.d(this.c.context));
+        String encryptDeviceId = SapiDeviceUtils.DeviceCrypto.encryptDeviceId(SapiDeviceUtils.createDeviceID(this.c.context));
         hashMap.put("ptpl", this.c.tpl);
-        hashMap.put("device_id", a2);
+        hashMap.put("device_id", encryptDeviceId);
         hashMap.put("device_token", str);
         hashMap.put("package_sign", this.c.deviceLoginSignKey);
-        this.d.post(this.c.context, y().getDeviceUrl() + f.F, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.51
+        this.d.post(this.c.context, z().getDeviceUrl() + f.F, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.51
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onSuccess(int i, String str2) {
                 b.this.a(i, sapiCallBack, str2);
@@ -5074,13 +5098,13 @@ public final class b {
                 JSONObject jSONObject = new JSONObject(str);
                 sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                 sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
-                sapiAccountResponse.bduss = jSONObject.optString("bduss");
+                sapiAccountResponse.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
-                if (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE) == 104) {
+                if (jSONObject.optInt("error_code") == 104) {
                     c(sapiCallBack, jSONObject.optString("force_reg_token"));
                     return;
                 }
-                if (!jSONObject.has(SocialConstants.PARAM_ERROR_CODE) && !jSONObject.has(SocialConstants.PARAM_ERROR_MSG)) {
+                if (!jSONObject.has("error_code") && !jSONObject.has("error_msg")) {
                     SapiAccount sapiAccount = new SapiAccount();
                     sapiAccount.uid = sapiAccountResponse.uid;
                     sapiAccount.bduss = sapiAccountResponse.bduss;
@@ -5094,12 +5118,12 @@ public final class b {
                     com.baidu.sapi2.share.a.a().a(sapiAccount);
                 }
                 if (sapiCallBack != null) {
-                    switch (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE)) {
+                    switch (jSONObject.optInt("error_code")) {
                         case 0:
                             sapiCallBack.onSuccess(null);
                             return;
                         default:
-                            sapiCallBack.onSystemError(jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE));
+                            sapiCallBack.onSystemError(jSONObject.optInt("error_code"));
                             return;
                     }
                 }
@@ -5120,9 +5144,9 @@ public final class b {
                 JSONObject jSONObject = new JSONObject(str);
                 sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                 sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
-                sapiAccountResponse.bduss = jSONObject.optString("bduss");
+                sapiAccountResponse.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
-                if (!jSONObject.has(SocialConstants.PARAM_ERROR_CODE) && !jSONObject.has(SocialConstants.PARAM_ERROR_MSG)) {
+                if (!jSONObject.has("error_code") && !jSONObject.has("error_msg")) {
                     SapiAccount sapiAccount = new SapiAccount();
                     sapiAccount.uid = sapiAccountResponse.uid;
                     sapiAccount.bduss = sapiAccountResponse.bduss;
@@ -5136,12 +5160,12 @@ public final class b {
                     com.baidu.sapi2.share.a.a().a(sapiAccount);
                 }
                 if (sapiCallBack != null) {
-                    switch (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE)) {
+                    switch (jSONObject.optInt("error_code")) {
                         case 0:
                             sapiCallBack.onSuccess(null);
                             return;
                         default:
-                            sapiCallBack.onSystemError(jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE));
+                            sapiCallBack.onSystemError(jSONObject.optInt("error_code"));
                             return;
                     }
                 }
@@ -5165,7 +5189,7 @@ public final class b {
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
         }
-        String b2 = com.baidu.sapi2.utils.d.b(str);
+        String b2 = e.b(str);
         if (!TextUtils.isEmpty(b2)) {
             hashMap.put("di", b2);
         }
@@ -5174,7 +5198,7 @@ public final class b {
         return hashMap;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX INFO: Access modifiers changed from: package-private */
     public String a(Map<String, String> map, String str) {
         ArrayList arrayList = new ArrayList();
         for (String str2 : map.keySet()) {
@@ -5202,7 +5226,7 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String x() {
+    public String y() {
         return "tpl:" + this.c.tpl + ";android_sapi_v" + SapiAccountManager.VERSION_NAME;
     }
 
@@ -5231,7 +5255,7 @@ public final class b {
                 String optString = new JSONObject(str).optString("userinfo");
                 if (!TextUtils.isEmpty(optString)) {
                     JSONObject jSONObject = new JSONObject(sapiDataEncryptor.a(optString));
-                    sapiAccountResponse.bduss = jSONObject.optString("bduss");
+                    sapiAccountResponse.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                     sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                     sapiAccountResponse.stoken = jSONObject.optString("stoken");
                     sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
@@ -5369,7 +5393,7 @@ public final class b {
                 sapiAccountResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                 sapiAccountResponse.username = jSONObject.optString("uname");
                 sapiAccountResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
-                sapiAccountResponse.bduss = jSONObject.optString("bduss");
+                sapiAccountResponse.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
                 sapiAccountResponse.ptoken = jSONObject.optString("ptoken");
                 sapiAccountResponse.stoken = jSONObject.optString("stoken");
                 sapiAccountResponse.newReg = jSONObject.optBoolean("newreg");
@@ -5474,20 +5498,20 @@ public final class b {
             return;
         }
         this.d = new AsyncHttpClient();
-        this.d.setUserAgent(x());
-        Map<String, String> a2 = a(s());
+        this.d.setUserAgent(y());
+        Map<String, String> a2 = a(t());
         if (!TextUtils.isEmpty(iqiyiLoginDTO.phoneNum)) {
             a2.put("crypt_m", iqiyiLoginDTO.phoneNum);
         }
-        a2.put(SocialConstants.PARAM_ACCESS_TOKEN, iqiyiLoginDTO.accessToken);
+        a2.put("access_token", iqiyiLoginDTO.accessToken);
         a2.put("osuid", iqiyiLoginDTO.openID);
         a2.put("json", "1");
         a2.put("type", SocialType.IQIYI.getType() + "");
         a2.put("act", "special");
         a2.put("display", "native");
-        a2.put("client", SocialConstants.ANDROID_CLIENT_TYPE);
+        a2.put("client", "android");
         a2.put("sig", a(a2, this.c.appSignKey));
-        this.d.get(this.c.context, s(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.53
+        this.d.get(this.c.context, t(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.b.53
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
             }
@@ -5558,7 +5582,7 @@ public final class b {
     SapiAccount a(JSONObject jSONObject) {
         SapiAccount sapiAccount = new SapiAccount();
         sapiAccount.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
-        sapiAccount.bduss = jSONObject.optString("bduss");
+        sapiAccount.bduss = jSONObject.optString(SapiAccountManager.SESSION_BDUSS);
         sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
         sapiAccount.username = jSONObject.optString("uname");
         sapiAccount.l = jSONObject.optString("stoken");
@@ -5599,57 +5623,57 @@ public final class b {
         }
     }
 
-    private Domain y() {
+    private Domain z() {
         return this.c.environment;
     }
 
-    private String z() {
+    private String A() {
         return this.e.a() + "/sslcrypt/get_last_cert";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String d() {
-        return y().getWap() + "/passport/login";
+        return z().getWap() + "/passport/login";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String e() {
-        return y().getWap() + "/passport/getpass";
+        return z().getWap() + "/passport/getpass";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String f() {
-        return y().getWap() + "/wp/wappassword";
+        return z().getWap() + "/wp/wappassword";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String g() {
-        return y().getWap() + "/wp/recordindex";
+        return z().getWap() + "/wp/recordindex";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String h() {
-        return y().getWap() + "/v2/?bindingaccount&";
+        return z().getWap() + "/v2/?bindingaccount&";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String i() {
-        return y().getWap() + "/v2/?bindingret";
+        return z().getWap() + "/v2/?bindingret";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(BindWidgetAction bindWidgetAction) {
-        return y().getWap() + bindWidgetAction.getUri();
+        return z().getWap() + bindWidgetAction.getUri();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String j() {
-        return y().getWap() + "/passport/authwidget";
+        return z().getWap() + "/passport/authwidget";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String k() {
-        return y().getWap() + "/wp/unitewidget";
+        return z().getWap() + "/wp/unitewidget";
     }
 
     String l() {
@@ -5661,7 +5685,7 @@ public final class b {
     }
 
     String n() {
-        return y().getPortraitUrl() + "/sys/history";
+        return z().getPortraitUrl() + "/sys/history";
     }
 
     String o() {
@@ -5669,20 +5693,20 @@ public final class b {
     }
 
     String p() {
-        return y().getPortraitUrl() + "/sys/portrait/hotitemlist";
+        return z().getPortraitUrl() + "/sys/portrait/hotitemlist";
     }
 
     String q() {
-        return y().getPortraitUrl() + "/sys/sethotitem";
-    }
-
-    String r() {
-        return this.e.a() + f.a;
+        return z().getPortraitUrl() + "/sys/sethotitem";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String s() {
-        return this.e.a() + "/phoenix/account/ssologin";
+    public String r() {
+        return z().getWap() + "/wp/v3/ucenter/index";
+    }
+
+    String s() {
+        return this.e.a() + f.a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -5692,16 +5716,21 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String u() {
-        return this.e.a() + f.o;
+        return this.e.a() + "/phoenix/account/ssologin";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String v() {
-        return this.e.a() + f.p;
+        return this.e.a() + f.o;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String w() {
+        return this.e.a() + f.p;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String x() {
         return this.e.a() + f.q;
     }
 }

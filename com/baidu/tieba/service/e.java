@@ -1,15 +1,15 @@
 package com.baidu.tieba.service;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ SyncLoginService ffe;
+    final /* synthetic */ TiebaActiveService fgG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(SyncLoginService syncLoginService) {
-        this.ffe = syncLoginService;
+    public e(TiebaActiveService tiebaActiveService) {
+        this.fgG = tiebaActiveService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.ffe.checkPassV6Switch();
+        this.fgG.sendActive();
     }
 }

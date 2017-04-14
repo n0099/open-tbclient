@@ -8,36 +8,36 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.ej;
+import com.baidu.tieba.pb.pb.main.eh;
 /* loaded from: classes.dex */
 public class ReaderPbService extends BdBaseService {
     private boolean isAlive;
-    private ej mReaderManager;
-    private em mReaderModel;
+    private eh mReaderManager;
+    private ek mReaderModel;
     private String postId;
     private String threadId;
     private BdUniqueId mTagId = BdUniqueId.gen();
-    private CustomMessageListener mPassDataListener = new gn(this, CmdConfigCustom.CMD_TTS_TRANSFOR_PBDATA);
-    private CustomMessageListener menuOptionListener = new go(this, CmdConfigCustom.CMD_TTS_MENU_OPTION);
-    private CustomMessageListener audioPowerChangeListener = new gp(this, CmdConfigCustom.CMD_TTS_CHANGE_PB_POWER);
-    private ej.a mRefreshCallback = new gq(this);
-    private PbModel.a mLoadDataCallback = new gr(this);
+    private CustomMessageListener mPassDataListener = new gl(this, CmdConfigCustom.CMD_TTS_TRANSFOR_PBDATA);
+    private CustomMessageListener menuOptionListener = new gm(this, CmdConfigCustom.CMD_TTS_MENU_OPTION);
+    private CustomMessageListener audioPowerChangeListener = new gn(this, CmdConfigCustom.CMD_TTS_CHANGE_PB_POWER);
+    private eh.a mRefreshCallback = new go(this);
+    private PbModel.a mLoadDataCallback = new gp(this);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setReadModel(ei eiVar) {
-        if (eiVar != null) {
+    public void setReadModel(eg egVar) {
+        if (egVar != null) {
             if (this.mReaderModel == null) {
-                this.mReaderModel = new em();
+                this.mReaderModel = new ek();
                 this.mReaderModel.p(this.mTagId);
                 this.mReaderModel.b(this.mLoadDataCallback);
             }
-            this.mReaderModel.setPbData(eiVar.pbData);
-            this.mReaderModel.iF(eiVar.eiu);
-            this.mReaderModel.setHostMode(eiVar.epR);
-            this.mReaderModel.iE(eiVar.isSquence);
+            this.mReaderModel.setPbData(egVar.pbData);
+            this.mReaderModel.iE(egVar.egB);
+            this.mReaderModel.setHostMode(egVar.enZ);
+            this.mReaderModel.iD(egVar.isSquence);
             this.mReaderModel.setThreadId(this.threadId);
             this.mReaderModel.setPostId(this.postId);
-            this.mReaderModel.iG(this.isAlive);
+            this.mReaderModel.iF(this.isAlive);
         }
     }
 

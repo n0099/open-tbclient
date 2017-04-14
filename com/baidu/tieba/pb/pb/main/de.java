@@ -1,70 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Intent;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class de {
-    private TbPageContext ajF;
-    private RelativeLayout dWm;
-    private com.baidu.tbadk.editortools.pb.n emR;
-    private PbFakeFloorModel emS;
+public class de extends y.a {
+    public HeadImageView bWZ;
+    public TextView bsf;
+    public TextView cOV;
+    public TextView cjI;
+    public TbImageView elb;
+    public TextView elc;
+    public int mSkinType;
 
-    public de(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
-        this.ajF = tbPageContext;
-        this.dWm = relativeLayout;
-        this.emS = pbFakeFloorModel;
-    }
-
-    public void aLc() {
-        if (this.emR != null) {
-            this.emR.DO();
-        }
-    }
-
-    private void aLd() {
-        if (this.dWm != null && this.emR == null) {
-            this.emR = (com.baidu.tbadk.editortools.pb.n) new com.baidu.tbadk.editortools.pb.r().aL(this.ajF.getPageActivity());
-            this.emR.a(this.ajF);
-            this.emR.b(this.emS);
-            this.emR.CP().bB(true);
-            this.emR.f(this.ajF);
-            aLe();
-        }
-    }
-
-    public void bM(String str, String str2) {
-        aLd();
-        this.emR.setReplyId(str);
-        this.emR.fB(str2);
-    }
-
-    private void aLe() {
-        if (this.dWm != null && this.emR != null && this.emR.CP() != null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.addRule(12);
-            this.dWm.addView(this.emR.CP(), layoutParams);
-            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        }
-    }
-
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.emR != null) {
-            this.emR.onActivityResult(i, i2, intent);
-        }
-    }
-
-    public void onStop() {
-        if (this.emR != null) {
-            this.emR.onStop();
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.emR != null && this.emR.CP() != null) {
-            this.emR.CP().onChangeSkinType(i);
-        }
+    public de(View view) {
+        super(view);
+        this.mSkinType = 3;
+        this.bWZ = (HeadImageView) view.findViewById(w.h.photo);
+        this.bWZ.setRadius(com.baidu.adp.lib.util.k.g(view.getContext(), w.f.ds30));
+        this.bsf = (TextView) view.findViewById(w.h.user_name);
+        this.cOV = (TextView) view.findViewById(w.h.time);
+        this.cjI = (TextView) view.findViewById(w.h.text);
+        this.elb = (TbImageView) view.findViewById(w.h.god_pic);
+        this.elc = (TextView) view.findViewById(w.h.god_btn);
     }
 }

@@ -1,48 +1,39 @@
 package com.baidu.tbadk.f;
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    protected View aDp;
-    private boolean aDq;
+    private static long RS = 86400000;
 
-    public a(View view) {
-        this.aDp = view;
-    }
-
-    public boolean Ev() {
-        return this.aDq;
-    }
-
-    public void b(View view, boolean z) {
-        if (view != null && this.aDp != null && this.aDp.getParent() == null) {
-            this.aDq = true;
-            d.K(view).a(view, this.aDp, z);
-            Ew();
-        }
-    }
-
-    public void I(View view) {
-        if (view != null && this.aDp != null && this.aDp.getParent() != null && (view instanceof ViewGroup)) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void m(File file) {
+        if (file != null) {
             try {
-                Ex();
-                ((ViewGroup) view).removeView(this.aDp);
-                this.aDq = false;
+                if (file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (int i = 0; i < listFiles.length; i++) {
+                            if (listFiles[i].isDirectory()) {
+                                m(listFiles[i]);
+                            } else {
+                                listFiles[i].delete();
+                            }
+                        }
+                        return;
+                    }
+                    return;
+                }
+                file.delete();
             } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void J(View view) {
-        b(view, false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void Ew() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void Ex() {
+    public static void init() {
+        MessageManager.getInstance().registerListener(new b(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 }

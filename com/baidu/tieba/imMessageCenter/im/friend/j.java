@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ InviteFriendListActivity dkq;
+    final /* synthetic */ InviteFriendListActivity diP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(InviteFriendListActivity inviteFriendListActivity, int i) {
         super(i);
-        this.dkq = inviteFriendListActivity;
+        this.diP = inviteFriendListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,20 +24,20 @@ class j extends CustomMessageListener {
         p pVar;
         p pVar2;
         if (customResponsedMessage instanceof GetContactListResponsedMessage) {
-            this.dkq.isLoaded = true;
-            atomicBoolean = this.dkq.dko;
+            this.diP.isLoaded = true;
+            atomicBoolean = this.diP.diN;
             atomicBoolean.set(false);
-            InviteFriendListActivity inviteFriendListActivity = this.dkq;
-            pVar = this.dkq.dkj;
+            InviteFriendListActivity inviteFriendListActivity = this.diP;
+            pVar = this.diP.diI;
             inviteFriendListActivity.hideLoadingView(pVar.getRootView());
             List<com.baidu.tbadk.coreExtra.relationship.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
             if (contacts == null) {
                 contacts = new LinkedList<>();
             }
-            this.dkq.dkl = contacts;
-            pVar2 = this.dkq.dkj;
+            this.diP.diK = contacts;
+            pVar2 = this.diP.diI;
             if (pVar2 != null) {
-                this.dkq.auL();
+                this.diP.auE();
             }
         }
     }

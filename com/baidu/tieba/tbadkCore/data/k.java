@@ -17,19 +17,19 @@ public class k {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern fuc = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern fvL = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String fua = null;
-    private SpannableStringBuilder fub = null;
-    private boolean ftZ = false;
+    private String fvJ = null;
+    private SpannableStringBuilder fvK = null;
+    private boolean fvI = false;
 
-    public static boolean br(int i, int i2) {
+    public static boolean bo(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean bs(int i, int i2) {
+    public static boolean bp(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -45,23 +45,23 @@ public class k {
         return this.text;
     }
 
-    public String bhn() {
+    public String bhY() {
         return this.c;
     }
 
-    public SpannableStringBuilder bho() {
-        return this.fub;
+    public SpannableStringBuilder bhZ() {
+        return this.fvK;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.fub == null) {
-            this.fub = new SpannableStringBuilder();
+        if (this.fvK == null) {
+            this.fvK = new SpannableStringBuilder();
         }
-        this.fub.append((CharSequence) spannableString);
-        return this.fub;
+        this.fvK.append((CharSequence) spannableString);
+        return this.fvK;
     }
 
-    public SpannableString bQ(Context context) {
+    public SpannableString bK(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -77,9 +77,9 @@ public class k {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
                 com.baidu.adp.widget.a.a face = TbadkCoreApplication.m9getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable kP = face.kP();
-                    kP.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(kP, 1), 0, this.text.length(), 33);
+                    BitmapDrawable kT = face.kT();
+                    kT.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(kT, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -121,7 +121,7 @@ public class k {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.fua = jSONObject.optString("cdn_src", null);
+                    this.fvJ = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -136,7 +136,7 @@ public class k {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.ftZ = true;
+                        this.fvI = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -146,7 +146,7 @@ public class k {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.Ek().fc(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.EI().fi(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

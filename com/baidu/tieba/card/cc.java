@@ -5,45 +5,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class cc {
-    private static cc buK;
-    private List<com.baidu.tbadk.core.util.as> buJ;
+    private static cc buC;
+    private List<com.baidu.tbadk.core.util.as> buB;
 
-    public static cc Sv() {
-        if (buK == null) {
+    public static cc ST() {
+        if (buC == null) {
             synchronized (cc.class) {
-                if (buK == null) {
-                    buK = new cc();
+                if (buC == null) {
+                    buC = new cc();
                 }
             }
         }
-        return buK;
+        return buC;
     }
 
     public void a(com.baidu.tbadk.core.util.as asVar) {
         if (asVar != null) {
-            if (this.buJ == null) {
-                this.buJ = new ArrayList();
+            if (this.buB == null) {
+                this.buB = new ArrayList();
             }
-            if (this.buJ != null) {
-                this.buJ.add(asVar);
+            if (this.buB != null) {
+                this.buB.add(asVar);
             }
         }
     }
 
-    public void hX(String str) {
+    public void ib(String str) {
         if (str != null) {
-            if (this.buJ == null) {
-                this.buJ = new ArrayList();
+            if (this.buB == null) {
+                this.buB = new ArrayList();
             }
-            if (this.buJ != null) {
-                this.buJ.add(new com.baidu.tbadk.core.util.as(str));
+            if (this.buB != null) {
+                this.buB.add(new com.baidu.tbadk.core.util.as(str));
             }
         }
     }
 
-    public void cM(boolean z) {
-        if (com.baidu.tbadk.core.util.x.p(this.buJ) != 0) {
-            for (com.baidu.tbadk.core.util.as asVar : this.buJ) {
+    public void cO(boolean z) {
+        if (com.baidu.tbadk.core.util.x.p(this.buB) != 0) {
+            for (com.baidu.tbadk.core.util.as asVar : this.buB) {
                 if (asVar != null) {
                     int i = 0;
                     if (z) {
@@ -53,13 +53,13 @@ public class cc {
                     TiebaStatic.log(asVar);
                 }
             }
-            this.buJ.clear();
+            this.buB.clear();
         }
     }
 
-    public void cN(boolean z) {
-        if (com.baidu.tbadk.core.util.x.p(this.buJ) != 0) {
-            for (com.baidu.tbadk.core.util.as asVar : this.buJ) {
+    public void cP(boolean z) {
+        if (com.baidu.tbadk.core.util.x.p(this.buB) != 0) {
+            for (com.baidu.tbadk.core.util.as asVar : this.buB) {
                 if (asVar != null) {
                     int i = 0;
                     if (z) {
@@ -69,7 +69,7 @@ public class cc {
                     TiebaStatic.log(asVar);
                 }
             }
-            this.buJ.clear();
+            this.buB.clear();
         }
     }
 }

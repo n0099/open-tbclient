@@ -1,15 +1,15 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ c Ab;
+    final /* synthetic */ c zC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.Ab = cVar;
+        this.zC = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Ab.release();
+        this.zC.release();
     }
 }

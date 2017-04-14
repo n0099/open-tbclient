@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.a;
 /* loaded from: classes.dex */
 public class p implements h {
-    private short sP;
+    private short sk;
 
     public p(short s) {
-        this.sP = s;
+        this.sk = s;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Integer.valueOf(this.sP);
+        return Integer.valueOf(this.sk);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Short.valueOf(this.sP);
+        return Short.valueOf(this.sk);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -24,16 +24,16 @@ public class p implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Short.valueOf(this.sP);
+        return Short.valueOf(this.sk);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object e(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Short.valueOf(this.sP);
+        return Short.valueOf(this.sk);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Short.valueOf(this.sP);
+        return Short.valueOf(this.sk);
     }
 }

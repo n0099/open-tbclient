@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class am implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity elO;
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -20,7 +20,7 @@ class am implements View.OnLongClickListener {
         com.baidu.tbadk.baseEditMark.a aVar;
         com.baidu.tbadk.baseEditMark.a aVar2;
         boolean z;
-        fa faVar;
+        ey eyVar;
         c.b bVar;
         PbModel pbModel;
         try {
@@ -30,27 +30,27 @@ class am implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.elO.elE = (PostData) sparseArray.get(w.h.tag_clip_board);
-            if (this.elO.elE != null) {
-                aVar = this.elO.dIP;
+            this.ejU.ejK = (PostData) sparseArray.get(w.h.tag_clip_board);
+            if (this.ejU.ejK != null) {
+                aVar = this.ejU.dFo;
                 if (aVar != null) {
-                    aVar2 = this.elO.dIP;
-                    if (aVar2.nH() && this.elO.elE.getId() != null) {
-                        String id = this.elO.elE.getId();
-                        pbModel = this.elO.ejZ;
-                        if (id.equals(pbModel.rZ())) {
+                    aVar2 = this.ejU.dFo;
+                    if (aVar2.oe() && this.ejU.ejK.getId() != null) {
+                        String id = this.ejU.ejK.getId();
+                        pbModel = this.ejU.eif;
+                        if (id.equals(pbModel.sx())) {
                             z = true;
                             boolean booleanValue = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                            faVar = this.elO.ekM;
-                            bVar = this.elO.elF;
-                            faVar.a(bVar, z, booleanValue);
+                            eyVar = this.ejU.eiS;
+                            bVar = this.ejU.ejL;
+                            eyVar.a(bVar, z, booleanValue);
                         }
                     }
                     z = false;
                     boolean booleanValue2 = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                    faVar = this.elO.ekM;
-                    bVar = this.elO.elF;
-                    faVar.a(bVar, z, booleanValue2);
+                    eyVar = this.ejU.eiS;
+                    bVar = this.ejU.ejL;
+                    eyVar.a(bVar, z, booleanValue2);
                 }
             }
         }

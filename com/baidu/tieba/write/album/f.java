@@ -8,11 +8,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class f implements View.OnClickListener {
-    final /* synthetic */ e fLq;
+    final /* synthetic */ e fMZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.fLq = eVar;
+        this.fMZ = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,7 +25,7 @@ class f implements View.OnClickListener {
         o oVar2;
         j jVar3;
         int i2;
-        ImageFileInfo sP;
+        ImageFileInfo sN;
         o oVar3;
         AlbumActivity albumActivity2;
         ImageView imageView;
@@ -45,66 +45,66 @@ class f implements View.OnClickListener {
         int i6;
         j jVar4;
         int i7;
-        jVar = this.fLq.fLo;
+        jVar = this.fMZ.fMX;
         if (jVar != null) {
-            oVar = this.fLq.fKY;
+            oVar = this.fMZ.fMH;
             if (oVar != null) {
-                albumActivity = this.fLq.fLm;
+                albumActivity = this.fMZ.fMV;
                 if (albumActivity != null) {
-                    jVar2 = this.fLq.fLo;
-                    i = this.fLq.aBB;
-                    if (jVar2.sQ(i)) {
-                        oVar2 = this.fLq.fKY;
-                        if ("-1".equals(oVar2.bmT())) {
-                            jVar4 = this.fLq.fLo;
-                            i7 = this.fLq.aBB;
-                            sP = jVar4.sP(i7 + 1);
+                    jVar2 = this.fMZ.fMX;
+                    i = this.fMZ.aBR;
+                    if (jVar2.sO(i)) {
+                        oVar2 = this.fMZ.fMH;
+                        if ("-1".equals(oVar2.bnD())) {
+                            jVar4 = this.fMZ.fMX;
+                            i7 = this.fMZ.aBR;
+                            sN = jVar4.sN(i7 + 1);
                         } else {
-                            jVar3 = this.fLq.fLo;
-                            i2 = this.fLq.aBB;
-                            sP = jVar3.sP(i2);
+                            jVar3 = this.fMZ.fMX;
+                            i2 = this.fMZ.aBR;
+                            sN = jVar3.sN(i2);
                         }
-                        oVar3 = this.fLq.fKY;
-                        if (oVar3.isAdded(sP)) {
-                            albumActivity6 = this.fLq.fLm;
-                            if (albumActivity6.d(sP)) {
-                                e eVar = this.fLq;
-                                imageView3 = this.fLq.fLp;
-                                eVar.b(imageView3, false);
-                                oVar5 = this.fLq.fKY;
-                                if ("-1".equals(oVar5.bmT())) {
-                                    albumActivity8 = this.fLq.fLm;
-                                    i6 = this.fLq.aBB;
+                        oVar3 = this.fMZ.fMH;
+                        if (oVar3.isAdded(sN)) {
+                            albumActivity6 = this.fMZ.fMV;
+                            if (albumActivity6.d(sN)) {
+                                e eVar = this.fMZ;
+                                imageView3 = this.fMZ.fMY;
+                                eVar.c(imageView3, false);
+                                oVar5 = this.fMZ.fMH;
+                                if ("-1".equals(oVar5.bnD())) {
+                                    albumActivity8 = this.fMZ.fMV;
+                                    i6 = this.fMZ.aBR;
                                     albumActivity8.K(i6 + 1, false);
                                 } else {
-                                    albumActivity7 = this.fLq.fLm;
-                                    i5 = this.fLq.aBB;
+                                    albumActivity7 = this.fMZ.fMV;
+                                    i5 = this.fMZ.aBR;
                                     albumActivity7.K(i5, false);
                                 }
                             }
                         } else {
-                            albumActivity2 = this.fLq.fLm;
-                            if (albumActivity2.c(sP)) {
-                                e eVar2 = this.fLq;
-                                imageView = this.fLq.fLp;
-                                eVar2.b(imageView, true);
-                                oVar4 = this.fLq.fKY;
-                                if ("-1".equals(oVar4.bmT())) {
-                                    albumActivity5 = this.fLq.fLm;
-                                    i4 = this.fLq.aBB;
+                            albumActivity2 = this.fMZ.fMV;
+                            if (albumActivity2.c(sN)) {
+                                e eVar2 = this.fMZ;
+                                imageView = this.fMZ.fMY;
+                                eVar2.c(imageView, true);
+                                oVar4 = this.fMZ.fMH;
+                                if ("-1".equals(oVar4.bnD())) {
+                                    albumActivity5 = this.fMZ.fMV;
+                                    i4 = this.fMZ.aBR;
                                     albumActivity5.K(i4 + 1, true);
                                 } else {
-                                    albumActivity3 = this.fLq.fLm;
-                                    i3 = this.fLq.aBB;
+                                    albumActivity3 = this.fMZ.fMV;
+                                    i3 = this.fMZ.aBR;
                                     albumActivity3.K(i3, true);
                                 }
-                                albumActivity4 = this.fLq.fLm;
+                                albumActivity4 = this.fMZ.fMV;
                                 Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), w.a.album_choose_icon);
-                                imageView2 = this.fLq.fLp;
+                                imageView2 = this.fMZ.fMY;
                                 imageView2.startAnimation(loadAnimation);
                             }
                         }
-                        this.fLq.bmM();
+                        this.fMZ.bnw();
                     }
                 }
             }

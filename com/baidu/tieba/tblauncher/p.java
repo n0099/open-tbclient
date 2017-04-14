@@ -20,17 +20,17 @@ class p extends CustomMessageListener {
         z zVar2;
         z zVar3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
-            this.this$0.aFx();
-            zVar = this.this$0.fyl;
+            this.this$0.aFk();
+            zVar = this.this$0.fzU;
             if (zVar != null) {
-                zVar2 = this.this$0.fyl;
-                if (zVar2.bjq() != null) {
+                zVar2 = this.this$0.fzU;
+                if (zVar2.bkb() != null) {
                     MainTabActivity mainTabActivity = this.this$0;
-                    zVar3 = this.this$0.fyl;
-                    mainTabActivity.fyh = zVar3.bjq().getCurrentTabType();
+                    zVar3 = this.this$0.fzU;
+                    mainTabActivity.fzQ = zVar3.bkb().getCurrentTabType();
                 }
             }
-            this.this$0.fyi = true;
+            this.this$0.fzR = true;
         }
     }
 }

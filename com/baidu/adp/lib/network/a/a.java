@@ -6,7 +6,6 @@ import com.baidu.adp.lib.network.http.f;
 import com.baidu.adp.lib.network.http.h;
 import com.baidu.adp.lib.network.http.i;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,47 +16,47 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    private static String wn;
-    private static String wo;
-    private static String wp;
-    private static boolean wq;
-    private static String wr;
-    private f ws;
-    private d wt;
-    private long wu;
+    private static String vQ;
+    private static String vR;
+    private static String vS;
+    private static boolean vT;
+    private static String vU;
+    private f vV;
+    private d vW;
+    private long vX;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.wu = BdStatisticsManager.getInstance().getClientLogId();
+        this.vX = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    public static void ae(String str) {
-        wn = str;
+    public static void setCookie(String str) {
+        vQ = str;
     }
 
-    public static void af(String str) {
-        wr = str;
+    public static void ab(String str) {
+        vU = str;
     }
 
     public static void setUserAgent(String str) {
-        wo = str;
+        vR = str;
     }
 
     public static void setUid(String str) {
-        wp = str;
+        vS = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        wq = z;
+        vT = z;
     }
 
     public h a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.ws = new f();
-        a(this.ws, z);
-        this.ws.fv().setUrl(str);
-        this.wt = new d(this.ws);
-        this.wt.d(i, i3, i4);
-        return this.ws.fw();
+        this.vV = new f();
+        a(this.vV, z);
+        this.vV.fA().setUrl(str);
+        this.vW = new d(this.vV);
+        this.vW.d(i, i3, i4);
+        return this.vV.fB();
     }
 
     public h a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -65,52 +64,52 @@ public class a {
     }
 
     public h a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.ws = new f();
-        a(this.ws, z);
-        this.ws.fv().setUrl(str);
+        this.vV = new f();
+        a(this.vV, z);
+        this.vV.fA().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.ws.fv().a(basicNameValuePair);
+                this.vV.fA().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.ws.fv().o(next.getName(), next.getValue());
+                this.vV.fA().o(next.getName(), next.getValue());
             }
         }
-        this.wt = new d(this.ws);
-        this.wt.f(i, i2, -1);
-        return this.ws.fw();
+        this.vW = new d(this.vV);
+        this.vW.f(i, i2, -1);
+        return this.vV.fB();
     }
 
     public h a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.ws = new f();
-        a(this.ws, z);
-        this.ws.fv().setUrl(str);
+        this.vV = new f();
+        a(this.vV, z);
+        this.vV.fA().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.ws.fv().o(next.getName(), next.getValue());
+                this.vV.fA().o(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.ws.fv().n(next2.getName(), next2.getValue());
+                this.vV.fA().n(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.ws.fv().d(entry.getKey(), entry.getValue());
+                this.vV.fA().d(entry.getKey(), entry.getValue());
             }
         }
-        this.wt = new d(this.ws);
-        this.wt.f(i, i2, -1);
-        return this.ws.fw();
+        this.vW = new d(this.vV);
+        this.vW.f(i, i2, -1);
+        return this.vV.fB();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, i iVar, boolean z2) {
@@ -118,11 +117,11 @@ public class a {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, i iVar, boolean z2, boolean z3) {
-        this.ws = new f();
-        b(this.ws);
-        this.ws.fv().setUrl(str);
-        this.wt = new d(this.ws);
-        return this.wt.a(str2, iVar, i, i2, i3, i4, z2, z3);
+        this.vV = new f();
+        b(this.vV);
+        this.vV.fA().setUrl(str);
+        this.vW = new d(this.vV);
+        return this.vW.a(str2, iVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -130,54 +129,54 @@ public class a {
     }
 
     public void cancel() {
-        if (this.wt != null) {
-            this.wt.cancel();
+        if (this.vW != null) {
+            this.vW.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.wt != null) {
-            return this.wt.fo();
+        if (this.vW != null) {
+            return this.vW.ft();
         }
         return false;
     }
 
-    public void fp() {
-        if (this.wt != null) {
-            this.wt.fp();
+    public void fu() {
+        if (this.vW != null) {
+            this.vW.fu();
         }
     }
 
-    public f fD() {
-        return this.ws;
+    public f fI() {
+        return this.vV;
     }
 
     private void a(f fVar, boolean z) {
         if (fVar != null) {
-            if (!TextUtils.isEmpty(wn)) {
-                fVar.fv().o("Cookie", wn);
+            if (!TextUtils.isEmpty(vQ)) {
+                fVar.fA().o("Cookie", vQ);
             } else {
-                fVar.fv().o("Cookie", "");
+                fVar.fA().o("Cookie", "");
             }
-            if (!TextUtils.isEmpty(wp)) {
-                fVar.fv().o("client_user_token", wp);
+            if (!TextUtils.isEmpty(vS)) {
+                fVar.fA().o("client_user_token", vS);
             }
-            if (!TextUtils.isEmpty(wo)) {
-                fVar.fv().o("User-Agent", wo);
+            if (!TextUtils.isEmpty(vR)) {
+                fVar.fA().o("User-Agent", vR);
             }
             if (z) {
-                fVar.fv().o("Accept-Encoding", "gzip");
+                fVar.fA().o("Accept-Encoding", "gzip");
             } else {
-                fVar.fv().o("Accept-Encoding", "");
+                fVar.fA().o("Accept-Encoding", "");
             }
-            if (wq) {
-                fVar.fv().o("Connection", "Keep-Alive");
+            if (vT) {
+                fVar.fA().o("Connection", "Keep-Alive");
             } else {
-                fVar.fv().o("Connection", IntentConfig.CLOSE);
+                fVar.fA().o("Connection", IntentConfig.CLOSE);
             }
-            fVar.fv().o("client_logid", String.valueOf(this.wu));
-            if (!TextUtils.isEmpty(wr)) {
-                fVar.fv().o(SocialConstants.PARAM_CUID, wr);
+            fVar.fA().o("client_logid", String.valueOf(this.vX));
+            if (!TextUtils.isEmpty(vU)) {
+                fVar.fA().o("cuid", vU);
             }
         }
     }

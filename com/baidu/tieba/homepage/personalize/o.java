@@ -5,9 +5,9 @@ import com.baidu.tieba.card.cc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AbsListView.OnScrollListener {
-    private int cze = -1;
-    private int czf = 0;
-    private boolean czg = false;
+    private int cxE = -1;
+    private int cxF = 0;
+    private boolean cxG = false;
     final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,32 +24,32 @@ public class o implements AbsListView.OnScrollListener {
         int i3;
         boolean z2;
         boolean z3;
-        if (this.this$0.cyN == null) {
-            this.this$0.cyN = new com.baidu.tbadk.performanceLog.m();
-            this.this$0.cyN.fb(1005);
-            this.this$0.cyN.pageType = 1;
+        if (this.this$0.cxn == null) {
+            this.this$0.cxn = new com.baidu.tbadk.j.m();
+            this.this$0.cxn.fe(1005);
+            this.this$0.cxn.pageType = 1;
         }
-        if (this.this$0.cxx != null) {
+        if (this.this$0.cvX != null) {
             z3 = this.this$0.mIsBackground;
             if (!z3) {
-                this.this$0.cxx.onScrollStateChanged(absListView, i);
+                this.this$0.cvX.onScrollStateChanged(absListView, i);
             }
         }
-        this.this$0.cyN.FP();
+        this.this$0.cxn.Gn();
         if (i == 0) {
-            cc.Sv().cM(true);
-            if (this.czg) {
-                this.this$0.ajA();
+            cc.ST().cO(true);
+            if (this.cxG) {
+                this.this$0.aju();
             }
-            this.czg = false;
-            acVar = this.this$0.aQP;
+            this.cxG = false;
+            acVar = this.this$0.aRf;
             if (acVar != null) {
-                z = this.this$0.cyR;
+                z = this.this$0.cxr;
                 if (z) {
-                    acVar2 = this.this$0.aQP;
-                    i2 = this.this$0.aQT;
-                    i3 = this.this$0.aQS;
-                    z2 = this.this$0.aQR;
+                    acVar2 = this.this$0.aRf;
+                    i2 = this.this$0.aRj;
+                    i3 = this.this$0.aRi;
+                    z2 = this.this$0.aRh;
                     acVar2.a(i2, i3, z2, 1);
                 }
             }
@@ -59,27 +59,27 @@ public class o implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         boolean z;
-        if (this.czf > i) {
-            this.czg = true;
+        if (this.cxF > i) {
+            this.cxG = true;
         }
-        if (this.this$0.cxx != null) {
+        if (this.this$0.cvX != null) {
             z = this.this$0.mIsBackground;
             if (!z) {
-                this.this$0.cxx.a(absListView, this.czf, i, i2, i3);
+                this.this$0.cvX.a(absListView, this.cxF, i, i2, i3);
             }
         }
-        this.czf = i;
+        this.cxF = i;
         int i4 = (i + i2) - 1;
-        if (!this.czg && this.cze != i4) {
-            this.cze = i4;
-            this.this$0.jP(this.cze);
+        if (!this.cxG && this.cxE != i4) {
+            this.cxE = i4;
+            this.this$0.jQ(this.cxE);
         }
-        if (this.czg && this.cze != i) {
-            this.cze = i;
-            this.this$0.jP(this.cze);
+        if (this.cxG && this.cxE != i) {
+            this.cxE = i;
+            this.this$0.jQ(this.cxE);
         }
-        this.this$0.czc = i;
-        this.this$0.aQT = i;
-        this.this$0.aQS = (i + i2) - 1;
+        this.this$0.cxC = i;
+        this.this$0.aRj = i;
+        this.this$0.aRi = (i + i2) - 1;
     }
 }

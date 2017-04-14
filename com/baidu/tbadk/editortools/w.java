@@ -6,7 +6,7 @@ import com.baidu.tieba.w;
 public class w extends x {
     public w(Context context) {
         super((String) null, 23, 0);
-        this.azr = w.g.selector_editor_btn_more;
-        this.azw = new int[]{32};
+        this.azH = w.g.selector_editor_btn_more;
+        this.azM = new int[]{32};
     }
 }

@@ -1,11 +1,15 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.a;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public interface cb {
-    void MQ();
+    a<? extends com.baidu.tbadk.core.data.bi, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z);
 
-    void a(int i, int i2, cj cjVar);
+    av<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 
-    void a(cc ccVar);
-
-    void init();
+    a<? extends com.baidu.tbadk.core.data.bi, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId);
 }

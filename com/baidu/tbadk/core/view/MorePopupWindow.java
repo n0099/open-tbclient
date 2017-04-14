@@ -93,7 +93,7 @@ public class MorePopupWindow extends PopupWindow {
     private void applaySkin(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.ah(i == 1);
+            cVar.aj(i == 1);
             try {
                 cVar.t(this.mContentView);
             } catch (IllegalArgumentException e) {
@@ -110,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int ag = com.baidu.adp.lib.util.k.ag(context);
-        this.mContentView.getLayoutParams().width = ag;
-        setWidth(ag);
+        int af = com.baidu.adp.lib.util.k.af(context);
+        this.mContentView.getLayoutParams().width = af;
+        setWidth(af);
     }
 
     public void setWindowHeight(int i) {
@@ -157,9 +157,9 @@ public class MorePopupWindow extends PopupWindow {
             setWidth(measuredWidth);
             this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(w.f.ds4));
             setHeight(this.mWindowHeight);
-            int[] aj = com.baidu.adp.lib.util.k.aj(this.mActivity);
-            if (aj != null && aj.length > 1 && aj[0] > measuredWidth) {
-                this.mShowRightTopXOff = aj[0] - measuredWidth;
+            int[] ai = com.baidu.adp.lib.util.k.ai(this.mActivity);
+            if (ai != null && ai.length > 1 && ai[0] > measuredWidth) {
+                this.mShowRightTopXOff = ai[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

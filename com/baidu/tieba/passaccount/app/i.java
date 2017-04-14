@@ -1,17 +1,18 @@
 package com.baidu.tieba.passaccount.app;
 
 import com.baidu.sapi2.SapiWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements SapiWebView.ChangePwdCallback {
-    final /* synthetic */ ForgetPwdActivity eey;
+public class i implements SapiWebView.OnFinishCallback {
+    final /* synthetic */ LoginActivity ecR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(ForgetPwdActivity forgetPwdActivity) {
-        this.eey = forgetPwdActivity;
+    public i(LoginActivity loginActivity) {
+        this.ecR = loginActivity;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
-    public void onSuccess() {
-        this.eey.finish();
+    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
+    public void onFinish() {
+        this.ecR.finish();
     }
 }

@@ -14,13 +14,13 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public al(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public al(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,23 +40,23 @@ public class al extends com.baidu.adp.framework.listener.e {
                 chatMessage.setRecordId(recordId);
                 chatMessage.getLocalData().setStatus((short) 3);
                 if (responseCommitPersonalMessage.getToUserType() == 0) {
-                    com.baidu.tieba.im.sendmessage.a.lS(com.baidu.adp.lib.g.b.g(responseCommitPersonalMessage.getGroupId(), 0));
-                } else {
                     com.baidu.tieba.im.sendmessage.a.lT(com.baidu.adp.lib.g.b.g(responseCommitPersonalMessage.getGroupId(), 0));
+                } else {
+                    com.baidu.tieba.im.sendmessage.a.lU(com.baidu.adp.lib.g.b.g(responseCommitPersonalMessage.getGroupId(), 0));
                 }
             }
-            com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, chatMessage.getContent());
+            com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, chatMessage.getContent());
             if (chatMessage instanceof PersonalChatMessage) {
-                b.asj().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                b.asc().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                b.asj().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                b.asc().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                Y = b.asj().Y(String.valueOf(com.baidu.tieba.im.util.h.n(chatMessage)), 2);
+                Y = b.asc().Y(String.valueOf(com.baidu.tieba.im.util.h.n(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                Y = b.asj().Y(String.valueOf(com.baidu.tieba.im.util.h.n(chatMessage)), 4);
+                Y = b.asc().Y(String.valueOf(com.baidu.tieba.im.util.h.n(chatMessage)), 4);
             } else {
                 return;
             }

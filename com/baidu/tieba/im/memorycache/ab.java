@@ -5,23 +5,23 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public ab(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.this$0.dct = null;
-            com.baidu.tieba.im.sendmessage.a.lS(0);
+            this.this$0.daQ = null;
             com.baidu.tieba.im.sendmessage.a.lT(0);
-            b.asj().init();
+            com.baidu.tieba.im.sendmessage.a.lU(0);
+            b.asc().init();
         }
     }
 }

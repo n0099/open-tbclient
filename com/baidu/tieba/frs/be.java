@@ -1,21 +1,28 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId bPb = BdUniqueId.gen();
-    private int bPc;
+public class be implements c.b {
+    final /* synthetic */ az bOO;
 
-    public int ZW() {
-        return this.bPc;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public be(az azVar) {
+        this.bOO = azVar;
     }
 
-    public void hQ(int i) {
-        this.bPc = i;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bPb;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        cVar.dismiss();
+        if (i == 0) {
+            frsActivity2 = this.bOO.bOf;
+            frsActivity2.PL();
+        } else if (i == 1) {
+            frsActivity = this.bOO.bOf;
+            com.baidu.tbadk.core.util.ap.p(frsActivity.getPageContext().getPageActivity());
+        }
     }
 }

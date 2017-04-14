@@ -10,11 +10,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends cf<com.baidu.tieba.card.data.j> {
-    final /* synthetic */ q czC;
+    final /* synthetic */ q cyc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.czC = qVar;
+        this.cyc = qVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,19 +29,19 @@ public class r extends cf<com.baidu.tieba.card.data.j> {
         com.baidu.tieba.card.m mVar7;
         com.baidu.tieba.card.m mVar8;
         if (view != null) {
-            mVar = this.czC.czA;
+            mVar = this.cyc.cya;
             if (mVar != null) {
-                mVar2 = this.czC.czA;
-                if (mVar2.bsj != null) {
-                    mVar3 = this.czC.czA;
-                    if (mVar3.bsj.bsp != null) {
-                        mVar4 = this.czC.czA;
-                        if (mVar4.bsj.bsm != null) {
-                            mVar5 = this.czC.czA;
-                            if (mVar5.bsj.getView() != null) {
+                mVar2 = this.cyc.cya;
+                if (mVar2.bsb != null) {
+                    mVar3 = this.cyc.cya;
+                    if (mVar3.bsb.bsh != null) {
+                        mVar4 = this.cyc.cya;
+                        if (mVar4.bsb.bse != null) {
+                            mVar5 = this.cyc.cya;
+                            if (mVar5.bsb.getView() != null) {
                                 int id = view.getId();
-                                mVar6 = this.czC.czA;
-                                if (id == mVar6.bsj.bsp.getId() && (view.getTag() instanceof MetaData)) {
+                                mVar6 = this.cyc.cya;
+                                if (id == mVar6.bsb.bsh.getId() && (view.getTag() instanceof MetaData)) {
                                     if (!StringUtils.isNull(((MetaData) view.getTag()).getUserId())) {
                                         TiebaStatic.log(new as("c10803").s("obj_locate", 6));
                                         return;
@@ -49,16 +49,16 @@ public class r extends cf<com.baidu.tieba.card.data.j> {
                                     return;
                                 }
                                 int id2 = view.getId();
-                                mVar7 = this.czC.czA;
-                                if (id2 != mVar7.bsj.getView().getId()) {
+                                mVar7 = this.cyc.cya;
+                                if (id2 != mVar7.bsb.getView().getId()) {
                                     int id3 = view.getId();
-                                    mVar8 = this.czC.czA;
-                                    if (id3 != mVar8.bsj.bsm.getId()) {
+                                    mVar8 = this.cyc.cya;
+                                    if (id3 != mVar8.bsb.bse.getId()) {
                                         return;
                                     }
                                 }
                                 if (view.getTag(w.h.rec_god_item_root) instanceof String) {
-                                    TiebaStatic.log(new as("c11005").Z("obj_id", (String) view.getTag(w.h.rec_god_item_root)));
+                                    TiebaStatic.log(new as("c11005").aa("obj_id", (String) view.getTag(w.h.rec_god_item_root)));
                                 }
                             }
                         }

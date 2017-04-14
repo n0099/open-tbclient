@@ -9,23 +9,23 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements c.b {
-    final /* synthetic */ ThreadCommentAndPraiseInfoLayout alQ;
+    final /* synthetic */ ThreadCommentAndPraiseInfoLayout ame;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout) {
-        this.alQ = threadCommentAndPraiseInfoLayout;
+        this.ame = threadCommentAndPraiseInfoLayout;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         List list;
         TbPageContext<?> tbPageContext;
-        list = this.alQ.alD;
+        list = this.ame.alR;
         String str = (String) com.baidu.tbadk.core.util.x.c(list, i);
         if (!StringUtils.isNull(str)) {
-            bb vQ = bb.vQ();
-            tbPageContext = this.alQ.ajF;
-            vQ.c(tbPageContext, new String[]{str});
+            bb wn = bb.wn();
+            tbPageContext = this.ame.ajT;
+            wn.c(tbPageContext, new String[]{str});
         }
         cVar.dismiss();
     }

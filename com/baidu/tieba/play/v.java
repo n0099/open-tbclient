@@ -27,7 +27,7 @@ public interface v {
         void onPrepared(v vVar);
     }
 
-    boolean Jw();
+    boolean JW();
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture);
 
@@ -42,8 +42,6 @@ public interface v {
     int getVideoHeight();
 
     int getVideoWidth();
-
-    boolean isLooping();
 
     boolean isPlaying();
 

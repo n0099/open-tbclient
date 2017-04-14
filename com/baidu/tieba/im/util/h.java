@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private static Pattern agE = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern agS = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String I(String str, boolean z) {
         String str2 = null;
@@ -127,7 +127,7 @@ public class h {
         }
     }
 
-    private static final String kL(String str) {
+    private static final String kR(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -156,7 +156,7 @@ public class h {
         return sb.toString();
     }
 
-    private static final String kM(String str) {
+    private static final String kS(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -188,19 +188,19 @@ public class h {
             return null;
         }
         if (i == 1) {
-            String kL = (str.length() <= 1 || str.charAt(0) != '[') ? null : kL(str);
-            if (TextUtils.isEmpty(kL)) {
-                kL = str;
+            String kR = (str.length() <= 1 || str.charAt(0) != '[') ? null : kR(str);
+            if (TextUtils.isEmpty(kR)) {
+                kR = str;
             }
-            if (kL == null) {
+            if (kR == null) {
                 return null;
             }
-            Matcher matcher = agE.matcher(kL);
+            Matcher matcher = agS.matcher(kR);
             while (matcher.find()) {
                 String group = matcher.group();
-                kL = kL.replace(group, group.replace("#(", "[").replace(")", "]"));
+                kR = kR.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return kL;
+            return kR;
         } else if (i == 2) {
             return TbadkCoreApplication.m9getInst().getApp().getString(w.l.last_msg_pic);
         } else {
@@ -208,7 +208,7 @@ public class h {
                 return TbadkCoreApplication.m9getInst().getApp().getString(w.l.last_msg_voice);
             }
             if (i == 11) {
-                return kN(str);
+                return kT(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.m9getInst().getApp().getString(w.l.last_msg_reply_card);
@@ -297,7 +297,7 @@ public class h {
                         return TbadkCoreApplication.m9getInst().getApp().getString(w.l.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return kM(str);
+                    return kS(str);
                 } else {
                     return null;
                 }
@@ -329,7 +329,7 @@ public class h {
         return v(chatMessage);
     }
 
-    private static String kN(String str) {
+    private static String kT(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -449,19 +449,19 @@ public class h {
 
     public static d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return kO(commonMsgPojo.getContent());
+            return kU(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static d kO(String str) {
+    public static d kU(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return kP(jSONArray.getJSONObject(0).optString("msg_src"));
+                return kV(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -470,13 +470,13 @@ public class h {
         }
     }
 
-    public static d kP(String str) {
+    public static d kV(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         d dVar = new d();
-        dVar.cUx = split[0];
+        dVar.cSU = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

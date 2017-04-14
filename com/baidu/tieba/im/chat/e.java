@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity cOc;
+    final /* synthetic */ AbsMsgImageActivity cMz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.cOc = absMsgImageActivity;
+        this.cMz = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.cOc.getListMenu();
+        listMenu = this.cMz.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.cOc.cNQ;
+                        multiImageView = this.cMz.cMn;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.cOc.cNQ;
+                            multiImageView2 = this.cMz.cMn;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.cOc.cNN = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.cOc.cNN;
+                            this.cMz.cMk = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.cMz.cMk;
                             aVar.execute(new String[0]);
-                            this.cOc.cNO.setClickable(false);
+                            this.cMz.cMl.setClickable(false);
                         } else {
-                            this.cOc.showToast(this.cOc.getPageContext().getString(w.l.no_data));
+                            this.cMz.showToast(this.cMz.getPageContext().getString(w.l.no_data));
                         }
                         break;
                     } catch (Exception e) {

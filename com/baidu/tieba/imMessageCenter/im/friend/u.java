@@ -6,11 +6,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements TextWatcher {
-    final /* synthetic */ p dkK;
+    final /* synthetic */ p djj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(p pVar) {
-        this.dkK = pVar;
+        this.djj = pVar;
     }
 
     @Override // android.text.TextWatcher
@@ -20,13 +20,13 @@ public class u implements TextWatcher {
         String a = com.baidu.adp.lib.util.j.a(editable, null);
         if (a != null) {
             if (a.length() > 0) {
-                textView2 = this.dkK.dkI;
+                textView2 = this.djj.djh;
                 textView2.setVisibility(0);
             } else {
-                textView = this.dkK.dkI;
+                textView = this.djj.djh;
                 textView.setVisibility(8);
             }
-            this.dkK.auO();
+            this.djj.auH();
         }
     }
 

@@ -4,11 +4,11 @@ import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ SlidingTabLayout cwR;
+    final /* synthetic */ SlidingTabLayout cvr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(SlidingTabLayout slidingTabLayout) {
-        this.cwR = slidingTabLayout;
+        this.cvr = slidingTabLayout;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -16,11 +16,11 @@ public class v implements ViewTreeObserver.OnGlobalLayoutListener {
         boolean z;
         z zVar;
         com.baidu.tieba.homepage.framework.w wVar;
-        z = this.cwR.cwN;
+        z = this.cvr.cvn;
         if (!z) {
-            this.cwR.cwN = true;
-            zVar = this.cwR.cwP;
-            wVar = this.cwR.cwQ;
+            this.cvr.cvn = true;
+            zVar = this.cvr.cvp;
+            wVar = this.cvr.cvq;
             zVar.a(wVar);
         }
     }

@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 class ak implements TbRichTextView.e {
-    final /* synthetic */ PbActivity elO;
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
@@ -27,33 +27,33 @@ class ak implements TbRichTextView.e {
         PbModel pbModel3;
         PbModel pbModel4;
         try {
-            TiebaStatic.eventStat(this.elO.getPageContext().getPageActivity(), "pic_pb", "");
+            TiebaStatic.eventStat(this.ejU.getPageContext().getPageActivity(), "pic_pb", "");
             PbActivity.b bVar = new PbActivity.b();
-            this.elO.a(str, i, bVar);
-            if (!bVar.emi) {
-                pbModel3 = this.elO.ejZ;
-                boolean aLF = pbModel3.aLF();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.emg;
-                pbModel4 = this.elO.ejZ;
-                ImageViewerConfig createConfig = new ImageViewerConfig(this.elO.getPageContext().getPageActivity()).createConfig(bVar.emf, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.emh, bVar.emf.get(0), aLF, concurrentHashMap, true, false, pbModel4.getHostMode());
+            this.ejU.a(str, i, bVar);
+            if (!bVar.eko) {
+                pbModel3 = this.ejU.eif;
+                boolean aLO = pbModel3.aLO();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = bVar.ekm;
+                pbModel4 = this.ejU.eif;
+                ImageViewerConfig createConfig = new ImageViewerConfig(this.ejU.getPageContext().getPageActivity()).createConfig(bVar.ekl, 0, bVar.forumName, bVar.forumId, bVar.threadId, bVar.ekn, bVar.ekl.get(0), aLO, concurrentHashMap, true, false, pbModel4.getHostMode());
                 createConfig.getIntent().putExtra("from", "pb");
-                this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
+                this.ejU.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
             } else {
-                ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.elO.getPageContext().getPageActivity());
-                ArrayList<String> arrayList = bVar.emf;
+                ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.ejU.getPageContext().getPageActivity());
+                ArrayList<String> arrayList = bVar.ekl;
                 int i2 = bVar.index;
                 String str2 = bVar.forumName;
                 String str3 = bVar.forumId;
                 String str4 = bVar.threadId;
-                boolean z = bVar.emh;
+                boolean z = bVar.ekn;
                 String str5 = bVar.lastId;
-                pbModel = this.elO.ejZ;
-                boolean aLF2 = pbModel.aLF();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = bVar.emg;
-                pbModel2 = this.elO.ejZ;
-                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, aLF2, concurrentHashMap2, true, false, pbModel2.getHostMode());
+                pbModel = this.ejU.eif;
+                boolean aLO2 = pbModel.aLO();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = bVar.ekm;
+                pbModel2 = this.ejU.eif;
+                ImageViewerConfig createConfig2 = imageViewerConfig.createConfig(arrayList, i2, str2, str3, str4, z, str5, aLO2, concurrentHashMap2, true, false, pbModel2.getHostMode());
                 createConfig2.getIntent().putExtra("from", "pb");
-                this.elO.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
+                this.ejU.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

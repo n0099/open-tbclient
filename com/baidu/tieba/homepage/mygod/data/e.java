@@ -10,26 +10,26 @@ import tbclient.GodFeed.DataReq;
 import tbclient.GodFeed.GodFeedReqIdl;
 /* loaded from: classes.dex */
 public class e implements h {
-    private long cxP;
+    private long cwp;
     private int pn;
     private int rn;
     private long tagCode;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> EL() {
+    public HashMap<String, Object> Fj() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bN(boolean z) {
+    public Object bP(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.timeline = Long.valueOf(this.cxP);
+        builder.timeline = Long.valueOf(this.cwp);
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.scr_w = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
-        builder.scr_h = Integer.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
-        builder.scr_dip = Double.valueOf(k.ai(TbadkCoreApplication.m9getInst()));
-        builder.q_type = Integer.valueOf(av.vD().vF() ? 2 : 1);
+        builder.scr_w = Integer.valueOf(k.af(TbadkCoreApplication.m9getInst()));
+        builder.scr_h = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
+        builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
+        builder.q_type = Integer.valueOf(av.wa().wc() ? 2 : 1);
         GodFeedReqIdl.Builder builder2 = new GodFeedReqIdl.Builder();
         builder2.data = builder.build(false);
         n.bindCommonParamsToProtobufData(builder2.data, true);
@@ -49,7 +49,7 @@ public class e implements h {
     }
 
     public void bo(long j) {
-        this.cxP = j;
+        this.cwp = j;
     }
 
     public long getTagCode() {

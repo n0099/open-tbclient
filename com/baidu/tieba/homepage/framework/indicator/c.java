@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ a cwe;
+    final /* synthetic */ a cuE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i) {
         super(i);
-        this.cwe = aVar;
+        this.cuE = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,11 +18,11 @@ class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016327 && (customResponsedMessage.getData() instanceof Integer)) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            if (com.baidu.tieba.homepage.framework.a.a.aja().cxn == intValue && intValue == com.baidu.tieba.homepage.framework.a.a.aja().cxl && com.baidu.tieba.homepage.framework.a.a.aja().cxm != 0) {
-                this.cwe.eO(false);
+            if (com.baidu.tieba.homepage.framework.a.a.aiU().cvN == intValue && intValue == com.baidu.tieba.homepage.framework.a.a.aiU().cvL && com.baidu.tieba.homepage.framework.a.a.aiU().cvM != 0) {
+                this.cuE.eO(false);
             }
-            if (com.baidu.tieba.homepage.framework.a.a.aja().cxn == intValue && intValue == 0) {
-                this.cwe.eO(false);
+            if (com.baidu.tieba.homepage.framework.a.a.aiU().cvN == intValue && intValue == 0) {
+                this.cuE.eO(false);
             }
         }
     }

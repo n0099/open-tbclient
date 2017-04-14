@@ -15,14 +15,14 @@ import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class f {
     private static final String TAG = f.class.getSimpleName();
-    private static f aUY;
+    private static f aVl;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean aQl = false;
-    private Handler.Callback aQx = new g(this);
+    private boolean aQB = false;
+    private Handler.Callback aQN = new g(this);
     private ServiceConnection mServiceConnection = new h(this);
-    private Runnable aQn = new i(this);
+    private Runnable aQD = new i(this);
 
     private f(Context context) {
         if (context != null) {
@@ -30,36 +30,36 @@ public class f {
         }
         HandlerThread handlerThread = new HandlerThread("video_cache_client_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aQx);
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aQN);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
-    public static f aU(Context context) {
-        if (aUY == null) {
+    public static f aW(Context context) {
+        if (aVl == null) {
             synchronized (f.class) {
-                if (aUY == null) {
-                    aUY = new f(context);
+                if (aVl == null) {
+                    aVl = new f(context);
                 }
             }
         }
-        return aUY;
+        return aVl;
     }
 
-    public void gV(String str) {
+    public void gZ(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void gW(String str) {
+    public void ha(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    private void as(String str, String str2) {
+    private void at(String str, String str2) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + c.Lp().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(String.valueOf(str) + str2)).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + c.LP().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(String.valueOf(str) + str2)).openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             inputStream.read();
             inputStream.close();
@@ -70,20 +70,20 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gC(String str) {
-        as(str, "?file_access=1");
+    public void gG(String str) {
+        at(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gI(String str) {
-        as(str, "?stop_cache=1");
+    public void gM(String str) {
+        at(str, "?stop_cache=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ls() {
+    public void LS() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.mLastCheckTime >= 86400000) {
-            as("", "delete_expired_files");
+            at("", "delete_expired_files");
             this.mLastCheckTime = currentTimeMillis;
         }
     }
@@ -93,11 +93,11 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lt() {
-        as("", "clear_cache");
+    public void LT() {
+        at("", "clear_cache");
     }
 
-    public void JE() {
+    public void Ke() {
         try {
             this.mContext.bindService(new Intent(this.mContext, VideoCacheService.class), this.mServiceConnection, 1);
         } catch (Exception e) {

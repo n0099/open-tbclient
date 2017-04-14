@@ -1,37 +1,21 @@
 package com.baidu.tbadk.core;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tieba.w;
+import android.content.Context;
+import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements k.a {
-    final /* synthetic */ TbadkCoreApplication this$0;
+public class v implements Runnable {
+    private final /* synthetic */ AccountData SU;
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(TbadkCoreApplication tbadkCoreApplication) {
-        this.this$0 = tbadkCoreApplication;
+    public v(AccountData accountData, Context context) {
+        this.SU = accountData;
+        this.val$context = context;
     }
 
-    @Override // com.baidu.adp.lib.util.k.a
-    public void aM(String str) {
-        if (hB() instanceof TextView) {
-            ((TextView) hB()).setText(str);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.util.k.a
-    public View hB() {
-        View view;
-        View view2;
-        view = this.this$0.mCustomToastView;
-        if (view == null) {
-            this.this$0.mCustomToastView = LayoutInflater.from(TbadkCoreApplication.m9getInst()).inflate(w.j.custom_toast_textview, (ViewGroup) null);
-        }
-        view2 = this.this$0.mCustomToastView;
-        return view2;
+    @Override // java.lang.Runnable
+    public void run() {
+        TbadkCoreApplication.setCurrentAccountInUI(this.SU, this.val$context);
     }
 }

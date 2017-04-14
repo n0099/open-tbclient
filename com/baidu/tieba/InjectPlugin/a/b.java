@@ -3,7 +3,7 @@ package com.baidu.tieba.InjectPlugin.a;
 public interface b {
     void a(int i, a aVar);
 
-    void a(com.baidu.tieba.InjectPlugin.a aVar);
+    void a(com.baidu.tieba.InjectPlugin.b bVar);
 
-    a fA(int i);
+    a fD(int i);
 }

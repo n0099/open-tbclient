@@ -3,20 +3,20 @@ package com.baidu.tieba.write.album;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ai implements z {
-    final /* synthetic */ ag fME;
+    final /* synthetic */ ag fOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ag agVar) {
-        this.fME = agVar;
+        this.fOn = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.z
     public void a(int i, ImageFileInfo imageFileInfo) {
         o oVar;
         AlbumActivity albumActivity;
-        oVar = this.fME.fKY;
-        oVar.sM(i);
-        albumActivity = this.fME.fLm;
-        albumActivity.sN(1);
+        oVar = this.fOn.fMH;
+        oVar.sK(i);
+        albumActivity = this.fOn.fMV;
+        albumActivity.sL(1);
     }
 }

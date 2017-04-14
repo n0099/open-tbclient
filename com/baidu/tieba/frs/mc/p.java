@@ -1,65 +1,65 @@
 package com.baidu.tieba.frs.mc;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
-public class p extends CustomMessageListener {
-    final /* synthetic */ o bZP;
+public class p {
+    private y bOd;
+    private CustomMessageListener bYo = new q(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
+    private CustomMessageListener bYp = new r(this, CmdConfigCustom.DELETE_AD_FROM_FEED);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(o oVar, int i) {
-        super(i);
-        this.bZP = oVar;
+    public p(TbPageContext tbPageContext, y yVar) {
+        this.bOd = yVar;
+        tbPageContext.registerListener(this.bYo);
+        tbPageContext.registerListener(this.bYp);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        w wVar;
-        w wVar2;
-        w wVar3;
-        w wVar4;
-        w wVar5;
-        w wVar6;
-        w wVar7;
-        w wVar8;
-        w wVar9;
-        w wVar10;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-            wVar = this.bZP.bOo;
-            if (wVar != null) {
-                wVar2 = this.bZP.bOo;
-                if (wVar2.Yx() != null) {
-                    wVar3 = this.bZP.bOo;
-                    if (wVar3.Yx().acc() != null) {
-                        String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-                        if (!StringUtils.isNull(optString)) {
-                            wVar4 = this.bZP.bOo;
-                            ArrayList<com.baidu.adp.widget.ListView.v> threadList = wVar4.Yx().acc().getThreadList();
-                            this.bZP.e(optString, threadList);
-                            o oVar = this.bZP;
-                            wVar5 = this.bZP.bOo;
-                            oVar.e(optString, wVar5.YE().getListView().getData());
-                            wVar6 = this.bZP.bOo;
-                            wVar6.Yx().iK(optString);
-                            wVar7 = this.bZP.bOo;
-                            if (wVar7.YE() != null) {
-                                wVar9 = this.bZP.bOo;
-                                if (wVar9.YE().ZG() != null) {
-                                    wVar10 = this.bZP.bOo;
-                                    wVar10.YE().ZG().notifyDataSetChanged();
-                                }
-                            }
-                            if (threadList != null && threadList.size() < 5) {
-                                wVar8 = this.bZP.bOo;
-                                wVar8.YZ();
-                            }
-                        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(String str, List<com.baidu.adp.widget.ListView.v> list) {
+        if (com.baidu.tbadk.core.util.x.p(list) != 0) {
+            ArrayList arrayList = new ArrayList();
+            for (com.baidu.adp.widget.ListView.v vVar : list) {
+                if (vVar instanceof bi) {
+                    bi biVar = (bi) vVar;
+                    if (biVar.getTid() != null && biVar.getTid().equals(str)) {
+                        arrayList.add(biVar);
+                    }
+                }
+            }
+            list.removeAll(arrayList);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f(String str, List<AdvertAppInfo> list) {
+        if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<AdvertAppInfo> it = list.iterator();
+            while (it.hasNext()) {
+                AdvertAppInfo next = it.next();
+                if (next != null && str.equals(next.TR)) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g(String str, List<com.baidu.adp.widget.ListView.v> list) {
+        if (list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<com.baidu.adp.widget.ListView.v> it = list.iterator();
+            while (it.hasNext()) {
+                com.baidu.adp.widget.ListView.v next = it.next();
+                if (next instanceof com.baidu.tieba.InjectPlugin.a) {
+                    Object Jq = ((com.baidu.tieba.InjectPlugin.a) next).Jq();
+                    if ((Jq instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) Jq).TR)) {
+                        it.remove();
                     }
                 }
             }

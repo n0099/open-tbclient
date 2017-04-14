@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.view.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements ab.b {
-    final /* synthetic */ a cyA;
+    final /* synthetic */ a cxa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.cyA = aVar;
+        this.cxa = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.b
-    public void aL(boolean z) {
+    public void aN(boolean z) {
         n nVar;
-        nVar = this.cyA.cys;
+        nVar = this.cxa.cwS;
         nVar.update();
     }
 }

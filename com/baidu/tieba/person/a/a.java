@@ -7,37 +7,37 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.a, com.baidu.tieba.person.holder.c> {
-    private TbPageContext ajF;
-    private View.OnClickListener eBq;
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.data.a, com.baidu.tieba.person.b.b> {
+    private TbPageContext ajT;
+    private View.OnClickListener ezw;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ajF = tbPageContext;
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bl */
-    public com.baidu.tieba.person.holder.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.holder.c(LayoutInflater.from(this.ajF.getPageActivity()).inflate(w.j.user_pic_add_item, (ViewGroup) null));
+    public com.baidu.tieba.person.b.b onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tieba.person.b.b(LayoutInflater.from(this.ajT.getPageActivity()).inflate(w.j.user_pic_add_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.a aVar, com.baidu.tieba.person.holder.c cVar) {
-        if (cVar == null || aVar == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.data.a aVar, com.baidu.tieba.person.b.b bVar) {
+        if (bVar == null || aVar == null) {
             return null;
         }
-        cVar.u(this.eBq);
-        cVar.e(aVar);
-        return cVar.getView();
+        bVar.u(this.ezw);
+        bVar.e(aVar);
+        return bVar.getView();
     }
 
     public void u(View.OnClickListener onClickListener) {
-        this.eBq = onClickListener;
+        this.ezw = onClickListener;
     }
 }

@@ -1,42 +1,46 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends HttpMessageListener {
-    final /* synthetic */ LocationModel fwk;
+public class g extends CustomMessageListener {
+    final /* synthetic */ LocationModel fxU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(LocationModel locationModel, int i) {
         super(i);
-        this.fwk = locationModel;
+        this.fxU = locationModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        LocationModel.a aVar;
-        LocationModel.a aVar2;
-        if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
-            BdLog.i("mOpenShareLocSwitchListener response error!");
-            aVar = this.fwk.fwe;
-            if (aVar != null) {
-                String str = null;
-                if (httpResponsedMessage != null && httpResponsedMessage.getError() > 0) {
-                    str = httpResponsedMessage.getErrorString();
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        LocationModel.b bVar;
+        LocationModel.b bVar2;
+        LocationModel.b bVar3;
+        LocationModel.b bVar4;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                this.fxU.lm(false);
+                this.fxU.ce(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                bVar3 = this.fxU.fxP;
+                if (bVar3 != null) {
+                    bVar4 = this.fxU.fxP;
+                    bVar4.fC(responsedSelectLocation.getName());
+                    return;
                 }
-                aVar2 = this.fwk.fwe;
-                aVar2.fv(str);
                 return;
             }
-            return;
+            this.fxU.lm(true);
+            bVar = this.fxU.fxP;
+            if (bVar != null) {
+                bVar2 = this.fxU.fxP;
+                bVar2.Eg();
+            }
         }
-        TbadkCoreApplication.m9getInst().setLocationShared(true);
-        this.fwk.bil();
     }
 }

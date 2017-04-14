@@ -7,9 +7,9 @@ import android.os.Parcel;
 import android.os.RemoteException;
 /* loaded from: classes.dex */
 public interface c extends IInterface {
-    void Jx() throws RemoteException;
+    void JX() throws RemoteException;
 
-    void Jy() throws RemoteException;
+    void JY() throws RemoteException;
 
     void T(int i, int i2) throws RemoteException;
 
@@ -29,7 +29,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0049a(iBinder);
+            return new C0048a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -42,12 +42,12 @@ public interface c extends IInterface {
             switch (i) {
                 case 1:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    Jx();
+                    JX();
                     parcel2.writeNoException();
                     return true;
                 case 2:
                     parcel.enforceInterface("com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener");
-                    Jy();
+                    JY();
                     parcel2.writeNoException();
                     return true;
                 case 3:
@@ -70,10 +70,10 @@ public interface c extends IInterface {
 
         /* renamed from: com.baidu.tieba.QuickPlayer.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        private static class C0049a implements c {
+        private static class C0048a implements c {
             private IBinder mRemote;
 
-            C0049a(IBinder iBinder) {
+            C0048a(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
@@ -83,7 +83,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void Jx() throws RemoteException {
+            public void JX() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -97,7 +97,7 @@ public interface c extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.c
-            public void Jy() throws RemoteException {
+            public void JY() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {

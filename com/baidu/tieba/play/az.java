@@ -7,39 +7,39 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class az {
-    private static az eXb = null;
-    private HashMap<String, a> eXc = new HashMap<>();
+    private static az eVa = null;
+    private HashMap<String, a> eVb = new HashMap<>();
 
     private az() {
     }
 
-    public static az aYd() {
-        if (eXb == null) {
+    public static az aYm() {
+        if (eVa == null) {
             synchronized (az.class) {
-                if (eXb == null) {
-                    eXb = new az();
+                if (eVa == null) {
+                    eVa = new az();
                 }
             }
         }
-        return eXb;
+        return eVa;
     }
 
     public void ap(String str, int i) {
-        a aVar = this.eXc.get(str);
+        a aVar = this.eVb.get(str);
         if (aVar == null) {
-            this.eXc.put(str, new a(i, System.currentTimeMillis()));
+            this.eVb.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.eXc.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.eXc.entrySet());
+        if (this.eVb.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.eVb.entrySet());
             Collections.sort(arrayList, new ba(this));
             int i2 = 0;
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.eXc.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.eVb.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -50,12 +50,12 @@ public class az {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.eXc.remove(str);
+            this.eVb.remove(str);
         }
     }
 
-    public int oN(String str) {
-        a aVar = this.eXc.get(str);
+    public int oU(String str) {
+        a aVar = this.eVb.get(str);
         if (aVar != null) {
             return aVar.position;
         }

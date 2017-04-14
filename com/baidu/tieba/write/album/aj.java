@@ -4,11 +4,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class aj implements x {
-    final /* synthetic */ ag fME;
+    final /* synthetic */ ag fOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ag agVar) {
-        this.fME = agVar;
+        this.fOn = agVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
@@ -20,24 +20,24 @@ class aj implements x {
         AlbumActivity albumActivity;
         o oVar5;
         AlbumActivity albumActivity2;
-        oVar = this.fME.fKY;
+        oVar = this.fOn.fMH;
         int maxImagesAllowed = oVar.getMaxImagesAllowed();
-        oVar2 = this.fME.fKY;
+        oVar2 = this.fOn.fMH;
         if (oVar2.size() >= maxImagesAllowed) {
-            albumActivity2 = this.fME.fLm;
-            if (!albumActivity2.bmE()) {
-                this.fME.showToast(String.format(this.fME.getPageContext().getString(w.l.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+            albumActivity2 = this.fOn.fMV;
+            if (!albumActivity2.bno()) {
+                this.fOn.showToast(String.format(this.fOn.getPageContext().getString(w.l.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
                 return;
             }
         }
-        oVar3 = this.fME.fKY;
-        if (oVar3.bmY()) {
-            oVar5 = this.fME.fKY;
-            oVar5.qG(String.valueOf(System.currentTimeMillis()));
+        oVar3 = this.fOn.fMH;
+        if (oVar3.bnI()) {
+            oVar5 = this.fOn.fMH;
+            oVar5.ra(String.valueOf(System.currentTimeMillis()));
         }
-        oVar4 = this.fME.fKY;
-        String bmX = oVar4.bmX();
-        albumActivity = this.fME.fLm;
-        albumActivity.hx(bmX);
+        oVar4 = this.fOn.fMH;
+        String bnH = oVar4.bnH();
+        albumActivity = this.fOn.fMV;
+        albumActivity.hB(bnH);
     }
 }

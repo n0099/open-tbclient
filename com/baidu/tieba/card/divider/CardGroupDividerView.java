@@ -12,103 +12,103 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int bwj = w.e.cp_bg_line_c;
-    private static final int bwk = w.e.cp_bg_line_c;
-    private TextView aSO;
-    private View brx;
-    private View bwi;
-    private int bwl;
+    private static final int bwc = w.e.cp_bg_line_c;
+    private static final int bwd = w.e.cp_bg_line_c;
+    private View brp;
+    private View bwb;
+    private int bwe;
+    private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
-        if (this.aSO != null) {
-            this.aSO.setOnClickListener(onClickListener);
+        if (this.mTitle != null) {
+            this.mTitle.setOnClickListener(onClickListener);
         }
     }
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.bwl = bwk;
+        this.bwe = bwd;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bwl = bwk;
+        this.bwe = bwd;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bwl = bwk;
+        this.bwe = bwd;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(w.j.card_divider_view, (ViewGroup) this, true);
-        this.brx = findViewById(w.h.card_divider_top_margin);
-        this.aSO = (TextView) findViewById(w.h.card_divider_tv);
-        this.bwi = findViewById(w.h.bottom_line);
-        tD();
+        this.brp = findViewById(w.h.card_divider_top_margin);
+        this.mTitle = (TextView) findViewById(w.h.card_divider_tv);
+        this.bwb = findViewById(w.h.bottom_line);
+        onChangeSkinType();
     }
 
-    public void tD() {
+    public void onChangeSkinType() {
         aq.k(this, w.e.cp_bg_line_d);
-        aq.k(this.brx, w.e.cp_bg_line_c);
-        aq.i((View) this.aSO, w.e.cp_cont_d);
-        aq.k(this.bwi, this.bwl);
+        aq.k(this.brp, w.e.cp_bg_line_c);
+        aq.i(this.mTitle, w.e.cp_cont_d);
+        aq.k(this.bwb, this.bwe);
     }
 
     public void setTitleText(String str) {
-        this.aSO.setText(str);
+        this.mTitle.setText(str);
     }
 
     public void d(int i, float f) {
-        this.aSO.setTextSize(i, f);
+        this.mTitle.setTextSize(i, f);
     }
 
-    public void SY() {
-        if (this.brx.getVisibility() != 8) {
-            this.brx.setVisibility(8);
+    public void Tw() {
+        if (this.brp.getVisibility() != 8) {
+            this.brp.setVisibility(8);
         }
     }
 
-    public void SZ() {
-        if (this.brx.getVisibility() != 0) {
-            this.brx.setVisibility(0);
+    public void Tx() {
+        if (this.brp.getVisibility() != 0) {
+            this.brp.setVisibility(0);
         }
     }
 
-    public void Ta() {
-        SY();
-        if (this.aSO.getVisibility() != 8) {
-            this.aSO.setVisibility(8);
+    public void Ty() {
+        Tw();
+        if (this.mTitle.getVisibility() != 8) {
+            this.mTitle.setVisibility(8);
         }
-        if (this.bwi.getVisibility() != 0) {
-            this.bwi.setVisibility(0);
-            setDividerColor(bwk);
+        if (this.bwb.getVisibility() != 0) {
+            this.bwb.setVisibility(0);
+            setDividerColor(bwd);
         }
     }
 
     public void B(String str, boolean z) {
         if (z) {
-            SZ();
+            Tx();
         } else {
-            SY();
+            Tw();
         }
         if (TextUtils.isEmpty(str)) {
-            this.aSO.setVisibility(8);
+            this.mTitle.setVisibility(8);
         } else {
-            this.aSO.setVisibility(0);
-            this.aSO.setText(str);
+            this.mTitle.setVisibility(0);
+            this.mTitle.setText(str);
         }
-        if (this.bwi.getVisibility() != 0) {
-            this.bwi.setVisibility(0);
-            setDividerColor(bwj);
+        if (this.bwb.getVisibility() != 0) {
+            this.bwb.setVisibility(0);
+            setDividerColor(bwc);
         }
     }
 
     private void setDividerColor(int i) {
-        this.bwl = i;
-        aq.k(this.bwi, this.bwl);
+        this.bwe = i;
+        aq.k(this.bwb, this.bwe);
     }
 }

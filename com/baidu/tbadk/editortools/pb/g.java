@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.f {
-    final /* synthetic */ c aAQ;
+    final /* synthetic */ c aBg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar) {
-        this.aAQ = cVar;
+        this.aBg = cVar;
     }
 
     @Override // com.baidu.adp.base.f
@@ -18,8 +18,8 @@ public class g extends com.baidu.adp.base.f {
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                newWriteModel = this.aAQ.aAz;
-                newWriteModel.ll(true);
+                newWriteModel = this.aBg.aAP;
+                newWriteModel.lo(true);
             }
         }
     }

@@ -17,20 +17,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class g {
-    private static g yR = null;
+    private static g ys = null;
 
-    public static g gQ() {
+    public static g gV() {
         g gVar;
-        if (yR == null) {
+        if (ys == null) {
             synchronized (g.class) {
-                if (yR == null) {
-                    yR = new g();
+                if (ys == null) {
+                    ys = new g();
                 }
-                gVar = yR;
+                gVar = ys;
             }
             return gVar;
         }
-        return yR;
+        return ys;
     }
 
     public boolean a(String str, int i, h hVar) {
@@ -49,24 +49,24 @@ public class g {
             if (z2) {
                 z = z2;
             } else {
-                String aE = aE(str);
-                File file = new File(aE);
+                String az = az(str);
+                File file = new File(az);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean loadSoLibrary = loadSoLibrary(aE, sb);
-                        if (loadSoLibrary) {
+                        boolean b = b(az, sb);
+                        if (b) {
                             sb.append("-Succ2-");
-                            z = loadSoLibrary;
+                            z = b;
                         } else {
                             sb.append("-Error7-");
-                            z = loadSoLibrary;
+                            z = b;
                         }
                     } else {
                         sb.append("-Error6:soSize1-");
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, aE, sb, hVar);
+                    a aVar = new a(str, az, sb, hVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
@@ -98,17 +98,17 @@ public class g {
             }
         }
         if (!z2) {
-            String aE = aE(str);
-            File file = new File(aE);
+            String az = az(str);
+            File file = new File(az);
             if (file.exists()) {
                 if (file.length() > 0) {
-                    boolean loadSoLibrary = loadSoLibrary(aE, sb);
-                    if (loadSoLibrary) {
+                    boolean b = b(az, sb);
+                    if (b) {
                         sb.append("-Succ2-");
-                        z = loadSoLibrary;
+                        z = b;
                     } else {
                         sb.append("-Error7-");
-                        z = loadSoLibrary;
+                        z = b;
                     }
                     if (sb.length() <= 0) {
                         BdStatisticsManager.getInstance().error("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, sb.toString(), new Object[0]);
@@ -125,8 +125,8 @@ public class g {
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean loadSoLibrary = loadSoLibrary(aD(str), sb);
-        if (!loadSoLibrary) {
+        boolean b = b(ay(str), sb);
+        if (!b) {
             try {
                 System.loadLibrary(str);
                 sb.append("-Succ3-");
@@ -135,13 +135,13 @@ public class g {
                 sb.append("-Error3:");
                 sb.append(String.valueOf(th.getClass().getName()) + "-" + th.getMessage());
                 sb.append("-");
-                return loadSoLibrary;
+                return b;
             }
         }
-        return loadSoLibrary;
+        return b;
     }
 
-    private boolean loadSoLibrary(String str, StringBuilder sb) {
+    private boolean b(String str, StringBuilder sb) {
         if (!new File(str).exists()) {
             sb.append("-Error1:");
             sb.append(str);
@@ -159,11 +159,11 @@ public class g {
         }
     }
 
-    private String aD(String str) {
+    private String ay(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + Plugin.SO_LIB_DIR_NAME + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String aE(String str) {
+    private String az(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -215,9 +215,9 @@ public class g {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String aE = aE(str2);
-                                a(aE, byteArrayOutputStream.toByteArray(), sb);
-                                if (loadSoLibrary(aE, sb)) {
+                                String az = az(str2);
+                                a(az, byteArrayOutputStream.toByteArray(), sb);
+                                if (b(az, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.g.a.d(byteArrayOutputStream);
@@ -288,25 +288,25 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Object, Object> {
-        String yS;
-        String yT;
-        StringBuilder yU;
-        h yV;
-        boolean yW = false;
+        String yt;
+        String yu;
+        StringBuilder yv;
+        h yw;
+        boolean yx = false;
 
         public a(String str, String str2, StringBuilder sb, h hVar) {
-            this.yS = str;
-            this.yT = str2;
-            this.yU = sb;
-            this.yV = hVar;
+            this.yt = str;
+            this.yu = str2;
+            this.yv = sb;
+            this.yw = hVar;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Object doInBackground(Object... objArr) {
-            this.yW = g.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.yS, this.yU);
-            if (!this.yW) {
-                g.this.a(this.yT, "".getBytes(), this.yU);
+            this.yx = g.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.yt, this.yv);
+            if (!this.yx) {
+                g.this.a(this.yu, "".getBytes(), this.yv);
                 return null;
             }
             return null;
@@ -316,11 +316,11 @@ public class g {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.yU.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.yS + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.yU.toString(), new Object[0]);
+            if (this.yv.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.yt + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.yv.toString(), new Object[0]);
             }
-            if (this.yV != null) {
-                this.yV.p(this.yW);
+            if (this.yw != null) {
+                this.yw.p(this.yx);
             }
         }
     }

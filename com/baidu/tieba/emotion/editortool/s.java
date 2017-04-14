@@ -1,16 +1,24 @@
 package com.baidu.tieba.emotion.editortool;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends com.baidu.tbadk.editortools.x {
-    public s(Context context, int i) {
-        super(context, TbadkCoreApplication.m9getInst().getString(w.l.editor_express), 5, i);
-        this.azr = w.g.pbeditor_face_button;
-        this.ayH = new p(context);
-        this.azv = true;
-        this.azu = 6;
-        this.azw = new int[]{1, 34, 35};
+public class s implements View.OnClickListener {
+    final /* synthetic */ EmotionTabWidgetView bDk;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(EmotionTabWidgetView emotionTabWidgetView) {
+        this.bDk = emotionTabWidgetView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        jVar = this.bDk.KM;
+        if (jVar != null) {
+            jVar2 = this.bDk.KM;
+            jVar2.b(new com.baidu.tbadk.editortools.a(3, -1, null));
+        }
     }
 }

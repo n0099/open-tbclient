@@ -6,22 +6,22 @@ import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements a.b {
-    final /* synthetic */ l bFb;
+    final /* synthetic */ l bEU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(l lVar) {
-        this.bFb = lVar;
+        this.bEU = lVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         EnterForumModel enterForumModel;
         long j;
-        TiebaStatic.eventStat(this.bFb.aXf.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
-        this.bFb.bEI.Wn();
-        this.bFb.bEP = System.currentTimeMillis();
-        enterForumModel = this.bFb.bEJ;
-        j = this.bFb.bEP;
+        TiebaStatic.eventStat(this.bEU.aXt.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
+        this.bEU.bEB.WL();
+        this.bEU.bEI = System.currentTimeMillis();
+        enterForumModel = this.bEU.bEC;
+        j = this.bEU.bEI;
         enterForumModel.aL(j);
         aVar.dismiss();
     }

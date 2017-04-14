@@ -11,7 +11,7 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.ak;
+import com.baidu.tieba.aj;
 /* loaded from: classes.dex */
 public class AsInstallService extends BdBaseService {
     private static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -77,7 +77,7 @@ public class AsInstallService extends BdBaseService {
             if (intent.getAction().equals("android.intent.action.PACKAGE_ADDED")) {
                 String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
                 if (!TextUtils.isEmpty(schemeSpecificPart) && "com.baidu.appsearch".equals(schemeSpecificPart) && AsInstallService.this.mVersionData != null) {
-                    ak.a(context, AsInstallService.this.mVersionData);
+                    aj.a(context, AsInstallService.this.mVersionData);
                     TiebaStatic.log("c10007");
                 }
             }

@@ -10,22 +10,22 @@ public class AtMeCacheModel extends CacheModel<f, ad> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<f> EX() {
+    public Class<f> Fv() {
         return f.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int EY() {
+    public int Fw() {
         return CmdConfigCustom.CMD_MENTION_ATME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int EZ() {
+    public int Fx() {
         return CmdConfigCustom.CMD_MENTION_ATME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String EI() {
+    public String Fg() {
         return "tb_user_atme";
     }
 }

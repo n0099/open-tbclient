@@ -3,11 +3,11 @@ package com.baidu.tieba.launcherGuide.tblauncher;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    final /* synthetic */ GuideActivity dsb;
+    final /* synthetic */ GuideActivity dqA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(GuideActivity guideActivity) {
-        this.dsb = guideActivity;
+        this.dqA = guideActivity;
     }
 
     @Override // java.lang.Runnable

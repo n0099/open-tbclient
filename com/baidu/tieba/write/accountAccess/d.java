@@ -4,20 +4,20 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c fKX;
+    final /* synthetic */ c fMG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.fKX = cVar;
+        this.fMG = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BaseWebView baseWebView;
-        baseWebView = this.fKX.mWebView;
+        baseWebView = this.fMG.mWebView;
         if (baseWebView != null) {
-            this.fKX.showWebLoadingView(false);
-            this.fKX.bmw();
+            this.fMG.showWebLoadingView(false);
+            this.fMG.bng();
         }
     }
 }

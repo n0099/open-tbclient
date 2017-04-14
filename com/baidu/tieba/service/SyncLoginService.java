@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.z;
-import com.baidu.tieba.ak;
+import com.baidu.tieba.aj;
 /* loaded from: classes.dex */
 public class SyncLoginService extends BdBaseService {
     private static String mStatistics = null;
     private a mSyncTask = null;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new e(this);
+    private Runnable mRunnable = new d(this);
 
     public static void setMsgType(String str) {
         mStatistics = str;
@@ -77,14 +77,14 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork = new z(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/switch");
                 this.mNetWork.n("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp())));
+                stringBuffer.append(String.valueOf(k.af(TbadkCoreApplication.m9getInst().getApp())));
                 stringBuffer.append(",");
-                stringBuffer.append(String.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp())));
+                stringBuffer.append(String.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp())));
                 this.mNetWork.n("_phone_screen", stringBuffer.toString());
-                this.mNetWork.n("scr_w", String.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp())));
-                this.mNetWork.n("scr_h", String.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp())));
-                this.mNetWork.n("scr_dip", String.valueOf(k.ai(TbadkCoreApplication.m9getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.zh().zk() > 0) {
+                this.mNetWork.n("scr_w", String.valueOf(k.af(TbadkCoreApplication.m9getInst().getApp())));
+                this.mNetWork.n("scr_h", String.valueOf(k.ag(TbadkCoreApplication.m9getInst().getApp())));
+                this.mNetWork.n("scr_dip", String.valueOf(k.ah(TbadkCoreApplication.m9getInst().getApp())));
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.zG().zJ() > 0) {
                     this.mNetWork.n("_msg_status", "0");
                 } else {
                     this.mNetWork.n("_msg_status", "1");
@@ -104,12 +104,12 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.n("package", packageName);
                 this.mNetWork.n("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m9getInst().getVersionCode())).toString());
                 this.mNetWork.n("signmd5", aw.d(TbadkCoreApplication.m9getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.mNetWork.n("md5", ak.getTiebaApkMd5());
-                String uB = this.mNetWork.uB();
-                if (this.mNetWork.uZ().vT().isRequestSuccess()) {
+                this.mNetWork.n("md5", aj.getTiebaApkMd5());
+                String uY = this.mNetWork.uY();
+                if (this.mNetWork.vw().wq().isRequestSuccess()) {
                     fVar = new com.baidu.tieba.model.f();
                     try {
-                        fVar.parserJson(uB);
+                        fVar.parserJson(uY);
                         SyncLoginService.mStatistics = null;
                         return fVar;
                     } catch (Exception e2) {
@@ -129,7 +129,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.fm();
+                this.mNetWork.fr();
             }
             super.cancel(true);
         }

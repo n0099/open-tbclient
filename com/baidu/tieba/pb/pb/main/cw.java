@@ -1,107 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.cache.o;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.cv;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cw {
-    private static cw emD;
-    private com.baidu.adp.lib.cache.o<byte[]> emE = null;
-    private com.baidu.adp.lib.cache.o<byte[]> emF = null;
-    private long emG = 0;
-    private long emH = 0;
+public class cw extends HttpMessageListener {
+    final /* synthetic */ cv ekR;
 
-    public static synchronized cw aKZ() {
-        cw cwVar;
-        synchronized (cw.class) {
-            if (emD == null) {
-                emD = new cw();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cw(cv cvVar, int i) {
+        super(i);
+        this.ekR = cvVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        cv.a aVar;
+        cv.a aVar2;
+        cv.a aVar3;
+        cv.a aVar4;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803) {
+            aVar = this.ekR.ekP;
+            if (aVar != null) {
+                int statusCode = httpResponsedMessage.getStatusCode();
+                int error = httpResponsedMessage.getError();
+                String errorString = httpResponsedMessage.getErrorString();
+                if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
+                    aVar4 = this.ekR.ekP;
+                    aVar4.onError(error, errorString);
+                    return;
+                }
+                HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
+                if (statusCode != 200 || error != 0) {
+                    aVar2 = this.ekR.ekP;
+                    aVar2.onError(error, errorString);
+                    return;
+                }
+                hideChudianPostResponseMessage.getResultFlag();
+                aVar3 = this.ekR.ekP;
+                aVar3.i(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
             }
-            cwVar = emD;
-        }
-        return cwVar;
-    }
-
-    private cw() {
-        XS();
-    }
-
-    private void XS() {
-        if (this.emE == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.emE = com.baidu.tbadk.core.c.a.to().ct("tb.pb_mark");
-            this.emH = System.currentTimeMillis() - currentTimeMillis;
-        }
-        if (this.emF == null) {
-            long currentTimeMillis2 = System.currentTimeMillis();
-            this.emF = com.baidu.tbadk.core.c.a.to().ct("tb.pb_normal");
-            this.emG = System.currentTimeMillis() - currentTimeMillis2;
-        }
-    }
-
-    public void M(String str, boolean z) {
-        if (z) {
-            if (this.emE != null && str != null) {
-                this.emE.b(str, new byte[0], 0L);
-            }
-        } else if (this.emF != null && str != null) {
-            this.emF.b(str, new byte[0], 0L);
-        }
-    }
-
-    public byte[] N(String str, boolean z) {
-        o.c<byte[]> S;
-        long currentTimeMillis = System.currentTimeMillis();
-        long j = 0;
-        if (z) {
-            if (this.emE != null && str != null) {
-                S = this.emE.S(str);
-                j = this.emH;
-            }
-            S = null;
-        } else {
-            if (this.emF != null && str != null) {
-                S = this.emF.S(str);
-                j = this.emG;
-            }
-            S = null;
-        }
-        if (S == null || S.te == null) {
-            return null;
-        }
-        com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-        vVar.fb(1001);
-        vVar.aGr = (System.currentTimeMillis() - currentTimeMillis) + j;
-        vVar.Ge();
-        return S.te;
-    }
-
-    public void a(String str, boolean z, byte[] bArr) {
-        if (str != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            XS();
-            if (z) {
-                this.emE.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
-            } else {
-                this.emF.a(str, bArr, 86400000L);
-            }
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.fb(1001);
-            vVar.aGs = currentTimeMillis2;
-            vVar.Gf();
-        }
-    }
-
-    public void l(String str, byte[] bArr) {
-        if (bArr != null && str != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            XS();
-            this.emE.a(str, bArr, 2592000000L);
-            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            com.baidu.tbadk.performanceLog.v vVar = new com.baidu.tbadk.performanceLog.v();
-            vVar.fb(1001);
-            vVar.aGs = currentTimeMillis2;
-            vVar.Gf();
         }
     }
 }

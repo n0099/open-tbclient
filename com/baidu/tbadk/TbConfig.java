@@ -8,13 +8,13 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.imageManager.c;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
     public static final int ABSTRACT_CLOSE = 2;
     public static final int ABSTRACT_OPEN = 1;
     public static final String ACROSS_AWARD = "c/f/recommend/acrossaward";
-    public static final String ACROSS_FORUM = "c/f/recommend/acrossforum";
     public static final String ADD_FAN_ADDRESS = "c/c/user/fansno";
     public static final int ADD_IAMGE_WATER_NONE = 0;
     public static final int ADD_IMAGE_WATER_FORUM_NAME = 2;
@@ -48,6 +48,7 @@ public class TbConfig {
     public static final String BUBBLE_LIST_PAGE = "c/e/theme/getBubbleList";
     public static final String BUBBLE_SET = "c/e/bu/setbubble";
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
+    public static final String CARD_BOX_MEMBER_PAY = "c/e/packet/andmember";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
     public static final String CHECK_USER_BOOKMARK = "c/e/tbread/checkUserBookMark";
@@ -78,6 +79,7 @@ public class TbConfig {
     public static final String CREATE_BOOK_PAY_ORDER = "c/c/encourage/tbread/createPayOrder";
     public static final String DAILYRECOMMEND_ADDRESS = "c/f/forum/threadrecommend";
     public static final int DATABASE_SD_VERSION = 9;
+    public static final int DEFAULT_SDRAM_PHOTO_NUM = 30;
     public static final String DELETE_MY_GAME = "c/c/game/delmygame";
     public static final String DEL_POST_ADDRESS = "c/c/bawu/delpost";
     public static final String DEL_THREAD_ADDRESS = "c/c/bawu/delthread";
@@ -117,6 +119,7 @@ public class TbConfig {
     public static final String FORUM_CLASS_LIST = "c/f/forumsquare/getForumClassList";
     public static final String FORUM_SQUARE = "c/f/forum/forumsquare";
     public static final String FOUND_NEW_ADDRESS = "c/s/foundnew";
+    public static final String FRIEND_AND_STRANGER_MSG_SWITCH = "c/c/friend/setMsgMask";
     public static final String FROM_FILE = "from.dat";
     public static final int FRS_ABSTRACT_ITEM_NUMBER = 50;
     public static final String FRS_ADDRESS = "c/f/frs/page";
@@ -137,6 +140,7 @@ public class TbConfig {
     public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
+    public static final String GET_FRIEND_AND_STRANGER_MSG_SWITCH = "c/u/user/getMsgMask";
     public static final String GET_FRS_HOT = "c/f/frs/getHotThread";
     public static final String GET_FRS_LIVE = "c/f/frs/getFrsTWLiveList";
     public static final String GET_FRS_TAB_FOLLOW_POST_NUM = "c/f/frs/getFrsTabFollowPostNum";
@@ -169,6 +173,7 @@ public class TbConfig {
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
     public static final String GET_SYNC_ADDRESS = "c/s/sync";
     public static final String GET_TASK_SCORE = "c/c/encourage/member/addTaskScores";
+    public static final String GET_T_CODE_INFO = "c/e/packet/getTcodeInfo";
     public static final String GET_USER_BOOKMARK_LIST = "c/e/tbread/getUserBookMarkList";
     public static final String GET_USER_BOOK_HISTORY = "c/e/tbread/getUserBookHistory";
     public static final String GET_USER_FREE_CHANCE = "c/e/present/getUserFreeChance";
@@ -228,12 +233,12 @@ public class TbConfig {
     public static final int MAX_PERSON_INFO_ICON_NUM = 9;
     public static final int MAX_PRELOAD_PHOTO_NUM = 30;
     public static final int MAX_PRELOAD_PIC_NUM = 13;
-    public static final int MAX_SDRAM_PHOTO_NUM = 50;
     public static final int MAX_SDRAM_PIC_NUM = 13;
     public static final int MAX_TSHOW_ICON_NUM = 2;
     public static final int MAX_USER_NAME_BYTE_LENGTH = 14;
     public static final int MAX_WEBVIEW_CRASH_COUNT_NEWVCODE_VIEW = 3;
     public static final String MEMBERCENTERE_INDEX_PAGE = "c/e/member/getVipInfo";
+    public static final String MEMBER_FREE_BOOK = "c/c/encourage/tbread/memberFreeBook";
     public static final String MEMBER_PAY = "c/e/pay/andmember";
     public static final String MEMBER_PRIVILEGE = "c/e/pay/tmall";
     public static final boolean MSG_DEFAULT_ATME_SWITCH = true;
@@ -398,6 +403,7 @@ public class TbConfig {
     public static final String URL_GET_HOT_RANKLIST_DATA = "c/f/recommend/topicList";
     public static final String URL_GET_HOT_TOPIC_DATA = "c/f/recommend/hottopic";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
+    public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/n/apage-runtime/page/packet?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
     public static final String URL_MANGA_CHAPTER_ALL = "c/e/cartoon/getAllChapters";
     public static final String URL_MANGA_CHAPTER_DETAIL = "c/e/cartoon/cartoonReader";
@@ -481,6 +487,7 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
+    private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = String.valueOf(SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/136_1";
@@ -624,6 +631,20 @@ public class TbConfig {
         }
     }
 
+    public static int getMaxPhotoMemoryCache() {
+        return MAX_PHOTO_MEMORY_CACHE;
+    }
+
+    public static void setMaxPhotoMemoryCache(int i) {
+        if (i < 30) {
+            i = 30;
+        }
+        if (MAX_PHOTO_MEMORY_CACHE != i) {
+            c.EJ().eR(i);
+        }
+        MAX_PHOTO_MEMORY_CACHE = i;
+    }
+
     public static int getBigImageMaxUsedMemory() {
         return BIG_IMAGE_MAX_USED_MEMORY;
     }
@@ -740,7 +761,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(k.ag(context) * k.ah(context));
+            int sqrt = (int) Math.sqrt(k.af(context) * k.ag(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

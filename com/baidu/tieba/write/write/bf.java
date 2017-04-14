@@ -1,39 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-class bf extends CustomMessageListener {
-    final /* synthetic */ WriteActivity fQG;
+class bf implements View.OnClickListener {
+    final /* synthetic */ WriteActivity fSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bf(WriteActivity writeActivity, int i) {
-        super(i);
-        this.fQG = writeActivity;
+    public bf(WriteActivity writeActivity) {
+        this.fSq = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LocationModel locationModel;
-        LocationModel locationModel2;
-        LocationModel locationModel3;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                locationModel2 = this.fQG.aAy;
-                locationModel2.lj(false);
-                locationModel3 = this.fQG.aAy;
-                locationModel3.cd(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.fQG.b(2, true, responsedSelectLocation.getName());
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortools.j jVar;
+        int bpa;
+        EditText editText;
+        EditText editText2;
+        jVar = this.fSq.azd;
+        jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+        bpa = this.fSq.bpa();
+        if (bpa >= 0) {
+            editText = this.fSq.fmi;
+            if (bpa < editText.getText().length()) {
+                editText2 = this.fSq.fmi;
+                editText2.setSelection(bpa);
             }
-            locationModel = this.fQG.aAy;
-            locationModel.lj(true);
-            this.fQG.b(0, true, null);
         }
     }
 }

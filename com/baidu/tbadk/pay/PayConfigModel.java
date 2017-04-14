@@ -11,14 +11,14 @@ import com.baidu.tieba.w;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class PayConfigModel extends BdBaseModel {
-    private a aFi;
-    private final com.baidu.adp.framework.listener.a aFj;
+    private a aFy;
+    private final com.baidu.adp.framework.listener.a aFz;
 
     public PayConfigModel(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.aFj = new b(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.aFi = aVar;
-        registerListener(this.aFj);
+        this.aFz = new b(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.aFy = aVar;
+        registerListener(this.aFz);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -31,10 +31,10 @@ public class PayConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void FI() {
-        if (!d.FJ().FK()) {
-            if (this.aFi != null) {
-                this.aFi.FG();
+    public void Gg() {
+        if (!d.Gh().Gi()) {
+            if (this.aFy != null) {
+                this.aFy.Ge();
                 return;
             }
             return;
@@ -45,7 +45,7 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.aFj);
+        MessageManager.getInstance().unRegisterListener(this.aFz);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,19 +56,19 @@ public class PayConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.aFi != null) {
-                this.aFi.onError(TbadkCoreApplication.m9getInst().getString(w.l.data_load_error));
+            if (this.aFy != null) {
+                this.aFy.onError(TbadkCoreApplication.m9getInst().getString(w.l.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.aFi != null) {
-                this.aFi.FH();
+            if (this.aFy != null) {
+                this.aFy.Gf();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.aFi != null) {
-                this.aFi.FG();
+            if (this.aFy != null) {
+                this.aFy.Ge();
             }
-        } else if (this.aFi != null) {
-            this.aFi.onError("");
+        } else if (this.aFy != null) {
+            this.aFy.onError("");
         }
     }
 }

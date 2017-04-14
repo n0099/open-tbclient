@@ -4,64 +4,64 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.frs.FrsActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class b extends u {
-    private final CustomMessageListener bad;
+public class b extends w {
+    private final CustomMessageListener aZX;
 
     public b(FrsActivity frsActivity) {
         super(frsActivity);
-        this.bad = new c(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-        this.bTf.registerListener(this.bad);
+        this.aZX = new c(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+        this.bST.registerListener(this.aZX);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(UpdateAttentionMessage updateAttentionMessage) {
         Message<?> message;
-        if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().apE && !StringUtils.isNull(updateAttentionMessage.getData().showMsg, true) && updateAttentionMessage.getData().isAttention && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.bTf.getUniqueId())) {
-            this.bTf.showToast(updateAttentionMessage.getData().showMsg);
+        if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().apU && !StringUtils.isNull(updateAttentionMessage.getData().showMsg, true) && updateAttentionMessage.getData().isAttention && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.bST.getUniqueId())) {
+            this.bST.showToast(updateAttentionMessage.getData().showMsg);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(UpdateAttentionMessage updateAttentionMessage) {
         ArrayList<com.baidu.adp.widget.ListView.v> threadList;
-        com.baidu.tieba.tbadkCore.n YV = this.bTf.YV();
-        if (YV != null && (threadList = YV.getThreadList()) != null && updateAttentionMessage != null && updateAttentionMessage.getData() != null) {
+        com.baidu.tieba.tbadkCore.n Zr = this.bST.Zr();
+        if (Zr != null && (threadList = Zr.getThreadList()) != null && updateAttentionMessage != null && updateAttentionMessage.getData() != null) {
             MetaData metaData = new MetaData();
             Iterator<com.baidu.adp.widget.ListView.v> it = threadList.iterator();
             MetaData metaData2 = metaData;
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.v next = it.next();
-                if (next instanceof bj) {
-                    bj bjVar = (bj) next;
-                    if (bjVar.getAuthor() != null && bjVar.getAuthor().getUserId() != null && bjVar.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid) && !bjVar.getAuthor().equals(metaData2)) {
-                        a(bjVar, updateAttentionMessage);
-                        metaData2 = bjVar.getAuthor();
+                if (next instanceof bi) {
+                    bi biVar = (bi) next;
+                    if (biVar.getAuthor() != null && biVar.getAuthor().getUserId() != null && biVar.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid) && !biVar.getAuthor().equals(metaData2)) {
+                        a(biVar, updateAttentionMessage);
+                        metaData2 = biVar.getAuthor();
                     }
                 }
             }
         }
     }
 
-    private void a(bj bjVar, UpdateAttentionMessage updateAttentionMessage) {
+    private void a(bi biVar, UpdateAttentionMessage updateAttentionMessage) {
         int i;
-        if (bjVar != null && bjVar.getAuthor() != null && bjVar.getAuthor().getUserId() != null && bjVar.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid)) {
-            int fansNum = bjVar.getAuthor().getFansNum();
+        if (biVar != null && biVar.getAuthor() != null && biVar.getAuthor().getUserId() != null && biVar.getAuthor().getUserId().equals(updateAttentionMessage.getData().toUid)) {
+            int fansNum = biVar.getAuthor().getFansNum();
             if (updateAttentionMessage.isAttention()) {
                 i = fansNum + 1;
             } else {
                 i = fansNum - 1;
             }
-            bjVar.getAuthor().setFansNum(i);
-            if (bjVar.getAuthor().getGodUserData() != null) {
-                bjVar.getAuthor().getGodUserData().setIsLike(updateAttentionMessage.isAttention());
-                bjVar.getAuthor().getGodUserData().setIsFromNetWork(false);
+            biVar.getAuthor().setFansNum(i);
+            if (biVar.getAuthor().getGodUserData() != null) {
+                biVar.getAuthor().getGodUserData().setIsLike(updateAttentionMessage.isAttention());
+                biVar.getAuthor().getGodUserData().setIsFromNetWork(false);
             }
         }
     }

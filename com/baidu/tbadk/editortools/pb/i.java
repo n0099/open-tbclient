@@ -4,16 +4,16 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements a.b {
-    final /* synthetic */ c aAQ;
+    final /* synthetic */ c aBg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(c cVar) {
-        this.aAQ = cVar;
+        this.aBg = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aAQ.b(0, true, null);
+        this.aBg.b(0, true, null);
         aVar.dismiss();
     }
 }

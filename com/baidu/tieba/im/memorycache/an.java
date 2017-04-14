@@ -10,29 +10,29 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements CustomMessageTask.CustomRunnable<Integer> {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public an(ImMemoryCacheRegister imMemoryCacheRegister) {
+        this.this$0 = imMemoryCacheRegister;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        List<ImMessageCenterPojo> ass;
+        List<ImMessageCenterPojo> asl;
         if (customMessage == null || !(customMessage instanceof RequestMemoryListMessage)) {
             return null;
         }
         int intValue = ((RequestMemoryListMessage) customMessage).getData().intValue();
         if (intValue == 3) {
-            ass = b.asj().asr();
+            asl = b.asc().ask();
         } else if (intValue == 2) {
-            ass = b.asj().asq();
+            asl = b.asc().asj();
         } else if (intValue == 1) {
-            ass = b.asj().aso();
+            asl = b.asc().ash();
         } else {
-            ass = intValue == 4 ? b.asj().ass() : null;
+            asl = intValue == 4 ? b.asc().asl() : null;
         }
-        return new ResponsedMemoryListMessage(ass, intValue);
+        return new ResponsedMemoryListMessage(asl, intValue);
     }
 }

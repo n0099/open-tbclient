@@ -10,51 +10,51 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a {
-    private static a bFm;
-    private WindowManager.LayoutParams bFj;
-    private ImageView bFk;
-    private boolean bFl;
-    private int bFn;
-    private boolean bFo;
+    private static a bFf;
+    private WindowManager.LayoutParams bFc;
+    private ImageView bFd;
+    private boolean bFe;
+    private int bFg;
+    private boolean bFh;
     private WindowManager jn;
     private int mHeight;
     private int mWidth;
 
-    public static a VD() {
-        if (bFm == null) {
+    public static a Wb() {
+        if (bFf == null) {
             synchronized (a.class) {
-                if (bFm == null) {
-                    bFm = new a();
+                if (bFf == null) {
+                    bFf = new a();
                 }
             }
         }
-        return bFm;
+        return bFf;
     }
 
     private a() {
     }
 
     public void m(Context context, int i) {
-        this.bFo = true;
+        this.bFh = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.jn = (WindowManager) context.getSystemService("window");
-        this.bFn = i;
+        this.bFg = i;
     }
 
     public void destroy() {
-        this.bFo = false;
-        bFm = null;
+        this.bFh = false;
+        bFf = null;
     }
 
-    public boolean VE() {
-        return this.bFl;
+    public boolean Wc() {
+        return this.bFe;
     }
 
     public void a(Context context, View view, int i, int i2) {
         if (view != null) {
-            this.bFl = true;
+            this.bFe = true;
             view.setPressed(false);
             view.setDrawingCacheEnabled(true);
             Bitmap createBitmap = Bitmap.createBitmap(view.getDrawingCache());
@@ -67,28 +67,28 @@ public class a {
     }
 
     public void ad(int i, int i2) {
-        VF();
+        Wd();
         ae(i, i2);
-        this.jn.updateViewLayout(this.bFk, this.bFj);
+        this.jn.updateViewLayout(this.bFd, this.bFc);
     }
 
-    private void VF() {
-        if (!this.bFo) {
+    private void Wd() {
+        if (!this.bFh) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        VF();
+        Wd();
         if (bitmap != null) {
             ae(i, i2);
-            this.bFk = new ImageView(context);
-            this.bFk.setImageBitmap(bitmap);
+            this.bFd = new ImageView(context);
+            this.bFd.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && p(activity.getWindow().getDecorView())) {
                     try {
-                        this.jn.addView(this.bFk, this.bFj);
+                        this.jn.addView(this.bFd, this.bFc);
                     } catch (Exception e) {
                     }
                 }
@@ -111,31 +111,31 @@ public class a {
         return false;
     }
 
-    private void VG() {
-        this.bFj = new WindowManager.LayoutParams();
-        this.bFj.format = -3;
-        this.bFj.gravity = 51;
-        this.bFj.alpha = 1.0f;
-        this.bFj.width = -2;
-        this.bFj.height = -2;
-        this.bFj.flags = 24;
+    private void We() {
+        this.bFc = new WindowManager.LayoutParams();
+        this.bFc.format = -3;
+        this.bFc.gravity = 51;
+        this.bFc.alpha = 1.0f;
+        this.bFc.width = -2;
+        this.bFc.height = -2;
+        this.bFc.flags = 24;
     }
 
     private void ae(int i, int i2) {
-        if (this.bFj == null) {
-            VG();
+        if (this.bFc == null) {
+            We();
         }
-        this.bFj.x = i - (this.mWidth / 2);
-        this.bFj.y = (i2 - (this.mHeight / 2)) - this.bFn;
+        this.bFc.x = i - (this.mWidth / 2);
+        this.bFc.y = (i2 - (this.mHeight / 2)) - this.bFg;
     }
 
-    public void VH() {
-        if (this.bFk != null) {
+    public void Wf() {
+        if (this.bFd != null) {
             if (this.jn != null) {
-                this.jn.removeView(this.bFk);
+                this.jn.removeView(this.bFd);
             }
-            this.bFk = null;
+            this.bFd = null;
         }
-        this.bFl = false;
+        this.bFe = false;
     }
 }

@@ -11,24 +11,24 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bd(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public bd(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        List<ImMessageCenterPojo> asq = b.asj().asq();
-        if (asq != null && asq.size() != 0) {
-            for (ImMessageCenterPojo imMessageCenterPojo : asq) {
+        List<ImMessageCenterPojo> asj = b.asc().asj();
+        if (asj != null && asj.size() != 0) {
+            for (ImMessageCenterPojo imMessageCenterPojo : asj) {
                 imMessageCenterPojo.setTaskId("");
             }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new be(this, asq));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new be(this, asj));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);

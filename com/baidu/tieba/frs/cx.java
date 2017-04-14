@@ -1,82 +1,65 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.widget.vote.a;
+import android.content.Context;
+import android.widget.TextView;
 import com.baidu.tieba.w;
-import tbclient.PollOption;
 /* loaded from: classes.dex */
-public class cx implements a {
-    private int bQZ = -1;
-    private String bRa = null;
-    private int mPercent = 0;
-    private boolean bRb = false;
-    private int[] bRc = {w.g.icon_grade_vote_num1, w.g.icon_grade_vote_num2, w.g.icon_grade_vote_num3};
-    private int[] bRd = {w.g.icon_grade_vote_no1, w.g.icon_grade_vote_no2, w.g.icon_grade_vote_no3};
+class cx implements com.baidu.adp.lib.e.c<TextView> {
+    final /* synthetic */ TabMenuPopView bQN;
 
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int Cw() {
-        return this.bQZ;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cx(TabMenuPopView tabMenuPopView) {
+        this.bQN = tabMenuPopView;
     }
 
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Ct() {
-        return this.bRa;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Jf */
+    public TextView fK() {
+        Context context;
+        Context context2;
+        context = this.bQN.mContext;
+        TextView textView = new TextView(context);
+        context2 = this.bQN.mContext;
+        textView.setTextSize(0, com.baidu.adp.lib.util.k.g(context2, w.f.fontsize28));
+        com.baidu.tbadk.core.util.aq.j(textView, w.g.bg_tab_meun);
+        com.baidu.tbadk.core.util.aq.c(textView, w.e.cp_cont_f, 1);
+        textView.setGravity(17);
+        textView.setOnClickListener(this.bQN);
+        return textView;
     }
 
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Cu() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int Cx() {
-        return this.mPercent;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Cv() {
-        return String.valueOf(this.mPercent) + "%";
-    }
-
-    public void dS(boolean z) {
-        this.bRb = z;
-    }
-
-    @Override // com.baidu.tbadk.widget.vote.a
-    public boolean isSelected() {
-        return true;
-    }
-
-    public void a(int i, PollOption pollOption, long j) {
-        int[] iArr = this.bRb ? this.bRc : this.bRd;
-        switch (i) {
-            case 1:
-                this.bQZ = iArr[0];
-                break;
-            case 2:
-                this.bQZ = iArr[1];
-                break;
-            case 3:
-                this.bQZ = iArr[2];
-                break;
-            default:
-                this.bQZ = -1;
-                break;
-        }
-        this.bRa = pollOption.text;
-        if (j > 0) {
-            this.mPercent = (int) ((pollOption.num.longValue() * 100) / j);
-        } else {
-            this.mPercent = 0;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public void o(TextView textView) {
+        if (textView != null) {
+            textView.setText("");
+            textView.setTag(null);
+            textView.setSelected(false);
         }
     }
 
-    @Override // com.baidu.tbadk.widget.vote.a
-    public String Cy() {
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public TextView p(TextView textView) {
+        if (textView != null) {
+            com.baidu.tbadk.core.util.aq.j(textView, w.g.bg_tab_meun);
+            com.baidu.tbadk.core.util.aq.c(textView, w.e.cp_cont_f, 1);
+        }
+        return textView;
     }
 
-    @Override // com.baidu.tbadk.widget.vote.a
-    public int getId() {
-        return 0;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: e */
+    public TextView q(TextView textView) {
+        if (textView != null) {
+            textView.setText("");
+            textView.setTag(null);
+            textView.setSelected(false);
+        }
+        return textView;
     }
 }

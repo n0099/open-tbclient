@@ -10,11 +10,11 @@ import java.util.HashSet;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.data.t> {
-    final /* synthetic */ c cfo;
+    final /* synthetic */ c cdO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar) {
-        this.cfo = cVar;
+        this.cdO = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
@@ -26,32 +26,32 @@ public class l implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         int i4;
         HashMap hashMap2;
         String str3;
-        bb.vQ().c(this.cfo.aaI, new String[]{str});
+        bb.wn().c(this.cdO.aaX, new String[]{str});
         String str4 = "";
         String str5 = "";
-        if (this.cfo.bOq != null) {
-            str4 = this.cfo.bOq.getForumId();
-            str5 = this.cfo.bOq.getForumName();
+        if (this.cdO.bOf != null) {
+            str4 = this.cdO.bOf.getForumId();
+            str5 = this.cdO.bOf.getForumName();
         }
         if (i <= 0) {
-            hashMap2 = c.cff;
-            str3 = this.cfo.Vy;
-            a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap2.get(1), "ad_plat", "CLICK", str3, str4, str5, null);
-            a.cb("obj_url", str);
+            hashMap2 = c.cdF;
+            str3 = this.cdO.VP;
+            a.C0074a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap2.get(1), "ad_plat", "CLICK", str3, str4, str5, null);
+            a.cc("obj_url", str);
             a.save();
             return;
         }
-        i2 = this.cfo.cfh;
+        i2 = this.cdO.cdH;
         if (i2 > 1) {
-            i3 = this.cfo.cfh;
+            i3 = this.cdO.cdH;
             if (i > i3) {
-                i4 = this.cfo.cfh;
+                i4 = this.cdO.cdH;
                 i %= i4;
             }
-            hashMap = c.cff;
-            str2 = this.cfo.Vy;
-            a.C0075a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "CLICK", str2, str4, str5, null);
-            a2.cb("obj_url", str);
+            hashMap = c.cdF;
+            str2 = this.cdO.VP;
+            a.C0074a a2 = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "CLICK", str2, str4, str5, null);
+            a2.cc("obj_url", str);
             a2.save();
         }
     }
@@ -67,43 +67,43 @@ public class l implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         HashMap hashMap;
         String str;
         int i5;
-        if (this.cfo.cep != null) {
+        if (this.cdO.ccQ != null) {
             String str2 = "";
-            if (this.cfo.bOq != null) {
-                str2 = this.cfo.bOq.getForumId();
+            if (this.cdO.bOf != null) {
+                str2 = this.cdO.bOf.getForumId();
             }
             if (i > 0) {
-                i3 = this.cfo.cfh;
+                i3 = this.cdO.cdH;
                 if (i3 > 1) {
-                    i4 = this.cfo.cfh;
+                    i4 = this.cdO.cdH;
                     if (i > i4) {
-                        i5 = this.cfo.cfh;
+                        i5 = this.cdO.cdH;
                         i %= i5;
                     }
-                    hashSet = c.cfg;
+                    hashSet = c.cdG;
                     if (hashSet.add(Integer.valueOf(i))) {
-                        hashMap = c.cff;
-                        str = this.cfo.Vy;
-                        a.C0075a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "VIEW_TRUE", str, str2, "", null);
+                        hashMap = c.cdF;
+                        str = this.cdO.VP;
+                        a.C0074a a = com.baidu.tieba.tbadkCore.d.a.a("ad_tpoint", "PT", "FRS", (String) hashMap.get(Integer.valueOf(i)), "ad_plat", "VIEW_TRUE", str, str2, "", null);
                         if (tVar != null) {
-                            a.cb("obj_url", tVar.getLinkUrl());
+                            a.cc("obj_url", tVar.getLinkUrl());
                         }
                         a.save();
                     }
                 }
             }
             if (tVar == null || StringUtils.isNull(tVar.getTitle(), true)) {
-                this.cfo.cep.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                this.cfo.cep.setText("");
+                this.cdO.ccQ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cdO.ccQ.setText("");
                 return;
             }
-            TextView textView = this.cfo.cep;
-            i2 = this.cfo.drawablePadding;
+            TextView textView = this.cdO.ccQ;
+            i2 = this.cdO.drawablePadding;
             textView.setCompoundDrawablePadding(i2);
-            TextView textView2 = this.cfo.cep;
-            drawable = this.cfo.ceq;
+            TextView textView2 = this.cdO.ccQ;
+            drawable = this.cdO.ccR;
             textView2.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.cfo.cep.setText(tVar.getTitle());
+            this.cdO.ccQ.setText(tVar.getTitle());
         }
     }
 }

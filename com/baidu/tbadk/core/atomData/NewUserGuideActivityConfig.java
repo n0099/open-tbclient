@@ -17,6 +17,6 @@ public class NewUserGuideActivityConfig extends IntentConfig {
     }
 
     public static boolean canResponse() {
-        return i.he() && MessageManager.getInstance().findTask(CmdConfigCustom.NEW_USER_GUIDE_PAGE) != null;
+        return i.hj() && MessageManager.getInstance().findTask(CmdConfigCustom.NEW_USER_GUIDE_PAGE) != null;
     }
 }

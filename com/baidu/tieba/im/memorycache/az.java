@@ -12,13 +12,13 @@ import com.baidu.tieba.im.message.MemoryUpdateHeadNameMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public az(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,14 +28,14 @@ public class az extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MemoryUpdateHeadNameMessage.a)) {
             MemoryUpdateHeadNameMessage.a aVar = (MemoryUpdateHeadNameMessage.a) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(aVar.id)) {
-                if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (Y = b.asj().Y(aVar.id, aVar.customGroupType)) != null) {
+                if ((!TextUtils.isEmpty(aVar.head) || !TextUtils.isEmpty(aVar.name)) && (Y = b.asc().Y(aVar.id, aVar.customGroupType)) != null) {
                     String str = aVar.name;
                     String str2 = aVar.head;
                     if (!TextUtils.isEmpty(str)) {
-                        b.asj().ba(aVar.id, str);
+                        b.asc().be(aVar.id, str);
                     }
                     if (!TextUtils.isEmpty(aVar.head)) {
-                        b.asj().aZ(aVar.id, str2);
+                        b.asc().bd(aVar.id, str2);
                     }
                     CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ba(this, Y));
                     customMessageTask.setParallel(TiebaIMConfig.getParallel());

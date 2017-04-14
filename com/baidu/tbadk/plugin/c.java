@@ -7,11 +7,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ PluginErrorTipView aHB;
+    final /* synthetic */ PluginErrorTipView aHQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PluginErrorTipView pluginErrorTipView) {
-        this.aHB = pluginErrorTipView;
+        this.aHQ = pluginErrorTipView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,12 +19,12 @@ public class c implements View.OnClickListener {
         LinkedList linkedList;
         LinkedList linkedList2;
         HashSet hashSet;
-        linkedList = this.aHB.aHy;
+        linkedList = this.aHQ.aHN;
         if (linkedList.size() > 0) {
-            linkedList2 = this.aHB.aHy;
-            hashSet = this.aHB.aHz;
+            linkedList2 = this.aHQ.aHN;
+            hashSet = this.aHQ.aHO;
             hashSet.add(Integer.valueOf(((PluginStatus) linkedList2.getLast()).getErrorCode()));
         }
-        this.aHB.setVisibility(8);
+        this.aHQ.setVisibility(8);
     }
 }

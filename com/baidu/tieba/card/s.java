@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ r.c bsz;
+    final /* synthetic */ r.c bsr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r.c cVar) {
-        this.bsz = cVar;
+        this.bsr = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,15 +19,15 @@ public class s implements View.OnClickListener {
         cf cfVar;
         cf cfVar2;
         cf cfVar3;
-        cfVar = this.bsz.brg;
+        cfVar = this.bsr.bqY;
         if (cfVar != null) {
             if (view.getId() == w.h.hlistview_item_layout_root) {
                 if (view.getTag(w.h.hlistview_item_layout_root) instanceof CardHListViewNormalItemData) {
-                    cfVar3 = this.bsz.brg;
+                    cfVar3 = this.bsr.bqY;
                     cfVar3.a(view, null, (CardHListViewNormalItemData) view.getTag(w.h.hlistview_item_layout_root));
                 }
             } else if (view.getId() == w.h.fourm_name && (view.getTag(w.h.fourm_name) instanceof CardHListViewNormalItemData)) {
-                cfVar2 = this.bsz.brg;
+                cfVar2 = this.bsr.bqY;
                 cfVar2.a(view, null, (CardHListViewNormalItemData) view.getTag(w.h.fourm_name));
             }
         }

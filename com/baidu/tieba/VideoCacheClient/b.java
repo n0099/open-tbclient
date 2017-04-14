@@ -14,11 +14,11 @@ import java.net.URLEncoder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a aUV;
+    final /* synthetic */ a aVi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aUV = aVar;
+        this.aVi = aVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:3:0x0008 */
@@ -30,7 +30,7 @@ public class b implements Runnable {
         boolean z;
         Object obj;
         boolean z2;
-        String Lo;
+        String LO;
         String str;
         String str2;
         String str3;
@@ -47,28 +47,28 @@ public class b implements Runnable {
         String str5;
         Object obj2;
         while (!z) {
-            obj = this.aUV.mLock;
+            obj = this.aVi.mLock;
             synchronized (obj) {
                 try {
-                    obj2 = this.aUV.mLock;
+                    obj2 = this.aVi.mLock;
                     obj2.wait();
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
             }
-            z2 = this.aUV.aUT;
+            z2 = this.aVi.aVg;
             if (z2) {
                 return;
             }
-            Lo = this.aUV.Lo();
-            if (Lo != null && !Lo.isEmpty()) {
-                File file = new File(String.valueOf(d.aUH) + c.gQ(Lo) + "/header_downloaded");
+            LO = this.aVi.LO();
+            if (LO != null && !LO.isEmpty()) {
+                File file = new File(String.valueOf(d.aUU) + c.gU(LO) + "/header_downloaded");
                 if (file.exists()) {
                     str = a.TAG;
-                    e.log(str, "header exists " + Lo);
+                    e.log(str, "header exists " + LO);
                 } else {
                     str2 = a.TAG;
-                    e.log(str2, "client preload start: " + Lo);
+                    e.log(str2, "client preload start: " + LO);
                     long j2 = 0;
                     int i2 = 0;
                     int i3 = 0;
@@ -87,8 +87,8 @@ public class b implements Runnable {
                         BufferedReader bufferedReader2 = null;
                         InputStream inputStream2 = null;
                         try {
-                            String str6 = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Lo);
-                            int port = c.Lp().getPort();
+                            String str6 = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(LO);
+                            int port = c.LP().getPort();
                             socket = new Socket();
                             try {
                                 socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -127,11 +127,11 @@ public class b implements Runnable {
                                     try {
                                         try {
                                             str4 = a.TAG;
-                                            e.log(str4, "client preload check1: " + Lo);
+                                            e.log(str4, "client preload check1: " + LO);
                                             int i4 = i2;
                                             while (true) {
                                                 try {
-                                                    bArr = this.aUV.mBuffer;
+                                                    bArr = this.aVi.mBuffer;
                                                     int read = inputStream.read(bArr);
                                                     if (read == -1) {
                                                         i = i4;
@@ -148,7 +148,7 @@ public class b implements Runnable {
                                             }
                                             try {
                                                 str5 = a.TAG;
-                                                e.log(str5, "client preload check2: " + Lo);
+                                                e.log(str5, "client preload check2: " + LO);
                                                 try {
                                                     outputStreamWriter.close();
                                                 } catch (Exception e5) {
@@ -172,7 +172,7 @@ public class b implements Runnable {
                                                 }
                                             } catch (Exception e9) {
                                                 e = e9;
-                                                TiebaStatic.log(new as("c12027").Z("errormsg", "预加载文件失败").Z("error", e.getMessage()).Z("url", Lo));
+                                                TiebaStatic.log(new as("c12027").aa("errormsg", "预加载文件失败").aa("error", e.getMessage()).aa("url", LO));
                                                 e.printStackTrace();
                                                 try {
                                                     outputStreamWriter.close();
@@ -273,7 +273,7 @@ public class b implements Runnable {
                         }
                     }
                     str3 = a.TAG;
-                    e.log(str3, "client preload end: " + Lo);
+                    e.log(str3, "client preload end: " + LO);
                 }
             }
         }

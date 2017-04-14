@@ -1,21 +1,25 @@
 package com.baidu.tieba.passaccount.framework;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ExceptionData;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
-class d extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("com.baidu.sapi2")) {
-            TbadkCoreApplication.m9getInst().incPassportV6CrashCount();
+class d implements bb.a {
+    @Override // com.baidu.tbadk.core.util.bb.a
+    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
+        if (tbPageContext == null || strArr == null || strArr.length == 0) {
+            return 3;
         }
+        String str = strArr[0];
+        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jumptologin=1")) {
+            TbadkCoreApplication.m9getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), "", true, 0)));
+            return 1;
+        }
+        return 3;
     }
 }

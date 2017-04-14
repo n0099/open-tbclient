@@ -7,23 +7,23 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements a.b {
-    private final /* synthetic */ SparseArray evA;
-    final /* synthetic */ ao evz;
+    final /* synthetic */ ao etF;
+    private final /* synthetic */ SparseArray etG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ao aoVar, SparseArray sparseArray) {
-        this.evz = aoVar;
-        this.evA = sparseArray;
+        this.etF = aoVar;
+        this.etG = sparseArray;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         NewSubPbActivity.a aVar2;
         NewSubPbActivity.a aVar3;
-        aVar2 = this.evz.evo;
+        aVar2 = this.etF.etu;
         if (aVar2 != null) {
-            aVar3 = this.evz.evo;
-            aVar3.g(new Object[]{this.evA.get(w.h.tag_del_post_id), this.evA.get(w.h.tag_manage_user_identity), this.evA.get(w.h.tag_del_post_is_self), this.evA.get(w.h.tag_del_post_type)});
+            aVar3 = this.etF.etu;
+            aVar3.g(new Object[]{this.etG.get(w.h.tag_del_post_id), this.etG.get(w.h.tag_manage_user_identity), this.etG.get(w.h.tag_del_post_is_self), this.etG.get(w.h.tag_del_post_type)});
         }
         aVar.dismiss();
     }

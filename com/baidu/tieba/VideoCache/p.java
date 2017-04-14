@@ -11,22 +11,22 @@ import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
     private static final String TAG = p.class.getSimpleName();
-    private ServerSocket aUP;
+    private ServerSocket aVc;
     private Context mContext;
     private Runnable mRunnable = new q(this);
 
     public p(Context context) {
         this.mContext = context;
-        n.Lk().g(this.mRunnable);
+        n.LK().g(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lm() {
-        File file = new File(j.aUC);
+    public void LM() {
+        File file = new File(j.aUP);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(j.aUD);
+        File file2 = new File(j.aUQ);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -38,11 +38,11 @@ public class p {
                 }
             }
         }
-        File file4 = new File(j.aUE);
+        File file4 = new File(j.aUR);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(j.aUG);
+        File file5 = new File(j.aUT);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -53,10 +53,10 @@ public class p {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void fI(int i) {
+    public void fL(int i) {
         BufferedWriter bufferedWriter;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(new File(j.aUI)));
+            bufferedWriter = new BufferedWriter(new FileWriter(new File(j.aUV)));
             try {
                 try {
                     bufferedWriter.write(new StringBuilder(String.valueOf(i)).toString());
@@ -104,8 +104,8 @@ public class p {
 
     public void destroy() {
         try {
-            if (this.aUP != null) {
-                this.aUP.close();
+            if (this.aVc != null) {
+                this.aVc.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -115,11 +115,11 @@ public class p {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(i iVar, Socket socket) {
         k.log(TAG, "handleStopCache in");
-        String Lf = iVar.Lf();
-        if (Lf != null) {
-            Lf = Lf.replace("?stop_cache=1", "");
+        String LF = iVar.LF();
+        if (LF != null) {
+            LF = LF.replace("?stop_cache=1", "");
         }
-        f.Lb().gI(Lf);
+        f.LB().gM(LF);
         d(socket);
         k.log(TAG, "handleStopCache out");
     }
@@ -127,11 +127,11 @@ public class p {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(i iVar, Socket socket) {
         k.log(TAG, "handleFileAccess in");
-        String Lf = iVar.Lf();
-        if (Lf != null) {
-            Lf = Lf.replace("?file_access=1", "");
+        String LF = iVar.LF();
+        if (LF != null) {
+            LF = LF.replace("?file_access=1", "");
         }
-        l.Lj().gC(Lf);
+        l.LJ().gG(LF);
         d(socket);
         k.log(TAG, "handleFileAccess out");
     }
@@ -139,7 +139,7 @@ public class p {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(i iVar, Socket socket) {
         k.log(TAG, "handleDeleteExpiredFiles in");
-        l.Lj().KX();
+        l.LJ().Lx();
         d(socket);
         k.log(TAG, "handleDeleteExpiredFiles out");
     }
@@ -147,7 +147,7 @@ public class p {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(i iVar, Socket socket) {
         k.log(TAG, "handleClearCache in");
-        l.Lj().clearCache();
+        l.LJ().clearCache();
         d(socket);
         k.log(TAG, "handleClearCache out");
     }

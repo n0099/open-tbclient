@@ -14,7 +14,8 @@ public enum FastLoginFeature {
     VOICE_LOGIN("voice_login"),
     HUAWEI_LOGIN("huawei_login"),
     CHUANKE_LOGIN("chuanke"),
-    WANDA_FEIFAN_LOGIN("feifan");
+    WANDA_FEIFAN_LOGIN("feifan"),
+    MEIZU_SSO("meizu_sso");
     
     private String a;
 

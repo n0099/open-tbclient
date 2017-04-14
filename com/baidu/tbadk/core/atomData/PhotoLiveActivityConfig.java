@@ -53,7 +53,7 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-            intent.putExtra("request_code", i);
+            intent.putExtra(IntentConfig.REQUEST_CODE, i);
             setRequestCode(i);
             setIntentAction(IntentAction.ActivityForResult);
             if ("from_frs".equals(str4)) {
@@ -94,32 +94,32 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             this.context = context;
         }
 
-        public a cb(String str) {
+        public a ci(String str) {
             this.postID = str;
             return this;
         }
 
-        public a cc(String str) {
+        public a cj(String str) {
             this.stType = str;
             return this;
         }
 
-        public a cd(String str) {
+        public a ck(String str) {
             this.from = str;
             return this;
         }
 
-        public a ce(String str) {
+        public a cl(String str) {
             this.locate = str;
             return this;
         }
 
-        public a bz(int i) {
+        public a bC(int i) {
             this.requestCode = i;
             return this;
         }
 
-        public PhotoLiveActivityConfig pg() {
+        public PhotoLiveActivityConfig pE() {
             return new PhotoLiveActivityConfig(this, null);
         }
     }

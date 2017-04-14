@@ -15,42 +15,42 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ c cfo;
+    final /* synthetic */ c cdO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(c cVar) {
-        this.cfo = cVar;
+        this.cdO = cVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v9, resolved type: com.baidu.tieba.frs.FrsActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.data.y bfV;
-        int ql;
-        if (this.cfo.bTl != null && this.cfo.bTl.bfV() != null && (ql = (bfV = this.cfo.bTl.bfV()).ql()) != 0) {
-            if (ql == 1) {
+        com.baidu.tbadk.core.data.y bgI;
+        int qJ;
+        if (this.cdO.bSZ != null && this.cdO.bSZ.bgI() != null && (qJ = (bgI = this.cdO.bSZ.bgI()).qJ()) != 0) {
+            if (qJ == 1) {
                 if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
-                    if (this.cfo.bOq != null) {
-                        long c = com.baidu.adp.lib.g.b.c(this.cfo.bOq.getForumId(), 0L);
-                        TiebaStatic.log(new as("c11200").Z("obj_param1", String.valueOf(c)));
-                        MangaCoverActivityConfig mangaCoverActivityConfig = new MangaCoverActivityConfig(this.cfo.aaI.getPageActivity(), c);
+                    if (this.cdO.bOf != null) {
+                        long c = com.baidu.adp.lib.g.b.c(this.cdO.bOf.getForumId(), 0L);
+                        TiebaStatic.log(new as("c11200").aa("obj_param1", String.valueOf(c)));
+                        MangaCoverActivityConfig mangaCoverActivityConfig = new MangaCoverActivityConfig(this.cdO.aaX.getPageActivity(), c);
                         mangaCoverActivityConfig.setFrom(4);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, mangaCoverActivityConfig));
                         return;
                     }
                     return;
                 }
-                com.baidu.adp.lib.util.k.showToast(this.cfo.bOq.getPageContext().getPageActivity(), w.l.manga_plugin_not_install_tip);
-            } else if (ql == 2) {
-                if (!StringUtils.isNull(bfV.qk())) {
-                    bb.vQ().c(this.cfo.bOq.getPageContext(), new String[]{bfV.qk()});
+                com.baidu.adp.lib.util.k.showToast(this.cdO.bOf.getPageContext().getPageActivity(), w.l.manga_plugin_not_install_tip);
+            } else if (qJ == 2) {
+                if (!StringUtils.isNull(bgI.qI())) {
+                    bb.wn().c(this.cdO.bOf.getPageContext(), new String[]{bgI.qI()});
                 }
-            } else if (ql == 3) {
+            } else if (qJ == 3) {
                 if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    this.cfo.bOq.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BookCoverActivityConfig(this.cfo.bOq.getPageContext().getPageActivity(), bfV.qk())));
+                    this.cdO.bOf.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BookCoverActivityConfig(this.cdO.bOf.getPageContext().getPageActivity(), bgI.qI())));
                 } else {
-                    com.baidu.adp.lib.util.k.showToast(this.cfo.bOq.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
+                    com.baidu.adp.lib.util.k.showToast(this.cdO.bOf.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
                 }
             }
         }

@@ -97,11 +97,11 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = Integer.valueOf(this.tagCode);
-        builder.scr_w = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
-        builder.scr_h = Integer.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
-        builder.scr_dip = Double.valueOf(k.ai(TbadkCoreApplication.m9getInst()));
+        builder.scr_w = Integer.valueOf(k.af(TbadkCoreApplication.m9getInst()));
+        builder.scr_h = Integer.valueOf(k.ag(TbadkCoreApplication.m9getInst()));
+        builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
         builder.q_type = 1;
-        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.uo().getBoolean("has_requested_new_user_guide", false)) {
+        if (TbadkCoreApplication.getCurrentAccount() != null || com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("has_requested_new_user_guide", false)) {
             i = 0;
         }
         builder.need_age_module = Integer.valueOf(i);

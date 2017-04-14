@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final Object k(Class<?> cls) {
+    public static final Object d(Class<?> cls) {
         Object obj = null;
         try {
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
@@ -181,7 +181,7 @@ public class a {
         return method2;
     }
 
-    public static final List<Field> l(Class<?> cls) {
+    public static final List<Field> e(Class<?> cls) {
         LinkedList linkedList = new LinkedList();
         while (cls != Object.class) {
             Field[] declaredFields = cls.getDeclaredFields();

@@ -6,19 +6,19 @@ import com.baidu.tieba.enterForum.model.EnterForumModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements ab.b {
-    final /* synthetic */ l bFb;
+    final /* synthetic */ l bEU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(l lVar) {
-        this.bFb = lVar;
+        this.bEU = lVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.b
-    public void aL(boolean z) {
+    public void aN(boolean z) {
         EnterForumModel enterForumModel;
         String str;
-        enterForumModel = this.bFb.bEJ;
-        str = this.bFb.bEL;
-        enterForumModel.dh(!StringUtils.isNull(str));
+        enterForumModel = this.bEU.bEC;
+        str = this.bEU.bEE;
+        enterForumModel.dj(!StringUtils.isNull(str));
     }
 }

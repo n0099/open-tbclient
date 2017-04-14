@@ -1,19 +1,18 @@
 package com.baidu.tieba.passaccount.app;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements DialogInterface.OnCancelListener {
-    final /* synthetic */ l eeI;
+public class m implements Runnable {
+    final /* synthetic */ LoginActivity ecR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.eeI = lVar;
+    public m(LoginActivity loginActivity) {
+        this.ecR = loginActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        LoginActivity loginActivity;
-        loginActivity = this.eeI.eeH;
-        loginActivity.destroyWaitingDialog();
+    @Override // java.lang.Runnable
+    public void run() {
+        TbadkCoreApplication.m9getInst().setUsed();
     }
 }

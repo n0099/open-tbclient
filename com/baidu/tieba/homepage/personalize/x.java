@@ -1,30 +1,28 @@
 package com.baidu.tieba.homepage.personalize;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends com.baidu.tbadk.util.s<Object> {
-    private final /* synthetic */ int aay;
+    private final /* synthetic */ DataRes.Builder cxI;
     final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(n nVar, int i) {
+    public x(n nVar, DataRes.Builder builder) {
         this.this$0 = nVar;
-        this.aay = i;
+        this.cxI = builder;
     }
 
     @Override // com.baidu.tbadk.util.s
     public Object doInBackground() {
-        String str;
-        String str2;
-        com.baidu.tbadk.core.c.a aVar = com.baidu.tbadk.core.c.a.to();
-        str = this.this$0.czb;
-        com.baidu.adp.lib.cache.o<String> L = aVar.L(str, TbadkCoreApplication.getCurrentAccount());
-        if (L != null) {
-            str2 = this.this$0.czb;
-            L.a(str2, Integer.toString(this.aay), 43200000L);
+        try {
+            com.baidu.tbadk.core.c.a.tM().L("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", this.cxI.build(true).toByteArray());
+            return null;
+        } catch (Exception e) {
+            BdLog.e(e);
             return null;
         }
-        return null;
     }
 }

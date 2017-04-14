@@ -22,7 +22,7 @@ public class as {
         this.key = str;
     }
 
-    public as Z(String str, String str2) {
+    public as aa(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
@@ -40,8 +40,7 @@ public class as {
         return this;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public void m11do(String str) {
+    public void delete(String str) {
         int indexOf;
         if (!au.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
             this.params.remove(indexOf);

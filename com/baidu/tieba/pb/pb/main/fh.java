@@ -1,40 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.animation.Animation;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fh implements Animation.AnimationListener {
-    final /* synthetic */ fa etn;
+public class fh implements View.OnClickListener {
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fh(fa faVar) {
-        this.etn = faVar;
+    public fh(ey eyVar) {
+        this.erv = eyVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        View view;
-        com.baidu.tbadk.editortools.j jVar;
-        View view2;
-        com.baidu.tbadk.editortools.j jVar2;
-        fa faVar = this.etn;
-        view = this.etn.esf;
-        faVar.esk = view.getVisibility() == 0;
-        jVar = this.etn.Ll;
-        if (jVar != null) {
-            jVar2 = this.etn.Ll;
-            jVar2.hide();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        Dialog dialog3;
+        PbActivity pbActivity;
+        dialog = this.erv.epP;
+        if (dialog != null) {
+            dialog2 = this.erv.epP;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.erv.epP;
+                pbActivity = this.erv.eig;
+                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
+            }
         }
-        view2 = this.etn.esf;
-        view2.setVisibility(8);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.erv.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
+        }
     }
 }

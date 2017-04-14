@@ -55,7 +55,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (akb) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (akp) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -70,7 +70,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (akc) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (akq) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -348,7 +348,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void setDefTextButtonColor(TextView textView) {
-        com.baidu.tbadk.core.util.aq.i((View) textView, w.e.navi_op_text);
+        com.baidu.tbadk.core.util.aq.i(textView, w.e.navi_op_text);
     }
 
     public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
@@ -476,7 +476,7 @@ public class NavigationBar extends RelativeLayout {
     public void onChangeSkinType(com.baidu.adp.base.g<?> gVar, int i) {
         BitmapDrawable bitmapDrawable;
         if (this.isAutoNight) {
-            bitmapDrawable = new BitmapDrawable(com.baidu.tbadk.core.util.aq.cM(w.g.s_navbar_bg));
+            bitmapDrawable = new BitmapDrawable(com.baidu.tbadk.core.util.aq.cP(w.g.s_navbar_bg));
         } else {
             bitmapDrawable = new BitmapDrawable(com.baidu.tbadk.core.util.aq.y(w.g.s_navbar_bg, i));
         }
@@ -493,7 +493,7 @@ public class NavigationBar extends RelativeLayout {
         }
         initPadding();
         if (gVar instanceof TbPageContext) {
-            ((TbPageContext) gVar).getLayoutMode().ah(i == 1);
+            ((TbPageContext) gVar).getLayoutMode().aj(i == 1);
             ((TbPageContext) gVar).getLayoutMode().t(this);
         }
     }

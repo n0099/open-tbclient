@@ -15,7 +15,8 @@ public enum SocialType {
     WANDA_FEIFAN(46, "万达飞凡"),
     CHUANKE(-1, "百度传课"),
     IQIYI(47, "爱奇艺"),
-    XIAOMI(49, "小米");
+    XIAOMI(49, "小米"),
+    MEIZU(50, "魅族");
     
     private int a;
     private String b;
@@ -53,6 +54,8 @@ public enum SocialType {
                 return IQIYI;
             case TabData.TYPE_TAB_ALA_LIVE /* 49 */:
                 return XIAOMI;
+            case 50:
+                return MEIZU;
             default:
                 return UNKNOWN;
         }

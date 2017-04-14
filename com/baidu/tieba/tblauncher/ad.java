@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnClickListener {
-    final /* synthetic */ z fyG;
+    final /* synthetic */ z fAp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(z zVar) {
-        this.fyG = zVar;
+        this.fAp = zVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fyG.hC(false);
+        this.fAp.hz(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM));
-        com.baidu.tbadk.core.sharedPref.b.uo().putBoolean("enter_forum_edit_mode", false);
+        com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("enter_forum_edit_mode", false);
         TiebaStatic.log("c10099");
     }
 }

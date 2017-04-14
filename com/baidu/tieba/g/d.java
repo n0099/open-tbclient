@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ a fdZ;
+    final /* synthetic */ a ffB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, int i) {
         super(i);
-        this.fdZ = aVar;
+        this.ffB = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,16 +22,16 @@ public class d extends CustomMessageListener {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
             if (booleanValue) {
                 if (TbadkCoreApplication.isLogin()) {
-                    if (TbadkCoreApplication.m9getInst().getLastUpdateMemberCenterTime() <= com.baidu.tbadk.core.sharedPref.b.uo().getLong("maintab_member_center_red_tip_" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                    if (TbadkCoreApplication.m9getInst().getLastUpdateMemberCenterTime() <= com.baidu.tbadk.core.sharedPref.b.uL().getLong("maintab_member_center_red_tip_" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                         booleanValue = false;
                     }
                 } else {
                     booleanValue = false;
                 }
             }
-            this.fdZ.fdP = true;
-            this.fdZ.fdE = booleanValue;
-            this.fdZ.bae();
+            this.ffB.ffr = true;
+            this.ffB.ffg = booleanValue;
+            this.ffB.baN();
         }
     }
 }

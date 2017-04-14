@@ -103,7 +103,9 @@ public class CmdConfigCustom {
     public static final int CMD_CLOSE_INTEREST_GUIDE = 2001395;
     public static final int CMD_CLOSE_MATINTAB = 2001377;
     public static final int CMD_CLOSE_MATINTAB1 = 2002024;
+    public static final int CMD_CLOSE_MEMEBER_PAY_ACTIVITY = 2016537;
     public static final int CMD_CLOSE_NEW_USER_GUIDE = 2001394;
+    public static final int CMD_CLOSR_PAY_PANEL = 2001440;
     public static final int CMD_CLOSR_READER_SDK = 2001419;
     public static final int CMD_COLLECTION_PLUGIN_INSTALL_SUCCESS = 2902080;
     public static final int CMD_COMMON_WEBVIEW_ENABLE_TOUCH = 2002503;
@@ -371,6 +373,7 @@ public class CmdConfigCustom {
     public static final int CMD_PLUGIN_NETCONFIG_GET = 2001224;
     public static final int CMD_PRIVILEGE_CTRL = 2001282;
     public static final int CMD_PRIVILEGE_TOOL_CRTL = 2001343;
+    public static final int CMD_PROFILE_CACHE_NEED_CHANGED = 2001441;
     public static final int CMD_PROXY_GAME_DOWNLOAD_PROVIDER_READY = 2016518;
     public static final int CMD_PROXY_GAME_DOWNLOAD_SERVICE_READY = 2016519;
     public static final int CMD_PUBLISHER_ENTER_LIVEGROUP = 2001203;
@@ -559,6 +562,7 @@ public class CmdConfigCustom {
     public static final int DAILY_RECOMMEND_CUSTOM_CMD = 2010020;
     public static final int DEAL_INTENT = 2012000;
     public static final int DEAL_YY_NOTIFICATION = 2012100;
+    public static final int DELETE_AD_FROM_FEED = 2016331;
     public static final int EDITOR_COLLECT_TOOL = 2010044;
     public static final int EDITOR_CONTENT_CHANGED = 2010041;
     public static final int EMOTION_COLLECT_GROUPS = 2004602;

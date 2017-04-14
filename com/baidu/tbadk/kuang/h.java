@@ -1,21 +1,19 @@
 package com.baidu.tbadk.kuang;
 
-import com.baidu.searchbox.plugin.api.HostInvokeCallback;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements HostInvokeCallback {
-    private final /* synthetic */ HostInvokeCallback aDn;
+public class h implements Runnable {
+    private final /* synthetic */ CustomResponsedMessage aDE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(HostInvokeCallback hostInvokeCallback) {
-        this.aDn = hostInvokeCallback;
+    public h(CustomResponsedMessage customResponsedMessage) {
+        this.aDE = customResponsedMessage;
     }
 
-    @Override // com.baidu.searchbox.plugin.api.HostInvokeCallback
-    public void onResult(int i, Object obj) {
-        if (i == 0) {
-            b.mUserId = (String) obj;
-            b.a("getBduss", new Class[0], new Object[0], this.aDn);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        MessageManager.getInstance().dispatchResponsedMessage(this.aDE);
     }
 }

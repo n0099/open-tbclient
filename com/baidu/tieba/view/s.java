@@ -11,19 +11,19 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    com.baidu.tieba.f.b fIt = new com.baidu.tieba.f.b();
-    final /* synthetic */ PersonHeaderAttentionView fIu;
+    com.baidu.tieba.f.b fKc = new com.baidu.tieba.f.b();
+    final /* synthetic */ PersonHeaderAttentionView fKd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonHeaderAttentionView personHeaderAttentionView) {
-        this.fIu = personHeaderAttentionView;
+        this.fKd = personHeaderAttentionView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00ac, code lost:
-        if (r0.getPersonPrivate().Cm() == 2) goto L33;
+        if (r0.getPersonPrivate().CK() == 2) goto L33;
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x00eb, code lost:
-        if (r0.getPersonPrivate().Ck() == 2) goto L44;
+        if (r0.getPersonPrivate().CI() == 2) goto L44;
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -43,56 +43,56 @@ public class s implements View.OnClickListener {
         UserData userData10;
         m mVar2;
         Context context;
-        userData = this.fIu.mUserData;
+        userData = this.fKd.mUserData;
         if (userData != null && view != null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                context = this.fIu.mContext;
-                bg.aG(context);
+                context = this.fKd.mContext;
+                bg.aI(context);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            userData2 = this.fIu.mUserData;
+            userData2 = this.fKd.mUserData;
             boolean equals = currentAccount.equals(userData2.getUserId());
-            userData3 = this.fIu.mUserData;
+            userData3 = this.fKd.mUserData;
             boolean z = userData3.getIsFriend() == 1;
             int id = view.getId();
             if (w.h.person_header_attention_container == id) {
-                this.fIt.bHe = 4;
+                this.fKc.bGX = 4;
             } else if (w.h.person_header_fans_container == id) {
-                this.fIt.bHe = 5;
+                this.fKc.bGX = 5;
             } else if (w.h.person_header_post_container == id) {
-                userData7 = this.fIu.mUserData;
-                if (userData7.getPersonPrivate().Cm() != 1 && !equals) {
+                userData7 = this.fKd.mUserData;
+                if (userData7.getPersonPrivate().CK() != 1 && !equals) {
                     if (z) {
-                        userData9 = this.fIu.mUserData;
+                        userData9 = this.fKd.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView = this.fIu;
-                    userData8 = this.fIu.mUserData;
-                    personHeaderAttentionView.hu(userData8.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView = this.fKd;
+                    userData8 = this.fKd.mUserData;
+                    personHeaderAttentionView.hx(userData8.getSex());
                     return;
                 }
-                this.fIt.bHe = 6;
+                this.fKc.bGX = 6;
             } else if (w.h.person_header_bar_container == id) {
-                userData4 = this.fIu.mUserData;
-                if (userData4.getPersonPrivate().Ck() != 1 && !equals) {
+                userData4 = this.fKd.mUserData;
+                if (userData4.getPersonPrivate().CI() != 1 && !equals) {
                     if (z) {
-                        userData6 = this.fIu.mUserData;
+                        userData6 = this.fKd.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView2 = this.fIu;
-                    userData5 = this.fIu.mUserData;
-                    personHeaderAttentionView2.hu(userData5.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView2 = this.fKd;
+                    userData5 = this.fKd.mUserData;
+                    personHeaderAttentionView2.hx(userData5.getSex());
                     return;
                 }
-                this.fIt.bHe = 7;
+                this.fKc.bGX = 7;
             }
-            mVar = this.fIu.eCA;
+            mVar = this.fKd.eAx;
             if (mVar != null) {
-                this.fIt.bHf = new Bundle();
-                Bundle bundle = this.fIt.bHf;
-                userData10 = this.fIu.mUserData;
+                this.fKc.bGY = new Bundle();
+                Bundle bundle = this.fKc.bGY;
+                userData10 = this.fKd.mUserData;
                 bundle.putSerializable(UserData.TYPE_USER, userData10);
-                mVar2 = this.fIu.eCA;
-                mVar2.a(view, this.fIt);
+                mVar2 = this.fKd.eAx;
+                mVar2.a(view, this.fKc);
             }
         }
     }

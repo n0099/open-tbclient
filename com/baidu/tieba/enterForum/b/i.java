@@ -2,16 +2,16 @@ package com.baidu.tieba.enterForum.b;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.be;
+import com.baidu.tbadk.core.data.bd;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class i {
-    private ArrayList<be> bEu = new ArrayList<>();
+    private ArrayList<bd> bEn = new ArrayList<>();
 
-    public ArrayList<be> Vn() {
-        return this.bEu;
+    public ArrayList<bd> VL() {
+        return this.bEn;
     }
 
     public void ab(List<?> list) {
@@ -26,9 +26,9 @@ public class i {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
                     if (list.get(i) instanceof Banner) {
-                        be beVar = new be();
-                        beVar.a((Banner) list.get(i));
-                        this.bEu.add(beVar);
+                        bd bdVar = new bd();
+                        bdVar.a((Banner) list.get(i));
+                        this.bEn.add(bdVar);
                     } else {
                         return;
                     }

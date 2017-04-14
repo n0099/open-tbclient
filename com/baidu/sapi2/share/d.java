@@ -136,9 +136,10 @@ public final class d {
             if (context != null && loginShareStrategy != null && shareModel != null) {
                 shareModel.b(context);
                 final com.baidu.sapi2.c a2 = com.baidu.sapi2.c.a(context);
-                if (loginShareStrategy == LoginShareStrategy.SILENT && !a2.i() && a2.d() == null && shareModel.a().size() > 0 && SapiUtils.isValidAccount(shareModel.a().get(0))) {
+                if (loginShareStrategy == LoginShareStrategy.SILENT && !a2.h() && a2.d() == null && shareModel.a().size() > 0 && SapiUtils.isValidAccount(shareModel.a().get(0))) {
                     SapiAccount sapiAccount = shareModel.a().get(0);
                     a2.a(sapiAccount);
+                    a2.a(sapiAccount, false);
                     a2.c(sapiAccount);
                     a2.d(sapiAccount);
                     if (SapiAccountManager.getSilentShareListener() != null) {
@@ -179,7 +180,7 @@ public final class d {
         }
         com.baidu.sapi2.c a2 = com.baidu.sapi2.c.a(context);
         if (SapiUtils.isValidAccount(sapiAccount)) {
-            return (a2.d() == null || !a2.d().uid.equals(sapiAccount.uid)) && !a2.g().contains(sapiAccount);
+            return (a2.d() == null || !a2.d().uid.equals(sapiAccount.uid)) && !a2.f().contains(sapiAccount);
         }
         return false;
     }
@@ -205,14 +206,15 @@ public final class d {
             if (d != null && sapiAccount.uid.equals(d.uid)) {
                 b.a().a(d, sapiAccount);
                 a2.a(d);
+                a2.a(d, false);
             }
-            for (SapiAccount sapiAccount2 : a2.g()) {
+            for (SapiAccount sapiAccount2 : a2.f()) {
                 if (sapiAccount.uid.equals(sapiAccount2.uid)) {
                     b.a().a(sapiAccount2, sapiAccount);
                     a2.c(sapiAccount2);
                 }
             }
-            for (SapiAccount sapiAccount3 : a2.f()) {
+            for (SapiAccount sapiAccount3 : a2.e()) {
                 if (sapiAccount.uid.equals(sapiAccount3.uid)) {
                     b.a().a(sapiAccount3, sapiAccount);
                     a2.b(sapiAccount3);

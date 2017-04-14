@@ -1,21 +1,33 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ImageProblemActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.frs.TabMenuPopView;
+import com.baidu.tieba.frs.cv;
+import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fQG;
+public class ag implements TabMenuPopView.a {
+    final /* synthetic */ WriteActivity fSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.fQG = writeActivity;
+        this.fSq = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.fQG.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ImageProblemActivityConfig(this.fQG.getPageContext().getPageActivity())));
+    @Override // com.baidu.tieba.frs.TabMenuPopView.a
+    public void a(View view, cv cvVar) {
+        PostCategoryView postCategoryView;
+        WriteData writeData;
+        PostCategoryView postCategoryView2;
+        if (cvVar != null) {
+            postCategoryView = this.fSq.fRC;
+            postCategoryView.setText(cvVar.name);
+            writeData = this.fSq.mData;
+            writeData.setCategoryTo(cvVar.bPO);
+            this.fSq.fRB = cvVar.bPO;
+            postCategoryView2 = this.fSq.fRC;
+            postCategoryView2.bot();
+        }
     }
 }

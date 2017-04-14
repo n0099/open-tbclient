@@ -5,27 +5,27 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 /* loaded from: classes.dex */
 class l implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ k ES;
-    private final /* synthetic */ BdFileDownloadData ET;
+    final /* synthetic */ k Et;
+    private final /* synthetic */ BdFileDownloadData Eu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar, BdFileDownloadData bdFileDownloadData) {
-        this.ES = kVar;
-        this.ET = bdFileDownloadData;
+        this.Et = kVar;
+        this.Eu = bdFileDownloadData;
     }
 
     @Override // com.baidu.adp.plugin.install.b
-    public void aV(String str) {
+    public void aQ(String str) {
         PluginPackageManager pluginPackageManager;
         e eVar;
         PluginPackageManager pluginPackageManager2;
         e eVar2;
-        pluginPackageManager = this.ES.this$0;
-        eVar = pluginPackageManager.EN;
+        pluginPackageManager = this.Et.this$0;
+        eVar = pluginPackageManager.Eo;
         if (eVar != null) {
-            pluginPackageManager2 = this.ES.this$0;
-            eVar2 = pluginPackageManager2.EN;
-            eVar2.a(this.ET, 0, "");
+            pluginPackageManager2 = this.Et.this$0;
+            eVar2 = pluginPackageManager2.Eo;
+            eVar2.a(this.Eu, 0, "");
         }
     }
 
@@ -36,17 +36,17 @@ class l implements com.baidu.adp.plugin.install.b {
         String str3;
         PluginPackageManager pluginPackageManager2;
         e eVar2;
-        pluginPackageManager = this.ES.this$0;
-        eVar = pluginPackageManager.EN;
+        pluginPackageManager = this.Et.this$0;
+        eVar = pluginPackageManager.Eo;
         if (eVar != null) {
             if ("rom_size".equals(str2)) {
                 str3 = BdBaseApplication.getInst().getString(R.string.rom_too_small);
             } else {
                 str3 = "";
             }
-            pluginPackageManager2 = this.ES.this$0;
-            eVar2 = pluginPackageManager2.EN;
-            eVar2.a(this.ET, -1, str3);
+            pluginPackageManager2 = this.Et.this$0;
+            eVar2 = pluginPackageManager2.Eo;
+            eVar2.a(this.Eu, -1, str3);
         }
     }
 }

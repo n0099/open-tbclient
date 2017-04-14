@@ -1,37 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class fj implements View.OnClickListener {
-    final /* synthetic */ fa etn;
+class fj implements Animation.AnimationListener {
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fj(fa faVar) {
-        this.etn = faVar;
+    public fj(ey eyVar) {
+        this.erv = eyVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.etn.erG;
-        if (dialog != null) {
-            dialog2 = this.etn.erG;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.etn.erG;
-                pbActivity = this.etn.eka;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        if (this.erv.eoV != null) {
+            this.erv.eoV.aOc();
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.etn.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
-        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

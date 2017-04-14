@@ -6,26 +6,26 @@ import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g {
-    private static Toast zy;
+    private static Toast yZ;
     private static Handler mHandler = new Handler();
-    private static String adX = null;
-    private static Runnable adV = new h();
+    private static String ael = null;
+    private static Runnable aej = new h();
 
     public static void showToast(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            mHandler.removeCallbacks(adV);
-            if (zy != null) {
-                if (!str.equals(adX)) {
-                    adX = str;
-                    zy.setText(str);
+            mHandler.removeCallbacks(aej);
+            if (yZ != null) {
+                if (!str.equals(ael)) {
+                    ael = str;
+                    yZ.setText(str);
                 }
             } else {
-                adX = str;
-                zy = Toast.makeText(TbadkCoreApplication.m9getInst(), str, 0);
-                zy.setGravity(17, 0, com.baidu.adp.lib.util.k.dip2px(context, 100.0f));
+                ael = str;
+                yZ = Toast.makeText(TbadkCoreApplication.m9getInst(), str, 0);
+                yZ.setGravity(17, 0, com.baidu.adp.lib.util.k.dip2px(context, 100.0f));
             }
-            mHandler.postDelayed(adV, i);
-            zy.show();
+            mHandler.postDelayed(aej, i);
+            yZ.show();
         }
     }
 

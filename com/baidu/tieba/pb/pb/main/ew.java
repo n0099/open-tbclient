@@ -1,19 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class ew extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ew(int i) {
-        super(i);
+public class ew extends com.baidu.tbadk.core.view.userLike.c {
+    public boolean eoG;
+
+    public ew(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar) {
+        super(tbPageContext, bVar);
+        this.eoG = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
-            er.aMB().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
+    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
+    public void onClick(View view) {
+        super.onClick(view);
+        if (this.eoG && this.amO != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11924").aa("obj_id", this.amO.getUserId()));
         }
     }
 }

@@ -5,28 +5,28 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0056a aQW;
-    private float bCn;
-    private float bCo;
-    private Handler.Callback aQx = new b(this);
-    private Handler mHandler = new Handler(this.aQx);
+    private InterfaceC0055a aRm;
+    private float bCg;
+    private float bCh;
+    private Handler.Callback aQN = new b(this);
+    private Handler mHandler = new Handler(this.aQN);
 
     /* renamed from: com.baidu.tieba.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0056a {
+    public interface InterfaceC0055a {
         void V(int i, int i2);
 
         void W(int i, int i2);
     }
 
-    public void a(InterfaceC0056a interfaceC0056a) {
-        this.aQW = interfaceC0056a;
+    public void a(InterfaceC0055a interfaceC0055a) {
+        this.aRm = interfaceC0055a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bCo = motionEvent.getRawY();
+                this.bCh = motionEvent.getRawY();
                 return true;
             case 1:
             default:
@@ -34,17 +34,17 @@ public class a {
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i = (int) (rawX - this.bCn);
-                int i2 = (int) (rawY - this.bCo);
-                if (this.aQW != null) {
+                int i = (int) (rawX - this.bCg);
+                int i2 = (int) (rawY - this.bCh);
+                if (this.aRm != null) {
                     if (i2 > 0) {
                         aa(i, i2);
                     } else {
                         ab(i, i2);
                     }
                 }
-                this.bCn = rawX;
-                this.bCo = rawY;
+                this.bCg = rawX;
+                this.bCh = rawY;
                 return true;
         }
     }

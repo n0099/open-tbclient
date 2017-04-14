@@ -18,27 +18,27 @@ class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> or;
+        ArrayList<com.baidu.tbadk.mainTab.b> oO;
         z zVar;
         boolean z;
         z zVar2;
         z zVar3;
         int i;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (or = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).or()) != null && or.size() != 0) {
-            zVar = this.this$0.fyl;
-            zVar.ae(or);
-            z = this.this$0.fyi;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (oO = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).oO()) != null && oO.size() != 0) {
+            zVar = this.this$0.fzU;
+            zVar.ae(oO);
+            z = this.this$0.fzR;
             if (z) {
-                zVar3 = this.this$0.fyl;
-                FragmentTabHost bjq = zVar3.bjq();
-                i = this.this$0.fyh;
-                bjq.setCurrentTabByType(i);
+                zVar3 = this.this$0.fzU;
+                FragmentTabHost bkb = zVar3.bkb();
+                i = this.this$0.fzQ;
+                bkb.setCurrentTabByType(i);
             } else {
                 this.this$0.V(this.this$0.getIntent());
             }
-            this.this$0.fyi = false;
-            zVar2 = this.this$0.fyl;
-            zVar2.bjo();
+            this.this$0.fzR = false;
+            zVar2 = this.this$0.fzU;
+            zVar2.bjZ();
         }
     }
 }

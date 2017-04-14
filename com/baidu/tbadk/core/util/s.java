@@ -11,21 +11,21 @@ public interface s {
 
     void d(String str, byte[] bArr);
 
-    void fm();
+    void fr();
 
-    void fp();
+    void fu();
 
     void k(ArrayList<BasicNameValuePair> arrayList);
 
     void n(String str, String str2);
 
-    ArrayList<BasicNameValuePair> uA();
+    ArrayList<BasicNameValuePair> uX();
 
-    String uB();
+    String uY();
 
-    byte[] uC();
+    byte[] uZ();
 
-    String uD();
+    String va();
 
-    String uE();
+    String vb();
 }

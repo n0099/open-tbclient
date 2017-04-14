@@ -8,35 +8,35 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements c.b {
-    private final /* synthetic */ int bys;
-    final /* synthetic */ q eHd;
-    private final /* synthetic */ com.baidu.tbadk.data.k eHe;
-    private final /* synthetic */ List eHf;
+    private final /* synthetic */ int byl;
+    final /* synthetic */ q eEZ;
+    private final /* synthetic */ com.baidu.tbadk.data.k eFa;
+    private final /* synthetic */ List eFb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(q qVar, com.baidu.tbadk.data.k kVar, List list, int i) {
-        this.eHd = qVar;
-        this.eHe = kVar;
-        this.eHf = list;
-        this.bys = i;
+        this.eEZ = qVar;
+        this.eFa = kVar;
+        this.eFb = list;
+        this.byl = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        this.eHd.eGV = true;
+        this.eEZ.eER = true;
         switch (i) {
             case 0:
-                this.eHd.d(this.eHe, this.eHf, this.bys);
+                this.eEZ.d(this.eFa, this.eFb, this.byl);
                 break;
             case 1:
-                this.eHd.QV();
+                this.eEZ.Rt();
                 break;
             case 2:
-                this.eHd.aRm();
+                this.eEZ.aRv();
                 break;
             case 3:
                 TiebaStatic.log(new as("c11616").s("obj_type", 1));
-                this.eHd.aRn();
+                this.eEZ.aRw();
                 break;
         }
         cVar.dismiss();

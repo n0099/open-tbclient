@@ -6,10 +6,10 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class h {
-    private boolean awx = false;
-    private int awy = 0;
+    private boolean awN = false;
+    private int awO = 0;
 
-    public void eK(String str) {
+    public void eQ(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -17,8 +17,8 @@ public class h {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.awx = false;
-        this.awy = 0;
+        this.awN = false;
+        this.awO = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -47,7 +47,7 @@ public class h {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.awx = true;
+                                this.awN = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -81,23 +81,23 @@ public class h {
                         throw th;
                     }
                 }
-                if (this.awx && i3 > 0) {
-                    this.awy = i5 / i3;
+                if (this.awN && i3 > 0) {
+                    this.awO = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.awx;
+        return this.awN;
     }
 
-    public int BQ() {
-        return this.awy;
+    public int Co() {
+        return this.awO;
     }
 
     private int getTimeout() {
-        switch (com.baidu.adp.lib.util.i.hk()) {
+        switch (com.baidu.adp.lib.util.i.hp()) {
             case 1:
                 return 3000;
             case 2:

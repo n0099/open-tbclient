@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int amL;
-    private GradientDrawable ftd;
-    protected int fte;
-    protected int ftf;
+    private int amZ;
+    private GradientDrawable fuN;
+    protected int fuO;
+    protected int fuP;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -24,10 +24,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amL = 3;
-        this.fte = (int) context.getResources().getDimension(w.f.ds18);
-        this.ftf = (int) context.getResources().getDimension(w.f.ds6);
-        setPadding(this.fte, this.ftf, this.fte, this.ftf);
+        this.amZ = 3;
+        this.fuO = (int) context.getResources().getDimension(w.f.ds18);
+        this.fuP = (int) context.getResources().getDimension(w.f.ds6);
+        setPadding(this.fuO, this.fuP, this.fuO, this.fuP);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(w.f.ds24));
@@ -39,21 +39,21 @@ public class EditorInfoView extends TextView {
         setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(w.f.ds48));
     }
 
-    public void wP() {
+    public void xl() {
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-        if (skinType != this.amL) {
-            this.amL = skinType;
-            tD();
+        if (skinType != this.amZ) {
+            this.amZ = skinType;
+            onChangeSkinType();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tD() {
-        if (this.ftd == null) {
-            this.ftd = new GradientDrawable();
-            this.ftd.setCornerRadius(getContext().getResources().getDimension(w.f.ds24));
+    public void onChangeSkinType() {
+        if (this.fuN == null) {
+            this.fuN = new GradientDrawable();
+            this.fuN.setCornerRadius(getContext().getResources().getDimension(w.f.ds24));
         }
         aq.c(this, w.e.cp_cont_c, 1);
-        this.ftd.setColor(aq.getColor(w.e.cp_bg_line_e));
+        this.fuN.setColor(aq.getColor(w.e.cp_bg_line_e));
     }
 }

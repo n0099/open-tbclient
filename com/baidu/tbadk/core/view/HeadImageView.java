@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class HeadImageView extends com.baidu.tbadk.widget.d {
-    private int aig;
-    private int aih;
+    private int aiu;
+    private int aiv;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -24,8 +24,8 @@ public class HeadImageView extends com.baidu.tbadk.widget.d {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.aig = w.g.transparent_bg;
-        this.aih = w.e.cp_bg_line_e;
+        this.aiu = w.g.transparent_bg;
+        this.aiv = w.e.cp_bg_line_e;
         init();
     }
 
@@ -33,8 +33,8 @@ public class HeadImageView extends com.baidu.tbadk.widget.d {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.aih);
-        setDefaultResource(this.aig);
+        setDefaultBgResource(this.aiv);
+        setDefaultResource(this.aiu);
         setDefaultErrorResource(w.g.icon_default_avatar100);
     }
 
@@ -56,10 +56,10 @@ public class HeadImageView extends com.baidu.tbadk.widget.d {
     }
 
     public void setUserName(String str) {
-        ac(str, String.valueOf(str) + getResources().getString(w.l.somebodys_portrait));
+        ad(str, String.valueOf(str) + getResources().getString(w.l.somebodys_portrait));
     }
 
-    public void ac(String str, String str2) {
+    public void ad(String str, String str2) {
         this.user_name = str;
         setContentDescription(str2);
     }
@@ -69,11 +69,11 @@ public class HeadImageView extends com.baidu.tbadk.widget.d {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void wn() {
-        if (!this.aKo) {
-            this.aKo = true;
-        } else if (this.aKr != null && this.aKr.aGg) {
-            this.aKr.Gb();
+    public void wJ() {
+        if (!this.aKE) {
+            this.aKE = true;
+        } else if (this.aKH != null && this.aKH.aGv) {
+            this.aKH.Gz();
         }
     }
 }

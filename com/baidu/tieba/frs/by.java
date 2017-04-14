@@ -1,37 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.util.LongSparseArray;
-import java.util.LinkedList;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class by {
-    private static final by bQh = new by();
-    private LongSparseArray<LinkedList<String>> bQg = new LongSparseArray<>();
+public class by extends SparseArray<cd> {
+    public BdUniqueId baI = null;
 
-    private by() {
-    }
-
-    public static by aaf() {
-        return bQh;
-    }
-
-    public void d(long j, String str) {
-        LinkedList<String> linkedList = this.bQg.get(j);
-        if (linkedList == null) {
-            linkedList = new LinkedList<>();
-            this.bQg.put(j, linkedList);
+    public void a(ce ceVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                cd valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(ceVar);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
         }
-        linkedList.add(str);
     }
 
-    public boolean e(long j, String str) {
-        LinkedList<String> linkedList = this.bQg.get(j);
-        return linkedList != null && linkedList.contains(str);
-    }
-
-    public void aV(long j) {
-        LinkedList<String> linkedList = this.bQg.get(j);
-        if (linkedList != null) {
-            linkedList.clear();
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                cd valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
         }
+    }
+
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                cd valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.Np();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
+    }
+
+    public void a(int i, cd cdVar) {
+        if (i > 100) {
+            i = 100;
+        }
+        put(i, cdVar);
+    }
+
+    public cd hV(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

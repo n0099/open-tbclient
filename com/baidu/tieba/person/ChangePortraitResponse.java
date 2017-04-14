@@ -1,6 +1,5 @@
 package com.baidu.tieba.person;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -16,8 +15,8 @@ public class ChangePortraitResponse extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.errCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE);
-            this.errStr = jSONObject.optString(SocialConstants.PARAM_ERROR_MSG);
+            this.errCode = jSONObject.optInt("error_code");
+            this.errStr = jSONObject.optString("error_msg");
         }
     }
 

@@ -4,25 +4,25 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aNV;
-    private final /* synthetic */ TbRichTextData aNW;
+    final /* synthetic */ TbRichTextView aOl;
+    private final /* synthetic */ TbRichTextData aOm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(TbRichTextView tbRichTextView, TbRichTextData tbRichTextData) {
-        this.aNV = tbRichTextView;
-        this.aNW = tbRichTextData;
+        this.aOl = tbRichTextView;
+        this.aOm = tbRichTextData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aNW.HW() != null) {
-            if (this.aNV.getContext() instanceof d) {
-                ((d) this.aNV.getContext()).W(this.aNV.getContext(), this.aNW.HW().toString());
+        if (this.aOm.Iv() != null) {
+            if (this.aOl.getContext() instanceof d) {
+                ((d) this.aOl.getContext()).aa(this.aOl.getContext(), this.aOm.Iv().toString());
                 return;
             }
-            com.baidu.adp.base.g<?> aa = com.baidu.adp.base.k.aa(this.aNV.getContext());
-            if (aa != null && (aa.getOrignalPage() instanceof d)) {
-                ((d) aa.getOrignalPage()).W(this.aNV.getContext(), this.aNW.HW().toString());
+            com.baidu.adp.base.g<?> Z = com.baidu.adp.base.k.Z(this.aOl.getContext());
+            if (Z != null && (Z.getOrignalPage() instanceof d)) {
+                ((d) Z.getOrignalPage()).aa(this.aOl.getContext(), this.aOm.Iv().toString());
             }
         }
     }

@@ -6,19 +6,19 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnLongClickListener {
-    final /* synthetic */ AbsMsgImageActivity cOc;
-    private final /* synthetic */ c.b cOe;
+    private final /* synthetic */ c.b cMB;
+    final /* synthetic */ AbsMsgImageActivity cMz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AbsMsgImageActivity absMsgImageActivity, c.b bVar) {
-        this.cOc = absMsgImageActivity;
-        this.cOe = bVar;
+        this.cMz = absMsgImageActivity;
+        this.cMB = bVar;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.cOc.createListMenu(new String[]{this.cOc.getPageContext().getString(w.l.save)}, this.cOe);
-        this.cOc.showListMenu();
+        this.cMz.createListMenu(new String[]{this.cMz.getPageContext().getString(w.l.save)}, this.cMB);
+        this.cMz.showListMenu();
         return false;
     }
 }

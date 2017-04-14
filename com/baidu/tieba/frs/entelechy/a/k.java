@@ -7,16 +7,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tieba.card.cd;
 import com.baidu.tieba.card.cf;
 import com.baidu.tieba.frs.entelechy.view.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.widget.ListView.a<bj, com.baidu.tieba.card.b.a<as>> implements cd, com.baidu.tieba.frs.e.e {
-    private TbPageContext<?> ajF;
-    private cf bSr;
-    private int bSt;
+public class k extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.b.a<as>> implements cd, com.baidu.tieba.frs.e.e {
+    private TbPageContext<?> ajT;
+    private cf bSf;
+    private int bSh;
     private String mForumName;
     private boolean mIsFromCDN;
 
@@ -24,25 +24,25 @@ public class k extends com.baidu.adp.widget.ListView.a<bj, com.baidu.tieba.card.
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = true;
-        this.bSt = 0;
-        this.bSr = new l(this);
-        this.ajF = tbPageContext;
-        this.bSt = com.baidu.adp.lib.util.k.g(this.ajF.getPageActivity(), w.f.ds14);
+        this.bSh = 0;
+        this.bSf = new l(this);
+        this.ajT = tbPageContext;
+        this.bSh = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds14);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bj bjVar, com.baidu.tieba.card.b.a<as> aVar) {
-        if (aVar == null || aVar.Tb() == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bi biVar, com.baidu.tieba.card.b.a<as> aVar) {
+        if (aVar == null || aVar.Tz() == null) {
             return null;
         }
-        a(i, view, bjVar, aVar);
-        aVar.Tb().onBindDataToView(bjVar);
-        aVar.Tb().setForumName(this.mForumName);
-        aVar.Tb().setOnSubCardOnClickListenner(this.bSr);
-        com.baidu.tieba.frs.e.b.adv().a(cav, bjVar);
+        a(i, view, biVar, aVar);
+        aVar.Tz().onBindDataToView(biVar);
+        aVar.Tz().setForumName(this.mForumName);
+        aVar.Tz().setOnSubCardOnClickListenner(this.bSf);
+        com.baidu.tieba.frs.e.b.adp().a(bYW, biVar);
         return aVar.getView();
     }
 
@@ -52,32 +52,32 @@ public class k extends com.baidu.adp.widget.ListView.a<bj, com.baidu.tieba.card.
     /* renamed from: k */
     public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
         as asVar = null;
-        if (this.mType == bj.XT) {
-            asVar = new com.baidu.tieba.frs.entelechy.view.ak(this.ajF);
-        } else if (this.mType == bj.XU) {
-            asVar = new com.baidu.tieba.frs.entelechy.view.al(this.ajF);
+        if (this.mType == bi.Yj) {
+            asVar = new com.baidu.tieba.frs.entelechy.view.ak(this.ajT);
+        } else if (this.mType == bi.Yk) {
+            asVar = new com.baidu.tieba.frs.entelechy.view.al(this.ajT);
         }
         if (asVar != null) {
-            asVar.j(this.ajF.getUniqueId());
+            asVar.j(this.ajT.getUniqueId());
             asVar.setIsFromCDN(this.mIsFromCDN);
         }
         return new com.baidu.tieba.card.b.a(asVar);
     }
 
-    private void a(int i, View view, bj bjVar, com.baidu.tieba.card.b.a<as> aVar) {
-        if (bjVar != null && aVar != null) {
-            bjVar.sO();
-            MetaData author = bjVar.getAuthor();
+    private void a(int i, View view, bi biVar, com.baidu.tieba.card.b.a<as> aVar) {
+        if (biVar != null && aVar != null) {
+            biVar.tm();
+            MetaData author = biVar.getAuthor();
             if (author != null) {
                 ThemeCardInUserData themeCard = author.getThemeCard();
                 if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
-                    aVar.Tb().bPi.setVisibility(8);
+                    aVar.Tz().bOX.setVisibility(8);
                 } else {
-                    aVar.Tb().bPi.setVisibility(0);
-                    aVar.Tb().bPi.setImageBitmap(null);
-                    aVar.Tb().bPi.c(themeCard.getCardImageUrlAndroid(), 10, false);
+                    aVar.Tz().bOX.setVisibility(0);
+                    aVar.Tz().bOX.setImageBitmap(null);
+                    aVar.Tz().bOX.c(themeCard.getCardImageUrlAndroid(), 10, false);
                 }
-                aVar.Tb().bPi.setOnClickListener(new m(this, themeCard));
+                aVar.Tz().bOX.setOnClickListener(new m(this, themeCard));
             }
         }
     }

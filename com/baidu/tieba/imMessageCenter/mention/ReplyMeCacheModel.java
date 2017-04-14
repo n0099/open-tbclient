@@ -10,22 +10,22 @@ public class ReplyMeCacheModel extends CacheModel<at, ReplyMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<at> EX() {
+    public Class<at> Fv() {
         return at.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int EY() {
+    public int Fw() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int EZ() {
+    public int Fx() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String EI() {
+    public String Fg() {
         return "tb_user_replyme";
     }
 }

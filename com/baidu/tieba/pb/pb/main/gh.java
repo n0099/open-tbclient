@@ -1,54 +1,54 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.content.Context;
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tbadkCore.b.a;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class gh implements View.OnClickListener {
-    final /* synthetic */ fa etn;
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public gh(fa faVar) {
-        this.etn = faVar;
+    public gh(ey eyVar) {
+        this.erv = eyVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
-        View view2;
-        View view3;
         PbActivity pbActivity2;
-        com.baidu.tbadk.editortools.j jVar3;
-        a.InterfaceC0073a interfaceC0073a;
-        String str;
-        pbActivity = this.etn.eka;
-        if (pbActivity.checkUpIsLogin()) {
-            jVar = this.etn.Ll;
-            if (jVar != null) {
-                this.etn.aMV();
+        PbActivity pbActivity3;
+        PbActivity pbActivity4;
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            boolean booleanValue = sparseArray.get(w.h.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_manage_visible)).booleanValue() : false;
+            boolean booleanValue2 = sparseArray.get(w.h.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_user_mute_visible)).booleanValue() : false;
+            boolean booleanValue3 = sparseArray.get(w.h.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_delete_visible)).booleanValue() : false;
+            if (booleanValue) {
+                if (com.baidu.tieba.c.a.Sm()) {
+                    pbActivity3 = this.erv.eig;
+                    Context baseContext = pbActivity3.getBaseContext();
+                    pbActivity4 = this.erv.eig;
+                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aKr().getThreadID(), (String) sparseArray.get(w.h.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue())) {
+                        return;
+                    }
+                }
+                if (booleanValue2) {
+                    sparseArray.put(w.h.tag_from, 1);
+                    pbActivity2 = this.erv.eig;
+                    pbActivity2.d(sparseArray);
+                    return;
+                }
+                this.erv.ba(view);
+            } else if (booleanValue2) {
+                sparseArray.put(w.h.tag_from, 0);
+                sparseArray.put(w.h.tag_check_mute_from, 1);
+                pbActivity = this.erv.eig;
+                pbActivity.d(sparseArray);
+            } else if (booleanValue3) {
+                this.erv.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
             }
-            jVar2 = this.etn.Ll;
-            if (jVar2 != null) {
-                this.etn.esk = false;
-                pbActivity2 = this.etn.eka;
-                jVar3 = this.etn.Ll;
-                interfaceC0073a = this.etn.esI;
-                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) jVar3.ey(2).ayH, false, interfaceC0073a);
-            }
-            view2 = this.etn.esf;
-            if (view2 != null) {
-                view3 = this.etn.esf;
-                view3.setVisibility(8);
-                this.etn.esk = false;
-            }
-            this.etn.aLp();
-            return;
         }
-        com.baidu.tbadk.core.util.as s = new com.baidu.tbadk.core.util.as("c10517").s("obj_locate", 2);
-        str = this.etn.mForumId;
-        TiebaStatic.log(s.Z("fid", str));
     }
 }

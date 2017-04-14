@@ -10,11 +10,11 @@ import com.baidu.tieba.homepage.alalivelist.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a cvb;
+    final /* synthetic */ a ctB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cvb = aVar;
+        this.ctB = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,45 +27,45 @@ public class b implements View.OnClickListener {
         com.baidu.tieba.homepage.alalivelist.a.c cVar3;
         com.baidu.tieba.homepage.alalivelist.a.c cVar4;
         com.baidu.tieba.homepage.alalivelist.a.c cVar5;
-        a.InterfaceC0060a interfaceC0060a;
-        a.InterfaceC0060a interfaceC0060a2;
+        a.InterfaceC0059a interfaceC0059a;
+        a.InterfaceC0059a interfaceC0059a2;
         com.baidu.tieba.homepage.alalivelist.a.c cVar6;
         com.baidu.tieba.homepage.alalivelist.a.c cVar7;
         com.baidu.tieba.homepage.alalivelist.a.c cVar8;
-        cVar = this.cvb.cuX;
+        cVar = this.ctB.ctx;
         if (cVar != null) {
-            TiebaStatic.log(new as("c11831").Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
-            headImageView = this.cvb.bmB;
+            TiebaStatic.log(new as("c11831").aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+            headImageView = this.ctB.bmu;
             if (view != headImageView) {
-                headImageView2 = this.cvb.bmC;
+                headImageView2 = this.ctB.bmv;
                 if (view != headImageView2) {
-                    headImageView3 = this.cvb.bmD;
+                    headImageView3 = this.ctB.bmw;
                     if (view == headImageView3) {
-                        a aVar = this.cvb;
-                        cVar2 = this.cvb.cuX;
-                        int i = cVar2.cuK;
-                        cVar3 = this.cvb.cuX;
-                        aVar.a(i, cVar3.cuL.get(2));
+                        a aVar = this.ctB;
+                        cVar2 = this.ctB.ctx;
+                        int i = cVar2.ctk;
+                        cVar3 = this.ctB.ctx;
+                        aVar.a(i, cVar3.ctl.get(2));
                     }
                 } else {
-                    a aVar2 = this.cvb;
-                    cVar4 = this.cvb.cuX;
-                    int i2 = cVar4.cuK;
-                    cVar5 = this.cvb.cuX;
-                    aVar2.a(i2, cVar5.cuL.get(1));
+                    a aVar2 = this.ctB;
+                    cVar4 = this.ctB.ctx;
+                    int i2 = cVar4.ctk;
+                    cVar5 = this.ctB.ctx;
+                    aVar2.a(i2, cVar5.ctl.get(1));
                 }
             } else {
-                a aVar3 = this.cvb;
-                cVar7 = this.cvb.cuX;
-                int i3 = cVar7.cuK;
-                cVar8 = this.cvb.cuX;
-                aVar3.a(i3, cVar8.cuL.get(0));
+                a aVar3 = this.ctB;
+                cVar7 = this.ctB.ctx;
+                int i3 = cVar7.ctk;
+                cVar8 = this.ctB.ctx;
+                aVar3.a(i3, cVar8.ctl.get(0));
             }
-            interfaceC0060a = this.cvb.cuY;
-            if (interfaceC0060a != null) {
-                interfaceC0060a2 = this.cvb.cuY;
-                cVar6 = this.cvb.cuX;
-                interfaceC0060a2.a(view, cVar6);
+            interfaceC0059a = this.ctB.cty;
+            if (interfaceC0059a != null) {
+                interfaceC0059a2 = this.ctB.cty;
+                cVar6 = this.ctB.ctx;
+                interfaceC0059a2.a(view, cVar6);
             }
         }
     }

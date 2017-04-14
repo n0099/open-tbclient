@@ -1,65 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes.dex */
-class gp extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService etx;
+class gp implements PbModel.a {
+    final /* synthetic */ ReaderPbService erF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gp(ReaderPbService readerPbService, int i) {
-        super(i);
-        this.etx = readerPbService;
+    public gp(ReaderPbService readerPbService) {
+        this.erF = readerPbService;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ej ejVar;
-        ej ejVar2;
-        ej ejVar3;
-        ej ejVar4;
-        ej ejVar5;
-        ej ejVar6;
-        BdUniqueId bdUniqueId;
-        em emVar;
-        BdUniqueId bdUniqueId2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ei)) {
-            ei eiVar = (ei) customResponsedMessage.getData();
-            BdUniqueId bdUniqueId3 = eiVar.tag;
-            if (bdUniqueId3 != null) {
-                bdUniqueId = this.etx.mTagId;
-                if (bdUniqueId.getId() != bdUniqueId3.getId()) {
-                    this.etx.mTagId = bdUniqueId3;
-                    emVar = this.etx.mReaderModel;
-                    bdUniqueId2 = this.etx.mTagId;
-                    emVar.p(bdUniqueId2);
+    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
+    public void c(com.baidu.tieba.pb.data.f fVar) {
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
+    public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.PbModel.a
+    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
+        boolean z2;
+        eh ehVar;
+        ek ekVar;
+        eh ehVar2;
+        ek ekVar2;
+        ek ekVar3;
+        ek ekVar4;
+        z2 = this.erF.isAlive;
+        if (!z2) {
+            ehVar = this.erF.mReaderManager;
+            if (ehVar != null) {
+                ekVar = this.erF.mReaderModel;
+                if (ekVar != null) {
+                    ehVar2 = this.erF.mReaderManager;
+                    ekVar2 = this.erF.mReaderModel;
+                    com.baidu.tieba.pb.data.f pbData = ekVar2.getPbData();
+                    ekVar3 = this.erF.mReaderModel;
+                    boolean aMI = ekVar3.aMI();
+                    ekVar4 = this.erF.mReaderModel;
+                    ehVar2.b(pbData, aMI, i2, ekVar4.aMJ());
                 }
             }
-            this.etx.threadId = eiVar.threadId;
-            this.etx.postId = eiVar.postId;
-            this.etx.isAlive = eiVar.isAlive;
-            this.etx.setReadModel(eiVar);
-            if (eiVar.epS >= 0) {
-                ejVar2 = this.etx.mReaderManager;
-                ejVar2.a(eiVar.pbData, eiVar.isSquence, eiVar.loadType, eiVar.epR, false);
-                ejVar3 = this.etx.mReaderManager;
-                int aMt = ejVar3.aMt();
-                if (aMt == 1 || aMt == 3) {
-                    ejVar4 = this.etx.mReaderManager;
-                    ejVar4.or(0);
-                } else {
-                    ejVar6 = this.etx.mReaderManager;
-                    ejVar6.or(1);
-                }
-                ejVar5 = this.etx.mReaderManager;
-                ejVar5.A(eiVar.epS, eiVar.epU);
-                return;
-            }
-            ejVar = this.etx.mReaderManager;
-            ejVar.a(eiVar.pbData, eiVar.isSquence, eiVar.loadType, eiVar.epR, true);
         }
     }
 }

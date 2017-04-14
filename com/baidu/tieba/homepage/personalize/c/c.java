@@ -10,22 +10,22 @@ import com.baidu.tieba.card.cc;
 import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<e, a> {
-    private final TbPageContext<?> ajF;
-    private cf<e> bSr;
+    private final TbPageContext<?> ajT;
+    private cf<e> bSf;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bSr = new d(this);
-        this.ajF = tbPageContext;
+        this.bSf = new d(this);
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ag */
+    /* renamed from: af */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.personalize.c.a aVar = new com.baidu.tieba.homepage.personalize.c.a(this.ajF);
-        aVar.setOnSubCardOnClickListenner(this.bSr);
+        com.baidu.tieba.homepage.personalize.c.a aVar = new com.baidu.tieba.homepage.personalize.c.a(this.ajT);
+        aVar.setOnSubCardOnClickListenner(this.bSf);
         return new a(aVar);
     }
 
@@ -34,18 +34,18 @@ public class c extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        cc.Sv().a(new as("c11272"));
-        aVar.cAW.onBindDataToView(eVar);
+        cc.ST().a(new as("c11272"));
+        aVar.czw.onBindDataToView(eVar);
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.homepage.personalize.c.a cAW;
+        public com.baidu.tieba.homepage.personalize.c.a czw;
 
         public a(com.baidu.tieba.homepage.personalize.c.a aVar) {
             super(aVar.getView());
-            this.cAW = aVar;
+            this.czw = aVar;
         }
     }
 }

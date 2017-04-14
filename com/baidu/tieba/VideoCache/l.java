@@ -6,49 +6,49 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class l {
-    private static l aUJ;
-    private Handler.Callback aQx = new m(this);
-    private h aUK;
-    private b aUL;
+    private static l aUW;
+    private Handler.Callback aQN = new m(this);
+    private h aUX;
+    private b aUY;
     private Handler mHandler;
 
     private l() {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aQx);
-        this.aUK = new h();
-        this.aUL = new b();
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aQN);
+        this.aUX = new h();
+        this.aUY = new b();
     }
 
-    public static l Lj() {
-        if (aUJ == null) {
+    public static l LJ() {
+        if (aUW == null) {
             synchronized (l.class) {
-                if (aUJ == null) {
-                    aUJ = new l();
+                if (aUW == null) {
+                    aUW = new l();
                 }
             }
         }
-        return aUJ;
+        return aUW;
     }
 
-    public void n(InputStream inputStream) {
+    public void q(InputStream inputStream) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = inputStream;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void gN(String str) {
+    public void gR(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void KX() {
+    public void Lx() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void gC(String str) {
+    public void gG(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

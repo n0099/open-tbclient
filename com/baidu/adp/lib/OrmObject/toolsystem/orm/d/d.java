@@ -12,7 +12,7 @@ public class d {
         if (gVar == null || cVar == null) {
             return false;
         }
-        for (Field field : com.baidu.adp.lib.OrmObject.a.a.l(gVar.getClass())) {
+        for (Field field : com.baidu.adp.lib.OrmObject.a.a.e(gVar.getClass())) {
             if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                 String name = field.getName();
                 if (!TextUtils.isEmpty(name) && (l = f.l(com.baidu.adp.lib.OrmObject.a.a.d(gVar, name))) != null) {

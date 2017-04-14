@@ -1,27 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class bs implements View.OnClickListener {
-    final /* synthetic */ PbActivity elO;
+class bs implements com.baidu.adp.lib.e.c<LinearLayout> {
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbModel pbModel;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.elO.getPageContext().getPageActivity(), 23007)));
-        com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c10125");
-        pbModel = this.elO.ejZ;
-        TiebaStatic.log(asVar.Z("tid", pbModel.getThreadID()).s("obj_type", 1));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: aKW */
+    public LinearLayout fK() {
+        LinearLayout linearLayout = new LinearLayout(this.ejU.getPageContext().getPageActivity());
+        linearLayout.setId(w.h.pb_text_voice_layout);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(1);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public void o(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public LinearLayout p(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: d */
+    public LinearLayout q(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

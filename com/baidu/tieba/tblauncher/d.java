@@ -17,8 +17,8 @@ class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            com.baidu.tbadk.core.util.p.aec = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            this.this$0.ajd();
+            com.baidu.tbadk.core.util.p.aeq = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            this.this$0.aiX();
         }
     }
 }

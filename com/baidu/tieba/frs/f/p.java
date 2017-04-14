@@ -1,20 +1,23 @@
 package com.baidu.tieba.frs.f;
 
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements Runnable {
-    final /* synthetic */ i ccU;
+public class p implements a.b {
+    private final /* synthetic */ FrsActivity caf;
+    private final /* synthetic */ com.baidu.tieba.frs.view.o cag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(i iVar) {
-        this.ccU = iVar;
+    public p(FrsActivity frsActivity, com.baidu.tieba.frs.view.o oVar) {
+        this.caf = frsActivity;
+        this.cag = oVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        NoPressedRelativeLayout noPressedRelativeLayout;
-        noPressedRelativeLayout = this.ccU.ccc;
-        noPressedRelativeLayout.removeView(this.ccU.ccO);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.caf.HidenSoftKeyPad((InputMethodManager) this.caf.getSystemService("input_method"), this.cag.getChatMsgView());
+        aVar.dismiss();
     }
 }

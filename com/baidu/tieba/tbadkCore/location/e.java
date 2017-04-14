@@ -1,34 +1,39 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import android.location.Address;
-import com.baidu.adp.lib.d.a;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0004a {
-    final /* synthetic */ LocationModel fwk;
+public class e extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ LocationModel fxU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(LocationModel locationModel) {
-        this.fwk = locationModel;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(LocationModel locationModel, int i, boolean z) {
+        super(i, z);
+        this.fxU = locationModel;
     }
 
-    @Override // com.baidu.adp.lib.d.a.InterfaceC0004a
-    public void b(int i, String str, Address address) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         LocationModel.a aVar;
         LocationModel.a aVar2;
-        if (i == 0 && address != null) {
-            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + address.getLatitude());
-            this.fwk.cc(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
+        if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || !(socketResponsedMessage instanceof LocationSocketResponsedMessage)) {
+            BdLog.i("mLocationListener response error!");
+            aVar = this.fxU.fxO;
+            if (aVar != null) {
+                String str = null;
+                if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
+                    str = socketResponsedMessage.getErrorString();
+                }
+                aVar2 = this.fxU.fxO;
+                aVar2.fB(str);
+                return;
+            }
             return;
         }
-        BdLog.i("mGetLonAndLatCallback error!");
-        aVar = this.fwk.fwe;
-        if (aVar != null) {
-            aVar2 = this.fwk.fwe;
-            aVar2.fv(str);
-        }
+        this.fxU.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
     }
 }

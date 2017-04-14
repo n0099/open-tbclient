@@ -15,28 +15,28 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class r extends com.baidu.tbadk.editortools.d {
-    private boolean aAT = false;
+    private boolean aBj = false;
 
     @Override // com.baidu.tbadk.editortools.d
-    protected com.baidu.tbadk.editortools.f aM(Context context) {
+    protected com.baidu.tbadk.editortools.f aO(Context context) {
         com.baidu.tbadk.editortools.j jVar = new com.baidu.tbadk.editortools.j(context);
         jVar.setBackgroundColorId(0);
         jVar.setBarBackgroundColorId(w.e.common_color_10099);
-        jVar.bC(true);
+        jVar.bE(true);
         return new n(jVar);
     }
 
     @Override // com.baidu.tbadk.editortools.d
     protected void b(com.baidu.tbadk.editortools.f fVar) {
         if (fVar != null) {
-            com.baidu.tbadk.editortools.j CP = fVar.CP();
-            s sVar = new s(this, (n) fVar, CP);
-            CP.a(4, sVar);
-            CP.a(7, sVar);
-            CP.a(16, sVar);
-            CP.a(8, sVar);
-            CP.a(10, sVar);
-            CP.a(11, sVar);
+            com.baidu.tbadk.editortools.j Dn = fVar.Dn();
+            s sVar = new s(this, (n) fVar, Dn);
+            Dn.a(4, sVar);
+            Dn.a(7, sVar);
+            Dn.a(16, sVar);
+            Dn.a(8, sVar);
+            Dn.a(10, sVar);
+            Dn.a(11, sVar);
         }
     }
 
@@ -44,24 +44,24 @@ public class r extends com.baidu.tbadk.editortools.d {
     protected void a(com.baidu.tbadk.editortools.f fVar) {
         CustomResponsedMessage runTask;
         x xVar;
-        com.baidu.tbadk.editortools.j CP = fVar.CP();
+        com.baidu.tbadk.editortools.j Dn = fVar.Dn();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        CP.u(arrayList);
-        if (com.baidu.tieba.tbadkCore.voice.c.biI() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, CP.getContext()), x.class)) != null && (xVar = (x) runTask.getData()) != null) {
-            xVar.azt = 2;
-            CP.b(xVar);
+        Dn.u(arrayList);
+        if (com.baidu.tieba.tbadkCore.voice.c.bjt() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Dn.getContext()), x.class)) != null && (xVar = (x) runTask.getData()) != null) {
+            xVar.azJ = 2;
+            Dn.b(xVar);
         }
-        CP.b(new com.baidu.tbadk.editortools.a.a(CP.getContext(), 4));
-        com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(CP.getContext(), true);
-        if (aVar.ayH instanceof EditText) {
-            ((EditText) aVar.ayH).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        Dn.b(new com.baidu.tbadk.editortools.a.a(Dn.getContext(), 4));
+        com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(Dn.getContext(), true);
+        if (aVar.ayX instanceof EditText) {
+            ((EditText) aVar.ayX).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
-        CP.b(aVar);
-        CP.b(new com.baidu.tbadk.editortools.sendtool.a(CP.getContext()));
-        CP.CQ();
-        CP.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-        CP.Bd();
+        Dn.b(aVar);
+        Dn.b(new com.baidu.tbadk.editortools.sendtool.a(Dn.getContext()));
+        Dn.Do();
+        Dn.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        Dn.BC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

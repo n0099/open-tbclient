@@ -15,15 +15,15 @@ public class ag {
         ListAdapter adapter;
         ArrayList<PreLoadImageInfo> images;
         int pbImageSize;
-        if (listView != null && com.baidu.adp.lib.util.i.hf() && (adapter = listView.getAdapter()) != null) {
+        if (listView != null && com.baidu.adp.lib.util.i.hk() && (adapter = listView.getAdapter()) != null) {
             int i = 0;
             int i2 = 0;
             int i3 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean vN = av.vN();
+            boolean wk = av.wk();
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             int lastVisiblePosition = listView.getLastVisiblePosition();
-            com.baidu.adp.lib.f.c.fG().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
+            com.baidu.adp.lib.f.c.fL().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
             while (true) {
                 int i4 = firstVisiblePosition;
                 if (i4 < adapter.getCount()) {
@@ -35,15 +35,15 @@ public class ag {
                         int i7 = i2;
                         while (it.hasNext()) {
                             PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.f.c.fG().am(next.procType)) {
+                            if (com.baidu.adp.lib.f.c.fL().al(next.procType)) {
                                 if (12 == next.procType || 28 == next.procType) {
                                     int i8 = i5 + 1;
                                     if (i8 <= 30 && i4 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
                                         if (12 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fG().a(next.imgUrl, 12, null, bdUniqueId);
+                                            com.baidu.adp.lib.f.c.fL().a(next.imgUrl, 12, null, bdUniqueId);
                                             i5 = i8;
                                         } else if (28 == next.procType) {
-                                            com.baidu.adp.lib.f.c.fG().a(next.imgUrl, 28, null, bdUniqueId);
+                                            com.baidu.adp.lib.f.c.fL().a(next.imgUrl, 28, null, bdUniqueId);
                                             i5 = i8;
                                         }
                                     }
@@ -66,16 +66,16 @@ public class ag {
                                     if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
                                         if (next.bigEmotion != null) {
                                             TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = vN ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
+                                            String str = wk ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.fG().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(vN), str);
+                                                com.baidu.adp.lib.f.c.fL().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(wk), str);
                                                 i7 = pbImageSize;
                                                 i6 = i10;
                                             }
                                         } else {
                                             String str2 = next.imgUrl;
                                             if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.c.fG().a(str2, next.procType, null, bdUniqueId);
+                                                com.baidu.adp.lib.f.c.fL().a(str2, next.procType, null, bdUniqueId);
                                             }
                                         }
                                     }

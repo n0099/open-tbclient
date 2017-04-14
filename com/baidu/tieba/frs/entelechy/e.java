@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ a bRq;
+    final /* synthetic */ a bRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(a aVar, int i) {
         super(i);
-        this.bRq = aVar;
+        this.bRf = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,18 +30,18 @@ public class e extends CustomMessageListener {
         TbPageContext tbPageContext2;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String[]) && (strArr = (String[]) customResponsedMessage.getData()) != null && strArr.length == 2 && strArr[0] != null && strArr[1] != null) {
             String str = strArr[0];
-            sVar = this.bRq.bRk;
+            sVar = this.bRf.bQZ;
             if (str.equals(sVar.getBookId()) && (g = com.baidu.adp.lib.g.b.g(strArr[1], -1)) > 0) {
-                sVar2 = this.bRq.bRk;
-                if (sVar2.pM() != 3) {
-                    textView = this.bRq.bRh;
-                    tbPageContext = this.bRq.aaI;
+                sVar2 = this.bRf.bQZ;
+                if (sVar2.qk() != 3) {
+                    textView = this.bRf.bQW;
+                    tbPageContext = this.bRf.aaX;
                     textView.setText(tbPageContext.getString(w.l.continue_read));
                     return;
                 }
-                this.bRq.bRl = g;
-                textView2 = this.bRq.bRh;
-                tbPageContext2 = this.bRq.aaI;
+                this.bRf.bRa = g;
+                textView2 = this.bRf.bQW;
+                tbPageContext2 = this.bRf.aaX;
                 textView2.setText(tbPageContext2.getString(w.l.continue_read));
             }
         }

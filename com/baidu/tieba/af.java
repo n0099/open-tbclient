@@ -1,19 +1,21 @@
 package com.baidu.tieba;
-
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog this$0;
+class af implements Runnable {
+    final /* synthetic */ ae aUk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
+    public af(ae aeVar) {
+        this.aUk = aeVar;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.this$0.aTT.dismiss();
-        this.this$0.mHandler.postDelayed(new ag(this), 100L);
+    @Override // java.lang.Runnable
+    public void run() {
+        UpdateDialog updateDialog;
+        UpdateDialog updateDialog2;
+        updateDialog = this.aUk.this$0;
+        if (updateDialog.aUg.forceUpdate()) {
+            updateDialog2 = this.aUk.this$0;
+            com.baidu.tbadk.core.f.b.i(updateDialog2.getPageContext().getPageActivity(), 200);
+        }
     }
 }

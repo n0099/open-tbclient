@@ -52,9 +52,9 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
             try {
                 String[] split = str2.split("!@!");
                 if (str.equals("onBind")) {
-                    onBind(context, Integer.valueOf(split[0]).intValue(), split[1], split[2], split[3], split[4]);
+                    onBind(context, Integer.parseInt(split[0]), split[1], split[2], split[3], split[4]);
                 } else if (str.equals("onUnbind")) {
-                    onUnbind(context, Integer.valueOf(split[0]).intValue(), split[1]);
+                    onUnbind(context, Integer.parseInt(split[0]), split[1]);
                 } else if (!str.equals("onListTags") && !str.equals("onSetTags") && !str.equals("onDelTags")) {
                     if (str.equals("onMessage")) {
                         onMessage(context, split[0], split[1]);
@@ -64,14 +64,14 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         onNotificationArrived(context, split[0], split[1], split[2]);
                     }
                 } else {
-                    int intValue = Integer.valueOf(split[0]).intValue();
+                    int parseInt = Integer.parseInt(split[0]);
                     JSONArray jSONArray = new JSONArray(split[1]);
                     ArrayList arrayList = new ArrayList();
                     for (int i = 0; i < jSONArray.length(); i++) {
                         arrayList.add(jSONArray.getString(i));
                     }
                     if (str.equals("onListTags")) {
-                        onListTags(context, intValue, arrayList, split[2]);
+                        onListTags(context, parseInt, arrayList, split[2]);
                         return;
                     }
                     JSONArray jSONArray2 = new JSONArray(split[2]);
@@ -80,9 +80,9 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         arrayList2.add(jSONArray2.getString(i2));
                     }
                     if (str.equals("onSetTags")) {
-                        onSetTags(context, intValue, arrayList, arrayList2, split[2]);
+                        onSetTags(context, parseInt, arrayList, arrayList2, split[2]);
                     } else {
-                        onDelTags(context, intValue, arrayList, arrayList2, split[2]);
+                        onDelTags(context, parseInt, arrayList, arrayList2, split[2]);
                     }
                 }
             } catch (Exception e) {

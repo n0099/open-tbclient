@@ -13,17 +13,17 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class ak implements com.baidu.tbadk.mvc.b.j {
-    protected boolean CX;
-    protected ArrayList<FeedData> dmr = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.aq dms = new com.baidu.tbadk.core.data.aq();
-    protected ag dmt = new ag();
+    protected boolean Cy;
+    protected ArrayList<FeedData> dkQ = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.ap dkR = new com.baidu.tbadk.core.data.ap();
+    protected ag dkS = new ag();
 
-    public ArrayList<FeedData> avv() {
-        return this.dmr;
+    public ArrayList<FeedData> avo() {
+        return this.dkQ;
     }
 
-    public com.baidu.tbadk.core.data.aq getPage() {
-        return this.dms;
+    public com.baidu.tbadk.core.data.ap rr() {
+        return this.dkR;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -37,24 +37,24 @@ public class ak implements com.baidu.tbadk.mvc.b.j {
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
                     if (feedData.getThread_Type() == 33) {
                         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.dmr.add(feedData);
+                            this.dkQ.add(feedData);
                         }
                     } else {
-                        this.dmr.add(feedData);
-                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.agJ()) {
-                            this.dmr.remove(feedData);
+                        this.dkQ.add(feedData);
+                        if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.agD()) {
+                            this.dkQ.remove(feedData);
                         }
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.x.p(feedData.getPraiseList()) == 0) {
-                            this.dmr.remove(feedData);
+                            this.dkQ.remove(feedData);
                         }
                     }
                 }
             }
-            this.dmt.parserJson(jSONObject.optJSONObject("message"));
-            this.dms.parserJson(jSONObject.optJSONObject("page"));
-            this.CX = true;
+            this.dkS.parserJson(jSONObject.optJSONObject("message"));
+            this.dkR.parserJson(jSONObject.optJSONObject("page"));
+            this.Cy = true;
         } catch (Exception e) {
-            this.CX = false;
+            this.Cy = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -71,23 +71,23 @@ public class ak implements com.baidu.tbadk.mvc.b.j {
                         feedData.parserProtoBuf(list.get(i));
                         if (feedData.getThread_Type() == 33) {
                             if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.dmr.add(feedData);
+                                this.dkQ.add(feedData);
                             }
                         } else {
-                            this.dmr.add(feedData);
-                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.agJ()) {
-                                this.dmr.remove(feedData);
+                            this.dkQ.add(feedData);
+                            if (FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType()) && !com.baidu.tieba.graffiti.c.agD()) {
+                                this.dkQ.remove(feedData);
                             }
                             if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && com.baidu.tbadk.core.util.x.p(feedData.getPraiseList()) == 0) {
-                                this.dmr.remove(feedData);
+                                this.dkQ.remove(feedData);
                             }
                         }
                     }
                 }
-                this.dms.a(dataRes.page);
-                this.CX = true;
+                this.dkR.a(dataRes.page);
+                this.Cy = true;
             } catch (Exception e) {
-                this.CX = false;
+                this.Cy = false;
                 BdLog.e(e.getMessage());
             }
         }

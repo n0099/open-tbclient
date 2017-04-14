@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        ej(str2);
+                        ep(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        ej(str2);
+                        ep(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zC() {
+    public void Ab() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String zD() {
+    public String Ac() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void ej(String str) {
-        String zD = zD();
-        if (!TextUtils.equals(zD, str) || !isFileExist(zD)) {
-            ag(str, zD);
+    public void ep(String str) {
+        String Ac = Ac();
+        if (!TextUtils.equals(Ac, str) || !isFileExist(Ac)) {
+            ah(str, Ac);
         }
     }
 
     private boolean isFileExist(String str) {
-        File cQ = l.cQ(aw.dx(str));
-        return cQ != null && cQ.exists() && cQ.isFile();
+        File cX = l.cX(aw.dD(str));
+        return cX != null && cX.exists() && cX.isFile();
     }
 
-    private void ag(String str, String str2) {
-        if (i.hf()) {
-            new a(str, aw.dx(str), str2).execute(new String[0]);
+    private void ah(String str, String str2) {
+        if (i.hk()) {
+            new a(str, aw.dD(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String acY;
-        private final String aql;
-        private final String aqm;
+        private final String ado;
+        private final String aqB;
+        private final String aqC;
         private z mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.aql = str;
-            this.acY = str2;
-            this.aqm = str3;
+            this.aqB = str;
+            this.ado = str2;
+            this.aqC = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,14 +118,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new z(this.aql);
-                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.acY) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.mNetWork = new z(this.aqB);
+                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.ado) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(l.i(null, String.valueOf(this.acY) + ".tmp", null, this.acY)) && !TextUtils.isEmpty(this.aql) && !this.aql.equals(this.aqm)) {
-                        l.cY(aw.dx(this.aqm));
+                    if (!StringUtils.isNull(l.i(null, String.valueOf(this.ado) + ".tmp", null, this.ado)) && !TextUtils.isEmpty(this.aqB) && !this.aqB.equals(this.aqC)) {
+                        l.df(aw.dD(this.aqC));
                     }
                 } else {
-                    l.cY(String.valueOf(this.acY) + ".tmp");
+                    l.df(String.valueOf(this.ado) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -135,11 +135,10 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
         public void onPostExecute(Boolean bool) {
-            super.onPostExecute(bool);
+            super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().zC();
+                new b().Ab();
             }
         }
     }

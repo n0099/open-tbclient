@@ -10,46 +10,46 @@ import com.baidu.tieba.personCenter.f.f;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private com.baidu.tieba.personCenter.f.c eCF;
-    private f eCG;
-    private e eCH;
+    private com.baidu.tieba.personCenter.f.c eAC;
+    private f eAD;
+    private e eAE;
 
     public void a(Context context, LinearLayout linearLayout, Bundle bundle) {
         if (context != null && linearLayout != null && bundle != null) {
             linearLayout.setOrientation(0);
             ArrayList arrayList = (ArrayList) bundle.getSerializable("person_center_item_pic");
-            if (!x.q(arrayList) && this.eCF == null) {
-                this.eCF = new com.baidu.tieba.personCenter.f.c(context, linearLayout);
+            if (!x.q(arrayList) && this.eAC == null) {
+                this.eAC = new com.baidu.tieba.personCenter.f.c(context, linearLayout);
             }
-            if (this.eCF != null) {
-                this.eCF.ci(arrayList);
+            if (this.eAC != null) {
+                this.eAC.ch(arrayList);
             }
             String string = bundle.getString("person_center_item_txt");
-            if (!StringUtils.isNull(string) && this.eCG == null) {
-                this.eCG = new f(context, linearLayout);
+            if (!StringUtils.isNull(string) && this.eAD == null) {
+                this.eAD = new f(context, linearLayout);
             }
-            if (this.eCG != null) {
-                this.eCG.nW(string);
+            if (this.eAD != null) {
+                this.eAD.oa(string);
             }
-            if (bundle.getBoolean("person_center_item_red_tip", false) && this.eCH == null) {
-                this.eCH = new e(context, linearLayout);
+            if (bundle.getBoolean("person_center_item_red_tip", false) && this.eAE == null) {
+                this.eAE = new e(context, linearLayout);
             }
             boolean z = bundle.getBoolean("person_center_item_red_tip_show", false);
-            if (this.eCH != null) {
-                this.eCH.oW(z ? 0 : 8);
+            if (this.eAE != null) {
+                this.eAE.oU(z ? 0 : 8);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eCF != null) {
-            this.eCF.onChangeSkinType(i);
+        if (this.eAC != null) {
+            this.eAC.onChangeSkinType(i);
         }
-        if (this.eCG != null) {
-            this.eCG.onChangeSkinType(i);
+        if (this.eAD != null) {
+            this.eAD.onChangeSkinType(i);
         }
-        if (this.eCH != null) {
-            this.eCH.onChangeSkinType(i);
+        if (this.eAE != null) {
+            this.eAE.onChangeSkinType(i);
         }
     }
 }

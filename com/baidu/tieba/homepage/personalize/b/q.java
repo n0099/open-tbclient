@@ -10,15 +10,15 @@ import com.baidu.tieba.card.cc;
 import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.j, com.baidu.tieba.card.b.a<com.baidu.tieba.card.m>> {
-    private TbPageContext<?> ajF;
-    public BdUniqueId baP;
-    private com.baidu.tieba.card.m czA;
-    private cf<com.baidu.tieba.card.data.j> czB;
+    private TbPageContext<?> ajT;
+    public BdUniqueId baI;
+    private com.baidu.tieba.card.m cya;
+    private cf<com.baidu.tieba.card.data.j> cyb;
 
     public q(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity(), com.baidu.tieba.card.data.j.TYPE);
-        this.czB = new r(this);
-        this.ajF = tbPageContext;
+        this.cyb = new r(this);
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class q extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: k */
     public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.czA = new com.baidu.tieba.card.m(this.ajF, this.baP);
-        return new com.baidu.tieba.card.b.a(this.czA);
+        this.cya = new com.baidu.tieba.card.m(this.ajT, this.baI);
+        return new com.baidu.tieba.card.b.a(this.cya);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,17 +35,17 @@ public class q extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, com.baidu.tieba.card.b.a<com.baidu.tieba.card.m> aVar) {
-        this.czA = aVar.Tb();
-        aVar.Tb().a(jVar);
-        aVar.Tb().setOnSubCardOnClickListenner(this.czB);
-        aVar.Tb().onChangeSkinType(this.ajF, TbadkCoreApplication.m9getInst().getSkinType());
-        cc.Sv().a(new as("c11006"));
+        this.cya = aVar.Tz();
+        aVar.Tz().a(jVar);
+        aVar.Tz().setOnSubCardOnClickListenner(this.cyb);
+        aVar.Tz().onChangeSkinType(this.ajT, TbadkCoreApplication.m9getInst().getSkinType());
+        cc.ST().a(new as("c11006"));
         return aVar.getView();
     }
 
-    public void jR(int i) {
-        if (this.czA != null) {
-            this.czA.onChangeSkinType(this.ajF, i);
+    public void jS(int i) {
+        if (this.cya != null) {
+            this.cya.onChangeSkinType(this.ajT, i);
         }
     }
 }

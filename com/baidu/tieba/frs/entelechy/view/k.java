@@ -5,21 +5,21 @@ import android.view.ViewTreeObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ a bTB;
+    final /* synthetic */ a bTp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(a aVar) {
-        this.bTB = aVar;
+        this.bTp = aVar;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        if (this.bTB.bsG != null && this.bTB.bsG.getLayoutParams() != null && this.bTB.bsG.getVisibility() != 8) {
-            this.bTB.bsG.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-            ViewGroup.LayoutParams layoutParams = this.bTB.bsG.getLayoutParams();
-            if (this.bTB.bsG.getWidth() > 0) {
-                layoutParams.height = (int) (this.bTB.bsG.getWidth() * 0.5625d);
-                this.bTB.bsG.setLayoutParams(layoutParams);
+        if (this.bTp.bsy != null && this.bTp.bsy.getLayoutParams() != null && this.bTp.bsy.getVisibility() != 8) {
+            this.bTp.bsy.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ViewGroup.LayoutParams layoutParams = this.bTp.bsy.getLayoutParams();
+            if (this.bTp.bsy.getWidth() > 0) {
+                layoutParams.height = (int) (this.bTp.bsy.getWidth() * 0.5625d);
+                this.bTp.bsy.setLayoutParams(layoutParams);
             }
         }
     }

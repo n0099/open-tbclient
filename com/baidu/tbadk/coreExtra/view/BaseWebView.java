@@ -19,6 +19,7 @@ public class BaseWebView extends WebView {
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
     private Context mContext;
     private b mDownloadListener;
+    private boolean mIsLoaded;
     private b mOnLoadUrlListener;
     private c mOnPageFinishedListener;
     private d mOnPageStartedListener;
@@ -60,6 +61,7 @@ public class BaseWebView extends WebView {
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
+        this.mIsLoaded = false;
         this.mContext = context;
         init();
     }
@@ -84,6 +86,7 @@ public class BaseWebView extends WebView {
         this.mOnPageFinishedListener = null;
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
+        this.mIsLoaded = false;
         this.mContext = context;
         init();
     }
@@ -172,6 +175,7 @@ public class BaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
+            BaseWebView.this.mIsLoaded = true;
             if (BaseWebView.this.mOnPageFinishedListener != null) {
                 BaseWebView.this.mOnPageFinishedListener.onPageFinished(webView, str);
             }
@@ -244,5 +248,9 @@ public class BaseWebView extends WebView {
         this.mOnReceivedErrorListener = null;
         this.mOnReceivedSslErrorListener = null;
         this.jsCallback = null;
+    }
+
+    public boolean getIsLoaded() {
+        return this.mIsLoaded;
     }
 }

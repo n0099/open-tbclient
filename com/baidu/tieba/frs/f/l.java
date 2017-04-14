@@ -1,31 +1,22 @@
 package com.baidu.tieba.frs.f;
 
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tieba.frs.FrsActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class l implements a.b {
-    final /* synthetic */ i ccU;
-    private final /* synthetic */ BlockPopInfoData ccV;
+class l implements View.OnClickListener {
+    private final /* synthetic */ TbPageContext aIg;
+    private final /* synthetic */ String cae;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(i iVar, BlockPopInfoData blockPopInfoData) {
-        this.ccU = iVar;
-        this.ccV = blockPopInfoData;
+    public l(String str, TbPageContext tbPageContext) {
+        this.cae = str;
+        this.aIg = tbPageContext;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.frs.FrsActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        FrsActivity frsActivity;
-        bb vQ = bb.vQ();
-        frsActivity = this.ccU.bOq;
-        vQ.c(frsActivity.getPageContext(), new String[]{this.ccV.ahead_url});
-        if (aVar != null) {
-            aVar.dismiss();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.ao(this.cae);
+        com.baidu.adp.lib.util.k.showToast(this.aIg.getPageActivity(), view.getResources().getString(w.l.copy_pb_url_success));
     }
 }

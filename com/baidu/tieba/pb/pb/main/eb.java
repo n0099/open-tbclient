@@ -1,25 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.widget.ImageView;
+import com.baidu.tbadk.gif.GifInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class eb implements View.OnClickListener {
-    final /* synthetic */ dy eoW;
-    private final /* synthetic */ String eoX;
+public class eb extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ dw ene;
+    private final /* synthetic */ ec eng;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eb(dy dyVar, String str) {
-        this.eoW = dyVar;
-        this.eoX = str;
+    public eb(dw dwVar, ec ecVar, String str) {
+        this.ene = dwVar;
+        this.eng = ecVar;
+        this.val$url = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!StringUtils.isNull(this.eoX) && com.baidu.adp.lib.util.k.hv()) {
-            TiebaStatic.log("c10854");
-            com.baidu.tbadk.browser.f.P(this.eoW.eka.getActivity(), this.eoX);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        if (aVar == null) {
+            this.eng.enB.setVisibility(8);
+            this.eng.enC.setVisibility(8);
+        } else if (aVar.ee()) {
+            GifInfo gifInfo = new GifInfo();
+            gifInfo.mDynamicUrl = this.val$url;
+            gifInfo.mSharpText = this.val$url;
+            this.eng.enC.setVisibility(0);
+            this.eng.enB.setVisibility(8);
+            this.eng.enC.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.eng.enC.a(gifInfo);
+        } else {
+            this.eng.enC.setVisibility(8);
+            this.eng.enB.setVisibility(0);
+            this.eng.enB.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.eng.enB.c(this.val$url, 17, false);
         }
     }
 }

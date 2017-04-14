@@ -6,19 +6,18 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ar;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.data.aq;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PbGiftListView extends FrameLayout {
-    private View cge;
-    private TbImageView exu;
-    private TbImageView exv;
-    private TbImageView exw;
-    private TbImageView exx;
-    private TextView exy;
-    private TextView exz;
+    private View ceE;
+    private TbImageView evA;
+    private TbImageView evB;
+    private TbImageView evC;
+    private TextView evD;
+    private TextView evE;
+    private TbImageView evz;
     private Context mContext;
     private long postId;
     private long threadId;
@@ -42,93 +41,93 @@ public class PbGiftListView extends FrameLayout {
     }
 
     private void initView() {
-        this.cge = View.inflate(this.mContext, w.j.pb_gift_list_item, this);
-        this.exu = (TbImageView) this.cge.findViewById(w.h.pb_gift_view1);
-        this.exv = (TbImageView) this.cge.findViewById(w.h.pb_gift_view2);
-        this.exw = (TbImageView) this.cge.findViewById(w.h.pb_gift_view3);
-        this.exx = (TbImageView) this.cge.findViewById(w.h.pb_gift_view4);
-        this.exu.setDefaultBgResource(w.g.transparent_bg);
-        this.exv.setDefaultBgResource(w.g.transparent_bg);
-        this.exw.setDefaultBgResource(w.g.transparent_bg);
-        this.exx.setDefaultBgResource(w.g.transparent_bg);
-        this.exu.setDefaultResource(w.g.icon_gift_moren);
-        this.exv.setDefaultResource(w.g.icon_gift_moren);
-        this.exw.setDefaultResource(w.g.icon_gift_moren);
-        this.exx.setDefaultResource(w.g.icon_gift_moren);
-        this.exy = (TextView) this.cge.findViewById(w.h.pb_gift_number_view);
-        this.exz = (TextView) this.cge.findViewById(w.h.pb_gift_send_view);
-        this.exz.setOnClickListener(new d(this));
+        this.ceE = View.inflate(this.mContext, w.j.pb_gift_list_item, this);
+        this.evz = (TbImageView) this.ceE.findViewById(w.h.pb_gift_view1);
+        this.evA = (TbImageView) this.ceE.findViewById(w.h.pb_gift_view2);
+        this.evB = (TbImageView) this.ceE.findViewById(w.h.pb_gift_view3);
+        this.evC = (TbImageView) this.ceE.findViewById(w.h.pb_gift_view4);
+        this.evz.setDefaultBgResource(w.g.transparent_bg);
+        this.evA.setDefaultBgResource(w.g.transparent_bg);
+        this.evB.setDefaultBgResource(w.g.transparent_bg);
+        this.evC.setDefaultBgResource(w.g.transparent_bg);
+        this.evz.setDefaultResource(w.g.icon_gift_moren);
+        this.evA.setDefaultResource(w.g.icon_gift_moren);
+        this.evB.setDefaultResource(w.g.icon_gift_moren);
+        this.evC.setDefaultResource(w.g.icon_gift_moren);
+        this.evD = (TextView) this.ceE.findViewById(w.h.pb_gift_number_view);
+        this.evE = (TextView) this.ceE.findViewById(w.h.pb_gift_send_view);
+        this.evE.setOnClickListener(new d(this));
     }
 
-    public void a(ar arVar, String str, long j, long j2, long j3) {
+    public void a(aq aqVar, String str, long j, long j2, long j3) {
         this.toUserId = j;
         this.toUserName = str;
         this.postId = j3;
         this.threadId = j2;
-        if (arVar == null || arVar.qT() == null || arVar.qT().size() <= 0) {
+        if (aqVar == null || aqVar.rq() == null || aqVar.rq().size() <= 0) {
             setVisibility(8);
             return;
         }
-        switch (arVar.qT().size() > 4 ? 4 : arVar.qT().size()) {
+        switch (aqVar.rq().size() > 4 ? 4 : aqVar.rq().size()) {
             case 1:
-                this.exu.c(arVar.qT().get(0).VP, 10, false);
-                this.exu.setVisibility(0);
-                this.exv.setVisibility(8);
-                this.exw.setVisibility(8);
-                this.exx.setVisibility(8);
+                this.evz.c(aqVar.rq().get(0).We, 10, false);
+                this.evz.setVisibility(0);
+                this.evA.setVisibility(8);
+                this.evB.setVisibility(8);
+                this.evC.setVisibility(8);
                 break;
             case 2:
-                this.exu.c(arVar.qT().get(0).VP, 10, false);
-                this.exv.c(arVar.qT().get(1).VP, 10, false);
-                this.exu.setVisibility(0);
-                this.exv.setVisibility(0);
-                this.exw.setVisibility(8);
-                this.exx.setVisibility(8);
+                this.evz.c(aqVar.rq().get(0).We, 10, false);
+                this.evA.c(aqVar.rq().get(1).We, 10, false);
+                this.evz.setVisibility(0);
+                this.evA.setVisibility(0);
+                this.evB.setVisibility(8);
+                this.evC.setVisibility(8);
                 break;
             case 3:
-                this.exu.c(arVar.qT().get(0).VP, 10, false);
-                this.exv.c(arVar.qT().get(1).VP, 10, false);
-                this.exw.c(arVar.qT().get(2).VP, 10, false);
-                this.exu.setVisibility(0);
-                this.exv.setVisibility(0);
-                this.exw.setVisibility(0);
-                this.exx.setVisibility(8);
+                this.evz.c(aqVar.rq().get(0).We, 10, false);
+                this.evA.c(aqVar.rq().get(1).We, 10, false);
+                this.evB.c(aqVar.rq().get(2).We, 10, false);
+                this.evz.setVisibility(0);
+                this.evA.setVisibility(0);
+                this.evB.setVisibility(0);
+                this.evC.setVisibility(8);
                 break;
             case 4:
-                this.exu.c(arVar.qT().get(0).VP, 10, false);
-                this.exv.c(arVar.qT().get(1).VP, 10, false);
-                this.exw.c(arVar.qT().get(2).VP, 10, false);
-                this.exx.c(arVar.qT().get(3).VP, 10, false);
-                this.exu.setVisibility(0);
-                this.exv.setVisibility(0);
-                this.exw.setVisibility(0);
-                this.exx.setVisibility(0);
+                this.evz.c(aqVar.rq().get(0).We, 10, false);
+                this.evA.c(aqVar.rq().get(1).We, 10, false);
+                this.evB.c(aqVar.rq().get(2).We, 10, false);
+                this.evC.c(aqVar.rq().get(3).We, 10, false);
+                this.evz.setVisibility(0);
+                this.evA.setVisibility(0);
+                this.evB.setVisibility(0);
+                this.evC.setVisibility(0);
                 break;
         }
-        if (arVar.qS() > 0) {
-            this.exy.setText(String.format(this.mContext.getResources().getString(w.l.gift_counts), Integer.valueOf(arVar.qS())));
-            this.exy.setVisibility(0);
+        if (aqVar.rp() > 0) {
+            this.evD.setText(String.format(this.mContext.getResources().getString(w.l.gift_counts), Integer.valueOf(aqVar.rp())));
+            this.evD.setVisibility(0);
         } else {
-            this.exy.setVisibility(8);
+            this.evD.setVisibility(8);
         }
         if (j == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)) {
-            this.exz.setVisibility(8);
+            this.evE.setVisibility(8);
         } else {
-            this.exz.setVisibility(0);
+            this.evE.setVisibility(0);
         }
     }
 
-    public void jf(boolean z) {
+    public void je(boolean z) {
         if (z) {
-            this.exz.setVisibility(0);
+            this.evE.setVisibility(0);
         } else {
-            this.exz.setVisibility(8);
+            this.evE.setVisibility(8);
         }
     }
 
-    public void tD() {
-        aq.c(this.exy, w.e.cp_cont_d, 1);
-        aq.c(this.exz, w.e.cp_link_tip_c, 1);
+    public void onChangeSkinType() {
+        com.baidu.tbadk.core.util.aq.c(this.evD, w.e.cp_cont_d, 1);
+        com.baidu.tbadk.core.util.aq.c(this.evE, w.e.cp_link_tip_c, 1);
     }
 
     public long getThreadId() {

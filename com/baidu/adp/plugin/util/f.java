@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> FM = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Fn = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class f {
     }
 
     static {
-        FM.put(Boolean.class, Boolean.TYPE);
-        FM.put(Byte.class, Byte.TYPE);
-        FM.put(Character.class, Character.TYPE);
-        FM.put(Short.class, Short.TYPE);
-        FM.put(Integer.class, Integer.TYPE);
-        FM.put(Float.class, Float.TYPE);
-        FM.put(Long.class, Long.TYPE);
-        FM.put(Double.class, Double.TYPE);
-        FM.put(Boolean.TYPE, Boolean.TYPE);
-        FM.put(Byte.TYPE, Byte.TYPE);
-        FM.put(Character.TYPE, Character.TYPE);
-        FM.put(Short.TYPE, Short.TYPE);
-        FM.put(Integer.TYPE, Integer.TYPE);
-        FM.put(Float.TYPE, Float.TYPE);
-        FM.put(Long.TYPE, Long.TYPE);
-        FM.put(Double.TYPE, Double.TYPE);
+        Fn.put(Boolean.class, Boolean.TYPE);
+        Fn.put(Byte.class, Byte.TYPE);
+        Fn.put(Character.class, Character.TYPE);
+        Fn.put(Short.class, Short.TYPE);
+        Fn.put(Integer.class, Integer.TYPE);
+        Fn.put(Float.class, Float.TYPE);
+        Fn.put(Long.class, Long.TYPE);
+        Fn.put(Double.class, Double.TYPE);
+        Fn.put(Boolean.TYPE, Boolean.TYPE);
+        Fn.put(Byte.TYPE, Byte.TYPE);
+        Fn.put(Character.TYPE, Character.TYPE);
+        Fn.put(Short.TYPE, Short.TYPE);
+        Fn.put(Integer.TYPE, Integer.TYPE);
+        Fn.put(Float.TYPE, Float.TYPE);
+        Fn.put(Long.TYPE, Long.TYPE);
+        Fn.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T a(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -41,7 +41,7 @@ public class f {
     }
 
     public static <T> T b(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        return (T) b(obj.getClass(), str, f(objArr)).invoke(obj, g(objArr));
+        return (T) e(obj.getClass(), str, f(objArr)).invoke(obj, g(objArr));
     }
 
     public static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
@@ -50,7 +50,7 @@ public class f {
         declaredField.set(obj, obj2);
     }
 
-    private static Method b(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
+    private static Method e(Class<?> cls, String str, Class<?>[] clsArr) throws NoSuchMethodException, SecurityException {
         Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
         if (a2 != null) {
             a2.setAccessible(true);
@@ -63,14 +63,14 @@ public class f {
             throw new NullPointerException("Method name must not be null.");
         }
         for (Method method : methodArr) {
-            if (method.getName().equals(str) && a(method.getParameterTypes(), clsArr)) {
+            if (method.getName().equals(str) && b(method.getParameterTypes(), clsArr)) {
                 return method;
             }
         }
         throw new NoSuchMethodException(str);
     }
 
-    private static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
+    private static boolean b(Class<?>[] clsArr, Class<?>[] clsArr2) {
         if (clsArr == null) {
             return clsArr2 == null || clsArr2.length == 0;
         }
@@ -81,7 +81,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (FM.containsKey(clsArr[i]) && FM.get(clsArr[i]).equals(FM.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (Fn.containsKey(clsArr[i]) && Fn.get(clsArr[i]).equals(Fn.get(clsArr2[i])))) {
                     return true;
                 }
             }

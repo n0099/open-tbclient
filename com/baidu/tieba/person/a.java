@@ -14,24 +14,24 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0069a c0069a = new C0069a(null);
-            c0069a.eBg = str;
-            c0069a.eBh = bVar;
-            c0069a.execute("");
+            C0068a c0068a = new C0068a(null);
+            c0068a.ezm = str;
+            c0068a.ezn = bVar;
+            c0068a.execute("");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0069a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String eBg;
-        public b eBh;
+    public static class C0068a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String ezm;
+        public b ezn;
 
-        private C0069a() {
+        private C0068a() {
         }
 
-        /* synthetic */ C0069a(C0069a c0069a) {
+        /* synthetic */ C0068a(C0068a c0068a) {
             this();
         }
 
@@ -40,7 +40,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.c("user_pics").u(l.cP(this.eBg), false);
+            return new com.baidu.tbadk.img.c("user_pics").u(l.cW(this.ezm), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -49,14 +49,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.eBh != null) {
+            if (this.ezn != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.eBh.a(i, str, imageUploadResult);
+                this.ezn.a(i, str, imageUploadResult);
             }
         }
     }

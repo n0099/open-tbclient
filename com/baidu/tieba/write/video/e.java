@@ -4,16 +4,16 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.b {
-    final /* synthetic */ WriteLocationView fNk;
+    final /* synthetic */ WriteLocationView fOT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(WriteLocationView writeLocationView) {
-        this.fNk = writeLocationView;
+        this.fOT = writeLocationView;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.fNk.c(0, true, null);
+        this.fOT.c(0, true, null);
         aVar.dismiss();
     }
 }

@@ -15,11 +15,15 @@ public interface ICardInfo extends v, Serializable {
 
     String getFlipId();
 
+    double getRatio();
+
     ICardInfo getUpdateCard();
 
     int getViewCount();
 
     ICardInfo getViewItem(int i, int i2);
+
+    boolean isReusable(ICardInfo iCardInfo);
 
     boolean isValid();
 

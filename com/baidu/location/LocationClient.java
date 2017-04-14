@@ -13,7 +13,7 @@ import com.baidu.location.a.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class LocationClient implements b.InterfaceC0016b {
+public final class LocationClient implements b.InterfaceC0015b {
     private static final int MIN_REQUEST_SPAN = 1000;
     private static final int MSG_REG_LISTENER = 5;
     private static final int MSG_REG_NOTIFY_LISTENER = 8;
@@ -559,7 +559,7 @@ public final class LocationClient implements b.InterfaceC0016b {
         return this.mIsStarted;
     }
 
-    @Override // com.baidu.location.a.b.InterfaceC0016b
+    @Override // com.baidu.location.a.b.InterfaceC0015b
     public void onReceiveLocation(BDLocation bDLocation) {
         if ((!this.serverFirst || this.clientFirst) && bDLocation != null) {
             Message obtainMessage = this.mHandler.obtainMessage(701);

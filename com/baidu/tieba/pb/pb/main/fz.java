@@ -1,25 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import android.view.animation.Animation;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fz implements View.OnClickListener {
-    final /* synthetic */ fa etn;
+public class fz implements Animation.AnimationListener {
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fz(fa faVar) {
-        this.etn = faVar;
+    public fz(ey eyVar) {
+        this.erv = eyVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        PbActivity pbActivity2;
-        this.etn.aNv();
-        pbActivity = this.etn.eka;
-        if (pbActivity.bOI != null) {
-            pbActivity2 = this.etn.eka;
-            pbActivity2.bOI.onClick(view);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        this.erv.eqX = false;
+        textView = this.erv.eqV;
+        textView.setVisibility(8);
     }
 }

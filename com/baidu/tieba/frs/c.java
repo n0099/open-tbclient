@@ -8,32 +8,32 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
-public class c implements bz {
-    public static final AtomicReference<bz> bMv = new AtomicReference<>(null);
-    private static final bz bMw = new c();
+public class c implements cb {
+    public static final AtomicReference<cb> bMn = new AtomicReference<>(null);
+    private static final cb bMo = new c();
 
     private c() {
     }
 
-    public static bz Yp() {
-        bz bzVar = bMv.get();
-        return bzVar == null ? bMw : bzVar;
+    public static cb YM() {
+        cb cbVar = bMn.get();
+        return cbVar == null ? bMo : cbVar;
     }
 
-    @Override // com.baidu.tieba.frs.bz
-    public at<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.frs.cb
+    public av<ICardInfo, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
-    @Override // com.baidu.tieba.frs.bz
-    public a<? extends com.baidu.tbadk.core.data.bj, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.frs.cb
+    public a<? extends com.baidu.tbadk.core.data.bi, ? extends y.a> b(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
-    @Override // com.baidu.tieba.frs.bz
-    public a<? extends com.baidu.tbadk.core.data.bj, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z) {
+    @Override // com.baidu.tieba.frs.cb
+    public a<? extends com.baidu.tbadk.core.data.bi, ? extends y.a> a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId, boolean z) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }

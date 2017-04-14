@@ -4,15 +4,15 @@ import android.text.SpannableStringBuilder;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ InputView aAl;
-    private final /* synthetic */ SpannableStringBuilder aAm;
-    private final /* synthetic */ EmotionGroupType aAn;
+    final /* synthetic */ InputView aAB;
+    private final /* synthetic */ SpannableStringBuilder aAC;
+    private final /* synthetic */ EmotionGroupType aAD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(InputView inputView, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-        this.aAl = inputView;
-        this.aAm = spannableStringBuilder;
-        this.aAn = emotionGroupType;
+        this.aAB = inputView;
+        this.aAC = spannableStringBuilder;
+        this.aAD = emotionGroupType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,11 +21,11 @@ class d extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         super.onLoaded((d) aVar, str, i);
         if (aVar != null) {
-            int selectionStart = this.aAl.getSelectionStart();
+            int selectionStart = this.aAB.getSelectionStart();
             if (selectionStart < 0) {
                 selectionStart = 0;
             }
-            this.aAl.a(this.aAl, this.aAm, selectionStart, aVar, this.aAn);
+            this.aAB.a(this.aAB, this.aAC, selectionStart, aVar, this.aAD);
         }
     }
 }

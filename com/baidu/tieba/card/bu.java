@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu extends CustomMessageListener {
-    final /* synthetic */ br buz;
+    final /* synthetic */ br buq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bu(br brVar, int i) {
         super(i);
-        this.buz = brVar;
+        this.buq = brVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,29 +25,29 @@ public class bu extends CustomMessageListener {
         TextView textView;
         TextView textView2;
         CardPersonDynamicThreadData cardPersonDynamicThreadData3;
-        boolean Sn;
+        boolean SL;
         TextView textView3;
         CardPersonDynamicThreadData cardPersonDynamicThreadData4;
         TextView textView4;
         CardPersonDynamicThreadData cardPersonDynamicThreadData5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            cardPersonDynamicThreadData = this.buz.bul;
+            cardPersonDynamicThreadData = this.buq.bud;
             if (cardPersonDynamicThreadData != null) {
-                cardPersonDynamicThreadData2 = this.buz.bul;
+                cardPersonDynamicThreadData2 = this.buq.bud;
                 if (cardPersonDynamicThreadData2.threadId != null) {
-                    textView = this.buz.aSO;
+                    textView = this.buq.mTitle;
                     if (textView != null) {
-                        textView2 = this.buz.bus;
+                        textView2 = this.buq.buk;
                         if (textView2 != null) {
-                            cardPersonDynamicThreadData3 = this.buz.bul;
+                            cardPersonDynamicThreadData3 = this.buq.bud;
                             if (((String) customResponsedMessage.getData()).equals(cardPersonDynamicThreadData3.threadId)) {
-                                Sn = this.buz.Sn();
-                                if (!Sn) {
-                                    textView3 = this.buz.aSO;
-                                    cardPersonDynamicThreadData4 = this.buz.bul;
+                                SL = this.buq.SL();
+                                if (!SL) {
+                                    textView3 = this.buq.mTitle;
+                                    cardPersonDynamicThreadData4 = this.buq.bud;
                                     at.a(textView3, cardPersonDynamicThreadData4.threadId, w.e.cp_cont_b, w.e.cp_cont_d);
-                                    textView4 = this.buz.bus;
-                                    cardPersonDynamicThreadData5 = this.buz.bul;
+                                    textView4 = this.buq.buk;
+                                    cardPersonDynamicThreadData5 = this.buq.bud;
                                     at.a(textView4, cardPersonDynamicThreadData5.threadId, w.e.cp_cont_j, w.e.cp_cont_d);
                                 }
                             }
