@@ -6,12 +6,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.m, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.s>> {
-    private TbPageContext ajF;
+    private TbPageContext ajT;
     private View.OnClickListener mOnClickListener;
 
     public h(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ajF = tbPageContext;
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: k */
     public com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.s> onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.s(this.ajF));
+        return new com.baidu.tieba.card.b.a<>(new com.baidu.tieba.personPolymeric.d.s(this.ajT));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,14 +27,14 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.m mVar, com.baidu.tieba.card.b.a<com.baidu.tieba.personPolymeric.d.s> aVar) {
-        if (mVar == null || aVar == null || aVar.Tb() == null) {
+        if (mVar == null || aVar == null || aVar.Tz() == null) {
             return null;
         }
-        aVar.Tb().onBindDataToView(mVar);
-        if (aVar.Tb().getView() != null) {
-            aVar.Tb().getView().setOnClickListener(this.mOnClickListener);
+        aVar.Tz().onBindDataToView(mVar);
+        if (aVar.Tz().getView() != null) {
+            aVar.Tz().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.Tb().getView();
+        return aVar.Tz().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

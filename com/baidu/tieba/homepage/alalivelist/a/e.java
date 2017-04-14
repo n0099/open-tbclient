@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
 class e extends cf<com.baidu.tieba.homepage.alalivelist.view.d> {
-    final /* synthetic */ d cuO;
+    final /* synthetic */ d cto;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.cuO = dVar;
+        this.cto = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -6,33 +6,33 @@ import com.baidu.tieba.pb.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a eiA;
+    final /* synthetic */ a egH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.eiA = aVar;
+        this.egH = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         int i;
-        a.InterfaceC0067a interfaceC0067a;
-        a.InterfaceC0067a interfaceC0067a2;
+        a.InterfaceC0066a interfaceC0066a;
+        a.InterfaceC0066a interfaceC0066a2;
         if (message.what == 2) {
-            this.eiA.count = 0;
-            this.eiA.eiw = 0L;
-            this.eiA.eix = 0L;
+            this.egH.count = 0;
+            this.egH.egD = 0L;
+            this.egH.egE = 0L;
         } else if (message.what == 1) {
-            i = this.eiA.count;
+            i = this.egH.count;
             if (i == 1) {
-                interfaceC0067a = this.eiA.eiy;
-                if (interfaceC0067a != null) {
-                    interfaceC0067a2 = this.eiA.eiy;
-                    interfaceC0067a2.ZU();
+                interfaceC0066a = this.egH.egF;
+                if (interfaceC0066a != null) {
+                    interfaceC0066a2 = this.egH.egF;
+                    interfaceC0066a2.aas();
                 }
-                this.eiA.count = 0;
-                this.eiA.eiw = 0L;
-                this.eiA.eix = 0L;
+                this.egH.count = 0;
+                this.egH.egD = 0L;
+                this.egH.egE = 0L;
             }
         }
     }

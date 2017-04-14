@@ -1,16 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.tbadkCore.b.a;
+import android.view.ViewStub;
+import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fb implements a.InterfaceC0073a {
-    final /* synthetic */ fa etn;
+public class fb implements Runnable {
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fb(fa faVar) {
-        this.etn = faVar;
+    public fb(ey eyVar) {
+        this.erv = eyVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0073a
-    public void kZ() {
+    @Override // java.lang.Runnable
+    public void run() {
+        LinearLayout linearLayout;
+        ViewStub viewStub;
+        linearLayout = this.erv.epA;
+        if (linearLayout == null) {
+            this.erv.aMZ();
+        }
+        viewStub = this.erv.eoY;
+        viewStub.setVisibility(0);
     }
 }

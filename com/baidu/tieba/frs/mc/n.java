@@ -1,35 +1,42 @@
 package com.baidu.tieba.frs.mc;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tieba.frs.RequestGetMyPostNetMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.frs.GetMyPostHttpResponseMessage;
+import com.baidu.tieba.frs.GetMyPostSocketResponseMessage;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements Runnable {
-    final /* synthetic */ k bZK;
-    private final /* synthetic */ long bZL;
-    private final /* synthetic */ long bZM;
-    private final /* synthetic */ long bZN;
+public class n extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ l bYk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(k kVar, long j, long j2, long j3) {
-        this.bZK = kVar;
-        this.bZL = j;
-        this.bZM = j2;
-        this.bZN = j3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(l lVar, int i, int i2) {
+        super(i, i2);
+        this.bYk = lVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int ag = com.baidu.adp.lib.util.k.ag(this.bZK.bTf.getPageContext().getPageActivity());
-        int ah = com.baidu.adp.lib.util.k.ah(this.bZK.bTf.getPageContext().getPageActivity());
-        float f = TbadkCoreApplication.m9getInst().getApp().getResources().getDisplayMetrics().density;
-        int i = 1;
-        if (av.vD().vF()) {
-            i = 2;
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        String errorString;
+        String errorString2;
+        if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
+            GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
+            if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
+                errorString2 = this.bYk.bST.getResources().getString(w.l.neterror);
+            } else {
+                errorString2 = getMyPostHttpResponseMessage.getErrorString();
+            }
+            this.bYk.a(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+        } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
+            GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
+            if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
+                errorString = this.bYk.bST.getResources().getString(w.l.neterror);
+            } else {
+                errorString = getMyPostSocketResponseMessage.getErrorString();
+            }
+            this.bYk.a(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
         }
-        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-        requestGetMyPostNetMessage.setParams(this.bZL, this.bZM, this.bZN, ag, ah, f, i);
-        this.bZK.bTf.sendMessage(requestGetMyPostNetMessage);
     }
 }

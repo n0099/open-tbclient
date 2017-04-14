@@ -1,21 +1,31 @@
 package com.baidu.tieba.im;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
-class e implements com.baidu.tbadk.util.f<Integer> {
-    final /* synthetic */ c cNK;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.cNK = cVar;
+public class e {
+    public static com.baidu.tbadk.task.b b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
+        bVar.setResponsedClass(cls);
+        bVar.n(z);
+        bVar.setParallel(TiebaIMConfig.getParallel());
+        MessageManager.getInstance().registerTask(bVar);
+        return bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.f
-    /* renamed from: b */
-    public void onReturnDataInUI(Integer num) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_ACCOUNT_CHANGE_FOR_IM, null));
+    public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        try {
+            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(i, cls.newInstance());
+            MessageManager.getInstance().registerTask(aVar);
+            return aVar;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (InstantiationException e2) {
+            e2.printStackTrace();
+            return null;
+        }
     }
 }

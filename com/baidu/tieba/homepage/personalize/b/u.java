@@ -11,24 +11,24 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class u extends BaseAdapter {
-    private com.baidu.tieba.homepage.personalize.data.f czF;
+    private com.baidu.tieba.homepage.personalize.data.f cyf;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.czF == null || this.czF.cAv == null) {
+        if (this.cyf == null || this.cyf.cyV == null) {
             return 0;
         }
-        return this.czF.cAv.size();
+        return this.cyf.cyV.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jS */
+    /* renamed from: jT */
     public com.baidu.tieba.homepage.personalize.data.g getItem(int i) {
-        if (this.czF == null || this.czF.cAv == null) {
+        if (this.cyf == null || this.cyf.cyV == null) {
             return null;
         }
-        return this.czF.cAv.get(i);
+        return this.cyf.cyV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -53,12 +53,12 @@ public class u extends BaseAdapter {
         }
         com.baidu.tieba.homepage.personalize.data.g item = getItem(i);
         if (item != null) {
-            textView.setText(item.Uc);
-            if (item.cAx) {
-                aq.i((View) textView, w.e.cp_cont_g);
+            textView.setText(item.Uu);
+            if (item.cyX) {
+                aq.i(textView, w.e.cp_cont_g);
                 aq.j(textView, w.g.shape_semi_circle_all_selected);
             } else {
-                aq.i((View) textView, w.e.cp_cont_f);
+                aq.i(textView, w.e.cp_cont_f);
                 aq.j(textView, w.g.shape_semi_circle_all_line);
             }
         }
@@ -66,11 +66,11 @@ public class u extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        this.czF = fVar;
+        this.cyf = fVar;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.homepage.personalize.data.f ajH() {
-        return this.czF;
+    public com.baidu.tieba.homepage.personalize.data.f ajB() {
+        return this.cyf;
     }
 }

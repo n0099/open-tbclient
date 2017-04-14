@@ -14,27 +14,27 @@ public class RecommendFrsCacheModel extends CacheModel<c, BaseFragmentActivity> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<c> EX() {
+    public Class<c> Fv() {
         return c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String EI() {
+    public String Fg() {
         return TABLE_NAME;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int EY() {
+    public int Fw() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_READ_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int EZ() {
+    public int Fx() {
         return CmdConfigCustom.CMD_RECOMMEND_FRS_WRITE_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    protected boolean EQ() {
+    protected boolean Fo() {
         return false;
     }
 }

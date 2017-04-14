@@ -4,18 +4,18 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements com.baidu.tbadk.util.f<Boolean> {
-    final /* synthetic */ ChatVoiceView dif;
+    final /* synthetic */ ChatVoiceView dgE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ChatVoiceView chatVoiceView) {
-        this.dif = chatVoiceView;
+        this.dgE = chatVoiceView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.f
     public void onReturnDataInUI(Boolean bool) {
         ImageView imageView;
-        imageView = this.dif.dic;
+        imageView = this.dgE.dgB;
         imageView.setVisibility(8);
     }
 }

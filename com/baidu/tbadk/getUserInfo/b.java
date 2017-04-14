@@ -13,28 +13,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b aBW;
+    private static b aCm;
 
     private b() {
     }
 
-    public static b Ed() {
-        if (aBW == null) {
+    public static b EB() {
+        if (aCm == null) {
             synchronized (b.class) {
-                if (aBW == null) {
-                    aBW = new b();
+                if (aCm == null) {
+                    aCm = new b();
                 }
             }
         }
-        return aBW;
+        return aCm;
     }
 
-    public void Ee() {
+    public void EC() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void Ef() {
+    public void ED() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -71,12 +71,12 @@ public class b {
             }
             com.baidu.tbadk.data.c closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.Cb());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.Cc());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.Cz());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.CA());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.fN().e(new c(this, currentAccountObj));
+            k.fS().e(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

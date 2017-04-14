@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ c aKY;
+    final /* synthetic */ c aLo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aKY = cVar;
+        this.aLo = cVar;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -22,9 +22,9 @@ public class d implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.e.b bVar;
         com.baidu.adp.lib.e.b bVar2;
         if (view2 instanceof TbImageView) {
-            bVar = this.aKY.aKR;
+            bVar = this.aLo.aLh;
             if (bVar != null) {
-                bVar2 = this.aKY.aKR;
+                bVar2 = this.aLo.aLh;
                 bVar2.n((TbImageView) view2);
             }
         }

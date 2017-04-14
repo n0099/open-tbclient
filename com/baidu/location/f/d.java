@@ -19,7 +19,7 @@ public abstract class d {
         return 0;
     }
 
-    public a nh() {
+    public a nB() {
         return null;
     }
 }

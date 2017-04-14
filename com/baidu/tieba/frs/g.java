@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bNU;
+    final /* synthetic */ FrsActivity bNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(FrsActivity frsActivity, int i) {
         super(i);
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,11 +19,11 @@ class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Integer num;
         UserData userData;
-        com.baidu.tieba.frs.f.u uVar;
-        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && this.bNU.bMO != null && (userData = this.bNU.bMO.getUserData()) != null) {
+        com.baidu.tieba.frs.g.u uVar;
+        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && this.bNJ.bME != null && (userData = this.bNJ.bME.getUserData()) != null) {
             userData.setIsMem(num.intValue());
             if (num.intValue() != 0) {
-                uVar = this.bNU.bMZ;
+                uVar = this.bNJ.bMP;
                 uVar.a(num);
             }
         }

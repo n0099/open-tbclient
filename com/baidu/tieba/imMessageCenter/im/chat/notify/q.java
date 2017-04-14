@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ f djq;
+    final /* synthetic */ f dhP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(f fVar) {
-        this.djq = fVar;
+        this.dhP = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         BdBaseFragmentActivity bdBaseFragmentActivity;
         BdBaseFragmentActivity bdBaseFragmentActivity2;
-        bdBaseFragmentActivity = this.djq.dje;
+        bdBaseFragmentActivity = this.dhP.dhD;
         TiebaStatic.eventStat(bdBaseFragmentActivity.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
-        bdBaseFragmentActivity2 = this.djq.dje;
-        bg.aG(bdBaseFragmentActivity2.getPageContext().getPageActivity());
+        bdBaseFragmentActivity2 = this.dhP.dhD;
+        bg.aI(bdBaseFragmentActivity2.getPageContext().getPageActivity());
     }
 }

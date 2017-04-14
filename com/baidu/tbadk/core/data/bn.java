@@ -1,41 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import org.json.JSONException;
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import tbclient.Topic;
 /* loaded from: classes.dex */
 public class bn {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+    private int ZU = 0;
+    private int ZV = 0;
+    private String link = "";
 
-    public String getTitle() {
-        return this.title;
+    public int tD() {
+        return this.ZU;
     }
 
-    public String te() {
-        return this.title_link;
+    public int tE() {
+        return this.ZV;
+    }
+
+    public String getLink() {
+        return this.link;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString(VrPlayerActivityConfig.TITLE);
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (jSONObject != null) {
+            try {
+                this.ZU = jSONObject.optInt("is_lpost", 0);
+                this.ZV = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString("link", "");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.ZU = topic.is_lpost.intValue();
+            this.ZV = topic.topic_type.intValue();
+            this.link = topic.link;
         }
     }
 }

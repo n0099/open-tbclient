@@ -13,10 +13,10 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String cQJ;
-        public long cQQ;
-        public String cQR;
-        public int cQS;
+        public String cPg;
+        public long cPn;
+        public String cPo;
+        public int cPp;
         public String fid;
         public long picId;
         public String src;
@@ -59,14 +59,14 @@ public class r {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.cQJ = optString5;
+                aVar.cPg = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.cQQ = j;
-                    aVar.cQR = userData.getUserId();
-                    aVar.cQS = userData.getUserType();
+                    aVar.cPn = j;
+                    aVar.cPo = userData.getUserId();
+                    aVar.cPp = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

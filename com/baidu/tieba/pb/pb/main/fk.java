@@ -3,44 +3,39 @@ package com.baidu.tieba.pb.pb.main;
 import android.app.Dialog;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fk implements View.OnClickListener {
-    final /* synthetic */ fa etn;
+    private final /* synthetic */ boolean ejW;
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fk(fa faVar) {
-        this.etn = faVar;
+    public fk(ey eyVar, boolean z) {
+        this.erv = eyVar;
+        this.ejW = z;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        PbActivity.a aVar;
-        PbActivity.a aVar2;
+        PbActivity pbActivity;
         Dialog dialog2;
         Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.etn.erG;
+        PbActivity pbActivity2;
+        dialog = this.erv.epP;
         if (dialog != null) {
-            dialog2 = this.etn.erG;
+            dialog2 = this.erv.epP;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.etn.erG;
-                pbActivity = this.etn.eka;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
+                dialog3 = this.erv.epP;
+                pbActivity2 = this.erv.eig;
+                com.baidu.adp.lib.g.j.b(dialog3, pbActivity2.getPageContext());
             }
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray == null) {
-            return;
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            pbActivity = this.erv.eig;
+            pbActivity.a(this.ejW, (String) sparseArray.get(w.h.tag_user_mute_mute_userid), sparseArray);
         }
-        aVar = this.etn.etg;
-        if (aVar == null) {
-            return;
-        }
-        aVar2 = this.etn.etg;
-        aVar2.g(new Object[]{sparseArray.get(w.h.tag_manage_user_identity), sparseArray.get(w.h.tag_forbid_user_name), sparseArray.get(w.h.tag_forbid_user_post_id)});
     }
 }

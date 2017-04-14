@@ -16,11 +16,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a bRq;
+    final /* synthetic */ a bRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bRq = aVar;
+        this.bRf = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,42 +37,42 @@ public class b implements View.OnClickListener {
         TbPageContext tbPageContext;
         FrsActivity frsActivity8;
         FrsActivity frsActivity9;
-        sVar = this.bRq.bRk;
-        int pM = sVar.pM();
-        if (pM == 3) {
+        sVar = this.bRf.bQZ;
+        int qk = sVar.qk();
+        if (qk == 3) {
             if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(MangaCoverActivityConfig.class)) {
-                frsActivity6 = this.bRq.bOq;
+                frsActivity6 = this.bRf.bOf;
                 if (frsActivity6 != null) {
-                    frsActivity7 = this.bRq.bOq;
+                    frsActivity7 = this.bRf.bOf;
                     long c = com.baidu.adp.lib.g.b.c(frsActivity7.getForumId(), 0L);
-                    tbPageContext = this.bRq.aaI;
+                    tbPageContext = this.bRf.aaX;
                     MangaCoverActivityConfig mangaCoverActivityConfig = new MangaCoverActivityConfig(tbPageContext.getPageActivity(), c);
                     mangaCoverActivityConfig.setFrom(5);
-                    frsActivity8 = this.bRq.bOq;
+                    frsActivity8 = this.bRf.bOf;
                     frsActivity8.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, mangaCoverActivityConfig));
                     as s = new as("C11578").s("obj_param1", 2);
-                    frsActivity9 = this.bRq.bOq;
-                    TiebaStatic.log(s.Z(ImageViewerConfig.FORUM_NAME, frsActivity9.getForumName()));
+                    frsActivity9 = this.bRf.bOf;
+                    TiebaStatic.log(s.aa(ImageViewerConfig.FORUM_NAME, frsActivity9.getForumName()));
                     return;
                 }
                 return;
             }
-            frsActivity5 = this.bRq.bOq;
+            frsActivity5 = this.bRf.bOf;
             com.baidu.adp.lib.util.k.showToast(frsActivity5.getPageContext().getPageActivity(), w.l.manga_plugin_not_install_tip);
-        } else if (pM == 1 || pM == 2) {
+        } else if (qk == 1 || qk == 2) {
             if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                frsActivity2 = this.bRq.bOq;
+                frsActivity2 = this.bRf.bOf;
                 Activity pageActivity = frsActivity2.getPageContext().getPageActivity();
-                sVar2 = this.bRq.bRk;
+                sVar2 = this.bRf.bQZ;
                 BookCoverActivityConfig bookCoverActivityConfig = new BookCoverActivityConfig(pageActivity, sVar2.getBookId());
-                frsActivity3 = this.bRq.bOq;
+                frsActivity3 = this.bRf.bOf;
                 frsActivity3.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, bookCoverActivityConfig));
                 as s2 = new as("C11578").s("obj_param1", 2);
-                frsActivity4 = this.bRq.bOq;
-                TiebaStatic.log(s2.Z(ImageViewerConfig.FORUM_NAME, frsActivity4.getForumName()));
+                frsActivity4 = this.bRf.bOf;
+                TiebaStatic.log(s2.aa(ImageViewerConfig.FORUM_NAME, frsActivity4.getForumName()));
                 return;
             }
-            frsActivity = this.bRq.bOq;
+            frsActivity = this.bRf.bOf;
             com.baidu.adp.lib.util.k.showToast(frsActivity.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
         }
     }

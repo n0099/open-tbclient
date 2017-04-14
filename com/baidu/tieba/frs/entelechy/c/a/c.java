@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.util.r;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bt;
+import com.baidu.tieba.frs.bv;
 import com.baidu.tieba.frs.smartsort.e;
 import com.baidu.tieba.tbadkCore.util.s;
 import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.b {
-    final /* synthetic */ a bTx;
+    final /* synthetic */ a bTl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bTx = aVar;
+        this.bTl = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -37,47 +37,47 @@ public class c implements c.b {
         FrsActivity frsActivity5;
         String str;
         FrsActivity frsActivity6;
-        if (!i.gS()) {
-            frsActivity6 = this.bTx.bTp;
+        if (!i.gX()) {
+            frsActivity6 = this.bTl.bTd;
             frsActivity6.showToast(w.l.neterror);
             cVar.dismiss();
             return;
         }
-        aVar = this.bTx.bTs;
-        bt btVar = (bt) x.c(aVar.abt(), i);
-        if (btVar != null) {
-            i2 = this.bTx.bTt;
-            if (i2 != btVar.bPZ) {
-                this.bTx.bTu = true;
-                textView = this.bTx.bTq;
-                textView.setText(btVar.name);
-                i3 = this.bTx.bTt;
+        aVar = this.bTl.bTg;
+        bv bvVar = (bv) x.c(aVar.abP(), i);
+        if (bvVar != null) {
+            i2 = this.bTl.bTh;
+            if (i2 != bvVar.bPO) {
+                this.bTl.bTi = true;
+                textView = this.bTl.bTe;
+                textView.setText(bvVar.name);
+                i3 = this.bTl.bTh;
                 if (i3 == 7) {
                     as asVar = new as("c11437");
-                    asVar.s("obj_locate", btVar.bPZ);
-                    str = this.bTx.bqC;
-                    asVar.Z("fid", str);
+                    asVar.s("obj_locate", bvVar.bPO);
+                    str = this.bTl.bqv;
+                    asVar.aa("fid", str);
                     TiebaStatic.log(asVar);
                 }
-                this.bTx.bTt = btVar.bPZ;
+                this.bTl.bTh = bvVar.bPO;
                 cVar.dismiss();
-                i4 = this.bTx.bTt;
+                i4 = this.bTl.bTh;
                 if (i4 != 7) {
-                    r.GU();
-                    s.biA();
+                    r.Ht();
+                    s.bjl();
                 } else {
-                    s.biz();
+                    s.bjk();
                 }
-                frsActivity = this.bTx.bTp;
-                if (frsActivity.Yx() != null) {
-                    frsActivity2 = this.bTx.bTp;
-                    if (frsActivity2.YE() != null) {
-                        frsActivity3 = this.bTx.bTp;
-                        frsActivity3.Yx().ip(btVar.bPZ);
-                        frsActivity4 = this.bTx.bTp;
-                        frsActivity4.YE().startPullRefresh();
-                        frsActivity5 = this.bTx.bTp;
-                        e.adr().f(frsActivity5.Yx().getForumName(), btVar.bPZ, btVar.name);
+                frsActivity = this.bTl.bTd;
+                if (frsActivity.YT() != null) {
+                    frsActivity2 = this.bTl.bTd;
+                    if (frsActivity2.Za() != null) {
+                        frsActivity3 = this.bTl.bTd;
+                        frsActivity3.YT().iq(bvVar.bPO);
+                        frsActivity4 = this.bTl.bTd;
+                        frsActivity4.Za().startPullRefresh();
+                        frsActivity5 = this.bTl.bTd;
+                        e.adl().f(frsActivity5.YT().getForumName(), bvVar.bPO, bvVar.name);
                         return;
                     }
                     return;

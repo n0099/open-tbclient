@@ -1,108 +1,68 @@
 package com.baidu.tieba.frs.mc;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.tbadkCore.PraiseModel;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
-import java.util.Iterator;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends u {
-    private final CustomMessageListener alP;
-    private boolean bVr;
-    private String bVs;
-    private bj bZQ;
-    private PraiseModel bZR;
+public class q extends CustomMessageListener {
+    final /* synthetic */ p bYq;
 
-    public q(FrsActivity frsActivity) {
-        super(frsActivity);
-        this.alP = new r(this, CmdConfigCustom.PB_ACTION_PRAISE);
-        this.bTf.registerListener(this.alP);
-        this.bZR = ade();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q(p pVar, int i) {
+        super(i);
+        this.bYq = pVar;
     }
 
-    public final PraiseModel ade() {
-        if (this.bZR == null) {
-            this.bZR = new PraiseModel(this.bTf.getPageContext(), new s(this));
-        }
-        return this.bZR;
-    }
-
-    /* renamed from: if  reason: not valid java name */
-    public void m14if(int i) {
-        ArrayList<com.baidu.adp.widget.ListView.v> threadList;
-        com.baidu.tieba.tbadkCore.n YV = this.bTf.YV();
-        if (YV != null && this.bMN != null && (threadList = YV.getThreadList()) != null) {
-            Iterator<com.baidu.adp.widget.ListView.v> it = threadList.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                com.baidu.adp.widget.ListView.v next = it.next();
-                if (next instanceof bj) {
-                    bj bjVar = (bj) next;
-                    if (bjVar == this.bZQ) {
-                        c(bjVar, i);
-                        this.bZQ = null;
-                        break;
-                    } else if (bjVar.getId() != null && bjVar.getId().equals(this.bVs)) {
-                        c(bjVar, i);
-                        this.bVs = null;
-                        break;
-                    }
-                }
-            }
-            this.bMN.ZG().b(threadList, YV);
-            this.bMN.ZG().notifyDataSetChanged();
-        }
-    }
-
-    public void c(bj bjVar, int i) {
-        if (bjVar != null) {
-            if (i == 1) {
-                PraiseData rG = bjVar.rG();
-                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-                if (currentAccountObj != null) {
-                    MetaData metaData = new MetaData();
-                    metaData.setName_show(currentAccountObj.getAccount());
-                    metaData.setPortrait(currentAccountObj.getPortrait());
-                    metaData.setUserId(currentAccountObj.getID());
-                    if (rG == null) {
-                        PraiseData praiseData = new PraiseData();
-                        praiseData.setIsLike(i);
-                        praiseData.setNum(1L);
-                        praiseData.getUser().add(0, metaData);
-                        bjVar.a(praiseData);
-                        return;
-                    }
-                    bjVar.rG().getUser().add(0, metaData);
-                    bjVar.rG().setNum(bjVar.rG().getNum() + 1);
-                    bjVar.rG().setIsLike(i);
-                }
-            } else if (bjVar.rG() != null) {
-                bjVar.rG().setIsLike(i);
-                bjVar.rG().setNum(bjVar.rG().getNum() - 1);
-                ArrayList<MetaData> user = bjVar.rG().getUser();
-                if (user != null) {
-                    Iterator<MetaData> it = user.iterator();
-                    while (it.hasNext()) {
-                        MetaData next = it.next();
-                        if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                            bjVar.rG().getUser().remove(next);
-                            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        y yVar;
+        y yVar2;
+        y yVar3;
+        y yVar4;
+        y yVar5;
+        y yVar6;
+        y yVar7;
+        y yVar8;
+        y yVar9;
+        y yVar10;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+            yVar = this.bYq.bOd;
+            if (yVar != null) {
+                yVar2 = this.bYq.bOd;
+                if (yVar2.YT() != null) {
+                    yVar3 = this.bYq.bOd;
+                    if (yVar3.YT().acy() != null) {
+                        String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
+                        if (!StringUtils.isNull(optString)) {
+                            yVar4 = this.bYq.bOd;
+                            ArrayList<com.baidu.adp.widget.ListView.v> threadList = yVar4.YT().acy().getThreadList();
+                            this.bYq.e(optString, threadList);
+                            p pVar = this.bYq;
+                            yVar5 = this.bYq.bOd;
+                            pVar.e(optString, yVar5.Za().getListView().getData());
+                            yVar6 = this.bYq.bOd;
+                            yVar6.YT().iO(optString);
+                            yVar7 = this.bYq.bOd;
+                            if (yVar7.Za() != null) {
+                                yVar9 = this.bYq.bOd;
+                                if (yVar9.Za().aae() != null) {
+                                    yVar10 = this.bYq.bOd;
+                                    yVar10.Za().aae().notifyDataSetChanged();
+                                }
+                            }
+                            if (threadList != null && threadList.size() < 5) {
+                                yVar8 = this.bYq.bOd;
+                                yVar8.Zv();
+                            }
                         }
                     }
                 }
             }
         }
-    }
-
-    public void eh(boolean z) {
-        this.bVr = z;
     }
 }

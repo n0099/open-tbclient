@@ -15,7 +15,7 @@ class s extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Object data = customResponsedMessage.getData();
         if (data instanceof Activity) {
-            com.baidu.tbadk.core.e.b.at((Activity) data);
+            com.baidu.tbadk.core.f.b.av((Activity) data);
         }
     }
 }

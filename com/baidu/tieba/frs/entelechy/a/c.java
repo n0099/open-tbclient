@@ -5,20 +5,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.av;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bSp;
+    final /* synthetic */ b bSd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bSp = bVar;
+        this.bSd = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,24 +35,24 @@ public class c extends CustomMessageListener {
             Iterator it = absDelegateAdapterList.iterator();
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                if (aVar instanceof at) {
-                    frsActivity = this.bSp.bOq;
-                    ((at) aVar).e(frsActivity);
+                if (aVar instanceof av) {
+                    frsActivity = this.bSd.bOf;
+                    ((av) aVar).e(frsActivity);
                 }
             }
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(absDelegateAdapterList);
-            this.bSp.aq(arrayList);
-            list = this.bSp.mAdapters;
+            this.bSd.aq(arrayList);
+            list = this.bSd.mAdapters;
             if (list != null) {
-                list3 = this.bSp.mAdapters;
+                list3 = this.bSd.mAdapters;
                 list3.addAll(absDelegateAdapterList);
             }
-            bdTypeListView = this.bSp.mListView;
+            bdTypeListView = this.bSd.mListView;
             if (bdTypeListView != null) {
-                list2 = this.bSp.mAdapters;
+                list2 = this.bSd.mAdapters;
                 list2.addAll(arrayList);
-                bdTypeListView2 = this.bSp.mListView;
+                bdTypeListView2 = this.bSd.mListView;
                 bdTypeListView2.addAdapters(arrayList);
             }
         }

@@ -15,21 +15,21 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PersonHeaderAttentionView extends LinearLayout {
-    private View.OnClickListener bgU;
-    private TextView cVw;
-    private m eCA;
-    private View fIh;
-    private TextView fIi;
-    private TextView fIj;
-    private View fIk;
-    private ImageView fIl;
-    private TextView fIm;
-    private View fIn;
-    private TextView fIo;
-    private TextView fIp;
-    private View fIq;
-    private TextView fIr;
-    private TextView fIs;
+    private View.OnClickListener bgO;
+    private TextView cTT;
+    private m eAx;
+    private View fJQ;
+    private TextView fJR;
+    private TextView fJS;
+    private View fJT;
+    private ImageView fJU;
+    private TextView fJV;
+    private View fJW;
+    private TextView fJX;
+    private TextView fJY;
+    private View fJZ;
+    private TextView fKa;
+    private TextView fKb;
     private Context mContext;
     private int mSkinType;
     private UserData mUserData;
@@ -37,27 +37,27 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public PersonHeaderAttentionView(Context context) {
         super(context);
         this.mSkinType = -1;
-        this.bgU = new s(this);
+        this.bgO = new s(this);
         init(context);
-        blG();
+        bmq();
         onChangeSkinType(0);
     }
 
     public PersonHeaderAttentionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = -1;
-        this.bgU = new s(this);
+        this.bgO = new s(this);
         init(context);
-        blG();
+        bmq();
         onChangeSkinType(0);
     }
 
     public PersonHeaderAttentionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = -1;
-        this.bgU = new s(this);
+        this.bgO = new s(this);
         init(context);
-        blG();
+        bmq();
         onChangeSkinType(0);
     }
 
@@ -66,52 +66,52 @@ public class PersonHeaderAttentionView extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         LayoutInflater.from(context).inflate(w.j.item_person_header_attention_view, (ViewGroup) this, true);
-        this.fIh = findViewById(w.h.person_header_attention_container);
-        this.fIi = (TextView) findViewById(w.h.person_header_attention_num);
-        this.fIj = (TextView) findViewById(w.h.person_header_attention_des);
-        this.fIk = findViewById(w.h.person_header_fans_container);
-        this.cVw = (TextView) findViewById(w.h.person_header_fans_num);
-        this.fIl = (ImageView) findViewById(w.h.person_header_fans_red_tip);
-        this.fIm = (TextView) findViewById(w.h.person_header_fans_des);
-        this.fIn = findViewById(w.h.person_header_post_container);
-        this.fIo = (TextView) findViewById(w.h.person_header_post_num);
-        this.fIp = (TextView) findViewById(w.h.person_header_post_des);
-        this.fIq = findViewById(w.h.person_header_bar_container);
-        this.fIr = (TextView) findViewById(w.h.person_header_bar_num);
-        this.fIs = (TextView) findViewById(w.h.person_header_bar_des);
+        this.fJQ = findViewById(w.h.person_header_attention_container);
+        this.fJR = (TextView) findViewById(w.h.person_header_attention_num);
+        this.fJS = (TextView) findViewById(w.h.person_header_attention_des);
+        this.fJT = findViewById(w.h.person_header_fans_container);
+        this.cTT = (TextView) findViewById(w.h.person_header_fans_num);
+        this.fJU = (ImageView) findViewById(w.h.person_header_fans_red_tip);
+        this.fJV = (TextView) findViewById(w.h.person_header_fans_des);
+        this.fJW = findViewById(w.h.person_header_post_container);
+        this.fJX = (TextView) findViewById(w.h.person_header_post_num);
+        this.fJY = (TextView) findViewById(w.h.person_header_post_des);
+        this.fJZ = findViewById(w.h.person_header_bar_container);
+        this.fKa = (TextView) findViewById(w.h.person_header_bar_num);
+        this.fKb = (TextView) findViewById(w.h.person_header_bar_des);
     }
 
-    private void blG() {
-        this.fIh.setOnClickListener(this.bgU);
-        this.fIk.setOnClickListener(this.bgU);
-        this.fIn.setOnClickListener(this.bgU);
-        this.fIq.setOnClickListener(this.bgU);
+    private void bmq() {
+        this.fJQ.setOnClickListener(this.bgO);
+        this.fJT.setOnClickListener(this.bgO);
+        this.fJW.setOnClickListener(this.bgO);
+        this.fJZ.setOnClickListener(this.bgO);
     }
 
     public void setOnViewResponseListener(m mVar) {
-        this.eCA = mVar;
+        this.eAx = mVar;
     }
 
     private void m(String str, String str2, String str3, String str4) {
-        this.fIi.setText(str);
-        this.cVw.setText(str2);
-        this.fIo.setText(str3);
-        this.fIr.setText(str4);
+        this.fJR.setText(str);
+        this.cTT.setText(str2);
+        this.fJX.setText(str3);
+        this.fKa.setText(str4);
     }
 
     public void setData(UserData userData) {
         this.mUserData = userData;
         if (this.mUserData.getConcernNum() >= 9999000) {
-            this.fIi.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
+            this.fJR.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
         }
         if (this.mUserData.getFansNum() >= 9999000) {
-            this.cVw.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
+            this.cTT.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
         }
         if (this.mUserData.getPosts_num() >= 9999000) {
-            this.fIo.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
+            this.fJX.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
         }
         if (this.mUserData.getLike_bars() >= 9999000) {
-            this.fIr.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
+            this.fKa.setTextSize(0, com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds32));
         }
         m(au.x(this.mUserData.getConcernNum()), au.x(this.mUserData.getFansNum()), au.x(this.mUserData.getPosts_num()), au.x(this.mUserData.getLike_bars()));
     }
@@ -119,33 +119,33 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            aq.j(this.fIh, w.g.item_person_header_attention_bg_selector);
-            aq.c(this.fIi, w.e.cp_cont_f, 1);
-            aq.c(this.fIj, w.e.cp_cont_c, 1);
-            aq.j(this.fIk, w.g.item_person_header_attention_bg_selector);
-            aq.c(this.cVw, w.e.cp_cont_f, 1);
-            aq.c(this.fIm, w.e.cp_cont_c, 1);
-            aq.c(this.fIl, w.g.icon_news_down_bar_one);
-            aq.j(this.fIn, w.g.item_person_header_attention_bg_selector);
-            aq.c(this.fIo, w.e.cp_cont_f, 1);
-            aq.c(this.fIp, w.e.cp_cont_c, 1);
-            aq.j(this.fIq, w.g.item_person_header_attention_bg_selector);
-            aq.c(this.fIr, w.e.cp_cont_f, 1);
-            aq.c(this.fIs, w.e.cp_cont_c, 1);
+            aq.j(this.fJQ, w.g.item_person_header_attention_bg_selector);
+            aq.c(this.fJR, w.e.cp_cont_f, 1);
+            aq.c(this.fJS, w.e.cp_cont_c, 1);
+            aq.j(this.fJT, w.g.item_person_header_attention_bg_selector);
+            aq.c(this.cTT, w.e.cp_cont_f, 1);
+            aq.c(this.fJV, w.e.cp_cont_c, 1);
+            aq.c(this.fJU, w.g.icon_news_down_bar_one);
+            aq.j(this.fJW, w.g.item_person_header_attention_bg_selector);
+            aq.c(this.fJX, w.e.cp_cont_f, 1);
+            aq.c(this.fJY, w.e.cp_cont_c, 1);
+            aq.j(this.fJZ, w.g.item_person_header_attention_bg_selector);
+            aq.c(this.fKa, w.e.cp_cont_f, 1);
+            aq.c(this.fKb, w.e.cp_cont_c, 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hu(int i) {
-        BdToast.b(this.mContext, String.format(this.mContext.getString(w.l.person_privacy_toast), au.cS(i)), w.g.icon_toast_game_error).tA();
+    public void hx(int i) {
+        BdToast.b(this.mContext, String.format(this.mContext.getString(w.l.person_privacy_toast), au.cV(i)), w.g.icon_toast_game_error).tY();
     }
 
-    public void lA(boolean z) {
-        if (this.fIl != null) {
+    public void lD(boolean z) {
+        if (this.fJU != null) {
             if (z) {
-                this.fIl.setVisibility(0);
+                this.fJU.setVisibility(0);
             } else {
-                this.fIl.setVisibility(8);
+                this.fJU.setVisibility(8);
             }
         }
     }

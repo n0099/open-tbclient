@@ -11,11 +11,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bRq;
+    final /* synthetic */ a bRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bRq = aVar;
+        this.bRf = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,33 +27,33 @@ public class d implements View.OnClickListener {
         com.baidu.tbadk.core.data.s sVar3;
         FrsActivity frsActivity2;
         if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-            frsActivity2 = this.bRq.bOq;
+            frsActivity2 = this.bRf.bOf;
             com.baidu.adp.lib.util.k.showToast(frsActivity2.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
             return;
         }
-        sVar = this.bRq.bRk;
-        int pM = sVar.pM();
-        if (pM == 1 || pM == 2) {
-            sVar2 = this.bRq.bRk;
+        sVar = this.bRf.bQZ;
+        int qk = sVar.qk();
+        if (qk == 1 || qk == 2) {
+            sVar2 = this.bRf.bQZ;
             String bookId = sVar2.getBookId();
             int id = view.getId();
-            viewGroup = this.bRq.bRi;
+            viewGroup = this.bRf.bQX;
             if (id != viewGroup.getId()) {
-                frsActivity = this.bRq.bOq;
+                frsActivity = this.bRf.bOf;
                 if (!frsActivity.checkUpIsLogin()) {
                     return;
                 }
-                this.bRq.J(bookId, -1);
-                TiebaStatic.log(new as("C11579").s("obj_param2", 2).Z("obj_param1", bookId));
+                this.bRf.J(bookId, -1);
+                TiebaStatic.log(new as("C11579").s("obj_param2", 2).aa("obj_param1", bookId));
                 return;
             }
-            sVar3 = this.bRq.bRk;
-            int g = com.baidu.adp.lib.g.b.g(sVar3.pS(), -1);
+            sVar3 = this.bRf.bQZ;
+            int g = com.baidu.adp.lib.g.b.g(sVar3.qq(), -1);
             if (g <= 0) {
                 return;
             }
-            this.bRq.J(bookId, g);
-            TiebaStatic.log(new as("C11580").s("obj_param2", 2).Z("obj_param1", bookId));
+            this.bRf.J(bookId, g);
+            TiebaStatic.log(new as("C11580").s("obj_param2", 2).aa("obj_param1", bookId));
         }
     }
 }

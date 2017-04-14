@@ -16,53 +16,53 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    View ary;
-    private EditText dgY;
-    TextView feQ;
-    View feR;
-    View feS;
-    TextView feT;
-    TextView feU;
-    TextView feV;
-    private s feW;
-    private TextView feX;
-    private RelativeLayout feY;
+    View arO;
+    private EditText dfv;
+    TextView fgr;
+    View fgs;
+    View fgt;
+    TextView fgu;
+    TextView fgv;
+    TextView fgw;
+    private s fgx;
+    private TextView fgy;
+    private RelativeLayout fgz;
 
     public a(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(w.j.screenlock_show_item_header, (ViewGroup) this, true);
-        this.feQ = (TextView) findViewById(w.h.friend_name_show1);
-        this.feR = findViewById(w.h.friend_name_layout);
-        this.feS = findViewById(w.h.msg_content_layout);
-        this.feT = (TextView) findViewById(w.h.last_msg_time_show1);
-        this.feU = (TextView) findViewById(w.h.one_msg_content_show1);
-        this.feV = (TextView) findViewById(w.h.unread_msg_count_show1);
-        this.ary = findViewById(w.h.line);
+        this.fgr = (TextView) findViewById(w.h.friend_name_show1);
+        this.fgs = findViewById(w.h.friend_name_layout);
+        this.fgt = findViewById(w.h.msg_content_layout);
+        this.fgu = (TextView) findViewById(w.h.last_msg_time_show1);
+        this.fgv = (TextView) findViewById(w.h.one_msg_content_show1);
+        this.fgw = (TextView) findViewById(w.h.unread_msg_count_show1);
+        this.arO = findViewById(w.h.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(w.g.screen_notify_item_background);
         setOrientation(1);
-        this.feY = (RelativeLayout) findViewById(w.h.screenlock_input_layout);
-        this.feX = (TextView) findViewById(w.h.screenlock_send_button);
-        this.dgY = (EditText) findViewById(w.h.screenlock_edit_view);
-        this.feY.setVisibility(8);
+        this.fgz = (RelativeLayout) findViewById(w.h.screenlock_input_layout);
+        this.fgy = (TextView) findViewById(w.h.screenlock_send_button);
+        this.dfv = (EditText) findViewById(w.h.screenlock_edit_view);
+        this.fgz.setVisibility(8);
     }
 
     public void f(s sVar) {
-        this.feW = sVar;
-        this.feQ.setText(sVar.groupName);
-        this.feT.setText(cx(sVar.lastTime));
-        this.feU.setText(sVar.content);
-        this.feV.setText(ra(sVar.feM));
+        this.fgx = sVar;
+        this.fgr.setText(sVar.groupName);
+        this.fgu.setText(cx(sVar.lastTime));
+        this.fgv.setText(sVar.content);
+        this.fgw.setText(qY(sVar.fgn));
     }
 
-    public void kB(boolean z) {
+    public void kD(boolean z) {
         if (z) {
-            this.feY.setVisibility(0);
-            this.ary.setVisibility(8);
+            this.fgz.setVisibility(0);
+            this.arO.setVisibility(8);
             return;
         }
-        this.feY.setVisibility(8);
-        this.ary.setVisibility(0);
+        this.fgz.setVisibility(8);
+        this.arO.setVisibility(0);
     }
 
     public String cx(long j) {
@@ -70,28 +70,28 @@ public class a extends LinearLayout {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String ra(int i) {
+    public String qY(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
     public String getInputMsg() {
-        if (this.dgY != null) {
-            return j.a(this.dgY.getText(), null);
+        if (this.dfv != null) {
+            return j.a(this.dfv.getText(), null);
         }
         return null;
     }
 
     public View getEditText() {
-        return this.dgY;
+        return this.dfv;
     }
 
     public s getData() {
-        return this.feW;
+        return this.fgx;
     }
 
     public void b(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.feX.setOnClickListener(onClickListener);
-        this.feR.setOnClickListener(onClickListener2);
-        this.feS.setOnClickListener(onClickListener2);
+        this.fgy.setOnClickListener(onClickListener);
+        this.fgs.setOnClickListener(onClickListener2);
+        this.fgt.setOnClickListener(onClickListener2);
     }
 }

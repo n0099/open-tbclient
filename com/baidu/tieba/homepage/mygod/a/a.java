@@ -7,48 +7,48 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.mygod.data.a, C0061a> {
-    private TbPageContext<?> aaI;
-    public BdUniqueId baP;
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.mygod.data.a, C0060a> {
+    private TbPageContext<?> aaX;
+    public BdUniqueId baI;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aaI = null;
-        this.baP = null;
-        this.aaI = tbPageContext;
+        this.aaX = null;
+        this.baI = null;
+        this.aaX = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
-    public C0061a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.mygod.b.a aVar = new com.baidu.tieba.homepage.mygod.b.a(this.aaI);
-        aVar.i(this.baP);
-        return new C0061a(aVar);
+    /* renamed from: X */
+    public C0060a onCreateViewHolder(ViewGroup viewGroup) {
+        com.baidu.tieba.homepage.mygod.b.a aVar = new com.baidu.tieba.homepage.mygod.b.a(this.aaX);
+        aVar.i(this.baI);
+        return new C0060a(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.mygod.data.a aVar, C0061a c0061a) {
-        if (c0061a != null) {
-            c0061a.cxC.onChangeSkinType(this.aaI, TbadkCoreApplication.m9getInst().getSkinType());
-            c0061a.cxC.onBindDataToView(aVar);
-            return c0061a.cxC.getView();
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.mygod.data.a aVar, C0060a c0060a) {
+        if (c0060a != null) {
+            c0060a.cwc.onChangeSkinType(this.aaX, TbadkCoreApplication.m9getInst().getSkinType());
+            c0060a.cwc.onBindDataToView(aVar);
+            return c0060a.cwc.getView();
         }
         return null;
     }
 
     /* renamed from: com.baidu.tieba.homepage.mygod.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0061a extends y.a {
-        public com.baidu.tieba.homepage.mygod.b.a cxC;
+    public static class C0060a extends y.a {
+        public com.baidu.tieba.homepage.mygod.b.a cwc;
 
-        public C0061a(com.baidu.tieba.homepage.mygod.b.a aVar) {
+        public C0060a(com.baidu.tieba.homepage.mygod.b.a aVar) {
             super(aVar.getView());
-            this.cxC = aVar;
+            this.cwc = aVar;
         }
     }
 }

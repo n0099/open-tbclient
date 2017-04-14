@@ -33,7 +33,6 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -1093,7 +1092,7 @@ public class ViewPager extends ViewGroup {
             View childAt = getChildAt(i6);
             if (childAt.getVisibility() != 8 && (layoutParams2 = (LayoutParams) childAt.getLayoutParams()) != null && layoutParams2.isDecor) {
                 int i7 = layoutParams2.gravity & 7;
-                int i8 = layoutParams2.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
+                int i8 = layoutParams2.gravity & 112;
                 int i9 = ExploreByTouchHelper.INVALID_ID;
                 int i10 = ExploreByTouchHelper.INVALID_ID;
                 boolean z = i8 == 48 || i8 == 80;
@@ -1193,7 +1192,7 @@ public class ViewPager extends ViewGroup {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 if (layoutParams.isDecor) {
                     int i14 = layoutParams.gravity & 7;
-                    int i15 = layoutParams.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
+                    int i15 = layoutParams.gravity & 112;
                     switch (i14) {
                         case 1:
                             i7 = Math.max((i10 - childAt.getMeasuredWidth()) / 2, paddingLeft);

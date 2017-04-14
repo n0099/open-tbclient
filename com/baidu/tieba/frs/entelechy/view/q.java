@@ -9,102 +9,102 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class q extends a {
-    private bj ain;
-    private TbPageContext ajF;
-    private boolean bTC;
-    private CommonUserLikeButton.a brB;
-    public EntelechyUserLikeButton brE;
-    private com.baidu.tbadk.core.view.userLike.c brF;
-    public TextView btg;
-    private View.OnClickListener bti;
+    private bi aiB;
+    private TbPageContext ajT;
+    private boolean bTq;
+    private CommonUserLikeButton.a brt;
+    public EntelechyUserLikeButton brw;
+    private com.baidu.tbadk.core.view.userLike.c brx;
+    public TextView bsY;
+    private View.OnClickListener bta;
     private int mSkinType;
 
     public q(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.bTC = false;
-        this.brB = new r(this);
-        this.bti = new s(this);
-        this.ajF = tbPageContext;
-        this.bbg.setGodIconMargin(0);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bbk.getLayoutParams();
+        this.bTq = false;
+        this.brt = new r(this);
+        this.bta = new s(this);
+        this.ajT = tbPageContext;
+        this.baZ.setGodIconMargin(0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bbd.getLayoutParams();
         layoutParams.topMargin = 0;
-        layoutParams.bottomMargin = com.baidu.adp.lib.util.k.g(this.ajF.getPageActivity(), w.f.ds4);
-        this.bbk.setLayoutParams(layoutParams);
-        this.btg = new TextView(tbPageContext.getPageActivity());
-        this.btg.setIncludeFontPadding(false);
-        this.btg.setTextSize(0, com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds24));
-        this.btg.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.btg.setOnClickListener(this.bti);
-        this.bbl.addView(this.btg, 1);
-        this.brE = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
-        this.brE.setFanNumCallBack(this.brB);
-        this.brE.setId(w.h.card_god_feed_like_btn);
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, com.baidu.adp.lib.util.k.g(this.ajF.getPageActivity(), w.f.ds56));
+        layoutParams.bottomMargin = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds4);
+        this.bbd.setLayoutParams(layoutParams);
+        this.bsY = new TextView(tbPageContext.getPageActivity());
+        this.bsY.setIncludeFontPadding(false);
+        this.bsY.setTextSize(0, com.baidu.adp.lib.util.k.g(tbPageContext.getPageActivity(), w.f.ds24));
+        this.bsY.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        this.bsY.setOnClickListener(this.bta);
+        this.bbe.addView(this.bsY, 1);
+        this.brw = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
+        this.brw.setFanNumCallBack(this.brt);
+        this.brw.setId(w.h.card_god_feed_like_btn);
+        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds56));
         layoutParams2.addRule(11);
         layoutParams2.addRule(3, w.h.header_divider);
-        layoutParams2.rightMargin = com.baidu.adp.lib.util.k.g(this.ajF.getPageActivity(), w.f.ds36);
-        layoutParams2.topMargin = com.baidu.adp.lib.util.k.g(this.ajF.getPageActivity(), w.f.ds32);
-        this.brE.setGravity(21);
-        this.brE.setLayoutParams(layoutParams2);
-        ((ViewGroup) getView()).addView(this.brE);
-        this.brF = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.brE);
+        layoutParams2.rightMargin = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds36);
+        layoutParams2.topMargin = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds32);
+        this.brw.setGravity(21);
+        this.brw.setLayoutParams(layoutParams2);
+        ((ViewGroup) getView()).addView(this.brw);
+        this.brx = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.brw);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.a
-    public void k(bj bjVar) {
-        super.onBindDataToView(bjVar);
-        if (bjVar != null) {
-            this.ain = bjVar;
-            if (this.ain.sU() != null && this.ain.sU().channelId > 0) {
-                this.bTC = true;
+    public void k(bi biVar) {
+        super.onBindDataToView(biVar);
+        if (biVar != null) {
+            this.aiB = biVar;
+            if (this.aiB.ts() != null && this.aiB.ts().channelId > 0) {
+                this.bTq = true;
             } else {
-                this.bTC = false;
+                this.bTq = false;
             }
-            if (this.bTC) {
-                this.bbg.setIsGod(false);
-            } else if (this.ain.getAuthor() == null || this.ain.getAuthor().getPendantData() == null || StringUtils.isNull(this.ain.getAuthor().getPendantData().qd())) {
-                this.bbg.setIsGod(true);
+            if (this.bTq) {
+                this.baZ.setIsGod(false);
+            } else if (this.aiB.getAuthor() == null || this.aiB.getAuthor().getPendantData() == null || StringUtils.isNull(this.aiB.getAuthor().getPendantData().qB())) {
+                this.baZ.setIsGod(true);
             } else {
-                this.bbg.setIsGod(false);
+                this.baZ.setIsGod(false);
             }
-            if (bjVar.getAuthor() != null) {
-                this.brF.a(bjVar.getAuthor());
-                if (this.bTC) {
-                    this.btg.setVisibility(4);
+            if (biVar.getAuthor() != null) {
+                this.brx.a(biVar.getAuthor());
+                if (this.bTq) {
+                    this.bsY.setVisibility(4);
                 } else {
-                    this.btg.setVisibility(0);
-                    gF(bjVar.getAuthor().getFansNum());
+                    this.bsY.setVisibility(0);
+                    gI(biVar.getAuthor().getFansNum());
                 }
-                if (this.ain.getAuthor().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.ain.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                    this.brE.setVisibility(8);
+                if (this.aiB.getAuthor().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.aiB.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    this.brw.setVisibility(8);
                     return;
-                } else if (this.bTC) {
-                    this.brE.setVisibility(8);
+                } else if (this.bTq) {
+                    this.brw.setVisibility(8);
                     return;
-                } else if (this.ain.getAuthor().getGodUserData().getIsLike()) {
-                    if (this.ain.getAuthor().getGodUserData().getIsFromNetWork()) {
-                        this.brE.setVisibility(8);
+                } else if (this.aiB.getAuthor().getGodUserData().getIsLike()) {
+                    if (this.aiB.getAuthor().getGodUserData().getIsFromNetWork()) {
+                        this.brw.setVisibility(8);
                     } else {
-                        this.brE.setVisibility(0);
-                        this.brE.aO(true);
+                        this.brw.setVisibility(0);
+                        this.brw.aQ(true);
                     }
                 } else {
-                    this.brE.setVisibility(0);
+                    this.brw.setVisibility(0);
                 }
             }
-            int i = ((RelativeLayout.LayoutParams) this.bbm.getLayoutParams()).height;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.brE.getLayoutParams();
-            if (bjVar.sl() != null) {
-                layoutParams.topMargin = i + com.baidu.adp.lib.util.k.g(this.ajF.getPageActivity(), w.f.ds20);
+            int i = ((RelativeLayout.LayoutParams) this.bbf.getLayoutParams()).height;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.brw.getLayoutParams();
+            if (biVar.sJ() != null) {
+                layoutParams.topMargin = i + com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds20);
             } else {
-                layoutParams.topMargin = com.baidu.adp.lib.util.k.g(this.ajF.getPageActivity(), w.f.ds40);
+                layoutParams.topMargin = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds40);
             }
         }
     }
@@ -113,8 +113,8 @@ public class q extends a {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.aq.i((View) this.btg, w.e.cp_cont_d);
-            this.brE.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.aq.i(this.bsY, w.e.cp_cont_d);
+            this.brw.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
@@ -125,9 +125,9 @@ public class q extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gF(int i) {
-        if (this.btg != null) {
-            this.btg.setText(String.format(this.ajF.getResources().getString(w.l.fans_default_name_god_user), com.baidu.tbadk.core.util.au.t(i)));
+    public void gI(int i) {
+        if (this.bsY != null) {
+            this.bsY.setText(String.format(this.ajT.getResources().getString(w.l.fans_default_name_god_user), com.baidu.tbadk.core.util.au.t(i)));
         }
     }
 }

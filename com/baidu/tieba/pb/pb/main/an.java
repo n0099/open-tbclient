@@ -4,24 +4,24 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class an implements NoNetworkView.a {
-    final /* synthetic */ PbActivity elO;
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aK(boolean z) {
+    public void aM(boolean z) {
         boolean z2;
         PbModel pbModel;
-        z2 = this.elO.eku;
+        z2 = this.ejU.eiA;
         if (!z2 && z) {
-            pbModel = this.elO.ejZ;
-            if (!pbModel.aLz()) {
-                this.elO.aww();
+            pbModel = this.ejU.eif;
+            if (!pbModel.aLI()) {
+                this.ejU.awp();
             }
         }
-        this.elO.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.elO.getApplicationContext(), w.f.ds200));
+        this.ejU.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.ejU.getApplicationContext(), w.f.ds200));
     }
 }

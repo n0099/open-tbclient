@@ -1,16 +1,24 @@
 package com.baidu.tieba.frs.entelechy;
+
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements Runnable {
-    final /* synthetic */ j bRF;
+public class n implements TbImageView.a {
+    final /* synthetic */ j bRu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.bRF = jVar;
+        this.bRu = jVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.bRF.MZ();
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void v(String str, boolean z) {
+        if (z) {
+            this.bRu.Nx();
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements Handler.Callback {
-    final /* synthetic */ p aQz;
+    final /* synthetic */ p aQP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.aQz = pVar;
+        this.aQP = pVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -19,31 +19,31 @@ public class q implements Handler.Callback {
         b bVar3;
         if (message.what == 1) {
             if (message.obj instanceof e) {
-                this.aQz.a((e) message.obj);
+                this.aQP.a((e) message.obj);
             }
         } else if (message.what == 2) {
-            p pVar = this.aQz;
-            bVar3 = this.aQz.aQq;
+            p pVar = this.aQP;
+            bVar3 = this.aQP.aQG;
             pVar.a(bVar3);
-            this.aQz.aQq = null;
+            this.aQP.aQG = null;
         } else if (message.what == 3) {
-            p pVar2 = this.aQz;
-            bVar2 = this.aQz.aQq;
+            p pVar2 = this.aQP;
+            bVar2 = this.aQP.aQG;
             pVar2.b(bVar2);
         } else if (message.what == 4) {
-            p pVar3 = this.aQz;
-            bVar = this.aQz.aQq;
+            p pVar3 = this.aQP;
+            bVar = this.aQP.aQG;
             pVar3.c(bVar);
         } else if (message.what != 5) {
             if (message.what == 10) {
                 if (message.obj instanceof e) {
-                    this.aQz.a((e) message.obj, message.arg1);
+                    this.aQP.a((e) message.obj, message.arg1);
                 }
             } else if (message.what == 7) {
-                this.aQz.JF();
+                this.aQP.Kf();
             }
         } else {
-            this.aQz.fE(message.arg1);
+            this.aQP.fH(message.arg1);
         }
         return true;
     }

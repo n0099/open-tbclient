@@ -6,11 +6,11 @@ import com.baidu.tieba.b.b.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Handler.Callback {
-    final /* synthetic */ g boW;
+    final /* synthetic */ g boP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.boW = gVar;
+        this.boP = gVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -21,18 +21,18 @@ public class h implements Handler.Callback {
         g.a aVar4;
         switch (message.what) {
             case 1:
-                aVar3 = this.boW.boV;
+                aVar3 = this.boP.boO;
                 if (aVar3 != null) {
-                    aVar4 = this.boW.boV;
-                    aVar4.cD(true);
+                    aVar4 = this.boP.boO;
+                    aVar4.cF(true);
                     return true;
                 }
                 return true;
             case 2:
-                aVar = this.boW.boV;
+                aVar = this.boP.boO;
                 if (aVar != null) {
-                    aVar2 = this.boW.boV;
-                    aVar2.cD(false);
+                    aVar2 = this.boP.boO;
+                    aVar2.cF(false);
                     return true;
                 }
                 return true;

@@ -5,144 +5,144 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class o {
-    private int aBB;
-    private WriteImagesInfo eFp;
-    private String fLH;
-    private List<ImageFileInfo> fLN;
-    private List<ImageFileInfo> fLO;
-    private String fLP;
-    private boolean fLQ = false;
-    private final AlbumActivity fLm;
-    private List<d> fLz;
+    private int aBR;
+    private WriteImagesInfo eDm;
+    private final AlbumActivity fMV;
+    private List<d> fNi;
+    private String fNq;
+    private List<ImageFileInfo> fNw;
+    private List<ImageFileInfo> fNx;
+    private String fNy;
+    private boolean fNz = false;
 
     public o(AlbumActivity albumActivity) {
-        this.fLm = albumActivity;
+        this.fMV = albumActivity;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.eFp == null) {
-            this.eFp = new WriteImagesInfo();
+        if (this.eDm == null) {
+            this.eDm = new WriteImagesInfo();
         }
-        this.eFp.addChooseFile(imageFileInfo);
+        this.eDm.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.eFp != null) {
-            this.eFp.delChooseFile(imageFileInfo);
+        if (this.eDm != null) {
+            this.eDm.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.eFp == null) {
+        if (this.eDm == null) {
             return false;
         }
-        return this.eFp.isAdded(imageFileInfo);
+        return this.eDm.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> bmS() {
-        if (this.eFp != null) {
-            return this.eFp.getChosedFiles();
+    public List<ImageFileInfo> bnC() {
+        if (this.eDm != null) {
+            return this.eDm.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.eFp;
+        return this.eDm;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.eFp = writeImagesInfo;
+        this.eDm = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.eFp != null) {
-            return this.eFp.getLastAlbumId();
+        if (this.eDm != null) {
+            return this.eDm.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.eFp == null) {
-            this.eFp = new WriteImagesInfo();
+        if (this.eDm == null) {
+            this.eDm = new WriteImagesInfo();
         }
-        this.eFp.setLastAlbumId(str);
+        this.eDm.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.eFp != null) {
-            return this.eFp.getMaxImagesAllowed();
+        if (this.eDm != null) {
+            return this.eDm.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String bmT() {
-        return this.fLH;
+    public String bnD() {
+        return this.fNq;
     }
 
-    public void qF(String str) {
-        this.fLH = str;
+    public void qZ(String str) {
+        this.fNq = str;
     }
 
-    public List<ImageFileInfo> bmU() {
-        return this.fLN;
+    public List<ImageFileInfo> bnE() {
+        return this.fNw;
     }
 
-    public void cY(List<ImageFileInfo> list) {
-        this.fLN = list;
+    public void cX(List<ImageFileInfo> list) {
+        this.fNw = list;
     }
 
     public int getCurrentIndex() {
-        return this.aBB;
+        return this.aBR;
     }
 
-    public void sM(int i) {
-        this.aBB = i;
+    public void sK(int i) {
+        this.aBR = i;
     }
 
-    public List<d> bmV() {
-        return this.fLz;
+    public List<d> bnF() {
+        return this.fNi;
     }
 
-    public void cZ(List<d> list) {
-        this.fLz = list;
+    public void cY(List<d> list) {
+        this.fNi = list;
     }
 
-    public List<ImageFileInfo> bmW() {
-        return this.fLO;
+    public List<ImageFileInfo> bnG() {
+        return this.fNx;
     }
 
-    public void da(List<ImageFileInfo> list) {
-        this.fLO = list;
+    public void cZ(List<ImageFileInfo> list) {
+        this.fNx = list;
     }
 
     public int size() {
-        if (this.eFp == null) {
+        if (this.eDm == null) {
             return 0;
         }
-        return this.eFp.size();
+        return this.eDm.size();
     }
 
-    public String bmX() {
-        return this.fLP;
+    public String bnH() {
+        return this.fNy;
     }
 
-    public void qG(String str) {
-        this.fLP = str;
+    public void ra(String str) {
+        this.fNy = str;
     }
 
     public void setOriginalImg(boolean z) {
-        this.eFp.setOriginalImg(z);
+        this.eDm.setOriginalImg(z);
     }
 
     public boolean isOriginalImg() {
-        return this.eFp.isOriginalImg();
+        return this.eDm.isOriginalImg();
     }
 
-    public boolean bmY() {
-        return this.fLQ;
+    public boolean bnI() {
+        return this.fNz;
     }
 
-    public void lF(boolean z) {
-        this.fLQ = z;
+    public void lI(boolean z) {
+        this.fNz = z;
     }
 }

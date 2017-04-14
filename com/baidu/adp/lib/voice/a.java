@@ -4,33 +4,33 @@ import android.os.Handler;
 /* loaded from: classes.dex */
 public class a {
     private static String mFileName;
-    private static c zS;
-    private static f zT;
-    private static int zR = 0;
+    private static c zt;
+    private static f zu;
+    private static int zs = 0;
     private static Handler mHandler = new Handler(new b());
 
     public static boolean a(String str, f fVar, int i) {
-        if (zR == 0) {
-            if (zS == null) {
-                zS = new c(mHandler, i);
+        if (zs == 0) {
+            if (zt == null) {
+                zt = new c(mHandler, i);
             } else {
-                zS.ax(i);
+                zt.aw(i);
             }
             mFileName = str;
-            zT = fVar;
-            zS.aP(str);
-            zR = 2;
-            new Thread(zS).start();
+            zu = fVar;
+            zt.aK(str);
+            zs = 2;
+            new Thread(zt).start();
             return true;
         }
         return false;
     }
 
     public static void stop() {
-        if (zS != null) {
-            zS.stop();
+        if (zt != null) {
+            zt.stop();
         } else {
-            zR = 0;
+            zs = 0;
         }
     }
 }

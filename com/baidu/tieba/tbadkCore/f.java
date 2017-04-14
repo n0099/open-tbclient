@@ -3,9 +3,8 @@ package com.baidu.tieba.tbadkCore;
 import android.content.Context;
 import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.adp.lib.e.c<TbImageView> {
+class f implements com.baidu.adp.lib.e.c<TbImageView> {
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,8 +14,8 @@ public class f implements com.baidu.adp.lib.e.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: wW */
-    public TbImageView fF() {
+    /* renamed from: xs */
+    public TbImageView fK() {
         TbImageView tbImageView = new TbImageView(this.val$context);
         tbImageView.setSupportNoImage(true);
         tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);

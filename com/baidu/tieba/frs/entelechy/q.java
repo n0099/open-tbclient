@@ -1,32 +1,35 @@
 package com.baidu.tieba.frs.entelechy;
 
-import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class q implements a.b {
-    final /* synthetic */ j bRF;
+class q implements View.OnClickListener {
+    final /* synthetic */ j bRu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(j jVar) {
-        this.bRF = jVar;
+        this.bRu = jVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PopupWindow popupWindow;
         TbPageContext tbPageContext;
-        int i;
-        tbPageContext = this.bRF.aaI;
-        Activity pageActivity = tbPageContext.getPageActivity();
-        i = this.bRF.mMemberType;
-        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(pageActivity, i, "exp_acce", 2);
-        memberPayActivityConfig.setSceneId("4004001000");
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
-        aVar.dismiss();
+        FrsActivity frsActivity;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        popupWindow = this.bRu.cdg;
+        tbPageContext = this.bRu.aaX;
+        com.baidu.adp.lib.g.j.a(popupWindow, tbPageContext.getPageActivity());
+        frsActivity = this.bRu.bOf;
+        frsActivity.bMq = false;
+        tbPageContext2 = this.bRu.aaX;
+        String string = tbPageContext2.getResources().getString(w.l.experion_speed);
+        tbPageContext3 = this.bRu.aaX;
+        com.baidu.tbadk.browser.f.a(tbPageContext3.getPageActivity(), string, String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
     }
 }

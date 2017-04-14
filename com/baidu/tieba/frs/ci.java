@@ -1,37 +1,52 @@
 package com.baidu.tieba.frs;
 
-import android.view.ViewGroup;
-import android.view.animation.Animation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.e.a;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ci implements Animation.AnimationListener {
-    final /* synthetic */ ce bQq;
+public class ci implements a.InterfaceC0055a {
+    final /* synthetic */ cg bQf;
+    final int bkW = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds98);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(ce ceVar) {
-        this.bQq = ceVar;
+    public ci(cg cgVar) {
+        this.bQf = cgVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ViewGroup viewGroup;
-        ViewGroup viewGroup2;
-        ViewGroup viewGroup3;
-        viewGroup = this.bQq.bQk;
-        if (viewGroup != null) {
-            viewGroup2 = this.bQq.bQk;
-            viewGroup2.clearAnimation();
-            viewGroup3 = this.bQq.bQk;
-            viewGroup3.setVisibility(0);
-            this.bQq.dl(false);
+    @Override // com.baidu.tieba.e.a.InterfaceC0055a
+    public void V(int i, int i2) {
+        az azVar;
+        az azVar2;
+        if (T(i2)) {
+            this.bQf.dm(false);
+            this.bQf.Xj();
         }
+        azVar = this.bQf.bQa;
+        if (azVar != null) {
+            azVar2 = this.bQf.bQa;
+            azVar2.dK(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.e.a.InterfaceC0055a
+    public void W(int i, int i2) {
+        az azVar;
+        az azVar2;
+        if (T(i2)) {
+            this.bQf.dm(true);
+            if (Math.abs(i2) > this.bkW) {
+                this.bQf.Xi();
+            }
+        }
+        azVar = this.bQf.bQa;
+        if (azVar != null) {
+            azVar2 = this.bQf.bQa;
+            azVar2.dK(false);
+        }
+    }
+
+    private boolean T(float f) {
+        return Math.abs(f) >= 1.0f;
     }
 }

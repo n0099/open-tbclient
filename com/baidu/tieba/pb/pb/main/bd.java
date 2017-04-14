@@ -5,37 +5,37 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd implements Runnable {
-    final /* synthetic */ PbActivity elO;
-    private final /* synthetic */ int[] elT;
-    private final /* synthetic */ int elU;
-    private final /* synthetic */ String elV;
-    private final /* synthetic */ String elW;
+    final /* synthetic */ PbActivity ejU;
+    private final /* synthetic */ int[] ejZ;
+    private final /* synthetic */ int eka;
+    private final /* synthetic */ String ekb;
+    private final /* synthetic */ String ekc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(PbActivity pbActivity, int[] iArr, int i, String str, String str2) {
-        this.elO = pbActivity;
-        this.elT = iArr;
-        this.elU = i;
-        this.elV = str;
-        this.elW = str2;
+        this.ejU = pbActivity;
+        this.ejZ = iArr;
+        this.eka = i;
+        this.ekb = str;
+        this.ekc = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         int g;
-        int ah = (com.baidu.adp.lib.util.k.ah(this.elO.getPageContext().getPageActivity()) - this.elT[1]) - this.elU;
+        int ag = (com.baidu.adp.lib.util.k.ag(this.ejU.getPageContext().getPageActivity()) - this.ejZ[1]) - this.eka;
         if (TbadkCoreApplication.m9getInst().getKeyboardHeight() > 0) {
-            g = TbadkCoreApplication.m9getInst().getKeyboardHeight() + com.baidu.adp.lib.util.k.g(this.elO.getPageContext().getPageActivity(), w.f.ds120);
+            g = TbadkCoreApplication.m9getInst().getKeyboardHeight() + com.baidu.adp.lib.util.k.g(this.ejU.getPageContext().getPageActivity(), w.f.ds120);
         } else {
-            g = com.baidu.adp.lib.util.k.g(this.elO.getPageContext().getPageActivity(), w.f.ds640);
+            g = com.baidu.adp.lib.util.k.g(this.ejU.getPageContext().getPageActivity(), w.f.ds640);
         }
-        int i = g - ah;
+        int i = g - ag;
         if (i > 0) {
-            this.elO.aKj().getListView().smoothScrollBy(i, 0);
+            this.ejU.aKq().getListView().smoothScrollBy(i, 0);
         }
-        if (this.elO.aKj().aMJ() != null) {
-            this.elO.aKj().aMJ().bM(this.elV, this.elW);
+        if (this.ejU.aKq().aMS() != null) {
+            this.ejU.aKq().aMS().bL(this.ekb, this.ekc);
         }
-        this.elO.aKj().aNu();
+        this.ejU.aKq().aND();
     }
 }

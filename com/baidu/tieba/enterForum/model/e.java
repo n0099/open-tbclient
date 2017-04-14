@@ -13,78 +13,78 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private TbPageContext<?> aaI;
-    private ViewEventCenter bEQ;
-    private SoftReference<j> bFA;
-    private com.baidu.tieba.enterForum.a.b bFB;
-    private com.baidu.tieba.enterForum.a.a bFC;
-    private int bFD;
+    private TbPageContext<?> aaX;
+    private ViewEventCenter bEJ;
+    private SoftReference<j> bFt;
+    private com.baidu.tieba.enterForum.a.b bFu;
+    private com.baidu.tieba.enterForum.a.a bFv;
+    private int bFw;
 
     public e(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        this.aaI = tbPageContext;
-        this.bEQ = viewEventCenter;
+        this.aaX = tbPageContext;
+        this.bEJ = viewEventCenter;
     }
 
-    public j VR() {
-        if (this.bFA == null) {
+    public j Wp() {
+        if (this.bFt == null) {
             return null;
         }
-        return this.bFA.get();
+        return this.bFt.get();
     }
 
-    public void VS() {
-        j jVar = new j(this.aaI.getPageActivity());
-        jVar.setEventCenter(this.bEQ);
-        this.bFA = new SoftReference<>(jVar);
+    public void Wq() {
+        j jVar = new j(this.aaX.getPageActivity());
+        jVar.setEventCenter(this.bEJ);
+        this.bFt = new SoftReference<>(jVar);
     }
 
-    public int VT() {
-        return this.bFD;
+    public int Wr() {
+        return this.bFw;
     }
 
     public List<u> getDataList() {
-        if (this.bFD == 2) {
+        if (this.bFw == 2) {
             if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                return d(this.bFC.getDataList(), false);
+                return d(this.bFv.getDataList(), false);
             }
-            return this.bFC.getDataList();
+            return this.bFv.getDataList();
         }
-        return this.bFB.getDataList();
+        return this.bFu.getDataList();
     }
 
     public void b(u uVar) {
         List<u> dataList = getDataList();
         if (dataList != null) {
             dataList.remove(uVar);
-            if (this.bFD == 2) {
+            if (this.bFw == 2) {
                 if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                    this.bFC.w(d(dataList, true));
+                    this.bFv.w(d(dataList, true));
                     return;
                 } else {
-                    this.bFC.w(dataList);
+                    this.bFv.w(dataList);
                     return;
                 }
             }
-            this.bFB.w(dataList);
+            this.bFu.w(dataList);
         }
     }
 
-    public void VU() {
+    public void Ws() {
         List<u> dataList = getDataList();
-        if (this.bFD == 2) {
-            TiebaStatic.eventStat(this.aaI.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
-            this.bFD = 1;
+        if (this.bFw == 2) {
+            TiebaStatic.eventStat(this.aaX.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
+            this.bFw = 1;
         } else {
-            TiebaStatic.eventStat(this.aaI.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
-            this.bFD = 2;
+            TiebaStatic.eventStat(this.aaX.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
+            this.bFw = 2;
         }
-        a(this.bFD, dataList);
+        a(this.bFw, dataList);
     }
 
     public void a(int i, List<u> list) {
         j jVar;
-        this.bFD = i;
-        if (this.bFA != null && list != null && (jVar = this.bFA.get()) != null) {
+        this.bFw = i;
+        if (this.bFt != null && list != null && (jVar = this.bFt.get()) != null) {
             jVar.setColumnTypeAndRefeshView(i);
             af(list);
         }
@@ -110,51 +110,51 @@ public class e {
     }
 
     public void af(List<u> list) {
-        j jVar = this.bFA.get();
+        j jVar = this.bFt.get();
         if (jVar != null) {
-            if (this.bFD == 2) {
-                if (this.bFC == null) {
-                    VW();
+            if (this.bFw == 2) {
+                if (this.bFv == null) {
+                    Wu();
                 }
-                jVar.setGridAdapterIfNeeded(this.bFC);
+                jVar.setGridAdapterIfNeeded(this.bFv);
                 if (TbadkCoreApplication.m9getInst().getSkinType() != 2) {
-                    this.bFC.w(d(list, true));
+                    this.bFv.w(d(list, true));
                 } else {
-                    this.bFC.w(list);
+                    this.bFv.w(list);
                 }
-                this.bFC.b(this.aaI, TbadkCoreApplication.m9getInst().getSkinType());
+                this.bFv.b(this.aaX, TbadkCoreApplication.m9getInst().getSkinType());
                 return;
             }
-            if (this.bFB == null) {
-                VV();
+            if (this.bFu == null) {
+                Wt();
             }
-            jVar.setListAdapterIfNeeded(this.bFB);
-            this.bFB.w(list);
-            this.bFB.b(this.aaI, TbadkCoreApplication.m9getInst().getSkinType());
+            jVar.setListAdapterIfNeeded(this.bFu);
+            this.bFu.w(list);
+            this.bFu.b(this.aaX, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
-    private void VV() {
-        this.bFB = new com.baidu.tieba.enterForum.a.b(this.aaI, com.baidu.tieba.enterForum.c.u.class, w.j.home_like_item_in_edit_list, this.bEQ);
-        this.bFB.bS(false);
+    private void Wt() {
+        this.bFu = new com.baidu.tieba.enterForum.a.b(this.aaX, com.baidu.tieba.enterForum.c.u.class, w.j.home_like_item_in_edit_list, this.bEJ);
+        this.bFu.bU(false);
     }
 
-    private void VW() {
-        this.bFC = new com.baidu.tieba.enterForum.a.a(this.aaI, m.class, w.j.home_like_item_in_edit_grid, this.bEQ);
-        this.bFC.bS(false);
+    private void Wu() {
+        this.bFv = new com.baidu.tieba.enterForum.a.a(this.aaX, m.class, w.j.home_like_item_in_edit_grid, this.bEJ);
+        this.bFv.bU(false);
     }
 
     public void n(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.bFA.get() != null) {
-                this.bFA.get().n(tbPageContext);
+            if (this.bFt.get() != null) {
+                this.bFt.get().n(tbPageContext);
             }
-            if (this.bFD == 2) {
-                if (this.bFC != null) {
-                    this.bFC.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            if (this.bFw == 2) {
+                if (this.bFv != null) {
+                    this.bFv.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
                 }
-            } else if (this.bFB != null) {
-                this.bFB.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
+            } else if (this.bFu != null) {
+                this.bFu.b(tbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
             }
         }
     }

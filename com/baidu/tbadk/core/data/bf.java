@@ -1,22 +1,11 @@
 package com.baidu.tbadk.core.data;
+
+import com.baidu.tbadk.widget.richText.TbRichText;
 /* loaded from: classes.dex */
 public class bf {
-    private int WH;
-    private Object data;
-
-    public int rr() {
-        return this.WH;
-    }
-
-    public void bM(int i) {
-        this.WH = i;
-    }
-
-    public Object getData() {
-        return this.data;
-    }
-
-    public void setData(Object obj) {
-        this.data = obj;
-    }
+    public boolean XR;
+    public String XS;
+    public String XT;
+    public TbRichText XU;
+    public String threadTitle;
 }

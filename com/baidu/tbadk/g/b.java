@@ -1,26 +1,51 @@
 package com.baidu.tbadk.g;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class b extends Handler {
-    final /* synthetic */ a aHG;
+public abstract class b extends BaseFragment {
+    protected boolean RY = false;
+    private final CustomMessageListener mNetworkChangedMessageListener = new c(this, 2000994);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.aHG = aVar;
+    public abstract int getType();
+
+    public abstract boolean oQ();
+
+    public boolean oP() {
+        return this.RY;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        if (message.what == 900002 && message.arg2 > 0 && a.aHE != null) {
-            a.aHE.setLength(message.arg1);
-            a.aHE.setSize(message.arg2);
-            if (a.aHE.getCallback() != null) {
-                a.aHE.getCallback().e(a.aHE);
-            }
-        }
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onStart() {
+        super.onStart();
+        registerListener(this.mNetworkChangedMessageListener);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void onStop() {
+        super.onStop();
+        MessageManager.getInstance().unRegisterListener(this.mNetworkChangedMessageListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void ba(int i) {
+        Bundle bundle = new Bundle();
+        this.RY = !oQ() && i.hj();
+        bundle.putBoolean("is_enable_edit", this.RY);
+        bundle.putInt("fragment_type", i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(boolean z, int i) {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("is_edit_state", z);
+        bundle.putInt("fragment_type", i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION, bundle));
     }
 }

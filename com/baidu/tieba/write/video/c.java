@@ -4,26 +4,26 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ WriteLocationView fNk;
+    final /* synthetic */ WriteLocationView fOT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(WriteLocationView writeLocationView) {
-        this.fNk = writeLocationView;
+        this.fOT = writeLocationView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        i = this.fNk.aAG;
+        i = this.fOT.aAW;
         switch (i) {
             case 0:
-                this.fNk.Dt();
+                this.fOT.DR();
                 return;
             case 1:
             default:
                 return;
             case 2:
-                this.fNk.Ds();
+                this.fOT.DQ();
                 return;
         }
     }

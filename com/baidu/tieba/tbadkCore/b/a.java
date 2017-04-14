@@ -20,15 +20,15 @@ import com.baidu.tieba.w;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static com.baidu.adp.lib.guide.d ftt;
+    private static com.baidu.adp.lib.guide.d fvc;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0073a {
-        void kZ();
+    public interface InterfaceC0072a {
+        void ld();
     }
 
-    public static void a(BaseActivity<?> baseActivity, View view, boolean z, InterfaceC0073a interfaceC0073a) {
+    public static void a(BaseActivity<?> baseActivity, View view, boolean z, InterfaceC0072a interfaceC0072a) {
         int defaultBubbleEndTime;
         SpannableString spannableString;
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && (defaultBubbleEndTime = TbadkCoreApplication.m9getInst().getDefaultBubbleEndTime()) > 0) {
@@ -37,11 +37,11 @@ public class a {
                 MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RESET_BUBBLE, TbPageContext.class, baseActivity.getPageContext());
                 TbadkCoreApplication.m9getInst().setDefaultBubble(null);
                 TbadkCoreApplication.m9getInst().setDefaultBubbleEndTime(0);
-                if (interfaceC0073a != null) {
-                    interfaceC0073a.kZ();
+                if (interfaceC0072a != null) {
+                    interfaceC0072a.ld();
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
-                aVar.au(false);
+                aVar.aw(false);
                 View inflate = LayoutInflater.from(baseActivity.getPageContext().getPageActivity()).inflate(w.j.bubble_free_dialog_content, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(w.h.tip1);
                 TextView textView2 = (TextView) inflate.findViewById(w.h.tip2);
@@ -54,11 +54,11 @@ public class a {
                 aVar.a(w.l.open_now, new b(baseActivity));
                 aVar.b(w.l.group_create_private_isee, new c());
                 aVar.b(baseActivity.getPageContext());
-                aVar.ts();
+                aVar.tQ();
                 return;
             }
             int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;
-            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != com.baidu.tbadk.core.sharedPref.b.uo().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != com.baidu.tbadk.core.sharedPref.b.uL().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 int i2 = w.e.cp_cont_g;
                 int i3 = w.e.cp_link_tip_d;
                 int i4 = w.g.pop_float_arrow;
@@ -78,21 +78,21 @@ public class a {
                     spannableString.setSpan(new ForegroundColorSpan(aq.getColor(i3)), 10, 14, 34);
                 }
                 com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-                gVar.o(view).ae(0).z(false);
+                gVar.o(view).ad(0).z(false);
                 gVar.a(new d(baseActivity, z, spannableString, i4));
                 gVar.y(true);
                 gVar.A(false);
-                ftt = gVar.eW();
+                fvc = gVar.fb();
                 new Handler().postDelayed(new f(baseActivity, z), 1000L);
-                com.baidu.tbadk.core.sharedPref.b.uo().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
+                com.baidu.tbadk.core.sharedPref.b.uL().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity, boolean z) {
-        if (ftt != null) {
-            ftt.j(activity);
+        if (fvc != null) {
+            fvc.j(activity);
         }
         if (!z) {
             new Handler().postDelayed(new g(), TbConfig.NOTIFY_SOUND_INTERVAL);

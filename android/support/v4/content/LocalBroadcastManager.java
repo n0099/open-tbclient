@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import com.tencent.mm.sdk.modelbase.BaseResp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -179,7 +180,7 @@ public class LocalBroadcastManager {
                         } else {
                             if (z) {
                                 switch (match) {
-                                    case -4:
+                                    case BaseResp.ErrCode.ERR_AUTH_DENIED /* -4 */:
                                         str = "category";
                                         break;
                                     case -3:

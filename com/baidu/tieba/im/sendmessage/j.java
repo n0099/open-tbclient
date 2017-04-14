@@ -7,22 +7,22 @@ import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.util.f<Boolean> {
-    private final /* synthetic */ ChatMessage ddo;
-    final /* synthetic */ a dgf;
-    private final /* synthetic */ CommonGroupChatMessage dgk;
+    private final /* synthetic */ ChatMessage dbK;
+    final /* synthetic */ a deC;
+    private final /* synthetic */ CommonGroupChatMessage deH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar, CommonGroupChatMessage commonGroupChatMessage, ChatMessage chatMessage) {
-        this.dgf = aVar;
-        this.dgk = commonGroupChatMessage;
-        this.ddo = chatMessage;
+        this.deC = aVar;
+        this.deH = commonGroupChatMessage;
+        this.dbK = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.f
     public void onReturnDataInUI(Boolean bool) {
-        this.dgk.setLogTime(System.currentTimeMillis());
-        MessageManager.getInstance().sendMessage(this.dgk);
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(this.dgk.getGroupId(), this.ddo.getCustomGroupType(), this.ddo, 3)));
+        this.deH.setLogTime(System.currentTimeMillis());
+        MessageManager.getInstance().sendMessage(this.deH);
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(this.deH.getGroupId(), this.dbK.getCustomGroupType(), this.dbK, 3)));
     }
 }

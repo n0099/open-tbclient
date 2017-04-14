@@ -25,6 +25,7 @@ public class ImMessageCenterPojo implements Serializable {
     int is_delete;
     int is_hidden;
     String last_content;
+    String last_content_raw_data;
     long last_content_time;
     long last_rid;
     String last_user_name;
@@ -311,5 +312,13 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setRead_msgId(long j) {
         this.read_msgId = j;
+    }
+
+    public void setLastContentRawData(String str) {
+        this.last_content_raw_data = str;
+    }
+
+    public String getLastContentRawData() {
+        return this.last_content_raw_data;
     }
 }

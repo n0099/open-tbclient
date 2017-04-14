@@ -4,20 +4,20 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AbsListView.OnScrollListener {
-    final /* synthetic */ n fIe;
+    final /* synthetic */ n fJN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.fIe = nVar;
+        this.fJN = nVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         v vVar;
         v vVar2;
-        vVar = this.fIe.fId;
+        vVar = this.fJN.fJM;
         if (vVar != null) {
-            vVar2 = this.fIe.fId;
+            vVar2 = this.fJN.fJM;
             vVar2.onScrollStateChanged(absListView, i);
         }
     }
@@ -26,11 +26,11 @@ public class o implements AbsListView.OnScrollListener {
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         v vVar;
         v vVar2;
-        this.fIe.Qp();
-        this.fIe.Qq();
-        vVar = this.fIe.fId;
+        this.fJN.QN();
+        this.fJN.QO();
+        vVar = this.fJN.fJM;
         if (vVar != null) {
-            vVar2 = this.fIe.fId;
+            vVar2 = this.fJN.fJM;
             vVar2.onScroll(absListView, i, i2, i3);
         }
     }

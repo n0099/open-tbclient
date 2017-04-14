@@ -12,13 +12,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bx extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bx(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public bx(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,10 +29,10 @@ public class bx extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.datas != null) {
             ArrayList arrayList = new ArrayList();
             for (MemoryModifyVisibilityMessage.a aVar : data.datas) {
-                b.asj().e(aVar.id, aVar.customGroupType, aVar.visible);
+                b.asc().e(aVar.id, aVar.customGroupType, aVar.visible);
             }
             if (memoryClearStrangerItemsMessage.isAllClear()) {
-                b.asj().f("-1001", -7, false);
+                b.asc().f("-1001", -7, false);
             }
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new by(this, arrayList, data, memoryClearStrangerItemsMessage));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());

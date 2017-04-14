@@ -27,7 +27,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         DESCEND,
         NONE;
 
-        /* JADX DEBUG: Replace access to removed values field (rc) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qB) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SORT[] valuesCustom() {
             SORT[] valuesCustom = values();
@@ -200,24 +200,24 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT rb;
+        private SORT qA;
 
         public a(SORT sort) {
-            this.rb = null;
-            this.rb = sort;
+            this.qA = null;
+            this.qA = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.rb == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.qA == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.K(i);
+        return FrameHelper.I(i);
     }
 
     public boolean setNeedProgress() {

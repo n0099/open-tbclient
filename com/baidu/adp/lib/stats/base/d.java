@@ -7,8 +7,8 @@ public class d implements Comparator<c> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(c cVar, c cVar2) {
-        long j = cVar.xR;
-        long j2 = cVar2.xR;
+        long j = cVar.xs;
+        long j2 = cVar2.xs;
         if (j > j2) {
             return 1;
         }

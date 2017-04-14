@@ -1,69 +1,69 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class df extends cz<com.baidu.tieba.pb.data.a, dg> implements View.OnClickListener {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public df(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class df {
+    private BaseActivity bcy;
+    private PbModel eif;
+    private final CustomMessageListener eld = new dg(this, CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS);
+    private final CustomMessageListener ele = new dh(this, CmdConfigCustom.CMD_GRAFFITI_COMMIT_SUCCESS);
+
+    public df(PbModel pbModel, BaseActivity baseActivity) {
+        this.eif = pbModel;
+        this.bcy = baseActivity;
+        this.bcy.registerListener(this.eld);
+        this.bcy.registerListener(this.ele);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aX */
-    public dg onCreateViewHolder(ViewGroup viewGroup) {
-        dg dgVar = new dg(LayoutInflater.from(this.mContext).inflate(w.j.god_card_list_item, (ViewGroup) null));
-        a(dgVar);
-        return dgVar;
+    public boolean aLn() {
+        return (this.eif == null || this.eif.getPbData() == null || this.eif.getPbData().aJu() == null || this.eif.getPbData().rr() == null || !this.eif.aLC() || this.eif.getPbData().aJu().qU() || !aLs() || com.baidu.tbadk.core.util.x.p(this.eif.getPbData().aJu().getItems()) == 0 || this.eif.getPbData().rr().rn() != 0 || this.eif.getPbData().rr().ri() < 4 || this.eif.getPbData().aJu().qW()) ? false : true;
     }
 
-    private void a(dg dgVar) {
-        if (dgVar != null) {
-            int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            if (dgVar.mSkinType != skinType) {
-                com.baidu.tbadk.i.a.a(this.eka.getPageContext(), dgVar.getView());
-            }
-            dgVar.mSkinType = skinType;
+    public boolean aLo() {
+        return (this.eif == null || this.eif.getPbData() == null || this.eif.getPbData().aJu() == null || this.eif.getPbData().rr() == null || !this.eif.aLC() || this.eif.getPbData().aJu().qU() || !aLs() || com.baidu.tbadk.core.util.x.p(this.eif.getPbData().aJu().getItems()) == 0 || this.eif.getPbData().rr().rl() != 2 || this.eif.getPbData().aJu().qV()) ? false : true;
+    }
+
+    public void aLp() {
+        if (this.eif != null && this.eif.getPbData() != null && this.eif.getPbData().aJu() != null) {
+            this.eif.getPbData().aJu().ar(true);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.cz, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, dg dgVar) {
-        super.onFillViewHolder(i, view, viewGroup, aVar, dgVar);
-        a(dgVar);
-        dgVar.emU.setOnClickListener(this);
-        dgVar.emT.setOnClickListener(this);
-        dgVar.emU.setTag(aVar);
-        dgVar.emT.setTag(aVar);
-        if (aVar != null) {
-            dgVar.bXk.c(aVar.getPortrait(), 28, false);
-            dgVar.bsn.setText(aVar.getUserName());
-            dgVar.cQy.setText(aVar.aJd());
-            dgVar.cli.setText(aVar.getText());
-            dgVar.emT.c(aVar.getPicUrl(), 10, false);
-            dgVar.emU.setText(aVar.aJe());
+    public void aLq() {
+        if (this.eif != null && this.eif.getPbData() != null && this.eif.getPbData().aJu() != null) {
+            this.eif.getPbData().aJu().aq(true);
         }
-        return view;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && com.baidu.tbadk.core.util.bg.aI(this.mContext)) {
-            String aJf = ((com.baidu.tieba.pb.data.a) view.getTag()).aJf();
-            if (!StringUtils.isNull(aJf)) {
-                com.baidu.tbadk.core.util.bb.vQ().c(this.eka.getPageContext(), new String[]{aJf});
+    public com.baidu.tbadk.core.data.af aLr() {
+        if (!aLs() || this.eif == null || this.eif.getPbData() == null) {
+            return null;
+        }
+        return this.eif.getPbData().aJu();
+    }
+
+    public boolean aLs() {
+        return com.baidu.tieba.graffiti.c.agD() && aLt();
+    }
+
+    private boolean aLt() {
+        if (this.eif == null || this.eif.getPbData() == null) {
+            return false;
+        }
+        PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(this.eif.getPbData().aJz(), 0);
+        return postData != null && (postData.getType() == PostData.fvP || postData.getType() == PostData.Yc || postData.getType() == PostData.fvR);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str = (String) customResponsedMessage.getData();
+            if (this.eif != null && this.eif.getPbData() != null && this.eif.getPbData().aJu() != null && str.equals(this.eif.getThreadID())) {
+                this.eif.getPbData().aJu().ap(true);
             }
         }
     }

@@ -13,10 +13,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class h {
-    private static WeakReference<byte[]> FO;
+    private static WeakReference<byte[]> Fp;
     private static Object mSync = new Object();
 
-    public static Signature[] bA(String str) throws CertificateEncodingException, IOException {
+    public static Signature[] bv(String str) throws CertificateEncodingException, IOException {
         byte[] bArr;
         byte[] bArr2;
         WeakReference<byte[]> weakReference;
@@ -25,9 +25,9 @@ public final class h {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = FO;
+            WeakReference<byte[]> weakReference2 = Fp;
             if (weakReference2 != null) {
-                FO = null;
+                Fp = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -80,7 +80,7 @@ public final class h {
             }
             jarFile.close();
             synchronized (mSync) {
-                FO = weakReference;
+                Fp = weakReference;
             }
             if (certificateArr != null && certificateArr.length > 0) {
                 int length = certificateArr.length;

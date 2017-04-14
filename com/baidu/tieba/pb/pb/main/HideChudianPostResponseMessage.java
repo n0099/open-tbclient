@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -42,8 +41,8 @@ public class HideChudianPostResponseMessage extends JsonHttpResponsedMessage {
             if (isSuccess()) {
                 this.resultFlag = jSONObject.optInt(FrsActivityConfig.FLAG);
                 this.templateId = jSONObject.optLong("template_id");
-                this.errorCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE);
-                this.errorMessage = jSONObject.optString(SocialConstants.PARAM_ERROR_MSG);
+                this.errorCode = jSONObject.optInt("error_code");
+                this.errorMessage = jSONObject.optString("error_msg");
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.data.ExceptionData;
 /* loaded from: classes.dex */
 class k extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,30 +13,8 @@ class k extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            switch (customResponsedMessage.getCmd()) {
-                case CmdConfigCustom.METHOD_START_SYNC /* 2005009 */:
-                    TbadkCoreApplication.m9getInst().startSyncService();
-                    return;
-                case CmdConfigCustom.METHOD_STOP_SYNC /* 2005010 */:
-                    TbadkCoreApplication.m9getInst().stopSyncService();
-                    return;
-                case CmdConfigCustom.METHOD_START_ACTIVE /* 2005011 */:
-                    TbadkCoreApplication.m9getInst().startActiveService();
-                    return;
-                case CmdConfigCustom.METHOD_STOP_ACTIVE /* 2005012 */:
-                    TbadkCoreApplication.m9getInst().stopActiveServide();
-                    return;
-                case CmdConfigCustom.METHOD_START_CLEARTEMP /* 2005013 */:
-                    TbadkCoreApplication.m9getInst().startClearTempService();
-                    return;
-                case CmdConfigCustom.METHOD_IM_MESSAGE_CACHE_INITED /* 2005014 */:
-                default:
-                    return;
-                case CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED /* 2005015 */:
-                    TbadkCoreApplication.m9getInst().startSyncLoginService();
-                    return;
-            }
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("java.lang.SecurityException: No permission to modify given thread")) {
+            TbadkCoreApplication.m9getInst().setWebviewCrashCount(TbadkCoreApplication.m9getInst().getWebviewCrashCount() + 1);
         }
     }
 }

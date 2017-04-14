@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public class h<T> {
-    public String tS;
-    public String tT;
-    public long tU;
-    public long tV;
-    public long tW;
-    public T te;
+    public T sB;
+    public String tq;
+    public String tr;
+    public long ts;
+    public long tt;
+    public long tu;
 }

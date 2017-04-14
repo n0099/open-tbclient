@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements FragmentTabHost.b {
-    final /* synthetic */ z fyG;
+    final /* synthetic */ z fAp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar) {
-        this.fyG = zVar;
+        this.fAp = zVar;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabHost.b

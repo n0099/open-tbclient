@@ -17,7 +17,7 @@ public class d {
         return this.post_url;
     }
 
-    public String pu() {
+    public String pS() {
         return this.button_text;
     }
 

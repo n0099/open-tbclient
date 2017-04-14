@@ -3,13 +3,13 @@ package com.baidu.adp.lib.b;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    private int mDefaultType;
     private String mName;
-    private a mSwitchListener;
-    private int mMaxCrashTimes = 0;
-    private String[] uB = null;
-    private int mOffType = 0;
-    private String[] uC = null;
+    private int tX;
+    private a ub;
+    private int tZ = 0;
+    private String[] ud = null;
+    private int tY = 0;
+    private String[] ue = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,53 +18,53 @@ public class c {
 
     public c(String str, int i, a aVar) {
         this.mName = null;
-        this.mSwitchListener = null;
-        this.mDefaultType = 0;
+        this.ub = null;
+        this.tX = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.mSwitchListener = aVar;
-        this.mDefaultType = i;
+        this.ub = aVar;
+        this.tX = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.mMaxCrashTimes = i;
-        this.uB = strArr;
-        this.mOffType = i2;
+        this.tZ = i;
+        this.ud = strArr;
+        this.tY = i2;
     }
 
     public void g(String[] strArr) {
-        this.uC = strArr;
+        this.ue = strArr;
     }
 
-    public String[] getSwitchLibs() {
-        return this.uC;
+    public String[] eT() {
+        return this.ue;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public int getMaxCrashTimes() {
-        return this.mMaxCrashTimes;
+    public int eS() {
+        return this.tZ;
     }
 
-    public String[] eQ() {
-        return this.uB;
+    public String[] eV() {
+        return this.ud;
     }
 
-    public int getOffType() {
-        return this.mOffType;
+    public int eR() {
+        return this.tY;
     }
 
-    public int getDefaultType() {
-        return this.mDefaultType;
+    public int eQ() {
+        return this.tX;
     }
 
     public void d(int i, boolean z) {
-        if (this.mSwitchListener != null) {
-            this.mSwitchListener.a(this.mName, i, z);
+        if (this.ub != null) {
+            this.ub.a(this.mName, i, z);
         }
     }
 }

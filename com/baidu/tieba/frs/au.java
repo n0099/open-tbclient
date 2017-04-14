@@ -1,30 +1,29 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
+import android.graphics.drawable.Drawable;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class au implements com.baidu.adp.widget.ListView.v {
-    public static final BdUniqueId bOl = BdUniqueId.gen();
-    private int height = 0;
-    private int blm = 0;
+public class au {
+    private HashMap<String, Drawable> bNT = new HashMap<>();
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return bOl;
+    public Drawable x(int i, int i2) {
+        String ag = ag(i, i2);
+        Drawable drawable = this.bNT.get(ag);
+        if (drawable == null) {
+            Drawable x = com.baidu.tbadk.core.util.aq.x(i2, i);
+            this.bNT.put(ag, x);
+            return x.getConstantState().newDrawable();
+        }
+        return drawable.getConstantState().newDrawable();
     }
 
-    public int getHeight() {
-        return this.height;
+    private String ag(int i, int i2) {
+        return String.valueOf(i) + "_" + i2;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public int getBgResId() {
-        return this.blm;
-    }
-
-    public void hM(int i) {
-        this.blm = i;
+    public void destory() {
+        if (!this.bNT.isEmpty()) {
+            this.bNT.clear();
+        }
     }
 }

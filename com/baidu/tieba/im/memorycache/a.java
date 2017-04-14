@@ -6,36 +6,36 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> dcb = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> dax = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0065a {
+    public interface InterfaceC0064a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
-    public void a(InterfaceC0065a interfaceC0065a) {
-        interfaceC0065a.a(this.dcb.values().iterator());
+    public void a(InterfaceC0064a interfaceC0064a) {
+        interfaceC0064a.a(this.dax.values().iterator());
     }
 
-    public void ash() {
-        this.dcb.clear();
+    public void asa() {
+        this.dax.clear();
     }
 
     public void d(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.dcb.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.dax.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
-    public ImMessageCenterPojo kC(String str) {
+    public ImMessageCenterPojo kI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.dcb.get(str);
+        return this.dax.get(str);
     }
 
-    public boolean kD(String str) {
-        return (TextUtils.isEmpty(str) || this.dcb.remove(str) == null) ? false : true;
+    public boolean kJ(String str) {
+        return (TextUtils.isEmpty(str) || this.dax.remove(str) == null) ? false : true;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String aVW = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/getreason";
+    private static final String aWj = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/getreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,14 +24,14 @@ public class g {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidReasonData> {
-        private String aVR;
-        private String aVS;
-        private WeakReference<b> aVV;
+        private String aWe;
+        private String aWf;
+        private WeakReference<b> aWi;
 
         public a(String str, String str2, b bVar) {
-            this.aVR = str;
-            this.aVS = str2;
-            this.aVV = new WeakReference<>(bVar);
+            this.aWe = str;
+            this.aWf = str2;
+            this.aWi = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -40,13 +40,13 @@ public class g {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: s */
         public ForbidReasonData doInBackground(String... strArr) {
-            z zVar = new z(g.aVW);
-            zVar.n("forum_id", this.aVR);
-            zVar.n("user_id", this.aVS);
-            String uB = zVar.uB();
-            if (zVar.uZ().vT().isRequestSuccess()) {
+            z zVar = new z(g.aWj);
+            zVar.n("forum_id", this.aWe);
+            zVar.n("user_id", this.aWf);
+            String uY = zVar.uY();
+            if (zVar.vw().wq().isRequestSuccess()) {
                 try {
-                    ForbidReasonData forbidReasonData = (ForbidReasonData) OrmObject.objectWithJsonStr(uB, ForbidReasonData.class);
+                    ForbidReasonData forbidReasonData = (ForbidReasonData) OrmObject.objectWithJsonStr(uY, ForbidReasonData.class);
                     forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
                     return forbidReasonData;
                 } catch (Exception e) {
@@ -57,7 +57,7 @@ public class g {
                 }
             }
             ForbidReasonData forbidReasonData3 = new ForbidReasonData();
-            forbidReasonData3.error.errno = zVar.vd();
+            forbidReasonData3.error.errno = zVar.vA();
             forbidReasonData3.error.errMsg = zVar.getErrorString();
             return forbidReasonData3;
         }
@@ -68,7 +68,7 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidReasonData forbidReasonData) {
             super.onPostExecute(forbidReasonData);
-            b bVar = this.aVV.get();
+            b bVar = this.aWi.get();
             if (bVar != null) {
                 if (forbidReasonData.error.errno == 0 && au.isEmpty(forbidReasonData.error.errMsg)) {
                     bVar.a(forbidReasonData);

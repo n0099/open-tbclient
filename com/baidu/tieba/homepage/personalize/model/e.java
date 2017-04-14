@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.personalize.model;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.card.data.m;
 import com.baidu.tieba.card.data.n;
@@ -21,7 +21,7 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.Resource;
 /* loaded from: classes.dex */
 public class e {
-    public static void c(DataRes.Builder builder) {
+    public static void d(DataRes.Builder builder) {
         if (builder != null) {
             x.o(builder.resource_list);
             x.o(builder.card_forum);
@@ -59,7 +59,7 @@ public class e {
             if (builder.age_sex == null) {
                 builder.age_sex = builder2.age_sex;
                 if (builder2.age_sex != null) {
-                    com.baidu.tbadk.core.sharedPref.b.uo().putBoolean("has_requested_new_user_guide", true);
+                    com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("has_requested_new_user_guide", true);
                 }
             }
             if (builder2.interestion != null && builder != null && builder.interestion != null && builder.interestion.size() == 0) {
@@ -71,7 +71,7 @@ public class e {
         }
     }
 
-    public static List<t> d(DataRes.Builder builder) {
+    public static List<t> e(DataRes.Builder builder) {
         com.baidu.tieba.homepage.personalize.data.d dVar = null;
         if (builder == null) {
             return null;
@@ -86,10 +86,10 @@ public class e {
         }
         if (builder.card_forum != null) {
             for (CardForum cardForum : builder.card_forum) {
-                if (cardForum != null && com.baidu.tieba.homepage.personalize.data.b.jT(cardForum.card_type.intValue()) && dVar == null) {
+                if (cardForum != null && com.baidu.tieba.homepage.personalize.data.b.jU(cardForum.card_type.intValue()) && dVar == null) {
                     dVar = new com.baidu.tieba.homepage.personalize.data.d();
                     dVar.a(cardForum);
-                    if (dVar.pq()) {
+                    if (dVar.pO()) {
                         linkedList.add(dVar);
                     }
                 }
@@ -100,29 +100,29 @@ public class e {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
                 if (aVar.getPosition() <= 0) {
-                    a(aVar.SK(), 1, 100);
+                    a(aVar.Ti(), 1, 100);
                 } else {
-                    AdvertAppInfo SK = aVar.SK();
-                    if (SK == null) {
-                        a(aVar.SK(), 1, 100);
+                    AdvertAppInfo Ti = aVar.Ti();
+                    if (Ti == null) {
+                        a(aVar.Ti(), 1, 100);
                     } else {
-                        if (SK.pr()) {
+                        if (Ti.pP()) {
                             try {
-                                if (TextUtils.isEmpty(SK.TD) || ae.isInstalledPackage(TbadkCoreApplication.m9getInst().getContext(), SK.TD)) {
-                                    if (TextUtils.isEmpty(SK.TD)) {
-                                        a(aVar.SK(), 1, 100);
+                                if (TextUtils.isEmpty(Ti.TW) || ae.isInstalledPackage(TbadkCoreApplication.m9getInst().getContext(), Ti.TW)) {
+                                    if (TextUtils.isEmpty(Ti.TW)) {
+                                        a(aVar.Ti(), 1, 100);
                                     } else {
-                                        a(aVar.SK(), 1, 3);
+                                        a(aVar.Ti(), 1, 3);
                                     }
                                 }
                             } catch (Exception e) {
-                                a(aVar.SK(), 1, 100);
+                                a(aVar.Ti(), 1, 100);
                             }
                         }
-                        if (SK.pq()) {
+                        if (Ti.pO()) {
                             linkedList.add(aVar);
                         } else {
-                            a(aVar.SK(), 1, 100);
+                            a(aVar.Ti(), 1, 100);
                         }
                     }
                 }
@@ -132,7 +132,7 @@ public class e {
             for (CardGod cardGod : builder.card_god) {
                 com.baidu.tieba.homepage.personalize.data.e eVar = new com.baidu.tieba.homepage.personalize.data.e();
                 eVar.a(cardGod);
-                if (eVar.pq()) {
+                if (eVar.pO()) {
                     linkedList.add(eVar);
                 }
             }
@@ -140,7 +140,7 @@ public class e {
         return linkedList;
     }
 
-    public static void e(DataRes.Builder builder) {
+    public static void f(DataRes.Builder builder) {
         if (builder != null) {
             if (builder.thread_list == null) {
                 builder.thread_list = new LinkedList();
@@ -166,30 +166,30 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.card.data.c E(bj bjVar) {
-        if (m.n(bjVar)) {
-            return new m(bjVar);
+    public static com.baidu.tieba.card.data.c B(bi biVar) {
+        if (m.n(biVar)) {
+            return new m(biVar);
         }
-        if (o.n(bjVar)) {
-            return new o(bjVar);
+        if (o.n(biVar)) {
+            return new o(biVar);
         }
-        if (p.n(bjVar)) {
-            return new p(bjVar);
+        if (p.n(biVar)) {
+            return new p(biVar);
         }
-        if (n.n(bjVar)) {
+        if (n.n(biVar)) {
             n nVar = new n();
-            if (bjVar.rT()) {
-                nVar.bvo = true;
+            if (biVar.sr()) {
+                nVar.bvh = true;
             } else {
-                nVar.bvo = false;
+                nVar.bvh = false;
             }
-            nVar.threadData = bjVar;
+            nVar.threadData = biVar;
             return nVar;
         }
         return null;
     }
 
-    public static void f(DataRes.Builder builder) {
+    public static void g(DataRes.Builder builder) {
         if (builder != null && builder.card_forum != null && builder.card_topic != null && builder.resource_list != null && x.p(builder.thread_list) != 0) {
             int p = x.p(builder.thread_list);
             for (int size = builder.card_forum.size() - 1; size >= 0; size--) {
@@ -221,7 +221,7 @@ public class e {
                         if (g < 0 || g > p) {
                             com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                             aVar.b(app);
-                            a(aVar.SK(), 1, 2);
+                            a(aVar.Ti(), 1, 2);
                             builder2.app.remove(size5);
                         }
                     }
@@ -234,6 +234,6 @@ public class e {
     }
 
     private static void a(AdvertAppInfo advertAppInfo, int i, int i2) {
-        com.baidu.tieba.recapp.report.b.aZQ().a(com.baidu.tieba.recapp.report.e.a(advertAppInfo, 5, i, i2));
+        com.baidu.tieba.recapp.report.b.baz().a(com.baidu.tieba.recapp.report.e.a(advertAppInfo, 5, i, i2));
     }
 }

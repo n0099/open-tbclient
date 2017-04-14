@@ -6,20 +6,20 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnTouchListener {
-    final /* synthetic */ AddFriendActivity diy;
+    final /* synthetic */ AddFriendActivity dgX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AddFriendActivity addFriendActivity) {
-        this.diy = addFriendActivity;
+        this.dgX = addFriendActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         EditText editText;
         EditText editText2;
-        editText = this.diy.dis;
+        editText = this.dgX.dgR;
         if (editText.getParent() != null) {
-            editText2 = this.diy.dis;
+            editText2 = this.dgX.dgR;
             editText2.getParent().requestDisallowInterceptTouchEvent(true);
             return false;
         }

@@ -3,67 +3,60 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.c.a;
 /* loaded from: classes.dex */
-class r implements ar {
-    final /* synthetic */ FrsActivity bNU;
+class r implements at {
+    final /* synthetic */ FrsActivity bNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FrsActivity frsActivity) {
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ar
-    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.bj bjVar) {
+    @Override // com.baidu.tieba.frs.at
+    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.bi biVar) {
         String str;
-        if (i != this.bNU.bMN.ZG().aaT()) {
-            if (i != this.bNU.bMN.ZG().aaU()) {
-                if (i != this.bNU.bMN.ZG().aaW()) {
-                    if (i != this.bNU.bMN.ZG().ZY()) {
-                        if (i != this.bNU.bMN.ZG().aaX()) {
-                            if (i == this.bNU.bMN.ZG().aaV() && this.bNU.bMO != null && this.bNU.bMO.getUserData() != null && this.bNU.bMO.getUserData().isBawu()) {
-                                String bfS = this.bNU.bMO.bfS();
-                                if (!com.baidu.tbadk.core.util.au.isEmpty(bfS) && this.bNU.bMO.aJp() != null) {
-                                    a.a(this.bNU.getPageContext(), this.bNU.bMO.aJp().getId(), this.bNU.bMO.aJp().getName(), new s(this, bfS));
-                                    return;
-                                }
+        if (i != this.bNJ.bMD.aae().abr()) {
+            if (i != this.bNJ.bMD.aae().abs()) {
+                if (i != this.bNJ.bMD.aae().abu()) {
+                    if (i != this.bNJ.bMD.aae().aaw()) {
+                        if (i == this.bNJ.bMD.aae().abt() && this.bNJ.bME != null && this.bNJ.bME.getUserData() != null && this.bNJ.bME.getUserData().isBawu()) {
+                            String bgF = this.bNJ.bME.bgF();
+                            if (!com.baidu.tbadk.core.util.au.isEmpty(bgF) && this.bNJ.bME.aJw() != null) {
+                                a.a(this.bNJ.getPageContext(), this.bNJ.bME.aJw().getId(), this.bNJ.bME.aJw().getName(), new s(this, bgF));
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log("c10417");
-                        this.bNU.bMO.bgz();
-                        this.bNU.bMN.ZA();
-                        b.uo().putLong("frs_storecard_closetime", System.currentTimeMillis());
                         return;
                     }
-                    this.bNU.bMD = bjVar;
-                    com.baidu.tieba.frs.utils.t.b(this.bNU, this.bNU.bMD);
-                    TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10179").Z("fid", this.bNU.getForumId()));
+                    this.bNJ.bMt = biVar;
+                    com.baidu.tieba.frs.f.t.b(this.bNJ, this.bNJ.bMt);
+                    TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10179").aa("fid", this.bNJ.getForumId()));
                     return;
                 }
-                com.baidu.tieba.frs.utils.t.E(this.bNU);
-                if (i == this.bNU.bMN.ZG().aaW()) {
+                com.baidu.tieba.frs.f.t.E(this.bNJ);
+                if (i == this.bNJ.bMD.aae().abu()) {
                     str = "c10177";
                 } else {
                     str = "c10244";
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).Z("fid", this.bNU.getForumId()));
-            } else if (this.bNU.checkUpIsLogin()) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as(str).aa("fid", this.bNJ.getForumId()));
+            } else if (this.bNJ.checkUpIsLogin()) {
                 TiebaStatic.log("my_service_ck");
-                if (this.bNU.bMO != null && this.bNU.bMO.aJp() != null) {
-                    ForumData aJp = this.bNU.bMO.aJp();
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.bNU.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(aJp.getId(), 0L), aJp.getName(), aJp.getImage_url(), 0)));
+                if (this.bNJ.bME != null && this.bNJ.bME.aJw() != null) {
+                    ForumData aJw = this.bNJ.bME.aJw();
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.bNJ.getPageContext().getPageActivity(), b.c(aJw.getId(), 0L), aJw.getName(), aJw.getImage_url(), 0)));
                 }
             }
-        } else if (this.bNU.checkUpIsLogin()) {
+        } else if (this.bNJ.checkUpIsLogin()) {
             TiebaStatic.log("forum_fortune_click");
-            com.baidu.tieba.frs.utils.t.b(this.bNU, this.bNU.bMO);
+            com.baidu.tieba.frs.f.t.b(this.bNJ, this.bNJ.bME);
         }
     }
 }

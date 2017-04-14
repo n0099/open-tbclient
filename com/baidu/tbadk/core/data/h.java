@@ -4,11 +4,11 @@ import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements Comparator<AdvertAppInfo> {
-    final /* synthetic */ BannerListData Um;
+    final /* synthetic */ BannerListData UG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BannerListData bannerListData) {
-        this.Um = bannerListData;
+        this.UG = bannerListData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

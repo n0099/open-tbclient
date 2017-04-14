@@ -13,13 +13,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends CustomMessageListener {
-    final /* synthetic */ af eHr;
+    final /* synthetic */ af eFn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ag(af afVar, int i) {
         super(i);
-        this.eHr = afVar;
+        this.eFn = afVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,26 +38,26 @@ public class ag extends CustomMessageListener {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null) {
                 BdUniqueId tag = message.getTag();
-                baseActivity = this.eHr.bcF;
+                baseActivity = this.eFn.bcy;
                 if (tag.equals(baseActivity.getUniqueId())) {
-                    if (updateAttentionMessage.getData().CX) {
-                        this.eHr.mIsLiked = updateAttentionMessage.getData().isAttention;
-                        afVar = this.eHr.eHp;
+                    if (updateAttentionMessage.getData().Cy) {
+                        this.eFn.mIsLiked = updateAttentionMessage.getData().isAttention;
+                        afVar = this.eFn.eFl;
                         afVar.setData(updateAttentionMessage.getData().isAttention);
-                        z = this.eHr.mIsLiked;
+                        z = this.eFn.mIsLiked;
                         if (!z) {
-                            tbPageContext3 = this.eHr.aaI;
+                            tbPageContext3 = this.eFn.aaX;
                             Activity pageActivity = tbPageContext3.getPageActivity();
-                            tbPageContext4 = this.eHr.aaI;
-                            BdToast.a(pageActivity, tbPageContext4.getString(w.l.unlike_success)).tA();
+                            tbPageContext4 = this.eFn.aaX;
+                            BdToast.a(pageActivity, tbPageContext4.getString(w.l.unlike_success)).tY();
                             return;
                         }
-                        tbPageContext = this.eHr.aaI;
+                        tbPageContext = this.eFn.aaX;
                         Activity pageActivity2 = tbPageContext.getPageActivity();
-                        tbPageContext2 = this.eHr.aaI;
-                        BdToast.a(pageActivity2, tbPageContext2.getString(w.l.attention_success)).tA();
+                        tbPageContext2 = this.eFn.aaX;
+                        BdToast.a(pageActivity2, tbPageContext2.getString(w.l.attention_success)).tY();
                     } else if (updateAttentionMessage.getData().errorString != null) {
-                        baseActivity2 = this.eHr.bcF;
+                        baseActivity2 = this.eFn.bcy;
                         baseActivity2.showToast(updateAttentionMessage.getData().errorString);
                     }
                 }

@@ -11,13 +11,13 @@ import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public ac(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,12 +25,12 @@ public class ac extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryModifyLastMsgMessage.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null) {
-            b.asj().a(data.customGroupType, data.ddJ, data.id, data.type);
-            ImMessageCenterPojo Y = b.asj().Y(data.id, data.customGroupType);
+            b.asc().a(data.customGroupType, data.dce, data.id, data.type);
+            ImMessageCenterPojo Y = b.asc().Y(data.id, data.customGroupType);
             if (Y != null) {
                 ImMessageCenterPojo imMessageCenterPojo = null;
                 if (Y.getCustomGroupType() == 4) {
-                    imMessageCenterPojo = b.asj().Y("-1000", -8);
+                    imMessageCenterPojo = b.asc().Y("-1000", -8);
                 }
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ad(this, Y, imMessageCenterPojo));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());

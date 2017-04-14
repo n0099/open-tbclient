@@ -13,39 +13,39 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
-    private int IT;
-    private TranslateAnimation bQP;
-    private Runnable bQQ;
-    private Animation fHD;
-    private a fHE;
+    private int It;
+    private TranslateAnimation bQE;
+    private Runnable bQF;
+    private Animation fJm;
+    private a fJn;
 
     /* loaded from: classes.dex */
     public interface a {
-        void blB();
+        void bml();
     }
 
     public CommonTipView(Context context) {
         super(context);
-        this.IT = 4000;
-        this.fHD = AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst(), w.a.fade_out);
-        this.bQP = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds56), 0.0f);
-        this.bQQ = new d(this);
+        this.It = 4000;
+        this.fJm = AnimationUtils.loadAnimation(TbadkCoreApplication.m9getInst(), w.a.fade_out);
+        this.bQE = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds56), 0.0f);
+        this.bQF = new d(this);
         init();
     }
 
     private void init() {
         setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds24));
         setGravity(17);
-        this.fHD.setAnimationListener(new e(this));
-        this.bQP.setDuration(400L);
-        this.bQP.setAnimationListener(new f(this));
+        this.fJm.setAnimationListener(new e(this));
+        this.bQE.setDuration(400L);
+        this.bQE.setAnimationListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideTip() {
-        removeCallbacks(this.bQQ);
+        removeCallbacks(this.bQF);
         if (this != null && getParent() != null) {
-            startAnimation(this.fHD);
+            startAnimation(this.fJm);
         }
     }
 
@@ -55,7 +55,7 @@ public class CommonTipView extends TextView {
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.bQP);
+            startAnimation(this.bQE);
         }
     }
 
@@ -65,13 +65,13 @@ public class CommonTipView extends TextView {
             layoutParams.setMargins(0, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT), 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.bQP);
+            startAnimation(this.bQE);
         }
     }
 
     public void setTipDuration(int i) {
         if (i > 0) {
-            this.IT = i;
+            this.It = i;
         }
     }
 
@@ -81,6 +81,6 @@ public class CommonTipView extends TextView {
     }
 
     public void onDestroy() {
-        removeCallbacks(this.bQQ);
+        removeCallbacks(this.bQF);
     }
 }

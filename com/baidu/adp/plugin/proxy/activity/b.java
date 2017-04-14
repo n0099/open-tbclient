@@ -6,13 +6,13 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.util.e;
 /* loaded from: classes.dex */
 class b implements e {
-    final /* synthetic */ a FJ;
-    private final /* synthetic */ Plugin FK;
+    final /* synthetic */ a Fk;
+    private final /* synthetic */ Plugin Fl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, Plugin plugin2) {
-        this.FJ = aVar;
-        this.FK = plugin2;
+        this.Fk = aVar;
+        this.Fl = plugin2;
     }
 
     @Override // com.baidu.adp.plugin.util.e
@@ -21,14 +21,14 @@ class b implements e {
         LoadingActivity loadingActivity2;
         LoadingActivity loadingActivity3;
         LoadingActivity loadingActivity4;
-        loadingActivity = this.FJ.FI;
+        loadingActivity = this.Fk.Fj;
         Intent intent = new Intent(loadingActivity.getIntent());
-        loadingActivity2 = this.FJ.FI;
+        loadingActivity2 = this.Fk.Fj;
         intent.setComponent(new ComponentName(str, loadingActivity2.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-        Plugin plugin2 = this.FK;
-        loadingActivity3 = this.FJ.FI;
+        Plugin plugin2 = this.Fl;
+        loadingActivity3 = this.Fk.Fj;
         plugin2.launchIntent(loadingActivity3.getPageContext().getContext(), intent);
-        loadingActivity4 = this.FJ.FI;
+        loadingActivity4 = this.Fk.Fj;
         loadingActivity4.finish();
     }
 }

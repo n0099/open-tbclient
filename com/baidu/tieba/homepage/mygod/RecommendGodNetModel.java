@@ -19,22 +19,22 @@ public class RecommendGodNetModel extends NetAutoModel<h, c, BaseFragmentActivit
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage<c, ?>> Fg() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage<c, ?>> FE() {
         return RecommendGodHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage<c, ?>> Fi() {
+    protected Class<? extends MvcSocketResponsedMessage<c, ?>> FG() {
         return RecommendGodSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fa() {
+    protected int Fy() {
         return CmdConfigHttp.CMD_RECOMMEND_FRS_GOD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Fc() {
+    protected String FA() {
         return TbConfig.RECOMMEND_FRS_GOD;
     }
 
@@ -44,7 +44,7 @@ public class RecommendGodNetModel extends NetAutoModel<h, c, BaseFragmentActivit
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fb() {
+    protected int Fz() {
         return 309281;
     }
 }

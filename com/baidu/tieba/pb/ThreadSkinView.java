@@ -15,8 +15,8 @@ import com.baidu.tieba.w;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo efW;
-    private a.C0075a efX;
+    private SkinInfo eed;
+    private a.C0074a eee;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -38,25 +38,25 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0075a c0075a) {
+    public void a(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0074a c0074a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.efW != skinInfo && c0075a != null) {
-            this.efX = c0075a;
-            this.efX.m19do("action_type");
-            this.efX.cb("obj_id", skinInfo.obj_id);
-            this.efX.cb("obj_url", skinInfo.url);
-            this.efX.cb("obj_name", skinInfo.monitor_id);
-            this.efX.cb("action_type", "VIEW_TRUE");
-            this.efX.save();
+        if (this.eed != skinInfo && c0074a != null) {
+            this.eee = c0074a;
+            this.eee.delete("action_type");
+            this.eee.cc("obj_id", skinInfo.obj_id);
+            this.eee.cc("obj_url", skinInfo.url);
+            this.eee.cc("obj_name", skinInfo.monitor_id);
+            this.eee.cc("action_type", "VIEW_TRUE");
+            this.eee.save();
         }
-        this.efW = skinInfo;
-        int ag = k.ag(tbPageContext.getPageActivity());
+        this.eed = skinInfo;
+        int af = k.af(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = ag;
+        layoutParams.width = af;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
             String[] split = skinInfo.skin_size.split(",");
             if (split.length > 1) {
@@ -80,13 +80,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.efW != null && !StringUtils.isNull(this.efW.url)) {
-            if (this.efX != null) {
-                this.efX.m19do("action_type");
-                this.efX.cb("action_type", "CLICK");
-                this.efX.save();
+        if (this.eed != null && !StringUtils.isNull(this.eed.url)) {
+            if (this.eee != null) {
+                this.eee.delete("action_type");
+                this.eee.cc("action_type", "CLICK");
+                this.eee.save();
             }
-            bb.vQ().c(this.mTbPageContext, new String[]{this.efW.url});
+            bb.wn().c(this.mTbPageContext, new String[]{this.eed.url});
         }
     }
 }

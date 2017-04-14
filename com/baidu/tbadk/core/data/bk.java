@@ -9,21 +9,21 @@ import tbclient.PbContent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk extends com.baidu.tbadk.widget.richText.b {
-    final /* synthetic */ bj Zw;
-    private final /* synthetic */ PbContent Zx;
+    final /* synthetic */ bi ZM;
+    private final /* synthetic */ PbContent ZN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bk(bj bjVar, int i, String str, PbContent pbContent) {
+    public bk(bi biVar, int i, String str, PbContent pbContent) {
         super(i, str);
-        this.Zw = bjVar;
-        this.Zx = pbContent;
+        this.ZM = biVar;
+        this.ZN = pbContent;
     }
 
     @Override // com.baidu.tbadk.widget.richText.b, android.text.style.ClickableSpan
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.Zx.link)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, this.Zx.link));
+        if (!TextUtils.isEmpty(this.ZN.link)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, this.ZN.link));
         }
     }
 }

@@ -9,25 +9,25 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h implements w {
-    private ImageView bzn;
+    private ImageView bzg;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tieba.view.w
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
-        this.bzn = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.item_person_guess_navigation_more, (View.OnClickListener) null);
-        this.bzn.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
+        this.bzg = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.item_person_guess_navigation_more, (View.OnClickListener) null);
+        this.bzg.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
     }
 
     @Override // com.baidu.tieba.view.w
     public void setOnViewResponseListener(m mVar) {
-        if (this.bzn != null) {
-            this.bzn.setOnClickListener(new i(this, mVar));
+        if (this.bzg != null) {
+            this.bzg.setOnClickListener(new i(this, mVar));
         }
     }
 
     @Override // com.baidu.tieba.view.w
-    public void blD() {
+    public void bmn() {
     }
 
     @Override // com.baidu.tieba.view.w
@@ -37,11 +37,11 @@ public class h implements w {
     @Override // com.baidu.tieba.view.w
     public void c(float f, boolean z) {
         float f2;
-        if (this.bzn != null) {
+        if (this.bzg != null) {
             if (z) {
-                aq.b(this.bzn, w.g.icon_more_bg_s, w.g.icon_more_bg);
+                aq.b(this.bzg, w.g.icon_more_bg_s, w.g.icon_more_bg);
             } else {
-                aq.b(this.bzn, w.g.icon_more_bg, w.g.icon_more_bg_person);
+                aq.b(this.bzg, w.g.icon_more_bg, w.g.icon_more_bg_person);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -49,20 +49,20 @@ public class h implements w {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.bzn.setAlpha(f2);
+                this.bzg.setAlpha(f2);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.w
     public void onChangeSkinType(int i) {
-        if (this.bzn != null) {
+        if (this.bzg != null) {
             if (2 == i) {
-                aq.b(this.bzn, w.g.icon_more_bg_s, w.g.icon_more_bg);
+                aq.b(this.bzg, w.g.icon_more_bg_s, w.g.icon_more_bg);
             } else if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                aq.b(this.bzn, w.g.icon_more_bg, w.g.icon_more_bg_s);
+                aq.b(this.bzg, w.g.icon_more_bg, w.g.icon_more_bg_s);
             } else {
-                aq.b(this.bzn, w.g.icon_more_bg_s, w.g.icon_more_bg_person);
+                aq.b(this.bzg, w.g.icon_more_bg_s, w.g.icon_more_bg_person);
             }
         }
     }

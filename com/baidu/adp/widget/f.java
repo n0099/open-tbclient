@@ -21,20 +21,20 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 /* loaded from: classes.dex */
 public class f extends FrameLayout {
-    private float Gc;
-    private ViewGroup JN;
-    private int JO;
-    private boolean JP;
-    private boolean JQ;
-    private boolean JR;
-    private boolean JS;
-    private int JT;
-    private int JU;
-    private Rect JV;
-    private int JW;
-    private float JX;
-    private boolean JY;
-    private b JZ;
+    private float FD;
+    private b JA;
+    private ViewGroup Jo;
+    private int Jp;
+    private boolean Jq;
+    private boolean Jr;
+    private boolean Js;
+    private boolean Jt;
+    private int Ju;
+    private int Jv;
+    private Rect Jw;
+    private int Jx;
+    private float Jy;
+    private boolean Jz;
     private int mActivePointerId;
     private Activity mActivity;
     private View mContentView;
@@ -51,40 +51,40 @@ public class f extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void lN();
+        void lR();
 
-        void lO();
+        void lS();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void lP();
+        void lT();
 
-        void lQ();
+        void lU();
     }
 
     public f(Context context) {
         super(context);
         this.mActivePointerId = -1;
-        this.JP = false;
-        this.JQ = false;
-        this.JR = true;
+        this.Jq = false;
+        this.Jr = false;
+        this.Js = true;
         this.mIsScrolling = false;
-        this.JS = false;
-        this.JU = 0;
-        this.JV = new Rect();
-        this.JY = true;
+        this.Jt = false;
+        this.Jv = 0;
+        this.Jw = new Rect();
+        this.Jz = true;
         init(context);
     }
 
     private void init(Context context) {
-        this.JT = (int) TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
+        this.Ju = (int) TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
         this.mScroller = new Scroller(context, new a(1.5f));
         this.mTouchSlop = ViewConfiguration.get(context.getApplicationContext()).getScaledTouchSlop() * 2;
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
-        this.JW = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
-        this.mFlingDistance = k.ag(context) / 4;
+        this.Jx = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
+        this.mFlingDistance = k.af(context) / 4;
     }
 
     public void o(Activity activity) {
@@ -93,76 +93,76 @@ public class f extends FrameLayout {
             Window window = activity.getWindow();
             window.setBackgroundDrawable(new ColorDrawable(0));
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
-            this.JN = (ViewGroup) viewGroup.getChildAt(0);
-            viewGroup.removeView(this.JN);
-            this.JN.setClickable(true);
-            addView(this.JN);
-            this.mContentView = (View) this.JN.getParent();
+            this.Jo = (ViewGroup) viewGroup.getChildAt(0);
+            viewGroup.removeView(this.Jo);
+            this.Jo.setClickable(true);
+            addView(this.Jo);
+            this.mContentView = (View) this.Jo.getParent();
             viewGroup.addView(this);
         } catch (Exception e) {
-            this.JR = false;
+            this.Js = false;
             BdLog.e(e);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.JR) {
-            if (this.JY && i == 1) {
-                this.JN.setBackgroundResource(R.color.swipe_layout_night_bg);
+        if (this.Js) {
+            if (this.Jz && i == 1) {
+                this.Jo.setBackgroundResource(R.color.swipe_layout_night_bg);
             } else {
-                this.JN.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                this.Jo.setBackgroundResource(R.color.swipe_layout_normal_bg);
             }
         }
     }
 
-    public void aN(int i) {
-        if (this.JY && i == 1) {
-            this.JN.setBackgroundResource(R.color.swipe_layout_night_bg);
+    public void aM(int i) {
+        if (this.Jz && i == 1) {
+            this.Jo.setBackgroundResource(R.color.swipe_layout_night_bg);
         } else {
-            this.JN.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            this.Jo.setBackgroundResource(R.color.swipe_layout_normal_bg);
         }
     }
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            this.JN.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            this.Jo.setBackgroundResource(R.color.swipe_layout_normal_bg);
         }
-        this.JY = z;
+        this.Jz = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.mContentView != null) {
-            int i = this.JO;
+            int i = this.Jp;
             int bottom = this.mContentView.getBottom();
-            this.JV.top = 0;
-            this.JV.bottom = bottom;
-            this.JV.left = 0;
-            this.JV.right = i;
-            canvas.clipRect(this.JV);
+            this.Jw.top = 0;
+            this.Jw.bottom = bottom;
+            this.Jw.left = 0;
+            this.Jw.right = i;
+            canvas.clipRect(this.Jw);
             if (this.mViewWidth != 0) {
-                this.JU = 100 - ((int) (((-this.JO) / this.mViewWidth) * 120.0f));
+                this.Jv = 100 - ((int) (((-this.Jp) / this.mViewWidth) * 120.0f));
             }
-            if (this.JU > 100) {
-                this.JU = 100;
+            if (this.Jv > 100) {
+                this.Jv = 100;
             }
-            if (this.JQ) {
-                this.JU = 0;
+            if (this.Jr) {
+                this.Jv = 0;
             }
-            if (this.JU < 0) {
-                this.JU = 0;
+            if (this.Jv < 0) {
+                this.Jv = 0;
             }
-            canvas.drawARGB(this.JU, 0, 0, 0);
+            canvas.drawARGB(this.Jv, 0, 0, 0);
         }
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.JR) {
+        if (!this.Js) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.JQ || this.mIsScrolling) {
+        if (this.Jr || this.mIsScrolling) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
@@ -177,20 +177,20 @@ public class f extends FrameLayout {
                 if (!a(motionEvent, actionIndex, this.mActivePointerId)) {
                     this.mLastMotionX = MotionEventCompat.getX(motionEvent, actionIndex);
                     this.mLastMotionY = MotionEventCompat.getY(motionEvent, actionIndex);
-                    this.Gc = MotionEventCompat.getX(motionEvent, actionIndex);
+                    this.FD = MotionEventCompat.getX(motionEvent, actionIndex);
                     break;
                 }
                 break;
             case 2:
-                c(motionEvent);
+                g(motionEvent);
                 break;
         }
-        return this.JP;
+        return this.Jq;
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.JQ || this.mIsScrolling) {
+        if (this.Jr || this.mIsScrolling) {
             return super.onTouchEvent(motionEvent);
         }
         if (this.mVelocityTracker == null) {
@@ -199,45 +199,45 @@ public class f extends FrameLayout {
         this.mVelocityTracker.addMovement(motionEvent);
         switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
             case 0:
-                lK();
+                lO();
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                 this.mLastMotionX = motionEvent.getX();
-                this.Gc = MotionEventCompat.getX(motionEvent, actionIndex);
+                this.FD = MotionEventCompat.getX(motionEvent, actionIndex);
                 break;
             case 1:
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                this.JX = velocityTracker.getXVelocity();
-                int d = d(motionEvent);
+                this.Jy = velocityTracker.getXVelocity();
+                int h = h(motionEvent);
                 endDrag();
-                if (Math.abs(this.JX) > this.mMinimumVelocity && d > this.mFlingDistance) {
-                    if (this.JX > 0.0f) {
-                        this.JQ = true;
-                        lI();
+                if (Math.abs(this.Jy) > this.mMinimumVelocity && h > this.mFlingDistance) {
+                    if (this.Jy > 0.0f) {
+                        this.Jr = true;
+                        lM();
                         return true;
                     }
-                    lJ();
-                    this.JQ = false;
+                    lN();
+                    this.Jr = false;
                     return true;
                 } else if (this.mContentView.getScrollX() <= (-this.mViewWidth) / 2) {
-                    this.JQ = true;
-                    lI();
+                    this.Jr = true;
+                    lM();
                     break;
                 } else {
-                    lJ();
-                    this.JQ = false;
+                    lN();
+                    this.Jr = false;
                     break;
                 }
                 break;
             case 2:
-                if (!this.JP) {
-                    c(motionEvent);
+                if (!this.Jq) {
+                    g(motionEvent);
                 }
-                if (this.JP) {
-                    int c2 = c(motionEvent, this.mActivePointerId);
-                    if (!a(motionEvent, c2, this.mActivePointerId)) {
-                        float x = MotionEventCompat.getX(motionEvent, c2);
+                if (this.Jq) {
+                    int d = d(motionEvent, this.mActivePointerId);
+                    if (!a(motionEvent, d, this.mActivePointerId)) {
+                        float x = MotionEventCompat.getX(motionEvent, d);
                         this.mLastMotionX = x;
                         float scrollX = (this.mLastMotionX - x) + getScrollX();
                         float f = -this.mViewWidth;
@@ -245,32 +245,32 @@ public class f extends FrameLayout {
                             f = scrollX > 0.0f ? 0.0f : scrollX;
                         }
                         this.mLastMotionX += f - ((int) f);
-                        this.JO = (int) f;
+                        this.Jp = (int) f;
                         this.mContentView.scrollTo((int) f, getScrollY());
                         break;
                     }
                 }
                 break;
             case 3:
-                lL();
+                lP();
                 break;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    private void c(MotionEvent motionEvent) {
+    private void g(MotionEvent motionEvent) {
         int i = this.mActivePointerId;
-        int c2 = c(motionEvent, i);
-        if (!a(motionEvent, c2, i)) {
-            float x = MotionEventCompat.getX(motionEvent, c2);
+        int d = d(motionEvent, i);
+        if (!a(motionEvent, d, i)) {
+            float x = MotionEventCompat.getX(motionEvent, d);
             float f = x - this.mLastMotionX;
             float abs = Math.abs(f);
-            float y = MotionEventCompat.getY(motionEvent, c2);
+            float y = MotionEventCompat.getY(motionEvent, d);
             float abs2 = Math.abs(y - this.mLastMotionY);
-            if (f > 0.0f && abs > this.JW && abs > abs2) {
-                this.JP = true;
-                if (this.JZ != null) {
-                    this.JZ.lN();
+            if (f > 0.0f && abs > this.Jx && abs > abs2) {
+                this.Jq = true;
+                if (this.JA != null) {
+                    this.JA.lR();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -278,22 +278,22 @@ public class f extends FrameLayout {
         }
     }
 
-    private int d(MotionEvent motionEvent) {
+    private int h(MotionEvent motionEvent) {
         int i = this.mActivePointerId;
-        int c2 = c(motionEvent, i);
-        if (a(motionEvent, c2, i)) {
+        int d = d(motionEvent, i);
+        if (a(motionEvent, d, i)) {
             return 0;
         }
-        return (int) Math.abs(MotionEventCompat.getX(motionEvent, c2) - this.Gc);
+        return (int) Math.abs(MotionEventCompat.getX(motionEvent, d) - this.FD);
     }
 
     private void endDrag() {
-        this.JP = false;
-        if (this.JZ != null) {
-            this.JZ.lO();
+        this.Jq = false;
+        if (this.JA != null) {
+            this.JA.lS();
         }
         this.mActivePointerId = -1;
-        lL();
+        lP();
     }
 
     private boolean a(MotionEvent motionEvent, int i, int i2) {
@@ -308,7 +308,7 @@ public class f extends FrameLayout {
         }
     }
 
-    private int c(MotionEvent motionEvent, int i) {
+    private int d(MotionEvent motionEvent, int i) {
         int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
         if (findPointerIndex == -1) {
             this.mActivePointerId = -1;
@@ -316,19 +316,19 @@ public class f extends FrameLayout {
         return findPointerIndex;
     }
 
-    private void lI() {
+    private void lM() {
         this.mIsScrolling = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.mViewWidth + this.mContentView.getScrollX())) + 1, 0);
         postInvalidate();
     }
 
-    private void lJ() {
+    private void lN() {
         this.mIsScrolling = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
         postInvalidate();
     }
 
-    private void lK() {
+    private void lO() {
         if (this.mIsScrolling) {
             this.mScroller.abortAnimation();
             int scrollX = getScrollX();
@@ -354,16 +354,16 @@ public class f extends FrameLayout {
             }
             invalidate();
         }
-        if (this.mScroller.isFinished() && this.JQ) {
+        if (this.mScroller.isFinished() && this.Jr) {
             this.mActivity.finish();
             this.mActivity.overridePendingTransition(0, 0);
         }
         if (this.mScroller.isFinished()) {
-            lK();
+            lO();
         }
     }
 
-    private void lL() {
+    private void lP() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -372,31 +372,31 @@ public class f extends FrameLayout {
     }
 
     public boolean isSwipeBackEnabled() {
-        return this.JR;
+        return this.Js;
     }
 
     public void setSwipeBackEnabled(boolean z) {
-        this.JR = z;
+        this.Js = z;
     }
 
-    public void lM() {
-        if (this.JN != null) {
-            this.JN.setBackgroundResource(R.color.transparent);
+    public void lQ() {
+        if (this.Jo != null) {
+            this.Jo.setBackgroundResource(R.color.transparent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Interpolator {
-        private final float Ka;
+        private final float JB;
 
         public a(float f) {
-            this.Ka = f;
+            this.JB = f;
         }
 
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
-            float f2 = this.Ka * f;
+            float f2 = this.JB * f;
             if (f2 > 0.9d) {
                 return 1.0f;
             }
@@ -405,6 +405,6 @@ public class f extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.JZ = bVar;
+        this.JA = bVar;
     }
 }

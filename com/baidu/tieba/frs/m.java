@@ -5,37 +5,37 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class m extends a {
-    final /* synthetic */ FrsActivity bNU;
+    final /* synthetic */ FrsActivity bNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(FrsActivity frsActivity, int i, int i2) {
         super(i, i2);
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        com.baidu.tieba.frs.f.ao aoVar;
-        com.baidu.tieba.frs.f.ao aoVar2;
+        com.baidu.tieba.frs.g.ao aoVar;
+        com.baidu.tieba.frs.g.ao aoVar2;
         if (responsedMessage instanceof ResponseSetCommForumStateHttpMessage) {
             if (((ResponseSetCommForumStateHttpMessage) responsedMessage).getError() == 0) {
-                this.bNU.bMO.rK(1 - this.bNU.bMO.bfx());
-                com.baidu.tieba.frs.utils.t.g(this.bNU.bMO);
+                this.bNJ.bME.rI(1 - this.bNJ.bME.bgl());
+                com.baidu.tieba.frs.f.t.g(this.bNJ.bME);
             } else {
-                this.bNU.showToast(w.l.setdefualt_error);
+                this.bNJ.showToast(w.l.setdefualt_error);
             }
-            aoVar2 = this.bNU.bNa;
-            aoVar2.em(this.bNU.bMO.bfx() == 1);
+            aoVar2 = this.bNJ.bMQ;
+            aoVar2.em(this.bNJ.bME.bgl() == 1);
         } else if (responsedMessage instanceof ResponseSetCommForumStateSocketMessage) {
             if (((ResponseSetCommForumStateSocketMessage) responsedMessage).getError() == 0) {
-                this.bNU.bMO.rK(1 - this.bNU.bMO.bfx());
-                com.baidu.tieba.frs.utils.t.g(this.bNU.bMO);
+                this.bNJ.bME.rI(1 - this.bNJ.bME.bgl());
+                com.baidu.tieba.frs.f.t.g(this.bNJ.bME);
             } else {
-                this.bNU.showToast(w.l.setdefualt_error);
+                this.bNJ.showToast(w.l.setdefualt_error);
             }
-            aoVar = this.bNU.bNa;
-            aoVar.em(this.bNU.bMO.bfx() == 1);
+            aoVar = this.bNJ.bMQ;
+            aoVar.em(this.bNJ.bME.bgl() == 1);
         }
     }
 }

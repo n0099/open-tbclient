@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class x implements Animation.AnimationListener {
-    final /* synthetic */ t eJi;
+    final /* synthetic */ t eHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(t tVar) {
-        this.eJi = tVar;
+        this.eHd = tVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,10 +20,10 @@ class x implements Animation.AnimationListener {
         View view;
         Animation animation2;
         Animation animation3;
-        view = this.eJi.eJb;
-        animation2 = this.eJi.eJf;
+        view = this.eHd.eGW;
+        animation2 = this.eHd.eHa;
         view.setAnimation(animation2);
-        animation3 = this.eJi.eJf;
+        animation3 = this.eHd.eHa;
         animation3.start();
     }
 

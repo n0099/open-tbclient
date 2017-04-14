@@ -7,24 +7,24 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bk implements a.b {
-    final /* synthetic */ PbActivity elO;
-    private final /* synthetic */ MarkData ema;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a emb;
+    final /* synthetic */ PbActivity ejU;
+    private final /* synthetic */ MarkData ekg;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a ekh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(PbActivity pbActivity, MarkData markData, com.baidu.tbadk.core.dialog.a aVar) {
-        this.elO = pbActivity;
-        this.ema = markData;
-        this.emb = aVar;
+        this.ejU = pbActivity;
+        this.ekg = markData;
+        this.ekh = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.ema);
-        this.elO.setResult(-1, intent);
-        this.emb.dismiss();
-        this.elO.aKt();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.ekg);
+        this.ejU.setResult(-1, intent);
+        this.ekh.dismiss();
+        this.ejU.aKA();
     }
 }

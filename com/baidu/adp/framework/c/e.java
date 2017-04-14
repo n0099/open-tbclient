@@ -3,36 +3,36 @@ package com.baidu.adp.framework.c;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class e {
-    private int[] rw;
+    private int[] qU;
 
     public e(int i, int i2, int i3) {
-        this.rw = null;
-        this.rw = new int[3];
-        this.rw[0] = i;
-        this.rw[1] = i2;
-        this.rw[2] = i3;
+        this.qU = null;
+        this.qU = new int[3];
+        this.qU[0] = i;
+        this.qU[1] = i2;
+        this.qU[2] = i3;
     }
 
     public int getTimeOut() {
-        if (this.rw == null || this.rw.length != 1) {
+        if (this.qU == null || this.qU.length != 1) {
             return 0;
         }
-        return this.rw[0];
+        return this.qU[0];
     }
 
-    public int dw() {
-        if (this.rw == null || this.rw.length != 3) {
+    public int dv() {
+        if (this.qU == null || this.qU.length != 3) {
             return 0;
         }
-        switch (i.hk()) {
+        switch (i.hp()) {
             case 1:
-                return this.rw[2];
+                return this.qU[2];
             case 2:
-                return this.rw[0];
+                return this.qU[0];
             case 3:
-                return this.rw[1];
+                return this.qU[1];
             default:
-                return this.rw[2];
+                return this.qU[2];
         }
     }
 }

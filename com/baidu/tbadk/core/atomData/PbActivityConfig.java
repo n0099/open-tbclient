@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -19,6 +19,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_FROM = "from";
     public static final String KEY_FROM_FORUM_NAME = "from_forum_name";
     public static final String KEY_FROM_FRS = "from_frs";
+    public static final String KEY_FROM_HOTTOPIC = "from_hottopic";
     public static final String KEY_FROM_MAINTAB = "from_maintab";
     public static final String KEY_FROM_MARK = "from_mark";
     public static final String KEY_FROM_SMART_FRS = "from_smart_frs";
@@ -64,6 +65,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final int THREAD_TYPE_NOT_SHOW_IS_TOP = 0;
     public static final int THREAD_TYPE_SHOW_IS_TOP = 1;
     public static final String VALUE_FROM_FRS = "FrsActivity";
+    public static final String VALUE_FROM_HOT_TOPIC = "HotTopicActivity";
     public static final String VALUE_FROM_MAINTAB = "MainTabActivity";
     public static final boolean isBottomHaveShared = true;
     private String key_video_source_value;
@@ -82,7 +84,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-            intent.putExtra("request_code", i);
+            intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
@@ -226,7 +228,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("from_mark", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-        intent.putExtra("request_code", i);
+        intent.putExtra(IntentConfig.REQUEST_CODE, i);
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
         return this;
@@ -267,13 +269,13 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bj bjVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bjVar != null) {
+    public PbActivityConfig createFromThreadCfg(bi biVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (biVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bjVar.getId());
-            intent.putExtra("is_good", bjVar.rN());
-            intent.putExtra("is_top", bjVar.rM());
-            intent.putExtra(KEY_THREAD_TIME, bjVar.rL());
+            intent.putExtra("thread_id", biVar.getId());
+            intent.putExtra("is_good", biVar.sl());
+            intent.putExtra("is_top", biVar.sk());
+            intent.putExtra(KEY_THREAD_TIME, biVar.sj());
             intent.putExtra("st_type", str2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
@@ -281,12 +283,12 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_FROM_FORUM_NAME, str);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
-            intent.putExtra("request_code", i);
+            intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra(KEY_IS_FROM_THREAD_CONFIG, true);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (bjVar.rG() == null ? 0L : bjVar.rG().getNum()));
-            if (bjVar.getAuthor() != null && bjVar.getAuthor().getGodUserData().getId() != null) {
-                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, bjVar.getAuthor().getFansNum());
-                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, bjVar.getAuthor().getGodUserData().getIsLike());
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (biVar.se() == null ? 0L : biVar.se().getNum()));
+            if (biVar.getAuthor() != null && biVar.getAuthor().getGodUserData().getId() != null) {
+                intent.putExtra(KEY_INTENT_EXTRA_PB_FUNS_COUNT_KEY, biVar.getAuthor().getFansNum());
+                intent.putExtra(KEY_INTENT_EXTRA_PB_IS_FOLLOWED_KEY, biVar.getAuthor().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();
@@ -408,10 +410,22 @@ public class PbActivityConfig extends IntentConfig {
             } else {
                 intent.putExtra(KEY_FROM_MAINTAB, false);
             }
+            if (VALUE_FROM_HOT_TOPIC.equalsIgnoreCase(simpleName)) {
+                intent.putExtra(KEY_FROM_HOTTOPIC, true);
+            } else {
+                intent.putExtra(KEY_FROM_HOTTOPIC, false);
+            }
         }
     }
 
     public void setUserName(String str) {
         getIntent().putExtra(BIG_PIC_NAME, str);
+    }
+
+    public void setFromPushNotify() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("is_from_push", true);
+        }
     }
 }

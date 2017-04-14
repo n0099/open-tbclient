@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.as;
@@ -24,217 +24,217 @@ import com.baidu.tieba.w;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class d {
-    private aj aRZ;
-    private PbActivity eka;
-    private FrameLayout eqD;
-    private int eqE;
-    private com.baidu.tieba.play.c eqI;
-    private c.InterfaceC0071c ewG;
-    private com.baidu.tieba.pb.pb.main.view.f ewH;
-    private bb ewI;
-    private bj ewJ;
-    private bj ewK;
-    private String ewL;
-    private c.InterfaceC0071c ewO;
-    private ValueAnimator ewP;
+    private aj aSp;
+    private PbActivity eig;
+    private FrameLayout eoM;
+    private int eoN;
+    private com.baidu.tieba.play.c eoR;
+    private c.InterfaceC0070c euL;
+    private com.baidu.tieba.pb.pb.main.view.f euM;
+    private bb euO;
+    private bi euP;
+    private bi euQ;
+    private String euR;
+    private c.InterfaceC0070c euU;
+    private ValueAnimator euV;
     private Handler mHandler;
     private String nameShow;
-    private String aTZ = null;
-    private VideoInfo dxu = null;
-    private boolean ewM = false;
-    private int ewN = 0;
-    private boolean ewQ = true;
-    private Animation.AnimationListener dyu = new e(this);
-    private au.a dAS = new i(this);
-    private c.e ewR = new j(this);
+    private String mVideoUrl = null;
+    private VideoInfo euN = null;
+    private boolean euS = false;
+    private int euT = 0;
+    private boolean euW = true;
+    private Animation.AnimationListener duR = new e(this);
+    private au.a dxA = new i(this);
+    private c.e euX = new j(this);
 
     public d(PbActivity pbActivity, com.baidu.tieba.play.c cVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.f fVar, int i) {
-        this.eka = pbActivity;
-        this.eqI = cVar;
-        this.ewH = fVar;
-        this.eqD = frameLayout;
-        this.eqE = i;
-        if (this.eqI != null) {
-            this.eqI.ko(true);
+        this.eig = pbActivity;
+        this.eoR = cVar;
+        this.euM = fVar;
+        this.eoM = frameLayout;
+        this.eoN = i;
+        if (this.eoR != null) {
+            this.eoR.kn(true);
         }
         init();
     }
 
     private void init() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.eka.getActivity(), w.a.anim_alpha_1_to_0_duration_2000);
-        if (this.ewG == null) {
-            this.ewG = new k(this, loadAnimation);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.eig.getActivity(), w.a.anim_alpha_1_to_0_duration_2000_accelerate);
+        if (this.euL == null) {
+            this.euL = new k(this, loadAnimation);
         }
-        a(this.ewG);
-        this.ewN = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.eka.getActivity(), w.f.ds98);
+        a(this.euL);
+        this.euT = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.eig.getActivity(), w.f.ds98);
         this.mHandler = new Handler();
     }
 
-    public void aPb() {
-        if (this.ewH != null) {
-            this.nameShow = this.ewH.euc.getText().toString();
+    public void aPk() {
+        if (this.euM != null) {
+            this.nameShow = this.euM.esf.getText().toString();
         }
     }
 
-    public void a(VideoInfo videoInfo, bj bjVar, String str) {
-        if (videoInfo != null && this.eqI != null && bjVar != null) {
-            this.dxu = videoInfo;
-            this.ewJ = bjVar;
-            this.aTZ = videoInfo.video_url;
-            this.eqI.stopPlay();
-            this.eqI.kn(true);
-            this.aRZ = new aj(this.eka.getActivity());
-            this.ewI = new bb();
-            this.ewI.mLocate = "pb";
-            this.ewI.bqB = bjVar.getTid();
-            this.ewI.bqC = str;
-            this.ewI.mUid = TbadkCoreApplication.getCurrentAccount();
-            this.ewI.mSource = bjVar.Zh;
-            this.ewI.eXe = bjVar.Zj;
-            this.ewI.eXf = bjVar.Zi;
-            this.ewI.eXg = this.eka.aKh();
-            if (bjVar.sU() != null && bjVar.sU().channelId > 0) {
-                this.ewI.Vy = new StringBuilder(String.valueOf(bjVar.sU().channelId)).toString();
+    public void a(VideoInfo videoInfo, bi biVar, String str) {
+        if (videoInfo != null && this.eoR != null && biVar != null) {
+            this.euN = videoInfo;
+            this.euP = biVar;
+            this.mVideoUrl = videoInfo.video_url;
+            this.eoR.stopPlay();
+            this.eoR.km(true);
+            this.aSp = new aj(this.eig.getActivity());
+            this.euO = new bb();
+            this.euO.mLocate = "pb";
+            this.euO.bqu = biVar.getTid();
+            this.euO.bqv = str;
+            this.euO.mUid = TbadkCoreApplication.getCurrentAccount();
+            this.euO.mSource = biVar.Zx;
+            this.euO.eVd = biVar.Zz;
+            this.euO.eVe = biVar.Zy;
+            this.euO.eVf = this.eig.aKo();
+            if (biVar.ts() != null && biVar.ts().channelId > 0) {
+                this.euO.VP = new StringBuilder(String.valueOf(biVar.ts().channelId)).toString();
             } else {
-                this.ewI.Vy = "0";
+                this.euO.VP = "0";
             }
-            this.aRZ.a(this.ewI);
-            this.eqI.KG().setBusiness(this.aRZ);
-            if (this.eqI.ayT()) {
-                this.eqI.ayR();
+            this.aSp.a(this.euO);
+            this.eoR.Lg().setBusiness(this.aSp);
+            if (this.eoR.ayx()) {
+                this.eoR.ayv();
             }
-            this.eqI.b(this.ewO);
-            if (this.eqI != null) {
-                this.eqI.nO(this.ewL);
+            this.eoR.b(this.euU);
+            if (this.eoR != null) {
+                this.eoR.nS(this.euR);
             }
-            this.ewL = null;
-            this.ewK = null;
-            this.eqI.nO(this.ewL);
-            this.eqI.ayN().setOnDragingListener(this.dAS);
-            this.eqI.a(new l(this));
-            this.eqI.a(new n(this));
-            this.eqI.a(new o(this));
-            this.eqI.a(new p(this));
-            this.eqI.a(new q(this));
-            this.eqI.lu(videoInfo.thumbnail_url);
-            this.eqI.bQ(videoInfo.play_count.intValue());
-            this.eqI.setVideoUrl(this.aTZ);
-            this.eqI.oL(bjVar.getTitle());
-            this.eqI.a(this.ewR);
-            this.eqI.alq();
-            this.eqI.show();
+            this.euR = null;
+            this.euQ = null;
+            this.eoR.nS(this.euR);
+            this.eoR.ayr().setOnDragingListener(this.dxA);
+            this.eoR.a(new l(this));
+            this.eoR.a(new n(this));
+            this.eoR.a(new o(this));
+            this.eoR.a(new p(this));
+            this.eoR.a(new q(this));
+            this.eoR.lx(videoInfo.thumbnail_url);
+            this.eoR.bQ(videoInfo.play_count.intValue());
+            this.eoR.setVideoUrl(this.mVideoUrl);
+            this.eoR.oS(biVar.getTitle());
+            this.eoR.a(this.euX);
+            this.eoR.alk();
+            this.eoR.show();
         }
     }
 
-    public void a(c.InterfaceC0071c interfaceC0071c) {
-        this.ewO = interfaceC0071c;
+    public void a(c.InterfaceC0070c interfaceC0070c) {
+        this.euU = interfaceC0070c;
     }
 
-    public void J(bj bjVar) {
-        this.ewK = bjVar;
+    public void G(bi biVar) {
+        this.euQ = biVar;
     }
 
-    public void nO(String str) {
-        this.ewL = str;
-        if (this.eqI != null) {
-            this.eqI.nO(this.ewL);
+    public void nS(String str) {
+        this.euR = str;
+        if (this.eoR != null) {
+            this.eoR.nS(this.euR);
         }
     }
 
     public void startPlay() {
-        if (this.eqI != null) {
-            this.eqI.oK(this.aTZ);
+        if (this.eoR != null) {
+            this.eoR.oR(this.mVideoUrl);
         }
-        aPi();
-        Kg();
+        aPr();
+        KG();
     }
 
     public void destroy() {
-        if (this.eqI != null) {
-            this.eqI.destroy();
+        if (this.eoR != null) {
+            this.eoR.destroy();
         }
-        if (this.eqD != null) {
-            this.eqD.clearAnimation();
+        if (this.eoM != null) {
+            this.eoM.clearAnimation();
         }
-        if (this.ewP != null) {
-            this.ewP.cancel();
-            this.ewP = null;
+        if (this.euV != null) {
+            this.euV.cancel();
+            this.euV = null;
         }
     }
 
     public void onPause() {
-        if (this.eqI != null) {
-            if (this.eqI.aXD()) {
-                this.ewM = true;
-                this.eqI.pausePlay();
-            } else if (this.eqI.aXJ() == 3) {
-                this.ewM = false;
+        if (this.eoR != null) {
+            if (this.eoR.aXM()) {
+                this.euS = true;
+                this.eoR.pausePlay();
+            } else if (this.eoR.aXS() == 3) {
+                this.euS = false;
             } else {
-                this.ewM = false;
-                this.eqI.pausePlay();
+                this.euS = false;
+                this.eoR.pausePlay();
             }
         }
     }
 
     public void onResume() {
-        if (this.eqI != null && this.ewM) {
-            this.eqI.ayW();
-            aPi();
+        if (this.eoR != null && this.euS) {
+            this.eoR.ayA();
+            aPr();
         }
     }
 
-    public boolean ov(int i) {
-        if (this.eqI == null) {
+    public boolean ot(int i) {
+        if (this.eoR == null) {
             return false;
         }
-        return this.eqI.qx(i);
+        return this.eoR.qv(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kg() {
-        if (this.dxu != null) {
-            ab.a(this.dxu.video_md5, "", "1", this.ewI);
+    public void KG() {
+        if (this.euN != null) {
+            ab.a(this.euN.video_md5, "", "1", this.euO);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPc() {
-        this.ewQ = true;
+    public void aPl() {
+        this.euW = true;
     }
 
-    public void aNU() {
-        if (this.ewH != null) {
-            this.ewH.aNU();
+    public void aOd() {
+        if (this.euM != null) {
+            this.euM.aOd();
         }
     }
 
-    public void aNT() {
-        if (this.ewH != null) {
-            this.ewH.aNT();
+    public void aOc() {
+        if (this.euM != null) {
+            this.euM.aOc();
         }
     }
 
-    public void ox(int i) {
-        if (this.ewH != null) {
-            this.ewH.ox(i);
-            if (this.eqI != null) {
-                if (this.eqI.aXD() || this.eqI.aXJ() == 0) {
-                    this.ewH.mNavigationBar.getBarBgView().setAlpha(0.0f);
+    public void ov(int i) {
+        if (this.euM != null) {
+            this.euM.ov(i);
+            if (this.eoR != null) {
+                if (this.eoR.aXM() || this.eoR.aXS() == 0) {
+                    this.euM.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 }
             }
         }
     }
 
-    public void aPd() {
-        C(-this.eqE, true);
+    public void aPm() {
+        C(-this.eoN, true);
     }
 
-    public void aPe() {
-        aPf();
+    public void aPn() {
+        aPo();
     }
 
-    public void aPf() {
-        C(((RelativeLayout.LayoutParams) this.eqD.getLayoutParams()).topMargin, false);
+    public void aPo() {
+        C(((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin, false);
     }
 
     public void C(int i, boolean z) {
@@ -245,159 +245,159 @@ public class d {
         ofInt.start();
     }
 
-    private void aPg() {
-        this.ewP = ValueAnimator.ofInt(0, -this.eqE);
-        this.ewP.addUpdateListener(new h(this));
-        this.ewP.setDuration(300L);
-        this.ewP.start();
+    private void aPp() {
+        this.euV = ValueAnimator.ofInt(0, -this.eoN);
+        this.euV.addUpdateListener(new h(this));
+        this.euV.setDuration(300L);
+        this.euV.start();
     }
 
     public void a(AbsListView absListView, int i, TextView textView) {
         if (i == 1) {
-            int i2 = ((RelativeLayout.LayoutParams) this.eqD.getLayoutParams()).topMargin;
-            boolean z = this.eqI.aXJ() == 1 || this.eqI.aXJ() == 0;
+            int i2 = ((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin;
+            boolean z = this.eoR.aXS() == 1 || this.eoR.aXS() == 0;
             if (absListView.getChildCount() > 0 && absListView.getChildAt(0) != textView && i2 == 0 && !z) {
-                aPg();
+                aPp();
             }
         }
     }
 
     public void b(AbsListView absListView, int i, TextView textView) {
-        if (absListView.getChildCount() > i && this.ewQ) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eqD.getLayoutParams();
-            if (this.eqI.aXJ() == 1 || this.eqI.aXJ() == 0) {
+        if (absListView.getChildCount() > i && this.euW) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eoM.getLayoutParams();
+            if (this.eoR.aXS() == 1 || this.eoR.aXS() == 0) {
                 layoutParams.topMargin = 0;
-                this.eqD.setLayoutParams(layoutParams);
+                this.eoM.setLayoutParams(layoutParams);
                 return;
             }
             float y = textView.getY();
             if (absListView.getChildAt(i) == textView) {
                 layoutParams.topMargin = (int) y;
-                this.eqD.setLayoutParams(layoutParams);
-                if (this.ewP != null) {
-                    this.ewP.cancel();
+                this.eoM.setLayoutParams(layoutParams);
+                if (this.euV != null) {
+                    this.euV.cancel();
                 }
             } else {
-                layoutParams.topMargin = -this.eqE;
-                this.eqD.setLayoutParams(layoutParams);
+                layoutParams.topMargin = -this.eoN;
+                this.eoM.setLayoutParams(layoutParams);
             }
-            oD(this.eqE - Math.abs(layoutParams.topMargin));
-            aPj();
+            oB(this.eoN - Math.abs(layoutParams.topMargin));
+            aPs();
         }
     }
 
-    private void oD(int i) {
-        if (this.eqI.aXJ() == 3) {
+    private void oB(int i) {
+        if (this.eoR.aXS() == 3) {
             if (i == 0) {
                 TiebaStatic.log(new as("c11996").s("obj_type", 3));
             }
-        } else if (this.eqI.aXJ() == 2) {
+        } else if (this.eoR.aXS() == 2) {
             if (i == 0) {
                 TiebaStatic.log(new as("c11996").s("obj_type", 2));
             }
-        } else if (this.eqI.aXJ() == 5 && i == 0) {
+        } else if (this.eoR.aXS() == 5 && i == 0) {
             TiebaStatic.log(new as("c11996").s("obj_type", 2));
         }
-        if (this.eqE == i) {
+        if (this.eoN == i) {
             TiebaStatic.log(new as("c11997").s("obj_type", 2));
         }
     }
 
-    public void aPh() {
+    public void aPq() {
         TiebaStatic.log(new as("c11997").s("obj_type", 1));
-        aPd();
+        aPm();
     }
 
-    public void aPi() {
-        if (this.eqD != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eqD.getLayoutParams();
+    public void aPr() {
+        if (this.eoM != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eoM.getLayoutParams();
             layoutParams.topMargin = 0;
-            this.eqD.setLayoutParams(layoutParams);
-            aPj();
+            this.eoM.setLayoutParams(layoutParams);
+            aPs();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPj() {
-        int abs = this.eqE - Math.abs(((RelativeLayout.LayoutParams) this.eqD.getLayoutParams()).topMargin);
-        oG(abs);
-        oF(abs);
-        oH(abs);
-        oI(abs);
+    public void aPs() {
+        int abs = this.eoN - Math.abs(((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin);
         oE(abs);
+        oD(abs);
+        oF(abs);
+        oG(abs);
+        oC(abs);
+    }
+
+    private void oC(int i) {
+        if (i < this.euT * 2) {
+            this.eoR.aXQ();
+        } else if (this.eoR.ays().getVisibility() != 0 && this.eoR.aXS() != 3 && this.eoR.aXS() != 0) {
+            this.eoR.aXP();
+        }
+    }
+
+    private void oD(int i) {
+        if (i < this.euT) {
+            if (this.euM.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+                this.euM.mNavigationBar.getBarBgView().setAlpha(1.0f);
+                this.euM.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
+            }
+        } else if (i >= this.euT && i <= this.euT * 2) {
+            float f = 1.0f - (((i - this.euT) * 1.0f) / this.euT);
+            this.euM.mNavigationBar.getBarBgView().setAlpha(f);
+            this.euM.mNavigationBar.getTopCoverBgView().setAlpha(1.0f - f);
+        } else if (i > this.euT * 2 && this.euM.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
+            this.euM.mNavigationBar.getBarBgView().setAlpha(0.0f);
+            this.euM.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
+        }
     }
 
     private void oE(int i) {
-        if (i < this.ewN * 2) {
-            this.eqI.aXH();
-        } else if (this.eqI.ayO().getVisibility() != 0 && this.eqI.aXJ() != 3 && this.eqI.aXJ() != 0) {
-            this.eqI.aXG();
+        if (Build.VERSION.SDK_INT >= 11) {
+            if (i < this.euT) {
+                if (com.baidu.tbadk.core.util.au.dA(this.nameShow) > 10) {
+                    String d = com.baidu.tbadk.core.util.au.d(this.nameShow, 10, "...");
+                    String string = this.eig.getPageContext().getString(w.l.bar);
+                    if (d.lastIndexOf(string) == -1) {
+                        d = String.valueOf(d) + string;
+                    }
+                    this.euM.esf.setText(d);
+                } else {
+                    this.euM.esf.setText(this.nameShow);
+                }
+                this.euM.iV(true);
+                this.euM.esh.setVisibility(0);
+                return;
+            }
+            this.euM.esf.setText(this.nameShow);
         }
     }
 
     private void oF(int i) {
-        if (i < this.ewN) {
-            if (this.ewH.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
-                this.ewH.mNavigationBar.getBarBgView().setAlpha(1.0f);
-                this.ewH.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
-            }
-        } else if (i >= this.ewN && i <= this.ewN * 2) {
-            float f = 1.0f - (((i - this.ewN) * 1.0f) / this.ewN);
-            this.ewH.mNavigationBar.getBarBgView().setAlpha(f);
-            this.ewH.mNavigationBar.getTopCoverBgView().setAlpha(1.0f - f);
-        } else if (i > this.ewN * 2 && this.ewH.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
-            this.ewH.mNavigationBar.getBarBgView().setAlpha(0.0f);
-            this.ewH.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
+        if (i < this.euT) {
+            this.euM.aOa().setVisibility(0);
+        } else {
+            this.euM.aOa().setVisibility(8);
         }
     }
 
     private void oG(int i) {
-        if (Build.VERSION.SDK_INT >= 11) {
-            if (i < this.ewN) {
-                if (com.baidu.tbadk.core.util.au.du(this.nameShow) > 10) {
-                    String d = com.baidu.tbadk.core.util.au.d(this.nameShow, 10, "...");
-                    String string = this.eka.getPageContext().getString(w.l.bar);
-                    if (d.lastIndexOf(string) == -1) {
-                        d = String.valueOf(d) + string;
-                    }
-                    this.ewH.euc.setText(d);
-                } else {
-                    this.ewH.euc.setText(this.nameShow);
-                }
-                this.ewH.iW(true);
-                this.ewH.eue.setVisibility(0);
-                return;
+        if (i < this.euT) {
+            if (this.eoR != null) {
+                this.eoR.kn(false);
             }
-            this.ewH.euc.setText(this.nameShow);
-        }
-    }
-
-    private void oH(int i) {
-        if (i < this.ewN) {
-            this.ewH.aNR().setVisibility(0);
-        } else {
-            this.ewH.aNR().setVisibility(8);
-        }
-    }
-
-    private void oI(int i) {
-        if (i < this.ewN) {
-            if (this.eqI != null) {
-                this.eqI.ko(false);
-            }
-        } else if (this.eqI != null) {
-            this.eqI.ko(true);
+        } else if (this.eoR != null) {
+            this.eoR.kn(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aPk() {
-        return this.eqD != null && ((RelativeLayout.LayoutParams) this.eqD.getLayoutParams()).topMargin == 0;
+    public boolean aPt() {
+        return this.eoM != null && ((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin == 0;
     }
 
-    public void aPl() {
-        if (this.eqI != null) {
-            this.eqI.aPl();
+    public void aPu() {
+        if (this.eoR != null) {
+            this.eoR.aPu();
         }
     }
 }

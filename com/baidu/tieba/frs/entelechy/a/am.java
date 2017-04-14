@@ -1,35 +1,33 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tieba.frs.ar;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tieba.frs.at;
 import com.baidu.tieba.tbadkCore.n;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface am {
-    int ZY();
+    void a(at atVar);
 
-    void a(ar arVar);
+    int aaw();
 
-    HashMap<Integer, bj> aaR();
+    HashMap<Integer, bi> abp();
 
-    void aaS();
+    void abq();
 
-    int aaT();
+    int abr();
 
-    int aaU();
+    int abs();
 
-    int aaV();
+    int abt();
 
-    int aaW();
-
-    int aaX();
+    int abu();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.v> arrayList, n nVar);
 
-    void dT(boolean z);
+    void dV(boolean z);
 
     List<com.baidu.adp.widget.ListView.v> getDatas();
 

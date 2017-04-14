@@ -1,86 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.pb.ThreadSkinView;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
-import com.baidu.tieba.w;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bg extends y.a {
-    public TextView aSO;
-    public TextView alu;
-    public TextView alx;
-    public int amL;
-    public UserIconBox ame;
-    public UserIconBox amf;
-    public TextView bOm;
-    public TextView bOn;
-    public int bPe;
-    public FrameLayout bPf;
-    public LinearLayout bPg;
-    public RelativeLayout bPh;
-    public TbImageView bPi;
-    public TextView bPj;
-    public PlayVoiceBnt bPk;
-    public FrsCommonImageLayout bPl;
-    public TextView bPm;
-    public HeadImageView bPn;
-    public TextView bPo;
-    public TextView bPp;
-    public RelativeLayout bPq;
-    public LinearLayout bPr;
-    public LinearLayout bPs;
-    public LinearLayout bPt;
-    public View bPu;
-    public TbImageView bPv;
-    public RelativeLayout bPw;
-    public TbImageView bPx;
-    public TextView bPy;
-    public ThreadSkinView bbm;
+public class bg implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId bOQ = BdUniqueId.gen();
+    private int bOR;
 
-    public bg(View view, int i) {
-        super(view);
-        this.amL = 3;
-        this.bPe = 0;
-        this.bPe = i;
-        this.bPf = (FrameLayout) view.findViewById(w.h.frs_list);
-        this.bPq = (RelativeLayout) view.findViewById(w.h.frs_item_user_info_view);
-        this.bPr = (LinearLayout) view.findViewById(w.h.frs_item_base_user_info);
-        this.bPg = (LinearLayout) view.findViewById(w.h.frs_list_item_top_linear_layout);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bPg.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.bPg.setLayoutParams(layoutParams);
-        this.bPh = (RelativeLayout) view.findViewById(w.h.frs_list_item_top_card);
-        this.bPi = (TbImageView) view.findViewById(w.h.frs_normal_item_theme_card);
-        this.bPn = (HeadImageView) view.findViewById(w.h.frs_photo);
-        this.ame = (UserIconBox) view.findViewById(w.h.frs_user_tshow_icon_box);
-        this.amf = (UserIconBox) view.findViewById(w.h.frs_user_icon_box);
-        this.bPm = (TextView) view.findViewById(w.h.frs_lv_author);
-        this.alu = (TextView) view.findViewById(w.h.frs_lv_reply_time);
-        this.aSO = (TextView) view.findViewById(w.h.frs_lv_title);
-        this.bPj = (TextView) view.findViewById(w.h.abstract_text);
-        this.bPk = (PlayVoiceBnt) view.findViewById(w.h.abstract_voice);
-        this.bPl = (FrsCommonImageLayout) view.findViewById(w.h.abstract_img_layout);
-        this.alx = (TextView) view.findViewById(w.h.frs_praise_num);
-        this.bPo = (TextView) view.findViewById(w.h.action_button);
-        this.bOn = (TextView) view.findViewById(w.h.frs_reply_num);
-        this.bPp = (TextView) view.findViewById(w.h.frs_more_abstract);
-        this.bPs = (LinearLayout) view.findViewById(w.h.frs_item_num);
-        this.bPt = (LinearLayout) view.findViewById(w.h.frs_item_loc_view);
-        this.bOm = (TextView) view.findViewById(w.h.frs_item_location_address);
-        this.bPu = view.findViewById(w.h.frs_item_location_sep);
-        this.bPv = (TbImageView) view.findViewById(w.h.game_activity_banner);
-        this.bPx = (TbImageView) view.findViewById(w.h.app_code_banner);
-        this.bPy = (TextView) view.findViewById(w.h.app_code_btn);
-        this.bPw = (RelativeLayout) view.findViewById(w.h.app_code_wrapper);
-        this.bbm = (ThreadSkinView) view.findViewById(w.h.frs_thread_skin);
+    public int aau() {
+        return this.bOR;
+    }
+
+    public void hT(int i) {
+        this.bOR = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bOQ;
     }
 }

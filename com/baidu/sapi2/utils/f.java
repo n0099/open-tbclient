@@ -24,6 +24,9 @@ public interface f {
     public static final String U = "/v2/sapi/updateface";
     public static final String V = "/v2/sapi/delface";
     public static final String W = "/v2/sapi/setssochannelinfo";
+    public static final String X = "/wp/v3/ucenter/edituser";
+    public static final String Y = "/wp/passwordresult";
+    public static final String Z = "/wp/v3/ucenter/accountbind";
     public static final String a = "/v2/sapi/login";
     public static final String b = "/v5/login/sapi/relogin";
     public static final String c = "/wp/login/proxy";

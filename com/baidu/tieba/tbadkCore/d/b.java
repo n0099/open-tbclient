@@ -4,60 +4,60 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.c fvd;
-    private final int fve = 10;
-    private final int fvf = 3000;
-    public String fvg = null;
-    public boolean ahv = false;
+    private com.baidu.adp.lib.stats.c fwM;
+    private final int fwN = 10;
+    private final int fwO = 3000;
+    public String fwP = null;
+    public boolean ahJ = false;
 
     public b(String str) {
         W(str, false);
     }
 
     public void W(String str, boolean z) {
-        this.fvg = str;
-        this.ahv = z;
-        this.fvd = new com.baidu.adp.lib.stats.c("dbg");
-        c.j(str, getNetType(), z);
+        this.fwP = str;
+        this.ahJ = z;
+        this.fwM = new com.baidu.adp.lib.stats.c("dbg");
+        c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.fvd.fQ();
+        this.fwM.fV();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f bhU;
-        if (this.fvd != null && (bhU = bhU()) != null) {
+        f biF;
+        if (this.fwM != null && (biF = biF()) != null) {
             if (z) {
-                if (bhU.fvl != null) {
-                    bhU.fvl.num++;
+                if (biF.fwU != null) {
+                    biF.fwU.num++;
                     if (z2) {
-                        bhU.fvl.fvi += j2;
-                        bhU.fvl.size += j;
+                        biF.fwU.fwR += j2;
+                        biF.fwU.size += j;
                     } else {
-                        bhU.fvl.fvj++;
+                        biF.fwU.fwS++;
                     }
                 } else {
                     return;
                 }
-            } else if (bhU.fvm != null) {
-                bhU.fvm.num++;
+            } else if (biF.fwV != null) {
+                biF.fwV.num++;
                 if (z2) {
-                    bhU.fvm.fvi += j3;
-                    bhU.fvm.size += j;
+                    biF.fwV.fwR += j3;
+                    biF.fwV.size += j;
                     j2 = j3;
                 } else {
-                    bhU.fvm.fvj++;
+                    biF.fwV.fwS++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.fvd = null;
+            this.fwM = null;
             if (z2) {
-                c.a(bhU, 10);
+                c.a(biF, 10);
             }
-            if (this.fvg == "frsStat") {
+            if (this.fwP == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.c cVar = new com.baidu.adp.lib.stats.c("dbg");
                     cVar.p("act", "frs");
@@ -74,34 +74,34 @@ public class b {
     }
 
     public void destory() {
-        f bhU;
-        if (this.fvd != null && (bhU = bhU()) != null && bhU.fvn != null) {
-            long fR = this.fvd.fR();
-            if (fR > 3000) {
-                e eVar = bhU.fvn;
-                eVar.fvi = fR + eVar.fvi;
-                bhU.fvn.num++;
-                c.a(bhU, 10);
+        f biF;
+        if (this.fwM != null && (biF = biF()) != null && biF.fwW != null) {
+            long fW = this.fwM.fW();
+            if (fW > 3000) {
+                e eVar = biF.fwW;
+                eVar.fwR = fW + eVar.fwR;
+                biF.fwW.num++;
+                c.a(biF, 10);
             }
         }
     }
 
-    private f bhU() {
-        return c.k(this.fvg, getNetType(), this.ahv);
+    private f biF() {
+        return c.l(this.fwP, getNetType(), this.ahJ);
     }
 
     private String getNetType() {
-        int hk = i.hk();
-        if (hk == 0) {
+        int hp = i.hp();
+        if (hp == 0) {
             return "N";
         }
-        if (hk == 1) {
+        if (hp == 1) {
             return "WIFI";
         }
-        if (hk == 3) {
+        if (hp == 3) {
             return "3G";
         }
-        if (hk != 2) {
+        if (hp != 2) {
             return "N";
         }
         return "2G";

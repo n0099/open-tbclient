@@ -1,27 +1,29 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class gk implements PbFakeFloorModel.a {
-    final /* synthetic */ fa etn;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public gk(fa faVar) {
-        this.etn = faVar;
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
-    public void i(PostData postData) {
-        PbFakeFloorModel pbFakeFloorModel;
-        cp cpVar;
-        de deVar;
-        pbFakeFloorModel = this.etn.emS;
-        pbFakeFloorModel.j(postData);
-        cpVar = this.etn.ery;
-        cpVar.notifyDataSetChanged();
-        deVar = this.etn.esF;
-        deVar.aLc();
+public class gk implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
+            return null;
+        }
+        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
+        byte[] N = cu.aLh().N(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
+        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
+        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
+        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
+        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
+        try {
+            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, N);
+            return pbPageReadLocalResponseMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pbPageReadLocalResponseMessage;
+        }
     }
 }

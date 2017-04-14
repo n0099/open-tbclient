@@ -6,11 +6,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 class v implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ FrsActivity bNU;
+    final /* synthetic */ FrsActivity bNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(FrsActivity frsActivity) {
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.x
@@ -18,21 +18,21 @@ class v implements com.baidu.adp.widget.ListView.x {
         if (bdUniqueId == null) {
             return false;
         }
-        if (vVar instanceof com.baidu.tbadk.core.data.bj) {
-            com.baidu.tbadk.core.data.bj bjVar = (com.baidu.tbadk.core.data.bj) vVar;
-            if (!bjVar.isPhotoLiveThread() && !(bjVar instanceof com.baidu.tbadk.core.data.ax)) {
-                if ((bjVar instanceof AdvertAppInfo) && ((AdvertAppInfo) bjVar).legoCard != null) {
+        if (vVar instanceof com.baidu.tbadk.core.data.bi) {
+            com.baidu.tbadk.core.data.bi biVar = (com.baidu.tbadk.core.data.bi) vVar;
+            if (!biVar.isPhotoLiveThread() && !(biVar instanceof com.baidu.tbadk.core.data.aw)) {
+                if ((biVar instanceof AdvertAppInfo) && ((AdvertAppInfo) biVar).legoCard != null) {
                     return false;
                 }
-                this.bNU.mThreadId = bjVar.getId();
-                String rX = bjVar.rX();
-                if (rX == null || rX.equals("")) {
-                    this.bNU.bML = false;
+                this.bNJ.mThreadId = biVar.getId();
+                String sv = biVar.sv();
+                if (sv == null || sv.equals("")) {
+                    this.bNJ.bMB = false;
                 } else {
-                    this.bNU.bML = true;
+                    this.bNJ.bMB = true;
                 }
-                this.bNU.q(bjVar);
-                this.bNU.bMN.Zv();
+                this.bNJ.q(biVar);
+                this.bNJ.bMD.ZT();
             }
         }
         return true;

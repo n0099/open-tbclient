@@ -14,25 +14,25 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends LinearLayout {
-    private boolean bqc;
-    private List<Runnable> bqd;
-    private ArrayList<h> bqe;
-    private a bqf;
+    private boolean bpV;
+    private List<Runnable> bpW;
+    private ArrayList<h> bpX;
+    private a bpY;
     private Handler handler;
     private Context mContext;
 
     public d(Context context) {
         super(context);
-        this.bqc = false;
+        this.bpV = false;
         this.handler = new Handler();
-        this.bqd = new ArrayList();
-        this.bqe = new ArrayList<>();
+        this.bpW = new ArrayList();
+        this.bpX = new ArrayList<>();
         this.mContext = null;
         this.mContext = context;
     }
 
     public void setShadeViewContainer(a aVar) {
-        this.bqf = aVar;
+        this.bpY = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -48,8 +48,8 @@ public class d extends LinearLayout {
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        if (i == 8 && !gD(1)) {
-            RF();
+        if (i == 8 && !gG(1)) {
+            Sd();
         }
         super.setVisibility(i);
     }
@@ -57,19 +57,19 @@ public class d extends LinearLayout {
     public void setWriteViewList(ArrayList<h> arrayList) {
         boolean z;
         if (!x.q(arrayList)) {
-            if (arrayList.get(0) != x.c(this.bqe, 0) || getChildCount() <= 1) {
+            if (arrayList.get(0) != x.c(this.bpX, 0) || getChildCount() <= 1) {
                 z = true;
             } else {
                 removeViews(0, getChildCount() - 1);
                 z = false;
             }
-            this.bqe = arrayList;
-            int size = this.bqe.size();
-            if (this.bqf != null) {
-                this.bqf.setShadeCount(size);
+            this.bpX = arrayList;
+            int size = this.bpX.size();
+            if (this.bpY != null) {
+                this.bpY.setShadeCount(size);
             }
             for (int i = 0; i < size; i++) {
-                h hVar = this.bqe.get(i);
+                h hVar = this.bpX.get(i);
                 if (hVar != null) {
                     if (i != 0) {
                         hVar.setRotateRadius((-1.5f) - i);
@@ -79,8 +79,8 @@ public class d extends LinearLayout {
                     } else {
                         hVar.setRotateRadius(0.0f);
                         a(hVar, true);
-                        if (this.bqf != null) {
-                            this.bqf.k(0, true);
+                        if (this.bpY != null) {
+                            this.bpY.k(0, true);
                         }
                     }
                     if (i != 0 || z) {
@@ -91,8 +91,8 @@ public class d extends LinearLayout {
         }
     }
 
-    public void RB() {
-        for (Runnable runnable : this.bqd) {
+    public void RZ() {
+        for (Runnable runnable : this.bpW) {
             if (runnable != null) {
                 this.handler.removeCallbacks(runnable);
             }
@@ -100,8 +100,8 @@ public class d extends LinearLayout {
     }
 
     public void onPause() {
-        if (this.bqe != null) {
-            Iterator<h> it = this.bqe.iterator();
+        if (this.bpX != null) {
+            Iterator<h> it = this.bpX.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next != null) {
@@ -112,8 +112,8 @@ public class d extends LinearLayout {
     }
 
     public void onResume() {
-        if (this.bqe != null) {
-            Iterator<h> it = this.bqe.iterator();
+        if (this.bpX != null) {
+            Iterator<h> it = this.bpX.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next != null) {
@@ -123,43 +123,43 @@ public class d extends LinearLayout {
         }
     }
 
-    public void RC() {
-        this.bqc = false;
-        RB();
-        int size = this.bqe.size();
+    public void Sa() {
+        this.bpV = false;
+        RZ();
+        int size = this.bpX.size();
         for (int i = 0; i < size; i++) {
-            h hVar = this.bqe.get(i);
+            h hVar = this.bpX.get(i);
             if (hVar != null) {
                 f fVar = new f(this, i, hVar);
                 this.handler.postDelayed(fVar, i * 110);
-                this.bqd.add(fVar);
+                this.bpW.add(fVar);
             }
         }
     }
 
-    public void RD() {
-        if (gD(3)) {
-            this.bqc = false;
-            RB();
-            int size = this.bqe.size();
+    public void Sb() {
+        if (gG(3)) {
+            this.bpV = false;
+            RZ();
+            int size = this.bpX.size();
             for (int i = 0; i < size; i++) {
-                h hVar = this.bqe.get(i);
+                h hVar = this.bpX.get(i);
                 if (hVar != null) {
                     g gVar = new g(this, i, hVar);
                     this.handler.postDelayed(gVar, ((size - i) - 1) * 110);
-                    this.bqd.add(gVar);
+                    this.bpW.add(gVar);
                 }
             }
         }
     }
 
-    public boolean gD(int i) {
-        Iterator<h> it = this.bqe.iterator();
+    public boolean gG(int i) {
+        Iterator<h> it = this.bpX.iterator();
         boolean z = true;
         while (it.hasNext()) {
             h next = it.next();
             if (next != null) {
-                boolean z2 = next.gD(i) && z;
+                boolean z2 = next.gG(i) && z;
                 if (!z2) {
                     return z2;
                 }
@@ -170,8 +170,8 @@ public class d extends LinearLayout {
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        if (onClickListener != null && this.bqe != null) {
-            Iterator<h> it = this.bqe.iterator();
+        if (onClickListener != null && this.bpX != null) {
+            Iterator<h> it = this.bpX.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next != null) {
@@ -181,79 +181,79 @@ public class d extends LinearLayout {
         }
     }
 
-    public void RE() {
-        if (this.bqe != null) {
-            Iterator<h> it = this.bqe.iterator();
+    public void Sc() {
+        if (this.bpX != null) {
+            Iterator<h> it = this.bpX.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next != null) {
-                    next.RE();
+                    next.Sc();
                 }
             }
         }
     }
 
-    public void RF() {
-        if (this.bqe != null) {
-            RB();
-            int size = this.bqe.size();
+    public void Sd() {
+        if (this.bpX != null) {
+            RZ();
+            int size = this.bpX.size();
             for (int i = 0; i < size; i++) {
-                h hVar = this.bqe.get(i);
+                h hVar = this.bpX.get(i);
                 if (hVar != null) {
-                    if (this.bqf != null) {
+                    if (this.bpY != null) {
                         if (i == 0) {
-                            this.bqf.k(i, true);
+                            this.bpY.k(i, true);
                         } else {
-                            this.bqf.k(i, false);
+                            this.bpY.k(i, false);
                             hVar.setClickable(false);
                         }
                     }
-                    hVar.wc();
+                    hVar.wz();
                 }
             }
-            this.bqc = false;
+            this.bpV = false;
         }
     }
 
     public void setIsNeedIgnoreParentTouch(boolean z) {
-        this.bqc = z;
+        this.bpV = z;
     }
 
-    public boolean RG() {
-        return this.bqc;
+    public boolean Se() {
+        return this.bpV;
     }
 
     /* loaded from: classes.dex */
     public static class a extends LinearLayout {
-        ArrayList<TbImageView> bqj;
+        ArrayList<TbImageView> bqc;
         private int mSkinType;
 
         public a(Context context) {
             super(context);
-            this.bqj = new ArrayList<>();
+            this.bqc = new ArrayList<>();
             this.mSkinType = 3;
-            RH();
+            Sf();
         }
 
-        public void RH() {
+        public void Sf() {
             setOrientation(1);
         }
 
         public void setShadeCount(int i) {
             if (i <= 0) {
-                this.bqj.clear();
+                this.bqc.clear();
                 removeAllViews();
                 return;
             }
-            int size = i - this.bqj.size();
+            int size = i - this.bqc.size();
             if (size > 0) {
                 while (true) {
                     int i2 = size - 1;
                     if (size > 0) {
-                        TbImageView bk = bk(getContext());
-                        bk.setVisibility(8);
-                        addView(bk, 0);
-                        this.bqj.add(bk);
+                        TbImageView be = be(getContext());
+                        be.setVisibility(8);
+                        addView(be, 0);
+                        this.bqc.add(be);
                         size = i2;
                     } else {
                         return;
@@ -263,9 +263,9 @@ public class d extends LinearLayout {
                 while (true) {
                     int i3 = size + 1;
                     if (size < 0) {
-                        if (this.bqj.size() > 0) {
-                            removeView(this.bqj.get(0));
-                            this.bqj.remove(0);
+                        if (this.bqc.size() > 0) {
+                            removeView(this.bqc.get(0));
+                            this.bqc.remove(0);
                         }
                         size = i3;
                     } else {
@@ -275,7 +275,7 @@ public class d extends LinearLayout {
             }
         }
 
-        private TbImageView bk(Context context) {
+        private TbImageView be(Context context) {
             TbImageView tbImageView = new TbImageView(context);
             int g = k.g(context, w.f.ds124);
             tbImageView.setLayoutParams(new LinearLayout.LayoutParams(g, g));
@@ -287,7 +287,7 @@ public class d extends LinearLayout {
         }
 
         public void k(int i, boolean z) {
-            ImageView imageView = (ImageView) x.c(this.bqj, i);
+            ImageView imageView = (ImageView) x.c(this.bqc, i);
             if (imageView != null) {
                 if (z) {
                     imageView.setVisibility(0);

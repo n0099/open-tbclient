@@ -1,24 +1,31 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.os.Bundle;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends CustomMessageListener {
+public class d extends com.baidu.adp.framework.listener.a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(int i) {
-        super(i);
+    public d(int i, int i2) {
+        super(i, i2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c EG;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
-            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (EG = enterForumDelegateStatic.EG()) != null) {
-                EG.aDP.setArguments(new Bundle());
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        EnterForumModel enterForumModel;
+        EnterForumModel enterForumModel2;
+        EnterForumModel enterForumModel3;
+        if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
+            enterForumModel = EnterForumDelegateStatic.bEo;
+            if (enterForumModel.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
+                    enterForumModel3 = EnterForumDelegateStatic.bEo;
+                    enterForumModel3.a((forumRecommendSocketResponseMessage) responsedMessage);
+                }
+                if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
+                    enterForumModel2 = EnterForumDelegateStatic.bEo;
+                    enterForumModel2.a((forumRecommendHttpResponseMessage) responsedMessage);
+                }
             }
         }
     }

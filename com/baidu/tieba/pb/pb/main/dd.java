@@ -1,34 +1,70 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class dd {
-    private PbModel ejZ;
-
-    public dd(PbModel pbModel) {
-        this.ejZ = pbModel;
-        Ee();
+public class dd extends cx<com.baidu.tieba.pb.data.a, de> implements View.OnClickListener {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public dd(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    private void Ee() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_FLOOR_AGREE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_FLOOR_AGREE_URL);
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: aX */
+    public de onCreateViewHolder(ViewGroup viewGroup) {
+        de deVar = new de(LayoutInflater.from(this.mContext).inflate(w.j.god_card_list_item, (ViewGroup) null));
+        a(deVar);
+        return deVar;
     }
 
-    public void bL(String str, String str2) {
-        if (this.ejZ != null && this.ejZ.getPbData() != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-            httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.ejZ.getPbData().getThreadId());
-            httpMessage.addParam(PbActivityConfig.KEY_MSG_OP_TYPE, str2);
-            MessageManager.getInstance().sendMessage(httpMessage);
+    private void a(de deVar) {
+        if (deVar != null) {
+            int skinType = TbadkCoreApplication.m9getInst().getSkinType();
+            if (deVar.mSkinType != skinType) {
+                com.baidu.tbadk.m.a.a(this.eig.getPageContext(), deVar.getView());
+            }
+            deVar.mSkinType = skinType;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.cx, com.baidu.adp.widget.ListView.a
+    /* renamed from: a */
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, de deVar) {
+        super.onFillViewHolder(i, view, viewGroup, aVar, deVar);
+        a(deVar);
+        deVar.elc.setOnClickListener(this);
+        deVar.elb.setOnClickListener(this);
+        deVar.elc.setTag(aVar);
+        deVar.elb.setTag(aVar);
+        if (aVar != null) {
+            deVar.bWZ.c(aVar.getPortrait(), 28, false);
+            deVar.bsf.setText(aVar.getUserName());
+            deVar.cOV.setText(aVar.aJk());
+            deVar.cjI.setText(aVar.getText());
+            deVar.elb.c(aVar.getPicUrl(), 10, false);
+            deVar.elc.setText(aVar.aJl());
+        }
+        return view;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && com.baidu.tbadk.core.util.bg.aK(this.mContext)) {
+            String aJm = ((com.baidu.tieba.pb.data.a) view.getTag()).aJm();
+            if (!StringUtils.isNull(aJm)) {
+                com.baidu.tbadk.core.util.bb.wn().c(this.eig.getPageContext(), new String[]{aJm});
+            }
         }
     }
 }

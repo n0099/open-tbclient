@@ -1,21 +1,25 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.message.EnterForumInfoMessage;
-import com.baidu.tieba.enterForum.model.EnterForumModel;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.os.Bundle;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class a implements EnterForumModel.b {
-    @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
-    public void a(EnterForumModel.a aVar) {
-        com.baidu.tieba.enterForum.b.e Vd = aVar.bFz.Vd();
-        ArrayList arrayList = new ArrayList();
-        Iterator<com.baidu.tieba.tbadkCore.u> it = Vd.Vi().iterator();
-        while (it.hasNext()) {
-            arrayList.add(it.next().getName());
+class a extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.mainTab.c Fe;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
+            EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
+            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
+            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Fe = enterForumDelegateStatic.Fe()) != null) {
+                Fe.aEf.setArguments(new Bundle());
+            }
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new EnterForumInfoMessage(CmdConfigCustom.CMD_ENTER_FORUM_INFO, arrayList));
     }
 }

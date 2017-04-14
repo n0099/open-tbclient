@@ -1,18 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import java.util.Comparator;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-class cv implements Comparator<Integer> {
-    final /* synthetic */ cp emB;
+public class cv {
+    private BaseActivity bcy;
+    private PbModel eif;
+    private a ekP = null;
+    private final HttpMessageListener ekQ = new cw(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(cp cpVar) {
-        this.emB = cpVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void i(int i, long j);
+
+        void onError(int i, String str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    public int compare(Integer num, Integer num2) {
-        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
+    public cv(PbModel pbModel, BaseActivity baseActivity) {
+        this.eif = pbModel;
+        this.bcy = baseActivity;
+        aLi();
+        this.bcy.registerListener(this.ekQ);
+    }
+
+    public void a(a aVar) {
+        this.ekP = aVar;
+    }
+
+    public void aLi() {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setResponsedClass(HideChudianPostResponseMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+    }
+
+    public void cm(long j) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+        httpMessage.addParam("template_id", String.valueOf(j));
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

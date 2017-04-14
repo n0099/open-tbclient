@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class w extends LinearLayout {
-    public static final int cwV = w.e.cp_cont_f;
-    private int ckM;
-    private final int cwW;
-    private final Paint cwX;
-    private final Paint cwY;
-    private boolean cwZ;
-    private final int cxa;
-    private int cxb;
-    private int cxc;
-    private int cxd;
+    public static final int cvv = w.e.cp_cont_f;
+    private int cjm;
+    private final int cvA;
+    private int cvB;
+    private int cvC;
+    private int cvD;
+    private final int cvw;
+    private final Paint cvx;
+    private final Paint cvy;
+    private boolean cvz;
 
     public w(Context context) {
         this(context, null);
@@ -28,15 +28,15 @@ public class w extends LinearLayout {
 
     public w(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cwZ = true;
+        this.cvz = true;
         setWillNotDraw(false);
-        this.cwW = getResources().getDimensionPixelSize(w.f.ds6);
-        this.cxb = getResources().getDimensionPixelSize(w.f.ds20);
-        this.cwX = new Paint();
-        this.cwX.setColor(aq.d((Resources) null, w.e.cp_link_tip_a));
-        this.cwY = new Paint();
-        this.cwY.setColor(aq.getColor(w.e.cp_bg_line_b));
-        this.cxa = getResources().getDimensionPixelSize(w.f.ds1);
+        this.cvw = getResources().getDimensionPixelSize(w.f.ds6);
+        this.cvB = getResources().getDimensionPixelSize(w.f.ds20);
+        this.cvx = new Paint();
+        this.cvx.setColor(aq.d((Resources) null, w.e.cp_link_tip_a));
+        this.cvy = new Paint();
+        this.cvy.setColor(aq.getColor(w.e.cp_bg_line_b));
+        this.cvA = getResources().getDimensionPixelSize(w.f.ds1);
     }
 
     public void e(int i, float f) {
@@ -46,12 +46,12 @@ public class w extends LinearLayout {
 
     private void f(int i, float f) {
         View childAt = getChildAt(i);
-        this.cxc = childAt.getLeft();
-        this.cxd = childAt.getRight();
+        this.cvC = childAt.getLeft();
+        this.cvD = childAt.getRight();
         if (f >= 0.0f && i < getChildCount() - 1) {
             View childAt2 = getChildAt(i + 1);
-            this.cxc = (int) ((childAt2.getLeft() * f) + ((1.0f - f) * this.cxc));
-            this.cxd = (int) ((childAt2.getRight() * f) + ((1.0f - f) * this.cxd));
+            this.cvC = (int) ((childAt2.getLeft() * f) + ((1.0f - f) * this.cvC));
+            this.cvD = (int) ((childAt2.getRight() * f) + ((1.0f - f) * this.cvD));
         }
     }
 
@@ -61,7 +61,7 @@ public class w extends LinearLayout {
         int i4;
         int i5 = 0;
         View childAt = getChildAt(i);
-        View childAt2 = getChildAt(this.ckM);
+        View childAt2 = getChildAt(this.cjm);
         if (childAt != null) {
             i3 = childAt.getLeft();
             i2 = childAt.getWidth();
@@ -75,14 +75,14 @@ public class w extends LinearLayout {
         } else {
             i4 = 0;
         }
-        this.cxc = (int) (((i4 - i3) * f) + i3);
-        this.cxd = ((int) ((i5 - i2) * f)) + i2 + this.cxc;
+        this.cvC = (int) (((i4 - i3) * f) + i3);
+        this.cvD = ((int) ((i5 - i2) * f)) + i2 + this.cvC;
         invalidate();
     }
 
-    public void ax(int i, int i2) {
+    public void av(int i, int i2) {
         if (i != i2) {
-            this.ckM = i;
+            this.cjm = i;
             int childCount = getChildCount();
             if (i >= 0 && i < childCount) {
                 View childAt = getChildAt(i);
@@ -93,14 +93,14 @@ public class w extends LinearLayout {
             if (i2 >= 0 && i2 < childCount) {
                 View childAt2 = getChildAt(i2);
                 if (childAt2 instanceof x) {
-                    aq.c(((x) childAt2).getTextView(), cwV, 1);
+                    aq.c(((x) childAt2).getTextView(), cvv, 1);
                 }
             }
         }
     }
 
     public void setDrawBottomLine(boolean z) {
-        this.cwZ = z;
+        this.cvz = z;
         invalidate();
     }
 
@@ -108,24 +108,24 @@ public class w extends LinearLayout {
     protected void onDraw(Canvas canvas) {
         if (getChildCount() > 0 && canvas != null) {
             int height = getHeight();
-            if (this.cwZ) {
-                canvas.drawRect(0.0f, height - this.cxa, getRight(), height, this.cwY);
+            if (this.cvz) {
+                canvas.drawRect(0.0f, height - this.cvA, getRight(), height, this.cvy);
             }
             a(canvas, height);
         }
     }
 
     private void a(Canvas canvas, int i) {
-        if (this.cxd <= 0 && this.ckM >= 0 && this.ckM < getChildCount()) {
-            this.cxd = getChildAt(this.ckM).getRight();
+        if (this.cvD <= 0 && this.cjm >= 0 && this.cjm < getChildCount()) {
+            this.cvD = getChildAt(this.cjm).getRight();
         }
-        int i2 = (((this.cxd - this.cxc) / 2) + this.cxc) - (this.cxb / 2);
-        canvas.drawRect(i2, i - this.cwW, i2 + this.cxb, i, this.cwX);
+        int i2 = (((this.cvD - this.cvC) / 2) + this.cvC) - (this.cvB / 2);
+        canvas.drawRect(i2, i - this.cvw, i2 + this.cvB, i, this.cvx);
     }
 
     public void onChangeSkinType(int i) {
-        this.cwX.setColor(aq.d((Resources) null, w.e.cp_link_tip_a));
-        this.cwY.setColor(aq.getColor(w.e.cp_bg_line_b));
+        this.cvx.setColor(aq.d((Resources) null, w.e.cp_link_tip_a));
+        this.cvy.setColor(aq.getColor(w.e.cp_bg_line_b));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {
@@ -133,11 +133,11 @@ public class w extends LinearLayout {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof x) {
                     x xVar = (x) childAt;
-                    xVar.tD();
-                    if (i2 == this.ckM) {
+                    xVar.onChangeSkinType();
+                    if (i2 == this.cjm) {
                         aq.c(xVar.getTextView(), w.e.cp_link_tip_a, 1);
                     } else {
-                        aq.c(xVar.getTextView(), cwV, 1);
+                        aq.c(xVar.getTextView(), cvv, 1);
                     }
                 }
             }

@@ -1,199 +1,62 @@
 package com.baidu.tbadk.b;
 
-import android.util.SparseIntArray;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.b.b;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.util.ArrayList;
-import java.util.List;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.tbadk.coreExtra.service.LocationReportService;
 /* loaded from: classes.dex */
 public class a {
-    private static b QG = null;
-    private static a QH = null;
-    private static boolean QI = false;
-    private static String QJ = "";
-    private static transient List<String> QK = new ArrayList(5);
+    public static int QW = 0;
+    public static int QX = 1;
+    public static int QY = 2;
+    private AlarmManager QU;
+    private PendingIntent QV;
+    private Context mContext;
+    private long timeInterval;
 
-    /* renamed from: com.baidu.tbadk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0029a {
-        private static SparseIntArray QL = new SparseIntArray();
-
-        static {
-            QL.put(2, 1);
-            QL.put(4, 2);
-            QL.put(8, 3);
-            QL.put(12, 4);
-            QL.put(16, 5);
-            QL.put(20, 6);
-            QL.put(24, 7);
-        }
-
-        public static int aV(int i) {
-            return QL.get(i);
+    public a(Context context) {
+        if (context != null) {
+            this.mContext = context;
+            this.QV = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
+            this.QU = (AlarmManager) this.mContext.getSystemService("alarm");
         }
     }
 
-    private a() {
-    }
-
-    public static a a(BaseFragmentActivity baseFragmentActivity) {
-        if (QH == null) {
-            synchronized (a.class) {
-                if (QH == null) {
-                    QH = new a();
-                    QG = b.b(baseFragmentActivity);
-                }
+    public void a(int i, int i2, long j, long j2) {
+        if (this.QU != null) {
+            this.timeInterval = j2;
+            if (i == QW) {
+                this.QU.set(i2, j, this.QV);
+            } else if (i == QX) {
+                this.QU.setRepeating(i2, j, j2, this.QV);
+            } else if (i == QY) {
+                this.QU.setInexactRepeating(i2, j, j2, this.QV);
+            } else {
+                this.QU.set(i2, j, this.QV);
             }
-        } else if (QG != null) {
-            QG.a(baseFragmentActivity.getPageContext());
         }
-        if (QI && QG != null) {
-            QG.nW();
-            QG.nX();
-            QI = false;
-        }
-        return QH;
     }
 
-    public static a b(BaseActivity baseActivity) {
-        if (QH == null) {
-            synchronized (a.class) {
-                if (QH == null) {
-                    QH = new a();
-                    QG = b.c(baseActivity);
-                }
+    public void cancel() {
+        if (this.QU != null && this.QV != null) {
+            this.QU.cancel(this.QV);
+        }
+    }
+
+    public void ob() {
+        if (this.QU != null && this.QV != null) {
+            if (this.timeInterval <= 0) {
+                this.timeInterval = 3600000L;
             }
-        } else if (QG != null) {
-            QG.a(baseActivity.getPageContext());
-        }
-        if (QI && QG != null) {
-            QG.nW();
-            QG.nX();
-            QI = false;
-        }
-        return QH;
-    }
-
-    public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        nR();
-        if (z) {
-            nL();
-        }
-        if (z2) {
-            nM();
-        }
-        ad(z3);
-        a(aVar);
-    }
-
-    public void a(TbPageContext tbPageContext, String str, String str2, String str3) {
-        nR();
-        if (QG != null) {
-            QG.a(tbPageContext, str, str2, str3);
+            a(QX, 1, System.currentTimeMillis() + this.timeInterval, this.timeInterval);
         }
     }
 
-    public void nL() {
-        nR();
-        if (QG != null) {
-            QG.nW();
-            QI = false;
+    public long oc() {
+        if (this.timeInterval <= 0) {
+            this.timeInterval = 3600000L;
         }
-    }
-
-    public void nM() {
-        nR();
-        if (QG != null) {
-            QG.nX();
-            QI = false;
-        }
-    }
-
-    public void ad(boolean z) {
-        nR();
-        if (QG != null) {
-            QG.ad(z);
-        }
-    }
-
-    public boolean nN() {
-        nR();
-        if (QG != null) {
-            return QG.nN();
-        }
-        return false;
-    }
-
-    public void a(b.a aVar) {
-        nR();
-        if (QG != null) {
-            QG.c(aVar);
-        }
-    }
-
-    public void b(b.a aVar) {
-        nR();
-        if (QG != null) {
-            if (QG.nT()) {
-                QG.c(aVar);
-            }
-            QG.nV();
-        }
-    }
-
-    public void a(int i, b.a aVar) {
-        nR();
-        if (QG != null) {
-            if (QG.nT()) {
-                QG.c(aVar);
-            }
-            QG.aW(i);
-        }
-    }
-
-    public void nO() {
-        nR();
-        if (QG != null) {
-            QG.nO();
-            QI = true;
-        }
-    }
-
-    public void nP() {
-        nR();
-        if (QG != null) {
-            QG.nP();
-        }
-    }
-
-    public void nQ() {
-        nR();
-        nP();
-        nO();
-    }
-
-    private void nR() {
-        if (QG == null) {
-        }
-    }
-
-    public static void nS() {
-        try {
-            if (QG != null) {
-                if (QH != null) {
-                    QH.nQ();
-                }
-                QG.nU();
-                QG.nY();
-                QG = null;
-            }
-            if (QH != null) {
-                QH = null;
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        return this.timeInterval;
     }
 }

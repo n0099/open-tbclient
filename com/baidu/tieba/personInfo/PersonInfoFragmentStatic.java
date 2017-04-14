@@ -8,10 +8,10 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes.dex */
 public class PersonInfoFragmentStatic {
     static {
-        JJ();
+        Kj();
     }
 
-    private static void JJ() {
+    private static void Kj() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.av("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);

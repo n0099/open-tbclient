@@ -10,25 +10,25 @@ import com.baidu.tieba.homepage.alalivelist.view.h;
 import com.baidu.tieba.homepage.alalivelist.view.i;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.widget.ListView.a<h, a> {
-    private TbPageContext<?> ajF;
-    public BdUniqueId baP;
-    cf<h> cuN;
-    private i cuQ;
+    private TbPageContext<?> ajT;
+    public BdUniqueId baI;
+    cf<h> ctn;
+    private i ctq;
 
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cuN = new g(this);
-        this.ajF = tbPageContext;
+        this.ctn = new g(this);
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: W */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.cuQ = new i(this.ajF);
-        this.cuQ.i(this.ajF.getUniqueId());
-        return new a(this.cuQ);
+        this.ctq = new i(this.ajT);
+        this.ctq.i(this.ajT.getUniqueId());
+        return new a(this.ctq);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,19 +36,19 @@ public class f extends com.baidu.adp.widget.ListView.a<h, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, a aVar) {
-        aVar.cuS.onBindDataToView(hVar);
-        aVar.cuS.setOnSubCardOnClickListenner(this.cuN);
+        aVar.cts.onBindDataToView(hVar);
+        aVar.cts.setOnSubCardOnClickListenner(this.ctn);
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public i cuS;
+        public i cts;
 
         public a(i iVar) {
             super(iVar.getView());
-            this.cuS = iVar;
+            this.cts = iVar;
         }
     }
 }

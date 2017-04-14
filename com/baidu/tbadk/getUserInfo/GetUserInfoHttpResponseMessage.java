@@ -34,8 +34,8 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.Ec() != null) {
-            b.Ed().a(this.mData.Ec());
+        if (this.mData != null && this.mData.EA() != null) {
+            b.EB().a(this.mData.EA());
         } else {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
         }

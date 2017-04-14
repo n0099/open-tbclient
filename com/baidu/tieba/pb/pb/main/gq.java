@@ -1,123 +1,82 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.ej;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class gq implements ej.a {
-    final /* synthetic */ ReaderPbService etx;
+public final class gq extends LinearLayout {
+    private LinearLayout aIy;
+    private TextView aOx;
+    private TextView auO;
+    private TbImageView cKC;
+    private EditText cef;
+    private ShareFromPBMsgData dgx;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public gq(ReaderPbService readerPbService) {
-        this.etx = readerPbService;
+    public EditText getChatMsgView() {
+        return this.cef;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ej.a
-    public void aMw() {
-        boolean z;
-        em emVar;
-        em emVar2;
-        em emVar3;
-        String str;
-        BdUniqueId bdUniqueId;
-        z = this.etx.isAlive;
-        if (!z) {
-            emVar = this.etx.mReaderModel;
-            if (emVar != null) {
-                emVar2 = this.etx.mReaderModel;
-                if (emVar2 != null) {
-                    emVar3 = this.etx.mReaderModel;
-                    str = this.etx.threadId;
-                    emVar3.nx(str);
-                    return;
-                }
-                return;
-            }
-            return;
+    public void G(String str, boolean z) {
+        if (this.cKC != null) {
+            this.cKC.c(str, z ? 17 : 18, false);
         }
-        com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
-        bdUniqueId = this.etx.mTagId;
-        aVar.tag = bdUniqueId;
-        aVar.ewl = 0;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ej.a
-    public void aMx() {
-        boolean z;
-        em emVar;
-        em emVar2;
-        BdUniqueId bdUniqueId;
-        z = this.etx.isAlive;
-        if (!z) {
-            emVar = this.etx.mReaderModel;
-            if (emVar != null) {
-                emVar2 = this.etx.mReaderModel;
-                emVar2.aMy();
-                return;
-            }
-            return;
-        }
-        com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
-        bdUniqueId = this.etx.mTagId;
-        aVar.tag = bdUniqueId;
-        aVar.ewl = 1;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
+    public gq(Context context) {
+        super(context);
+        bm(context);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.ej.a
-    public void bf(int i, int i2) {
-        boolean z;
-        ej ejVar;
-        ej ejVar2;
-        ej ejVar3;
-        ej ejVar4;
-        String str;
-        ej ejVar5;
-        BdUniqueId bdUniqueId;
-        ej ejVar6;
-        ej ejVar7;
-        ej ejVar8;
-        ej ejVar9;
-        z = this.etx.isAlive;
-        if (z) {
-            com.baidu.tieba.pb.b.a aVar = new com.baidu.tieba.pb.b.a();
-            bdUniqueId = this.etx.mTagId;
-            aVar.tag = bdUniqueId;
-            aVar.ewl = 2;
-            ejVar6 = this.etx.mReaderManager;
-            aVar.ewm = ejVar6.epS;
-            ejVar7 = this.etx.mReaderManager;
-            aVar.ewn = ejVar7.aMu();
-            String str2 = "";
-            ejVar8 = this.etx.mReaderManager;
-            if (ejVar8.aMv() != null) {
-                ejVar9 = this.etx.mReaderManager;
-                str2 = ejVar9.aMv().getId();
-            }
-            aVar.postId = str2;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION_PB, aVar));
-            return;
+    private void bm(Context context) {
+        LayoutInflater.from(context).inflate(w.j.thread_to_group_share_view, this);
+        setOrientation(1);
+        this.aIy = (LinearLayout) findViewById(w.h.share_content);
+        this.auO = (TextView) findViewById(w.h.share_title_view);
+        this.cef = (EditText) findViewById(w.h.chat_msg);
+        this.cKC = (TbImageView) findViewById(w.h.chat_group_img);
+        this.aOx = (TextView) findViewById(w.h.chat_group_desc);
+        com.baidu.tbadk.core.util.aq.c(this.auO, w.e.cp_cont_b, 1);
+        com.baidu.tbadk.core.util.aq.c(this.cef, w.e.cp_cont_b, 2);
+        com.baidu.tbadk.core.util.aq.c(this.aOx, w.e.cp_cont_f, 1);
+        this.cef.setHintTextColor(com.baidu.tbadk.core.util.aq.getColor(w.e.cp_cont_e));
+        this.cef.setPadding(context.getResources().getDimensionPixelSize(w.f.ds20), 0, 0, 0);
+        aez();
+    }
+
+    public void aez() {
+        this.aIy.setFocusable(true);
+        this.aIy.setFocusableInTouchMode(true);
+        this.aIy.requestFocus();
+    }
+
+    public String getLeaveMsg() {
+        if (this.cef != null) {
+            return com.baidu.adp.lib.util.j.a(this.cef.getText(), null);
         }
-        String str3 = "";
-        ejVar = this.etx.mReaderManager;
-        if (ejVar.aMv() != null) {
-            ejVar5 = this.etx.mReaderManager;
-            str3 = ejVar5.aMv().getId();
-        }
-        ejVar2 = this.etx.mReaderManager;
-        boolean z2 = ejVar2.epX;
-        ejVar3 = this.etx.mReaderManager;
-        boolean z3 = ejVar3.isSquence;
-        ejVar4 = this.etx.mReaderManager;
-        int i3 = ejVar4.epS;
-        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.etx);
-        str = this.etx.threadId;
-        pbActivityConfig.createReaderServiceCfg(str, str3, i3, z2, z3, null);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
+        return null;
+    }
+
+    @Override // android.widget.LinearLayout, android.view.ViewGroup
+    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
+        return new LinearLayout.LayoutParams(-1, -2);
+    }
+
+    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
+        this.dgx = shareFromPBMsgData;
+        wU();
+    }
+
+    private void wU() {
+        this.auO.setText(this.dgx.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dgx.getImageUrl());
+        this.cKC.setTag(this.dgx.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.dgx.getContent());
+        this.aOx.setText(this.dgx.getContent());
     }
 }

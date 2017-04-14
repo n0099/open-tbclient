@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.widget.vote.a {
-    private String adX;
-    private long axJ;
+    private String ael;
+    private long axZ;
     private boolean isSelected = false;
     private int mId;
     private int mPercent;
@@ -13,16 +13,16 @@ public class l implements com.baidu.tbadk.widget.vote.a {
 
     public l(int i, String str, String str2, long j) {
         this.mId = i;
-        this.adX = str;
+        this.ael = str;
         this.mUrl = str2;
-        this.axJ = j;
+        this.axZ = j;
     }
 
     public void setSelected(boolean z) {
         this.isSelected = z;
     }
 
-    public void ce(int i) {
+    public void ch(int i) {
         this.mPercent = i;
     }
 
@@ -32,8 +32,8 @@ public class l implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Ct() {
-        return this.adX;
+    public String CR() {
+        return this.ael;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -42,27 +42,27 @@ public class l implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cu() {
-        return String.valueOf(this.axJ) + TbadkCoreApplication.m9getInst().getString(w.l.vote_unit);
+    public String CS() {
+        return String.valueOf(this.axZ) + TbadkCoreApplication.m9getInst().getString(w.l.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cv() {
+    public String CT() {
         return String.valueOf(this.mPercent) + TbadkCoreApplication.m9getInst().getString(w.l.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Cw() {
+    public int CU() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Cx() {
+    public int CV() {
         return this.mPercent;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Cy() {
+    public String CW() {
         return this.mUrl;
     }
 }

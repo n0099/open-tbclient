@@ -8,12 +8,12 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.voice.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.a.k;
-import com.baidu.tbadk.core.util.resourceLoaderProc.d;
+import com.baidu.tbadk.core.util.c.d;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c implements e<a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean fJ() {
+    public boolean fO() {
         return true;
     }
 
@@ -28,16 +28,16 @@ public class c implements e<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.wz = dVar;
+            aVar.wc = dVar;
         }
-        diskFileOperate.dJ();
+        diskFileOperate.dI();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String ea = diskFileOperate.ea();
+        String dZ = diskFileOperate.dZ();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = ea;
+        aVar2.path = dZ;
         return aVar2;
     }
 
@@ -54,14 +54,14 @@ public class c implements e<a> {
         a aVar2 = new a();
         k kVar = new k();
         if (aVar != null) {
-            aVar.wz = kVar;
+            aVar.wc = kVar;
         }
-        byte[] dJ = kVar.dJ(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!kVar.wb()) {
+        byte[] dP = kVar.dP(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!kVar.wy()) {
             aVar2.error_code = 3;
             aVar2.error_msg = l.getString(w.l.neterror);
             return aVar2;
-        } else if (dJ == null || dJ.length == 0) {
+        } else if (dP == null || dP.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = l.getString(w.l.voice_cache_error_no_file);
             return aVar2;
@@ -69,23 +69,23 @@ public class c implements e<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (dJ == null || dJ.length == 0) {
+            } else if (dP == null || dP.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.s(false);
-                diskFileOperate.setData(dJ);
+                diskFileOperate.setData(dP);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
-                    aVar.wz = dVar;
+                    aVar.wc = dVar;
                 }
-                diskFileOperate.dJ();
-                if (diskFileOperate.isSuccess() && diskFileOperate.dX() != null) {
-                    str5 = diskFileOperate.dX().getAbsolutePath();
+                diskFileOperate.dI();
+                if (diskFileOperate.isSuccess() && diskFileOperate.dW() != null) {
+                    str5 = diskFileOperate.dW().getAbsolutePath();
                     i3 = 0;
-                } else if (com.baidu.tbadk.core.util.l.uz() < dJ.length) {
+                } else if (com.baidu.tbadk.core.util.l.uW() < dP.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -96,7 +96,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.dv(i3);
+                aVar2.error_msg = a.dy(i3);
             }
             return aVar2;
         }
@@ -107,12 +107,12 @@ public class c implements e<a> {
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel fK() {
+    public BdAsyncTaskParallel fP() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int fL() {
+    public int fQ() {
         return 2;
     }
 

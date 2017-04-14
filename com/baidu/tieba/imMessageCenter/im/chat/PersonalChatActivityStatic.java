@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
 public class PersonalChatActivityStatic {
-    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e diL;
-    private static CustomMessageListener diM = new l(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e dhk;
+    private static CustomMessageListener dhl = new l(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     static {
-        MessageManager.getInstance().registerListener(diM);
+        MessageManager.getInstance().registerListener(dhl);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new m());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        bb.vQ().a(new p());
+        bb.wn().a(new p());
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e auk() {
-        return diL;
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e aud() {
+        return dhk;
     }
 
     public static void a(com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e eVar) {
-        diL = eVar;
+        dhk = eVar;
     }
 }

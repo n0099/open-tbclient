@@ -5,19 +5,19 @@ import com.baidu.tieba.account.appeal.f;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class c implements f.b {
-    final /* synthetic */ b aVO;
+    final /* synthetic */ b aWb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aVO = bVar;
+        this.aWb = bVar;
     }
 
     @Override // com.baidu.tieba.account.appeal.f.b
     public void a(AppealData appealData) {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
-        appealActivity = this.aVO.aVN;
-        appealActivity2 = this.aVO.aVN;
+        appealActivity = this.aWb.aWa;
+        appealActivity2 = this.aWb.aWa;
         appealActivity.w(appealActivity2.getPageContext().getString(w.l.appeal_post_success), true);
     }
 
@@ -26,9 +26,9 @@ class c implements f.b {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
         String string;
-        appealActivity = this.aVO.aVN;
+        appealActivity = this.aWb.aWa;
         if (au.isEmpty(appealData.errMsg)) {
-            appealActivity2 = this.aVO.aVN;
+            appealActivity2 = this.aWb.aWa;
             string = appealActivity2.getPageContext().getString(w.l.appeal_post_failure);
         } else {
             string = appealData.errMsg;

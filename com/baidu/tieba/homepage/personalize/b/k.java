@@ -11,49 +11,49 @@ import com.baidu.tieba.card.cf;
 import com.baidu.tieba.play.bb;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.p, f<al>> {
-    private TbPageContext<?> ajF;
-    private cf baM;
-    public BdUniqueId baP;
-    private com.baidu.tieba.homepage.personalize.model.f czt;
-    private al czv;
+    private TbPageContext<?> ajT;
+    private cf baF;
+    public BdUniqueId baI;
+    private com.baidu.tieba.homepage.personalize.model.f cxT;
+    private al cxV;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.baM = new l(this);
-        this.ajF = tbPageContext;
+        this.baF = new l(this);
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ad */
+    /* renamed from: ac */
     public f onCreateViewHolder(ViewGroup viewGroup) {
-        this.czv = new al(this.ajF);
-        if (this.czv.bbj != null) {
-            this.czv.bbj.setReplyTimeVisible(false);
-            this.czv.bbj.setViewNumEnabled(true);
+        this.cxV = new al(this.ajT);
+        if (this.cxV.bbc != null) {
+            this.cxV.bbc.setReplyTimeVisible(false);
+            this.cxV.bbc.setViewNumEnabled(true);
         }
-        this.czv.Sm();
-        this.czv.j(this.baP);
-        return new f(this.czv);
+        this.cxV.SK();
+        this.cxV.j(this.baI);
+        return new f(this.cxV);
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x004b: IGET  (r2v2 long A[REMOVE]) = 
-      (wrap: com.baidu.tbadk.core.data.bq : 0x0047: INVOKE  (r2v1 com.baidu.tbadk.core.data.bq A[REMOVE]) = 
-      (wrap: com.baidu.tbadk.core.data.bj : 0x0043: INVOKE  (r2v0 com.baidu.tbadk.core.data.bj A[REMOVE]) = (r6v0 com.baidu.tieba.card.data.p) type: VIRTUAL call: com.baidu.tieba.card.data.p.JN():com.baidu.tbadk.core.data.bj)
-     type: VIRTUAL call: com.baidu.tbadk.core.data.bj.sU():com.baidu.tbadk.core.data.bq)
-     com.baidu.tbadk.core.data.bq.channelId long)] */
+      (wrap: com.baidu.tbadk.core.data.bp : 0x0047: INVOKE  (r2v1 com.baidu.tbadk.core.data.bp A[REMOVE]) = 
+      (wrap: com.baidu.tbadk.core.data.bi : 0x0043: INVOKE  (r2v0 com.baidu.tbadk.core.data.bi A[REMOVE]) = (r6v0 com.baidu.tieba.card.data.p) type: VIRTUAL call: com.baidu.tieba.card.data.p.Kn():com.baidu.tbadk.core.data.bi)
+     type: VIRTUAL call: com.baidu.tbadk.core.data.bi.ts():com.baidu.tbadk.core.data.bp)
+     com.baidu.tbadk.core.data.bp.channelId long)] */
     private bb b(com.baidu.tieba.card.data.p pVar) {
         bb bbVar = null;
         if (pVar != null) {
             bbVar = new bb();
             bbVar.mLocate = "1";
-            bbVar.bqB = pVar.WD;
-            if (pVar.JN() != null) {
-                bbVar.bqC = String.valueOf(pVar.JN().getFid());
-                if (pVar.JN().sU() != null && pVar.JN().sU().channelId > 0) {
-                    bbVar.Vy = new StringBuilder().append(pVar.JN().sU().channelId).toString();
+            bbVar.bqu = pVar.WS;
+            if (pVar.Kn() != null) {
+                bbVar.bqv = String.valueOf(pVar.Kn().getFid());
+                if (pVar.Kn().ts() != null && pVar.Kn().ts().channelId > 0) {
+                    bbVar.VP = new StringBuilder().append(pVar.Kn().ts().channelId).toString();
                 }
             }
         }
@@ -66,18 +66,18 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.p pVar, f fVar) {
         if (pVar != null) {
-            pVar.gI(i + 1);
-            fVar.Tb().a(b(pVar));
-            fVar.Tb().onBindDataToView(pVar);
-            fVar.Tb().setOnSubCardOnClickListenner(this.baM);
-            if (pVar.bbv != null && pVar.bbv.getTid() != null) {
-                cc.Sv().a(new as("c11003").Z("tid", pVar.bbv.getTid()));
+            pVar.gL(i + 1);
+            fVar.Tz().a(b(pVar));
+            fVar.Tz().onBindDataToView(pVar);
+            fVar.Tz().setOnSubCardOnClickListenner(this.baF);
+            if (pVar.bbo != null && pVar.bbo.getTid() != null) {
+                cc.ST().a(new as("c11003").aa("tid", pVar.bbo.getTid()));
             }
         }
         return fVar.getView();
     }
 
     public void a(com.baidu.tieba.homepage.personalize.model.f fVar) {
-        this.czt = fVar;
+        this.cxT = fVar;
     }
 }

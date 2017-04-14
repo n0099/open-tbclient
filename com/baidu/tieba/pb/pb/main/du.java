@@ -1,23 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
-public class du implements Runnable {
-    final /* synthetic */ dt eoB;
+public class du extends PostData {
+    public static final BdUniqueId emX = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.ar emY;
+    public com.baidu.tbadk.core.data.ar emZ;
+    public com.baidu.tbadk.core.data.ar ena;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public du(dt dtVar) {
-        this.eoB = dtVar;
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return emX;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view;
-        PbActivity pbActivity;
-        view = this.eoB.bqJ;
-        pbActivity = this.eoB.eoy;
-        view.setBackgroundColor(pbActivity.getResources().getColor(w.e.common_color_10082));
+    public boolean hasData() {
+        if (this.emY == null || StringUtils.isNull(this.emY.summary)) {
+            if (this.emZ == null || StringUtils.isNull(this.emZ.summary)) {
+                return (this.ena == null || StringUtils.isNull(this.ena.summary)) ? false : true;
+            }
+            return true;
+        }
+        return true;
     }
 }

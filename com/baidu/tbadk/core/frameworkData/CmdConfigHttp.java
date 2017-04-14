@@ -6,14 +6,14 @@ public class CmdConfigHttp {
     public static final int BG_LOGIN_HTTP_CMD = 1001101;
     public static final int BUYPROPS_CMD = 1001504;
     public static final int CAD_AD_STATISTIC_UPLOAD = 1003183;
+    public static final int CARD_BOX_MEMBER_PAY_CMD = 1003317;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
-    public static final int CMD_ACROSS_AWARD = 1003190;
-    public static final int CMD_ACROSS_FORUM = 1003189;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_ADD_USER_BOOKMARK = 1003166;
     public static final int CMD_ADD_VOTE = 1003043;
+    public static final int CMD_AD_CLOSE = 1003322;
     public static final int CMD_AD_UPLOAD = 1003062;
     public static final int CMD_ALA_HTTP_BASE_CMD = 1003201;
     public static final int CMD_ALA_HTTP_MAX_CMD = 1003301;
@@ -58,6 +58,7 @@ public class CmdConfigHttp {
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FORUM_CLASS_LIST = 1003061;
     public static final int CMD_FOUND_NEW = 1003003;
+    public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
     public static final int CMD_FRS_HEAD_VIDEO_LIST = 1003106;
     public static final int CMD_GET_BARRAGE_LIST = 1003180;
     public static final int CMD_GET_BFB_INFO = 1003100;
@@ -76,6 +77,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
     public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
     public static final int CMD_GET_FINE_PB = 1003006;
+    public static final int CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH = 1003319;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
     public static final int CMD_GET_GAME_BANNER = 1003013;
     public static final int CMD_GET_GAME_NEW = 1003014;
@@ -95,6 +97,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_TASK_SCORES = 1003101;
+    public static final int CMD_GET_TCODE_INFO_CMD = 1003320;
     public static final int CMD_GET_USER_BOOKMARK_LIST = 1003168;
     public static final int CMD_GET_USER_BOOK_HISTORY = 1003165;
     public static final int CMD_GET_USER_FORUM_STORE = 1003068;
@@ -120,6 +123,7 @@ public class CmdConfigHttp {
     public static final int CMD_MANGA_REPORT_TYPE = 1003088;
     public static final int CMD_MEMBERCENTER_INDEX = 1003048;
     public static final int CMD_MEMBER_CLOSE_AD = 1003090;
+    public static final int CMD_MEMBER_FREE_BOOK = 1003321;
     public static final int CMD_MEMBER_TASK = 1003187;
     public static final int CMD_NEG_FEED_BACK = 1003184;
     public static final int CMD_OP_BOOKRACK = 1003163;

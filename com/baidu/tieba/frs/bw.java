@@ -1,71 +1,23 @@
 package com.baidu.tieba.frs;
 
 import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bw extends SparseArray<cb> {
-    public BdUniqueId baP = null;
+public class bw {
+    private static bw bPQ = new bw();
+    private SparseArray<bx> bPP = new SparseArray<>();
 
-    public void a(cc ccVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                cb valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(ccVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    private bw() {
     }
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                cb valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public static bw aaB() {
+        return bPQ;
     }
 
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                cb valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.MQ();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+    public void a(int i, bx bxVar) {
+        this.bPP.put(i, bxVar);
     }
 
-    public void a(int i, cb cbVar) {
-        if (i > 100) {
-            i = 100;
-        }
-        put(i, cbVar);
-    }
-
-    public cb hS(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return get(i);
+    public bx hU(int i) {
+        return this.bPP.get(i);
     }
 }

@@ -1,25 +1,14 @@
 package com.baidu.tieba.passaccount.framework;
 
-import android.content.Context;
+import android.app.Activity;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes.dex */
-class b implements bb.a {
-    @Override // com.baidu.tbadk.core.util.bb.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        if (tbPageContext == null || strArr == null || strArr.length == 0) {
-            return 3;
-        }
-        String str = strArr[0];
-        if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jumptologin=1")) {
-            TbadkCoreApplication.m9getInst().login(null, new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), "", true, 0)));
-            return 1;
-        }
-        return 3;
+class b implements CustomMessageTask.CustomRunnable<Activity> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tbadk.core.a.a> run(CustomMessage<Activity> customMessage) {
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, com.baidu.tieba.passaccount.a.a.aID());
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tbadk.mvc.model.CacheModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends CustomMessageListener {
-    final /* synthetic */ CacheModel aEi;
+    final /* synthetic */ CacheModel aEy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(CacheModel cacheModel, int i) {
         super(i);
-        this.aEi = cacheModel;
+        this.aEy = cacheModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,16 +22,16 @@ public class a extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         CacheModel.a aVar;
         CacheModel.a aVar2;
-        this.aEi.Fp = false;
+        this.aEy.EQ = false;
         if (customResponsedMessage != null && (customResponsedMessage instanceof ReadCacheRespMsg)) {
             ReadCacheRespMsg readCacheRespMsg = (ReadCacheRespMsg) customResponsedMessage;
             ReadCacheMessage readCacheMessage = null;
             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
             }
-            aVar = this.aEi.aEc;
+            aVar = this.aEy.aEs;
             if (aVar != null) {
-                aVar2 = this.aEi.aEc;
+                aVar2 = this.aEy.aEs;
                 aVar2.a(readCacheRespMsg, readCacheMessage);
             }
         }

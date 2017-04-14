@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.au;
@@ -20,122 +20,122 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ThreadLiveAndRecordUserInfoLayout extends LinearLayout {
-    private bj aRF;
-    private boolean alI;
-    private View.OnClickListener alM;
-    private View.OnClickListener amj;
-    public ClickableHeaderImageView bbN;
-    public ViewStub bbO;
-    public TextView bbP;
-    public TextView bbQ;
-    public TextView bbR;
-    public TextView bbS;
-    private View.OnClickListener bbT;
-    private View.OnClickListener bbU;
-    public TbImageView bbi;
+    private bi aRV;
+    private boolean alW;
+    private View.OnClickListener ama;
+    private View.OnClickListener amx;
+    public ClickableHeaderImageView bbG;
+    public ViewStub bbH;
+    public TextView bbI;
+    public TextView bbJ;
+    public TextView bbK;
+    public TextView bbL;
+    private View.OnClickListener bbM;
+    private View.OnClickListener bbN;
+    public TbImageView bbb;
     private Context mContext;
     private View rootView;
 
     public ThreadLiveAndRecordUserInfoLayout(Context context) {
         super(context);
-        this.bbT = new l(this);
-        this.bbU = new m(this);
+        this.bbM = new l(this);
+        this.bbN = new m(this);
         init(context);
     }
 
     public ThreadLiveAndRecordUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bbT = new l(this);
-        this.bbU = new m(this);
+        this.bbM = new l(this);
+        this.bbN = new m(this);
         init(context);
     }
 
     public ThreadLiveAndRecordUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bbT = new l(this);
-        this.bbU = new m(this);
+        this.bbM = new l(this);
+        this.bbN = new m(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
         this.rootView = LayoutInflater.from(context).inflate(w.j.card_ala_live_user_layout, (ViewGroup) this, true);
-        this.bbN = (ClickableHeaderImageView) this.rootView.findViewById(w.h.imgAlaUserCover);
-        this.bbO = (ViewStub) this.rootView.findViewById(w.h.vsHeadImageMask);
-        this.bbP = (TextView) this.rootView.findViewById(w.h.tvAlaUserName);
-        this.bbQ = (TextView) this.rootView.findViewById(w.h.tvBarName);
-        this.bbS = (TextView) this.rootView.findViewById(w.h.tvCommentLabel);
-        this.bbR = (TextView) this.rootView.findViewById(w.h.tvCommentNum);
-        this.bbN.setDefaultResource(17170445);
-        this.bbN.setDefaultErrorResource(w.g.icon_default_avatar100);
-        this.bbN.setDefaultBgResource(w.e.cp_bg_line_e);
-        this.bbN.setRadius(com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds70));
+        this.bbG = (ClickableHeaderImageView) this.rootView.findViewById(w.h.imgAlaUserCover);
+        this.bbH = (ViewStub) this.rootView.findViewById(w.h.vsHeadImageMask);
+        this.bbI = (TextView) this.rootView.findViewById(w.h.tvAlaUserName);
+        this.bbJ = (TextView) this.rootView.findViewById(w.h.tvBarName);
+        this.bbL = (TextView) this.rootView.findViewById(w.h.tvCommentLabel);
+        this.bbK = (TextView) this.rootView.findViewById(w.h.tvCommentNum);
+        this.bbG.setDefaultResource(17170445);
+        this.bbG.setDefaultErrorResource(w.g.icon_default_avatar100);
+        this.bbG.setDefaultBgResource(w.e.cp_bg_line_e);
+        this.bbG.setRadius(com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds70));
     }
 
-    public void k(bj bjVar) {
-        if (bjVar != null) {
-            this.aRF = bjVar;
-            if (!StringUtils.isNull(bjVar.rV())) {
-                this.bbQ.setVisibility(0);
-                String string = getContext().getString(w.l.chosen_pb_original_bar, UtilHelper.getFixedBarText(bjVar.rV(), 5, true));
-                this.bbQ.setText(string);
-                this.bbQ.setContentDescription(string);
-                this.bbQ.setOnClickListener(this.bbU);
-                this.bbQ.setClickable(this.alI);
+    public void k(bi biVar) {
+        if (biVar != null) {
+            this.aRV = biVar;
+            if (!StringUtils.isNull(biVar.st())) {
+                this.bbJ.setVisibility(0);
+                String string = getContext().getString(w.l.chosen_pb_original_bar, UtilHelper.getFixedBarText(biVar.st(), 5, true));
+                this.bbJ.setText(string);
+                this.bbJ.setContentDescription(string);
+                this.bbJ.setOnClickListener(this.bbN);
+                this.bbJ.setClickable(this.alW);
             } else {
-                this.bbQ.setVisibility(8);
+                this.bbJ.setVisibility(8);
             }
-            this.bbN.setVisibility(0);
-            this.bbN.setData(this.aRF);
-            this.bbN.setAfterClickListener(this.amj);
-            UserTbVipInfoData rR = this.aRF.rR();
-            if (rR != null && rR.getvipV_url() != null && this.bbO != null) {
-                if (this.bbi == null) {
-                    this.bbO.inflate();
-                    this.bbi = (TbImageView) this.rootView.findViewById(w.h.user_head_mask);
+            this.bbG.setVisibility(0);
+            this.bbG.setData(this.aRV);
+            this.bbG.setAfterClickListener(this.amx);
+            UserTbVipInfoData sp = this.aRV.sp();
+            if (sp != null && sp.getvipV_url() != null && this.bbH != null) {
+                if (this.bbb == null) {
+                    this.bbH.inflate();
+                    this.bbb = (TbImageView) this.rootView.findViewById(w.h.user_head_mask);
                 }
-                this.bbi.c(rR.getvipV_url(), 10, false);
-                this.bbN.setIsBigV(true);
+                this.bbb.c(sp.getvipV_url(), 10, false);
+                this.bbG.setIsBigV(true);
             }
-            this.bbP.setVisibility(0);
-            this.bbP.setOnClickListener(this.bbT);
-            if (this.aRF.getAuthor() != null) {
-                this.bbP.setText(this.aRF.getAuthor().getName_show());
+            this.bbI.setVisibility(0);
+            this.bbI.setOnClickListener(this.bbM);
+            if (this.aRV.getAuthor() != null) {
+                this.bbI.setText(this.aRV.getAuthor().getName_show());
             }
-            if (this.aRF.getThreadType() == 49) {
-                this.bbR.setText(au.t(this.aRF.si().audience_count));
-                this.bbR.setMaxEms(9);
-                this.bbS.setText(w.l.recommend_ala_live_comment_label);
-                aq.i((View) this.bbR, w.e.cp_other_e);
-            } else if (this.aRF.getThreadType() == 50) {
-                this.bbR.setText(au.t(this.aRF.sh().play_count.intValue()));
-                this.bbS.setText(w.l.recommend_ala_record_comment_label);
-                aq.i((View) this.bbR, w.e.cp_cont_c);
+            if (this.aRV.getThreadType() == 49) {
+                this.bbK.setText(au.t(this.aRV.sG().audience_count));
+                this.bbK.setMaxEms(9);
+                this.bbL.setText(w.l.recommend_ala_live_comment_label);
+                aq.i(this.bbK, w.e.cp_other_e);
+            } else if (this.aRV.getThreadType() == 50) {
+                this.bbK.setText(au.t(this.aRV.sF().play_count.intValue()));
+                this.bbL.setText(w.l.recommend_ala_record_comment_label);
+                aq.i(this.bbK, w.e.cp_cont_c);
             }
         }
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.alM = onClickListener;
+        this.ama = onClickListener;
     }
 
     public void setBarNameClickEnabled(boolean z) {
-        this.alI = z;
+        this.alW = z;
     }
 
     public void setUserAfterClickListener(View.OnClickListener onClickListener) {
-        this.amj = onClickListener;
+        this.amx = onClickListener;
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        aq.i((View) this.bbQ, w.e.cp_cont_c);
+        aq.i(this.bbJ, w.e.cp_cont_c);
         aq.j(this.rootView, w.e.cp_bg_line_d);
-        aq.i((View) this.bbP, w.e.cp_cont_f);
-        if (this.aRF != null && this.aRF.getThreadType() == 49) {
-            aq.i((View) this.bbR, w.e.cp_other_e);
-        } else if (this.aRF != null && this.aRF.getThreadType() == 50) {
-            aq.i((View) this.bbR, w.e.cp_cont_c);
+        aq.i(this.bbI, w.e.cp_cont_f);
+        if (this.aRV != null && this.aRV.getThreadType() == 49) {
+            aq.i(this.bbK, w.e.cp_other_e);
+        } else if (this.aRV != null && this.aRV.getThreadType() == 50) {
+            aq.i(this.bbK, w.e.cp_cont_c);
         }
-        aq.i((View) this.bbS, w.e.cp_cont_c);
+        aq.i(this.bbL, w.e.cp_cont_c);
     }
 }

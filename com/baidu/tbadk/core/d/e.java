@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b abM = new a(null);
-    private static final b abN = new c(null);
-    private static final boolean abO;
+    private static final b acb = new a(null);
+    private static final b acc = new c(null);
+    private static final boolean acd;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface b {
-        void o(String str, String str2, String str3);
+        void j(String str, String str2, String str3);
     }
 
     /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.d.e.b
-        public void o(String str, String str2, String str3) {
+        public void j(String str, String str2, String str3) {
             if (str2 != null) {
                 str3 = "code:" + str2 + " message:" + str3;
             }
@@ -45,35 +45,35 @@ public class e {
         }
 
         @Override // com.baidu.tbadk.core.d.e.b
-        public void o(String str, String str2, String str3) {
+        public void j(String str, String str2, String str3) {
             as asVar = new as("c10729");
-            asVar.Z("obj_param1", str);
-            asVar.Z("obj_param2", str2);
-            asVar.Z("obj_param3", str3);
+            asVar.aa("obj_param1", str);
+            asVar.aa("obj_param2", str2);
+            asVar.aa("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
                 TiebaStatic.log(asVar);
             }
         }
     }
 
-    public static void o(String str, String str2, String str3) {
-        if (abO) {
-            abM.o(str, str2, str3);
+    public static void j(String str, String str2, String str3) {
+        if (acd) {
+            acb.j(str, str2, str3);
         }
-        abN.o(str, str2, str3);
+        acc.j(str, str2, str3);
     }
 
-    public static void cA(String str) {
-        if (abO) {
-            abM.o(null, null, str);
+    public static void cH(String str) {
+        if (acd) {
+            acb.j(null, null, str);
         }
     }
 
-    public static void p(String str, String str2, String str3) {
-        cA(str3);
+    public static void k(String str, String str2, String str3) {
+        cH(str3);
     }
 
     static {
-        abO = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        acd = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

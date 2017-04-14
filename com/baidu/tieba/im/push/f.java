@@ -12,37 +12,37 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static f dfl = null;
-    private int dfm = 0;
-    private List<Long> dfn = new ArrayList();
-    private final CustomMessageListener dek = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static f ddH = null;
+    private int ddI = 0;
+    private List<Long> ddJ = new ArrayList();
+    private final CustomMessageListener dcG = new g(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     private f() {
-        MessageManager.getInstance().registerListener(this.dek);
+        MessageManager.getInstance().registerListener(this.dcG);
     }
 
-    public static f ath() {
-        if (dfl == null) {
+    public static f ata() {
+        if (ddH == null) {
             synchronized (f.class) {
-                if (dfl == null) {
-                    dfl = new f();
+                if (ddH == null) {
+                    ddH = new f();
                 }
             }
         }
-        return dfl;
+        return ddH;
     }
 
     public synchronized void init(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.dfm = Integer.parseInt(str);
+                this.ddI = Integer.parseInt(str);
                 try {
                     String[] split = str2.split(",");
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.dfn.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.ddJ.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -56,22 +56,22 @@ public class f {
     }
 
     public synchronized void clear() {
-        this.dfm = 0;
-        this.dfn.clear();
+        this.ddI = 0;
+        this.ddJ.clear();
     }
 
     public int getGid() {
-        return this.dfm;
+        return this.ddI;
     }
 
-    public Long ati() {
-        return com.baidu.tieba.im.memorycache.b.asj().ast().get(this.dfm);
+    public Long atb() {
+        return com.baidu.tieba.im.memorycache.b.asc().asm().get(this.ddI);
     }
 
-    public synchronized List<Long> atj() {
+    public synchronized List<Long> atc() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.dfn) {
+        for (Long l : this.ddJ) {
             if (l != null) {
                 arrayList.add(Long.valueOf(com.baidu.tieba.im.util.g.bN(l.longValue())));
             }
@@ -79,23 +79,23 @@ public class f {
         return arrayList;
     }
 
-    public synchronized void atk() {
-        this.dfn.clear();
+    public synchronized void atd() {
+        this.ddJ.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0041, code lost:
-        r7.dfn.add(java.lang.Long.valueOf(r9));
+        r7.ddJ.add(java.lang.Long.valueOf(r9));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void g(int i, long j) {
-        if (this.dfm != 0 && this.dfm != i) {
-            this.dfn.clear();
-            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + "-" + this.dfm);
+        if (this.ddI != 0 && this.ddI != i) {
+            this.ddJ.clear();
+            k.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + i + "-" + this.ddI);
         }
-        this.dfm = i;
-        Iterator<Long> it = this.dfn.iterator();
+        this.ddI = i;
+        Iterator<Long> it = this.ddJ.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -107,17 +107,17 @@ public class f {
         }
     }
 
-    public synchronized boolean atl() {
+    public synchronized boolean ate() {
         boolean z;
-        if (this.dfm > 0) {
-            z = this.dfn.size() > 0;
+        if (this.ddI > 0) {
+            z = this.ddJ.size() > 0;
         }
         return z;
     }
 
     public synchronized boolean bJ(long j) {
         boolean z;
-        Iterator<Long> it = this.dfn.iterator();
+        Iterator<Long> it = this.ddJ.iterator();
         while (true) {
             if (it.hasNext()) {
                 Long next = it.next();
@@ -133,10 +133,10 @@ public class f {
         return z;
     }
 
-    public synchronized String atm() {
+    public synchronized String atf() {
         String str;
         str = "";
-        for (Long l : this.dfn) {
+        for (Long l : this.ddJ) {
             if (l != null && l.longValue() != 0) {
                 str = String.valueOf(String.valueOf(str) + l.longValue()) + ",";
             }

@@ -1,23 +1,24 @@
 package com.baidu.tbadk.browser;
+
+import android.webkit.JsPromptResult;
 /* loaded from: classes.dex */
-class q extends com.baidu.tbadk.core.d.p {
-    final /* synthetic */ TbWebViewActivity QU;
+class q implements com.baidu.tieba.tbadkCore.e.c {
+    final /* synthetic */ TbWebViewActivity Rm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.d.n nVar) {
-        super(nVar);
-        this.QU = tbWebViewActivity;
+    public q(TbWebViewActivity tbWebViewActivity) {
+        this.Rm = tbWebViewActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.d.p
-    public String ob() {
-        return "TBHY_COMMON_Performance";
-    }
-
-    @com.baidu.tbadk.core.d.q(ub = false, value = "trackFPS")
-    private void trackFPS() {
-        this.QU.trackFPS();
+    @Override // com.baidu.tieba.tbadkCore.e.c
+    public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+        com.baidu.tieba.tbadkCore.e.a aVar;
+        com.baidu.tieba.tbadkCore.e.a aVar2;
+        aVar = this.Rm.jsBridge;
+        if (aVar != null) {
+            aVar2 = this.Rm.jsBridge;
+            return aVar2.b(str, jsPromptResult);
+        }
+        return false;
     }
 }

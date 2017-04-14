@@ -6,11 +6,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnTouchListener {
-    final /* synthetic */ c eWb;
+    final /* synthetic */ c eUa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(c cVar) {
-        this.eWb = cVar;
+        this.eUa = cVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -18,30 +18,30 @@ public class i implements View.OnTouchListener {
         GestureDetector gestureDetector;
         int i;
         int i2;
-        gestureDetector = this.eWb.mGestureDetector;
+        gestureDetector = this.eUa.mGestureDetector;
         boolean onTouchEvent = gestureDetector.onTouchEvent(motionEvent);
         if (motionEvent.getAction() == 1) {
-            if (this.eWb.dxS) {
-                if (this.eWb.mStatus == 1) {
-                    i = this.eWb.dyg;
+            if (this.eUa.dup) {
+                if (this.eUa.mStatus == 1) {
+                    i = this.eUa.duD;
                     if (i != 0) {
-                        c cVar = this.eWb;
-                        i2 = this.eWb.dyg;
+                        c cVar = this.eUa;
+                        i2 = this.eUa.duD;
                         cVar.b(i2 == 1 ? 1000 : -1000, false);
-                        this.eWb.dyg = 0;
-                        this.eWb.dyf = 0;
+                        this.eUa.duD = 0;
+                        this.eUa.duC = 0;
                     }
                 }
-                if (!this.eWb.aSL.isPlaying() && 8 == this.eWb.aSP.getVisibility()) {
-                    this.eWb.aSP.setVisibility(0);
-                    this.eWb.eVS.setVisibility(8);
-                    this.eWb.eVR.setVisibility(8);
-                    this.eWb.eVT.setVisibility(8);
+                if (!this.eUa.aTb.isPlaying() && 8 == this.eUa.aTe.getVisibility()) {
+                    this.eUa.aTe.setVisibility(0);
+                    this.eUa.eTR.setVisibility(8);
+                    this.eUa.eTQ.setVisibility(8);
+                    this.eUa.eTS.setVisibility(8);
                 }
             }
-            this.eWb.ayI();
-            if (this.eWb.eWa != null) {
-                this.eWb.eWa.onStop();
+            this.eUa.aym();
+            if (this.eUa.eTZ != null) {
+                this.eUa.eTZ.onStop();
             }
         }
         return onTouchEvent;

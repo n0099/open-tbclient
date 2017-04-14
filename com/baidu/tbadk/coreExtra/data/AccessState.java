@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import java.io.Serializable;
@@ -43,12 +43,12 @@ public class AccessState implements Serializable {
         if (jSONObject != null) {
             try {
                 this.type = jSONObject.optString("type");
-                this.token = jSONObject.optString(SocialConstants.TOKEN_RESPONSE_TYPE);
+                this.token = jSONObject.optString("token");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("userinfo");
                 if (jSONObject2 != null) {
                     this.userInfo.strMobile = jSONObject2.optString("strMobile");
                     this.userInfo.strEmail = jSONObject2.optString("strEmail");
-                    this.userInfo.bduss = jSONObject2.optString("bduss");
+                    this.userInfo.bduss = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

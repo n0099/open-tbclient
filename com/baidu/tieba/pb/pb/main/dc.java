@@ -1,36 +1,70 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.content.Intent;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
 /* loaded from: classes.dex */
 public class dc {
-    public long UL;
-    public long emO;
-    public long emP;
-    public int emQ;
-    public long mForumId;
+    private TbPageContext ajT;
+    private RelativeLayout dTF;
+    private com.baidu.tbadk.editortools.pb.n ekZ;
+    private PbFakeFloorModel ela;
 
-    public dc() {
-        Ee();
+    public dc(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
+        this.ajT = tbPageContext;
+        this.dTF = relativeLayout;
+        this.ela = pbFakeFloorModel;
     }
 
-    public void aLb() {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
-        httpMessage.addParam("tid", this.UL);
-        httpMessage.addParam("author_uid", this.emO);
-        httpMessage.addParam("declare_id", this.emP);
-        httpMessage.addParam("forum_id", this.mForumId);
-        httpMessage.addParam("operation", this.emQ);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public void aLk() {
+        if (this.ekZ != null) {
+            this.ekZ.Em();
+        }
     }
 
-    private void Ee() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_SET_DECLARE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_SET_DECLARE_URL);
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    private void aLl() {
+        if (this.dTF != null && this.ekZ == null) {
+            this.ekZ = (com.baidu.tbadk.editortools.pb.n) new com.baidu.tbadk.editortools.pb.r().aN(this.ajT.getPageActivity());
+            this.ekZ.a(this.ajT);
+            this.ekZ.b(this.ela);
+            this.ekZ.Dn().bD(true);
+            this.ekZ.f(this.ajT);
+            aLm();
+        }
+    }
+
+    public void bL(String str, String str2) {
+        aLl();
+        this.ekZ.setReplyId(str);
+        this.ekZ.fH(str2);
+    }
+
+    private void aLm() {
+        if (this.dTF != null && this.ekZ != null && this.ekZ.Dn() != null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.addRule(12);
+            this.dTF.addView(this.ekZ.Dn(), layoutParams);
+            onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
+        }
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (this.ekZ != null) {
+            this.ekZ.onActivityResult(i, i2, intent);
+        }
+    }
+
+    public void onStop() {
+        if (this.ekZ != null) {
+            this.ekZ.onStop();
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.ekZ != null && this.ekZ.Dn() != null) {
+            this.ekZ.Dn().onChangeSkinType(i);
+        }
     }
 }

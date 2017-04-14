@@ -3,15 +3,15 @@ package com.baidu.tieba.play;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface x {
-    void aT(Context context);
+    void aV(Context context);
 
-    void aa(Context context, String str);
+    void ae(Context context, String str);
 
-    void ab(Context context, String str);
+    void af(Context context, String str);
 
-    String gS(String str);
+    String gW(String str);
 
-    String gT(String str);
+    String gX(String str);
 
-    void gU(String str);
+    void gY(String str);
 }

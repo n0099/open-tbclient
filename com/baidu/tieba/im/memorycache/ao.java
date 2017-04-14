@@ -20,13 +20,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ao(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public ao(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,37 +41,37 @@ public class ao extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
             String cmd = p.getCmd();
             if (!TextUtils.isEmpty(cmd)) {
-                if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.jR(cmd)) {
+                if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.jX(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGid("-1002");
                     imMessageCenterPojo.setCustomGroupType(-3);
-                    imMessageCenterPojo.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.aW(cmd, p.getContent()));
+                    imMessageCenterPojo.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ba(cmd, p.getContent()));
                     imMessageCenterPojo.setLast_content_time(p.getTime());
                     imMessageCenterPojo.setLast_rid(com.baidu.adp.lib.g.b.c(p.getNotice_id(), 0L));
-                    b.asj().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.jS(cmd)) {
+                    b.asc().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.jY(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                     imMessageCenterPojo2.setGid("-1003");
                     imMessageCenterPojo2.setCustomGroupType(-4);
-                    imMessageCenterPojo2.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.aW(cmd, p.getContent()));
+                    imMessageCenterPojo2.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ba(cmd, p.getContent()));
                     imMessageCenterPojo2.setLast_content_time(p.getTime());
                     imMessageCenterPojo2.setLast_rid(com.baidu.adp.lib.g.b.c(p.getNotice_id(), 0L));
-                    b.asj().c(imMessageCenterPojo2, ChatStatusManager.getInst().getIsOpen(7) ? 0 : 1);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.jU(cmd)) {
+                    b.asc().c(imMessageCenterPojo2, ChatStatusManager.getInst().getIsOpen(7) ? 0 : 1);
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ka(cmd)) {
                     ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
                     imMessageCenterPojo3.setGid("-1004");
                     imMessageCenterPojo3.setCustomGroupType(-5);
-                    imMessageCenterPojo3.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.aW(cmd, p.getContent()));
+                    imMessageCenterPojo3.setLast_content(com.baidu.tieba.im.chat.receiveChatMsgHandler.n.ba(cmd, p.getContent()));
                     imMessageCenterPojo3.setLast_content_time(p.getTime());
                     imMessageCenterPojo3.setLast_rid(com.baidu.adp.lib.g.b.c(p.getNotice_id(), 0L));
-                    b.asj().c(imMessageCenterPojo3, ChatStatusManager.getInst().getIsOpen(8) ? 0 : 1);
+                    b.asc().c(imMessageCenterPojo3, ChatStatusManager.getInst().getIsOpen(8) ? 0 : 1);
                 }
                 if (cmd.equals("group_head_change")) {
                     if (ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem2 = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(p)) != null) {
                         String groupId = convertToUpdatesItem2.getGroupId();
-                        if (!TextUtils.isEmpty(groupId) && !TextUtils.isEmpty(convertToUpdatesItem2.getGroupHeadUrl()) && (Y2 = b.asj().Y(groupId, 1)) != null) {
+                        if (!TextUtils.isEmpty(groupId) && !TextUtils.isEmpty(convertToUpdatesItem2.getGroupHeadUrl()) && (Y2 = b.asc().Y(groupId, 1)) != null) {
                             if (Y2.getGroup_head() == null || !Y2.getGroup_head().equals(convertToUpdatesItem2.getGroupHeadUrl())) {
-                                b.asj().aZ(groupId, convertToUpdatesItem2.getGroupHeadUrl());
+                                b.asc().bd(groupId, convertToUpdatesItem2.getGroupHeadUrl());
                                 Y2.setGroup_head(convertToUpdatesItem2.getGroupHeadUrl());
                                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ap(this, Y2));
                                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
@@ -84,9 +84,9 @@ public class ao extends CustomMessageListener {
                 } else if (cmd.equals("group_name_change")) {
                     if (ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(p)) != null) {
                         String groupId2 = convertToUpdatesItem.getGroupId();
-                        if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(convertToUpdatesItem.getGroupName()) && (Y = b.asj().Y(groupId2, 1)) != null) {
+                        if (!TextUtils.isEmpty(groupId2) && !TextUtils.isEmpty(convertToUpdatesItem.getGroupName()) && (Y = b.asc().Y(groupId2, 1)) != null) {
                             if (Y.getGroup_name() == null || !Y.getGroup_name().equals(convertToUpdatesItem.getGroupName())) {
-                                b.asj().ba(groupId2, convertToUpdatesItem.getGroupName());
+                                b.asc().be(groupId2, convertToUpdatesItem.getGroupName());
                                 Y.setGroup_name(convertToUpdatesItem.getGroupName());
                                 CustomMessageTask customMessageTask2 = new CustomMessageTask(2001000, new aq(this, Y));
                                 customMessageTask2.setParallel(TiebaIMConfig.getParallel());
@@ -107,8 +107,8 @@ public class ao extends CustomMessageListener {
                             String optString2 = optJSONObject.optString("groupImage");
                             String optString3 = optJSONObject.optString("groupName");
                             long optLong = optJSONObject.optLong("lastMsgId");
-                            com.baidu.tieba.im.settingcache.c.atD().c(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
-                            com.baidu.tieba.im.settingcache.c.atD().b(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
+                            com.baidu.tieba.im.settingcache.c.atw().c(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
+                            com.baidu.tieba.im.settingcache.c.atw().b(TbadkCoreApplication.getCurrentAccount(), optString, true, null);
                             ImMessageCenterPojo imMessageCenterPojo4 = new ImMessageCenterPojo();
                             imMessageCenterPojo4.setGroup_name(optString3);
                             imMessageCenterPojo4.setCustomGroupType(1);
@@ -120,8 +120,8 @@ public class ao extends CustomMessageListener {
                             imMessageCenterPojo4.setLast_content(" ");
                             imMessageCenterPojo4.setLast_rid(com.baidu.tieba.im.util.g.bM(optLong));
                             imMessageCenterPojo4.setPulled_msgId(com.baidu.tieba.im.util.g.bM(optLong));
-                            b.asj().i(imMessageCenterPojo4);
-                            b.asj().a(1, com.baidu.tieba.im.util.g.bM(optLong), optString);
+                            b.asc().i(imMessageCenterPojo4);
+                            b.asc().a(1, com.baidu.tieba.im.util.g.bM(optLong), optString);
                             CustomMessageTask customMessageTask3 = new CustomMessageTask(2001000, new ar(this, imMessageCenterPojo4));
                             customMessageTask3.setParallel(TiebaIMConfig.getParallel());
                             customMessageTask3.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
@@ -136,9 +136,9 @@ public class ao extends CustomMessageListener {
                     if (TextUtils.isEmpty(gid)) {
                         return;
                     }
-                    this.this$0.kE(gid);
-                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.jT(cmd) && (a = com.baidu.tieba.im.chat.receiveChatMsgHandler.n.a(p, cmd)) != null) {
-                    b.asj().c(a, 1);
+                    this.this$0.kK(gid);
+                } else if (com.baidu.tieba.im.chat.receiveChatMsgHandler.n.jZ(cmd) && (a = com.baidu.tieba.im.chat.receiveChatMsgHandler.n.a(p, cmd)) != null) {
+                    b.asc().c(a, 1);
                 }
             }
         }

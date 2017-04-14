@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView aXE;
-    private TextView czG;
+    private ImageView aXS;
+    private TextView cyg;
     private View mRootView;
 
     public l(TbPageContext<?> tbPageContext) {
@@ -20,16 +20,16 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void W(View view) {
         this.mRootView = view.findViewById(w.h.card_privacy_rootview);
-        this.aXE = (ImageView) view.findViewById(w.h.card_privacy_icon);
-        this.czG = (TextView) view.findViewById(w.h.card_privacy_txt);
+        this.aXS = (ImageView) view.findViewById(w.h.card_privacy_icon);
+        this.cyg = (TextView) view.findViewById(w.h.card_privacy_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             aq.j(this.mRootView, w.e.cp_bg_line_d);
-            aq.c(this.aXE, w.g.icon_mine_lock);
-            aq.c(this.czG, w.e.cp_cont_c, 1);
+            aq.c(this.aXS, w.g.icon_mine_lock);
+            aq.c(this.cyg, w.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -45,16 +45,16 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void onBindDataToView(com.baidu.tieba.personPolymeric.c.i iVar) {
         String string = iVar.sex == 2 ? this.mContext.getString(w.l.person_identity_she) : this.mContext.getString(w.l.he);
         StringBuffer stringBuffer = new StringBuffer();
-        if (iVar.eHJ) {
+        if (iVar.eFF) {
             stringBuffer.append(this.mContext.getString(w.l.text_post));
         }
-        if (!StringUtils.isNull(stringBuffer.toString()) && iVar.eHI) {
+        if (!StringUtils.isNull(stringBuffer.toString()) && iVar.eFE) {
             stringBuffer.append(this.mContext.getString(w.l.person_polymeric_privacry_and));
         }
-        if (iVar.eHI) {
-            stringBuffer.append(this.mContext.getString(w.l.person_polymeric_privacry_bar));
+        if (iVar.eFE) {
+            stringBuffer.append(this.mContext.getString(w.l.forum));
         }
-        this.czG.setText(String.format(this.mContext.getString(w.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));
+        this.cyg.setText(String.format(this.mContext.getString(w.l.person_polymeric_privacry_tip), string, stringBuffer.toString()));
     }
 
     @Override // android.view.View.OnClickListener

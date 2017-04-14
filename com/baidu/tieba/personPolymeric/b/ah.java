@@ -10,11 +10,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements View.OnClickListener {
-    final /* synthetic */ af eHr;
+    final /* synthetic */ af eFn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(af afVar) {
-        this.eHr = afVar;
+        this.eFn = afVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,31 +31,31 @@ public class ah implements View.OnClickListener {
         TbPageContext tbPageContext3;
         if (view != null) {
             if (view.getId() == w.h.attention_btn) {
-                tbPageContext2 = this.eHr.aaI;
-                if (bg.aI(tbPageContext2.getPageActivity())) {
+                tbPageContext2 = this.eFn.aaX;
+                if (bg.aK(tbPageContext2.getPageActivity())) {
                     TiebaStatic.log(new as("c11592"));
-                    userData = this.eHr.mUserData;
+                    userData = this.eFn.mUserData;
                     if (userData != null) {
-                        aVar = this.eHr.dVf;
-                        z = this.eHr.mIsLiked;
+                        aVar = this.eFn.dSy;
+                        z = this.eFn.mIsLiked;
                         boolean z2 = !z;
-                        userData2 = this.eHr.mUserData;
+                        userData2 = this.eFn.mUserData;
                         String portrait = userData2.getPortrait();
-                        userData3 = this.eHr.mUserData;
+                        userData3 = this.eFn.mUserData;
                         String userId = userData3.getUserId();
-                        af afVar = this.eHr;
-                        userData4 = this.eHr.mUserData;
+                        af afVar = this.eFn;
+                        userData4 = this.eFn.mUserData;
                         isUseSingleGod = afVar.isUseSingleGod(userData4);
-                        tbPageContext3 = this.eHr.aaI;
+                        tbPageContext3 = this.eFn.aaX;
                         aVar.a(z2, portrait, userId, isUseSingleGod, tbPageContext3.getUniqueId());
                     }
                 }
             } else if (view.getId() == w.h.chat_btn) {
-                tbPageContext = this.eHr.aaI;
-                if (!bg.aI(tbPageContext.getPageActivity())) {
+                tbPageContext = this.eFn.aaX;
+                if (!bg.aK(tbPageContext.getPageActivity())) {
                     return;
                 }
-                this.eHr.aFs();
+                this.eFn.aFf();
             }
         }
     }

@@ -6,27 +6,27 @@ import com.baidu.tieba.e.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Handler.Callback {
-    final /* synthetic */ a bCp;
+    final /* synthetic */ a bCi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bCp = aVar;
+        this.bCi = aVar;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        a.InterfaceC0056a interfaceC0056a;
-        a.InterfaceC0056a interfaceC0056a2;
+        a.InterfaceC0055a interfaceC0055a;
+        a.InterfaceC0055a interfaceC0055a2;
         int i = message.arg1;
         int i2 = message.arg2;
         switch (message.what) {
             case 0:
-                interfaceC0056a2 = this.bCp.aQW;
-                interfaceC0056a2.V(i, i2);
+                interfaceC0055a2 = this.bCi.aRm;
+                interfaceC0055a2.V(i, i2);
                 return true;
             case 1:
-                interfaceC0056a = this.bCp.aQW;
-                interfaceC0056a.W(i, i2);
+                interfaceC0055a = this.bCi.aRm;
+                interfaceC0055a.W(i, i2);
                 return true;
             default:
                 return false;

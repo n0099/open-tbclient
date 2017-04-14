@@ -1,24 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ds implements c.b {
-    final /* synthetic */ dr eoj;
+public class ds implements Runnable {
+    final /* synthetic */ dr emI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ds(dr drVar) {
-        this.eoj = drVar;
+        this.emI = drVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.c.b
-    public void a(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        View.OnClickListener onClickListener;
-        if (cVar != null && view != null) {
-            cVar.dismiss();
-            onClickListener = this.eoj.bMd;
-            onClickListener.onClick(view);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        View view;
+        PbActivity pbActivity;
+        view = this.emI.bqC;
+        pbActivity = this.emI.emF;
+        view.setBackgroundColor(pbActivity.getResources().getColor(w.e.common_color_10082));
     }
 }

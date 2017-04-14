@@ -15,7 +15,7 @@ public class a extends p {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.d.p
-    public String ob() {
+    public String oy() {
         return "TBHY_COMMON_Clipboard";
     }
 

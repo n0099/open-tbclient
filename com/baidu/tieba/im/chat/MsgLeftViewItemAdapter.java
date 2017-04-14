@@ -22,29 +22,29 @@ public class MsgLeftViewItemAdapter extends ao<MsgleftView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ar */
+    /* renamed from: aq */
     public ao.a<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.ajF);
-        return new a(msgleftView.cg(), msgleftView);
+        MsgleftView msgleftView = new MsgleftView(this.ajT);
+        return new a(msgleftView.cf(), msgleftView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.ao
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ao.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView anC = aVar.anC();
-        anC.lc(this.cPf);
-        anC.fq(this.mNeedShowName);
+        MsgleftView anw = aVar.anw();
+        anw.ld(this.cNC);
+        anw.fq(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        anC.a(this.cOV);
-        anC.setOnItemViewLongClickListener(this.cOW);
-        anC.setPosition(i);
-        anC.by(this.cPc);
-        anC.bx(chatMessage.getCacheData().getLastMsgTime());
-        anC.a(viewGroup, chatMessage);
-        anC.b(viewGroup, chatMessage);
-        this.ajF.getLayoutMode().ah(false);
-        this.ajF.getLayoutMode().t(view);
+        anw.a(this.cNs);
+        anw.setOnItemViewLongClickListener(this.cNt);
+        anw.setPosition(i);
+        anw.by(this.cNz);
+        anw.bx(chatMessage.getCacheData().getLastMsgTime());
+        anw.a(viewGroup, chatMessage);
+        anw.b(viewGroup, chatMessage);
+        this.ajT.getLayoutMode().aj(false);
+        this.ajT.getLayoutMode().t(view);
         return view;
     }
 

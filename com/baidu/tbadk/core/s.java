@@ -1,9 +1,16 @@
 package com.baidu.tbadk.core;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements com.baidu.adp.framework.client.socket.link.g {
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void dn() {
-        com.baidu.tbadk.util.c.GI().a(new t(this));
+public class s implements Runnable {
+    final /* synthetic */ TbadkCoreApplication this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(TbadkCoreApplication tbadkCoreApplication) {
+        this.this$0 = tbadkCoreApplication;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.adp.lib.d.a.ff().a(true, this.this$0.locationCallBack);
     }
 }

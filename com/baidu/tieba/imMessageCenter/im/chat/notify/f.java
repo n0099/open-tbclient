@@ -35,26 +35,26 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends BaseFragment {
-    private NoNetworkView aRv;
-    private RelativeLayout bKE;
-    private ShutDownValidateTipView djj;
-    private c.b djl;
-    private int djm;
+    private NoNetworkView aRL;
+    private RelativeLayout bKx;
+    private ShutDownValidateTipView dhI;
+    private c.b dhK;
+    private int dhL;
     private y mNoDataView;
-    private ImMessageCenterModel djd = null;
-    private BdBaseFragmentActivity<BaseFragmentActivity> dje = null;
-    private ImMessageCenterShowItemData djf = null;
-    private BdListView djg = null;
-    private ImMessageCenterListAdapter djh = null;
-    private t dji = null;
-    com.baidu.tbadk.core.dialog.c djk = null;
-    private boolean djn = true;
-    private final CustomMessageListener aXg = new g(this, CmdConfigCustom.CMD_RE_LOGIN_FROM_KUANG);
-    private final AdapterView.OnItemClickListener djo = new i(this);
-    private final AdapterView.OnItemLongClickListener djp = new k(this);
-    private final ab.b aYm = new l(this);
-    private final CustomMessageListener cRH = new m(this, 0);
-    private com.baidu.tieba.im.chat.a.a cRJ = new n(this);
+    private ImMessageCenterModel dhC = null;
+    private BdBaseFragmentActivity<BaseFragmentActivity> dhD = null;
+    private ImMessageCenterShowItemData dhE = null;
+    private BdListView dhF = null;
+    private ImMessageCenterListAdapter dhG = null;
+    private t dhH = null;
+    com.baidu.tbadk.core.dialog.c dhJ = null;
+    private boolean dhM = true;
+    private final CustomMessageListener aXu = new g(this, CmdConfigCustom.CMD_RE_LOGIN_FROM_KUANG);
+    private final AdapterView.OnItemClickListener dhN = new i(this);
+    private final AdapterView.OnItemLongClickListener dhO = new k(this);
+    private final ab.b aYA = new l(this);
+    private final CustomMessageListener cQe = new m(this, 0);
+    private com.baidu.tieba.im.chat.a.a cQg = new n(this);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -64,30 +64,30 @@ public class f extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.djm = 3;
-        this.dje = getBaseFragmentActivity();
+        this.dhL = 3;
+        this.dhD = getBaseFragmentActivity();
         View inflate = layoutInflater.inflate(w.j.chat_list_activity, viewGroup, false);
         ad(inflate);
-        TiebaStatic.eventStat(this.dje.getPageContext().getContext(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
+        TiebaStatic.eventStat(this.dhD.getPageContext().getContext(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
         registerListener();
         return inflate;
     }
 
     private void registerListener() {
-        registerListener(CmdConfigCustom.MEMORY_CHANGED, this.cRH);
-        registerListener(CmdConfigCustom.MEMORY_CLEAR, this.cRH);
-        registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.cRH);
-        registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.cRH);
-        registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.cRH);
-        registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.cRH);
-        registerListener(this.aXg);
+        registerListener(CmdConfigCustom.MEMORY_CHANGED, this.cQe);
+        registerListener(CmdConfigCustom.MEMORY_CLEAR, this.cQe);
+        registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.cQe);
+        registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.cQe);
+        registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.cQe);
+        registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.cQe);
+        registerListener(this.aXu);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.djh != null) {
-            this.djh.notifyDataSetChanged();
+        if (this.dhG != null) {
+            this.dhG.notifyDataSetChanged();
         }
     }
 
@@ -96,7 +96,7 @@ public class f extends BaseFragment {
         super.onPrimary();
         if (isPrimary()) {
             if (this.mNoDataView != null) {
-                this.mNoDataView.e(this.dje.getPageContext());
+                this.mNoDataView.e(this.dhD.getPageContext());
             }
         } else if (this.mNoDataView != null) {
             this.mNoDataView.onActivityStop();
@@ -106,31 +106,31 @@ public class f extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        MessageManager.getInstance().unRegisterListener(this.cRH);
+        MessageManager.getInstance().unRegisterListener(this.cQe);
     }
 
     private void initData() {
-        this.djd = new ImMessageCenterModel();
-        gm(com.baidu.tbadk.core.sharedPref.b.uo().getBoolean("is_shut_down_validate", false) ? false : true);
+        this.dhC = new ImMessageCenterModel();
+        gm(com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("is_shut_down_validate", false) ? false : true);
     }
 
     private void ad(View view) {
-        this.bKE = (RelativeLayout) view.findViewById(w.h.chat_list);
-        this.djj = (ShutDownValidateTipView) view.findViewById(w.h.view_no_validate);
-        this.djj.setVisibility(8);
-        this.djj.setShutDownClickListener(new o(this));
-        this.djg = (BdListView) view.findViewById(w.h.chat_list_content);
-        this.djg.setDividerHeight(0);
-        this.dji = new t(getPageContext());
-        this.dji.a(this.aYm);
-        this.dji.setTag(getUniqueId());
-        this.djg.setPullRefresh(this.dji);
-        this.djh = new ImMessageCenterListAdapter(this.dje.getPageContext().getPageActivity());
-        this.djg.setAdapter((ListAdapter) this.djh);
-        this.djg.setOnItemClickListener(this.djo);
-        this.djg.setOnItemLongClickListener(this.djp);
-        this.djg.startPullRefresh();
-        this.aRv = (NoNetworkView) this.bKE.findViewById(w.h.view_no_network);
+        this.bKx = (RelativeLayout) view.findViewById(w.h.chat_list);
+        this.dhI = (ShutDownValidateTipView) view.findViewById(w.h.view_no_validate);
+        this.dhI.setVisibility(8);
+        this.dhI.setShutDownClickListener(new o(this));
+        this.dhF = (BdListView) view.findViewById(w.h.chat_list_content);
+        this.dhF.setDividerHeight(0);
+        this.dhH = new t(getPageContext());
+        this.dhH.a(this.aYA);
+        this.dhH.setTag(getUniqueId());
+        this.dhF.setPullRefresh(this.dhH);
+        this.dhG = new ImMessageCenterListAdapter(this.dhD.getPageContext().getPageActivity());
+        this.dhF.setAdapter((ListAdapter) this.dhG);
+        this.dhF.setOnItemClickListener(this.dhN);
+        this.dhF.setOnItemLongClickListener(this.dhO);
+        this.dhF.startPullRefresh();
+        this.aRL = (NoNetworkView) this.bKx.findViewById(w.h.view_no_network);
         if (!this.mIsLogin) {
             gl(true);
         }
@@ -138,56 +138,56 @@ public class f extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (isAdded() && this.djm != i) {
-            this.djm = i;
+        if (isAdded() && this.dhL != i) {
+            this.dhL = i;
             if (this.mNoDataView != null) {
-                this.mNoDataView.onChangeSkinType(this.dje.getPageContext(), i);
+                this.mNoDataView.onChangeSkinType(this.dhD.getPageContext(), i);
             }
-            if (this.djj != null) {
-                this.djj.onChangeSkinType(i);
+            if (this.dhI != null) {
+                this.dhI.onChangeSkinType(i);
             }
-            if (this.dji != null) {
-                this.dji.dh(i);
+            if (this.dhH != null) {
+                this.dhH.dk(i);
             }
-            if (this.djh != null) {
-                this.djh.notifyDataSetChanged();
+            if (this.dhG != null) {
+                this.dhG.notifyDataSetChanged();
             }
-            if (this.dje != null && (this.dje instanceof BaseFragmentActivity)) {
-                ((BaseFragmentActivity) this.dje).getLayoutMode().ah(i == 1);
-                ((BaseFragmentActivity) this.dje).getLayoutMode().t(this.bKE);
+            if (this.dhD != null && (this.dhD instanceof BaseFragmentActivity)) {
+                ((BaseFragmentActivity) this.dhD).getLayoutMode().aj(i == 1);
+                ((BaseFragmentActivity) this.dhD).getLayoutMode().t(this.bKx);
             }
-            if (this.aRv != null) {
-                this.aRv.onChangeSkinType(this.dje.getPageContext(), i);
+            if (this.aRL != null) {
+                this.aRL.onChangeSkinType(this.dhD.getPageContext(), i);
             }
         }
     }
 
-    private void aup() {
+    private void aui() {
         if (isAdded()) {
             if (this.mIsLogin) {
-                auq();
+                auj();
             } else {
-                aur();
+                auk();
             }
         }
     }
 
-    private void auq() {
+    private void auj() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(getString(w.l.maintab_imcenter_button_text), new p(this)));
         }
-        this.mNoDataView = NoDataViewFactory.a(this.dje.getPageContext().getPageActivity(), this.bKE, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(w.f.ds80)), NoDataViewFactory.d.de(w.l.no_recent_chat), bVar);
+        this.mNoDataView = NoDataViewFactory.a(this.dhD.getPageContext().getPageActivity(), this.bKx, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(w.f.ds80)), NoDataViewFactory.d.dh(w.l.no_recent_chat), bVar);
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
     }
 
-    private void aur() {
+    private void auk() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(getString(w.l.maintab_imcenter_unlogin_button_text), new q(this));
         int dimensionPixelSize = getResources().getDimensionPixelSize(w.f.ds100);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(w.f.ds480);
         int dimensionPixelSize3 = getResources().getDimensionPixelSize(w.f.ds360);
         int dimensionPixelSize4 = getResources().getDimensionPixelSize(w.f.ds60);
-        this.mNoDataView = NoDataViewFactory.a(this.dje.getPageContext().getPageActivity(), this.bKE, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, w.g.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.D(w.l.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, getResources().getDimensionPixelSize(w.f.ds20)));
+        this.mNoDataView = NoDataViewFactory.a(this.dhD.getPageContext().getPageActivity(), this.bKx, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, w.g.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.D(w.l.msg_center_unlogin_tip, dimensionPixelSize4), NoDataViewFactory.b.a(aVar, getResources().getDimensionPixelSize(w.f.ds20)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
     }
 
@@ -195,7 +195,7 @@ public class f extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        aup();
+        aui();
         if (!z) {
             gl(true);
         } else {
@@ -215,28 +215,28 @@ public class f extends BaseFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.djl = new h(this, imMessageCenterShowItemData);
-        String string = this.dje.getPageContext().getPageActivity().getString(w.l.delete_user_chat);
-        this.djk = new com.baidu.tbadk.core.dialog.c(this.dje.getPageContext().getPageActivity());
-        this.djk.bZ(w.l.operation);
-        this.djk.a(new String[]{string}, this.djl);
-        this.djk.d(this.dje.getPageContext());
+        this.dhK = new h(this, imMessageCenterShowItemData);
+        String string = this.dhD.getPageContext().getPageActivity().getString(w.l.delete_user_chat);
+        this.dhJ = new com.baidu.tbadk.core.dialog.c(this.dhD.getPageContext().getPageActivity());
+        this.dhJ.cc(w.l.operation);
+        this.dhJ.a(new String[]{string}, this.dhK);
+        this.dhJ.d(this.dhD.getPageContext());
     }
 
     public void gk(boolean z) {
         if (z) {
-            if (aus() && this.djj.getVisibility() != 0) {
-                this.djj.setVisibility(0);
+            if (aul() && this.dhI.getVisibility() != 0) {
+                this.dhI.setVisibility(0);
             }
-        } else if (this.djj.getVisibility() != 8) {
-            this.djj.setVisibility(8);
+        } else if (this.dhI.getVisibility() != 8) {
+            this.dhI.setVisibility(8);
         }
     }
 
     public void gl(boolean z) {
         if (z) {
             if (this.mNoDataView == null) {
-                aup();
+                aui();
             }
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(0);
@@ -248,12 +248,12 @@ public class f extends BaseFragment {
         }
     }
 
-    public boolean aus() {
-        return this.djn;
+    public boolean aul() {
+        return this.dhM;
     }
 
     public void gm(boolean z) {
-        this.djn = z;
+        this.dhM = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -269,11 +269,11 @@ public class f extends BaseFragment {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.djd != null) {
-                    this.djd.insertOrUpdate(data, this.cRJ);
+                if (this.dhC != null) {
+                    this.dhC.insertOrUpdate(data, this.cQg);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.djd != null) {
-                this.djd.remove(data, this.cRJ);
+            } else if (memoryChangedMessage.getType() == 2 && this.dhC != null) {
+                this.dhC.remove(data, this.cQg);
             }
         }
     }
@@ -283,8 +283,8 @@ public class f extends BaseFragment {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 1 && this.djd != null) {
-                this.djd.setData(data, this.cRJ);
+            if (responsedMemoryListMessage.getType() == 1 && this.dhC != null) {
+                this.dhC.setData(data, this.cQg);
             }
         }
     }

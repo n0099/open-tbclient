@@ -24,7 +24,7 @@ public class i extends k {
                 sb.append(groupMids.valueAt(i));
                 sb.append("|");
             }
-            com.baidu.tbadk.core.log.b.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
+            com.baidu.tbadk.core.e.a.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
         }
         return socketMessage;
     }

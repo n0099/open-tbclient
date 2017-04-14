@@ -43,75 +43,76 @@ public final class c {
     private static final String s = "en_share_accounts";
     private static final String t = "en_login_accounts";
     private static final String u = "en_relogin_credentials";
-    private static String x;
-    private static c y;
-    private SharedPreferences v;
-    private Context w;
+    private static final String v = "en_sofire_factor";
+    private static String y;
+    private static c z;
+    private SharedPreferences w;
+    private Context x;
 
     public static c a(Context context) {
         synchronized (c.class) {
-            if (y == null) {
-                y = new c(context.getApplicationContext());
+            if (z == null) {
+                z = new c(context.getApplicationContext());
             }
         }
-        return y;
+        return z;
     }
 
     private c(Context context) {
-        this.w = context;
-        this.v = context.getSharedPreferences("sapi_system", 0);
+        this.x = context;
+        this.w = context.getSharedPreferences("sapi_system", 0);
     }
 
     private void a(String str, String str2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putString(str, str2).apply();
+            this.w.edit().putString(str, str2).apply();
         } else {
-            this.v.edit().putString(str, str2).commit();
+            this.w.edit().putString(str, str2).commit();
         }
     }
 
     private void a(String str, int i2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putInt(str, i2).apply();
+            this.w.edit().putInt(str, i2).apply();
         } else {
-            this.v.edit().putInt(str, i2).commit();
+            this.w.edit().putInt(str, i2).commit();
         }
     }
 
     private void a(String str, long j2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putLong(str, j2).apply();
+            this.w.edit().putLong(str, j2).apply();
         } else {
-            this.v.edit().putLong(str, j2).commit();
+            this.w.edit().putLong(str, j2).commit();
         }
     }
 
-    private void a(String str, boolean z) {
+    private void a(String str, boolean z2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putBoolean(str, z).apply();
+            this.w.edit().putBoolean(str, z2).apply();
         } else {
-            this.v.edit().putBoolean(str, z).commit();
+            this.w.edit().putBoolean(str, z2).commit();
         }
     }
 
-    private String h(String str) {
-        return this.v.getString(str, "");
+    private String i(String str) {
+        return this.w.getString(str, "");
     }
 
-    private boolean b(String str, boolean z) {
-        return this.v.getBoolean(str, z);
+    private boolean b(String str, boolean z2) {
+        return this.w.getBoolean(str, z2);
     }
 
     private int b(String str, int i2) {
-        return this.v.getInt(str, i2);
+        return this.w.getInt(str, i2);
     }
 
     private long b(String str, long j2) {
-        return this.v.getLong(str, j2);
+        return this.w.getLong(str, j2);
     }
 
     public String a() {
-        return h(j);
+        return i(j);
     }
 
     public void a(String str) {
@@ -122,34 +123,63 @@ public final class c {
         return b(k, false);
     }
 
-    public void a(boolean z) {
-        a(k, z);
+    public void a(boolean z2) {
+        a(k, z2);
     }
 
     public boolean c() {
         return b(l, false);
     }
 
-    public void b(boolean z) {
-        a(l, z);
+    public void b(boolean z2) {
+        a(l, z2);
     }
 
     public void a(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
             a(r, "");
-            SapiUtils.webLogout(this.w);
+            SapiUtils.webLogout(this.x);
             return;
         }
         JSONObject jSONObject = sapiAccount.toJSONObject();
         if (jSONObject != null) {
             a(r, SapiDataEncryptor.e(jSONObject.toString(), B()));
-            SapiUtils.webLogin(this.w, sapiAccount.bduss, sapiAccount.k);
-            if (!i()) {
+            SapiUtils.webLogin(this.x, sapiAccount.bduss, sapiAccount.k);
+            if (!h()) {
                 A();
             }
         }
-        List<String> h2 = a(this.w).k().h();
-        if (h2 != null && !h2.isEmpty() && !SapiAccountManager.getInstance().getAccountService().a(sapiAccount, h2)) {
+    }
+
+    public synchronized SapiAccount d() {
+        String str;
+        SapiAccount sapiAccount = null;
+        synchronized (this) {
+            if (!TextUtils.isEmpty(i(r))) {
+                str = SapiDataEncryptor.d(i(r), B());
+            } else if (TextUtils.isEmpty(i(b))) {
+                str = null;
+            } else {
+                str = i(b);
+                String e2 = SapiDataEncryptor.e(str, B());
+                if (!TextUtils.isEmpty(e2)) {
+                    a(r, e2);
+                    a(b, "");
+                }
+            }
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    sapiAccount = SapiAccount.fromJSONObject(new JSONObject(str));
+                } catch (JSONException e3) {
+                }
+            }
+        }
+        return sapiAccount;
+    }
+
+    public void a(SapiAccount sapiAccount, boolean z2) {
+        List<String> i2 = a(this.x).k().i();
+        if (sapiAccount != null && i2 != null && !i2.isEmpty() && !SapiAccountManager.getInstance().getAccountService().a(sapiAccount, i2)) {
             SapiAccountManager.getInstance().getAccountService().a(new GetTplStokenCallback() { // from class: com.baidu.sapi2.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -170,91 +200,41 @@ public final class c {
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onFinish() {
                 }
-            }, sapiAccount.bduss, h2, false);
-        }
-    }
-
-    public SapiAccount d() {
-        String str;
-        if (!TextUtils.isEmpty(h(r))) {
-            str = SapiDataEncryptor.d(h(r), B());
-        } else if (TextUtils.isEmpty(h(b))) {
-            str = null;
-        } else {
-            str = h(b);
-            a(b, "");
-            a(r, SapiDataEncryptor.e(str, B()));
-        }
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            return SapiAccount.fromJSONObject(new JSONObject(str));
-        } catch (JSONException e2) {
-            return null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void e() {
-        SapiAccount d2 = d();
-        List<String> h2 = a(this.w).k().h();
-        if (d2 != null && h2 != null && !h2.isEmpty() && !SapiAccountManager.getInstance().getAccountService().a(d2, h2)) {
-            SapiAccountManager.getInstance().getAccountService().a(new GetTplStokenCallback() { // from class: com.baidu.sapi2.c.2
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: a */
-                public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                /* renamed from: b */
-                public void onFailure(GetTplStokenResult getTplStokenResult) {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
-            }, d2.bduss, h2, false);
+            }, sapiAccount.bduss, i2, z2);
         }
     }
 
     public void b(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
-            List<SapiAccount> f2 = f();
-            if (!f2.contains(sapiAccount)) {
-                f2.add(sapiAccount);
+            List<SapiAccount> e2 = e();
+            if (!e2.contains(sapiAccount)) {
+                e2.add(sapiAccount);
             } else {
-                f2.remove(f2.indexOf(sapiAccount));
-                f2.add(sapiAccount);
+                e2.remove(e2.indexOf(sapiAccount));
+                e2.add(sapiAccount);
             }
-            a(a(f2, 5));
+            a(a(e2, 5));
         }
     }
 
     public void c(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
-            List<SapiAccount> g2 = g();
-            if (!g2.contains(sapiAccount)) {
-                g2.add(sapiAccount);
+            List<SapiAccount> f2 = f();
+            if (!f2.contains(sapiAccount)) {
+                f2.add(sapiAccount);
             } else {
-                g2.set(g2.indexOf(sapiAccount), sapiAccount);
+                f2.set(f2.indexOf(sapiAccount), sapiAccount);
             }
-            b(g2);
+            b(f2);
         }
     }
 
     public void d(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
-            List<SapiAccount> f2 = f();
-            if (f2.contains(sapiAccount)) {
-                f2.remove(sapiAccount);
-                a(f2);
+            List<SapiAccount> e2 = e();
+            if (e2.contains(sapiAccount)) {
+                e2.remove(sapiAccount);
+                a(e2);
             }
         }
     }
@@ -273,22 +253,25 @@ public final class c {
                     }
                 }
             }
-            List<SapiAccount> g2 = g();
-            if (g2.contains(sapiAccount)) {
-                g2.remove(sapiAccount);
-                b(g2);
+            List<SapiAccount> f2 = f();
+            if (f2.contains(sapiAccount)) {
+                f2.remove(sapiAccount);
+                b(f2);
             }
         }
     }
 
-    public List<SapiAccount> f() {
+    public List<SapiAccount> e() {
         String str = null;
-        if (!TextUtils.isEmpty(h(s))) {
-            str = SapiDataEncryptor.d(h(s), B());
-        } else if (!TextUtils.isEmpty(h(c))) {
-            str = h(c);
-            a(c, "");
-            a(s, SapiDataEncryptor.e(str, B()));
+        if (!TextUtils.isEmpty(i(s))) {
+            str = SapiDataEncryptor.d(i(s), B());
+        } else if (!TextUtils.isEmpty(i(c))) {
+            str = i(c);
+            String e2 = SapiDataEncryptor.e(str, B());
+            if (!TextUtils.isEmpty(e2)) {
+                a(s, e2);
+                a(c, "");
+            }
         }
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -300,19 +283,22 @@ public final class c {
         return new ArrayList();
     }
 
-    public List<SapiAccount> g() {
+    public List<SapiAccount> f() {
         String str = null;
-        if (!TextUtils.isEmpty(h(t))) {
-            str = SapiDataEncryptor.d(h(t), B());
-        } else if (!TextUtils.isEmpty(h(d))) {
-            str = h(d);
-            a(d, "");
-            a(t, SapiDataEncryptor.e(str, B()));
+        if (!TextUtils.isEmpty(i(t))) {
+            str = SapiDataEncryptor.d(i(t), B());
+        } else if (!TextUtils.isEmpty(i(d))) {
+            str = i(d);
+            String e2 = SapiDataEncryptor.e(str, B());
+            if (!TextUtils.isEmpty(e2)) {
+                a(t, e2);
+                a(d, "");
+            }
         }
         if (!TextUtils.isEmpty(str)) {
             try {
                 return SapiAccount.fromJSONArray(new JSONArray(str));
-            } catch (Exception e2) {
+            } catch (Exception e3) {
                 return new ArrayList();
             }
         }
@@ -321,77 +307,49 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SapiAccount b(String str) {
-        SapiAccount sapiAccount;
-        SapiAccount sapiAccount2 = null;
         if (str == null) {
             return null;
         }
         SapiAccount d2 = d();
-        if (d2 != null && str.equals(d2.bduss)) {
-            sapiAccount2 = d2;
+        if (d2 == null || !str.equals(d2.bduss)) {
+            for (SapiAccount sapiAccount : f()) {
+                if (str.equals(sapiAccount.bduss)) {
+                    return sapiAccount;
+                }
+            }
+            for (SapiAccount sapiAccount2 : e()) {
+                if (str.equals(sapiAccount2.bduss)) {
+                    return sapiAccount2;
+                }
+            }
+            return null;
         }
-        Iterator<SapiAccount> it = g().iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            SapiAccount next = it.next();
-            if (str.equals(next.bduss)) {
-                sapiAccount2 = next;
-                break;
-            }
-        }
-        Iterator<SapiAccount> it2 = f().iterator();
-        while (true) {
-            if (!it2.hasNext()) {
-                sapiAccount = sapiAccount2;
-                break;
-            }
-            sapiAccount = it2.next();
-            if (str.equals(sapiAccount.bduss)) {
-                break;
-            }
-        }
-        return sapiAccount;
+        return d2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SapiAccount c(String str) {
-        SapiAccount sapiAccount;
-        SapiAccount sapiAccount2 = null;
         if (str == null) {
             return null;
         }
         SapiAccount d2 = d();
-        if (d2 != null && str.equals(d2.getReloginCredentials().ubi)) {
-            sapiAccount2 = d2;
+        if (d2 == null || !str.equals(d2.getReloginCredentials().ubi)) {
+            for (SapiAccount sapiAccount : f()) {
+                if (str.equals(sapiAccount.getReloginCredentials().ubi)) {
+                    return sapiAccount;
+                }
+            }
+            for (SapiAccount sapiAccount2 : e()) {
+                if (str.equals(sapiAccount2.getReloginCredentials().ubi)) {
+                    return sapiAccount2;
+                }
+            }
+            return null;
         }
-        Iterator<SapiAccount> it = g().iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            SapiAccount next = it.next();
-            if (str.equals(next.getReloginCredentials().ubi)) {
-                sapiAccount2 = next;
-                break;
-            }
-        }
-        Iterator<SapiAccount> it2 = f().iterator();
-        while (true) {
-            if (!it2.hasNext()) {
-                sapiAccount = sapiAccount2;
-                break;
-            }
-            sapiAccount = it2.next();
-            if (str.equals(sapiAccount.getReloginCredentials().ubi)) {
-                break;
-            }
-        }
-        return sapiAccount;
+        return d2;
     }
 
-    public boolean h() {
+    public boolean g() {
         if (b(e, true)) {
             a(e, false);
             return true;
@@ -399,7 +357,7 @@ public final class c {
         return false;
     }
 
-    public boolean i() {
+    public boolean h() {
         return b(f, false);
     }
 
@@ -407,7 +365,7 @@ public final class c {
         a(f, true);
     }
 
-    public void j() {
+    public void i() {
         a(f, false);
     }
 
@@ -425,11 +383,22 @@ public final class c {
         }
     }
 
+    public void d(String str) {
+        a(v, SapiDataEncryptor.e(str, B()));
+    }
+
+    public String j() {
+        if (TextUtils.isEmpty(i(v))) {
+            return null;
+        }
+        return SapiDataEncryptor.d(i(v), B());
+    }
+
     public d k() {
-        String h2 = h(g);
-        if (!TextUtils.isEmpty(h2)) {
+        String i2 = i(g);
+        if (!TextUtils.isEmpty(i2)) {
             try {
-                return d.a(new JSONObject(h2));
+                return d.a(new JSONObject(i2));
             } catch (JSONException e2) {
             }
         }
@@ -438,20 +407,20 @@ public final class c {
 
     public void a(d dVar) {
         if (dVar != null) {
-            a(g, dVar.j());
+            a(g, dVar.k());
         }
     }
 
     public Map<String, String> l() {
-        return k().e();
-    }
-
-    public List<String> m() {
         return k().f();
     }
 
+    public List<String> m() {
+        return k().g();
+    }
+
     public List<String> n() {
-        return k().n();
+        return k().o();
     }
 
     public String o() {
@@ -459,68 +428,75 @@ public final class c {
     }
 
     public Map<String, Integer> p() {
-        return k().l();
+        return k().m();
     }
 
     public boolean q() {
         return k().c();
     }
 
+    public boolean r() {
+        return k().d();
+    }
+
     public void a(String str, SapiAccount.ReloginCredentials reloginCredentials) {
         if (!TextUtils.isEmpty(str) && reloginCredentials != null && !TextUtils.isEmpty(reloginCredentials.account) && !TextUtils.isEmpty(reloginCredentials.password) && !TextUtils.isEmpty(reloginCredentials.ubi) && !TextUtils.isEmpty(reloginCredentials.accountType)) {
-            e(reloginCredentials.ubi);
-            JSONObject r2 = r();
-            if (r2 == null) {
-                r2 = new JSONObject();
+            f(reloginCredentials.ubi);
+            JSONObject s2 = s();
+            if (s2 == null) {
+                s2 = new JSONObject();
             }
             try {
-                r2.put(str, reloginCredentials.toJSONObject());
-                a(u, SapiDataEncryptor.e(r2.toString(), B()));
+                s2.put(str, reloginCredentials.toJSONObject());
+                a(u, SapiDataEncryptor.e(s2.toString(), B()));
             } catch (JSONException e2) {
                 L.e(e2);
             }
         }
     }
 
-    public SapiAccount.ReloginCredentials d(String str) {
+    public SapiAccount.ReloginCredentials e(String str) {
         JSONObject optJSONObject;
-        JSONObject r2 = r();
-        if (r2 == null || (optJSONObject = r2.optJSONObject(str)) == null) {
+        JSONObject s2 = s();
+        if (s2 == null || (optJSONObject = s2.optJSONObject(str)) == null) {
             return new SapiAccount.ReloginCredentials();
         }
         SapiAccount.ReloginCredentials fromJSONObject = SapiAccount.ReloginCredentials.fromJSONObject(optJSONObject);
-        fromJSONObject.ubi = s();
+        fromJSONObject.ubi = t();
         return fromJSONObject;
     }
 
-    public JSONObject r() {
+    public JSONObject s() {
         String str;
-        if (!TextUtils.isEmpty(h(u))) {
-            str = SapiDataEncryptor.d(h(u), B());
-        } else if (TextUtils.isEmpty(h(h))) {
+        if (!TextUtils.isEmpty(i(u))) {
+            str = SapiDataEncryptor.d(i(u), B());
+        } else if (TextUtils.isEmpty(i(h))) {
             str = null;
         } else {
-            str = h(h);
-            a(h, "");
-            a(u, SapiDataEncryptor.e(str, B()));
+            str = i(h);
+            String e2 = SapiDataEncryptor.e(str, B());
+            if (!TextUtils.isEmpty(e2)) {
+                a(u, e2);
+                a(h, "");
+            }
         }
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             return new JSONObject(str);
-        } catch (JSONException e2) {
-            L.e(e2);
+        } catch (JSONException e3) {
+            L.e(e3);
             return null;
         }
     }
 
-    void e(String str) {
+    void f(String str) {
         a(i, str);
     }
 
-    String s() {
-        return h(i);
+    String t() {
+        return i(i);
     }
 
     public void a(String str, Map<String, String> map) {
@@ -529,10 +505,10 @@ public final class c {
                 map = Collections.emptyMap();
             }
             try {
-                Map<String, Map<String, String>> t2 = t();
-                t2.put(str, map);
+                Map<String, Map<String, String>> u2 = u();
+                u2.put(str, map);
                 JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, Map<String, String>> entry : t2.entrySet()) {
+                for (Map.Entry<String, Map<String, String>> entry : u2.entrySet()) {
                     jSONObject.put(entry.getKey(), new JSONObject(entry.getValue()));
                 }
                 a(m, jSONObject.toString());
@@ -542,26 +518,26 @@ public final class c {
         }
     }
 
-    public void f(String str) {
+    public void g(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                Map<String, Map<String, String>> t2 = t();
-                if (t2.containsKey(str)) {
-                    t2.remove(str);
+                Map<String, Map<String, String>> u2 = u();
+                if (u2.containsKey(str)) {
+                    u2.remove(str);
                 }
-                a(m, new JSONObject(t2).toString());
+                a(m, new JSONObject(u2).toString());
             } catch (Throwable th) {
                 L.e(th);
             }
         }
     }
 
-    public Map<String, Map<String, String>> t() {
+    public Map<String, Map<String, String>> u() {
         HashMap hashMap = new HashMap();
-        String h2 = h(m);
-        if (!TextUtils.isEmpty(h2)) {
+        String i2 = i(m);
+        if (!TextUtils.isEmpty(i2)) {
             try {
-                JSONObject jSONObject = new JSONObject(h2);
+                JSONObject jSONObject = new JSONObject(i2);
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
@@ -586,15 +562,15 @@ public final class c {
         return hashMap;
     }
 
-    public int u() {
+    public int v() {
         return b(n, 0);
     }
 
-    public long v() {
-        return (System.currentTimeMillis() / 1000) + u();
+    public long w() {
+        return (System.currentTimeMillis() / 1000) + v();
     }
 
-    public int w() {
+    public int x() {
         return b(a, 0);
     }
 
@@ -602,39 +578,29 @@ public final class c {
         a(a, i2);
     }
 
-    public long x() {
+    public long y() {
         long b2 = b(o, 0L) + 1;
         a(o, b2);
         return b2;
     }
 
-    public void b(int i2) {
-        a(q, i2);
-    }
-
-    public int y() {
-        int b2 = b(q, 0) + 1;
-        a(q, b2);
-        return b2;
-    }
-
     private String B() {
-        if (TextUtils.isEmpty(x)) {
+        if (TextUtils.isEmpty(y)) {
             try {
-                x = SapiUtils.toMd5((this.w.getPackageName() + SapiUtils.getPackageSign(this.w, this.w.getPackageName())).getBytes("UTF-8")).substring(0, 16);
+                y = SapiUtils.toMd5((this.x.getPackageName() + SapiUtils.getPackageSign(this.x, this.x.getPackageName())).getBytes("UTF-8")).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 L.e(e2);
             }
         }
-        return x;
+        return y;
     }
 
-    public void g(String str) {
+    public void h(String str) {
         a(p, str);
     }
 
     public String z() {
-        return h(p);
+        return i(p);
     }
 
     <T> List<T> a(List<T> list, int i2) {

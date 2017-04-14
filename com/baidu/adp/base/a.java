@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public final class a {
-    private static ArrayList<SoftReference<Activity>> nQ;
-    private static a nR;
-    private InterfaceC0001a nS;
-    private int nT = 0;
+    private static ArrayList<SoftReference<Activity>> np;
+    private static a nq;
+    private InterfaceC0001a nr;
+    private int ns = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -20,42 +20,42 @@ public final class a {
     }
 
     public void a(InterfaceC0001a interfaceC0001a) {
-        this.nS = interfaceC0001a;
+        this.nr = interfaceC0001a;
     }
 
     private a() {
-        if (nQ == null) {
-            nQ = new ArrayList<>(20);
+        if (np == null) {
+            np = new ArrayList<>(20);
         }
     }
 
-    public static a cb() {
-        if (nR == null) {
-            nR = new a();
+    public static a ca() {
+        if (nq == null) {
+            nq = new a();
         }
-        return nR;
+        return nq;
     }
 
     public int getSize() {
-        return nQ.size();
+        return np.size();
     }
 
     public void h(Activity activity) {
         if (activity != null) {
-            nQ.add(new SoftReference<>(activity));
-            G(this.nT);
+            np.add(new SoftReference<>(activity));
+            E(this.ns);
         }
     }
 
-    public Activity F(int i) {
-        int size = nQ.size();
+    public Activity D(int i) {
+        int size = np.size();
         if (size == 0) {
             return null;
         }
         if (i < 0 || i >= size) {
             return null;
         }
-        SoftReference<Activity> remove = nQ.remove(i);
+        SoftReference<Activity> remove = np.remove(i);
         if (remove == null) {
             return null;
         }
@@ -64,36 +64,36 @@ public final class a {
 
     public void i(Activity activity) {
         if (activity != null) {
-            int size = nQ.size();
+            int size = np.size();
             if (size == 0) {
-                if (this.nS != null) {
-                    this.nS.onActivityClosed();
+                if (this.nr != null) {
+                    this.nr.onActivityClosed();
                     return;
                 }
                 return;
             }
             for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = nQ.get(i);
+                SoftReference<Activity> softReference = np.get(i);
                 if (softReference == null) {
-                    nQ.remove(i);
+                    np.remove(i);
                 } else if (activity.equals(softReference.get())) {
-                    nQ.remove(i);
-                    if (nQ.size() == 0 && this.nS != null) {
-                        this.nS.onActivityClosed();
+                    np.remove(i);
+                    if (np.size() == 0 && this.nr != null) {
+                        this.nr.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (nQ.size() == 0 && this.nS != null) {
-                    this.nS.onActivityClosed();
+                } else if (np.size() == 0 && this.nr != null) {
+                    this.nr.onActivityClosed();
                 }
             }
         }
     }
 
-    public Activity cc() {
+    public Activity cb() {
         SoftReference<Activity> softReference;
-        int size = nQ.size();
-        if (size != 0 && (softReference = nQ.get(size - 1)) != null) {
+        int size = np.size();
+        if (size != 0 && (softReference = np.get(size - 1)) != null) {
             return softReference.get();
         }
         return null;
@@ -101,54 +101,54 @@ public final class a {
 
     public void setActivityStackMaxSize(int i) {
         if (i >= 10 || i == 0) {
-            this.nT = i;
+            this.ns = i;
         }
     }
 
-    public void cd() {
-        G(3);
+    public void cc() {
+        E(3);
     }
 
-    public void ce() {
+    public void cd() {
         Activity activity;
-        if (nQ != null) {
-            while (!nQ.isEmpty()) {
-                SoftReference<Activity> remove = nQ.remove(0);
+        if (np != null) {
+            while (!np.isEmpty()) {
+                SoftReference<Activity> remove = np.remove(0);
                 if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
                     activity.finish();
                 }
             }
         }
-        if (this.nS != null) {
-            this.nS.onActivityClosed();
+        if (this.nr != null) {
+            this.nr.onActivityClosed();
         }
     }
 
     public int getActivityStackMaxSize() {
-        return this.nT;
+        return this.ns;
     }
 
-    private void G(int i) {
+    private void E(int i) {
         if (i != 0) {
-            int size = cb().getSize();
+            int size = ca().getSize();
             while (size > i) {
                 size--;
-                Activity F = cb().F(1);
-                if (F != null) {
-                    F.finish();
+                Activity D = ca().D(1);
+                if (D != null) {
+                    D.finish();
                 }
             }
         }
     }
 
-    public String cf() {
+    public String ce() {
         Activity activity;
         String str;
-        if (nQ == null || nQ.size() == 0) {
+        if (np == null || np.size() == 0) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        Iterator<SoftReference<Activity>> it = nQ.iterator();
+        Iterator<SoftReference<Activity>> it = np.iterator();
         while (it.hasNext()) {
             SoftReference<Activity> next = it.next();
             if (next != null && (activity = next.get()) != null) {

@@ -10,10 +10,10 @@ public class AccessTimeComparator implements Serializable, Comparator<e> {
         if (eVar == null || eVar2 == null) {
             return 0;
         }
-        long KZ = eVar.KZ();
-        long KZ2 = eVar2.KZ();
-        int i = KZ > KZ2 ? 1 : 0;
-        if (KZ < KZ2) {
+        long Lz = eVar.Lz();
+        long Lz2 = eVar2.Lz();
+        int i = Lz > Lz2 ? 1 : 0;
+        if (Lz < Lz2) {
             return -1;
         }
         return i;

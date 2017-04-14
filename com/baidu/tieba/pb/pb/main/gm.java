@@ -1,29 +1,41 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.eh;
 /* loaded from: classes.dex */
-public class gm implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
-            return null;
-        }
-        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] N = cw.aKZ().N(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
-        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
-        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
-        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
-        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
-        try {
-            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, N);
-            return pbPageReadLocalResponseMessage;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return pbPageReadLocalResponseMessage;
+class gm extends CustomMessageListener {
+    final /* synthetic */ ReaderPbService erF;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gm(ReaderPbService readerPbService, int i) {
+        super(i);
+        this.erF = readerPbService;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        eh.a aVar;
+        eh.a aVar2;
+        eh ehVar;
+        eh ehVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            if (intValue == 1) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10833").aa("obj_locate", "1"));
+                aVar2 = this.erF.mRefreshCallback;
+                ehVar = this.erF.mReaderManager;
+                int i = ehVar.eoa;
+                ehVar2 = this.erF.mReaderManager;
+                aVar2.aZ(i, ehVar2.aMD());
+            } else if (intValue == 2) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10833").aa("obj_locate", "2"));
+                aVar = this.erF.mRefreshCallback;
+                aVar.aMG();
+            }
         }
     }
 }

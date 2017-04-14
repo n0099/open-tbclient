@@ -3,7 +3,7 @@ package com.baidu.android.common.security;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
-public class MD5Util {
+public final class MD5Util {
     private MD5Util() {
     }
 

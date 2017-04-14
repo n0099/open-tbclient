@@ -8,13 +8,13 @@ import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class ad extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity euQ;
+    final /* synthetic */ NewSubPbActivity esV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.euQ = newSubPbActivity;
+        this.esV = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,32 +29,32 @@ class ad extends CustomMessageListener {
         com.baidu.adp.base.g gVar3;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.euQ.euL;
+            bdUniqueId = this.esV.esQ;
             if (tag == bdUniqueId) {
-                aoVar = this.euQ.euB;
-                aoVar.aIn();
+                aoVar = this.esV.esG;
+                aoVar.aIs();
                 UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                 if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                    hVar2 = this.euQ.elc;
-                    gVar3 = this.euQ.elb;
+                    hVar2 = this.esV.eji;
+                    gVar3 = this.esV.ejh;
                     hVar2.c(gVar3.getResources().getString(w.l.mute_success));
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                     String errorString = userMuteAddResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        gVar2 = this.euQ.elb;
+                        gVar2 = this.esV.ejh;
                         errorString = gVar2.getResources().getString(w.l.mute_error_beyond_limit);
                     }
-                    this.euQ.fx(errorString);
+                    this.esV.fD(errorString);
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() != 1990043) {
                     String errorString2 = userMuteAddResponseMessage.getErrorString();
                     if (com.baidu.tbadk.core.util.au.isEmpty(errorString2)) {
-                        gVar = this.euQ.elb;
+                        gVar = this.esV.ejh;
                         errorString2 = gVar.getResources().getString(w.l.mute_fail);
                     }
-                    hVar = this.euQ.elc;
+                    hVar = this.esV.eji;
                     hVar.d(errorString2);
                 } else {
-                    this.euQ.aKN();
+                    this.esV.aKT();
                 }
             }
         }

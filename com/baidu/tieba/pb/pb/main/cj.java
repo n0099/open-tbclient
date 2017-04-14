@@ -1,20 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import android.content.Context;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.FloatingLayout;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-class cj implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
-                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
-            } else {
-                customMessage.getData().startActivity(PbActivity.class);
-            }
+class cj implements com.baidu.tbadk.ala.f {
+    @Override // com.baidu.tbadk.ala.f
+    public View aq(Context context) {
+        TextView ap = com.baidu.tbadk.ala.d.ap(context);
+        if (ap != null) {
+            FloatingLayout.a aVar = new FloatingLayout.a(-2, -2);
+            aVar.gravity = 16;
+            aVar.setMargins(com.baidu.adp.lib.util.k.g(context, w.f.ds6), -com.baidu.adp.lib.util.k.g(context, w.f.ds8), -com.baidu.adp.lib.util.k.g(context, w.f.ds4), 0);
+            ap.setLayoutParams(aVar);
         }
-        return null;
+        return ap;
     }
 }

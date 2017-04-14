@@ -5,17 +5,17 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ f eul;
+    final /* synthetic */ f eso;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.eul = fVar;
+        this.eso = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
-        pbActivity = this.eul.eka;
-        pbActivity.YU();
+        pbActivity = this.eso.eig;
+        pbActivity.Zq();
     }
 }

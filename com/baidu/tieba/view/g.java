@@ -8,10 +8,10 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class g extends LinkMovementMethod {
-    private static g fHJ;
-    private com.baidu.tbadk.widget.richText.b fHG;
-    private int fHH;
-    private int fHI;
+    private static g fJs;
+    private com.baidu.tbadk.widget.richText.b fJp;
+    private int fJq;
+    private int fJr;
 
     @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
     public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
@@ -20,40 +20,40 @@ public class g extends LinkMovementMethod {
             return super.onTouchEvent(textView, spannable, motionEvent);
         }
         if (a != null) {
-            this.fHG = a;
+            this.fJp = a;
         }
         if (motionEvent.getAction() == 0) {
-            this.fHH = (int) motionEvent.getX();
-            this.fHI = (int) motionEvent.getY();
-            if (this.fHG != null) {
-                this.fHG.fs(1);
-                Selection.setSelection(spannable, spannable.getSpanStart(this.fHG), spannable.getSpanEnd(this.fHG));
+            this.fJq = (int) motionEvent.getX();
+            this.fJr = (int) motionEvent.getY();
+            if (this.fJp != null) {
+                this.fJp.fv(1);
+                Selection.setSelection(spannable, spannable.getSpanStart(this.fJp), spannable.getSpanEnd(this.fJp));
             }
             textView.invalidate();
         } else if (motionEvent.getAction() == 2) {
-            if (this.fHG != null && (Math.abs(this.fHH - motionEvent.getX()) > 20.0f || Math.abs(this.fHI - motionEvent.getY()) > 20.0f)) {
-                this.fHG.fs(2);
+            if (this.fJp != null && (Math.abs(this.fJq - motionEvent.getX()) > 20.0f || Math.abs(this.fJr - motionEvent.getY()) > 20.0f)) {
+                this.fJp.fv(2);
                 textView.invalidate();
                 Selection.removeSelection(spannable);
             }
-        } else if ((motionEvent.getAction() == 1 || motionEvent.getAction() == 3) && this.fHG != null) {
-            this.fHG.fs(2);
+        } else if ((motionEvent.getAction() == 1 || motionEvent.getAction() == 3) && this.fJp != null) {
+            this.fJp.fv(2);
             textView.invalidate();
             Selection.removeSelection(spannable);
         }
         return super.onTouchEvent(textView, spannable, motionEvent);
     }
 
-    public static g blC() {
-        if (fHJ == null) {
-            fHJ = new g();
+    public static g bmm() {
+        if (fJs == null) {
+            fJs = new g();
         }
-        return fHJ;
+        return fJs;
     }
 
     private com.baidu.tbadk.widget.richText.b a(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         if (motionEvent == null || motionEvent.getAction() == 3) {
-            return this.fHG;
+            return this.fJp;
         }
         int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
         int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();

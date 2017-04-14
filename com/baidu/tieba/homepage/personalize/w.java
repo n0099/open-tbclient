@@ -1,28 +1,20 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends com.baidu.tbadk.util.s<Object> {
-    private final /* synthetic */ DataRes.Builder czi;
+public class w implements com.baidu.tbadk.util.f<DataRes> {
     final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(n nVar, DataRes.Builder builder) {
+    public w(n nVar) {
         this.this$0 = nVar;
-        this.czi = builder;
     }
 
-    @Override // com.baidu.tbadk.util.s
-    public Object doInBackground() {
-        try {
-            com.baidu.tbadk.core.c.a.to().K("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).k("0", this.czi.build(true).toByteArray());
-            return null;
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.f
+    /* renamed from: b */
+    public void onReturnDataInUI(DataRes dataRes) {
+        this.this$0.a(dataRes);
     }
 }

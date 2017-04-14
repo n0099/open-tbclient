@@ -13,10 +13,10 @@ class t implements bb.a {
         String str = strArr[0];
         if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
             if (str.contains("jump_enter_forum=1")) {
-                com.baidu.tbadk.core.e.b.b(tbPageContext.getPageActivity(), 1, true);
+                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 1, true);
                 return 1;
             } else if (str.contains("jump_chosen_post=1")) {
-                com.baidu.tbadk.core.e.b.b(tbPageContext.getPageActivity(), 2, true);
+                com.baidu.tbadk.core.f.b.b(tbPageContext.getPageActivity(), 2, true);
                 return 1;
             }
         }

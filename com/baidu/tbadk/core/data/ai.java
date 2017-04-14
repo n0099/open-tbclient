@@ -1,33 +1,55 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ai extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private boolean Wu;
-    private ICardInfo Wv;
-    private String card;
+public class ai {
+    private ArrayList<String> WN;
+    private int smsCodeTime = 0;
+    private UserData WL = new UserData();
+    private AntiData WM = new AntiData();
 
-    public void ch(String str) {
-        this.card = str;
+    public ai() {
+        this.WN = null;
+        this.WN = new ArrayList<>();
+        setSmsCodeTime(0);
     }
 
-    public void qC() {
-        this.Wv = com.baidu.tieba.lego.card.b.ln(this.card);
-        this.Wu = this.Wv != null;
+    public UserData getUser() {
+        return this.WL;
     }
 
-    public ICardInfo qD() {
-        return this.Wv;
+    public AntiData rb() {
+        return this.WM;
     }
 
-    public boolean isValid() {
-        return this.Wu;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    @Override // com.baidu.adp.widget.ListView.v
-    public BdUniqueId getType() {
-        return TYPE;
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.WL.parserJson(jSONObject.optJSONObject("user"));
+            this.WM.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.WN.add(optJSONArray.optString(i, null));
+                }
+            }
+            setSmsCodeTime(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void setSmsCodeTime(int i) {
+        this.smsCodeTime = i;
     }
 }

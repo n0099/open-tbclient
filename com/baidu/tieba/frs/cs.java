@@ -1,31 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.animation.Animation;
+import android.animation.ValueAnimator;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cs implements Animation.AnimationListener {
-    final /* synthetic */ co bQR;
+public class cs implements ValueAnimator.AnimatorUpdateListener {
+    final /* synthetic */ cq bQG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cs(co coVar) {
-        this.bQR = coVar;
+    public cs(cq cqVar) {
+        this.bQG = cqVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        Runnable runnable;
-        int i;
-        com.baidu.adp.lib.g.h fM = com.baidu.adp.lib.g.h.fM();
-        runnable = this.bQR.bQQ;
-        i = this.bQR.bQN;
-        fM.postDelayed(runnable, i);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        View view;
+        View view2;
+        view = this.bQG.bQB;
+        if (view != null && valueAnimator != null) {
+            view2 = this.bQG.bQB;
+            view2.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+        }
     }
 }

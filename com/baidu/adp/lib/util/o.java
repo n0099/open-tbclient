@@ -51,7 +51,7 @@ public class o {
         }
     }
 
-    public static void b(Reader reader) {
+    public static void a(Reader reader) {
         if (reader != null) {
             try {
                 reader.close();

@@ -17,9 +17,9 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class m {
-    private static final double[] Pk = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d Oz;
-    private final SQLiteDatabase Pl;
+    private static final double[] Pz = {45.0d, 135.0d, 225.0d, 315.0d};
+    private final d OQ;
+    private final SQLiteDatabase PA;
     private final int c;
     private int e = -1;
     private int f = -1;
@@ -50,7 +50,7 @@ public final class m {
         public static final b b = new o("ROAD", 1, "RGCROAD", "road", "addrv", 1000, 10000);
         public static final b c = new p("SITE", 2, "RGCSITE", "site", "addrv", 100, 50000);
         public static final b d = new q("POI", 3, "RGCPOI", "poi", "poiv", 1000, 5000);
-        private static final /* synthetic */ b[] Pm = {a, b, c, d};
+        private static final /* synthetic */ b[] PC = {a, b, c, d};
 
         private b(String str, int i, String str2, String str3, String str4, int i2, int i3) {
             this.f = str2;
@@ -75,7 +75,7 @@ public final class m {
         }
 
         public static b[] a() {
-            return (b[]) Pm.clone();
+            return (b[]) PC.clone();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -87,10 +87,10 @@ public final class m {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= m.Pk.length) {
+                    if (i3 >= m.Pz.length) {
                         break;
                     }
-                    double[] b2 = m.b(d3, d2, d4, m.Pk[i3]);
+                    double[] b2 = m.b(d3, d2, d4, m.Pz[i3]);
                     hashSet.add(m.a(i, b2[1], b2[0]));
                     i2 = i3 + 1;
                 }
@@ -123,18 +123,18 @@ public final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.Oz = dVar;
-        this.Pl = sQLiteDatabase;
+        this.OQ = dVar;
+        this.PA = sQLiteDatabase;
         this.c = i;
-        if (this.Pl == null || !this.Pl.isOpen()) {
+        if (this.PA == null || !this.PA.isOpen()) {
             return;
         }
         try {
-            this.Pl.execSQL("CREATE TABLE IF NOT EXISTS RGCAREA(gridkey VARCHAR(10) PRIMARY KEY, country VARCHAR(100),countrycode VARCHAR(100), province VARCHAR(100), city VARCHAR(100), citycode VARCHAR(100), district VARCHAR(100), timestamp INTEGER, version VARCHAR(50))");
-            this.Pl.execSQL("CREATE TABLE IF NOT EXISTS RGCROAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), x1 DOUBLE, y1 DOUBLE, x2 DOUBLE, y2 DOUBLE)");
-            this.Pl.execSQL("CREATE TABLE IF NOT EXISTS RGCSITE(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), streetnumber VARCHAR(100), x DOUBLE, y DOUBLE)");
-            this.Pl.execSQL("CREATE TABLE IF NOT EXISTS RGCPOI(pid VARCHAR(50) PRIMARY KEY , gridkey VARCHAR(10), name VARCHAR(100), type VARCHAR(50), x DOUBLE, y DOUBLE, rank INTEGER)");
-            this.Pl.execSQL("CREATE TABLE IF NOT EXISTS RGCUPDATE(gridkey VARCHAR(10), version VARCHAR(50), type INTEGER, timestamp INTEGER, PRIMARY KEY(gridkey, type))");
+            this.PA.execSQL("CREATE TABLE IF NOT EXISTS RGCAREA(gridkey VARCHAR(10) PRIMARY KEY, country VARCHAR(100),countrycode VARCHAR(100), province VARCHAR(100), city VARCHAR(100), citycode VARCHAR(100), district VARCHAR(100), timestamp INTEGER, version VARCHAR(50))");
+            this.PA.execSQL("CREATE TABLE IF NOT EXISTS RGCROAD(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), x1 DOUBLE, y1 DOUBLE, x2 DOUBLE, y2 DOUBLE)");
+            this.PA.execSQL("CREATE TABLE IF NOT EXISTS RGCSITE(_id INTEGER PRIMARY KEY AUTOINCREMENT, gridkey VARCHAR(10), street VARCHAR(100), streetnumber VARCHAR(100), x DOUBLE, y DOUBLE)");
+            this.PA.execSQL("CREATE TABLE IF NOT EXISTS RGCPOI(pid VARCHAR(50) PRIMARY KEY , gridkey VARCHAR(10), name VARCHAR(100), type VARCHAR(50), x DOUBLE, y DOUBLE, rank INTEGER)");
+            this.PA.execSQL("CREATE TABLE IF NOT EXISTS RGCUPDATE(gridkey VARCHAR(10), version VARCHAR(50), type INTEGER, timestamp INTEGER, PRIMARY KEY(gridkey, type))");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -292,7 +292,7 @@ public final class m {
         String str17;
         String str18;
         try {
-            cursor = this.Pl.rawQuery(b.c.b(this.c, d, d2), null);
+            cursor = this.PA.rawQuery(b.c.b(this.c, d, d2), null);
             try {
                 try {
                     if (cursor.moveToFirst()) {
@@ -339,7 +339,7 @@ public final class m {
                                         if (str3 == null) {
                                         }
                                         cursor3 = null;
-                                        cursor3 = this.Pl.rawQuery(b.a.b(this.c, d, d2), null);
+                                        cursor3 = this.PA.rawQuery(b.a.b(this.c, d, d2), null);
                                         if (cursor3.moveToFirst()) {
                                         }
                                         str14 = null;
@@ -407,7 +407,7 @@ public final class m {
                                 if (str3 == null) {
                                 }
                                 cursor3 = null;
-                                cursor3 = this.Pl.rawQuery(b.a.b(this.c, d, d2), null);
+                                cursor3 = this.PA.rawQuery(b.a.b(this.c, d, d2), null);
                             }
                         }
                         str = str19;
@@ -451,7 +451,7 @@ public final class m {
                 }
                 if (str3 == null) {
                     try {
-                        cursor5 = this.Pl.rawQuery(b.b.b(this.c, d, d2), null);
+                        cursor5 = this.PA.rawQuery(b.b.b(this.c, d, d2), null);
                         try {
                             try {
                                 if (cursor5.moveToFirst()) {
@@ -486,7 +486,7 @@ public final class m {
                                                     str4 = str15;
                                                 }
                                                 cursor3 = null;
-                                                cursor3 = this.Pl.rawQuery(b.a.b(this.c, d, d2), null);
+                                                cursor3 = this.PA.rawQuery(b.a.b(this.c, d, d2), null);
                                                 if (cursor3.moveToFirst()) {
                                                 }
                                                 str14 = null;
@@ -515,7 +515,7 @@ public final class m {
                                             }
                                             str4 = str15;
                                             cursor3 = null;
-                                            cursor3 = this.Pl.rawQuery(b.a.b(this.c, d, d2), null);
+                                            cursor3 = this.PA.rawQuery(b.a.b(this.c, d, d2), null);
                                             if (cursor3.moveToFirst()) {
                                             }
                                             str14 = null;
@@ -579,7 +579,7 @@ public final class m {
                     str4 = str15;
                 }
                 cursor3 = null;
-                cursor3 = this.Pl.rawQuery(b.a.b(this.c, d, d2), null);
+                cursor3 = this.PA.rawQuery(b.a.b(this.c, d, d2), null);
                 if (cursor3.moveToFirst() || cursor3.isAfterLast()) {
                     str14 = null;
                     str13 = null;
@@ -694,7 +694,7 @@ public final class m {
                 }
                 return new Address.Builder().country(str9).countryCode(str10).province(str11).city(str12).cityCode(str13).district(str14).street(str4).streetNumber(str3 != null ? new String(com.baidu.location.b.a.b.a(str3.getBytes())) : str3).build();
             }
-            cursor3 = this.Pl.rawQuery(b.a.b(this.c, d, d2), null);
+            cursor3 = this.PA.rawQuery(b.a.b(this.c, d, d2), null);
             if (cursor3.moveToFirst()) {
             }
             str14 = null;
@@ -734,11 +734,11 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) {
         b[] a2;
-        if (this.Pl == null || !this.Pl.isOpen()) {
+        if (this.PA == null || !this.PA.isOpen()) {
             return;
         }
         try {
-            this.Pl.beginTransaction();
+            this.PA.beginTransaction();
             for (b bVar : b.a()) {
                 if (jSONObject.has(bVar.g)) {
                     String string = jSONObject.has(bVar.h) ? jSONObject.getString(bVar.h) : "";
@@ -747,25 +747,25 @@ public final class m {
                     arrayList.add(bVar.a(jSONObject2));
                     arrayList.addAll(bVar.a(jSONObject2, string, bVar.i));
                     for (String str : arrayList) {
-                        this.Pl.execSQL(str);
+                        this.PA.execSQL(str);
                     }
                 }
             }
-            this.Pl.setTransactionSuccessful();
+            this.PA.setTransactionSuccessful();
             this.e = -1;
             this.f = -1;
             try {
-                this.Pl.endTransaction();
+                this.PA.endTransaction();
             } catch (Exception e) {
             }
         } catch (Exception e2) {
             try {
-                this.Pl.endTransaction();
+                this.PA.endTransaction();
             } catch (Exception e3) {
             }
         } catch (Throwable th) {
             try {
-                this.Pl.endTransaction();
+                this.PA.endTransaction();
             } catch (Exception e4) {
             }
             throw th;
@@ -776,13 +776,13 @@ public final class m {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.Oz.mX().l() && this.f == -1 && this.e == -1 && this.Pl != null && this.Pl.isOpen()) {
+        if (this.OQ.nq().l() && this.f == -1 && this.e == -1 && this.PA != null && this.PA.isOpen()) {
             try {
-                cursor = this.Pl.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
+                cursor = this.PA.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
                 try {
                     cursor.moveToFirst();
                     this.f = cursor.getInt(0);
-                    cursor2 = this.Pl.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
+                    cursor2 = this.PA.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
                     cursor2.moveToFirst();
                     this.e = cursor2.getInt(0);
                     if (cursor != null) {
@@ -855,7 +855,7 @@ public final class m {
         Poi poi2 = null;
         int i = 0;
         try {
-            cursor = this.Pl.rawQuery(b.d.b(this.c, d, d2), null);
+            cursor = this.PA.rawQuery(b.d.b(this.c, d, d2), null);
             try {
                 try {
                     if (cursor.moveToFirst()) {
@@ -928,7 +928,7 @@ public final class m {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION] complete} */
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject b() {
+    public JSONObject ny() {
         Cursor cursor = null;
         Cursor cursor2 = null;
         JSONObject jSONObject = new JSONObject();
@@ -936,13 +936,13 @@ public final class m {
         StringBuffer stringBuffer2 = new StringBuffer();
         int currentTimeMillis = (int) (System.currentTimeMillis() / 86400000);
         try {
-            if (this.Pl != null && this.Pl.isOpen()) {
+            if (this.PA != null && this.PA.isOpen()) {
                 JSONArray jSONArray = new JSONArray();
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.Pl.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Oz.mX().p())), null);
-                cursor = this.Pl.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Oz.mX().q())), null);
+                cursor2 = this.PA.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.OQ.nq().p())), null);
+                cursor = this.PA.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.OQ.nq().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {
@@ -995,10 +995,10 @@ public final class m {
                 }
             }
             if (stringBuffer2.length() > 0) {
-                this.Pl.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString()));
+                this.PA.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString()));
             }
             if (stringBuffer.length() > 0) {
-                this.Pl.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString()));
+                this.PA.execSQL(String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString()));
             }
             if (cursor2 != null) {
                 try {

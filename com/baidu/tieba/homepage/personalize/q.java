@@ -34,16 +34,16 @@ public class q extends CustomMessageListener {
         int intValue;
         DataRes.Builder builder5;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            builder = this.this$0.cyE;
+            builder = this.this$0.cxe;
             if (builder != null) {
-                builder2 = this.this$0.cyE;
+                builder2 = this.this$0.cxe;
                 if (!com.baidu.tbadk.core.util.x.q(builder2.thread_list)) {
                     UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                     if (updateAttentionMessage.getData() == null || StringUtils.isNull(updateAttentionMessage.getData().toUid)) {
                         return;
                     }
                     for (int i = 0; i < builder3.thread_list.size(); i++) {
-                        builder4 = this.this$0.cyE;
+                        builder4 = this.this$0.cxe;
                         ThreadInfo threadInfo = builder4.thread_list.get(i);
                         if (threadInfo != null && threadInfo.author != null && threadInfo.author.id.longValue() == com.baidu.adp.lib.g.b.c(updateAttentionMessage.getData().toUid, -1L)) {
                             ThreadInfo.Builder builder6 = new ThreadInfo.Builder(threadInfo);
@@ -59,7 +59,7 @@ public class q extends CustomMessageListener {
                             builder7.fans_num = Integer.valueOf(intValue);
                             builder7.god_data = builder8.build(true);
                             builder6.author = builder7.build(true);
-                            builder5 = this.this$0.cyE;
+                            builder5 = this.this$0.cxe;
                             builder5.thread_list.set(i, builder6.build(true));
                             return;
                         }

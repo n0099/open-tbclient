@@ -23,14 +23,14 @@ public class d extends Handler {
         PluginInstallTask pluginInstallTask2;
         Handler handler;
         Runnable runnable;
-        pluginInstallTask = this.this$0.DK;
+        pluginInstallTask = this.this$0.Dl;
         if (pluginInstallTask != null && message != null) {
             try {
-                String str = ((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).CY;
-                pluginInstallTask2 = this.this$0.DK;
-                if (TextUtils.equals(str, pluginInstallTask2.CY)) {
-                    handler = c.pa;
-                    runnable = this.this$0.DR;
+                String str = ((PluginInstallTask) OrmObject.objectWithBundle(message.getData(), PluginInstallTask.class)).Cz;
+                pluginInstallTask2 = this.this$0.Dl;
+                if (TextUtils.equals(str, pluginInstallTask2.Cz)) {
+                    handler = c.oz;
+                    runnable = this.this$0.Ds;
                     handler.removeCallbacks(runnable);
                 }
             } catch (Throwable th) {

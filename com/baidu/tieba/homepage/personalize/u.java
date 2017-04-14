@@ -1,37 +1,53 @@
 package com.baidu.tieba.homepage.personalize;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.squareup.wire.Wire;
-import java.io.IOException;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.ArrayList;
+import java.util.List;
 import tbclient.Personalized.DataRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.tbadk.util.s<DataRes> {
+public class u extends CustomMessageListener {
     final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(n nVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(n nVar, int i) {
+        super(i);
         this.this$0 = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.s
-    /* renamed from: ajE */
-    public DataRes doInBackground() {
-        com.baidu.adp.lib.cache.o<byte[]> K = com.baidu.tbadk.core.c.a.to().K("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount());
-        if (K == null) {
-            return null;
-        }
-        byte[] bArr = K.get("0");
-        if (bArr == null || bArr.length == 0) {
-            return null;
-        }
-        try {
-            return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-        } catch (IOException e) {
-            BdLog.e(e);
-            return null;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        DataRes.Builder builder;
+        DataRes.Builder builder2;
+        List list;
+        List list2;
+        com.baidu.tieba.homepage.personalize.b.ad adVar;
+        com.baidu.tieba.homepage.personalize.b.ad adVar2;
+        List list3;
+        if (customResponsedMessage != null) {
+            builder = this.this$0.cxe;
+            if (builder != null) {
+                builder2 = this.this$0.cxe;
+                if (com.baidu.tbadk.core.util.x.p(builder2.thread_list) != 0) {
+                    list = this.this$0.aSB;
+                    if (com.baidu.tbadk.core.util.x.p(list) != 0) {
+                        String str = (String) customResponsedMessage.getData();
+                        n nVar = this.this$0;
+                        list2 = this.this$0.aSB;
+                        nVar.f(str, list2);
+                        this.this$0.jF(str);
+                        adVar = this.this$0.cxj;
+                        if (adVar != null) {
+                            adVar2 = this.this$0.cxj;
+                            list3 = this.this$0.aSB;
+                            adVar2.bc(new ArrayList(list3));
+                        }
+                    }
+                }
+            }
         }
     }
 }

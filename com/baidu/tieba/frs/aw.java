@@ -1,42 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.InjectPlugin.a;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class aw {
-    private TbPageContext aaI;
-    private com.baidu.tieba.frs.mc.w bOo;
+public class aw implements com.baidu.adp.widget.ListView.v {
+    public static final BdUniqueId bOa = BdUniqueId.gen();
+    private int height = 0;
+    private int blf = 0;
 
-    public aw(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.w wVar) {
-        this.aaI = tbPageContext;
-        this.bOo = wVar;
+    @Override // com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return bOa;
     }
 
-    public void b(a aVar) {
-        if (this.bOo != null && this.bOo.Yx() != null && this.bOo.Yx().acc() != null && this.bOo.YE() != null && aVar != null && this.bOo.YE().getListView() != null && this.bOo.YB() != null) {
-            BdTypeListView listView = this.bOo.YE().getListView();
-            switch (aVar.what) {
-                case 2:
-                    if (aVar.getView() != null) {
-                        if (!this.bOo.YL()) {
-                            listView.removeHeaderView(aVar.getView());
-                            listView.addHeaderView(aVar.getView(), listView.getHeaderViewsCount() - 1);
-                        }
-                        this.bOo.YB().iH(8);
-                        return;
-                    }
-                    return;
-                case 3:
-                    if (aVar.getView() != null) {
-                        listView.removeHeaderView(aVar.getView());
-                        this.bOo.YB().iH(0);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public int ZH() {
+        return this.blf;
+    }
+
+    public void hP(int i) {
+        this.blf = i;
     }
 }

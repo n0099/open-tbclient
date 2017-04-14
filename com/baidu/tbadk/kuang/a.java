@@ -1,27 +1,66 @@
 package com.baidu.tbadk.kuang;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.plugin.api.HostInvokeCallback;
+import com.baidu.searchbox.plugin.api.PluginInvokeException;
+import com.baidu.searchbox.plugin.api.PluginInvoker;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.coreExtra.view.j;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
-class a extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(int i) {
-        super(i);
+public class a {
+    public static int aDy = 0;
+    private static String mBduss = "";
+    private static String mUserId = "";
+    private static String SZ = "";
+    private static j aDz = null;
+
+    public static void a(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
+        try {
+            PluginInvoker.invokeHost(i, str, clsArr, objArr, TbConfig.MAIN_PACKAGE_NAME, hostInvokeCallback);
+        } catch (PluginInvokeException e) {
+            BdLog.e(e);
+            e.printStackTrace();
+        } catch (IllegalAccessException e2) {
+            BdLog.e(e2);
+            e2.printStackTrace();
+        } catch (IllegalArgumentException e3) {
+            BdLog.e(e3);
+            e3.printStackTrace();
+        } catch (NoSuchMethodException e4) {
+            BdLog.e(e4);
+            e4.printStackTrace();
+        } catch (InvocationTargetException e5) {
+            BdLog.e(e5);
+            e5.printStackTrace();
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && customResponsedMessage.getData() != null) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                TbadkCoreApplication.m9getInst().setIsKuangLogin(true);
-                b.bM(true);
-                return;
-            }
-            TbadkCoreApplication.m9getInst().setIsKuangLogin(false);
-            MessageManager.getInstance().dispatchResponsedMessage(new ReLoginFromKuangMessage(false));
-        }
+    public static void a(String str, Class<?>[] clsArr, Object[] objArr, HostInvokeCallback hostInvokeCallback) {
+        a(2, str, clsArr, objArr, TbConfig.MAIN_PACKAGE_NAME, hostInvokeCallback);
+    }
+
+    public static void a(TbPageContext<?> tbPageContext, AccountData accountData) {
+        aDz = new j(tbPageContext);
+        aDz.a(new b());
+        aDz.b(new c());
+        aDz.Bv();
+        aDz.i(accountData);
+        aDz.Br();
+    }
+
+    public static void bO(boolean z) {
+        a("getUserId", new Class[0], new Object[0], new g(new f(new e(new d(z)))));
+    }
+
+    public static void c(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.adp.lib.g.h.fR().postDelayed(new h(customResponsedMessage), aDy);
+    }
+
+    public static void ER() {
+        a("login", new Class[0], new Object[0], new i());
     }
 }

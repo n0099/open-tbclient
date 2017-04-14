@@ -1,22 +1,22 @@
 package com.baidu.tieba.homepage.framework.indicator;
 /* loaded from: classes.dex */
 public class z {
-    private boolean cxi = false;
-    private int cxj = -1;
-    private int cxk = -1;
+    private boolean cvI = false;
+    private int cvJ = -1;
+    private int cvK = -1;
 
     public void a(com.baidu.tieba.homepage.framework.w wVar) {
-        this.cxi = true;
-        if (this.cxj != -1) {
-            wVar.ar(this.cxj, this.cxk);
+        this.cvI = true;
+        if (this.cvJ != -1) {
+            wVar.ap(this.cvJ, this.cvK);
         }
     }
 
     public void a(int i, int i2, com.baidu.tieba.homepage.framework.w wVar) {
-        this.cxj = i;
-        this.cxk = i2;
-        if (this.cxi) {
-            wVar.ar(this.cxj, this.cxk);
+        this.cvJ = i;
+        this.cvK = i2;
+        if (this.cvI) {
+            wVar.ap(this.cvJ, this.cvK);
         }
     }
 }

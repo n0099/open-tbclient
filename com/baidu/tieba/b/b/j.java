@@ -5,11 +5,11 @@ import com.baidu.tieba.b.a.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends b.a {
-    final /* synthetic */ g boW;
+    final /* synthetic */ g boP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.boW = gVar;
+        this.boP = gVar;
     }
 
     @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.b
@@ -25,10 +25,10 @@ public class j extends b.a {
     @Override // com.baidu.tieba.b.a.b.a, com.baidu.tieba.b.a.a
     public void d(float f, float f2, float f3, int i) {
         Handler handler;
-        this.boW.QZ();
-        this.boW.gz(3);
-        this.boW.Rf();
-        handler = this.boW.mHandler;
+        this.boP.Rx();
+        this.boP.gC(3);
+        this.boP.RD();
+        handler = this.boP.mHandler;
         handler.sendEmptyMessage(2);
     }
 }

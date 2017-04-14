@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e eIE;
+    final /* synthetic */ e eGz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.eIE = eVar;
+        this.eGz = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,14 +25,14 @@ public class f implements View.OnClickListener {
         boolean z;
         TbPageContext tbPageContext;
         if (view != null) {
-            z = this.eIE.bhu;
+            z = this.eGz.bho;
             if (!z) {
                 TiebaStatic.log(new as("c11595"));
             }
             if (view.getTag() instanceof UserData) {
                 UserData userData = (UserData) view.getTag();
                 MessageManager messageManager = MessageManager.getInstance();
-                tbPageContext = this.eIE.ajF;
+                tbPageContext = this.eGz.ajT;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
             }
         }

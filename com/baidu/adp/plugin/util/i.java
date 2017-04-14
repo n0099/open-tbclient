@@ -1,54 +1,54 @@
 package com.baidu.adp.plugin.util;
 /* loaded from: classes.dex */
 public class i implements Comparable<i> {
-    int FP;
-    int FQ;
-    int FR;
-    int FS;
-    int FT;
-    int FU;
+    int Fq;
+    int Fr;
+    int Fs;
+    int Ft;
+    int Fu;
+    int Fv;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.FP = i;
-        this.FQ = i2;
-        this.FR = i3;
-        this.FS = i4;
-        this.FT = i5;
-        this.FU = i6;
+        this.Fq = i;
+        this.Fr = i2;
+        this.Fs = i3;
+        this.Ft = i4;
+        this.Fu = i5;
+        this.Fv = i6;
     }
 
     public String toString() {
-        return String.valueOf(this.FP) + "-" + this.FQ + "-" + this.FR + " " + this.FS + ":" + this.FT + ":" + this.FU;
+        return String.valueOf(this.Fq) + "-" + this.Fr + "-" + this.Fs + " " + this.Ft + ":" + this.Fu + ":" + this.Fv;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(i iVar) {
-        if (this.FP - iVar.FP > 0) {
+        if (this.Fq - iVar.Fq > 0) {
             return 1;
         }
-        if (this.FP - iVar.FP < 0) {
+        if (this.Fq - iVar.Fq < 0) {
             return -1;
         }
-        if (this.FQ - iVar.FQ <= 0) {
-            if (this.FQ - iVar.FQ < 0) {
+        if (this.Fr - iVar.Fr <= 0) {
+            if (this.Fr - iVar.Fr < 0) {
                 return -1;
             }
-            if (this.FR - iVar.FR <= 0) {
-                if (this.FR - iVar.FR < 0) {
+            if (this.Fs - iVar.Fs <= 0) {
+                if (this.Fs - iVar.Fs < 0) {
                     return -1;
                 }
-                if (this.FS - iVar.FS <= 0) {
-                    if (this.FS - iVar.FS < 0) {
+                if (this.Ft - iVar.Ft <= 0) {
+                    if (this.Ft - iVar.Ft < 0) {
                         return -1;
                     }
-                    if (this.FT - iVar.FT <= 0) {
-                        if (this.FT - iVar.FT < 0) {
+                    if (this.Fu - iVar.Fu <= 0) {
+                        if (this.Fu - iVar.Fu < 0) {
                             return -1;
                         }
-                        if (this.FU - iVar.FU <= 0) {
-                            return this.FU - iVar.FU < 0 ? -1 : 0;
+                        if (this.Fv - iVar.Fv <= 0) {
+                            return this.Fv - iVar.Fv < 0 ? -1 : 0;
                         }
                         return 1;
                     }

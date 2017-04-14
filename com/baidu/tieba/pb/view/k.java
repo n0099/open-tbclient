@@ -37,7 +37,7 @@ public class k {
             int g = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds32);
             drawable.setBounds(0, 0, g, g);
             com.baidu.tbadk.widget.g gVar = new com.baidu.tbadk.widget.g(drawable);
-            gVar.fk(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
+            gVar.fn(com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds4));
             spannableStringBuilder.setSpan(gVar, 0, 4, 33);
             textView.setLayoutParams(layoutParams);
             textView.setText(spannableStringBuilder);

@@ -136,12 +136,12 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     public boolean equals(Object obj) {
         if ((obj instanceof BaseLegoCardInfo) && !TextUtils.isEmpty(this.itemId)) {
             BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) obj;
-            return this.itemId.equals(baseLegoCardInfo.itemId) && a(baseLegoCardInfo);
+            return this.itemId.equals(baseLegoCardInfo.itemId) && b(baseLegoCardInfo);
         }
         return false;
     }
 
-    private boolean a(BaseLegoCardInfo baseLegoCardInfo) {
+    private boolean b(BaseLegoCardInfo baseLegoCardInfo) {
         if (baseLegoCardInfo == null) {
             return false;
         }
@@ -201,5 +201,15 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
         return this.mBdUniqueId;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo
+    public double getRatio() {
+        return 0.0d;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo
+    public boolean isReusable(ICardInfo iCardInfo) {
+        return false;
     }
 }

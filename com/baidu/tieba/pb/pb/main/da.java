@@ -1,38 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class da {
-    private BaseActivity bcF;
-    private PbModel ejZ;
-    private a elI = null;
-    protected final HttpMessageListener emM = new db(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+    public long Vf;
+    public long ekW;
+    public long ekX;
+    public int ekY;
+    public long mForumId;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void h(int i, String str, String str2);
+    public da() {
+        EC();
     }
 
-    public da(PbModel pbModel, BaseActivity baseActivity) {
-        this.ejZ = pbModel;
-        this.bcF = baseActivity;
-        this.bcF.registerListener(this.emM);
+    public void aLj() {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_SET_DECLARE);
+        httpMessage.addParam("tid", this.Vf);
+        httpMessage.addParam("author_uid", this.ekW);
+        httpMessage.addParam("declare_id", this.ekX);
+        httpMessage.addParam("forum_id", this.mForumId);
+        httpMessage.addParam("operation", this.ekY);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void a(a aVar) {
-        this.elI = aVar;
-    }
-
-    public void oi(int i) {
-        if (this.ejZ != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-            httpMessage.addParam("thread_id", this.ejZ.getThreadID());
-            httpMessage.addParam("status", String.valueOf(i));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+    private void EC() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_SET_DECLARE, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PB_SET_DECLARE_URL);
+        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 }

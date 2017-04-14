@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String egk = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
+    private static final String eer = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,9 +24,9 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String Bb;
-        private WeakReference<b> aVV;
-        private String egl;
+        private String AC;
+        private WeakReference<b> aWi;
+        private String ees;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -38,10 +38,10 @@ public class f {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.egl = str6;
-            this.Bb = str7;
+            this.ees = str6;
+            this.AC = str7;
             this.mPostId = str5;
-            this.aVV = new WeakReference<>(bVar);
+            this.aWi = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -50,20 +50,20 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: z */
         public ForbidResultData doInBackground(String... strArr) {
-            z zVar = new z(f.egk);
-            zVar.n("day", this.egl);
+            z zVar = new z(f.eer);
+            zVar.n("day", this.ees);
             zVar.n("un", this.mUserName);
             zVar.n("fid", this.mForumId);
             zVar.n("word", this.mForumName);
             zVar.n("z", this.mThreadId);
-            zVar.n("reason", this.Bb);
+            zVar.n("reason", this.AC);
             zVar.n("ntn", "banid");
             zVar.n("post_id", this.mPostId);
-            zVar.uZ().vS().mIsNeedTbs = true;
-            String uB = zVar.uB();
-            if (zVar.uZ().vT().isRequestSuccess()) {
+            zVar.vw().wp().mIsNeedTbs = true;
+            String uY = zVar.uY();
+            if (zVar.vw().wq().isRequestSuccess()) {
                 try {
-                    return (ForbidResultData) OrmObject.objectWithJsonStr(uB, ForbidResultData.class);
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(uY, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -72,7 +72,7 @@ public class f {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = zVar.vd();
+            forbidResultData2.error_code = zVar.vA();
             forbidResultData2.error_msg = zVar.getErrorString();
             return forbidResultData2;
         }
@@ -83,7 +83,7 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aVV.get();
+            b bVar = this.aWi.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && au.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

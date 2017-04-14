@@ -15,14 +15,14 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    private com.baidu.adp.lib.e.b<TbImageView> alR;
-    private a alS;
-    private LinearLayout.LayoutParams alT;
-    private boolean alU;
-    private int alV;
-    private boolean alW;
-    private boolean alX;
-    com.baidu.tbadk.imageManager.b alY;
+    private com.baidu.adp.lib.e.b<TbImageView> amf;
+    private a amg;
+    private LinearLayout.LayoutParams amh;
+    private boolean ami;
+    private int amj;
+    private boolean amk;
+    private boolean aml;
+    com.baidu.tbadk.imageManager.b amm;
     private Context mContext;
     private int mIconWidth;
 
@@ -30,30 +30,30 @@ public class UserIconBox extends LinearLayout {
     public interface b {
         ListView getListView();
 
-        com.baidu.adp.lib.e.b<TbImageView> wX();
+        com.baidu.adp.lib.e.b<TbImageView> xt();
     }
 
     public void setAutoChangedStyle(boolean z) {
-        this.alU = z;
+        this.ami = z;
     }
 
     public UserIconBox(Context context) {
         super(context);
-        this.alR = null;
-        this.alS = null;
-        this.alU = true;
-        this.alX = false;
-        this.alY = new am(this);
+        this.amf = null;
+        this.amg = null;
+        this.ami = true;
+        this.aml = false;
+        this.amm = new am(this);
         init(context);
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alR = null;
-        this.alS = null;
-        this.alU = true;
-        this.alX = false;
-        this.alY = new am(this);
+        this.amf = null;
+        this.amg = null;
+        this.ami = true;
+        this.aml = false;
+        this.amm = new am(this);
         init(context);
     }
 
@@ -63,7 +63,7 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.alR = bVar.wX();
+            this.amf = bVar.xt();
             if (bVar.getListView() != null) {
             }
         }
@@ -71,9 +71,9 @@ public class UserIconBox extends LinearLayout {
     }
 
     private LinearLayout.LayoutParams o(int i, int i2, int i3) {
-        this.alT = new LinearLayout.LayoutParams(i, i2);
-        this.alT.leftMargin = i3;
-        return this.alT;
+        this.amh = new LinearLayout.LayoutParams(i, i2);
+        this.amh.leftMargin = i3;
+        return this.amh;
     }
 
     public void a(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
@@ -88,17 +88,17 @@ public class UserIconBox extends LinearLayout {
             return;
         }
         this.mIconWidth = i2;
-        this.alV = i4;
-        this.alW = z;
+        this.amj = i4;
+        this.amk = z;
         this.mIconWidth = i2;
-        if (!dk(min)) {
+        if (!dn(min)) {
             setVisibility(8);
         } else if (min > 0) {
             setVisibility(0);
             for (int i5 = 0; i5 < min; i5++) {
                 View childAt = getChildAt(i5);
                 if ((childAt instanceof TbImageView) && (tbImageView = (TbImageView) childAt) != null) {
-                    if (this.alX) {
+                    if (this.aml) {
                         tbImageView.setForegroundColor(com.baidu.tbadk.core.util.aq.getColor(w.e.white_alpha30));
                     } else {
                         tbImageView.setForegroundColor(0);
@@ -114,7 +114,7 @@ public class UserIconBox extends LinearLayout {
                         tbImageView.setContentDescription(list.get(i5).getIconName());
                     }
                     tbImageView.setClickable(false);
-                    tbImageView.setAutoChangeStyle(this.alU);
+                    tbImageView.setAutoChangeStyle(this.ami);
                     tbImageView.a(list.get(i5).getIcon(), 21, i2, i3, false);
                 }
             }
@@ -123,7 +123,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    private boolean dk(int i) {
+    private boolean dn(int i) {
         if (i <= 0) {
             return false;
         }
@@ -134,7 +134,7 @@ public class UserIconBox extends LinearLayout {
         int i2 = i - childCount;
         if (i2 > 0) {
             for (int i3 = 0; i3 < i2; i3++) {
-                addView(aJ(this.mContext));
+                addView(aL(this.mContext));
             }
         } else {
             removeViews(i, Math.abs(i2));
@@ -156,10 +156,10 @@ public class UserIconBox extends LinearLayout {
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
             if (!z2) {
-                if (i6 == 0 && this.alW) {
+                if (i6 == 0 && this.amk) {
                     i5 += this.mIconWidth;
                 } else {
-                    i5 += this.mIconWidth + this.alV;
+                    i5 += this.mIconWidth + this.amj;
                 }
                 if (i5 > measuredWidth) {
                     z2 = true;
@@ -171,7 +171,8 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void dl(int i) {
+    /* renamed from: do  reason: not valid java name */
+    public void m12do(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -181,10 +182,10 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    private TbImageView aJ(Context context) {
+    private TbImageView aL(Context context) {
         TbImageView tbImageView = null;
-        if (this.alR != null) {
-            tbImageView = this.alR.fE();
+        if (this.amf != null) {
+            tbImageView = this.amf.fJ();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);
@@ -209,7 +210,7 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void wV() {
-        this.alX = true;
+    public void xr() {
+        this.aml = true;
     }
 }

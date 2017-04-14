@@ -4,24 +4,24 @@ import android.view.View;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ca implements com.baidu.tbadk.widget.layout.h {
-    private final /* synthetic */ LinkedList btD;
-    private final /* synthetic */ com.baidu.tbadk.core.data.bj btE;
-    final /* synthetic */ br buz;
+public class ca implements com.baidu.tbadk.widget.layout.g {
+    private final /* synthetic */ LinkedList btv;
+    private final /* synthetic */ com.baidu.tbadk.core.data.bi btw;
+    final /* synthetic */ br buq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(br brVar, LinkedList linkedList, com.baidu.tbadk.core.data.bj bjVar) {
-        this.buz = brVar;
-        this.btD = linkedList;
-        this.btE = bjVar;
+    public ca(br brVar, LinkedList linkedList, com.baidu.tbadk.core.data.bi biVar) {
+        this.buq = brVar;
+        this.btv = linkedList;
+        this.btw = biVar;
     }
 
-    @Override // com.baidu.tbadk.widget.layout.h
+    @Override // com.baidu.tbadk.widget.layout.g
     public void c(View view, int i, boolean z) {
         if (z) {
-            this.buz.Sr();
+            this.buq.SP();
         } else {
-            this.buz.a(this.btD, i, this.btE);
+            this.buq.a(this.btv, i, this.btw);
         }
     }
 }

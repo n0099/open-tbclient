@@ -4,29 +4,29 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
 class d extends HttpMessageListener {
-    final /* synthetic */ GuideActivity dsb;
+    final /* synthetic */ GuideActivity dqA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(GuideActivity guideActivity, int i) {
         super(i);
-        this.dsb = guideActivity;
+        this.dqA = guideActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001520) {
-            this.dsb.drS = false;
+            this.dqA.dqr = false;
         } else if (httpResponsedMessage.getError() == 0) {
             if (((ShowNewUserGuideResponseMessage) httpResponsedMessage).isJump == 1) {
-                this.dsb.drS = true;
+                this.dqA.dqr = true;
                 return;
             }
-            this.dsb.drS = false;
-            com.baidu.tbadk.core.sharedPref.b.uo().putBoolean("jump_to_new_user_guide", false);
+            this.dqA.dqr = false;
+            com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("jump_to_new_user_guide", false);
         } else {
-            this.dsb.drS = false;
+            this.dqA.dqr = false;
         }
     }
 }

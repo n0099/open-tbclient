@@ -18,22 +18,22 @@ public class RecommendFrsNetModel extends NetAutoModel<h, c, BaseFragmentActivit
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage<c, ?>> Fg() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage<c, ?>> FE() {
         return RecommendFrsHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage<c, ?>> Fi() {
+    protected Class<? extends MvcSocketResponsedMessage<c, ?>> FG() {
         return RecommendFrsSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fa() {
+    protected int Fy() {
         return CmdConfigHttp.CMD_RECOMMEND_FRS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Fc() {
+    protected String FA() {
         return TbConfig.RECOMMEND_FRS;
     }
 
@@ -43,7 +43,7 @@ public class RecommendFrsNetModel extends NetAutoModel<h, c, BaseFragmentActivit
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Fb() {
+    protected int Fz() {
         return 309092;
     }
 }

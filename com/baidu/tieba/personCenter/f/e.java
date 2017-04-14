@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e {
-    private ImageView eDn;
+    private ImageView eBk;
 
     public e(Context context, ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(context).inflate(w.j.item_person_center_extra_red_tip_view, (ViewGroup) null);
-        this.eDn = (ImageView) inflate.findViewById(w.h.person_center_red_tip_extra_img);
+        this.eBk = (ImageView) inflate.findViewById(w.h.person_center_red_tip_extra_img);
         viewGroup.addView(inflate);
     }
 
-    public void oW(int i) {
-        this.eDn.setVisibility(i);
+    public void oU(int i) {
+        this.eBk.setVisibility(i);
     }
 
     public void onChangeSkinType(int i) {
-        aq.c(this.eDn, w.g.icon_news_down_bar_one, i);
+        aq.c(this.eBk, w.g.icon_news_down_bar_one, i);
     }
 }

@@ -1,14 +1,19 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import tbclient.FrsPage.FrsPageResIdl;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class aq extends BdAsyncTask<Void, Void, Void> {
+class aq extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aq(int i) {
+        super(i);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tbadk.util.y.a(com.baidu.tieba.tbadkCore.l.WIRE, FrsPageResIdl.class);
-        return null;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            com.baidu.tieba.frs.smartsort.e.adl().adn();
+        }
     }
 }

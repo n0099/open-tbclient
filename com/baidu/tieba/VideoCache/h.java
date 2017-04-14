@@ -14,15 +14,15 @@ import java.util.Collections;
 /* loaded from: classes.dex */
 public class h implements Runnable {
     private static final String TAG = h.class.getSimpleName();
-    private String aTZ;
+    private String mVideoUrl;
 
     public synchronized void setVideoUrl(String str) {
-        this.aTZ = str;
+        this.mVideoUrl = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Ld();
+        LD();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00ca, code lost:
@@ -55,9 +55,9 @@ public class h implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void Ld() {
+    private synchronized void LD() {
         File file;
-        long gK;
+        long gO;
         File[] fileArr;
         long j;
         long fileSize;
@@ -65,15 +65,15 @@ public class h implements Runnable {
         int i = 0;
         synchronized (this) {
             k.log(TAG, "merge ...");
-            String gQ = o.gQ(this.aTZ);
-            if (gQ != null && !gQ.isEmpty() && ((file = new File(String.valueOf(j.aUH) + gQ + "/completed")) == null || !file.exists())) {
-                File file2 = new File(String.valueOf(j.aUH) + gQ + "/completed.temp");
+            String gU = o.gU(this.mVideoUrl);
+            if (gU != null && !gU.isEmpty() && ((file = new File(String.valueOf(j.aUU) + gU + "/completed")) == null || !file.exists())) {
+                File file2 = new File(String.valueOf(j.aUU) + gU + "/completed.temp");
                 if (file2 != null && file2.exists()) {
                     file2.delete();
                 }
-                File file3 = new File(String.valueOf(j.aUH) + gQ + "/segments");
+                File file3 = new File(String.valueOf(j.aUU) + gU + "/segments");
                 if (file3 != null && file3.exists()) {
-                    gK = gK(gQ);
+                    gO = gO(gU);
                     File[] listFiles = file3.listFiles();
                     if (listFiles != null && listFiles.length != 0) {
                         ArrayList arrayList = new ArrayList();
@@ -120,7 +120,7 @@ public class h implements Runnable {
                 return;
             }
             i++;
-        } else if (o.getFileSize(fileArr[i]) + j != gK) {
+        } else if (o.getFileSize(fileArr[i]) + j != gO) {
             return;
         } else {
             i++;
@@ -166,7 +166,7 @@ public class h implements Runnable {
                                             fileChannel2 = fileChannel3;
                                             fileChannel = channel;
                                             j2 = write;
-                                            TiebaStatic.log(new as("c12027").Z("errormsg", "合并文件出现异常").Z("error", e.getMessage()).Z("url", this.aTZ));
+                                            TiebaStatic.log(new as("c12027").aa("errormsg", "合并文件出现异常").aa("error", e.getMessage()).aa("url", this.mVideoUrl));
                                             e.printStackTrace();
                                             if (fileChannel != null) {
                                                 try {
@@ -255,11 +255,11 @@ public class h implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long gK(String str) {
+    private long gO(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream = null;
-        File file = new File(String.valueOf(j.aUH) + str + "/content_length");
+        File file = new File(String.valueOf(j.aUU) + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

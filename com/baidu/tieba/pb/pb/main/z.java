@@ -8,37 +8,37 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class z implements NewWriteModel.d {
-    final /* synthetic */ PbActivity elO;
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
     public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.q qVar, WriteData writeData, AntiData antiData) {
-        fa faVar;
-        fa faVar2;
+        ey eyVar;
+        ey eyVar2;
         com.baidu.tbadk.editortools.pb.c cVar;
-        fa faVar3;
-        fa faVar4;
+        ey eyVar3;
+        ey eyVar4;
         PbModel pbModel;
         PbModel pbModel2;
         PbModel pbModel3;
-        fa faVar5;
+        ey eyVar5;
         PbModel pbModel4;
         String userId;
         PbModel pbModel5;
-        fa faVar6;
+        ey eyVar6;
         PbModel pbModel6;
         PbModel pbModel7;
         PbModel pbModel8;
-        fa faVar7;
-        fa faVar8;
+        ey eyVar7;
+        ey eyVar8;
         com.baidu.tbadk.editortools.pb.c cVar2;
-        this.elO.YT();
-        faVar = this.elO.ekM;
-        faVar.iL(z);
+        this.ejU.Zp();
+        eyVar = this.ejU.eiS;
+        eyVar.iK(z);
         String str = "";
         int i = -1;
         if (postWriteCallBackData != null) {
@@ -46,58 +46,58 @@ class z implements NewWriteModel.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            faVar2 = this.elO.ekM;
-            faVar2.awO();
-            cVar = this.elO.ekY;
+            eyVar2 = this.ejU.eiS;
+            eyVar2.awH();
+            cVar = this.ejU.eje;
             if (cVar != null) {
-                faVar8 = this.elO.ekM;
-                cVar2 = this.elO.ekY;
-                faVar8.gB(cVar2.Dw());
+                eyVar8 = this.ejU.eiS;
+                cVar2 = this.ejU.eje;
+                eyVar8.gB(cVar2.DU());
             }
-            faVar3 = this.elO.ekM;
-            faVar3.aMH();
-            faVar4 = this.elO.ekM;
-            faVar4.gC(true);
-            pbModel = this.elO.ejZ;
-            pbModel.aLH();
-            this.elO.a(antiData, postWriteCallBackData);
+            eyVar3 = this.ejU.eiS;
+            eyVar3.aMQ();
+            eyVar4 = this.ejU.eiS;
+            eyVar4.gC(true);
+            pbModel = this.ejU.eif;
+            pbModel.aLQ();
+            this.ejU.a(antiData, postWriteCallBackData);
             if (writeData != null) {
                 String floor = writeData.getFloor();
                 if (writeData == null || writeData.getType() != 2) {
-                    pbModel2 = this.elO.ejZ;
+                    pbModel2 = this.ejU.eif;
                     if (pbModel2.getHostMode()) {
-                        pbModel4 = this.elO.ejZ;
+                        pbModel4 = this.ejU.eif;
                         com.baidu.tieba.pb.data.f pbData = pbModel4.getPbData();
-                        if (pbData != null && pbData.aJq() != null && pbData.aJq().getAuthor() != null && (userId = pbData.aJq().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            pbModel5 = this.elO.ejZ;
-                            if (pbModel5.aLA()) {
-                                faVar6 = this.elO.ekM;
-                                faVar6.aNc();
+                        if (pbData != null && pbData.aJx() != null && pbData.aJx().getAuthor() != null && (userId = pbData.aJx().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            pbModel5 = this.ejU.eif;
+                            if (pbModel5.aLJ()) {
+                                eyVar6 = this.ejU.eiS;
+                                eyVar6.aNl();
                             }
                         }
                     } else {
-                        pbModel3 = this.elO.ejZ;
-                        if (pbModel3.aLA()) {
-                            faVar5 = this.elO.ekM;
-                            faVar5.aNc();
+                        pbModel3 = this.ejU.eif;
+                        if (pbModel3.aLJ()) {
+                            eyVar5 = this.ejU.eiS;
+                            eyVar5.aNl();
                         }
                     }
                 } else if (floor != null) {
-                    pbModel8 = this.elO.ejZ;
+                    pbModel8 = this.ejU.eif;
                     com.baidu.tieba.pb.data.f pbData2 = pbModel8.getPbData();
-                    faVar7 = this.elO.ekM;
-                    faVar7.k(pbData2);
+                    eyVar7 = this.ejU.eiS;
+                    eyVar7.k(pbData2);
                 }
-                pbModel6 = this.elO.ejZ;
-                if (pbModel6.aLx()) {
+                pbModel6 = this.ejU.eif;
+                if (pbModel6.aLG()) {
                     com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c10369");
-                    pbModel7 = this.elO.ejZ;
-                    TiebaStatic.log(asVar.Z("tid", pbModel7.getThreadID()));
+                    pbModel7 = this.ejU.eif;
+                    TiebaStatic.log(asVar.aa("tid", pbModel7.getThreadID()));
                 }
             }
         } else if (qVar != null || i == 227001) {
         } else {
-            this.elO.a(i, antiData, str);
+            this.ejU.a(i, antiData, str);
         }
     }
 }

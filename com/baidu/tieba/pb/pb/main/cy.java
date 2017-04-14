@@ -1,48 +1,38 @@
 package com.baidu.tieba.pb.pb.main;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.pb.pb.main.cx;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-public class cy extends HttpMessageListener {
-    final /* synthetic */ cx emK;
+public class cy {
+    private BaseActivity bcy;
+    private PbModel eif;
+    private a ejO = null;
+    protected final HttpMessageListener ekU = new cz(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cy(cx cxVar, int i) {
-        super(i);
-        this.emK = cxVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void h(int i, String str, String str2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        cx.a aVar;
-        cx.a aVar2;
-        cx.a aVar3;
-        cx.a aVar4;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803) {
-            aVar = this.emK.emI;
-            if (aVar != null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                String errorString = httpResponsedMessage.getErrorString();
-                if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    aVar4 = this.emK.emI;
-                    aVar4.onError(error, errorString);
-                    return;
-                }
-                HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
-                if (statusCode != 200 || error != 0) {
-                    aVar2 = this.emK.emI;
-                    aVar2.onError(error, errorString);
-                    return;
-                }
-                hideChudianPostResponseMessage.getResultFlag();
-                aVar3 = this.emK.emI;
-                aVar3.j(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
-            }
+    public cy(PbModel pbModel, BaseActivity baseActivity) {
+        this.eif = pbModel;
+        this.bcy = baseActivity;
+        this.bcy.registerListener(this.ekU);
+    }
+
+    public void a(a aVar) {
+        this.ejO = aVar;
+    }
+
+    public void og(int i) {
+        if (this.eif != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+            httpMessage.addParam("thread_id", this.eif.getThreadID());
+            httpMessage.addParam("status", String.valueOf(i));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

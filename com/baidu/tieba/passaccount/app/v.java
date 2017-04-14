@@ -1,19 +1,21 @@
 package com.baidu.tieba.passaccount.app;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.coreExtra.view.j;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements DialogInterface.OnCancelListener {
-    final /* synthetic */ u eeN;
+public class v implements j.a {
+    final /* synthetic */ SapiFastRegActivity eda;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar) {
-        this.eeN = uVar;
+    public v(SapiFastRegActivity sapiFastRegActivity) {
+        this.eda = sapiFastRegActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        QALoginActivity qALoginActivity;
-        qALoginActivity = this.eeN.eeM;
-        qALoginActivity.destroyWaitingDialog();
+    @Override // com.baidu.tbadk.coreExtra.view.j.a
+    public void j(AccountData accountData) {
+        this.eda.ecY = RegisterActivityConfig.REGIST_USER;
+        this.eda.r(accountData);
     }
 }

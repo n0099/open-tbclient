@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.view.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements ab.c {
-    final /* synthetic */ a cyA;
+    final /* synthetic */ a cxa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(a aVar) {
-        this.cyA = aVar;
+        this.cxa = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.c
-    public void aM(boolean z) {
+    public void aO(boolean z) {
         n nVar;
         n nVar2;
         n nVar3;
         n nVar4;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_TO_REFRESH, Boolean.valueOf(z)));
-        nVar = this.cyA.cys;
+        nVar = this.cxa.cwS;
         if (nVar != null) {
-            nVar2 = this.cyA.cys;
-            if (nVar2.KC() != null) {
-                nVar4 = this.cyA.cys;
-                nVar4.KC().alL();
+            nVar2 = this.cxa.cwS;
+            if (nVar2.Lc() != null) {
+                nVar4 = this.cxa.cwS;
+                nVar4.Lc().alF();
             }
-            nVar3 = this.cyA.cys;
+            nVar3 = this.cxa.cwS;
             nVar3.eX(false);
         }
     }

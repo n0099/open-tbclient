@@ -25,106 +25,106 @@ import java.util.Map;
 import java.util.Stack;
 /* loaded from: classes.dex */
 public class c {
-    public static boolean Si = false;
-    private static String Sj = null;
-    private static int Sk = 0;
-    private Resources Sg;
-    private Resources Sh;
+    public static boolean SA = false;
+    private static String SB = null;
+    private static int SC = 0;
+    private Resources Sy;
+    private Resources Sz;
     private boolean isNightMode = false;
-    Map<String, b> Sf = new HashMap();
+    Map<String, b> Sx = new HashMap();
 
     public void a(String str, Context context, AttributeSet attributeSet) {
-        int[] bV;
+        int[] cc;
         int g;
         boolean z = false;
         try {
-            this.Sg = context.getResources();
-            this.Sh = this.Sg;
+            this.Sy = context.getResources();
+            this.Sz = this.Sy;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
-            bVar.bU(str);
+            bVar.cb(str);
             for (int i = 0; i < attributeCount; i++) {
                 String attributeName = attributeSet.getAttributeName(i);
                 String attributeValue = attributeSet.getAttributeValue(i);
                 if (attributeName.equals("id")) {
                     bVar.setId(attributeValue);
                 } else if (attributeName.equals("tb_background")) {
-                    int[] bV2 = bV(attributeValue);
-                    if (bV2 != null) {
-                        bVar.bg(bV2[0]);
-                        bVar.bh(bV2[1]);
+                    int[] cc2 = cc(attributeValue);
+                    if (cc2 != null) {
+                        bVar.bj(cc2[0]);
+                        bVar.bk(cc2[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_src")) {
-                    int[] bV3 = bV(attributeValue);
-                    if (bV3 != null) {
-                        bVar.bm(bV3[0]);
-                        bVar.bn(bV3[1]);
+                    int[] cc3 = cc(attributeValue);
+                    if (cc3 != null) {
+                        bVar.bp(cc3[0]);
+                        bVar.bq(cc3[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_textColor")) {
-                    int[] bV4 = bV(attributeValue);
-                    if (bV4 != null) {
-                        bVar.bk(bV4[0]);
-                        bVar.bl(bV4[1]);
+                    int[] cc4 = cc(attributeValue);
+                    if (cc4 != null) {
+                        bVar.bn(cc4[0]);
+                        bVar.bo(cc4[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_style")) {
-                    int[] bV5 = bV(attributeValue);
-                    if (bV5 != null) {
-                        bVar.bp(bV5[0]);
-                        bVar.bo(bV5[1]);
+                    int[] cc5 = cc(attributeValue);
+                    if (cc5 != null) {
+                        bVar.bs(cc5[0]);
+                        bVar.br(cc5[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_divider")) {
-                    int[] bV6 = bV(attributeValue);
-                    if (bV6 != null) {
-                        bVar.bc(bV6[0]);
-                        bVar.bd(bV6[1]);
+                    int[] cc6 = cc(attributeValue);
+                    if (cc6 != null) {
+                        bVar.bf(cc6[0]);
+                        bVar.bg(cc6[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableTop")) {
-                    int[] bV7 = bV(attributeValue);
-                    if (bV7 != null) {
-                        bVar.ba(bV7[0]);
-                        bVar.bb(bV7[1]);
+                    int[] cc7 = cc(attributeValue);
+                    if (cc7 != null) {
+                        bVar.bd(cc7[0]);
+                        bVar.be(cc7[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableLeft")) {
-                    int[] bV8 = bV(attributeValue);
-                    if (bV8 != null) {
-                        bVar.aY(bV8[0]);
-                        bVar.aZ(bV8[1]);
+                    int[] cc8 = cc(attributeValue);
+                    if (cc8 != null) {
+                        bVar.bb(cc8[0]);
+                        bVar.bc(cc8[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableRight")) {
-                    int[] bV9 = bV(attributeValue);
-                    if (bV9 != null) {
-                        bVar.be(bV9[0]);
-                        bVar.bf(bV9[1]);
+                    int[] cc9 = cc(attributeValue);
+                    if (cc9 != null) {
+                        bVar.bh(cc9[0]);
+                        bVar.bi(cc9[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_progressDrawable")) {
-                    int[] bV10 = bV(attributeValue);
-                    if (bV10 != null) {
-                        bVar.bq(bV10[0]);
-                        bVar.br(bV10[1]);
+                    int[] cc10 = cc(attributeValue);
+                    if (cc10 != null) {
+                        bVar.bt(cc10[0]);
+                        bVar.bu(cc10[1]);
                         z = true;
                     }
-                } else if (attributeName.equals("tb_textColorHint") && (bV = bV(attributeValue)) != null) {
-                    bVar.bi(bV[0]);
-                    bVar.bj(bV[1]);
+                } else if (attributeName.equals("tb_textColorHint") && (cc = cc(attributeValue)) != null) {
+                    bVar.bl(cc[0]);
+                    bVar.bm(cc[1]);
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (g = com.baidu.adp.lib.g.b.g(attributeValue.substring(1), 0)) != 0) {
-                    bVar.bT(String.valueOf(attributeName) + "=" + this.Sg.getResourceName(g));
+                    bVar.ca(String.valueOf(attributeName) + "=" + this.Sy.getResourceName(g));
                 }
             }
             if (z) {
-                if (!TextUtils.isEmpty(bVar.getId()) && this.Sf != null && !this.Sf.containsKey(bVar.getId())) {
-                    this.Sf.put(bVar.getId(), bVar);
+                if (!TextUtils.isEmpty(bVar.getId()) && this.Sx != null && !this.Sx.containsKey(bVar.getId())) {
+                    this.Sx.put(bVar.getId(), bVar);
                 } else if (!TextUtils.isEmpty(bVar.getId())) {
-                    this.Sf.containsKey(bVar.getId());
+                    this.Sx.containsKey(bVar.getId());
                 }
             }
         } catch (Resources.NotFoundException e) {
@@ -133,10 +133,10 @@ public class c {
         }
     }
 
-    private final int[] bV(String str) {
+    private final int[] cc(String str) {
         int parseInt;
         if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
-            return new int[]{parseInt, a(this.Sg, this.Sh, parseInt)};
+            return new int[]{parseInt, a(this.Sy, this.Sz, parseInt)};
         }
         return null;
     }
@@ -144,18 +144,18 @@ public class c {
     public static int a(Resources resources, Resources resources2, int i) {
         String str;
         int i2;
-        if (Si) {
+        if (SA) {
             String resourceName = resources.getResourceName(i);
             if (TextUtils.isEmpty(resourceName)) {
                 str = resourceName;
                 i2 = i;
             } else {
-                if (Sk == 0) {
-                    Sj = BdBaseApplication.getInst().getPackageName();
-                    Sk = Sj.length();
+                if (SC == 0) {
+                    SB = BdBaseApplication.getInst().getPackageName();
+                    SC = SB.length();
                 }
-                if (resourceName.length() > Sk && resourceName.charAt(Sk) != ':' && resourceName.startsWith(Sj)) {
-                    resourceName = String.valueOf(Sj) + resourceName.substring(resourceName.indexOf(":"));
+                if (resourceName.length() > SC && resourceName.charAt(SC) != ':' && resourceName.startsWith(SB)) {
+                    resourceName = String.valueOf(SB) + resourceName.substring(resourceName.indexOf(":"));
                 }
                 String str2 = resourceName;
                 i2 = resources2.getIdentifier(String.valueOf(resourceName) + "_1", null, null);
@@ -193,13 +193,13 @@ public class c {
 
     private void a(ViewGroup viewGroup) {
         String str = "@" + viewGroup.getId();
-        if (this.Sf != null && this.Sf.containsKey(str)) {
-            b bVar = this.Sf.get(str);
+        if (this.Sx != null && this.Sx.containsKey(str)) {
+            b bVar = this.Sx.get(str);
             if (viewGroup instanceof AdapterView) {
-                if ((viewGroup instanceof ListView) && bVar.oz() != 0) {
+                if ((viewGroup instanceof ListView) && bVar.oW() != 0) {
                     ListView listView = (ListView) viewGroup;
                     int dividerHeight = listView.getDividerHeight();
-                    listView.setDivider(b(this.isNightMode, bVar.oy(), bVar.oz()));
+                    listView.setDivider(b(this.isNightMode, bVar.oV(), bVar.oW()));
                     listView.setDividerHeight(dividerHeight);
                 }
                 Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -207,16 +207,16 @@ public class c {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
             }
-            if (bVar.oD() != 0) {
+            if (bVar.pa() != 0) {
                 int paddingLeft = viewGroup.getPaddingLeft();
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.Sg.getResourceTypeName(bVar.oC());
+                String resourceTypeName = this.Sy.getResourceTypeName(bVar.oZ());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    viewGroup.setBackgroundColor(c(this.isNightMode, bVar.oC(), bVar.oD()));
+                    viewGroup.setBackgroundColor(c(this.isNightMode, bVar.oZ(), bVar.pa()));
                 } else {
-                    viewGroup.setBackgroundDrawable(b(this.isNightMode, bVar.oC(), bVar.oD()));
+                    viewGroup.setBackgroundDrawable(b(this.isNightMode, bVar.oZ(), bVar.pa()));
                 }
                 viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -228,48 +228,48 @@ public class c {
         Drawable b2;
         Drawable b3;
         String str = "@" + view.getId();
-        if (this.Sf != null && this.Sf.containsKey(str)) {
-            b bVar = this.Sf.get(str);
+        if (this.Sx != null && this.Sx.containsKey(str)) {
+            b bVar = this.Sx.get(str);
             if (view instanceof TextView) {
-                if (bVar.oH() != 0) {
-                    ((TextView) view).setTextColor(d(this.isNightMode, bVar.oG(), bVar.oH()));
+                if (bVar.pe() != 0) {
+                    ((TextView) view).setTextColor(d(this.isNightMode, bVar.pd(), bVar.pe()));
                 }
-                if (bVar.oF() != 0) {
-                    ((TextView) view).setHintTextColor(d(this.isNightMode, bVar.oE(), bVar.oF()));
+                if (bVar.pc() != 0) {
+                    ((TextView) view).setHintTextColor(d(this.isNightMode, bVar.pb(), bVar.pc()));
                 }
-                if (bVar.oK() != 0) {
-                    ((TextView) view).setTextAppearance(view.getContext(), this.isNightMode ? bVar.oK() : bVar.oL());
+                if (bVar.ph() != 0) {
+                    ((TextView) view).setTextAppearance(view.getContext(), this.isNightMode ? bVar.ph() : bVar.pi());
                 }
-                if (bVar.ox() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, b(this.isNightMode, bVar.ow(), bVar.ox()), (Drawable) null, (Drawable) null);
+                if (bVar.oU() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, b(this.isNightMode, bVar.oT(), bVar.oU()), (Drawable) null, (Drawable) null);
                 }
-                if (bVar.ov() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(b(this.isNightMode, bVar.ou(), bVar.ov()), (Drawable) null, (Drawable) null, (Drawable) null);
+                if (bVar.oS() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(b(this.isNightMode, bVar.oR(), bVar.oS()), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
-                if (bVar.oB() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, b(this.isNightMode, bVar.oA(), bVar.oB()), (Drawable) null);
+                if (bVar.oY() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, b(this.isNightMode, bVar.oX(), bVar.oY()), (Drawable) null);
                 }
             } else if (view instanceof ImageButton) {
-                if (bVar.oI() != 0 && (b3 = b(this.isNightMode, bVar.oJ(), bVar.oI())) != null) {
+                if (bVar.pf() != 0 && (b3 = b(this.isNightMode, bVar.pg(), bVar.pf())) != null) {
                     ((ImageView) view).setImageDrawable(b3);
                 }
             } else if (view instanceof ImageView) {
-                if (bVar.oI() != 0 && (b2 = b(this.isNightMode, bVar.oJ(), bVar.oI())) != null) {
+                if (bVar.pf() != 0 && (b2 = b(this.isNightMode, bVar.pg(), bVar.pf())) != null) {
                     ((ImageView) view).setImageDrawable(b2);
                 }
-            } else if ((view instanceof ProgressBar) && bVar.oN() != 0 && (b = b(this.isNightMode, bVar.oM(), bVar.oN())) != null) {
+            } else if ((view instanceof ProgressBar) && bVar.pk() != 0 && (b = b(this.isNightMode, bVar.pj(), bVar.pk())) != null) {
                 ((ProgressBar) view).setProgressDrawable(b);
             }
-            if (bVar.oD() != 0) {
+            if (bVar.pa() != 0) {
                 int paddingLeft = view.getPaddingLeft();
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.Sg.getResourceTypeName(bVar.oC());
+                String resourceTypeName = this.Sy.getResourceTypeName(bVar.oZ());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(c(this.isNightMode, bVar.oC(), bVar.oD()));
+                    view.setBackgroundColor(c(this.isNightMode, bVar.oZ(), bVar.pa()));
                 } else {
-                    view.setBackgroundDrawable(b(this.isNightMode, bVar.oC(), bVar.oD()));
+                    view.setBackgroundDrawable(b(this.isNightMode, bVar.oZ(), bVar.pa()));
                 }
                 view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -282,27 +282,27 @@ public class c {
         }
         if (!z) {
             try {
-                return this.Sg.getDrawable(i);
+                return this.Sy.getDrawable(i);
             } catch (Throwable th) {
                 return null;
             }
         }
         if (i == i2) {
-            this.Sh = this.Sg;
-            i2 = a(this.Sg, this.Sh, i);
+            this.Sz = this.Sy;
+            i2 = a(this.Sy, this.Sz, i);
         }
-        if (this.Sh == null) {
+        if (this.Sz == null) {
             try {
-                return this.Sg.getDrawable(i);
+                return this.Sy.getDrawable(i);
             } catch (Throwable th2) {
                 return null;
             }
         }
         try {
-            return this.Sh.getDrawable(i2);
+            return this.Sz.getDrawable(i2);
         } catch (Resources.NotFoundException e) {
             try {
-                return this.Sg.getDrawable(i);
+                return this.Sy.getDrawable(i);
             } catch (Throwable th3) {
                 return null;
             }
@@ -316,55 +316,55 @@ public class c {
             return aq.getColor(i);
         }
         if (!z) {
-            return this.Sg.getColor(i);
+            return this.Sy.getColor(i);
         }
         if (i == i2) {
-            this.Sh = this.Sg;
-            i2 = a(this.Sg, this.Sh, i);
+            this.Sz = this.Sy;
+            i2 = a(this.Sy, this.Sz, i);
         }
-        if (this.Sh == null) {
-            return this.Sg.getColor(i);
+        if (this.Sz == null) {
+            return this.Sy.getColor(i);
         }
         try {
-            return this.Sh.getColor(i2);
+            return this.Sz.getColor(i2);
         } catch (Resources.NotFoundException e) {
-            return this.Sg.getColor(i);
+            return this.Sy.getColor(i);
         }
     }
 
     private ColorStateList d(boolean z, int i, int i2) {
         if (TbadkCoreApplication.m9getInst().getSkinType() == 2) {
-            return aq.cK(i);
+            return aq.cN(i);
         }
         if (!z) {
-            return this.Sg.getColorStateList(i);
+            return this.Sy.getColorStateList(i);
         }
         if (i == i2) {
-            this.Sh = this.Sg;
-            i2 = a(this.Sg, this.Sh, i);
+            this.Sz = this.Sy;
+            i2 = a(this.Sy, this.Sz, i);
         }
-        if (this.Sh == null) {
-            return this.Sg.getColorStateList(i);
+        if (this.Sz == null) {
+            return this.Sy.getColorStateList(i);
         }
         try {
-            return this.Sh.getColorStateList(i2);
+            return this.Sz.getColorStateList(i2);
         } catch (Resources.NotFoundException e) {
-            return this.Sg.getColorStateList(i);
+            return this.Sy.getColorStateList(i);
         }
     }
 
-    public void ah(boolean z) {
+    public void aj(boolean z) {
         this.isNightMode = z;
     }
 
     public void b(Resources resources) {
-        this.Sh = resources;
+        this.Sz = resources;
     }
 
     public void destroy() {
-        if (this.Sf != null) {
-            this.Sf.clear();
-            this.Sf = null;
+        if (this.Sx != null) {
+            this.Sx.clear();
+            this.Sx = null;
         }
     }
 }

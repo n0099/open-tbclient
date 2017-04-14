@@ -5,7 +5,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class c extends ImageView {
-    public void wm() {
+    public void wI() {
         if (getBackground() != null) {
             Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
             setBackgroundDrawable(null);

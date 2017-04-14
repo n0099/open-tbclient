@@ -105,7 +105,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String acI = null;
+        String acX = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -136,15 +136,15 @@ public class TiebaPrepareImageService extends BdBaseService {
                         }
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
                         if (resizeBitmap == null || l.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 80) == null) {
-                            this.acI = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
+                            this.acX = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
                             z = false;
                         }
                     } else {
-                        this.acI = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
+                        this.acX = TiebaPrepareImageService.this.getString(w.l.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.acI = TiebaPrepareImageService.this.getString(w.l.pic_parser_error);
+                    this.acX = TiebaPrepareImageService.this.getString(w.l.pic_parser_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
@@ -167,13 +167,12 @@ public class TiebaPrepareImageService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
         public void onPostExecute(Boolean bool) {
-            super.onPostExecute(bool);
+            super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.acI != null) {
-                intent.putExtra("error", this.acI);
+            if (this.acX != null) {
+                intent.putExtra("error", this.acX);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

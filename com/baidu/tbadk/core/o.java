@@ -1,12 +1,18 @@
 package com.baidu.tbadk.core;
 
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.base.a.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class o implements a.InterfaceC0002a {
-    @Override // com.baidu.adp.base.a.a.InterfaceC0002a
-    public void b(SQLiteDatabase sQLiteDatabase) {
-        TbadkCoreApplication.resetTDatabaseCreateTime();
+public class o {
+    private static final CustomMessageListener SO = new p(0);
+
+    public static void init() {
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_SYNC, SO);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_SYNC, SO);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_ACTIVE, SO);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_STOP_ACTIVE, SO);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_START_CLEARTEMP, SO);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_PASSV6_SWITCH_INITED, SO);
     }
 }

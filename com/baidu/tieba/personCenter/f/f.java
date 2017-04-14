@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class f {
-    private TextView eDo;
+    private TextView eBl;
 
     public f(Context context, ViewGroup viewGroup) {
-        this.eDo = (TextView) LayoutInflater.from(context).inflate(w.j.item_person_center_extra_txt_view, viewGroup, true).findViewById(w.h.person_center_item_extra_txt);
+        this.eBl = (TextView) LayoutInflater.from(context).inflate(w.j.item_person_center_extra_txt_view, viewGroup, true).findViewById(w.h.person_center_item_extra_txt);
     }
 
-    public void nW(String str) {
-        this.eDo.setVisibility(StringUtils.isNull(str) ? 8 : 0);
-        this.eDo.setText(str);
+    public void oa(String str) {
+        this.eBl.setVisibility(StringUtils.isNull(str) ? 8 : 0);
+        this.eBl.setText(str);
     }
 
     public void onChangeSkinType(int i) {
-        aq.b(this.eDo, w.e.cp_cont_d, 1, i);
+        aq.b(this.eBl, w.e.cp_cont_d, 1, i);
     }
 }

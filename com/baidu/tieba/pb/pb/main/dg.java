@@ -1,30 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.w;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dg extends y.a {
-    public HeadImageView bXk;
-    public TextView bsn;
-    public TextView cQy;
-    public TextView cli;
-    public TbImageView emT;
-    public TextView emU;
-    public int mSkinType;
+public class dg extends CustomMessageListener {
+    final /* synthetic */ df elf;
 
-    public dg(View view) {
-        super(view);
-        this.mSkinType = 3;
-        this.bXk = (HeadImageView) view.findViewById(w.h.photo);
-        this.bXk.setRadius(com.baidu.adp.lib.util.k.g(view.getContext(), w.f.ds30));
-        this.bsn = (TextView) view.findViewById(w.h.user_name);
-        this.cQy = (TextView) view.findViewById(w.h.time);
-        this.cli = (TextView) view.findViewById(w.h.text);
-        this.emT = (TbImageView) view.findViewById(w.h.god_pic);
-        this.emU = (TextView) view.findViewById(w.h.god_btn);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dg(df dfVar, int i) {
+        super(i);
+        this.elf = dfVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.elf.h(customResponsedMessage);
     }
 }

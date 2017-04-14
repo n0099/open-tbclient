@@ -1,68 +1,57 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bc {
-    private al Xs;
-    private List<e> Xt;
-    private String Xu;
-    private List<f> Xv;
-    private String Xw;
-    private List<ak> Xx;
+public class bc extends bi {
+    public static final BdUniqueId XO = BdUniqueId.gen();
+    private PhotoLiveCardData XP;
 
-    public al rg() {
-        return this.Xs;
-    }
-
-    public List<e> rh() {
-        return this.Xt;
-    }
-
-    public String ri() {
-        return this.Xu;
-    }
-
-    public List<f> rj() {
-        return this.Xv;
-    }
-
-    public String rk() {
-        return this.Xw;
-    }
-
-    public List<ak> rl() {
-        return this.Xx;
-    }
-
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.Xs = new al();
-            this.Xs.a(seniorLottery.theme);
-            this.Xt = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                e eVar = new e();
-                eVar.a(seniorLottery.award_info.get(i));
-                this.Xt.add(eVar);
+    public PhotoLiveCardData b(bi biVar, int i) {
+        if (this.XP == null) {
+            if (biVar == null) {
+                return null;
             }
-            this.Xu = seniorLottery.myaward;
-            this.Xv = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                f fVar = new f();
-                fVar.a(seniorLottery.luck_users.get(i2));
-                this.Xv.add(fVar);
+            this.XP = new PhotoLiveCardData();
+            MetaData author = biVar.getAuthor();
+            if (author != null) {
+                this.XP.setAuthorName(author.getUserName());
+                this.XP.setAuthorPortrait(author.getPortrait());
+                this.XP.setFansNum(author.getFansNum());
+                this.XP.setNickName(author.getFansNickName());
+                this.XP.setAuthorId(author.getUserId());
+                this.XP.setGodInfo(author.getGodInfo());
             }
-            this.Xw = seniorLottery.act_desc;
-            this.Xx = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                ak akVar = new ak();
-                akVar.a(seniorLottery.act_regular.get(i3));
-                this.Xx.add(akVar);
+            PraiseData se = biVar.se();
+            if (se != null) {
+                this.XP.setPraiseNum((int) se.getNum());
             }
+            this.XP.setDiscussNum(biVar.sh());
+            this.XP.setPostNum(biVar.getPost_num());
+            this.XP.setTitle(biVar.getTitle());
+            this.XP.setLastModifiedTime(biVar.sj());
+            this.XP.setPhotoLiveCover(biVar.getPhotoLiveCover());
+            this.XP.setContent(biVar.sw());
+            this.XP.setThreadId(com.baidu.adp.lib.g.b.c(biVar.getTid(), 0L));
+            this.XP.setHeadlive(biVar.isHeadLive());
+            this.XP.setExpressionDatas(biVar.sH());
+            if (this.XP.getShowStyle() < 0) {
+                this.XP.setShowStyle(PhotoLiveCardData.getRandom(3, i));
+            }
+            this.XP.setShowExpressionViewIndexList(this.XP.getExpressionDatas());
         }
+        cp(biVar.getTid());
+        setId(biVar.getId());
+        setThreadType(biVar.getThreadType());
+        cv(biVar.st());
+        return this.XP;
+    }
+
+    public PhotoLiveCardData rK() {
+        return this.XP;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
+    public BdUniqueId getType() {
+        return XO;
     }
 }

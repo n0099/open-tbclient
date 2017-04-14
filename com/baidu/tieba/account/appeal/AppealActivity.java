@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity<AppealActivity> {
-    private TextView aVG;
-    private TextView aVH;
-    private TextView aVI;
-    private TextView aVJ;
-    private String aVK;
-    private String aVL;
+    private TextView aVT;
+    private TextView aVU;
+    private TextView aVV;
+    private TextView aVW;
+    private String aVX;
+    private String aVY;
     private NavigationBar mNavigationBar;
     private String mUserName;
     private final TextWatcher mTextWatcher = new a(this);
-    private final View.OnClickListener aVM = new b(this);
+    private final View.OnClickListener aVZ = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -31,44 +31,44 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(w.h.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(w.l.appeal_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.push_commit), this.aVM);
-        this.aVG = (TextView) findViewById(w.h.forbid_id);
-        this.aVH = (TextView) findViewById(w.h.forbid_reason);
-        this.aVI = (TextView) findViewById(w.h.appeal_reason);
-        this.aVJ = (TextView) findViewById(w.h.remain_text_count);
-        this.aVJ.setText(String.valueOf(150));
-        this.aVI.setFocusable(true);
-        this.aVI.setFocusableInTouchMode(true);
-        this.aVI.requestFocus();
-        k.c(getPageContext().getPageActivity(), this.aVI);
-        this.aVI.addTextChangedListener(this.mTextWatcher);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.push_commit), this.aVZ);
+        this.aVT = (TextView) findViewById(w.h.forbid_id);
+        this.aVU = (TextView) findViewById(w.h.forbid_reason);
+        this.aVV = (TextView) findViewById(w.h.appeal_reason);
+        this.aVW = (TextView) findViewById(w.h.remain_text_count);
+        this.aVW.setText(String.valueOf((int) BaseActivity.SHOW_SOFT_KEYBOARD_DELAY));
+        this.aVV.setFocusable(true);
+        this.aVV.setFocusableInTouchMode(true);
+        this.aVV.requestFocus();
+        k.c(getPageContext().getPageActivity(), this.aVV);
+        this.aVV.addTextChangedListener(this.mTextWatcher);
         initData();
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aVK = intent.getStringExtra("forum_id");
-        this.aVL = intent.getStringExtra("user_id");
+        this.aVX = intent.getStringExtra("forum_id");
+        this.aVY = intent.getStringExtra("user_id");
         this.mUserName = intent.getStringExtra("user_name");
-        g.a(this.aVK, this.aVL, new d(this));
+        g.a(this.aVX, this.aVY, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void w(String str, boolean z) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.cx(str);
-        aVar.a(getPageContext().getString(w.l.anti_no_chance_pos), new e(this, z));
+        aVar.cE(str);
+        aVar.a(getPageContext().getString(w.l.confirm), new e(this, z));
         aVar.b(getPageContext());
-        aVar.ts();
+        aVar.tQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().ah(i == 1);
+        getLayoutMode().aj(i == 1);
         getLayoutMode().t(findViewById(w.h.root));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aVI.setHintTextColor(aq.getColor(w.e.common_color_10005));
+        this.aVV.setHintTextColor(aq.getColor(w.e.common_color_10005));
     }
 }

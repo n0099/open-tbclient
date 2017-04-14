@@ -1,19 +1,39 @@
 package com.baidu.tbadk.browser;
+
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class s implements Runnable {
-    final /* synthetic */ r QV;
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.g QW;
+class s extends com.baidu.tbadk.core.d.p {
+    final /* synthetic */ TbWebViewActivity Rm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar, com.baidu.tbadk.coreExtra.share.g gVar) {
-        this.QV = rVar;
-        this.QW = gVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.d.n nVar) {
+        super(nVar);
+        this.Rm = tbWebViewActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbWebViewActivity tbWebViewActivity;
-        tbWebViewActivity = this.QV.QU;
-        tbWebViewActivity.mView.a(this.QW);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.d.p
+    public String oy() {
+        return "TBHY_COMMON_Share";
+    }
+
+    @com.baidu.tbadk.core.d.q(uz = false, value = TbConfig.TMP_SHARE_DIR_NAME)
+    private void share(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            String optString = jSONObject.optString(VrPlayerActivityConfig.TITLE);
+            String optString2 = jSONObject.optString("desc");
+            String optString3 = jSONObject.optString("img");
+            String optString4 = jSONObject.optString("url");
+            String optString5 = jSONObject.optString("bid");
+            if (!StringUtils.isNULL(optString5)) {
+                this.Rm.mShareResultToFe = true;
+                this.Rm.mBid = optString5;
+            }
+            com.baidu.adp.lib.g.h.fR().post(new t(this, this.Rm.createShareContent(optString, optString4, optString2, optString3)));
+        }
     }
 }

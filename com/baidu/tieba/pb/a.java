@@ -1,15 +1,15 @@
 package com.baidu.tieba.pb;
 
 import android.content.Context;
-import com.baidu.tbadk.core.data.ag;
+import com.baidu.tbadk.core.data.af;
 import com.baidu.tieba.graffiti.HorizontalScrollLayout;
 /* loaded from: classes.dex */
 public abstract class a extends HorizontalScrollLayout {
-    public abstract void a(ag agVar);
+    public abstract void a(af afVar);
 
-    public abstract void aeJ();
+    public abstract void aeD();
 
-    public abstract void ahN();
+    public abstract void ahH();
 
     public abstract void changeSkinType(int i);
 

@@ -4,35 +4,35 @@ import com.baidu.tieba.person.listview.BdPersonListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements BdPersonListView.a {
-    final /* synthetic */ z eJo;
+    final /* synthetic */ z eHj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(z zVar) {
-        this.eJo = zVar;
+        this.eHj = zVar;
     }
 
     @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void kZ() {
+    public void ld() {
         com.baidu.tieba.model.a aVar;
         com.baidu.tieba.model.a aVar2;
-        if (com.baidu.adp.lib.util.i.he()) {
-            aVar = this.eJo.fIc;
+        if (com.baidu.adp.lib.util.i.hj()) {
+            aVar = this.eHj.fJL;
             aVar.resetData();
-            aVar2 = this.eJo.fIc;
-            aVar2.NE();
-            ((t) this.eJo.fIa).kX();
+            aVar2 = this.eHj.fJL;
+            aVar2.Oc();
+            ((t) this.eHj.fJJ).lb();
             return;
         }
-        ((t) this.eJo.fIa).ady();
+        ((t) this.eHj.fJJ).ads();
     }
 
     @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void kY() {
-        ((t) this.eJo.fIa).ady();
+    public void lc() {
+        ((t) this.eHj.fJJ).ads();
     }
 
     @Override // com.baidu.tieba.person.listview.BdPersonListView.a
     public void G(float f) {
-        ((t) this.eJo.fIa).F(f);
+        ((t) this.eHj.fJJ).F(f);
     }
 }

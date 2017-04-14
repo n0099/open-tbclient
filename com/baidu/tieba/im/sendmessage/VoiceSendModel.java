@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a dgs;
-    private b dgt;
+    private a deP;
+    private b deQ;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.dgs = new a(str, chatMessage);
-        this.dgs.execute(new Object[0]);
+        this.deP = new a(str, chatMessage);
+        this.deP.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.dgt = bVar;
+        this.deQ = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String dgu;
-        private ChatMessage dgv;
-        private ac dgw = new ac();
+        private String deR;
+        private ChatMessage deS;
+        private ac deT = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.dgu = str;
-            this.dgv = chatMessage;
+            this.deR = str;
+            this.deS = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: u */
         public String doInBackground(Object... objArr) {
             try {
-                return this.dgw.kI(this.dgu);
+                return this.deT.kO(this.deR);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.dgt != null) {
-                VoiceSendModel.this.dgt.a(str, this.dgv);
+            if (VoiceSendModel.this.deQ != null) {
+                VoiceSendModel.this.deQ.a(str, this.deS);
             }
         }
     }

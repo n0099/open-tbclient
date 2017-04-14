@@ -5,20 +5,20 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements c.g {
-    final /* synthetic */ d ewS;
+    final /* synthetic */ d euY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(d dVar) {
-        this.ewS = dVar;
+        this.euY = dVar;
     }
 
     @Override // com.baidu.tieba.play.c.g
     public void onStop() {
         com.baidu.tieba.play.c cVar;
         PbActivity pbActivity;
-        cVar = this.ewS.eqI;
-        if (cVar.ayT()) {
-            pbActivity = this.ewS.eka;
+        cVar = this.euY.eoR;
+        if (cVar.ayx()) {
+            pbActivity = this.euY.eig;
             pbActivity.setSwipeBackEnabled(true);
         }
     }
@@ -27,9 +27,9 @@ public class p implements c.g {
     public void onStart() {
         com.baidu.tieba.play.c cVar;
         PbActivity pbActivity;
-        cVar = this.ewS.eqI;
-        if (cVar.ayT()) {
-            pbActivity = this.ewS.eka;
+        cVar = this.euY.eoR;
+        if (cVar.ayx()) {
+            pbActivity = this.euY.eig;
             pbActivity.setSwipeBackEnabled(false);
         }
     }

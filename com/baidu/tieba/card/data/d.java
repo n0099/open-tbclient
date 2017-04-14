@@ -5,128 +5,128 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends b implements t {
-    public String bqC;
-    public AdvertAppInfo buX;
+    public String bqv;
+    public AdvertAppInfo buP;
+    public int buQ;
     public String mPageType;
-    public int mPn;
 
     public d(AdvertAppInfo advertAppInfo) {
-        this.bqC = "";
-        this.mPn = 0;
+        this.bqv = "";
+        this.buQ = 0;
         this.mPageType = "";
-        this.buX = advertAppInfo;
+        this.buP = advertAppInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d() {
-        this.bqC = "";
-        this.mPn = 0;
+        this.bqv = "";
+        this.buQ = 0;
         this.mPageType = "";
-        this.buX = null;
+        this.buP = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.buX != null && this.buX.legoCard != null) {
-            return AdvertAppInfo.Tw;
+        if (this.buP != null && this.buP.legoCard != null) {
+            return AdvertAppInfo.TP;
         }
-        if (this.buX != null && this.buX.getType() == AdvertAppInfo.Tk) {
-            return AdvertAppInfo.Tt;
+        if (this.buP != null && this.buP.getType() == AdvertAppInfo.TC) {
+            return AdvertAppInfo.TL;
         }
-        if (this.buX != null && this.buX.getType() == AdvertAppInfo.Tn) {
-            return AdvertAppInfo.Tv;
+        if (this.buP != null && this.buP.getType() == AdvertAppInfo.TF) {
+            return AdvertAppInfo.TO;
         }
-        return AdvertAppInfo.Tu;
+        return AdvertAppInfo.TM;
     }
 
     @Override // com.baidu.tieba.card.data.t
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.g(this.buX != null ? this.buX.adPosition : "-1", -1);
+        return com.baidu.adp.lib.g.b.g(this.buP != null ? this.buP.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public boolean SC() {
+    public boolean Ta() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public void cP(boolean z) {
+    public void cR(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public void cQ(boolean z) {
+    public void cS(boolean z) {
     }
 
-    public String SD() {
-        if (this.buX == null || this.buX.TJ == null) {
+    public String Tb() {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.userPortrait;
+        return this.buP.Uc.userPortrait;
     }
 
     public String getUserName() {
-        if (this.buX == null || this.buX.TJ == null) {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.userName;
+        return this.buP.Uc.userName;
     }
 
-    public String SE() {
-        if (this.buX == null || this.buX.TJ == null) {
+    public String Tc() {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.TS;
+        return this.buP.Uc.Uk;
     }
 
-    public String SF() {
-        if (this.buX == null || this.buX.TJ == null) {
+    public String Td() {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.TT;
+        return this.buP.Uc.Ul;
     }
 
-    public String SG() {
-        if (this.buX == null || this.buX.TJ == null) {
+    public String Te() {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.buttonText;
+        return this.buP.Uc.buttonText;
     }
 
-    public String SH() {
-        if (this.buX == null || this.buX.TJ == null) {
+    public String Tf() {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.TZ;
+        return this.buP.Uc.Ur;
     }
 
-    public String SI() {
-        if (this.buX == null || this.buX.TJ == null) {
+    public String Tg() {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.TU;
+        return this.buP.Uc.Um;
     }
 
-    public List<String> SJ() {
-        if (this.buX == null || this.buX.TJ == null) {
+    public List<String> Th() {
+        if (this.buP == null || this.buP.Uc == null) {
             return null;
         }
-        return this.buX.TJ.Ua;
+        return this.buP.Uc.Us;
     }
 
-    public AdvertAppInfo SK() {
-        return this.buX;
+    public AdvertAppInfo Ti() {
+        return this.buP;
     }
 
-    public boolean ps() {
-        if (this.buX != null) {
-            return this.buX.ps();
+    public boolean pQ() {
+        if (this.buP != null) {
+            return this.buP.pQ();
         }
         return false;
     }
 
-    public boolean pr() {
-        if (this.buX != null) {
-            return this.buX.pr();
+    public boolean pP() {
+        if (this.buP != null) {
+            return this.buP.pP();
         }
         return false;
     }

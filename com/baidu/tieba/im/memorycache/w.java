@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.MemoryItemRemoveMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends CustomMessageListener {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+    public w(ImMemoryCacheRegister imMemoryCacheRegister, int i) {
         super(i);
-        this.this$0 = imMemoryCacheRegisterStatic;
+        this.this$0 = imMemoryCacheRegister;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,12 +22,12 @@ public class w extends CustomMessageListener {
             MemoryItemRemoveMessage.a aVar = (MemoryItemRemoveMessage.a) customResponsedMessage.getData();
             if (aVar.customGroupType != 1) {
                 if (aVar.customGroupType == 3) {
-                    b.asj().aa(aVar.id, 3);
+                    b.asc().aa(aVar.id, 3);
                     return;
                 }
                 return;
             }
-            this.this$0.kE(aVar.id);
+            this.this$0.kK(aVar.id);
         }
     }
 }

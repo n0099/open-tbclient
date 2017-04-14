@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes.dex */
 public class y {
-    private static final Object a(Class<?> cls, HashSet<Class<?>> hashSet) {
+    private static final Object b(Class<?> cls, HashSet<Class<?>> hashSet) {
         Type[] actualTypeArguments;
         if (hashSet == null || hashSet.contains(cls)) {
             return null;
@@ -31,11 +31,11 @@ public class y {
                 Class<?> type = field.getType();
                 if (type != null) {
                     if (com.baidu.adp.lib.OrmObject.a.a.e(type, Message.class)) {
-                        Object a = a(type, hashSet);
-                        if (a != null) {
-                            if (com.baidu.adp.lib.OrmObject.a.a.e(a.getClass(), Message.class)) {
+                        Object b = b(type, hashSet);
+                        if (b != null) {
+                            if (com.baidu.adp.lib.OrmObject.a.a.e(b.getClass(), Message.class)) {
                                 field.setAccessible(true);
-                                field.set(newInstance, a);
+                                field.set(newInstance, b);
                             } else {
                                 BdLog.e("");
                             }
@@ -47,10 +47,10 @@ public class y {
                                 Class cls3 = (Class) actualTypeArguments[0];
                                 if (com.baidu.adp.lib.OrmObject.a.a.e(cls3, Message.class)) {
                                     ArrayList arrayList = new ArrayList();
-                                    Object a2 = a(cls3, hashSet);
-                                    if (a2 != null) {
-                                        if (com.baidu.adp.lib.OrmObject.a.a.e(a2.getClass(), Message.class)) {
-                                            arrayList.add(a2);
+                                    Object b2 = b(cls3, hashSet);
+                                    if (b2 != null) {
+                                        if (com.baidu.adp.lib.OrmObject.a.a.e(b2.getClass(), Message.class)) {
+                                            arrayList.add(b2);
                                         } else {
                                             BdLog.e("");
                                         }
@@ -79,11 +79,11 @@ public class y {
             File file = new File(TbadkCoreApplication.m9getInst().getCacheDir(), String.valueOf(str) + "_" + TbConfig.getVersion());
             byte[] bArr = null;
             try {
-                if (file.exists() && (bArr = v(file)) != null) {
+                if (file.exists() && (bArr = w(file)) != null) {
                     wire.parseFrom(bArr, cls);
                 }
                 if (bArr == null) {
-                    byte[] bArr2 = (byte[]) com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) cls, "toByteArray", new Object[0]).invoke(a(cls, new HashSet()), new Object[0]);
+                    byte[] bArr2 = (byte[]) com.baidu.adp.lib.OrmObject.a.a.a((Class<?>) cls, "toByteArray", new Object[0]).invoke(b(cls, new HashSet()), new Object[0]);
                     wire.parseFrom(bArr2, cls);
                     a(file, bArr2);
                 }
@@ -116,7 +116,7 @@ public class y {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static byte[] v(java.io.File r6) {
+    private static byte[] w(java.io.File r6) {
         /*
             r0 = 0
             if (r6 != 0) goto L4
@@ -179,7 +179,7 @@ public class y {
             r2 = r0
             goto L2f
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.y.v(java.io.File):byte[]");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.util.y.w(java.io.File):byte[]");
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [200=5] */

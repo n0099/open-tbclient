@@ -12,6 +12,8 @@ class eu extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        er.aMB().a(1, customResponsedMessage);
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j)) {
+            ep.aMK().a((com.baidu.tbadk.data.j) customResponsedMessage.getData());
+        }
     }
 }

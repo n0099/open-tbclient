@@ -19,7 +19,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Z */
+    /* renamed from: Y */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         TextView textView = new TextView(this.mContext);
         textView.setText(w.l.god_acction_notice);
@@ -34,21 +34,21 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.mygod.data.b bVar, a aVar) {
-        if (aVar.amL != TbadkCoreApplication.m9getInst().getSkinType()) {
+        if (aVar.amZ != TbadkCoreApplication.m9getInst().getSkinType()) {
             aq.k(aVar.getView(), w.e.cp_bg_line_e);
             aq.i(aVar.getView(), w.e.cp_cont_d);
-            aVar.amL = TbadkCoreApplication.m9getInst().getSkinType();
+            aVar.amZ = TbadkCoreApplication.m9getInst().getSkinType();
         }
         return aVar.getView();
     }
 
     /* loaded from: classes.dex */
     public static class a extends y.a {
-        public int amL;
+        public int amZ;
 
         public a(View view) {
             super(view);
-            this.amL = 3;
+            this.amZ = 3;
         }
     }
 }

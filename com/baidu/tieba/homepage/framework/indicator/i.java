@@ -4,21 +4,21 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class i implements View.OnClickListener {
-    final /* synthetic */ ScrollFragmentTabHost cwt;
+    final /* synthetic */ ScrollFragmentTabHost cuT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cwt = scrollFragmentTabHost;
+        this.cuT = scrollFragmentTabHost;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cwt.aiQ()) {
-            this.cwt.ww();
+        if (this.cuT.aiK()) {
+            this.cuT.wS();
             view.setContentDescription("展开");
             return;
         }
-        this.cwt.wv();
+        this.cuT.wR();
         TiebaStatic.log("c10510");
         view.setContentDescription("折叠");
     }

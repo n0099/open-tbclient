@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.d;
 /* loaded from: classes.dex */
 public class b {
-    public boolean dAX;
+    public boolean dxF;
     public String fid;
 }

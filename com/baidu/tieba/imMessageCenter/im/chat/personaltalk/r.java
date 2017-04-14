@@ -9,42 +9,42 @@ import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes.dex */
 public class r {
     private DataRes data;
-    private final BlackListModel djJ;
-    private PersonalTalkSettingActivity djK;
-    private a djL;
-    private com.baidu.tbadk.coreExtra.c.a amC = new com.baidu.tbadk.coreExtra.c.a(null);
+    private final BlackListModel dii;
+    private PersonalTalkSettingActivity dij;
+    private a dik;
+    private com.baidu.tbadk.coreExtra.c.a amQ = new com.baidu.tbadk.coreExtra.c.a(null);
     private boolean isAttention = false;
-    private boolean djH = false;
-    private boolean djI = false;
+    private boolean dig = false;
+    private boolean dih = false;
     private BdUniqueId tag = BdUniqueId.gen();
-    private com.baidu.adp.framework.listener.e cOh = new s(this, 0);
+    private com.baidu.adp.framework.listener.e cME = new s(this, 0);
     private CustomMessageListener mCustomListener = new t(this, 0);
 
     /* loaded from: classes.dex */
     public interface a {
-        void wy();
+        void wU();
     }
 
-    public boolean auw() {
-        return this.djI;
+    public boolean aup() {
+        return this.dih;
     }
 
     public void gn(boolean z) {
-        this.djI = z;
+        this.dih = z;
     }
 
-    public DataRes aux() {
+    public DataRes auq() {
         return this.data;
     }
 
-    public boolean auy() {
-        return this.djH;
+    public boolean aur() {
+        return this.dig;
     }
 
     public r(PersonalTalkSettingActivity personalTalkSettingActivity, a aVar, long j) {
-        this.djK = personalTalkSettingActivity;
-        this.djL = aVar;
-        this.djJ = new BlackListModel(personalTalkSettingActivity.getPageContext());
+        this.dij = personalTalkSettingActivity;
+        this.dik = aVar;
+        this.dii = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
         com.baidu.tbadk.util.t.b(new u(this, j), new v(this, j, personalTalkSettingActivity));
     }
@@ -60,28 +60,28 @@ public class r {
     }
 
     public void gp(boolean z) {
-        this.djK.showLoadingDialog(null);
+        this.dij.showLoadingDialog(null);
         if (z) {
-            this.djJ.addToBlackList(this.data.id.longValue());
+            this.dii.addToBlackList(this.data.id.longValue());
         } else {
-            this.djJ.removeFromBlackList(this.data.id.longValue());
+            this.dii.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.amC != null) {
-            this.amC.cancel();
+        if (this.amQ != null) {
+            this.amQ.cancel();
         }
-        if (this.djJ != null) {
-            this.djJ.cancelLoadData();
+        if (this.dii != null) {
+            this.dii.cancelLoadData();
         }
     }
 
-    public com.baidu.adp.framework.listener.e auz() {
-        return this.cOh;
+    public com.baidu.adp.framework.listener.e aus() {
+        return this.cME;
     }
 
-    public CustomMessageListener auA() {
+    public CustomMessageListener aut() {
         return this.mCustomListener;
     }
 }

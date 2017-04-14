@@ -26,16 +26,16 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes.dex */
     public interface b {
-        void dm(int i);
+        void dp(int i);
     }
 
     /* loaded from: classes.dex */
     public interface d {
         ListView getListView();
 
-        int wZ();
+        int xv();
 
-        com.baidu.adp.lib.e.b<HeadImageView> xa();
+        com.baidu.adp.lib.e.b<HeadImageView> xw();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -75,9 +75,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(w.f.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.xa();
+            this.mUserPhotoPool = dVar.xw();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.wZ());
+                this.mTbRecyclerListener = new c(dVar.xv());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
@@ -188,7 +188,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.dm(this.mIndex);
+                UserPhotoLayout.this.mChildClickListener.dp(this.mIndex);
             }
         }
     }
@@ -213,7 +213,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.fE();
+            headImageView = this.mUserPhotoPool.fJ();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

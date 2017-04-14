@@ -5,62 +5,62 @@ import java.util.ArrayList;
 import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class u {
-    private r Vq;
+    private r VI;
     private long threadId;
-    private long Vl = 0;
-    private String Vm = "";
-    private long Vn = 0;
-    private String Vo = "";
+    private long VD = 0;
+    private String VE = "";
+    private long VF = 0;
+    private String VG = "";
     private String imgUrl = "";
-    private String Vp = "";
+    private String VH = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
             this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.Vl = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.Vm = forumHeadlineImgInfo.thread_user_name;
-            this.Vn = forumHeadlineImgInfo.img_user_id.longValue();
-            this.Vo = forumHeadlineImgInfo.img_user_name;
+            this.VD = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.VE = forumHeadlineImgInfo.thread_user_name;
+            this.VF = forumHeadlineImgInfo.img_user_id.longValue();
+            this.VG = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.Vp = forumHeadlineImgInfo.headline_url;
-            this.Vq = new r();
+            this.VH = forumHeadlineImgInfo.headline_url;
+            this.VI = new r();
             ArrayList<t> arrayList = new ArrayList<>();
-            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.Vp == null ? "" : this.Vp, null);
-            tVar.am(true);
+            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.VH == null ? "" : this.VH, null);
+            tVar.ao(true);
             arrayList.add(tVar);
-            this.Vq.f(arrayList);
+            this.VI.f(arrayList);
         }
     }
 
-    public boolean pY() {
-        return pZ() && qa();
+    public boolean qw() {
+        return qx() && qy();
     }
 
-    public boolean pZ() {
-        return StringUtils.isNull(this.Vm, true) || this.Vl <= 0;
+    public boolean qx() {
+        return StringUtils.isNull(this.VE, true) || this.VD <= 0;
     }
 
-    public boolean qa() {
-        return StringUtils.isNull(this.Vo, true) || this.Vn <= 0;
+    public boolean qy() {
+        return StringUtils.isNull(this.VG, true) || this.VF <= 0;
     }
 
-    public String qb() {
-        return this.Vm;
+    public String qz() {
+        return this.VE;
     }
 
-    public String qc() {
-        return this.Vo;
+    public String qA() {
+        return this.VG;
     }
 
-    public String qd() {
+    public String qB() {
         return this.imgUrl;
     }
 
-    public String qe() {
-        return this.Vp;
+    public String qC() {
+        return this.VH;
     }
 
-    public r qf() {
-        return this.Vq;
+    public r qD() {
+        return this.VI;
     }
 }

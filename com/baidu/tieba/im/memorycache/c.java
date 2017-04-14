@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b dcl;
+    final /* synthetic */ b daI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.dcl = bVar;
+        this.daI = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,42 +25,42 @@ public class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean l;
         if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryGetFromDBMessage)) {
-            com.baidu.tieba.im.push.f.ath().clear();
+            com.baidu.tieba.im.push.f.ata().clear();
             MemoryGetFromDBMessage memoryGetFromDBMessage = (MemoryGetFromDBMessage) customResponsedMessage;
             String uid = memoryGetFromDBMessage.getUid();
             if (TextUtils.isEmpty(uid) || !uid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 List<ImMessageCenterPojo> data = memoryGetFromDBMessage.getData();
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo : data) {
-                        if (imMessageCenterPojo != null && bz.lH(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
-                            this.dcl.e(imMessageCenterPojo);
+                        if (imMessageCenterPojo != null && bz.lI(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
+                            this.daI.e(imMessageCenterPojo);
                         }
                     }
                 }
-                this.dcl.dce.set(true);
-                this.dcl.asn();
+                this.daI.daB.set(true);
+                this.daI.asg();
                 return;
             }
             try {
                 for (ImMessageCenterPojo imMessageCenterPojo2 : memoryGetFromDBMessage.getData()) {
-                    l = this.dcl.l(imMessageCenterPojo2);
+                    l = this.daI.l(imMessageCenterPojo2);
                     if (!l || imMessageCenterPojo2.getPulled_msgId() > 0) {
                         if (imMessageCenterPojo2.getCustomGroupType() == -9 && imMessageCenterPojo2.getPushIds() != null && imMessageCenterPojo2.getPushIds().length() > 0) {
-                            com.baidu.tieba.im.push.f.ath().init(imMessageCenterPojo2.getGid(), imMessageCenterPojo2.getPushIds());
+                            com.baidu.tieba.im.push.f.ata().init(imMessageCenterPojo2.getGid(), imMessageCenterPojo2.getPushIds());
                         }
-                        this.dcl.e(imMessageCenterPojo2);
+                        this.daI.e(imMessageCenterPojo2);
                     }
                 }
-                this.dcl.fX(false);
-                this.dcl.fY(false);
-                this.dcl.ask();
-                this.dcl.asl();
-                this.dcl.asm();
+                this.daI.fX(false);
+                this.daI.fY(false);
+                this.daI.asd();
+                this.daI.ase();
+                this.daI.asf();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.dcl.dce.set(true);
-            this.dcl.asn();
+            this.daI.daB.set(true);
+            this.daI.asg();
         }
     }
 }

@@ -6,9 +6,11 @@ import com.baidu.android.common.logging.Log;
 import java.io.IOException;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
@@ -60,9 +62,17 @@ public class ProxyHttpClient extends DefaultHttpClient {
     }
 
     protected HttpParams createHttpParams() {
-        HttpParams createHttpParams = super.createHttpParams();
-        HttpProtocolParams.setUseExpectContinue(createHttpParams, false);
-        return createHttpParams;
+        HttpParams basicHttpParams;
+        try {
+            basicHttpParams = super.createHttpParams();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            basicHttpParams = new BasicHttpParams();
+            HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
+            HttpProtocolParams.setContentCharset(basicHttpParams, "ISO-8859-1");
+            HttpProtocolParams.setUserAgent(basicHttpParams, "Apache-HttpClient/UNAVAILABLE (java 1.4)");
+        }
+        HttpProtocolParams.setUseExpectContinue(basicHttpParams, false);
+        return basicHttpParams;
     }
 
     public HttpResponse executeSafely(HttpUriRequest httpUriRequest) throws ClientProtocolException, IOException {

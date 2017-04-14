@@ -1,26 +1,21 @@
 package com.baidu.tieba.im.db;
 
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.t;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n extends s<Void> {
-    final /* synthetic */ m cUO;
-    private final /* synthetic */ CustomResponsedMessage cUP;
-
+public class n extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar, CustomResponsedMessage customResponsedMessage) {
-        this.cUO = mVar;
-        this.cUP = customResponsedMessage;
+    public n(int i) {
+        super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.s
-    /* renamed from: LT */
-    public Void doInBackground() {
-        if (this.cUP.getData() instanceof String) {
-            f.kl((String) this.cUP.getData());
-            return null;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
+            t.b(new o(this, customResponsedMessage), new p(this));
         }
-        return null;
     }
 }

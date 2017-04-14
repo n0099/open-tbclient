@@ -1,26 +1,29 @@
 package com.baidu.tieba.passaccount.app;
 
-import android.widget.Toast;
-import com.baidu.sapi2.shell.listener.AuthorizationListener;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes.dex */
-public class e extends AuthorizationListener {
-    final /* synthetic */ FillUProfileActivity eex;
+class e extends CustomMessageListener {
+    final /* synthetic */ LoginActivity ecR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(FillUProfileActivity fillUProfileActivity) {
-        this.eex = fillUProfileActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(LoginActivity loginActivity, int i) {
+        super(i);
+        this.ecR = loginActivity;
     }
 
-    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onSuccess() {
-        Toast.makeText(this.eex.getPageContext().getPageActivity(), "正常化成功", 0).show();
-        this.eex.aIq();
-    }
-
-    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onFailed(int i, String str) {
-        Toast.makeText(this.eex.getPageContext().getPageActivity(), String.format("%s(%d)", str, Integer.valueOf(i)), 0).show();
-        this.eex.finish();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bh)) {
+            bh bhVar = (bh) customResponsedMessage.getData();
+            if (bhVar.XY == 0) {
+                this.ecR.aIx();
+            } else {
+                this.ecR.nh(bhVar.errorMsg);
+            }
+        }
     }
 }

@@ -1,52 +1,107 @@
 package com.baidu.tieba.frs.mc;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.tbadkCore.PraiseModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class s implements PraiseModel.a {
-    final /* synthetic */ q bZS;
+public class s extends w {
+    private final CustomMessageListener amd;
+    private boolean bVf;
+    private String bVg;
+    private bi bYr;
+    private PraiseModel bYs;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.bZS = qVar;
+    public s(FrsActivity frsActivity) {
+        super(frsActivity);
+        this.amd = new t(this, CmdConfigCustom.PB_ACTION_PRAISE);
+        this.bST.registerListener(this.amd);
+        this.bYs = acY();
     }
 
-    @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-    public void hi(String str) {
-        boolean z;
-        bj bjVar;
-        bj bjVar2;
-        int i = 1;
-        z = this.bZS.bVr;
-        if (z) {
-            bjVar = this.bZS.bZQ;
-            if (bjVar != null) {
-                bjVar2 = this.bZS.bZQ;
-                if (bjVar2.rG().getIsLike() == 1) {
-                    i = 0;
+    public final PraiseModel acY() {
+        if (this.bYs == null) {
+            this.bYs = new PraiseModel(this.bST.getPageContext(), new u(this));
+        }
+        return this.bYs;
+    }
+
+    public void ii(int i) {
+        ArrayList<com.baidu.adp.widget.ListView.v> threadList;
+        com.baidu.tieba.tbadkCore.n Zr = this.bST.Zr();
+        if (Zr != null && this.bMD != null && (threadList = Zr.getThreadList()) != null) {
+            Iterator<com.baidu.adp.widget.ListView.v> it = threadList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                com.baidu.adp.widget.ListView.v next = it.next();
+                if (next instanceof bi) {
+                    bi biVar = (bi) next;
+                    if (biVar == this.bYr) {
+                        c(biVar, i);
+                        this.bYr = null;
+                        break;
+                    } else if (biVar.getId() != null && biVar.getId().equals(this.bVg)) {
+                        c(biVar, i);
+                        this.bVg = null;
+                        break;
+                    }
                 }
             }
-            this.bZS.m14if(i);
+            this.bMD.aae().b(threadList, Zr);
+            this.bMD.aae().notifyDataSetChanged();
         }
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
     }
 
-    @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-    public void w(int i, String str) {
-        boolean z;
-        z = this.bZS.bVr;
-        if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.rZ(i)) {
-                AntiHelper.an(this.bZS.bTf.getPageContext().getPageActivity(), str);
-            } else {
-                this.bZS.bTf.showToast(str);
+    public void c(bi biVar, int i) {
+        if (biVar != null) {
+            if (i == 1) {
+                PraiseData se = biVar.se();
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.setName_show(currentAccountObj.getAccount());
+                    metaData.setPortrait(currentAccountObj.getPortrait());
+                    metaData.setUserId(currentAccountObj.getID());
+                    if (se == null) {
+                        PraiseData praiseData = new PraiseData();
+                        praiseData.setIsLike(i);
+                        praiseData.setNum(1L);
+                        praiseData.getUser().add(0, metaData);
+                        biVar.a(praiseData);
+                        return;
+                    }
+                    biVar.se().getUser().add(0, metaData);
+                    biVar.se().setNum(biVar.se().getNum() + 1);
+                    biVar.se().setIsLike(i);
+                }
+            } else if (biVar.se() != null) {
+                biVar.se().setIsLike(i);
+                biVar.se().setNum(biVar.se().getNum() - 1);
+                ArrayList<MetaData> user = biVar.se().getUser();
+                if (user != null) {
+                    Iterator<MetaData> it = user.iterator();
+                    while (it.hasNext()) {
+                        MetaData next = it.next();
+                        if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
+                            biVar.se().getUser().remove(next);
+                            return;
+                        }
+                    }
+                }
             }
         }
+    }
+
+    public void eh(boolean z) {
+        this.bVf = z;
     }
 }

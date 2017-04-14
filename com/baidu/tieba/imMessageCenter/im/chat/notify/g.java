@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ f djq;
+    final /* synthetic */ f dhP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.djq = fVar;
+        this.dhP = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,9 +19,9 @@ class g extends CustomMessageListener {
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterListAdapter imMessageCenterListAdapter2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            imMessageCenterListAdapter = this.djq.djh;
+            imMessageCenterListAdapter = this.dhP.dhG;
             if (imMessageCenterListAdapter != null) {
-                imMessageCenterListAdapter2 = this.djq.djh;
+                imMessageCenterListAdapter2 = this.dhP.dhG;
                 imMessageCenterListAdapter2.notifyDataSetChanged();
             }
         }

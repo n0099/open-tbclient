@@ -6,7 +6,6 @@ import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
-    public static final String ACROSS_FROUM_DATA = "across_forum_data";
     public static final String ADD_SEARCH = "add_search";
     public static final String ALA_IS_ONLIVING = "ala_is_living";
     public static final String BACK_SPECIAL = "back_special";

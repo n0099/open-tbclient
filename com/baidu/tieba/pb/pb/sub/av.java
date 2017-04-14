@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ao evz;
+    final /* synthetic */ ao etF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(ao aoVar) {
-        this.evz = aoVar;
+        this.etF = aoVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -27,39 +27,39 @@ public class av implements AdapterView.OnItemClickListener {
         com.baidu.tbadk.editortools.pb.n nVar2;
         SubPbModel subPbModel;
         b bVar2;
-        newSubPbActivity = this.evz.euW;
-        if (bg.aI(newSubPbActivity.getPageContext().getPageActivity())) {
-            bVar = this.evz.euN;
+        newSubPbActivity = this.etF.etb;
+        if (bg.aK(newSubPbActivity.getPageContext().getPageActivity())) {
+            bVar = this.etF.esS;
             if (bVar != null) {
-                bVar2 = this.evz.euN;
-                bVar2.aNY();
+                bVar2 = this.etF.esS;
+                bVar2.aOh();
             }
-            this.evz.aOl();
+            this.etF.aOu();
             if (view == null || !(view.getTag() instanceof ba.a)) {
-                arrayList = this.evz.evq;
+                arrayList = this.etF.etw;
                 PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(arrayList, i);
                 if (postData == null) {
-                    this.evz.evr = null;
+                    this.etF.etx = null;
                 } else {
-                    this.evz.evr = postData.getId();
+                    this.etF.etx = postData.getId();
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 if (sparseArray != null) {
                     String str = (String) sparseArray.get(w.h.tag_photo_username);
                     String str2 = (String) sparseArray.get(w.h.tag_photo_userid);
                     if (str != null) {
-                        nVar = this.evz.dmL;
+                        nVar = this.etF.dlk;
                         nVar.setReplyId(str2);
-                        nVar2 = this.evz.dmL;
-                        nVar2.fB(str);
+                        nVar2 = this.etF.dlk;
+                        nVar2.fH(str);
                     }
                 }
-                this.evz.aOm();
+                this.etF.aOv();
                 return;
             }
-            this.evz.aOn();
-            subPbModel = this.evz.euz;
-            subPbModel.aOH();
+            this.etF.aOw();
+            subPbModel = this.etF.esE;
+            subPbModel.aOQ();
         }
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
 public class e {
-    public long vL = -1;
-    public long vM = -1;
-    public long vN = -1;
-    public long vO = -1;
-    public int vP = 0;
-    public long vQ = -1;
-    public long vR = -1;
-    public String vS = "";
-    public int vT = -1;
+    public long vo = -1;
+    public long vp = -1;
+    public long vq = -1;
+    public long vr = -1;
+    public int vs = 0;
+    public long vt = -1;
+    public long vu = -1;
+    public String vv = "";
+    public int vw = -1;
     public int errorCode = 0;
-    public int vU = 0;
-    public String vV = null;
-    public String vW = null;
+    public int vx = 0;
+    public String vy = null;
+    public String vz = null;
     public String url = null;
-    public String vX = null;
-    public String vY = null;
-    public int vZ = 0;
+    public String vA = null;
+    public String vB = null;
+    public int vC = 0;
 }

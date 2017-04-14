@@ -134,7 +134,10 @@ public class SapiAccount implements Parcelable, Cloneable {
         sapiAccount.k = jSONObject.optString(h);
         sapiAccount.l = jSONObject.optString(i);
         sapiAccount.m = jSONObject.optString(j);
-        return sapiAccount;
+        if (SapiUtils.isValidAccount(sapiAccount)) {
+            return sapiAccount;
+        }
+        return null;
     }
 
     public static List<SapiAccount> fromJSONArray(JSONArray jSONArray) {
@@ -156,11 +159,11 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public String getPtoken() {
-        return a() ? this.k : "";
+        return c() ? this.k : "";
     }
 
     public void setPtoken(String str) {
-        if (a()) {
+        if (c()) {
             this.k = str;
         }
     }
@@ -248,7 +251,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public ReloginCredentials getReloginCredentials() {
-        return c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).d(this.uid);
+        return c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).e(this.uid);
     }
 
     /* loaded from: classes.dex */
@@ -457,11 +460,10 @@ public class SapiAccount implements Parcelable, Cloneable {
                     }
                     b a2 = b.a(new JSONObject(sapiAccount.m));
                     Map<String, String> map = bVar.i.b;
-                    map.putAll(a2.i.b);
-                    bVar.i.b = map;
+                    bVar.i.b = a2.i.b;
                     bVar.h = a2.h;
                     bVar.e = a2.e;
-                    if (AccountType.UNKNOWN == sapiAccount.getAccountType()) {
+                    if (SocialType.UNKNOWN == sapiAccount.getSocialType()) {
                         this.m = bVar.i.a().toString();
                     } else {
                         this.m = bVar.a().toString();
@@ -473,9 +475,40 @@ public class SapiAccount implements Parcelable, Cloneable {
         }
     }
 
-    private boolean a() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a() {
+        try {
+            if (!TextUtils.isEmpty(this.m)) {
+                b a2 = b.a(new JSONObject(this.m));
+                a2.i.b.clear();
+                if (SocialType.UNKNOWN == getSocialType()) {
+                    this.m = a2.i.a().toString();
+                } else {
+                    this.m = a2.a().toString();
+                }
+            }
+        } catch (JSONException e2) {
+            L.e(e2);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void b() {
+        if (TextUtils.isEmpty(this.bduss) || TextUtils.isEmpty(this.k)) {
+            SapiAccount b2 = c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).b(this.bduss);
+            String cookiePtoken = SapiUtils.getCookiePtoken();
+            String cookieBduss = SapiUtils.getCookieBduss();
+            if (b2 != null && !TextUtils.isEmpty(b2.k)) {
+                this.k = b2.k;
+            } else if (this.bduss.equals(cookieBduss) && !TextUtils.isEmpty(cookiePtoken)) {
+                this.k = cookiePtoken;
+            }
+        }
+    }
+
+    private boolean c() {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
-        for (String str : c.a(context).k().m()) {
+        for (String str : c.a(context).k().n()) {
             if (context.getPackageName().matches(str)) {
                 return true;
             }

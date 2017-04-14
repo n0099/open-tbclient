@@ -8,7 +8,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class x {
-    public static String aq(String str, String str2) {
+    public static String ar(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -26,7 +26,7 @@ public class x {
         return "";
     }
 
-    public static Bundle gl(String str) {
+    public static Bundle gr(String str) {
         URL url;
         String query;
         String[] split;
@@ -56,17 +56,17 @@ public class x {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aJb;
+        public String aJr;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aJb = "";
+            this.aJr = "";
             this.BDUSS = str;
-            this.aJb = str2;
+            this.aJr = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aJb != null ? this.aJb.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aJr != null ? this.aJr.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -82,7 +82,7 @@ public class x {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aJb == null ? aVar.aJb == null : this.aJb.equals(aVar.aJb);
+                return this.aJr == null ? aVar.aJr == null : this.aJr.equals(aVar.aJr);
             }
             return false;
         }

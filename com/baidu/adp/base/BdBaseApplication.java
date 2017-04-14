@@ -14,7 +14,7 @@ public class BdBaseApplication extends MAApplication {
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        i.ch().a(super.getResources());
+        i.cg().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -22,14 +22,14 @@ public class BdBaseApplication extends MAApplication {
     private void initBdBaseApp(Application application) {
         sApp = this;
         this.mContext = application;
-        com.baidu.adp.lib.util.k.af(application);
+        com.baidu.adp.lib.util.k.ae(application);
         initWorkMode();
         initBitmapHelper();
         initPlugin();
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.jj().init();
+        com.baidu.adp.plugin.c.a.jn().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -61,11 +61,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.gM().ae(this.mContext);
+        com.baidu.adp.lib.util.d.gR().ad(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.cb().cd();
+        a.ca().cc();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > 30000) {
             this.lastGcTime = currentTimeMillis;
@@ -74,16 +74,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.cb().setActivityStackMaxSize(i);
+        a.ca().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.cb().getActivityStackMaxSize();
+        return a.ca().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = i.ch().getResources();
+        Resources resources = i.cg().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 

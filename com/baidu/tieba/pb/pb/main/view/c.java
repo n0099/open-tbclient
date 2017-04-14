@@ -13,13 +13,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbFakeFloorModel etV;
+    final /* synthetic */ PbFakeFloorModel erY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PbFakeFloorModel pbFakeFloorModel, int i, int i2) {
         super(i, i2);
-        this.etV = pbFakeFloorModel;
+        this.erY = pbFakeFloorModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -38,17 +38,17 @@ public class c extends com.baidu.adp.framework.listener.a {
         TbPageContext tbPageContext3;
         boolean z = false;
         if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-            bdUniqueId = this.etV.unique_id;
+            bdUniqueId = this.erY.unique_id;
             if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-                this.etV.etR = false;
+                this.erY.erU = false;
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        tbPageContext3 = this.etV.ajF;
+                        tbPageContext3 = this.erY.ajT;
                         errorString = tbPageContext3.getPageActivity().getResources().getString(w.l.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    tbPageContext2 = this.etV.ajF;
+                    tbPageContext2 = this.erY.ajT;
                     tbPageContext2.showToast(errorString);
                     return;
                 }
@@ -58,32 +58,32 @@ public class c extends com.baidu.adp.framework.listener.a {
                 } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
                     jVar6 = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
                 }
-                if (jVar6 != null && jVar6.aJS() != null) {
-                    PostData postData = (PostData) x.c(jVar6.aJS(), jVar6.aJS().size() - 1);
+                if (jVar6 != null && jVar6.aJZ() != null) {
+                    PostData postData = (PostData) x.c(jVar6.aJZ(), jVar6.aJZ().size() - 1);
                     if (postData != null) {
-                        jVar = this.etV.etQ;
+                        jVar = this.erY.erT;
                         if (jVar != null) {
-                            jVar2 = this.etV.etQ;
-                            if (jVar2.aJO() != null) {
-                                jVar3 = this.etV.etQ;
-                                if (jVar3.JN() != null) {
-                                    jVar4 = this.etV.etQ;
-                                    if (jVar4.JN().getAuthor() != null && postData.getAuthor() != null) {
-                                        jVar5 = this.etV.etQ;
-                                        String userId = jVar5.JN().getAuthor().getUserId();
+                            jVar2 = this.erY.erT;
+                            if (jVar2.aJV() != null) {
+                                jVar3 = this.erY.erT;
+                                if (jVar3.Kn() != null) {
+                                    jVar4 = this.erY.erT;
+                                    if (jVar4.Kn().getAuthor() != null && postData.getAuthor() != null) {
+                                        jVar5 = this.erY.erT;
+                                        String userId = jVar5.Kn().getAuthor().getUserId();
                                         if (userId != null && userId.equals(postData.getAuthor().getUserId())) {
                                             z = true;
                                         }
                                     }
                                 }
-                                tbPageContext = this.etV.ajF;
+                                tbPageContext = this.erY.ajT;
                                 postData.b(tbPageContext, z);
                             }
                         }
                     }
-                    aVar = this.etV.etT;
+                    aVar = this.erY.erW;
                     if (aVar != null) {
-                        aVar2 = this.etV.etT;
+                        aVar2 = this.erY.erW;
                         aVar2.i(postData);
                     }
                 }

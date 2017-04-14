@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.Toast;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.w;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class ch implements a.b {
-    final /* synthetic */ PbActivity elO;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(PbActivity pbActivity) {
-        this.elO = pbActivity;
-    }
-
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        Toast.makeText(this.elO.getPageContext().getPageActivity(), this.elO.getPageContext().getResources().getString(w.l.channel_no_push), 1).show();
+class ch implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
+                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(IntentConfig.REQUEST_CODE, 0), PbActivity.class);
+            } else {
+                customMessage.getData().startActivity(PbActivity.class);
+            }
+        }
+        return null;
     }
 }

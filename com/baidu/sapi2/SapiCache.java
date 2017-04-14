@@ -14,8 +14,11 @@ import com.baidu.sapi2.d;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
+import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.f;
+import com.baidu.sapi2.utils.g;
+import com.baidu.sapi2.utils.h;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,29 +34,28 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class SapiCache {
-    private static final int a = 3;
-    private static final Map<String, SoftReference<String>> b = new ConcurrentHashMap();
+    private static final Map<String, SoftReference<String>> a = new ConcurrentHashMap();
+    private static final List<String> b = new ArrayList();
     private static final List<String> c = new ArrayList();
-    private static final List<String> d = new ArrayList();
-    private static Context e;
+    private static Context d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void a(d.a.C0024a c0024a);
+        void a(d.a.C0023a c0023a);
 
-        void a(d.a.C0024a c0024a, String str);
+        void a(d.a.C0023a c0023a, String str);
     }
 
     private SapiCache() {
     }
 
     static void a(String str, String str2) {
-        b.put(str, new SoftReference<>(str2));
+        a.put(str, new SoftReference<>(str2));
     }
 
     static void a(String str) {
-        b.remove(str);
+        a.remove(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -63,20 +65,20 @@ public final class SapiCache {
 
     static String b(final Context context, String str) {
         e();
-        if (c.a(context).k().i().a()) {
+        if (c.a(context).k().j().a()) {
             String b2 = b(str);
             if (TextUtils.isEmpty(b2)) {
-                d.a.C0024a c2 = c(context, str);
+                d.a.C0023a c2 = c(context, str);
                 if (c2 != null) {
                     a(c2, new a() { // from class: com.baidu.sapi2.SapiCache.1
                         @Override // com.baidu.sapi2.SapiCache.a
-                        public void a(d.a.C0024a c0024a, String str2) {
-                            SapiCache.a(c0024a.a, str2);
+                        public void a(d.a.C0023a c0023a, String str2) {
+                            SapiCache.a(c0023a.a, str2);
                         }
 
                         @Override // com.baidu.sapi2.SapiCache.a
-                        public void a(d.a.C0024a c0024a) {
-                            SapiCache.a(context, c0024a);
+                        public void a(d.a.C0023a c0023a) {
+                            SapiCache.a(context, c0023a);
                         }
                     });
                     return b(str);
@@ -89,8 +91,8 @@ public final class SapiCache {
     }
 
     static String b(String str) {
-        if (b.containsKey(str) && b.get(str) != null) {
-            String str2 = b.get(str).get();
+        if (a.containsKey(str) && a.get(str) != null) {
+            String str2 = a.get(str).get();
             if (!TextUtils.isEmpty(str2)) {
                 return str2;
             }
@@ -98,10 +100,11 @@ public final class SapiCache {
         return null;
     }
 
-    static d.a.C0024a c(Context context, String str) {
-        for (d.a.C0024a c0024a : c.a(context).k().i().b()) {
-            if (c0024a.a.equals(str)) {
-                return c0024a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static d.a.C0023a c(Context context, String str) {
+        for (d.a.C0023a c0023a : c.a(context).k().j().b()) {
+            if (c0023a.a.equals(str)) {
+                return c0023a;
             }
         }
         return null;
@@ -111,79 +114,80 @@ public final class SapiCache {
         if (context == null) {
             throw new IllegalArgumentException("Context can't be null");
         }
-        e = context.getApplicationContext();
+        d = context.getApplicationContext();
         a();
         b();
     }
 
     static void a() {
-        d.a i = c.a(e).k().i();
-        if (i.a()) {
-            for (d.a.C0024a c0024a : i.b()) {
-                c.add(c0024a.a);
+        d.a j = c.a(d).k().j();
+        if (j.a()) {
+            for (d.a.C0023a c0023a : j.b()) {
+                b.add(c0023a.a);
             }
-            d.addAll(c);
-            for (d.a.C0024a c0024a2 : i.b()) {
-                a(c0024a2, new a() { // from class: com.baidu.sapi2.SapiCache.2
+            c.addAll(b);
+            for (d.a.C0023a c0023a2 : j.b()) {
+                a(c0023a2, new a() { // from class: com.baidu.sapi2.SapiCache.2
                     @Override // com.baidu.sapi2.SapiCache.a
-                    public void a(d.a.C0024a c0024a3, String str) {
-                        SapiCache.a(c0024a3.a, str);
+                    public void a(d.a.C0023a c0023a3, String str) {
+                        SapiCache.a(c0023a3.a, str);
                     }
 
                     @Override // com.baidu.sapi2.SapiCache.a
-                    public void a(d.a.C0024a c0024a3) {
-                        SapiCache.a(SapiCache.e, c0024a3);
+                    public void a(d.a.C0023a c0023a3) {
+                        SapiCache.a(SapiCache.d, c0023a3);
                     }
                 });
             }
         }
     }
 
-    static void a(d.a.C0024a c0024a, a aVar) {
+    static void a(d.a.C0023a c0023a, a aVar) {
         if (aVar == null) {
             throw new IllegalArgumentException(a.class.getName() + "can't be null");
         }
-        String c2 = d.a.C0024a.c(c0024a.a);
+        String c2 = d.a.C0023a.c(c0023a.a);
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && new File(Environment.getExternalStorageDirectory(), c2).exists()) {
                 String d2 = d(c2);
-                if (MD5Util.toMd5(d2.getBytes(), false).equals(c0024a.c)) {
-                    aVar.a(c0024a, d2);
+                if (MD5Util.toMd5(d2.getBytes(), false).equals(c0023a.c)) {
+                    aVar.a(c0023a, d2);
                 } else {
-                    aVar.a(c0024a);
+                    aVar.a(c0023a);
                 }
             } else {
-                aVar.a(c0024a);
+                aVar.a(c0023a);
             }
         } catch (Throwable th) {
-            aVar.a(c0024a);
+            aVar.a(c0023a);
         }
     }
 
-    static void a(Context context, d.a.C0024a c0024a) {
-        String a2 = d.a.C0024a.a(c0024a.a);
+    static void a(Context context, d.a.C0023a c0023a) {
+        String a2 = d.a.C0023a.a(c0023a.a);
         if (new File(context.getFilesDir(), a2).exists()) {
             try {
-                a(c0024a.a, e(context, a2));
+                a(c0023a.a, e(context, a2));
                 return;
             } catch (Throwable th) {
-                d(context, c0024a.a);
+                d(context, c0023a.a);
                 return;
             }
         }
-        d(context, c0024a.a);
+        d(context, c0023a.a);
     }
 
     static String d(Context context, String str) {
         try {
-            a(str, f(context, d.a.C0024a.b(str)));
+            a(str, f(context, d.a.C0023a.b(str)));
             return b(context, str);
         } catch (Throwable th) {
             return null;
         }
     }
 
-    static String c(String str) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String c(String str) {
         Uri parse;
         String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : ":" + parse.getPort()) + parse.getPath();
         if (!str2.endsWith(".html")) {
@@ -193,95 +197,19 @@ public final class SapiCache {
     }
 
     static void b() {
-        if (SapiUtils.hasActiveNetwork(e)) {
+        if (SapiUtils.hasActiveNetwork(d)) {
             try {
                 RequestParams c2 = c();
-                String b2 = com.baidu.sapi2.utils.d.b(f.B);
+                String b2 = e.b(f.B);
                 if (!TextUtils.isEmpty(b2)) {
-                    c2.put("di", b2);
+                    StatService.a("dvif_interface", Collections.singletonMap("di", b2), false);
                 }
                 c2.put("cdnversion", String.valueOf((int) (System.currentTimeMillis() / ReportUserInfoModel.TIME_INTERVAL)));
-                new AsyncHttpClient().get(e, d(), c2, new JsonHttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.3
+                new AsyncHttpClient().get(d, d(), c2, new JsonHttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.3
                     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
                     public void onSuccess(JSONObject jSONObject) {
                         if (jSONObject != null) {
-                            c.a(SapiCache.e).b(0);
-                            d k = c.a(SapiCache.e).k();
-                            final d a2 = d.a(jSONObject);
-                            d.a i = a2.i();
-                            c.a(SapiCache.e).a(a2);
-                            c.a(SapiCache.e).e();
-                            SapiCache.d.clear();
-                            if (i.a()) {
-                                for (d.a.C0024a c0024a : i.b()) {
-                                    SapiCache.d.add(c0024a.a);
-                                }
-                                for (final d.a.C0024a c0024a2 : i.b()) {
-                                    d.a.C0024a c0024a3 = null;
-                                    for (d.a.C0024a c0024a4 : k.i().b()) {
-                                        if (!c0024a4.a.equals(c0024a2.a)) {
-                                            c0024a4 = c0024a3;
-                                        }
-                                        c0024a3 = c0024a4;
-                                    }
-                                    if (!SapiCache.a(c0024a2, c0024a3)) {
-                                        c.a(SapiCache.e).a(a2);
-                                        SapiCache.a(c0024a2, new a() { // from class: com.baidu.sapi2.SapiCache.3.2
-                                            @Override // com.baidu.sapi2.SapiCache.a
-                                            public void a(d.a.C0024a c0024a5, String str) {
-                                            }
-
-                                            @Override // com.baidu.sapi2.SapiCache.a
-                                            public void a(d.a.C0024a c0024a5) {
-                                                String a3 = d.a.C0024a.a(c0024a5.a);
-                                                String c3 = d.a.C0024a.c(c0024a5.a);
-                                                if (new File(SapiCache.e.getFilesDir(), a3).exists()) {
-                                                    try {
-                                                        String e2 = SapiCache.e(SapiCache.e, a3);
-                                                        if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.e)) {
-                                                            SapiCache.a(c3, e2.getBytes());
-                                                        }
-                                                    } catch (Throwable th) {
-                                                        L.e(th);
-                                                    }
-                                                }
-                                            }
-                                        });
-                                    } else {
-                                        SapiCache.a(c0024a2, new a() { // from class: com.baidu.sapi2.SapiCache.3.1
-                                            @Override // com.baidu.sapi2.SapiCache.a
-                                            public void a(d.a.C0024a c0024a5, String str) {
-                                                c.a(SapiCache.e).a(a2);
-                                                if (!TextUtils.isEmpty(c0024a2.a) && !TextUtils.isEmpty(str)) {
-                                                    SapiCache.a(c0024a2.a, str);
-                                                    SapiCache.a(SapiCache.e, d.a.C0024a.a(c0024a2.a), str.getBytes());
-                                                }
-                                            }
-
-                                            @Override // com.baidu.sapi2.SapiCache.a
-                                            public void a(d.a.C0024a c0024a5) {
-                                                new AsyncHttpClient().get(SapiCache.e, c0024a2.b, SapiCache.c(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.3.1.1
-                                                    @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-                                                    public void onSuccess(String str) {
-                                                        if (!TextUtils.isEmpty(c0024a2.a) && !TextUtils.isEmpty(str) && c0024a2.c.equals(MD5Util.toMd5(str.getBytes(), false))) {
-                                                            c.a(SapiCache.e).a(a2);
-                                                            SapiCache.a(c0024a2.a, str);
-                                                            SapiCache.a(SapiCache.e, d.a.C0024a.a(c0024a2.a), str.getBytes());
-                                                            if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.e)) {
-                                                                SapiCache.a(d.a.C0024a.c(c0024a2.a), str.getBytes());
-                                                            }
-                                                        }
-                                                    }
-
-                                                    @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-                                                    public void onFailure(Throwable th, String str) {
-                                                    }
-                                                });
-                                            }
-                                        });
-                                    }
-                                }
-                            }
+                            SapiCache.a(jSONObject);
                         }
                     }
 
@@ -298,36 +226,144 @@ public final class SapiCache {
         }
     }
 
+    static void a(JSONObject jSONObject) {
+        d k = c.a(d).k();
+        h.a().c(new g(new AnonymousClass4(d.a(jSONObject), k)));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: com.baidu.sapi2.SapiCache$4  reason: invalid class name */
+    /* loaded from: classes.dex */
+    public final class AnonymousClass4 implements Runnable {
+        final /* synthetic */ d a;
+        final /* synthetic */ d b;
+
+        AnonymousClass4(d dVar, d dVar2) {
+            this.a = dVar;
+            this.b = dVar2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.a j = this.a.j();
+            final d.a j2 = this.b.j();
+            c.a(SapiCache.d).a(this.a);
+            c.a(SapiCache.d).a(SapiAccountManager.getInstance().getSession(), false);
+            SapiCache.c.clear();
+            if (j.a()) {
+                for (d.a.C0023a c0023a : j.b()) {
+                    SapiCache.c.add(c0023a.a);
+                }
+                for (final d.a.C0023a c0023a2 : j.b()) {
+                    d.a.C0023a c0023a3 = null;
+                    for (d.a.C0023a c0023a4 : this.b.j().b()) {
+                        if (!c0023a4.a.equals(c0023a2.a)) {
+                            c0023a4 = c0023a3;
+                        }
+                        c0023a3 = c0023a4;
+                    }
+                    if (!SapiCache.a(c0023a2, c0023a3)) {
+                        c.a(SapiCache.d).a(this.a);
+                        SapiCache.a(c0023a2, new a() { // from class: com.baidu.sapi2.SapiCache.4.2
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(d.a.C0023a c0023a5, String str) {
+                            }
+
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(d.a.C0023a c0023a5) {
+                                String a = d.a.C0023a.a(c0023a5.a);
+                                String c = d.a.C0023a.c(c0023a5.a);
+                                if (new File(SapiCache.d.getFilesDir(), a).exists()) {
+                                    try {
+                                        String e = SapiCache.e(SapiCache.d, a);
+                                        if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.d)) {
+                                            SapiCache.a(c, e.getBytes());
+                                        }
+                                    } catch (Throwable th) {
+                                        L.e(th);
+                                    }
+                                }
+                            }
+                        });
+                    } else {
+                        SapiCache.a(c0023a2, new a() { // from class: com.baidu.sapi2.SapiCache.4.1
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(d.a.C0023a c0023a5, String str) {
+                                c.a(SapiCache.d).a(AnonymousClass4.this.a);
+                                if (!TextUtils.isEmpty(c0023a2.a) && !TextUtils.isEmpty(str)) {
+                                    SapiCache.a(c0023a2.a, str);
+                                    SapiCache.a(SapiCache.d, d.a.C0023a.a(c0023a2.a), str.getBytes());
+                                }
+                            }
+
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(d.a.C0023a c0023a5) {
+                                new AsyncHttpClient().get(SapiCache.d, c0023a2.b, SapiCache.c(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.4.1.1
+                                    @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+                                    public void onSuccess(String str) {
+                                        SapiCache.a(str, c0023a2, AnonymousClass4.this.a);
+                                    }
+
+                                    @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+                                    public void onFailure(Throwable th, String str) {
+                                        AnonymousClass4.this.a.a(j2);
+                                        c.a(SapiCache.d).a(AnonymousClass4.this.a);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+    static void a(final String str, final d.a.C0023a c0023a, final d dVar) {
+        h.a().c(new g(new Runnable() { // from class: com.baidu.sapi2.SapiCache.5
+            @Override // java.lang.Runnable
+            public void run() {
+                if (!TextUtils.isEmpty(d.a.C0023a.this.a) && !TextUtils.isEmpty(str) && d.a.C0023a.this.c.equals(MD5Util.toMd5(str.getBytes(), false))) {
+                    c.a(SapiCache.d).a(dVar);
+                    SapiCache.a(d.a.C0023a.this.a, str);
+                    SapiCache.a(SapiCache.d, d.a.C0023a.a(d.a.C0023a.this.a), str.getBytes());
+                    if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.d)) {
+                        SapiCache.a(d.a.C0023a.c(d.a.C0023a.this.a), str.getBytes());
+                    }
+                }
+            }
+        }));
+    }
+
     static synchronized RequestParams c() {
         RequestParams requestParams;
         synchronized (SapiCache.class) {
             requestParams = new RequestParams();
             requestParams.put("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl);
             requestParams.put("sdk_version", SapiAccountManager.VERSION_NAME);
-            requestParams.put("app_version", SapiUtils.getVersionName(e));
+            requestParams.put("app_version", SapiUtils.getVersionName(d));
         }
         return requestParams;
     }
 
-    static boolean a(d.a.C0024a c0024a, d.a.C0024a c0024a2) {
-        return !TextUtils.isEmpty(c0024a.c) && (c0024a2 == null || !c0024a.c.equals(c0024a2.c));
+    static boolean a(d.a.C0023a c0023a, d.a.C0023a c0023a2) {
+        return !TextUtils.isEmpty(c0023a.c) && (c0023a2 == null || !c0023a.c.equals(c0023a2.c));
     }
 
     static String d() {
-        return (c.a(e).y() > 3 || !SapiAccountManager.getInstance().getSapiConfiguration().environment.equals(Domain.DOMAIN_ONLINE)) ? SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigUrl() + f.B : SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + f.C;
+        return !SapiAccountManager.getInstance().getSapiConfiguration().environment.equals(Domain.DOMAIN_ONLINE) ? SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigUrl() + f.B : SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + f.C;
     }
 
     static void e() {
         ArrayList<String> arrayList = new ArrayList();
-        for (String str : c) {
-            if (!d.contains(str)) {
+        for (String str : b) {
+            if (!c.contains(str)) {
                 arrayList.add(str);
                 a(str);
             }
         }
         for (String str2 : arrayList) {
-            if (c.contains(str2)) {
-                c.remove(str2);
+            if (b.contains(str2)) {
+                b.remove(str2);
             }
         }
     }
@@ -340,7 +376,7 @@ public final class SapiCache {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [532=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [552=4] */
     static void a(android.content.Context r3, java.lang.String r4, byte[] r5) {
         /*
             r0 = 0
@@ -385,7 +421,7 @@ public final class SapiCache {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.SapiCache.a(android.content.Context, java.lang.String, byte[]):void");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [565=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [585=4] */
     static void a(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;

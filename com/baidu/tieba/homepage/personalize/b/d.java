@@ -10,29 +10,29 @@ import com.baidu.tbadk.core.view.o;
 import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.m, a> {
-    private TbPageContext<?> ajF;
-    private o.a ajO;
-    public BdUniqueId baP;
-    private com.baidu.tieba.card.t czo;
-    cf<com.baidu.tieba.card.data.m> czp;
+    private TbPageContext<?> ajT;
+    private o.a akc;
+    public BdUniqueId baI;
+    private com.baidu.tieba.card.t cxO;
+    cf<com.baidu.tieba.card.data.m> cxP;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ajO = null;
-        this.czp = new e(this);
-        this.ajF = tbPageContext;
+        this.akc = null;
+        this.cxP = new e(this);
+        this.ajT = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: ab */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.czo = new com.baidu.tieba.card.t(this.ajF);
-        this.czo.Sk();
-        this.czo.j(this.ajF.getUniqueId());
-        return new a(this.czo);
+        this.cxO = new com.baidu.tieba.card.t(this.ajT);
+        this.cxO.SI();
+        this.cxO.j(this.ajT.getUniqueId());
+        return new a(this.cxO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,27 +41,27 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.m mVar, a aVar) {
         if (mVar != null) {
-            mVar.gI(i + 1);
+            mVar.gL(i + 1);
         }
-        aVar.czr.onBindDataToView(mVar);
-        aVar.czr.setOnSubCardOnClickListenner(this.czp);
-        aVar.czr.a(this.ajO);
+        aVar.cxR.onBindDataToView(mVar);
+        aVar.cxR.setOnSubCardOnClickListenner(this.cxP);
+        aVar.cxR.a(this.akc);
         TiebaStatic.log("c11823");
         return aVar.getView();
     }
 
     public void setEventCallback(o.a aVar) {
-        this.ajO = aVar;
+        this.akc = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends y.a {
-        public com.baidu.tieba.card.t czr;
+        public com.baidu.tieba.card.t cxR;
 
         public a(com.baidu.tieba.card.t tVar) {
             super(tVar.getView());
-            this.czr = tVar;
+            this.cxR = tVar;
         }
     }
 }

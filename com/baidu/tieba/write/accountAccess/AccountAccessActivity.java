@@ -10,33 +10,33 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
-    private NewWriteModel aAz;
-    private c fKP;
-    private a fKQ;
-    private AccessState fKR;
+    private NewWriteModel aAP;
+    private AccessState fMA;
+    private c fMy;
+    private a fMz;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fKP = new c(this);
+        this.fMy = new c(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.fKR = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.fMA = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.fKR == null) {
+            if (this.mWriteData == null || this.fMA == null) {
                 finish();
                 return;
             }
-            this.aAz = new NewWriteModel(this);
-            this.aAz.setWriteData(this.mWriteData);
+            this.aAP = new NewWriteModel(this);
+            this.aAP.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.aAz.ll(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.aAP.lo(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.fKQ = new a(this.fKP, this.aAz);
-            this.fKP.c(this.fKQ);
-            this.fKQ.start(bms());
+            this.fMz = new a(this.fMy, this.aAP);
+            this.fMy.c(this.fMz);
+            this.fMz.start(bnc());
         }
     }
 
@@ -54,14 +54,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.fKP.onDestory();
+        this.fMy.onDestory();
     }
 
-    public String bms() {
-        if (this.fKR == null || this.fKR.getUserInfo() == null) {
+    public String bnc() {
+        if (this.fMA == null || this.fMA.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.fKR.getToken(), this.fKR.getType(), this.fKR.getUserInfo().strMobile, this.fKR.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.fMA.getToken(), this.fMA.getType(), this.fMA.getUserInfo().strMobile, this.fMA.getUserInfo().strEmail);
     }
 
     @Override // android.app.Activity

@@ -1,126 +1,126 @@
 package com.baidu.tieba.frs;
 
 import android.widget.AbsListView;
-import com.baidu.tieba.frs.f.a;
+import com.baidu.tieba.frs.g.a;
 /* loaded from: classes.dex */
 class p implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity bNU;
-    private int aQT = 0;
-    private int aQS = 0;
+    final /* synthetic */ FrsActivity bNJ;
+    private int aRj = 0;
+    private int aRi = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsActivity frsActivity) {
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         com.baidu.tieba.frs.entelechy.b.d dVar;
         a aVar;
-        com.baidu.tieba.frs.f.as asVar;
+        com.baidu.tieba.frs.g.as asVar;
         int i4;
         com.baidu.tieba.frs.smartsort.c cVar;
-        ce ceVar;
-        ce ceVar2;
-        com.baidu.tieba.frs.f.u uVar;
+        cg cgVar;
+        cg cgVar2;
+        com.baidu.tieba.frs.g.u uVar;
         com.baidu.tieba.frs.smartsort.c cVar2;
-        com.baidu.tieba.frs.f.as asVar2;
-        com.baidu.tieba.frs.f.as asVar3;
+        com.baidu.tieba.frs.g.as asVar2;
+        com.baidu.tieba.frs.g.as asVar3;
         a aVar2;
         com.baidu.tieba.frs.entelechy.b.d dVar2;
-        com.baidu.tieba.frs.f.u uVar2;
-        dVar = this.bNU.bNd;
+        com.baidu.tieba.frs.g.u uVar2;
+        dVar = this.bNJ.bMT;
         if (dVar != null) {
-            dVar2 = this.bNU.bNd;
-            uVar2 = this.bNU.bMZ;
-            dVar2.a(absListView, i, i2, i3, uVar2.aei());
+            dVar2 = this.bNJ.bMT;
+            uVar2 = this.bNJ.bMP;
+            dVar2.a(absListView, i, i2, i3, uVar2.aed());
         }
-        aVar = this.bNU.bNn;
+        aVar = this.bNJ.bNc;
         if (aVar != null) {
-            aVar2 = this.bNU.bNn;
-            aVar2.adD();
+            aVar2 = this.bNJ.bNc;
+            aVar2.ady();
         }
-        asVar = this.bNU.bNo;
+        asVar = this.bNJ.bNd;
         if (asVar != null) {
-            asVar2 = this.bNU.bNo;
+            asVar2 = this.bNJ.bNd;
             asVar2.a(absListView, i);
-            asVar3 = this.bNU.bNo;
-            i4 = asVar3.aen();
+            asVar3 = this.bNJ.bNd;
+            i4 = asVar3.aei();
         } else {
             i4 = 0;
         }
-        cVar = this.bNU.bNg;
+        cVar = this.bNJ.bMW;
         if (cVar != null) {
-            cVar2 = this.bNU.bNg;
-            cVar2.adq();
+            cVar2 = this.bNJ.bMW;
+            cVar2.adk();
         }
-        ceVar = this.bNU.bNj;
-        if (ceVar != null) {
-            ceVar2 = this.bNU.bNj;
-            uVar = this.bNU.bMZ;
-            ceVar2.a(absListView, i + i4, i2, i3, uVar.aei() - i4, this.bNU.YL());
+        cgVar = this.bNJ.bMY;
+        if (cgVar != null) {
+            cgVar2 = this.bNJ.bMY;
+            uVar = this.bNJ.bMP;
+            cgVar2.a(absListView, i + i4, i2, i3, uVar.aed() - i4, this.bNJ.Zh());
         }
-        if (this.bNU.bMO != null && this.bNU.bMN != null && this.bNU.bMN.ZG() != null) {
-            this.aQT = i;
-            this.aQS = (i + i2) - 1;
-            this.bNU.bMN.ai(this.aQT, this.aQS);
+        if (this.bNJ.bME != null && this.bNJ.bMD != null && this.bNJ.bMD.aae() != null) {
+            this.aRj = i;
+            this.aRi = (i + i2) - 1;
+            this.bNJ.bMD.ai(this.aRj, this.aRi);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.tieba.frs.f.u uVar;
-        com.baidu.tieba.frs.f.as asVar;
+        com.baidu.tieba.frs.g.u uVar;
+        com.baidu.tieba.frs.g.as asVar;
         int i2;
-        ce ceVar;
+        cg cgVar;
         boolean z;
         com.baidu.adp.widget.ListView.x xVar;
-        ce ceVar2;
-        com.baidu.tieba.frs.f.as asVar2;
-        com.baidu.tieba.frs.f.as asVar3;
-        com.baidu.tieba.frs.f.u uVar2;
-        uVar = this.bNU.bMZ;
+        cg cgVar2;
+        com.baidu.tieba.frs.g.as asVar2;
+        com.baidu.tieba.frs.g.as asVar3;
+        com.baidu.tieba.frs.g.u uVar2;
+        uVar = this.bNJ.bMP;
         if (uVar != null) {
-            uVar2 = this.bNU.bMZ;
+            uVar2 = this.bNJ.bMP;
             uVar2.setScrollState(i);
         }
-        asVar = this.bNU.bNo;
+        asVar = this.bNJ.bNd;
         if (asVar != null) {
-            asVar2 = this.bNU.bNo;
+            asVar2 = this.bNJ.bNd;
             asVar2.onScrollStateChanged(absListView, i);
-            asVar3 = this.bNU.bNo;
-            i2 = asVar3.aen();
+            asVar3 = this.bNJ.bNd;
+            i2 = asVar3.aei();
         } else {
             i2 = 0;
         }
-        ceVar = this.bNU.bNj;
-        if (ceVar != null) {
-            ceVar2 = this.bNU.bNj;
-            ceVar2.a(absListView, i, i2);
+        cgVar = this.bNJ.bMY;
+        if (cgVar != null) {
+            cgVar2 = this.bNJ.bMY;
+            cgVar2.a(absListView, i, i2);
         }
         if (i == 2 || i == 1) {
-            z = this.bNU.bMU;
+            z = this.bNJ.bMK;
             if (!z) {
-                this.bNU.bMU = true;
-                this.bNU.bMN.ZJ();
+                this.bNJ.bMK = true;
+                this.bNJ.bMD.aah();
             }
         }
-        if (this.bNU.bMV == null) {
-            this.bNU.bMV = new com.baidu.tbadk.performanceLog.e();
-            this.bNU.bMV.fb(1000);
+        if (this.bNJ.bML == null) {
+            this.bNJ.bML = new com.baidu.tbadk.j.e();
+            this.bNJ.bML.fe(1000);
         }
         if (i != 0) {
-            this.bNU.bMN.setOnAdapterItemLongClickListener(null);
+            this.bNJ.bMD.setOnAdapterItemLongClickListener(null);
         } else {
-            com.baidu.tieba.card.cc.Sv().cN(true);
-            ax axVar = this.bNU.bMN;
-            xVar = this.bNU.bNS;
-            axVar.setOnAdapterItemLongClickListener(xVar);
-            this.bNU.bMN.ah(this.aQT, this.aQS);
+            com.baidu.tieba.card.cc.ST().cP(true);
+            az azVar = this.bNJ.bMD;
+            xVar = this.bNJ.bNH;
+            azVar.setOnAdapterItemLongClickListener(xVar);
+            this.bNJ.bMD.ah(this.aRj, this.aRi);
         }
-        this.bNU.bMV.FP();
+        this.bNJ.bML.Gn();
         if (i == 0) {
-            com.baidu.tieba.frs.utils.s.a(this.bNU.bMN, this.bNU.bMO, this.bNU.getForumId(), false, null);
+            com.baidu.tieba.frs.f.s.a(this.bNJ.bMD, this.bNJ.bME, this.bNJ.getForumId(), false, null);
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tieba.im.data.BlackListItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ f dkb;
+    final /* synthetic */ f diA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.dkb = fVar;
+        this.diA = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,7 +17,7 @@ public class g implements View.OnClickListener {
         IMBlackListActivity iMBlackListActivity;
         Object tag = view.getTag();
         if (tag != null && (tag instanceof BlackListItemData)) {
-            iMBlackListActivity = this.dkb.dka;
+            iMBlackListActivity = this.diA.diz;
             iMBlackListActivity.a(view, (BlackListItemData) tag);
         }
     }

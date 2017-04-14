@@ -4,22 +4,22 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements PopupWindow.OnDismissListener {
-    final /* synthetic */ o ajZ;
+    final /* synthetic */ o akn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(o oVar) {
-        this.ajZ = oVar;
+        this.akn = oVar;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
         PopupWindow popupWindow;
         PopupWindow popupWindow2;
-        popupWindow = this.ajZ.ajP;
+        popupWindow = this.akn.akd;
         if (popupWindow != null) {
-            popupWindow2 = this.ajZ.ajP;
+            popupWindow2 = this.akn.akd;
             popupWindow2.dismiss();
-            this.ajZ.ajP = null;
+            this.akn.akd = null;
         }
     }
 }

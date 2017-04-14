@@ -1,23 +1,12 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
+import android.view.View;
+import com.baidu.adp.widget.ListView.y;
 /* loaded from: classes.dex */
-public class bu {
-    private static bu bQb = new bu();
-    private SparseArray<bv> bQa = new SparseArray<>();
+public class bu extends y.a {
+    public com.baidu.tbadk.i.f bPN;
 
-    private bu() {
-    }
-
-    public static bu aad() {
-        return bQb;
-    }
-
-    public void a(int i, bv bvVar) {
-        this.bQa.put(i, bvVar);
-    }
-
-    public bv hR(int i) {
-        return this.bQa.get(i);
+    public bu(View view) {
+        super(view);
     }
 }

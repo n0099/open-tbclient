@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements v {
-    public static final BdUniqueId eBP = BdUniqueId.gen();
-    private List<com.baidu.tieba.personCenter.c.c> eBQ;
-    private String eBm;
-    private String eBn;
-    private List<f.a> eBo;
+    public static final BdUniqueId ezV = BdUniqueId.gen();
+    private List<com.baidu.tieba.personCenter.c.c> ezW;
+    private String ezs;
+    private String ezt;
+    private List<f.a> ezu;
     private String icon;
     private String name;
 
@@ -35,41 +35,41 @@ public class c implements v {
         this.icon = str;
     }
 
-    public String aQd() {
-        return this.eBm;
+    public String aQm() {
+        return this.ezs;
     }
 
-    public void nR(String str) {
-        this.eBm = str;
+    public void nV(String str) {
+        this.ezs = str;
     }
 
-    public String aQe() {
-        return this.eBn;
+    public String aQn() {
+        return this.ezt;
     }
 
-    public void nS(String str) {
-        this.eBn = str;
+    public void nW(String str) {
+        this.ezt = str;
     }
 
-    public List<f.a> aQf() {
-        return this.eBo;
+    public List<f.a> aQo() {
+        return this.ezu;
     }
 
-    public void cf(List<f.a> list) {
-        if (this.eBo == null) {
-            this.eBo = new ArrayList();
+    public void ce(List<f.a> list) {
+        if (this.ezu == null) {
+            this.ezu = new ArrayList();
         } else {
-            this.eBo.clear();
+            this.ezu.clear();
         }
-        if (this.eBQ == null) {
-            this.eBQ = new ArrayList();
+        if (this.ezW == null) {
+            this.ezW = new ArrayList();
         } else {
-            this.eBQ.clear();
+            this.ezW.clear();
         }
-        cg(list);
+        cf(list);
     }
 
-    private void cg(List<f.a> list) {
+    private void cf(List<f.a> list) {
         if (list != null) {
             for (f.a aVar : list) {
                 if (aVar != null && !StringUtils.isNull(aVar.title)) {
@@ -77,21 +77,21 @@ public class c implements v {
                         com.baidu.tieba.personCenter.c.c cVar = new com.baidu.tieba.personCenter.c.c();
                         cVar.iconId = w.g.icon_mine_buy;
                         cVar.title = TbadkCoreApplication.m9getInst().getString(w.l.consumption_records);
-                        cVar.eCX = new com.baidu.tieba.personCenter.d.a();
-                        cVar.eCX.bHe = 13;
-                        cVar.eCX.bHf = new Bundle();
-                        cVar.eCX.bHf.putString("type_center_consume_url", aVar.eBn);
-                        this.eBQ.add(cVar);
+                        cVar.eAU = new com.baidu.tieba.personCenter.d.a();
+                        cVar.eAU.bGX = 13;
+                        cVar.eAU.bGY = new Bundle();
+                        cVar.eAU.bGY.putString("type_center_consume_url", aVar.ezt);
+                        this.ezW.add(cVar);
                     } else if (aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.person_wallet_money)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.person_wallet_bankCard)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.person_wallet_card_coupons)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.get_tdou))) {
-                        this.eBo.add(aVar);
+                        this.ezu.add(aVar);
                     }
                 }
             }
         }
     }
 
-    public com.baidu.tieba.personCenter.c.c nT(String str) {
-        for (com.baidu.tieba.personCenter.c.c cVar : this.eBQ) {
+    public com.baidu.tieba.personCenter.c.c nX(String str) {
+        for (com.baidu.tieba.personCenter.c.c cVar : this.ezW) {
             if (cVar != null && str != null && str.equals(cVar.title)) {
                 return cVar;
             }
@@ -101,6 +101,6 @@ public class c implements v {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return eBP;
+        return ezV;
     }
 }

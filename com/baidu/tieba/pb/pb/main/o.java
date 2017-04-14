@@ -7,41 +7,41 @@ import com.baidu.tieba.tbadkCore.PraiseModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class o implements PraiseModel.a {
-    final /* synthetic */ PbActivity elO;
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PbActivity pbActivity) {
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-    public void hi(String str) {
+    public void hm(String str) {
         PraiseModel praiseModel;
         PbModel pbModel;
-        this.elO.ell = false;
-        praiseModel = this.elO.elm;
+        this.ejU.ejr = false;
+        praiseModel = this.ejU.ejs;
         if (praiseModel != null) {
-            pbModel = this.elO.ejZ;
+            pbModel = this.ejU.eif;
             com.baidu.tieba.pb.data.f pbData = pbModel.getPbData();
-            if (pbData.aJq().rG().getIsLike() == 1) {
-                this.elO.m18if(0);
+            if (pbData.aJx().se().getIsLike() == 1) {
+                this.ejU.ii(0);
             } else {
-                this.elO.m18if(1);
+                this.ejU.ii(1);
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aJq()));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aJx()));
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
     public void w(int i, String str) {
         PraiseModel praiseModel;
-        this.elO.ell = false;
-        praiseModel = this.elO.elm;
+        this.ejU.ejr = false;
+        praiseModel = this.ejU.ejs;
         if (praiseModel != null && str != null) {
-            if (AntiHelper.rZ(i)) {
-                AntiHelper.an(this.elO.getPageContext().getPageActivity(), str);
+            if (AntiHelper.rX(i)) {
+                AntiHelper.aq(this.ejU.getPageContext().getPageActivity(), str);
             } else {
-                this.elO.showToast(str);
+                this.ejU.showToast(str);
             }
         }
     }

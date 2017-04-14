@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class n {
-    private String Ay;
-    private int Bl;
-    private int Bm;
-    private boolean Bn;
-    private boolean Bo;
-    private int Bp;
-    private int Bq;
-    private boolean Br;
-    private boolean Bs;
+    private int AM;
+    private int AN;
+    private boolean AO;
+    private boolean AP;
+    private int AQ;
+    private int AR;
+    private boolean AS;
+    private boolean AT;
+    private String zY;
 
     public n() {
-        this.Ay = null;
-        this.Bl = 32768;
-        this.Bm = 131072;
-        this.Bn = false;
-        this.Bo = true;
-        this.Bp = 30000;
-        this.Bq = 30000;
-        this.Br = true;
-        this.Bs = true;
-        this.Ay = null;
+        this.zY = null;
+        this.AM = 32768;
+        this.AN = 131072;
+        this.AO = false;
+        this.AP = true;
+        this.AQ = 30000;
+        this.AR = 30000;
+        this.AS = true;
+        this.AT = true;
+        this.zY = null;
     }
 
     public n(n nVar) {
-        this.Ay = null;
-        this.Bl = nVar.Bl;
-        this.Bm = nVar.Bm;
-        this.Bn = nVar.Bn;
-        this.Bo = nVar.Bo;
-        this.Bp = nVar.Bp;
-        this.Bq = nVar.Bq;
-        this.Br = nVar.Br;
-        this.Bs = nVar.Bs;
-        this.Ay = nVar.Ay;
+        this.zY = null;
+        this.AM = nVar.AM;
+        this.AN = nVar.AN;
+        this.AO = nVar.AO;
+        this.AP = nVar.AP;
+        this.AQ = nVar.AQ;
+        this.AR = nVar.AR;
+        this.AS = nVar.AS;
+        this.AT = nVar.AT;
+        this.zY = nVar.zY;
     }
 
-    public boolean ii() {
-        return this.Bn;
+    public boolean im() {
+        return this.AO;
     }
 
-    public int ij() {
-        return this.Bl;
+    public int in() {
+        return this.AM;
     }
 
-    public int ik() {
-        return this.Bm;
+    public int io() {
+        return this.AN;
     }
 
     public boolean getTcpNoDelay() {
-        return this.Bo;
+        return this.AP;
     }
 
-    public int il() {
-        return this.Bp;
+    public int ip() {
+        return this.AQ;
     }
 
-    public int im() {
-        return this.Bq;
+    public int iq() {
+        return this.AR;
     }
 
-    public boolean in() {
-        return this.Br;
+    public boolean ir() {
+        return this.AS;
     }
 
-    public boolean io() {
-        return this.Bs;
+    public boolean is() {
+        return this.AT;
     }
 
-    public String ip() {
-        return this.Ay;
+    public String it() {
+        return this.zY;
     }
 
-    public void aQ(String str) {
-        this.Ay = str;
+    public void aL(String str) {
+        this.zY = str;
     }
 }

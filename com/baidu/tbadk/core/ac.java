@@ -1,19 +1,22 @@
 package com.baidu.tbadk.core;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.util.f<Boolean> {
+public class ac implements Runnable {
+    private final /* synthetic */ boolean SW;
     final /* synthetic */ TbadkCoreApplication this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(TbadkCoreApplication tbadkCoreApplication) {
+    public ac(TbadkCoreApplication tbadkCoreApplication, boolean z) {
         this.this$0 = tbadkCoreApplication;
+        this.SW = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.f
-    public void onReturnDataInUI(Boolean bool) {
-        if (bool != null) {
-            this.this$0.mIsOfficial = bool.booleanValue();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_EMOTION, new com.baidu.tbadk.mainTab.a(this.SW)));
     }
 }

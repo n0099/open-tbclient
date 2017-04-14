@@ -1,35 +1,17 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tieba.write.view.PostCategoryView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.TimePickerDialog;
+import android.widget.TimePicker;
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fQG;
+class ai implements TimePickerDialog.OnTimeSetListener {
+    final /* synthetic */ WriteActivity fSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(WriteActivity writeActivity) {
-        this.fQG = writeActivity;
+        this.fSq = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PostCategoryView postCategoryView;
-        InputMethodManager inputMethodManager;
-        EditText boJ;
-        InputMethodManager inputMethodManager2;
-        EditText boI;
-        postCategoryView = this.fQG.fPS;
-        postCategoryView.bnI();
-        WriteActivity writeActivity = this.fQG;
-        inputMethodManager = this.fQG.mInputManager;
-        boJ = this.fQG.boJ();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, boJ);
-        WriteActivity writeActivity2 = this.fQG;
-        inputMethodManager2 = this.fQG.mInputManager;
-        boI = this.fQG.boI();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, boI);
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
     }
 }

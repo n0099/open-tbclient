@@ -17,7 +17,7 @@ public class at extends ak implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] EH() {
+    public byte[] Ff() {
         return null;
     }
 

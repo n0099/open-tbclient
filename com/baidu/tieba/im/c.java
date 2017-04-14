@@ -1,37 +1,45 @@
 package com.baidu.tieba.im;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.util.t;
-import com.baidu.tieba.im.db.l;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseApplyMessage;
+import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
+import com.baidu.tieba.im.b.j;
+import com.baidu.tieba.im.message.ResponseCommitInviteMessage;
+import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.message.ResponseUploadClientLogMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 /* loaded from: classes.dex */
-public class c extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
+public class c {
+    public static void init() {
+        amI();
+        amJ();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-            boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
-            if (!isNull) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.yK().c(new com.baidu.tbadk.coreExtra.c.e());
-                com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgChat(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgAtme(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgFans(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgGiftNum(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yK().setMsgLiveVip(0);
-                com.baidu.tbadk.coreExtra.messageCenter.a.yK().zc();
-                t.GV();
-                l.apQ().apy();
-                com.baidu.tieba.im.db.k.apP().apy();
-            }
-            t.b(new d(this, isNull), new e(this));
-        }
+    private static void amI() {
+        e.b(104102, ResponseUpdateMaskInfoMessage.class, false);
+        e.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+        e.b(202009, PushResponseMessage.class, false);
+        e.b(202006, PushNotifyMessageDecoder.class, false);
+        e.b(104103, ResponseGetMaskInfoMessage.class, false);
+        e.b(304100, ResponseAddFriendMessage.class, false);
+        e.b(304102, ResponseDeleteFriendMessage.class, false);
+        e.b(304103, ResponseApplyMessage.class, false);
+        e.b(202005, ResponseUploadClientLogMessage.class, false);
+        e.b(205002, ResponseCommitInviteMessage.class, false);
+        e.b(104104, ResponseCheckUserMaskMessage.class, false);
+    }
+
+    private static boolean amJ() {
+        MessageManager.getInstance().addResponsedMessageRule(new d(202006));
+        MessageManager.getInstance().addResponsedMessageRule(new j());
+        MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.push.h());
+        MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.b.i());
+        return true;
     }
 }

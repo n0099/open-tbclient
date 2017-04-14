@@ -7,19 +7,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg implements a.b {
-    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
+    final /* synthetic */ ImMemoryCacheRegister this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
-        this.this$0 = imMemoryCacheRegisterStatic;
+    public bg(ImMemoryCacheRegister imMemoryCacheRegister) {
+        this.this$0 = imMemoryCacheRegister;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.asj().a(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        b.asc().a(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void f(String str, List<CommonMsgPojo> list) {
+    public void h(String str, List<CommonMsgPojo> list) {
     }
 }

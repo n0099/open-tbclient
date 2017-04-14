@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.entelechy.b;
 /* loaded from: classes.dex */
 public interface f {
-    void abi();
+    void abF();
 
-    void abj();
+    void abG();
 
-    void abk();
+    void abH();
 
-    void abl();
+    void abI();
 }

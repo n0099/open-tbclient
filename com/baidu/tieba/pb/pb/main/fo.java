@@ -1,41 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.CompoundButton;
-import java.util.List;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class fo implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ fa etn;
+public class fo implements View.OnClickListener {
+    final /* synthetic */ ey erv;
+    private final /* synthetic */ boolean ery;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fo(fa faVar) {
-        this.etn = faVar;
+    public fo(ey eyVar, boolean z) {
+        this.erv = eyVar;
+        this.ery = z;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        List list;
-        List<com.baidu.tieba.pb.pb.main.view.a> list2;
-        String str;
-        String str2;
-        if (z) {
-            this.etn.erZ = (String) compoundButton.getTag();
-            list = this.etn.eqQ;
-            if (list != null) {
-                list2 = this.etn.eqQ;
-                for (com.baidu.tieba.pb.pb.main.view.a aVar : list2) {
-                    String str3 = (String) aVar.getTag();
-                    if (str3 != null) {
-                        str = this.etn.erZ;
-                        if (str != null) {
-                            str2 = this.etn.erZ;
-                            if (!str3.equals(str2)) {
-                                aVar.setChecked(false);
-                            }
-                        }
-                    }
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        if (this.ery) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11923").s("obj_id", 2));
+        }
+        pbActivity = this.erv.eig;
+        if (pbActivity.eiT.erI != null) {
+            pbActivity2 = this.erv.eig;
+            pbActivity2.eiT.erI.onClick(view);
         }
     }
 }

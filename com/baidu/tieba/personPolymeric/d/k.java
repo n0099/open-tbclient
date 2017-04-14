@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
-    private ImageView aXE;
-    private TextView czG;
+    private ImageView aXS;
+    private TextView cyg;
     private View mRootView;
 
     public k(TbPageContext<?> tbPageContext) {
@@ -19,16 +19,16 @@ public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void W(View view) {
         this.mRootView = view.findViewById(w.h.card_null_polymeric_rootview);
-        this.aXE = (ImageView) view.findViewById(w.h.card_null_polymeric_icon);
-        this.czG = (TextView) view.findViewById(w.h.card_null_polymeric_txt);
+        this.aXS = (ImageView) view.findViewById(w.h.card_null_polymeric_icon);
+        this.cyg = (TextView) view.findViewById(w.h.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             aq.j(this.mRootView, w.e.cp_bg_line_d);
-            aq.c(this.aXE, w.g.emotion07);
-            aq.c(this.czG, w.e.cp_cont_c, 1);
+            aq.c(this.aXS, w.g.emotion07);
+            aq.c(this.cyg, w.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -50,10 +50,10 @@ public class k extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        TextView textView = this.czG;
+        TextView textView = this.cyg;
         String string2 = this.mContext.getString(w.l.person_polymeric_null_data);
         Object[] objArr = new Object[1];
-        if (hVar.bhu) {
+        if (hVar.bho) {
             string = this.mContext.getString(w.l.you);
         } else {
             string = hVar.sex == 2 ? this.mContext.getString(w.l.person_identity_she) : this.mContext.getString(w.l.he);

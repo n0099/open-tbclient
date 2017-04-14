@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.data;
 import tbclient.GetMyShelf.BookInfo;
 /* loaded from: classes.dex */
 public class j {
-    public String Un;
-    public String Uo;
-    public int Up;
-    public String Uq;
-    public int Ur = -1;
-    public int Us;
-    public int Ut;
-    public int Uu;
-    public long Uv;
+    public String UH;
+    public String UI;
+    public int UJ;
+    public String UK;
+    public int UL = -1;
+    public int UM;
+    public int UN;
+    public int UO;
+    public long UQ;
     public String authorName;
     public long cartoonId;
     public long forumId;
@@ -20,11 +20,11 @@ public class j {
         if (bookInfo != null) {
             this.forumId = bookInfo.forum_id.longValue();
             this.cartoonId = bookInfo.cartoon_id.longValue();
-            this.Un = bookInfo.cover_img;
-            this.Uo = bookInfo.cartoon_name;
-            this.Up = bookInfo.total_chapter.intValue();
-            this.Uq = bookInfo.first_chapter_id;
-            this.Us = bookInfo.is_finish.intValue();
+            this.UH = bookInfo.cover_img;
+            this.UI = bookInfo.cartoon_name;
+            this.UJ = bookInfo.total_chapter.intValue();
+            this.UK = bookInfo.first_chapter_id;
+            this.UM = bookInfo.is_finish.intValue();
             this.authorName = bookInfo.author_name;
         }
     }

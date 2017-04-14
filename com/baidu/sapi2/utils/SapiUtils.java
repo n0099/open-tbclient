@@ -34,6 +34,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.security.MessageDigest;
@@ -79,7 +80,7 @@ public class SapiUtils {
     static final String a = "cmd";
     static final String b = "error";
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
-    static final String d = "http://www.";
+    static final String d = "https://www.";
     static final String e = Character.toString(2);
     static final String f = Character.toString(3);
 
@@ -102,33 +103,61 @@ public class SapiUtils {
         }
     }
 
-    public static String getMacAddress(Context context) {
-        WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
-        return connectionInfo != null ? connectionInfo.getMacAddress() : "";
+    public static String getMacAddress() {
+        String str;
+        String readLine;
+        String str2 = null;
+        try {
+            LineNumberReader lineNumberReader = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address").getInputStream()));
+            while (true) {
+                if (lineNumberReader.readLine() == null) {
+                    break;
+                }
+                str2 = str2 + readLine.trim();
+            }
+            lineNumberReader.close();
+            str = str2;
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            str = str2;
+        }
+        return str == null ? "" : str;
     }
 
     public static String getCpuName() {
         try {
-            return new BufferedReader(new FileReader("/proc/cpuinfo")).readLine().split(":\\s+", 2)[1];
+            FileReader fileReader = new FileReader("/proc/cpuinfo");
+            String readLine = new BufferedReader(fileReader).readLine();
+            if (fileReader != null) {
+                fileReader.close();
+            }
+            if (!TextUtils.isEmpty(readLine)) {
+                return readLine.split(":\\s+", 2)[1];
+            }
         } catch (FileNotFoundException e2) {
             L.e(e2);
-            return "";
         } catch (IOException e3) {
             L.e(e3);
-            return "";
         }
+        return "";
     }
 
     public static String getRamMemorySize() {
         try {
-            return new BufferedReader(new FileReader("/proc/meminfo")).readLine().split(":\\s+", 2)[1].replace("kB", "").trim();
+            FileReader fileReader = new FileReader("/proc/meminfo");
+            String readLine = new BufferedReader(fileReader).readLine();
+            if (fileReader != null) {
+                fileReader.close();
+            }
+            if (!TextUtils.isEmpty(readLine)) {
+                return readLine.split(":\\s+", 2)[1].replace("kB", "").trim();
+            }
         } catch (FileNotFoundException e2) {
             L.e(e2);
-            return "";
         } catch (IOException e3) {
             L.e(e3);
-            return "";
         }
+        return "";
     }
 
     public static long getInternalMemorySize() {
@@ -323,7 +352,7 @@ public class SapiUtils {
         return (new File("/system/bin/su").exists() && a("/system/bin/su")) || (new File("/system/xbin/su").exists() && a("/system/xbin/su"));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [527=5, 529=4, 530=4, 531=4, 535=4, 536=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [580=5, 582=4, 583=4, 584=4, 588=4, 589=4] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0084  */
     /* JADX WARN: Removed duplicated region for block: B:61:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -491,8 +520,8 @@ public class SapiUtils {
 
     public static String getLocation(Context context) {
         try {
-            c cVar = new c(context);
-            return cVar.a(15) != null ? cVar.a(15) : "";
+            d dVar = new d(context);
+            return dVar.a(15) != null ? dVar.a(15) : "";
         } catch (Exception e2) {
             L.e(e2);
             return "";
@@ -601,6 +630,13 @@ public class SapiUtils {
 
     public static String buildPtokenCookie(String str, String str2) {
         return a(str, "PTOKEN", str2);
+    }
+
+    public static String buildStokenCookie(String str, String str2) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(1, TextUtils.isEmpty(str2) ? -8 : 8);
+        return a(str, "STOKEN", str2, calendar.getTime(), true);
     }
 
     static String a(String str, String str2, String str3) {
@@ -772,7 +808,7 @@ public class SapiUtils {
 
     public static void resetSilentShareStatus(Context context) {
         if (context != null && com.baidu.sapi2.c.a(context).d() == null) {
-            com.baidu.sapi2.c.a(context).j();
+            com.baidu.sapi2.c.a(context).i();
         }
     }
 
@@ -791,6 +827,9 @@ public class SapiUtils {
     }
 
     public static boolean checkRequestPermission(String str, Context context) {
-        return Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0;
+        if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
+            return Build.VERSION.SDK_INT < 23 && context.checkCallingOrSelfPermission(str) == 0;
+        }
+        return true;
     }
 }

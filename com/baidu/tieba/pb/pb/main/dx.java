@@ -1,35 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dx extends cz<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.g> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public dx(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class dx implements View.OnClickListener {
+    private final /* synthetic */ String ehs;
+    private final /* synthetic */ String eht;
+    private final /* synthetic */ String ehu;
+    final /* synthetic */ dw ene;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dx(dw dwVar, String str, String str2, String str3) {
+        this.ene = dwVar;
+        this.ehs = str;
+        this.eht = str2;
+        this.ehu = str3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aY */
-    public com.baidu.tieba.pb.pb.a.g onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.g(LayoutInflater.from(this.mContext).inflate(w.j.pb_no_data_item_layout, viewGroup, false), this.mContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.cz, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.g gVar) {
-        super.onFillViewHolder(i, view, viewGroup, iVar, gVar);
-        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-        this.eka.getLayoutMode().ah(this.mSkinType == 1);
-        this.eka.getLayoutMode().t(view);
-        return view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m9getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.ehs) && !StringUtils.isNull(this.eht)) {
+            if (com.baidu.adp.lib.util.i.hj()) {
+                context = this.ene.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.ehs) + "," + this.eht, this.ehu, this.ehu, context.getString(w.l.app_info_for_map));
+                context2 = this.ene.mContext;
+                com.baidu.tbadk.browser.f.S(context2, format);
+                return;
+            }
+            this.ene.eig.showToast(w.l.neterror);
+        }
     }
 }

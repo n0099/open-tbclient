@@ -2,55 +2,34 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cr extends CustomMessageListener {
-    final /* synthetic */ cp emB;
+    final /* synthetic */ cn ekI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cr(cp cpVar, int i) {
+    public cr(cn cnVar, int i) {
         super(i);
-        this.emB = cpVar;
+        this.ekI = cnVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
         com.baidu.tieba.pb.data.f fVar;
-        PbActivity pbActivity;
-        List<DownloadData> data;
-        boolean z;
-        if (customResponsedMessage != null) {
-            fVar = this.emB.ejb;
-            if (fVar != null) {
-                pbActivity = this.emB.eka;
-                if (!com.baidu.adp.base.k.Y(pbActivity.getActivity()).isScroll() && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-                    Iterator<DownloadData> it = data.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            z = false;
-                            break;
-                        } else if (it.next().getStatus() == 0) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    if (z) {
-                        com.baidu.adp.lib.g.h.fM().postDelayed(new cs(this), TimeUnit.SECONDS.toMillis(2L));
-                    }
-                }
-            }
+        if (customResponsedMessage == null) {
+            return;
         }
+        list = this.ekI.bRT;
+        if (!com.baidu.tbadk.core.util.x.q(list)) {
+            return;
+        }
+        this.ekI.abo();
+        cn cnVar = this.ekI;
+        fVar = this.ekI.ehh;
+        cnVar.b(fVar);
     }
 }

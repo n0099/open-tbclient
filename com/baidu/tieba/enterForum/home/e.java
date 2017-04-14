@@ -1,28 +1,31 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.RequestEnterForumDataMessage;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements bb.a {
-    @Override // com.baidu.tbadk.core.util.bb.a
-    public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-        if (strArr == null || strArr.length <= 0) {
-            return 3;
-        }
-        String str = strArr[0];
-        if (TextUtils.isEmpty(str) || !str.startsWith("wefan:")) {
-            return 3;
-        }
-        try {
-            Intent intent = new Intent();
-            intent.setData(Uri.parse(str));
-            tbPageContext.getPageActivity().startActivity(intent);
-            return 0;
-        } catch (Exception e) {
-            return 3;
+public class e extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        EnterForumModel enterForumModel;
+        EnterForumModel enterForumModel2;
+        if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
+            if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
+                enterForumModel2 = EnterForumDelegateStatic.bEo;
+                enterForumModel2.dk(true);
+                return;
+            }
+            enterForumModel = EnterForumDelegateStatic.bEo;
+            enterForumModel.dj(true);
         }
     }
 }

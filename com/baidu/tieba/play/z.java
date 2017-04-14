@@ -8,13 +8,13 @@ import com.baidu.tieba.play.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends Handler {
-    final /* synthetic */ y eWe;
+    final /* synthetic */ y eUd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(y yVar, Looper looper) {
         super(looper);
-        this.eWe = yVar;
+        this.eUd = yVar;
     }
 
     @Override // android.os.Handler
@@ -29,31 +29,31 @@ public class z extends Handler {
         y.a aVar;
         y.a aVar2;
         if (message != null && message.what == 1) {
-            mediaPlayerControl = this.eWe.aWD;
+            mediaPlayerControl = this.eUd.aWQ;
             if (mediaPlayerControl != null) {
-                mediaPlayerControl2 = this.eWe.aWD;
+                mediaPlayerControl2 = this.eUd.aWQ;
                 if (mediaPlayerControl2.isPlaying()) {
-                    mediaPlayerControl3 = this.eWe.aWD;
+                    mediaPlayerControl3 = this.eUd.aWQ;
                     int currentPosition = mediaPlayerControl3.getCurrentPosition();
-                    i = this.eWe.eWc;
+                    i = this.eUd.eUb;
                     if (currentPosition >= i) {
-                        i2 = this.eWe.eWc;
+                        i2 = this.eUd.eUb;
                         if (currentPosition == i2) {
-                            bVar = this.eWe.eWd;
+                            bVar = this.eUd.eUc;
                             if (bVar != null) {
-                                bVar2 = this.eWe.eWd;
-                                bVar2.aXL();
+                                bVar2 = this.eUd.eUc;
+                                bVar2.aXU();
                             }
                         }
                     } else {
-                        aVar = this.eWe.aSb;
+                        aVar = this.eUd.aSr;
                         if (aVar != null) {
-                            aVar2 = this.eWe.aSb;
-                            aVar2.Ki();
+                            aVar2 = this.eUd.aSr;
+                            aVar2.KI();
                         }
                     }
-                    this.eWe.eWc = currentPosition;
-                    this.eWe.aXK();
+                    this.eUd.eUb = currentPosition;
+                    this.eUd.aXT();
                 }
             }
         }

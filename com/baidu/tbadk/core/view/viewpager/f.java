@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private int amT;
-    private List<v> anb;
-    private List<v> anc;
-    private boolean and;
-    private boolean ane;
-    private int anf = 2;
-    private int ang = 1;
+    private int anh;
+    private List<v> anp;
+    private List<v> anq;
+    private boolean anr;
+    private boolean ans;
+    private int ant = 2;
+    private int anu = 1;
 
     public f(List<v> list, boolean z, int i) {
-        this.amT = 2;
-        this.anb = list;
-        this.ane = z;
-        this.amT = i;
+        this.anh = 2;
+        this.anp = list;
+        this.ans = z;
+        this.anh = i;
         r(list);
     }
 
     public void r(List<v> list) {
-        if (list != null && list.size() >= this.anf && list.size() <= this.amT) {
-            this.and = true;
-        } else if (list.size() > this.amT && this.ane) {
-            this.and = true;
+        if (list != null && list.size() >= this.ant && list.size() <= this.anh) {
+            this.anr = true;
+        } else if (list.size() > this.anh && this.ans) {
+            this.anr = true;
         } else {
-            this.and = false;
+            this.anr = false;
         }
-        this.anc = xg();
+        this.anq = xC();
     }
 
-    private List<v> xg() {
+    private List<v> xC() {
         ArrayList arrayList = new ArrayList();
-        if (this.anb != null) {
-            if (this.and) {
-                if (this.anb.size() > this.amT && this.anb.size() >= this.ang) {
-                    arrayList.addAll(this.anb.subList(0, this.amT));
-                    arrayList.addAll(0, this.anb.subList(this.amT - this.ang, this.amT));
-                    arrayList.addAll(this.anb.subList(0, this.ang));
+        if (this.anp != null) {
+            if (this.anr) {
+                if (this.anp.size() > this.anh && this.anp.size() >= this.anu) {
+                    arrayList.addAll(this.anp.subList(0, this.anh));
+                    arrayList.addAll(0, this.anp.subList(this.anh - this.anu, this.anh));
+                    arrayList.addAll(this.anp.subList(0, this.anu));
                 } else {
-                    arrayList.addAll(this.anb);
-                    arrayList.addAll(0, this.anb.subList(this.anb.size() - this.ang, this.anb.size()));
-                    arrayList.addAll(this.anb.subList(0, this.ang));
+                    arrayList.addAll(this.anp);
+                    arrayList.addAll(0, this.anp.subList(this.anp.size() - this.anu, this.anp.size()));
+                    arrayList.addAll(this.anp.subList(0, this.anu));
                 }
-            } else if (this.anb != null && this.anb.size() > 0 && this.anb.size() >= this.ang) {
-                arrayList.addAll(this.anb.subList(0, this.ang));
+            } else if (this.anp != null && this.anp.size() > 0 && this.anp.size() >= this.anu) {
+                arrayList.addAll(this.anp.subList(0, this.anu));
             }
         }
         return arrayList;
     }
 
-    public int dq(int i) {
-        if (this.and) {
-            int size = this.anc.size();
+    public int dt(int i) {
+        if (this.anr) {
+            int size = this.anq.size();
             if (i == 0) {
-                return (size - 1) - this.ang;
+                return (size - 1) - this.anu;
             }
-            if (i == size - this.ang) {
-                return this.ang;
+            if (i == size - this.anu) {
+                return this.anu;
             }
             return i;
         }
         return i;
     }
 
-    public int dr(int i) {
-        if (this.and) {
-            return i - this.ang;
+    public int du(int i) {
+        if (this.anr) {
+            return i - this.anu;
         }
         return i;
     }
 
-    public int xh() {
-        if (this.anb == null) {
+    public int xD() {
+        if (this.anp == null) {
             return 0;
         }
-        return this.anb.size();
+        return this.anp.size();
     }
 
-    public int xi() {
-        if (this.and) {
-            return this.ang;
+    public int xE() {
+        if (this.anr) {
+            return this.anu;
         }
         return 0;
     }
 
-    public void ds(int i) {
-        this.amT = i;
-        r(this.anb);
+    public void dv(int i) {
+        this.anh = i;
+        r(this.anp);
     }
 
-    public void dt(int i) {
-        this.anf = i;
-        r(this.anb);
+    public void dw(int i) {
+        this.ant = i;
+        r(this.anp);
     }
 
-    public List<v> xj() {
-        return this.anc;
+    public List<v> xF() {
+        return this.anq;
     }
 
-    public void du(int i) {
-        this.ang = i;
-        r(this.anb);
+    public void dx(int i) {
+        this.anu = i;
+        r(this.anp);
     }
 }

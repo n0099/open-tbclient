@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.List;
 /* loaded from: classes.dex */
 class ak implements View.OnClickListener {
-    final /* synthetic */ ag fME;
+    final /* synthetic */ ag fOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ag agVar) {
-        this.fME = agVar;
+        this.fOn = agVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,13 +19,13 @@ class ak implements View.OnClickListener {
         o oVar2;
         com.baidu.tieba.write.view.a aVar2;
         NavigationBar navigationBar;
-        aVar = this.fME.fMC;
-        oVar = this.fME.fKY;
-        List<d> bmV = oVar.bmV();
-        oVar2 = this.fME.fKY;
-        aVar.b(bmV, oVar2.bmT());
-        aVar2 = this.fME.fMC;
-        navigationBar = this.fME.mNavigationBar;
-        aVar2.aJ(navigationBar);
+        aVar = this.fOn.fOl;
+        oVar = this.fOn.fMH;
+        List<d> bnF = oVar.bnF();
+        oVar2 = this.fOn.fMH;
+        aVar.b(bnF, oVar2.bnD());
+        aVar2 = this.fOn.fOl;
+        navigationBar = this.fOn.mNavigationBar;
+        aVar2.aH(navigationBar);
     }
 }

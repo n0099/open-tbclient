@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        MessageManager.getInstance().registerListener(new m(CmdConfigCustom.IM_DELETE_IM_DB));
+        MessageManager.getInstance().registerListener(new n(CmdConfigCustom.IM_DELETE_IM_DB));
     }
 }

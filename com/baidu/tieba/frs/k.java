@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes.dex */
 class k extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bNU;
+    final /* synthetic */ FrsActivity bNJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(FrsActivity frsActivity, int i) {
         super(i);
-        this.bNU = frsActivity;
+        this.bNJ = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && b.uo().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1) != -1 && this.bNU.bMO.aJp() != null) {
-            this.bNU.bMO.aJp().setCanAddPhotoLivePost(true);
+        if (customResponsedMessage != null && b.uL().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "photolive_hostLevel", -1) != -1 && this.bNJ.bME.aJw() != null) {
+            this.bNJ.bME.aJw().setCanAddPhotoLivePost(true);
         }
     }
 }

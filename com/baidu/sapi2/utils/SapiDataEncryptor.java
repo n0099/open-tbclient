@@ -2,7 +2,6 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -55,22 +54,22 @@ public class SapiDataEncryptor {
         PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
         JSONArray jSONArray = new JSONArray();
         byte[] bytes = str2.getBytes("UTF-8");
-        if (bytes.length % SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE == 0) {
-            length = bytes.length / SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE;
+        if (bytes.length % 116 == 0) {
+            length = bytes.length / 116;
         } else {
-            length = (bytes.length / SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE) + 1;
+            length = (bytes.length / 116) + 1;
         }
         for (int i = 0; i < length; i++) {
             if (1 == length) {
                 jSONArray.put(Base64.encode(a(publicKey, bytes), "UTF-8"));
             } else if (i != length - 1) {
-                byte[] bArr = new byte[SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE];
-                System.arraycopy(bytes, i * SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE, bArr, 0, SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE);
+                byte[] bArr = new byte[116];
+                System.arraycopy(bytes, i * 116, bArr, 0, 116);
                 jSONArray.put(Base64.encode(a(publicKey, bArr), "UTF-8"));
             } else {
-                int length2 = bytes.length - (i * SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE);
+                int length2 = bytes.length - (i * 116);
                 byte[] bArr2 = new byte[length2];
-                System.arraycopy(bytes, i * SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE, bArr2, 0, length2);
+                System.arraycopy(bytes, i * 116, bArr2, 0, length2);
                 jSONArray.put(Base64.encode(a(publicKey, bArr2), "UTF-8"));
             }
         }
@@ -160,7 +159,7 @@ public class SapiDataEncryptor {
 
     public static String encryptPwd(String str) {
         byte[] a2;
-        if (str == null || (a2 = com.baidu.sapi2.utils.b.a(String.valueOf(TextUtils.getReverse(str, 0, str.length())), b.b)) == null) {
+        if (str == null || (a2 = c.a(String.valueOf(TextUtils.getReverse(str, 0, str.length())), b.b)) == null) {
             return null;
         }
         return a(a2);

@@ -8,17 +8,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements ap {
-    final /* synthetic */ ag fME;
-    private final /* synthetic */ String fMF;
+    final /* synthetic */ ag fOn;
+    private final /* synthetic */ String fOo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ag agVar, String str) {
-        this.fME = agVar;
-        this.fMF = str;
+        this.fOn = agVar;
+        this.fOo = str;
     }
 
     @Override // com.baidu.tieba.write.album.ap
-    public void li() {
+    public void lm() {
     }
 
     @Override // com.baidu.tieba.write.album.ap
@@ -33,10 +33,10 @@ public class am implements ap {
         if (!com.baidu.tbadk.core.util.x.q(list2)) {
             arrayList.addAll(list2);
         }
-        if (!this.fMF.equals("-1")) {
-            textView = this.fME.bIN;
+        if (!this.fOo.equals("-1")) {
+            textView = this.fOn.bIG;
             textView.setText(str);
-            this.fME.bng();
+            this.fOn.bnQ();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
@@ -44,11 +44,11 @@ public class am implements ap {
                 arrayList2.addAll(list);
             }
             d dVar = new d();
-            dVar.qC("-1");
-            albumActivity = this.fME.fLm;
+            dVar.qW("-1");
+            albumActivity = this.fOn.fMV;
             String string = albumActivity.getPageContext().getString(w.l.write_album_all);
             dVar.setName(string);
-            dVar.qD(String.valueOf(arrayList.size()));
+            dVar.qX(String.valueOf(arrayList.size()));
             if (arrayList.size() > 0) {
                 dVar.f((ImageFileInfo) arrayList.get(0));
             }
@@ -56,14 +56,14 @@ public class am implements ap {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.fME.bIN;
+            textView2 = this.fOn.bIG;
             textView2.setText(string);
-            oVar = this.fME.fKY;
-            oVar.cZ(arrayList2);
-            oVar2 = this.fME.fKY;
-            oVar2.da(arrayList);
+            oVar = this.fOn.fMH;
+            oVar.cY(arrayList2);
+            oVar2 = this.fOn.fMH;
+            oVar2.cZ(arrayList);
             z = true;
         }
-        this.fME.setData(arrayList, z);
+        this.fOn.setData(arrayList, z);
     }
 }

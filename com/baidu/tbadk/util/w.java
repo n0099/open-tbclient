@@ -19,28 +19,28 @@ public class w {
         return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean fh(int i) {
+    public static boolean fk(int i) {
         switch (i) {
             case 1:
             case 2:
-                return (com.baidu.adp.lib.util.i.hg() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hf() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+                return (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
             case 3:
             case 4:
-                return com.baidu.adp.lib.util.i.hf();
+                return com.baidu.adp.lib.util.i.hk();
             case 5:
-                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (com.baidu.tbadk.switchs.o.GB() && com.baidu.adp.lib.util.i.hf() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
+                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (com.baidu.tbadk.n.o.GZ() && com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
             default:
-                return (com.baidu.adp.lib.util.i.hg() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hf() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+                return (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
         }
     }
 
     public static boolean q(int i, String str) {
-        if (!au.isEmpty(at.gT(str))) {
+        if (!au.isEmpty(at.gX(str))) {
             if (TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
                 return false;
             }
-            return (com.baidu.adp.lib.util.i.hg() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0) ? false : true;
+            return (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0) ? false : true;
         }
-        return fh(i);
+        return fk(i);
     }
 }

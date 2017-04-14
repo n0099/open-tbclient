@@ -6,40 +6,55 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
+    private static EnterForumModel bEo;
+
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
         return MainTabActivityConfig.ENTER_FORUM_DELEGATE_AVAILABLE;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c EF() {
+    public com.baidu.tbadk.mainTab.c Fd() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aDP = new f();
+        cVar.aEf = new f();
         cVar.type = 1;
-        cVar.aDQ = w.l.home;
-        cVar.aDR = w.g.s_tabbar_icon_two_bg;
+        cVar.aEg = w.l.home;
+        cVar.aEh = w.g.s_tabbar_icon_two_bg;
         return cVar;
     }
 
     static {
-        d dVar = new d(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        dVar.setPriority(2);
-        MessageManager.getInstance().registerListener(dVar);
-        Vq();
+        a aVar = new a(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
+        aVar.setPriority(2);
+        MessageManager.getInstance().registerListener(aVar);
+        VM();
+        VN();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aN(Context context) {
-        this.aDC = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
-        return this.aDC;
+    public FragmentTabIndicator aP(Context context) {
+        this.aDS = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
+        return this.aDS;
     }
 
-    private static void Vq() {
-        bb.vQ().a(new e());
+    private static void VM() {
+        bb.wn().a(new b());
+    }
+
+    private static void VN() {
+        com.baidu.tieba.tbadkCore.d.c.biG();
+        if (bEo == null) {
+            bEo = new EnterForumModel(null);
+            bEo.a(new c());
+        }
+        MessageManager.getInstance().registerListener(new d(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011));
+        MessageManager.getInstance().registerListener(new e(CmdConfigCustom.CMD_REQUEST_ENTER_FORUM_MESSAGE));
     }
 }

@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.Plugin;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -48,7 +47,7 @@ public class ProcessMonitor {
         if (TextUtils.isEmpty(this.mBrowser)) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.baidu.com"));
             ResolveInfo resolveActivity = this.mContext.getPackageManager().resolveActivity(intent, 0);
-            if (resolveActivity != null && resolveActivity.activityInfo != null && resolveActivity.activityInfo.packageName.equals(SocialConstants.ANDROID_CLIENT_TYPE) && resolveActivity.activityInfo.name.equals("com.android.internal.app.ResolverActivity")) {
+            if (resolveActivity != null && resolveActivity.activityInfo != null && resolveActivity.activityInfo.packageName.equals("android") && resolveActivity.activityInfo.name.equals("com.android.internal.app.ResolverActivity")) {
                 for (ResolveInfo resolveInfo : this.mContext.getPackageManager().queryIntentActivities(intent, 65536)) {
                     if ((resolveInfo.activityInfo.applicationInfo.flags & 1) != 0) {
                         str4 = resolveInfo.activityInfo.packageName + "/" + resolveInfo.activityInfo.name;

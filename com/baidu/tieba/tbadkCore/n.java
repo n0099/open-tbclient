@@ -1,12 +1,14 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.BannerListData;
@@ -14,11 +16,11 @@ import com.baidu.tbadk.core.data.FeedForumData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
 import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.data.an;
+import com.baidu.tbadk.core.data.am;
+import com.baidu.tbadk.core.data.av;
 import com.baidu.tbadk.core.data.aw;
-import com.baidu.tbadk.core.data.ax;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.data.bn;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bm;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.as;
@@ -27,83 +29,83 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends l implements com.baidu.tbadk.mvc.b.l {
-    private int fsM = 0;
-    private boolean fsN;
-    private BannerListData fsO;
+    private int fuw = 0;
+    private boolean fux;
+    private BannerListData fuy;
 
     public void c(v vVar) {
         if (vVar != null) {
-            this.ehK.setCurScore(vVar.getCurScore());
-            this.ehK.setLevelupScore(vVar.getLevelupScore());
-            this.ehK.setLike(vVar.isLike());
-            this.ehK.setUser_level(vVar.getUserLevel());
-            this.ehK.setLevelName(vVar.getLevelName());
+            this.efR.setCurScore(vVar.getCurScore());
+            this.efR.setLevelupScore(vVar.getLevelupScore());
+            this.efR.setLike(vVar.isLike());
+            this.efR.setUser_level(vVar.getUserLevel());
+            this.efR.setLevelName(vVar.getLevelName());
         }
     }
 
     public void d(SignData signData) {
         if (signData != null) {
-            this.ehK.setSignData(signData);
+            this.efR.setSignData(signData);
         }
     }
 
     public SignData getSignData() {
-        if (this.ehK == null) {
+        if (this.efR == null) {
             return null;
         }
-        return this.ehK.getSignData();
+        return this.efR.getSignData();
     }
 
-    public void bgn() {
-        bn top_notice_data;
+    public void bha() {
+        bm top_notice_data;
         com.baidu.adp.widget.ListView.v vVar;
-        if (aJp() != null && this.threadList != null && (top_notice_data = aJp().getTop_notice_data()) != null && top_notice_data.getTitle() != null) {
-            while (!this.threadList.isEmpty() && (vVar = this.threadList.get(0)) != null && (vVar instanceof bj) && ((bj) vVar).rM() == 2) {
+        if (aJw() != null && this.threadList != null && (top_notice_data = aJw().getTop_notice_data()) != null && top_notice_data.getTitle() != null) {
+            while (!this.threadList.isEmpty() && (vVar = this.threadList.get(0)) != null && (vVar instanceof bi) && ((bi) vVar).sk() == 2) {
                 this.threadList.remove(0);
             }
-            bj bjVar = new bj();
-            bjVar.setTitle(top_notice_data.getTitle());
-            bjVar.ci(top_notice_data.te());
-            bjVar.bQ(2);
-            bjVar.sy();
-            this.threadList.add(0, bjVar);
+            bi biVar = new bi();
+            biVar.setTitle(top_notice_data.getTitle());
+            biVar.cp(top_notice_data.tC());
+            biVar.bT(2);
+            biVar.sW();
+            this.threadList.add(0, biVar);
         }
     }
 
-    public void a(an anVar) {
-        if (anVar != null && !StringUtils.isNull(anVar.getId()) && this.threadList != null) {
-            int acT = acT();
+    public void a(am amVar) {
+        if (amVar != null && !StringUtils.isNull(amVar.getId()) && this.threadList != null) {
+            int acN = acN();
             ArrayList<com.baidu.adp.widget.ListView.v> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
                 int size = threadList.size();
                 for (int i = 0; i < size; i++) {
                     com.baidu.adp.widget.ListView.v vVar = threadList.get(i);
-                    if ((vVar instanceof bj) && anVar.getId().equals(((bj) vVar).getId())) {
+                    if ((vVar instanceof bi) && amVar.getId().equals(((bi) vVar).getId())) {
                         return;
                     }
                 }
             }
-            if (anVar.isPhotoLiveThread()) {
-                aw awVar = new aw();
-                awVar.a(anVar, -1);
-                awVar.setPost_num(1);
+            if (amVar.isPhotoLiveThread()) {
+                av avVar = new av();
+                avVar.a(amVar, -1);
+                avVar.setPost_num(1);
                 if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                    this.fsM++;
-                    this.threadList.add(acT, awVar);
+                    this.fuw++;
+                    this.threadList.add(acN, avVar);
                     return;
                 }
                 return;
             }
-            this.fsM++;
-            this.threadList.add(acT, anVar);
+            this.fuw++;
+            this.threadList.add(acN, amVar);
         }
     }
 
-    public void bgo() {
-        this.fsM = 0;
+    public void bhb() {
+        this.fuw = 0;
     }
 
-    public int acT() {
+    public int acN() {
         if (this.threadList == null || this.threadList.size() <= 0) {
             return 0;
         }
@@ -111,8 +113,8 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
         int i = 0;
         while (it.hasNext()) {
             com.baidu.adp.widget.ListView.v next = it.next();
-            if (next instanceof bj) {
-                if (((bj) next).rM() != 0) {
+            if (next instanceof bi) {
+                if (((bi) next).sk() != 0) {
                     i++;
                 } else {
                     return i;
@@ -122,24 +124,24 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
         return i;
     }
 
-    private int rA() {
+    private int rY() {
         Iterator<com.baidu.adp.widget.ListView.v> it = this.threadList.iterator();
         while (it.hasNext()) {
             com.baidu.adp.widget.ListView.v next = it.next();
-            if ((next instanceof bj) && ((bj) next).rO() == 1) {
-                return ((bj) next).rA();
+            if ((next instanceof bi) && ((bi) next).sm() == 1) {
+                return ((bi) next).rY();
             }
         }
         return -1;
     }
 
-    public void bgp() {
+    public void bhc() {
         if (this.threadList != null && this.threadList.size() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < this.threadList.size()) {
-                    if (this.threadList.get(i2).getType() == bj.XN || this.threadList.get(i2).getType() == bj.XO) {
+                    if (this.threadList.get(i2).getType() == bi.Yd || this.threadList.get(i2).getType() == bi.Ye) {
                         this.threadList.remove(i2);
                     }
                     i = i2 + 1;
@@ -150,9 +152,9 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
         }
     }
 
-    public void bgq() {
+    public void bhd() {
         int i;
-        if (this.threadList != null && this.threadList.size() > 0 && this.dms != null && this.dms.qO() == 1 && this.threadList != null && this.threadList.size() > 0) {
+        if (this.threadList != null && this.threadList.size() > 0 && this.dkR != null && this.dkR.rl() == 1 && this.threadList != null && this.threadList.size() > 0) {
             int size = this.threadList.size();
             int i2 = 0;
             while (true) {
@@ -161,15 +163,15 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
                     break;
                 }
                 com.baidu.adp.widget.ListView.v vVar = this.threadList.get(i2);
-                if ((vVar instanceof bj) && vVar.getType() == bj.YT) {
+                if ((vVar instanceof bi) && vVar.getType() == bi.Zj) {
                     i = i2;
                     break;
                 }
                 i2++;
             }
-            int acT = acT();
-            if (i > acT) {
-                this.threadList.add(acT, this.threadList.remove(i));
+            int acN = acN();
+            if (i > acN) {
+                this.threadList.add(acN, this.threadList.remove(i));
             }
         }
     }
@@ -184,16 +186,16 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
 
     public void a(BaseActivity baseActivity, boolean z, ArrayList<com.baidu.adp.widget.ListView.v> arrayList, ArrayList<com.baidu.adp.widget.ListView.v> arrayList2, boolean z2) {
         BannerListData bannerListData;
-        if (!this.fsN) {
-            if (this.ehK != null) {
-                bannerListData = this.ehK.getBannerListData();
+        if (!this.fux) {
+            if (this.efR != null) {
+                bannerListData = this.efR.getBannerListData();
             } else {
                 return;
             }
         } else {
-            bannerListData = this.fsO;
+            bannerListData = this.fuy;
         }
-        this.fsN = false;
+        this.fux = false;
         if (bannerListData != null && bannerListData.getAllAdvertList() != null && arrayList != null && arrayList.size() > 0) {
             com.baidu.tieba.InjectPlugin.b.b bVar = new com.baidu.tieba.InjectPlugin.b.b(baseActivity.getPageContext(), 2);
             ArrayList arrayList3 = new ArrayList();
@@ -204,53 +206,53 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
             bVar.H(arrayList3);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar));
             com.baidu.tieba.InjectPlugin.b.b bVar2 = new com.baidu.tieba.InjectPlugin.b.b(baseActivity.getPageContext(), 3);
-            bVar2.cd(z);
+            bVar2.cf(z);
             bVar2.G(arrayList);
             bVar2.I(arrayList2);
-            bVar2.ce(z2);
-            bVar2.bU(getPage().qO());
+            bVar2.cg(z2);
+            bVar2.bX(rr().rl());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         }
     }
 
-    public void bgr() {
+    public void bhe() {
         boolean z = true;
-        if (this.ehK != null && this.threadList != null && bj.XQ.get() && this.dms != null && this.dms.qO() == 1) {
-            if (this.frN == null || !this.frN.bgH()) {
+        if (this.efR != null && this.threadList != null && bi.Yg.get() && this.dkR != null && this.dkR.rl() == 1) {
+            if (this.fty == null || !this.fty.bhs()) {
                 z = false;
             }
-            if (this.frL || z || (getUserData() != null && getUserData().isBawu())) {
+            if (this.ftw || z || (getUserData() != null && getUserData().isBawu())) {
                 while (!this.threadList.isEmpty() && (this.threadList.get(0) instanceof w)) {
                     this.threadList.remove(0);
                 }
                 w wVar = new w();
-                wVar.ld(this.frL);
-                wVar.pH(this.frM);
-                wVar.b(this.frN);
-                wVar.bQ(1003);
+                wVar.lg(this.ftw);
+                wVar.pY(this.ftx);
+                wVar.b(this.fty);
+                wVar.bT(1003);
                 if (this.threadList != null && this.threadList.size() > 0) {
-                    com.baidu.tbadk.core.util.x.a(this.threadList, acT(), wVar);
+                    com.baidu.tbadk.core.util.x.a(this.threadList, acN(), wVar);
                 }
             }
         }
     }
 
-    public void bgs() {
-        if (this.ehK != null) {
-            if (((this.ehK.getTopCode() != null && !StringUtils.isNull(this.ehK.getTopCode().sY())) || (this.ehK.getNewsInfo() != null && !StringUtils.isNull(this.ehK.getNewsInfo().sY()))) && this.dms != null && this.dms.qO() == 1) {
+    public void bhf() {
+        if (this.efR != null) {
+            if (((this.efR.getTopCode() != null && !StringUtils.isNull(this.efR.getTopCode().tw())) || (this.efR.getNewsInfo() != null && !StringUtils.isNull(this.efR.getNewsInfo().tw()))) && this.dkR != null && this.dkR.rl() == 1) {
                 af afVar = new af();
-                afVar.a(this.ehK.getTopCode());
-                afVar.a(this.ehK.getNewsInfo());
-                afVar.bQ(3);
-                afVar.le(true);
+                afVar.a(this.efR.getTopCode());
+                afVar.a(this.efR.getNewsInfo());
+                afVar.bT(3);
+                afVar.lh(true);
                 if (!com.baidu.tbadk.core.util.x.q(this.threadList)) {
                     Iterator<com.baidu.adp.widget.ListView.v> it = this.threadList.iterator();
                     int i = 0;
                     while (it.hasNext()) {
                         com.baidu.adp.widget.ListView.v next = it.next();
-                        if ((next instanceof bj) && ((bj) next).rM() != 0) {
-                            if (((bj) next).rM() == 1003) {
-                                afVar.le(false);
+                        if ((next instanceof bi) && ((bi) next).sk() != 0) {
+                            if (((bi) next).sk() == 1003) {
+                                afVar.lh(false);
                             }
                             i++;
                         }
@@ -261,37 +263,37 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
         }
     }
 
-    public void bgt() {
+    public void bhg() {
         int size = this.threadList.size();
         for (int i = 0; i < size; i++) {
             com.baidu.adp.widget.ListView.v vVar = this.threadList.get(i);
-            if (vVar instanceof bj) {
-                bj bjVar = (bj) vVar;
-                if (bjVar.isPhotoLiveThread() && !(bjVar instanceof aw)) {
-                    aw awVar = new aw();
-                    awVar.m(bfI());
-                    awVar.a(bjVar, 0);
+            if (vVar instanceof bi) {
+                bi biVar = (bi) vVar;
+                if (biVar.isPhotoLiveThread() && !(biVar instanceof av)) {
+                    av avVar = new av();
+                    avVar.m(bgw());
+                    avVar.a(biVar, 0);
                     if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                        this.threadList.set(i, awVar);
+                        this.threadList.set(i, avVar);
                     }
                 }
             }
         }
     }
 
-    public void bgu() {
+    public void bhh() {
         int i;
-        if (aJp() != null) {
-            List<PhotoLiveCardData> bfI = bfI();
+        if (aJw() != null) {
+            List<PhotoLiveCardData> bgw = bgw();
             ArrayList<com.baidu.adp.widget.ListView.v> threadList = getThreadList();
-            if (bfI != null && bfI.size() > 0 && threadList != null && threadList.size() > 0) {
+            if (bgw != null && bgw.size() > 0 && threadList != null && threadList.size() > 0) {
                 int size = threadList.size();
                 int i2 = 0;
                 while (true) {
                     if (i2 >= size) {
                         i = size;
                         break;
-                    } else if (!(threadList.get(i2) instanceof aw)) {
+                    } else if (!(threadList.get(i2) instanceof av)) {
                         i2++;
                     } else {
                         threadList.remove(i2);
@@ -299,16 +301,16 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
                         break;
                     }
                 }
-                int rP = rP(i);
-                aw awVar = new aw();
-                a(awVar, bfI);
-                getThreadList().add(rP, awVar);
+                int rN = rN(i);
+                av avVar = new av();
+                a(avVar, bgw);
+                getThreadList().add(rN, avVar);
             }
         }
     }
 
-    private void a(aw awVar, List<PhotoLiveCardData> list) {
-        if (awVar != null && !com.baidu.tbadk.core.util.x.q(list) && list.get(0) != null) {
+    private void a(av avVar, List<PhotoLiveCardData> list) {
+        if (avVar != null && !com.baidu.tbadk.core.util.x.q(list) && list.get(0) != null) {
             PhotoLiveCardData photoLiveCardData = list.get(0);
             MetaData metaData = new MetaData();
             metaData.setName_show(photoLiveCardData.getAuthorName());
@@ -316,113 +318,104 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
             metaData.setPortrait(photoLiveCardData.getAuthorPortrait());
             metaData.setFansNickName(photoLiveCardData.getNickName());
             metaData.setFansNum(photoLiveCardData.getFansNum());
-            awVar.setThreadType(33);
-            awVar.setAuthor(metaData);
-            awVar.co(photoLiveCardData.getForumName());
-            awVar.setTitle(photoLiveCardData.getTitle());
-            awVar.setPhotoLiveCover(photoLiveCardData.getPhotoLiveCover());
-            awVar.ci(new StringBuilder(String.valueOf(photoLiveCardData.getThreadId())).toString());
-            awVar.m(photoLiveCardData.getLastModifiedTime());
-            awVar.bP(photoLiveCardData.getDiscussNum());
+            avVar.setThreadType(33);
+            avVar.setAuthor(metaData);
+            avVar.cv(photoLiveCardData.getForumName());
+            avVar.setTitle(photoLiveCardData.getTitle());
+            avVar.setPhotoLiveCover(photoLiveCardData.getPhotoLiveCover());
+            avVar.cp(new StringBuilder(String.valueOf(photoLiveCardData.getThreadId())).toString());
+            avVar.m(photoLiveCardData.getLastModifiedTime());
+            avVar.bS(photoLiveCardData.getDiscussNum());
         }
     }
 
-    private int rP(int i) {
-        int acT = acT();
-        int bfP = bfP();
-        if (bfL()) {
-            bfP++;
+    private int rN(int i) {
+        int acN = acN();
+        int bgC = bgC();
+        if (bgz()) {
+            bgC++;
         }
-        return Math.min((bfP + acT) - 1, i);
+        return Math.min((bgC + acN) - 1, i);
     }
 
-    public void bgv() {
-        bj bfT;
-        ArrayList<com.baidu.adp.widget.ListView.v> threadList;
+    public void bhi() {
+        bi bgG;
         int i;
-        if (aJp() != null && (bfT = bfT()) != null && (threadList = getThreadList()) != null && threadList.size() > 0) {
-            int size = threadList.size();
-            int i2 = 0;
-            while (true) {
-                if (i2 >= size) {
-                    i = size;
-                    break;
-                } else if (!(threadList.get(i2) instanceof aw)) {
-                    i2++;
-                } else {
-                    threadList.remove(i2);
-                    i = size - 1;
-                    break;
+        if (aJw() != null && (bgG = bgG()) != null) {
+            Log.e(PbActivityConfig.VALUE_FROM_FRS, "addCardVideoInfoToThreadList cardVideoInfo:" + bgG.getTid());
+            ArrayList<com.baidu.adp.widget.ListView.v> threadList = getThreadList();
+            if (threadList != null && threadList.size() > 0) {
+                int size = threadList.size();
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= size) {
+                        i = size;
+                        break;
+                    } else if (!(threadList.get(i2) instanceof av)) {
+                        i2++;
+                    } else {
+                        threadList.remove(i2);
+                        i = size - 1;
+                        break;
+                    }
                 }
+                threadList.add(rN(i), bgG);
             }
-            threadList.add(rP(i), bfT);
         }
     }
 
-    public void bgw() {
-        if (aJp() != null) {
-            List<com.baidu.adp.widget.ListView.v> bgf = bgf();
-            List<Integer> bge = bge();
+    public void bhj() {
+        if (aJw() != null) {
+            List<com.baidu.adp.widget.ListView.v> bgS = bgS();
+            List<Integer> bgR = bgR();
             ArrayList<com.baidu.adp.widget.ListView.v> threadList = getThreadList();
-            if (bge != null && bge.size() > 0 && bgf != null && bgf.size() > 0 && threadList != null) {
-                int size = bge.size();
+            if (bgR != null && bgR.size() > 0 && bgS != null && bgS.size() > 0 && threadList != null) {
+                int size = bgR.size();
                 int size2 = threadList.size();
                 for (int i = 0; i < size; i++) {
-                    if (i < bgf.size()) {
-                        threadList.add(bp(bge.get(i).intValue(), size2), bgf.get(i));
+                    if (i < bgS.size()) {
+                        com.baidu.adp.widget.ListView.v vVar = bgS.get(i);
+                        int bm = bm(bgR.get(i).intValue(), size2);
+                        Log.e(PbActivityConfig.VALUE_FROM_FRS, "addVideoInfoToThreadListInTenAndFifteenFloor  insertPos:" + bm + "  Title:" + vVar.getType());
+                        threadList.add(bm, vVar);
                     }
                 }
             }
         }
     }
 
-    private int bp(int i, int i2) {
-        int acT = acT();
-        if (bfL()) {
+    private int bm(int i, int i2) {
+        int acN = acN();
+        if (bgz()) {
             i++;
         }
-        return Math.min((acT + i) - 1, i2);
+        return Math.min((acN + i) - 1, i2);
     }
 
-    public void bgx() {
-        if (bfL()) {
-            int acT = acT();
-            if (rA() == 0) {
-                acT++;
+    public void bhk() {
+        if (bgz()) {
+            int acN = acN();
+            if (rY() == 0) {
+                acN++;
             }
-            ax axVar = new ax();
-            axVar.a(bfM());
+            aw awVar = new aw();
+            awVar.a(bgA());
             ArrayList<com.baidu.adp.widget.ListView.v> threadList = getThreadList();
             if (threadList != null && threadList.size() > 0) {
-                threadList.add(acT, axVar);
+                threadList.add(acN, awVar);
             }
         }
     }
 
-    public void bgy() {
-        com.baidu.tbadk.core.data.ab bfN;
-        if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.uo().getLong("frs_storecard_closetime", 0L) >= 86400000 && (bfN = bfN()) != null) {
-            int acT = acT();
-            int rA = rA();
-            if (rA == 0 || rA == 1) {
-                acT++;
-            }
-            ArrayList<com.baidu.adp.widget.ListView.v> threadList = getThreadList();
-            if (threadList != null && threadList.size() > 0) {
-                threadList.add(acT, bfN);
-            }
-        }
-    }
-
-    public bj pA(String str) {
+    public bi pR(String str) {
         if (this.threadList == null) {
             return null;
         }
         Iterator<com.baidu.adp.widget.ListView.v> it = this.threadList.iterator();
         while (it.hasNext()) {
             com.baidu.adp.widget.ListView.v next = it.next();
-            if (next != null && (next instanceof bj) && TextUtils.equals(str, ((bj) next).getId())) {
-                return (bj) next;
+            if (next != null && (next instanceof bi) && TextUtils.equals(str, ((bi) next).getId())) {
+                return (bi) next;
             }
         }
         return null;
@@ -435,167 +428,154 @@ public class n extends l implements com.baidu.tbadk.mvc.b.l {
                 Iterator<com.baidu.adp.widget.ListView.v> it = this.threadList.iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.v next = it.next();
-                    if (next != null && (next instanceof bj) && ((bj) next).getAuthor() != null && currentAccount.equals(((bj) next).getAuthor().getUserId()) && ((bj) next).getAuthor().getPendantData() != null) {
-                        ((bj) next).getAuthor().getPendantData().N(jVar.Cq());
-                        ((bj) next).getAuthor().getPendantData().ck(jVar.qd());
+                    if (next != null && (next instanceof bi) && ((bi) next).getAuthor() != null && currentAccount.equals(((bi) next).getAuthor().getUserId()) && ((bi) next).getAuthor().getPendantData() != null) {
+                        ((bi) next).getAuthor().getPendantData().N(jVar.CO());
+                        ((bi) next).getAuthor().getPendantData().cr(jVar.qB());
                     }
                 }
             }
         }
     }
 
-    public void L(bj bjVar) {
-        this.threadList.remove(bjVar);
+    public void I(bi biVar) {
+        this.threadList.remove(biVar);
     }
 
     public boolean d(l lVar) {
         if (lVar == null) {
             return false;
         }
-        d(lVar.qE());
-        a(lVar.bfF());
-        la(lVar.bfB());
-        pw(lVar.bfC());
-        c(lVar.aJp());
+        d(lVar.rb());
+        a(lVar.bgt());
+        ld(lVar.bgp());
+        pN(lVar.bgq());
+        c(lVar.aJw());
         setGameName(lVar.getGameName());
-        px(lVar.bfJ());
-        a(lVar.bfD());
-        lb(lVar.bfG());
-        mh(lVar.aJB());
-        cH(lVar.bfI());
-        rM(lVar.bfP());
-        c(lVar.bfM());
-        a(lVar.getPage());
-        a(lVar.bfz());
-        cF(lVar.bfH());
+        pO(lVar.bgx());
+        a(lVar.bgr());
+        le(lVar.bgu());
+        mi(lVar.aJI());
+        cG(lVar.bgw());
+        rK(lVar.bgC());
+        c(lVar.bgA());
+        a(lVar.rr());
+        a(lVar.bgn());
+        cE(lVar.bgv());
         ax(lVar.getThreadList());
-        cE(lVar.bfE());
+        cD(lVar.bgs());
         h(lVar.getUserData());
         setUserMap(lVar.getUserMap());
-        b(lVar.bfA());
-        cG(lVar.bfK());
-        rN(lVar.bfU());
-        cJ(lVar.bfR());
-        pz(lVar.bfS());
-        a(lVar.bfN());
-        K(lVar.bfT());
-        b(lVar.bfV());
-        rO(lVar.bfY());
-        a(lVar.bfZ());
-        a(lVar.bga());
-        rJ(lVar.bfw());
-        a(lVar.bgb());
-        cK(lVar.bgc());
-        rK(lVar.bfx());
-        rL(lVar.bfy());
-        this.frI = lVar.frI;
-        this.fsh = lVar.fsh;
-        this.fsk = lVar.fsk;
-        a(lVar.bfW());
-        d(lVar.bgd());
-        a(lVar.bfX());
-        a(lVar.bfO());
-        cL(lVar.bge());
-        cM(lVar.bgf());
-        lc(lVar.isShowDriftingBottle());
-        cA(lVar.bgg());
-        this.fsx = lVar.fsx;
+        b(lVar.bgo());
+        cF(lVar.bgy());
+        rL(lVar.bgH());
+        cI(lVar.bgE());
+        pQ(lVar.bgF());
+        H(lVar.bgG());
+        b(lVar.bgI());
+        rM(lVar.bgL());
+        a(lVar.bgM());
+        a(lVar.bgN());
+        rH(lVar.bgk());
+        a(lVar.bgO());
+        cJ(lVar.bgP());
+        rI(lVar.bgl());
+        rJ(lVar.bgm());
+        this.ftt = lVar.ftt;
+        this.ftR = lVar.ftR;
+        this.ftU = lVar.ftU;
+        a(lVar.bgJ());
+        d(lVar.bgQ());
+        a(lVar.bgK());
+        a(lVar.bgB());
+        cK(lVar.bgR());
+        cL(lVar.bgS());
+        lf(lVar.isShowDriftingBottle());
+        cA(lVar.bgT());
+        this.fuh = lVar.fuh;
         return true;
     }
 
-    public void bgz() {
-        if (this.threadList != null || this.threadList.size() <= 0) {
-            int size = this.threadList.size();
-            for (int i = 0; i < size; i++) {
-                if (this.threadList.get(i) instanceof com.baidu.tbadk.core.data.ab) {
-                    this.threadList.remove(i);
-                    return;
-                }
-            }
-        }
-    }
-
-    public void bgA() {
+    public void bhl() {
         List<FeedForumData> feedForumList;
-        if (this.threadList != null && this.ehK != null && this.ehK.getBannerListData() != null && MessageManager.getInstance().findTask(CmdConfigCustom.CMD_FRS_EXTRA_LOADED) != null) {
+        if (this.threadList != null && this.efR != null && this.efR.getBannerListData() != null && MessageManager.getInstance().findTask(CmdConfigCustom.CMD_FRS_EXTRA_LOADED) != null) {
             int i = 0;
             for (int i2 = 0; i2 < this.threadList.size(); i2++) {
                 com.baidu.adp.widget.ListView.v vVar = this.threadList.get(i2);
-                if (vVar instanceof bj) {
-                    bj bjVar = (bj) vVar;
-                    if (bjVar == null || (!bjVar.sr() && bjVar.rO() != 1)) {
+                if (vVar instanceof bi) {
+                    bi biVar = (bi) vVar;
+                    if (biVar == null || (!biVar.sP() && biVar.sm() != 1)) {
                         break;
                     }
                     i++;
                 }
             }
-            if (this.threadList.size() - i > 7 && (feedForumList = this.ehK.getBannerListData().getFeedForumList()) != null && feedForumList.size() > 0) {
+            if (this.threadList.size() - i > 7 && (feedForumList = this.efR.getBannerListData().getFeedForumList()) != null && feedForumList.size() > 0) {
                 h hVar = new h();
-                hVar.setForumId(this.ehK.getId());
-                hVar.cD(feedForumList);
+                hVar.setForumId(this.efR.getId());
+                hVar.cC(feedForumList);
                 this.threadList.add(i + 6, hVar);
             }
         }
     }
 
-    public boolean bgB() {
+    public boolean bhm() {
         com.baidu.tieba.card.data.r recomTopicData;
-        if (this.threadList == null || this.ehK == null || this.ehK.getBannerListData() == null) {
+        if (this.threadList == null || this.efR == null || this.efR.getBannerListData() == null) {
             return false;
         }
         int i = 0;
         for (int i2 = 0; i2 < this.threadList.size(); i2++) {
             com.baidu.adp.widget.ListView.v vVar = this.threadList.get(i2);
-            if (vVar instanceof bj) {
-                bj bjVar = (bj) vVar;
-                if (bjVar == null || (!bjVar.sr() && bjVar.rO() != 1)) {
+            if (vVar instanceof bi) {
+                bi biVar = (bi) vVar;
+                if (biVar == null || (!biVar.sP() && biVar.sm() != 1)) {
                     break;
                 }
                 i++;
             }
         }
-        if (this.threadList.size() - i <= 7 || (recomTopicData = this.ehK.getBannerListData().getRecomTopicData()) == null || com.baidu.tbadk.core.util.x.p(recomTopicData.bvI) < 4) {
+        if (this.threadList.size() - i <= 7 || (recomTopicData = this.efR.getBannerListData().getRecomTopicData()) == null || com.baidu.tbadk.core.util.x.p(recomTopicData.bvB) < 4) {
             return false;
         }
         this.threadList.add(i + 6, recomTopicData);
-        TiebaStatic.log(new as("c10835").Z(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new as("c10835").aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()));
         return true;
     }
 
-    public void bgC() {
+    public void bhn() {
         if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_FRS_EXTRA_LOADED) != null) {
-            int bfY = (bfY() + acT()) - 1;
-            if (bfZ() != null && bfY >= 0 && bfY <= this.threadList.size()) {
-                this.threadList.add(bfY, bfZ());
+            int bgL = (bgL() + acN()) - 1;
+            if (bgM() != null && bgL >= 0 && bgL <= this.threadList.size()) {
+                this.threadList.add(bgL, bgM());
             }
         }
     }
 
-    public void bgD() {
+    public void bho() {
         int intValue;
-        if (bfO() != null && (bfO().position.intValue() + acT()) - 1 >= 0 && intValue <= this.threadList.size()) {
-            this.threadList.add(intValue, bfO());
+        if (bgB() != null && (bgB().position.intValue() + acN()) - 1 >= 0 && intValue <= this.threadList.size()) {
+            this.threadList.add(intValue, bgB());
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.v> bgE() {
-        return this.fsq;
+    public List<com.baidu.adp.widget.ListView.v> bhp() {
+        return this.fua;
     }
 
-    public void cN(List<com.baidu.adp.widget.ListView.v> list) {
-        this.fsq = list;
+    public void cM(List<com.baidu.adp.widget.ListView.v> list) {
+        this.fua = list;
     }
 
-    public boolean bgF() {
-        return bfz() != null && bfz().bgh() == 1;
+    public boolean bhq() {
+        return bgn() != null && bgn().bgU() == 1;
     }
 
-    public boolean bgG() {
-        return bga() == null ? !com.baidu.tbadk.core.util.x.q(bfK()) : !com.baidu.tbadk.core.util.x.q(bga().tab);
+    public boolean bhr() {
+        return bgN() == null ? !com.baidu.tbadk.core.util.x.q(bgy()) : !com.baidu.tbadk.core.util.x.q(bgN().tab);
     }
 
     public void a(BannerListData bannerListData) {
-        this.fsN = true;
-        this.fsO = bannerListData;
+        this.fux = true;
+        this.fuy = bannerListData;
     }
 }

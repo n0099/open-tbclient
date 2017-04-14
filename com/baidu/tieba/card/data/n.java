@@ -1,34 +1,34 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
+import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class n extends c {
-    public bj threadData;
+    public bi threadData;
+    public static String buV = "";
+    public static String buW = "";
+    public static String buX = "";
+    public static String buY = "";
+    public static String buZ = "";
+    public static String bva = "";
+    public static String bvb = "";
     public static String bvc = "";
     public static String bvd = "";
     public static String bve = "";
     public static String bvf = "";
-    public static String bvg = "";
-    public static String bvh = "";
-    public static String bvi = "";
-    public static String bvj = "";
-    public static String bvk = "";
-    public static String bvl = "";
-    public static String bvm = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bvn = BdUniqueId.gen();
-    public boolean bvo = false;
-    public boolean bvp = false;
-    public boolean azY = true;
+    public static final BdUniqueId bvg = BdUniqueId.gen();
+    public boolean bvh = false;
+    public boolean bvi = false;
+    public boolean aAo = true;
 
-    public static boolean n(bj bjVar) {
-        if (bjVar == null) {
+    public static boolean n(bi biVar) {
+        if (biVar == null) {
             return false;
         }
-        return bjVar.getType() == bj.XK || bjVar.getType() == bj.XL;
+        return biVar.getType() == bi.Ya || biVar.getType() == bi.Yb;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -36,82 +36,82 @@ public class n extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.bvo) {
-            return bvn;
+        if (this.bvh) {
+            return bvg;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bj JN() {
+    public bi Kn() {
         return this.threadData;
     }
 
-    public boolean SM() {
-        return (this.threadData == null || x.p(this.threadData.se()) == 0) ? false : true;
+    public boolean Tk() {
+        return (this.threadData == null || x.p(this.threadData.sC()) == 0) ? false : true;
     }
 
-    public as SN() {
-        if (SM()) {
-            return ia(bvh);
+    public as Tl() {
+        if (Tk()) {
+            return ie(bva);
         }
-        as ia = ia(bvc);
-        if (ia != null) {
-            ia.Z("ab_tag", Sz()).Z("ab_action", "show");
-            return ia;
+        as ie = ie(buV);
+        if (ie != null) {
+            ie.aa("ab_tag", SX()).aa("ab_action", "show");
+            return ie;
         }
-        return ia;
+        return ie;
     }
 
-    public as SO() {
-        if (SM()) {
-            return ia(bvi);
+    public as Tm() {
+        if (Tk()) {
+            return ie(bvb);
         }
-        as ia = ia(bvd);
-        if (ia != null) {
-            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
-            return ia;
+        as ie = ie(buW);
+        if (ie != null) {
+            ie.aa("ab_tag", SX()).aa("ab_action", "click");
+            return ie;
         }
-        return ia;
+        return ie;
     }
 
-    public as SP() {
-        if (SM()) {
-            return ia(bvj);
+    public as Tn() {
+        if (Tk()) {
+            return ie(bvc);
         }
-        as ia = ia(bve);
-        if (ia != null) {
-            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
-            return ia;
+        as ie = ie(buX);
+        if (ie != null) {
+            ie.aa("ab_tag", SX()).aa("ab_action", "click");
+            return ie;
         }
-        return ia;
+        return ie;
     }
 
-    public as SQ() {
-        if (SM()) {
-            return ia(bvk);
+    public as To() {
+        if (Tk()) {
+            return ie(bvd);
         }
-        as ia = ia(bvf);
-        if (ia != null) {
-            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
-            return ia;
+        as ie = ie(buY);
+        if (ie != null) {
+            ie.aa("ab_tag", SX()).aa("ab_action", "click");
+            return ie;
         }
-        return ia;
+        return ie;
     }
 
-    public as SR() {
-        if (SM()) {
-            return ia(bvl);
+    public as Tp() {
+        if (Tk()) {
+            return ie(bve);
         }
-        as ia = ia(bvg);
-        if (ia != null) {
-            ia.Z("ab_tag", Sz()).Z("ab_action", "click");
-            return ia;
+        as ie = ie(buZ);
+        if (ie != null) {
+            ie.aa("ab_tag", SX()).aa("ab_action", "click");
+            return ie;
         }
-        return ia;
+        return ie;
     }
 
-    public as SS() {
-        return ia(bvm);
+    public as Tq() {
+        return ie(bvf);
     }
 }

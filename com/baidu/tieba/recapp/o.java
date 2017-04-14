@@ -1,20 +1,21 @@
 package com.baidu.tieba.recapp;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.a;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import android.view.View;
 /* loaded from: classes.dex */
 public interface o {
-    void YS();
+    long getCurrentPosition();
 
-    void a(AdvertAppInfo advertAppInfo, String str);
+    String getPlayUrl();
 
-    BaseActivity<?> getContext();
+    View getVideoContainer();
 
-    String getFid();
+    boolean isPlayStarted();
 
-    int getPageNum();
+    boolean isPlaying();
 
-    a k(BdUniqueId bdUniqueId);
+    void release();
+
+    void startPlay();
+
+    void stopPlay();
 }

@@ -8,26 +8,26 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.person.ProfileRequestMessage;
 /* loaded from: classes.dex */
 public class PersonCenterMode extends BdBaseModel<BaseFragmentActivity> {
-    private a eDc;
-    private final com.baidu.adp.framework.listener.a eDd;
+    private a eAZ;
+    private final com.baidu.adp.framework.listener.a eBa;
 
     public PersonCenterMode(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.eDd = new b(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        registerListener(this.eDd);
+        this.eBa = new b(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        registerListener(this.eBa);
     }
 
     public void a(a aVar) {
-        this.eDc = aVar;
+        this.eAZ = aVar;
     }
 
-    public boolean Fe() {
+    public boolean FC() {
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (i.gS()) {
+        if (i.gX()) {
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 profileRequestMessage.set_uid(Long.valueOf(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)));

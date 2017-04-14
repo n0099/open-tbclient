@@ -1,37 +1,47 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.View;
 import android.view.animation.Animation;
-import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fg implements Animation.AnimationListener {
-    final /* synthetic */ fa etn;
+    final /* synthetic */ ey erv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public fg(fa faVar) {
-        this.etn = faVar;
+    public fg(ey eyVar) {
+        this.erv = eyVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.etn.eqM.setTitleVisibility(false);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        ObservedChangeLinearLayout observedChangeLinearLayout;
         boolean z;
-        PbActivity pbActivity;
-        observedChangeLinearLayout = this.etn.erx;
-        observedChangeLinearLayout.setVisibility(0);
-        this.etn.eqM.setTitleVisibility(true);
-        this.etn.iK(false);
-        z = this.etn.esK;
-        if (z) {
-            this.etn.aNx();
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        View view;
+        boolean z2;
+        z = this.erv.eqt;
+        if (!z) {
+            jVar = this.erv.KM;
+            if (jVar != null) {
+                jVar2 = this.erv.KM;
+                jVar2.mp();
+                return;
+            }
+            return;
         }
-        pbActivity = this.etn.eka;
-        pbActivity.in(true);
+        view = this.erv.eqo;
+        if (view != null) {
+            z2 = this.erv.dpj;
+            if (z2) {
+                this.erv.gD(false);
+            } else {
+                this.erv.gE(false);
+            }
+        }
     }
 
     @Override // android.view.animation.Animation.AnimationListener

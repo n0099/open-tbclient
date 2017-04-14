@@ -1,32 +1,42 @@
 package com.baidu.tieba.frs;
 
-import android.view.ViewStub;
-import android.widget.FrameLayout;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.InjectPlugin.b;
 /* loaded from: classes.dex */
-public class ay implements Runnable {
-    final /* synthetic */ ax bOZ;
+public class ay {
+    private TbPageContext aaX;
+    private com.baidu.tieba.frs.mc.y bOd;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(ax axVar) {
-        this.bOZ = axVar;
+    public ay(TbPageContext tbPageContext, com.baidu.tieba.frs.mc.y yVar) {
+        this.aaX = tbPageContext;
+        this.bOd = yVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ViewStub viewStub;
-        FrameLayout frameLayout;
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        viewStub = this.bOZ.bOt;
-        if (viewStub != null) {
-            frameLayout = this.bOZ.bOu;
-            frameLayout.setVisibility(0);
-            tbImageView = this.bOZ.bOw;
-            tbImageView.setVisibility(0);
-            tbImageView2 = this.bOZ.bOv;
-            tbImageView2.setVisibility(8);
+    public void b(b bVar) {
+        if (this.bOd != null && this.bOd.YT() != null && this.bOd.YT().acy() != null && this.bOd.Za() != null && bVar != null && this.bOd.Za().getListView() != null && this.bOd.YX() != null) {
+            BdTypeListView listView = this.bOd.Za().getListView();
+            switch (bVar.what) {
+                case 2:
+                    if (bVar.getView() != null) {
+                        if (!this.bOd.Zh()) {
+                            listView.removeHeaderView(bVar.getView());
+                            listView.addHeaderView(bVar.getView(), listView.getHeaderViewsCount() - 1);
+                        }
+                        this.bOd.YX().iI(8);
+                        return;
+                    }
+                    return;
+                case 3:
+                    if (bVar.getView() != null) {
+                        listView.removeHeaderView(bVar.getView());
+                        this.bOd.YX().iI(0);
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

@@ -8,34 +8,34 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> sS;
-    private Message sV;
+    private Set<String> so;
+    private Message ss;
 
     public g(Message message) {
-        this.sV = message;
-        List<Field> l = com.baidu.adp.lib.OrmObject.a.a.l(message.getClass());
-        this.sS = new HashSet();
-        if (l != null && l.size() > 0) {
-            for (Field field : l) {
+        this.ss = message;
+        List<Field> e = com.baidu.adp.lib.OrmObject.a.a.e(message.getClass());
+        this.so = new HashSet();
+        if (e != null && e.size() > 0) {
+            for (Field field : e) {
                 if (field != null) {
-                    this.sS.add(field.getName());
+                    this.so.add(field.getName());
                 }
             }
         }
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> ei() {
-        return this.sS;
+    public Set<String> eh() {
+        return this.so;
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.d(this.sV, str);
+        return com.baidu.adp.lib.OrmObject.a.a.d(this.ss, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void j(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.a(this.sV, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.a(this.ss, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c

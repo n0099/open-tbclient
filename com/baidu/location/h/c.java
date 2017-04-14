@@ -6,7 +6,7 @@ import android.telephony.TelephonyManager;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c PR = null;
+    private static c Qe = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -21,53 +21,18 @@ public class c {
         }
     }
 
-    public static c nv() {
-        if (PR == null) {
-            PR = new c();
+    public static c nP() {
+        if (Qe == null) {
+            Qe = new c();
         }
-        return PR;
+        return Qe;
     }
 
     public String a(boolean z) {
-        return c(z, null);
+        return a(z, (String) null);
     }
 
-    public void a(Context context) {
-        if (context == null || this.h) {
-            return;
-        }
-        try {
-            this.a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-        } catch (Exception e2) {
-            this.a = "NULL";
-        }
-        try {
-            this.b = com.baidu.location.b.b.a.a(context);
-        } catch (Exception e3) {
-            this.b = null;
-        }
-        try {
-            c = context.getPackageName();
-        } catch (Exception e4) {
-            c = null;
-        }
-        this.h = true;
-    }
-
-    public void a(String str, String str2) {
-        d = str;
-        c = str2;
-    }
-
-    public String b() {
-        return this.b != null ? "v6.23|" + this.b + "|" + Build.MODEL : "v6.23|" + this.a + "|" + Build.MODEL;
-    }
-
-    public String c() {
-        return c != null ? b() + "|" + c : b();
-    }
-
-    public String c(boolean z, String str) {
+    public String a(boolean z, String str) {
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&sdk=");
         stringBuffer.append(6.23f);
@@ -116,7 +81,7 @@ public class c {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float e2 = com.baidu.location.a.f.mz().e();
+        float e2 = com.baidu.location.a.f.mS().e();
         if (e2 != 0.0f) {
             stringBuffer.append("&altv=");
             stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(e2)));
@@ -134,6 +99,41 @@ public class c {
             stringBuffer.append(str2);
         }
         return stringBuffer.toString();
+    }
+
+    public void a(Context context) {
+        if (context == null || this.h) {
+            return;
+        }
+        try {
+            this.a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        } catch (Exception e2) {
+            this.a = "NULL";
+        }
+        try {
+            this.b = com.baidu.location.b.b.a.a(context);
+        } catch (Exception e3) {
+            this.b = null;
+        }
+        try {
+            c = context.getPackageName();
+        } catch (Exception e4) {
+            c = null;
+        }
+        this.h = true;
+    }
+
+    public void a(String str, String str2) {
+        d = str;
+        c = str2;
+    }
+
+    public String b() {
+        return this.b != null ? "v6.23|" + this.b + "|" + Build.MODEL : "v6.23|" + this.a + "|" + Build.MODEL;
+    }
+
+    public String c() {
+        return c != null ? b() + "|" + c : b();
     }
 
     public String d() {

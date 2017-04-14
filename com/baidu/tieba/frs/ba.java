@@ -1,43 +1,32 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.tbadkCore.x;
-import com.baidu.tieba.view.BdExpandListView;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements x.a {
-    final /* synthetic */ ax bOZ;
+public class ba implements Runnable {
+    final /* synthetic */ az bOO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(ax axVar) {
-        this.bOZ = axVar;
+    public ba(az azVar) {
+        this.bOO = azVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.x.a
-    public void ZU() {
-        FrsActivity frsActivity;
-        frsActivity = this.bOZ.bOq;
-        frsActivity.YU();
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.x.a
-    public void ZV() {
-        BdExpandListView bdExpandListView;
-        BdExpandListView bdExpandListView2;
-        com.baidu.tieba.play.ac acVar;
-        com.baidu.tieba.play.ac acVar2;
-        int i;
-        int i2;
-        bdExpandListView = this.bOZ.bOx;
-        if (bdExpandListView != null) {
-            bdExpandListView2 = this.bOZ.bOx;
-            bdExpandListView2.setSelection(0);
-            acVar = this.bOZ.aQP;
-            if (acVar != null) {
-                acVar2 = this.bOZ.aQP;
-                i = this.bOZ.aQT;
-                i2 = this.bOZ.aQS;
-                acVar2.a(i, i2, false, true);
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        ViewStub viewStub;
+        FrameLayout frameLayout;
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        viewStub = this.bOO.bOi;
+        if (viewStub != null) {
+            frameLayout = this.bOO.bOj;
+            frameLayout.setVisibility(0);
+            tbImageView = this.bOO.bOl;
+            tbImageView.setVisibility(0);
+            tbImageView2 = this.bOO.bOk;
+            tbImageView2.setVisibility(8);
         }
     }
 }

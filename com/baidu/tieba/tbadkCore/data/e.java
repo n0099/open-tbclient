@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class e {
-    public static final int[] ftF = {3, 8, 13};
-    public static final int[] ftG = {2, 12};
-    public static final int[] ftH = {20};
-    public static final int[] ftI = {3, 13, 23};
-    private SparseIntArray ftJ = new SparseIntArray();
-    private String ftK;
-    private final int[] ftL;
+    public static final int[] fvo = {3, 8, 13};
+    public static final int[] fvp = {2, 12};
+    public static final int[] fvq = {20};
+    public static final int[] fvr = {3, 13, 23};
+    private SparseIntArray fvs = new SparseIntArray();
+    private String fvt;
+    private final int[] fvu;
 
     public e(String str, int[] iArr) {
-        this.ftL = iArr;
-        this.ftK = str;
+        this.fvu = iArr;
+        this.fvt = str;
     }
 
-    public void rQ(int i) {
+    public void rO(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.ftJ != null) {
-            this.ftJ.clear();
-            if (this.ftL != null) {
-                for (int i2 : this.ftL) {
+        if (this.fvs != null) {
+            this.fvs.clear();
+            if (this.fvu != null) {
+                for (int i2 : this.fvu) {
                     if (i2 >= 0) {
-                        this.ftJ.append(i2 + i, i2);
+                        this.fvs.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void bhb() {
-        rQ(0);
+    public void bhM() {
+        rO(0);
     }
 
-    public void bq(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.ftJ != null) {
-            this.ftJ.append(i2, i);
+    public void bn(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.fvs != null) {
+            this.fvs.append(i2, i);
         }
     }
 
-    public int rR(int i) {
-        if (i >= 0 && this.ftJ != null) {
-            return this.ftJ.get(i, -1);
+    public int rP(int i) {
+        if (i >= 0 && this.fvs != null) {
+            return this.fvs.get(i, -1);
         }
         return -1;
     }
 
-    public void rS(int i) {
-        if (this.ftJ != null) {
-            this.ftJ.delete(i);
+    public void rQ(int i) {
+        if (this.fvs != null) {
+            this.fvs.delete(i);
         }
     }
 }

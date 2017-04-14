@@ -14,15 +14,15 @@ import java.nio.channels.FileChannel;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class e {
-    private static String yO = "baidu";
-    public static final File yP = Environment.getExternalStorageDirectory();
-    private static final char yQ = File.separatorChar;
+    private static String yp = "baidu";
+    public static final File yq = Environment.getExternalStorageDirectory();
+    private static final char yr = File.separatorChar;
 
-    public static boolean dH() {
+    public static boolean dG() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static int gN() {
+    public static int gS() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("mounted")) {
             return 0;
@@ -36,43 +36,43 @@ public class e {
         return 3;
     }
 
-    public static String au(String str) {
+    public static String aq(String str) {
         if (str != null) {
-            return yP + "/" + yO + "/" + str + "/";
+            return yq + "/" + yp + "/" + str + "/";
         }
-        return yP + "/" + yO + "/";
+        return yq + "/" + yp + "/";
     }
 
     public static String r(String str, String str2) {
         if (str != null) {
-            return yP + "/" + yO + "/" + str + "/" + str2;
+            return yq + "/" + yp + "/" + str + "/" + str2;
         }
-        return yP + "/" + yO + "/" + str2;
+        return yq + "/" + yp + "/" + str2;
     }
 
-    public static boolean gO() {
+    public static boolean gT() {
         try {
-            StatFs statFs = new StatFs(yP.getPath());
+            StatFs statFs = new StatFs(yq.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT > 2;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public static String av(String str) {
+    public static String getFilePath(String str) {
         return r(null, str);
     }
 
-    public static boolean aw(String str) {
-        String au = au(str);
-        if (dH()) {
-            File file = new File(au);
+    public static boolean ar(String str) {
+        String aq = aq(str);
+        if (dG()) {
+            File file = new File(aq);
             return file.exists() || file.mkdirs();
         }
         return false;
     }
 
-    private static String ax(String str) {
+    private static String as(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
             return null;
@@ -81,7 +81,7 @@ public class e {
     }
 
     public static boolean s(String str, String str2) {
-        File file = new File(ax(r(str, str2)));
+        File file = new File(as(r(str, str2)));
         if (!file.exists()) {
             try {
                 if (!file.mkdirs()) {
@@ -96,7 +96,7 @@ public class e {
     }
 
     public static File t(String str, String str2) {
-        if (aw(str)) {
+        if (ar(str)) {
             try {
                 return new File(r(str, str2));
             } catch (SecurityException e) {
@@ -108,7 +108,7 @@ public class e {
     }
 
     public static File createFile(String str, String str2) {
-        if (aw(str)) {
+        if (ar(str)) {
             try {
                 if (s(str, str2)) {
                     File t = t(str, str2);
@@ -130,7 +130,7 @@ public class e {
     }
 
     public static File u(String str, String str2) {
-        if (aw(str)) {
+        if (ar(str)) {
             try {
                 File t = t(str, str2);
                 if (t.exists()) {
@@ -148,14 +148,14 @@ public class e {
         return null;
     }
 
-    public static File ay(String str) {
+    public static File at(String str) {
         return u(null, str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [484=5, 485=5, 487=5, 488=5] */
     public static boolean c(String str, String str2, byte[] bArr) {
         FileOutputStream fileOutputStream = null;
-        if (!aw(str) || !s(str, str2)) {
+        if (!ar(str) || !s(str, str2)) {
             return false;
         }
         File t = t(str, str2);
@@ -248,7 +248,7 @@ public class e {
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         byte[] bArr = null;
-        if (aw(str)) {
+        if (ar(str)) {
             File t = t(str, str2);
             ?? exists = t.exists();
             try {
@@ -303,7 +303,7 @@ public class e {
         return bArr;
     }
 
-    public static byte[] az(String str) {
+    public static byte[] au(String str) {
         return x(null, str);
     }
 
@@ -441,7 +441,7 @@ public class e {
     }
 
     public static boolean y(String str, String str2) {
-        if (aw(str)) {
+        if (ar(str)) {
             File t = t(str, str2);
             try {
                 if (t.exists()) {
@@ -534,7 +534,7 @@ public class e {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (gP()) {
+        if (gU()) {
             return false;
         }
         if (file.getParent() != null) {
@@ -543,8 +543,8 @@ public class e {
         return !file.getCanonicalFile().equals(file.getAbsoluteFile());
     }
 
-    static boolean gP() {
-        return yQ == '\\';
+    static boolean gU() {
+        return yr == '\\';
     }
 
     public static void k(File file) throws IOException {
@@ -557,26 +557,26 @@ public class e {
         }
     }
 
-    public static String aA(String str) {
+    public static String av(String str) {
         if (str == null) {
             return null;
         }
-        int aB = aB(str);
-        if (aB == -1) {
+        int aw = aw(str);
+        if (aw == -1) {
             return "";
         }
-        return str.substring(aB + 1);
+        return str.substring(aw + 1);
     }
 
-    public static int aB(String str) {
+    public static int aw(String str) {
         int lastIndexOf;
-        if (str != null && aC(str) <= (lastIndexOf = str.lastIndexOf(46))) {
+        if (str != null && ax(str) <= (lastIndexOf = str.lastIndexOf(46))) {
             return lastIndexOf;
         }
         return -1;
     }
 
-    public static int aC(String str) {
+    public static int ax(String str) {
         if (str == null) {
             return -1;
         }

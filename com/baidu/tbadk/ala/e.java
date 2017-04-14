@@ -16,7 +16,7 @@ class e implements View.OnClickListener {
     public void onClick(View view) {
         b bVar;
         AlaUserInfoData alaUserInfoData;
-        if (view != null && view.getTag() != null && (view.getTag() instanceof b) && (alaUserInfoData = (bVar = (b) view.getTag()).Qx) != null) {
+        if (view != null && view.getTag() != null && (view.getTag() instanceof b) && (alaUserInfoData = (bVar = (b) view.getTag()).QP) != null) {
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             if (alaUserInfoData.anchor_live != 0) {
                 alaLiveInfoCoreData.setLiveID(alaUserInfoData.anchor_live);
@@ -29,15 +29,15 @@ class e implements View.OnClickListener {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             switch (i) {
                 case 1:
-                    TiebaStatic.log(new as("c11850").Z(SapiAccountManager.SESSION_UID, currentAccount));
+                    TiebaStatic.log(new as("c11850").aa(SapiAccountManager.SESSION_UID, currentAccount));
                     break;
                 case 2:
                 case 3:
                 case 4:
-                    TiebaStatic.log(new as("c11851").Z(SapiAccountManager.SESSION_UID, currentAccount));
+                    TiebaStatic.log(new as("c11851").aa(SapiAccountManager.SESSION_UID, currentAccount));
                     break;
                 case 5:
-                    TiebaStatic.log(new as("c11852").Z(SapiAccountManager.SESSION_UID, currentAccount));
+                    TiebaStatic.log(new as("c11852").aa(SapiAccountManager.SESSION_UID, currentAccount));
                     break;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, new AlaLiveRoomActivityConfig(view.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, (String) null, false)));

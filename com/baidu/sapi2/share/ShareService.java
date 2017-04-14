@@ -41,14 +41,22 @@ public final class ShareService extends Service {
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        stopSelf();
+        d();
         return 2;
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        stopSelf();
+        d();
         return super.onUnbind(intent);
+    }
+
+    private void d() {
+        try {
+            stopSelf();
+        } catch (Exception e) {
+            L.e(e);
+        }
     }
 
     /* loaded from: classes.dex */
@@ -127,18 +135,18 @@ public final class ShareService extends Service {
         ShareModel shareModel = new ShareModel(ShareEvent.SYNC_ACK);
         SapiAccount d2 = c.d();
         shareModel.a(d2);
-        List<SapiAccount> g = c.g();
+        List<SapiAccount> f = c.f();
         if (d2 != null) {
             d2.app = SapiUtils.getAppName(a);
-            if (g.size() > 0 && g.contains(d2)) {
-                g.set(g.indexOf(d2), g.get(0));
-                g.set(0, d2);
+            if (f.size() > 0 && f.contains(d2)) {
+                f.set(f.indexOf(d2), f.get(0));
+                f.set(0, d2);
             }
         } else {
-            Collections.reverse(g);
+            Collections.reverse(f);
         }
-        shareModel.a().addAll(g);
-        shareModel.a().addAll(c.f());
+        shareModel.a().addAll(f);
+        shareModel.a().addAll(c.e());
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : shareModel.a()) {
             if (sapiAccount.getAccountType() == AccountType.INCOMPLETE_USER) {
@@ -151,11 +159,11 @@ public final class ShareService extends Service {
         }
         d.a(a, b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
-        if (c.r() != null) {
-            bundle.putString("RELOGIN_CREDENTIALS", c.a(a, c.r().toString()));
+        if (c.s() != null) {
+            bundle.putString("RELOGIN_CREDENTIALS", c.a(a, c.s().toString()));
         }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
-        bundle.putInt("SDK_VERSION", 93);
+        bundle.putInt("SDK_VERSION", SapiAccountManager.VERSION_CODE);
         parcel.writeBundle(bundle);
     }
 }

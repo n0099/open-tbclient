@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bj implements a.b {
-    final /* synthetic */ PbActivity elO;
-    private final /* synthetic */ MarkData elZ;
-    private final /* synthetic */ MarkData ema;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a emb;
+    final /* synthetic */ PbActivity ejU;
+    private final /* synthetic */ MarkData ekf;
+    private final /* synthetic */ MarkData ekg;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a ekh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(PbActivity pbActivity, MarkData markData, MarkData markData2, com.baidu.tbadk.core.dialog.a aVar) {
-        this.elO = pbActivity;
-        this.elZ = markData;
-        this.ema = markData2;
-        this.emb = aVar;
+        this.ejU = pbActivity;
+        this.ekf = markData;
+        this.ekg = markData2;
+        this.ekh = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -30,27 +30,27 @@ public class bj implements a.b {
         com.baidu.tbadk.baseEditMark.a aVar7;
         com.baidu.tbadk.baseEditMark.a aVar8;
         aVar.dismiss();
-        aVar2 = this.elO.dIP;
+        aVar2 = this.ejU.dFo;
         if (aVar2 != null) {
-            aVar3 = this.elO.dIP;
-            if (aVar3.nH()) {
-                aVar7 = this.elO.dIP;
-                aVar7.nI();
-                aVar8 = this.elO.dIP;
-                aVar8.ac(false);
+            aVar3 = this.ejU.dFo;
+            if (aVar3.oe()) {
+                aVar7 = this.ejU.dFo;
+                aVar7.of();
+                aVar8 = this.ejU.dFo;
+                aVar8.ae(false);
             }
-            aVar4 = this.elO.dIP;
-            aVar4.a(this.elZ);
-            aVar5 = this.elO.dIP;
-            aVar5.ac(true);
-            aVar6 = this.elO.dIP;
-            aVar6.nJ();
+            aVar4 = this.ejU.dFo;
+            aVar4.a(this.ekf);
+            aVar5 = this.ejU.dFo;
+            aVar5.ae(true);
+            aVar6 = this.ejU.dFo;
+            aVar6.og();
         }
-        this.ema.setPostId(this.elZ.getPostId());
+        this.ekg.setPostId(this.ekf.getPostId());
         Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.ema);
-        this.elO.setResult(-1, intent);
-        this.emb.dismiss();
-        this.elO.aKt();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.ekg);
+        this.ejU.setResult(-1, intent);
+        this.ekh.dismiss();
+        this.ejU.aKA();
     }
 }

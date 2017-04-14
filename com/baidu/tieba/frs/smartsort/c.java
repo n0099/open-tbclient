@@ -10,109 +10,109 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.ax;
-import com.baidu.tieba.frs.co;
+import com.baidu.tieba.frs.az;
+import com.baidu.tieba.frs.cq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c {
-    private int bJd;
-    private final FrsActivity bTf;
-    private co cad;
-    private TextView cae;
-    private boolean caf;
-    private int cag = -1;
+    private int bIW;
+    private final FrsActivity bST;
+    private cq bYE;
+    private TextView bYF;
+    private boolean bYG;
+    private int bYH = -1;
 
     public c(FrsActivity frsActivity) {
-        this.bJd = 0;
+        this.bIW = 0;
         if (frsActivity == null) {
             throw new NullPointerException("FrsActivity is null");
         }
-        this.bTf = frsActivity;
+        this.bST = frsActivity;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bJd = UtilHelper.getStatusBarHeight();
+            this.bIW = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void ado() {
-        if (this.caf && this.cag >= 0) {
-            ir(this.cag);
+    public void adi() {
+        if (this.bYG && this.bYH >= 0) {
+            is(this.bYH);
         }
-        this.caf = false;
+        this.bYG = false;
     }
 
-    public void adp() {
-        if (this.cad != null) {
-            this.cad.hideTip();
+    public void adj() {
+        if (this.bYE != null) {
+            this.bYE.hideTip();
         }
     }
 
-    public void iq(int i) {
+    public void ir(int i) {
         if (i >= 0) {
             ei(true);
-            is(i);
+            it(i);
             return;
         }
         ei(false);
-        is(i);
+        it(i);
     }
 
-    private void ir(int i) {
+    private void is(int i) {
         String string;
-        com.baidu.tieba.frs.entelechy.b.d YC = this.bTf.YC();
-        ax YE = this.bTf.YE();
-        if (YE != null && YC != null && YC.abe() != null && (YE.ZH() instanceof NoPressedRelativeLayout)) {
-            if (this.cae == null) {
-                this.cae = new TextView(this.bTf.getPageContext().getPageActivity());
-                this.cae.setTextSize(0, this.bTf.getResources().getDimensionPixelSize(w.f.fontsize28));
-                this.cae.setGravity(17);
+        com.baidu.tieba.frs.entelechy.b.d YY = this.bST.YY();
+        az Za = this.bST.Za();
+        if (Za != null && YY != null && YY.abB() != null && (Za.aaf() instanceof NoPressedRelativeLayout)) {
+            if (this.bYF == null) {
+                this.bYF = new TextView(this.bST.getPageContext().getPageActivity());
+                this.bYF.setTextSize(0, this.bST.getResources().getDimensionPixelSize(w.f.fontsize28));
+                this.bYF.setGravity(17);
             }
             if (i > 0) {
                 string = String.format(TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_return), Integer.valueOf(i));
             } else {
                 string = TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_nodata);
             }
-            this.cae.setText(string);
-            View abe = YC.abe();
-            BdTypeListView listView = YE.getListView();
-            if (abe != null && listView != null) {
-                int bottom = abe.getBottom();
-                aq.j(this.cae, w.e.common_color_10260);
-                aq.i((View) this.cae, w.e.cp_cont_g);
+            this.bYF.setText(string);
+            View abB = YY.abB();
+            BdTypeListView listView = Za.getListView();
+            if (abB != null && listView != null) {
+                int bottom = abB.getBottom();
+                aq.j(this.bYF, w.e.common_color_10260);
+                aq.i(this.bYF, w.e.cp_cont_g);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, k.g(TbadkCoreApplication.m9getInst(), w.f.ds56));
                 layoutParams.addRule(6);
-                boolean z = YE.Zk() != null && (YE.Zk().getBottom() <= abe.getTop() || YE.Zk().getVisibility() != 0);
-                if (listView.indexOfChild(abe) >= 0 && z) {
+                boolean z = Za.ZI() != null && (Za.ZI().getBottom() <= abB.getTop() || Za.ZI().getVisibility() != 0);
+                if (listView.indexOfChild(abB) >= 0 && z) {
                     layoutParams.topMargin = bottom;
-                    if (this.cad == null) {
-                        this.cad = new co();
+                    if (this.bYE == null) {
+                        this.bYE = new cq();
                     }
-                    this.cad.a(this.cae, (NoPressedRelativeLayout) YE.ZH(), layoutParams, 2000);
+                    this.bYE.a(this.bYF, (NoPressedRelativeLayout) Za.aaf(), layoutParams, 2000);
                 }
-                this.cag = -1;
+                this.bYH = -1;
             }
         }
     }
 
-    public void adq() {
-        if (this.cae != null && this.cae.getVisibility() == 0) {
-            com.baidu.tieba.frs.entelechy.b.d YC = this.bTf.YC();
-            ax YE = this.bTf.YE();
-            if (YE != null && YC != null && YC.abe() != null && (YE.ZH() instanceof NoPressedRelativeLayout)) {
-                BdTypeListView listView = YE.getListView();
-                View abe = YC.abe();
+    public void adk() {
+        if (this.bYF != null && this.bYF.getVisibility() == 0) {
+            com.baidu.tieba.frs.entelechy.b.d YY = this.bST.YY();
+            az Za = this.bST.Za();
+            if (Za != null && YY != null && YY.abB() != null && (Za.aaf() instanceof NoPressedRelativeLayout)) {
+                BdTypeListView listView = Za.getListView();
+                View abB = YY.abB();
                 if (listView != null) {
-                    boolean z = listView.indexOfChild(abe) >= 0;
-                    if (this.cae.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cae.getLayoutParams();
-                        if (z && abe.getBottom() > this.bJd) {
-                            layoutParams.topMargin = abe.getBottom();
+                    boolean z = listView.indexOfChild(abB) >= 0;
+                    if (this.bYF.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bYF.getLayoutParams();
+                        if (z && abB.getBottom() > this.bIW) {
+                            layoutParams.topMargin = abB.getBottom();
                         } else {
-                            layoutParams.topMargin = this.bJd;
+                            layoutParams.topMargin = this.bIW;
                         }
-                        this.cae.setLayoutParams(layoutParams);
+                        this.bYF.setLayoutParams(layoutParams);
                     }
-                    if (this.cad != null && !z && this.cae.getTop() <= this.bJd) {
-                        this.cad.hideTip();
+                    if (this.bYE != null && !z && this.bYF.getTop() <= this.bIW) {
+                        this.bYE.hideTip();
                     }
                 }
             }
@@ -120,16 +120,16 @@ public class c {
     }
 
     public void ei(boolean z) {
-        this.caf = z;
+        this.bYG = z;
     }
 
-    public void is(int i) {
-        this.cag = i;
+    public void it(int i) {
+        this.bYH = i;
     }
 
     public void onDestroy() {
-        if (this.cad != null) {
-            this.cad.onDestroy();
+        if (this.bYE != null) {
+            this.bYE.onDestroy();
         }
     }
 }

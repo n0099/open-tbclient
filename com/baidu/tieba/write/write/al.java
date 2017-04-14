@@ -1,41 +1,46 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
+import com.baidu.tieba.w;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fQG;
+public class al extends com.baidu.adp.base.f {
+    final /* synthetic */ WriteActivity fSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.fQG = writeActivity;
+        this.fSq = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        com.baidu.tieba.write.b bVar;
-        com.baidu.tbadk.editortools.j jVar;
-        InputMethodManager inputMethodManager;
-        EditText boJ;
-        InputMethodManager inputMethodManager2;
-        EditText boI;
-        textView = this.fQG.fkB;
-        textView.setSelected(true);
-        bVar = this.fQG.fkC;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(bVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.fQG.getPageContext().getPageActivity(), 1.0f));
-        jVar = this.fQG.ayN;
-        jVar.Bd();
-        WriteActivity writeActivity = this.fQG;
-        inputMethodManager = this.fQG.mInputManager;
-        boJ = this.fQG.boJ();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, boJ);
-        WriteActivity writeActivity2 = this.fQG;
-        inputMethodManager2 = this.fQG.mInputManager;
-        boI = this.fQG.boI();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, boI);
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.base.f
+    public void g(Object obj) {
+        FeedBackTopListView feedBackTopListView;
+        View view;
+        FeedBackTopListView feedBackTopListView2;
+        View view2;
+        FeedBackTopListView feedBackTopListView3;
+        this.fSq.hideProgressBar();
+        if (obj == null || !(obj instanceof FeedBackModel)) {
+            feedBackTopListView = this.fSq.fRi;
+            feedBackTopListView.setVisibility(8);
+            view = this.fSq.fRj;
+            view.setVisibility(8);
+            this.fSq.showToast(w.l.neterror);
+            return;
+        }
+        FeedBackModel feedBackModel = (FeedBackModel) obj;
+        if (feedBackModel.getErrCode() != 0) {
+            feedBackTopListView2 = this.fSq.fRi;
+            feedBackTopListView2.setVisibility(8);
+            view2 = this.fSq.fRj;
+            view2.setVisibility(8);
+            return;
+        }
+        ArrayList<com.baidu.tbadk.core.data.bi> boT = feedBackModel.boT();
+        feedBackTopListView3 = this.fSq.fRi;
+        feedBackTopListView3.a(boT, this.fSq.getPageContext());
     }
 }

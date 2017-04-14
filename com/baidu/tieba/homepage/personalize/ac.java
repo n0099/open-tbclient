@@ -1,11 +1,9 @@
 package com.baidu.tieba.homepage.personalize;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.frs.co;
+import com.baidu.tieba.e.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
+public class ac implements a.InterfaceC0055a {
     final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,28 +11,13 @@ public class ac implements View.OnClickListener {
         this.this$0 = nVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        co coVar;
-        int i;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        BdTypeListView bdTypeListView3;
-        co coVar2;
-        coVar = this.this$0.cyL;
-        if (coVar != null) {
-            coVar2 = this.this$0.cyL;
-            coVar2.hideTip();
-        }
-        i = this.this$0.cyH;
-        if (i == 1) {
-            bdTypeListView = this.this$0.mListView;
-            if (bdTypeListView != null) {
-                bdTypeListView2 = this.this$0.mListView;
-                bdTypeListView2.setSelection(0);
-                bdTypeListView3 = this.this$0.mListView;
-                bdTypeListView3.startPullRefresh();
-            }
-        }
+    @Override // com.baidu.tieba.e.a.InterfaceC0055a
+    public void V(int i, int i2) {
+        this.this$0.aRh = true;
+    }
+
+    @Override // com.baidu.tieba.e.a.InterfaceC0055a
+    public void W(int i, int i2) {
+        this.this$0.aRh = false;
     }
 }

@@ -76,7 +76,7 @@ public class aw {
         return null;
     }
 
-    public static String dx(String str) {
-        return com.baidu.adp.lib.util.t.aN(str);
+    public static String dD(String str) {
+        return com.baidu.adp.lib.util.t.aI(str);
     }
 }

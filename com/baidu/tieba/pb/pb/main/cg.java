@@ -1,25 +1,31 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.b.a;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class cg implements a.b {
-    final /* synthetic */ PbActivity elO;
+class cg extends CustomMessageListener {
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(PbActivity pbActivity) {
-        this.elO = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cg(PbActivity pbActivity, int i) {
+        super(i);
+        this.ejU = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        PbModel pbModel;
-        pbModel = this.elO.ejZ;
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CHANNEL_SEND_REQUEST, a.b.a(pbModel.getPbData().aJq().sU().channelId, true, this.elO.getUniqueId())));
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
+        eyVar = this.ejU.eiS;
+        if (eyVar != null) {
+            eyVar2 = this.ejU.eiS;
+            if (eyVar2.aNg() != null) {
+                eyVar3 = this.ejU.eiS;
+                eyVar3.aNg().notifyDataSetChanged();
+            }
+        }
     }
 }

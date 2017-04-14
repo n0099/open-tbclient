@@ -1,48 +1,76 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.graphics.drawable.Drawable;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.y.a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
-public class cx {
-    private BaseActivity bcF;
-    private PbModel ejZ;
-    private a emI = null;
-    private final HttpMessageListener emJ = new cy(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+public abstract class cx<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected ListView bNY;
+    protected PbActivity eig;
+    private SparseArray<SoftReference<Drawable>> ekS;
+    private SparseArray<Integer> ekT;
+    protected boolean mIsFromCDN;
+    protected int mSkinType;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void j(int i, long j);
-
-        void onError(int i, String str);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cx(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.mSkinType = 3;
+        this.mIsFromCDN = false;
+        this.ekS = new SparseArray<>();
+        this.ekT = new SparseArray<>();
+        aa(pbActivity);
     }
 
-    public cx(PbModel pbModel, BaseActivity baseActivity) {
-        this.ejZ = pbModel;
-        this.bcF = baseActivity;
-        aLa();
-        this.bcF.registerListener(this.emJ);
+    public void aa(PbActivity pbActivity) {
+        if (pbActivity != null) {
+            this.eig = pbActivity;
+            this.mContext = pbActivity.getActivity();
+        }
     }
 
-    public void a(a aVar) {
-        this.emI = aVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
+        this.bNY = (ListView) viewGroup;
+        return null;
     }
 
-    public void aLa() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setResponsedClass(HideChudianPostResponseMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
     }
 
-    public void cm(long j) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
-        httpMessage.addParam("template_id", String.valueOf(j));
-        MessageManager.getInstance().sendMessage(httpMessage);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public int getDimensionPixelSize(int i) {
+        Integer num = this.ekT.get(i);
+        if (num != null) {
+            return num.intValue();
+        }
+        int dimensionPixelSize = TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(i);
+        this.ekT.put(i, Integer.valueOf(dimensionPixelSize));
+        return dimensionPixelSize;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public Drawable getDrawable(int i) {
+        Drawable drawable;
+        SoftReference<Drawable> softReference = this.ekS.get(i);
+        if (softReference == null) {
+            drawable = null;
+        } else {
+            drawable = softReference.get();
+        }
+        if (drawable == null && (drawable = com.baidu.tbadk.core.util.aq.getDrawable(i)) != null) {
+            this.ekS.put(i, new SoftReference<>(drawable));
+        }
+        return drawable;
     }
 }

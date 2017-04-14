@@ -7,6 +7,7 @@ public class GetUserInfoResult extends SapiResult {
     public String displayname;
     public boolean incompleteUser;
     public String portrait;
+    public String portraitHttps;
     public String portraitSign;
     public String secureEmail;
     public String secureMobile;

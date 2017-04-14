@@ -1,27 +1,26 @@
 package com.baidu.tieba.passaccount.app;
 
-import android.view.View;
 import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ FillUProfileActivity eex;
+public class b implements SapiWebView.OnBackCallback {
+    final /* synthetic */ ForgetPwdActivity ecI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(FillUProfileActivity fillUProfileActivity) {
-        this.eex = fillUProfileActivity;
+    public b(ForgetPwdActivity forgetPwdActivity) {
+        this.ecI = forgetPwdActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
+    public void onBack() {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
-        sapiWebView = this.eex.eew;
+        sapiWebView = this.ecI.ecH;
         if (sapiWebView.canGoBack()) {
-            sapiWebView2 = this.eex.eew;
+            sapiWebView2 = this.ecI.ecH;
             sapiWebView2.goBack();
             return;
         }
-        this.eex.finish();
+        this.ecI.finish();
     }
 }

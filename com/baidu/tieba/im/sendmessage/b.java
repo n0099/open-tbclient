@@ -13,11 +13,11 @@ import com.baidu.tieba.im.sendmessage.VoiceSendModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements VoiceSendModel.b {
-    final /* synthetic */ a dgf;
+    final /* synthetic */ a deC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.dgf = aVar;
+        this.deC = aVar;
     }
 
     @Override // com.baidu.tieba.im.sendmessage.VoiceSendModel.b
@@ -25,7 +25,7 @@ public class b implements VoiceSendModel.b {
         ae aeVar;
         ae aeVar2;
         try {
-            a.atA().k(chatMessage);
+            a.att().k(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
                     VoiceMsgData u = com.baidu.tieba.im.util.h.u(chatMessage);
@@ -33,17 +33,17 @@ public class b implements VoiceSendModel.b {
                         u.setVoice_md5(str);
                         chatMessage.setContent("[" + OrmObject.jsonStrWithObject(u) + "]");
                     }
-                    com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
-                    a.atA().m(chatMessage);
-                    aeVar = this.dgf.mSendCallback;
+                    com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
+                    a.att().m(chatMessage);
+                    aeVar = this.deC.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.dgf.mSendCallback;
-                        aeVar2.lU(2);
+                        aeVar2 = this.deC.mSendCallback;
+                        aeVar2.lV(2);
                         return;
                     }
                     return;
                 }
-                com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", -1, "voice http fail", new Object[0]);
+                com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", -1, "voice http fail", new Object[0]);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPLOAD_FAIL, chatMessage));
                 if (chatMessage instanceof CommonGroupChatMessage) {
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;

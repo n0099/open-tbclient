@@ -1,42 +1,42 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.data.bm;
-import com.baidu.tbadk.core.data.bp;
+import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bl;
+import com.baidu.tbadk.core.data.bo;
 /* loaded from: classes.dex */
-public class af extends bj {
-    public static final BdUniqueId ftm = BdUniqueId.gen();
-    private bm ftn;
-    private bp fto;
-    private boolean ftp = false;
+public class af extends bi {
+    public static final BdUniqueId fuW = BdUniqueId.gen();
+    private bl fuX;
+    private bo fuY;
+    private boolean fuZ = false;
 
-    @Override // com.baidu.tbadk.core.data.bj, com.baidu.adp.widget.ListView.v
+    @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return ftm;
+        return fuW;
     }
 
-    public boolean bgR() {
-        return this.ftp;
+    public boolean bhC() {
+        return this.fuZ;
     }
 
-    public void le(boolean z) {
-        this.ftp = z;
+    public void lh(boolean z) {
+        this.fuZ = z;
     }
 
-    public bm bgS() {
-        return this.ftn;
+    public bl bhD() {
+        return this.fuX;
     }
 
-    public void a(bm bmVar) {
-        this.ftn = bmVar;
+    public void a(bl blVar) {
+        this.fuX = blVar;
     }
 
-    public bp bgT() {
-        return this.fto;
+    public bo bhE() {
+        return this.fuY;
     }
 
-    public void a(bp bpVar) {
-        this.fto = bpVar;
+    public void a(bo boVar) {
+        this.fuY = boVar;
     }
 }

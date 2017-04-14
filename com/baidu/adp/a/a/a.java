@@ -1,17 +1,17 @@
 package com.baidu.adp.a.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean oi = false;
+    private boolean nH = false;
 
-    public boolean cl() {
-        return this.oi;
+    public boolean ck() {
+        return this.nH;
     }
 
     public void start() {
-        this.oi = true;
+        this.nH = true;
     }
 
     public void stop() {
-        this.oi = false;
+        this.nH = false;
     }
 }

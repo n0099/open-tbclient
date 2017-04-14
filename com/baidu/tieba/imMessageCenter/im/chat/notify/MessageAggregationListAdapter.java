@@ -16,15 +16,15 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
-    private com.baidu.tieba.imMessageCenter.mention.l djt;
-    private int dju;
-    private int djv;
+    private com.baidu.tieba.imMessageCenter.mention.l dhS;
+    private int dhT;
+    private int dhU;
 
     public MessageAggregationListAdapter(Context context) {
         super(context);
-        this.djt = null;
-        this.dju = 0;
-        this.djv = 0;
+        this.dhS = null;
+        this.dhT = 0;
+        this.dhU = 0;
     }
 
     @Override // com.baidu.tieba.im.chat.a.b, android.widget.Adapter
@@ -46,7 +46,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.chat.a.b, android.widget.Adapter
-    /* renamed from: le */
+    /* renamed from: lf */
     public ImMessageCenterShowItemData getItem(int i) {
         int i2;
         if (this.mList == null || this.mList.size() == 0 || i - 2 < 0 || i2 >= getCount()) {
@@ -76,56 +76,56 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
                 view = LayoutInflater.from(this.mContext).inflate(w.j.reply_and_at_item, viewGroup, false);
                 a aVar2 = new a(this, null);
-                aVar2.djw = (LinearLayout) view.findViewById(w.h.reply_and_at_item);
-                aVar2.djx = (TbImageView) view.findViewById(w.h.arrow_view);
-                aVar2.cQo = (HeadImageView) view.findViewById(w.h.reply_and_at_head);
-                aVar2.cQo.setIsRound(true);
-                aVar2.cQo.setDrawBorder(false);
-                aVar2.ary = view.findViewById(w.h.line);
-                aVar2.cQs = (TextView) view.findViewById(w.h.new_message);
-                aVar2.cQp = (TextView) view.findViewById(w.h.desc_view);
+                aVar2.dhV = (LinearLayout) view.findViewById(w.h.reply_and_at_item);
+                aVar2.dhW = (TbImageView) view.findViewById(w.h.arrow_view);
+                aVar2.cOL = (HeadImageView) view.findViewById(w.h.reply_and_at_head);
+                aVar2.cOL.setIsRound(true);
+                aVar2.cOL.setDrawBorder(false);
+                aVar2.arO = view.findViewById(w.h.line);
+                aVar2.cOP = (TextView) view.findViewById(w.h.new_message);
+                aVar2.cOM = (TextView) view.findViewById(w.h.desc_view);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aq.c(aVar.cQp, w.e.cp_cont_b, 1);
+            aq.c(aVar.cOM, w.e.cp_cont_b, 1);
             aq.j(view, w.g.list_selector);
-            aq.j(aVar.ary, w.e.cp_bg_line_b);
-            aq.c(aVar.cQs, w.e.common_color_10225, 1);
-            aVar.djx.setVisibility(8);
-            aq.c(aVar.djx, w.g.icon_message_arrow);
+            aq.j(aVar.arO, w.e.cp_bg_line_b);
+            aq.c(aVar.cOP, w.e.common_color_10225, 1);
+            aVar.dhW.setVisibility(8);
+            aq.c(aVar.dhW, w.g.icon_message_arrow);
             if (itemViewType == 0) {
-                aVar.djw.setTag(0);
-                a(this.dju, aVar.cQs, aVar.djx);
-                aq.c(aVar.cQo, w.g.icon_message_mess);
-                aVar.cQp.setText(w.l.reply_me);
+                aVar.dhV.setTag(0);
+                a(this.dhT, aVar.cOP, aVar.dhW);
+                aq.c(aVar.cOL, w.g.icon_message_mess);
+                aVar.cOM.setText(w.l.reply_me);
             } else {
-                aq.c(aVar.cQo, w.g.icon_message_at);
-                a(this.djv, aVar.cQs, aVar.djx);
-                aVar.cQp.setText(w.l.at_me);
-                aVar.djw.setTag(1);
+                aq.c(aVar.cOL, w.g.icon_message_at);
+                a(this.dhU, aVar.cOP, aVar.dhW);
+                aVar.cOM.setText(w.l.at_me);
+                aVar.dhV.setTag(1);
             }
             view.setTag(aVar);
         } else {
             ImMessageCenterShowItemData item = getItem(i);
             if (item != null && String.valueOf(String.valueOf(2)).equals(item.getOwnerName())) {
                 if (item.getUnReadCount() >= 30) {
-                    if (this.djt != null) {
-                        this.djt.gk(true);
+                    if (this.dhS != null) {
+                        this.dhS.gk(true);
                     }
-                } else if (this.djt != null) {
-                    this.djt.gk(false);
+                } else if (this.dhS != null) {
+                    this.dhS.gk(false);
                 }
             }
             b.a aVar3 = view != null ? (b.a) view.getTag() : null;
             if (aVar3 == null) {
                 view = LayoutInflater.from(this.mContext).inflate(w.j.chat_list_item, viewGroup, false);
-                aVar3 = super.aE(view);
+                aVar3 = super.aC(view);
                 view.setTag(aVar3);
             }
-            aq.j(aVar3.ary, w.e.cp_bg_line_b);
-            aVar3.cQn.setVisibility(0);
-            aVar3.ary.setVisibility(0);
+            aq.j(aVar3.arO, w.e.cp_bg_line_b);
+            aVar3.cOK.setVisibility(0);
+            aVar3.arO.setVisibility(0);
             if (item != null) {
                 super.a(aVar3, item);
                 super.d(aVar3, item);
@@ -135,11 +135,11 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
                 super.f(aVar3, item);
                 super.b(aVar3, item);
                 if (item.isSelected()) {
-                    aq.j(aVar3.cQv, w.g.btn_bgb_choice_s);
-                    aq.k(aVar3.cQn, w.e.cp_bg_line_e);
+                    aq.j(aVar3.cOS, w.g.btn_bgb_choice_s);
+                    aq.k(aVar3.cOK, w.e.cp_bg_line_e);
                 } else {
-                    aq.j(aVar3.cQv, w.g.btn_bgb_choice_n);
-                    aq.j(aVar3.cQn, w.g.list_selector);
+                    aq.j(aVar3.cOS, w.g.btn_bgb_choice_n);
+                    aq.j(aVar3.cOK, w.g.list_selector);
                 }
             }
         }
@@ -154,7 +154,7 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
                 if (i <= 99) {
                     String.valueOf(i);
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.zh().zk() == 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.zG().zJ() == 0) {
                     valueOf = "";
                     i = 0;
                 } else {
@@ -182,27 +182,27 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter
     public void a(com.baidu.tieba.imMessageCenter.mention.l lVar) {
-        this.djt = lVar;
+        this.dhS = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.im.chat.a.b
     public void g(b.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         super.g(aVar, imMessageCenterShowItemData);
-        aVar.cQo.setIsRound(true);
+        aVar.cOL.setIsRound(true);
     }
 
     /* loaded from: classes.dex */
     private class a {
-        public View ary;
-        public HeadImageView cQo;
-        public TextView cQp;
-        public TextView cQs;
-        public LinearLayout djw;
-        public TbImageView djx;
+        public View arO;
+        public HeadImageView cOL;
+        public TextView cOM;
+        public TextView cOP;
+        public LinearLayout dhV;
+        public TbImageView dhW;
 
         private a() {
-            this.ary = null;
+            this.arO = null;
         }
 
         /* synthetic */ a(MessageAggregationListAdapter messageAggregationListAdapter, a aVar) {
@@ -210,11 +210,11 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
         }
     }
 
-    public void mb(int i) {
-        this.dju = i;
+    public void mc(int i) {
+        this.dhT = i;
     }
 
-    public void mc(int i) {
-        this.djv = i;
+    public void md(int i) {
+        this.dhU = i;
     }
 }

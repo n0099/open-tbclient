@@ -12,20 +12,20 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdToast {
-    private static SoftReference<Toast> aaJ;
-    private static HashMap<DefaultIcon, Integer> aaO = new HashMap<>(2);
-    private final TextView aaE;
-    private final ImageView aaK;
-    private CharSequence aaL;
-    private final ViewGroup aac;
+    private static SoftReference<Toast> aaY;
+    private static HashMap<DefaultIcon, Integer> abd = new HashMap<>(2);
+    private final ImageView aaZ;
+    private final ViewGroup aas;
+    private CharSequence aba;
     private final Context mContext;
-    private Toast zy;
-    private int aaM = -1;
+    private final TextView mTextView;
+    private Toast yZ;
+    private int abb = -1;
     private int mGravity = 16;
-    private int IT = 0;
-    private int vk = 0;
-    private int vl = 0;
-    private int aaN = 0;
+    private int It = 0;
+    private int uN = 0;
+    private int uO = 0;
+    private int abc = 0;
 
     /* loaded from: classes.dex */
     public enum DefaultIcon {
@@ -33,7 +33,7 @@ public class BdToast {
         FAILURE,
         NOT;
 
-        /* JADX DEBUG: Replace access to removed values field (aaP) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (abe) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DefaultIcon[] valuesCustom() {
             DefaultIcon[] valuesCustom = values();
@@ -45,128 +45,122 @@ public class BdToast {
     }
 
     static {
-        aaO.put(DefaultIcon.SUCCESS, Integer.valueOf(w.g.icon_unite_pass));
-        aaO.put(DefaultIcon.FAILURE, Integer.valueOf(w.g.icon_unite_lose));
-        aaO.put(DefaultIcon.NOT, 0);
+        abd.put(DefaultIcon.SUCCESS, Integer.valueOf(w.g.icon_unite_pass));
+        abd.put(DefaultIcon.FAILURE, Integer.valueOf(w.g.icon_unite_lose));
+        abd.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
         this.mContext = context;
-        this.aac = (ViewGroup) LayoutInflater.from(context).inflate(w.j.dialog_bdtoast, (ViewGroup) null);
-        this.aaK = (ImageView) this.aac.findViewById(w.h.toast_icon);
-        this.aaE = (TextView) this.aac.findViewById(w.h.toast_message);
-    }
-
-    public void cancel() {
-        if (this.zy != null) {
-            this.zy.cancel();
-        }
+        this.aas = (ViewGroup) LayoutInflater.from(context).inflate(w.j.dialog_bdtoast, (ViewGroup) null);
+        this.aaZ = (ImageView) this.aas.findViewById(w.h.toast_icon);
+        this.mTextView = (TextView) this.aas.findViewById(w.h.toast_message);
     }
 
     public BdToast b(CharSequence charSequence) {
-        this.aaL = charSequence;
-        this.aaE.setText(this.aaL);
+        this.aba = charSequence;
+        this.mTextView.setText(this.aba);
         return this;
     }
 
-    public void ch(int i) {
-        this.aaN = i;
+    public void ck(int i) {
+        this.abc = i;
     }
 
-    public BdToast ci(int i) {
-        this.aaM = i;
+    public BdToast cl(int i) {
+        this.abb = i;
         return this;
     }
 
-    public BdToast cj(int i) {
+    public BdToast cm(int i) {
         this.mGravity = i;
         return this;
     }
 
-    public BdToast ck(int i) {
-        this.IT = i;
+    public BdToast cn(int i) {
+        this.It = i;
         return this;
     }
 
-    public void cl(int i) {
-        this.vl = i;
+    public void co(int i) {
+        this.uO = i;
     }
 
     public void Q(float f) {
-        this.aaE.setLineSpacing(0.0f, f);
+        this.mTextView.setLineSpacing(0.0f, f);
     }
 
-    public BdToast ty() {
-        this.zy = new Toast(this.mContext);
-        tz();
-        if (this.aaM != -1) {
-            aq.c(this.aaK, this.aaM);
-            this.aaK.setVisibility(0);
+    public BdToast tW() {
+        this.yZ = new Toast(this.mContext);
+        tX();
+        if (this.abb != -1) {
+            aq.c(this.aaZ, this.abb);
+            this.aaZ.setVisibility(0);
         } else {
-            this.aaK.setVisibility(8);
+            this.aaZ.setVisibility(8);
         }
-        aq.c(this.aaE, w.e.cp_cont_g, 1);
-        this.aaE.setText(this.aaL);
-        this.zy.setGravity(this.mGravity, this.vk, this.vl);
-        this.zy.setDuration(this.IT);
-        cm(this.aaN);
-        this.zy.setView(this.aac);
+        aq.c(this.mTextView, w.e.cp_cont_g, 1);
+        this.mTextView.setText(this.aba);
+        this.yZ.setGravity(this.mGravity, this.uN, this.uO);
+        this.yZ.setDuration(this.It);
+        cp(this.abc);
+        this.yZ.setView(this.aas);
         return this;
     }
 
     private BdToast l(int i, int i2, int i3) {
         this.mGravity = i;
-        this.vk = i2;
-        this.vl = i3;
-        return ty();
+        this.uN = i2;
+        this.uO = i3;
+        return tW();
     }
 
     public static BdToast a(Context context, int i, int i2, int i3) {
         return new BdToast(context).l(i, i2, i3);
     }
 
-    private void tz() {
-        if (aaJ != null && aaJ.get() != null) {
-            aaJ.get().cancel();
+    private void tX() {
+        if (aaY != null && aaY.get() != null) {
+            aaY.get().cancel();
         }
-        aaJ = new SoftReference<>(this.zy);
+        aaY = new SoftReference<>(this.yZ);
     }
 
-    private void cm(int i) {
+    private void cp(int i) {
         if (i > 0) {
-            this.aac.setPadding(i, this.aac.getTop(), i, this.aac.getBottom());
+            this.aas.setPadding(i, this.aas.getTop(), i, this.aas.getBottom());
         }
     }
 
-    public BdToast tA() {
-        this.aaE.setText(this.aaL);
-        this.zy.setGravity(this.mGravity, this.vk, this.vl);
-        this.zy.setDuration(this.IT);
-        this.zy.show();
+    public BdToast tY() {
+        this.mTextView.setText(this.aba);
+        this.yZ.setGravity(this.mGravity, this.uN, this.uO);
+        this.yZ.setDuration(this.It);
+        this.yZ.show();
         return this;
     }
 
     public static BdToast a(Context context, CharSequence charSequence) {
-        return new BdToast(context).b(charSequence).ty();
+        return new BdToast(context).b(charSequence).tW();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).b(charSequence).ck(i).ty();
+        return new BdToast(context).b(charSequence).cn(i).tW();
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).b(charSequence).ci(i).ty();
+        return new BdToast(context).b(charSequence).cl(i).tW();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).b(charSequence).ci(i).ck(i2).ty();
+        return new BdToast(context).b(charSequence).cl(i).cn(i2).tW();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).b(charSequence).ci(aaO.get(defaultIcon).intValue()).ty();
+        return new BdToast(context).b(charSequence).cl(abd.get(defaultIcon).intValue()).tW();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).b(charSequence).ci(aaO.get(defaultIcon).intValue()).ck(i).ty();
+        return new BdToast(context).b(charSequence).cl(abd.get(defaultIcon).intValue()).cn(i).tW();
     }
 }

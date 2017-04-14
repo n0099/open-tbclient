@@ -1,93 +1,101 @@
 package com.baidu.tieba.emotion.editortool;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.w;
-import java.util.Map;
 /* loaded from: classes.dex */
-public class u extends com.baidu.tbadk.editortools.emotiontool.c {
-    public u() {
-        init();
+public class u {
+    private EmotionGroupType bDl;
+    private int bDm;
+    private int bDn;
+    private int bDo;
+    private int bDp;
+    private com.baidu.tbadk.editortools.emotiontool.c bDq;
+    private int bDr;
+    private int bDs;
+    private int column;
+    private int index;
+    private int row;
+
+    public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
+        this.bDq = cVar;
     }
 
-    private void init() {
-        super.eC(7);
-        super.eD(3);
-        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkCoreApplication.m9getInst().getApp().getResources(), w.g.icon_face_original_s), false);
-        super.d(aVar);
-        super.c(aVar);
+    public com.baidu.tbadk.editortools.emotiontool.c Vi() {
+        return this.bDq;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String eB(int i) {
-        int i2;
-        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.azy.size()) {
-            i2 = 0;
-        } else {
-            i2 = com.baidu.tbadk.editortools.emotiontool.b.azy.get(i).intValue();
-        }
-        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.azz.entrySet()) {
-            if (entry.getValue().intValue() == i2) {
-                return entry.getKey();
-            }
-        }
-        return null;
+    public void b(EmotionGroupType emotionGroupType) {
+        this.bDl = emotionGroupType;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean ff(String str) {
-        return com.baidu.tbadk.editortools.emotiontool.b.azz.get(str) != null;
+    public EmotionGroupType Vj() {
+        return this.bDl;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a fg(String str) {
-        Bitmap resBitmap;
-        Integer num = com.baidu.tbadk.editortools.emotiontool.b.azz.get(str);
-        if (num != null && (resBitmap = com.baidu.adp.lib.util.d.gM().getResBitmap(TbadkCoreApplication.m9getInst().getApp(), num.intValue())) != null) {
-            return new com.baidu.adp.widget.a.a(resBitmap, false, str);
-        }
-        return null;
+    public void eO(int i) {
+        this.row = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public int getEmotionsCount() {
-        return com.baidu.tbadk.editortools.emotiontool.b.azy.size();
+    public int getRow() {
+        return this.row;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a fh(String str) {
-        return fg(str);
+    public void eN(int i) {
+        this.column = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType De() {
-        return EmotionGroupType.LOCAL;
+    public int Vk() {
+        return this.column;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String getGroupId() {
-        return "_local";
+    public void he(int i) {
+        this.bDs = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String getGroupName() {
-        return "_local";
+    public int Vl() {
+        return this.bDs;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public int getWidth() {
-        return 0;
+    public void hf(int i) {
+        this.bDr = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public int getHeight() {
-        return 0;
+    public int Vm() {
+        return this.bDr;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean Dd() {
-        return true;
+    public void hg(int i) {
+        this.bDm = i;
+    }
+
+    public int Vn() {
+        return this.bDm;
+    }
+
+    public void hh(int i) {
+        this.bDo = i;
+    }
+
+    public int Vo() {
+        return this.bDo;
+    }
+
+    public void setEndIndex(int i) {
+        this.bDp = i;
+    }
+
+    public void setIndex(int i) {
+        this.index = i;
+    }
+
+    public int getIndex() {
+        return this.index;
+    }
+
+    public void hi(int i) {
+        this.bDn = i;
+    }
+
+    public int Vp() {
+        return this.bDn;
     }
 }

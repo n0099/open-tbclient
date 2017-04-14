@@ -7,71 +7,71 @@ import com.baidu.tbadk.core.b.a;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class at extends CustomMessageListener {
-    final /* synthetic */ PbActivity elO;
+    final /* synthetic */ PbActivity ejU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public at(PbActivity pbActivity, int i) {
         super(i);
-        this.elO = pbActivity;
+        this.ejU = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        fa faVar;
-        fa faVar2;
-        fa faVar3;
-        fa faVar4;
-        fa faVar5;
+        ey eyVar;
+        ey eyVar2;
+        ey eyVar3;
+        ey eyVar4;
+        ey eyVar5;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.b.a)) {
             com.baidu.tbadk.core.b.a aVar = (com.baidu.tbadk.core.b.a) customResponsedMessage.getData();
-            boolean z = aVar.SQ == this.elO.getUniqueId();
-            if (aVar instanceof a.C0032a) {
-                if (aVar.SR != null && !aVar.SR.hasError() && aVar.SR.getError() == 0) {
-                    faVar4 = this.elO.ekM;
-                    if (faVar4 != null) {
-                        faVar5 = this.elO.ekM;
-                        faVar5.x(((a.C0032a) aVar).channelId, 1);
+            boolean z = aVar.Ti == this.ejU.getUniqueId();
+            if (aVar instanceof a.C0031a) {
+                if (aVar.Tj != null && !aVar.Tj.hasError() && aVar.Tj.getError() == 0) {
+                    eyVar4 = this.ejU.eiS;
+                    if (eyVar4 != null) {
+                        eyVar5 = this.ejU.eiS;
+                        eyVar5.x(((a.C0031a) aVar).channelId, 1);
                     }
                     if (z) {
-                        this.elO.aKO();
+                        this.ejU.aKU();
                     }
                 } else if (z) {
-                    if (aVar.SR != null && aVar.SR.getErrorString() != null) {
-                        this.elO.showToast(aVar.SR.getErrorString());
+                    if (aVar.Tj != null && aVar.Tj.getErrorString() != null) {
+                        this.ejU.showToast(aVar.Tj.getErrorString());
                     } else {
-                        this.elO.showToast(w.l.fail_order_video_channel);
+                        this.ejU.showToast(w.l.fail_order_video_channel);
                     }
                 }
             } else if (aVar instanceof a.c) {
-                if (aVar.SR != null && !aVar.SR.hasError() && aVar.SR.getError() == 0) {
-                    faVar = this.elO.ekM;
-                    if (faVar != null) {
-                        faVar2 = this.elO.ekM;
-                        if (faVar2 != null) {
-                            faVar3 = this.elO.ekM;
-                            faVar3.x(((a.C0032a) aVar).channelId, 2);
+                if (aVar.Tj != null && !aVar.Tj.hasError() && aVar.Tj.getError() == 0) {
+                    eyVar = this.ejU.eiS;
+                    if (eyVar != null) {
+                        eyVar2 = this.ejU.eiS;
+                        if (eyVar2 != null) {
+                            eyVar3 = this.ejU.eiS;
+                            eyVar3.x(((a.C0031a) aVar).channelId, 2);
                         }
                     }
                 } else if (z) {
-                    if (aVar.SR != null && aVar.SR.getErrorString() != null) {
-                        this.elO.showToast(aVar.SR.getErrorString());
+                    if (aVar.Tj != null && aVar.Tj.getErrorString() != null) {
+                        this.ejU.showToast(aVar.Tj.getErrorString());
                     } else {
-                        this.elO.showToast(w.l.fail_cancle_order_video_channel);
+                        this.ejU.showToast(w.l.fail_cancle_order_video_channel);
                     }
                 }
             } else if (aVar instanceof a.b) {
-                if (aVar.SR == null || aVar.SR.hasError() || aVar.SR.getError() != 0) {
+                if (aVar.Tj == null || aVar.Tj.hasError() || aVar.Tj.getError() != 0) {
                     if (z) {
-                        if (aVar.SR != null && aVar.SR.getErrorString() != null) {
-                            this.elO.showToast(aVar.SR.getErrorString());
+                        if (aVar.Tj != null && aVar.Tj.getErrorString() != null) {
+                            this.ejU.showToast(aVar.Tj.getErrorString());
                         } else {
-                            this.elO.showToast(w.l.fail_open_channel_push);
+                            this.ejU.showToast(w.l.fail_open_channel_push);
                         }
                     }
                 } else if (z) {
-                    Toast.makeText(this.elO.getPageContext().getPageActivity(), this.elO.getPageContext().getResources().getString(w.l.channel_need_push), 1).show();
+                    Toast.makeText(this.ejU.getPageContext().getPageActivity(), this.ejU.getPageContext().getResources().getString(w.l.channel_need_push), 1).show();
                 }
             }
         }

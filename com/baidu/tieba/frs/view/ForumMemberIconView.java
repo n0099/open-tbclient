@@ -12,45 +12,45 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ForumMemberIconView extends LinearLayout {
-    private TextView aVs;
-    private View bGF;
-    private TbImageView bHE;
+    private TextView aVF;
+    private View bGy;
+    private TbImageView bHx;
     private Context context;
     private String mUrl;
 
     public ForumMemberIconView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.context = context;
-        bs(context);
+        bm(context);
     }
 
     public ForumMemberIconView(Context context) {
         super(context);
         this.context = context;
-        bs(context);
+        bm(context);
     }
 
     public void setIcon(String str) {
-        this.bHE.c(str, 10, false);
+        this.bHx.c(str, 10, false);
     }
 
     public void setUrl(String str) {
         this.mUrl = str;
     }
 
-    private void bs(Context context) {
-        this.bGF = findViewById(w.h.forum_member_icon_layout);
+    private void bm(Context context) {
+        this.bGy = findViewById(w.h.forum_member_icon_layout);
         LayoutInflater.from(context).inflate(w.j.frs_forum_member_view, this);
-        this.bHE = (TbImageView) findViewById(w.h.forum_member_image_icon);
-        this.aVs = (TextView) findViewById(w.h.forum_member_text);
-        this.bHE.setDefaultBgResource(w.g.transparent_bg);
-        this.bHE.setAutoChangeStyle(false);
-        this.bGF.setOnClickListener(new b(this, (TbPageContext) com.baidu.adp.base.k.aa(context)));
+        this.bHx = (TbImageView) findViewById(w.h.forum_member_image_icon);
+        this.aVF = (TextView) findViewById(w.h.forum_member_text);
+        this.bHx.setDefaultBgResource(w.g.transparent_bg);
+        this.bHx.setAutoChangeStyle(false);
+        this.bGy.setOnClickListener(new b(this, (TbPageContext) com.baidu.adp.base.k.Z(context)));
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        aq.j(this.bGF, w.g.forum_member_icon_bg);
-        aq.i((View) this.aVs, w.e.common_color_10248);
-        this.bHE.invalidate();
+        aq.j(this.bGy, w.g.forum_member_icon_bg);
+        aq.i(this.aVF, w.e.common_color_10248);
+        this.bHx.invalidate();
     }
 }

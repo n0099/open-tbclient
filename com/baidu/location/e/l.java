@@ -3,11 +3,11 @@ package com.baidu.location.e;
 import com.baidu.location.e.k;
 /* loaded from: classes.dex */
 class l extends Thread {
-    final /* synthetic */ k.a Pj;
+    final /* synthetic */ k.a Py;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k.a aVar) {
-        this.Pj = aVar;
+        this.Py = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -15,8 +15,8 @@ class l extends Thread {
         k kVar;
         boolean z;
         super.run();
-        kVar = this.Pj.Ph;
-        z = this.Pj.f;
+        kVar = this.Py.Pw;
+        z = this.Py.f;
         kVar.a(z);
     }
 }

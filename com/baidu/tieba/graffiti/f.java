@@ -9,25 +9,25 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.util.e<Error> {
-    final /* synthetic */ d cpg;
+    final /* synthetic */ d cnG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.cpg = dVar;
+        this.cnG = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.e
     /* renamed from: a */
     public void F(Error error) {
-        this.cpg.cpd = false;
+        this.cnG.cnD = false;
         if (error != null && error.getCode() == 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GRAFFITI_SAVE_SUCCESS, new i(null, 3)));
-            k.showToast(this.cpg.getContext(), this.cpg.getContext().getString(w.l.save_success));
+            k.showToast(this.cnG.getContext(), this.cnG.getContext().getString(w.l.save_success));
         } else if (error != null && error.getCode() == -1132) {
-            k.showToast(this.cpg.getContext(), this.cpg.getContext().getString(w.l.graffiti_save_full));
+            k.showToast(this.cnG.getContext(), this.cnG.getContext().getString(w.l.graffiti_save_full));
         } else {
-            k.showToast(this.cpg.getContext(), this.cpg.getContext().getString(w.l.save_error));
+            k.showToast(this.cnG.getContext(), this.cnG.getContext().getString(w.l.save_error));
         }
     }
 }

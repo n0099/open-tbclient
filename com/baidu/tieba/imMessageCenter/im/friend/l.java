@@ -2,20 +2,20 @@ package com.baidu.tieba.imMessageCenter.im.friend;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ k dkr;
+    final /* synthetic */ k diQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.dkr = kVar;
+        this.diQ = kVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
-        inviteFriendListActivity = this.dkr.dkq;
+        inviteFriendListActivity = this.diQ.diP;
         if (!inviteFriendListActivity.isFinishing()) {
-            inviteFriendListActivity2 = this.dkr.dkq;
+            inviteFriendListActivity2 = this.diQ.diP;
             inviteFriendListActivity2.finish();
         }
     }

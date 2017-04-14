@@ -1,58 +1,58 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes.dex */
 public class i {
-    private String aUw;
-    private String aUx;
-    private boolean aUy;
-    private long aUz = -1;
-    private long aUA = -1;
-    private long aUB = 0;
+    private String QM;
+    private String aUK;
+    private boolean aUL;
+    private long aUM = -1;
+    private long aUN = -1;
+    private long aUO = 0;
 
-    public String Le() {
-        return this.aUw;
+    public String LE() {
+        return this.aUK;
     }
 
-    public void gL(String str) {
-        this.aUw = str;
+    public void gP(String str) {
+        this.aUK = str;
     }
 
-    public String Lf() {
-        return this.aUx;
+    public String LF() {
+        return this.QM;
     }
 
-    public void gM(String str) {
-        this.aUx = str;
+    public void gQ(String str) {
+        this.QM = str;
     }
 
-    public boolean Lg() {
-        return this.aUy;
+    public boolean LG() {
+        return this.aUL;
     }
 
-    public void ck(boolean z) {
-        this.aUy = z;
+    public void cm(boolean z) {
+        this.aUL = z;
     }
 
-    public long Lh() {
-        return this.aUz;
+    public long LH() {
+        return this.aUM;
     }
 
     public void ap(long j) {
-        this.aUz = j;
+        this.aUM = j;
     }
 
-    public long Li() {
-        return this.aUA;
+    public long LI() {
+        return this.aUN;
     }
 
     public void aq(long j) {
-        this.aUA = j;
+        this.aUN = j;
     }
 
     public long getTotalLength() {
-        return this.aUB;
+        return this.aUO;
     }
 
     public void L(long j) {
-        this.aUB = j;
+        this.aUO = j;
     }
 }

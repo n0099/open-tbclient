@@ -9,15 +9,15 @@ public interface g {
 
     void a(f fVar);
 
-    void abm();
+    void abJ();
 
-    boolean abn();
-
-    void dX(boolean z);
-
-    void dY(boolean z);
+    boolean abK();
 
     void dZ(boolean z);
+
+    void ea(boolean z);
+
+    void eb(boolean z);
 
     ViewGroup t(Activity activity);
 }

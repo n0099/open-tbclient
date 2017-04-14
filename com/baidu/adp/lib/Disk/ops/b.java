@@ -9,16 +9,16 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.ByteArrayInputStream;
 /* loaded from: classes.dex */
 public class b extends c {
-    private Rect sv;
+    private Rect mRect;
 
-    public Rect ee() {
-        return this.sv;
+    public Rect ed() {
+        return this.mRect;
     }
 
     public b(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.sv = null;
-        this.sv = new Rect();
+        this.mRect = null;
+        this.mRect = new Rect();
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0081 */
@@ -41,15 +41,15 @@ public class b extends c {
     public boolean k(byte[] bArr) {
         ?? r2;
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.sx.l(bArr)) {
-            if (this.sx.sB == 0 || this.sx.sB >= System.currentTimeMillis()) {
-                if (this.sw == null) {
-                    this.sw = new BitmapFactory.Options();
-                    this.sw.inDither = false;
+        if (bArr != null && this.rS.l(bArr)) {
+            if (this.rS.rW == 0 || this.rS.rW >= System.currentTimeMillis()) {
+                if (this.rR == null) {
+                    this.rR = new BitmapFactory.Options();
+                    this.rR.inDither = false;
                     int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    this.sw.inScreenDensity = i;
-                    this.sw.inTargetDensity = i;
-                    r2 = this.sw;
+                    this.rR.inScreenDensity = i;
+                    this.rR.inTargetDensity = i;
+                    r2 = this.rR;
                     ((BitmapFactory.Options) r2).inDensity = i;
                 }
                 int headerSize = c.a.getHeaderSize();
@@ -57,7 +57,7 @@ public class b extends c {
                     try {
                         byteArrayInputStream = new ByteArrayInputStream(bArr, headerSize, bArr.length - headerSize);
                         try {
-                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.sv, this.sw);
+                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.rR);
                             com.baidu.adp.lib.g.a.j(byteArrayInputStream);
                             r2 = byteArrayInputStream;
                         } catch (Error e) {

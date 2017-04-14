@@ -1,177 +1,31 @@
 package com.baidu.tbadk.h;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.t;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.a.h;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.a.j;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import java.util.List;
-import java.util.Map;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.framework.a.d {
-    public a(int i) {
-        super(i);
-    }
+public class a implements b {
+    private b aCR;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-            a(httpMessage, tbHttpMessageTask);
-            b(httpMessage, tbHttpMessageTask);
-        }
-        return httpMessage;
-    }
-
-    private void a(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
-        if (tbHttpMessageTask.isFromCDN()) {
-            httpMessage.removeAllParams();
-            return;
-        }
-        if (tbHttpMessageTask.isUseCurrentBDUSS()) {
-            c(httpMessage);
-        }
-        if (tbHttpMessageTask.isNeedAddCommenParam()) {
-            c(httpMessage, tbHttpMessageTask);
-        }
-        d(httpMessage);
-        if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST && tbHttpMessageTask.isBaiduServer()) {
-            addSign(httpMessage);
+    public a(TbPageContext<?> tbPageContext) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GOD_RECOMMEND_CONTROLLER, b.class, tbPageContext);
+        if (runTask != null && runTask.getData() != null) {
+            this.aCR = (b) runTask.getData();
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00ab, code lost:
-        r0 = false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0076  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00ad  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void b(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
-        boolean z = true;
-        if ((tbHttpMessageTask.isNeedGzip() && !tbHttpMessageTask.isBDImage()) || tbHttpMessageTask.isFromCDN()) {
-            httpMessage.addHeader("Accept-Encoding", "gzip");
-        } else {
-            httpMessage.addHeader("Accept-Encoding", "");
-        }
-        httpMessage.addHeader("Charset", "UTF-8");
-        httpMessage.addHeader("User-Agent", "bdtb for Android " + TbConfig.getVersion());
-        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
-        }
-        String netType = j.getNetType();
-        if (!TextUtils.isEmpty(netType)) {
-            httpMessage.addHeader("net", netType);
-        }
-        if (!TextUtils.isEmpty(netType)) {
-            if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
-                if (!z) {
-                    httpMessage.addHeader("Connection", "Keep-Alive");
-                } else {
-                    httpMessage.addHeader("Connection", IntentConfig.CLOSE);
-                }
-            } else if (!z) {
-            }
-        }
-        httpMessage.addHeader("client_logid", String.valueOf(httpMessage.getClientLogID()));
-        httpMessage.addHeader(SocialConstants.PARAM_CUID, TbadkCoreApplication.m9getInst().getCuid());
-    }
-
-    private void c(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
-        httpMessage.addParam("_client_type", "2");
-        if (!TbadkCoreApplication.m9getInst().isOfficial()) {
-            httpMessage.addParam("apid", TbConfig.SW_APID);
-        }
-        httpMessage.addParam("_client_version", TbConfig.getVersion());
-        if (TbadkCoreApplication.m9getInst().getImei() != null) {
-            httpMessage.addParam("_phone_imei", TbadkCoreApplication.m9getInst().getImei());
-        }
-        String clientId = TbadkCoreApplication.getClientId();
-        if (clientId != null) {
-            httpMessage.addParam("_client_id", clientId);
-        }
-        if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-            httpMessage.addParam("subapp_type", TbConfig.getSubappType());
-        }
-        String from = TbadkCoreApplication.getFrom();
-        if (from != null && from.length() > 0) {
-            httpMessage.addParam("from", from);
-        }
-        String netType = j.getNetType();
-        if (netType != null) {
-            if (com.baidu.tbadk.coreExtra.b.a.xC().xD()) {
-                httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.xC().xE()));
-            }
-            if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
-                if (TbadkCoreApplication.m9getInst().getKeepaliveWifi() == 1) {
-                    httpMessage.addCookie("ka", TbConfig.ST_TYPE_OPEN);
-                }
-            } else if (TbadkCoreApplication.m9getInst().getKeepaliveNonWifi() == 1) {
-                httpMessage.addCookie("ka", TbConfig.ST_TYPE_OPEN);
-            }
-        }
-        if (tbHttpMessageTask.isNeedTbs()) {
-            httpMessage.addParam("tbs", TbadkCoreApplication.m9getInst().getTbs());
-        }
-        httpMessage.addParam(SocialConstants.PARAM_CUID, TbadkCoreApplication.m9getInst().getCuid());
-        httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
-        httpMessage.addParam("model", Build.MODEL);
-    }
-
-    private void c(HttpMessage httpMessage) {
-        String currentBduss = TbadkCoreApplication.getCurrentBduss();
-        if (currentBduss != null) {
-            httpMessage.addParam("BDUSS", currentBduss);
-            String d = h.d(TbadkCoreApplication.getCurrentAccountInfo());
-            if (!StringUtils.isNull(d)) {
-                httpMessage.addParam("stoken", d);
-            }
+    @Override // com.baidu.tbadk.h.b
+    public void ao(String str, String str2) {
+        if (this.aCR != null) {
+            this.aCR.ao(str, str2);
         }
     }
 
-    private void addSign(HttpMessage httpMessage) {
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
-        for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
-            Map.Entry<String, Object> entry = encodeInBackGround.get(i);
-            if (entry != null) {
-                String key = entry.getKey();
-                Object value = entry.getValue();
-                if ((value instanceof String) && !SapiUtils.KEY_QR_LOGIN_SIGN.equals(key)) {
-                    stringBuffer.append(String.valueOf(key) + "=");
-                    stringBuffer.append(value);
-                }
-            }
+    @Override // com.baidu.tbadk.h.b
+    public void destory() {
+        if (this.aCR != null) {
+            this.aCR.destory();
         }
-        stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, t.aN(stringBuffer.toString()));
-    }
-
-    private void d(HttpMessage httpMessage) {
-        ad.a vj = ad.vj();
-        if (vj != null) {
-            httpMessage.addParam("stTime", String.valueOf(vj.mTime));
-            httpMessage.addParam("stSize", String.valueOf(vj.afm));
-            httpMessage.addParam("stTimesNum", String.valueOf(vj.afn));
-            httpMessage.addParam("stMode", String.valueOf(vj.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(vj.afl));
-        }
-        int cC = ad.cC(0);
-        if (cC == 0 && vj != null) {
-            cC = vj.afn;
-        }
-        httpMessage.addParam("stErrorNums", String.valueOf(cC));
     }
 }

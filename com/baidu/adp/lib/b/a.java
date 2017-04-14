@@ -3,48 +3,47 @@ package com.baidu.adp.lib.b;
 import com.baidu.adp.lib.b.c;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected static final int DEF_CRASHTIME_LIMIT = 10;
-    protected String[] mKey;
     protected String mName;
-    protected int mDefaultType = 0;
-    protected int mOffType = 1;
-    protected int mMaxCrashTimes = 10;
-    protected c.a mSwitchListener = new b(this);
+    protected String[] tW;
+    protected int tX = 0;
+    protected int tY = 1;
+    protected int tZ = 10;
+    protected c.a ub = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void changeSettingByType(int i);
+    public abstract void X(int i);
 
-    protected abstract String[] getCrashKeys();
+    protected abstract String[] eP();
 
-    protected abstract int getDefaultType();
+    protected abstract int eQ();
 
-    protected abstract int getMaxCrashTimes();
+    protected abstract int eR();
+
+    protected abstract int eS();
 
     protected abstract String getName();
 
-    protected abstract int getOffType();
-
-    protected String[] getSwitchLibs() {
+    protected String[] eT() {
         return null;
     }
 
-    protected void addToManager() {
-        c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
-        cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
-        cVar.g(getSwitchLibs());
-        e.eT().a(cVar);
+    protected void eU() {
+        c cVar = new c(this.mName, this.tX, this.ub);
+        cVar.a(this.tZ, this.tW, this.tY);
+        cVar.g(eT());
+        e.eY().a(cVar);
     }
 
     public a() {
         initData();
-        addToManager();
+        eU();
     }
 
     protected void initData() {
         this.mName = getName();
-        this.mKey = getCrashKeys();
-        this.mDefaultType = getDefaultType();
-        this.mOffType = getOffType();
-        this.mMaxCrashTimes = getMaxCrashTimes();
+        this.tW = eP();
+        this.tX = eQ();
+        this.tY = eR();
+        this.tZ = eS();
     }
 }

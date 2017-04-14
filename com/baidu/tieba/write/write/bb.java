@@ -1,27 +1,39 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class bb extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ WriteActivity fQG;
+class bb implements LocationModel.a {
+    final /* synthetic */ WriteActivity fSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(WriteActivity writeActivity) {
-        this.fQG = writeActivity;
+        this.fSq = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.fQG.aAx;
-        com.baidu.tbadk.core.util.l.p(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
+    public void Ef() {
+        this.fSq.showToast(w.l.no_network_guide);
+        this.fSq.b(0, true, null);
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
+    public void fB(String str) {
+        WriteActivity writeActivity = this.fSq;
+        if (StringUtils.isNull(str)) {
+            str = this.fSq.getPageContext().getString(w.l.location_fail);
+        }
+        writeActivity.showToast(str);
+        this.fSq.b(0, true, null);
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
+    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
+        if (aVar == null || StringUtils.isNull(aVar.biQ())) {
+            fB(null);
+        } else {
+            this.fSq.b(2, true, aVar.biQ());
+        }
     }
 }

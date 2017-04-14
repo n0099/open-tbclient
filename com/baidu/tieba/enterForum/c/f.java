@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.view.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements ab.c {
-    final /* synthetic */ e bFW;
+    final /* synthetic */ e bFP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bFW = eVar;
+        this.bFP = eVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.c
-    public void aM(boolean z) {
+    public void aO(boolean z) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_TO_REFRESH, Boolean.valueOf(z)));
     }
 }

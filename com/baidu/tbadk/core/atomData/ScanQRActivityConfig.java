@@ -9,7 +9,7 @@ public class ScanQRActivityConfig extends IntentConfig {
 
     public ScanQRActivityConfig(Context context, int i) {
         super(context);
-        getIntent().putExtra("request_code", i);
+        getIntent().putExtra(IntentConfig.REQUEST_CODE, i);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }

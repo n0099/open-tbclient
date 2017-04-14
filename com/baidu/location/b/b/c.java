@@ -42,8 +42,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b Nw;
-    private PublicKey Nv;
+    private static volatile b NJ;
+    private PublicKey NI;
     private final Context a;
     private int b = 0;
 
@@ -81,7 +81,7 @@ public final class c {
             this();
         }
 
-        public static b bG(String str) {
+        public static b bN(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -128,7 +128,7 @@ public final class c {
     }
 
     public static String a(Context context) {
-        return am(context).b();
+        return ao(context).b();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: java.lang.String */
@@ -250,7 +250,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.Nv);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.NI);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -280,7 +280,7 @@ public final class c {
             th = th;
         }
         try {
-            this.Nv = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.NI = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -389,17 +389,17 @@ public final class c {
         return strArr;
     }
 
-    private static b am(Context context) {
-        if (Nw == null) {
+    private static b ao(Context context) {
+        if (NJ == null) {
             synchronized (b.class) {
-                if (Nw == null) {
+                if (NJ == null) {
                     SystemClock.uptimeMillis();
-                    Nw = new c(context).mH();
+                    NJ = new c(context).na();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return Nw;
+        return NJ;
     }
 
     public static String b(Context context) {
@@ -454,7 +454,7 @@ public final class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private b bF(String str) {
+    private b bM(String str) {
         String str2;
         String[] split;
         boolean z = false;
@@ -610,7 +610,7 @@ public final class c {
         return (str == null || !str.contains(":")) ? str : "";
     }
 
-    private b mH() {
+    private b na() {
         boolean z;
         b bVar;
         b bVar2;
@@ -636,8 +636,8 @@ public final class c {
             z = z3;
         }
         File file = new File(this.a.getFilesDir(), "libcuid.so");
-        b bG = file.exists() ? b.bG(f(a(file))) : null;
-        if (bG == null) {
+        b bN = file.exists() ? b.bN(f(a(file))) : null;
+        if (bN == null) {
             this.b |= 16;
             List<a> a3 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (a3 != null) {
@@ -652,37 +652,37 @@ public final class c {
                     if (!aVar2.d) {
                         File file2 = new File(new File(aVar2.a.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
-                            bVar = b.bG(f(a(file2)));
+                            bVar = b.bN(f(a(file2)));
                             if (bVar != null) {
                                 break;
                             }
                         } else {
-                            bVar = bG;
+                            bVar = bN;
                         }
-                        bG = bVar;
+                        bN = bVar;
                     }
                 }
             }
         }
-        bVar = bG;
+        bVar = bN;
         if (bVar == null) {
-            bVar = b.bG(f(b("com.baidu.deviceid.v2")));
+            bVar = b.bN(f(b("com.baidu.deviceid.v2")));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
         if (bVar == null && c) {
             this.b |= 2;
-            bVar2 = mJ();
+            bVar2 = nc();
         } else {
             bVar2 = bVar;
         }
         if (bVar2 == null) {
             this.b |= 8;
-            bVar2 = mI();
+            bVar2 = nb();
         }
         if (bVar2 == null && c) {
             this.b |= 1;
             str = h("");
-            bVar2 = bF(str);
+            bVar2 = bM(str);
             z2 = true;
         } else {
             str = null;
@@ -735,7 +735,7 @@ public final class c {
         return bVar3;
     }
 
-    private b mI() {
+    private b nb() {
         String b2 = b("com.baidu.deviceid");
         String b3 = b("bd_setting_i");
         if (TextUtils.isEmpty(b3)) {
@@ -756,13 +756,13 @@ public final class c {
         return bVar;
     }
 
-    private b mJ() {
+    private b nc() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
             String a2 = a(file);
             if (!TextUtils.isEmpty(a2)) {
                 try {
-                    return b.bG(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
+                    return b.bN(new String(com.baidu.location.b.a.a.b("30212102dicudiab", "30212102dicudiab", com.baidu.location.b.a.b.a(a2.getBytes()))));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

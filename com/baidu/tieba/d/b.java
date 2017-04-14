@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a bBk;
+    final /* synthetic */ a bBd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bBk = aVar;
+        this.bBd = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,25 +26,25 @@ public class b implements Runnable {
         Handler handler;
         Runnable runnable;
         int i;
-        dVar = this.bBk.bBb;
+        dVar = this.bBd.bAU;
         if (dVar == null) {
-            str = this.bBk.mMessage;
+            str = this.bBd.mMessage;
             if (!StringUtils.isNull(str)) {
                 g gVar = new g();
-                view = this.bBk.jv;
-                gVar.o(view).ae(0).z(true).A(true);
+                view = this.bBd.jv;
+                gVar.o(view).ad(0).z(true).A(true);
                 gVar.a(new c(this));
-                this.bBk.bBb = gVar.eW();
-                dVar2 = this.bBk.bBb;
+                this.bBd.bAU = gVar.fb();
+                dVar2 = this.bBd.bAU;
                 dVar2.x(false);
-                dVar3 = this.bBk.bBb;
-                tbPageContext = this.bBk.ajF;
+                dVar3 = this.bBd.bAU;
+                tbPageContext = this.bBd.ajT;
                 dVar3.j(tbPageContext.getPageActivity());
-                this.bBk.bBc = true;
-                this.bBk.Ui();
-                handler = this.bBk.mHandler;
-                runnable = this.bBk.bBj;
-                i = this.bBk.bBi;
+                this.bBd.bAV = true;
+                this.bBd.UG();
+                handler = this.bBd.mHandler;
+                runnable = this.bBd.bBc;
+                i = this.bBd.bBb;
                 handler.postDelayed(runnable, i);
             }
         }

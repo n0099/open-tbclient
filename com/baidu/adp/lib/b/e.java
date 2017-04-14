@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    private static e uI = null;
+    private static e uk = null;
     private HashMap<String, d> mSwitchs;
 
     private e() {
@@ -15,13 +15,13 @@ public class e {
         this.mSwitchs = new HashMap<>();
     }
 
-    public static synchronized e eT() {
+    public static synchronized e eY() {
         e eVar;
         synchronized (e.class) {
-            if (uI == null) {
-                uI = new e();
+            if (uk == null) {
+                uk = new e();
             }
-            eVar = uI;
+            eVar = uk;
         }
         return eVar;
     }
@@ -34,19 +34,19 @@ public class e {
 
     public void crash(String str) {
         Iterator<d> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().aa(str)) {
+        while (it.hasNext() && !it.next().X(str)) {
         }
     }
 
     public boolean d(String str, int i) {
         d dVar;
         if (i >= 0 && (dVar = this.mSwitchs.get(str)) != null) {
-            return dVar.Z(i);
+            return dVar.Y(i);
         }
         return false;
     }
 
-    public int ab(String str) {
+    public int Y(String str) {
         d dVar = this.mSwitchs.get(str);
         if (dVar != null) {
             return dVar.getType();
@@ -59,16 +59,16 @@ public class e {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (d dVar : this.mSwitchs.values()) {
                 if (dVar != null) {
-                    dVar.ac(0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.uD, 0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.uE, dVar.getDefaultType());
+                    dVar.ab(0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.uf, 0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.ug, dVar.eQ());
                 }
             }
             edit.commit();
         }
     }
 
-    public void m(Class<?> cls) {
+    public void f(Class<?> cls) {
         try {
             cls.newInstance();
         } catch (IllegalAccessException e) {

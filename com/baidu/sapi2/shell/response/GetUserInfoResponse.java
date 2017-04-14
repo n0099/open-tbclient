@@ -5,6 +5,7 @@ public class GetUserInfoResponse extends SapiResponse {
     public String displayname;
     public boolean incompleteUser;
     public String portrait;
+    public String portraitHttps;
     public String secureEmail;
     public String secureMobile;
     public String uid;

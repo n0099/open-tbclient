@@ -1,21 +1,7 @@
 package com.baidu.tbadk.h;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.a.e;
-import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes.dex */
-public class b extends e {
-    public b(int i) {
-        super(i);
-    }
+public interface b {
+    void ao(String str, String str2);
 
-    @Override // com.baidu.adp.framework.a.e
-    public void b(int i, BdUniqueId bdUniqueId) {
-        ReloginManager.uj().d(i, bdUniqueId);
-    }
-
-    @Override // com.baidu.adp.framework.a.e
-    public void b(BdUniqueId bdUniqueId) {
-        ReloginManager.uj().g(bdUniqueId);
-    }
+    void destory();
 }

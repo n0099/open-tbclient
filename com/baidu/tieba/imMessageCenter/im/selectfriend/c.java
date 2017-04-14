@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class c implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SelectFriendActivity dkZ;
+    final /* synthetic */ SelectFriendActivity djy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(SelectFriendActivity selectFriendActivity) {
-        this.dkZ = selectFriendActivity;
+        this.djy = selectFriendActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,29 +21,29 @@ class c implements AdapterView.OnItemClickListener {
         int i2;
         CustomMessageListener customMessageListener;
         CustomMessageListener customMessageListener2;
-        com.baidu.tbadk.coreExtra.relationship.a item = this.dkZ.dkV.getItem(i);
+        com.baidu.tbadk.coreExtra.relationship.a item = this.djy.dju.getItem(i);
         if (item != null) {
             long userId = item.getUserId();
             String userName = item.getUserName();
-            String Ax = item.Ax();
-            i2 = this.dkZ.dkU;
+            String AW = item.AW();
+            i2 = this.djy.djt;
             if (i2 == 0) {
-                customMessageListener = this.dkZ.dkW;
+                customMessageListener = this.djy.djv;
                 if (customMessageListener == null) {
-                    this.dkZ.dkW = new d(this, CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, userId, userName, Ax);
-                    SelectFriendActivity selectFriendActivity = this.dkZ;
-                    customMessageListener2 = this.dkZ.dkW;
+                    this.djy.djv = new d(this, CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, userId, userName, AW);
+                    SelectFriendActivity selectFriendActivity = this.djy;
+                    customMessageListener2 = this.djy.djv;
                     selectFriendActivity.registerListener(customMessageListener2);
                 }
-                this.dkZ.sendMessage(new CustomMessage(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA));
+                this.djy.sendMessage(new CustomMessage(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA));
                 return;
             }
             Intent intent = new Intent();
             intent.putExtra(PersonalChatActivityConfig.KEY_USER_ID, userId);
             intent.putExtra(PersonalChatActivityConfig.KEY_USER_NAME, userName);
-            intent.putExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT, Ax);
-            this.dkZ.setResult(-1, intent);
-            this.dkZ.finish();
+            intent.putExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT, AW);
+            this.djy.setResult(-1, intent);
+            this.djy.finish();
         }
     }
 }

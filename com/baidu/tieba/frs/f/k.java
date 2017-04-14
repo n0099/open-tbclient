@@ -1,19 +1,27 @@
 package com.baidu.tieba.frs.f;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
-class k implements a.b {
-    final /* synthetic */ i ccU;
+class k implements View.OnClickListener {
+    private final /* synthetic */ TbPageContext aIg;
+    private final /* synthetic */ String bEW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(i iVar) {
-        this.ccU = iVar;
+    public k(TbPageContext tbPageContext, String str) {
+        this.aIg = tbPageContext;
+        this.bEW = str;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (aVar != null) {
-            aVar.dismiss();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.aIg.getPageActivity(), 23007)));
+        TiebaStatic.log(new as("c10125").aa("fid", this.bEW).s("obj_type", 1));
     }
 }
