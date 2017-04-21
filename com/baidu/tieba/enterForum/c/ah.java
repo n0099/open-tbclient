@@ -11,9 +11,9 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ah {
-    private TextView bGT;
-    private BdListView bGU;
-    private com.baidu.tieba.enterForum.a.c bGV;
+    private TextView bJk;
+    private BdListView bJl;
+    private com.baidu.tieba.enterForum.a.c bJm;
     private Context mContext;
     private View mRootView;
 
@@ -24,20 +24,20 @@ public class ah {
     }
 
     private void init() {
-        this.bGT = (TextView) this.mRootView.findViewById(w.h.frequently_forum_info_title);
-        this.bGU = (BdListView) this.mRootView.findViewById(w.h.frequently_forum_info_listview);
-        this.bGV = new com.baidu.tieba.enterForum.a.c();
-        this.bGU.setAdapter((ListAdapter) this.bGV);
+        this.bJk = (TextView) this.mRootView.findViewById(w.h.frequently_forum_info_title);
+        this.bJl = (BdListView) this.mRootView.findViewById(w.h.frequently_forum_info_listview);
+        this.bJm = new com.baidu.tieba.enterForum.a.c();
+        this.bJl.setAdapter((ListAdapter) this.bJm);
     }
 
     public void d(List<com.baidu.tbadk.data.e> list, TbPageContext<?> tbPageContext) {
-        this.bGV.a(list, tbPageContext);
-        this.bGV.c(this.bGU);
+        this.bJm.a(list, tbPageContext);
+        this.bJm.c(this.bJl);
     }
 
     public void onChangeSkinType() {
-        aq.i(this.bGT, w.e.cp_cont_c);
-        this.bGV.notifyDataSetChanged();
+        aq.i(this.bJk, w.e.cp_cont_c);
+        this.bJm.notifyDataSetChanged();
     }
 
     public void setVisibility(int i) {

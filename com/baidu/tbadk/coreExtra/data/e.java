@@ -3,13 +3,13 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class e {
-    private final TbPageContext<?> aaX;
+    private final TbPageContext<?> aaY;
     private final int aoN;
     private final int aoO;
     private final boolean aoP;
 
     public e(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
-        this.aaX = tbPageContext;
+        this.aaY = tbPageContext;
         this.aoN = i;
         this.aoO = i2;
         this.aoP = z;
@@ -20,7 +20,7 @@ public class e {
     }
 
     public TbPageContext<?> yp() {
-        return this.aaX;
+        return this.aaY;
     }
 
     public int yq() {
@@ -32,6 +32,6 @@ public class e {
     }
 
     public boolean isAvailable() {
-        return this.aaX != null && this.aoN > 0 && this.aoO > 0;
+        return this.aaY != null && this.aoN > 0 && this.aoO > 0;
     }
 }

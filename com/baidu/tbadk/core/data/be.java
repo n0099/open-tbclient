@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class be {
-    private int WW;
+    private int WX;
     private Object data;
 
     public int rP() {
-        return this.WW;
+        return this.WX;
     }
 
     public void bP(int i) {
-        this.WW = i;
+        this.WX = i;
     }
 
     public Object getData() {

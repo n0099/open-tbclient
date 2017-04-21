@@ -21,5 +21,6 @@ public interface b {
 
     View b(Context context, BdTypeListView bdTypeListView);
 
-    boolean hZ(int i);
+    /* renamed from: if  reason: not valid java name */
+    boolean mo19if(int i);
 }

@@ -6,11 +6,11 @@ import java.net.Socket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements Runnable {
-    final /* synthetic */ p aVd;
+    final /* synthetic */ p aVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.aVd = pVar;
+        this.aVf = pVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:4:0x0016 */
@@ -32,25 +32,25 @@ public class q implements Runnable {
         Context context;
         str = p.TAG;
         k.log(str, "run ...");
-        this.aVd.LM();
+        this.aVf.LM();
         int i = 9000;
         while (serverSocket == null && i < 10000) {
             try {
-                this.aVd.aVc = new ServerSocket(i);
+                this.aVf.aVe = new ServerSocket(i);
             } catch (Exception e) {
                 e.printStackTrace();
-                this.aVd.aVc = null;
+                this.aVf.aVe = null;
                 i++;
             }
         }
         str2 = p.TAG;
         k.log(str2, "service port " + i);
-        this.aVd.fL(i);
+        this.aVf.fL(i);
         f.LB();
         l.LJ();
         while (true) {
             try {
-                serverSocket2 = this.aVd.aVc;
+                serverSocket2 = this.aVf.aVe;
                 if (serverSocket2.isClosed()) {
                     str4 = p.TAG;
                     k.log(str4, "视频服务已退出");
@@ -58,7 +58,7 @@ public class q implements Runnable {
                 }
                 str5 = p.TAG;
                 k.log(str5, "accept start");
-                serverSocket3 = this.aVd.aVc;
+                serverSocket3 = this.aVf.aVe;
                 Socket accept = serverSocket3.accept();
                 str6 = p.TAG;
                 k.log(str6, "accept end");
@@ -71,22 +71,22 @@ public class q implements Runnable {
                         if (LF == null || !LF.contains("?stop_cache=1")) {
                             if (LF == null || !LF.contains("delete_expired_files")) {
                                 if (LF == null || !LF.contains("clear_cache")) {
-                                    context = this.aVd.mContext;
+                                    context = this.aVf.mContext;
                                     g gVar = new g(context);
                                     gVar.a(accept);
                                     gVar.a(b);
                                     n.LK().g(gVar);
                                 } else {
-                                    this.aVd.d(b, accept);
+                                    this.aVf.d(b, accept);
                                 }
                             } else {
-                                this.aVd.c(b, accept);
+                                this.aVf.c(b, accept);
                             }
                         } else {
-                            this.aVd.a(b, accept);
+                            this.aVf.a(b, accept);
                         }
                     } else {
-                        this.aVd.b(b, accept);
+                        this.aVf.b(b, accept);
                     }
                 }
             } catch (Exception e2) {

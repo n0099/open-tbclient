@@ -1,9 +1,9 @@
 package com.baidu.tbadk.j;
 /* loaded from: classes.dex */
 public class u extends t {
-    public String Hd;
-    public long He;
-    public boolean aGv;
+    public String Hf;
+    public long Hg;
+    public boolean aGx;
     public boolean isSuccess;
 
     public void Gz() {

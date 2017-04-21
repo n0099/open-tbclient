@@ -11,7 +11,7 @@ public class e implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
+        this.this$0.iZ();
         this.this$0.iY();
-        this.this$0.iX();
     }
 }

@@ -42,25 +42,25 @@ class as implements View.OnClickListener {
         Context context2;
         bi biVar11;
         bi biVar12;
-        biVar = this.amF.aiB;
+        biVar = this.amF.aiC;
         if (biVar != null) {
-            biVar2 = this.amF.aiB;
+            biVar2 = this.amF.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.amF.aiB;
+                biVar3 = this.amF.aiC;
                 if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.amF.aiB;
+                    biVar4 = this.amF.aiC;
                     if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.amF.aiB;
+                        biVar5 = this.amF.aiC;
                         if (biVar5.st() != null) {
-                            biVar6 = this.amF.aiB;
+                            biVar6 = this.amF.aiC;
                             if (biVar6.ts() != null) {
-                                biVar10 = this.amF.aiB;
+                                biVar10 = this.amF.aiC;
                                 if (biVar10.ts().channelId > 0) {
                                     MessageManager messageManager = MessageManager.getInstance();
                                     context2 = this.amF.mContext;
-                                    biVar11 = this.amF.aiB;
+                                    biVar11 = this.amF.aiC;
                                     long j = biVar11.ts().channelId;
-                                    biVar12 = this.amF.aiB;
+                                    biVar12 = this.amF.aiC;
                                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context2, j, biVar12.ts().mCurrentPage)));
                                     onClickListener = this.amF.amx;
                                     if (onClickListener == null) {
@@ -73,11 +73,11 @@ class as implements View.OnClickListener {
                             }
                             MessageManager messageManager2 = MessageManager.getInstance();
                             context = this.amF.mContext;
-                            biVar7 = this.amF.aiB;
+                            biVar7 = this.amF.aiC;
                             String userId = biVar7.getAuthor().getUserId();
-                            biVar8 = this.amF.aiB;
+                            biVar8 = this.amF.aiC;
                             String name_show = biVar8.getAuthor().getName_show();
-                            biVar9 = this.amF.aiB;
+                            biVar9 = this.amF.aiC;
                             messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, biVar9.st(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                             onClickListener = this.amF.amx;
                             if (onClickListener == null) {

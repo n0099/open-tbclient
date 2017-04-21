@@ -4,60 +4,60 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.i;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.c fwM;
-    private final int fwN = 10;
-    private final int fwO = 3000;
-    public String fwP = null;
-    public boolean ahJ = false;
+    private com.baidu.adp.lib.stats.c fzd;
+    private final int fze = 10;
+    private final int fzf = 3000;
+    public String fzg = null;
+    public boolean ahK = false;
 
     public b(String str) {
         W(str, false);
     }
 
     public void W(String str, boolean z) {
-        this.fwP = str;
-        this.ahJ = z;
-        this.fwM = new com.baidu.adp.lib.stats.c("dbg");
+        this.fzg = str;
+        this.ahK = z;
+        this.fzd = new com.baidu.adp.lib.stats.c("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.fwM.fV();
+        this.fzd.fW();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        f biF;
-        if (this.fwM != null && (biF = biF()) != null) {
+        f bjG;
+        if (this.fzd != null && (bjG = bjG()) != null) {
             if (z) {
-                if (biF.fwU != null) {
-                    biF.fwU.num++;
+                if (bjG.fzl != null) {
+                    bjG.fzl.num++;
                     if (z2) {
-                        biF.fwU.fwR += j2;
-                        biF.fwU.size += j;
+                        bjG.fzl.fzi += j2;
+                        bjG.fzl.size += j;
                     } else {
-                        biF.fwU.fwS++;
+                        bjG.fzl.fzj++;
                     }
                 } else {
                     return;
                 }
-            } else if (biF.fwV != null) {
-                biF.fwV.num++;
+            } else if (bjG.fzm != null) {
+                bjG.fzm.num++;
                 if (z2) {
-                    biF.fwV.fwR += j3;
-                    biF.fwV.size += j;
+                    bjG.fzm.fzi += j3;
+                    bjG.fzm.size += j;
                     j2 = j3;
                 } else {
-                    biF.fwV.fwS++;
+                    bjG.fzm.fzj++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.fwM = null;
+            this.fzd = null;
             if (z2) {
-                c.a(biF, 10);
+                c.a(bjG, 10);
             }
-            if (this.fwP == "frsStat") {
+            if (this.fzg == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.c cVar = new com.baidu.adp.lib.stats.c("dbg");
                     cVar.p("act", "frs");
@@ -74,34 +74,34 @@ public class b {
     }
 
     public void destory() {
-        f biF;
-        if (this.fwM != null && (biF = biF()) != null && biF.fwW != null) {
-            long fW = this.fwM.fW();
-            if (fW > 3000) {
-                e eVar = biF.fwW;
-                eVar.fwR = fW + eVar.fwR;
-                biF.fwW.num++;
-                c.a(biF, 10);
+        f bjG;
+        if (this.fzd != null && (bjG = bjG()) != null && bjG.fzn != null) {
+            long fX = this.fzd.fX();
+            if (fX > 3000) {
+                e eVar = bjG.fzn;
+                eVar.fzi = fX + eVar.fzi;
+                bjG.fzn.num++;
+                c.a(bjG, 10);
             }
         }
     }
 
-    private f biF() {
-        return c.l(this.fwP, getNetType(), this.ahJ);
+    private f bjG() {
+        return c.l(this.fzg, getNetType(), this.ahK);
     }
 
     private String getNetType() {
-        int hp = i.hp();
-        if (hp == 0) {
+        int hq = i.hq();
+        if (hq == 0) {
             return "N";
         }
-        if (hp == 1) {
+        if (hq == 1) {
             return "WIFI";
         }
-        if (hp == 3) {
+        if (hq == 3) {
             return "3G";
         }
-        if (hp != 2) {
+        if (hq != 2) {
             return "N";
         }
         return "2G";

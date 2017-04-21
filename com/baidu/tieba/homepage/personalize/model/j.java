@@ -7,13 +7,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends CustomMessageListener {
-    final /* synthetic */ RecPersonalizePageModel czo;
+    final /* synthetic */ RecPersonalizePageModel cBF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(RecPersonalizePageModel recPersonalizePageModel, int i) {
         super(i);
-        this.czo = recPersonalizePageModel;
+        this.cBF = recPersonalizePageModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,23 +25,23 @@ public class j extends CustomMessageListener {
         int i = 0;
         if (customResponsedMessage != null) {
             if (!(customResponsedMessage.getData() instanceof ArrayList)) {
-                this.czo.czk = 0;
-                this.czo.czj = null;
+                this.cBF.cBB = 0;
+                this.cBF.cBA = null;
                 return;
             }
             ArrayList arrayList4 = (ArrayList) customResponsedMessage.getData();
-            arrayList = this.czo.czj;
+            arrayList = this.cBF.cBA;
             if (arrayList == null) {
                 if (arrayList4.size() > 0) {
-                    this.czo.czk = 1;
+                    this.cBF.cBB = 1;
                 } else {
-                    this.czo.czk = 2;
+                    this.cBF.cBB = 2;
                 }
             } else {
                 int size = arrayList4.size();
-                arrayList2 = this.czo.czj;
+                arrayList2 = this.cBF.cBA;
                 if (size != arrayList2.size()) {
-                    this.czo.czk = 1;
+                    this.cBF.cBB = 1;
                 } else {
                     while (true) {
                         int i2 = i;
@@ -49,21 +49,21 @@ public class j extends CustomMessageListener {
                             break;
                         }
                         if (i2 == arrayList4.size()) {
-                            this.czo.czk = 2;
+                            this.cBF.cBB = 2;
                         } else if (StringUtils.isNull((String) arrayList4.get(i2))) {
                             break;
                         } else {
-                            arrayList3 = this.czo.czj;
+                            arrayList3 = this.cBF.cBA;
                             if (!((String) arrayList4.get(i2)).equals(arrayList3.get(i2))) {
                                 break;
                             }
                         }
                         i = i2 + 1;
                     }
-                    this.czo.czk = 1;
+                    this.cBF.cBB = 1;
                 }
             }
-            this.czo.czj = arrayList4;
+            this.cBF.cBA = arrayList4;
         }
     }
 }

@@ -17,90 +17,90 @@ import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private QuickVideoView aTb;
-    private TbImageView aTc;
-    private View aTd;
-    private ImageView aTe;
-    private FrameLayout aTg;
-    private Animation aTh;
-    private AudioAnimationView aTi;
-    private View aTj;
-    private TextView aTk;
-    private aj aTl;
-    private TbPageContext<?> aaX;
-    private j buD;
-    private View buE;
-    private TextView buF;
-    private View buG;
+    private QuickVideoView aTd;
+    private TbImageView aTe;
+    private View aTf;
+    private ImageView aTg;
+    private FrameLayout aTi;
+    private Animation aTj;
+    private AudioAnimationView aTk;
+    private View aTl;
+    private TextView aTm;
+    private aj aTn;
+    private TbPageContext<?> aaY;
+    private j bwU;
+    private View bwV;
+    private TextView bwW;
+    private View bwX;
     private TextView mTitle;
     private View mView;
-    private TbImageView.a aTr = new b(this);
+    private TbImageView.a aTt = new b(this);
     private View.OnClickListener mOnClickListener = new c(this);
-    private v.d aQI = new d(this);
-    private Runnable aTs = new e(this);
-    private QuickVideoView.b aTt = new f(this);
-    private v.b aQJ = new g(this);
-    private Runnable aTu = new h(this);
-    private Runnable aTv = new i(this);
+    private v.d aQK = new d(this);
+    private Runnable aTu = new e(this);
+    private QuickVideoView.b aTv = new f(this);
+    private v.b aQL = new g(this);
+    private Runnable aTw = new h(this);
+    private Runnable aTx = new i(this);
 
     public a(TbPageContext<?> tbPageContext, View view) {
-        this.aaX = tbPageContext;
+        this.aaY = tbPageContext;
         this.mView = view.findViewById(w.h.video_container);
         this.mView.setOnClickListener(this.mOnClickListener);
-        this.aTb = (QuickVideoView) view.findViewById(w.h.video_view);
-        ViewGroup.LayoutParams layoutParams = this.aTb.getLayoutParams();
-        layoutParams.height = this.aTb.getWidth();
-        this.aTb.setLayoutParams(layoutParams);
-        this.aTl = new aj(this.aaX.getPageActivity());
-        this.aTl.aYa();
-        this.aTb.setBusiness(this.aTl);
-        this.aTb.setOnPreparedListener(this.aQI);
-        this.aTb.setOnSurfaceDestroyedListener(this.aTt);
-        this.aTb.setOnErrorListener(this.aQJ);
-        this.aTc = (TbImageView) view.findViewById(w.h.img_thumbnail);
-        this.aTc.setDefaultErrorResource(0);
-        this.aTc.setDefaultBgResource(w.g.pic_bg_video_frs);
-        this.aTc.setEvent(this.aTr);
-        this.aTd = view.findViewById(w.h.layout_title);
+        this.aTd = (QuickVideoView) view.findViewById(w.h.video_view);
+        ViewGroup.LayoutParams layoutParams = this.aTd.getLayoutParams();
+        layoutParams.height = this.aTd.getWidth();
+        this.aTd.setLayoutParams(layoutParams);
+        this.aTn = new aj(this.aaY.getPageActivity());
+        this.aTn.aZb();
+        this.aTd.setBusiness(this.aTn);
+        this.aTd.setOnPreparedListener(this.aQK);
+        this.aTd.setOnSurfaceDestroyedListener(this.aTv);
+        this.aTd.setOnErrorListener(this.aQL);
+        this.aTe = (TbImageView) view.findViewById(w.h.img_thumbnail);
+        this.aTe.setDefaultErrorResource(0);
+        this.aTe.setDefaultBgResource(w.g.pic_bg_video_frs);
+        this.aTe.setEvent(this.aTt);
+        this.aTf = view.findViewById(w.h.layout_title);
         this.mTitle = (TextView) view.findViewById(w.h.tv_title);
-        this.aTe = (ImageView) view.findViewById(w.h.img_play);
-        this.aTg = (FrameLayout) view.findViewById(w.h.layout_loading);
-        this.aTh = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), w.a.video_title_fade_out);
-        this.aTi = (AudioAnimationView) view.findViewById(w.h.playing_indicator);
-        this.aTi.setCertainColumnCount(4);
-        this.aTi.setColumnColor(w.e.cp_cont_i);
-        this.aTj = view.findViewById(w.h.layout_error);
-        this.aTk = (TextView) view.findViewById(w.h.video_error_tips);
-        this.buE = view.findViewById(w.h.layout_live_end);
-        this.buF = (TextView) view.findViewById(w.h.video_live_end_tips);
-        this.buG = view.findViewById(w.h.bottom_divider);
-        this.buD = new j(this);
+        this.aTg = (ImageView) view.findViewById(w.h.img_play);
+        this.aTi = (FrameLayout) view.findViewById(w.h.layout_loading);
+        this.aTj = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), w.a.video_title_fade_out);
+        this.aTk = (AudioAnimationView) view.findViewById(w.h.playing_indicator);
+        this.aTk.setCertainColumnCount(4);
+        this.aTk.setColumnColor(w.e.cp_cont_i);
+        this.aTl = view.findViewById(w.h.layout_error);
+        this.aTm = (TextView) view.findViewById(w.h.video_error_tips);
+        this.bwV = view.findViewById(w.h.layout_live_end);
+        this.bwW = (TextView) view.findViewById(w.h.video_live_end_tips);
+        this.bwX = view.findViewById(w.h.bottom_divider);
+        this.bwU = new j(this);
     }
 
     public void onChangeSkinType(int i) {
         aq.i(this.mTitle, w.e.cp_cont_g);
-        aq.c(this.aTe, w.g.btn_icon_play_video_n);
-        aq.i(this.aTk, w.e.cp_cont_i);
-        aq.k(this.aTj, w.e.black_alpha80);
-        aq.k(this.aTb, w.e.cp_bg_line_k);
-        aq.i(this.buF, w.e.cp_cont_i);
-        aq.k(this.buE, w.e.black_alpha80);
+        aq.c(this.aTg, w.g.btn_icon_play_video_n);
+        aq.i(this.aTm, w.e.cp_cont_i);
+        aq.k(this.aTl, w.e.black_alpha80);
+        aq.k(this.aTd, w.e.cp_bg_line_k);
+        aq.i(this.bwW, w.e.cp_cont_i);
+        aq.k(this.bwV, w.e.black_alpha80);
     }
 
     public View getView() {
         return this.mView;
     }
 
-    public void cQ(boolean z) {
+    public void da(boolean z) {
         if (z) {
-            this.buG.setVisibility(0);
+            this.bwX.setVisibility(0);
         } else {
-            this.buG.setVisibility(8);
+            this.bwX.setVisibility(8);
         }
     }
 
-    public j SU() {
-        return this.buD;
+    public j TW() {
+        return this.bwU;
     }
 
     public void setTitle(String str) {
@@ -108,24 +108,24 @@ public class a {
     }
 
     public void gD(String str) {
-        this.aTc.setDefaultBgResource(w.g.pic_bg_video_frs);
-        this.aTc.c(str, 10, false);
+        this.aTe.setDefaultBgResource(w.g.pic_bg_video_frs);
+        this.aTe.c(str, 10, false);
     }
 
     public QuickVideoView Lg() {
-        return this.aTb;
+        return this.aTd;
     }
 
     public void Lh() {
-        this.aTc.setVisibility(0);
         this.aTe.setVisibility(0);
-        this.aTg.setVisibility(8);
-        this.aTd.clearAnimation();
-        this.aTi.bmk();
-        this.aTj.setVisibility(8);
-        this.buE.setVisibility(8);
-        com.baidu.adp.lib.g.h.fR().removeCallbacks(this.aTs);
-        com.baidu.adp.lib.g.h.fR().removeCallbacks(this.aTu);
-        com.baidu.adp.lib.g.h.fR().removeCallbacks(this.aTv);
+        this.aTg.setVisibility(0);
+        this.aTi.setVisibility(8);
+        this.aTf.clearAnimation();
+        this.aTk.bnl();
+        this.aTl.setVisibility(8);
+        this.bwV.setVisibility(8);
+        com.baidu.adp.lib.g.h.fS().removeCallbacks(this.aTu);
+        com.baidu.adp.lib.g.h.fS().removeCallbacks(this.aTw);
+        com.baidu.adp.lib.g.h.fS().removeCallbacks(this.aTx);
     }
 }

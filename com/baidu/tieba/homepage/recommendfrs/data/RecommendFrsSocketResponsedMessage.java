@@ -23,7 +23,7 @@ public class RecommendFrsSocketResponsedMessage extends MvcSocketResponsedMessag
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof d) {
                 d dVar = (d) mvcNetMessage.getRequestData();
-                if (dVar.ajR() == 0 && (cA = com.baidu.tbadk.core.c.a.tM().cA(RecommendFrsCacheModel.TABLE_NAME)) != null) {
+                if (dVar.akS() == 0 && (cA = com.baidu.tbadk.core.c.a.tM().cA(RecommendFrsCacheModel.TABLE_NAME)) != null) {
                     cA.k(new StringBuilder(String.valueOf(dVar.getTagCode())).toString(), bArr);
                 }
             }

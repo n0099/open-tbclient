@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class eg {
-    public boolean egB;
-    public boolean enZ;
-    public int eoa;
-    public int eob;
-    public boolean eoc;
+    public boolean eiR;
+    public boolean eqr;
+    public int eqs;
+    public int eqt;
+    public boolean equ;
     public boolean isAlive;
     public boolean isSquence;
     public int loadType;

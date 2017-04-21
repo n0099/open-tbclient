@@ -6,11 +6,11 @@ import com.baidu.tieba.play.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements y.a {
-    final /* synthetic */ x bsX;
+    final /* synthetic */ x bvq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(x xVar) {
-        this.bsX = xVar;
+        this.bvq = xVar;
     }
 
     @Override // com.baidu.tieba.play.y.a
@@ -28,40 +28,40 @@ public class ab implements y.a {
         com.baidu.tieba.card.data.p pVar11;
         com.baidu.tieba.card.data.p pVar12;
         com.baidu.tieba.card.data.p pVar13;
-        pVar = this.bsX.bsP;
+        pVar = this.bvq.bvi;
         if (pVar != null) {
-            pVar2 = this.bsX.bsP;
-            if (pVar2.bbo != null) {
-                pVar3 = this.bsX.bsP;
-                if (pVar3.bbo.sF() != null) {
+            pVar2 = this.bvq.bvi;
+            if (pVar2.bck != null) {
+                pVar3 = this.bvq.bvi;
+                if (pVar3.bck.sF() != null) {
                     com.baidu.tieba.play.bb bbVar = new com.baidu.tieba.play.bb();
-                    pVar4 = this.bsX.bsP;
+                    pVar4 = this.bvq.bvi;
                     bbVar.mLocate = pVar4.sourceType == 0 ? ImageViewerConfig.INDEX : "hot_juhe";
-                    pVar5 = this.bsX.bsP;
-                    bbVar.bqu = pVar5.bbo.getTid();
-                    pVar6 = this.bsX.bsP;
-                    bbVar.bqv = new StringBuilder(String.valueOf(pVar6.bbo.getFid())).toString();
+                    pVar5 = this.bvq.bvi;
+                    bbVar.bsL = pVar5.bck.getTid();
+                    pVar6 = this.bvq.bvi;
+                    bbVar.bsM = new StringBuilder(String.valueOf(pVar6.bck.getFid())).toString();
                     bbVar.mUid = TbadkCoreApplication.getCurrentAccount();
-                    pVar7 = this.bsX.bsP;
-                    bbVar.mSource = pVar7.bbo.Zx;
-                    pVar8 = this.bsX.bsP;
-                    bbVar.eVd = pVar8.bbo.Zz;
-                    pVar9 = this.bsX.bsP;
-                    bbVar.eVe = pVar9.bbo.Zy;
-                    bbVar.eVf = "";
-                    pVar10 = this.bsX.bsP;
-                    if (pVar10.bbo.ts() != null) {
-                        pVar12 = this.bsX.bsP;
-                        if (pVar12.bbo.ts().channelId > 0) {
-                            pVar13 = this.bsX.bsP;
-                            bbVar.VP = new StringBuilder(String.valueOf(pVar13.bbo.ts().channelId)).toString();
-                            pVar11 = this.bsX.bsP;
-                            com.baidu.tieba.play.ab.a(pVar11.bbo.sF().video_md5, "", "1", bbVar);
+                    pVar7 = this.bvq.bvi;
+                    bbVar.mSource = pVar7.bck.Zy;
+                    pVar8 = this.bvq.bvi;
+                    bbVar.eXt = pVar8.bck.ZA;
+                    pVar9 = this.bvq.bvi;
+                    bbVar.eXu = pVar9.bck.Zz;
+                    bbVar.eXv = "";
+                    pVar10 = this.bvq.bvi;
+                    if (pVar10.bck.ts() != null) {
+                        pVar12 = this.bvq.bvi;
+                        if (pVar12.bck.ts().channelId > 0) {
+                            pVar13 = this.bvq.bvi;
+                            bbVar.VR = new StringBuilder(String.valueOf(pVar13.bck.ts().channelId)).toString();
+                            pVar11 = this.bvq.bvi;
+                            com.baidu.tieba.play.ab.a(pVar11.bck.sF().video_md5, "", "1", bbVar);
                         }
                     }
-                    bbVar.VP = "0";
-                    pVar11 = this.bsX.bsP;
-                    com.baidu.tieba.play.ab.a(pVar11.bbo.sF().video_md5, "", "1", bbVar);
+                    bbVar.VR = "0";
+                    pVar11 = this.bvq.bvi;
+                    com.baidu.tieba.play.ab.a(pVar11.bck.sF().video_md5, "", "1", bbVar);
                 }
             }
         }

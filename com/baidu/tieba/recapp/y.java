@@ -29,16 +29,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private static final HashMap<Integer, Integer> eZg = new HashMap<>();
-    private static final String[] eZh = {"exp_8_4", "exp_8_3", "exp_8_2"};
+    private static final HashMap<Integer, Integer> fbx = new HashMap<>();
+    private static final String[] fby = {"exp_8_4", "exp_8_3", "exp_8_2"};
 
     static {
-        eZg.put(1, 1001);
-        eZg.put(2, 1002);
-        eZg.put(3, 1003);
+        fbx.put(1, 1001);
+        fbx.put(2, 1002);
+        fbx.put(3, 1003);
     }
 
-    public static String pi(String str) {
+    public static String pj(String str) {
         int intValue;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -46,9 +46,9 @@ public class y {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 != eZh.length) {
-                        int optInt = jSONObject.optInt(eZh[i2]);
-                        if (optInt <= 0 || !eZg.containsKey(Integer.valueOf(optInt)) || (intValue = eZg.get(Integer.valueOf(optInt)).intValue()) <= 1000) {
+                    if (i2 != fby.length) {
+                        int optInt = jSONObject.optInt(fby[i2]);
+                        if (optInt <= 0 || !fbx.containsKey(Integer.valueOf(optInt)) || (intValue = fbx.get(Integer.valueOf(optInt)).intValue()) <= 1000) {
                             i = i2 + 1;
                         } else {
                             jSONObject.put("card_type", intValue);
@@ -71,9 +71,9 @@ public class y {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.TS;
-        if (StringUtils.isNull(str) && advertAppInfo.Uc != null) {
-            str = advertAppInfo.Uc.userName;
+        String str = advertAppInfo.TU;
+        if (StringUtils.isNull(str) && advertAppInfo.Ue != null) {
+            str = advertAppInfo.Ue.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -90,16 +90,16 @@ public class y {
             return false;
         }
         a.CX().b(advertAppInfo);
-        String str2 = advertAppInfo.TS;
+        String str2 = advertAppInfo.TU;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.c.a.aZT().a(advertAppInfo.TW, advertAppInfo.TV, str2, i, com.baidu.tieba.recapp.c.a.pk(advertAppInfo.TW).intValue(), null, true, false, true, advertAppInfo.Uc.userPortrait, downloadStaticsData, advertAppInfo.Uc.userName);
+        com.baidu.tieba.recapp.c.a.baU().a(advertAppInfo.TY, advertAppInfo.TX, str2, i, com.baidu.tieba.recapp.c.a.pl(advertAppInfo.TY).intValue(), null, true, false, true, advertAppInfo.Ue.userPortrait, downloadStaticsData, advertAppInfo.Ue.userName);
         return true;
     }
 
     public static final void e(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.c.a.aZT().j(advertAppInfo.TV, advertAppInfo.TW, true);
+        com.baidu.tieba.recapp.c.a.baU().j(advertAppInfo.TX, advertAppInfo.TY, true);
     }
 
     public static final void ap(Context context, String str) {
@@ -206,10 +206,10 @@ public class y {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        v.aZP().sendFRS(z, str, str2, str3, list, str4);
+        v.baQ().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        v.aZP().a(z, str, str2, str3, str4, list, str5);
+        v.baQ().a(z, str, str2, str3, str4, list, str5);
     }
 }

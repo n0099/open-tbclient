@@ -24,17 +24,17 @@ class at implements View.OnClickListener {
         Context context;
         bi biVar4;
         bi biVar5;
-        biVar = this.amF.aiB;
+        biVar = this.amF.aiC;
         if (biVar != null) {
-            biVar2 = this.amF.aiB;
+            biVar2 = this.amF.aiC;
             if (biVar2.ts() != null) {
-                biVar3 = this.amF.aiB;
+                biVar3 = this.amF.aiC;
                 if (biVar3.ts().channelId > 0) {
                     MessageManager messageManager = MessageManager.getInstance();
                     context = this.amF.mContext;
-                    biVar4 = this.amF.aiB;
+                    biVar4 = this.amF.aiC;
                     long j = biVar4.ts().channelId;
-                    biVar5 = this.amF.aiB;
+                    biVar5 = this.amF.aiC;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context, j, biVar5.ts().mCurrentPage)));
                 }
             }

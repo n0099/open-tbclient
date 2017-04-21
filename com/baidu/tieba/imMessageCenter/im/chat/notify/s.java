@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 public class s {
-    public static boolean mb(int i) {
+    public static boolean mh(int i) {
         switch (i) {
             case 0:
                 if (!com.baidu.tbadk.coreExtra.messageCenter.c.zG().zO() && !com.baidu.tbadk.coreExtra.messageCenter.c.zG().zV()) {
@@ -31,13 +31,13 @@ public class s {
         if (newsNotifyMessage == null) {
             return 0;
         }
-        if (mb(0)) {
+        if (mh(0)) {
             i2 = newsNotifyMessage.getMsgChat();
             i = newsNotifyMessage.getMsgStrangerChat();
         } else {
             i = 0;
             i2 = 0;
         }
-        return ((mb(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (mb(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
+        return ((mh(2) ? newsNotifyMessage.getMsgAtme() : 0) + (i2 + (mh(1) ? newsNotifyMessage.getMsgReplyme() : 0))) - i;
     }
 }

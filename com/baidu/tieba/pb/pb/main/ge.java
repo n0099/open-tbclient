@@ -5,31 +5,31 @@ import com.baidu.tieba.pb.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ge implements a.InterfaceC0066a {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ge(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
-    public void aat() {
+    public void abu() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         com.baidu.tieba.pb.video.d dVar;
-        bdTypeListView = this.erv.mListView;
+        bdTypeListView = this.etN.mListView;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.erv.mListView;
+            bdTypeListView2 = this.etN.mListView;
             bdTypeListView2.setSelection(0);
-            dVar = this.erv.eoO;
-            dVar.aPr();
+            dVar = this.etN.erf;
+            dVar.aQs();
         }
     }
 
     @Override // com.baidu.tieba.pb.a.a.InterfaceC0066a
-    public void aas() {
+    public void abt() {
         PbActivity pbActivity;
-        pbActivity = this.erv.eig;
-        pbActivity.Zq();
+        pbActivity = this.etN.ekw;
+        pbActivity.aar();
     }
 }

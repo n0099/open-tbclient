@@ -4,11 +4,11 @@ import com.baidu.tieba.frs.az;
 import com.baidu.tieba.frs.cg;
 /* loaded from: classes.dex */
 class al implements Runnable {
-    final /* synthetic */ ak cbS;
+    final /* synthetic */ ak cej;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar) {
-        this.cbS = akVar;
+        this.cej = akVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,18 +21,18 @@ class al implements Runnable {
         az azVar2;
         ah ahVar4;
         cg cgVar2;
-        ahVar = this.cbS.cbR;
-        azVar = ahVar.bMD;
-        if (azVar.ZI() != null) {
-            ahVar2 = this.cbS.cbR;
-            cgVar = ahVar2.bYu;
+        ahVar = this.cej.cei;
+        azVar = ahVar.bOU;
+        if (azVar.aaJ() != null) {
+            ahVar2 = this.cej.cei;
+            cgVar = ahVar2.caL;
             if (cgVar != null) {
-                ahVar3 = this.cbS.cbR;
-                azVar2 = ahVar3.bMD;
-                if (azVar2.ZI().getVisibility() != 0) {
-                    ahVar4 = this.cbS.cbR;
-                    cgVar2 = ahVar4.bYu;
-                    cgVar2.Xe();
+                ahVar3 = this.cej.cei;
+                azVar2 = ahVar3.bOU;
+                if (azVar2.aaJ().getVisibility() != 0) {
+                    ahVar4 = this.cej.cei;
+                    cgVar2 = ahVar4.caL;
+                    cgVar2.Yf();
                 }
             }
         }

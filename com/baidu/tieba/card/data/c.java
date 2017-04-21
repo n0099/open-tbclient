@@ -14,56 +14,56 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class c extends b implements ah {
-    public String WS;
-    public SparseArray<String> WT = null;
-    private String buL;
-    private int buM;
-    private String buN;
-    private String buO;
+    public String WT;
+    public SparseArray<String> WU = null;
+    private String bxc;
+    private int bxd;
+    private String bxe;
+    private String bxf;
     private String mSource;
 
     public void setWeight(String str) {
-        this.buL = str;
+        this.bxc = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void gL(int i) {
-        this.buM = i;
+    public void gR(int i) {
+        this.bxd = i;
     }
 
-    public void ic(String str) {
-        this.buN = str;
+    public void id(String str) {
+        this.bxe = str;
     }
 
-    public int SV() {
-        return this.buM;
+    public int TX() {
+        return this.bxd;
     }
 
-    public String SW() {
-        return String.valueOf(this.mSource) + "#" + this.buM + "#" + this.buN;
+    public String TY() {
+        return String.valueOf(this.mSource) + "#" + this.bxd + "#" + this.bxe;
     }
 
     public String getWeight() {
-        return this.buL;
+        return this.bxc;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String SX() {
-        return this.buN;
+    public String TZ() {
+        return this.bxe;
     }
 
-    public String SY() {
-        return this.buO;
+    public String Ua() {
+        return this.bxf;
     }
 
-    public void id(String str) {
-        this.buO = str;
+    public void ie(String str) {
+        this.bxf = str;
     }
 
     public bi Kn() {
@@ -74,7 +74,8 @@ public abstract class c extends b implements ah {
         return true;
     }
 
-    public as ie(String str) {
+    /* renamed from: if  reason: not valid java name */
+    public as m16if(String str) {
         return A(str, false);
     }
 
@@ -83,15 +84,16 @@ public abstract class c extends b implements ah {
         if (Kn == null) {
             return null;
         }
-        as aa = new as(str).aa("fid", String.valueOf(Kn.getFid())).aa("tid", String.valueOf(Kn.getTid())).s("obj_id", m(Kn)).s("obj_param2", 1).aa("obj_param1", getWeight()).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", SV()).aa("obj_name", SX()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", at.SN());
+        as aa = new as(str).aa("fid", String.valueOf(Kn.getFid())).aa("tid", String.valueOf(Kn.getTid())).s("obj_id", m(Kn)).aa("obj_param1", getWeight()).s("obj_param2", 1).aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).s("obj_locate", TX()).aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount()).aa("obj_param3", at.TP());
         if (!z) {
-            aa.s("obj_type", SZ());
+            aa.s("obj_type", Ub());
             return aa;
         }
+        aa.aa("ab_tag", TZ());
         return aa;
     }
 
-    private int SZ() {
+    private int Ub() {
         int i;
         bi Kn = Kn();
         if (Kn == null) {

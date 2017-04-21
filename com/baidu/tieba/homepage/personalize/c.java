@@ -4,20 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a cxa;
+    final /* synthetic */ a czr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.cxa = aVar;
+        this.czr = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         n nVar;
         n nVar2;
-        nVar = this.cxa.cwS;
+        nVar = this.czr.czj;
         if (nVar != null) {
-            nVar2 = this.cxa.cwS;
+            nVar2 = this.czr.czj;
             nVar2.update();
         }
     }

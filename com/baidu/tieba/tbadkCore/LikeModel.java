@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 public class LikeModel extends BdBaseModel {
     public static final int HASLIKE_ERROR = 22;
     private String from;
-    private String fuB;
-    private a fuC;
-    private String fuD;
+    private String fwR;
+    private a fwS;
+    private String fwT;
     private String mForumId;
     private String mForumName;
 
@@ -25,8 +25,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.fuB = null;
-        this.fuC = null;
+        this.fwR = null;
+        this.fwS = null;
     }
 
     public void setFrom(String str) {
@@ -43,30 +43,30 @@ public class LikeModel extends BdBaseModel {
         return false;
     }
 
-    public void bhx() {
-        if (this.fuC != null) {
-            this.fuC.cancel();
-            this.fuC = null;
+    public void biy() {
+        if (this.fwS != null) {
+            this.fwS.cancel();
+            this.fwS = null;
         }
     }
 
     public void D(String str, String str2, String str3) {
-        bZ(str, str2);
-        this.fuB = str3;
+        bY(str, str2);
+        this.fwR = str3;
     }
 
-    public void bZ(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.fuC == null) {
+    public void bY(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.fwS == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.fuC = new a(this, null);
-            this.fuC.setPriority(2);
-            this.fuC.execute(new Object[0]);
+            this.fwS = new a(this, null);
+            this.fwS.setPriority(2);
+            this.fwS.execute(new Object[0]);
         }
     }
 
-    public boolean bhy() {
-        return this.fuC != null;
+    public boolean biz() {
+        return this.fwS != null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -92,11 +92,11 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.n("kw", LikeModel.this.mForumName);
                 this.mNetwork.n("fid", LikeModel.this.mForumId);
                 this.mNetwork.n("st_type", LikeModel.this.from);
-                if (!StringUtils.isNull(LikeModel.this.fuD)) {
-                    this.mNetwork.n("dev_id", LikeModel.this.fuD);
+                if (!StringUtils.isNull(LikeModel.this.fwT)) {
+                    this.mNetwork.n("dev_id", LikeModel.this.fwT);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.fuB)) {
-                    this.mNetwork.n("pagefrom", LikeModel.this.fuB);
+                if (!TextUtils.isEmpty(LikeModel.this.fwR)) {
+                    this.mNetwork.n("pagefrom", LikeModel.this.fwR);
                 }
                 this.mNetwork.n("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.n("user_id", TbadkCoreApplication.getCurrentAccount());
@@ -130,7 +130,7 @@ public class LikeModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(v vVar) {
-            LikeModel.this.fuC = null;
+            LikeModel.this.fwS = null;
             com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
             aVar.forumId = com.baidu.adp.lib.g.b.c(vVar.getFid(), 0L);
             if (this.mNetwork != null) {
@@ -154,10 +154,10 @@ public class LikeModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.fr();
+                this.mNetwork.fs();
                 this.mNetwork = null;
             }
-            LikeModel.this.fuC = null;
+            LikeModel.this.fwS = null;
             super.cancel(true);
             LikeModel.this.mLoadDataCallBack.g(null);
         }

@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends cf<bi> {
-    final /* synthetic */ w bSH;
+    final /* synthetic */ w bUY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.bSH = wVar;
+        this.bUY = wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,18 +22,18 @@ public class x extends cf<bi> {
                 if (view.getId() != w.h.layout_root) {
                     if (view.getId() != w.h.image_user && view.getId() != w.h.pendant_image_user) {
                         if (view.getId() == w.h.card_divider_tv) {
-                            com.baidu.tieba.frs.f.s.a(w.bYW, biVar.sM());
+                            com.baidu.tieba.frs.f.s.a(w.cbn, biVar.sM());
                             return;
                         }
                         return;
                     }
-                    this.bSH.a(biVar, "c10241");
+                    this.bUY.a(biVar, "c10241");
                     return;
                 }
-                this.bSH.a(biVar, "c10242");
+                this.bUY.a(biVar, "c10242");
                 return;
             }
-            this.bSH.a(biVar, "c11718");
+            this.bUY.a(biVar, "c11718");
         }
     }
 }

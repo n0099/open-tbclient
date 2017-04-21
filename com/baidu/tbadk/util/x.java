@@ -56,17 +56,17 @@ public class x {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aJr;
+        public String aJt;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aJr = "";
+            this.aJt = "";
             this.BDUSS = str;
-            this.aJr = str2;
+            this.aJt = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aJr != null ? this.aJr.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aJt != null ? this.aJt.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -82,7 +82,7 @@ public class x {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aJr == null ? aVar.aJr == null : this.aJr.equals(aVar.aJr);
+                return this.aJt == null ? aVar.aJt == null : this.aJt.equals(aVar.aJt);
             }
             return false;
         }

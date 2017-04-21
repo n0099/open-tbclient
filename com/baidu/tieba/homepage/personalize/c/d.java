@@ -10,11 +10,11 @@ import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends cf<e> {
-    final /* synthetic */ c czv;
+    final /* synthetic */ c cBM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.czv = cVar;
+        this.cBM = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

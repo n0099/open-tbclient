@@ -9,17 +9,17 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.InterfaceC0030a {
-    final /* synthetic */ QALoginActivity ecW;
+    final /* synthetic */ QALoginActivity efm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(QALoginActivity qALoginActivity) {
-        this.ecW = qALoginActivity;
+        this.efm = qALoginActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
     public void cf(String str) {
-        if (this.ecW.getLoadingDialog() == null || !this.ecW.getLoadingDialog().isShowing()) {
-            this.ecW.showLoadingDialog(this.ecW.getPageContext().getString(w.l.sapi_logining), new p(this));
+        if (this.efm.getLoadingDialog() == null || !this.efm.getLoadingDialog().isShowing()) {
+            this.efm.showLoadingDialog(this.efm.getPageContext().getString(w.l.sapi_logining), new p(this));
         }
     }
 
@@ -27,31 +27,31 @@ public class o implements a.InterfaceC0030a {
     public void a(AccountData accountData) {
         int i;
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
-        this.ecW.closeLoadingDialog();
+        this.efm.closeLoadingDialog();
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            this.ecW.showToast("用户名为空");
+            this.efm.showToast("用户名为空");
             return;
         }
         q(accountData);
-        i = this.ecW.mFrom;
+        i = this.efm.mFrom;
         if (i == 4) {
-            this.ecW.Mb();
+            this.efm.Mb();
         } else {
-            this.ecW.aIy();
+            this.efm.aJz();
         }
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
     public void b(String str, int i, String str2) {
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
-        this.ecW.closeLoadingDialog();
-        this.ecW.showToast(str2);
-        this.ecW.finish();
+        this.efm.closeLoadingDialog();
+        this.efm.showToast(str2);
+        this.efm.finish();
     }
 
     private void q(AccountData accountData) {
-        com.baidu.adp.lib.g.k.fS().e(new q(this, accountData));
-        TbadkCoreApplication.setCurrentAccount(accountData, this.ecW.getPageContext().getPageActivity());
+        com.baidu.adp.lib.g.k.fT().e(new q(this, accountData));
+        TbadkCoreApplication.setCurrentAccount(accountData, this.efm.getPageContext().getPageActivity());
         com.baidu.tbadk.browser.f.ar(TbadkCoreApplication.m9getInst());
     }
 }

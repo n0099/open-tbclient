@@ -7,8 +7,8 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class ax {
     private int duration;
-    private long eUY;
-    private String eUZ;
+    private long eXo;
+    private String eXp;
     private String videoUrl;
 
     public void a(VideoInfo videoInfo, boolean z) {
@@ -26,8 +26,8 @@ public class ax {
                     }
                     VideoDesc next = it.next();
                     if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.i.hk()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.i.hl()) {
+                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.i.hl()) {
+                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.i.hm()) {
                                 videoDesc = next;
                                 break;
                             }
@@ -42,16 +42,16 @@ public class ax {
                     String str3 = videoDesc.video_width;
                     String str4 = videoDesc.video_height;
                     this.videoUrl = str;
-                    this.eUY = videoInfo.video_length.intValue();
+                    this.eXo = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.eUZ = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.eXp = videoInfo.video_width + "x" + videoInfo.video_height;
                 }
             }
             str = str2;
             this.videoUrl = str;
-            this.eUY = videoInfo.video_length.intValue();
+            this.eXo = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.eUZ = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.eXp = videoInfo.video_width + "x" + videoInfo.video_height;
         }
     }
 
@@ -65,15 +65,15 @@ public class ax {
         }
     }
 
-    public long aYk() {
-        return this.eUY;
+    public long aZl() {
+        return this.eXo;
     }
 
     public int getDuration() {
         return this.duration;
     }
 
-    public String aYl() {
-        return this.eUZ;
+    public String aZm() {
+        return this.eXp;
     }
 }

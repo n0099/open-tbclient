@@ -9,13 +9,13 @@ import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ a cxa;
+    final /* synthetic */ a czr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(a aVar, int i) {
         super(i);
-        this.cxa = aVar;
+        this.czr = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class e extends CustomMessageListener {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.g.h.fR().postDelayed(new f(this), TimeUnit.SECONDS.toMillis(2L));
+                com.baidu.adp.lib.g.h.fS().postDelayed(new f(this), TimeUnit.SECONDS.toMillis(2L));
             }
         }
     }

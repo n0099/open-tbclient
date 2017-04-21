@@ -14,20 +14,20 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends PagerAdapter {
-    private int BP;
-    private com.baidu.tbadk.img.b avZ;
-    private AlbumActivity fMV;
-    private Map<Integer, Boolean> fNm = new HashMap();
-    private ColorDrawable fNn;
+    private int BS;
+    private com.baidu.tbadk.img.b awb;
+    private Map<Integer, Boolean> fPI = new HashMap();
+    private ColorDrawable fPJ;
+    private AlbumActivity fPr;
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
 
     public j(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.fMV = albumActivity;
-        this.avZ = bVar;
-        this.BP = com.baidu.adp.lib.util.k.af(this.fMV.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.ag(this.fMV.getPageContext().getContext()) - ((int) this.fMV.getResources().getDimension(w.f.ds166));
-        this.fNn = new ColorDrawable(this.fMV.getResources().getColor(w.e.black_alpha100));
+        this.fPr = albumActivity;
+        this.awb = bVar;
+        this.BS = com.baidu.adp.lib.util.k.af(this.fPr.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.ag(this.fPr.getPageContext().getContext()) - ((int) this.fPr.getResources().getDimension(w.f.ds166));
+        this.fPJ = new ColorDrawable(this.fPr.getResources().getColor(w.e.black_alpha100));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -57,43 +57,43 @@ public class j extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo sN(int i) {
+    public ImageFileInfo sT(int i) {
         return (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, i);
     }
 
-    public boolean sO(int i) {
-        if (this.fNm.get(Integer.valueOf(i)) == null) {
+    public boolean sU(int i) {
+        if (this.fPI.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.fNm.get(Integer.valueOf(i)).booleanValue();
+        return this.fPI.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ImageFileInfo sN;
-        View inflate = LayoutInflater.from(this.fMV.getPageContext().getContext()).inflate(w.j.album_big_image_item, (ViewGroup) null);
+        ImageFileInfo sT;
+        View inflate = LayoutInflater.from(this.fPr.getPageContext().getContext()).inflate(w.j.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(w.h.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(w.e.black_alpha100);
-        tbImageView.setBg(this.fNn);
+        tbImageView.setBg(this.fPJ);
         ImageFileInfo imageFileInfo = (ImageFileInfo) com.baidu.tbadk.core.util.x.c(this.mList, 0);
         if (imageFileInfo != null && "-2".equals(imageFileInfo.getAlbumId())) {
-            sN = sN(i + 1);
+            sT = sT(i + 1);
         } else {
-            sN = sN(i);
+            sT = sT(i);
         }
-        this.fNm.put(Integer.valueOf(i), false);
-        if (sN != null) {
-            sN.clearPageActions();
-            sN.addPageAction(com.baidu.tbadk.img.effect.d.M(this.BP, this.mMaxHeight));
-            tbImageView.setTag(sN.toCachedKey(false));
-            if (this.avZ.a(sN, false) != null) {
+        this.fPI.put(Integer.valueOf(i), false);
+        if (sT != null) {
+            sT.clearPageActions();
+            sT.addPageAction(com.baidu.tbadk.img.effect.d.M(this.BS, this.mMaxHeight));
+            tbImageView.setTag(sT.toCachedKey(false));
+            if (this.awb.a(sT, false) != null) {
                 tbImageView.invalidate();
-                this.fNm.put(Integer.valueOf(i), true);
+                this.fPI.put(Integer.valueOf(i), true);
             } else {
-                this.avZ.a(sN, new k(this, viewGroup, i), false);
+                this.awb.a(sT, new k(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

@@ -5,31 +5,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class n extends r {
-    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> fyh;
+    private volatile HashMap<Long, com.baidu.tieba.myCollection.baseHistory.a> fAx;
 
     public n(int i) {
         super(i);
-        this.fyh = new HashMap<>();
+        this.fAx = new HashMap<>();
     }
 
     public void a(String str, com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        qn(str);
+        qo(str);
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                this.fyh.put(valueOf, aVar);
+                this.fAx.put(valueOf, aVar);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public com.baidu.tieba.myCollection.baseHistory.a ql(String str) {
+    public com.baidu.tieba.myCollection.baseHistory.a qm(String str) {
         com.baidu.tieba.myCollection.baseHistory.a aVar;
         try {
             Long valueOf = Long.valueOf(com.baidu.adp.lib.g.b.c(str, -1L));
             synchronized (this) {
-                aVar = this.fyh.get(valueOf) != null ? this.fyh.get(valueOf) : null;
+                aVar = this.fAx.get(valueOf) != null ? this.fAx.get(valueOf) : null;
             }
             return aVar;
         } catch (Exception e) {
@@ -39,22 +39,22 @@ public class n extends r {
     }
 
     @Override // com.baidu.tieba.tbadkCore.util.r
-    public void aUM() {
+    public void aVN() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.fyl.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.fAB.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.fyl.remove(l);
-                this.fyh.remove(l);
+                this.fAB.remove(l);
+                this.fAx.remove(l);
             } else {
-                this.fyl.clear();
-                this.fyh.clear();
+                this.fAB.clear();
+                this.fAx.clear();
             }
         }
     }

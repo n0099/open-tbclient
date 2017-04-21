@@ -11,11 +11,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements CacheModel.a<com.baidu.tieba.myCollection.baseHistory.a> {
-    final /* synthetic */ RecommendFrsControlFragment cuc;
+    final /* synthetic */ RecommendFrsControlFragment cwt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cuc = recommendFrsControlFragment;
+        this.cwt = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a

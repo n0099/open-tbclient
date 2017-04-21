@@ -18,19 +18,19 @@ public class a {
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0054a {
-        void So();
+        void Tq();
     }
 
-    public static boolean Sm() {
+    public static boolean To() {
         return UtilHelper.isInstallApk(TbadkCoreApplication.m9getInst(), "com.baidu.tiebabz");
     }
 
-    public static void Sn() {
+    public static void Tp() {
         com.baidu.tbadk.download.b.Dc().a("160802", "https://downpack.baidu.com/tbbazhu_AndroidPhone_1017265l.apk", "贴吧吧主版", null);
     }
 
     public static void a(g<?> gVar, int i, int i2) {
-        if (!Sm()) {
+        if (!To()) {
             String str = "";
             switch (i2) {
                 case 1:
@@ -54,7 +54,7 @@ public class a {
     }
 
     public static void a(g<?> gVar, int i, String str) {
-        if (!Sm()) {
+        if (!To()) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(gVar.getPageActivity());
             aVar.cE(str);
             aVar.a(w.l.download, new b(i));
@@ -65,9 +65,9 @@ public class a {
     }
 
     public static void a(g<?> gVar, String str, String str2, InterfaceC0054a interfaceC0054a) {
-        if (!Sm() || !g(gVar.getPageActivity(), str, str2)) {
-            if (i.hj()) {
-                if (i.hk()) {
+        if (!To() || !g(gVar.getPageActivity(), str, str2)) {
+            if (i.hk()) {
+                if (i.hl()) {
                     a(gVar, 1, gVar.getString(w.l.bawu_center_wifi_tips));
                     return;
                 } else {

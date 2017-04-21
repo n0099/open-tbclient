@@ -11,11 +11,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a bTl;
+    final /* synthetic */ a bVC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bTl = aVar;
+        this.bVC = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,23 +28,23 @@ public class b implements View.OnClickListener {
         FrsActivity frsActivity;
         c.b bVar;
         FrsActivity frsActivity2;
-        if (!i.gX()) {
-            frsActivity2 = this.bTl.bTd;
+        if (!i.gY()) {
+            frsActivity2 = this.bVC.bVu;
             frsActivity2.showToast(w.l.neterror);
             return;
         }
-        aVar = this.bTl.bTg;
+        aVar = this.bVC.bVx;
         if (aVar == null) {
-            a aVar4 = this.bTl;
-            frsActivity = this.bTl.bTd;
-            bVar = this.bTl.bTk;
-            aVar4.bTg = new com.baidu.tieba.frs.entelechy.c.a.a.a(frsActivity, bVar);
+            a aVar4 = this.bVC;
+            frsActivity = this.bVC.bVu;
+            bVar = this.bVC.bVB;
+            aVar4.bVx = new com.baidu.tieba.frs.entelechy.c.a.a.a(frsActivity, bVar);
         }
-        aVar2 = this.bTl.bTg;
-        list = this.bTl.bTf;
+        aVar2 = this.bVC.bVx;
+        list = this.bVC.bVw;
         aVar2.setData(list);
-        aVar3 = this.bTl.bTg;
-        hVar = this.bTl.bTd;
+        aVar3 = this.bVC.bVx;
+        hVar = this.bVC.bVu;
         aVar3.d(hVar.getPageContext()).tT();
     }
 }

@@ -5,18 +5,18 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class bp implements com.baidu.adp.lib.e.c<View> {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: agF */
-    public View fK() {
-        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.ejU.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+    /* renamed from: ahG */
+    public View fL() {
+        PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(this.emk.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
         playVoiceBntNew.setPlayTimeTextView(w.f.fontsize28);
         return playVoiceBntNew;
     }

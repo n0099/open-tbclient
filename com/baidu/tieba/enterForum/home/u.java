@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements a.b {
-    final /* synthetic */ l bEU;
+    final /* synthetic */ l bHl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(l lVar) {
-        this.bEU = lVar;
+        this.bHl = lVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

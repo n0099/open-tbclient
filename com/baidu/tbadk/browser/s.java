@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class s extends com.baidu.tbadk.core.d.p {
-    final /* synthetic */ TbWebViewActivity Rm;
+    final /* synthetic */ TbWebViewActivity Ro;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(TbWebViewActivity tbWebViewActivity, com.baidu.tbadk.core.d.n nVar) {
         super(nVar);
-        this.Rm = tbWebViewActivity;
+        this.Ro = tbWebViewActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,10 +30,10 @@ class s extends com.baidu.tbadk.core.d.p {
             String optString4 = jSONObject.optString("url");
             String optString5 = jSONObject.optString("bid");
             if (!StringUtils.isNULL(optString5)) {
-                this.Rm.mShareResultToFe = true;
-                this.Rm.mBid = optString5;
+                this.Ro.mShareResultToFe = true;
+                this.Ro.mBid = optString5;
             }
-            com.baidu.adp.lib.g.h.fR().post(new t(this, this.Rm.createShareContent(optString, optString4, optString2, optString3)));
+            com.baidu.adp.lib.g.h.fS().post(new t(this, this.Ro.createShareContent(optString, optString4, optString2, optString3)));
         }
     }
 }

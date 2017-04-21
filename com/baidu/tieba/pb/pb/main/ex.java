@@ -19,13 +19,13 @@ public class ex {
     }
 
     public static boolean g(PostData postData) {
-        if (postData == null || postData.biw() == null) {
+        if (postData == null || postData.bjx() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h biw = postData.biw();
-        if (biw.fvx) {
-            int bhS = biw.bhS();
-            return bhS == 2 || bhS == 1 || bhS == 3;
+        com.baidu.tieba.tbadkCore.data.h bjx = postData.bjx();
+        if (bjx.fxO) {
+            int biT = bjx.biT();
+            return biT == 2 || biT == 1 || biT == 3;
         }
         return false;
     }

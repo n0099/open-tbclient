@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes.dex */
 class g implements a.InterfaceC0004a {
-    final /* synthetic */ UpdateInfoService fgK;
+    final /* synthetic */ UpdateInfoService fjd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(UpdateInfoService updateInfoService) {
-        this.fgK = updateInfoService;
+        this.fjd = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.d.a.InterfaceC0004a
@@ -24,15 +24,15 @@ class g implements a.InterfaceC0004a {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    com.baidu.tieba.recapp.d.a.bau().setLongitude(String.valueOf(longitude));
-                    com.baidu.tieba.recapp.d.a.bau().setLatitude(String.valueOf(latitude));
-                    com.baidu.tieba.recapp.d.a.bau().cw(System.currentTimeMillis());
-                    reportUserInfoModel = this.fgK.mModel;
-                    if (reportUserInfoModel.aEZ() && TbadkCoreApplication.m9getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                        reportUserInfoModel2 = this.fgK.mModel;
+                    com.baidu.tieba.recapp.d.a.bbv().setLongitude(String.valueOf(longitude));
+                    com.baidu.tieba.recapp.d.a.bbv().setLatitude(String.valueOf(latitude));
+                    com.baidu.tieba.recapp.d.a.bbv().cw(System.currentTimeMillis());
+                    reportUserInfoModel = this.fjd.mModel;
+                    if (reportUserInfoModel.aGa() && TbadkCoreApplication.m9getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        reportUserInfoModel2 = this.fjd.mModel;
                         reportUserInfoModel2.b(1, longitude, latitude);
-                        reportUserInfoModel3 = this.fgK.mModel;
-                        reportUserInfoModel3.aFa();
+                        reportUserInfoModel3 = this.fjd.mModel;
+                        reportUserInfoModel3.aGb();
                         return;
                     }
                     return;

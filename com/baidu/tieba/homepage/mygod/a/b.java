@@ -19,7 +19,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
+    /* renamed from: aa */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         TextView textView = new TextView(this.mContext);
         textView.setText(w.l.god_acction_notice);

@@ -1,26 +1,26 @@
 package com.baidu.tieba.h;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c fsH = null;
-    private b fsI;
+    private static volatile c fuY = null;
+    private b fuZ;
 
     private c() {
-        this.fsI = null;
-        this.fsI = b.fsG;
+        this.fuZ = null;
+        this.fuZ = b.fuX;
     }
 
-    public static c bge() {
-        if (fsH == null) {
+    public static c bhg() {
+        if (fuY == null) {
             synchronized (c.class) {
-                if (fsH == null) {
-                    fsH = new c();
+                if (fuY == null) {
+                    fuY = new c();
                 }
             }
         }
-        return fsH;
+        return fuY;
     }
 
-    public b bgf() {
-        return this.fsI;
+    public b bhh() {
+        return this.fuZ;
     }
 }

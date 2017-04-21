@@ -10,32 +10,32 @@ import com.baidu.tieba.card.cd;
 import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.b.a<com.baidu.tieba.frs.entelechy.view.t>> implements cd, com.baidu.tieba.frs.e.e {
-    private TbPageContext<?> ajT;
-    private com.baidu.tieba.frs.entelechy.view.t bSx;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.c> bSy;
-    private com.baidu.adp.lib.e.b<TbImageView> bSz;
-    private cf<bi> baF;
+    private TbPageContext<?> ajU;
+    private com.baidu.tieba.frs.entelechy.view.t bUO;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.c> bUP;
+    private com.baidu.adp.lib.e.b<TbImageView> bUQ;
+    private cf<bi> bbB;
     private String mForumName;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.baF = new p(this);
-        this.bSy = new com.baidu.adp.lib.e.b<>(new q(this), 6, 0);
-        this.bSz = new com.baidu.adp.lib.e.b<>(new r(this), 12, 0);
-        this.ajT = tbPageContext;
+        this.bbB = new p(this);
+        this.bUP = new com.baidu.adp.lib.e.b<>(new q(this), 6, 0);
+        this.bUQ = new com.baidu.adp.lib.e.b<>(new r(this), 12, 0);
+        this.ajU = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: k */
+    /* renamed from: m */
     public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.bSx = new com.baidu.tieba.frs.entelechy.view.t(this.ajT);
-        this.bSx.setConstrainLayoutPool(this.bSy);
-        this.bSx.setConstrainImagePool(this.bSz);
-        this.bSx.setForumName(this.mForumName);
-        this.bSx.j(this.ajT.getUniqueId());
-        return new com.baidu.tieba.card.b.a(this.bSx);
+        this.bUO = new com.baidu.tieba.frs.entelechy.view.t(this.ajU);
+        this.bUO.setConstrainLayoutPool(this.bUP);
+        this.bUO.setConstrainImagePool(this.bUQ);
+        this.bUO.setForumName(this.mForumName);
+        this.bUO.j(this.ajU.getUniqueId());
+        return new com.baidu.tieba.card.b.a(this.bUO);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,18 +43,18 @@ public class o extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bi biVar, com.baidu.tieba.card.b.a aVar) {
-        if (aVar == null || aVar.Tz() == null) {
+        if (aVar == null || aVar.UB() == null) {
             return null;
         }
-        aVar.Tz().onBindDataToView(biVar);
-        aVar.Tz().setOnSubCardOnClickListenner(this.baF);
-        com.baidu.tieba.frs.e.b.adp().a(bYW, biVar);
+        aVar.UB().onBindDataToView(biVar);
+        aVar.UB().setOnSubCardOnClickListenner(this.bbB);
+        com.baidu.tieba.frs.e.b.aeq().a(cbn, biVar);
         return aVar.getView();
     }
 
     public void setFromCDN(boolean z) {
-        if (this.bSx != null) {
-            this.bSx.setFromCDN(z);
+        if (this.bUO != null) {
+            this.bUO.setFromCDN(z);
         }
     }
 

@@ -15,7 +15,7 @@ class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
             PingManager.Cl().Cm();
-            b.asE().asF();
+            b.atF().atG();
         }
     }
 }

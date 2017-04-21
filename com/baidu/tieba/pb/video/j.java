@@ -4,15 +4,15 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements c.e {
-    final /* synthetic */ d euY;
+    final /* synthetic */ d exo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(d dVar) {
-        this.euY = dVar;
+        this.exo = dVar;
     }
 
     @Override // com.baidu.tieba.play.c.e
-    public void aPv() {
-        this.euY.aPr();
+    public void aQw() {
+        this.exo.aQs();
     }
 }

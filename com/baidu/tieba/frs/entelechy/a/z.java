@@ -14,45 +14,45 @@ import com.baidu.tieba.w;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.b.a<com.baidu.tieba.frs.entelechy.view.aa>> implements cd, com.baidu.tieba.frs.e.e {
-    private TbPageContext<?> ajT;
-    private com.baidu.tieba.frs.entelechy.view.aa bSJ;
-    private HashSet<String> bSK;
-    private int bSh;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.c> bSy;
-    private com.baidu.adp.lib.e.b<TbImageView> bSz;
-    private cf<bi> baF;
+    private TbPageContext<?> ajU;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.layout.c> bUP;
+    private com.baidu.adp.lib.e.b<TbImageView> bUQ;
+    private int bUy;
+    private com.baidu.tieba.frs.entelechy.view.aa bVa;
+    private HashSet<String> bVb;
+    private cf<bi> bbB;
     private String mForumName;
 
     private void r(bi biVar) {
-        if (this.bSK == null) {
-            this.bSK = new HashSet<>();
+        if (this.bVb == null) {
+            this.bVb = new HashSet<>();
         }
-        if (biVar.getTid() != null && !this.bSK.contains(biVar.getTid())) {
-            this.bSK.add(biVar.getTid());
+        if (biVar.getTid() != null && !this.bVb.contains(biVar.getTid())) {
+            this.bVb.add(biVar.getTid());
             TiebaStatic.log(new as("c11662").s("obj_param1", 1).aa("post_id", biVar.getTid()));
         }
     }
 
     public z(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bSh = 0;
-        this.baF = new aa(this);
-        this.bSy = new com.baidu.adp.lib.e.b<>(new ab(this), 6, 0);
-        this.bSz = new com.baidu.adp.lib.e.b<>(new ac(this), 12, 0);
-        this.ajT = tbPageContext;
-        this.bSh = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds14);
+        this.bUy = 0;
+        this.bbB = new aa(this);
+        this.bUP = new com.baidu.adp.lib.e.b<>(new ab(this), 6, 0);
+        this.bUQ = new com.baidu.adp.lib.e.b<>(new ac(this), 12, 0);
+        this.ajU = tbPageContext;
+        this.bUy = com.baidu.adp.lib.util.k.g(this.ajU.getPageActivity(), w.f.ds14);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: k */
+    /* renamed from: m */
     public com.baidu.tieba.card.b.a<com.baidu.tieba.frs.entelechy.view.aa> onCreateViewHolder(ViewGroup viewGroup) {
-        this.bSJ = new com.baidu.tieba.frs.entelechy.view.aa(this.ajT);
-        this.bSJ.setConstrainLayoutPool(this.bSy);
-        this.bSJ.setConstrainImagePool(this.bSz);
-        this.bSJ.j(this.ajT.getUniqueId());
-        return new com.baidu.tieba.card.b.a<>(this.bSJ);
+        this.bVa = new com.baidu.tieba.frs.entelechy.view.aa(this.ajU);
+        this.bVa.setConstrainLayoutPool(this.bUP);
+        this.bVa.setConstrainImagePool(this.bUQ);
+        this.bVa.j(this.ajU.getUniqueId());
+        return new com.baidu.tieba.card.b.a<>(this.bVa);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,13 +63,13 @@ public class z extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.
         if (biVar != null && biVar.rW()) {
             r(biVar);
         }
-        if (aVar == null || aVar.Tz() == null) {
+        if (aVar == null || aVar.UB() == null) {
             return null;
         }
-        aVar.Tz().onBindDataToView(biVar);
-        aVar.Tz().setForumName(this.mForumName);
-        aVar.Tz().setOnSubCardOnClickListenner(this.baF);
-        com.baidu.tieba.frs.e.b.adp().a(bYW, biVar);
+        aVar.UB().onBindDataToView(biVar);
+        aVar.UB().setForumName(this.mForumName);
+        aVar.UB().setOnSubCardOnClickListenner(this.bbB);
+        com.baidu.tieba.frs.e.b.aeq().a(cbn, biVar);
         if (biVar != null) {
             biVar.tm();
         }
@@ -77,8 +77,8 @@ public class z extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.
     }
 
     public void setFromCDN(boolean z) {
-        if (this.bSJ != null) {
-            this.bSJ.setFromCDN(z);
+        if (this.bVa != null) {
+            this.bVa.setFromCDN(z);
         }
     }
 

@@ -10,8 +10,7 @@ public class ad implements com.baidu.adp.framework.client.socket.link.j {
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.j
-    /* renamed from: do */
-    public void mo2do() {
+    public void dp() {
         com.baidu.tbadk.util.c.Hh().a(new ae(this));
     }
 }

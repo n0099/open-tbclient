@@ -4,20 +4,20 @@ import android.view.View;
 import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
 class g implements Runnable {
-    private final /* synthetic */ SapiWebView Tb;
-    private final /* synthetic */ View Tc;
-    final /* synthetic */ f Td;
+    private final /* synthetic */ SapiWebView Td;
+    private final /* synthetic */ View Te;
+    final /* synthetic */ f Tf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, View view, SapiWebView sapiWebView) {
-        this.Td = fVar;
-        this.Tc = view;
-        this.Tb = sapiWebView;
+        this.Tf = fVar;
+        this.Te = view;
+        this.Td = sapiWebView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Tc.setVisibility(4);
-        this.Tb.reload();
+        this.Te.setVisibility(4);
+        this.Td.reload();
     }
 }

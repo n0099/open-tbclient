@@ -16,14 +16,14 @@ public class d extends com.baidu.adp.framework.listener.a {
         EnterForumModel enterForumModel2;
         EnterForumModel enterForumModel3;
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
-            enterForumModel = EnterForumDelegateStatic.bEo;
+            enterForumModel = EnterForumDelegateStatic.bGF;
             if (enterForumModel.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    enterForumModel3 = EnterForumDelegateStatic.bEo;
+                    enterForumModel3 = EnterForumDelegateStatic.bGF;
                     enterForumModel3.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    enterForumModel2 = EnterForumDelegateStatic.bEo;
+                    enterForumModel2 = EnterForumDelegateStatic.bGF;
                     enterForumModel2.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }

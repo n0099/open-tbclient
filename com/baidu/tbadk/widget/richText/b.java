@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends ClickableSpan {
-    private String aNf;
-    private int aNg;
+    private String aNh;
+    private int aNi;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -45,7 +45,7 @@ public class b extends ClickableSpan {
     }
 
     public void fv(int i) {
-        this.aNg = i;
+        this.aNi = i;
     }
 
     public void setColor(int i) {
@@ -61,7 +61,7 @@ public class b extends ClickableSpan {
     }
 
     public void gu(String str) {
-        this.aNf = str;
+        this.aNh = str;
     }
 
     public String getLink() {
@@ -78,13 +78,13 @@ public class b extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.aNg == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.aNi == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.m9getInst().getSkinType() == 1) {
                 textPaint.bgColor = aq.getColor(w.e.cp_bg_line_c);
             } else {
                 textPaint.bgColor = aq.getColor(w.e.cp_bg_line_z);
             }
-        } else if (this.aNg == 2) {
+        } else if (this.aNi == 2) {
             textPaint.bgColor = aq.getColor(w.e.transparent);
         }
     }
@@ -93,7 +93,7 @@ public class b extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aNf));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aNh));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {

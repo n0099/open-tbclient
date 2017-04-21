@@ -92,7 +92,7 @@ public class b {
     }
 
     private void ah(String str, String str2) {
-        if (i.hk()) {
+        if (i.hl()) {
             new a(str, aw.dD(str), str2).execute(new String[0]);
         }
     }
@@ -100,32 +100,31 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String ado;
+        private final String adp;
         private final String aqB;
         private final String aqC;
         private z mNetWork = null;
 
         public a(String str, String str2, String str3) {
             this.aqB = str;
-            this.ado = str2;
+            this.adp = str2;
             this.aqC = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
                 this.mNetWork = new z(this.aqB);
-                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.ado) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.adp) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(l.i(null, String.valueOf(this.ado) + ".tmp", null, this.ado)) && !TextUtils.isEmpty(this.aqB) && !this.aqB.equals(this.aqC)) {
+                    if (!StringUtils.isNull(l.i(null, String.valueOf(this.adp) + ".tmp", null, this.adp)) && !TextUtils.isEmpty(this.aqB) && !this.aqB.equals(this.aqC)) {
                         l.df(aw.dD(this.aqC));
                     }
                 } else {
-                    l.df(String.valueOf(this.ado) + ".tmp");
+                    l.df(String.valueOf(this.adp) + ".tmp");
                 }
             } catch (Exception e) {
             }

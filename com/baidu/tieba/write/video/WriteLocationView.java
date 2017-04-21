@@ -15,10 +15,10 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class WriteLocationView extends LocationInfoView {
-    private LocationModel aAO;
-    private int aAW;
-    private final LocationModel.a aBc;
-    private final CustomMessageListener fxT;
+    private LocationModel aAQ;
+    private int aAY;
+    private final LocationModel.a aBe;
+    private final CustomMessageListener fAj;
     private BaseActivity<?> mBaseActivity;
 
     public WriteLocationView(Context context) {
@@ -27,25 +27,25 @@ public class WriteLocationView extends LocationInfoView {
 
     public WriteLocationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAW = 0;
-        this.aBc = new a(this);
-        this.fxT = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
+        this.aAY = 0;
+        this.aBe = new a(this);
+        this.fAj = new b(this, CmdConfigCustom.CMD_SELECT_LOCATION);
     }
 
     public void e(BaseActivity<?> baseActivity) {
         this.mBaseActivity = baseActivity;
-        this.mBaseActivity.registerListener(this.fxT);
-        this.aAO = new LocationModel(this.mBaseActivity);
-        this.aAO.a(this.aBc);
+        this.mBaseActivity.registerListener(this.fAj);
+        this.aAQ = new LocationModel(this.mBaseActivity);
+        this.aAQ.a(this.aBe);
         setOnClickListener(new c(this));
         DT();
     }
 
-    public boolean PZ() {
-        if (this.aAO == null) {
+    public boolean QZ() {
+        if (this.aAQ == null) {
             return false;
         }
-        return this.aAO.PZ();
+        return this.aAQ.QZ();
     }
 
     public void DR() {
@@ -54,23 +54,23 @@ public class WriteLocationView extends LocationInfoView {
             c(0, true, null);
         } else if (!TbadkCoreApplication.m9getInst().getLocationShared()) {
             DS();
-        } else if (this.aAO.biY()) {
+        } else if (this.aAQ.bjZ()) {
             DQ();
         } else {
-            this.aAO.lm(false);
+            this.aAQ.lw(false);
             c(1, true, null);
-            this.aAO.biW();
+            this.aAQ.bjX();
         }
     }
 
     private void DT() {
-        if (this.aAO.PZ()) {
-            if (this.aAO.biY()) {
-                c(2, true, com.baidu.tieba.tbadkCore.location.d.biU().getLocationData().biQ());
+        if (this.aAQ.QZ()) {
+            if (this.aAQ.bjZ()) {
+                c(2, true, com.baidu.tieba.tbadkCore.location.d.bjV().getLocationData().bjR());
                 return;
             }
             c(1, true, null);
-            this.aAO.biW();
+            this.aAQ.bjX();
             return;
         }
         c(0, true, null);
@@ -83,9 +83,9 @@ public class WriteLocationView extends LocationInfoView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bdW() {
-        if (this.aAO != null) {
-            this.aAO.cancelLoadData();
+    public void beY() {
+        if (this.aAQ != null) {
+            this.aAQ.cancelLoadData();
         }
     }
 
@@ -96,7 +96,7 @@ public class WriteLocationView extends LocationInfoView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(int i, boolean z, String str) {
-        this.aAW = i;
+        this.aAY = i;
         setVisibility(z ? 0 : 8);
         k(i, str);
     }

@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity dgQ;
+    final /* synthetic */ ChatMessageActivity djh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.dgQ = chatMessageActivity;
+        this.djh = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,26 +31,26 @@ class a extends CustomMessageListener {
         Fragment fragment3;
         FragmentTransaction fragmentTransaction2;
         Object data;
-        fragment = this.dgQ.dgP;
+        fragment = this.djh.djg;
         if (fragment == null) {
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof Fragment)) {
-                this.dgQ.dgP = (Fragment) data;
+                this.djh.djg = (Fragment) data;
             }
-            fragment2 = this.dgQ.dgP;
+            fragment2 = this.djh.djg;
             if (fragment2 != null) {
-                this.dgQ.mFragmentManager = this.dgQ.getSupportFragmentManager();
-                ChatMessageActivity chatMessageActivity = this.dgQ;
-                fragmentManager = this.dgQ.mFragmentManager;
-                chatMessageActivity.dgO = fragmentManager.beginTransaction();
-                fragmentTransaction = this.dgQ.dgO;
+                this.djh.mFragmentManager = this.djh.getSupportFragmentManager();
+                ChatMessageActivity chatMessageActivity = this.djh;
+                fragmentManager = this.djh.mFragmentManager;
+                chatMessageActivity.djf = fragmentManager.beginTransaction();
+                fragmentTransaction = this.djh.djf;
                 int i = w.h.content;
-                fragment3 = this.dgQ.dgP;
+                fragment3 = this.djh.djg;
                 fragmentTransaction.add(i, fragment3);
-                fragmentTransaction2 = this.dgQ.dgO;
+                fragmentTransaction2 = this.djh.djf;
                 fragmentTransaction2.commitAllowingStateLoss();
             }
-            if (this.dgQ.getIntent() != null) {
-                int intExtra = this.dgQ.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
+            if (this.djh.getIntent() != null) {
+                int intExtra = this.djh.getIntent().getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1);
                 Intent intent = new Intent();
                 intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra);
                 intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);

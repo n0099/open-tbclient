@@ -14,19 +14,19 @@ import android.widget.TextView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class au extends RelativeLayout {
-    private int It;
-    private int aWP;
-    private MediaController.MediaPlayerControl aWQ;
-    private TextView aWR;
-    private TextView aWS;
-    private boolean aWT;
-    private boolean aWU;
-    private SeekBar aWV;
-    private SeekBar.OnSeekBarChangeListener aWY;
-    private int aWZ;
-    private SeekBar.OnSeekBarChangeListener aXa;
-    private a dxA;
-    private b dxz;
+    private int Iv;
+    private int aWS;
+    private MediaController.MediaPlayerControl aWT;
+    private TextView aWU;
+    private TextView aWV;
+    private boolean aWW;
+    private boolean aWX;
+    private SeekBar aWY;
+    private SeekBar.OnSeekBarChangeListener aXb;
+    private int aXc;
+    private SeekBar.OnSeekBarChangeListener aXd;
+    private b dzP;
+    private a dzQ;
     private Context mContext;
     private Handler mHandler;
 
@@ -42,34 +42,34 @@ public class au extends RelativeLayout {
 
     public au(Context context) {
         super(context);
-        this.aWP = 50;
-        this.aWT = false;
-        this.aWU = true;
-        this.aWZ = 0;
+        this.aWS = 50;
+        this.aWW = false;
+        this.aWX = true;
+        this.aXc = 0;
         this.mHandler = new av(this, Looper.getMainLooper());
-        this.aXa = new aw(this);
+        this.aXd = new aw(this);
         init(context);
     }
 
     public au(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aWP = 50;
-        this.aWT = false;
-        this.aWU = true;
-        this.aWZ = 0;
+        this.aWS = 50;
+        this.aWW = false;
+        this.aWX = true;
+        this.aXc = 0;
         this.mHandler = new av(this, Looper.getMainLooper());
-        this.aXa = new aw(this);
+        this.aXd = new aw(this);
         init(context);
     }
 
     public au(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aWP = 50;
-        this.aWT = false;
-        this.aWU = true;
-        this.aWZ = 0;
+        this.aWS = 50;
+        this.aWW = false;
+        this.aWX = true;
+        this.aXc = 0;
         this.mHandler = new av(this, Looper.getMainLooper());
-        this.aXa = new aw(this);
+        this.aXd = new aw(this);
         init(context);
     }
 
@@ -77,10 +77,10 @@ public class au extends RelativeLayout {
         this.mContext = context;
         View aX = aX(context);
         addView(aX, -1, (int) context.getResources().getDimension(w.f.ds80));
-        this.aWR = (TextView) aX.findViewById(w.h.textview_cur_time);
-        this.aWS = (TextView) aX.findViewById(w.h.textview_duration);
-        this.aWV = (SeekBar) aX.findViewById(w.h.pb_video_controller_seekBar);
-        this.aWV.setOnSeekBarChangeListener(this.aXa);
+        this.aWU = (TextView) aX.findViewById(w.h.textview_cur_time);
+        this.aWV = (TextView) aX.findViewById(w.h.textview_duration);
+        this.aWY = (SeekBar) aX.findViewById(w.h.pb_video_controller_seekBar);
+        this.aWY.setOnSeekBarChangeListener(this.aXd);
     }
 
     protected View aX(Context context) {
@@ -88,63 +88,63 @@ public class au extends RelativeLayout {
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.aWQ = mediaPlayerControl;
+        this.aWT = mediaPlayerControl;
     }
 
     public void X(int i, int i2) {
-        this.It = i2;
-        this.aWU = false;
+        this.Iv = i2;
+        this.aWX = false;
         this.mHandler.removeMessages(1);
-        this.aWV.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
-        if (this.aWR != null) {
-            this.aWR.setText(com.baidu.tbadk.core.util.au.cW(i));
+        this.aWY.setProgress((int) (((i * 1.0f) / i2) * 10000.0f));
+        if (this.aWU != null) {
+            this.aWU.setText(com.baidu.tbadk.core.util.au.cW(i));
         }
-        if (this.aWS != null) {
-            this.aWS.setText(com.baidu.tbadk.core.util.au.cW(this.It));
+        if (this.aWV != null) {
+            this.aWV.setText(com.baidu.tbadk.core.util.au.cW(this.Iv));
         }
     }
 
     public void showProgress() {
-        if (this.aWQ != null) {
-            this.aWP = ((this.aWQ.getDuration() / 200) / 50) * 50;
-            if (this.aWP < 50) {
-                this.aWP = 50;
-            } else if (this.aWP > 500) {
-                this.aWP = 500;
+        if (this.aWT != null) {
+            this.aWS = ((this.aWT.getDuration() / 200) / 50) * 50;
+            if (this.aWS < 50) {
+                this.aWS = 50;
+            } else if (this.aWS > 500) {
+                this.aWS = 500;
             }
-            this.aWU = true;
+            this.aWX = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.aWP - (this.aWQ.getCurrentPosition() % this.aWP));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.aWS - (this.aWT.getCurrentPosition() % this.aWS));
         }
     }
 
     public void Mk() {
-        this.aWU = false;
+        this.aWX = false;
         this.mHandler.removeMessages(1);
-        this.aWV.setProgress(0);
-        if (this.aWR != null) {
-            this.aWR.setText(com.baidu.tbadk.core.util.au.cW(0));
+        this.aWY.setProgress(0);
+        if (this.aWU != null) {
+            this.aWU.setText(com.baidu.tbadk.core.util.au.cW(0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int Ml() {
-        if (this.aWQ == null || this.aWT) {
+        if (this.aWT == null || this.aWW) {
             return 0;
         }
-        int currentPosition = this.aWQ.getCurrentPosition();
-        int duration = this.aWQ.getDuration();
+        int currentPosition = this.aWT.getCurrentPosition();
+        int duration = this.aWT.getDuration();
         if (currentPosition > duration) {
             currentPosition = duration;
         }
-        if (this.aWV != null) {
+        if (this.aWY != null) {
             if (duration > 0) {
-                this.aWV.setProgress((int) ((10000 * currentPosition) / duration));
+                this.aWY.setProgress((int) ((10000 * currentPosition) / duration));
             }
-            this.aWQ.getBufferPercentage();
+            this.aWT.getBufferPercentage();
         }
-        if (this.aWR != null) {
-            this.aWR.setText(com.baidu.tbadk.core.util.au.cW(currentPosition));
+        if (this.aWU != null) {
+            this.aWU.setText(com.baidu.tbadk.core.util.au.cW(currentPosition));
             return currentPosition;
         }
         return currentPosition;
@@ -159,18 +159,18 @@ public class au extends RelativeLayout {
                 this.mHandler.removeMessages(1);
             }
         } else {
-            this.aWQ.seekTo(i);
-            if (this.aWR != null) {
-                this.aWR.setText(com.baidu.tbadk.core.util.au.cW(i));
+            this.aWT.seekTo(i);
+            if (this.aWU != null) {
+                this.aWU.setText(com.baidu.tbadk.core.util.au.cW(i));
             }
             showProgress();
         }
-        if (!this.aWQ.isPlaying()) {
-            this.aWV.setProgress((int) (((i * 1.0f) / this.It) * 10000.0f));
+        if (!this.aWT.isPlaying()) {
+            this.aWY.setProgress((int) (((i * 1.0f) / this.Iv) * 10000.0f));
         }
     }
 
-    public String qy(int i) {
+    public String qE(int i) {
         if (i < 0) {
             i = 0;
         }
@@ -178,12 +178,12 @@ public class au extends RelativeLayout {
     }
 
     public int getSeekPosition() {
-        return this.aWZ;
+        return this.aXc;
     }
 
     public int getCurProgress() {
-        if (this.aWV != null) {
-            return this.aWV.getProgress();
+        if (this.aWY != null) {
+            return this.aWY.getProgress();
         }
         return 0;
     }
@@ -195,14 +195,14 @@ public class au extends RelativeLayout {
     }
 
     public void setOnProgressUpdatedListener(b bVar) {
-        this.dxz = bVar;
+        this.dzP = bVar;
     }
 
     public void setOnDragingListener(a aVar) {
-        this.dxA = aVar;
+        this.dzQ = aVar;
     }
 
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.aWY = onSeekBarChangeListener;
+        this.aXb = onSeekBarChangeListener;
     }
 }

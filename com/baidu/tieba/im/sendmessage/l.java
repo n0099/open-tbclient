@@ -7,22 +7,22 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.util.f<Boolean> {
-    private final /* synthetic */ ChatMessage dbK;
-    final /* synthetic */ a deC;
-    private final /* synthetic */ PersonalChatMessage deI;
+    private final /* synthetic */ ChatMessage ded;
+    final /* synthetic */ a dgT;
+    private final /* synthetic */ PersonalChatMessage dgZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar, PersonalChatMessage personalChatMessage, ChatMessage chatMessage) {
-        this.deC = aVar;
-        this.deI = personalChatMessage;
-        this.dbK = chatMessage;
+        this.dgT = aVar;
+        this.dgZ = personalChatMessage;
+        this.ded = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.f
     public void onReturnDataInUI(Boolean bool) {
-        this.deI.setLogTime(System.currentTimeMillis());
-        MessageManager.getInstance().sendMessage(this.deI);
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.deI.getToUserId()), 2, this.dbK, 3)));
+        this.dgZ.setLogTime(System.currentTimeMillis());
+        MessageManager.getInstance().sendMessage(this.dgZ);
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(String.valueOf(this.dgZ.getToUserId()), 2, this.ded, 3)));
     }
 }

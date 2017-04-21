@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class t {
-    private i eEA;
-    private h eEy;
-    private q eEz;
-    private com.baidu.tieba.personCenter.a.b ezC;
+    private com.baidu.tieba.personCenter.a.b eBS;
+    private h eGO;
+    private q eGP;
+    private i eGQ;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public t(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.eEy = new h(tbPageContext, com.baidu.tieba.personPolymeric.c.m.eFJ);
-        this.eEz = new q(tbPageContext);
-        this.eEA = new i(tbPageContext, com.baidu.tieba.personPolymeric.c.g.eFB);
-        this.ezC = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eAR);
-        this.mAdapters.add(this.eEy);
-        this.mAdapters.add(this.eEz);
-        this.mAdapters.add(this.eEA);
-        this.mAdapters.add(this.ezC);
+        this.eGO = new h(tbPageContext, com.baidu.tieba.personPolymeric.c.m.eHZ);
+        this.eGP = new q(tbPageContext);
+        this.eGQ = new i(tbPageContext, com.baidu.tieba.personPolymeric.c.g.eHR);
+        this.eBS = new com.baidu.tieba.personCenter.a.b(tbPageContext.getPageActivity(), com.baidu.tieba.personCenter.c.b.eDh);
+        this.mAdapters.add(this.eGO);
+        this.mAdapters.add(this.eGP);
+        this.mAdapters.add(this.eGQ);
+        this.mAdapters.add(this.eBS);
         hTypeListView.addAdapters(this.mAdapters);
     }
 
     public void M(View.OnClickListener onClickListener) {
-        this.eEy.setOnClickListener(onClickListener);
+        this.eGO.setOnClickListener(onClickListener);
     }
 
     public void N(View.OnClickListener onClickListener) {
-        this.eEA.setOnClickListener(onClickListener);
+        this.eGQ.setOnClickListener(onClickListener);
     }
 }

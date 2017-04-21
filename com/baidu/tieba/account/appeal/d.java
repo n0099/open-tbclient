@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements g.b {
-    final /* synthetic */ AppealActivity aWa;
+    final /* synthetic */ AppealActivity aWc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AppealActivity appealActivity) {
-        this.aWa = appealActivity;
+        this.aWc = appealActivity;
     }
 
     @Override // com.baidu.tieba.account.appeal.g.b
@@ -20,20 +20,20 @@ public class d implements g.b {
         String str;
         TextView textView2;
         String string;
-        textView = this.aWa.aVT;
-        str = this.aWa.mUserName;
+        textView = this.aWc.aVV;
+        str = this.aWc.mUserName;
         textView.setText(str);
-        textView2 = this.aWa.aVU;
+        textView2 = this.aWc.aVW;
         if (!au.isEmpty(forbidReasonData.reason)) {
             string = forbidReasonData.reason;
         } else {
-            string = this.aWa.getPageContext().getString(w.l.default_forbid_reason);
+            string = this.aWc.getPageContext().getString(w.l.default_forbid_reason);
         }
         textView2.setText(string);
     }
 
     @Override // com.baidu.tieba.account.appeal.g.b
     public void b(ForbidReasonData forbidReasonData) {
-        this.aWa.showToast(forbidReasonData.error.errMsg);
+        this.aWc.showToast(forbidReasonData.error.errMsg);
     }
 }

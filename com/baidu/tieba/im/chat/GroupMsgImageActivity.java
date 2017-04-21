@@ -5,6 +5,6 @@ import com.baidu.tieba.im.sendmessage.ad;
 public class GroupMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
     protected void a(String str, ad adVar) {
-        com.baidu.tieba.im.sendmessage.a.att().b(str, adVar);
+        com.baidu.tieba.im.sendmessage.a.auu().b(str, adVar);
     }
 }

@@ -27,23 +27,23 @@ public class f extends CustomMessageListener {
         if (customResponsedMessage.getData() instanceof Integer) {
             Integer num = (Integer) customResponsedMessage.getData();
             if (num.intValue() == 2) {
-                zVar6 = this.this$0.fzU;
-                zVar6.lr(true);
-                zVar7 = this.this$0.fzU;
-                zVar7.hz(true);
+                zVar6 = this.this$0.fCk;
+                zVar6.lB(true);
+                zVar7 = this.this$0.fCk;
+                zVar7.hJ(true);
             } else if (num.intValue() == 1) {
-                zVar3 = this.this$0.fzU;
-                zVar3.lr(true);
-                zVar4 = this.this$0.fzU;
-                zVar4.hz(false);
+                zVar3 = this.this$0.fCk;
+                zVar3.lB(true);
+                zVar4 = this.this$0.fCk;
+                zVar4.hJ(false);
             } else {
-                zVar = this.this$0.fzU;
-                zVar.lr(false);
-                zVar2 = this.this$0.fzU;
-                zVar2.hz(false);
+                zVar = this.this$0.fCk;
+                zVar.lB(false);
+                zVar2 = this.this$0.fCk;
+                zVar2.hJ(false);
             }
-            zVar5 = this.this$0.fzU;
-            zVar5.bkc();
+            zVar5 = this.this$0.fCk;
+            zVar5.bld();
         }
     }
 }

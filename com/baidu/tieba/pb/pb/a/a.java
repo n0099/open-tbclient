@@ -10,13 +10,13 @@ public interface a {
 
     void b(com.baidu.tieba.pb.data.f fVar);
 
-    void ia(boolean z);
+    void ik(boolean z);
 
-    void ib(boolean z);
+    void il(boolean z);
 
-    void ic(boolean z);
+    void im(boolean z);
 
-    void oa(int i);
+    void og(int i);
 
     void setCommonClickListener(View.OnClickListener onClickListener);
 

@@ -7,11 +7,11 @@ import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ aa bTy;
+    final /* synthetic */ aa bVP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.bTy = aaVar;
+        this.bVP = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,32 +24,32 @@ public class ab implements View.OnClickListener {
         bi biVar6;
         bi biVar7;
         bi biVar8;
-        biVar = this.bTy.aiB;
+        biVar = this.bVP.aiC;
         if (biVar != null) {
-            biVar6 = this.bTy.aiB;
+            biVar6 = this.bVP.aiC;
             if (biVar6.getAuthor() != null) {
-                biVar7 = this.bTy.aiB;
+                biVar7 = this.bVP.aiC;
                 if (biVar7.getAuthor().getGodInfo() != null) {
                     com.baidu.tbadk.core.util.as s = new com.baidu.tbadk.core.util.as("c10806").s("obj_locate", 3);
-                    biVar8 = this.bTy.aiB;
+                    biVar8 = this.bVP.aiC;
                     TiebaStatic.log(s.aa("tid", biVar8.getId()));
                 }
             }
         }
-        biVar2 = this.bTy.aiB;
+        biVar2 = this.bVP.aiC;
         if (biVar2 != null) {
-            biVar4 = this.bTy.aiB;
+            biVar4 = this.bVP.aiC;
             if (biVar4.rW()) {
                 com.baidu.tbadk.core.util.as s2 = new com.baidu.tbadk.core.util.as("c11663").s("obj_param1", 1);
-                biVar5 = this.bTy.aiB;
+                biVar5 = this.bVP.aiC;
                 TiebaStatic.log(s2.aa("post_id", biVar5.getTid()));
             }
         }
-        if (this.bTy.getOnSubCardOnClickListenner() != null) {
-            cf<bi> onSubCardOnClickListenner = this.bTy.getOnSubCardOnClickListenner();
-            biVar3 = this.bTy.aiB;
+        if (this.bVP.getOnSubCardOnClickListenner() != null) {
+            cf<bi> onSubCardOnClickListenner = this.bVP.getOnSubCardOnClickListenner();
+            biVar3 = this.bVP.aiC;
             onSubCardOnClickListenner.a(view, biVar3);
         }
-        this.bTy.SP();
+        this.bVP.TR();
     }
 }

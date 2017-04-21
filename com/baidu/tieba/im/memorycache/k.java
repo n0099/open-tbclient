@@ -7,13 +7,13 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements a.InterfaceC0064a {
-    final /* synthetic */ b daI;
-    private final /* synthetic */ SparseArray daN;
+    final /* synthetic */ b dda;
+    private final /* synthetic */ SparseArray ddf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar, SparseArray sparseArray) {
-        this.daI = bVar;
-        this.daN = sparseArray;
+        this.dda = bVar;
+        this.ddf = sparseArray;
     }
 
     @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0064a
@@ -21,9 +21,9 @@ public class k implements a.InterfaceC0064a {
         boolean l;
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
-            l = this.daI.l(next);
+            l = this.dda.l(next);
             if (l) {
-                this.daN.put(com.baidu.adp.lib.g.b.g(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.util.g.bN(next.getPulled_msgId())));
+                this.ddf.put(com.baidu.adp.lib.g.b.g(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.util.g.bN(next.getPulled_msgId())));
             }
         }
     }

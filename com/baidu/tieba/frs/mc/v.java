@@ -14,12 +14,12 @@ import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
 /* loaded from: classes.dex */
 public class v {
     public v() {
-        acZ();
-        ada();
-        adb();
+        aea();
+        aeb();
+        aec();
     }
 
-    private void acZ() {
+    private void aea() {
         com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
         a.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
         a.m(true);
@@ -36,7 +36,7 @@ public class v {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void ada() {
+    private void aeb() {
         com.baidu.tbadk.task.b a = com.baidu.tieba.tbadkCore.a.a.a(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
         a.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
         a.m(true);
@@ -53,7 +53,7 @@ public class v {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void adb() {
+    private void aec() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_MY_POST + "?cmd=303111");
         tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);

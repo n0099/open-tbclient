@@ -29,7 +29,7 @@ public class r {
         a(context, imageView, i, null);
     }
 
-    public static void agE() {
+    public static void ahF() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_RESET_EDITOR_TOOL, false));
     }
 }

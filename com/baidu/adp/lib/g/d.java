@@ -5,17 +5,17 @@ import android.view.animation.Animation;
 public abstract class d implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        h.fR().post(new e(this, animation));
+        h.fS().post(new e(this, animation));
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        h.fR().post(new f(this, animation));
+        h.fS().post(new f(this, animation));
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationRepeat(Animation animation) {
-        h.fR().post(new g(this, animation));
+        h.fS().post(new g(this, animation));
     }
 
     public void a(Animation animation) {

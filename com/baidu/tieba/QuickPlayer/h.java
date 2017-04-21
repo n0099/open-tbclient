@@ -10,11 +10,11 @@ import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
 public class h extends b.a {
-    private static boolean aQy = false;
-    private IMediaPlayer aQv;
-    private c aQw;
+    private static boolean aQA = false;
+    private IMediaPlayer aQx;
+    private c aQy;
     private Context mContext;
-    private boolean aQx = false;
+    private boolean aQz = false;
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new i(this);
     private IMediaPlayer.OnCompletionListener mOnCompletionListener = new j(this);
     private IMediaPlayer.OnErrorListener mOnErrorListener = new k(this);
@@ -26,24 +26,24 @@ public class h extends b.a {
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void ci(boolean z) throws RemoteException {
-        this.aQx = z;
+        this.aQz = z;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void a(Uri uri, Surface surface) throws RemoteException {
         try {
-            this.aQv = Kb();
+            this.aQx = Kb();
             if (this.mContext instanceof a) {
-                ((a) this.mContext).addPlayer(this.aQv);
+                ((a) this.mContext).addPlayer(this.aQx);
             }
-            this.aQv.setOnPreparedListener(this.mOnPreparedListener);
-            this.aQv.setOnCompletionListener(this.mOnCompletionListener);
-            this.aQv.setOnErrorListener(this.mOnErrorListener);
-            this.aQv.setOnInfoListener(this.mOnInfoListener);
-            this.aQv.setDataSource(this.mContext, uri);
-            this.aQv.setSurface(surface);
-            this.aQv.setAudioStreamType(3);
-            this.aQv.prepareAsync();
+            this.aQx.setOnPreparedListener(this.mOnPreparedListener);
+            this.aQx.setOnCompletionListener(this.mOnCompletionListener);
+            this.aQx.setOnErrorListener(this.mOnErrorListener);
+            this.aQx.setOnInfoListener(this.mOnInfoListener);
+            this.aQx.setDataSource(this.mContext, uri);
+            this.aQx.setSurface(surface);
+            this.aQx.setAudioStreamType(3);
+            this.aQx.prepareAsync();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,102 +51,102 @@ public class h extends b.a {
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void release() throws RemoteException {
-        if (this.aQv != null) {
-            this.aQv.reset();
-            this.aQv.release();
+        if (this.aQx != null) {
+            this.aQx.reset();
+            this.aQx.release();
             if (this.mContext instanceof a) {
-                ((a) this.mContext).removePlayer(this.aQv);
+                ((a) this.mContext).removePlayer(this.aQx);
             }
-            this.aQv = null;
+            this.aQx = null;
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void start() throws RemoteException {
-        if (this.aQv != null) {
-            this.aQv.start();
+        if (this.aQx != null) {
+            this.aQx.start();
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void pause() throws RemoteException {
-        if (this.aQv != null) {
-            this.aQv.pause();
+        if (this.aQx != null) {
+            this.aQx.pause();
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public int getDuration() throws RemoteException {
-        if (this.aQv != null) {
-            return (int) this.aQv.getDuration();
+        if (this.aQx != null) {
+            return (int) this.aQx.getDuration();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public int getCurrentPosition() throws RemoteException {
-        if (this.aQv != null) {
-            return (int) this.aQv.getCurrentPosition();
+        if (this.aQx != null) {
+            return (int) this.aQx.getCurrentPosition();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void seekTo(int i) throws RemoteException {
-        if (this.aQv != null) {
-            this.aQv.seekTo(i);
+        if (this.aQx != null) {
+            this.aQx.seekTo(i);
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public boolean isPlaying() throws RemoteException {
-        if (this.aQv != null) {
-            return this.aQv.isPlaying();
+        if (this.aQx != null) {
+            return this.aQx.isPlaying();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public int getVideoWidth() throws RemoteException {
-        if (this.aQv != null) {
-            return this.aQv.getVideoWidth();
+        if (this.aQx != null) {
+            return this.aQx.getVideoWidth();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public int getVideoHeight() throws RemoteException {
-        if (this.aQv != null) {
-            return this.aQv.getVideoHeight();
+        if (this.aQx != null) {
+            return this.aQx.getVideoHeight();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void setVolume(float f, float f2) throws RemoteException {
-        if (this.aQv != null) {
-            this.aQv.setVolume(f, f2);
+        if (this.aQx != null) {
+            this.aQx.setVolume(f, f2);
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void setLooping(boolean z) throws RemoteException {
-        if (this.aQv != null) {
-            this.aQv.setLooping(z);
+        if (this.aQx != null) {
+            this.aQx.setLooping(z);
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public boolean isLooping() throws RemoteException {
-        if (this.aQv != null) {
-            return this.aQv.isLooping();
+        if (this.aQx != null) {
+            return this.aQx.isLooping();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
     public void a(c cVar) throws RemoteException {
-        this.aQw = cVar;
+        this.aQy = cVar;
     }
 
     public IMediaPlayer Kb() {
@@ -166,13 +166,13 @@ public class h extends b.a {
             return ijkMediaPlayer;
         } catch (Throwable th) {
             th.printStackTrace();
-            aQy = true;
+            aQA = true;
             return new v();
         }
     }
 
     private boolean Kc() {
-        return this.aQx || aQy || "MX4".equals(Build.MODEL);
+        return this.aQz || aQA || "MX4".equals(Build.MODEL);
     }
 
     @Override // com.baidu.tieba.QuickPlayer.b
@@ -180,6 +180,6 @@ public class h extends b.a {
         if (this.mContext == null || !(this.mContext instanceof a)) {
             return false;
         }
-        return ((a) this.mContext).isExistInRemote(this.aQv);
+        return ((a) this.mContext).isExistInRemote(this.aQx);
     }
 }

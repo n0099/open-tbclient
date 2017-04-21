@@ -4,13 +4,13 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a.a {
-    private String aGe = "dalvikvm";
-    private String[] aGf = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private d aGg = null;
-    private int aFX = 0;
-    private final int aGh = 10000;
-    private a aGi = null;
-    private final Handler aGj = new k(this);
+    private String aGg = "dalvikvm";
+    private String[] aGh = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private d aGi = null;
+    private int aFZ = 0;
+    private final int aGj = 10000;
+    private a aGk = null;
+    private final Handler aGl = new k(this);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,10 +21,10 @@ public class j extends com.baidu.adp.a.a.a {
     public void start() {
         if (!ck()) {
             super.start();
-            this.aGj.sendEmptyMessageDelayed(0, 10000L);
+            this.aGl.sendEmptyMessageDelayed(0, 10000L);
             Gv();
             try {
-                d.a(this.aGe, new l(this));
+                d.a(this.aGg, new l(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -38,23 +38,23 @@ public class j extends com.baidu.adp.a.a.a {
     }
 
     private void Gv() {
-        if (this.aGg == null) {
-            this.aGg = new d();
+        if (this.aGi == null) {
+            this.aGi = new d();
         }
-        if (!this.aGg.ck()) {
-            new Thread(this.aGg).start();
+        if (!this.aGi.ck()) {
+            new Thread(this.aGi).start();
         }
     }
 
     private void Gw() {
-        if (this.aGg != null && this.aGg.ck()) {
-            this.aGg.stop();
+        if (this.aGi != null && this.aGi.ck()) {
+            this.aGi.stop();
         }
     }
 
     public void a(a aVar) {
-        if (this.aGi == null) {
-            this.aGi = aVar;
+        if (this.aGk == null) {
+            this.aGk = aVar;
         }
     }
 }

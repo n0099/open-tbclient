@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fSq;
+    final /* synthetic */ WriteActivity fUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WriteActivity writeActivity) {
-        this.fSq = writeActivity;
+        this.fUM = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fSq.bdW();
-        this.fSq.boz();
+        this.fUM.beY();
+        this.fUM.bpA();
     }
 }

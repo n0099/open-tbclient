@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.message.ResponseUpdateForumMask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ImMessageCenterDelegateStatic dhB;
+    final /* synthetic */ ImMessageCenterDelegateStatic djS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(ImMessageCenterDelegateStatic imMessageCenterDelegateStatic, int i) {
         super(i);
-        this.dhB = imMessageCenterDelegateStatic;
+        this.djS = imMessageCenterDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class d extends com.baidu.adp.framework.listener.e {
             if (zE != null && flag) {
                 i = zE.AO();
             }
-            textView = this.dhB.avE;
+            textView = this.djS.avG;
             ImMessageCenterDelegateStatic.o(textView, (((msgChat - i) + msgReplyme) + msgAtme) - zq);
         }
     }

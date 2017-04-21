@@ -8,15 +8,15 @@ import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class bk extends y.a {
     public int amZ;
-    public TextView bPp;
-    public PhotoLiveCardView bPq;
-    public View bPr;
+    public TextView bRG;
+    public PhotoLiveCardView bRH;
+    public View bRI;
 
     public bk(View view) {
         super(view);
         this.amZ = 3;
-        this.bPp = (TextView) view.findViewById(w.h.more_live_list);
-        this.bPq = (PhotoLiveCardView) view.findViewById(w.h.photo_live_card);
-        this.bPr = view.findViewById(w.h.make_headlines);
+        this.bRG = (TextView) view.findViewById(w.h.more_live_list);
+        this.bRH = (PhotoLiveCardView) view.findViewById(w.h.photo_live_card);
+        this.bRI = view.findViewById(w.h.make_headlines);
     }
 }

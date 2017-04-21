@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ColumnLayout extends ViewGroup {
-    private static final Pattern FR = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
-    private final List<View> FS;
-    private final List<View> FT;
-    private final List<View> FU;
-    private int[] FV;
-    private int FW;
-    private int FX;
-    private final int[] FY;
+    private static final Pattern FU = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
+    private final List<View> FV;
+    private final List<View> FW;
+    private final List<View> FX;
+    private int[] FY;
+    private int FZ;
+    private int Ga;
+    private final int[] Gb;
 
     public ColumnLayout(Context context) {
         this(context, null, 0);
@@ -32,11 +32,11 @@ public class ColumnLayout extends ViewGroup {
 
     public ColumnLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.FS = new ArrayList();
-        this.FT = new ArrayList();
-        this.FU = new ArrayList();
-        this.FV = new int[3];
+        this.FV = new ArrayList();
+        this.FW = new ArrayList();
+        this.FX = new ArrayList();
         this.FY = new int[3];
+        this.Gb = new int[3];
         b(context, attributeSet);
     }
 
@@ -46,25 +46,25 @@ public class ColumnLayout extends ViewGroup {
         if (string == null) {
             string = "vertical";
         }
-        if (FR.matcher(string).matches()) {
-            this.FV = new int[3];
+        if (FU.matcher(string).matches()) {
+            this.FY = new int[3];
             String[] split = string.split("\\|");
             if (split.length == 1) {
                 int by = by(split[0]);
-                for (int i = 0; i < this.FV.length; i++) {
-                    this.FV[i] = by;
+                for (int i = 0; i < this.FY.length; i++) {
+                    this.FY[i] = by;
                 }
             } else if (split.length > 1) {
-                if (this.FV.length != split.length) {
+                if (this.FY.length != split.length) {
                     throw new RuntimeException("Column number doesn't equal orientation definition number.");
                 }
-                for (int i2 = 0; i2 < this.FV.length; i2++) {
-                    this.FV[i2] = by(split[i2]);
+                for (int i2 = 0; i2 < this.FY.length; i2++) {
+                    this.FY[i2] = by(split[i2]);
                 }
             }
         }
-        this.FW = obtainStyledAttributes.getDimensionPixelSize(1, 0);
-        this.FX = obtainStyledAttributes.getDimensionPixelSize(2, 0);
+        this.FZ = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+        this.Ga = obtainStyledAttributes.getDimensionPixelSize(2, 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -106,28 +106,28 @@ public class ColumnLayout extends ViewGroup {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        this.FS.clear();
-        this.FT.clear();
-        this.FU.clear();
+        this.FV.clear();
+        this.FW.clear();
+        this.FX.clear();
     }
 
     private void c(View view, int i) {
         switch (i) {
             case 1:
-                if (!this.FS.contains(view)) {
-                    this.FS.add(view);
+                if (!this.FV.contains(view)) {
+                    this.FV.add(view);
                     return;
                 }
                 return;
             case 2:
-                if (!this.FT.contains(view)) {
-                    this.FT.add(view);
+                if (!this.FW.contains(view)) {
+                    this.FW.add(view);
                     return;
                 }
                 return;
             case 3:
-                if (!this.FU.contains(view)) {
-                    this.FU.add(view);
+                if (!this.FX.contains(view)) {
+                    this.FX.add(view);
                     return;
                 }
                 return;
@@ -139,13 +139,13 @@ public class ColumnLayout extends ViewGroup {
     private void d(View view, int i) {
         switch (i) {
             case 1:
-                this.FS.remove(view);
+                this.FV.remove(view);
                 return;
             case 2:
-                this.FT.remove(view);
+                this.FW.remove(view);
                 return;
             case 3:
-                this.FU.remove(view);
+                this.FX.remove(view);
                 return;
             default:
                 return;
@@ -162,34 +162,34 @@ public class ColumnLayout extends ViewGroup {
         int i6 = i2 & 1073741823;
         int i7 = i2 & (-1073741824);
         int i8 = i4 + i5;
-        int i9 = this.FW + this.FX;
+        int i9 = this.FZ + this.Ga;
         int i10 = 0;
         int i11 = 0;
         int i12 = 0;
         int i13 = 0;
         int i14 = 0;
-        for (View view : this.FS) {
+        for (View view : this.FV) {
             if (view.getVisibility() != 8) {
                 a aVar = (a) view.getLayoutParams();
                 a generateDefaultLayoutParams = aVar == null ? generateDefaultLayoutParams() : aVar;
                 measureChildWithMargins(view, i8, i14 + i9, i2, i11);
                 int measuredWidth = view.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin;
                 int measuredHeight = view.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin;
-                int i15 = i(i14, measuredWidth, this.FV[0]);
-                i11 = j(i11, measuredHeight, this.FV[0]);
+                int i15 = i(i14, measuredWidth, this.FY[0]);
+                i11 = j(i11, measuredHeight, this.FY[0]);
                 if ((i5 != 0 && i15 >= i4) || (i7 != 0 && i11 >= i6)) {
-                    setMeasuredDimension(this.FW + i15, i11);
-                    this.FY[0] = i15;
-                    this.FY[1] = -1;
-                    this.FY[2] = -1;
+                    setMeasuredDimension(this.FZ + i15, i11);
+                    this.Gb[0] = i15;
+                    this.Gb[1] = -1;
+                    this.Gb[2] = -1;
                     return;
                 }
                 i14 = i15;
             }
         }
-        this.FY[0] = i14;
+        this.Gb[0] = i14;
         int i16 = 0;
-        for (View view2 : this.FU) {
+        for (View view2 : this.FX) {
             if (view2.getVisibility() != 8) {
                 a aVar2 = (a) view2.getLayoutParams();
                 if (aVar2 == null) {
@@ -198,24 +198,24 @@ public class ColumnLayout extends ViewGroup {
                 measureChildWithMargins(view2, i8, i14 + i16 + i9, i2, i13);
                 int measuredWidth2 = view2.getMeasuredWidth() + aVar2.leftMargin + aVar2.rightMargin;
                 int measuredHeight2 = view2.getMeasuredHeight() + aVar2.topMargin + aVar2.bottomMargin;
-                int i17 = i(i16, measuredWidth2, this.FV[2]);
-                i13 = j(i13, measuredHeight2, this.FV[2]);
+                int i17 = i(i16, measuredWidth2, this.FY[2]);
+                i13 = j(i13, measuredHeight2, this.FY[2]);
                 if ((i5 != 0 && i17 > i4 - i14) || (i7 != 0 && i13 > i6)) {
-                    setMeasuredDimension(i14 + i17 + this.FW + this.FX, Math.max(i11, i13));
-                    this.FY[2] = i17;
-                    this.FY[1] = -1;
+                    setMeasuredDimension(i14 + i17 + this.FZ + this.Ga, Math.max(i11, i13));
+                    this.Gb[2] = i17;
+                    this.Gb[1] = -1;
                     return;
                 }
                 i16 = i17;
             }
         }
-        this.FY[2] = i16;
+        this.Gb[2] = i16;
         switch (i5) {
             case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
-                int i18 = (((i4 - i14) - i16) - this.FW) - this.FX;
+                int i18 = (((i4 - i14) - i16) - this.FZ) - this.Ga;
                 i3 = 0;
                 int i19 = 0;
-                for (View view3 : this.FT) {
+                for (View view3 : this.FW) {
                     if (view3.getVisibility() != 8) {
                         a aVar3 = (a) view3.getLayoutParams();
                         if (aVar3 == null) {
@@ -224,14 +224,14 @@ public class ColumnLayout extends ViewGroup {
                         measureChildWithMargins(view3, i8, i19 + i14 + i16 + i9, i2, 0);
                         int measuredWidth3 = view3.getMeasuredWidth() + aVar3.leftMargin + aVar3.rightMargin;
                         int measuredHeight3 = aVar3.bottomMargin + view3.getMeasuredHeight() + aVar3.topMargin;
-                        i19 = i(i19, measuredWidth3, this.FV[1]);
-                        i3 = j(i3, measuredHeight3, this.FV[1]);
+                        i19 = i(i19, measuredWidth3, this.FY[1]);
+                        i3 = j(i3, measuredHeight3, this.FY[1]);
                     }
                 }
                 i10 = Math.min(i19, i18);
                 break;
             case 0:
-                for (View view4 : this.FT) {
+                for (View view4 : this.FW) {
                     a aVar4 = (a) view4.getLayoutParams();
                     if (aVar4 == null) {
                         aVar4 = generateDefaultLayoutParams();
@@ -239,22 +239,22 @@ public class ColumnLayout extends ViewGroup {
                     measureChild(view4, i4, i6);
                     int measuredWidth4 = view4.getMeasuredWidth() + aVar4.leftMargin + aVar4.rightMargin;
                     int measuredHeight4 = view4.getMeasuredHeight() + aVar4.topMargin + aVar4.bottomMargin;
-                    i10 = i(i10, measuredWidth4, this.FV[1]);
-                    i12 = j(i12, measuredHeight4, this.FV[1]);
+                    i10 = i(i10, measuredWidth4, this.FY[1]);
+                    i12 = j(i12, measuredHeight4, this.FY[1]);
                 }
                 i3 = i12;
                 break;
             case 1073741824:
                 int paddingLeft = ((((i4 - i14) - i16) - i9) - getPaddingLeft()) - getPaddingRight();
                 i3 = 0;
-                for (View view5 : this.FT) {
+                for (View view5 : this.FW) {
                     if (view5.getVisibility() != 8) {
                         a aVar5 = (a) view5.getLayoutParams();
                         if (aVar5 == null) {
                             aVar5 = generateDefaultLayoutParams();
                         }
                         measureChildWithMargins(view5, i8, i14 + i16 + i9, i2, 0);
-                        i3 = j(i3, aVar5.bottomMargin + view5.getMeasuredHeight() + aVar5.topMargin, this.FV[1]);
+                        i3 = j(i3, aVar5.bottomMargin + view5.getMeasuredHeight() + aVar5.topMargin, this.FY[1]);
                     }
                 }
                 i10 = paddingLeft;
@@ -263,7 +263,7 @@ public class ColumnLayout extends ViewGroup {
                 i3 = i12;
                 break;
         }
-        this.FY[1] = i10;
+        this.Gb[1] = i10;
         switch (i7) {
             case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
             case 0:
@@ -276,7 +276,7 @@ public class ColumnLayout extends ViewGroup {
                 max = 0;
                 break;
         }
-        setMeasuredDimension(i14 + i10 + i16 + this.FW + this.FX + getPaddingLeft() + getPaddingRight(), max);
+        setMeasuredDimension(i14 + i10 + i16 + this.FZ + this.Ga + getPaddingLeft() + getPaddingRight(), max);
     }
 
     private int i(int i, int i2, int i3) {
@@ -303,14 +303,14 @@ public class ColumnLayout extends ViewGroup {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        if (this.FY[0] != -1) {
-            a(1, this.FS, paddingLeft, paddingTop, this.FY[0]);
-            int i5 = paddingLeft + this.FY[0] + this.FW;
-            if (this.FY[1] != -1) {
-                a(2, this.FT, i5, paddingTop, this.FY[1]);
-                int i6 = i5 + this.FY[1] + this.FX;
-                if (this.FY[2] != -1) {
-                    a(3, this.FU, i6, paddingTop, this.FY[2]);
+        if (this.Gb[0] != -1) {
+            a(1, this.FV, paddingLeft, paddingTop, this.Gb[0]);
+            int i5 = paddingLeft + this.Gb[0] + this.FZ;
+            if (this.Gb[1] != -1) {
+                a(2, this.FW, i5, paddingTop, this.Gb[1]);
+                int i6 = i5 + this.Gb[1] + this.Ga;
+                if (this.Gb[2] != -1) {
+                    a(3, this.FX, i6, paddingTop, this.Gb[2]);
                 }
             }
         }
@@ -319,7 +319,7 @@ public class ColumnLayout extends ViewGroup {
     private void a(int i, List<View> list, int i2, int i3, int i4) {
         int i5;
         if (i >= 1 && i <= 3) {
-            int i6 = this.FV[i - 1];
+            int i6 = this.FY[i - 1];
             int measuredHeight = getMeasuredHeight();
             for (View view : list) {
                 if (view.getVisibility() != 8) {
@@ -407,7 +407,7 @@ public class ColumnLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: kv */
+    /* renamed from: kw */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 51, 1);
     }

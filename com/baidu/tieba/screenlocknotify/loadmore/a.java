@@ -7,15 +7,15 @@ import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes.dex */
 public class a {
     private boolean mHasMore = true;
-    private ArrayList<s> fgq = null;
+    private ArrayList<s> fiJ = null;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.mHasMore = dataRes.has_more.intValue() == 1;
             if (dataRes.msg_content != null && dataRes.msg_content.size() > 0) {
-                this.fgq = new ArrayList<>();
+                this.fiJ = new ArrayList<>();
                 for (MsgContent msgContent : dataRes.msg_content) {
-                    this.fgq.add(new s(msgContent));
+                    this.fiJ.add(new s(msgContent));
                 }
             }
         }
@@ -25,7 +25,7 @@ public class a {
         return this.mHasMore;
     }
 
-    public ArrayList<s> bbd() {
-        return this.fgq;
+    public ArrayList<s> bce() {
+        return this.fiJ;
     }
 }

@@ -90,9 +90,9 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.deu);
+                this.gid = String.valueOf(a.dgL);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                this.gid = String.valueOf(a.dev);
+                this.gid = String.valueOf(a.dgM);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -225,7 +225,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
             }
-            h.u(personalChatMessage);
+            h.w(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -275,7 +275,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
                 }
                 personalChatMessage.setToUserId(j5);
             }
-            h.u(personalChatMessage);
+            h.w(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -303,7 +303,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
         toUserInfo = personalChatMessage.getToUserInfo();
         if (toUserInfo != null) {
         }
-        h.u(personalChatMessage);
+        h.w(personalChatMessage);
         personalChatMessage.setIsFriend(this.isFriend);
         return personalChatMessage;
     }

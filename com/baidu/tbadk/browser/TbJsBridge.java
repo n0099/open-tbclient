@@ -38,14 +38,14 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void showShareDialog(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.share.g gVar = new com.baidu.tbadk.coreExtra.share.g();
-        gVar.title = str;
-        gVar.content = str2;
-        gVar.linkUrl = str4;
+        com.baidu.tbadk.coreExtra.share.h hVar = new com.baidu.tbadk.coreExtra.share.h();
+        hVar.title = str;
+        hVar.content = str2;
+        hVar.linkUrl = str4;
         if (!au.isEmpty(str3)) {
-            gVar.imageUri = Uri.parse(str3);
+            hVar.imageUri = Uri.parse(str3);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), gVar, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), hVar, true)));
     }
 
     @JavascriptInterface

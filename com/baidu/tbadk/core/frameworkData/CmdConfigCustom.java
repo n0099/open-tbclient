@@ -198,12 +198,14 @@ public class CmdConfigCustom {
     public static final int CMD_GET_MANGA_DB_DATA = 2001421;
     public static final int CMD_GET_MANGA_READ_RECORD = 2001423;
     public static final int CMD_GET_MEMBER_CENTER_CACHE = 2016460;
+    public static final int CMD_GET_NET_IMG_TRAFFIC_MSG = 2001610;
     public static final int CMD_GET_NEW_FRIEND_DATA_BY_ID = 2001305;
     public static final int CMD_GET_OFFICIAL_ACCOUNT = 2001265;
     public static final int CMD_GET_QUICK_PLAYER_FACTORY = 2016490;
     public static final int CMD_GET_RECOMMEND_DETAIL = 2001306;
     public static final int CMD_GET_SHARE_FROM_GAME_CENTER_DATA = 2001261;
     public static final int CMD_GET_SKIN_FROM_DB = 2001381;
+    public static final int CMD_GET_SOCKET_TRAFFIC_MSG = 2001611;
     public static final int CMD_GET_VIDEO_CACHE_CLIENT = 2016479;
     public static final int CMD_GET_XIAOYING_PANNEL_TOOL = 2001350;
     public static final int CMD_GET_XIAOYING_TOOL = 2001349;

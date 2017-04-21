@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.view.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements ab.a {
-    final /* synthetic */ a cxa;
+    final /* synthetic */ a czr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(a aVar) {
-        this.cxa = aVar;
+        this.czr = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.a
@@ -20,12 +20,12 @@ public class k implements ab.a {
         n nVar;
         n nVar2;
         n nVar3;
-        nVar = this.cxa.cwS;
+        nVar = this.czr.czj;
         if (nVar != null) {
-            nVar2 = this.cxa.cwS;
-            nVar2.eX(true);
-            nVar3 = this.cxa.cwS;
-            nVar3.ajm();
+            nVar2 = this.czr.czj;
+            nVar2.fh(true);
+            nVar3 = this.czr.czj;
+            nVar3.akn();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CURRENT_PAGE_FINISH_REFRESH, true));
     }

@@ -14,16 +14,16 @@ import com.baidu.tieba.view.n;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class g extends n {
-    private TextView aaF;
-    private CustomMessageListener cvQ;
-    private TextView eBm;
-    private com.baidu.tieba.personCenter.a.a eBn;
-    private com.baidu.tieba.personCenter.c.a eBo;
+    private TextView aaG;
+    private CustomMessageListener cyh;
+    private TextView eDC;
+    private com.baidu.tieba.personCenter.a.a eDD;
+    private com.baidu.tieba.personCenter.c.a eDE;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bkx = (int) this.aaX.getResources().getDimension(w.f.ds600);
-        this.fJI = new com.baidu.tieba.view.j();
+        this.bmO = (int) this.aaY.getResources().getDimension(w.f.ds600);
+        this.fMe = new com.baidu.tieba.view.j();
     }
 
     @Override // com.baidu.tieba.view.n
@@ -35,69 +35,69 @@ public class g extends n {
             this.mNavigationBar.setRegisterClickListener(new h(this));
             this.mNavigationBar.setLoginClickListener(new i(this));
             this.mNavigationBar.showBottomLine(true);
-            int dimensionPixelSize = this.aaX.getResources().getDimensionPixelSize(w.f.ds320);
-            int dimensionPixelSize2 = this.aaX.getResources().getDimensionPixelSize(w.f.ds480);
-            int dimensionPixelSize3 = this.aaX.getResources().getDimensionPixelSize(w.f.ds360);
-            int dimensionPixelSize4 = this.aaX.getResources().getDimensionPixelSize(w.f.ds60);
-            int dimensionPixelSize5 = this.aaX.getResources().getDimensionPixelSize(w.f.ds20);
-            this.mNoDataView = NoDataViewFactory.a(this.aaX.getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, w.g.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.D(w.l.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.aaX.getString(w.l.unlogin_person_button_text), new j(this)), dimensionPixelSize5));
+            int dimensionPixelSize = this.aaY.getResources().getDimensionPixelSize(w.f.ds320);
+            int dimensionPixelSize2 = this.aaY.getResources().getDimensionPixelSize(w.f.ds480);
+            int dimensionPixelSize3 = this.aaY.getResources().getDimensionPixelSize(w.f.ds360);
+            int dimensionPixelSize4 = this.aaY.getResources().getDimensionPixelSize(w.f.ds60);
+            int dimensionPixelSize5 = this.aaY.getResources().getDimensionPixelSize(w.f.ds20);
+            this.mNoDataView = NoDataViewFactory.a(this.aaY.getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, w.g.pic_msg_unlogin, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.D(w.l.unlogin_person_msg_text, dimensionPixelSize4), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.aaY.getString(w.l.unlogin_person_button_text), new j(this)), dimensionPixelSize5));
             this.mNoDataView.setVisibility(0);
-            this.fJK.setVisibility(8);
+            this.fMg.setVisibility(8);
         }
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.j.item_person_center_navigation_title, (View.OnClickListener) null);
-        this.aaF = (TextView) addCustomView.findViewById(w.h.person_center_navigation_title);
-        this.eBm = (TextView) addCustomView.findViewById(w.h.person_center_navigation_another_title);
-        this.fJJ = new a(this.aaX.getPageActivity());
-        this.fJK.addHeaderView(this.fJJ.QX());
-        this.eBn = new com.baidu.tieba.personCenter.a.a(this.aaX, this.fJK);
-        A(this.aaX);
+        this.aaG = (TextView) addCustomView.findViewById(w.h.person_center_navigation_title);
+        this.eDC = (TextView) addCustomView.findViewById(w.h.person_center_navigation_another_title);
+        this.fMf = new a(this.aaY.getPageActivity());
+        this.fMg.addHeaderView(this.fMf.RZ());
+        this.eDD = new com.baidu.tieba.personCenter.a.a(this.aaY, this.fMg);
+        A(this.aaY);
     }
 
     @Override // com.baidu.tieba.view.n
     public void setOnViewResponseListener(m mVar) {
         super.setOnViewResponseListener(mVar);
-        this.fJJ.setOnViewResponseListener(mVar);
-        this.eBn.setOnViewResponseListener(mVar);
+        this.fMf.setOnViewResponseListener(mVar);
+        this.eDD.setOnViewResponseListener(mVar);
     }
 
     @Override // com.baidu.tieba.view.n
     protected void a(float f, boolean z) {
         if (z) {
-            this.aaF.setVisibility(8);
-            this.eBm.setVisibility(0);
-            aq.b(this.eBm, w.e.cp_cont_b, w.e.s_navbar_title_color);
+            this.aaG.setVisibility(8);
+            this.eDC.setVisibility(0);
+            aq.b(this.eDC, w.e.cp_cont_b, w.e.s_navbar_title_color);
         } else {
-            this.aaF.setVisibility(0);
-            this.eBm.setVisibility(8);
-            aq.b(this.aaF, w.e.cp_cont_i, w.e.cp_cont_i);
+            this.aaG.setVisibility(0);
+            this.eDC.setVisibility(8);
+            aq.b(this.aaG, w.e.cp_cont_i, w.e.cp_cont_i);
         }
-        this.aaF.setAlpha(1.0f - f);
-        this.eBm.setAlpha(f);
+        this.aaG.setAlpha(1.0f - f);
+        this.eDC.setAlpha(f);
     }
 
     public void b(com.baidu.tieba.personCenter.c.a aVar) {
-        this.eBo = aVar;
+        this.eDE = aVar;
         this.mNavigationBar.getTopCoverBgView().setVisibility(0);
-        this.fJI.bmn();
-        this.fJJ.f(aVar.aQt());
-        cU(aVar.alT());
-        com.baidu.tieba.g.a.baJ().baO();
+        this.fMe.bno();
+        this.fMf.f(aVar.aRu());
+        cU(aVar.amU());
+        com.baidu.tieba.g.a.bbK().bbP();
     }
 
-    public void ob(String str) {
-        this.fJJ.ob(str);
+    public void oc(String str) {
+        this.fMf.oc(str);
     }
 
     @Override // com.baidu.tieba.view.n
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.aaX, i);
+            this.mNoDataView.onChangeSkinType(this.aaY, i);
         }
     }
 
     private void A(TbPageContext tbPageContext) {
-        this.cvQ = new k(this, CmdConfigCustom.CMD_PERSON_RED_TIP);
-        tbPageContext.registerListener(this.cvQ);
+        this.cyh = new k(this, CmdConfigCustom.CMD_PERSON_RED_TIP);
+        tbPageContext.registerListener(this.cyh);
     }
 }

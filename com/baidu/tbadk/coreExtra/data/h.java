@@ -4,7 +4,7 @@ public class h {
     private g aoT;
     private int mErrorCode;
     private String mErrorString;
-    private boolean rG;
+    private boolean rL;
 
     public g yu() {
         return this.aoT;
@@ -15,11 +15,11 @@ public class h {
     }
 
     public boolean isSuccess() {
-        return this.rG;
+        return this.rL;
     }
 
     public void aC(boolean z) {
-        this.rG = z;
+        this.rL = z;
     }
 
     public int getErrorCode() {

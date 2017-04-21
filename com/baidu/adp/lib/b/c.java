@@ -4,12 +4,12 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
     private String mName;
-    private int tX;
-    private a ub;
-    private int tZ = 0;
-    private String[] ud = null;
-    private int tY = 0;
-    private String[] ue = null;
+    private int ud;
+    private a ug;
+    private int uf = 0;
+    private String[] ui = null;
+    private int ue = 0;
+    private String[] uj = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,53 +18,53 @@ public class c {
 
     public c(String str, int i, a aVar) {
         this.mName = null;
-        this.ub = null;
-        this.tX = 0;
+        this.ug = null;
+        this.ud = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.ub = aVar;
-        this.tX = i;
+        this.ug = aVar;
+        this.ud = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.tZ = i;
-        this.ud = strArr;
-        this.tY = i2;
+        this.uf = i;
+        this.ui = strArr;
+        this.ue = i2;
     }
 
     public void g(String[] strArr) {
-        this.ue = strArr;
+        this.uj = strArr;
     }
 
-    public String[] eT() {
-        return this.ue;
+    public String[] eU() {
+        return this.uj;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public int eS() {
-        return this.tZ;
+    public int eT() {
+        return this.uf;
     }
 
-    public String[] eV() {
-        return this.ud;
+    public String[] eW() {
+        return this.ui;
+    }
+
+    public int eS() {
+        return this.ue;
     }
 
     public int eR() {
-        return this.tY;
-    }
-
-    public int eQ() {
-        return this.tX;
+        return this.ud;
     }
 
     public void d(int i, boolean z) {
-        if (this.ub != null) {
-            this.ub.a(this.mName, i, z);
+        if (this.ug != null) {
+            this.ug.a(this.mName, i, z);
         }
     }
 }

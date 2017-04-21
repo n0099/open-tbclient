@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class av {
-    private static av agF = null;
-    private boolean agG = false;
+    private static av agG = null;
     private boolean agH = false;
-    private int agI = TbConfig.POST_IMAGE_SMALL;
-    private String agJ = String.valueOf(45);
+    private boolean agI = false;
+    private int agJ = TbConfig.POST_IMAGE_SMALL;
+    private String agK = String.valueOf(45);
 
     public static av wa() {
-        if (agF == null) {
+        if (agG == null) {
             synchronized (av.class) {
-                agF = new av();
+                agG = new av();
             }
         }
-        return agF;
+        return agG;
     }
 
     public av() {
@@ -30,38 +30,38 @@ public class av {
     }
 
     public void aG(boolean z) {
-        this.agH = z;
+        this.agI = z;
     }
 
     public boolean wc() {
-        return this.agH;
+        return this.agI;
     }
 
     public void aH(boolean z) {
-        this.agG = z;
+        this.agH = z;
         wb();
     }
 
     private void wd() {
-        this.agG = com.baidu.adp.lib.util.i.hk();
+        this.agH = com.baidu.adp.lib.util.i.hl();
     }
 
     public boolean we() {
-        return this.agG;
+        return this.agH;
     }
 
     public String wf() {
-        return this.agJ;
+        return this.agK;
     }
 
     public int wg() {
         wj();
-        return this.agI;
+        return this.agJ;
     }
 
     public void wh() {
         boolean z = true;
-        if (com.baidu.tbadk.core.q.po().getViewImageQuality() != 0 ? com.baidu.tbadk.core.q.po().getViewImageQuality() != 1 : !this.agG) {
+        if (com.baidu.tbadk.core.q.po().getViewImageQuality() != 0 ? com.baidu.tbadk.core.q.po().getViewImageQuality() != 1 : !this.agH) {
             z = false;
         }
         aG(z);
@@ -76,7 +76,7 @@ public class av {
         } else if (com.baidu.tbadk.core.q.po().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.agJ = valueOf;
+        this.agK = valueOf;
     }
 
     public void wj() {
@@ -100,10 +100,10 @@ public class av {
                 i = 750;
                 break;
         }
-        this.agI = i;
+        this.agJ = i;
     }
 
     public static boolean wk() {
-        return l.dG() && com.baidu.adp.gif.e.dF();
+        return l.dH() && com.baidu.adp.gif.e.dG();
     }
 }

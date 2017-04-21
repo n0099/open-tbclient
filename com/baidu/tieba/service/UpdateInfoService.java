@@ -19,7 +19,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.aFb();
+        this.mModel.aGc();
         this.mModel.cc(540000L);
         this.mModel.a(new h(this));
     }
@@ -27,7 +27,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.aEZ()) {
+        if (this.mModel.aGa()) {
             findLocationFromLocal();
         }
     }
@@ -40,10 +40,10 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        com.baidu.adp.lib.d.a.ff().a(true, this.locationCallBack);
+        com.baidu.adp.lib.d.a.fg().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        com.baidu.adp.lib.d.a.ff().a(this.locationCallBack);
+        com.baidu.adp.lib.d.a.fg().a(this.locationCallBack);
     }
 }

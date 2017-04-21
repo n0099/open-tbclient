@@ -6,17 +6,17 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements a.b {
-    private final /* synthetic */ Activity QD;
+    private final /* synthetic */ Activity QF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(Activity activity) {
-        this.QD = activity;
+        this.QF = activity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         TbadkCoreApplication.m9getInst().notifyAppEnterBackground();
-        this.QD.finish();
+        this.QF.finish();
     }
 }

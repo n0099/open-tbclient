@@ -8,11 +8,11 @@ import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends cf<com.baidu.tieba.card.data.f> {
-    final /* synthetic */ c cwe;
+    final /* synthetic */ c cyv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.cwe = cVar;
+        this.cyv = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,34 +27,34 @@ public class d extends cf<com.baidu.tieba.card.data.f> {
         com.baidu.tieba.card.e eVar7;
         com.baidu.tieba.card.e eVar8;
         com.baidu.tieba.card.e eVar9;
-        eVar = this.cwe.cwd;
+        eVar = this.cyv.cyu;
         if (eVar != null) {
-            eVar2 = this.cwe.cwd;
+            eVar2 = this.cyv.cyu;
             if (eVar2.getView() != null && fVar != null && fVar.threadData != null && fVar.threadData.getId() != null) {
                 int id = view.getId();
-                eVar3 = this.cwe.cwd;
+                eVar3 = this.cyv.cyu;
                 if (id == eVar3.getView().getId()) {
                     TiebaStatic.log(new as("c10806").s("obj_locate", 2).aa("tid", fVar.threadData.getId()));
                     return;
                 }
                 int id2 = view.getId();
-                eVar4 = this.cwe.cwd;
-                if (id2 == eVar4.brw.getId()) {
+                eVar4 = this.cyv.cyu;
+                if (id2 == eVar4.btO.getId()) {
                     TiebaStatic.log(new as("c10803").aa("tid", fVar.threadData.getTid()).s("obj_locate", 1));
                     return;
                 }
                 int id3 = view.getId();
-                eVar5 = this.cwe.cwd;
+                eVar5 = this.cyv.cyu;
                 if (id3 != eVar5.amq.getId()) {
                     int id4 = view.getId();
-                    eVar6 = this.cwe.cwd;
-                    if (id4 != eVar6.brv.getId()) {
+                    eVar6 = this.cyv.cyu;
+                    if (id4 != eVar6.btN.getId()) {
                         int id5 = view.getId();
-                        eVar7 = this.cwe.cwd;
-                        if (id5 != eVar7.bru.getId()) {
+                        eVar7 = this.cyv.cyu;
+                        if (id5 != eVar7.btM.getId()) {
                             int id6 = view.getId();
-                            eVar8 = this.cwe.cwd;
-                            if (id6 == eVar8.brB.getId()) {
+                            eVar8 = this.cyv.cyu;
+                            if (id6 == eVar8.btT.getId()) {
                                 TiebaStatic.log(new as("c11008").s("obj_locate", 4));
                                 return;
                             } else if (view instanceof TbImageView) {
@@ -62,8 +62,8 @@ public class d extends cf<com.baidu.tieba.card.data.f> {
                                 return;
                             } else {
                                 int id7 = view.getId();
-                                eVar9 = this.cwe.cwd;
-                                if (id7 == eVar9.brE.getBarNameTv().getId()) {
+                                eVar9 = this.cyv.cyu;
+                                if (id7 == eVar9.btW.getBarNameTv().getId()) {
                                     TiebaStatic.log(new as("c11008").s("obj_locate", 3));
                                     return;
                                 }

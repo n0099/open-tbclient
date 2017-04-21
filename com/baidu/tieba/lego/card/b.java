@@ -11,36 +11,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> dsq;
+    private final List<e> duH;
 
     /* synthetic */ b(b bVar) {
         this();
     }
 
     private b() {
-        this.dsq = new ArrayList(4);
+        this.duH = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b dsr = new b(null);
+        private static final b duI = new b(null);
     }
 
-    public static b axu() {
-        return a.dsr;
+    public static b ayv() {
+        return a.duI;
     }
 
     public synchronized void a(e eVar) {
-        this.dsq.add(eVar);
+        this.duH.add(eVar);
     }
 
     public synchronized void a(e eVar, int i) {
-        this.dsq.add(0, eVar);
+        this.duH.add(0, eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void axv() {
+    protected void ayw() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -54,7 +54,7 @@ public class b extends e {
     }
 
     private ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.dsq) {
+        for (e eVar : this.duH) {
             try {
                 ICardInfo a2 = eVar.a(jSONObject, i);
                 if (a2 != null) {
@@ -79,7 +79,7 @@ public class b extends e {
 
     private <T> am b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         am a2;
-        for (e eVar : this.dsq) {
+        for (e eVar : this.duH) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
@@ -93,7 +93,7 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo lt(String str) {
+    public static ICardInfo lu(String str) {
         try {
             ICardInfo t = t(new JSONObject(str));
             if (t != null) {
@@ -112,6 +112,6 @@ public class b extends e {
     }
 
     public static ICardInfo t(JSONObject jSONObject) throws CardParseException {
-        return axu().a(jSONObject, jSONObject.optInt("card_type"));
+        return ayv().a(jSONObject, jSONObject.optInt("card_type"));
     }
 }

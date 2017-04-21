@@ -69,7 +69,7 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: B */
         public com.baidu.tieba.model.f doInBackground(String... strArr) {
             com.baidu.tieba.model.f fVar;
             Exception e;
@@ -129,7 +129,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.fr();
+                this.mNetWork.fs();
             }
             super.cancel(true);
         }

@@ -6,25 +6,25 @@ import android.view.MenuItem;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
 /* loaded from: classes.dex */
 public class b implements a {
-    private a cAB;
-    private AbsHListView cAC;
+    private a cCS;
+    private AbsHListView cCT;
 
     public b(AbsHListView absHListView) {
-        this.cAC = absHListView;
+        this.cCT = absHListView;
     }
 
     public void a(a aVar) {
-        this.cAB = aVar;
+        this.cCS = aVar;
     }
 
-    public boolean aka() {
-        return this.cAB != null;
+    public boolean alb() {
+        return this.cCS != null;
     }
 
     @Override // android.view.ActionMode.Callback
     public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-        if (this.cAB.onCreateActionMode(actionMode, menu)) {
-            this.cAC.setLongClickable(false);
+        if (this.cCS.onCreateActionMode(actionMode, menu)) {
+            this.cCT.setLongClickable(false);
             return true;
         }
         return false;
@@ -32,29 +32,29 @@ public class b implements a {
 
     @Override // android.view.ActionMode.Callback
     public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-        return this.cAB.onPrepareActionMode(actionMode, menu);
+        return this.cCS.onPrepareActionMode(actionMode, menu);
     }
 
     @Override // android.view.ActionMode.Callback
     public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        return this.cAB.onActionItemClicked(actionMode, menuItem);
+        return this.cCS.onActionItemClicked(actionMode, menuItem);
     }
 
     @Override // android.view.ActionMode.Callback
     public void onDestroyActionMode(ActionMode actionMode) {
-        this.cAB.onDestroyActionMode(actionMode);
-        this.cAC.cAF = null;
-        this.cAC.clearChoices();
-        this.cAC.ajq = true;
-        this.cAC.akQ();
-        this.cAC.requestLayout();
-        this.cAC.setLongClickable(true);
+        this.cCS.onDestroyActionMode(actionMode);
+        this.cCT.cCW = null;
+        this.cCT.clearChoices();
+        this.cCT.ajr = true;
+        this.cCT.alR();
+        this.cCT.requestLayout();
+        this.cCT.setLongClickable(true);
     }
 
     @Override // com.baidu.tieba.horizonalList.a.a.a
     public void onItemCheckedStateChanged(ActionMode actionMode, int i, long j, boolean z) {
-        this.cAB.onItemCheckedStateChanged(actionMode, i, j, z);
-        if (this.cAC.getCheckedItemCount() == 0) {
+        this.cCS.onItemCheckedStateChanged(actionMode, i, j, z);
+        if (this.cCT.getCheckedItemCount() == 0) {
             actionMode.finish();
         }
     }

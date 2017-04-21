@@ -4,20 +4,20 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private HashMap<String, a> dhZ = new HashMap<>();
+    private HashMap<String, a> dkq = new HashMap<>();
 
     public void a(String str, a aVar) {
-        this.dhZ.put(str, aVar);
+        this.dkq.put(str, aVar);
     }
 
-    public boolean kY(String str) {
+    public boolean kZ(String str) {
         a aVar;
-        return (this.dhZ == null || (aVar = this.dhZ.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.auo()) >= ReportUserInfoModel.TIME_INTERVAL) ? false : true;
+        return (this.dkq == null || (aVar = this.dkq.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.avp()) >= ReportUserInfoModel.TIME_INTERVAL) ? false : true;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b kZ(String str) {
-        if (this.dhZ.get(str) != null) {
-            return this.dhZ.get(str).aun();
+    public com.baidu.tbadk.coreExtra.relationship.b la(String str) {
+        if (this.dkq.get(str) != null) {
+            return this.dkq.get(str).avo();
         }
         return null;
     }

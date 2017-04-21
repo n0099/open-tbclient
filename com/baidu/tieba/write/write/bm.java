@@ -24,13 +24,13 @@ public class bm implements View.OnClickListener {
         if (navigationBar.getVisibility() == 0) {
             navigationBar3 = this.this$0.mNavigationBar;
             navigationBar3.setVisibility(8);
-            linearLayout2 = this.this$0.eBN;
+            linearLayout2 = this.this$0.eEd;
             linearLayout2.setVisibility(8);
             return;
         }
         navigationBar2 = this.this$0.mNavigationBar;
         navigationBar2.setVisibility(0);
-        linearLayout = this.this$0.eBN;
+        linearLayout = this.this$0.eEd;
         linearLayout.setVisibility(0);
     }
 }

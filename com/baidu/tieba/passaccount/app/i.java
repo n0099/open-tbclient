@@ -4,15 +4,15 @@ import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ LoginActivity ecR;
+    final /* synthetic */ LoginActivity efh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(LoginActivity loginActivity) {
-        this.ecR = loginActivity;
+        this.efh = loginActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
     public void onFinish() {
-        this.ecR.finish();
+        this.efh.finish();
     }
 }

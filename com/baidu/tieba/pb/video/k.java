@@ -5,47 +5,47 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements c.InterfaceC0070c {
-    final /* synthetic */ d euY;
-    private final /* synthetic */ Animation eva;
+    final /* synthetic */ d exo;
+    private final /* synthetic */ Animation exq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(d dVar, Animation animation) {
-        this.euY = dVar;
-        this.eva = animation;
+        this.exo = dVar;
+        this.exq = animation;
     }
 
     @Override // com.baidu.tieba.play.c.InterfaceC0070c
-    public void jd(boolean z) {
-        boolean aPt;
+    public void jn(boolean z) {
+        boolean aQu;
         com.baidu.tieba.pb.pb.main.view.f fVar;
         com.baidu.tieba.pb.pb.main.view.f fVar2;
         Animation.AnimationListener animationListener;
         com.baidu.tieba.pb.pb.main.view.f fVar3;
-        aPt = this.euY.aPt();
-        if (aPt) {
-            fVar = this.euY.euM;
+        aQu = this.exo.aQu();
+        if (aQu) {
+            fVar = this.exo.exc;
             if (fVar != null) {
-                this.eva.setAnimationListener(null);
-                fVar2 = this.euY.euM;
-                fVar2.aNX().clearAnimation();
-                this.euY.aOd();
+                this.exq.setAnimationListener(null);
+                fVar2 = this.exo.exc;
+                fVar2.aOY().clearAnimation();
+                this.exo.aPe();
                 if (z) {
-                    Animation animation = this.eva;
-                    animationListener = this.euY.duR;
+                    Animation animation = this.exq;
+                    animationListener = this.exo.dxh;
                     animation.setAnimationListener(animationListener);
-                    fVar3 = this.euY.euM;
-                    fVar3.aNX().startAnimation(this.eva);
+                    fVar3 = this.exo.exc;
+                    fVar3.aOY().startAnimation(this.exq);
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.play.c.InterfaceC0070c
-    public void aPw() {
-        boolean aPt;
-        aPt = this.euY.aPt();
-        if (aPt) {
-            this.euY.aOc();
+    public void aQx() {
+        boolean aQu;
+        aQu = this.exo.aQu();
+        if (aQu) {
+            this.exo.aPd();
         }
     }
 }

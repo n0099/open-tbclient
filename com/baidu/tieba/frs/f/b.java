@@ -15,17 +15,17 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b {
-    private TbPageContext<FrsActivity> aaX;
-    private Animation bZK;
+    private TbPageContext<FrsActivity> aaY;
+    private Animation ccb;
 
     public b(TbPageContext<FrsActivity> tbPageContext) {
-        this.aaX = tbPageContext;
-        this.bZK = AnimationUtils.loadAnimation(this.aaX.getPageActivity(), w.a.frs_like);
+        this.aaY = tbPageContext;
+        this.ccb = AnimationUtils.loadAnimation(this.aaY.getPageActivity(), w.a.frs_like);
     }
 
     public void c(View view, String str) {
-        if (!this.aaX.getPageActivity().isFinishing()) {
-            View inflate = LayoutInflater.from(this.aaX.getPageActivity()).inflate(w.j.frs_like_cover, (ViewGroup) null);
+        if (!this.aaY.getPageActivity().isFinishing()) {
+            View inflate = LayoutInflater.from(this.aaY.getPageActivity()).inflate(w.j.frs_like_cover, (ViewGroup) null);
             Button button = (Button) inflate.findViewById(w.h.btn_love);
             TextView textView = (TextView) inflate.findViewById(w.h.tv_love);
             if ("frs_page".equals(str)) {
@@ -43,9 +43,9 @@ public class b {
             gVar.y(false);
             gVar.ae(w.h.love).ad(0).z(true);
             gVar.a(new c(this, inflate));
-            com.baidu.adp.lib.guide.d fb = gVar.fb();
-            fb.j(this.aaX.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.aaX.getOrignalPage(), inflate, this.bZK, new d(this, fb));
+            com.baidu.adp.lib.guide.d fc = gVar.fc();
+            fc.j(this.aaY.getPageActivity());
+            com.baidu.tieba.tbadkCore.a.a(this.aaY.getOrignalPage(), inflate, this.ccb, new d(this, fc));
         }
     }
 }

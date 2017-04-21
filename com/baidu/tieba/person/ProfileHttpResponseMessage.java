@@ -156,14 +156,14 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
         o<String> M;
         super.beforeDispatchInBackGround(i, (int) bArr);
         if (this.ucCardData != null && (M = com.baidu.tbadk.core.c.a.tM().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<f.a> list = this.ucCardData.ezu;
-            list.get(4).GX = 8L;
+            List<f.a> list = this.ucCardData.eBK;
+            list.get(4).timeStamp = 8L;
             if (list != null) {
                 for (f.a aVar : list) {
-                    if (aVar.GX > com.baidu.adp.lib.g.b.c(M.get(aVar.title), 0L)) {
-                        aVar.ezv = true;
+                    if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(M.get(aVar.title), 0L)) {
+                        aVar.eBL = true;
                     } else {
-                        aVar.ezv = false;
+                        aVar.eBL = false;
                     }
                 }
             }

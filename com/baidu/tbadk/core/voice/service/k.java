@@ -37,7 +37,7 @@ public class k extends MediaPlayer implements h {
             reset();
             try {
                 setDataSource(str);
-                setStreamType(l.zF);
+                setStreamType(l.zI);
                 try {
                     prepare();
                 } catch (IOException e) {
@@ -92,7 +92,7 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public int hN() {
+    public int hO() {
         return getCurrentPosition();
     }
 

@@ -8,36 +8,36 @@ import com.baidu.tieba.frs.az;
 import com.baidu.tieba.view.BdExpandListView;
 /* loaded from: classes.dex */
 public class ah extends com.baidu.tieba.frs.mc.w {
-    private ab.b alp;
-    private ab.a alq;
-    private ab.c alr;
-    private com.baidu.tieba.frs.smartsort.c bMW;
-    private final CustomMessageListener cbP;
-    private final BdExpandListView.a cbQ;
+    private ab.b alq;
+    private ab.a alr;
+    private ab.c als;
+    private com.baidu.tieba.frs.smartsort.c bPn;
+    private final CustomMessageListener ceg;
+    private final BdExpandListView.a ceh;
 
     public ah(FrsActivity frsActivity) {
         super(frsActivity);
-        this.cbP = new ai(this, CmdConfigCustom.CMD_REFRESH);
-        this.alp = new aj(this);
-        this.alr = new ak(this);
-        this.alq = new am(this);
-        this.cbQ = new an(this);
-        this.bMW = this.bST.YS();
-        this.bMD.a(this.cbQ);
-        this.bST.registerListener(this.cbP);
+        this.ceg = new ai(this, CmdConfigCustom.CMD_REFRESH);
+        this.alq = new aj(this);
+        this.als = new ak(this);
+        this.alr = new am(this);
+        this.ceh = new an(this);
+        this.bPn = this.bVk.ZT();
+        this.bOU.a(this.ceh);
+        this.bVk.registerListener(this.ceg);
     }
 
     public void a(az azVar, boolean z) {
         if (azVar != null) {
             if (z) {
-                azVar.aan();
-                azVar.a(this.alp);
-                azVar.a(this.alr);
+                azVar.abo();
                 azVar.a(this.alq);
+                azVar.a(this.als);
+                azVar.a(this.alr);
                 return;
             }
-            azVar.aao();
-            azVar.a(this.cbQ);
+            azVar.abp();
+            azVar.a(this.ceh);
         }
     }
 }

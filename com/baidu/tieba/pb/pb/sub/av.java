@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements AdapterView.OnItemClickListener {
-    final /* synthetic */ ao etF;
+    final /* synthetic */ ao evV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(ao aoVar) {
-        this.etF = aoVar;
+        this.evV = aoVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -27,39 +27,39 @@ public class av implements AdapterView.OnItemClickListener {
         com.baidu.tbadk.editortools.pb.n nVar2;
         SubPbModel subPbModel;
         b bVar2;
-        newSubPbActivity = this.etF.etb;
+        newSubPbActivity = this.evV.evs;
         if (bg.aK(newSubPbActivity.getPageContext().getPageActivity())) {
-            bVar = this.etF.esS;
+            bVar = this.evV.evj;
             if (bVar != null) {
-                bVar2 = this.etF.esS;
-                bVar2.aOh();
+                bVar2 = this.evV.evj;
+                bVar2.aPi();
             }
-            this.etF.aOu();
+            this.evV.aPv();
             if (view == null || !(view.getTag() instanceof ba.a)) {
-                arrayList = this.etF.etw;
+                arrayList = this.evV.evM;
                 PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(arrayList, i);
                 if (postData == null) {
-                    this.etF.etx = null;
+                    this.evV.evN = null;
                 } else {
-                    this.etF.etx = postData.getId();
+                    this.evV.evN = postData.getId();
                 }
                 SparseArray sparseArray = (SparseArray) view.getTag();
                 if (sparseArray != null) {
                     String str = (String) sparseArray.get(w.h.tag_photo_username);
                     String str2 = (String) sparseArray.get(w.h.tag_photo_userid);
                     if (str != null) {
-                        nVar = this.etF.dlk;
+                        nVar = this.evV.dnB;
                         nVar.setReplyId(str2);
-                        nVar2 = this.etF.dlk;
+                        nVar2 = this.evV.dnB;
                         nVar2.fH(str);
                     }
                 }
-                this.etF.aOv();
+                this.evV.aPw();
                 return;
             }
-            this.etF.aOw();
-            subPbModel = this.etF.esE;
-            subPbModel.aOQ();
+            this.evV.aPx();
+            subPbModel = this.evV.euV;
+            subPbModel.aPR();
         }
     }
 }

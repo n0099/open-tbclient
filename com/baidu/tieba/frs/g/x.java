@@ -7,11 +7,11 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements Runnable {
-    final /* synthetic */ u cbI;
+    final /* synthetic */ u cdZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(u uVar) {
-        this.cbI = uVar;
+        this.cdZ = uVar;
     }
 
     @Override // java.lang.Runnable
@@ -29,42 +29,42 @@ public class x implements Runnable {
         String str2;
         String str3;
         FrsActivity frsActivity4;
-        i = this.cbI.mScrollState;
+        i = this.cdZ.mScrollState;
         if (i == 0) {
-            bdTypeListView = this.cbI.bVP;
+            bdTypeListView = this.cdZ.bYg;
             if (bdTypeListView.isRefreshDone()) {
-                frsActivity = this.cbI.bST;
-                if (!frsActivity.Zm()) {
-                    frsActivity2 = this.cbI.bST;
-                    if (frsActivity2.YU() != null) {
-                        frsActivity4 = this.cbI.bST;
-                        if (frsActivity4.YU().abK()) {
+                frsActivity = this.cdZ.bVk;
+                if (!frsActivity.aan()) {
+                    frsActivity2 = this.cdZ.bVk;
+                    if (frsActivity2.ZV() != null) {
+                        frsActivity4 = this.cdZ.bVk;
+                        if (frsActivity4.ZV().acL()) {
                             return;
                         }
                     }
-                    z = this.cbI.cbC;
+                    z = this.cdZ.cdT;
                     if (!z) {
-                        i2 = this.cbI.bEj;
+                        i2 = this.cdZ.bGA;
                         if (i2 == 1) {
-                            str = this.cbI.cbA;
+                            str = this.cdZ.cdR;
                             if (!"frs_page".equals(str)) {
-                                str2 = this.cbI.cbA;
+                                str2 = this.cdZ.cdR;
                                 if (!"normal_page".equals(str2)) {
-                                    str3 = this.cbI.cbA;
+                                    str3 = this.cdZ.cdR;
                                     if (!"book_page".equals(str3)) {
                                         return;
                                     }
                                 }
                             }
-                            cVar = this.cbI.cbx;
+                            cVar = this.cdZ.cdO;
                             if (cVar != null) {
-                                cVar2 = this.cbI.cbx;
-                                if (cVar2.aeq()) {
+                                cVar2 = this.cdZ.cdO;
+                                if (cVar2.afr()) {
                                     TbadkSettings.getInst().saveBoolean("speed_icon_show" + TbadkCoreApplication.getCurrentAccount(), true);
-                                    this.cbI.abh();
-                                    frsActivity3 = this.cbI.bST;
-                                    frsActivity3.bMq = true;
-                                    this.cbI.cbC = true;
+                                    this.cdZ.aci();
+                                    frsActivity3 = this.cdZ.bVk;
+                                    frsActivity3.bOH = true;
+                                    this.cdZ.cdT = true;
                                 }
                             }
                         }

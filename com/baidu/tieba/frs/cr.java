@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class cr implements Runnable {
-    final /* synthetic */ cq bQG;
+    final /* synthetic */ cq bSX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cr(cq cqVar) {
-        this.bQG = cqVar;
+        this.bSX = cqVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bQG.hideTip();
+        this.bSX.hideTip();
     }
 }

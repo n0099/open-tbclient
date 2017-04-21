@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected static WeakReference<TbPageContext<?>> Rf = null;
-    protected static boolean Rh = false;
-    protected String Rc = "183322726";
-    protected boolean Rg = true;
-    protected transient List<String> Rd = new ArrayList(5);
+    protected static WeakReference<TbPageContext<?>> Rh = null;
+    protected static boolean Rj = false;
+    protected String Re = "183322726";
+    protected boolean Ri = true;
+    protected transient List<String> Rf = new ArrayList(5);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -70,33 +70,33 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext) {
-        if (Rf == null) {
-            Rf = new WeakReference<>(tbPageContext);
+        if (Rh == null) {
+            Rh = new WeakReference<>(tbPageContext);
             return;
         }
-        Rf.clear();
-        Rf = null;
-        Rf = new WeakReference<>(tbPageContext);
+        Rh.clear();
+        Rh = null;
+        Rh = new WeakReference<>(tbPageContext);
     }
 
     public boolean oq() {
-        return Rh;
+        return Rj;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void af(boolean z) {
-        this.Rg = z;
+        this.Ri = z;
     }
 
     public boolean ok() {
-        return this.Rg;
+        return this.Ri;
     }
 
     public void om() {
-        if (Rf != null) {
-            Rf.get();
-            Rf.clear();
-            Rf = null;
+        if (Rh != null) {
+            Rh.get();
+            Rh.clear();
+            Rh = null;
         }
     }
 }

@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbConfig;
 public class j {
     public static String getNetType() {
         try {
-            if (com.baidu.adp.lib.util.i.hj()) {
-                if (com.baidu.adp.lib.util.i.hk()) {
+            if (com.baidu.adp.lib.util.i.hk()) {
+                if (com.baidu.adp.lib.util.i.hl()) {
                     return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
                 }
                 String defaultHost = Proxy.getDefaultHost();

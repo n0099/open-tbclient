@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d egW;
+    final /* synthetic */ d ejm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.egW = dVar;
+        this.ejm = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        context = this.egW.mContext;
+        context = this.ejm.mContext;
         if (!bg.aK(context)) {
             return;
         }
-        this.egW.a(view, 300L);
+        this.ejm.a(view, 300L);
     }
 }

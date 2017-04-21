@@ -6,29 +6,29 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class l {
-    private static l aUW;
-    private Handler.Callback aQN = new m(this);
-    private h aUX;
-    private b aUY;
+    private static l aUY;
+    private Handler.Callback aQP = new m(this);
+    private h aUZ;
+    private b aVa;
     private Handler mHandler;
 
     private l() {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aQN);
-        this.aUX = new h();
-        this.aUY = new b();
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aQP);
+        this.aUZ = new h();
+        this.aVa = new b();
     }
 
     public static l LJ() {
-        if (aUW == null) {
+        if (aUY == null) {
             synchronized (l.class) {
-                if (aUW == null) {
-                    aUW = new l();
+                if (aUY == null) {
+                    aUY = new l();
                 }
             }
         }
-        return aUW;
+        return aUY;
     }
 
     public void q(InputStream inputStream) {

@@ -11,44 +11,44 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class j {
-    private TbPageContext ajT;
-    public TextView esp;
+    private TbPageContext ajU;
+    public TextView euH;
     private int mSkinType = 3;
-    private int esq = 0;
-    private boolean esr = true;
-    private CustomMessageListener ess = new k(this, CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT);
+    private int euI = 0;
+    private boolean euJ = true;
+    private CustomMessageListener euK = new k(this, CmdConfigCustom.CMD_PB_VIDEO_PALY_ADD_COUNT);
 
     public j(TbPageContext tbPageContext, View view) {
-        this.ajT = tbPageContext;
-        this.esp = (TextView) view.findViewById(w.h.pb_list_video_item_play_count);
+        this.ajU = tbPageContext;
+        this.euH = (TextView) view.findViewById(w.h.pb_list_video_item_play_count);
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        tbPageContext.registerListener(this.ess);
+        tbPageContext.registerListener(this.euK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tbadk.widget.richText.e eVar) {
         if (eVar != null) {
-            this.esq++;
-            eVar.fz(this.esq);
+            this.euI++;
+            eVar.fz(this.euI);
         }
     }
 
     public void d(com.baidu.tbadk.widget.richText.e eVar) {
-        if (this.esp != null && eVar != null) {
-            if (eVar.Ja() < this.esq) {
-                eVar.fz(this.esq);
+        if (this.euH != null && eVar != null) {
+            if (eVar.Ja() < this.euI) {
+                eVar.fz(this.euI);
             } else {
-                this.esq = eVar.Ja();
+                this.euI = eVar.Ja();
             }
-            this.esp.setText(au.t(this.esq));
+            this.euH.setText(au.t(this.euI));
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.esp.setCompoundDrawablesWithIntrinsicBounds(w.g.icon_pb_video_num_gray, 0, 0, 0);
-            this.esp.setCompoundDrawablePadding(com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds12));
-            aq.c(this.esp, w.e.cp_cont_c, 1);
+            this.euH.setCompoundDrawablesWithIntrinsicBounds(w.g.icon_pb_video_num_gray, 0, 0, 0);
+            this.euH.setCompoundDrawablePadding(com.baidu.adp.lib.util.k.g(this.ajU.getPageActivity(), w.f.ds12));
+            aq.c(this.euH, w.e.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }

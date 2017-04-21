@@ -7,9 +7,9 @@ import com.baidu.tieba.graffiti.HorizontalScrollLayout;
 public abstract class a extends HorizontalScrollLayout {
     public abstract void a(af afVar);
 
-    public abstract void aeD();
+    public abstract void afE();
 
-    public abstract void ahH();
+    public abstract void aiI();
 
     public abstract void changeSkinType(int i);
 

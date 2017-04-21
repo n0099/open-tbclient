@@ -3,11 +3,11 @@ package com.baidu.tieba.personPolymeric.b;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class g implements a.b {
-    final /* synthetic */ a eEE;
+    final /* synthetic */ a eGU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.eEE = aVar;
+        this.eGU = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

@@ -11,11 +11,11 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class aa implements PbModel.a {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
@@ -89,147 +89,147 @@ class aa implements PbModel.a {
         ey eyVar24;
         ey eyVar25;
         PbModel pbModel23;
-        if (!z || fVar == null || fVar.aJG() != null || com.baidu.tbadk.core.util.x.p(fVar.aJz()) >= 1) {
-            this.ejU.dJd = true;
+        if (!z || fVar == null || fVar.aKH() != null || com.baidu.tbadk.core.util.x.p(fVar.aKA()) >= 1) {
+            this.emk.dLt = true;
             long currentTimeMillis = System.currentTimeMillis();
-            eyVar = this.ejU.eiS;
-            eyVar.aNn();
-            if (fVar != null && fVar.aJE()) {
-                eyVar25 = this.ejU.eiS;
-                if (eyVar25.aMO() == null) {
-                    this.ejU.ejg = true;
+            eyVar = this.emk.eli;
+            eyVar.aOo();
+            if (fVar != null && fVar.aKF()) {
+                eyVar25 = this.emk.eli;
+                if (eyVar25.aNP() == null) {
+                    this.emk.elw = true;
                 }
             } else {
-                PbActivity pbActivity = this.ejU;
-                eyVar2 = this.ejU.eiS;
+                PbActivity pbActivity = this.emk;
+                eyVar2 = this.emk.eli;
                 pbActivity.hideLoadingView(eyVar2.getView());
             }
-            eyVar3 = this.ejU.eiS;
-            eyVar3.arr();
-            eyVar4 = this.ejU.eiS;
-            eyVar4.aNh();
-            z2 = this.ejU.eiM;
+            eyVar3 = this.emk.eli;
+            eyVar3.ass();
+            eyVar4 = this.emk.eli;
+            eyVar4.aOi();
+            z2 = this.emk.elc;
             if (z2) {
-                eyVar24 = this.ejU.eiS;
-                eyVar24.aND();
+                eyVar24 = this.emk.eli;
+                eyVar24.aOE();
             } else {
-                eyVar5 = this.ejU.eiS;
-                eyVar5.gC(false);
+                eyVar5 = this.emk.eli;
+                eyVar5.gM(false);
             }
-            z3 = this.ejU.mIsLoading;
+            z3 = this.emk.mIsLoading;
             if (z3) {
-                this.ejU.mIsLoading = false;
-                eyVar23 = this.ejU.eiS;
-                eyVar23.eoV.esg.setEnabled(true);
+                this.emk.mIsLoading = false;
+                eyVar23 = this.emk.eli;
+                eyVar23.erm.euy.setEnabled(true);
             }
             if (i4 == 0 && fVar != null) {
-                this.ejU.ejb = true;
+                this.emk.elr = true;
             }
             if (z && fVar != null) {
-                eyVar14 = this.ejU.eiS;
+                eyVar14 = this.emk.eli;
                 eyVar14.KZ();
-                eyVar15 = this.ejU.eiS;
-                eyVar15.iQ(fVar.aJE());
-                if (fVar.aJx() != null && fVar.aJx().tk() != null) {
-                    this.ejU.a(fVar.aJx().tk());
+                eyVar15 = this.emk.eli;
+                eyVar15.ja(fVar.aKF());
+                if (fVar.aKy() != null && fVar.aKy().tk() != null) {
+                    this.emk.a(fVar.aKy().tk());
                 }
-                cVar = this.ejU.eje;
+                cVar = this.emk.elu;
                 if (cVar != null) {
-                    eyVar22 = this.ejU.eiS;
-                    cVar9 = this.ejU.eje;
-                    eyVar22.gB(cVar9.DU());
+                    eyVar22 = this.emk.eli;
+                    cVar9 = this.emk.elu;
+                    eyVar22.gL(cVar9.DU());
                 }
                 TbadkCoreApplication.m9getInst().setDefaultBubble(fVar.getUserData().getBimg_url());
                 TbadkCoreApplication.m9getInst().setDefaultBubbleEndTime(fVar.getUserData().getBimg_end_time());
-                if (fVar.aJz() != null && fVar.aJz().size() >= 1 && fVar.aJz().get(0) != null) {
-                    String id = fVar.aJz().get(0).getId();
-                    pbModel22 = this.ejU.eif;
-                    pbModel22.nC(id);
-                } else if (fVar.aJG() != null) {
-                    String id2 = fVar.aJG().getId();
-                    pbModel9 = this.ejU.eif;
-                    pbModel9.nC(id2);
+                if (fVar.aKA() != null && fVar.aKA().size() >= 1 && fVar.aKA().get(0) != null) {
+                    String id = fVar.aKA().get(0).getId();
+                    pbModel22 = this.emk.ekv;
+                    pbModel22.nD(id);
+                } else if (fVar.aKH() != null) {
+                    String id2 = fVar.aKH().getId();
+                    pbModel9 = this.emk.ekv;
+                    pbModel9.nD(id2);
                 }
-                cVar2 = this.ejU.eje;
+                cVar2 = this.emk.elu;
                 if (cVar2 != null) {
-                    cVar6 = this.ejU.eje;
+                    cVar6 = this.emk.elu;
                     cVar6.a(fVar.rb());
-                    cVar7 = this.ejU.eje;
-                    cVar7.a(fVar.aJw(), fVar.getUserData());
-                    cVar8 = this.ejU.eje;
-                    pbModel19 = this.ejU.eif;
-                    MetaData aLK = pbModel19.aLK();
-                    pbModel20 = this.ejU.eif;
+                    cVar7 = this.emk.elu;
+                    cVar7.a(fVar.aKx(), fVar.getUserData());
+                    cVar8 = this.emk.elu;
+                    pbModel19 = this.emk.ekv;
+                    MetaData aML = pbModel19.aML();
+                    pbModel20 = this.emk.ekv;
                     String threadID = pbModel20.getThreadID();
-                    pbModel21 = this.ejU.eif;
-                    cVar8.a(aLK, threadID, pbModel21.aMd());
+                    pbModel21 = this.emk.ekv;
+                    cVar8.a(aML, threadID, pbModel21.aNe());
                 }
-                aVar = this.ejU.dFo;
+                aVar = this.emk.dHE;
                 if (aVar != null) {
-                    aVar2 = this.ejU.dFo;
+                    aVar2 = this.emk.dHE;
                     aVar2.ae(fVar.oe());
                 }
-                if (fVar == null || fVar.aJI() != 1) {
-                    this.ejU.mIsFromCDN = false;
+                if (fVar == null || fVar.aKJ() != 1) {
+                    this.emk.mIsFromCDN = false;
                 } else {
-                    this.ejU.mIsFromCDN = true;
+                    this.emk.mIsFromCDN = true;
                 }
-                eyVar16 = this.ejU.eiS;
-                z5 = this.ejU.mIsFromCDN;
-                eyVar16.iP(z5);
-                z6 = this.ejU.eiY;
+                eyVar16 = this.emk.eli;
+                z5 = this.emk.mIsFromCDN;
+                eyVar16.iZ(z5);
+                z6 = this.emk.elo;
                 if (!z6) {
-                    z7 = this.ejU.eiZ;
+                    z7 = this.emk.elp;
                     if (z7) {
-                        z8 = this.ejU.eja;
+                        z8 = this.emk.elq;
                         if (!z8) {
-                            PbActivity pbActivity2 = this.ejU;
-                            pbModel10 = this.ejU.eif;
+                            PbActivity pbActivity2 = this.emk;
+                            pbModel10 = this.emk.ekv;
                             pbActivity2.a(pbModel10.getPbData(), -1, false, true);
-                            this.ejU.eja = true;
-                            this.ejU.eiY = true;
+                            this.emk.elq = true;
+                            this.emk.elo = true;
                         }
                     }
                 } else {
-                    PbActivity pbActivity3 = this.ejU;
-                    pbModel18 = this.ejU.eif;
+                    PbActivity pbActivity3 = this.emk;
+                    pbModel18 = this.emk.ekv;
                     pbActivity3.a(pbModel18.getPbData(), -1, 0, false, true);
                 }
-                eyVar17 = this.ejU.eiS;
-                pbModel11 = this.ejU.eif;
-                boolean aLC = pbModel11.aLC();
-                pbModel12 = this.ejU.eif;
-                eyVar17.a(fVar, i2, i3, aLC, i4, pbModel12.getIsFromMark());
-                eyVar18 = this.ejU.eiS;
-                pbModel13 = this.ejU.eif;
-                eyVar18.e(fVar, pbModel13.aLC());
-                eyVar19 = this.ejU.eiS;
-                pbModel14 = this.ejU.eif;
-                eyVar19.iN(pbModel14.getHostMode());
-                pbModel15 = this.ejU.eif;
-                if (pbModel15.aLZ() != null) {
-                    eyVar20 = this.ejU.eiS;
-                    pbModel16 = this.ejU.eif;
-                    eyVar20.b(pbModel16.aLZ().aLr());
-                    eyVar21 = this.ejU.eiS;
-                    pbModel17 = this.ejU.eif;
-                    eyVar21.iL(pbModel17.aLZ().aLs());
+                eyVar17 = this.emk.eli;
+                pbModel11 = this.emk.ekv;
+                boolean aMD = pbModel11.aMD();
+                pbModel12 = this.emk.ekv;
+                eyVar17.a(fVar, i2, i3, aMD, i4, pbModel12.getIsFromMark());
+                eyVar18 = this.emk.eli;
+                pbModel13 = this.emk.ekv;
+                eyVar18.e(fVar, pbModel13.aMD());
+                eyVar19 = this.emk.eli;
+                pbModel14 = this.emk.ekv;
+                eyVar19.iX(pbModel14.getHostMode());
+                pbModel15 = this.emk.ekv;
+                if (pbModel15.aNa() != null) {
+                    eyVar20 = this.emk.eli;
+                    pbModel16 = this.emk.ekv;
+                    eyVar20.b(pbModel16.aNa().aMs());
+                    eyVar21 = this.emk.eli;
+                    pbModel17 = this.emk.ekv;
+                    eyVar21.iV(pbModel17.aNa().aMt());
                 }
                 AntiData rb = fVar.rb();
                 if (rb != null) {
-                    this.ejU.aAU = rb.getVoice_message();
-                    str2 = this.ejU.aAU;
+                    this.emk.aAW = rb.getVoice_message();
+                    str2 = this.emk.aAW;
                     if (!StringUtils.isNull(str2)) {
-                        cVar3 = this.ejU.eje;
+                        cVar3 = this.emk.elu;
                         if (cVar3 != null) {
-                            cVar4 = this.ejU.eje;
+                            cVar4 = this.emk.elu;
                             if (cVar4.Dn() != null) {
-                                cVar5 = this.ejU.eje;
+                                cVar5 = this.emk.elu;
                                 com.baidu.tbadk.editortools.p ez = cVar5.Dn().ez(6);
                                 if (ez != null) {
-                                    str3 = this.ejU.aAU;
+                                    str3 = this.emk.aAW;
                                     if (!TextUtils.isEmpty(str3)) {
-                                        onClickListener = this.ejU.doC;
+                                        onClickListener = this.emk.dqT;
                                         ((View) ez).setOnClickListener(onClickListener);
                                     }
                                 }
@@ -238,59 +238,59 @@ class aa implements PbModel.a {
                     }
                 }
             } else if (str != null) {
-                z4 = this.ejU.ejb;
+                z4 = this.emk.elr;
                 if (!z4 && i4 == 1) {
                     if (i2 == 3 || i2 == 4 || i2 == 6) {
                         if (i == 4) {
-                            pbModel = this.ejU.eif;
+                            pbModel = this.emk.ekv;
                             if (pbModel != null) {
-                                pbModel2 = this.ejU.eif;
+                                pbModel2 = this.emk.ekv;
                                 if (pbModel2.getAppealInfo() != null) {
-                                    pbModel3 = this.ejU.eif;
-                                    if (!StringUtils.isNull(pbModel3.getAppealInfo().efQ)) {
-                                        eyVar11 = this.ejU.eiS;
-                                        pbModel4 = this.ejU.eif;
+                                    pbModel3 = this.emk.ekv;
+                                    if (!StringUtils.isNull(pbModel3.getAppealInfo().eig)) {
+                                        eyVar11 = this.emk.eli;
+                                        pbModel4 = this.emk.ekv;
                                         eyVar11.a(pbModel4.getAppealInfo());
                                     }
                                 }
                             }
-                            PbActivity pbActivity4 = this.ejU;
-                            eyVar10 = this.ejU.eiS;
-                            pbActivity4.showNetRefreshView(eyVar10.getView(), this.ejU.getPageContext().getResources().getString(w.l.net_error_text, str, Integer.valueOf(i)), true);
-                            this.ejU.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.ejU.getApplicationContext(), w.f.ds200));
+                            PbActivity pbActivity4 = this.emk;
+                            eyVar10 = this.emk.eli;
+                            pbActivity4.showNetRefreshView(eyVar10.getView(), this.emk.getPageContext().getResources().getString(w.l.net_error_text, str, Integer.valueOf(i)), true);
+                            this.emk.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.emk.getApplicationContext(), w.f.ds200));
                         } else {
-                            PbActivity pbActivity5 = this.ejU;
-                            eyVar8 = this.ejU.eiS;
-                            pbActivity5.showNetRefreshView(eyVar8.getView(), this.ejU.getPageContext().getResources().getString(w.l.net_error_text, str, Integer.valueOf(i)), true);
-                            this.ejU.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.ejU.getApplicationContext(), w.f.ds200));
+                            PbActivity pbActivity5 = this.emk;
+                            eyVar8 = this.emk.eli;
+                            pbActivity5.showNetRefreshView(eyVar8.getView(), this.emk.getPageContext().getResources().getString(w.l.net_error_text, str, Integer.valueOf(i)), true);
+                            this.emk.setNetRefreshViewEmotionMarginTop(com.baidu.adp.lib.util.k.g(this.emk.getApplicationContext(), w.f.ds200));
                         }
-                        eyVar9 = this.ejU.eiS;
-                        eyVar9.aND();
+                        eyVar9 = this.emk.eli;
+                        eyVar9.aOE();
                     }
                 } else {
-                    this.ejU.showToast(str);
+                    this.emk.showToast(str);
                 }
-                eyVar6 = this.ejU.eiS;
-                eyVar6.nF(this.ejU.getResources().getString(w.l.list_no_more));
-                eyVar7 = this.ejU.eiS;
+                eyVar6 = this.emk.eli;
+                eyVar6.nG(this.emk.getResources().getString(w.l.list_no_more));
+                eyVar7 = this.emk.eli;
                 eyVar7.xe();
             }
-            this.ejU.aGE = System.currentTimeMillis() - currentTimeMillis;
-            if (!this.ejU.aKr().aLC() || this.ejU.aKr().getPbData().rr().ro() != 0 || this.ejU.aKr().aLX()) {
-                this.ejU.ejf = true;
+            this.emk.aGG = System.currentTimeMillis() - currentTimeMillis;
+            if (!this.emk.aLs().aMD() || this.emk.aLs().getPbData().rr().ro() != 0 || this.emk.aLs().aMY()) {
+                this.emk.elv = true;
             }
-            pbModel5 = this.ejU.eif;
+            pbModel5 = this.emk.ekv;
             if (pbModel5 != null) {
-                eyVar12 = this.ejU.eiS;
+                eyVar12 = this.emk.eli;
                 if (eyVar12 != null) {
-                    pbModel6 = this.ejU.eif;
-                    if (pbModel6.aLZ() != null) {
-                        pbModel7 = this.ejU.eif;
-                        if (pbModel7.aLZ().aLo()) {
-                            eyVar13 = this.ejU.eiS;
-                            eyVar13.aLw();
-                            pbModel8 = this.ejU.eif;
-                            pbModel8.aLZ().aLq();
+                    pbModel6 = this.emk.ekv;
+                    if (pbModel6.aNa() != null) {
+                        pbModel7 = this.emk.ekv;
+                        if (pbModel7.aNa().aMp()) {
+                            eyVar13 = this.emk.eli;
+                            eyVar13.aMx();
+                            pbModel8 = this.emk.ekv;
+                            pbModel8.aNa().aMr();
                             return;
                         }
                         return;
@@ -301,14 +301,14 @@ class aa implements PbModel.a {
             }
             return;
         }
-        pbModel23 = this.ejU.eif;
-        pbModel23.oh(1);
+        pbModel23 = this.emk.ekv;
+        pbModel23.on(1);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
     public void c(com.baidu.tieba.pb.data.f fVar) {
         ey eyVar;
-        eyVar = this.ejU.eiS;
+        eyVar = this.emk.eli;
         eyVar.k(fVar);
     }
 
@@ -324,15 +324,15 @@ class aa implements PbModel.a {
                 j2 = j;
             } else {
                 long currentTimeMillis = System.currentTimeMillis();
-                j6 = this.ejU.bEG;
+                j6 = this.emk.bGX;
                 j2 = currentTimeMillis - j6;
             }
-            j3 = this.ejU.aGw;
-            j4 = this.ejU.createTime;
-            j5 = this.ejU.aGE;
+            j3 = this.emk.aGy;
+            j4 = this.emk.createTime;
+            j5 = this.emk.aGG;
             com.baidu.tbadk.j.v vVar = new com.baidu.tbadk.j.v(i, z, responsedMessage, j3, j4, j5, z2, j2);
-            this.ejU.createTime = 0L;
-            this.ejU.aGw = 0L;
+            this.emk.createTime = 0L;
+            this.emk.aGy = 0L;
             if (vVar != null) {
                 vVar.GB();
             }

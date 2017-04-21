@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ f aDL;
+    final /* synthetic */ f aDN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.aDL = fVar;
+        this.aDN = fVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,12 +19,12 @@ public class g implements Runnable {
         TextView textView;
         String[] strArr;
         Runnable runnable;
-        EW = this.aDL.EW();
-        textView = this.aDL.avD;
-        strArr = this.aDL.aDI;
+        EW = this.aDN.EW();
+        textView = this.aDN.avF;
+        strArr = this.aDN.aDK;
         textView.setText(strArr[EW]);
         Handler handler = TbadkCoreApplication.m9getInst().handler;
-        runnable = this.aDL.IJ;
+        runnable = this.aDN.IL;
         handler.postDelayed(runnable, 200L);
     }
 }

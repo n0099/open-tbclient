@@ -4,11 +4,11 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ AbsMsglistView cMC;
+    final /* synthetic */ AbsMsglistView cOT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AbsMsglistView absMsglistView) {
-        this.cMC = absMsglistView;
+        this.cOT = absMsglistView;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -20,18 +20,18 @@ public class h implements com.baidu.tbadk.editortools.b {
                     EmotionGroupType yy = lVar.yy();
                     String name = lVar.getName();
                     if (yy != EmotionGroupType.LOCAL && name != null) {
-                        this.cMC.mContext.a(lVar);
-                        this.cMC.onSendEmotion();
+                        this.cOT.mContext.a(lVar);
+                        this.cOT.onSendEmotion();
                     }
                 }
             } else if (aVar.code == 8) {
-                this.cMC.mContext.anC();
+                this.cOT.mContext.aoD();
             } else if (aVar.code == 4) {
                 if (aVar.data != null && (aVar.data instanceof String)) {
-                    this.cMC.mTextContent = (String) aVar.data;
+                    this.cOT.mTextContent = (String) aVar.data;
                 }
             } else if (aVar.code == 14) {
-                this.cMC.mContext.anD();
+                this.cOT.mContext.aoE();
             }
         }
     }

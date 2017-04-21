@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class gi implements PbFakeFloorModel.a {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gi(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
@@ -17,11 +17,11 @@ public class gi implements PbFakeFloorModel.a {
         PbFakeFloorModel pbFakeFloorModel;
         cn cnVar;
         dc dcVar;
-        pbFakeFloorModel = this.erv.ela;
+        pbFakeFloorModel = this.etN.ens;
         pbFakeFloorModel.j(postData);
-        cnVar = this.erv.epH;
+        cnVar = this.etN.erY;
         cnVar.notifyDataSetChanged();
-        dcVar = this.erv.eqO;
-        dcVar.aLk();
+        dcVar = this.etN.etg;
+        dcVar.aMl();
     }
 }

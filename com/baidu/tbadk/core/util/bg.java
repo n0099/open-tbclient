@@ -18,10 +18,10 @@ import com.baidu.tieba.w;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bg {
-    private static int agX = -1;
     private static int agY = -1;
-    private static boolean agZ = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> aha = new com.baidu.adp.lib.e.a<>(500);
+    private static int agZ = -1;
+    private static boolean aha = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> ahb = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,13 +31,13 @@ public class bg {
 
     public static void aH(Context context) {
         mAppContext = context;
-        agZ = true;
+        aha = true;
     }
 
     private static void wo() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            agY = mAppContext.getResources().getColor(w.e.common_color_10097);
-            agX = mAppContext.getResources().getColor(w.e.common_color_10004);
+            agZ = mAppContext.getResources().getColor(w.e.common_color_10097);
+            agY = mAppContext.getResources().getColor(w.e.common_color_10004);
         }
     }
 
@@ -47,11 +47,11 @@ public class bg {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int aI(boolean z) {
-        if (agZ) {
-            agZ = false;
+        if (aha) {
+            aha = false;
             wo();
         }
-        return z ? agX : agY;
+        return z ? agY : agZ;
     }
 
     public static void y(View view) {
@@ -62,16 +62,16 @@ public class bg {
 
     public static void z(View view) {
         if (view != null) {
-            aha.remove(Integer.valueOf(System.identityHashCode(view)));
+            ahb.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = aha.get(Integer.valueOf(identityHashCode));
+        Integer num = ahb.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            aha.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            ahb.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

@@ -20,28 +20,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a extends av<h, j> {
-    private final LinkedList<BaseWebView> bXq;
-    private final LinkedList<d> bXr;
-    private XiubaTbJsBridge bXs;
+    private final LinkedList<BaseWebView> bZH;
+    private final LinkedList<d> bZI;
+    private XiubaTbJsBridge bZJ;
 
     public a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.bXq = new LinkedList<>();
-        this.bXr = new LinkedList<>();
+        this.bZH = new LinkedList<>();
+        this.bZI = new LinkedList<>();
     }
 
     @Override // com.baidu.tieba.frs.av
     public void e(BaseActivity<?> baseActivity) {
         super.e(baseActivity);
-        if (this.bXs == null && baseActivity != null) {
-            this.bXs = new XiubaTbJsBridge(baseActivity.getPageContext());
+        if (this.bZJ == null && baseActivity != null) {
+            this.bZJ = new XiubaTbJsBridge(baseActivity.getPageContext());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: N */
+    /* renamed from: P */
     public j onCreateViewHolder(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
@@ -52,8 +52,8 @@ public class a extends av<h, j> {
         d dVar = new d(this.mContext);
         linearLayout.addView(view);
         linearLayout.addView(dVar);
-        this.bXq.add(dVar.getWebView());
-        this.bXr.add(dVar);
+        this.bZH.add(dVar.getWebView());
+        this.bZI.add(dVar);
         return new j(linearLayout, dVar, view);
     }
 
@@ -62,20 +62,20 @@ public class a extends av<h, j> {
     @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, h hVar, j jVar) {
-        d dVar = jVar.bXA;
+        d dVar = jVar.bZR;
         if (dVar == null) {
             return null;
         }
         BaseWebView webView = dVar.getWebView();
-        if (jVar.abr != null) {
-            aq.k(jVar.abr, w.e.cp_bg_line_c);
+        if (jVar.abt != null) {
+            aq.k(jVar.abt, w.e.cp_bg_line_c);
         }
         if (!webView.getIsLoaded()) {
-            this.bXs.setBaseWebView(webView);
+            this.bZJ.setBaseWebView(webView);
             webView.setWebChromeClient(new b(this));
             webView.setOnLoadUrlListener(new c(this, hVar));
             webView.setHorizontalScrollBarEnabled(false);
-            if (!dVar.acE() && hVar != null) {
+            if (!dVar.adF() && hVar != null) {
                 CompatibleUtile.getInstance().loadUrl(webView, hVar.url);
                 dVar.setWebViewLoading(true);
                 return view;
@@ -88,7 +88,7 @@ public class a extends av<h, j> {
     @Override // com.baidu.tieba.frs.av
     public void release() {
         super.release();
-        Iterator<BaseWebView> it = this.bXq.iterator();
+        Iterator<BaseWebView> it = this.bZH.iterator();
         while (it.hasNext()) {
             BaseWebView next = it.next();
             if (next != null) {
@@ -96,12 +96,12 @@ public class a extends av<h, j> {
                 next.destroy();
             }
         }
-        this.bXq.clear();
-        Iterator<d> it2 = this.bXr.iterator();
+        this.bZH.clear();
+        Iterator<d> it2 = this.bZI.iterator();
         while (it2.hasNext()) {
             it2.next().removeAllViews();
         }
-        this.bXr.clear();
+        this.bZI.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -114,7 +114,7 @@ public class a extends av<h, j> {
             if (StringUtils.isNull(optString) || StringUtils.isNull(optString2) || StringUtils.isNull(optString3)) {
                 return false;
             }
-            return this.bXs.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+            return this.bZJ.dealJsInterface(optString, optString2, optString3, jsPromptResult);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

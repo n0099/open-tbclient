@@ -7,11 +7,11 @@ import com.baidu.tieba.frs.az;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements Handler.Callback {
-    final /* synthetic */ as ccm;
+    final /* synthetic */ as ceD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.ccm = asVar;
+        this.ceD = asVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -24,32 +24,32 @@ public class at implements Handler.Callback {
         BdTypeListView bdTypeListView4;
         BdTypeListView bdTypeListView5;
         az azVar;
-        bdTypeListView = this.ccm.mListView;
+        bdTypeListView = this.ceD.mListView;
         if (bdTypeListView != null) {
             if (message.what == 0) {
-                z = this.ccm.cch;
+                z = this.ceD.cey;
                 if (z) {
-                    bdTypeListView2 = this.ccm.mListView;
+                    bdTypeListView2 = this.ceD.mListView;
                     if (bdTypeListView2.getFirstVisiblePosition() != 0) {
-                        bdTypeListView3 = this.ccm.mListView;
+                        bdTypeListView3 = this.ceD.mListView;
                         if (bdTypeListView3.getFirstVisiblePosition() > 8) {
-                            bdTypeListView4 = this.ccm.mListView;
+                            bdTypeListView4 = this.ceD.mListView;
                             bdTypeListView4.setSelection(8);
-                            bdTypeListView5 = this.ccm.mListView;
+                            bdTypeListView5 = this.ceD.mListView;
                             bdTypeListView5.smoothScrollToPosition(0);
                         }
-                        handler = this.ccm.mHandler;
+                        handler = this.ceD.mHandler;
                         handler.sendEmptyMessageDelayed(0, 50L);
                     } else {
-                        this.ccm.iJ(0);
-                        azVar = this.ccm.bQa;
-                        azVar.dI(false);
-                        this.ccm.cch = false;
+                        this.ceD.iP(0);
+                        azVar = this.ceD.bSr;
+                        azVar.dS(false);
+                        this.ceD.cey = false;
                     }
                 }
             }
             if (message.what == 1) {
-                this.ccm.aen();
+                this.ceD.afo();
             }
         }
         return false;

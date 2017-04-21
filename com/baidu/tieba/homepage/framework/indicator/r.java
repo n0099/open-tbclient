@@ -16,38 +16,38 @@ import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class r {
-    private boolean aAH = false;
-    private View bJq;
-    private Animation cuY;
-    private Animation cuZ;
-    private ViewGroup cvf;
-    private a cvg;
-    private q cvh;
+    private boolean aAJ = false;
+    private View bLH;
+    private Animation cxp;
+    private Animation cxq;
+    private ViewGroup cxw;
+    private a cxx;
+    private q cxy;
     private View rootView;
     private int topHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aiQ();
+        void ajR();
     }
 
     public r(ViewGroup viewGroup) {
-        this.cvf = viewGroup;
+        this.cxw = viewGroup;
     }
 
     public void a(a aVar) {
-        this.cvg = aVar;
+        this.cxx = aVar;
     }
 
     public boolean isShowing() {
-        return this.aAH;
+        return this.aAJ;
     }
 
     public void a(Context context, List<TagInfo> list, int i) {
-        if (!this.aAH) {
-            this.aAH = true;
+        if (!this.aAJ) {
+            this.aAJ = true;
             this.rootView = b(context, list, i);
-            this.cvf.addView(this.rootView);
+            this.cxw.addView(this.rootView);
             aq.k(this.rootView, w.e.common_color_10186);
             this.rootView.startAnimation(bp(context));
         }
@@ -61,47 +61,47 @@ public class r {
 
     private View b(Context context, List<TagInfo> list, int i) {
         View inflate = LayoutInflater.from(context).inflate(w.j.scroll_fragment_more, (ViewGroup) null);
-        this.bJq = inflate.findViewById(w.h.more_top_view);
-        jK(this.topHeight);
+        this.bLH = inflate.findViewById(w.h.more_top_view);
+        jQ(this.topHeight);
         GridView gridView = (GridView) inflate.findViewById(w.h.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.cvh = new q(context, i);
-        this.cvh.aY(list);
-        gridView.setAdapter((ListAdapter) this.cvh);
+        this.cxy = new q(context, i);
+        this.cxy.aZ(list);
+        gridView.setAdapter((ListAdapter) this.cxy);
         gridView.setOnItemClickListener(new s(this, context));
         return inflate;
     }
 
-    public void jK(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bJq.getLayoutParams();
+    public void jQ(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bLH.getLayoutParams();
         layoutParams.height = i;
-        this.bJq.setLayoutParams(layoutParams);
+        this.bLH.setLayoutParams(layoutParams);
     }
 
     private Animation bp(Context context) {
-        if (this.cuY == null) {
-            this.cuY = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_enter);
+        if (this.cxp == null) {
+            this.cxp = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_enter);
         }
-        return this.cuY;
+        return this.cxp;
     }
 
     private Animation bq(Context context) {
-        if (this.cuZ == null) {
-            this.cuZ = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_exit);
+        if (this.cxq == null) {
+            this.cxq = AnimationUtils.loadAnimation(context, w.a.dialog_ani_t2b_exit);
         }
-        this.cuZ.setAnimationListener(new t(this));
-        return this.cuZ;
+        this.cxq.setAnimationListener(new t(this));
+        return this.cxq;
     }
 
-    public void jL(int i) {
+    public void jR(int i) {
         this.topHeight = i;
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m20do(int i) {
+    public void m21do(int i) {
         aq.k(this.rootView, w.e.common_color_10186);
-        if (this.cvh != null) {
-            this.cvh.notifyDataSetChanged();
+        if (this.cxy != null) {
+            this.cxy.notifyDataSetChanged();
         }
     }
 }

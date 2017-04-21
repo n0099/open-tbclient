@@ -17,18 +17,18 @@ class bl implements View.OnClickListener {
         boolean z;
         int i;
         boolean z2;
-        boolean rq;
-        z = this.this$0.elt;
+        boolean rr;
+        z = this.this$0.enL;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
                 if (this.this$0.mProgress.getVisibility() != 0) {
-                    z2 = this.this$0.eBW;
-                    if (z2 && this.this$0.eBP != null && !this.this$0.eBP.isRecycled()) {
+                    z2 = this.this$0.eEm;
+                    if (z2 && this.this$0.eEf != null && !this.this$0.eEf.isRecycled()) {
                         String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        rq = this.this$0.rq(str);
-                        if (rq) {
+                        rr = this.this$0.rr(str);
+                        if (rr) {
                             intent.putExtra("change", true);
                             intent.putExtra("file_name", str);
                         } else {

@@ -9,19 +9,19 @@ import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ a ddA;
-    private final /* synthetic */ long ddB;
-    private final /* synthetic */ long ddC;
-    private final /* synthetic */ int ddD;
-    private final /* synthetic */ long ddE;
+    final /* synthetic */ a dfS;
+    private final /* synthetic */ long dfT;
+    private final /* synthetic */ long dfU;
+    private final /* synthetic */ int dfV;
+    private final /* synthetic */ long dfW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, long j, long j2, int i, long j3) {
-        this.ddA = aVar;
-        this.ddB = j;
-        this.ddC = j2;
-        this.ddD = i;
-        this.ddE = j3;
+        this.dfS = aVar;
+        this.dfT = j;
+        this.dfU = j2;
+        this.dfV = i;
+        this.dfW = j3;
     }
 
     @Override // java.lang.Runnable
@@ -30,8 +30,8 @@ public class d implements Runnable {
         long j;
         ConcurrentHashMap concurrentHashMap2;
         Vector vector;
-        concurrentHashMap = this.ddA.ddw;
-        GroupMsgData groupMsgData = (GroupMsgData) concurrentHashMap.get(Long.valueOf(this.ddB));
+        concurrentHashMap = this.dfS.dfO;
+        GroupMsgData groupMsgData = (GroupMsgData) concurrentHashMap.get(Long.valueOf(this.dfT));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() <= 0) {
@@ -52,18 +52,18 @@ public class d implements Runnable {
                 listMessage.clear();
                 j = j2;
             }
-            this.ddA.bI(this.ddB);
-            if (j > this.ddC) {
-                concurrentHashMap2 = this.ddA.ddx;
-                concurrentHashMap2.put(Long.valueOf(this.ddB), MessageUtils.makeNewpushGroupRepair(this.ddB, this.ddD, this.ddC, j, this.ddE));
-                com.baidu.tieba.im.b.b.asE().a(this.ddB, 1L, 0L, true);
-                vector = this.ddA.ddz;
-                vector.add(Long.valueOf(this.ddB));
-                this.ddA.bG(this.ddB);
+            this.dfS.bI(this.dfT);
+            if (j > this.dfU) {
+                concurrentHashMap2 = this.dfS.dfP;
+                concurrentHashMap2.put(Long.valueOf(this.dfT), MessageUtils.makeNewpushGroupRepair(this.dfT, this.dfV, this.dfU, j, this.dfW));
+                com.baidu.tieba.im.b.b.atF().a(this.dfT, 1L, 0L, true);
+                vector = this.dfS.dfR;
+                vector.add(Long.valueOf(this.dfT));
+                this.dfS.bG(this.dfT);
                 return;
             }
             return;
         }
-        this.ddA.bI(this.ddB);
+        this.dfS.bI(this.dfT);
     }
 }

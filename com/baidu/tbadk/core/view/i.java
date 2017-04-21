@@ -4,20 +4,20 @@ import android.widget.Toast;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ h ajG;
+    final /* synthetic */ h ajH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.ajG = hVar;
+        this.ajH = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Toast toast;
         Toast toast2;
-        toast = this.ajG.yZ;
+        toast = this.ajH.zc;
         if (toast != null) {
-            toast2 = this.ajG.yZ;
+            toast2 = this.ajH.zc;
             toast2.cancel();
         }
     }

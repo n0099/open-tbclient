@@ -33,110 +33,110 @@ class b implements Handler.Callback {
         com.baidu.adp.lib.voice.k kVar23;
         switch (message.what) {
             case 0:
-                kVar20 = a.Kb;
+                kVar20 = a.Kd;
                 if (kVar20 != null) {
-                    kVar21 = a.Kb;
-                    str = a.Ka;
+                    kVar21 = a.Kd;
+                    str = a.Kc;
                     kVar21.k(str, message.arg1);
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
             case 1:
             case 3:
-                kVar9 = a.Kb;
+                kVar9 = a.Kd;
                 if (kVar9 != null) {
-                    if (com.baidu.adp.lib.util.e.gT()) {
-                        kVar11 = a.Kb;
+                    if (com.baidu.adp.lib.util.e.gU()) {
+                        kVar11 = a.Kd;
                         kVar11.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_err_create_file_fail));
                     } else {
-                        kVar10 = a.Kb;
+                        kVar10 = a.Kd;
                         kVar10.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_err_sdcard_nospace));
                     }
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
             case 2:
-                kVar3 = a.Kb;
+                kVar3 = a.Kd;
                 if (kVar3 != null) {
-                    kVar4 = a.Kb;
+                    kVar4 = a.Kd;
                     kVar4.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_err_file_fail));
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
             case 4:
-                kVar18 = a.Kb;
+                kVar18 = a.Kd;
                 if (kVar18 != null) {
-                    kVar19 = a.Kb;
+                    kVar19 = a.Kd;
                     kVar19.ay(message.arg1);
                     break;
                 }
                 break;
             case 5:
-                kVar5 = a.Kb;
+                kVar5 = a.Kd;
                 if (kVar5 != null) {
-                    kVar6 = a.Kb;
+                    kVar6 = a.Kd;
                     kVar6.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_err_load_lib_fail));
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
             case 6:
-                kVar = a.Kb;
+                kVar = a.Kd;
                 if (kVar != null) {
-                    kVar2 = a.Kb;
+                    kVar2 = a.Kd;
                     kVar2.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_err_init_fail));
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
             case 7:
-                kVar14 = a.Kb;
+                kVar14 = a.Kd;
                 if (kVar14 != null) {
-                    kVar15 = a.Kb;
+                    kVar15 = a.Kd;
                     kVar15.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_record_timeout_tip));
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
             case 8:
-                kVar12 = a.Kb;
+                kVar12 = a.Kd;
                 if (kVar12 != null) {
-                    kVar13 = a.Kb;
+                    kVar13 = a.Kd;
                     kVar13.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_record_short_tip));
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
             case 9:
-                kVar16 = a.Kb;
+                kVar16 = a.Kd;
                 if (kVar16 != null) {
-                    kVar17 = a.Kb;
+                    kVar17 = a.Kd;
                     kVar17.az(message.arg1);
                     break;
                 }
                 break;
             case 100:
-                kVar7 = a.Kb;
+                kVar7 = a.Kd;
                 if (kVar7 != null) {
-                    kVar8 = a.Kb;
-                    kVar8.hO();
+                    kVar8 = a.Kd;
+                    kVar8.hP();
                     break;
                 }
                 break;
             default:
-                kVar22 = a.Kb;
+                kVar22 = a.Kd;
                 if (kVar22 != null) {
-                    kVar23 = a.Kb;
+                    kVar23 = a.Kd;
                     kVar23.f(message.what, com.baidu.adp.lib.voice.l.getString(w.l.voice_err_other));
-                    a.Kb = null;
+                    a.Kd = null;
                     break;
                 }
                 break;
         }
-        a.JY = 0;
+        a.Ka = 0;
         return false;
     }
 }

@@ -13,20 +13,20 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private static b aCm;
+    private static b aCo;
 
     private b() {
     }
 
     public static b EB() {
-        if (aCm == null) {
+        if (aCo == null) {
             synchronized (b.class) {
-                if (aCm == null) {
-                    aCm = new b();
+                if (aCo == null) {
+                    aCo = new b();
                 }
             }
         }
-        return aCm;
+        return aCo;
     }
 
     public void EC() {
@@ -76,7 +76,7 @@ public class b {
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.fS().e(new c(this, currentAccountObj));
+            k.fT().e(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    private TbPageContext ajT;
+    private TbPageContext ajU;
     protected a amO;
     private b amP;
     private BdUniqueId amS;
@@ -21,12 +21,12 @@ public class c implements View.OnClickListener {
     private com.baidu.tbadk.coreExtra.c.a amQ = new com.baidu.tbadk.coreExtra.c.a(null);
 
     public c(TbPageContext tbPageContext) {
-        this.ajT = tbPageContext;
+        this.ajU = tbPageContext;
         tbPageContext.registerListener(this.amU);
     }
 
     public c(TbPageContext tbPageContext, b bVar) {
-        this.ajT = tbPageContext;
+        this.ajU = tbPageContext;
         tbPageContext.registerListener(this.amU);
         a(bVar);
     }
@@ -58,15 +58,15 @@ public class c implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.amT == null || !this.amT.s(view)) {
-            if (!i.gX()) {
-                this.ajT.showToast(w.l.network_ungeilivable);
+            if (!i.gY()) {
+                this.ajU.showToast(w.l.network_ungeilivable);
             }
             if (this.amP != null) {
                 this.amP.C(view);
             }
-            if (bg.aK(this.ajT.getPageActivity()) && this.amO != null) {
+            if (bg.aK(this.ajU.getPageActivity()) && this.amO != null) {
                 if (this.amS == null) {
-                    this.amQ.a(this.amO.getIsLike() ? false : true, this.amO.getPortrait(), this.amO.getUserId(), this.amO.isGod(), this.ajT.getUniqueId());
+                    this.amQ.a(this.amO.getIsLike() ? false : true, this.amO.getPortrait(), this.amO.getUserId(), this.amO.isGod(), this.ajU.getUniqueId());
                 } else {
                     this.amQ.a(this.amO.getIsLike() ? false : true, this.amO.getPortrait(), this.amO.getUserId(), this.amO.isGod(), this.amS);
                 }

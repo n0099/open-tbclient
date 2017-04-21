@@ -6,11 +6,11 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GuideActivity dqA;
+    final /* synthetic */ GuideActivity dsR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GuideActivity guideActivity) {
-        this.dqA = guideActivity;
+        this.dsR = guideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -27,47 +27,47 @@ class c implements ViewPager.OnPageChangeListener {
         View view4;
         View view5;
         View view6;
-        i2 = this.dqA.dqv;
+        i2 = this.dsR.dsM;
         if (i != i2 - 1) {
-            view = this.dqA.dqp;
+            view = this.dsR.dsG;
             view.setVisibility(8);
-            this.dqA.mm(w.f.ds120);
-            i3 = this.dqA.dqu;
+            this.dsR.ms(w.f.ds120);
+            i3 = this.dsR.dsL;
             switch (i3) {
                 case 1:
-                    indicatorView2 = this.dqA.dqo;
+                    indicatorView2 = this.dsR.dsF;
                     indicatorView2.setVisibility(0);
                     break;
                 case 3:
-                    indicatorView = this.dqA.dqo;
+                    indicatorView = this.dsR.dsF;
                     indicatorView.setVisibility(0);
                     break;
             }
         } else {
-            i4 = this.dqA.dqu;
+            i4 = this.dsR.dsL;
             switch (i4) {
                 case 1:
-                    this.dqA.mm(w.f.ds100);
-                    view5 = this.dqA.dqp;
+                    this.dsR.ms(w.f.ds100);
+                    view5 = this.dsR.dsG;
                     view5.setVisibility(0);
                     break;
                 case 2:
                 default:
-                    view6 = this.dqA.dqp;
+                    view6 = this.dsR.dsG;
                     view6.setVisibility(8);
                     break;
                 case 3:
-                    view4 = this.dqA.dqp;
+                    view4 = this.dsR.dsG;
                     view4.setVisibility(8);
                     break;
             }
         }
-        view2 = this.dqA.dqp;
+        view2 = this.dsR.dsG;
         if (view2.getVisibility() == 0) {
-            view3 = this.dqA.dqp;
+            view3 = this.dsR.dsG;
             view3.requestFocus();
         }
-        indicatorView3 = this.dqA.dqo;
+        indicatorView3 = this.dsR.dsF;
         indicatorView3.setPosition(i);
     }
 

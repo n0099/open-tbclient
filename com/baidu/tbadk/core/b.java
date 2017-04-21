@@ -1,9 +1,7 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String Sb;
-    private int Sc;
-    private int Sd;
+    private String Sd;
     private int Se;
     private int Sf;
     private int Sg;
@@ -22,63 +20,65 @@ public class b {
     private int St;
     private int Su;
     private int Sv;
-    private StringBuffer Sw = new StringBuffer();
+    private int Sw;
+    private int Sx;
+    private StringBuffer Sy = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.Sw.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.Sy.toString() + "]";
     }
 
     public void ca(String str) {
-        this.Sw.append(str).append(" || ");
+        this.Sy.append(str).append(" || ");
     }
 
     public int oR() {
-        return this.Sq;
+        return this.Ss;
     }
 
     public void bb(int i) {
-        this.Sq = i;
+        this.Ss = i;
     }
 
     public int oS() {
-        return this.Sr;
+        return this.St;
     }
 
     public void bc(int i) {
-        this.Sr = i;
+        this.St = i;
     }
 
     public int oT() {
-        return this.So;
+        return this.Sq;
     }
 
     public void bd(int i) {
-        this.So = i;
+        this.Sq = i;
     }
 
     public int oU() {
-        return this.Sp;
+        return this.Sr;
     }
 
     public void be(int i) {
-        this.Sp = i;
+        this.Sr = i;
     }
 
     public int oV() {
-        return this.Sm;
+        return this.So;
     }
 
     public void bf(int i) {
-        this.Sm = i;
+        this.So = i;
     }
 
     public int oW() {
-        return this.Sn;
+        return this.Sp;
     }
 
     public void bg(int i) {
-        this.Sn = i;
+        this.Sp = i;
     }
 
     public String getId() {
@@ -86,19 +86,19 @@ public class b {
     }
 
     public int oX() {
-        return this.Ss;
+        return this.Su;
     }
 
     public void bh(int i) {
-        this.Ss = i;
+        this.Su = i;
     }
 
     public int oY() {
-        return this.St;
+        return this.Sv;
     }
 
     public void bi(int i) {
-        this.St = i;
+        this.Sv = i;
     }
 
     public void setId(String str) {
@@ -106,102 +106,102 @@ public class b {
     }
 
     public void cb(String str) {
-        this.Sb = str;
+        this.Sd = str;
     }
 
     public int oZ() {
-        return this.Sc;
-    }
-
-    public void bj(int i) {
-        this.Sc = i;
-    }
-
-    public int pa() {
-        return this.Sd;
-    }
-
-    public void bk(int i) {
-        this.Sd = i;
-    }
-
-    public int pb() {
-        return this.Sg;
-    }
-
-    public void bl(int i) {
-        this.Sg = i;
-    }
-
-    public int pc() {
-        return this.Sh;
-    }
-
-    public void bm(int i) {
-        this.Sh = i;
-    }
-
-    public int pd() {
         return this.Se;
     }
 
-    public void bn(int i) {
+    public void bj(int i) {
         this.Se = i;
     }
 
-    public int pe() {
+    public int pa() {
         return this.Sf;
     }
 
-    public void bo(int i) {
+    public void bk(int i) {
         this.Sf = i;
     }
 
-    public int pf() {
-        return this.Sj;
-    }
-
-    public int pg() {
+    public int pb() {
         return this.Si;
     }
 
-    public void bp(int i) {
+    public void bl(int i) {
         this.Si = i;
     }
 
-    public void bq(int i) {
+    public int pc() {
+        return this.Sj;
+    }
+
+    public void bm(int i) {
         this.Sj = i;
     }
 
-    public int ph() {
+    public int pd() {
+        return this.Sg;
+    }
+
+    public void bn(int i) {
+        this.Sg = i;
+    }
+
+    public int pe() {
+        return this.Sh;
+    }
+
+    public void bo(int i) {
+        this.Sh = i;
+    }
+
+    public int pf() {
         return this.Sl;
     }
 
-    public void br(int i) {
-        this.Sl = i;
-    }
-
-    public int pi() {
+    public int pg() {
         return this.Sk;
     }
 
-    public void bs(int i) {
+    public void bp(int i) {
         this.Sk = i;
     }
 
+    public void bq(int i) {
+        this.Sl = i;
+    }
+
+    public int ph() {
+        return this.Sn;
+    }
+
+    public void br(int i) {
+        this.Sn = i;
+    }
+
+    public int pi() {
+        return this.Sm;
+    }
+
+    public void bs(int i) {
+        this.Sm = i;
+    }
+
     public int pj() {
-        return this.Su;
+        return this.Sw;
     }
 
     public void bt(int i) {
-        this.Su = i;
+        this.Sw = i;
     }
 
     public int pk() {
-        return this.Sv;
+        return this.Sx;
     }
 
     public void bu(int i) {
-        this.Sv = i;
+        this.Sx = i;
     }
 }

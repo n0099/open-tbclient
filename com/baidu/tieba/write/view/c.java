@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a fPo;
+    final /* synthetic */ a fRK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.fPo = aVar;
+        this.fRK = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fPo.atR();
+        this.fRK.auS();
     }
 }

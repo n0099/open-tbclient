@@ -11,11 +11,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fSq;
+    final /* synthetic */ WriteActivity fUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.fSq = writeActivity;
+        this.fUM = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x004d, code lost:
@@ -30,44 +30,44 @@ public class am implements View.OnClickListener {
         WriteData writeData2;
         WriteData writeData3;
         InputMethodManager inputMethodManager;
-        EditText bps;
+        EditText bqt;
         InputMethodManager inputMethodManager2;
-        EditText bpr;
+        EditText bqs;
         com.baidu.tbadk.editortools.j jVar;
         boolean z;
         WriteImagesInfo writeImagesInfo;
         WriteImagesInfo writeImagesInfo2;
-        writeData = this.fSq.mData;
+        writeData = this.fUM.mData;
         if (writeData.getVideoInfo() != null) {
             TiebaStatic.log("c10063");
         }
         if (!com.baidu.tieba.write.d.a.isFastDoubleClick()) {
-            writeData2 = this.fSq.mData;
+            writeData2 = this.fUM.mData;
             if (writeData2.getVideoInfo() != null) {
                 TiebaStatic.log("c10063");
             }
-            writeData3 = this.fSq.mData;
+            writeData3 = this.fUM.mData;
             if (writeData3.getType() == 7) {
                 TiebaStatic.log("c12015");
-                writeImagesInfo = this.fSq.writeImagesInfo;
+                writeImagesInfo = this.fUM.writeImagesInfo;
                 if (writeImagesInfo != null) {
-                    writeImagesInfo2 = this.fSq.writeImagesInfo;
+                    writeImagesInfo2 = this.fUM.writeImagesInfo;
                 }
-                this.fSq.showToast(w.l.bottle_tip_before_post);
+                this.fUM.showToast(w.l.bottle_tip_before_post);
                 return;
             }
-            WriteActivity writeActivity = this.fSq;
-            inputMethodManager = this.fSq.mInputManager;
-            bps = this.fSq.bps();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, bps);
-            WriteActivity writeActivity2 = this.fSq;
-            inputMethodManager2 = this.fSq.mInputManager;
-            bpr = this.fSq.bpr();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bpr);
-            jVar = this.fSq.azd;
+            WriteActivity writeActivity = this.fUM;
+            inputMethodManager = this.fUM.mInputManager;
+            bqt = this.fUM.bqt();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, bqt);
+            WriteActivity writeActivity2 = this.fUM;
+            inputMethodManager2 = this.fUM.mInputManager;
+            bqs = this.fUM.bqs();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, bqs);
+            jVar = this.fUM.azf;
             jVar.BC();
-            this.fSq.boA();
-            z = this.fSq.fRd;
+            this.fUM.bpB();
+            z = this.fUM.fTz;
             if (z) {
                 BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
             }

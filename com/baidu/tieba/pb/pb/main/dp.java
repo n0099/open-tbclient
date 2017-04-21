@@ -7,58 +7,58 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class dp extends com.baidu.tbadk.core.dialog.c {
-    private TbPageContext<?> aaX;
-    private View.OnClickListener bLV;
-    private TextView bqB;
-    private TextView emj;
-    private TextView emk;
-    private TextView eml;
-    private TextView emm;
-    private TextView emn;
-    private boolean emo;
-    private boolean emp;
+    private TbPageContext<?> aaY;
+    private View.OnClickListener bOm;
+    private TextView bsS;
+    private TextView eoC;
+    private TextView eoD;
+    private TextView eoE;
+    private TextView eoF;
+    private TextView eoG;
+    private boolean eoH;
+    private boolean eoI;
 
     public dp(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.emp = false;
-        this.aaX = tbPageContext;
-        this.bLV = onClickListener;
-        aMl();
+        this.eoI = false;
+        this.aaY = tbPageContext;
+        this.bOm = onClickListener;
+        aNm();
     }
 
-    public TextView aMf() {
-        return this.emj;
+    public TextView aNg() {
+        return this.eoC;
     }
 
-    public TextView aMg() {
-        return this.emk;
+    public TextView aNh() {
+        return this.eoD;
     }
 
-    public TextView aMh() {
-        return this.bqB;
+    public TextView aNi() {
+        return this.bsS;
     }
 
-    public TextView aMi() {
-        return this.eml;
+    public TextView aNj() {
+        return this.eoE;
     }
 
-    public TextView aMj() {
-        return this.emn;
+    public TextView aNk() {
+        return this.eoG;
     }
 
-    public TextView aMk() {
-        return this.emm;
+    public TextView aNl() {
+        return this.eoF;
     }
 
-    private void aMl() {
-        a(new CharSequence[]{this.aaX.getString(w.l.reply_current_floor), this.aaX.getString(w.l.no_interesting), this.aaX.getString(w.l.mark), this.aaX.getString(w.l.mute), this.aaX.getString(w.l.report_text), this.aaX.getString(w.l.delete)}, new dq(this));
-        d(this.aaX);
-        this.emm = ar(cg(0));
-        this.emn = ar(cg(1));
-        this.emj = ar(cg(2));
-        this.emk = ar(cg(3));
-        this.bqB = ar(cg(4));
-        this.eml = ar(cg(5));
+    private void aNm() {
+        a(new CharSequence[]{this.aaY.getString(w.l.reply_current_floor), this.aaY.getString(w.l.no_interesting), this.aaY.getString(w.l.mark), this.aaY.getString(w.l.mute), this.aaY.getString(w.l.report_text), this.aaY.getString(w.l.delete)}, new dq(this));
+        d(this.aaY);
+        this.eoF = ar(cg(0));
+        this.eoG = ar(cg(1));
+        this.eoC = ar(cg(2));
+        this.eoD = ar(cg(3));
+        this.bsS = ar(cg(4));
+        this.eoE = ar(cg(5));
     }
 
     public void showDialog() {
@@ -76,20 +76,20 @@ public class dp extends com.baidu.tbadk.core.dialog.c {
         return view.findViewById(w.h.line);
     }
 
-    public void is(boolean z) {
-        this.bqB.setVisibility(z ? 0 : 8);
+    public void iC(boolean z) {
+        this.bsS.setVisibility(z ? 0 : 8);
     }
 
-    public void it(boolean z) {
-        this.emo = z;
+    public void iD(boolean z) {
+        this.eoH = z;
     }
 
-    public boolean aMm() {
-        return this.emp;
+    public boolean aNn() {
+        return this.eoI;
     }
 
-    public void iu(boolean z) {
-        this.emp = z;
+    public void iE(boolean z) {
+        this.eoI = z;
     }
 
     public void refreshUI() {

@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements c.b {
-    final /* synthetic */ NewSubPbActivity esV;
+    final /* synthetic */ NewSubPbActivity evm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(NewSubPbActivity newSubPbActivity) {
-        this.esV = newSubPbActivity;
+        this.evm = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -19,16 +19,16 @@ public class r implements c.b {
         SubPbModel subPbModel2;
         cVar.dismiss();
         PostData postData = null;
-        subPbModel = this.esV.esE;
-        if (subPbModel.aON() != null) {
-            subPbModel2 = this.esV.esE;
-            postData = subPbModel2.aON().aJV();
+        subPbModel = this.evm.euV;
+        if (subPbModel.aPO() != null) {
+            subPbModel2 = this.evm.euV;
+            postData = subPbModel2.aPO().aKW();
         }
         if (postData != null) {
             if (i == 0) {
-                postData.bM(this.esV.getPageContext().getPageActivity());
+                postData.bM(this.evm.getPageContext().getPageActivity());
             } else if (i == 1) {
-                this.esV.d(postData);
+                this.evm.d(postData);
             }
         }
     }

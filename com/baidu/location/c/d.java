@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private static d NU = null;
+    private static d NW = null;
     private long b = 0;
     private long c = 0;
     private long d = 0;
@@ -17,7 +17,7 @@ public class d {
     private String g = "loc.map.baidu.com";
     private String h = "dns.map.baidu.com";
     private int i = 0;
-    private a NV = new a();
+    private a NX = new a();
 
     /* loaded from: classes.dex */
     private class a extends com.baidu.location.h.f {
@@ -231,10 +231,10 @@ public class d {
     }
 
     public static d ng() {
-        if (NU == null) {
-            NU = new d();
+        if (NW == null) {
+            NW = new d();
         }
-        return NU;
+        return NW;
     }
 
     public String b() {
@@ -243,7 +243,7 @@ public class d {
             str = this.g;
         }
         if (System.currentTimeMillis() - this.b > ReportUserInfoModel.TIME_INTERVAL) {
-            this.NV.b();
+            this.NX.b();
         }
         return str;
     }

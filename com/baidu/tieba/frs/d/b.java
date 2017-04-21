@@ -6,19 +6,19 @@ import com.baidu.tieba.frs.entelechy.b.f;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements DrawerLayout.DrawerListener {
-    final /* synthetic */ a bYz;
+    final /* synthetic */ a caQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bYz = aVar;
+        this.caQ = aVar;
     }
 
     @Override // android.support.v4.widget.DrawerLayout.DrawerListener
     public void onDrawerSlide(View view, float f) {
         f fVar;
         if (f == 0.0f) {
-            fVar = this.bYz.bYx;
-            fVar.abI();
+            fVar = this.caQ.caO;
+            fVar.acJ();
         }
     }
 
@@ -26,10 +26,10 @@ public class b implements DrawerLayout.DrawerListener {
     public void onDrawerOpened(View view) {
         f fVar;
         f fVar2;
-        fVar = this.bYz.bYx;
+        fVar = this.caQ.caO;
         if (fVar != null) {
-            fVar2 = this.bYz.bYx;
-            fVar2.abF();
+            fVar2 = this.caQ.caO;
+            fVar2.acG();
         }
     }
 
@@ -37,10 +37,10 @@ public class b implements DrawerLayout.DrawerListener {
     public void onDrawerClosed(View view) {
         f fVar;
         f fVar2;
-        fVar = this.bYz.bYx;
+        fVar = this.caQ.caO;
         if (fVar != null) {
-            fVar2 = this.bYz.bYx;
-            fVar2.abG();
+            fVar2 = this.caQ.caO;
+            fVar2.acH();
         }
     }
 
@@ -49,10 +49,10 @@ public class b implements DrawerLayout.DrawerListener {
         f fVar;
         f fVar2;
         if (i == 1) {
-            fVar = this.bYz.bYx;
+            fVar = this.caQ.caO;
             if (fVar != null) {
-                fVar2 = this.bYz.bYx;
-                fVar2.abH();
+                fVar2 = this.caQ.caO;
+                fVar2.acI();
             }
         }
     }

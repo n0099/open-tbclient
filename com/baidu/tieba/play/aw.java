@@ -8,11 +8,11 @@ import com.baidu.tieba.play.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements SeekBar.OnSeekBarChangeListener {
-    final /* synthetic */ au eUX;
+    final /* synthetic */ au eXn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(au auVar) {
-        this.eUX = auVar;
+        this.eXn = auVar;
     }
 
     @Override // android.widget.SeekBar.OnSeekBarChangeListener
@@ -20,13 +20,13 @@ public class aw implements SeekBar.OnSeekBarChangeListener {
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
         Handler handler;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        this.eUX.aWT = true;
-        onSeekBarChangeListener = this.eUX.aWY;
+        this.eXn.aWW = true;
+        onSeekBarChangeListener = this.eXn.aXb;
         if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.eUX.aWY;
+            onSeekBarChangeListener2 = this.eXn.aXb;
             onSeekBarChangeListener2.onStartTrackingTouch(seekBar);
         }
-        handler = this.eUX.mHandler;
+        handler = this.eXn.mHandler;
         handler.removeMessages(1);
     }
 
@@ -42,23 +42,23 @@ public class aw implements SeekBar.OnSeekBarChangeListener {
         TextView textView2;
         int i3;
         if (z) {
-            mediaPlayerControl = this.eUX.aWQ;
-            this.eUX.aWZ = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
-            textView = this.eUX.aWR;
+            mediaPlayerControl = this.eXn.aWT;
+            this.eXn.aXc = (int) ((mediaPlayerControl.getDuration() * i) / 10000);
+            textView = this.eXn.aWU;
             if (textView != null) {
-                textView2 = this.eUX.aWR;
-                i3 = this.eUX.aWZ;
+                textView2 = this.eXn.aWU;
+                i3 = this.eXn.aXc;
                 textView2.setText(com.baidu.tbadk.core.util.au.cW(i3));
             }
-            aVar = this.eUX.dxA;
+            aVar = this.eXn.dzQ;
             if (aVar != null) {
-                aVar2 = this.eUX.dxA;
+                aVar2 = this.eXn.dzQ;
                 aVar2.Mm();
             }
-            onSeekBarChangeListener = this.eUX.aWY;
+            onSeekBarChangeListener = this.eXn.aXb;
             if (onSeekBarChangeListener != null) {
-                onSeekBarChangeListener2 = this.eUX.aWY;
-                i2 = this.eUX.aWZ;
+                onSeekBarChangeListener2 = this.eXn.aXb;
+                i2 = this.eXn.aXc;
                 onSeekBarChangeListener2.onProgressChanged(seekBar, i2, z);
             }
         }
@@ -71,15 +71,15 @@ public class aw implements SeekBar.OnSeekBarChangeListener {
         Handler handler;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;
         SeekBar.OnSeekBarChangeListener onSeekBarChangeListener2;
-        mediaPlayerControl = this.eUX.aWQ;
-        i = this.eUX.aWZ;
+        mediaPlayerControl = this.eXn.aWT;
+        i = this.eXn.aXc;
         mediaPlayerControl.seekTo(i);
-        this.eUX.aWT = false;
-        handler = this.eUX.mHandler;
+        this.eXn.aWW = false;
+        handler = this.eXn.mHandler;
         handler.sendEmptyMessageDelayed(1, 500L);
-        onSeekBarChangeListener = this.eUX.aWY;
+        onSeekBarChangeListener = this.eXn.aXb;
         if (onSeekBarChangeListener != null) {
-            onSeekBarChangeListener2 = this.eUX.aWY;
+            onSeekBarChangeListener2 = this.eXn.aXb;
             onSeekBarChangeListener2.onStopTrackingTouch(seekBar);
         }
     }

@@ -9,13 +9,13 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.pb.main.eh;
 /* loaded from: classes.dex */
 class gl extends CustomMessageListener {
-    final /* synthetic */ ReaderPbService erF;
+    final /* synthetic */ ReaderPbService etX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gl(ReaderPbService readerPbService, int i) {
         super(i);
-        this.erF = readerPbService;
+        this.etX = readerPbService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,43 +38,43 @@ class gl extends CustomMessageListener {
             eg egVar = (eg) customResponsedMessage.getData();
             BdUniqueId bdUniqueId4 = egVar.tag;
             if (bdUniqueId4 != null) {
-                bdUniqueId = this.erF.mTagId;
+                bdUniqueId = this.etX.mTagId;
                 if (bdUniqueId.getId() != bdUniqueId4.getId()) {
-                    this.erF.releasePbReaderModel();
-                    this.erF.releaseReadManager();
-                    this.erF.mTagId = bdUniqueId4;
-                    this.erF.mReaderManager = new eh();
-                    this.erF.mReaderModel = new ek();
-                    ekVar = this.erF.mReaderModel;
-                    bdUniqueId2 = this.erF.mTagId;
+                    this.etX.releasePbReaderModel();
+                    this.etX.releaseReadManager();
+                    this.etX.mTagId = bdUniqueId4;
+                    this.etX.mReaderManager = new eh();
+                    this.etX.mReaderModel = new ek();
+                    ekVar = this.etX.mReaderModel;
+                    bdUniqueId2 = this.etX.mTagId;
                     ekVar.p(bdUniqueId2);
-                    ehVar6 = this.erF.mReaderManager;
-                    aVar = this.erF.mRefreshCallback;
+                    ehVar6 = this.etX.mReaderManager;
+                    aVar = this.etX.mRefreshCallback;
                     ehVar6.a(aVar);
-                    ekVar2 = this.erF.mReaderModel;
-                    aVar2 = this.erF.mLoadDataCallback;
+                    ekVar2 = this.etX.mReaderModel;
+                    aVar2 = this.etX.mLoadDataCallback;
                     ekVar2.b(aVar2);
-                    bdUniqueId3 = this.erF.mTagId;
+                    bdUniqueId3 = this.etX.mTagId;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_READER_TAG_CHANGED, bdUniqueId3));
                 }
             }
-            this.erF.threadId = egVar.threadId;
-            this.erF.postId = egVar.postId;
-            this.erF.isAlive = egVar.isAlive;
-            this.erF.setReadModel(egVar);
-            if (egVar.eoa >= 0) {
-                ehVar3 = this.erF.mReaderManager;
-                ehVar3.b(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.enZ);
-                ehVar4 = this.erF.mReaderManager;
-                ehVar4.eob = egVar.eob;
-                ehVar5 = this.erF.mReaderManager;
-                ehVar5.A(egVar.eoa, egVar.eoc);
-            } else if (egVar.eoa == -2) {
-                ehVar2 = this.erF.mReaderManager;
-                ehVar2.a(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.enZ, false);
+            this.etX.threadId = egVar.threadId;
+            this.etX.postId = egVar.postId;
+            this.etX.isAlive = egVar.isAlive;
+            this.etX.setReadModel(egVar);
+            if (egVar.eqs >= 0) {
+                ehVar3 = this.etX.mReaderManager;
+                ehVar3.b(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.eqr);
+                ehVar4 = this.etX.mReaderManager;
+                ehVar4.eqt = egVar.eqt;
+                ehVar5 = this.etX.mReaderManager;
+                ehVar5.A(egVar.eqs, egVar.equ);
+            } else if (egVar.eqs == -2) {
+                ehVar2 = this.etX.mReaderManager;
+                ehVar2.a(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.eqr, false);
             } else {
-                ehVar = this.erF.mReaderManager;
-                ehVar.b(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.enZ);
+                ehVar = this.etX.mReaderManager;
+                ehVar.b(egVar.pbData, egVar.isSquence, egVar.loadType, egVar.eqr);
             }
         }
     }

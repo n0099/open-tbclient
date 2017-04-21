@@ -13,11 +13,11 @@ import com.baidu.tieba.im.sendmessage.VoiceSendModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements VoiceSendModel.b {
-    final /* synthetic */ a deC;
+    final /* synthetic */ a dgT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.deC = aVar;
+        this.dgT = aVar;
     }
 
     @Override // com.baidu.tieba.im.sendmessage.VoiceSendModel.b
@@ -25,20 +25,20 @@ public class b implements VoiceSendModel.b {
         ae aeVar;
         ae aeVar2;
         try {
-            a.att().k(chatMessage);
+            a.auu().m(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
-                    VoiceMsgData u = com.baidu.tieba.im.util.h.u(chatMessage);
-                    if (u != null) {
-                        u.setVoice_md5(str);
-                        chatMessage.setContent("[" + OrmObject.jsonStrWithObject(u) + "]");
+                    VoiceMsgData w = com.baidu.tieba.im.util.h.w(chatMessage);
+                    if (w != null) {
+                        w.setVoice_md5(str);
+                        chatMessage.setContent("[" + OrmObject.jsonStrWithObject(w) + "]");
                     }
                     com.baidu.tbadk.core.e.a.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
-                    a.att().m(chatMessage);
-                    aeVar = this.deC.mSendCallback;
+                    a.auu().o(chatMessage);
+                    aeVar = this.dgT.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.deC.mSendCallback;
-                        aeVar2.lV(2);
+                        aeVar2 = this.dgT.mSendCallback;
+                        aeVar2.mb(2);
                         return;
                     }
                     return;

@@ -5,11 +5,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ h.a acp;
+    final /* synthetic */ h.a acq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h.a aVar) {
-        this.acp = aVar;
+        this.acq = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,11 +17,11 @@ public class i implements Runnable {
         l lVar;
         List<Long> ut;
         h.b bVar;
-        lVar = this.acp.aco;
-        ut = this.acp.ut();
+        lVar = this.acq.acp;
+        ut = this.acq.ut();
         lVar.j(ut);
-        bVar = this.acp.acn;
+        bVar = this.acq.aco;
         bVar.destroy();
-        this.acp.destroy();
+        this.acq.destroy();
     }
 }

@@ -11,23 +11,23 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements j {
-    private final n abZ;
-    private final HashMap<String, Method> aca = new HashMap<>();
+    private final n aca;
+    private final HashMap<String, Method> acb = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.d.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(n nVar) {
-        this.abZ = nVar;
+        this.aca = nVar;
         i(getClass());
-        if (this.aca.isEmpty()) {
+        if (this.acb.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.abZ.getContext();
+        return this.aca.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,13 +46,13 @@ public abstract class d implements j {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.abZ.a(o.c(str, hashMap));
+        this.aca.a(o.c(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.d.j
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.aca.get(str);
+        Method method = this.acb.get(str);
         if (method != null) {
             q qVar = (q) method.getAnnotation(q.class);
             String optString = jSONObject2.optString("callbackId");
@@ -125,7 +125,7 @@ public abstract class d implements j {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.abZ.a(o.c(optString, hashMap));
+        this.aca.a(o.c(optString, hashMap));
     }
 
     private void i(Class<? extends d> cls) {
@@ -144,7 +144,7 @@ public abstract class d implements j {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.aca.put(value, method);
+                this.acb.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

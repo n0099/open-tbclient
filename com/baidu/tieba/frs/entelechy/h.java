@@ -15,11 +15,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g bRr;
+    final /* synthetic */ g bTI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.bRr = gVar;
+        this.bTI = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,19 +30,19 @@ public class h implements View.OnClickListener {
         FrsActivity frsActivity2;
         if (view != null && (view.getTag() instanceof aa)) {
             if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                frsActivity2 = this.bRr.bOf;
+                frsActivity2 = this.bTI.bQw;
                 com.baidu.adp.lib.util.k.showToast(frsActivity2.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
                 return;
             }
             aa aaVar = (aa) view.getTag();
-            if (aaVar != null && !StringUtils.isNull(aaVar.UR)) {
-                String str3 = aaVar.UR;
-                frsActivity = this.bRr.bOf;
+            if (aaVar != null && !StringUtils.isNull(aaVar.UT)) {
+                String str3 = aaVar.UT;
+                frsActivity = this.bTI.bQw;
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BookCoverActivityConfig(frsActivity.getPageContext().getPageActivity(), str3)));
-                str = this.bRr.fid;
+                str = this.bTI.fid;
                 if (!StringUtils.isNull(str)) {
                     as asVar = new as("c11394");
-                    str2 = this.bRr.fid;
+                    str2 = this.bTI.fid;
                     TiebaStatic.log(asVar.aa("fid", str2));
                 }
             }

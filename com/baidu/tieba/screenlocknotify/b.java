@@ -27,11 +27,11 @@ class b implements View.OnClickListener {
         com.baidu.tieba.screenlocknotify.a.a aVar3;
         com.baidu.tieba.screenlocknotify.a.a aVar4;
         com.baidu.tieba.screenlocknotify.a.a aVar5;
-        aVar = this.this$0.ffN;
+        aVar = this.this$0.fif;
         if (aVar != null) {
-            aVar2 = this.this$0.ffN;
+            aVar2 = this.this$0.fif;
             if (!StringUtils.isNull(aVar2.getInputMsg())) {
-                aVar3 = this.this$0.ffN;
+                aVar3 = this.this$0.fif;
                 s data = aVar3.getData();
                 if (data != null) {
                     if (data.customGroupType == 4) {
@@ -39,20 +39,20 @@ class b implements View.OnClickListener {
                     }
                     if (data.customGroupType == 1) {
                         long c = com.baidu.adp.lib.g.b.c(data.groupId, 0L);
-                        aVar5 = this.this$0.ffN;
+                        aVar5 = this.this$0.fif;
                         MessageUtils.createGroupChatMessage(1, aVar5.getInputMsg(), c);
                         com.baidu.tbadk.coreExtra.messageCenter.a.zj().em(data.groupId);
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 1)));
                     } else if (data.customGroupType == 2) {
                         long c2 = com.baidu.adp.lib.g.b.c(data.groupId, 0L);
-                        aVar4 = this.this$0.ffN;
-                        MessageUtils.createPersonalChatMessage(1, aVar4.getInputMsg(), c2, data.userName, data.fgo);
+                        aVar4 = this.this$0.fif;
+                        MessageUtils.createPersonalChatMessage(1, aVar4.getInputMsg(), c2, data.userName, data.fiH);
                         com.baidu.tbadk.coreExtra.messageCenter.a.zj().em(data.groupId);
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 2)));
                         MessageUtils.sendHasReadMessage(data.groupId, 2);
                     }
                     new an("lockscreen_reply", true).start();
-                    i.baV().ffV.bba();
+                    i.bbW().fin.bcb();
                     this.this$0.finish();
                 }
             }

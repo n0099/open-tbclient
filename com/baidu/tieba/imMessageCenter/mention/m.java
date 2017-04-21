@@ -6,13 +6,13 @@ import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdap
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends CustomMessageListener {
-    final /* synthetic */ l dkD;
+    final /* synthetic */ l dmU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, int i) {
         super(i);
-        this.dkD = lVar;
+        this.dmU = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class m extends CustomMessageListener {
         MessageAggregationListAdapter messageAggregationListAdapter;
         MessageAggregationListAdapter messageAggregationListAdapter2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            messageAggregationListAdapter = this.dkD.dkw;
+            messageAggregationListAdapter = this.dmU.dmN;
             if (messageAggregationListAdapter != null) {
-                messageAggregationListAdapter2 = this.dkD.dkw;
+                messageAggregationListAdapter2 = this.dmU.dmN;
                 messageAggregationListAdapter2.notifyDataSetChanged();
             }
         }

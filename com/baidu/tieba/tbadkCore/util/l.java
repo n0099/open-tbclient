@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l {
-    private static Boolean fyf = true;
-    private static Boolean fyg = true;
+    private static Boolean fAv = true;
+    private static Boolean fAw = true;
 
-    public static void qg(String str) {
+    public static void qh(String str) {
         R(13, str);
     }
 
-    public static void bjc() {
-        rY(2);
+    public static void bkd() {
+        se(2);
     }
 
-    private static void rY(int i) {
+    private static void se(int i) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             TiebaDatabase.getInstance().getMainDBDatabaseManager().g("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
         }
@@ -33,15 +33,15 @@ public class l {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().g("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> bjd() {
-        return rZ(0);
+    public static ArrayList<String> bke() {
+        return sf(0);
     }
 
-    public static ArrayList<String> bje() {
-        return rZ(1);
+    public static ArrayList<String> bkf() {
+        return sf(1);
     }
 
-    private static ArrayList<String> rZ(int i) {
+    private static ArrayList<String> sf(int i) {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -91,11 +91,11 @@ public class l {
         return arrayList;
     }
 
-    public static void qh(String str) {
+    public static void qi(String str) {
         S(0, str);
     }
 
-    public static void qi(String str) {
+    public static void qj(String str) {
         S(1, str);
     }
 
@@ -117,7 +117,7 @@ public class l {
         }
     }
 
-    public static void qj(String str) {
+    public static void qk(String str) {
         T(0, str);
     }
 
@@ -137,15 +137,15 @@ public class l {
         }
     }
 
-    public static void bjf() {
-        sa(0);
+    public static void bkg() {
+        sg(0);
     }
 
-    public static void bjg() {
-        sa(1);
+    public static void bkh() {
+        sg(1);
     }
 
-    public static void sa(int i) {
+    public static void sg(int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         switch (i) {
             case 0:
@@ -159,7 +159,7 @@ public class l {
         }
     }
 
-    public static ArrayList<MarkData> bjh() {
+    public static ArrayList<MarkData> bki() {
         Throwable th;
         Cursor cursor;
         Exception e;
@@ -215,7 +215,7 @@ public class l {
     }
 
     public static void h(Boolean bool) {
-        fyf = bool;
+        fAv = bool;
     }
 
     public static void zH() {
@@ -239,7 +239,7 @@ public class l {
         }
     }
 
-    public static void bji() {
+    public static void bkj() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {

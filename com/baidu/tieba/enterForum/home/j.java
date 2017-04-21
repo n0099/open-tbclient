@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ f bEy;
+    final /* synthetic */ f bGP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.bEy = fVar;
+        this.bGP = fVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         FragmentTabWidget fragmentTabWidget;
-        fragmentTabWidget = this.bEy.bEv;
+        fragmentTabWidget = this.bGP.bGM;
         fragmentTabWidget.g(i, true);
-        this.bEy.ho(i);
+        this.bGP.hu(i);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

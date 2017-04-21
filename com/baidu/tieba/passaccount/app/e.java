@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.bh;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ LoginActivity ecR;
+    final /* synthetic */ LoginActivity efh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(LoginActivity loginActivity, int i) {
         super(i);
-        this.ecR = loginActivity;
+        this.efh = loginActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,10 +19,10 @@ class e extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bh)) {
             bh bhVar = (bh) customResponsedMessage.getData();
-            if (bhVar.XY == 0) {
-                this.ecR.aIx();
+            if (bhVar.XZ == 0) {
+                this.efh.aJy();
             } else {
-                this.ecR.nh(bhVar.errorMsg);
+                this.efh.ni(bhVar.errorMsg);
             }
         }
     }

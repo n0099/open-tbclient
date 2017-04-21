@@ -22,13 +22,13 @@ import java.util.List;
 public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.h, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public y(Context context) {
-        super(context, com.baidu.tieba.homepage.personalize.data.h.cyY);
+        super(context, com.baidu.tieba.homepage.personalize.data.h.cBp);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ae */
+    /* renamed from: ag */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(View.inflate(this.mContext, w.j.new_user_guide, null));
     }
@@ -40,13 +40,13 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.h hVar, a aVar) {
         aVar.a(hVar);
         aVar.onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        cc.ST().ib("c10988");
+        cc.TV().ic("c10988");
         return aVar.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.personalize.data.g gVar, int i) {
-        if (gVar != null && !StringUtils.isNull(gVar.Uu)) {
+        if (gVar != null && !StringUtils.isNull(gVar.Uw)) {
             if (i == 1) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GUIDE_SET_CACHE));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SET_NU_SEX_GUIDE, gVar));
@@ -62,62 +62,62 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* loaded from: classes.dex */
     public class a extends y.a {
         private int amZ;
-        private View bjk;
-        private TextView cyg;
-        private TextView cym;
-        private TextView cyn;
-        private LinearLayout cyo;
-        private LinearLayout cyp;
-        private com.baidu.tieba.homepage.personalize.data.h cyq;
-        private View.OnClickListener cyr;
-        private View.OnClickListener cys;
-        private View.OnClickListener cyt;
+        private View blu;
+        private TextView cAD;
+        private TextView cAE;
+        private LinearLayout cAF;
+        private LinearLayout cAG;
+        private com.baidu.tieba.homepage.personalize.data.h cAH;
+        private View.OnClickListener cAI;
+        private View.OnClickListener cAJ;
+        private View.OnClickListener cAK;
+        private TextView cAx;
 
         public a(View view) {
             super(view);
             this.amZ = 3;
-            this.cyr = new z(this);
-            this.cys = new aa(this);
-            this.cyt = new ab(this);
-            this.cyg = (TextView) view.findViewById(w.h.new_user_guide_tip);
-            this.bjk = view.findViewById(w.h.new_user_guide_close);
-            this.cym = (TextView) view.findViewById(w.h.new_user_guide_man);
-            this.cyn = (TextView) view.findViewById(w.h.new_user_guide_woman);
-            this.cyo = (LinearLayout) view.findViewById(w.h.new_user_guide_sex_layout);
-            this.cyp = (LinearLayout) view.findViewById(w.h.new_user_guide_age_layout);
-            this.cym.setOnClickListener(this.cys);
-            this.cyn.setOnClickListener(this.cys);
-            this.bjk.setOnClickListener(this.cyr);
+            this.cAI = new z(this);
+            this.cAJ = new aa(this);
+            this.cAK = new ab(this);
+            this.cAx = (TextView) view.findViewById(w.h.new_user_guide_tip);
+            this.blu = view.findViewById(w.h.new_user_guide_close);
+            this.cAD = (TextView) view.findViewById(w.h.new_user_guide_man);
+            this.cAE = (TextView) view.findViewById(w.h.new_user_guide_woman);
+            this.cAF = (LinearLayout) view.findViewById(w.h.new_user_guide_sex_layout);
+            this.cAG = (LinearLayout) view.findViewById(w.h.new_user_guide_age_layout);
+            this.cAD.setOnClickListener(this.cAJ);
+            this.cAE.setOnClickListener(this.cAJ);
+            this.blu.setOnClickListener(this.cAI);
         }
 
         protected void onChangeSkinType(int i) {
             if (this.amZ != i) {
                 aq.k(getView(), w.e.cp_bg_line_d);
-                aq.i(this.cyg, w.e.cp_cont_d);
-                aq.j(this.bjk, w.g.icon_x_normal);
+                aq.i(this.cAx, w.e.cp_cont_d);
+                aq.j(this.blu, w.g.icon_x_normal);
                 this.amZ = i;
             }
-            if (this.cyq != null && this.cyq.cyZ.size() == 2) {
-                if (this.cyq.cyZ.get(0).cyX) {
-                    aq.i(this.cym, w.e.cp_cont_g);
-                    aq.j(this.cym, w.g.shape_semi_circle_left_selected);
+            if (this.cAH != null && this.cAH.cBq.size() == 2) {
+                if (this.cAH.cBq.get(0).cBo) {
+                    aq.i(this.cAD, w.e.cp_cont_g);
+                    aq.j(this.cAD, w.g.shape_semi_circle_left_selected);
                 } else {
-                    aq.i(this.cym, w.e.cp_cont_f);
-                    aq.j(this.cym, w.g.shape_semi_circle_left_line);
+                    aq.i(this.cAD, w.e.cp_cont_f);
+                    aq.j(this.cAD, w.g.shape_semi_circle_left_line);
                 }
-                if (this.cyq.cyZ.get(1).cyX) {
-                    aq.i(this.cyn, w.e.cp_cont_g);
-                    aq.j(this.cyn, w.g.shape_semi_circle_right_selected);
+                if (this.cAH.cBq.get(1).cBo) {
+                    aq.i(this.cAE, w.e.cp_cont_g);
+                    aq.j(this.cAE, w.g.shape_semi_circle_right_selected);
                 } else {
-                    aq.i(this.cyn, w.e.cp_cont_f);
-                    aq.j(this.cyn, w.g.shape_semi_circle_right_line);
+                    aq.i(this.cAE, w.e.cp_cont_f);
+                    aq.j(this.cAE, w.g.shape_semi_circle_right_line);
                 }
             }
-            for (int i2 = 0; i2 < this.cyp.getChildCount(); i2++) {
-                View childAt = this.cyp.getChildAt(i2);
+            for (int i2 = 0; i2 < this.cAG.getChildCount(); i2++) {
+                View childAt = this.cAG.getChildAt(i2);
                 if (childAt instanceof TextView) {
-                    com.baidu.tieba.homepage.personalize.data.g jG = jG(((TextView) childAt).getText().toString());
-                    if (jG != null && jG.cyX) {
+                    com.baidu.tieba.homepage.personalize.data.g jH = jH(((TextView) childAt).getText().toString());
+                    if (jH != null && jH.cBo) {
                         aq.i(childAt, w.e.cp_cont_g);
                         aq.j(childAt, w.g.shape_semi_circle_all_selected);
                     } else {
@@ -128,12 +128,12 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             }
         }
 
-        private com.baidu.tieba.homepage.personalize.data.g jG(String str) {
-            if (StringUtils.isNull(str) || this.cyq == null || this.cyq.cza == null) {
+        private com.baidu.tieba.homepage.personalize.data.g jH(String str) {
+            if (StringUtils.isNull(str) || this.cAH == null || this.cAH.cBr == null) {
                 return null;
             }
-            for (com.baidu.tieba.homepage.personalize.data.g gVar : this.cyq.cza) {
-                if (gVar != null && str.equals(gVar.Uu)) {
+            for (com.baidu.tieba.homepage.personalize.data.g gVar : this.cAH.cBr) {
+                if (gVar != null && str.equals(gVar.Uw)) {
                     return gVar;
                 }
             }
@@ -142,21 +142,21 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
         protected void a(com.baidu.tieba.homepage.personalize.data.h hVar) {
             if (hVar != null) {
-                this.cyq = hVar;
-                if (hVar.cyZ.size() == 2) {
-                    this.cym.setText(hVar.cyZ.get(0).Uu);
-                    this.cyn.setText(hVar.cyZ.get(1).Uu);
+                this.cAH = hVar;
+                if (hVar.cBq.size() == 2) {
+                    this.cAD.setText(hVar.cBq.get(0).Uw);
+                    this.cAE.setText(hVar.cBq.get(1).Uw);
                 } else {
-                    this.cyo.setVisibility(8);
+                    this.cAF.setVisibility(8);
                 }
-                this.cyp.removeAllViews();
-                if (hVar.cza.size() > 0) {
-                    for (int i = 0; i < hVar.cza.size(); i++) {
-                        View jH = jH(hVar.cza.get(i).Uu);
-                        if (jH != null) {
-                            this.cyp.addView(jH);
-                            if (i != hVar.cza.size() - 1) {
-                                this.cyp.addView(ajC());
+                this.cAG.removeAllViews();
+                if (hVar.cBr.size() > 0) {
+                    for (int i = 0; i < hVar.cBr.size(); i++) {
+                        View jI = jI(hVar.cBr.get(i).Uw);
+                        if (jI != null) {
+                            this.cAG.addView(jI);
+                            if (i != hVar.cBr.size() - 1) {
+                                this.cAG.addView(akD());
                             }
                         }
                     }
@@ -167,18 +167,18 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         /* JADX INFO: Access modifiers changed from: private */
         public void a(List<com.baidu.tieba.homepage.personalize.data.g> list, View view, int i) {
             if (list != null && list.size() != 0) {
-                if (!com.baidu.adp.lib.util.i.hj()) {
+                if (!com.baidu.adp.lib.util.i.hk()) {
                     com.baidu.adp.lib.util.k.showToast(y.this.mContext, w.l.neterror);
                 } else if (view instanceof TextView) {
                     String charSequence = ((TextView) view).getText().toString();
                     if (!StringUtils.isNull(charSequence)) {
                         com.baidu.tieba.homepage.personalize.data.g gVar = null;
                         for (com.baidu.tieba.homepage.personalize.data.g gVar2 : list) {
-                            if (charSequence.equals(gVar2.Uu)) {
-                                gVar2.cyX = !gVar2.cyX;
+                            if (charSequence.equals(gVar2.Uw)) {
+                                gVar2.cBo = !gVar2.cBo;
                                 gVar = gVar2;
                             } else {
-                                gVar2.cyX = false;
+                                gVar2.cBo = false;
                             }
                         }
                         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
@@ -189,7 +189,7 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             }
         }
 
-        private View jH(String str) {
+        private View jI(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -202,11 +202,11 @@ public class y extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             textView.setTextSize(0, TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.fontsize24));
             textView.setText(str);
             textView.setLayoutParams(new LinearLayout.LayoutParams(TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds110), TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds60)));
-            textView.setOnClickListener(this.cyt);
+            textView.setOnClickListener(this.cAK);
             return textView;
         }
 
-        private View ajC() {
+        private View akD() {
             View view = new View(getView().getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;

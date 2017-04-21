@@ -8,11 +8,11 @@ import com.baidu.tieba.frs.cp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements Runnable {
-    final /* synthetic */ ao cbZ;
+    final /* synthetic */ ao ceq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ao aoVar) {
-        this.cbZ = aoVar;
+        this.ceq = aoVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v11, resolved type: com.baidu.tieba.frs.FrsActivity */
@@ -29,25 +29,25 @@ public class ap implements Runnable {
         boolean z3;
         cp cpVar4;
         FrsActivity frsActivity;
-        cpVar = this.cbZ.cbT;
-        cpVar.aaF();
-        cpVar2 = this.cbZ.cbT;
-        onClickListener = this.cbZ.bNB;
+        cpVar = this.ceq.cek;
+        cpVar.abG();
+        cpVar2 = this.ceq.cek;
+        onClickListener = this.ceq.bPS;
         cpVar2.setCommonClickListener(onClickListener);
-        cpVar3 = this.cbZ.cbT;
-        aVar = this.cbZ.cbY;
+        cpVar3 = this.ceq.cek;
+        aVar = this.ceq.cep;
         cpVar3.b(aVar);
-        ao aoVar = this.cbZ;
-        z = this.cbZ.cbW;
-        aoVar.em(z);
-        ao aoVar2 = this.cbZ;
-        z2 = this.cbZ.cbU;
-        aoVar2.dR(z2);
-        ao aoVar3 = this.cbZ;
-        z3 = this.cbZ.cbV;
-        aoVar3.dQ(z3);
-        cpVar4 = this.cbZ.cbT;
-        frsActivity = this.cbZ.bST;
+        ao aoVar = this.ceq;
+        z = this.ceq.cen;
+        aoVar.ew(z);
+        ao aoVar2 = this.ceq;
+        z2 = this.ceq.cel;
+        aoVar2.eb(z2);
+        ao aoVar3 = this.ceq;
+        z3 = this.ceq.cem;
+        aoVar3.ea(z3);
+        cpVar4 = this.ceq.cek;
+        frsActivity = this.ceq.bVk;
         cpVar4.c(frsActivity.getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
     }
 }

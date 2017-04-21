@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aDF;
-    private boolean aDG;
+    protected View aDH;
+    private boolean aDI;
 
     public a(View view) {
-        this.aDF = view;
+        this.aDH = view;
     }
 
     public boolean ET() {
-        return this.aDG;
+        return this.aDI;
     }
 
     public void b(View view, boolean z) {
-        if (view != null && this.aDF != null && this.aDF.getParent() == null) {
-            this.aDG = true;
-            d.K(view).a(view, this.aDF, z);
+        if (view != null && this.aDH != null && this.aDH.getParent() == null) {
+            this.aDI = true;
+            d.K(view).a(view, this.aDH, z);
             EU();
         }
     }
 
     public void I(View view) {
-        if (view != null && this.aDF != null && this.aDF.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.aDH != null && this.aDH.getParent() != null && (view instanceof ViewGroup)) {
             try {
                 EV();
-                ((ViewGroup) view).removeView(this.aDF);
-                this.aDG = false;
+                ((ViewGroup) view).removeView(this.aDH);
+                this.aDI = false;
             } catch (Exception e) {
             }
         }

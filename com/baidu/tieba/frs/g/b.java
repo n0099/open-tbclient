@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a caB;
+    final /* synthetic */ a ccS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.caB = aVar;
+        this.ccS = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -27,26 +27,26 @@ public class b implements Runnable {
         PopupWindow popupWindow;
         View view3;
         Handler handler;
-        tbPageContext = this.caB.ajT;
+        tbPageContext = this.ccS.ajU;
         if (tbPageContext != null) {
-            view = this.caB.cay;
+            view = this.ccS.ccP;
             if (view != null) {
-                tbPageContext2 = this.caB.ajT;
+                tbPageContext2 = this.ccS.ajU;
                 Activity pageActivity = tbPageContext2.getPageActivity();
                 int g = com.baidu.adp.lib.util.k.g(pageActivity, w.f.ds64);
-                a aVar = this.caB;
-                i = this.caB.cav;
+                a aVar = this.ccS;
+                i = this.ccS.ccM;
                 e = aVar.e(pageActivity, i);
                 int[] iArr = new int[2];
-                view2 = this.caB.cay;
+                view2 = this.ccS.ccP;
                 view2.getLocationInWindow(iArr);
                 int g2 = com.baidu.adp.lib.util.k.g(pageActivity, w.f.ds32);
                 int g3 = com.baidu.adp.lib.util.k.g(pageActivity, w.f.ds16) + (iArr[1] - g);
-                this.caB.caz = new PopupWindow(e, -2, g);
-                popupWindow = this.caB.caz;
-                view3 = this.caB.cay;
+                this.ccS.ccQ = new PopupWindow(e, -2, g);
+                popupWindow = this.ccS.ccQ;
+                view3 = this.ccS.ccP;
                 popupWindow.showAtLocation(view3, 53, g2, g3);
-                handler = this.caB.mHandler;
+                handler = this.ccS.mHandler;
                 handler.postDelayed(new c(this), 3000L);
             }
         }

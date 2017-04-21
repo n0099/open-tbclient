@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class am implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -30,26 +30,26 @@ class am implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.ejU.ejK = (PostData) sparseArray.get(w.h.tag_clip_board);
-            if (this.ejU.ejK != null) {
-                aVar = this.ejU.dFo;
+            this.emk.ema = (PostData) sparseArray.get(w.h.tag_clip_board);
+            if (this.emk.ema != null) {
+                aVar = this.emk.dHE;
                 if (aVar != null) {
-                    aVar2 = this.ejU.dFo;
-                    if (aVar2.oe() && this.ejU.ejK.getId() != null) {
-                        String id = this.ejU.ejK.getId();
-                        pbModel = this.ejU.eif;
+                    aVar2 = this.emk.dHE;
+                    if (aVar2.oe() && this.emk.ema.getId() != null) {
+                        String id = this.emk.ema.getId();
+                        pbModel = this.emk.ekv;
                         if (id.equals(pbModel.sx())) {
                             z = true;
                             boolean booleanValue = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                            eyVar = this.ejU.eiS;
-                            bVar = this.ejU.ejL;
+                            eyVar = this.emk.eli;
+                            bVar = this.emk.emb;
                             eyVar.a(bVar, z, booleanValue);
                         }
                     }
                     z = false;
                     boolean booleanValue2 = ((Boolean) sparseArray.get(w.h.tag_is_subpb)).booleanValue();
-                    eyVar = this.ejU.eiS;
-                    bVar = this.ejU.ejL;
+                    eyVar = this.emk.eli;
+                    bVar = this.emk.emb;
                     eyVar.a(bVar, z, booleanValue2);
                 }
             }

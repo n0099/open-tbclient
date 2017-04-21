@@ -10,52 +10,52 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    private static d awv = new d();
-    private boolean awq;
-    private int awr;
-    private long aws;
-    private final SparseArray<a> awt;
-    private final HashSet<Integer> awu;
-    private int aww;
+    private static d awx = new d();
+    private boolean aws;
+    private int awt;
+    private long awu;
+    private final SparseArray<a> awv;
+    private final HashSet<Integer> aww;
+    private int awy;
 
     public static d Ch() {
-        return awv;
+        return awx;
     }
 
     private d() {
         super(1001);
-        this.awr = 3;
-        this.aws = ReportUserInfoModel.TIME_INTERVAL;
-        this.awt = new SparseArray<>();
-        this.awu = new HashSet<>();
-        this.aww = 0;
+        this.awt = 3;
+        this.awu = ReportUserInfoModel.TIME_INTERVAL;
+        this.awv = new SparseArray<>();
+        this.aww = new HashSet<>();
+        this.awy = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
     public boolean el(int i) {
-        this.aww = 0;
-        if (this.awq) {
-            this.aww = 3;
+        this.awy = 0;
+        if (this.aws) {
+            this.awy = 3;
             return false;
-        } else if (this.awu.contains(Integer.valueOf(i))) {
-            this.aww = 6;
+        } else if (this.aww.contains(Integer.valueOf(i))) {
+            this.awy = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.aww = 1;
+            this.awy = 1;
             return false;
         } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().cT() > PingManager.Cl().Cn() + 20000) {
             com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.aww = 2;
+            this.awy = 2;
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
             return false;
         } else {
-            a aVar = this.awt.get(i);
-            if (aVar != null && aVar.awx) {
-                if (Math.abs(System.currentTimeMillis() - aVar.awy) > this.aws) {
+            a aVar = this.awv.get(i);
+            if (aVar != null && aVar.awz) {
+                if (Math.abs(System.currentTimeMillis() - aVar.awA) > this.awu) {
                     aVar.reset();
                 } else {
-                    this.aww = 4;
+                    this.awy = 4;
                     return false;
                 }
             }
@@ -67,8 +67,8 @@ public class d extends com.baidu.adp.framework.listener.e {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.awt.size()) {
-                this.awt.valueAt(i2).reset();
+            if (i2 < this.awv.size()) {
+                this.awv.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -77,40 +77,40 @@ public class d extends com.baidu.adp.framework.listener.e {
     }
 
     public void em(int i) {
-        a aVar = this.awt.get(i);
+        a aVar = this.awv.get(i);
         if (aVar == null) {
             aVar = new a(null);
-            this.awt.append(i, aVar);
+            this.awv.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.awr);
+            aVar.onError(this.awt);
         }
-        this.aww = 5;
+        this.awy = 5;
     }
 
     public void en(int i) {
-        this.awt.remove(i);
+        this.awv.remove(i);
     }
 
     public void bu(boolean z) {
-        this.awq = z;
+        this.aws = z;
     }
 
     public void d(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.awu.clear();
+            this.aww.clear();
             for (int i : iArr) {
-                this.awu.add(Integer.valueOf(i));
+                this.aww.add(Integer.valueOf(i));
             }
         }
     }
 
     public void eo(int i) {
-        this.awr = i;
+        this.awt = i;
     }
 
     public void M(long j) {
-        this.aws = j;
+        this.awu = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,8 +124,8 @@ public class d extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public boolean awx;
-        public long awy;
+        public long awA;
+        public boolean awz;
         public int errorCount;
 
         private a() {
@@ -137,22 +137,22 @@ public class d extends com.baidu.adp.framework.listener.e {
 
         public void reset() {
             this.errorCount = 0;
-            if (this.awx) {
-                this.awx = false;
-                this.awy = 0L;
+            if (this.awz) {
+                this.awz = false;
+                this.awA = 0L;
             }
         }
 
         public void onError(int i) {
             this.errorCount++;
-            if (!this.awx && this.errorCount >= i) {
-                this.awx = true;
-                this.awy = System.currentTimeMillis();
+            if (!this.awz && this.errorCount >= i) {
+                this.awz = true;
+                this.awA = System.currentTimeMillis();
             }
         }
     }
 
     public int Ci() {
-        return this.aww;
+        return this.awy;
     }
 }

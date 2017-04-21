@@ -22,14 +22,14 @@ import com.baidu.tbadk.newFriends.RequestNewFriendActionLocalMessage;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
-    private View aXy;
-    private InputMethodManager cjw;
-    private EditText dgR;
-    private TextView dgS;
-    private TextView dgT;
-    private ImageView dgU;
-    private boolean dgV;
-    private String dgW;
+    private View aXB;
+    private InputMethodManager clN;
+    private EditText dji;
+    private TextView djj;
+    private TextView djk;
+    private ImageView djl;
+    private boolean djm;
+    private String djn;
     private NavigationBar mNavigationBar;
     private String name;
     private String portrait;
@@ -41,7 +41,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.j.activity_add_friend);
-        this.cjw = (InputMethodManager) getPageContext().getPageActivity().getSystemService("input_method");
+        this.clN = (InputMethodManager) getPageContext().getPageActivity().getSystemService("input_method");
         initViews();
         initData(bundle);
         initListener();
@@ -56,43 +56,43 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             Intent intent = getPageContext().getPageActivity().getIntent();
             if (intent != null) {
                 this.userId = intent.getStringExtra("user_id");
-                this.dgW = intent.getStringExtra(AddFriendActivityConfig.DEFAULT_MESSAGE);
-                if (this.dgR != null) {
-                    if (!StringUtils.isNull(this.dgW)) {
-                        this.dgR.setText(this.dgW);
+                this.djn = intent.getStringExtra(AddFriendActivityConfig.DEFAULT_MESSAGE);
+                if (this.dji != null) {
+                    if (!StringUtils.isNull(this.djn)) {
+                        this.dji.setText(this.djn);
                     } else {
                         String stringExtra = intent.getStringExtra("from");
                         if (StringUtils.isNull(stringExtra)) {
-                            this.dgR.setText(String.valueOf(getPageContext().getString(w.l.my_name_is)) + TbadkCoreApplication.getCurrentAccountName());
+                            this.dji.setText(String.valueOf(getPageContext().getString(w.l.my_name_is)) + TbadkCoreApplication.getCurrentAccountName());
                         } else {
-                            this.dgR.setText(String.valueOf(getPageContext().getString(w.l.i_am_come_from)) + stringExtra + getPageContext().getString(w.l.and_name_is) + TbadkCoreApplication.getCurrentAccountName());
+                            this.dji.setText(String.valueOf(getPageContext().getString(w.l.i_am_come_from)) + stringExtra + getPageContext().getString(w.l.and_name_is) + TbadkCoreApplication.getCurrentAccountName());
                         }
                     }
-                    this.dgR.requestFocus();
+                    this.dji.requestFocus();
                 }
                 this.portrait = intent.getStringExtra(IntentConfig.PORTRAIT);
                 this.name = intent.getStringExtra(IntentConfig.NAME_SHOW);
-                this.dgV = intent.getBooleanExtra(AddFriendActivityConfig.IS_USER_CLIENT_LOWER, false);
+                this.djm = intent.getBooleanExtra(AddFriendActivityConfig.IS_USER_CLIENT_LOWER, false);
                 this.st_type = intent.getStringExtra("st_type");
                 return;
             }
             return;
         }
         this.userId = bundle.getString("user_id");
-        this.dgW = bundle.getString(AddFriendActivityConfig.DEFAULT_MESSAGE);
-        if (this.dgR != null) {
-            if (!StringUtils.isNull(this.dgW)) {
-                this.dgR.setText(this.dgW);
+        this.djn = bundle.getString(AddFriendActivityConfig.DEFAULT_MESSAGE);
+        if (this.dji != null) {
+            if (!StringUtils.isNull(this.djn)) {
+                this.dji.setText(this.djn);
             } else {
                 String string = bundle.getString(AddFriendActivityConfig.MSG);
                 if (!StringUtils.isNull(string)) {
-                    this.dgR.setText(string);
+                    this.dji.setText(string);
                 }
             }
         }
         this.portrait = bundle.getString(IntentConfig.PORTRAIT);
         this.name = bundle.getString(IntentConfig.NAME_SHOW);
-        this.dgV = bundle.getBoolean(AddFriendActivityConfig.IS_USER_CLIENT_LOWER, false);
+        this.djm = bundle.getBoolean(AddFriendActivityConfig.IS_USER_CLIENT_LOWER, false);
         this.st_type = bundle.getString("st_type");
     }
 
@@ -101,36 +101,36 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         super.onSaveInstanceState(bundle);
         if (bundle != null) {
             bundle.putString("user_id", this.userId);
-            if (this.dgR != null && !TextUtils.isEmpty(this.dgR.getText().toString())) {
-                bundle.putString(AddFriendActivityConfig.MSG, this.dgR.getText().toString());
+            if (this.dji != null && !TextUtils.isEmpty(this.dji.getText().toString())) {
+                bundle.putString(AddFriendActivityConfig.MSG, this.dji.getText().toString());
             }
-            bundle.putBoolean(AddFriendActivityConfig.IS_USER_CLIENT_LOWER, this.dgV);
+            bundle.putBoolean(AddFriendActivityConfig.IS_USER_CLIENT_LOWER, this.djm);
             bundle.putString(IntentConfig.PORTRAIT, this.portrait);
             bundle.putString(IntentConfig.NAME_SHOW, this.name);
             bundle.putString("st_type", this.st_type);
-            bundle.putString(AddFriendActivityConfig.DEFAULT_MESSAGE, this.dgW);
+            bundle.putString(AddFriendActivityConfig.DEFAULT_MESSAGE, this.djn);
         }
     }
 
     private void initViews() {
-        this.aXy = getPageContext().getPageActivity().findViewById(w.h.search_friend_parent);
-        this.aXy.setOnClickListener(new b(this));
-        this.dgU = (ImageView) getPageContext().getPageActivity().findViewById(w.h.cancle);
-        this.dgU.setOnClickListener(new c(this));
+        this.aXB = getPageContext().getPageActivity().findViewById(w.h.search_friend_parent);
+        this.aXB.setOnClickListener(new b(this));
+        this.djl = (ImageView) getPageContext().getPageActivity().findViewById(w.h.cancle);
+        this.djl.setOnClickListener(new c(this));
         this.mNavigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(w.h.search_friend_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getPageActivity().getString(w.l.apply_new_friends));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.dgS = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.send_msg));
-        if (this.dgS.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dgS.getLayoutParams();
+        this.djj = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.send_msg));
+        if (this.djj.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.djj.getLayoutParams();
             layoutParams.rightMargin = k.g(getPageContext().getPageActivity(), w.f.ds16);
-            this.dgS.setLayoutParams(layoutParams);
+            this.djj.setLayoutParams(layoutParams);
         }
-        this.dgS.setOnClickListener(new d(this));
-        this.dgT = (TextView) getPageContext().getPageActivity().findViewById(w.h.search_friend_tip);
-        this.dgR = (EditText) getPageContext().getPageActivity().findViewById(w.h.search_friend_input);
-        this.dgR.setOnFocusChangeListener(new e(this));
-        this.dgR.setOnTouchListener(new f(this));
+        this.djj.setOnClickListener(new d(this));
+        this.djk = (TextView) getPageContext().getPageActivity().findViewById(w.h.search_friend_tip);
+        this.dji = (EditText) getPageContext().getPageActivity().findViewById(w.h.search_friend_input);
+        this.dji.setOnFocusChangeListener(new e(this));
+        this.dji.setOnTouchListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -144,15 +144,15 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        ShowSoftKeyPad(this.cjw, this.dgR);
-        this.dgR.setSelection(this.dgR.getText().length());
+        ShowSoftKeyPad(this.clN, this.dji);
+        this.dji.setSelection(this.dji.getText().length());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        HidenSoftKeyPad(this.cjw, this.dgR);
+        HidenSoftKeyPad(this.clN, this.dji);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -160,9 +160,9 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        getLayoutMode().t(this.aXy);
-        this.dgT.setTextColor(aq.getColor(w.e.cp_cont_c));
-        this.dgS.setTextColor(aq.getColor(w.e.cp_cont_i));
-        aq.j(this.dgS, w.g.s_navbar_button_bg);
+        getLayoutMode().t(this.aXB);
+        this.djk.setTextColor(aq.getColor(w.e.cp_cont_c));
+        this.djj.setTextColor(aq.getColor(w.e.cp_cont_i));
+        aq.j(this.djj, w.g.s_navbar_button_bg);
     }
 }

@@ -20,44 +20,44 @@ import java.net.URLDecoder;
 /* loaded from: classes.dex */
 class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
-    private byte[] aUI;
-    private i aUJ;
+    private byte[] aUK;
+    private i aUL;
     private Context mContext;
-    private Socket zR;
+    private Socket zU;
 
     public g(Context context) {
-        this.aUI = null;
+        this.aUK = null;
         this.mContext = context;
         try {
-            this.aUI = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
+            this.aUK = new byte[AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
     }
 
     public void a(Socket socket) {
-        this.zR = socket;
+        this.zU = socket;
     }
 
     public void a(i iVar) {
-        this.aUJ = iVar;
+        this.aUL = iVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         k.log(TAG, "test run in " + this);
-        if (this.aUJ == null) {
+        if (this.aUL == null) {
             k.log(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.aUJ);
-            if (this.aUJ.LE().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.aUJ, this.zR, true);
+            b(this.aUL);
+            if (this.aUL.LE().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.aUL, this.zU, true);
             } else {
-                a(this.aUJ, this.zR, false);
+                a(this.aUL, this.zU, false);
             }
-            c(this.zR);
+            c(this.zU);
         } catch (Exception e) {
             k.log(TAG, "HTTP服务器错误:" + e.getLocalizedMessage());
         }
@@ -163,7 +163,7 @@ class g implements Runnable {
         if (gU == null || gU.isEmpty()) {
             return 0;
         }
-        File file = new File(String.valueOf(j.aUU) + gU);
+        File file = new File(String.valueOf(j.aUW) + gU);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -300,7 +300,7 @@ class g implements Runnable {
 
     private void a(i iVar, Socket socket, boolean z) {
         if (iVar != null && socket != null) {
-            File file = new File(j.aUR);
+            File file = new File(j.aUT);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -336,11 +336,11 @@ class g implements Runnable {
                     f.LB().n(cVar);
                 }
                 cVar.b(iVar.LH(), iVar.LI());
-                if (this.aUI != null) {
+                if (this.aUK != null) {
                     while (cVar.canRead()) {
-                        int e = cVar.e(this.aUI, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
+                        int e = cVar.e(this.aUK, AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START);
                         if (e > 0) {
-                            printStream.write(this.aUI, 0, e);
+                            printStream.write(this.aUK, 0, e);
                         }
                     }
                 }

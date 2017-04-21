@@ -25,14 +25,14 @@ public class f extends a {
     @Override // com.baidu.tbadk.core.util.c.a
     public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a b = super.b(str, str2, objArr);
-        if (b != null && b.kR() != null && b.kR().isRecycled()) {
+        if (b != null && b.kS() != null && b.kS().isRecycled()) {
             return null;
         }
         return b;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    public boolean fO() {
+    public boolean fP() {
         return true;
     }
 

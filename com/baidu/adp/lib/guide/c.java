@@ -10,11 +10,11 @@ class c implements Parcelable.Creator<Configuration> {
     public Configuration createFromParcel(Parcel parcel) {
         Configuration configuration = new Configuration();
         configuration.mAlpha = parcel.readInt();
-        configuration.um = parcel.readInt();
-        configuration.uo = parcel.readInt();
-        configuration.up = parcel.readInt();
-        configuration.uq = parcel.readByte() == 1;
-        configuration.ur = parcel.readByte() == 1;
+        configuration.us = parcel.readInt();
+        configuration.ut = parcel.readInt();
+        configuration.uu = parcel.readInt();
+        configuration.uv = parcel.readByte() == 1;
+        configuration.uw = parcel.readByte() == 1;
         return configuration;
     }
 

@@ -14,10 +14,10 @@ class ap extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-            com.baidu.tieba.frs.smartsort.e.adl().adm();
-            a.add().adf();
-            if (com.baidu.tieba.recapp.v.aZP().aZM() != null) {
-                com.baidu.tieba.recapp.v.aZP().aZM().aZD();
+            com.baidu.tieba.frs.smartsort.e.aem().aen();
+            a.aee().aeg();
+            if (com.baidu.tieba.recapp.v.baQ().baN() != null) {
+                com.baidu.tieba.recapp.v.baQ().baN().baE();
             }
         }
     }

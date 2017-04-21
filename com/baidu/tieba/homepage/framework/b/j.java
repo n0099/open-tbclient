@@ -11,21 +11,21 @@ import com.baidu.tbadk.core.util.as;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ e cwb;
+    final /* synthetic */ e cys;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(e eVar) {
-        this.cwb = eVar;
+        this.cys = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         Context context2;
-        context = this.cwb.mContext;
+        context = this.cys.mContext;
         if (context != null) {
             MessageManager messageManager = MessageManager.getInstance();
-            context2 = this.cwb.mContext;
+            context2 = this.cys.mContext;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(context2)));
             TiebaStatic.log(new as("c10378").s("obj_type", 0));
         }

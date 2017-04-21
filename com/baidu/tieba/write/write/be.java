@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class be extends CustomMessageListener {
-    final /* synthetic */ WriteActivity fSq;
+    final /* synthetic */ WriteActivity fUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public be(WriteActivity writeActivity, int i) {
         super(i);
-        this.fSq = writeActivity;
+        this.fUM = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ class be extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                locationModel2 = this.fSq.aAO;
-                locationModel2.lm(false);
-                locationModel3 = this.fSq.aAO;
-                locationModel3.ce(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                this.fSq.b(2, true, responsedSelectLocation.getName());
+                locationModel2 = this.fUM.aAQ;
+                locationModel2.lw(false);
+                locationModel3 = this.fUM.aAQ;
+                locationModel3.cd(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.fUM.b(2, true, responsedSelectLocation.getName());
                 return;
             }
-            locationModel = this.fSq.aAO;
-            locationModel.lm(true);
-            this.fSq.b(0, true, null);
+            locationModel = this.fUM.aAQ;
+            locationModel.lw(true);
+            this.fUM.b(0, true, null);
         }
     }
 }

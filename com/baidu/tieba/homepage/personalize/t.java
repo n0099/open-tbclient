@@ -40,15 +40,15 @@ public class t extends CustomMessageListener {
         List list4;
         List list5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-            builder = this.this$0.cxe;
+            builder = this.this$0.czv;
             if (builder != null) {
-                builder2 = this.this$0.cxe;
+                builder2 = this.this$0.czv;
                 if (com.baidu.tbadk.core.util.x.p(builder2.thread_list) != 0) {
-                    list = this.this$0.aSB;
+                    list = this.this$0.aSD;
                     if (com.baidu.tbadk.core.util.x.p(list) != 0) {
                         String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
                         if (!StringUtils.isNull(optString)) {
-                            list2 = this.this$0.aSB;
+                            list2 = this.this$0.aSD;
                             Iterator it = list2.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
@@ -59,32 +59,32 @@ public class t extends CustomMessageListener {
                                     com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) vVar;
                                     if (cVar.Kn() != null && cVar.Kn().getTid() != null && cVar.Kn().getTid().equals(optString)) {
                                         it.remove();
-                                        list5 = this.this$0.aSB;
-                                        com.baidu.tieba.homepage.personalize.model.c.be(list5);
+                                        list5 = this.this$0.aSD;
+                                        com.baidu.tieba.homepage.personalize.model.c.bf(list5);
                                         break;
                                     }
                                 }
                             }
-                            builder3 = this.this$0.cxe;
+                            builder3 = this.this$0.czv;
                             if (builder3 != null) {
-                                builder4 = this.this$0.cxe;
+                                builder4 = this.this$0.czv;
                                 if (builder4.thread_list != null) {
                                     long c = com.baidu.adp.lib.g.b.c(optString, 0L);
                                     int i = 0;
                                     while (true) {
                                         int i2 = i;
-                                        builder5 = this.this$0.cxe;
+                                        builder5 = this.this$0.czv;
                                         if (i2 < builder5.thread_list.size()) {
-                                            builder6 = this.this$0.cxe;
+                                            builder6 = this.this$0.czv;
                                             ThreadInfo threadInfo = builder6.thread_list.get(i2);
                                             if (threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() == c) {
-                                                builder7 = this.this$0.cxe;
+                                                builder7 = this.this$0.czv;
                                                 builder7.thread_list.remove(i2);
-                                                this.this$0.ajs();
+                                                this.this$0.akt();
                                                 long longValue = threadInfo.tid.longValue();
-                                                builder8 = this.this$0.cxe;
+                                                builder8 = this.this$0.czv;
                                                 List<ThreadInfo> list6 = builder8.thread_list;
-                                                list4 = this.this$0.aSB;
+                                                list4 = this.this$0.aSD;
                                                 com.baidu.tieba.homepage.personalize.c.f.a(longValue, i2, list6, list4);
                                                 break;
                                             }
@@ -93,11 +93,11 @@ public class t extends CustomMessageListener {
                                             break;
                                         }
                                     }
-                                    adVar = this.this$0.cxj;
+                                    adVar = this.this$0.czA;
                                     if (adVar != null) {
-                                        adVar2 = this.this$0.cxj;
-                                        list3 = this.this$0.aSB;
-                                        adVar2.bc(new ArrayList(list3));
+                                        adVar2 = this.this$0.czA;
+                                        list3 = this.this$0.aSD;
+                                        adVar2.bd(new ArrayList(list3));
                                     }
                                 }
                             }

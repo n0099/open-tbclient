@@ -13,8 +13,8 @@ class h implements CustomMessageTask.CustomRunnable<e.a> {
             return null;
         }
         e.a data = customMessage.getData();
-        data.aGc = aa.GG().GI();
-        data.aGd = aa.GG().GK();
+        data.aGe = aa.GG().GI();
+        data.aGf = aa.GG().GK();
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_SAMPLE, data);
     }
 }

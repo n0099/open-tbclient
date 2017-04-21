@@ -6,25 +6,25 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements o.a<String> {
-    final /* synthetic */ e bYK;
+    final /* synthetic */ e cbb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bYK = eVar;
+        this.cbb = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.cache.o.a
-    /* renamed from: aP */
+    /* renamed from: aO */
     public void m(String str, String str2) {
-        ArrayList iT;
+        ArrayList iU;
         HashMap hashMap;
         if (str2 != null) {
-            String ade = this.bYK.ade();
-            iT = this.bYK.iT(str2);
-            hashMap = this.bYK.bYI;
-            hashMap.put(ade, iT);
+            String aef = this.cbb.aef();
+            iU = this.cbb.iU(str2);
+            hashMap = this.cbb.caZ;
+            hashMap.put(aef, iU);
         }
-        this.bYK.bYA = true;
+        this.cbb.caR = true;
     }
 }

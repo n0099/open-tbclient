@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class c implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ b bBe;
+    final /* synthetic */ b bDv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bBe = bVar;
+        this.bDv = bVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
@@ -35,46 +35,46 @@ class c implements com.baidu.adp.lib.guide.b {
         TbPageContext tbPageContext7;
         a aVar9;
         int i;
-        aVar = this.bBe.bBd;
-        tbPageContext = aVar.ajT;
+        aVar = this.bDv.bDu;
+        tbPageContext = aVar.ajU;
         TextView textView = new TextView(tbPageContext.getPageActivity());
-        aVar2 = this.bBe.bBd;
+        aVar2 = this.bDv.bDu;
         str = aVar2.mMessage;
         textView.setText(str);
         textView.setGravity(17);
         aq.i(textView, w.e.cp_cont_i);
-        aVar3 = this.bBe.bBd;
-        tbPageContext2 = aVar3.ajT;
+        aVar3 = this.bDv.bDu;
+        tbPageContext2 = aVar3.ajU;
         textView.setTextSize(0, tbPageContext2.getResources().getDimensionPixelSize(w.f.fontsize28));
-        aVar4 = this.bBe.bBd;
-        tbPageContext3 = aVar4.ajT;
+        aVar4 = this.bDv.bDu;
+        tbPageContext3 = aVar4.ajU;
         textView.setHeight(tbPageContext3.getResources().getDimensionPixelSize(w.f.ds76));
-        aVar5 = this.bBe.bBd;
-        tbPageContext4 = aVar5.ajT;
+        aVar5 = this.bDv.bDu;
+        tbPageContext4 = aVar5.ajU;
         int dimensionPixelSize = tbPageContext4.getResources().getDimensionPixelSize(w.f.ds24);
-        aVar6 = this.bBe.bBd;
-        tbPageContext5 = aVar6.ajT;
+        aVar6 = this.bDv.bDu;
+        tbPageContext5 = aVar6.ajU;
         int dimensionPixelSize2 = tbPageContext5.getResources().getDimensionPixelSize(w.f.ds24);
-        aVar7 = this.bBe.bBd;
-        tbPageContext6 = aVar7.ajT;
+        aVar7 = this.bDv.bDu;
+        tbPageContext6 = aVar7.ajU;
         int dimensionPixelSize3 = tbPageContext6.getResources().getDimensionPixelSize(w.f.ds24);
-        aVar8 = this.bBe.bBd;
-        tbPageContext7 = aVar8.ajT;
+        aVar8 = this.bDv.bDu;
+        tbPageContext7 = aVar8.ajU;
         textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize3, tbPageContext7.getResources().getDimensionPixelSize(w.f.ds10));
         textView.setSingleLine(true);
-        aVar9 = this.bBe.bBd;
-        i = aVar9.bAX;
+        aVar9 = this.bDv.bDu;
+        i = aVar9.bDo;
         aq.j(textView, i);
         return textView;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int eZ() {
+    public int fa() {
         return 4;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int fa() {
+    public int fb() {
         return 48;
     }
 
@@ -82,8 +82,8 @@ class c implements com.baidu.adp.lib.guide.b {
     public int getXOffset() {
         a aVar;
         int i;
-        aVar = this.bBe.bBd;
-        i = aVar.aka;
+        aVar = this.bDv.bDu;
+        i = aVar.akb;
         return i;
     }
 
@@ -91,7 +91,7 @@ class c implements com.baidu.adp.lib.guide.b {
     public int getYOffset() {
         a aVar;
         int i;
-        aVar = this.bBe.bBd;
+        aVar = this.bDv.bDu;
         i = aVar.mYOffset;
         return i;
     }

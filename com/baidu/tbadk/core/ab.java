@@ -24,9 +24,9 @@ public class ab implements a.InterfaceC0004a {
                     this.this$0.setLocationLat(valueOf);
                     this.this$0.setLocationLng(valueOf2);
                     this.this$0.setLocationPos(address.getAddressLine(0));
-                    com.baidu.tieba.recapp.d.a.bau().setLatitude(valueOf);
-                    com.baidu.tieba.recapp.d.a.bau().setLongitude(valueOf2);
-                    com.baidu.tieba.recapp.d.a.bau().cw(System.currentTimeMillis());
+                    com.baidu.tieba.recapp.d.a.bbv().setLatitude(valueOf);
+                    com.baidu.tieba.recapp.d.a.bbv().setLongitude(valueOf2);
+                    com.baidu.tieba.recapp.d.a.bbv().cw(System.currentTimeMillis());
                 }
             } catch (IllegalStateException e) {
                 BdLog.e(e.getMessage());

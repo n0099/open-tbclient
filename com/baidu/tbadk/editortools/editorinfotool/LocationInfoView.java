@@ -62,15 +62,15 @@ public class LocationInfoView extends EditorInfoView {
             Animatable animatable = (Animatable) aq.getDrawable(w.g.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
             a.a((TbPageContextSupport) k.Y(getContext()), animatable);
-            setPadding(this.fuO + com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f), this.fuP, this.fuO, this.fuP);
+            setPadding(this.fxe + com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f), this.fxf, this.fxe, this.fxf);
             setCompoundDrawablePadding(com.baidu.adp.lib.util.k.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
             setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.fuO, this.fuP, this.fuO, this.fuP);
+            setPadding(this.fxe, this.fxf, this.fxe, this.fxf);
             setCompoundDrawablePadding(0);
         } else {
             setCompoundDrawablesWithIntrinsicBounds(aq.getDrawable(w.g.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.fuO, this.fuP, this.fuO, this.fuP);
+            setPadding(this.fxe, this.fxf, this.fxe, this.fxf);
             setCompoundDrawablePadding(0);
         }
     }

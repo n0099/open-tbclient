@@ -6,13 +6,13 @@ import com.baidu.tbadk.gif.GifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements Animation.AnimationListener {
-    private final /* synthetic */ GifView aQn;
-    private final /* synthetic */ TextView aQq;
+    private final /* synthetic */ GifView aQp;
+    private final /* synthetic */ TextView aQs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(GifView gifView, TextView textView) {
-        this.aQn = gifView;
-        this.aQq = textView;
+        this.aQp = gifView;
+        this.aQs = textView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,8 +25,8 @@ public class u implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.aQn.setVisibility(0);
-        this.aQn.EE();
-        com.baidu.adp.lib.g.h.fR().postDelayed(new v(this, this.aQq), 800L);
+        this.aQp.setVisibility(0);
+        this.aQp.EE();
+        com.baidu.adp.lib.g.h.fS().postDelayed(new v(this, this.aQs), 800L);
     }
 }

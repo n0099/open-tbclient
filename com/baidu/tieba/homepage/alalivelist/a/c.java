@@ -7,19 +7,19 @@ import tbclient.ForcusRecommand;
 import tbclient.ForcusUsers;
 /* loaded from: classes.dex */
 public class c implements v {
-    public static final BdUniqueId ctj = BdUniqueId.gen();
-    public int ctk;
-    public List<ForcusUsers> ctl;
+    public static final BdUniqueId cvA = BdUniqueId.gen();
+    public int cvB;
+    public List<ForcusUsers> cvC;
 
     public c(ForcusRecommand forcusRecommand) {
         if (forcusRecommand != null) {
-            this.ctk = forcusRecommand.type.intValue();
-            this.ctl = forcusRecommand.users;
+            this.cvB = forcusRecommand.type.intValue();
+            this.cvC = forcusRecommand.users;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return ctj;
+        return cvA;
     }
 }

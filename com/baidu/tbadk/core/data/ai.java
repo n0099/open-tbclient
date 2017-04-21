@@ -6,23 +6,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai {
-    private ArrayList<String> WN;
+    private ArrayList<String> WO;
     private int smsCodeTime = 0;
-    private UserData WL = new UserData();
-    private AntiData WM = new AntiData();
+    private UserData WM = new UserData();
+    private AntiData WN = new AntiData();
 
     public ai() {
-        this.WN = null;
-        this.WN = new ArrayList<>();
+        this.WO = null;
+        this.WO = new ArrayList<>();
         setSmsCodeTime(0);
     }
 
     public UserData getUser() {
-        return this.WL;
+        return this.WM;
     }
 
     public AntiData rb() {
-        return this.WM;
+        return this.WN;
     }
 
     public void parserJson(String str) {
@@ -35,12 +35,12 @@ public class ai {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.WL.parserJson(jSONObject.optJSONObject("user"));
-            this.WM.parserJson(jSONObject.optJSONObject("anti"));
+            this.WM.parserJson(jSONObject.optJSONObject("user"));
+            this.WN.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.WN.add(optJSONArray.optString(i, null));
+                    this.WO.add(optJSONArray.optString(i, null));
                 }
             }
             setSmsCodeTime(jSONObject.optInt("retrytime"));

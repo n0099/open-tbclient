@@ -3,11 +3,11 @@ package com.baidu.tieba.write.write;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class cc implements a.b {
-    final /* synthetic */ ca fSX;
+    final /* synthetic */ ca fVt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(ca caVar) {
-        this.fSX = caVar;
+        this.fVt = caVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -18,16 +18,16 @@ class cc implements a.b {
         WriteMultiImgsActivity writeMultiImgsActivity3;
         WriteMultiImgsActivity writeMultiImgsActivity4;
         com.baidu.tbadk.core.dialog.a aVar3;
-        writeMultiImgsActivity = this.fSX.fSW;
-        aVar2 = writeMultiImgsActivity.fSR;
+        writeMultiImgsActivity = this.fVt.fVs;
+        aVar2 = writeMultiImgsActivity.fVn;
         if (aVar2 != null) {
-            writeMultiImgsActivity4 = this.fSX.fSW;
-            aVar3 = writeMultiImgsActivity4.fSR;
+            writeMultiImgsActivity4 = this.fVt.fVs;
+            aVar3 = writeMultiImgsActivity4.fVn;
             aVar3.dismiss();
         }
-        writeMultiImgsActivity2 = this.fSX.fSW;
+        writeMultiImgsActivity2 = this.fVt.fVs;
         writeMultiImgsActivity2.setResult(0);
-        writeMultiImgsActivity3 = this.fSX.fSW;
+        writeMultiImgsActivity3 = this.fVt.fVs;
         writeMultiImgsActivity3.finish();
     }
 }

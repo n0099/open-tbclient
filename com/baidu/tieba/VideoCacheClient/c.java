@@ -13,22 +13,22 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class c implements x {
     public static final String TAG = c.class.getSimpleName();
-    private static c aVj;
-    private int aVk = 0;
+    private static c aVl;
+    private int aVm = 0;
 
     private c() {
         a.LN();
     }
 
     public static c LP() {
-        if (aVj == null) {
+        if (aVl == null) {
             synchronized (c.class) {
-                if (aVj == null) {
-                    aVj = new c();
+                if (aVl == null) {
+                    aVl = new c();
                 }
             }
         }
-        return aVj;
+        return aVl;
     }
 
     private static long LL() {
@@ -56,7 +56,7 @@ public class c implements x {
             String gX = gX(str);
             if (gX == null) {
                 String gU = gU(str);
-                if (gU != null && new File(String.valueOf(d.aUU) + gU + "/header_downloaded").exists()) {
+                if (gU != null && new File(String.valueOf(d.aUW) + gU + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
@@ -70,7 +70,7 @@ public class c implements x {
     public String gX(String str) {
         String gU;
         File file;
-        if (str == null || !str.contains("/") || (gU = gU(str)) == null || (file = new File(String.valueOf(d.aUU) + gU + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (gU = gU(str)) == null || (file = new File(String.valueOf(d.aUW) + gU + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -118,8 +118,8 @@ public class c implements x {
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        if (this.aVk == 0) {
-            File file = new File(d.aUV);
+        if (this.aVm == 0) {
+            File file = new File(d.aUX);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -163,7 +163,7 @@ public class c implements x {
                                         e5.printStackTrace();
                                     }
                                 }
-                                return this.aVk;
+                                return this.aVm;
                             } catch (Throwable th) {
                                 th = th;
                                 fileInputStream = fileInputStream2;
@@ -209,10 +209,10 @@ public class c implements x {
                 }
             }
         }
-        return this.aVk;
+        return this.aVm;
     }
 
     public void LR() {
-        this.aVk = 0;
+        this.aVm = 0;
     }
 }

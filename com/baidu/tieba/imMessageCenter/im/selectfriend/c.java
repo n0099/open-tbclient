@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class c implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SelectFriendActivity djy;
+    final /* synthetic */ SelectFriendActivity dlP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(SelectFriendActivity selectFriendActivity) {
-        this.djy = selectFriendActivity;
+        this.dlP = selectFriendActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,29 +21,29 @@ class c implements AdapterView.OnItemClickListener {
         int i2;
         CustomMessageListener customMessageListener;
         CustomMessageListener customMessageListener2;
-        com.baidu.tbadk.coreExtra.relationship.a item = this.djy.dju.getItem(i);
+        com.baidu.tbadk.coreExtra.relationship.a item = this.dlP.dlL.getItem(i);
         if (item != null) {
             long userId = item.getUserId();
             String userName = item.getUserName();
             String AW = item.AW();
-            i2 = this.djy.djt;
+            i2 = this.dlP.dlK;
             if (i2 == 0) {
-                customMessageListener = this.djy.djv;
+                customMessageListener = this.dlP.dlM;
                 if (customMessageListener == null) {
-                    this.djy.djv = new d(this, CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, userId, userName, AW);
-                    SelectFriendActivity selectFriendActivity = this.djy;
-                    customMessageListener2 = this.djy.djv;
+                    this.dlP.dlM = new d(this, CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, userId, userName, AW);
+                    SelectFriendActivity selectFriendActivity = this.dlP;
+                    customMessageListener2 = this.dlP.dlM;
                     selectFriendActivity.registerListener(customMessageListener2);
                 }
-                this.djy.sendMessage(new CustomMessage(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA));
+                this.dlP.sendMessage(new CustomMessage(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA));
                 return;
             }
             Intent intent = new Intent();
             intent.putExtra(PersonalChatActivityConfig.KEY_USER_ID, userId);
             intent.putExtra(PersonalChatActivityConfig.KEY_USER_NAME, userName);
             intent.putExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT, AW);
-            this.djy.setResult(-1, intent);
-            this.djy.finish();
+            this.dlP.setResult(-1, intent);
+            this.dlP.finish();
         }
     }
 }

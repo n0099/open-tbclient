@@ -25,7 +25,7 @@ public class af extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryModifyVisibilityMessage.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016005 && (customResponsedMessage instanceof MemoryModifyVisibilityMessage) && (data = ((MemoryModifyVisibilityMessage) customResponsedMessage).getData()) != null) {
-            ImMessageCenterPojo Y = b.asc().Y(data.id, data.customGroupType);
+            ImMessageCenterPojo Y = b.atd().Y(data.id, data.customGroupType);
             int i = data.visible ? 0 : 1;
             if (Y != null && i != Y.getIs_hidden()) {
                 if (data.customGroupType == 2) {
@@ -41,7 +41,7 @@ public class af extends CustomMessageListener {
                 } else {
                     com.baidu.tbadk.coreExtra.messageCenter.a.zj().el(data.id);
                 }
-                b.asc().f(data.id, data.customGroupType, data.visible);
+                b.atd().f(data.id, data.customGroupType, data.visible);
                 Y.setIs_hidden(i);
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ag(this, Y));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());

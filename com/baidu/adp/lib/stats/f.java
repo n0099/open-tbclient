@@ -8,13 +8,13 @@ public class f {
         if (context == null) {
             return null;
         }
-        if (i.hk()) {
+        if (i.hl()) {
             return "WIFI";
         }
-        if (i.hl()) {
-            int hs = i.hs();
+        if (i.hm()) {
+            int ht = i.ht();
             StringBuilder sb = new StringBuilder();
-            switch (hs) {
+            switch (ht) {
                 case 1:
                     sb.append('M');
                     break;
@@ -33,11 +33,11 @@ public class f {
             } else {
                 sb.append("_NET_");
             }
-            if (i.hn()) {
+            if (i.ho()) {
                 sb.append("3G");
-            } else if (i.hm()) {
+            } else if (i.hn()) {
                 sb.append("4G");
-            } else if (i.ho()) {
+            } else if (i.hp()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

@@ -4,7 +4,7 @@ public class ah extends com.baidu.adp.lib.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void X(int i) {
-        this.tX = 1;
+        this.ud = 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -13,22 +13,22 @@ public class ah extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eP() {
+    protected String[] eQ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
+    protected int eR() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
+    protected int eS() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
+    protected int eT() {
         return 10;
     }
 }

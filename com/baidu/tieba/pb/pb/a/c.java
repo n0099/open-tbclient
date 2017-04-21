@@ -16,7 +16,7 @@ public class c extends com.baidu.adp.widget.ListView.a<p, d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aV */
+    /* renamed from: aX */
     public d onCreateViewHolder(ViewGroup viewGroup) {
         return new d(LayoutInflater.from(this.mContext).inflate(w.j.pb_declare_area, (ViewGroup) null), this.mContext);
     }

@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d implements com.baidu.tbadk.coreExtra.a.c {
-    private static d edf;
+    private static d efv;
 
     private d() {
     }
 
-    public static synchronized d aIE() {
+    public static synchronized d aJF() {
         d dVar;
         synchronized (d.class) {
-            if (edf == null) {
-                edf = new d();
+            if (efv == null) {
+                efv = new d();
             }
-            dVar = edf;
+            dVar = efv;
         }
         return dVar;
     }

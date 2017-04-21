@@ -25,20 +25,20 @@ class o extends CustomMessageListener {
         z zVar3;
         int i;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (oO = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).oO()) != null && oO.size() != 0) {
-            zVar = this.this$0.fzU;
+            zVar = this.this$0.fCk;
             zVar.ae(oO);
-            z = this.this$0.fzR;
+            z = this.this$0.fCh;
             if (z) {
-                zVar3 = this.this$0.fzU;
-                FragmentTabHost bkb = zVar3.bkb();
-                i = this.this$0.fzQ;
-                bkb.setCurrentTabByType(i);
+                zVar3 = this.this$0.fCk;
+                FragmentTabHost blc = zVar3.blc();
+                i = this.this$0.fCg;
+                blc.setCurrentTabByType(i);
             } else {
-                this.this$0.V(this.this$0.getIntent());
+                this.this$0.W(this.this$0.getIntent());
             }
-            this.this$0.fzR = false;
-            zVar2 = this.this$0.fzU;
-            zVar2.bjZ();
+            this.this$0.fCh = false;
+            zVar2 = this.this$0.fCk;
+            zVar2.bla();
         }
     }
 }

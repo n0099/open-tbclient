@@ -22,7 +22,7 @@ public class XiaoyingUtil {
     private static int showTime;
 
     public static boolean isXiaoyingForbidden() {
-        return PluginPackageManager.jx().be(PKG_NAME_VIDEO);
+        return PluginPackageManager.jy().be(PKG_NAME_VIDEO);
     }
 
     public static int getShowTime() {
@@ -34,7 +34,7 @@ public class XiaoyingUtil {
     }
 
     public static boolean isXiaoyingInstalled() {
-        return PluginPackageManager.jx().aY(PKG_NAME_VIDEO) && TbadkCoreApplication.m9getInst().appResponseToIntentClass(MotuVideoConfig.class);
+        return PluginPackageManager.jy().aY(PKG_NAME_VIDEO) && TbadkCoreApplication.m9getInst().appResponseToIntentClass(MotuVideoConfig.class);
     }
 
     public static void startXiaoying(Context context) {
@@ -59,10 +59,10 @@ public class XiaoyingUtil {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
                 BdToast.a(context, context.getString(w.l.plugin_xiaoying_install_fail)).tY();
-            } else if (z && !com.baidu.adp.lib.util.i.hj()) {
+            } else if (z && !com.baidu.adp.lib.util.i.hk()) {
                 BdToast.a(context, context.getString(w.l.neterror)).tY();
             } else if (z) {
-                if (com.baidu.adp.lib.util.i.hk()) {
+                if (com.baidu.adp.lib.util.i.hl()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
                     return;
                 }
@@ -86,7 +86,7 @@ public class XiaoyingUtil {
 
     public static boolean showXiaoyingTool() {
         PluginNetConfigInfos.PluginConfig pluginConfig;
-        return (!TbadkCoreApplication.m9getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.jx().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().findPluginSetting(PKG_NAME_VIDEO) == null) ? false : true;
+        return (!TbadkCoreApplication.m9getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.jy().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().findPluginSetting(PKG_NAME_VIDEO) == null) ? false : true;
     }
 
     public static void showGoPluginDetailDialog(TbPageContext<?> tbPageContext, String str, String str2) {

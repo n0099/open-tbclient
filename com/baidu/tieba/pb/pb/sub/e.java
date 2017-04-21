@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0055a {
-    final /* synthetic */ b esC;
+    final /* synthetic */ b euT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.esC = bVar;
+        this.euT = bVar;
     }
 
     @Override // com.baidu.tieba.e.a.InterfaceC0055a
@@ -22,19 +22,19 @@ public class e implements a.InterfaceC0055a {
         a aVar3;
         BaseActivity baseActivity;
         a aVar4;
-        aVar = this.esC.esz;
+        aVar = this.euT.euQ;
         if (aVar != null) {
-            aVar2 = this.esC.esz;
-            if (aVar2.aOm()) {
+            aVar2 = this.euT.euQ;
+            if (aVar2.aPn()) {
                 int abs = Math.abs(i2);
-                i3 = b.esy;
+                i3 = b.TOUCH_SLOP;
                 if (abs > i3) {
-                    aVar3 = this.esC.esw;
+                    aVar3 = this.euT.euO;
                     if (aVar3 != null) {
-                        aVar4 = this.esC.esw;
+                        aVar4 = this.euT.euO;
                         aVar4.setBackgroundResource(w.e.transparent);
                     }
-                    baseActivity = this.esC.bcy;
+                    baseActivity = this.euT.bdG;
                     baseActivity.finish();
                 }
             }
@@ -43,6 +43,6 @@ public class e implements a.InterfaceC0055a {
 
     @Override // com.baidu.tieba.e.a.InterfaceC0055a
     public void W(int i, int i2) {
-        this.esC.aOh();
+        this.euT.aPi();
     }
 }

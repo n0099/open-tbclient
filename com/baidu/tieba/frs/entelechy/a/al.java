@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends cf<bi> {
-    final /* synthetic */ ak bSS;
+    final /* synthetic */ ak bVj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar) {
-        this.bSS = akVar;
+        this.bVj = akVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,11 +19,11 @@ public class al extends cf<bi> {
     public void a(View view, bi biVar) {
         if (view != null && biVar != null) {
             if (view.getId() == w.h.layout_root) {
-                com.baidu.tieba.frs.e.b.adp().a(ak.bYW, biVar, 1);
+                com.baidu.tieba.frs.e.b.aeq().a(ak.cbn, biVar, 1);
             } else if (view.getId() == w.h.image_user) {
-                com.baidu.tieba.frs.e.b.adp().a(ak.bYW, biVar, 2);
+                com.baidu.tieba.frs.e.b.aeq().a(ak.cbn, biVar, 2);
             } else if (view.getId() == w.h.header_divider) {
-                com.baidu.tieba.frs.f.s.a(ak.bYW, biVar.sM());
+                com.baidu.tieba.frs.f.s.a(ak.cbn, biVar.sM());
             }
         }
     }

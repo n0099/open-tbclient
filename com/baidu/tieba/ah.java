@@ -16,11 +16,11 @@ public class ah implements View.OnClickListener {
         boolean z;
         boolean z2;
         boolean z3;
-        this.this$0.aUi.Lm();
+        this.this$0.aUk.Lm();
         UpdateDialog updateDialog = this.this$0;
-        z = this.this$0.aUd;
-        z2 = this.this$0.aUe;
-        z3 = this.this$0.aUf;
+        z = this.this$0.aUf;
+        z2 = this.this$0.aUg;
+        z3 = this.this$0.aUh;
         updateDialog.c(z, z2, z3);
     }
 }

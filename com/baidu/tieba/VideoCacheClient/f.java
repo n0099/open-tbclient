@@ -15,14 +15,14 @@ import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class f {
     private static final String TAG = f.class.getSimpleName();
-    private static f aVl;
+    private static f aVn;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean aQB = false;
-    private Handler.Callback aQN = new g(this);
+    private boolean aQD = false;
+    private Handler.Callback aQP = new g(this);
     private ServiceConnection mServiceConnection = new h(this);
-    private Runnable aQD = new i(this);
+    private Runnable aQF = new i(this);
 
     private f(Context context) {
         if (context != null) {
@@ -30,19 +30,19 @@ public class f {
         }
         HandlerThread handlerThread = new HandlerThread("video_cache_client_handler");
         handlerThread.start();
-        this.mHandler = new Handler(handlerThread.getLooper(), this.aQN);
+        this.mHandler = new Handler(handlerThread.getLooper(), this.aQP);
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
     public static f aW(Context context) {
-        if (aVl == null) {
+        if (aVn == null) {
             synchronized (f.class) {
-                if (aVl == null) {
-                    aVl = new f(context);
+                if (aVn == null) {
+                    aVn = new f(context);
                 }
             }
         }
-        return aVl;
+        return aVn;
     }
 
     public void gZ(String str) {

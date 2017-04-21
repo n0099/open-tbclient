@@ -4,18 +4,18 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnTouchListener {
-    final /* synthetic */ InputView aAB;
+    final /* synthetic */ InputView aAD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(InputView inputView) {
-        this.aAB = inputView;
+        this.aAD = inputView;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            this.aAB.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-            this.aAB.requestFocus();
+            this.aAD.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+            this.aAD.requestFocus();
         }
         return false;
     }

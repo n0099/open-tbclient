@@ -42,8 +42,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
-    private static volatile b NJ;
-    private PublicKey NI;
+    private static volatile b NL;
+    private PublicKey NK;
     private final Context a;
     private int b = 0;
 
@@ -250,7 +250,7 @@ public final class c {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.NI);
+                                            byte[] a3 = a(com.baidu.location.b.a.b.a(string2.getBytes()), this.NK);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.location.b.a.d.a(a2))) {
                                                 aVar.c = true;
                                             }
@@ -280,7 +280,7 @@ public final class c {
             th = th;
         }
         try {
-            this.NI = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
+            this.NK = CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream).getPublicKey();
             if (byteArrayInputStream != null) {
                 try {
                     byteArrayInputStream.close();
@@ -390,16 +390,16 @@ public final class c {
     }
 
     private static b ao(Context context) {
-        if (NJ == null) {
+        if (NL == null) {
             synchronized (b.class) {
-                if (NJ == null) {
+                if (NL == null) {
                     SystemClock.uptimeMillis();
-                    NJ = new c(context).na();
+                    NL = new c(context).na();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return NJ;
+        return NL;
     }
 
     public static String b(Context context) {

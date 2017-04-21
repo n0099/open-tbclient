@@ -8,40 +8,40 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.e {
-    TbPageContext ajT;
-    TextView ezo;
-    TextView ezp;
-    TextView ezq;
-    View ezr;
+    TbPageContext ajU;
+    TextView eBE;
+    TextView eBF;
+    TextView eBG;
+    View eBH;
     View mView;
 
     public e(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
-        this.ajT = tbPageContext;
-        a(this.ajT, onClickListener);
+        this.ajU = tbPageContext;
+        a(this.ajU, onClickListener);
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(w.j.person_info_more_view, (ViewGroup) null);
-        this.ezo = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_friend);
-        this.ezo.setOnClickListener(onClickListener);
-        this.ezp = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_black);
-        this.ezp.setOnClickListener(onClickListener);
-        this.ezq = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_mute);
-        this.ezr = this.mView.findViewById(w.h.person_info_more_view_item_line_mute);
-        this.ezq.setOnClickListener(onClickListener);
+        this.eBE = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_friend);
+        this.eBE.setOnClickListener(onClickListener);
+        this.eBF = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_black);
+        this.eBF.setOnClickListener(onClickListener);
+        this.eBG = (TextView) this.mView.findViewById(w.h.person_info_more_view_item_mute);
+        this.eBH = this.mView.findViewById(w.h.person_info_more_view_item_line_mute);
+        this.eBG.setOnClickListener(onClickListener);
     }
 
     public void y(boolean z, boolean z2) {
         if (z) {
-            this.ezo.setText(w.l.remove_friend);
+            this.eBE.setText(w.l.remove_friend);
         } else {
-            this.ezo.setText(w.l.frs_recommend_friend_item_add);
+            this.eBE.setText(w.l.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.ezp.setText(w.l.remove_block_chat);
+            this.eBF.setText(w.l.remove_block_chat);
         } else {
-            this.ezp.setText(w.l.block_chat_message);
+            this.eBF.setText(w.l.block_chat_message);
         }
     }
 
@@ -49,25 +49,25 @@ public class e extends com.baidu.adp.base.e {
         return this.mView;
     }
 
-    public View aQi() {
-        return this.ezo;
+    public View aRj() {
+        return this.eBE;
     }
 
-    public View aQj() {
-        return this.ezp;
+    public View aRk() {
+        return this.eBF;
     }
 
-    public View aQk() {
-        return this.ezq;
+    public View aRl() {
+        return this.eBG;
     }
 
-    public void oR(int i) {
-        this.ezq.setVisibility(0);
-        this.ezr.setVisibility(0);
+    public void oX(int i) {
+        this.eBG.setVisibility(0);
+        this.eBH.setVisibility(0);
         if (i == 0) {
-            this.ezq.setText(this.ajT.getResources().getString(w.l.mute));
+            this.eBG.setText(this.ajU.getResources().getString(w.l.mute));
         } else if (i == 1) {
-            this.ezq.setText(this.ajT.getResources().getString(w.l.un_mute));
+            this.eBG.setText(this.ajU.getResources().getString(w.l.un_mute));
         }
     }
 }

@@ -8,11 +8,11 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.RequestPersonalLbsIn
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class h implements a.InterfaceC0004a {
-    final /* synthetic */ PersonalChatActivity dhj;
+    final /* synthetic */ PersonalChatActivity djA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PersonalChatActivity personalChatActivity) {
-        this.dhj = personalChatActivity;
+        this.djA = personalChatActivity;
     }
 
     @Override // com.baidu.adp.lib.d.a.InterfaceC0004a
@@ -21,11 +21,11 @@ class h implements a.InterfaceC0004a {
         if (i == 0 && address != null) {
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
-            msglistModel = this.dhj.cOu;
+            msglistModel = this.djA.cQL;
             UserData user = ((PersonalMsglistModel) msglistModel).getUser();
             if (user != null) {
-                this.dhj.mUser = user;
-                this.dhj.sendMessage(new RequestPersonalLbsInfoMessage(205101, user.getUserIdLong(), valueOf, valueOf2));
+                this.djA.mUser = user;
+                this.djA.sendMessage(new RequestPersonalLbsInfoMessage(205101, user.getUserIdLong(), valueOf, valueOf2));
             }
         }
     }

@@ -1149,7 +1149,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     public void setActivityBgTransparent() {
         if (this.mSwipeBackLayout != null) {
-            this.mSwipeBackLayout.lQ();
+            this.mSwipeBackLayout.lR();
         }
     }
 

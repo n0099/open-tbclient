@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class bq {
-    private long bPD;
-    private long bPE;
-    private long bPF;
-    private long bPG;
-    private long bPH;
+    private long bRU;
+    private long bRV;
+    private long bRW;
+    private long bRX;
+    private long bRY;
 
     public bq(Context context) {
         aQ(0L);
@@ -15,34 +15,34 @@ public class bq {
     }
 
     public void aQ(long j) {
-        this.bPD = j;
+        this.bRU = j;
     }
 
     public void aR(long j) {
-        this.bPE = j;
+        this.bRV = j;
     }
 
-    public long aay() {
-        return this.bPE + this.bPD + this.bPF;
+    public long abz() {
+        return this.bRV + this.bRU + this.bRW;
     }
 
     public void aS(long j) {
-        this.bPF = j;
+        this.bRW = j;
     }
 
     public void aT(long j) {
-        this.bPG = j;
+        this.bRX = j;
     }
 
-    public long aaz() {
-        return this.bPG;
+    public long abA() {
+        return this.bRX;
     }
 
-    public long aaA() {
-        return this.bPH;
+    public long abB() {
+        return this.bRY;
     }
 
     public void aU(long j) {
-        this.bPH = j;
+        this.bRY = j;
     }
 }

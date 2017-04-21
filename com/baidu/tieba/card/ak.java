@@ -7,13 +7,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends CustomMessageListener {
-    final /* synthetic */ x bsX;
+    final /* synthetic */ x bvq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(x xVar, int i) {
         super(i);
-        this.bsX = xVar;
+        this.bvq = xVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,19 +27,19 @@ public class ak extends CustomMessageListener {
         TextView textView2;
         com.baidu.tieba.card.data.p pVar5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            pVar = this.bsX.bsP;
+            pVar = this.bvq.bvi;
             if (pVar != null) {
-                pVar2 = this.bsX.bsP;
-                if (pVar2.bbo != null) {
-                    pVar3 = this.bsX.bsP;
-                    if (pVar3.bbo.getTid() != null) {
-                        textView = this.bsX.mTextTitle;
+                pVar2 = this.bvq.bvi;
+                if (pVar2.bck != null) {
+                    pVar3 = this.bvq.bvi;
+                    if (pVar3.bck.getTid() != null) {
+                        textView = this.bvq.mTextTitle;
                         if (textView != null) {
-                            pVar4 = this.bsX.bsP;
-                            if (((String) customResponsedMessage.getData()).equals(pVar4.bbo.getTid())) {
-                                textView2 = this.bsX.mTextTitle;
-                                pVar5 = this.bsX.bsP;
-                                at.a(textView2, pVar5.bbo.getId(), w.e.cp_cont_c, w.e.cp_cont_d);
+                            pVar4 = this.bvq.bvi;
+                            if (((String) customResponsedMessage.getData()).equals(pVar4.bck.getTid())) {
+                                textView2 = this.bvq.mTextTitle;
+                                pVar5 = this.bvq.bvi;
+                                at.a(textView2, pVar5.bck.getId(), w.e.cp_cont_c, w.e.cp_cont_d);
                             }
                         }
                     }

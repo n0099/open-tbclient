@@ -52,15 +52,15 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
     public void logStatInBackground(int i, f fVar) {
-        if (fVar.fC().size() > 0) {
-            e eVar = fVar.fC().get(fVar.fC().size() - 1);
-            ad.afy.addAndGet(fVar.fC().size() - 1);
+        if (fVar.fD().size() > 0) {
+            e eVar = fVar.fD().get(fVar.fD().size() - 1);
+            ad.afz.addAndGet(fVar.fD().size() - 1);
             ad.a aVar = new ad.a();
-            aVar.mMode = getMode(i.hp());
-            aVar.afA = eVar.vp;
-            aVar.mTime = eVar.vt;
-            aVar.afB = eVar.vs;
-            aVar.afz = fVar.fA().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aVar.mMode = getMode(i.hq());
+            aVar.afB = eVar.vu;
+            aVar.mTime = eVar.vx;
+            aVar.afC = eVar.vw;
+            aVar.afA = fVar.fB().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             ad.a(aVar);
         }
     }

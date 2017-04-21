@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(PbActivity pbActivity, int i) {
         super(i);
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,14 +27,14 @@ class w extends CustomMessageListener {
         boolean z = false;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.ejU.ejj;
+            bdUniqueId = this.emk.elz;
             if (tag == bdUniqueId) {
                 com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                eyVar = this.ejU.eiS;
-                eyVar.aIs();
-                obj = this.ejU.mExtra;
+                eyVar = this.emk.eli;
+                eyVar.aJt();
+                obj = this.emk.mExtra;
                 SparseArray<Object> sparseArray = (SparseArray) obj;
-                DataRes dataRes = aVar.fIt;
+                DataRes dataRes = aVar.fKP;
                 if (aVar.error == 0 && dataRes != null) {
                     int g = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0);
                     String str = dataRes.mute_confirm;
@@ -51,9 +51,9 @@ class w extends CustomMessageListener {
                 }
                 int intValue = ((Integer) sparseArray.get(w.h.tag_from)).intValue();
                 if (intValue == 0) {
-                    this.ejU.a(z, sparseArray);
+                    this.emk.a(z, sparseArray);
                 } else if (intValue == 1) {
-                    eyVar2 = this.ejU.eiS;
+                    eyVar2 = this.emk.eli;
                     eyVar2.a(sparseArray, z);
                 }
             }

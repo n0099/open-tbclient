@@ -18,7 +18,7 @@ class c extends CustomMessageListener {
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
             ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(personInfoDelegateStatic);
             if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Fe = personInfoDelegateStatic.Fe()) != null) {
-                Fe.aEf.setArguments(new Bundle());
+                Fe.aEh.setArguments(new Bundle());
             }
         }
     }

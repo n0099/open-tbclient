@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dq implements c.b {
-    final /* synthetic */ dp emq;
+    final /* synthetic */ dp eoJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dq(dp dpVar) {
-        this.emq = dpVar;
+        this.eoJ = dpVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -17,7 +17,7 @@ public class dq implements c.b {
         View.OnClickListener onClickListener;
         if (cVar != null && view != null) {
             cVar.dismiss();
-            onClickListener = this.emq.bLV;
+            onClickListener = this.eoJ.bOm;
             onClickListener.onClick(view);
         }
     }

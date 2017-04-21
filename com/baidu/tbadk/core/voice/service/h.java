@@ -7,7 +7,7 @@ public interface h {
 
     int getErrorNo();
 
-    int hN();
+    int hO();
 
     boolean isPlaying();
 

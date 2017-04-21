@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class AppealActivity extends BaseActivity<AppealActivity> {
-    private TextView aVT;
-    private TextView aVU;
     private TextView aVV;
     private TextView aVW;
-    private String aVX;
-    private String aVY;
+    private TextView aVX;
+    private TextView aVY;
+    private String aVZ;
+    private String aWa;
     private NavigationBar mNavigationBar;
     private String mUserName;
     private final TextWatcher mTextWatcher = new a(this);
-    private final View.OnClickListener aVZ = new b(this);
+    private final View.OnClickListener aWb = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -31,26 +31,26 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(w.h.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(w.l.appeal_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.push_commit), this.aVZ);
-        this.aVT = (TextView) findViewById(w.h.forbid_id);
-        this.aVU = (TextView) findViewById(w.h.forbid_reason);
-        this.aVV = (TextView) findViewById(w.h.appeal_reason);
-        this.aVW = (TextView) findViewById(w.h.remain_text_count);
-        this.aVW.setText(String.valueOf((int) BaseActivity.SHOW_SOFT_KEYBOARD_DELAY));
-        this.aVV.setFocusable(true);
-        this.aVV.setFocusableInTouchMode(true);
-        this.aVV.requestFocus();
-        k.c(getPageContext().getPageActivity(), this.aVV);
-        this.aVV.addTextChangedListener(this.mTextWatcher);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(w.l.push_commit), this.aWb);
+        this.aVV = (TextView) findViewById(w.h.forbid_id);
+        this.aVW = (TextView) findViewById(w.h.forbid_reason);
+        this.aVX = (TextView) findViewById(w.h.appeal_reason);
+        this.aVY = (TextView) findViewById(w.h.remain_text_count);
+        this.aVY.setText(String.valueOf((int) BaseActivity.SHOW_SOFT_KEYBOARD_DELAY));
+        this.aVX.setFocusable(true);
+        this.aVX.setFocusableInTouchMode(true);
+        this.aVX.requestFocus();
+        k.c(getPageContext().getPageActivity(), this.aVX);
+        this.aVX.addTextChangedListener(this.mTextWatcher);
         initData();
     }
 
     private void initData() {
         Intent intent = getIntent();
-        this.aVX = intent.getStringExtra("forum_id");
-        this.aVY = intent.getStringExtra("user_id");
+        this.aVZ = intent.getStringExtra("forum_id");
+        this.aWa = intent.getStringExtra("user_id");
         this.mUserName = intent.getStringExtra("user_name");
-        g.a(this.aVX, this.aVY, new d(this));
+        g.a(this.aVZ, this.aWa, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -69,6 +69,6 @@ public class AppealActivity extends BaseActivity<AppealActivity> {
         getLayoutMode().aj(i == 1);
         getLayoutMode().t(findViewById(w.h.root));
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aVV.setHintTextColor(aq.getColor(w.e.common_color_10005));
+        this.aVX.setHintTextColor(aq.getColor(w.e.common_color_10005));
     }
 }

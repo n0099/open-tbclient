@@ -44,10 +44,10 @@ public class i {
     public static String l = "gcj02";
     public static boolean m = true;
     public static int n = 3;
-    public static double Nv = 0.0d;
-    public static double Nw = 0.0d;
     public static double Nx = 0.0d;
     public static double Ny = 0.0d;
+    public static double Nz = 0.0d;
+    public static double NA = 0.0d;
     public static int s = 0;
     public static byte[] t = null;
     public static boolean u = false;
@@ -68,11 +68,11 @@ public class i {
     public static float J = 50.0f;
     public static float K = 200.0f;
     public static int L = 16;
-    public static float Qo = 0.9f;
+    public static float Qq = 0.9f;
     public static int N = 10000;
-    public static float Qp = 0.5f;
-    public static float Qq = 0.0f;
-    public static float Qr = 0.1f;
+    public static float Qr = 0.5f;
+    public static float Qs = 0.0f;
+    public static float Qt = 0.1f;
     public static int R = 30;
     public static int S = 100;
     public static int T = 0;
@@ -80,23 +80,23 @@ public class i {
     public static int V = 0;
     public static int W = 420000;
     public static boolean X = true;
-    public static boolean Qs = true;
+    public static boolean Qu = true;
     public static int Z = 20;
-    public static int Qt = 300;
-    public static int Qu = 1000;
+    public static int Qv = 300;
+    public static int Qw = 1000;
     public static long ac = 900000;
     public static long ad = 420000;
     public static long ae = 180000;
-    public static long Qv = 0;
-    public static long Qw = 15;
-    public static long Qx = ReportUserInfoModel.TIME_INTERVAL;
+    public static long Qx = 0;
+    public static long Qy = 15;
+    public static long Qz = ReportUserInfoModel.TIME_INTERVAL;
     public static int ai = 1000;
     public static int aj = 0;
     public static int ak = 30000;
     public static int al = 30000;
     public static float am = 10.0f;
-    public static float Qy = 6.0f;
-    public static float Qz = 10.0f;
+    public static float QA = 6.0f;
+    public static float QB = 10.0f;
     public static int ap = 60;
     public static int aq = 70;
     public static int ar = 6;
@@ -163,9 +163,9 @@ public class i {
                 int d3 = iVar.d();
                 int a3 = iVar.a();
                 boolean e2 = iVar.e();
-                if (speed < Qy && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
+                if (speed < QA && ((i3 == 1 || i3 == 0) && (d3 < ap || e2))) {
                     n = 1;
-                } else if (speed >= Qz || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
+                } else if (speed >= QB || (!(i3 == 1 || i3 == 0 || i3 == 3) || (d3 >= aq && a3 <= ar))) {
                     n = 3;
                 } else {
                     n = 2;

@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends Handler {
-    final /* synthetic */ ah dkP;
+    final /* synthetic */ ah dng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ah ahVar) {
-        this.dkP = ahVar;
+        this.dng = ahVar;
     }
 
     @Override // android.os.Handler
@@ -18,12 +18,12 @@ public class aj extends Handler {
         Handler handler;
         Handler handler2;
         if (message.what == 1) {
-            this.dkP.dkO = System.currentTimeMillis();
-            if ((!MessageManager.getInstance().getSocketClient().isValid()) && com.baidu.adp.lib.util.i.hj()) {
-                this.dkP.avm();
+            this.dng.dnf = System.currentTimeMillis();
+            if ((!MessageManager.getInstance().getSocketClient().isValid()) && com.baidu.adp.lib.util.i.hk()) {
+                this.dng.awn();
             }
-            handler = this.dkP.mHandler;
-            handler2 = this.dkP.mHandler;
+            handler = this.dng.mHandler;
+            handler2 = this.dng.mHandler;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
         }
     }

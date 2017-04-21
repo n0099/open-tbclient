@@ -26,9 +26,6 @@ import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
-    public static final int ANCHOR_HAVE_POWER = 1;
-    public static final int ANCHOR_NOT_SHOW = 0;
-    public static final int ANCHOR_SHOW_BUT_NO_POWER = 2;
     public static final int FORUM_LIKE = 1;
     public static final int FORUM_UNLIKE = 0;
     private static final long serialVersionUID = -5446966999595522426L;
@@ -48,6 +45,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
     private final ArrayList<g> mBadgeData;
     private final BannerListData mBannerListData;
     private final x mFrsBannerData;
+    public int mIsLiveGameForum;
     private v mMemberShowIconData;
     private PostTopicData mPostTopicData;
     private final PostPrefixData mPrefixData;
@@ -96,6 +94,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new v();
         this.yuleData = new br();
+        this.mIsLiveGameForum = 0;
     }
 
     public AnchorPower getAnchorPower() {
@@ -306,7 +305,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0056: IGET  (r4v12 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.tag_id java.lang.Integer)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0067: IGET  (r0v87 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0067: IGET  (r0v89 java.lang.Integer A[REMOVE]) = (r0v14 tbclient.FrsPage.TagInfo) tbclient.FrsPage.TagInfo.color java.lang.Integer)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.FrsPage.ForumInfo) tbclient.FrsPage.ForumInfo.id java.lang.Long)] */
     public void parserProtobuf(ForumInfo forumInfo) {
         if (forumInfo != null) {
@@ -417,6 +416,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
                     this.mRealTimeData.a(realTime);
                 }
                 this.mAcrossForumIcon = forumInfo.across_forum_show;
+                this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -480,6 +480,7 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
                 this.user_level = jSONObject.optInt("level_id", 0);
                 this.level_name = jSONObject.optString("level_name", null);
                 this.album_open_photo_frs = jSONObject.optInt("album_open_photo_frs", 0);
+                this.mIsLiveGameForum = jSONObject.optInt("is_live_game_forum", 0);
                 setFavo_type(jSONObject.optInt("favo_type", 0));
                 JSONArray optJSONArray = jSONObject.optJSONArray("managers");
                 if (optJSONArray != null) {
@@ -670,6 +671,10 @@ public class ForumData implements com.baidu.tbadk.core.util.ah, Serializable {
 
     public void setYuleData(br brVar) {
         this.yuleData = brVar;
+    }
+
+    public boolean isGameForumType() {
+        return this.mIsLiveGameForum == 1;
     }
 
     @Override // com.baidu.tbadk.core.util.ah

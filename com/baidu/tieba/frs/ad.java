@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.frs.entelechy.c.a;
 /* loaded from: classes.dex */
 class ad extends CustomMessageListener {
-    final /* synthetic */ FrsActivity bNJ;
+    final /* synthetic */ FrsActivity bQa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(FrsActivity frsActivity, int i) {
         super(i);
-        this.bNJ = frsActivity;
+        this.bQa = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,12 +21,12 @@ class ad extends CustomMessageListener {
         com.baidu.tieba.frs.entelechy.b.d dVar2;
         com.baidu.tieba.frs.entelechy.b.d dVar3;
         if (customResponsedMessage != null) {
-            dVar = this.bNJ.bMT;
+            dVar = this.bQa.bPk;
             if (dVar instanceof a) {
-                dVar2 = this.bNJ.bMT;
-                if (((a) dVar2).abL() != null) {
-                    dVar3 = this.bNJ.bMT;
-                    ((a) dVar3).abL().iw(49);
+                dVar2 = this.bQa.bPk;
+                if (((a) dVar2).acM() != null) {
+                    dVar3 = this.bQa.bPk;
+                    ((a) dVar3).acM().iC(49);
                 }
             }
         }

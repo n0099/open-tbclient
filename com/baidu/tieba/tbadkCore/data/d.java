@@ -4,16 +4,16 @@ import android.content.Context;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
 /* loaded from: classes.dex */
 public class d {
-    private AbsDelegateAdapterList fvn;
+    private AbsDelegateAdapterList fxE;
     private Context mContext;
 
     public d(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         this.mContext = context;
-        this.fvn = absDelegateAdapterList;
+        this.fxE = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList bhL() {
-        return this.fvn;
+    public AbsDelegateAdapterList biM() {
+        return this.fxE;
     }
 
     public Context getContext() {

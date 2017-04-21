@@ -7,40 +7,40 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private static int fyn = 6144000;
-    private static int fyo = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b fyp;
+    private static int fAD = 6144000;
+    private static int fAE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b fAF;
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (com.baidu.adp.lib.b.e.eY().Y("is_video_batch") == 1) {
-                this.fyp = new d(str2, fyo);
+            if (com.baidu.adp.lib.b.e.eZ().Y("is_video_batch") == 1) {
+                this.fAF = new d(str2, fAE);
             } else {
-                this.fyp = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fyn);
+                this.fAF = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, fAD);
             }
-            this.fyp.a(eVar);
-            return this.fyp.aw(str2, i);
+            this.fAF.a(eVar);
+            return this.fAF.aw(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    public void bjn() {
-        if (this.fyp != null) {
-            this.fyp.cancel();
+    public void bko() {
+        if (this.fAF != null) {
+            this.fAF.cancel();
         }
     }
 
-    public static void sb(int i) {
+    public static void sh(int i) {
         if (i <= 0) {
-            fyo = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+            fAE = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
-            fyo = i;
+            fAE = i;
         }
     }
 
-    public static void sc(int i) {
+    public static void si(int i) {
         if (i <= 0) {
             chunkLength = AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
         } else {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public static void sd(int i) {
+    public static void sj(int i) {
         if (i <= 0) {
-            fyn = 6144000;
+            fAD = 6144000;
         } else {
-            fyn = i;
+            fAD = i;
         }
     }
 }

@@ -36,21 +36,21 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class LoginActivity extends BaseActivity<LoginActivity> {
-    private BdAsyncTask<?, ?, ?> aVu;
+    private BdAsyncTask<?, ?, ?> aVw;
     private View aom;
-    private SapiWebView ecJ;
-    private FrameLayout ecM;
-    private TextView ecN;
-    private View ecO;
-    private Handler ecP;
+    private SapiWebView eeZ;
+    private FrameLayout efc;
+    private TextView efd;
+    private View efe;
+    private Handler eff;
     private NavigationBar mNavigationBar;
     private LinearLayout mRootLayout;
-    private boolean ecK = false;
+    private boolean efa = false;
     private int mFrom = -1;
-    private int ecL = -1;
-    private com.baidu.tbadk.coreExtra.view.j aDz = null;
-    private final CustomMessageListener ecQ = new e(this, CmdConfigCustom.CMD_LOGIN_WEINXIN);
-    private final a.InterfaceC0030a acU = new f(this);
+    private int efb = -1;
+    private com.baidu.tbadk.coreExtra.view.j aDB = null;
+    private final CustomMessageListener efg = new e(this, CmdConfigCustom.CMD_LOGIN_WEINXIN);
+    private final a.InterfaceC0030a acV = new f(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -59,10 +59,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         setSwipeBackEnabled(false);
         setContentView(w.j.layout_sapi_webview_login);
         Intent intent = getIntent();
-        this.ecK = intent.getBooleanExtra(IntentConfig.CLOSE, false);
+        this.efa = intent.getBooleanExtra(IntentConfig.CLOSE, false);
         this.mFrom = intent.getIntExtra("from", -1);
-        this.ecL = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
-        registerListener(this.ecQ);
+        this.efb = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
+        registerListener(this.efg);
         setupViews();
     }
 
@@ -72,21 +72,21 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.aom = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.aom.setOnClickListener(this);
         this.mNavigationBar.setTitleText(getPageContext().getString(w.l.login));
-        this.ecO = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.navigation_right_button_layout, (View.OnClickListener) null);
-        this.ecN = (TextView) this.ecO.findViewById(w.h.right_textview);
-        this.ecN.setText(getPageContext().getString(w.l.register));
-        aq.c(this.ecN, w.e.navi_op_text, 1);
-        this.ecN.setOnClickListener(this);
-        this.ecM = (FrameLayout) findViewById(w.h.webview_container);
-        this.ecJ = new SapiWebView(getPageContext().getPageActivity());
-        this.ecM.removeAllViews();
-        this.ecM.addView(this.ecJ);
-        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.ecJ);
-        this.ecJ.setOnFinishCallback(new i(this));
-        this.ecJ.setAuthorizationListener(new j(this));
-        this.ecP = new k(this);
-        this.ecJ.setSocialLoginHandler(this.ecP);
-        this.ecJ.loadLogin();
+        this.efe = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.navigation_right_button_layout, (View.OnClickListener) null);
+        this.efd = (TextView) this.efe.findViewById(w.h.right_textview);
+        this.efd.setText(getPageContext().getString(w.l.register));
+        aq.c(this.efd, w.e.navi_op_text, 1);
+        this.efd.setOnClickListener(this);
+        this.efc = (FrameLayout) findViewById(w.h.webview_container);
+        this.eeZ = new SapiWebView(getPageContext().getPageActivity());
+        this.efc.removeAllViews();
+        this.efc.addView(this.eeZ);
+        com.baidu.tbadk.core.a.d.c(getPageContext().getPageActivity(), this.eeZ);
+        this.eeZ.setOnFinishCallback(new i(this));
+        this.eeZ.setAuthorizationListener(new j(this));
+        this.eff = new k(this);
+        this.eeZ.setSocialLoginHandler(this.eff);
+        this.eeZ.loadLogin();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -98,7 +98,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public void onClick(View view) {
         if (view == this.aom) {
             finish();
-        } else if (view == this.ecN) {
+        } else if (view == this.efd) {
             if (this.mFrom == 2) {
                 finish();
             } else {
@@ -110,18 +110,18 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.ecJ.onAuthorizedResult(i, i2, intent);
+        this.eeZ.onAuthorizedResult(i, i2, intent);
         if (i == 230012 || i == 230016) {
             if (i2 == 230013) {
-                aIx();
+                aJy();
             } else if (i2 == 230014 && intent != null) {
-                nh(intent.getStringExtra(SocialLoginActivityConfig.RESULT_MSG));
+                ni(intent.getStringExtra(SocialLoginActivityConfig.RESULT_MSG));
             }
         } else if (i == 230015) {
             if (i2 == -1) {
                 TiebaStatic.log("c10015");
-                aIA();
-                aIy();
+                aJB();
+                aJz();
             }
         } else if (i2 == -1 && i == 11038) {
             String str = "";
@@ -136,7 +136,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIx() {
+    public void aJy() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_result", 0, "", "uname", session.username);
@@ -145,12 +145,12 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 return;
             }
             TiebaStatic.log("c10015");
-            aIz();
+            aJA();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nh(String str) {
+    public void ni(String str) {
         if (TextUtils.isEmpty(str)) {
             str = getResources().getString(w.l.social_login_error);
         }
@@ -158,10 +158,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIy() {
+    public void aJz() {
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.m9getInst().onUserChanged(getIntent());
-        if (this.ecK) {
+        if (this.efa) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);
@@ -181,26 +181,26 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIz() {
+    public void aJA() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            if (this.aVu != null) {
-                this.aVu.cancel();
+            if (this.aVw != null) {
+                this.aVw.cancel();
             }
-            this.aVu = com.baidu.tbadk.core.a.a.pw().a(session.username, session.bduss, "", null, this.acU);
+            this.aVw = com.baidu.tbadk.core.a.a.pw().a(session.username, session.bduss, "", null, this.acV);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(AccountData accountData) {
-        if (this.aDz == null) {
-            this.aDz = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
-            this.aDz.a(new l(this));
+        if (this.aDB == null) {
+            this.aDB = new com.baidu.tbadk.coreExtra.view.j(getPageContext());
+            this.aDB.a(new l(this));
         }
-        this.aDz.Bv();
-        this.aDz.i(accountData);
-        this.aDz.Br();
+        this.aDB.Bv();
+        this.aDB.i(accountData);
+        this.aDB.Br();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -212,20 +212,20 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIA() {
+    public void aJB() {
         if (this.mFrom == 3 && TbadkCoreApplication.m9getInst().getIsFirstUse()) {
-            com.baidu.adp.lib.g.k.fS().e(new m(this));
+            com.baidu.adp.lib.g.k.fT().e(new m(this));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.ecL == 1) {
+        if (this.efb == 1) {
             com.baidu.tbadk.core.f.b.c(getPageContext().getPageActivity(), 2, false);
         }
-        if (this.aDz != null) {
-            this.aDz.onDestroy();
+        if (this.aDB != null) {
+            this.aDB.onDestroy();
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
@@ -233,28 +233,28 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (this.mRootLayout != null) {
             this.mRootLayout.removeAllViews();
         }
-        aIB();
-        if (this.aVu != null) {
-            this.aVu.cancel();
+        aJC();
+        if (this.aVw != null) {
+            this.aVw.cancel();
         }
         super.onDestroy();
     }
 
-    public void aIB() {
-        if (this.ecP != null) {
-            this.ecP.removeCallbacksAndMessages(null);
+    public void aJC() {
+        if (this.eff != null) {
+            this.eff.removeCallbacksAndMessages(null);
         }
-        if (this.ecM != null) {
-            this.ecM.removeAllViews();
+        if (this.efc != null) {
+            this.efc.removeAllViews();
         }
-        if (this.ecJ != null) {
-            this.ecJ.setAuthorizationListener(null);
-            this.ecJ.setSocialLoginHandler(null);
-            this.ecJ.setOnBackCallback(null);
-            this.ecJ.setOnFinishCallback(null);
-            this.ecJ.getSettings().setBuiltInZoomControls(true);
-            this.ecJ.setVisibility(8);
-            com.baidu.adp.lib.g.h.fR().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+        if (this.eeZ != null) {
+            this.eeZ.setAuthorizationListener(null);
+            this.eeZ.setSocialLoginHandler(null);
+            this.eeZ.setOnBackCallback(null);
+            this.eeZ.setOnFinishCallback(null);
+            this.eeZ.getSettings().setBuiltInZoomControls(true);
+            this.eeZ.setVisibility(8);
+            com.baidu.adp.lib.g.h.fS().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 

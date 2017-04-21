@@ -4,11 +4,11 @@ import com.baidu.tieba.e.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements a.InterfaceC0055a {
-    final /* synthetic */ ab eFk;
+    final /* synthetic */ ab eHA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar) {
-        this.eFk = abVar;
+        this.eHA = abVar;
     }
 
     @Override // com.baidu.tieba.e.a.InterfaceC0055a
@@ -18,14 +18,14 @@ public class ae implements a.InterfaceC0055a {
         af afVar3;
         af afVar4;
         if (T(i2)) {
-            afVar = this.eFk.eFg;
+            afVar = this.eHA.eHw;
             if (afVar != null) {
-                afVar2 = this.eFk.eFg;
-                if (afVar2.eFm != null) {
-                    afVar3 = this.eFk.eFg;
-                    afVar3.eFm.dm(false);
-                    afVar4 = this.eFk.eFg;
-                    afVar4.eFm.Xj();
+                afVar2 = this.eHA.eHw;
+                if (afVar2.eHC != null) {
+                    afVar3 = this.eHA.eHw;
+                    afVar3.eHC.dw(false);
+                    afVar4 = this.eHA.eHw;
+                    afVar4.eHC.Yk();
                 }
             }
         }
@@ -38,14 +38,14 @@ public class ae implements a.InterfaceC0055a {
         af afVar3;
         af afVar4;
         if (T(i2)) {
-            afVar = this.eFk.eFg;
+            afVar = this.eHA.eHw;
             if (afVar != null) {
-                afVar2 = this.eFk.eFg;
-                if (afVar2.eFm != null) {
-                    afVar3 = this.eFk.eFg;
-                    afVar3.eFm.dm(true);
-                    afVar4 = this.eFk.eFg;
-                    afVar4.eFm.Xi();
+                afVar2 = this.eHA.eHw;
+                if (afVar2.eHC != null) {
+                    afVar3 = this.eHA.eHw;
+                    afVar3.eHC.dw(true);
+                    afVar4 = this.eHA.eHw;
+                    afVar4.eHC.Yj();
                 }
             }
         }

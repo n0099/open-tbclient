@@ -16,7 +16,7 @@ public class h {
     }
 
     public static boolean pD() {
-        return com.baidu.adp.lib.b.e.eY().Y("android_stoken_new") == 1;
+        return com.baidu.adp.lib.b.e.eZ().Y("android_stoken_new") == 1;
     }
 
     public static String d(AccountData accountData) {

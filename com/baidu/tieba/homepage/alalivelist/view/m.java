@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ ThreadLiveAndRecordUserInfoLayout ctH;
+    final /* synthetic */ ThreadLiveAndRecordUserInfoLayout cvY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ThreadLiveAndRecordUserInfoLayout threadLiveAndRecordUserInfoLayout) {
-        this.ctH = threadLiveAndRecordUserInfoLayout;
+        this.cvY = threadLiveAndRecordUserInfoLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,18 +25,18 @@ class m implements View.OnClickListener {
         bi biVar3;
         View.OnClickListener onClickListener;
         View.OnClickListener onClickListener2;
-        biVar = this.ctH.aRV;
+        biVar = this.cvY.aRX;
         if (biVar != null) {
-            biVar2 = this.ctH.aRV;
+            biVar2 = this.cvY.aRX;
             if (!StringUtils.isNull(biVar2.st())) {
                 MessageManager messageManager = MessageManager.getInstance();
-                context = this.ctH.mContext;
+                context = this.cvY.mContext;
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context);
-                biVar3 = this.ctH.aRV;
+                biVar3 = this.cvY.aRX;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createJumpLiveTabCfg(biVar3.st(), FrsActivityConfig.FRS_FROM_RECOMMEND, true)));
-                onClickListener = this.ctH.ama;
+                onClickListener = this.cvY.ama;
                 if (onClickListener != null) {
-                    onClickListener2 = this.ctH.ama;
+                    onClickListener2 = this.cvY.ama;
                     onClickListener2.onClick(view);
                 }
             }

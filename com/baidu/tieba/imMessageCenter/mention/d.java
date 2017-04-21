@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ AtMeModelController dkl;
+    final /* synthetic */ AtMeModelController dmC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(AtMeModelController atMeModelController, int i) {
         super(i);
-        this.dkl = atMeModelController;
+        this.dmC = atMeModelController;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,8 +20,8 @@ public class d extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         AtMessageActivity atMessageActivity;
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-            atMessageActivity = this.dkl.dkf;
-            atMessageActivity.avf();
+            atMessageActivity = this.dmC.dmw;
+            atMessageActivity.awg();
         }
     }
 }

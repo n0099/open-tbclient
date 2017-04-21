@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.data.aq;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(PbActivity pbActivity, int i) {
         super(i);
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,43 +32,43 @@ class n extends CustomMessageListener {
             aq.a aVar = new aq.a();
             aVar.giftId = abVar.id;
             aVar.giftName = abVar.name;
-            aVar.We = abVar.We;
-            pbModel = this.ejU.eif;
+            aVar.Wg = abVar.Wg;
+            pbModel = this.emk.ekv;
             com.baidu.tieba.pb.data.f pbData = pbModel.getPbData();
             if (pbData != null) {
-                pbModel2 = this.ejU.eif;
-                if (pbModel2.aLK() != null) {
-                    pbModel4 = this.ejU.eif;
-                    if (pbModel4.aLK().getUserIdLong() == abVar.toUserId) {
-                        eyVar2 = this.ejU.eiS;
+                pbModel2 = this.emk.ekv;
+                if (pbModel2.aML() != null) {
+                    pbModel4 = this.emk.ekv;
+                    if (pbModel4.aML().getUserIdLong() == abVar.toUserId) {
+                        eyVar2 = this.emk.eli;
                         int i = abVar.sendCount;
-                        pbModel5 = this.ejU.eif;
+                        pbModel5 = this.emk.ekv;
                         com.baidu.tieba.pb.data.f pbData2 = pbModel5.getPbData();
-                        pbModel6 = this.ejU.eif;
-                        boolean aLC = pbModel6.aLC();
-                        pbModel7 = this.ejU.eif;
-                        eyVar2.a(i, pbData2, aLC, pbModel7.aLT());
+                        pbModel6 = this.emk.ekv;
+                        boolean aMD = pbModel6.aMD();
+                        pbModel7 = this.emk.ekv;
+                        eyVar2.a(i, pbData2, aMD, pbModel7.aMU());
                     }
                 }
-                if (pbData.aJz() != null && pbData.aJz().size() >= 1 && pbData.aJz().get(0) != null) {
-                    long c = com.baidu.adp.lib.g.b.c(pbData.aJz().get(0).getId(), 0L);
-                    pbModel3 = this.ejU.eif;
+                if (pbData.aKA() != null && pbData.aKA().size() >= 1 && pbData.aKA().get(0) != null) {
+                    long c = com.baidu.adp.lib.g.b.c(pbData.aKA().get(0).getId(), 0L);
+                    pbModel3 = this.emk.ekv;
                     long c2 = com.baidu.adp.lib.g.b.c(pbModel3.getThreadID(), 0L);
                     if (c == abVar.postId && c2 == abVar.threadId) {
-                        com.baidu.tbadk.core.data.aq biv = pbData.aJz().get(0).biv();
-                        if (biv == null) {
-                            biv = new com.baidu.tbadk.core.data.aq();
+                        com.baidu.tbadk.core.data.aq bjw = pbData.aKA().get(0).bjw();
+                        if (bjw == null) {
+                            bjw = new com.baidu.tbadk.core.data.aq();
                         }
-                        ArrayList<aq.a> rq = biv.rq();
+                        ArrayList<aq.a> rq = bjw.rq();
                         if (rq == null) {
                             rq = new ArrayList<>();
                         }
                         rq.add(0, aVar);
-                        biv.bO(abVar.sendCount + biv.rp());
-                        biv.g(rq);
-                        pbData.aJz().get(0).a(biv);
-                        eyVar = this.ejU.eiS;
-                        eyVar.aNg().notifyDataSetChanged();
+                        bjw.bO(abVar.sendCount + bjw.rp());
+                        bjw.g(rq);
+                        pbData.aKA().get(0).a(bjw);
+                        eyVar = this.emk.eli;
+                        eyVar.aOh().notifyDataSetChanged();
                     }
                 }
             }

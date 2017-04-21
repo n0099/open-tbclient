@@ -22,15 +22,15 @@ public class DownloadReceiver extends BroadcastReceiver {
                     downloadData.getDownloadStaticsData().setDa_range_nt("1");
                 }
                 if (status == 7) {
-                    com.baidu.tieba.recapp.c.a.aZT().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    com.baidu.tieba.recapp.c.a.aZT().l(downloadData);
+                    com.baidu.tieba.recapp.c.a.baU().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    com.baidu.tieba.recapp.c.a.baU().l(downloadData);
                 } else if (status == 1 || status == 5) {
-                    com.baidu.tieba.recapp.c.a.aZT().j(downloadData.getUrl(), downloadData.getId(), true);
-                    com.baidu.tieba.recapp.c.a.aZT().n(downloadData);
+                    com.baidu.tieba.recapp.c.a.baU().j(downloadData.getUrl(), downloadData.getId(), true);
+                    com.baidu.tieba.recapp.c.a.baU().n(downloadData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
             } else if (ACTION_CANCEL_DOWNLOAD.equals(intent.getAction())) {
-                com.baidu.tieba.recapp.c.a.aZT().o(downloadData);
+                com.baidu.tieba.recapp.c.a.baU().o(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG, downloadData));
             }
         }

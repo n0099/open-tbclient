@@ -23,7 +23,7 @@ class g extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
             boolean z = true;
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.aIh;
+            String[] strArr = Static.aIj;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -34,7 +34,7 @@ class g extends CustomMessageListener {
                 if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                     i++;
                 } else {
-                    com.baidu.adp.plugin.b.a.jk().aV("plugin_crash_inflate");
+                    com.baidu.adp.plugin.b.a.jl().aV("plugin_crash_inflate");
                     com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("is_plugin_resource_open_local", false);
                     z = false;
                     break;
@@ -42,7 +42,7 @@ class g extends CustomMessageListener {
             }
             if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null) {
                 try {
-                    List<PluginSetting> pluginSettingsSortLoadPriorty = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX().getPluginSettingsSortLoadPriorty();
+                    List<PluginSetting> pluginSettingsSortLoadPriorty = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY().getPluginSettingsSortLoadPriorty();
                     if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
                         for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                             if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {

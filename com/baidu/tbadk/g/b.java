@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public abstract class b extends BaseFragment {
-    protected boolean RY = false;
+    protected boolean Sa = false;
     private final CustomMessageListener mNetworkChangedMessageListener = new c(this, 2000994);
 
     public abstract int getType();
@@ -17,7 +17,7 @@ public abstract class b extends BaseFragment {
     public abstract boolean oQ();
 
     public boolean oP() {
-        return this.RY;
+        return this.Sa;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -35,8 +35,8 @@ public abstract class b extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: protected */
     public void ba(int i) {
         Bundle bundle = new Bundle();
-        this.RY = !oQ() && i.hj();
-        bundle.putBoolean("is_enable_edit", this.RY);
+        this.Sa = !oQ() && i.hk();
+        bundle.putBoolean("is_enable_edit", this.Sa);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }

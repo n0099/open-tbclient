@@ -6,85 +6,85 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class d {
-    public static String uf = "_crashtime";
-    public static String ug = "_crashtype";
-    private int uh;
-    private int ui;
-    private c uj;
+    public static String uk = "_crashtime";
+    public static String ul = "_crashtype";
+    private int um;
+    private int uo;
+    private c up;
 
     public d(c cVar) {
-        this.uh = 0;
-        this.ui = 0;
-        this.uj = null;
+        this.um = 0;
+        this.uo = 0;
+        this.up = null;
         if (cVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.uj = cVar;
-        if (this.uj.eS() > 0 && this.uj.eV() != null) {
-            this.uh = eX();
-            if (this.uh == -1) {
+        this.up = cVar;
+        if (this.up.eT() > 0 && this.up.eW() != null) {
+            this.um = eY();
+            if (this.um == -1) {
                 reset();
             }
         }
-        this.ui = eW();
-        this.uj.d(this.ui, true);
+        this.uo = eX();
+        this.up.d(this.uo, true);
     }
 
     public String getName() {
-        return this.uj.getName();
+        return this.up.getName();
     }
 
-    public int eQ() {
-        return this.uj.eQ();
+    public int eR() {
+        return this.up.eR();
     }
 
     public int getType() {
-        return this.ui;
+        return this.uo;
     }
 
     public boolean Y(int i) {
-        if (this.uj.eS() >= 0 && this.uh >= this.uj.eS() + 2) {
-            i = this.uj.eR();
+        if (this.up.eT() >= 0 && this.um >= this.up.eT() + 2) {
+            i = this.up.eS();
         }
-        if (i == this.ui) {
+        if (i == this.uo) {
             return false;
         }
-        this.ui = i;
-        this.uj.d(this.ui, false);
+        this.uo = i;
+        this.up.d(this.uo, false);
         Z(i);
         return true;
     }
 
     public boolean X(String str) {
-        String[] eT;
-        String[] eV;
-        if (str == null || this.uj.eS() <= 0) {
+        String[] eU;
+        String[] eW;
+        if (str == null || this.up.eT() <= 0) {
             return false;
         }
-        if (this.uj.eV() != null) {
-            for (String str2 : this.uj.eV()) {
+        if (this.up.eW() != null) {
+            for (String str2 : this.up.eW()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.uh++;
-                    aa(this.uh);
-                    if (this.uh >= this.uj.eS()) {
-                        Z(this.uj.eR());
-                        this.ui = this.uj.eR();
-                        this.uj.d(this.uj.eR(), false);
+                    this.um++;
+                    aa(this.um);
+                    if (this.um >= this.up.eT()) {
+                        Z(this.up.eS());
+                        this.uo = this.up.eS();
+                        this.up.d(this.up.eS(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.uj.eT() != null) {
-            for (String str3 : this.uj.eT()) {
+        if (this.up.eU() != null) {
+            for (String str3 : this.up.eU()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.uh++;
-                    aa(this.uh);
-                    if (this.uh >= this.uj.eS()) {
-                        Z(this.uj.eR());
-                        this.ui = this.uj.eR();
-                        this.uj.d(this.uj.eR(), false);
+                    this.um++;
+                    aa(this.um);
+                    if (this.um >= this.up.eT()) {
+                        Z(this.up.eS());
+                        this.uo = this.up.eS();
+                        this.up.d(this.up.eS(), false);
                         return true;
                     }
                     return true;
@@ -96,29 +96,29 @@ public class d {
 
     private void Z(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.uj.getName()) + ug, i);
+        edit.putInt(String.valueOf(this.up.getName()) + ul, i);
         edit.commit();
     }
 
-    private int eW() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.uj.getName()) + ug, this.uj.eQ());
+    private int eX() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.up.getName()) + ul, this.up.eR());
     }
 
-    private int eX() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.uj.getName()) + uf, -1);
+    private int eY() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.up.getName()) + uk, -1);
     }
 
     private void aa(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.uj.getName()) + uf, i);
+        edit.putInt(String.valueOf(this.up.getName()) + uk, i);
         edit.commit();
     }
 
     public void reset() {
-        this.uh = 0;
+        this.um = 0;
     }
 
     public void ab(int i) {
-        this.uh = i;
+        this.um = i;
     }
 }

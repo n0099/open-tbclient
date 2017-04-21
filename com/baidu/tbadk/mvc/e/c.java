@@ -51,12 +51,12 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         if (dVar3 != null) {
             if (readCacheMessage.getRequestData() == null) {
                 if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                    List<o.c<byte[]>> c = s.c(com.baidu.tbadk.core.c.a.tM().L(this.td, str));
+                    List<o.c<byte[]>> c = s.c(com.baidu.tbadk.core.c.a.tM().L(this.ti, str));
                     if (c != null) {
                         ArrayList arrayList2 = new ArrayList(c.size());
                         try {
                             for (o.c<byte[]> cVar : c) {
-                                if (cVar != null && (bArr = cVar.sB) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) FP()) != null) {
+                                if (cVar != null && (bArr = cVar.sG) != null && (dVar2 = (com.baidu.tbadk.mvc.b.d) FP()) != null) {
                                     ((com.baidu.tbadk.mvc.b.b) dVar2).z(bArr);
                                     arrayList2.add(dVar2);
                                 }
@@ -74,11 +74,11 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                         }
                         return new ReadCacheRespMsg(this.cmd, arrayList);
                     }
-                } else if ((dVar3 instanceof f) && (b = s.b(com.baidu.tbadk.core.c.a.tM().M(this.td, str))) != null) {
+                } else if ((dVar3 instanceof f) && (b = s.b(com.baidu.tbadk.core.c.a.tM().M(this.ti, str))) != null) {
                     ArrayList arrayList3 = new ArrayList(b.size());
                     try {
                         for (o.c<String> cVar2 : b) {
-                            if (cVar2 != null && (str3 = cVar2.sB) != null && (dVar = (com.baidu.tbadk.mvc.b.d) FP()) != null) {
+                            if (cVar2 != null && (str3 = cVar2.sG) != null && (dVar = (com.baidu.tbadk.mvc.b.d) FP()) != null) {
                                 ((f) dVar).fW(str3);
                                 arrayList3.add(dVar);
                             }

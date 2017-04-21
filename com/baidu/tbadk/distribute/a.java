@@ -29,31 +29,31 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
 public class a {
-    public static String aya = null;
-    private static a ayb = new a();
+    public static String ayc = null;
+    private static a ayd = new a();
     private Handler handler = new b(this, Looper.getMainLooper());
-    private com.baidu.adp.framework.listener.a ayf = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
-    private CustomMessageListener ayg = new d(this, 2000994);
+    private com.baidu.adp.framework.listener.a ayh = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+    private CustomMessageListener ayi = new d(this, 2000994);
     private final CustomMessageListener downloadListener = new e(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
-    private HashMap<String, AdvertAppInfo> ayj = new HashMap<>();
-    private HashMap<String, AdvertAppInfo> ayk = new HashMap<>();
-    private HashMap<String, DownloadStaticsData> ayl = new HashMap<>();
-    private ArrayList<AdReq> ayd = new ArrayList<>();
-    private ArrayList<AdvertAppInfo> ayh = new ArrayList<>();
-    private ArrayList<AdvertAppInfo> ayi = new ArrayList<>();
+    private HashMap<String, AdvertAppInfo> ayl = new HashMap<>();
+    private HashMap<String, AdvertAppInfo> aym = new HashMap<>();
+    private HashMap<String, DownloadStaticsData> ayn = new HashMap<>();
+    private ArrayList<AdReq> ayf = new ArrayList<>();
+    private ArrayList<AdvertAppInfo> ayj = new ArrayList<>();
+    private ArrayList<AdvertAppInfo> ayk = new ArrayList<>();
     private boolean isUpload = true;
-    private long aye = TbConfig.USE_TIME_INTERVAL;
+    private long ayg = TbConfig.USE_TIME_INTERVAL;
     private int uploadSize = 10;
-    private boolean ayc = i.hj();
+    private boolean aye = i.hk();
 
     public static a CX() {
-        return ayb;
+        return ayd;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bx(boolean z) {
-        if (this.ayc != z) {
-            this.ayc = z;
+        if (this.aye != z) {
+            this.aye = z;
             if (z) {
                 bA(true);
             } else {
@@ -68,19 +68,19 @@ public class a {
 
     private void CZ() {
         this.handler.removeMessages(1);
-        this.handler.sendEmptyMessageDelayed(1, this.aye);
+        this.handler.sendEmptyMessageDelayed(1, this.ayg);
     }
 
     private synchronized void a(AdReq adReq) {
-        if (this.ayd != null && this.ayd.size() < 20) {
-            this.ayd.add(adReq);
+        if (this.ayf != null && this.ayf.size() < 20) {
+            this.ayf.add(adReq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void s(List<AdReq> list) {
-        if (this.ayd != null) {
-            this.ayd.addAll(list);
+        if (this.ayf != null) {
+            this.ayf.addAll(list);
         }
     }
 
@@ -93,8 +93,8 @@ public class a {
             messageManager.registerTask(getSocketTask());
         }
         messageManager.registerTask(Da());
-        messageManager.registerListener(this.ayf);
-        messageManager.registerListener(this.ayg);
+        messageManager.registerListener(this.ayh);
+        messageManager.registerListener(this.ayi);
         messageManager.registerListener(this.downloadListener);
     }
 
@@ -110,11 +110,11 @@ public class a {
 
     public void es(int i) {
         if (i > 3600) {
-            this.aye = ReportUserInfoModel.TIME_INTERVAL;
+            this.ayg = ReportUserInfoModel.TIME_INTERVAL;
         } else if (i <= 0) {
-            this.aye = TbConfig.USE_TIME_INTERVAL;
+            this.ayg = TbConfig.USE_TIME_INTERVAL;
         } else {
-            this.aye = i * 1000;
+            this.ayg = i * 1000;
         }
     }
 
@@ -135,7 +135,7 @@ public class a {
                 a(a);
             }
             if (TextUtils.equals(str3, "click") || TextUtils.equals(str3, "download")) {
-                if (this.ayc) {
+                if (this.aye) {
                     MessageManager.getInstance().sendMessage(new DistributeRequest(a));
                 } else {
                     a(a);
@@ -151,7 +151,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bA(boolean z) {
-        if (this.ayc && this.isUpload) {
+        if (this.aye && this.isUpload) {
             List<AdReq> bB = bB(z);
             if (z || !Db()) {
                 CZ();
@@ -166,7 +166,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
-        if (r3.ayd.size() < r3.uploadSize) goto L6;
+        if (r3.ayf.size() < r3.uploadSize) goto L6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -176,10 +176,10 @@ public class a {
         synchronized (this) {
             if (!z) {
             }
-            if (this.ayd.size() > 0) {
+            if (this.ayf.size() > 0) {
                 arrayList = new ArrayList();
-                arrayList.addAll(this.ayd);
-                this.ayd.clear();
+                arrayList.addAll(this.ayf);
+                this.ayf.clear();
             }
         }
         return arrayList;
@@ -194,9 +194,9 @@ public class a {
 
     public void a(Context context, String str, String str2, long j) {
         if (TextUtils.equals(str, "frs")) {
-            a(context, this.ayh, str, str2, j);
+            a(context, this.ayj, str, str2, j);
         } else if (TextUtils.equals(str, "pb")) {
-            a(context, this.ayi, str, str2, j);
+            a(context, this.ayk, str, str2, j);
         }
     }
 
@@ -221,27 +221,27 @@ public class a {
                     AdvertAppInfo advertAppInfo = arrayList.get(i2);
                     if (advertAppInfo != null) {
                         if (i2 != size - 1) {
-                            sb.append(advertAppInfo.Ua).append("|");
+                            sb.append(advertAppInfo.Uc).append("|");
                             sb2.append(advertAppInfo.adPosition).append("|");
-                            sb3.append(advertAppInfo.TR).append("|");
-                            sb4.append(advertAppInfo.Uc.Uj).append("|");
+                            sb3.append(advertAppInfo.TT).append("|");
+                            sb4.append(advertAppInfo.Ue.Ul).append("|");
                             sb5.append(advertAppInfo.extensionInfo).append("|");
                             sb6.append(advertAppInfo.price).append("|");
-                            sb7.append(advertAppInfo.TS).append("|");
-                            sb8.append(advertAppInfo.TX).append("|");
-                            sb9.append(advertAppInfo.TY).append("|");
+                            sb7.append(advertAppInfo.TU).append("|");
+                            sb8.append(advertAppInfo.TZ).append("|");
+                            sb9.append(advertAppInfo.Ua).append("|");
                             sb10.append(advertAppInfo.cpid).append("|");
                             sb11.append(advertAppInfo.abtest).append("|");
                         } else {
-                            sb.append(advertAppInfo.Ua);
+                            sb.append(advertAppInfo.Uc);
                             sb2.append(advertAppInfo.adPosition);
-                            sb3.append(advertAppInfo.TR);
-                            sb4.append(advertAppInfo.Uc.Uj);
+                            sb3.append(advertAppInfo.TT);
+                            sb4.append(advertAppInfo.Ue.Ul);
                             sb5.append(advertAppInfo.extensionInfo);
                             sb6.append(advertAppInfo.price);
-                            sb7.append(advertAppInfo.TS);
-                            sb8.append(advertAppInfo.TX);
-                            sb9.append(advertAppInfo.TY);
+                            sb7.append(advertAppInfo.TU);
+                            sb8.append(advertAppInfo.TZ);
+                            sb9.append(advertAppInfo.Ua);
                             sb10.append(advertAppInfo.cpid);
                             sb11.append(advertAppInfo.abtest);
                         }
@@ -262,30 +262,30 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, DownloadStaticsData downloadStaticsData) {
-        AdvertAppInfo remove = this.ayj.remove(str);
+        AdvertAppInfo remove = this.ayl.remove(str);
         if (remove != null) {
-            this.ayk.put(str, remove);
+            this.aym.put(str, remove);
         } else if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
-            this.ayl.put(str, downloadStaticsData);
+            this.ayn.put(str, downloadStaticsData);
             downloadStaticsData.setDa_page(null);
             downloadStaticsData.setFid(null);
         } else {
             return;
         }
         com.baidu.tieba.recapp.report.a a = com.baidu.tieba.recapp.report.e.a(downloadStaticsData, 101, 0);
-        a.bU("dl", IntentConfig.START);
-        com.baidu.tieba.recapp.report.b.baz().a(a);
+        a.bT("dl", IntentConfig.START);
+        com.baidu.tieba.recapp.report.b.bbA().a(a);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void v(String str, int i) {
+    public void w(String str, int i) {
         com.baidu.tieba.recapp.report.a a;
         String str2;
-        AdvertAppInfo remove = this.ayk.remove(str);
-        DownloadStaticsData remove2 = this.ayl.remove(str);
+        AdvertAppInfo remove = this.aym.remove(str);
+        DownloadStaticsData remove2 = this.ayn.remove(str);
         if (remove != null) {
             a = com.baidu.tieba.recapp.report.e.b(remove, 101, 0);
         } else if (remove2 != null) {
@@ -304,8 +304,8 @@ public class a {
             } else {
                 return;
             }
-            a.bU("dl", str2);
-            com.baidu.tieba.recapp.report.b.baz().a(a);
+            a.bT("dl", str2);
+            com.baidu.tieba.recapp.report.b.bbA().a(a);
         }
     }
 
@@ -314,12 +314,12 @@ public class a {
         if (downloadStaticsData != null) {
             com.baidu.tieba.recapp.report.a a = com.baidu.tieba.recapp.report.e.a(downloadStaticsData, 101, 0);
             a.setDownloadStaticsData(null);
-            a.bU("dl", WriteImageActivityConfig.DELET_FLAG);
-            com.baidu.tieba.recapp.report.b.baz().a(a);
+            a.bT("dl", WriteImageActivityConfig.DELET_FLAG);
+            com.baidu.tieba.recapp.report.b.bbA().a(a);
         }
     }
 
     public void b(AdvertAppInfo advertAppInfo) {
-        this.ayj.put(advertAppInfo.TW, advertAppInfo);
+        this.ayl.put(advertAppInfo.TY, advertAppInfo);
     }
 }

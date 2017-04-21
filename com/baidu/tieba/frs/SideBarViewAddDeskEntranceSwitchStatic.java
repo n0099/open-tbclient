@@ -4,7 +4,7 @@ import com.baidu.adp.lib.b.a;
 /* loaded from: classes.dex */
 public class SideBarViewAddDeskEntranceSwitchStatic extends a {
     static {
-        com.baidu.adp.lib.b.e.eY().f(SideBarViewAddDeskEntranceSwitchStatic.class);
+        com.baidu.adp.lib.b.e.eZ().f(SideBarViewAddDeskEntranceSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -18,22 +18,22 @@ public class SideBarViewAddDeskEntranceSwitchStatic extends a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] eP() {
+    protected String[] eQ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eQ() {
+    protected int eR() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eR() {
+    protected int eS() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int eS() {
+    protected int eT() {
         return 10;
     }
 }

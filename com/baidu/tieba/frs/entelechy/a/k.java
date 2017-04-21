@@ -14,9 +14,9 @@ import com.baidu.tieba.frs.entelechy.view.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.b.a<as>> implements cd, com.baidu.tieba.frs.e.e {
-    private TbPageContext<?> ajT;
-    private cf bSf;
-    private int bSh;
+    private TbPageContext<?> ajU;
+    private cf bUw;
+    private int bUy;
     private String mForumName;
     private boolean mIsFromCDN;
 
@@ -24,10 +24,10 @@ public class k extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = true;
-        this.bSh = 0;
-        this.bSf = new l(this);
-        this.ajT = tbPageContext;
-        this.bSh = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds14);
+        this.bUy = 0;
+        this.bUw = new l(this);
+        this.ajU = tbPageContext;
+        this.bUy = com.baidu.adp.lib.util.k.g(this.ajU.getPageActivity(), w.f.ds14);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,30 +35,30 @@ public class k extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bi biVar, com.baidu.tieba.card.b.a<as> aVar) {
-        if (aVar == null || aVar.Tz() == null) {
+        if (aVar == null || aVar.UB() == null) {
             return null;
         }
         a(i, view, biVar, aVar);
-        aVar.Tz().onBindDataToView(biVar);
-        aVar.Tz().setForumName(this.mForumName);
-        aVar.Tz().setOnSubCardOnClickListenner(this.bSf);
-        com.baidu.tieba.frs.e.b.adp().a(bYW, biVar);
+        aVar.UB().onBindDataToView(biVar);
+        aVar.UB().setForumName(this.mForumName);
+        aVar.UB().setOnSubCardOnClickListenner(this.bUw);
+        com.baidu.tieba.frs.e.b.aeq().a(cbn, biVar);
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: k */
+    /* renamed from: m */
     public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
         as asVar = null;
-        if (this.mType == bi.Yj) {
-            asVar = new com.baidu.tieba.frs.entelechy.view.ak(this.ajT);
-        } else if (this.mType == bi.Yk) {
-            asVar = new com.baidu.tieba.frs.entelechy.view.al(this.ajT);
+        if (this.mType == bi.Yk) {
+            asVar = new com.baidu.tieba.frs.entelechy.view.ak(this.ajU);
+        } else if (this.mType == bi.Yl) {
+            asVar = new com.baidu.tieba.frs.entelechy.view.al(this.ajU);
         }
         if (asVar != null) {
-            asVar.j(this.ajT.getUniqueId());
+            asVar.j(this.ajU.getUniqueId());
             asVar.setIsFromCDN(this.mIsFromCDN);
         }
         return new com.baidu.tieba.card.b.a(asVar);
@@ -71,13 +71,13 @@ public class k extends com.baidu.adp.widget.ListView.a<bi, com.baidu.tieba.card.
             if (author != null) {
                 ThemeCardInUserData themeCard = author.getThemeCard();
                 if (themeCard == null || StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
-                    aVar.Tz().bOX.setVisibility(8);
+                    aVar.UB().bRo.setVisibility(8);
                 } else {
-                    aVar.Tz().bOX.setVisibility(0);
-                    aVar.Tz().bOX.setImageBitmap(null);
-                    aVar.Tz().bOX.c(themeCard.getCardImageUrlAndroid(), 10, false);
+                    aVar.UB().bRo.setVisibility(0);
+                    aVar.UB().bRo.setImageBitmap(null);
+                    aVar.UB().bRo.c(themeCard.getCardImageUrlAndroid(), 10, false);
                 }
-                aVar.Tz().bOX.setOnClickListener(new m(this, themeCard));
+                aVar.UB().bRo.setOnClickListener(new m(this, themeCard));
             }
         }
     }

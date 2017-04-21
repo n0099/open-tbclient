@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ z fAp;
+    final /* synthetic */ z fCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(z zVar) {
-        this.fAp = zVar;
+        this.fCF = zVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,10 +20,10 @@ public class ab implements View.OnClickListener {
         MainTabActivity mainTabActivity;
         int i;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.fAp.fAi;
+        mainTabActivity = this.fCF.fCy;
         TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
         String str = "";
-        i = this.fAp.dSG;
+        i = this.fCF.dUW;
         switch (i) {
             case 1:
                 str = "forum";
@@ -39,7 +39,7 @@ public class ab implements View.OnClickListener {
                 break;
         }
         TiebaStatic.log(new as("c10517").aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str));
-        mainTabActivity2 = this.fAp.fAi;
+        mainTabActivity2 = this.fCF.fCy;
         bg.aI(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

@@ -5,14 +5,14 @@ import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends s<Void> {
-    final /* synthetic */ c deZ;
-    private final /* synthetic */ GroupSettingItemData dfb;
+    final /* synthetic */ c dhq;
+    private final /* synthetic */ GroupSettingItemData dhs;
     private final /* synthetic */ String val$key;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar, GroupSettingItemData groupSettingItemData, String str) {
-        this.deZ = cVar;
-        this.dfb = groupSettingItemData;
+        this.dhq = cVar;
+        this.dhs = groupSettingItemData;
         this.val$key = str;
     }
 
@@ -20,7 +20,7 @@ public class e extends s<Void> {
     @Override // com.baidu.tbadk.util.s
     /* renamed from: Mw */
     public Void doInBackground() {
-        this.deZ.atv().k(this.val$key, OrmObject.jsonStrWithObject(this.dfb));
+        this.dhq.auw().k(this.val$key, OrmObject.jsonStrWithObject(this.dhs));
         return null;
     }
 }

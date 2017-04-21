@@ -20,7 +20,7 @@ public class c extends CustomMessageListener {
         Handler handler2;
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                z = a.abv;
+                z = a.abw;
                 if (!z) {
                     handler2 = a.oz;
                     handler2.sendEmptyMessageDelayed(1, 10000L);

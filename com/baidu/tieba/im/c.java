@@ -17,11 +17,11 @@ import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 /* loaded from: classes.dex */
 public class c {
     public static void init() {
-        amI();
-        amJ();
+        anJ();
+        anK();
     }
 
-    private static void amI() {
+    private static void anJ() {
         e.b(104102, ResponseUpdateMaskInfoMessage.class, false);
         e.b(202003, ResponsePullMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         e.b(202009, PushResponseMessage.class, false);
@@ -35,7 +35,7 @@ public class c {
         e.b(104104, ResponseCheckUserMaskMessage.class, false);
     }
 
-    private static boolean amJ() {
+    private static boolean anK() {
         MessageManager.getInstance().addResponsedMessageRule(new d(202006));
         MessageManager.getInstance().addResponsedMessageRule(new j());
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.push.h());

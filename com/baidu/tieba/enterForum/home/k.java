@@ -8,29 +8,29 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements FragmentTabWidget.a {
-    final /* synthetic */ f bEy;
+    final /* synthetic */ f bGP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.bEy = fVar;
+        this.bGP = fVar;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
     public void f(int i, boolean z) {
         CustomViewPager customViewPager;
         FragmentTabWidget fragmentTabWidget;
-        customViewPager = this.bEy.adz;
+        customViewPager = this.bGP.adA;
         customViewPager.setCurrentItem(i);
-        fragmentTabWidget = this.bEy.bEv;
+        fragmentTabWidget = this.bGP.bGM;
         View childAt = fragmentTabWidget.getChildAt(i);
         if (childAt.getTag() != null && 1 == com.baidu.adp.lib.g.b.g(String.valueOf(childAt.getTag()), 0)) {
             String string = com.baidu.tbadk.core.sharedPref.b.uL().getString("wefan_url", "");
-            if (!bb.wn().a(this.bEy.getBaseFragmentActivity().getPageContext(), "", new String[]{string}, false, null, true) && !bb.wn().dL(string)) {
-                this.bEy.getBaseFragmentActivity().showToast(w.l.pluginstatus_tip_unknown);
+            if (!bb.wn().a(this.bGP.getBaseFragmentActivity().getPageContext(), "", new String[]{string}, false, null, true) && !bb.wn().dL(string)) {
+                this.bGP.getBaseFragmentActivity().showToast(w.l.pluginstatus_tip_unknown);
             }
-            this.bEy.ho(1);
+            this.bGP.hu(1);
             return;
         }
-        this.bEy.ho(0);
+        this.bGP.hu(0);
     }
 }

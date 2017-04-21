@@ -11,35 +11,35 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ClickableHeaderImageView extends HeadImageView {
-    private bi aiB;
-    private View.OnClickListener aiC;
-    private int aiD;
+    private bi aiC;
+    private View.OnClickListener aiD;
     private int aiE;
-    public boolean aiF;
+    private int aiF;
     public boolean aiG;
-    private int aiH;
-    private Drawable aiI;
-    private com.baidu.tbadk.d.a aiJ;
+    public boolean aiH;
+    private int aiI;
+    private Drawable aiJ;
+    private com.baidu.tbadk.d.a aiK;
     private Context mContext;
     private int mIconWidth;
     private View.OnClickListener mOnClickListener;
 
     public void setOnInterceptClickEventListener(com.baidu.tbadk.d.a aVar) {
-        this.aiJ = aVar;
+        this.aiK = aVar;
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aiC = onClickListener;
+        this.aiD = onClickListener;
     }
 
     public ClickableHeaderImageView(Context context) {
         super(context);
-        this.aiD = 0;
+        this.aiE = 0;
         this.mIconWidth = 0;
-        this.aiF = false;
         this.aiG = false;
-        this.aiH = 0;
-        this.aiI = null;
+        this.aiH = false;
+        this.aiI = 0;
+        this.aiJ = null;
         this.mOnClickListener = new b(this);
         this.mContext = context;
         init();
@@ -47,19 +47,19 @@ public class ClickableHeaderImageView extends HeadImageView {
 
     public ClickableHeaderImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiD = 0;
+        this.aiE = 0;
         this.mIconWidth = 0;
-        this.aiF = false;
         this.aiG = false;
-        this.aiH = 0;
-        this.aiI = null;
+        this.aiH = false;
+        this.aiI = 0;
+        this.aiJ = null;
         this.mOnClickListener = new b(this);
         this.mContext = context;
         init();
     }
 
     public void init() {
-        this.aiE = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds6);
+        this.aiF = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds6);
         this.mIconWidth = com.baidu.adp.lib.util.k.g(this.mContext, w.f.ds30);
         setOnClickListener(this.mOnClickListener);
         setDefaultResource(17170445);
@@ -69,13 +69,13 @@ public class ClickableHeaderImageView extends HeadImageView {
 
     public void setData(bi biVar) {
         if (biVar != null && biVar.getAuthor() != null) {
-            this.aiB = biVar;
+            this.aiC = biVar;
             setContentDescription(String.valueOf(biVar.getAuthor().getName_show()) + this.mContext.getString(w.l.somebodys_portrait));
-            if (biVar.sG() != null && this.aiB.getThreadType() == 49) {
-                c(biVar.sG().cover, 10, false);
-            } else if (this.aiB.ts() != null && this.aiB.ts().channelId > 0) {
+            if (biVar.sG() != null && this.aiC.getThreadType() == 49) {
+                c(biVar.getAuthor().getPortrait(), 28, false);
+            } else if (this.aiC.ts() != null && this.aiC.ts().channelId > 0) {
                 setDefaultErrorResource(w.g.avatar_channel_poto_defaul160);
-                c(this.aiB.ts().channelAvatar, 10, false);
+                c(this.aiC.ts().channelAvatar, 10, false);
             } else {
                 c(biVar.getAuthor().getPortrait(), 28, false);
             }
@@ -94,18 +94,18 @@ public class ClickableHeaderImageView extends HeadImageView {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.aiH != 0) {
+            if (this.aiI != 0) {
                 Paint paint = new Paint();
-                paint.setColor(this.aiH);
+                paint.setColor(this.aiI);
                 canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, getWidth() / 2.0f, paint);
             }
-            if (this.aiF && !this.aiG) {
-                Drawable drawable = this.aiI == null ? com.baidu.tbadk.core.util.aq.getDrawable(w.g.pic_home_shen_avatar) : this.aiI;
+            if (this.aiG && !this.aiH) {
+                Drawable drawable = this.aiJ == null ? com.baidu.tbadk.core.util.aq.getDrawable(w.g.pic_home_shen_avatar) : this.aiJ;
                 if (drawable != null) {
                     int width = getWidth();
                     int height = getHeight();
-                    if (this.aiF) {
-                        drawable.setBounds((width - this.mIconWidth) - this.aiD, (height - this.mIconWidth) - this.aiD, width - this.aiD, height - this.aiD);
+                    if (this.aiG) {
+                        drawable.setBounds((width - this.mIconWidth) - this.aiE, (height - this.mIconWidth) - this.aiE, width - this.aiE, height - this.aiE);
                     }
                     drawable.draw(canvas);
                 }
@@ -114,28 +114,28 @@ public class ClickableHeaderImageView extends HeadImageView {
     }
 
     public void setGodIconWidth(int i) {
-        this.aiF = true;
+        this.aiG = true;
         if (i < 0) {
-            this.aiF = false;
+            this.aiG = false;
             this.mIconWidth = 0;
         } else {
             this.mIconWidth = com.baidu.adp.lib.util.k.g(this.mContext, i);
         }
         if (this.mIconWidth < 0) {
             this.mIconWidth = 0;
-            this.aiF = false;
+            this.aiG = false;
         }
         invalidate();
     }
 
     public void setGodIconMargin(int i) {
-        this.aiF = true;
+        this.aiG = true;
         setIsRound(true);
         if (i > 0) {
-            this.aiD = com.baidu.adp.lib.util.k.g(this.mContext, i);
+            this.aiE = com.baidu.adp.lib.util.k.g(this.mContext, i);
         }
         if (i < 0) {
-            this.aiF = false;
+            this.aiG = false;
         }
         invalidate();
     }
@@ -145,21 +145,21 @@ public class ClickableHeaderImageView extends HeadImageView {
             setGodIconMargin(0);
             return;
         }
-        this.aiF = false;
+        this.aiG = false;
         setIsRound(true);
-        this.aiD = 0;
+        this.aiE = 0;
         invalidate();
     }
 
     public void setMaskColor(int i) {
-        this.aiH = i;
+        this.aiI = i;
     }
 
     public void setCustomGodIcon(Drawable drawable) {
-        this.aiI = drawable;
+        this.aiJ = drawable;
     }
 
     public void setIsBigV(boolean z) {
-        this.aiG = z;
+        this.aiH = z;
     }
 }

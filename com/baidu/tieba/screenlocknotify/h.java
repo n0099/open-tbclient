@@ -17,9 +17,9 @@ public class h implements View.OnClickListener {
     public void onClick(View view) {
         TextView textView;
         TextView textView2;
-        textView = this.this$0.ffL;
+        textView = this.this$0.fic;
         textView.setText(this.this$0.getResources().getString(w.l.loading));
-        textView2 = this.this$0.ffL;
+        textView2 = this.this$0.fic;
         textView2.setEnabled(false);
         this.this$0.Ko();
     }

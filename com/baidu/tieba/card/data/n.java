@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class n extends c {
     public bi threadData;
-    public static String buV = "";
-    public static String buW = "";
-    public static String buX = "";
-    public static String buY = "";
-    public static String buZ = "";
-    public static String bva = "";
-    public static String bvb = "";
-    public static String bvc = "";
-    public static String bvd = "";
-    public static String bve = "";
-    public static String bvf = "";
+    public static String bxm = "";
+    public static String bxn = "";
+    public static String bxo = "";
+    public static String bxp = "";
+    public static String bxq = "";
+    public static String bxr = "";
+    public static String bxs = "";
+    public static String bxt = "";
+    public static String bxu = "";
+    public static String bxv = "";
+    public static String bxw = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId bvg = BdUniqueId.gen();
-    public boolean bvh = false;
-    public boolean bvi = false;
-    public boolean aAo = true;
+    public static final BdUniqueId bxx = BdUniqueId.gen();
+    public boolean bxy = false;
+    public boolean bxz = false;
+    public boolean aAq = true;
 
     public static boolean n(bi biVar) {
         if (biVar == null) {
             return false;
         }
-        return biVar.getType() == bi.Ya || biVar.getType() == bi.Yb;
+        return biVar.getType() == bi.Yb || biVar.getType() == bi.Yc;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
@@ -36,8 +36,8 @@ public class n extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.bvh) {
-            return bvg;
+        if (this.bxy) {
+            return bxx;
         }
         return TYPE;
     }
@@ -47,71 +47,71 @@ public class n extends c {
         return this.threadData;
     }
 
-    public boolean Tk() {
+    public boolean Um() {
         return (this.threadData == null || x.p(this.threadData.sC()) == 0) ? false : true;
     }
 
-    public as Tl() {
-        if (Tk()) {
-            return ie(bva);
+    public as Un() {
+        if (Um()) {
+            return m16if(bxr);
         }
-        as ie = ie(buV);
-        if (ie != null) {
-            ie.aa("ab_tag", SX()).aa("ab_action", "show");
-            return ie;
+        as asVar = m16if(bxm);
+        if (asVar != null) {
+            asVar.aa("ab_tag", TZ()).aa("ab_action", "show");
+            return asVar;
         }
-        return ie;
+        return asVar;
     }
 
-    public as Tm() {
-        if (Tk()) {
-            return ie(bvb);
+    public as Uo() {
+        if (Um()) {
+            return m16if(bxs);
         }
-        as ie = ie(buW);
-        if (ie != null) {
-            ie.aa("ab_tag", SX()).aa("ab_action", "click");
-            return ie;
+        as asVar = m16if(bxn);
+        if (asVar != null) {
+            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
+            return asVar;
         }
-        return ie;
+        return asVar;
     }
 
-    public as Tn() {
-        if (Tk()) {
-            return ie(bvc);
+    public as Up() {
+        if (Um()) {
+            return m16if(bxt);
         }
-        as ie = ie(buX);
-        if (ie != null) {
-            ie.aa("ab_tag", SX()).aa("ab_action", "click");
-            return ie;
+        as asVar = m16if(bxo);
+        if (asVar != null) {
+            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
+            return asVar;
         }
-        return ie;
+        return asVar;
     }
 
-    public as To() {
-        if (Tk()) {
-            return ie(bvd);
+    public as Uq() {
+        if (Um()) {
+            return m16if(bxu);
         }
-        as ie = ie(buY);
-        if (ie != null) {
-            ie.aa("ab_tag", SX()).aa("ab_action", "click");
-            return ie;
+        as asVar = m16if(bxp);
+        if (asVar != null) {
+            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
+            return asVar;
         }
-        return ie;
+        return asVar;
     }
 
-    public as Tp() {
-        if (Tk()) {
-            return ie(bve);
+    public as Ur() {
+        if (Um()) {
+            return m16if(bxv);
         }
-        as ie = ie(buZ);
-        if (ie != null) {
-            ie.aa("ab_tag", SX()).aa("ab_action", "click");
-            return ie;
+        as asVar = m16if(bxq);
+        if (asVar != null) {
+            asVar.aa("ab_tag", TZ()).aa("ab_action", "click");
+            return asVar;
         }
-        return ie;
+        return asVar;
     }
 
-    public as Tq() {
-        return ie(bvf);
+    public as Us() {
+        return m16if(bxw);
     }
 }

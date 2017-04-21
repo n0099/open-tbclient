@@ -4,16 +4,16 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements DialogInterface.OnCancelListener {
-    final /* synthetic */ WriteActivity fSq;
+    final /* synthetic */ WriteActivity fUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(WriteActivity writeActivity) {
-        this.fSq = writeActivity;
+        this.fUM = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.fSq.destroyWaitingDialog();
-        this.fSq.bdW();
+        this.fUM.destroyWaitingDialog();
+        this.fUM.beY();
     }
 }

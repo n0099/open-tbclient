@@ -13,7 +13,7 @@ import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static EnterForumModel bEo;
+    private static EnterForumModel bGF;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -23,10 +23,10 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c Fd() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aEf = new f();
+        cVar.aEh = new f();
         cVar.type = 1;
-        cVar.aEg = w.l.home;
-        cVar.aEh = w.g.s_tabbar_icon_two_bg;
+        cVar.aEi = w.l.home;
+        cVar.aEj = w.g.s_tabbar_icon_two_bg;
         return cVar;
     }
 
@@ -34,25 +34,25 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
         a aVar = new a(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
         aVar.setPriority(2);
         MessageManager.getInstance().registerListener(aVar);
-        VM();
-        VN();
+        WN();
+        WO();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator aP(Context context) {
-        this.aDS = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
-        return this.aDS;
+        this.aDU = (FragmentTabIndicator) LayoutInflater.from(context).inflate(w.j.fragmenttabindicator, (ViewGroup) null);
+        return this.aDU;
     }
 
-    private static void VM() {
+    private static void WN() {
         bb.wn().a(new b());
     }
 
-    private static void VN() {
-        com.baidu.tieba.tbadkCore.d.c.biG();
-        if (bEo == null) {
-            bEo = new EnterForumModel(null);
-            bEo.a(new c());
+    private static void WO() {
+        com.baidu.tieba.tbadkCore.d.c.bjH();
+        if (bGF == null) {
+            bGF = new EnterForumModel(null);
+            bGF.a(new c());
         }
         MessageManager.getInstance().registerListener(new d(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011));
         MessageManager.getInstance().registerListener(new e(CmdConfigCustom.CMD_REQUEST_ENTER_FORUM_MESSAGE));

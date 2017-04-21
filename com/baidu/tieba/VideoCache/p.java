@@ -11,7 +11,7 @@ import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
     private static final String TAG = p.class.getSimpleName();
-    private ServerSocket aVc;
+    private ServerSocket aVe;
     private Context mContext;
     private Runnable mRunnable = new q(this);
 
@@ -22,11 +22,11 @@ public class p {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void LM() {
-        File file = new File(j.aUP);
+        File file = new File(j.aUR);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(j.aUQ);
+        File file2 = new File(j.aUS);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -38,11 +38,11 @@ public class p {
                 }
             }
         }
-        File file4 = new File(j.aUR);
+        File file4 = new File(j.aUT);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(j.aUT);
+        File file5 = new File(j.aUV);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -56,7 +56,7 @@ public class p {
     public void fL(int i) {
         BufferedWriter bufferedWriter;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(new File(j.aUV)));
+            bufferedWriter = new BufferedWriter(new FileWriter(new File(j.aUX)));
             try {
                 try {
                     bufferedWriter.write(new StringBuilder(String.valueOf(i)).toString());
@@ -104,8 +104,8 @@ public class p {
 
     public void destroy() {
         try {
-            if (this.aVc != null) {
-                this.aVc.close();
+            if (this.aVe != null) {
+                this.aVe.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

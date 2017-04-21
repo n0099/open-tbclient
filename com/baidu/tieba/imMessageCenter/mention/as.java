@@ -8,8 +8,8 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class as implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int buQ = 1;
-    private int dlh;
+    private int bxh = 1;
+    private int dny;
     private String ids;
 
     public void g(FeedData feedData) {
@@ -19,26 +19,26 @@ public class as implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     public void toNextPage() {
-        this.buQ++;
-        this.dlh = 4;
+        this.bxh++;
+        this.dny = 4;
     }
 
     public void reset() {
-        this.buQ = 1;
-        this.dlh = 1;
+        this.bxh = 1;
+        this.dny = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.dlh;
+        return this.dny;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
     public HashMap<String, Object> Fj() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.buQ));
-        if (this.dlh == 4 && !TextUtils.isEmpty(this.ids)) {
+        hashMap.put("pn", String.valueOf(this.bxh));
+        if (this.dny == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -48,7 +48,7 @@ public class as implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     public Object bP(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.buQ);
+            builder.pn = Integer.valueOf(this.bxh);
             builder.ids = this.ids;
             if (z) {
                 com.baidu.tbadk.util.n.bindCommonParamsToProtobufData(builder, true);

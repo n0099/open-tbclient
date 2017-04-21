@@ -11,13 +11,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity dgX;
+    final /* synthetic */ AddFriendActivity djo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.dgX = addFriendActivity;
+        this.djo = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,20 +31,20 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.dgX.userId;
-                str2 = this.dgX.name;
+                str = this.djo.userId;
+                str2 = this.djo.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_ADD_FRIEND, new g(str, str2)));
-                z = this.dgX.dgV;
+                z = this.djo.djm;
                 if (z) {
-                    this.dgX.showToast(this.dgX.getPageContext().getPageActivity().getString(w.l.group_apply_succ), false);
+                    this.djo.showToast(this.djo.getPageContext().getPageActivity().getString(w.l.group_apply_succ), false);
                 } else {
-                    this.dgX.showToast(this.dgX.getPageContext().getPageActivity().getString(w.l.group_apply_succ), false);
+                    this.djo.showToast(this.djo.getPageContext().getPageActivity().getString(w.l.group_apply_succ), false);
                 }
-                this.dgX.finish();
-            } else if (AntiHelper.rX(error)) {
-                AntiHelper.aq(this.dgX.getPageContext().getPageActivity(), errorString);
+                this.djo.finish();
+            } else if (AntiHelper.sd(error)) {
+                AntiHelper.aq(this.djo.getPageContext().getPageActivity(), errorString);
             } else {
-                k.showToast(this.dgX.getPageContext().getPageActivity(), errorString);
+                k.showToast(this.djo.getPageContext().getPageActivity(), errorString);
             }
         }
     }

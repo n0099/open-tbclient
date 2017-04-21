@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bk {
-    private List<ChatMessage> aVD;
-    private TbPageContext<MsglistActivity<?>> aaX;
-    private MsgLeftViewItemAdapter cOh;
-    private MsgRightViewItemAdapter cOi;
-    private MsgMidViewItemAdapter cOj;
-    private CustomMessageListener cOk;
+    private List<ChatMessage> aVF;
+    private TbPageContext<MsglistActivity<?>> aaY;
+    private MsgMidViewItemAdapter cQA;
+    private CustomMessageListener cQB;
+    private MsgLeftViewItemAdapter cQy;
+    private MsgRightViewItemAdapter cQz;
     private List<ao> mAdapters;
     private BdTypeListView mListView;
 
@@ -26,54 +26,54 @@ public class bk {
     }
 
     public bk(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
-        this.aVD = null;
+        this.aVF = null;
         this.mAdapters = new ArrayList();
-        this.cOk = new bl(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
-        this.aaX = tbPageContext;
+        this.cQB = new bl(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
+        this.aaY = tbPageContext;
         this.mListView = bdTypeListView;
         initAdapters();
-        this.cOh.ld(i);
-        this.cOi.ld(i);
+        this.cQy.lj(i);
+        this.cQz.lj(i);
     }
 
     private void initAdapters() {
-        this.cOh = new MsgLeftViewItemAdapter(this.aaX, ChatMessage.TYPE_MSG_LEFT);
-        this.cOh.fp(true);
-        this.cOh.fo(true);
-        this.cOi = new MsgRightViewItemAdapter(this.aaX, ChatMessage.TYPE_MSG_RIGHT);
-        this.cOi.fp(true);
-        this.cOi.fo(true);
-        this.cOj = new MsgMidViewItemAdapter(this.aaX, ChatMessage.TYPE_MSG_MID);
-        this.mAdapters.add(this.cOh);
-        this.mAdapters.add(this.cOi);
-        this.mAdapters.add(this.cOj);
+        this.cQy = new MsgLeftViewItemAdapter(this.aaY, ChatMessage.TYPE_MSG_LEFT);
+        this.cQy.fz(true);
+        this.cQy.fy(true);
+        this.cQz = new MsgRightViewItemAdapter(this.aaY, ChatMessage.TYPE_MSG_RIGHT);
+        this.cQz.fz(true);
+        this.cQz.fy(true);
+        this.cQA = new MsgMidViewItemAdapter(this.aaY, ChatMessage.TYPE_MSG_MID);
+        this.mAdapters.add(this.cQy);
+        this.mAdapters.add(this.cQz);
+        this.mAdapters.add(this.cQA);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.cNy = new ArrayList();
-        aVar.context = this.aaX;
+        aVar.cPP = new ArrayList();
+        aVar.context = this.aaY;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.cOk.setPriority(Integer.MAX_VALUE);
-        this.aaX.registerListener(this.cOk);
+        this.cQB.setPriority(Integer.MAX_VALUE);
+        this.aaY.registerListener(this.cQB);
     }
 
-    public void fq(boolean z) {
-        if (this.cOh != null) {
-            this.cOh.fq(z);
+    public void fA(boolean z) {
+        if (this.cQy != null) {
+            this.cQy.fA(z);
         }
     }
 
-    public void fr(boolean z) {
-        if (this.cOi != null) {
-            this.cOi.fr(z);
+    public void fB(boolean z) {
+        if (this.cQz != null) {
+            this.cQz.fB(z);
         }
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
         for (ao aoVar : this.mAdapters) {
-            if (aoVar.anv()) {
+            if (aoVar.aow()) {
                 aoVar.a(aVar);
             }
         }
@@ -81,17 +81,17 @@ public class bk {
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
         for (ao aoVar : this.mAdapters) {
-            if (aoVar.anu()) {
+            if (aoVar.aov()) {
                 aoVar.setOnItemViewLongClickListener(bVar);
             }
         }
     }
 
     public List<ChatMessage> getData() {
-        return this.aVD;
+        return this.aVF;
     }
 
-    public void e(ChatMessage chatMessage) {
+    public void g(ChatMessage chatMessage) {
         if (this.mListView.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
             ((com.baidu.adp.widget.ListView.e) this.mListView.getAdapter()).notifyDataSetChanged();
         }
@@ -110,9 +110,9 @@ public class bk {
     }
 
     public void setData(List<ChatMessage> list) {
-        this.aVD = list;
+        this.aVF = list;
         ArrayList arrayList = new ArrayList();
-        if (this.aVD != null) {
+        if (this.aVF != null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 if (i > 0) {
@@ -122,15 +122,15 @@ public class bk {
                     list.get(i).getCacheData().setLastMsgTime(list.get(i - 1).getTime());
                 }
             }
-            arrayList.addAll(this.aVD);
+            arrayList.addAll(this.aVF);
         }
         this.mListView.setData(arrayList);
     }
 
     public void onDestory() {
-        if (this.cOk != null) {
-            MessageManager.getInstance().unRegisterListener(this.cOk);
-            this.cOk = null;
+        if (this.cQB != null) {
+            MessageManager.getInstance().unRegisterListener(this.cQB);
+            this.cQB = null;
         }
     }
 }

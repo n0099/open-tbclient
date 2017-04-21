@@ -16,11 +16,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements c.b {
-    final /* synthetic */ a bTl;
+    final /* synthetic */ a bVC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bTl = aVar;
+        this.bVC = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -37,47 +37,47 @@ public class c implements c.b {
         FrsActivity frsActivity5;
         String str;
         FrsActivity frsActivity6;
-        if (!i.gX()) {
-            frsActivity6 = this.bTl.bTd;
+        if (!i.gY()) {
+            frsActivity6 = this.bVC.bVu;
             frsActivity6.showToast(w.l.neterror);
             cVar.dismiss();
             return;
         }
-        aVar = this.bTl.bTg;
-        bv bvVar = (bv) x.c(aVar.abP(), i);
+        aVar = this.bVC.bVx;
+        bv bvVar = (bv) x.c(aVar.acQ(), i);
         if (bvVar != null) {
-            i2 = this.bTl.bTh;
-            if (i2 != bvVar.bPO) {
-                this.bTl.bTi = true;
-                textView = this.bTl.bTe;
+            i2 = this.bVC.bVy;
+            if (i2 != bvVar.bSf) {
+                this.bVC.bVz = true;
+                textView = this.bVC.bVv;
                 textView.setText(bvVar.name);
-                i3 = this.bTl.bTh;
+                i3 = this.bVC.bVy;
                 if (i3 == 7) {
                     as asVar = new as("c11437");
-                    asVar.s("obj_locate", bvVar.bPO);
-                    str = this.bTl.bqv;
+                    asVar.s("obj_locate", bvVar.bSf);
+                    str = this.bVC.bsM;
                     asVar.aa("fid", str);
                     TiebaStatic.log(asVar);
                 }
-                this.bTl.bTh = bvVar.bPO;
+                this.bVC.bVy = bvVar.bSf;
                 cVar.dismiss();
-                i4 = this.bTl.bTh;
+                i4 = this.bVC.bVy;
                 if (i4 != 7) {
                     r.Ht();
-                    s.bjl();
+                    s.bkm();
                 } else {
-                    s.bjk();
+                    s.bkl();
                 }
-                frsActivity = this.bTl.bTd;
-                if (frsActivity.YT() != null) {
-                    frsActivity2 = this.bTl.bTd;
-                    if (frsActivity2.Za() != null) {
-                        frsActivity3 = this.bTl.bTd;
-                        frsActivity3.YT().iq(bvVar.bPO);
-                        frsActivity4 = this.bTl.bTd;
-                        frsActivity4.Za().startPullRefresh();
-                        frsActivity5 = this.bTl.bTd;
-                        e.adl().f(frsActivity5.YT().getForumName(), bvVar.bPO, bvVar.name);
+                frsActivity = this.bVC.bVu;
+                if (frsActivity.ZU() != null) {
+                    frsActivity2 = this.bVC.bVu;
+                    if (frsActivity2.aab() != null) {
+                        frsActivity3 = this.bVC.bVu;
+                        frsActivity3.ZU().iw(bvVar.bSf);
+                        frsActivity4 = this.bVC.bVu;
+                        frsActivity4.aab().startPullRefresh();
+                        frsActivity5 = this.bVC.bVu;
+                        e.aem().f(frsActivity5.ZU().getForumName(), bvVar.bSf, bvVar.name);
                         return;
                     }
                     return;

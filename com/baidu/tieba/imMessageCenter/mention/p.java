@@ -9,19 +9,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ l dkD;
+    final /* synthetic */ l dmU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(l lVar) {
-        this.dkD = lVar;
+        this.dmU = lVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean isLogin;
-        isLogin = this.dkD.isLogin();
+        isLogin = this.dmU.isLogin();
         if (isLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig((Context) this.dkD.getPageContext().getPageActivity(), true, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig((Context) this.dmU.getPageContext().getPageActivity(), true, true)));
         }
     }
 }

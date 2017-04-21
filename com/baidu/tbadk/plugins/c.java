@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class c implements a.b {
-    private final /* synthetic */ Activity aIf;
-    private final /* synthetic */ TbPageContext aIg;
+    private final /* synthetic */ Activity aIh;
+    private final /* synthetic */ TbPageContext aIi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Activity activity, TbPageContext tbPageContext) {
-        this.aIf = activity;
-        this.aIg = tbPageContext;
+        this.aIh = activity;
+        this.aIi = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aIg.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aIf, "com.baidu.tieba.pluginHotTopic")));
+        this.aIi.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.aIh, "com.baidu.tieba.pluginHotTopic")));
         aVar.dismiss();
     }
 }

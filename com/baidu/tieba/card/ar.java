@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    final /* synthetic */ ap bte;
+    final /* synthetic */ ap bvx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ap apVar) {
-        this.bte = apVar;
+        this.bvx = apVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,29 +31,29 @@ public class ar implements View.OnClickListener {
         com.baidu.tbadk.core.data.bi biVar7;
         com.baidu.tbadk.core.data.bi biVar8;
         com.baidu.tieba.card.data.n nVar;
-        biVar = this.bte.aiB;
+        biVar = this.bvx.aiC;
         if (biVar != null) {
-            biVar2 = this.bte.aiB;
+            biVar2 = this.bvx.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.bte.aiB;
+                biVar3 = this.bvx.aiC;
                 if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.bte.aiB;
+                    biVar4 = this.bvx.aiC;
                     if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.bte.aiB;
+                        biVar5 = this.bvx.aiC;
                         if (biVar5.st() != null) {
-                            if (this.bte.getOnSubCardOnClickListenner() != null) {
-                                cf<com.baidu.tieba.card.data.n> onSubCardOnClickListenner = this.bte.getOnSubCardOnClickListenner();
-                                nVar = this.bte.btd;
+                            if (this.bvx.getOnSubCardOnClickListenner() != null) {
+                                cf<com.baidu.tieba.card.data.n> onSubCardOnClickListenner = this.bvx.getOnSubCardOnClickListenner();
+                                nVar = this.bvx.bvw;
                                 onSubCardOnClickListenner.a(view, nVar);
                             }
                             MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.bte.ajT;
+                            tbPageContext = this.bvx.ajU;
                             Activity pageActivity = tbPageContext.getPageActivity();
-                            biVar6 = this.bte.aiB;
+                            biVar6 = this.bvx.aiC;
                             String userId = biVar6.getAuthor().getUserId();
-                            biVar7 = this.bte.aiB;
+                            biVar7 = this.bvx.aiC;
                             String name_show = biVar7.getAuthor().getName_show();
-                            biVar8 = this.bte.aiB;
+                            biVar8 = this.bvx.aiC;
                             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, biVar8.st(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }

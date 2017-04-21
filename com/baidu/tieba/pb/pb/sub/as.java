@@ -4,19 +4,19 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements Runnable {
-    private final /* synthetic */ boolean erw;
-    final /* synthetic */ ao etF;
+    private final /* synthetic */ boolean etO;
+    final /* synthetic */ ao evV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(ao aoVar, boolean z) {
-        this.etF = aoVar;
-        this.erw = z;
+        this.evV = aoVar;
+        this.etO = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BdListView bdListView;
-        bdListView = this.etF.Ik;
-        bdListView.setEnabled(this.erw);
+        bdListView = this.evV.Im;
+        bdListView.setEnabled(this.etO);
     }
 }

@@ -6,11 +6,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements ce {
-    final /* synthetic */ FrsModelController bYe;
+    final /* synthetic */ FrsModelController cav;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsModelController frsModelController) {
-        this.bYe = frsModelController;
+        this.cav = frsModelController;
     }
 
     @Override // com.baidu.tieba.frs.ce
@@ -21,26 +21,26 @@ public class i implements ce {
         com.baidu.tieba.tbadkCore.n nVar2;
         com.baidu.tieba.tbadkCore.n nVar3;
         ce ceVar2;
-        this.bYe.bXU = false;
-        i3 = this.bYe.bXQ;
+        this.cav.cal = false;
+        i3 = this.cav.cah;
         if (i == i3) {
-            ceVar = this.bYe.bXX;
+            ceVar = this.cav.cao;
             if (ceVar != null) {
-                this.bYe.bXT = coVar;
-                this.bYe.b(i, i2, coVar);
+                this.cav.cak = coVar;
+                this.cav.b(i, i2, coVar);
                 ArrayList<com.baidu.adp.widget.ListView.v> arrayList2 = new ArrayList<>();
                 if (arrayList != null) {
                     arrayList2.addAll(arrayList);
                 }
-                nVar = this.bYe.bME;
+                nVar = this.cav.bOV;
                 nVar.ax(arrayList2);
-                if ((i == 1 || i == 5) && !this.bYe.acW()) {
-                    nVar2 = this.bYe.bME;
-                    nVar2.bhg();
-                    nVar3 = this.bYe.bME;
-                    nVar3.bhh();
+                if ((i == 1 || i == 5) && !this.cav.adX()) {
+                    nVar2 = this.cav.bOV;
+                    nVar2.bih();
+                    nVar3 = this.cav.bOV;
+                    nVar3.bii();
                 }
-                ceVar2 = this.bYe.bXX;
+                ceVar2 = this.cav.cao;
                 ceVar2.a(i, i2, coVar, arrayList);
             }
         }

@@ -94,10 +94,10 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         if (this.oH == 0) {
             this.oH = System.currentTimeMillis();
         }
-        k.a("SenderData", this.oB.getCmd(), this.oB.getClientLogID(), this.ov, "StartSend", 0, "SenderData: start send size = " + (hS() != null ? hS().length : 0));
+        k.a("SenderData", this.oB.getCmd(), this.oB.getClientLogID(), this.ov, "StartSend", 0, "SenderData: start send size = " + (hT() != null ? hT().length : 0));
         oz.removeCallbacks(cz());
         if (this.ow.getTimeOut() != null) {
-            oz.postDelayed(cz(), this.ow.getTimeOut().dv());
+            oz.postDelayed(cz(), this.ow.getTimeOut().dw());
         }
         cy();
     }
@@ -112,15 +112,15 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     public void cE() {
         int i;
         int cmd = this.oB.getCmd();
-        if (hS() != null) {
-            int length = hS().length;
+        if (hT() != null) {
+            int length = hT().length;
             this.oB.setEncodedBinarySize(length);
             i = length;
         } else {
             i = 0;
         }
         k.a("SenderData", cmd, this.oB.getClientLogID(), this.ov, "FinishSend", 0, "SenderData: finish send  size = " + i);
-        if (!this.ow.dy()) {
+        if (!this.ow.dz()) {
             oz.removeCallbacks(cz());
         }
         cx();
@@ -131,7 +131,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     public boolean cG() {
-        return this.ow.dy();
+        return this.ow.dz();
     }
 
     public int getPriority() {
@@ -152,7 +152,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
             this.oH = System.currentTimeMillis();
         }
         this.oA = null;
-        com.baidu.adp.framework.client.socket.coder.b di = com.baidu.adp.framework.client.socket.coder.b.di();
+        com.baidu.adp.framework.client.socket.coder.b dj = com.baidu.adp.framework.client.socket.coder.b.dj();
         this.ov = g.cP().cK();
         if (this.oB != null) {
             this.oB.setSquencedId(this.ov);
@@ -165,7 +165,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
             bdStatisticsManager.newDebug("seqid", clientLogID, valueOf, objArr);
         }
         try {
-            return di.a(this.oB, this.ov, this.ow.dz(), this.ow.getNeedEncrypt());
+            return dj.a(this.oB, this.ov, this.ow.dA(), this.ow.getNeedEncrypt());
         } catch (CoderException e) {
             this.oA = e;
             return null;
@@ -184,7 +184,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     public boolean canRetry() {
-        return this.ow.dA();
+        return this.ow.dB();
     }
 
     public int cL() {

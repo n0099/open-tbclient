@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private final ArrayList<MetaData> fOp = new ArrayList<>();
-    private HashMap<String, String> fOq = null;
+    private final ArrayList<MetaData> fQL = new ArrayList<>();
+    private HashMap<String, String> fQM = null;
 
     public void b(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.fOq == null) {
-                        this.fOq = new HashMap<>();
+                    if (this.fQM == null) {
+                        this.fQM = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class a {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.fOp.add(metaData);
+                        this.fQL.add(metaData);
                         if (z) {
-                            this.fOq.put(metaData.getName_show(), metaData.getPortrait());
+                            this.fQM.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class a {
         }
     }
 
-    public void rc(String str) {
+    public void rd(String str) {
         try {
             b(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public ArrayList<MetaData> bnS() {
-        return this.fOp;
+    public ArrayList<MetaData> boT() {
+        return this.fQL;
     }
 
-    public HashMap<String, String> bnT() {
-        return this.fOq;
+    public HashMap<String, String> boU() {
+        return this.fQM;
     }
 }

@@ -10,27 +10,27 @@ import com.baidu.tieba.view.m;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.mode.a {
-    private boolean bJl;
-    private CustomMessageListener bNv = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
-    private com.baidu.tieba.f.a eAA;
-    private PersonCenterMode eAp;
-    private g eAq;
+    private boolean bLC;
+    private CustomMessageListener bPM = new b(this, CmdConfigCustom.CMD_UPDATE_PENDANT);
+    private PersonCenterMode eCF;
+    private g eCG;
+    private com.baidu.tieba.f.a eCQ;
 
     public a(TbPageContext tbPageContext, PersonCenterMode personCenterMode, g gVar) {
-        this.eAp = personCenterMode;
-        this.eAq = gVar;
-        this.eAA = new com.baidu.tieba.personCenter.d.b(tbPageContext);
-        this.eAp.a(this);
-        tbPageContext.registerListener(this.bNv);
+        this.eCF = personCenterMode;
+        this.eCG = gVar;
+        this.eCQ = new com.baidu.tieba.personCenter.d.b(tbPageContext);
+        this.eCF.a(this);
+        tbPageContext.registerListener(this.bPM);
     }
 
-    public m aQq() {
-        return this.eAA;
+    public m aRr() {
+        return this.eCQ;
     }
 
     @Override // com.baidu.tieba.model.a
-    public void Oc() {
-        this.eAp.FC();
+    public void Ol() {
+        this.eCF.FC();
     }
 
     @Override // com.baidu.tieba.model.a
@@ -38,25 +38,25 @@ public class a implements com.baidu.tieba.model.a, com.baidu.tieba.personCenter.
     }
 
     @Override // com.baidu.tieba.model.a
-    public boolean QP() {
+    public boolean RR() {
         return false;
     }
 
     @Override // com.baidu.tieba.personCenter.mode.a
     public void a(com.baidu.tieba.personCenter.c.a aVar) {
-        this.eAq.KC();
+        this.eCG.KC();
         if (aVar == null) {
-            if (!this.bJl && TbadkCoreApplication.isLogin()) {
-                this.eAq.H(TbadkCoreApplication.m9getInst().getString(w.l.neterror), true);
+            if (!this.bLC && TbadkCoreApplication.isLogin()) {
+                this.eCG.H(TbadkCoreApplication.m9getInst().getString(w.l.neterror), true);
                 return;
             }
             return;
         }
-        this.bJl = true;
-        this.eAq.b(aVar);
+        this.bLC = true;
+        this.eCG.b(aVar);
     }
 
     public boolean hasData() {
-        return this.bJl;
+        return this.bLC;
     }
 }

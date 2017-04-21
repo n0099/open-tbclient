@@ -23,8 +23,8 @@ import java.util.List;
 import tbclient.ReportInfo;
 /* loaded from: classes.dex */
 public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
-    private bi aiB;
-    private TbPageContext ajT;
+    private bi aiC;
+    private TbPageContext ajU;
     private TextView alH;
     private TextView alI;
     private View alJ;
@@ -127,7 +127,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
             setVisibility(8);
             return false;
         }
-        this.aiB = biVar;
+        this.aiC = biVar;
         b(biVar);
         c(biVar);
         d(biVar);
@@ -225,9 +225,9 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
     }
 
     public void e(TbPageContext tbPageContext) {
-        this.ajT = tbPageContext;
+        this.ajU = tbPageContext;
         if (this.alP != null) {
-            if (this.aiB == null || com.baidu.tbadk.core.util.x.q(this.aiB.tq()) || !TbadkCoreApplication.isLogin() || this.aiB.tr()) {
+            if (this.aiC == null || com.baidu.tbadk.core.util.x.q(this.aiC.tq()) || !TbadkCoreApplication.isLogin() || this.aiC.tr()) {
                 this.alP.setVisibility(8);
                 return;
             }
@@ -242,7 +242,7 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
                 this.alR.clear();
             }
             boolean z = false;
-            for (ReportInfo reportInfo : this.aiB.tq()) {
+            for (ReportInfo reportInfo : this.aiC.tq()) {
                 if (reportInfo != null && !StringUtils.isNull(reportInfo.info) && !StringUtils.isNull(reportInfo.url)) {
                     z = true;
                     this.alQ.add(reportInfo.info);
@@ -260,11 +260,11 @@ public class ThreadCommentAndPraiseInfoLayout extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void xq() {
-        if (this.ajT != null) {
-            com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(this.ajT.getPageActivity());
+        if (this.ajU != null) {
+            com.baidu.tbadk.core.dialog.c cVar = new com.baidu.tbadk.core.dialog.c(this.ajU.getPageActivity());
             cVar.cc(w.l.operation);
             cVar.a(this.alQ, new ak(this));
-            cVar.d(this.ajT);
+            cVar.d(this.ajU);
             cVar.tT();
         }
     }

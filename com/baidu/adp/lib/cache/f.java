@@ -6,25 +6,25 @@ public interface f {
     public interface a extends f {
         String d(h<?> hVar);
 
-        void eB();
-
         void eC();
+
+        void eD();
     }
 
     /* loaded from: classes.dex */
     public interface b extends f {
         String e(h<?> hVar);
 
-        void eD();
-
         void eE();
+
+        void eF();
 
         String f(h<?> hVar);
 
         void release();
     }
 
-    boolean eA();
+    boolean eB();
 
     int getMaxSize();
 }

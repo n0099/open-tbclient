@@ -5,14 +5,14 @@ import com.baidu.tbadk.img.ImageFileInfo;
 public class d {
     private String albumId;
     private String count;
-    private ImageFileInfo fMU;
+    private ImageFileInfo fPq;
     private String name;
 
     public String getAlbumId() {
         return this.albumId;
     }
 
-    public void qW(String str) {
+    public void qX(String str) {
         this.albumId = str;
     }
 
@@ -24,19 +24,19 @@ public class d {
         this.name = str;
     }
 
-    public String bnu() {
+    public String bov() {
         return this.count;
     }
 
-    public void qX(String str) {
+    public void qY(String str) {
         this.count = str;
     }
 
-    public ImageFileInfo bnv() {
-        return this.fMU;
+    public ImageFileInfo bow() {
+        return this.fPq;
     }
 
     public void f(ImageFileInfo imageFileInfo) {
-        this.fMU = imageFileInfo;
+        this.fPq = imageFileInfo;
     }
 }

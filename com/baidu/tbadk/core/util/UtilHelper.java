@@ -121,7 +121,7 @@ public class UtilHelper {
         FRS,
         PB;
 
-        /* JADX DEBUG: Replace access to removed values field (agW) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (agX) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NativePageType[] valuesCustom() {
             NativePageType[] valuesCustom = values();
@@ -134,7 +134,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType agV = NativePageType.NONE;
+        public NativePageType agW = NativePageType.NONE;
         public String id;
     }
 
@@ -365,7 +365,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.agV = NativePageType.PB;
+                    aVar.agW = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -402,7 +402,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.id = str2;
-                aVar.agV = NativePageType.PB;
+                aVar.agW = NativePageType.PB;
             }
         }
         if (str != null) {
@@ -432,7 +432,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str3)) {
                 aVar.id = str3;
-                aVar.agV = NativePageType.FRS;
+                aVar.agW = NativePageType.FRS;
             }
         }
         return aVar;
@@ -596,7 +596,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [904=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [905=5] */
     public static boolean isARM() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -1036,7 +1036,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1527=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1528=4] */
     public static final boolean webViewIsProbablyCorrupt(Context context) {
         SQLiteDatabase openOrCreateDatabase;
         try {
@@ -1756,5 +1756,14 @@ public class UtilHelper {
             return FileProvider.getUriForFile(context, "com.baidu.tieba.fileProvider", file);
         }
         return Uri.fromFile(file);
+    }
+
+    public static int getRealScreenOrientation(Context context) {
+        int[] ai = com.baidu.adp.lib.util.k.ai(context);
+        int i = context.getResources().getConfiguration().orientation;
+        if (i == 2 || ai[0] <= ai[1]) {
+            return i;
+        }
+        return 2;
     }
 }

@@ -17,31 +17,31 @@ import com.baidu.tieba.w;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.homepage.recommendfrs.data.e, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView auU;
-    private TextView cAi;
-    private TextView cAj;
-    private TextView cAk;
-    private TextView cAl;
-    private TextView cAm;
-    private int cAn;
-    private com.baidu.tieba.homepage.recommendfrs.data.e cAo;
-    private View.OnClickListener cAp;
+    private TbImageView auW;
+    private TextView cCA;
+    private TextView cCB;
+    private TextView cCC;
+    private TextView cCD;
+    private int cCE;
+    private com.baidu.tieba.homepage.recommendfrs.data.e cCF;
+    private View.OnClickListener cCG;
+    private TextView cCz;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mSkinType = 3;
-        this.cAn = 0;
-        this.cAp = new b(this);
-        view.setOnClickListener(this.cAp);
-        this.cAi = (TextView) view.findViewById(w.h.title_text);
-        this.cAj = (TextView) view.findViewById(w.h.refresh_time);
-        this.auU = (TbImageView) view.findViewById(w.h.live_cover);
+        this.cCE = 0;
+        this.cCG = new b(this);
+        view.setOnClickListener(this.cCG);
+        this.cCz = (TextView) view.findViewById(w.h.title_text);
+        this.cCA = (TextView) view.findViewById(w.h.refresh_time);
+        this.auW = (TbImageView) view.findViewById(w.h.live_cover);
         View findViewById = view.findViewById(w.h.hot_thread_comment);
-        this.cAk = (TextView) findViewById.findViewById(w.h.hot_thread_line_tag);
-        this.cAl = (TextView) findViewById.findViewById(w.h.hot_thread_line_praise);
-        this.cAl.setVisibility(8);
-        this.cAm = (TextView) findViewById.findViewById(w.h.hot_thread_line_comment);
+        this.cCB = (TextView) findViewById.findViewById(w.h.hot_thread_line_tag);
+        this.cCC = (TextView) findViewById.findViewById(w.h.hot_thread_line_praise);
+        this.cCC.setVisibility(8);
+        this.cCD = (TextView) findViewById.findViewById(w.h.hot_thread_line_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,27 +49,27 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.homepage.recommen
     /* renamed from: a */
     public void E(com.baidu.tieba.homepage.recommendfrs.data.e eVar) {
         super.E(eVar);
-        if (eVar != null && eVar.ajY() != null) {
-            this.cAo = eVar;
-            ZhiBoInfoTW ajY = eVar.ajY();
-            this.cAi.setText(e(ajY.title));
-            this.cAj.setText(b(ajY));
-            this.auU.c(ajY.livecover_src, 10, false);
-            String forumName = StringUtils.isNull(ajY.forum_name) ? eVar.getForumName() : ajY.forum_name;
+        if (eVar != null && eVar.akZ() != null) {
+            this.cCF = eVar;
+            ZhiBoInfoTW akZ = eVar.akZ();
+            this.cCz.setText(e(akZ.title));
+            this.cCA.setText(b(akZ));
+            this.auW.c(akZ.livecover_src, 10, false);
+            String forumName = StringUtils.isNull(akZ.forum_name) ? eVar.getForumName() : akZ.forum_name;
             if (StringUtils.isNull(forumName)) {
-                this.cAk.setVisibility(8);
+                this.cCB.setVisibility(8);
             } else {
-                this.cAk.setVisibility(0);
-                this.cAk.setText(getContext().getString(w.l.chosen_pb_original_bar, forumName));
+                this.cCB.setVisibility(0);
+                this.cCB.setText(getContext().getString(w.l.chosen_pb_original_bar, forumName));
             }
-            this.cAm.setText(au.w(ajY.reply_num.intValue() == 0 ? eVar.ajU() : ajY.reply_num.intValue()));
+            this.cCD.setText(au.w(akZ.reply_num.intValue() == 0 ? eVar.akV() : akZ.reply_num.intValue()));
             r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.qo(String.valueOf(eVar.getThreadId()))) {
-                this.cAn = w.e.cp_cont_c;
+            if (readThreadHistory != null && readThreadHistory.qp(String.valueOf(eVar.getThreadId()))) {
+                this.cCE = w.e.cp_cont_c;
             } else {
-                this.cAn = w.e.cp_cont_b;
+                this.cCE = w.e.cp_cont_b;
             }
-            aq.c(this.cAi, this.cAn, 1);
+            aq.c(this.cCz, this.cCE, 1);
         }
     }
 
@@ -93,8 +93,8 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.homepage.recommen
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             com.baidu.tbadk.m.a.a(tbPageContext, getRootView());
-            if (this.cAn != 0 && this.cAi != null) {
-                aq.c(this.cAi, this.cAn, 1);
+            if (this.cCE != 0 && this.cCz != null) {
+                aq.c(this.cCz, this.cCE, 1);
             }
         }
         this.mSkinType = i;

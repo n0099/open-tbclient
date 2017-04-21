@@ -20,12 +20,12 @@ public class e extends CustomMessageListener {
         EnterForumModel enterForumModel2;
         if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
             if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                enterForumModel2 = EnterForumDelegateStatic.bEo;
-                enterForumModel2.dk(true);
+                enterForumModel2 = EnterForumDelegateStatic.bGF;
+                enterForumModel2.du(true);
                 return;
             }
-            enterForumModel = EnterForumDelegateStatic.bEo;
-            enterForumModel.dj(true);
+            enterForumModel = EnterForumDelegateStatic.bGF;
+            enterForumModel.dt(true);
         }
     }
 }

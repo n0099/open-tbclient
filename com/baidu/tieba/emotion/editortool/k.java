@@ -5,11 +5,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.emotion.editortool.EmotionTabContentView;
 /* loaded from: classes.dex */
 class k extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ EmotionTabContentView.a bCI;
+    final /* synthetic */ EmotionTabContentView.a bEZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(EmotionTabContentView.a aVar) {
-        this.bCI = aVar;
+        this.bEZ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -21,22 +21,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b ayn = null;
-    private static DownloadData ayq = null;
+    private static b ayp = null;
+    private static DownloadData ays = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private final int ayo = 5;
-    private a ayp = null;
+    private final int ayq = 5;
+    private a ayr = null;
 
     private b() {
     }
 
     public static b Dc() {
         synchronized (b.class) {
-            if (ayn == null) {
-                ayn = new b();
+            if (ayp == null) {
+                ayp = new b();
             }
         }
-        return ayn;
+        return ayp;
     }
 
     public void a(String str, String str2, String str3, String[] strArr) {
@@ -64,8 +64,8 @@ public class b {
 
     public void a(DownloadData downloadData) {
         if (downloadData != null) {
-            List<DownloadData> jR = e.Df().jR();
-            if (jR != null && jR.size() >= 5) {
+            List<DownloadData> jS = e.Df().jS();
+            if (jS != null && jS.size() >= 5) {
                 downloadData.setStatus(2);
                 downloadData.setStatusMsg(TbadkCoreApplication.m9getInst().getApp().getString(w.l.download_fail_over_max));
                 b(downloadData);
@@ -79,12 +79,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Dd() {
-        if (ayq == null) {
-            ayq = (DownloadData) x.c(mTaskList, 0);
-            if (ayq != null) {
-                this.ayp = new a(this, null);
-                this.ayp.setPriority(3);
-                this.ayp.execute(ayq);
+        if (ays == null) {
+            ays = (DownloadData) x.c(mTaskList, 0);
+            if (ays != null) {
+                this.ayr = new a(this, null);
+                this.ayr.setPriority(3);
+                this.ayr.execute(ays);
             }
         }
     }
@@ -120,10 +120,10 @@ public class b {
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0038b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> ays;
+        ArrayList<AdvertAppInfo> ayu;
 
         private C0038b() {
-            this.ays = null;
+            this.ayu = null;
         }
 
         /* synthetic */ C0038b(b bVar, C0038b c0038b) {
@@ -140,12 +140,12 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.ays = arrayList;
+            this.ayu = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.TW;
-                if (l.cX(b.this.getFileOfUrl(next.TV)) != null) {
+                String str = next.TY;
+                if (l.cX(b.this.getFileOfUrl(next.TX)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -162,16 +162,16 @@ public class b {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            for (DownloadData downloadData : e.Df().jR()) {
-                Iterator<AdvertAppInfo> it = this.ays.iterator();
+            for (DownloadData downloadData : e.Df().jS()) {
+                Iterator<AdvertAppInfo> it = this.ayu.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().TW, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().TY, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
             }
             b.this.t(list);
-            this.ays = null;
+            this.ayu = null;
         }
     }
 
@@ -236,7 +236,7 @@ public class b {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.ayp = null;
+            b.this.ayr = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.b(downloadData);
@@ -253,7 +253,7 @@ public class b {
                         b.this.c(downloadData);
                     }
                 }
-                b.ayq = null;
+                b.ays = null;
                 if (!b.mTaskList.isEmpty()) {
                     b.mTaskList.remove(0);
                     b.this.Dd();
@@ -281,7 +281,7 @@ public class b {
     }
 
     public boolean fa(String str) {
-        for (DownloadData downloadData : e.Df().jR()) {
+        for (DownloadData downloadData : e.Df().jS()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
             }

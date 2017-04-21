@@ -3,55 +3,55 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bc extends bi {
-    public static final BdUniqueId XO = BdUniqueId.gen();
-    private PhotoLiveCardData XP;
+    public static final BdUniqueId XP = BdUniqueId.gen();
+    private PhotoLiveCardData XQ;
 
     public PhotoLiveCardData b(bi biVar, int i) {
-        if (this.XP == null) {
+        if (this.XQ == null) {
             if (biVar == null) {
                 return null;
             }
-            this.XP = new PhotoLiveCardData();
+            this.XQ = new PhotoLiveCardData();
             MetaData author = biVar.getAuthor();
             if (author != null) {
-                this.XP.setAuthorName(author.getUserName());
-                this.XP.setAuthorPortrait(author.getPortrait());
-                this.XP.setFansNum(author.getFansNum());
-                this.XP.setNickName(author.getFansNickName());
-                this.XP.setAuthorId(author.getUserId());
-                this.XP.setGodInfo(author.getGodInfo());
+                this.XQ.setAuthorName(author.getUserName());
+                this.XQ.setAuthorPortrait(author.getPortrait());
+                this.XQ.setFansNum(author.getFansNum());
+                this.XQ.setNickName(author.getFansNickName());
+                this.XQ.setAuthorId(author.getUserId());
+                this.XQ.setGodInfo(author.getGodInfo());
             }
             PraiseData se = biVar.se();
             if (se != null) {
-                this.XP.setPraiseNum((int) se.getNum());
+                this.XQ.setPraiseNum((int) se.getNum());
             }
-            this.XP.setDiscussNum(biVar.sh());
-            this.XP.setPostNum(biVar.getPost_num());
-            this.XP.setTitle(biVar.getTitle());
-            this.XP.setLastModifiedTime(biVar.sj());
-            this.XP.setPhotoLiveCover(biVar.getPhotoLiveCover());
-            this.XP.setContent(biVar.sw());
-            this.XP.setThreadId(com.baidu.adp.lib.g.b.c(biVar.getTid(), 0L));
-            this.XP.setHeadlive(biVar.isHeadLive());
-            this.XP.setExpressionDatas(biVar.sH());
-            if (this.XP.getShowStyle() < 0) {
-                this.XP.setShowStyle(PhotoLiveCardData.getRandom(3, i));
+            this.XQ.setDiscussNum(biVar.sh());
+            this.XQ.setPostNum(biVar.getPost_num());
+            this.XQ.setTitle(biVar.getTitle());
+            this.XQ.setLastModifiedTime(biVar.sj());
+            this.XQ.setPhotoLiveCover(biVar.getPhotoLiveCover());
+            this.XQ.setContent(biVar.sw());
+            this.XQ.setThreadId(com.baidu.adp.lib.g.b.c(biVar.getTid(), 0L));
+            this.XQ.setHeadlive(biVar.isHeadLive());
+            this.XQ.setExpressionDatas(biVar.sH());
+            if (this.XQ.getShowStyle() < 0) {
+                this.XQ.setShowStyle(PhotoLiveCardData.getRandom(3, i));
             }
-            this.XP.setShowExpressionViewIndexList(this.XP.getExpressionDatas());
+            this.XQ.setShowExpressionViewIndexList(this.XQ.getExpressionDatas());
         }
         cp(biVar.getTid());
         setId(biVar.getId());
         setThreadType(biVar.getThreadType());
         cv(biVar.st());
-        return this.XP;
+        return this.XQ;
     }
 
     public PhotoLiveCardData rK() {
-        return this.XP;
+        return this.XQ;
     }
 
     @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return XO;
+        return XP;
     }
 }

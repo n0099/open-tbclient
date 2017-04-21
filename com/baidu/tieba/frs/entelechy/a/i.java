@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.data.av;
 import com.baidu.tieba.card.cf;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.widget.ListView.a<av, com.baidu.tieba.card.b.a<com.baidu.tieba.frs.entelechy.view.am>> implements com.baidu.tieba.frs.e.e {
-    private TbPageContext<?> ajT;
-    private com.baidu.tieba.frs.entelechy.view.am bSe;
-    private cf bSf;
+    private TbPageContext<?> ajU;
+    private com.baidu.tieba.frs.entelechy.view.am bUv;
+    private cf bUw;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bSf = new j(this);
-        this.ajT = tbPageContext;
+        this.bUw = new j(this);
+        this.ajU = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: k */
+    /* renamed from: m */
     public com.baidu.tieba.card.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        this.bSe = new com.baidu.tieba.frs.entelechy.view.am(this.ajT);
-        this.bSe.i(this.ajT.getUniqueId());
-        return new com.baidu.tieba.card.b.a(this.bSe);
+        this.bUv = new com.baidu.tieba.frs.entelechy.view.am(this.ajU);
+        this.bUv.i(this.ajU.getUniqueId());
+        return new com.baidu.tieba.card.b.a(this.bUv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,12 +33,12 @@ public class i extends com.baidu.adp.widget.ListView.a<av, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, av avVar, com.baidu.tieba.card.b.a aVar) {
-        if (aVar == null || aVar.Tz() == null) {
+        if (aVar == null || aVar.UB() == null) {
             return null;
         }
-        aVar.Tz().onBindDataToView(avVar);
-        aVar.Tz().setOnSubCardOnClickListenner(this.bSf);
-        com.baidu.tieba.frs.e.b.adp().a(bYW, avVar);
+        aVar.UB().onBindDataToView(avVar);
+        aVar.UB().setOnSubCardOnClickListenner(this.bUw);
+        com.baidu.tieba.frs.e.b.aeq().a(cbn, avVar);
         return aVar.getView();
     }
 }

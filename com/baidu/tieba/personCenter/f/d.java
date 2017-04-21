@@ -7,27 +7,27 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements TbImageView.a {
-    final /* synthetic */ c eBi;
-    private final /* synthetic */ HeadImageView eBj;
+    final /* synthetic */ c eDy;
+    private final /* synthetic */ HeadImageView eDz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, HeadImageView headImageView) {
-        this.eBi = cVar;
-        this.eBj = headImageView;
+        this.eDy = cVar;
+        this.eDz = headImageView;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
     public void v(String str, boolean z) {
         if (!z) {
-            this.eBj.setVisibility(8);
+            this.eDz.setVisibility(8);
             return;
         }
-        this.eBj.setVisibility(0);
-        aq.j(this.eBj, w.g.person_center_item_extra_img_bg);
+        this.eDz.setVisibility(0);
+        aq.j(this.eDz, w.g.person_center_item_extra_img_bg);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
     public void onCancel() {
-        this.eBj.setVisibility(8);
+        this.eDz.setVisibility(8);
     }
 }

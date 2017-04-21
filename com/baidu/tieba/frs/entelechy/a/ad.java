@@ -12,20 +12,20 @@ import com.baidu.tieba.frs.entelechy.view.bb;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ad extends av<bl, bb> {
-    private TbPageContext<?> ajT;
+    private TbPageContext<?> ajU;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ad(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.ajT = baseActivity.getPageContext();
+        this.ajU = baseActivity.getPageContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: A */
+    /* renamed from: C */
     public bb onCreateViewHolder(ViewGroup viewGroup) {
-        return new bb(LayoutInflater.from(this.mContext).inflate(w.j.frs_read_progress_item, viewGroup, false), this.ajT.getPageActivity());
+        return new bb(LayoutInflater.from(this.mContext).inflate(w.j.frs_read_progress_item, viewGroup, false), this.ajU.getPageActivity());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

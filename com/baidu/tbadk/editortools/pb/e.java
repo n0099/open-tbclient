@@ -4,20 +4,20 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements LocationModel.b {
-    final /* synthetic */ c aBg;
+    final /* synthetic */ c aBi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.aBg = cVar;
+        this.aBi = cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
     public void Eg() {
-        this.aBg.b(0, false, null);
+        this.aBi.b(0, false, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
     public void fC(String str) {
-        this.aBg.b(2, true, str);
+        this.aBi.b(2, true, str);
     }
 }

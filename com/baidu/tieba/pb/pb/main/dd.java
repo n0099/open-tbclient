@@ -17,7 +17,7 @@ public class dd extends cx<com.baidu.tieba.pb.data.a, de> implements View.OnClic
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aX */
+    /* renamed from: aZ */
     public de onCreateViewHolder(ViewGroup viewGroup) {
         de deVar = new de(LayoutInflater.from(this.mContext).inflate(w.j.god_card_list_item, (ViewGroup) null));
         a(deVar);
@@ -28,7 +28,7 @@ public class dd extends cx<com.baidu.tieba.pb.data.a, de> implements View.OnClic
         if (deVar != null) {
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
             if (deVar.mSkinType != skinType) {
-                com.baidu.tbadk.m.a.a(this.eig.getPageContext(), deVar.getView());
+                com.baidu.tbadk.m.a.a(this.ekw.getPageContext(), deVar.getView());
             }
             deVar.mSkinType = skinType;
         }
@@ -41,17 +41,17 @@ public class dd extends cx<com.baidu.tieba.pb.data.a, de> implements View.OnClic
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, de deVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, deVar);
         a(deVar);
-        deVar.elc.setOnClickListener(this);
-        deVar.elb.setOnClickListener(this);
-        deVar.elc.setTag(aVar);
-        deVar.elb.setTag(aVar);
+        deVar.enu.setOnClickListener(this);
+        deVar.ent.setOnClickListener(this);
+        deVar.enu.setTag(aVar);
+        deVar.ent.setTag(aVar);
         if (aVar != null) {
-            deVar.bWZ.c(aVar.getPortrait(), 28, false);
-            deVar.bsf.setText(aVar.getUserName());
-            deVar.cOV.setText(aVar.aJk());
-            deVar.cjI.setText(aVar.getText());
-            deVar.elb.c(aVar.getPicUrl(), 10, false);
-            deVar.elc.setText(aVar.aJl());
+            deVar.bZq.c(aVar.getPortrait(), 28, false);
+            deVar.bux.setText(aVar.getUserName());
+            deVar.cRm.setText(aVar.aKl());
+            deVar.clZ.setText(aVar.getText());
+            deVar.ent.c(aVar.getPicUrl(), 10, false);
+            deVar.enu.setText(aVar.aKm());
         }
         return view;
     }
@@ -61,9 +61,9 @@ public class dd extends cx<com.baidu.tieba.pb.data.a, de> implements View.OnClic
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && com.baidu.tbadk.core.util.bg.aK(this.mContext)) {
-            String aJm = ((com.baidu.tieba.pb.data.a) view.getTag()).aJm();
-            if (!StringUtils.isNull(aJm)) {
-                com.baidu.tbadk.core.util.bb.wn().c(this.eig.getPageContext(), new String[]{aJm});
+            String aKn = ((com.baidu.tieba.pb.data.a) view.getTag()).aKn();
+            if (!StringUtils.isNull(aKn)) {
+                com.baidu.tbadk.core.util.bb.wn().c(this.ekw.getPageContext(), new String[]{aKn});
             }
         }
     }

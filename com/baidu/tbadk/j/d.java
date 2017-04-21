@@ -9,16 +9,16 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.a.a.a implements Runnable {
-    public static String aFK = "logcat ";
-    private static Map<String, c> aFM = new HashMap();
-    private Process aFH;
-    private InputStream aFI;
-    private OutputStream aFJ;
-    private a aFL;
+    public static String aFM = "logcat ";
+    private static Map<String, c> aFO = new HashMap();
+    private Process aFJ;
+    private InputStream aFK;
+    private OutputStream aFL;
+    private a aFN;
 
     public static void a(String str, c cVar) {
-        aFM.put(str, cVar);
-        aFK = String.valueOf(aFK) + " -s " + str;
+        aFO.put(str, cVar);
+        aFM = String.valueOf(aFM) + " -s " + str;
     }
 
     public void fZ(String str) {
@@ -27,7 +27,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, c>> it = aFM.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = aFO.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -50,11 +50,11 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.aFH = Runtime.getRuntime().exec(aFK);
-            this.aFJ = this.aFH.getOutputStream();
-            this.aFI = this.aFH.getInputStream();
+            this.aFJ = Runtime.getRuntime().exec(aFM);
+            this.aFL = this.aFJ.getOutputStream();
+            this.aFK = this.aFJ.getInputStream();
             Gm();
-            this.aFJ.flush();
+            this.aFL.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -63,25 +63,25 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
     }
 
     private void Gm() throws FileNotFoundException {
-        this.aFL = new a(this.aFI);
-        this.aFL.start();
+        this.aFN = new a(this.aFK);
+        this.aFN.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.aFH != null) {
-                this.aFH.destroy();
+            if (this.aFJ != null) {
+                this.aFJ.destroy();
+            }
+            if (this.aFN != null) {
+                this.aFN.finish();
+            }
+            if (this.aFK != null) {
+                this.aFK.close();
             }
             if (this.aFL != null) {
-                this.aFL.finish();
-            }
-            if (this.aFI != null) {
-                this.aFI.close();
-            }
-            if (this.aFJ != null) {
-                this.aFJ.close();
+                this.aFL.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -91,7 +91,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends Thread {
-        private boolean aFN = false;
+        private boolean aFP = false;
         private InputStream in;
 
         public a(InputStream inputStream) {
@@ -102,7 +102,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         public void run() {
             int read;
             byte[] bArr = new byte[8192];
-            while (!this.aFN && (read = this.in.read(bArr)) != -1) {
+            while (!this.aFP && (read = this.in.read(bArr)) != -1) {
                 try {
                     String str = new String(bArr, 0, read);
                     if (str != null) {
@@ -116,7 +116,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         }
 
         public synchronized void finish() {
-            this.aFN = true;
+            this.aFP = true;
         }
     }
 }

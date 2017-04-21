@@ -20,15 +20,15 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ l aBl;
-    private final /* synthetic */ c aBm;
-    private final /* synthetic */ com.baidu.tbadk.editortools.j aBn;
+    final /* synthetic */ l aBn;
+    private final /* synthetic */ c aBo;
+    private final /* synthetic */ com.baidu.tbadk.editortools.j aBp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, c cVar, com.baidu.tbadk.editortools.j jVar) {
-        this.aBl = lVar;
-        this.aBm = cVar;
-        this.aBn = jVar;
+        this.aBn = lVar;
+        this.aBo = cVar;
+        this.aBp = jVar;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -42,15 +42,15 @@ class m implements com.baidu.tbadk.editortools.b {
         String str4;
         boolean z;
         boolean a3;
-        if (this.aBm != null && this.aBm.Dn() != null && aVar != null) {
+        if (this.aBo != null && this.aBo.Dn() != null && aVar != null) {
             switch (aVar.code) {
                 case 4:
-                    this.aBm.fy((String) aVar.data);
-                    this.aBl.aBj = false;
+                    this.aBo.fy((String) aVar.data);
+                    this.aBn.aBl = false;
                     return;
                 case 5:
-                    if (!this.aBn.Dq()) {
-                        TiebaStatic.eventStat(this.aBn.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                    if (!this.aBp.Dq()) {
+                        TiebaStatic.eventStat(this.aBp.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
                         return;
                     }
                     return;
@@ -80,143 +80,143 @@ class m implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.aBm.getContext().showToast(w.l.over_limit_tip);
-                    this.aBl.aBj = true;
+                    this.aBo.getContext().showToast(w.l.over_limit_tip);
+                    this.aBn.aBl = true;
                     return;
                 case 8:
-                    a2 = this.aBl.a(this.aBm.getContext().getPageContext(), 11001);
+                    a2 = this.aBn.a(this.aBo.getContext().getPageContext(), 11001);
                     if (a2) {
-                        this.aBm.a((String) null, (WriteData) null);
+                        this.aBo.a((String) null, (WriteData) null);
                         return;
                     }
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.aBm.setVoiceModel((VoiceData.VoiceModel) aVar.data);
+                        this.aBo.setVoiceModel((VoiceData.VoiceModel) aVar.data);
                     }
-                    this.aBn.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
+                    this.aBp.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
                     return;
                 case 11:
-                    this.aBm.setVoiceModel(null);
-                    this.aBn.b(new com.baidu.tbadk.editortools.a(2, 6, null));
+                    this.aBo.setVoiceModel(null);
+                    this.aBp.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                     return;
                 case 14:
-                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.aBm.getWriteImagesInfo().getChosedFiles() == null || this.aBm.getWriteImagesInfo().getChosedFiles().size() == 0) {
-                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.aBm.getContext().getActivity(), this.aBm.getWriteImagesInfo().toJsonString(), true, true);
-                        str = this.aBl.from;
+                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.aBo.getWriteImagesInfo().getChosedFiles() == null || this.aBo.getWriteImagesInfo().getChosedFiles().size() == 0) {
+                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.aBo.getContext().getActivity(), this.aBo.getWriteImagesInfo().toJsonString(), true, true);
+                        str = this.aBn.from;
                         if (!StringUtils.isNull(str, true)) {
                             Intent intent = albumActivityConfig.getIntent();
-                            str4 = this.aBl.from;
+                            str4 = this.aBn.from;
                             intent.putExtra("from", str4);
                         }
-                        str2 = this.aBl.forumId;
+                        str2 = this.aBn.forumId;
                         if (!StringUtils.isNull(str2, true)) {
                             Intent intent2 = albumActivityConfig.getIntent();
-                            str3 = this.aBl.forumId;
+                            str3 = this.aBn.forumId;
                             intent2.putExtra("forum_id", str3);
                         }
                         albumActivityConfig.setRequestCode(12002);
                         if (a.DK().getStatus() == 1) {
                             albumActivityConfig.setRequestFrom(2);
-                            this.aBm.eK(1);
-                            if (this.aBm.getWriteImagesInfo() != null) {
-                                this.aBm.getWriteImagesInfo().setMaxImagesAllowed(1);
+                            this.aBo.eK(1);
+                            if (this.aBo.getWriteImagesInfo() != null) {
+                                this.aBo.getWriteImagesInfo().setMaxImagesAllowed(1);
                             }
                         } else {
-                            this.aBm.eK(10);
-                            if (this.aBm.getWriteImagesInfo() != null) {
-                                this.aBm.getWriteImagesInfo().setMaxImagesAllowed(10);
+                            this.aBo.eK(10);
+                            if (this.aBo.getWriteImagesInfo() != null) {
+                                this.aBo.getWriteImagesInfo().setMaxImagesAllowed(10);
                             }
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
                         return;
                     }
-                    this.aBm.Ec();
+                    this.aBo.Ec();
                     return;
                 case 15:
                     int intValue = ((Integer) aVar.data).intValue();
-                    if (this.aBm.getWriteImagesInfo() != null && this.aBm.getWriteImagesInfo().getChosedFiles() != null && (size = this.aBm.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.aBm.getContext().getActivity(), 12012, this.aBm.getWriteImagesInfo(), intValue)));
+                    if (this.aBo.getWriteImagesInfo() != null && this.aBo.getWriteImagesInfo().getChosedFiles() != null && (size = this.aBo.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.aBo.getContext().getActivity(), 12012, this.aBo.getWriteImagesInfo(), intValue)));
                         return;
                     }
                     return;
                 case 16:
-                    z = this.aBl.aBj;
+                    z = this.aBn.aBl;
                     if (z) {
-                        this.aBm.getContext().showToast(w.l.over_limit_tip);
+                        this.aBo.getContext().showToast(w.l.over_limit_tip);
                     }
-                    a3 = this.aBl.a(this.aBm.getContext().getPageContext(), 11025);
+                    a3 = this.aBn.a(this.aBo.getContext().getPageContext(), 11025);
                     if (a3) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aBm.getContext().getActivity(), 12004, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.aBo.getContext().getActivity(), 12004, true)));
                         return;
                     }
                     return;
                 case 18:
                     if (aVar.data != null) {
-                        this.aBm.DT();
+                        this.aBo.DT();
                         return;
                     }
-                    switch (this.aBm.DY()) {
+                    switch (this.aBo.DY()) {
                         case 0:
-                            this.aBm.DR();
+                            this.aBo.DR();
                             return;
                         case 1:
                         default:
                             return;
                         case 2:
-                            this.aBm.DQ();
+                            this.aBo.DQ();
                             return;
                     }
                 case 20:
-                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                    com.baidu.tieba.tbadkCore.location.d.biU().ll(true);
+                    this.aBo.Dn().b(new com.baidu.tbadk.editortools.a(2, 7, null));
+                    com.baidu.tieba.tbadkCore.location.d.bjV().lv(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                     return;
                 case 27:
-                    VideoInfo videoInfo = this.aBm.getVideoInfo();
+                    VideoInfo videoInfo = this.aBo.getVideoInfo();
                     if (videoInfo != null && videoInfo.isAvaliable()) {
-                        this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
+                        this.aBo.Dn().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
                         return;
-                    } else if (this.aBm.getContext() != null && this.aBm.getContext().getResources() != null) {
-                        Resources resources = this.aBm.getContext().getResources();
+                    } else if (this.aBo.getContext() != null && this.aBo.getContext().getResources() != null) {
+                        Resources resources = this.aBo.getContext().getResources();
                         if (XiaoyingUtil.isXiaoyingInstalled()) {
                             if (XiaoyingUtil.isXiaoyingForbidden()) {
-                                XiaoyingUtil.showGoPluginDetailDialog(this.aBm.getContext().getPageContext(), resources.getString(w.l.plugin_video_not_active), resources.getString(w.l.setup));
+                                XiaoyingUtil.showGoPluginDetailDialog(this.aBo.getContext().getPageContext(), resources.getString(w.l.plugin_video_not_active), resources.getString(w.l.setup));
                                 return;
                             } else {
-                                XiaoyingUtil.startXiaoying(this.aBm.getContext().getActivity());
+                                XiaoyingUtil.startXiaoying(this.aBo.getContext().getActivity());
                                 return;
                             }
                         }
-                        XiaoyingUtil.showGoPluginDetailDialog(this.aBm.getContext().getPageContext(), resources.getString(w.l.plugin_video_install_tips), resources.getString(w.l.plugin_go_install));
+                        XiaoyingUtil.showGoPluginDetailDialog(this.aBo.getContext().getPageContext(), resources.getString(w.l.plugin_video_install_tips), resources.getString(w.l.plugin_go_install));
                         return;
                     } else {
                         return;
                     }
                 case 29:
-                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(2, 19, null));
-                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(1, 2, null));
-                    this.aBm.DV();
+                    this.aBo.Dn().b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                    this.aBo.Dn().b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                    this.aBo.DV();
                     return;
                 case 32:
-                    this.aBm.Dn().b(new com.baidu.tbadk.editortools.a(1, 11, null));
+                    this.aBo.Dn().b(new com.baidu.tbadk.editortools.a(1, 11, null));
                     return;
                 case 36:
-                    a = this.aBl.a(this.aBm.getContext().getPageContext(), 11040);
+                    a = this.aBn.a(this.aBo.getContext().getPageContext(), 11040);
                     if (a) {
-                        this.aBm.DP();
+                        this.aBo.DP();
                         return;
                     }
                     return;
                 case w.n.PullToRefresh_headerTextColor /* 40 */:
                     if ((aVar.data instanceof String) || aVar.data == null) {
-                        this.aBm.setGraffitiFileName((String) aVar.data);
+                        this.aBo.setGraffitiFileName((String) aVar.data);
                         return;
                     }
                     return;
                 case 43:
-                    if (!com.baidu.tbadk.plugins.a.a(this.aBm.getContext().getPageContext(), true, false)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotSelectActivityConfig(this.aBm.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB)));
+                    if (!com.baidu.tbadk.plugins.a.a(this.aBo.getContext().getPageContext(), true, false)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotSelectActivityConfig(this.aBo.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB)));
                         return;
                     }
                     return;

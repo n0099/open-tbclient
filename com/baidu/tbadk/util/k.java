@@ -22,15 +22,15 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class k {
-    private static String aJb = "native_crash_log.log";
-    private static List<String> aJc = new ArrayList();
-    private static BroadcastReceiver De = new l();
-    private static BdNativeCrash.NativeCrashCallback aJd = new m();
+    private static String aJd = "native_crash_log.log";
+    private static List<String> aJe = new ArrayList();
+    private static BroadcastReceiver Dh = new l();
+    private static BdNativeCrash.NativeCrashCallback aJf = new m();
 
     public static void Hm() {
         if (BdNativeCrash.mbLibLoaded) {
             BdNativeCrash.getInstance().initCrash(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.getInstance().setCrashCallback(aJd);
+            BdNativeCrash.getInstance().setCrashCallback(aJf);
             Hn();
         }
     }
@@ -50,7 +50,7 @@ public class k {
             }
             try {
                 int vY = au.vY();
-                byte[] au = com.baidu.adp.lib.util.e.au(aJb);
+                byte[] au = com.baidu.adp.lib.util.e.au(aJd);
                 String str2 = null;
                 if (au != null) {
                     str2 = new String(au);
@@ -75,10 +75,10 @@ public class k {
                     if (file.exists()) {
                         file.delete();
                     }
-                    com.baidu.adp.plugin.b.a.jk().aV("native_crash_count_overrun");
+                    com.baidu.adp.plugin.b.a.jl().aV("native_crash_count_overrun");
                     return;
                 }
-                com.baidu.adp.lib.util.e.e(aJb, (String.valueOf(i4 + 1) + ":" + vY).getBytes());
+                com.baidu.adp.lib.util.e.e(aJd, (String.valueOf(i4 + 1) + ":" + vY).getBytes());
             } catch (Throwable th2) {
             }
         }
@@ -87,7 +87,7 @@ public class k {
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean gk(String str) {
         if ("libpluginhook.so".equals(str)) {
-            com.baidu.adp.plugin.b.a.jk().aV("plugin_patch_native_crashed");
+            com.baidu.adp.plugin.b.a.jl().aV("plugin_patch_native_crashed");
             com.baidu.tbadk.core.sharedPref.b.uL().putInt("plugin_patch_hook_failed_count", com.baidu.tbadk.core.sharedPref.b.uL().getInt("plugin_patch_hook_failed_count", 0) + 1);
             return true;
         }
@@ -96,11 +96,11 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean gl(String str) {
-        PluginSettings jX = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX();
-        if (jX == null) {
+        PluginSettings jY = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY();
+        if (jY == null) {
             return false;
         }
-        Map<String, PluginSetting> plugins = jX.getPlugins();
+        Map<String, PluginSetting> plugins = jY.getPlugins();
         if (plugins == null || plugins.isEmpty()) {
             return false;
         }
@@ -109,7 +109,7 @@ public class k {
                 int i = com.baidu.tbadk.core.sharedPref.b.uL().getInt("native_crash_count_" + pluginSetting.packageName, 0);
                 com.baidu.tbadk.core.sharedPref.b.uL().putInt("native_crash_count_" + pluginSetting.packageName, i + 1);
                 if (i >= 3) {
-                    com.baidu.adp.plugin.b.a.jk().B("plugin_native_crashed", pluginSetting.packageName);
+                    com.baidu.adp.plugin.b.a.jl().B("plugin_native_crashed", pluginSetting.packageName);
                 }
                 return true;
             }
@@ -164,7 +164,7 @@ public class k {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.adp.plugin.installed");
-            applicationContext.registerReceiver(De, intentFilter);
+            applicationContext.registerReceiver(Dh, intentFilter);
         } catch (Exception e) {
             BdLog.e(e);
         }

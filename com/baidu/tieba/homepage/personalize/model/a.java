@@ -15,12 +15,12 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.tieba.homepage.personalize.c.f czd = new com.baidu.tieba.homepage.personalize.c.f();
-    private final d czb = new d();
-    private final int czc = com.baidu.tbadk.core.sharedPref.b.uL().getInt("home_page_max_thread_count", 300);
+    private com.baidu.tieba.homepage.personalize.c.f cBu = new com.baidu.tieba.homepage.personalize.c.f();
+    private final d cBs = new d();
+    private final int cBt = com.baidu.tbadk.core.sharedPref.b.uL().getInt("home_page_max_thread_count", 300);
 
-    public int ajD() {
-        return this.czc;
+    public int akE() {
+        return this.cBt;
     }
 
     public d a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -36,16 +36,16 @@ public class a {
         e.f(builder);
         e.f(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.czc);
+        a(builder, i, this.cBt);
         e.g(builder);
         List<t> e = e.e(builder);
-        bd(e);
+        be(e);
         List<v> h = h(builder.thread_list, e);
-        this.czd.bf(h);
+        this.cBu.bg(h);
         a(h, builder);
         c.a(builder, h);
-        this.czb.aPK = h;
-        return this.czb;
+        this.cBs.aPM = h;
+        return this.cBs;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -98,7 +98,7 @@ public class a {
                 int p2 = x.p(list2) - 1;
                 i2 = 0;
                 while (p2 >= 0) {
-                    this.czd.a(z, p2, list, list2);
+                    this.cBu.a(z, p2, list, list2);
                     ThreadInfo threadInfo3 = (ThreadInfo) x.c(list2, p2);
                     if (threadInfo3 == null || TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (threadInfo3 == null || threadInfo3.tid == null) {
@@ -119,11 +119,11 @@ public class a {
                     i2 = i3;
                 }
             }
-            this.czb.czf = (x.p(list) - p) - i2;
+            this.cBs.cBw = (x.p(list) - p) - i2;
         }
     }
 
-    private void bd(List<t> list) {
+    private void be(List<t> list) {
         if (list != null) {
             Collections.sort(list, new b(this));
         }
@@ -146,7 +146,7 @@ public class a {
                 } else {
                     com.baidu.tieba.card.data.c B = e.B(biVar);
                     if (B != null) {
-                        B.WS = biVar.getTid();
+                        B.WT = biVar.getTid();
                     }
                     if (B != null && B.isValid()) {
                         linkedList.add(B);

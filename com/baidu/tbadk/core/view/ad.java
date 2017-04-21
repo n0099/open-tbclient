@@ -1,17 +1,17 @@
 package com.baidu.tbadk.core.view;
 /* loaded from: classes.dex */
 class ad implements Runnable {
-    final /* synthetic */ ab alC;
+    final /* synthetic */ ab alD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ab abVar) {
-        this.alC = abVar;
+        this.alD = abVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.alC.als != null) {
-            this.alC.als.start();
+        if (this.alD.alt != null) {
+            this.alD.alt.start();
         }
     }
 }

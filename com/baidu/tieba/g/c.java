@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ a ffB;
+    final /* synthetic */ a fhS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i) {
         super(i);
-        this.ffB = aVar;
+        this.fhS = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,20 +23,20 @@ public class c extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001176 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
             if (responseUnreadPointNum.getNum() > 0) {
-                i = this.ffB.ffl;
+                i = this.fhS.fhC;
                 if (i < responseUnreadPointNum.getNum()) {
-                    this.ffB.ffm = true;
-                    a aVar = this.ffB;
-                    z = this.ffB.ffm;
-                    aVar.ffd = z ? true : this.ffB.ffd;
-                    this.ffB.ffl = responseUnreadPointNum.getNum();
-                    this.ffB.baN();
-                    this.ffB.baM();
+                    this.fhS.fhD = true;
+                    a aVar = this.fhS;
+                    z = this.fhS.fhD;
+                    aVar.fhu = z ? true : this.fhS.fhu;
+                    this.fhS.fhC = responseUnreadPointNum.getNum();
+                    this.fhS.bbO();
+                    this.fhS.bbN();
                 }
             }
-            this.ffB.ffl = responseUnreadPointNum.getNum();
-            this.ffB.ffm = false;
-            this.ffB.baM();
+            this.fhS.fhC = responseUnreadPointNum.getNum();
+            this.fhS.fhD = false;
+            this.fhS.bbN();
         }
     }
 }

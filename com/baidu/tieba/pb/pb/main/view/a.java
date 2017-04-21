@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TextView erQ;
-    private RadioButton erR;
+    private TextView eui;
+    private RadioButton euj;
     private Context mContext;
 
     public a(Context context) {
@@ -23,51 +23,51 @@ public class a extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(w.j.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.erQ = (TextView) findViewById(w.h.custom_check_radio_button_tv);
-        this.erR = (RadioButton) findViewById(w.h.custom_check_radio_button_rb);
-        aNU();
+        this.eui = (TextView) findViewById(w.h.custom_check_radio_button_tv);
+        this.euj = (RadioButton) findViewById(w.h.custom_check_radio_button_rb);
+        aOV();
         setOnClickListener(new b(this));
     }
 
-    public void aNU() {
-        if (this.erQ != null) {
-            aq.a(this.erQ, "cp_link_tip_a");
+    public void aOV() {
+        if (this.eui != null) {
+            aq.a(this.eui, "cp_link_tip_a");
         }
     }
 
     public TextView getTv() {
-        return this.erQ;
+        return this.eui;
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.erR != null) {
-            this.erR.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.euj != null) {
+            this.euj.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public RadioButton getRb() {
-        return this.erR;
+        return this.euj;
     }
 
     public void setText(String str) {
-        if (this.erQ != null) {
-            this.erQ.setText(str);
+        if (this.eui != null) {
+            this.eui.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.erR != null) {
-            this.erR.setTag(obj);
+        if (this.euj != null) {
+            this.euj.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.erR.getTag();
+        return this.euj.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.erR.setChecked(z);
+        this.euj.setChecked(z);
     }
 }

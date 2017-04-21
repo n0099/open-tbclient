@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class al implements a.InterfaceC0078a {
-    final /* synthetic */ ag fOn;
+    final /* synthetic */ ag fQJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ag agVar) {
-        this.fOn = agVar;
+        this.fQJ = agVar;
     }
 
     @Override // com.baidu.tieba.write.view.a.InterfaceC0078a
@@ -27,13 +27,13 @@ class al implements a.InterfaceC0078a {
         String albumId = dVar.getAlbumId();
         String name = dVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            oVar = this.fOn.fMH;
-            if (!albumId.equals(oVar.bnD())) {
-                oVar2 = this.fOn.fMH;
-                List<ImageFileInfo> bnG = oVar2.bnG();
+            oVar = this.fQJ.fPd;
+            if (!albumId.equals(oVar.boE())) {
+                oVar2 = this.fQJ.fPd;
+                List<ImageFileInfo> boH = oVar2.boH();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : bnG) {
+                    for (ImageFileInfo imageFileInfo : boH) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,14 +41,14 @@ class al implements a.InterfaceC0078a {
                     z = false;
                 } else {
                     z = true;
-                    list = bnG;
+                    list = boH;
                 }
-                oVar3 = this.fOn.fMH;
+                oVar3 = this.fQJ.fPd;
                 oVar3.cX(list);
-                oVar4 = this.fOn.fMH;
-                oVar4.qZ(albumId);
-                this.fOn.setData(list, z);
-                textView = this.fOn.bIG;
+                oVar4 = this.fQJ.fPd;
+                oVar4.ra(albumId);
+                this.fQJ.setData(list, z);
+                textView = this.fQJ.bKX;
                 textView.setText(name);
             }
         }

@@ -18,43 +18,43 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
-    private l dkF;
-    private ViewEventCenter dks;
-    private boolean dkG = false;
-    private CustomMessageListener dkH = new ae(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private CustomMessageListener dkt = new af(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
+    private ViewEventCenter dmJ;
+    private l dmW;
+    private boolean dmX = false;
+    private CustomMessageListener dmY = new ae(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private CustomMessageListener dmK = new af(this, CmdConfigCustom.CMD_MESSAGE_CENTER_NOTIFY);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.dkF = new l(this);
+        this.dmW = new l(this);
         if (bundle != null) {
-            this.dkF.h(bundle);
-            this.dkF.h(bundle);
+            this.dmW.h(bundle);
+            this.dmW.h(bundle);
         } else {
-            this.dkF.h((Bundle) null);
-            this.dkF.h((Bundle) null);
+            this.dmW.h((Bundle) null);
+            this.dmW.h((Bundle) null);
         }
-        View Uq = this.dkF.Uq();
-        this.dkF.gv(this.dkG);
-        this.dkF.b(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
+        View Vr = this.dmW.Vr();
+        this.dmW.gF(this.dmX);
+        this.dmW.b(getPageContext(), TbadkCoreApplication.m9getInst().getSkinType());
         FU().addEventDelegate(this);
-        registerListener(this.dkH);
-        registerListener(this.dkt);
+        registerListener(this.dmY);
+        registerListener(this.dmK);
         TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11941"));
-        return Uq;
+        return Vr;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && O(getActivity().getIntent())) {
-            this.dkF.onNewIntent(getActivity().getIntent());
+        if (getActivity() != null && P(getActivity().getIntent())) {
+            this.dmW.onNewIntent(getActivity().getIntent());
         } else {
-            this.dkF.abE();
+            this.dmW.acF();
         }
         super.onViewCreated(view, bundle);
     }
 
-    private boolean O(Intent intent) {
+    private boolean P(Intent intent) {
         return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
     }
 
@@ -69,16 +69,16 @@ public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     }
 
     public ViewEventCenter FU() {
-        if (this.dks == null) {
-            this.dks = new ViewEventCenter();
+        if (this.dmJ == null) {
+            this.dmJ = new ViewEventCenter();
         }
-        return this.dks;
+        return this.dmJ;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.dkF != null) {
-            this.dkF.b(getPageContext(), i);
+        if (this.dmW != null) {
+            this.dmW.b(getPageContext(), i);
         }
     }
 
@@ -117,10 +117,10 @@ public class ad extends BaseFragment implements com.baidu.tbadk.mvc.c.a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.dkF.onActivityDestroy();
+        this.dmW.onActivityDestroy();
     }
 
-    public void gw(boolean z) {
-        this.dkG = z;
+    public void gG(boolean z) {
+        this.dmX = z;
     }
 }

@@ -14,8 +14,8 @@ public class h implements com.baidu.adp.lib.e.c<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: agF */
-    public View fK() {
+    /* renamed from: ahG */
+    public View fL() {
         return new d(this.val$context);
     }
 

@@ -21,7 +21,7 @@ public class NoDataViewFactory {
         WEBVIEW,
         LOCAL;
 
-        /* JADX DEBUG: Replace access to removed values field (akK) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (akL) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();
@@ -34,43 +34,43 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        a akF;
         a akG;
-        int akH = -1;
+        a akH;
+        int akI = -1;
 
         private b() {
         }
 
         public static b a(a aVar) {
             b bVar = new b();
-            bVar.akF = aVar;
+            bVar.akG = aVar;
             return bVar;
         }
 
         public static b a(a aVar, int i) {
             b bVar = new b();
-            bVar.akF = aVar;
-            bVar.akH = i;
+            bVar.akG = aVar;
+            bVar.akI = i;
             return bVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        String ael;
-        View.OnClickListener akE;
+        String aem;
+        View.OnClickListener akF;
 
         public a(String str, View.OnClickListener onClickListener) {
-            this.ael = str;
-            this.akE = onClickListener;
+            this.aem = str;
+            this.akF = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        ImgType akI = ImgType.NONE;
-        int akJ = -1;
-        int akC = -1;
+        ImgType akJ = ImgType.NONE;
+        int akK = -1;
+        int akD = -1;
         int mHeight = -1;
         int mWidth = -1;
 
@@ -79,16 +79,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType, int i) {
             c cVar = new c();
-            cVar.akI = imgType;
-            cVar.akJ = i;
+            cVar.akJ = imgType;
+            cVar.akK = i;
             return cVar;
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             c cVar = new c();
-            cVar.akI = imgType;
-            cVar.akC = i;
-            cVar.akJ = i2;
+            cVar.akJ = imgType;
+            cVar.akD = i;
+            cVar.akK = i2;
             cVar.mHeight = i3;
             cVar.mWidth = i4;
             return cVar;
@@ -96,16 +96,16 @@ public class NoDataViewFactory {
 
         public static c a(ImgType imgType) {
             c cVar = new c();
-            cVar.akI = imgType;
+            cVar.akJ = imgType;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        int abN;
-        String akL;
-        int akM = -1;
+        int abO;
+        String akM;
+        int akN = -1;
         String mSubTitle;
         String mTitle;
 
@@ -115,7 +115,7 @@ public class NoDataViewFactory {
         public static d D(int i, int i2) {
             d dVar = new d();
             dVar.mSubTitle = TbadkCoreApplication.m9getInst().getResources().getString(i);
-            dVar.akM = i2;
+            dVar.akN = i2;
             return dVar;
         }
 
@@ -144,7 +144,7 @@ public class NoDataViewFactory {
             d dVar = new d();
             dVar.mTitle = str2;
             dVar.mSubTitle = str;
-            dVar.abN = i;
+            dVar.abO = i;
             return dVar;
         }
     }

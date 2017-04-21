@@ -4,15 +4,15 @@ import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements FrsCommonImageLayout.b {
-    final /* synthetic */ br buq;
+    final /* synthetic */ br bwI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(br brVar) {
-        this.buq = brVar;
+        this.bwI = brVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.b
     public void dp(int i) {
-        this.buq.SP();
+        this.bwI.TR();
     }
 }

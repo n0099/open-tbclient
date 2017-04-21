@@ -10,13 +10,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class co extends CustomMessageListener {
-    final /* synthetic */ cn ekI;
+    final /* synthetic */ cn emZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public co(cn cnVar, int i) {
         super(i);
-        this.ekI = cnVar;
+        this.emZ = cnVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,31 +29,31 @@ public class co extends CustomMessageListener {
         PbActivity pbActivity;
         ArrayList arrayList;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.d)) {
-            AbsDelegateAdapterList bhL = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).bhL();
-            Iterator it = bhL.iterator();
+            AbsDelegateAdapterList biM = ((com.baidu.tieba.tbadkCore.data.d) customResponsedMessage.getData()).biM();
+            Iterator it = biM.iterator();
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
                 if (aVar instanceof cx) {
-                    pbActivity = this.ekI.eig;
+                    pbActivity = this.emZ.ekw;
                     ((cx) aVar).aa(pbActivity);
                     if (aVar instanceof com.baidu.tieba.pb.pb.a.a) {
-                        arrayList = this.ekI.ekD;
+                        arrayList = this.emZ.emU;
                         arrayList.add((com.baidu.tieba.pb.pb.a.a) aVar);
                     }
                     if (aVar instanceof com.baidu.tieba.pb.pb.a.b) {
-                        this.ekI.eky = (com.baidu.tieba.pb.pb.a.b) aVar;
+                        this.emZ.emP = (com.baidu.tieba.pb.pb.a.b) aVar;
                     }
                 }
             }
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.addAll(bhL);
-            list = this.ekI.ekG;
+            arrayList2.addAll(biM);
+            list = this.emZ.emX;
             list.clear();
-            list2 = this.ekI.ekG;
+            list2 = this.emZ.emX;
             list2.addAll(arrayList2);
-            bdTypeListView = this.ekI.mListView;
+            bdTypeListView = this.emZ.mListView;
             if (bdTypeListView != null) {
-                bdTypeListView2 = this.ekI.mListView;
+                bdTypeListView2 = this.emZ.mListView;
                 bdTypeListView2.addAdapters(arrayList2);
             }
         }

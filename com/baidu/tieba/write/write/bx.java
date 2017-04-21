@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
 class bx implements Runnable {
-    final /* synthetic */ WriteImageActivity.a fSD;
+    final /* synthetic */ WriteImageActivity.a fUZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bx(WriteImageActivity.a aVar) {
-        this.fSD = aVar;
+        this.fUZ = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         WriteImageActivity writeImageActivity;
         writeImageActivity = WriteImageActivity.this;
-        writeImageActivity.oc(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+        writeImageActivity.od(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

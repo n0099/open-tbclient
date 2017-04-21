@@ -11,68 +11,68 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ad {
-    private FrsActivity bST;
-    private com.baidu.tieba.frs.entelechy.b.g cbJ;
-    private boolean cbK = false;
-    private com.baidu.tieba.frs.entelechy.b.f bYx = new ae(this);
+    private FrsActivity bVk;
+    private com.baidu.tieba.frs.entelechy.b.g cea;
+    private boolean ceb = false;
+    private com.baidu.tieba.frs.entelechy.b.f caO = new ae(this);
 
     public ad(FrsActivity frsActivity, com.baidu.tieba.frs.entelechy.b.g gVar) {
-        this.bST = frsActivity;
-        this.cbJ = gVar;
-        gVar.a(this.bYx);
+        this.bVk = frsActivity;
+        this.cea = gVar;
+        gVar.a(this.caO);
         gVar.t(frsActivity.getPageContext().getPageActivity());
     }
 
     public void a(Activity activity, View view, View view2) {
-        this.cbJ.a(activity, view, view2);
+        this.cea.a(activity, view, view2);
     }
 
-    public void abJ() {
-        this.cbJ.abJ();
+    public void acK() {
+        this.cea.acK();
     }
 
-    public void dZ(boolean z) {
-        this.cbJ.dZ(z);
+    public void ej(boolean z) {
+        this.cea.ej(z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abF() {
+    public void acG() {
         ArrayList<RecommendForumData> recommendForumData;
-        this.bST.Zx();
-        this.bST.setSwipeBackEnabled(false);
-        this.bST.Zi();
-        TiebaStatic.eventStat(this.bST.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
-        com.baidu.tieba.tbadkCore.n Zr = this.bST.Zr();
-        if (Zr != null && Zr.aJw() != null && (recommendForumData = Zr.aJw().getRecommendForumData()) != null) {
+        this.bVk.aay();
+        this.bVk.setSwipeBackEnabled(false);
+        this.bVk.aaj();
+        TiebaStatic.eventStat(this.bVk.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
+        com.baidu.tieba.tbadkCore.n aas = this.bVk.aas();
+        if (aas != null && aas.aKx() != null && (recommendForumData = aas.aKx().getRecommendForumData()) != null) {
             Iterator<RecommendForumData> it = recommendForumData.iterator();
             while (it.hasNext()) {
-                TiebaStatic.eventStat(this.bST.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().mParam);
+                TiebaStatic.eventStat(this.bVk.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().mParam);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abG() {
-        if (!TextUtils.isEmpty(this.bST.getFrom()) && FrsActivityConfig.FRS_FROM_WRITESHARE.equals(this.bST.getFrom())) {
-            this.bST.setSwipeBackEnabled(false);
+    public void acH() {
+        if (!TextUtils.isEmpty(this.bVk.getFrom()) && FrsActivityConfig.FRS_FROM_WRITESHARE.equals(this.bVk.getFrom())) {
+            this.bVk.setSwipeBackEnabled(false);
         } else {
-            this.bST.setSwipeBackEnabled(true);
+            this.bVk.setSwipeBackEnabled(true);
         }
-        if (this.bST.Zw()) {
-            this.bST.dB(false);
-            this.bST.refresh();
+        if (this.bVk.aax()) {
+            this.bVk.dL(false);
+            this.bVk.refresh();
         }
     }
 
-    public boolean abK() {
-        return this.cbJ.abK() || this.cbK;
+    public boolean acL() {
+        return this.cea.acL() || this.ceb;
     }
 
-    public void ea(boolean z) {
-        this.cbJ.ea(z);
+    public void ek(boolean z) {
+        this.cea.ek(z);
     }
 
-    public void eb(boolean z) {
-        this.cbJ.eb(z);
+    public void el(boolean z) {
+        this.cea.el(z);
     }
 }

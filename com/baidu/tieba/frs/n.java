@@ -15,11 +15,11 @@ import com.baidu.tieba.frs.g.a;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ FrsActivity bNJ;
+    final /* synthetic */ FrsActivity bQa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.bNJ = frsActivity;
+        this.bQa = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,66 +31,66 @@ class n implements View.OnClickListener {
         a aVar;
         com.baidu.tieba.frs.g.ad adVar;
         a aVar2;
-        if (view != this.bNJ.bMD.ZS()) {
-            if (view == this.bNJ.bMD.ZN()) {
-                az azVar = this.bNJ.bMD;
-                bqVar = this.bNJ.bMF;
+        if (view != this.bQa.bOU.aaT()) {
+            if (view == this.bQa.bOU.aaO()) {
+                az azVar = this.bQa.bOU;
+                bqVar = this.bQa.bOW;
                 azVar.a(bqVar);
-                aoVar = this.bNJ.bMQ;
-                bqVar2 = this.bNJ.bMF;
+                aoVar = this.bQa.bPh;
+                bqVar2 = this.bQa.bOW;
                 aoVar.a(bqVar2);
                 TiebaStatic.log("c10529");
-                TiebaStatic.eventStat(this.bNJ.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
-                this.bNJ.bMD.ZZ();
-                FrsActivityStatic.bNP = false;
-                aVar = this.bNJ.bNc;
+                TiebaStatic.eventStat(this.bQa.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
+                this.bQa.bOU.aba();
+                FrsActivityStatic.bQg = false;
+                aVar = this.bQa.bPt;
                 if (aVar != null) {
-                    aVar2 = this.bNJ.bNc;
-                    aVar2.ady();
+                    aVar2 = this.bQa.bPt;
+                    aVar2.aez();
                 }
-                this.bNJ.bMD.aaq();
-                adVar = this.bNJ.bMR;
-                adVar.abJ();
-            } else if (view == this.bNJ.bMD.ZP()) {
+                this.bQa.bOU.abr();
+                adVar = this.bQa.bPi;
+                adVar.acK();
+            } else if (view == this.bQa.bOU.aaQ()) {
                 long j = 0;
-                if (this.bNJ.bME != null && this.bNJ.bME.getUserData() != null && !StringUtils.isNull(this.bNJ.bME.getUserData().getUserId())) {
-                    str = this.bNJ.bME.getUserData().getUserId();
+                if (this.bQa.bOV != null && this.bQa.bOV.getUserData() != null && !StringUtils.isNull(this.bQa.bOV.getUserData().getUserId())) {
+                    str = this.bQa.bOV.getUserData().getUserId();
                 } else {
                     str = "";
                 }
-                if (this.bNJ.bME != null) {
-                    j = this.bNJ.bME.bgT();
+                if (this.bQa.bOV != null) {
+                    j = this.bQa.bOV.bhU();
                 }
-                this.bNJ.bMD.ZQ().setVisibility(4);
+                this.bQa.bOU.aaR().setVisibility(4);
                 ImageView imageView = (ImageView) view;
-                if (this.bNJ.Zh()) {
+                if (this.bQa.aai()) {
                     com.baidu.tbadk.core.util.aq.b(imageView, w.g.btn_bottle_selector, w.g.btn_bottle_selector);
                 } else {
                     com.baidu.tbadk.core.util.aq.b(imageView, w.g.d_btn_bottle_selector, w.g.d_btn_bottle_selector);
                 }
-                if (this.bNJ.bMD.aap()) {
+                if (this.bQa.bOU.abq()) {
                     TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11946").aa(SapiAccountManager.SESSION_UID, str).g("tid", j));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bNJ.getApplicationContext(), String.valueOf(this.bNJ.bME.bgT()))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bQa.getApplicationContext(), String.valueOf(this.bQa.bOV.bhU()))));
                 } else {
                     TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11944"));
-                    com.baidu.adp.lib.util.k.showToast(this.bNJ.getActivity(), w.l.frs_no_drifting_bottle_tip);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bNJ.getApplicationContext())));
+                    com.baidu.adp.lib.util.k.showToast(this.bQa.getActivity(), w.l.frs_no_drifting_bottle_tip);
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BigImgPbActivityConfig(this.bQa.getApplicationContext())));
                 }
-                this.bNJ.bMD.dM(false);
-                b.uL().putLong("drifting_bottle_tid" + TbadkCoreApplication.getCurrentAccount(), this.bNJ.bME.bgT());
+                this.bQa.bOU.dW(false);
+                b.uL().putLong("drifting_bottle_tid" + TbadkCoreApplication.getCurrentAccount(), this.bQa.bOV.bhU());
             }
         } else {
-            this.bNJ.closeActivity();
+            this.bQa.closeActivity();
         }
-        if (view.getId() == w.h.game_activity_egg_layout && com.baidu.adp.lib.util.k.hA()) {
+        if (view.getId() == w.h.game_activity_egg_layout && com.baidu.adp.lib.util.k.hB()) {
             TiebaStatic.log("c10853");
-            if (this.bNJ.bMD.aab()) {
-                this.bNJ.bMD.aac();
+            if (this.bQa.bOU.abc()) {
+                this.bQa.bOU.abd();
                 return;
             }
-            String activityUrl = this.bNJ.bME.aJw().getYuleData().tJ().getActivityUrl();
+            String activityUrl = this.bQa.bOV.aKx().getYuleData().tJ().getActivityUrl();
             if (!StringUtils.isNull(activityUrl)) {
-                com.baidu.tbadk.browser.f.T(this.bNJ.getPageContext().getPageActivity(), activityUrl);
+                com.baidu.tbadk.browser.f.T(this.bQa.getPageContext().getPageActivity(), activityUrl);
             }
         }
     }

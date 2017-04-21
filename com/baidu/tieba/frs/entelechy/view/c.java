@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ a bTp;
+    final /* synthetic */ a bVG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i) {
         super(i);
-        this.bTp = aVar;
+        this.bVG = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,18 +28,18 @@ public class c extends CustomMessageListener {
         TextView textView2;
         bi biVar5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            biVar = this.bTp.aiB;
+            biVar = this.bVG.aiC;
             if (biVar != null) {
-                biVar2 = this.bTp.aiB;
+                biVar2 = this.bVG.aiC;
                 if (biVar2 != null) {
-                    biVar3 = this.bTp.aiB;
+                    biVar3 = this.bVG.aiC;
                     if (biVar3.getTid() != null) {
-                        textView = this.bTp.mTextTitle;
+                        textView = this.bVG.mTextTitle;
                         if (textView != null) {
-                            biVar4 = this.bTp.aiB;
+                            biVar4 = this.bVG.aiC;
                             if (((String) customResponsedMessage.getData()).equals(biVar4.getTid())) {
-                                textView2 = this.bTp.mTextTitle;
-                                biVar5 = this.bTp.aiB;
+                                textView2 = this.bVG.mTextTitle;
+                                biVar5 = this.bVG.aiC;
                                 com.baidu.tieba.card.at.a(textView2, biVar5.getId(), w.e.cp_cont_c, w.e.cp_cont_d);
                             }
                         }

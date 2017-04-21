@@ -12,27 +12,27 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b extends w {
-    private final CustomMessageListener aZX;
+    private final CustomMessageListener baa;
 
     public b(FrsActivity frsActivity) {
         super(frsActivity);
-        this.aZX = new c(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-        this.bST.registerListener(this.aZX);
+        this.baa = new c(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+        this.bVk.registerListener(this.baa);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(UpdateAttentionMessage updateAttentionMessage) {
         Message<?> message;
-        if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().apU && !StringUtils.isNull(updateAttentionMessage.getData().showMsg, true) && updateAttentionMessage.getData().isAttention && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.bST.getUniqueId())) {
-            this.bST.showToast(updateAttentionMessage.getData().showMsg);
+        if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().apU && !StringUtils.isNull(updateAttentionMessage.getData().showMsg, true) && updateAttentionMessage.getData().isAttention && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(this.bVk.getUniqueId())) {
+            this.bVk.showToast(updateAttentionMessage.getData().showMsg);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(UpdateAttentionMessage updateAttentionMessage) {
         ArrayList<com.baidu.adp.widget.ListView.v> threadList;
-        com.baidu.tieba.tbadkCore.n Zr = this.bST.Zr();
-        if (Zr != null && (threadList = Zr.getThreadList()) != null && updateAttentionMessage != null && updateAttentionMessage.getData() != null) {
+        com.baidu.tieba.tbadkCore.n aas = this.bVk.aas();
+        if (aas != null && (threadList = aas.getThreadList()) != null && updateAttentionMessage != null && updateAttentionMessage.getData() != null) {
             MetaData metaData = new MetaData();
             Iterator<com.baidu.adp.widget.ListView.v> it = threadList.iterator();
             MetaData metaData2 = metaData;

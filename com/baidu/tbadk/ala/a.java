@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.sharedPref.b {
-    private static a QO;
+    private static a QR;
 
     @Override // com.baidu.tbadk.core.sharedPref.b
     public synchronized SharedPreferences getSharedPreferences() {
@@ -12,13 +12,13 @@ public class a extends com.baidu.tbadk.core.sharedPref.b {
     }
 
     public static a nZ() {
-        if (QO == null) {
+        if (QR == null) {
             synchronized (a.class) {
-                if (QO == null) {
-                    QO = new a();
+                if (QR == null) {
+                    QR = new a();
                 }
             }
         }
-        return QO;
+        return QR;
     }
 }

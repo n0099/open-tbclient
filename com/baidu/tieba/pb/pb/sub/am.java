@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes.dex */
 class am extends CustomMessageListener {
-    final /* synthetic */ NewSubPbActivity esV;
+    final /* synthetic */ NewSubPbActivity evm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public am(NewSubPbActivity newSubPbActivity, int i) {
         super(i);
-        this.esV = newSubPbActivity;
+        this.evm = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,31 +36,31 @@ class am extends CustomMessageListener {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
                 com.baidu.tbadk.data.j jVar = (com.baidu.tbadk.data.j) customResponsedMessage.getData();
-                subPbModel = this.esV.esE;
-                if (subPbModel.aON() != null) {
-                    subPbModel2 = this.esV.esE;
-                    if (subPbModel2.aON().aJV() != null) {
-                        subPbModel3 = this.esV.esE;
-                        if (subPbModel3.aON().aJV().getAuthor() != null) {
-                            subPbModel4 = this.esV.esE;
-                            if (currentAccount.equals(subPbModel4.aON().aJV().getAuthor().getUserId())) {
-                                subPbModel5 = this.esV.esE;
-                                if (subPbModel5.aON().aJV().getAuthor().getPendantData() != null) {
-                                    subPbModel6 = this.esV.esE;
-                                    subPbModel6.aON().aJV().getAuthor().getPendantData().cr(jVar.qB());
-                                    subPbModel7 = this.esV.esE;
-                                    subPbModel7.aON().aJV().getAuthor().getPendantData().N(jVar.CO());
-                                    aoVar = this.esV.esG;
-                                    subPbModel8 = this.esV.esE;
-                                    PostData aJV = subPbModel8.aON().aJV();
-                                    subPbModel9 = this.esV.esE;
-                                    boolean asR = subPbModel9.aON().asR();
-                                    subPbModel10 = this.esV.esE;
-                                    boolean oe = subPbModel10.aON().oe();
-                                    subPbModel11 = this.esV.esE;
-                                    int aJH = subPbModel11.aJH();
-                                    subPbModel12 = this.esV.esE;
-                                    aoVar.a(aJV, asR, oe, aJH, subPbModel12.aPd() != null);
+                subPbModel = this.evm.euV;
+                if (subPbModel.aPO() != null) {
+                    subPbModel2 = this.evm.euV;
+                    if (subPbModel2.aPO().aKW() != null) {
+                        subPbModel3 = this.evm.euV;
+                        if (subPbModel3.aPO().aKW().getAuthor() != null) {
+                            subPbModel4 = this.evm.euV;
+                            if (currentAccount.equals(subPbModel4.aPO().aKW().getAuthor().getUserId())) {
+                                subPbModel5 = this.evm.euV;
+                                if (subPbModel5.aPO().aKW().getAuthor().getPendantData() != null) {
+                                    subPbModel6 = this.evm.euV;
+                                    subPbModel6.aPO().aKW().getAuthor().getPendantData().cr(jVar.qB());
+                                    subPbModel7 = this.evm.euV;
+                                    subPbModel7.aPO().aKW().getAuthor().getPendantData().N(jVar.CO());
+                                    aoVar = this.evm.euX;
+                                    subPbModel8 = this.evm.euV;
+                                    PostData aKW = subPbModel8.aPO().aKW();
+                                    subPbModel9 = this.evm.euV;
+                                    boolean atS = subPbModel9.aPO().atS();
+                                    subPbModel10 = this.evm.euV;
+                                    boolean oe = subPbModel10.aPO().oe();
+                                    subPbModel11 = this.evm.euV;
+                                    int aKI = subPbModel11.aKI();
+                                    subPbModel12 = this.evm.euV;
+                                    aoVar.a(aKW, atS, oe, aKI, subPbModel12.aQe() != null);
                                 }
                             }
                         }

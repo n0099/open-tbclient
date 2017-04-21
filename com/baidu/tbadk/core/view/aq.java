@@ -22,11 +22,11 @@ class aq implements View.OnClickListener {
         bi biVar3;
         Context context;
         int i;
-        biVar = this.amF.aiB;
+        biVar = this.amF.aiC;
         if (biVar != null) {
-            biVar2 = this.amF.aiB;
+            biVar2 = this.amF.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.amF.aiB;
+                biVar3 = this.amF.aiC;
                 String str = String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + biVar3.getAuthor().getUserId();
                 String string = TbadkCoreApplication.m9getInst().getString(w.l.user_icon_web_view_title);
                 context = this.amF.mContext;

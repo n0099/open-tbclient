@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class ag {
-    private String ahM = "bar_detail";
-    private a fva;
+    private String ahN = "bar_detail";
+    private a fxr;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,21 +21,21 @@ public class ag {
     }
 
     public void setFrom(String str) {
-        this.ahM = str;
+        this.ahN = str;
     }
 
     public void a(a aVar) {
-        this.fva = aVar;
+        this.fxr = aVar;
     }
 
     public void s(String str, long j) {
-        new b(str, j, this.ahM, this.fva).execute(new Integer[0]);
+        new b(str, j, this.ahN, this.fxr).execute(new Integer[0]);
     }
 
     /* loaded from: classes.dex */
     private static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private String ahM;
-        private WeakReference<a> fvb;
+        private String ahN;
+        private WeakReference<a> fxs;
         private long mForumId;
         private String mForumName;
         private com.baidu.tbadk.core.util.z mNetwork = null;
@@ -43,11 +43,11 @@ public class ag {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.fvb = null;
+            this.fxs = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.fvb = new WeakReference<>(aVar);
-            this.ahM = str2;
+            this.fxs = new WeakReference<>(aVar);
+            this.ahN = str2;
             setPriority(3);
         }
 
@@ -62,7 +62,7 @@ public class ag {
                     this.mNetwork.n("fid", String.valueOf(this.mForumId));
                     this.mNetwork.n("kw", this.mForumName);
                     this.mNetwork.n("favo_type", "1");
-                    this.mNetwork.n("st_type", this.ahM);
+                    this.mNetwork.n("st_type", this.ahN);
                     this.mNetwork.vw().wp().mIsNeedTbs = true;
                     this.mNetwork.uY();
                 }
@@ -78,10 +78,10 @@ public class ag {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.fvb != null) {
+            if (this.fxs != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.fvb.get();
+                a aVar2 = this.fxs.get();
                 if (aVar2 != null) {
                     if (this.mNetwork != null) {
                         if (this.mNetwork.vw().wq().isRequestSuccess()) {

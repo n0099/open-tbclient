@@ -1,13 +1,14 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class fj implements Animation.AnimationListener {
-    final /* synthetic */ ey erv;
+public class fj implements Animation.AnimationListener {
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fj(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -16,8 +17,8 @@ class fj implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (this.erv.eoV != null) {
-            this.erv.eoV.aOc();
+        if (this.etN.erm != null) {
+            this.etN.erm.aPd();
         }
     }
 

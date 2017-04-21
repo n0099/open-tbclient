@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends cf<bi> {
-    final /* synthetic */ k bSi;
+    final /* synthetic */ k bUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.bSi = kVar;
+        this.bUz = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,11 +19,11 @@ public class l extends cf<bi> {
     public void a(View view, bi biVar) {
         if (view != null && biVar != null) {
             if (view.getId() == w.h.card_vote_header_image) {
-                com.baidu.tieba.frs.e.b.adp().a(k.bYW, biVar, 2);
+                com.baidu.tieba.frs.e.b.aeq().a(k.cbn, biVar, 2);
             } else if (view.getId() == w.h.card_divider_tv) {
-                com.baidu.tieba.frs.f.s.a(k.bYW, biVar.sM());
+                com.baidu.tieba.frs.f.s.a(k.cbn, biVar.sM());
             } else {
-                com.baidu.tieba.frs.e.b.adp().a(k.bYW, biVar, 1);
+                com.baidu.tieba.frs.e.b.aeq().a(k.cbn, biVar, 1);
             }
         }
     }

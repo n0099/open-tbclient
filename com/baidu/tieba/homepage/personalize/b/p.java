@@ -11,11 +11,11 @@ import com.baidu.tieba.homepage.personalize.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends cf<com.baidu.tieba.card.data.n> {
-    final /* synthetic */ m cxZ;
+    final /* synthetic */ m cAq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(m mVar) {
-        this.cxZ = mVar;
+        this.cAq = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,71 +36,71 @@ public class p extends cf<com.baidu.tieba.card.data.n> {
         au auVar12;
         au auVar13;
         com.baidu.tieba.homepage.personalize.model.f fVar2;
-        cc.ST().cO(true);
+        cc.TV().cY(true);
         if (view != null) {
-            auVar = this.cxZ.cxX;
+            auVar = this.cAq.cAo;
             if (auVar != null) {
-                auVar2 = this.cxZ.cxX;
+                auVar2 = this.cAq.cAo;
                 if (auVar2.getView() != null) {
-                    fVar = this.cxZ.cxY;
+                    fVar = this.cAq.cAp;
                     if (fVar != null && nVar != null && nVar.Kn() != null && !StringUtils.isNull(nVar.Kn().getTid())) {
                         if ((view.getTag() instanceof String) && !aj.bq(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L))) {
                             aj.bp(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L));
-                            fVar2 = this.cxZ.cxY;
-                            fVar2.a(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.SV(), nVar.SX(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
+                            fVar2 = this.cAq.cAp;
+                            fVar2.a(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.TX(), nVar.TZ(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
                         }
                         int id = view.getId();
-                        auVar3 = this.cxZ.cxX;
+                        auVar3 = this.cAq.cAo;
                         if (id != auVar3.getView().getId()) {
-                            auVar4 = this.cxZ.cxX;
-                            if (auVar4.btl != null) {
+                            auVar4 = this.cAq.cAo;
+                            if (auVar4.bvE != null) {
                                 int id2 = view.getId();
-                                auVar13 = this.cxZ.cxX;
-                                if (id2 == auVar13.btl.getId()) {
-                                    TiebaStatic.log(nVar.Tq());
+                                auVar13 = this.cAq.cAo;
+                                if (id2 == auVar13.bvE.getId()) {
+                                    TiebaStatic.log(nVar.Us());
                                     return;
                                 }
                             }
-                            auVar5 = this.cxZ.cxX;
-                            if (auVar5.btk != null) {
+                            auVar5 = this.cAq.cAo;
+                            if (auVar5.bvD != null) {
                                 int id3 = view.getId();
-                                auVar12 = this.cxZ.cxX;
-                                if (id3 == auVar12.btk.getId()) {
-                                    TiebaStatic.log(nVar.To());
+                                auVar12 = this.cAq.cAo;
+                                if (id3 == auVar12.bvD.getId()) {
+                                    TiebaStatic.log(nVar.Uq());
                                     return;
                                 }
                             }
-                            auVar6 = this.cxZ.cxX;
-                            if (auVar6.bto != null) {
-                                auVar10 = this.cxZ.cxX;
-                                if (auVar10.bto.amq != null) {
+                            auVar6 = this.cAq.cAo;
+                            if (auVar6.bvG != null) {
+                                auVar10 = this.cAq.cAo;
+                                if (auVar10.bvG.amq != null) {
                                     int id4 = view.getId();
-                                    auVar11 = this.cxZ.cxX;
-                                    if (id4 == auVar11.bto.amq.getId()) {
-                                        TiebaStatic.log(nVar.To());
+                                    auVar11 = this.cAq.cAo;
+                                    if (id4 == auVar11.bvG.amq.getId()) {
+                                        TiebaStatic.log(nVar.Uq());
                                         return;
                                     }
                                 }
                             }
-                            auVar7 = this.cxZ.cxX;
-                            if (auVar7.brE != null) {
-                                auVar8 = this.cxZ.cxX;
-                                if (auVar8.brE.getBarNameTv() != null) {
+                            auVar7 = this.cAq.cAo;
+                            if (auVar7.btW != null) {
+                                auVar8 = this.cAq.cAo;
+                                if (auVar8.btW.getBarNameTv() != null) {
                                     int id5 = view.getId();
-                                    auVar9 = this.cxZ.cxX;
-                                    if (id5 == auVar9.brE.getBarNameTv().getId()) {
-                                        TiebaStatic.log(nVar.Tn());
+                                    auVar9 = this.cAq.cAo;
+                                    if (id5 == auVar9.btW.getBarNameTv().getId()) {
+                                        TiebaStatic.log(nVar.Up());
                                         return;
                                     }
                                 }
                             }
                             if (view instanceof TbImageView) {
-                                TiebaStatic.log(nVar.Tp());
+                                TiebaStatic.log(nVar.Ur());
                                 return;
                             }
                             return;
                         }
-                        TiebaStatic.log(nVar.Tm());
+                        TiebaStatic.log(nVar.Uo());
                     }
                 }
             }

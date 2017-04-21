@@ -3,17 +3,17 @@ package com.baidu.adp.lib.network.http;
 import java.util.TimerTask;
 /* loaded from: classes.dex */
 class c extends TimerTask {
-    final /* synthetic */ b vl;
+    final /* synthetic */ b vq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.vl = bVar;
+        this.vq = bVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
         try {
-            this.vl.fr();
+            this.vq.fs();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -13,7 +13,7 @@ import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c implements e<a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean fO() {
+    public boolean fP() {
         return true;
     }
 
@@ -28,16 +28,16 @@ public class c implements e<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.wc = dVar;
+            aVar.wg = dVar;
         }
-        diskFileOperate.dI();
+        diskFileOperate.dJ();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String dZ = diskFileOperate.dZ();
+        String ea = diskFileOperate.ea();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = dZ;
+        aVar2.path = ea;
         return aVar2;
     }
 
@@ -54,7 +54,7 @@ public class c implements e<a> {
         a aVar2 = new a();
         k kVar = new k();
         if (aVar != null) {
-            aVar.wc = kVar;
+            aVar.wg = kVar;
         }
         byte[] dP = kVar.dP(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
         if (!kVar.wy()) {
@@ -79,11 +79,11 @@ public class c implements e<a> {
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
-                    aVar.wc = dVar;
+                    aVar.wg = dVar;
                 }
-                diskFileOperate.dI();
-                if (diskFileOperate.isSuccess() && diskFileOperate.dW() != null) {
-                    str5 = diskFileOperate.dW().getAbsolutePath();
+                diskFileOperate.dJ();
+                if (diskFileOperate.isSuccess() && diskFileOperate.dX() != null) {
+                    str5 = diskFileOperate.dX().getAbsolutePath();
                     i3 = 0;
                 } else if (com.baidu.tbadk.core.util.l.uW() < dP.length) {
                     i3 = 2;
@@ -107,12 +107,12 @@ public class c implements e<a> {
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel fP() {
+    public BdAsyncTaskParallel fQ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int fQ() {
+    public int fR() {
         return 2;
     }
 

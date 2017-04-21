@@ -15,7 +15,7 @@ public class ap implements com.baidu.adp.lib.e.c<TbImageView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: xs */
-    public TbImageView fK() {
+    public TbImageView fL() {
         return new TbImageView(this.val$context);
     }
 

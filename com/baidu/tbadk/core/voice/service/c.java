@@ -197,7 +197,7 @@ public class c {
         }
     }
 
-    public void u(String str, int i) {
+    public void v(String str, int i) {
         this.anN.add(new b(str, String.valueOf(i)));
     }
 }

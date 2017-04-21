@@ -16,11 +16,11 @@ import com.baidu.tieba.tbadkCore.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements NewWriteModel.d {
-    final /* synthetic */ c aBg;
+    final /* synthetic */ c aBi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.aBg = cVar;
+        this.aBi = cVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -35,7 +35,7 @@ public class f implements NewWriteModel.d {
         String str;
         NewWriteModel newWriteModel2;
         if (writeData == null) {
-            newWriteModel2 = this.aBg.aAP;
+            newWriteModel2 = this.aBi.aAR;
             writeData2 = newWriteModel2.getWriteData();
         } else {
             writeData2 = writeData;
@@ -47,36 +47,36 @@ public class f implements NewWriteModel.d {
                 writeData2.setVcodeExtra(qVar.yH());
                 if (com.baidu.tbadk.o.a.gt(qVar.yG())) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    baseActivity3 = this.aBg.mContext;
+                    baseActivity3 = this.aBi.mContext;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity3.getActivity(), 12006, writeData2, false, qVar.yG())));
                 } else {
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    baseActivity2 = this.aBg.mContext;
+                    baseActivity2 = this.aBi.mContext;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(baseActivity2.getActivity(), writeData2, 12006)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                 MessageManager messageManager3 = MessageManager.getInstance();
-                baseActivity = this.aBg.mContext;
+                baseActivity = this.aBi.mContext;
                 messageManager3.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(baseActivity.getActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
             }
         } else {
-            this.aBg.bK(true);
-            newWriteModel = this.aBg.aAP;
+            this.aBi.bK(true);
+            newWriteModel = this.aBi.aAR;
             WriteData writeData3 = newWriteModel.getWriteData();
-            this.aBg.resetData();
-            str = this.aBg.mThreadId;
+            this.aBi.resetData();
+            str = this.aBi.mThreadId;
             z.c(str, (WriteData) null);
             if (writeData3 != null) {
                 if (writeData3 != null && writeData3.getType() == 2) {
-                    z.a(writeData3.getThreadId(), this.aBg);
+                    z.a(writeData3.getThreadId(), this.aBi);
                 }
             } else {
                 return;
             }
         }
-        dVar = this.aBg.aAX;
+        dVar = this.aBi.aAZ;
         if (dVar != null) {
-            dVar2 = this.aBg.aAX;
+            dVar2 = this.aBi.aAZ;
             dVar2.callback(z, postWriteCallBackData, qVar, writeData2, antiData);
         }
     }

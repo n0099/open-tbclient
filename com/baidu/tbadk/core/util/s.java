@@ -11,9 +11,9 @@ public interface s {
 
     void d(String str, byte[] bArr);
 
-    void fr();
+    void fs();
 
-    void fu();
+    void fv();
 
     void k(ArrayList<BasicNameValuePair> arrayList);
 

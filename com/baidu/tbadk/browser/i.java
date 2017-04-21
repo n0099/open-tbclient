@@ -22,12 +22,12 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean Ri = true;
+    public static boolean Rk = true;
 
     public static void init() {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new j(0));
         bb.wn().a(new k());
-        com.baidu.adp.lib.b.e.eY().a(new com.baidu.adp.lib.b.c("switch_mbaidu_startup", 1, null));
+        com.baidu.adp.lib.b.e.eZ().a(new com.baidu.adp.lib.b.c("switch_mbaidu_startup", 1, null));
         oz();
         oB();
         oC();
@@ -102,7 +102,7 @@ public class i {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String bQ = bQ(str);
-        if (!bT(bQ) && oA() && bV("com.baidu.searchbox") && bU(bQ) && Ri) {
+        if (!bT(bQ) && oA() && bV("com.baidu.searchbox") && bU(bQ) && Rk) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -115,7 +115,7 @@ public class i {
     }
 
     private static boolean oA() {
-        return com.baidu.adp.lib.b.e.eY().Y("switch_mbaidu_startup") == 1;
+        return com.baidu.adp.lib.b.e.eZ().Y("switch_mbaidu_startup") == 1;
     }
 
     private static boolean bU(String str) {

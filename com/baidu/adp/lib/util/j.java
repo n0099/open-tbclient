@@ -7,16 +7,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class j {
-    protected static SimpleDateFormat yL = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat yM = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat yN = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat yO = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat yP = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat yQ = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat yR = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat yS = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat yT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat yU = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat yO = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat yP = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat yQ = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat yR = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat yS = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat yT = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat yU = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat yV = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat yW = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat yX = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -27,32 +27,32 @@ public class j {
 
     public static String a(Date date) {
         String format;
-        synchronized (yP) {
-            format = yP.format(date);
+        synchronized (yS) {
+            format = yS.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
         String format;
-        synchronized (yN) {
-            format = yN.format(date);
+        synchronized (yQ) {
+            format = yQ.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (yO) {
-            format = yO.format(date);
+        synchronized (yR) {
+            format = yR.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (yQ) {
-            format = yQ.format(date);
+        synchronized (yT) {
+            format = yT.format(date);
         }
         return format;
     }

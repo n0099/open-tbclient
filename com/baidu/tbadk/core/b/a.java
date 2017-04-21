@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
 public abstract class a {
-    public BdUniqueId Ti;
-    public HttpResponsedMessage Tj;
+    public BdUniqueId Tk;
+    public HttpResponsedMessage Tl;
 
     private a() {
     }
@@ -26,7 +26,7 @@ public abstract class a {
         public static C0031a a(long j, BdUniqueId bdUniqueId) {
             C0031a c0031a = new C0031a();
             c0031a.channelId = j;
-            c0031a.Ti = bdUniqueId;
+            c0031a.Tk = bdUniqueId;
             return c0031a;
         }
     }
@@ -42,14 +42,14 @@ public abstract class a {
         public static c b(long j, BdUniqueId bdUniqueId) {
             c cVar = new c();
             cVar.channelId = j;
-            cVar.Ti = bdUniqueId;
+            cVar.Tk = bdUniqueId;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class b extends a {
-        public boolean Tk;
+        public boolean Tm;
         public long channelId;
         public boolean isOpen;
 
@@ -60,7 +60,7 @@ public abstract class a {
         public static b a(long j, boolean z, BdUniqueId bdUniqueId) {
             b bVar = new b();
             bVar.channelId = j;
-            bVar.Ti = bdUniqueId;
+            bVar.Tk = bdUniqueId;
             bVar.isOpen = z;
             return bVar;
         }

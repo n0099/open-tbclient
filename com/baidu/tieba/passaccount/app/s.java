@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class s implements a.InterfaceC0030a {
-    final /* synthetic */ SapiFastRegActivity eda;
+    final /* synthetic */ SapiFastRegActivity efq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(SapiFastRegActivity sapiFastRegActivity) {
-        this.eda = sapiFastRegActivity;
+        this.efq = sapiFastRegActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
@@ -27,11 +27,11 @@ class s implements a.InterfaceC0030a {
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_cslogin_success", 0, "", new Object[0]);
         if (!TextUtils.isEmpty(accountData.getAccount())) {
-            this.eda.ecY = RegisterActivityConfig.LOGIN_USER;
-            this.eda.r(accountData);
+            this.efq.efo = RegisterActivityConfig.LOGIN_USER;
+            this.efq.r(accountData);
             return;
         }
-        this.eda.k(accountData);
+        this.efq.k(accountData);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.passaccount.app.SapiFastRegActivity */
@@ -39,8 +39,8 @@ class s implements a.InterfaceC0030a {
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
     public void b(String str, int i, String str2) {
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_cslogin_fail", i, str2, new Object[0]);
-        this.eda.showToast(w.l.register_retry);
-        TbadkCoreApplication.m9getInst().login(this.eda.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.eda.getPageContext().getPageActivity(), (String) null, true, 11003)));
-        this.eda.finish();
+        this.efq.showToast(w.l.register_retry);
+        TbadkCoreApplication.m9getInst().login(this.efq.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.efq.getPageContext().getPageActivity(), (String) null, true, 11003)));
+        this.efq.finish();
     }
 }

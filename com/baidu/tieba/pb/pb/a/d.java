@@ -27,165 +27,165 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d extends y.a {
-    private p ZL;
-    private boolean bKQ;
-    private View.OnClickListener bOx;
-    View bUJ;
-    View cpU;
-    LinearLayout egK;
-    DeclareItemView egL;
-    DeclareItemView egM;
-    DeclareItemView egN;
-    DeclareItemView egO;
-    DeclareItemView egP;
-    TextView egQ;
-    private boolean egR;
-    private ArrayList<a> egS;
-    private int[] egT;
-    private da egU;
-    private boolean egV;
+    private p ZM;
+    private boolean bNh;
+    private View.OnClickListener bQO;
+    View bXa;
+    View csm;
+    LinearLayout eja;
+    DeclareItemView ejb;
+    DeclareItemView ejc;
+    DeclareItemView ejd;
+    DeclareItemView eje;
+    DeclareItemView ejf;
+    TextView ejg;
+    private boolean ejh;
+    private ArrayList<a> eji;
+    private int[] ejj;
+    private da ejk;
+    private boolean ejl;
     private Context mContext;
     private int mSkinType;
     private int offset;
 
     public d(View view, Context context) {
         super(view);
-        this.egR = true;
-        this.egS = new ArrayList<>();
+        this.ejh = true;
+        this.eji = new ArrayList<>();
         this.mSkinType = 3;
-        this.egT = new int[]{w.g.image_emoticon_huaji, w.g.image_emoticon_zan, w.g.image_emoticon_love, w.g.image_emoticon_shuitei, w.g.image_emoticon_shengqi};
+        this.ejj = new int[]{w.g.image_emoticon_huaji, w.g.image_emoticon_zan, w.g.image_emoticon_love, w.g.image_emoticon_shuitei, w.g.image_emoticon_shengqi};
         this.offset = 0;
-        this.egV = false;
-        this.bKQ = true;
-        this.bOx = new e(this);
+        this.ejl = false;
+        this.bNh = true;
+        this.bQO = new e(this);
         aU(view);
         this.mContext = context;
     }
 
     public void aU(View view) {
         FrameLayout.LayoutParams layoutParams;
-        this.egK = (LinearLayout) view.findViewById(w.h.emotion_vote);
-        this.egL = (DeclareItemView) view.findViewById(w.h.huaji_item);
-        this.egP = (DeclareItemView) view.findViewById(w.h.zan_item);
-        this.egM = (DeclareItemView) view.findViewById(w.h.love_item);
-        this.egN = (DeclareItemView) view.findViewById(w.h.shengqi_item);
-        this.egO = (DeclareItemView) view.findViewById(w.h.tushui_item);
-        this.egQ = (TextView) view.findViewById(w.h.vote_count_view);
-        this.bUJ = view.findViewById(w.h.top_divider_line);
-        this.cpU = view.findViewById(w.h.bottom_divider_line);
-        if ((this.egK.getLayoutParams() instanceof FrameLayout.LayoutParams) && (layoutParams = (FrameLayout.LayoutParams) this.egK.getLayoutParams()) != null) {
+        this.eja = (LinearLayout) view.findViewById(w.h.emotion_vote);
+        this.ejb = (DeclareItemView) view.findViewById(w.h.huaji_item);
+        this.ejf = (DeclareItemView) view.findViewById(w.h.zan_item);
+        this.ejc = (DeclareItemView) view.findViewById(w.h.love_item);
+        this.ejd = (DeclareItemView) view.findViewById(w.h.shengqi_item);
+        this.eje = (DeclareItemView) view.findViewById(w.h.tushui_item);
+        this.ejg = (TextView) view.findViewById(w.h.vote_count_view);
+        this.bXa = view.findViewById(w.h.top_divider_line);
+        this.csm = view.findViewById(w.h.bottom_divider_line);
+        if ((this.eja.getLayoutParams() instanceof FrameLayout.LayoutParams) && (layoutParams = (FrameLayout.LayoutParams) this.eja.getLayoutParams()) != null) {
             this.offset = layoutParams.rightMargin - k.g(TbadkCoreApplication.m9getInst(), w.f.ds8);
         }
-        this.egS.add(new a(this.egL));
-        this.egS.add(new a(this.egP));
-        this.egS.add(new a(this.egM));
-        this.egS.add(new a(this.egO));
-        this.egS.add(new a(this.egN));
+        this.eji.add(new a(this.ejb));
+        this.eji.add(new a(this.ejf));
+        this.eji.add(new a(this.ejc));
+        this.eji.add(new a(this.eje));
+        this.eji.add(new a(this.ejd));
         onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-        aKg();
+        aLh();
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            aVar.aKi();
-            this.egQ.setAlpha(1.0f);
-            if (this.egR) {
-                Iterator<a> it = this.egS.iterator();
+            aVar.aLj();
+            this.ejg.setAlpha(1.0f);
+            if (this.ejh) {
+                Iterator<a> it = this.eji.iterator();
                 while (it.hasNext()) {
                     a next = it.next();
                     if (next != null && next != aVar) {
-                        next.egZ.setAlpha(0.0f);
-                        next.egZ.setClickable(false);
+                        next.ejp.setAlpha(0.0f);
+                        next.ejp.setClickable(false);
                     }
                 }
-                aVar.egZ.setNeedTranslate(true);
-                this.egR = false;
+                aVar.ejp.setNeedTranslate(true);
+                this.ejh = false;
             }
         }
     }
 
-    public void aKg() {
-        int size = this.egS.size();
+    public void aLh() {
+        int size = this.eji.size();
         for (int i = 0; i < size; i++) {
-            a aVar = this.egS.get(i);
+            a aVar = this.eji.get(i);
             if (aVar != null) {
-                aVar.egZ.setOffSet(this.offset);
-                aVar.egZ.setOnClickListener(this.bOx);
-                if (i < this.egT.length) {
-                    aVar.eha.setImageResource(this.egT[i]);
+                aVar.ejp.setOffSet(this.offset);
+                aVar.ejp.setOnClickListener(this.bQO);
+                if (i < this.ejj.length) {
+                    aVar.ejq.setImageResource(this.ejj[i]);
                 }
-                aVar.ehb.setText("0");
+                aVar.ejr.setText("0");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void id(boolean z) {
-        int size = this.egS.size();
+    public void in(boolean z) {
+        int size = this.eji.size();
         for (int i = 0; i < size; i++) {
-            a aVar = this.egS.get(i);
+            a aVar = this.eji.get(i);
             if (aVar != null) {
-                aVar.egZ.setClickable(z);
+                aVar.ejp.setClickable(z);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, long j) {
-        if (!this.egV) {
-            this.egV = true;
-            if (this.ZL != null && view != null && (view.getTag() instanceof a)) {
+        if (!this.ejl) {
+            this.ejl = true;
+            if (this.ZM != null && view != null && (view.getTag() instanceof a)) {
                 a aVar = (a) view.getTag();
-                float measuredWidth = this.offset + ((this.egK.getMeasuredWidth() - view.getX()) - view.getMeasuredWidth());
-                id(false);
-                if (this.egR) {
-                    if (aVar.ehd != null) {
-                        if (aVar.ehd.Vk) {
-                            a(aVar.ehd, false);
-                            aVar.ie(false);
+                float measuredWidth = this.offset + ((this.eja.getMeasuredWidth() - view.getX()) - view.getMeasuredWidth());
+                in(false);
+                if (this.ejh) {
+                    if (aVar.ejt != null) {
+                        if (aVar.ejt.Vm) {
+                            a(aVar.ejt, false);
+                            aVar.io(false);
                             AnimatorSet animatorSet = new AnimatorSet();
                             animatorSet.play(ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.3f, 1.0f)).with(ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.3f, 1.0f));
                             animatorSet.setDuration(j).start();
-                            id(true);
-                            this.egV = false;
-                            TiebaStatic.log(new as("c12000").s("obj_id", aVar.ehd.Vg).g("tid", this.ZL.getTid()));
+                            in(true);
+                            this.ejl = false;
+                            TiebaStatic.log(new as("c12000").s("obj_id", aVar.ejt.Vi).g("tid", this.ZM.getTid()));
                             return;
                         }
-                        if (this.ZL.qh()) {
-                            Iterator<a> it = this.egS.iterator();
+                        if (this.ZM.qh()) {
+                            Iterator<a> it = this.eji.iterator();
                             while (it.hasNext()) {
                                 a next = it.next();
                                 if (next != null && next != aVar) {
-                                    a(aVar.ehd, false);
-                                    next.ie(false);
-                                    TiebaStatic.log(new as("c12000").s("obj_id", aVar.ehd.Vg).g("tid", this.ZL.getTid()));
+                                    a(aVar.ejt, false);
+                                    next.io(false);
+                                    TiebaStatic.log(new as("c12000").s("obj_id", aVar.ejt.Vi).g("tid", this.ZM.getTid()));
                                 }
                             }
                             AnimatorSet animatorSet2 = new AnimatorSet();
                             animatorSet2.play(ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.3f, 1.0f)).with(ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.3f, 1.0f));
                             animatorSet2.setDuration(j).start();
                         }
-                        a(aVar.ehd, true);
-                        aVar.ie(true);
-                        TiebaStatic.log(new as("c11999").s("obj_id", aVar.ehd.Vg).g("tid", this.ZL.getTid()));
+                        a(aVar.ejt, true);
+                        aVar.io(true);
+                        TiebaStatic.log(new as("c11999").s("obj_id", aVar.ejt.Vi).g("tid", this.ZM.getTid()));
                     }
                 } else {
-                    TiebaStatic.log(new as("c12002").g("tid", this.ZL.getTid()));
+                    TiebaStatic.log(new as("c12002").g("tid", this.ZM.getTid()));
                     measuredWidth = 0.0f;
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator<a> it2 = this.egS.iterator();
+                Iterator<a> it2 = this.eji.iterator();
                 while (it2.hasNext()) {
                     a next2 = it2.next();
                     if (next2 != null && next2 != aVar) {
-                        arrayList.add(this.egR ? ObjectAnimator.ofFloat(next2.egZ, "alpha", 1.0f, 0.0f) : ObjectAnimator.ofFloat(next2.egZ, "alpha", 0.0f, 1.0f));
+                        arrayList.add(this.ejh ? ObjectAnimator.ofFloat(next2.ejp, "alpha", 1.0f, 0.0f) : ObjectAnimator.ofFloat(next2.ejp, "alpha", 0.0f, 1.0f));
                     }
                 }
                 AnimatorSet animatorSet3 = new AnimatorSet();
                 animatorSet3.playTogether(arrayList);
                 ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "translationX", measuredWidth);
                 ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
-                if (this.egR) {
+                if (this.ejh) {
                     animatorSet3.play(ObjectAnimator.ofFloat(view, "scaleX", 1.0f, 1.3f, 1.0f)).with(ObjectAnimator.ofFloat(view, "scaleY", 1.0f, 1.3f, 1.0f)).before(ofFloat);
                 } else {
                     animatorSet3.play(ofFloat);
@@ -199,82 +199,82 @@ public class d extends y.a {
     public void a(p pVar) {
         a aVar;
         if (pVar != null && pVar.qe() != null) {
-            this.ZL = pVar;
-            aKh();
+            this.ZM = pVar;
+            aLi();
             a aVar2 = null;
             int i = 0;
             while (true) {
-                if (i >= this.ZL.qe().size()) {
+                if (i >= this.ZM.qe().size()) {
                     aVar = aVar2;
                     break;
                 }
-                q qVar = this.ZL.qe().get(i);
-                if (qVar != null && i < this.egT.length) {
-                    qVar.Vl = this.egT[i];
+                q qVar = this.ZM.qe().get(i);
+                if (qVar != null && i < this.ejj.length) {
+                    qVar.Vn = this.ejj[i];
                 }
-                aVar = (a) x.c(this.egS, i);
+                aVar = (a) x.c(this.eji, i);
                 if (aVar != null) {
-                    if (aVar2 == null && qVar.Vk) {
-                        if (!this.egR) {
+                    if (aVar2 == null && qVar.Vm) {
+                        if (!this.ejh) {
                             aVar.a(qVar);
-                            aVar.aKi();
+                            aVar.aLj();
                             break;
                         }
                         aVar2 = aVar;
                     }
-                    if (this.egR) {
+                    if (this.ejh) {
                         aVar.a(qVar);
                     }
                 }
                 i++;
             }
-            if (aVar != null && this.bKQ) {
+            if (aVar != null && this.bNh) {
                 a(aVar);
             }
             onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
-            this.bKQ = false;
+            this.bNh = false;
         }
     }
 
     private void a(q qVar, boolean z) {
-        if (qVar != null && qVar.Vk != z) {
-            if (this.egU == null) {
-                this.egU = new da();
+        if (qVar != null && qVar.Vm != z) {
+            if (this.ejk == null) {
+                this.ejk = new da();
             }
-            if (this.ZL != null) {
-                this.egU.ekW = this.ZL.qf();
-                this.egU.Vf = this.ZL.getTid();
-                this.egU.mForumId = this.ZL.getForumId();
+            if (this.ZM != null) {
+                this.ejk.eno = this.ZM.qf();
+                this.ejk.Vh = this.ZM.getTid();
+                this.ejk.mForumId = this.ZM.getForumId();
             }
-            this.egU.ekX = qVar.Vg;
-            this.egU.ekY = z ? 1 : 0;
-            this.egU.aLj();
+            this.ejk.enp = qVar.Vi;
+            this.ejk.enq = z ? 1 : 0;
+            this.ejk.aMk();
         }
     }
 
     private void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            Iterator<a> it = this.egS.iterator();
+            Iterator<a> it = this.eji.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null) {
                     next.onChangeSkinType(i);
                 }
             }
-            aq.i(this.egQ, w.e.cp_cont_c);
-            aq.k(this.bUJ, w.e.cp_bg_line_c);
-            aq.k(this.cpU, w.e.cp_bg_line_c);
+            aq.i(this.ejg, w.e.cp_cont_c);
+            aq.k(this.bXa, w.e.cp_bg_line_c);
+            aq.k(this.csm, w.e.cp_bg_line_c);
             this.mSkinType = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKh() {
+    public void aLi() {
         String format;
-        if (this.ZL != null && this.ZL.qh()) {
-            long bD = this.ZL.bD(this.egT.length);
+        if (this.ZM != null && this.ZM.qh()) {
+            long bD = this.ZM.bD(this.ejj.length);
             if (bD > 0) {
-                if (this.ZL.qg()) {
+                if (this.ZM.qg()) {
                     if (bD == 1) {
                         format = String.format(TbadkCoreApplication.m9getInst().getString(w.l.declare_text_me_to_me), new Object[0]);
                     } else {
@@ -285,78 +285,78 @@ public class d extends y.a {
                 } else {
                     format = String.format(TbadkCoreApplication.m9getInst().getString(w.l.declare_text_we_to_host), au.t(bD - 1));
                 }
-                this.egQ.setText(format);
+                this.ejg.setText(format);
             }
         }
     }
 
     /* loaded from: classes.dex */
     public static class a extends y.a {
-        public DeclareItemView egZ;
-        public TbImageView eha;
-        public TextView ehb;
-        private String ehc;
-        public q ehd;
-        private final int ehe;
+        public DeclareItemView ejp;
+        public TbImageView ejq;
+        public TextView ejr;
+        private String ejs;
+        public q ejt;
+        private final int eju;
         private int mSkinType;
 
         public a(DeclareItemView declareItemView) {
             super(declareItemView);
             this.mSkinType = 3;
-            this.ehe = 3;
+            this.eju = 3;
             if (declareItemView != null) {
-                this.egZ = declareItemView;
-                this.eha = (TbImageView) declareItemView.findViewById(w.h.declare_image);
-                this.ehb = (TextView) declareItemView.findViewById(w.h.declare_count);
+                this.ejp = declareItemView;
+                this.ejq = (TbImageView) declareItemView.findViewById(w.h.declare_image);
+                this.ejr = (TextView) declareItemView.findViewById(w.h.declare_count);
             }
         }
 
         public void onChangeSkinType(int i) {
             if (this.mSkinType != i) {
-                aq.i(this.ehb, w.g.pb_declare_count_selector);
+                aq.i(this.ejr, w.g.pb_declare_count_selector);
                 this.mSkinType = i;
             }
         }
 
         public void a(q qVar) {
             if (qVar != null) {
-                this.ehd = qVar;
-                cl(qVar.Vj);
-                if (!StringUtils.isNull(qVar.Vi)) {
-                    this.ehc = qVar.Vi;
+                this.ejt = qVar;
+                cl(qVar.Vl);
+                if (!StringUtils.isNull(qVar.Vk)) {
+                    this.ejs = qVar.Vk;
                 }
-                if (!StringUtils.isNull(qVar.Vh)) {
-                    this.eha.c(qVar.Vh, 10, false);
+                if (!StringUtils.isNull(qVar.Vj)) {
+                    this.ejq.c(qVar.Vj, 10, false);
                 } else {
-                    this.eha.setImageResource(qVar.Vl);
+                    this.ejq.setImageResource(qVar.Vn);
                 }
-                ie(qVar.Vk);
+                io(qVar.Vm);
             }
         }
 
-        public void ie(boolean z) {
-            if (this.ehd != null && this.ehd.Vk != z) {
+        public void io(boolean z) {
+            if (this.ejt != null && this.ejt.Vm != z) {
                 if (z) {
-                    cl(this.ehd.Vj + 1);
-                    this.ehb.setSelected(true);
+                    cl(this.ejt.Vl + 1);
+                    this.ejr.setSelected(true);
                 } else {
-                    cl(this.ehd.Vj - 1);
-                    this.ehb.setSelected(false);
+                    cl(this.ejt.Vl - 1);
+                    this.ejr.setSelected(false);
                 }
-                this.ehd.Vk = z;
+                this.ejt.Vm = z;
             }
         }
 
         public void cl(long j) {
-            if (this.ehd != null && j >= 0) {
-                this.ehd.Vj = j;
+            if (this.ejt != null && j >= 0) {
+                this.ejt.Vl = j;
             }
-            this.ehb.setText(au.t(j));
+            this.ejr.setText(au.t(j));
         }
 
-        public void aKi() {
-            this.ehb.setText(au.c(this.ehc, 3, null));
-            this.ehb.setSelected(true);
+        public void aLj() {
+            this.ejr.setText(au.c(this.ejs, 3, null));
+            this.ejr.setSelected(true);
         }
     }
 }

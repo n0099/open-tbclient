@@ -13,8 +13,8 @@ import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
-    private List<TagInfo> cvd = new ArrayList();
-    private final int cve;
+    private List<TagInfo> cxu = new ArrayList();
+    private final int cxv;
     private Context mContext;
     private int padding;
     private int textSize;
@@ -25,30 +25,30 @@ public class q extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(w.f.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(w.f.ds16);
-        this.cve = i;
+        this.cxv = i;
     }
 
-    public void aY(List<TagInfo> list) {
-        this.cvd.clear();
+    public void aZ(List<TagInfo> list) {
+        this.cxu.clear();
         if (list != null && list.size() > 0) {
-            this.cvd.addAll(list);
+            this.cxu.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.cvd.size();
+        return this.cxu.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jJ */
+    /* renamed from: jP */
     public TagInfo getItem(int i) {
-        if (i < 0 || i >= this.cvd.size()) {
+        if (i < 0 || i >= this.cxu.size()) {
             return null;
         }
-        return this.cvd.get(i);
+        return this.cxu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -67,13 +67,13 @@ public class q extends BaseAdapter {
             textView.setTextSize(0, this.textSize);
             textView.setPadding(0, this.padding, 0, this.padding);
         }
-        TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.x.c(this.cvd, i);
+        TagInfo tagInfo = (TagInfo) com.baidu.tbadk.core.util.x.c(this.cxu, i);
         if (tagInfo == null) {
             return null;
         }
         textView.setText(au.d(tagInfo.tag_name, 8, null));
         aq.c(textView, w.e.cp_cont_f, 1);
-        if (i == this.cve) {
+        if (i == this.cxv) {
             aq.j(textView, w.g.btn_label_white_s);
             return textView;
         }

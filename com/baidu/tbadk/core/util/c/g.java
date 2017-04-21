@@ -34,7 +34,7 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.c.a, com.baidu.adp.lib.f.e
-    public boolean fO() {
+    public boolean fP() {
         return true;
     }
 

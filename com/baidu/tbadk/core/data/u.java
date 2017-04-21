@@ -5,30 +5,30 @@ import java.util.ArrayList;
 import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class u {
-    private r VI;
+    private r VK;
     private long threadId;
-    private long VD = 0;
-    private String VE = "";
     private long VF = 0;
     private String VG = "";
+    private long VH = 0;
+    private String VI = "";
     private String imgUrl = "";
-    private String VH = "";
+    private String VJ = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
             this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.VD = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.VE = forumHeadlineImgInfo.thread_user_name;
-            this.VF = forumHeadlineImgInfo.img_user_id.longValue();
-            this.VG = forumHeadlineImgInfo.img_user_name;
+            this.VF = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.VG = forumHeadlineImgInfo.thread_user_name;
+            this.VH = forumHeadlineImgInfo.img_user_id.longValue();
+            this.VI = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.VH = forumHeadlineImgInfo.headline_url;
-            this.VI = new r();
+            this.VJ = forumHeadlineImgInfo.headline_url;
+            this.VK = new r();
             ArrayList<t> arrayList = new ArrayList<>();
-            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.VH == null ? "" : this.VH, null);
+            t tVar = new t(this.imgUrl == null ? "" : this.imgUrl, this.VJ == null ? "" : this.VJ, null);
             tVar.ao(true);
             arrayList.add(tVar);
-            this.VI.f(arrayList);
+            this.VK.f(arrayList);
         }
     }
 
@@ -37,19 +37,19 @@ public class u {
     }
 
     public boolean qx() {
-        return StringUtils.isNull(this.VE, true) || this.VD <= 0;
-    }
-
-    public boolean qy() {
         return StringUtils.isNull(this.VG, true) || this.VF <= 0;
     }
 
+    public boolean qy() {
+        return StringUtils.isNull(this.VI, true) || this.VH <= 0;
+    }
+
     public String qz() {
-        return this.VE;
+        return this.VG;
     }
 
     public String qA() {
-        return this.VG;
+        return this.VI;
     }
 
     public String qB() {
@@ -57,10 +57,10 @@ public class u {
     }
 
     public String qC() {
-        return this.VH;
+        return this.VJ;
     }
 
     public r qD() {
-        return this.VI;
+        return this.VK;
     }
 }

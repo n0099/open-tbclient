@@ -25,16 +25,16 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    com.baidu.tieba.personPolymeric.event.a eHc = new com.baidu.tieba.personPolymeric.event.a();
-    final /* synthetic */ t eHd;
+    com.baidu.tieba.personPolymeric.event.a eJs = new com.baidu.tieba.personPolymeric.event.a();
+    final /* synthetic */ t eJt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.eHd = tVar;
+        this.eJt = tVar;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0166, code lost:
-        if (r0.getIsFriend() != 1) goto L37;
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0179, code lost:
+        if (r0.getIsFriend() != 1) goto L41;
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -69,115 +69,121 @@ public class u implements View.OnClickListener {
         Context context4;
         UserData userData14;
         UserData userData15;
+        Context context5;
         UserData userData16;
         UserData userData17;
         UserData userData18;
         UserData userData19;
         com.baidu.tieba.view.m mVar2;
         UserData userData20;
-        mVar = this.eHd.eAx;
+        mVar = this.eJt.eCN;
         if (mVar != null) {
-            this.eHc.bGX = -1;
-            headPendantView = this.eHd.fKf;
+            this.eJs.bJo = -1;
+            headPendantView = this.eJt.fMB;
             if (headPendantView != view) {
-                userIconBox = this.eHd.fKh;
+                userIconBox = this.eJt.fMD;
                 if (userIconBox != view) {
-                    userIconBox2 = this.eHd.fKi;
+                    userIconBox2 = this.eJt.fME;
                     if (userIconBox2 != view) {
-                        bdExpandImageView = this.eHd.fKe;
+                        bdExpandImageView = this.eJt.fMA;
                         if (bdExpandImageView != view) {
-                            imageView = this.eHd.bgK;
+                            imageView = this.eJt.biP;
                             if (imageView != view) {
-                                textView = this.eHd.fKk;
+                                textView = this.eJt.fMG;
                                 if (textView != view) {
-                                    view2 = this.eHd.eGW;
+                                    view2 = this.eJt.eJm;
                                     if (view2 == view) {
+                                        if (!com.baidu.adp.lib.util.i.hk()) {
+                                            context5 = this.eJt.mContext;
+                                            com.baidu.adp.lib.util.k.showToast(context5, w.l.no_network_guide);
+                                            return;
+                                        }
                                         as asVar = new as("c11855");
                                         asVar.aa(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-                                        userData = this.eHd.mUserData;
+                                        userData = this.eJt.mUserData;
                                         asVar.aa("click_uid", userData.getUserId());
-                                        userData2 = this.eHd.mUserData;
+                                        userData2 = this.eJt.mUserData;
                                         asVar.s("live_status", userData2.getLiveStatus());
                                         TiebaStatic.log(asVar);
-                                        userData3 = this.eHd.mUserData;
+                                        userData3 = this.eJt.mUserData;
                                         if (userData3.getPersonPrivate().CL() != 3) {
-                                            userData5 = this.eHd.mUserData;
+                                            userData5 = this.eJt.mUserData;
                                             if (userData5.getPersonPrivate().CL() == 2) {
-                                                userData15 = this.eHd.mUserData;
+                                                userData15 = this.eJt.mUserData;
                                             }
-                                            userData6 = this.eHd.mUserData;
+                                            userData6 = this.eJt.mUserData;
                                             if (userData6.getLiveStatus() != 1) {
-                                                context3 = this.eHd.mContext;
-                                                userData7 = this.eHd.mUserData;
+                                                context3 = this.eJt.mContext;
+                                                userData7 = this.eJt.mUserData;
                                                 String userId = userData7.getUserId();
-                                                userData8 = this.eHd.mUserData;
+                                                userData8 = this.eJt.mUserData;
                                                 String userName = userData8.getUserName();
-                                                userData9 = this.eHd.mUserData;
+                                                userData9 = this.eJt.mUserData;
                                                 String portrait = userData9.getPortrait();
-                                                userData10 = this.eHd.mUserData;
+                                                userData10 = this.eJt.mUserData;
                                                 int sex = userData10.getSex();
-                                                z = this.eHd.bca;
+                                                z = this.eJt.bcY;
                                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(context3, userId, userName, portrait, sex, z)));
                                             } else {
                                                 AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                                                userData11 = this.eHd.mUserData;
+                                                userData11 = this.eJt.mUserData;
                                                 alaLiveInfoCoreData.setLiveID(Long.parseLong(userData11.getLiveId()));
-                                                userData12 = this.eHd.mUserData;
+                                                userData12 = this.eJt.mUserData;
                                                 alaLiveInfoCoreData.setUserID(Long.parseLong(userData12.getUserId()));
-                                                userData13 = this.eHd.mUserData;
+                                                userData13 = this.eJt.mUserData;
                                                 alaLiveInfoCoreData.setUserName(userData13.getUserName());
-                                                context4 = this.eHd.mContext;
-                                                userData14 = this.eHd.mUserData;
+                                                context4 = this.eJt.mContext;
+                                                userData14 = this.eJt.mUserData;
                                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(context4, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, userData14.getUserId(), false)));
                                             }
                                         }
-                                        context = this.eHd.mContext;
-                                        context2 = this.eHd.mContext;
+                                        context = this.eJt.mContext;
+                                        context2 = this.eJt.mContext;
                                         String string = context2.getString(w.l.person_privacy_toast);
-                                        userData4 = this.eHd.mUserData;
+                                        userData4 = this.eJt.mUserData;
                                         BdToast.b(context, String.format(string, au.cV(userData4.getSex())), w.g.icon_toast_game_error).tY();
                                         return;
                                     }
                                 } else {
-                                    this.eHc.bGX = 13;
+                                    this.eJs.bJo = 13;
                                 }
                             } else {
-                                this.eHc.bGX = 12;
-                                this.eHc.bGY = new Bundle();
-                                Bundle bundle = this.eHc.bGY;
-                                userData16 = this.eHd.mUserData;
+                                this.eJs.bJo = 12;
+                                this.eJs.bJp = new Bundle();
+                                Bundle bundle = this.eJs.bJp;
+                                userData16 = this.eJt.mUserData;
                                 bundle.putSerializable(UserData.TYPE_USER, userData16);
                             }
                         } else {
-                            this.eHc.bGX = 10;
-                            this.eHc.bGY = new Bundle();
-                            Bundle bundle2 = this.eHc.bGY;
-                            userData17 = this.eHd.mUserData;
+                            this.eJs.bJo = 10;
+                            this.eJs.bJp = new Bundle();
+                            Bundle bundle2 = this.eJs.bJp;
+                            userData17 = this.eJt.mUserData;
                             bundle2.putSerializable(UserData.TYPE_USER, userData17);
                         }
                     } else {
-                        this.eHc.bGX = 3;
-                        this.eHc.bGY = new Bundle();
-                        Bundle bundle3 = this.eHc.bGY;
-                        userData18 = this.eHd.mUserData;
+                        this.eJs.bJo = 3;
+                        this.eJs.bJp = new Bundle();
+                        Bundle bundle3 = this.eJs.bJp;
+                        userData18 = this.eJt.mUserData;
                         bundle3.putSerializable(UserData.TYPE_USER, userData18);
                     }
                 } else {
-                    this.eHc.bGX = 2;
-                    this.eHc.bGY = new Bundle();
-                    Bundle bundle4 = this.eHc.bGY;
-                    userData19 = this.eHd.mUserData;
+                    this.eJs.bJo = 2;
+                    this.eJs.bJp = new Bundle();
+                    Bundle bundle4 = this.eJs.bJp;
+                    userData19 = this.eJt.mUserData;
                     bundle4.putString("vip_user_jump", userData19.getTShowInfo().get(0).getUrl());
                 }
             } else {
-                this.eHc.bGX = 1;
-                this.eHc.bGY = new Bundle();
-                Bundle bundle5 = this.eHc.bGY;
-                userData20 = this.eHd.mUserData;
+                this.eJs.bJo = 1;
+                this.eJs.bJp = new Bundle();
+                Bundle bundle5 = this.eJs.bJp;
+                userData20 = this.eJt.mUserData;
                 bundle5.putSerializable(UserData.TYPE_USER, userData20);
             }
-            mVar2 = this.eHd.eAx;
-            mVar2.a(view, this.eHc);
+            mVar2 = this.eJt.eCN;
+            mVar2.a(view, this.eJs);
         }
     }
 }

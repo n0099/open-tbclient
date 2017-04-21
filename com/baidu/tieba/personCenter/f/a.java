@@ -19,17 +19,17 @@ import com.baidu.tieba.view.t;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends t {
-    View.OnClickListener asT;
-    private ImageView eBc;
-    private TextView eBd;
+    View.OnClickListener asV;
+    private ImageView eDs;
+    private TextView eDt;
 
     public a(Context context) {
         super(context);
-        this.asT = new b(this);
+        this.asV = new b(this);
     }
 
     @Override // com.baidu.tieba.view.t
-    public View QX() {
+    public View RZ() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(w.j.item_person_center_header_view, (ViewGroup) null);
         }
@@ -38,44 +38,44 @@ public class a extends t {
 
     @Override // com.baidu.tieba.view.t
     public void P(View view) {
-        this.fKe = (BdExpandImageView) view.findViewById(w.h.person_center_header_expand_img);
-        this.fKf = (HeadPendantView) view.findViewById(w.h.person_center_header_user_img);
-        this.fKg = (TbImageView) view.findViewById(w.h.person_center_header_god_user_icon);
-        this.eBc = (ImageView) view.findViewById(w.h.person_center_header_jump_person_info_img);
-        this.fKh = (UserIconBox) view.findViewById(w.h.person_center_header_user_vip_icon);
+        this.fMA = (BdExpandImageView) view.findViewById(w.h.person_center_header_expand_img);
+        this.fMB = (HeadPendantView) view.findViewById(w.h.person_center_header_user_img);
+        this.fMC = (TbImageView) view.findViewById(w.h.person_center_header_god_user_icon);
+        this.eDs = (ImageView) view.findViewById(w.h.person_center_header_jump_person_info_img);
+        this.fMD = (UserIconBox) view.findViewById(w.h.person_center_header_user_vip_icon);
         this.amq = (TextView) view.findViewById(w.h.person_center_header_user_name_txt);
-        this.fKk = (TextView) view.findViewById(w.h.seal_prefix_view);
-        this.fKi = (UserIconBox) view.findViewById(w.h.person_center_header_label_box);
-        this.eBd = (TextView) view.findViewById(w.h.person_center_header_tdou_txt);
-        this.fKj = (TextView) view.findViewById(w.h.person_center_header_visitor_txt);
-        this.fKl = (PersonHeaderAttentionView) view.findViewById(w.h.person_center_header_attention_container);
-        bms();
+        this.fMG = (TextView) view.findViewById(w.h.seal_prefix_view);
+        this.fME = (UserIconBox) view.findViewById(w.h.person_center_header_label_box);
+        this.eDt = (TextView) view.findViewById(w.h.person_center_header_tdou_txt);
+        this.fMF = (TextView) view.findViewById(w.h.person_center_header_visitor_txt);
+        this.fMH = (PersonHeaderAttentionView) view.findViewById(w.h.person_center_header_attention_container);
+        bnt();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.view.t
-    public void aQu() {
-        super.aQu();
-        this.fKf.setOnClickListener(this.asT);
-        this.eBc.setOnClickListener(this.asT);
-        this.fKh.setOnClickListener(this.asT);
-        this.fKi.setOnClickListener(this.asT);
-        this.eBd.setOnClickListener(this.asT);
-        this.fKe.setOnClickListener(this.asT);
-        this.fKk.setOnClickListener(this.asT);
+    public void aRv() {
+        super.aRv();
+        this.fMB.setOnClickListener(this.asV);
+        this.eDs.setOnClickListener(this.asV);
+        this.fMD.setOnClickListener(this.asV);
+        this.fME.setOnClickListener(this.asV);
+        this.eDt.setOnClickListener(this.asV);
+        this.fMA.setOnClickListener(this.asV);
+        this.fMG.setOnClickListener(this.asV);
     }
 
     @Override // com.baidu.tieba.view.t
     public void f(UserData userData) {
         super.f(userData);
-        this.eBd.setText(String.valueOf(au.F(userData.getTDouNum())) + " | " + this.mContext.getString(w.l.get_tdou));
+        this.eDt.setText(String.valueOf(au.F(userData.getTDouNum())) + " | " + this.mContext.getString(w.l.get_tdou));
     }
 
     @Override // com.baidu.tieba.view.t
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        aq.c(this.eBd, w.e.white_alpha60, 1);
-        aq.c(this.fKj, w.e.cp_cont_i, 1);
-        this.eBd.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(w.g.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
+        aq.c(this.eDt, w.e.white_alpha60, 1);
+        aq.c(this.fMF, w.e.cp_cont_i, 1);
+        this.eDt.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(w.g.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 }

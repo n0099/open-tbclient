@@ -2,11 +2,11 @@ package com.baidu.tbadk.gif;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ GifView aCL;
+    final /* synthetic */ GifView aCN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(GifView gifView) {
-        this.aCL = gifView;
+        this.aCN = gifView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -14,8 +14,8 @@ public class b extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.b
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         super.onLoaded((b) aVar, str, i);
-        this.aCL.stopLoading();
-        this.aCL.setGif(aVar);
+        this.aCN.stopLoading();
+        this.aCN.setGif(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -14,7 +14,7 @@ import java.util.List;
 public class q extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<s> fgf = new ArrayList();
+    private List<s> fiy = new ArrayList();
 
     public q(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class q extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fgf != null) {
-            return this.fgf.size();
+        if (this.fiy != null) {
+            return this.fiy.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qX */
+    /* renamed from: rd */
     public s getItem(int i) {
-        if (this.fgf == null || i >= this.fgf.size()) {
+        if (this.fiy == null || i >= this.fiy.size()) {
             return null;
         }
-        return this.fgf.get(i);
+        return this.fiy.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,7 +45,7 @@ public class q extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.fgf.get(i), view, viewGroup);
+        return a(this.fiy.get(i), view, viewGroup);
     }
 
     public View a(s sVar, View view, ViewGroup viewGroup) {
@@ -62,17 +62,17 @@ public class q extends BaseAdapter {
         if (sVar == null) {
             return inflate;
         }
-        bl.fgg.setText(sVar.title);
-        bl.fgh.setText(sVar.content);
-        bl.fgi.setDefaultErrorResource(w.g.screen_notify_default_bg);
-        bl.fgi.setDefaultResource(w.g.screen_notify_default_bg);
-        bl.fgi.a(sVar.pic, 10, 0, 0, false);
+        bl.fiz.setText(sVar.title);
+        bl.fiA.setText(sVar.content);
+        bl.fiB.setDefaultErrorResource(w.g.screen_notify_default_bg);
+        bl.fiB.setDefaultResource(w.g.screen_notify_default_bg);
+        bl.fiB.a(sVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void cB(List<s> list) {
+    public void cC(List<s> list) {
         if (list != null && list.size() != 0) {
-            this.fgf.addAll(list);
+            this.fiy.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -81,9 +81,9 @@ public class q extends BaseAdapter {
     /* loaded from: classes.dex */
     public class a {
         View arO;
-        TextView fgg;
-        TextView fgh;
-        TbImageView fgi;
+        TextView fiA;
+        TbImageView fiB;
+        TextView fiz;
 
         private a() {
         }
@@ -95,10 +95,10 @@ public class q extends BaseAdapter {
 
     private a bl(View view) {
         a aVar = new a(this, null);
-        aVar.fgg = (TextView) view.findViewById(w.h.push_msg_title);
-        aVar.fgh = (TextView) view.findViewById(w.h.push_msg_content);
-        aVar.fgi = (TbImageView) view.findViewById(w.h.push_msg_pic);
-        aVar.fgi.setAutoChangeStyle(false);
+        aVar.fiz = (TextView) view.findViewById(w.h.push_msg_title);
+        aVar.fiA = (TextView) view.findViewById(w.h.push_msg_content);
+        aVar.fiB = (TbImageView) view.findViewById(w.h.push_msg_pic);
+        aVar.fiB.setAutoChangeStyle(false);
         aVar.arO = view.findViewById(w.h.line);
         return aVar;
     }

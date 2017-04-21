@@ -18,65 +18,65 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class m {
-    public static int fPa = 31;
-    private static int fPb = -100;
-    private ImageView bsB;
-    private View bsx;
-    private TbImageView bsz;
-    private ImageView dFY;
-    private WriteVideoActivity fPc;
-    private TextView fPd;
-    private EditText fPe;
-    private TextView fPf;
-    private WriteLocationView fPg;
-    private HeadImageView fPh;
+    public static int fRw = 31;
+    private static int fRx = -100;
+    private View buQ;
+    private TbImageView buS;
+    private ImageView buU;
+    private ImageView dIo;
+    private EditText fRA;
+    private TextView fRB;
+    private WriteLocationView fRC;
+    private HeadImageView fRD;
+    private WriteVideoActivity fRy;
+    private TextView fRz;
     private NavigationBar mNavigationBar;
 
     public m(WriteVideoActivity writeVideoActivity) {
-        this.fPc = writeVideoActivity;
-        this.fPc.setContentView(w.j.write_video_activity);
-        bof();
+        this.fRy = writeVideoActivity;
+        this.fRy.setContentView(w.j.write_video_activity);
+        bpg();
         initView();
     }
 
-    private void bof() {
-        this.bsx = this.fPc.findViewById(w.h.layout_root);
-        this.mNavigationBar = (NavigationBar) this.fPc.findViewById(w.h.navigation_bar);
-        this.fPh = (HeadImageView) this.fPc.findViewById(w.h.write_user_head_portrait);
-        this.fPe = (EditText) this.fPc.findViewById(w.h.edit_content);
-        this.fPf = (TextView) this.fPc.findViewById(w.h.text_content_size);
-        this.bsz = (TbImageView) this.fPc.findViewById(w.h.image_video);
-        this.bsB = (ImageView) this.fPc.findViewById(w.h.image_video_play);
-        this.fPg = (WriteLocationView) this.fPc.findViewById(w.h.location);
+    private void bpg() {
+        this.buQ = this.fRy.findViewById(w.h.layout_root);
+        this.mNavigationBar = (NavigationBar) this.fRy.findViewById(w.h.navigation_bar);
+        this.fRD = (HeadImageView) this.fRy.findViewById(w.h.write_user_head_portrait);
+        this.fRA = (EditText) this.fRy.findViewById(w.h.edit_content);
+        this.fRB = (TextView) this.fRy.findViewById(w.h.text_content_size);
+        this.buS = (TbImageView) this.fRy.findViewById(w.h.image_video);
+        this.buU = (ImageView) this.fRy.findViewById(w.h.image_video_play);
+        this.fRC = (WriteLocationView) this.fRy.findViewById(w.h.location);
     }
 
     private void initView() {
-        this.bsz.setOnClickListener(this.fPc);
-        this.dFY = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.j.nav_close_layout, this.fPc);
-        this.mNavigationBar.setCenterTextTitle(this.fPc.getPageContext().getString(w.l.new_video_post));
-        this.fPd = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.nav_text_send_layout, this.fPc);
-        this.fPf.setText(String.valueOf(fPa));
-        this.fPh.setIsRound(true);
-        this.fPh.setDrawBorder(false);
-        this.fPh.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.buS.setOnClickListener(this.fRy);
+        this.dIo = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.j.nav_close_layout, this.fRy);
+        this.mNavigationBar.setCenterTextTitle(this.fRy.getPageContext().getString(w.l.new_video_post));
+        this.fRz = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.j.nav_text_send_layout, this.fRy);
+        this.fRB.setText(String.valueOf(fRw));
+        this.fRD.setIsRound(true);
+        this.fRD.setDrawBorder(false);
+        this.fRD.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
         if (!StringUtils.isNull(currentPortrait)) {
             String dn = q.dn(currentPortrait);
-            this.fPh.setUrl(dn);
-            this.fPh.c(dn, 12, false);
+            this.fRD.setUrl(dn);
+            this.fRD.c(dn, 12, false);
         }
-        this.fPe.addTextChangedListener(new n(this));
-        this.fPe.setOnKeyListener(new o(this));
+        this.fRA.addTextChangedListener(new n(this));
+        this.fRA.setOnKeyListener(new o(this));
     }
 
-    public void rf(String str) {
-        Bitmap rg = rg(str);
-        if (rg != null) {
-            this.bsz.setImageBitmap(rg);
+    public void rg(String str) {
+        Bitmap rh = rh(str);
+        if (rh != null) {
+            this.buS.setImageBitmap(rh);
         }
     }
 
-    private Bitmap rg(String str) {
+    private Bitmap rh(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -92,26 +92,26 @@ public class m {
     }
 
     public void onChangeSkinType(int i) {
-        this.fPc.getLayoutMode().aj(i == 1);
-        this.fPc.getLayoutMode().t(this.bsx);
-        this.mNavigationBar.onChangeSkinType(this.fPc.getPageContext(), i);
-        aq.c(this.dFY, w.g.icon_nav_close_selector);
-        aq.c(this.fPd, w.e.cp_link_tip_a, 1);
-        this.fPg.xl();
+        this.fRy.getLayoutMode().aj(i == 1);
+        this.fRy.getLayoutMode().t(this.buQ);
+        this.mNavigationBar.onChangeSkinType(this.fRy.getPageContext(), i);
+        aq.c(this.dIo, w.g.icon_nav_close_selector);
+        aq.c(this.fRz, w.e.cp_link_tip_a, 1);
+        this.fRC.xl();
     }
 
     public String getContent() {
-        if (this.fPe.getText() == null) {
+        if (this.fRA.getText() == null) {
             return null;
         }
-        return this.fPe.getText().toString();
+        return this.fRA.getText().toString();
     }
 
-    public long bog() {
-        if (this.fPe.getText() == null || this.fPe.getText().toString() == null) {
+    public long bph() {
+        if (this.fRA.getText() == null || this.fRA.getText().toString() == null) {
             return 0L;
         }
-        return g(this.fPe.getText().toString().trim());
+        return g(this.fRA.getText().toString().trim());
     }
 
     public static long g(CharSequence charSequence) {
@@ -127,29 +127,29 @@ public class m {
         return Math.round(d);
     }
 
-    public WriteLocationView boh() {
-        return this.fPg;
+    public WriteLocationView bpi() {
+        return this.fRC;
     }
 
-    public View boi() {
-        return this.bsz;
+    public View bpj() {
+        return this.buS;
     }
 
-    public View boj() {
-        return this.fPd;
+    public View bpk() {
+        return this.fRz;
     }
 
     public View getBackButton() {
-        return this.dFY;
+        return this.dIo;
     }
 
-    public View bok() {
-        return this.fPe;
+    public View bpl() {
+        return this.fRA;
     }
 
     public void cI(long j) {
-        if (this.bsz != null) {
-            this.bsz.setContentDescription(String.valueOf(this.fPc.getResources().getString(w.l.video)) + au.s(j));
+        if (this.buS != null) {
+            this.buS.setContentDescription(String.valueOf(this.fRy.getResources().getString(w.l.video)) + au.s(j));
         }
     }
 }

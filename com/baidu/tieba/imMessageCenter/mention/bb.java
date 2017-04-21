@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements NewWriteModel.d {
-    final /* synthetic */ au dlq;
+    final /* synthetic */ au dnH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(au auVar) {
-        this.dlq = auVar;
+        this.dnH = auVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -20,12 +20,12 @@ public class bb implements NewWriteModel.d {
         ReplyMessageActivity replyMessageActivity;
         com.baidu.tbadk.editortools.pb.n nVar;
         ReplyMessageActivity replyMessageActivity2;
-        replyMessageActivity = this.dlq.dkZ;
+        replyMessageActivity = this.dnH.dnq;
         replyMessageActivity.hideProgressBar();
-        nVar = this.dlq.dlk;
+        nVar = this.dnH.dnB;
         nVar.Dn().hide();
-        if (postWriteCallBackData != null && qVar == null && !AntiHelper.rX(postWriteCallBackData.getErrorCode())) {
-            replyMessageActivity2 = this.dlq.dkZ;
+        if (postWriteCallBackData != null && qVar == null && !AntiHelper.sd(postWriteCallBackData.getErrorCode())) {
+            replyMessageActivity2 = this.dnH.dnq;
             replyMessageActivity2.showToast(postWriteCallBackData.getErrorString());
         }
     }

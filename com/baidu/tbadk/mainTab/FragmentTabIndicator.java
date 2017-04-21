@@ -17,46 +17,46 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends LinearLayout {
-    private int aDT;
-    public int aDU;
     private int aDV;
-    private int aDW;
-    private TextView aDX;
+    public int aDW;
+    private int aDX;
     private int aDY;
-    private int aDZ;
-    private HashMap<String, a> aEa;
+    private TextView aDZ;
+    private int aEa;
+    private int aEb;
+    private HashMap<String, a> aEc;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.aDT = 0;
-        this.aEa = new HashMap<>();
+        this.aDV = 0;
+        this.aEc = new HashMap<>();
         init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aDT = 0;
-        this.aEa = new HashMap<>();
+        this.aDV = 0;
+        this.aEc = new HashMap<>();
         init();
     }
 
     private void init() {
-        this.aDY = getResources().getDimensionPixelSize(w.f.ds2);
-        this.aDZ = getResources().getDimensionPixelSize(w.f.ds12);
-        this.aDX = new TextView(getContext());
+        this.aEa = getResources().getDimensionPixelSize(w.f.ds2);
+        this.aEb = getResources().getDimensionPixelSize(w.f.ds12);
+        this.aDZ = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.aDX.setLayoutParams(layoutParams);
-        this.aDX.setGravity(17);
-        this.aDX.setDuplicateParentStateEnabled(true);
-        addView(this.aDX);
+        this.aDZ.setLayoutParams(layoutParams);
+        this.aDZ.setGravity(17);
+        this.aDZ.setDuplicateParentStateEnabled(true);
+        addView(this.aDZ);
     }
 
     public void setContentTvTopMargin(int i) {
-        if (this.aDX.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aDX.getLayoutParams();
+        if (this.aDZ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aDZ.getLayoutParams();
             layoutParams.topMargin = i;
-            this.aDX.setLayoutParams(layoutParams);
+            this.aDZ.setLayoutParams(layoutParams);
         }
     }
 
@@ -65,7 +65,7 @@ public class FragmentTabIndicator extends LinearLayout {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, a> entry : this.aEa.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aEc.entrySet()) {
             entry.getValue().view.measure(View.MeasureSpec.makeMeasureSpec(size, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(size2, ExploreByTouchHelper.INVALID_ID));
         }
     }
@@ -76,20 +76,20 @@ public class FragmentTabIndicator extends LinearLayout {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, a>> it = this.aEa.entrySet().iterator();
-        while (it.hasNext() && this.aDX.getText() != null) {
+        Iterator<Map.Entry<String, a>> it = this.aEc.entrySet().iterator();
+        while (it.hasNext() && this.aDZ.getText() != null) {
             a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.aDX.getPaint().measureText(this.aDX.getText().toString());
-            if (value.aEb) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.uN;
+            int measureText = (int) this.aDZ.getPaint().measureText(this.aDZ.getText().toString());
+            if (value.aEd) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.uS;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.uN) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.uS) - (measureText / 2);
             }
-            if (this.aDT == 1) {
-                i5 = measuredWidth - this.aDZ;
-                measuredHeight = this.aDY;
+            if (this.aDV == 1) {
+                i5 = measuredWidth - this.aEb;
+                measuredHeight = this.aEa;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -99,63 +99,63 @@ public class FragmentTabIndicator extends LinearLayout {
     }
 
     public void setTipPosType(int i) {
-        this.aDT = i;
+        this.aDV = i;
     }
 
     public void a(String str, a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.aEa.put(str, aVar);
+            this.aEc.put(str, aVar);
         }
     }
 
     public a fV(String str) {
-        return this.aEa.get(str);
+        return this.aEc.get(str);
     }
 
     public void setText(int i) {
-        this.aDX.setText(i);
+        this.aDZ.setText(i);
     }
 
     public void setText(String str) {
-        this.aDX.setText(str);
-        this.aDX.setContentDescription(str);
+        this.aDZ.setText(str);
+        this.aDZ.setContentDescription(str);
     }
 
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.aDX.getText().toString();
+        String charSequence = this.aDZ.getText().toString();
         if (z) {
             charSequence = String.valueOf(getContext().getString(w.l.talk_checked_tip)) + charSequence;
         }
-        this.aDX.setContentDescription(charSequence);
+        this.aDZ.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.aDX.setText(spannableString);
+        this.aDZ.setText(spannableString);
     }
 
     public void setCompoundDrawablesTopResId(int i) {
-        this.aDV = i;
+        this.aDX = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.aDW = i;
+        this.aDY = i;
     }
 
     public void setCompoundDrawablePadding(int i) {
-        this.aDX.setCompoundDrawablePadding(i);
+        this.aDZ.setCompoundDrawablePadding(i);
     }
 
     public void setTextSize(float f) {
-        this.aDX.setTextSize(f);
+        this.aDZ.setTextSize(f);
     }
 
     public void setTextSize(int i, float f) {
-        this.aDX.setTextSize(i, f);
+        this.aDZ.setTextSize(i, f);
     }
 
     public void setTextColorResId(int i) {
-        this.aDU = i;
+        this.aDW = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -166,32 +166,32 @@ public class FragmentTabIndicator extends LinearLayout {
 
     /* renamed from: do  reason: not valid java name */
     public void m14do(int i) {
-        aq.c(this.aDX, this.aDU, 1);
-        if (this.aDX != null) {
-            this.aDX.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aq.c((Resources) null, this.aDV), aq.getDrawable(this.aDW), (Drawable) null);
+        aq.c(this.aDZ, this.aDW, 1);
+        if (this.aDZ != null) {
+            this.aDZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aq.c((Resources) null, this.aDX), aq.getDrawable(this.aDY), (Drawable) null);
         }
-        for (Map.Entry<String, a> entry : this.aEa.entrySet()) {
+        for (Map.Entry<String, a> entry : this.aEc.entrySet()) {
             entry.getValue().m15do(i);
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aEc;
-        public FragmentTabIndicator aEe;
-        public int uN;
+        public int aEe;
+        public FragmentTabIndicator aEg;
+        public int uS;
         public View view;
-        public boolean aEb = true;
-        public int aEd = w.e.common_color_10225;
+        public boolean aEd = true;
+        public int aEf = w.e.common_color_10225;
 
         /* renamed from: do  reason: not valid java name */
         public void m15do(int i) {
-            if (this.aEc != 0) {
-                aq.j(this.view, this.aEc);
+            if (this.aEe != 0) {
+                aq.j(this.view, this.aEe);
             }
             if (this.view instanceof TextView) {
-                if (this.aEd != 0) {
-                    aq.c((TextView) this.view, this.aEd, 1);
+                if (this.aEf != 0) {
+                    aq.c((TextView) this.view, this.aEf, 1);
                 }
                 int b = b((TextView) this.view);
                 if (b > 0 && b < 10) {

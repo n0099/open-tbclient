@@ -27,11 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, com.baidu.tbadk.mvc.c.a {
-    private com.baidu.adp.plugin.packageManager.e Eo = new a(this);
-    private BdListView Ik;
-    private ViewEventCenter bEJ;
-    private com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>> eVg;
-    private List<Object> eVh;
+    private com.baidu.adp.plugin.packageManager.e Er = new a(this);
+    private BdListView Im;
+    private ViewEventCenter bHa;
+    private com.baidu.tbadk.mvc.f.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.f.a<Object, com.baidu.tbadk.mvc.d.b>> eXx;
+    private List<Object> eXy;
     private int mFromType;
     private NavigationBar mNavigationBar;
     private y mNoDataView;
@@ -42,13 +42,13 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.j.plugin_center_activity);
-        this.bEJ = new ViewEventCenter();
-        this.bEJ.addEventDelegate(this);
-        auG();
-        Ue();
+        this.bHa = new ViewEventCenter();
+        this.bHa.addEventDelegate(this);
+        avH();
+        Vf();
     }
 
-    private void auG() {
+    private void avH() {
         if (getIntent() != null) {
             this.mFromType = getIntent().getIntExtra(PluginCenterActivityConfig.KEY_FROM_TYPE, 0);
         }
@@ -57,14 +57,14 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    private void Ue() {
+    private void Vf() {
         this.mRootView = findViewById(w.h.parent);
-        this.Ik = (BdListView) findViewById(w.h.list);
+        this.Im = (BdListView) findViewById(w.h.list);
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(w.h.list_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.g(getActivity(), w.f.ds220)), NoDataViewFactory.d.dh(w.l.plugin_no_plugins), null);
-        this.Ik.setEmptyView(this.mNoDataView);
-        this.eVg = new b(this, getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.a.a.class, com.baidu.tieba.pluginCenter.a.b.class}, new int[]{w.j.plugin_center_list_function_item, w.j.plugin_center_list_desc_item}, this.bEJ);
-        this.Ik.setAdapter((ListAdapter) this.eVg);
-        this.Ik.setOnItemClickListener(this);
+        this.Im.setEmptyView(this.mNoDataView);
+        this.eXx = new b(this, getPageContext(), new Class[]{com.baidu.tieba.pluginCenter.a.a.class, com.baidu.tieba.pluginCenter.a.b.class}, new int[]{w.j.plugin_center_list_function_item, w.j.plugin_center_list_desc_item}, this.bHa);
+        this.Im.setAdapter((ListAdapter) this.eXx);
+        this.Im.setOnItemClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -77,13 +77,13 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        PluginNetConfigInfos jV = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jU().jV();
-        if (jV != null && jV.getConfigs() != null && jV.getConfigs().size() > 0) {
-            this.eVh = cv(jV.getConfigs());
-            this.eVg.w(this.eVh);
-            PluginPackageManager.jx().jM();
+        PluginNetConfigInfos jW = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jV().jW();
+        if (jW != null && jW.getConfigs() != null && jW.getConfigs().size() > 0) {
+            this.eXy = cw(jW.getConfigs());
+            this.eXx.w(this.eXy);
+            PluginPackageManager.jy().jN();
         }
-        if (this.eVh != null && !this.eVh.isEmpty()) {
+        if (this.eXy != null && !this.eXy.isEmpty()) {
             aq.k(this.mRootView, w.e.cp_bg_line_c);
         } else {
             aq.k(this.mRootView, w.e.cp_bg_line_d);
@@ -95,7 +95,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.eVg.notifyDataSetChanged();
+        this.eXx.notifyDataSetChanged();
         getLayoutMode().t(findViewById(16908290));
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
@@ -104,9 +104,9 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        Object item = this.eVg.getItem(i);
+        Object item = this.eXx.getItem(i);
         if ((item instanceof PluginNetConfigInfos.PluginConfig) && !(item instanceof PluginConfigWrapper)) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginNetConfigInfos.PluginConfig) this.eVg.getItem(i)).package_name)));
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginNetConfigInfos.PluginConfig) this.eXx.getItem(i)).package_name)));
         }
     }
 
@@ -130,11 +130,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PluginConfigWrapper oV(String str) {
+    public PluginConfigWrapper oW(String str) {
         if (str == null) {
             return null;
         }
-        List<Object> dataList = this.eVg.getDataList();
+        List<Object> dataList = this.eXx.getDataList();
         if (dataList == null || dataList.isEmpty()) {
             return null;
         }
@@ -149,7 +149,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         return null;
     }
 
-    private List<Object> cv(List<PluginNetConfigInfos.PluginConfig> list) {
+    private List<Object> cw(List<PluginNetConfigInfos.PluginConfig> list) {
         PluginSetting findPluginSetting;
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
@@ -157,8 +157,8 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             return arrayList;
         }
         for (PluginNetConfigInfos.PluginConfig pluginConfig : list) {
-            if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && ((findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().findPluginSetting(pluginConfig.package_name)) == null || pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code)) {
-                if (TextUtils.isEmpty(pluginConfig.package_name) || !PluginCenter.NAME_MOTUSDK.equals(pluginConfig.package_name) || com.baidu.adp.lib.b.e.eY().Y("motu_sdk") != 1) {
+            if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.display_name) && pluginConfig.forbidden != 1 && ((findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().findPluginSetting(pluginConfig.package_name)) == null || pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code)) {
+                if (TextUtils.isEmpty(pluginConfig.package_name) || !PluginCenter.NAME_MOTUSDK.equals(pluginConfig.package_name) || com.baidu.adp.lib.b.e.eZ().Y("motu_sdk") != 1) {
                     if (this.mFromType == 0) {
                         arrayList2.add(pluginConfig);
                     }
@@ -180,18 +180,18 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             case 0:
                 if (Fm instanceof PluginConfigWrapper) {
                     PluginConfigWrapper pluginConfigWrapper = (PluginConfigWrapper) Fm;
-                    PluginPackageManager.jx().bb(pluginConfigWrapper.package_name);
+                    PluginPackageManager.jy().bb(pluginConfigWrapper.package_name);
                     pluginConfigWrapper.setDownLoadStatus(1);
-                    this.eVg.D(pluginConfigWrapper);
+                    this.eXx.D(pluginConfigWrapper);
                     return true;
                 }
                 break;
             case 1:
                 if (Fm instanceof PluginConfigWrapper) {
                     PluginConfigWrapper pluginConfigWrapper2 = (PluginConfigWrapper) Fm;
-                    PluginPackageManager.jx().bc(pluginConfigWrapper2.package_name);
+                    PluginPackageManager.jy().bc(pluginConfigWrapper2.package_name);
                     pluginConfigWrapper2.setDownLoadStatus(2);
-                    this.eVg.D(pluginConfigWrapper2);
+                    this.eXx.D(pluginConfigWrapper2);
                     return true;
                 }
                 break;

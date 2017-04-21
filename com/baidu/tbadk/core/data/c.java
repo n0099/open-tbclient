@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class c {
-    public AlaUserInfoData Uz;
+    public AlaUserInfoData UC;
     public int audience_count;
     public String cover;
     public String description;
@@ -14,11 +14,13 @@ public class c {
     public long group_id;
     public String hls_url;
     public long live_id;
+    public int live_type;
     public String media_id;
     public String media_pic;
     public String media_subtitle;
     public String media_url;
     public String rtmp_url;
+    public int screen_direction;
     public String session_id;
 
     public void parserJson(JSONObject jSONObject) {
@@ -35,9 +37,11 @@ public class c {
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
                 this.description = jSONObject.optString("description");
-                this.Uz = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
+                this.UC = (AlaUserInfoData) OrmObject.objectWithJsonStr(jSONObject.optString("user_info"), AlaUserInfoData.class);
                 this.duration = jSONObject.optInt("duration");
                 this.audience_count = jSONObject.optInt("audience_count");
+                this.live_type = jSONObject.optInt("live_type");
+                this.screen_direction = jSONObject.optInt("screen_direction");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -58,10 +62,12 @@ public class c {
                 this.media_id = alaLiveInfo.media_id;
                 this.media_subtitle = alaLiveInfo.media_subtitle;
                 this.description = alaLiveInfo.description;
-                this.Uz = new AlaUserInfoData();
-                this.Uz.a(alaLiveInfo.user_info);
+                this.UC = new AlaUserInfoData();
+                this.UC.a(alaLiveInfo.user_info);
                 this.duration = alaLiveInfo.duration.intValue();
                 this.audience_count = alaLiveInfo.audience_count.intValue();
+                this.live_type = alaLiveInfo.live_type.intValue();
+                this.screen_direction = alaLiveInfo.screen_direction.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -14,13 +14,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends CustomMessageListener {
-    final /* synthetic */ u cbI;
+    final /* synthetic */ u cdZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(u uVar, int i) {
         super(i);
-        this.cbI = uVar;
+        this.cdZ = uVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,48 +32,48 @@ public class v extends CustomMessageListener {
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
         TiebaStatic.eventStat(TbadkCoreApplication.m9getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        frsActivity = this.cbI.bST;
-        com.baidu.tieba.tbadkCore.n Zr = frsActivity.Zr();
-        if (Zr != null && Zr.aJw() != null) {
-            String name = Zr.aJw().getName();
+        frsActivity = this.cdZ.bVk;
+        com.baidu.tieba.tbadkCore.n aas = frsActivity.aas();
+        if (aas != null && aas.aKx() != null) {
+            String name = aas.aKx().getName();
             SignData signData = null;
             SignMessage signMessage = (SignMessage) customResponsedMessage;
             if (signMessage == null || signMessage.signData == null) {
                 z = false;
             } else {
                 signData = signMessage.signData;
-                com.baidu.tieba.tbadkCore.c.bgh().V(name, false);
-                Zr.d(signData);
-                signData.forumId = Zr.aJw().getId();
+                com.baidu.tieba.tbadkCore.c.bhj().V(name, false);
+                aas.d(signData);
+                signData.forumId = aas.aKx().getId();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
                 z = true;
             }
-            this.cbI.adX();
+            this.cdZ.aeY();
             if (z) {
-                if (Zr.aJw() != null) {
-                    this.cbI.j(Zr);
+                if (aas.aKx() != null) {
+                    this.cdZ.j(aas);
                     int i = -1;
-                    if (this.cbI.adZ()) {
-                        i = Zr.aJw().getUser_level() + 1;
+                    if (this.cdZ.afa()) {
+                        i = aas.aKx().getUser_level() + 1;
                     }
-                    TbadkCoreApplication.m9getInst().addSignedForum(Zr.aJw().getName(), signData.sign_bonus_point, i);
-                    if (AntiHelper.rX(signMessage.mSignErrorCode)) {
-                        AntiHelper.aq(this.cbI.getPageContext().getPageActivity(), signMessage.mSignErrorString);
-                    } else if (!this.cbI.adV()) {
-                        frsActivity4 = this.cbI.bST;
-                        frsActivity4.showToast(this.cbI.getPageContext().getResources().getString(w.l.frs_sign_success, Integer.valueOf(signData.user_sign_rank)));
+                    TbadkCoreApplication.m9getInst().addSignedForum(aas.aKx().getName(), signData.sign_bonus_point, i);
+                    if (AntiHelper.sd(signMessage.mSignErrorCode)) {
+                        AntiHelper.aq(this.cdZ.getPageContext().getPageActivity(), signMessage.mSignErrorString);
+                    } else if (!this.cdZ.aeW()) {
+                        frsActivity4 = this.cdZ.bVk;
+                        frsActivity4.showToast(this.cdZ.getPageContext().getResources().getString(w.l.frs_sign_success, Integer.valueOf(signData.user_sign_rank)));
                     } else {
-                        frsActivity3 = this.cbI.bST;
-                        frsActivity3.showToast(this.cbI.getPageContext().getResources().getString(w.l.frs_sign_pointer, Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)));
+                        frsActivity3 = this.cdZ.bVk;
+                        frsActivity3.showToast(this.cdZ.getPageContext().getResources().getString(w.l.frs_sign_pointer, Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)));
                     }
                 }
-            } else if (AntiHelper.rX(signMessage.mSignErrorCode)) {
-                AntiHelper.aq(this.cbI.getPageContext().getPageActivity(), signMessage.mSignErrorString);
+            } else if (AntiHelper.sd(signMessage.mSignErrorCode)) {
+                AntiHelper.aq(this.cdZ.getPageContext().getPageActivity(), signMessage.mSignErrorString);
             } else {
                 if (signMessage.mSignErrorCode == 160002) {
-                    this.cbI.iH(1);
+                    this.cdZ.iN(1);
                 }
-                frsActivity2 = this.cbI.bST;
+                frsActivity2 = this.cdZ.bVk;
                 frsActivity2.showToast(signMessage.mSignErrorString);
             }
         }

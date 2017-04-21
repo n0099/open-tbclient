@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends CustomMessageListener {
-    final /* synthetic */ ad dkI;
+    final /* synthetic */ ad dmZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(ad adVar, int i) {
         super(i);
-        this.dkI = adVar;
+        this.dmZ = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,16 +23,16 @@ public class ae extends CustomMessageListener {
         l lVar3;
         l lVar4;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            lVar = this.dkI.dkF;
+            lVar = this.dmZ.dmW;
             if (lVar != null) {
-                lVar4 = this.dkI.dkF;
-                lVar4.gt(true);
+                lVar4 = this.dmZ.dmW;
+                lVar4.gD(true);
             }
             MentionActivityConfig.newJumpIn = true;
-            lVar2 = this.dkI.dkF;
+            lVar2 = this.dmZ.dmW;
             if (lVar2 != null) {
-                lVar3 = this.dkI.dkF;
-                lVar3.abE();
+                lVar3 = this.dmZ.dmW;
+                lVar3.acF();
             }
         }
     }

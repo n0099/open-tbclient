@@ -39,7 +39,7 @@ public class c {
     }
 
     public void initSetting() {
-        l.bji();
+        l.bkj();
     }
 
     public void zH() {

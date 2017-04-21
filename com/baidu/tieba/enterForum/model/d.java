@@ -5,11 +5,11 @@ import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Comparator<u> {
-    final /* synthetic */ EnterForumModel bFp;
+    final /* synthetic */ EnterForumModel bHG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(EnterForumModel enterForumModel) {
-        this.bFp = enterForumModel;
+        this.bHG = enterForumModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

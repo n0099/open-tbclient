@@ -7,11 +7,11 @@ import com.baidu.tieba.imMessageCenter.im.chat.notify.MessageAggregationListAdap
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ l dkD;
+    final /* synthetic */ l dmU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(l lVar) {
-        this.dkD = lVar;
+        this.dmU = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -21,14 +21,14 @@ public class w implements AdapterView.OnItemLongClickListener {
         if (i <= 1) {
             return false;
         }
-        l lVar = this.dkD;
-        messageAggregationListAdapter = this.dkD.dkw;
-        lVar.dhE = messageAggregationListAdapter.getItem(i);
-        l lVar2 = this.dkD;
-        imMessageCenterShowItemData = this.dkD.dhE;
+        l lVar = this.dmU;
+        messageAggregationListAdapter = this.dmU.dmN;
+        lVar.djV = messageAggregationListAdapter.getItem(i);
+        l lVar2 = this.dmU;
+        imMessageCenterShowItemData = this.dmU.djV;
         lVar2.c(imMessageCenterShowItemData);
-        if (this.dkD.dhJ != null) {
-            this.dkD.dhJ.tT();
+        if (this.dmU.dka != null) {
+            this.dmU.dka.tT();
             return true;
         }
         return true;

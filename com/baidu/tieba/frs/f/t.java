@@ -45,7 +45,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class t {
-    public static String I(Intent intent) {
+    public static String J(Intent intent) {
         int length;
         if (intent == null || intent.getData() == null) {
             return null;
@@ -86,7 +86,7 @@ public class t {
 
     public static void l(az azVar) {
         try {
-            if ("OPPO".equals(Build.MANUFACTURER) && azVar.ZM() != null) {
+            if ("OPPO".equals(Build.MANUFACTURER) && azVar.aaN() != null) {
                 Method declaredMethod = AbsListView.class.getDeclaredMethod("trackMotionScroll", Integer.TYPE, Integer.TYPE);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(azVar.getListView(), 500, 10);
@@ -187,19 +187,19 @@ public class t {
 
     public static void b(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.n nVar) {
         if (frsActivity != null && nVar != null) {
-            com.baidu.tbadk.browser.f.a(frsActivity.getPageContext().getPageActivity(), "福袋", String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORTUNE_ADDRESS + "?fid=" + nVar.aJw().getId(), true, true, true);
+            com.baidu.tbadk.browser.f.a(frsActivity.getPageContext().getPageActivity(), "福袋", String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORTUNE_ADDRESS + "?fid=" + nVar.aKx().getId(), true, true, true);
         }
     }
 
     public static void g(com.baidu.tieba.tbadkCore.n nVar) {
         if (nVar != null) {
             com.baidu.tbadk.data.e eVar = new com.baidu.tbadk.data.e();
-            if (nVar != null && nVar.aJw() != null) {
-                eVar.setForumId(com.baidu.adp.lib.g.b.c(nVar.aJw().getId(), 0L));
-                eVar.eT(nVar.aJw().getName());
-                eVar.eU(nVar.aJw().getImage_url());
-                eVar.eq(nVar.aJw().getSigned() ? 1 : 0);
-                eVar.ep(nVar.aJw().getUser_level());
+            if (nVar != null && nVar.aKx() != null) {
+                eVar.setForumId(com.baidu.adp.lib.g.b.c(nVar.aKx().getId(), 0L));
+                eVar.eT(nVar.aKx().getName());
+                eVar.eU(nVar.aKx().getImage_url());
+                eVar.eq(nVar.aKx().getSigned() ? 1 : 0);
+                eVar.ep(nVar.aKx().getUser_level());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_SET_COMMON_ACCESS_FORUM, eVar));
         }
@@ -262,7 +262,7 @@ public class t {
         PhotoLiveActivityConfig pE;
         if (frsActivity != null && biVar != null) {
             if (biVar.getThreadType() == 33 || (biVar instanceof aw)) {
-                if (biVar.sK() > 0 && com.baidu.tieba.tbadkCore.util.s.bjm()) {
+                if (biVar.sK() > 0 && com.baidu.tieba.tbadkCore.util.s.bkn()) {
                     pE = new PhotoLiveActivityConfig.a(frsActivity.getPageContext().getPageActivity(), biVar.getTid()).ck("from_frs").bC(18003).ci(String.valueOf(biVar.sK())).pE();
                 } else {
                     pE = new PhotoLiveActivityConfig.a(frsActivity.getPageContext().getPageActivity(), biVar.getTid()).ck("from_frs").bC(18003).pE();
@@ -275,7 +275,7 @@ public class t {
     public static void a(FrsActivity frsActivity, bi biVar, int i, boolean z) {
         PbActivityConfig createFromThreadCfg;
         if (frsActivity != null && biVar != null) {
-            if (biVar.sK() > 0 && com.baidu.tieba.tbadkCore.util.s.bjm()) {
+            if (biVar.sK() > 0 && com.baidu.tieba.tbadkCore.util.s.bkn()) {
                 createFromThreadCfg = new PbActivityConfig(frsActivity.getPageContext().getPageActivity()).createHistoryCfg(biVar.getTid(), String.valueOf(biVar.sK()), false, true, null);
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsActivity.getPageContext().getPageActivity()).createFromThreadCfg(biVar, frsActivity.getForumName(), null, 18003, true, false, z);

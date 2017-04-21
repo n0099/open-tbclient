@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ep {
-    private boolean ell;
-    private boolean eln;
-    private com.baidu.tieba.pb.data.f elz;
-    private String eoB;
-    private boolean eoC;
-    private boolean eoD;
-    private Parcelable eoE;
+    private boolean enD;
+    private boolean enF;
+    private com.baidu.tieba.pb.data.f enR;
+    private String eqS;
+    private boolean eqT;
+    private boolean eqU;
+    private Parcelable eqV;
 
     static {
         MessageManager.getInstance().registerListener(new eq(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
@@ -27,21 +27,21 @@ public class ep {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static ep eoF = new ep(null);
+        private static ep eqW = new ep(null);
     }
 
-    public static ep aMK() {
-        return a.eoF;
+    public static ep aNL() {
+        return a.eqW;
     }
 
     private ep() {
-        this.eoB = null;
-        this.eoC = false;
-        this.elz = null;
-        this.eoD = false;
-        this.eoE = null;
-        this.eln = true;
-        this.ell = false;
+        this.eqS = null;
+        this.eqT = false;
+        this.enR = null;
+        this.eqU = false;
+        this.eqV = null;
+        this.enF = true;
+        this.enD = false;
     }
 
     /* synthetic */ ep(ep epVar) {
@@ -49,108 +49,108 @@ public class ep {
     }
 
     public void O(String str, boolean z) {
-        this.eoC = false;
+        this.eqT = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.eoB = null;
-        } else if (!str.equals(this.eoB)) {
+            this.eqS = null;
+        } else if (!str.equals(this.eqS)) {
             reset();
-            this.eoB = str;
+            this.eqS = str;
         } else {
-            this.eoC = true;
+            this.eqT = true;
         }
     }
 
     public com.baidu.tieba.pb.data.f getPbData() {
-        if (!this.eoC) {
-            this.eoD = false;
+        if (!this.eqT) {
+            this.eqU = false;
             return null;
-        } else if (this.elz != null && this.elz.aJz() != null && this.elz.aJz().size() > 0) {
-            this.eoD = true;
-            com.baidu.tieba.pb.data.f fVar = this.elz;
-            this.elz = null;
+        } else if (this.enR != null && this.enR.aKA() != null && this.enR.aKA().size() > 0) {
+            this.eqU = true;
+            com.baidu.tieba.pb.data.f fVar = this.enR;
+            this.enR = null;
             return fVar;
         } else {
-            this.eoD = false;
-            this.elz = null;
+            this.eqU = false;
+            this.enR = null;
             return null;
         }
     }
 
-    public Parcelable aML() {
-        if (this.eoD) {
-            this.eoD = false;
-            Parcelable parcelable = this.eoE;
-            this.eoE = null;
+    public Parcelable aNM() {
+        if (this.eqU) {
+            this.eqU = false;
+            Parcelable parcelable = this.eqV;
+            this.eqV = null;
             return parcelable;
         }
-        this.eoE = null;
+        this.eqV = null;
         return null;
     }
 
-    public boolean aLC() {
-        return this.eln;
+    public boolean aMD() {
+        return this.enF;
     }
 
-    public boolean aMM() {
-        return this.ell;
+    public boolean aNN() {
+        return this.enD;
     }
 
     public boolean a(com.baidu.tieba.pb.data.f fVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.eoC = false;
-        if (this.eoB == null) {
+        this.eqT = false;
+        if (this.eqS == null) {
             reset();
             return false;
         } else if (fVar == null) {
             reset();
             return false;
-        } else if (fVar.aJz() == null) {
+        } else if (fVar.aKA() == null) {
             reset();
             return false;
-        } else if (fVar.aJz().size() < 1) {
+        } else if (fVar.aKA().size() < 1) {
             reset();
             return false;
         } else if (parcelable == null) {
             reset();
             return false;
         } else {
-            this.elz = fVar;
-            this.eoD = false;
-            this.eoE = parcelable;
-            this.eln = z;
-            this.ell = z2;
+            this.enR = fVar;
+            this.eqU = false;
+            this.eqV = parcelable;
+            this.enF = z;
+            this.enD = z2;
             return true;
         }
     }
 
     public void reset() {
-        this.eoC = false;
-        this.elz = null;
-        this.eoD = false;
-        this.eoE = null;
+        this.eqT = false;
+        this.enR = null;
+        this.eqU = false;
+        this.eqV = null;
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.elz != null && this.elz.aJw() != null) {
+        if (customResponsedMessage != null && this.enR != null && this.enR.aKx() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.c(this.elz.aJw().getId(), 0L)) {
-                this.elz.aJw().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.c(this.enR.aKx().getId(), 0L)) {
+                this.enR.aKx().setLike(i);
             }
         }
     }
 
     public void a(com.baidu.tbadk.data.j jVar) {
-        if (jVar != null && this.elz != null && this.elz.aJz() != null && this.elz.aJz().size() > 0) {
+        if (jVar != null && this.enR != null && this.enR.aKA() != null && this.enR.aKA().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.elz.aJz().size();
+                int size = this.enR.aKA().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.elz.aJz().get(i) != null && this.elz.aJz().get(i).getAuthor() != null && currentAccount.equals(this.elz.aJz().get(i).getAuthor().getUserId()) && this.elz.aJz().get(i).getAuthor().getPendantData() != null) {
-                        this.elz.aJz().get(i).getAuthor().getPendantData().cr(jVar.qB());
-                        this.elz.aJz().get(i).getAuthor().getPendantData().N(jVar.CO());
+                    if (this.enR.aKA().get(i) != null && this.enR.aKA().get(i).getAuthor() != null && currentAccount.equals(this.enR.aKA().get(i).getAuthor().getUserId()) && this.enR.aKA().get(i).getAuthor().getPendantData() != null) {
+                        this.enR.aKA().get(i).getAuthor().getPendantData().cr(jVar.qB());
+                        this.enR.aKA().get(i).getAuthor().getPendantData().N(jVar.CO());
                     }
                 }
             }

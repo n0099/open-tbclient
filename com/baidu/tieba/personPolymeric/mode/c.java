@@ -7,13 +7,13 @@ import com.baidu.tieba.personPolymeric.mode.message.PersonPolymericSocketResMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PersonPolymericModel eGd;
+    final /* synthetic */ PersonPolymericModel eIt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PersonPolymericModel personPolymericModel, int i, int i2) {
         super(i, i2);
-        this.eGd = personPolymericModel;
+        this.eIt = personPolymericModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -26,21 +26,21 @@ public class c extends com.baidu.adp.framework.listener.a {
         n nVar3;
         n nVar4;
         if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-            if (((responsedMessage instanceof PersonPolymericHttpResMsg) || (responsedMessage instanceof PersonPolymericSocketResMsg)) && this.eGd.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
+            if (((responsedMessage instanceof PersonPolymericHttpResMsg) || (responsedMessage instanceof PersonPolymericSocketResMsg)) && this.eIt.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
                 if (responsedMessage.getError() != 0) {
-                    bVar = this.eGd.eGa;
-                    nVar = this.eGd.mPersonPolymericData;
+                    bVar = this.eIt.eIq;
+                    nVar = this.eIt.mPersonPolymericData;
                     bVar.a(null, nVar.hasMore());
                     return;
                 }
-                PersonPolymericModel personPolymericModel = this.eGd;
+                PersonPolymericModel personPolymericModel = this.eIt;
                 i = personPolymericModel.pageIndex;
                 personPolymericModel.pageIndex = i + 1;
-                nVar2 = this.eGd.mPersonPolymericData;
-                nVar2.aRz();
-                bVar2 = this.eGd.eGa;
-                nVar3 = this.eGd.mPersonPolymericData;
-                nVar4 = this.eGd.mPersonPolymericData;
+                nVar2 = this.eIt.mPersonPolymericData;
+                nVar2.aSA();
+                bVar2 = this.eIt.eIq;
+                nVar3 = this.eIt.mPersonPolymericData;
+                nVar4 = this.eIt.mPersonPolymericData;
                 bVar2.a(nVar3, nVar4.hasMore());
             }
         }

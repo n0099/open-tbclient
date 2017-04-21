@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c aIX = new c();
-    private b aIY;
-    private a aIZ;
+    private static c aIZ = new c();
+    private b aJa;
+    private a aJb;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,17 +18,17 @@ public class c {
     }
 
     public static c Hh() {
-        return aIX;
+        return aIZ;
     }
 
     public void a(a aVar) {
-        this.aIZ = aVar;
-        if (this.aIY != null) {
-            this.aIY.cancel();
+        this.aJb = aVar;
+        if (this.aJa != null) {
+            this.aJa.cancel();
         }
-        this.aIY = new b(this, null);
-        this.aIY.setPriority(4);
-        this.aIY.execute(new String[0]);
+        this.aJa = new b(this, null);
+        this.aJa.setPriority(4);
+        this.aJa.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +71,6 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
             return Boolean.valueOf(c.this.Hi());
         }
@@ -80,8 +79,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (c.this.aIZ != null && bool != null) {
-                c.this.aIZ.an(bool.booleanValue());
+            if (c.this.aJb != null && bool != null) {
+                c.this.aJb.an(bool.booleanValue());
             }
         }
     }

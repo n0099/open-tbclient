@@ -4,12 +4,12 @@ import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends s<Void> {
-    final /* synthetic */ c deZ;
+    final /* synthetic */ c dhq;
     private final /* synthetic */ String val$key;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, String str) {
-        this.deZ = cVar;
+        this.dhq = cVar;
         this.val$key = str;
     }
 
@@ -17,7 +17,7 @@ public class f extends s<Void> {
     @Override // com.baidu.tbadk.util.s
     /* renamed from: Mw */
     public Void doInBackground() {
-        this.deZ.atv().remove(this.val$key);
+        this.dhq.auw().remove(this.val$key);
         return null;
     }
 }

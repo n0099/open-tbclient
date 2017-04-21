@@ -14,11 +14,11 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements NewWriteModel.d {
-    final /* synthetic */ a fOM;
+    final /* synthetic */ a fRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.fOM = aVar;
+        this.fRi = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -33,12 +33,12 @@ public class b implements NewWriteModel.d {
         String str2;
         NewVcodeView newVcodeView5;
         String str3 = null;
-        newVcodeView = this.fOM.fOJ;
+        newVcodeView = this.fRi.fRf;
         if (newVcodeView != null) {
-            newVcodeView2 = this.fOM.fOJ;
+            newVcodeView2 = this.fRi.fRf;
             newVcodeView2.showPostThreadLoadingView(false);
             if (z) {
-                this.fOM.fOK = postWriteCallBackData;
+                this.fRi.fRg = postWriteCallBackData;
                 if (qVar == null || qVar.yH() == null) {
                     str = null;
                     str2 = null;
@@ -47,20 +47,20 @@ public class b implements NewWriteModel.d {
                     str = qVar.yH().successImg;
                     str3 = qVar.yH().slideEndPoint;
                 }
-                newVcodeView5 = this.fOM.fOJ;
+                newVcodeView5 = this.fRi.fRf;
                 newVcodeView5.runJsMethod(ImagesInvalidReceiver.SUCCESS, String.valueOf(str) + "," + str2 + "," + str3);
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                newVcodeView3 = this.fOM.fOJ;
+                newVcodeView3 = this.fRi.fRf;
                 newVcodeView3.getContext().setVisible(false);
                 MessageManager messageManager = MessageManager.getInstance();
-                newVcodeView4 = this.fOM.fOJ;
+                newVcodeView4 = this.fRi.fRf;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(newVcodeView4.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
             } else {
-                dVar = this.fOM.fOL;
+                dVar = this.fRi.fRh;
                 if (dVar == null) {
                     return;
                 }
-                dVar2 = this.fOM.fOL;
+                dVar2 = this.fRi.fRh;
                 dVar2.callback(false, postWriteCallBackData, qVar, writeData, antiData);
             }
         }

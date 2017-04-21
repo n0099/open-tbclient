@@ -220,7 +220,6 @@ public class TiebaUpdateService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
             Boolean bool;
             Exception e;
@@ -231,7 +230,7 @@ public class TiebaUpdateService extends BdBaseService {
                     bool2 = Boolean.valueOf(this.mNetWork.a(String.valueOf(TiebaUpdateService.this.mMainApkFileName) + ".tmp", TiebaUpdateService.this.mMainApkHandler, 0));
                     if (!bool2.booleanValue()) {
                         if (this.mNetWork.vA() != -2) {
-                            if (!this.mNetWork.vw().wq().fs()) {
+                            if (!this.mNetWork.vw().wq().ft()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception e2) {
@@ -279,7 +278,7 @@ public class TiebaUpdateService extends BdBaseService {
             TiebaUpdateService.this.mDowndMainApkTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.fr();
+                this.mNetWork.fs();
             }
         }
 
@@ -323,7 +322,6 @@ public class TiebaUpdateService extends BdBaseService {
             r0 = r1;
          */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -344,7 +342,7 @@ public class TiebaUpdateService extends BdBaseService {
                         bool = bool2;
                         break;
                     } else {
-                        if (!this.mNetWork.vw().wq().fs()) {
+                        if (!this.mNetWork.vw().wq().ft()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception e2) {
@@ -385,7 +383,7 @@ public class TiebaUpdateService extends BdBaseService {
             TiebaUpdateService.this.mDowndOtherApkTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.fr();
+                this.mNetWork.fs();
             }
             if (!TiebaUpdateService.this.mHasTieba && !TiebaUpdateService.this.mHasAs) {
                 TiebaUpdateService.sHasStart = false;

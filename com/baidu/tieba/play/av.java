@@ -8,13 +8,13 @@ import com.baidu.tieba.play.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av extends Handler {
-    final /* synthetic */ au eUX;
+    final /* synthetic */ au eXn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public av(au auVar, Looper looper) {
         super(looper);
-        this.eUX = auVar;
+        this.eXn = auVar;
     }
 
     @Override // android.os.Handler
@@ -30,25 +30,25 @@ public class av extends Handler {
         au.b bVar2;
         switch (message.what) {
             case 1:
-                z = this.eUX.aWT;
+                z = this.eXn.aWW;
                 if (!z) {
-                    z2 = this.eUX.aWU;
+                    z2 = this.eXn.aWX;
                     if (z2) {
-                        mediaPlayerControl = this.eUX.aWQ;
+                        mediaPlayerControl = this.eXn.aWT;
                         if (mediaPlayerControl != null) {
-                            mediaPlayerControl2 = this.eUX.aWQ;
+                            mediaPlayerControl2 = this.eXn.aWT;
                             if (!mediaPlayerControl2.isPlaying()) {
                                 return;
                             }
-                            Ml = this.eUX.Ml();
-                            bVar = this.eUX.dxz;
+                            Ml = this.eXn.Ml();
+                            bVar = this.eXn.dzP;
                             if (bVar != null) {
-                                bVar2 = this.eUX.dxz;
+                                bVar2 = this.eXn.dzP;
                                 bVar2.fM(Ml);
                             }
                             Message obtainMessage = obtainMessage(1);
-                            i = this.eUX.aWP;
-                            i2 = this.eUX.aWP;
+                            i = this.eXn.aWS;
+                            i2 = this.eXn.aWS;
                             sendMessageDelayed(obtainMessage, i - (Ml % i2));
                             return;
                         }

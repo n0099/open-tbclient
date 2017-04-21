@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cr extends CustomMessageListener {
-    final /* synthetic */ cn ekI;
+    final /* synthetic */ cn emZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cr(cn cnVar, int i) {
         super(i);
-        this.ekI = cnVar;
+        this.emZ = cnVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,13 +23,13 @@ public class cr extends CustomMessageListener {
         if (customResponsedMessage == null) {
             return;
         }
-        list = this.ekI.bRT;
+        list = this.emZ.bUk;
         if (!com.baidu.tbadk.core.util.x.q(list)) {
             return;
         }
-        this.ekI.abo();
-        cn cnVar = this.ekI;
-        fVar = this.ekI.ehh;
+        this.emZ.acp();
+        cn cnVar = this.emZ;
+        fVar = this.emZ.ejx;
         cnVar.b(fVar);
     }
 }

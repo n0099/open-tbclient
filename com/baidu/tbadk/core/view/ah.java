@@ -36,9 +36,9 @@ class ah implements View.OnClickListener {
         bi biVar4;
         String str3;
         String str4;
-        biVar = this.ame.aiB;
+        biVar = this.ame.aiC;
         if (biVar != null) {
-            biVar2 = this.ame.aiB;
+            biVar2 = this.ame.aiC;
             if (!StringUtils.isNull(biVar2.st())) {
                 str = this.ame.alY;
                 if (!StringUtils.isNull(str)) {
@@ -47,7 +47,7 @@ class ah implements View.OnClickListener {
                         MessageManager messageManager = MessageManager.getInstance();
                         context2 = this.ame.mContext;
                         FrsActivityConfig frsActivityConfig = new FrsActivityConfig(context2);
-                        biVar4 = this.ame.aiB;
+                        biVar4 = this.ame.aiC;
                         String st = biVar4.st();
                         str3 = this.ame.alY;
                         str4 = this.ame.alZ;
@@ -64,7 +64,7 @@ class ah implements View.OnClickListener {
                 MessageManager messageManager2 = MessageManager.getInstance();
                 context = this.ame.mContext;
                 FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(context);
-                biVar3 = this.ame.aiB;
+                biVar3 = this.ame.aiC;
                 messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig2.createNormalCfg(biVar3.st(), FrsActivityConfig.FRS_FROM_RECOMMEND)));
                 onClickListener = this.ame.ama;
                 if (onClickListener == null) {

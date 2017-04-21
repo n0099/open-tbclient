@@ -14,11 +14,11 @@ import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements TbRichTextView.e {
-    final /* synthetic */ NewSubPbActivity esV;
+    final /* synthetic */ NewSubPbActivity evm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(NewSubPbActivity newSubPbActivity) {
-        this.esV = newSubPbActivity;
+        this.evm = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
@@ -49,24 +49,24 @@ public class v implements TbRichTextView.e {
         SubPbModel subPbModel10;
         int i2;
         try {
-            subPbModel = this.esV.esE;
-            com.baidu.tieba.pb.data.j aON = subPbModel.aON();
-            am = this.esV.am(str, i);
+            subPbModel = this.evm.euV;
+            com.baidu.tieba.pb.data.j aPO = subPbModel.aPO();
+            am = this.evm.am(str, i);
             TbRichTextData tbRichTextData = null;
             if (am != null && am.Io() != null) {
                 ArrayList<TbRichTextData> Io = am.Io();
-                i2 = this.esV.ejI;
+                i2 = this.evm.elY;
                 tbRichTextData = Io.get(i2);
             }
             if (tbRichTextData != null) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 ConcurrentHashMap<String, ImageUrlData> concurrentHashMap3 = new ConcurrentHashMap<>();
                 if (tbRichTextData.Iu().IG()) {
-                    this.esV.ejJ = false;
+                    this.evm.elZ = false;
                     String str4 = "";
-                    TbRichText awl = aON.aJV().awl();
+                    TbRichText axm = aPO.aKW().axm();
                     int size = arrayList3.size();
-                    a = this.esV.a(awl, am, i, i, arrayList3, concurrentHashMap3);
+                    a = this.evm.a(axm, am, i, i, arrayList3, concurrentHashMap3);
                     int size2 = arrayList3.size();
                     if (size != size2) {
                         str4 = arrayList3.get(size2 - 1);
@@ -74,76 +74,76 @@ public class v implements TbRichTextView.e {
                     String str5 = null;
                     String str6 = null;
                     String str7 = null;
-                    if (aON == null) {
+                    if (aPO == null) {
                         str2 = null;
                         z = false;
                     } else {
-                        if (aON.aKb() != null) {
-                            str5 = aON.aKb().getName();
-                            str6 = aON.aKb().getId();
+                        if (aPO.aLc() != null) {
+                            str5 = aPO.aLc().getName();
+                            str6 = aPO.aLc().getId();
                         }
-                        if (aON.Kn() != null) {
-                            str7 = aON.Kn().getId();
+                        if (aPO.Kn() != null) {
+                            str7 = aPO.Kn().getId();
                         }
                         str2 = str7;
                         z = true;
                     }
-                    subPbModel2 = this.esV.esE;
-                    if (subPbModel2.aPd() != null) {
-                        subPbModel3 = this.esV.esE;
-                        concurrentHashMap = subPbModel3.aPd();
-                        subPbModel4 = this.esV.esE;
-                        z2 = subPbModel4.aPf();
-                        subPbModel5 = this.esV.esE;
-                        arrayList = subPbModel5.aPe();
-                        subPbModel6 = this.esV.esE;
+                    subPbModel2 = this.evm.euV;
+                    if (subPbModel2.aQe() != null) {
+                        subPbModel3 = this.evm.euV;
+                        concurrentHashMap = subPbModel3.aQe();
+                        subPbModel4 = this.evm.euV;
+                        z2 = subPbModel4.aQg();
+                        subPbModel5 = this.evm.euV;
+                        arrayList = subPbModel5.aQf();
+                        subPbModel6 = this.evm.euV;
                         a += subPbModel6.getOffset();
                     } else {
                         concurrentHashMap = concurrentHashMap3;
                         arrayList = arrayList3;
                         z2 = z;
                     }
-                    this.esV.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.esV.getPageContext().getPageActivity()).createConfig(arrayList, a, str5, str6, str2, z2, str4, true, concurrentHashMap, true, false, false)));
+                    this.evm.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.evm.getPageContext().getPageActivity()).createConfig(arrayList, a, str5, str6, str2, z2, str4, true, concurrentHashMap, true, false, false)));
                     return;
                 }
-                c = this.esV.c(tbRichTextData);
+                c = this.evm.c(tbRichTextData);
                 arrayList3.add(c);
                 ImageUrlData imageUrlData = new ImageUrlData();
                 imageUrlData.imageUrl = str;
-                z3 = this.esV.mIsFromCDN;
+                z3 = this.evm.mIsFromCDN;
                 imageUrlData.urlType = z3 ? 17 : 18;
                 concurrentHashMap3.put(c, imageUrlData);
                 String str8 = null;
                 String str9 = null;
                 String str10 = null;
-                if (aON == null) {
+                if (aPO == null) {
                     str3 = null;
                     z4 = false;
                 } else {
-                    if (aON.aKb() != null) {
-                        str8 = aON.aKb().getName();
-                        str9 = aON.aKb().getId();
+                    if (aPO.aLc() != null) {
+                        str8 = aPO.aLc().getName();
+                        str9 = aPO.aLc().getId();
                     }
-                    if (aON.Kn() != null) {
-                        str10 = aON.Kn().getId();
+                    if (aPO.Kn() != null) {
+                        str10 = aPO.Kn().getId();
                     }
                     str3 = str10;
                     z4 = true;
                 }
-                subPbModel7 = this.esV.esE;
-                if (subPbModel7.aPd() != null) {
-                    subPbModel8 = this.esV.esE;
-                    concurrentHashMap2 = subPbModel8.aPd();
-                    subPbModel9 = this.esV.esE;
-                    z5 = subPbModel9.aPf();
-                    subPbModel10 = this.esV.esE;
-                    arrayList2 = subPbModel10.aPe();
+                subPbModel7 = this.evm.euV;
+                if (subPbModel7.aQe() != null) {
+                    subPbModel8 = this.evm.euV;
+                    concurrentHashMap2 = subPbModel8.aQe();
+                    subPbModel9 = this.evm.euV;
+                    z5 = subPbModel9.aQg();
+                    subPbModel10 = this.evm.euV;
+                    arrayList2 = subPbModel10.aQf();
                 } else {
                     concurrentHashMap2 = concurrentHashMap3;
                     arrayList2 = arrayList3;
                     z5 = z4;
                 }
-                this.esV.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.esV.getPageContext().getPageActivity()).createConfig(arrayList2, 0, str8, str9, str3, z5, arrayList2.get(0), true, concurrentHashMap2, true, false, false)));
+                this.evm.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(this.evm.getPageContext().getPageActivity()).createConfig(arrayList2, 0, str8, str9, str3, z5, arrayList2.get(0), true, concurrentHashMap2, true, false, false)));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

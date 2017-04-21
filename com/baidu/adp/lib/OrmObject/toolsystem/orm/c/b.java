@@ -11,29 +11,29 @@ public class b implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> ej = cVar.ej();
-        if (ej == Boolean.class || ej == Boolean.TYPE) {
+        Class<?> ek = cVar.ek();
+        if (ek == Boolean.class || ek == Boolean.TYPE) {
             return Boolean.valueOf(this.value);
         }
-        if (ej == Short.class || ej == Short.TYPE) {
+        if (ek == Short.class || ek == Short.TYPE) {
             return Short.valueOf(this.value ? (short) 0 : (short) 1);
-        } else if (ej == Integer.class || ej == Integer.TYPE) {
+        } else if (ek == Integer.class || ek == Integer.TYPE) {
             return Integer.valueOf(this.value ? (short) 0 : (short) 1);
-        } else if (ej == Long.class || ej == Long.TYPE) {
+        } else if (ek == Long.class || ek == Long.TYPE) {
             return Long.valueOf(this.value ? (short) 0 : (short) 1);
-        } else if (ej == Float.class || ej == Float.TYPE) {
+        } else if (ek == Float.class || ek == Float.TYPE) {
             return Float.valueOf(this.value ? (short) 0 : (short) 1);
-        } else if (ej == Double.class || ej == Double.TYPE) {
+        } else if (ek == Double.class || ek == Double.TYPE) {
             return Double.valueOf(this.value ? (short) 0 : (short) 1);
-        } else if (ej == Character.class || ej == Character.TYPE) {
+        } else if (ek == Character.class || ek == Character.TYPE) {
             return Character.valueOf((char) (this.value ? (short) 0 : (short) 1));
-        } else if (ej == String.class) {
+        } else if (ek == String.class) {
             return String.valueOf(this.value);
         } else {
-            if (ej == char[].class) {
+            if (ek == char[].class) {
                 return String.valueOf(this.value).toCharArray();
             }
-            if (ej == byte[].class) {
+            if (ek == byte[].class) {
                 try {
                     return com.baidu.adp.lib.util.c.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {

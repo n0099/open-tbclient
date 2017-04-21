@@ -4,11 +4,11 @@ import com.baidu.tieba.play.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements au.a {
-    final /* synthetic */ d euY;
+    final /* synthetic */ d exo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.euY = dVar;
+        this.exo = dVar;
     }
 
     @Override // com.baidu.tieba.play.au.a

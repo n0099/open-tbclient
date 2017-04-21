@@ -9,15 +9,15 @@ public class ax extends y.a {
     public TextView alI;
     public TextView alL;
     public int amZ;
-    public TextView bOb;
-    public TextView bOc;
+    public TextView bQs;
+    public TextView bQt;
 
     public ax(View view) {
         super(view);
         this.amZ = 3;
         this.alI = (TextView) getView().findViewById(w.h.frs_god_lv_reply_time);
         this.alL = (TextView) getView().findViewById(w.h.frs_god_praise_num);
-        this.bOc = (TextView) getView().findViewById(w.h.frs_god_reply_num);
-        this.bOb = (TextView) getView().findViewById(w.h.frs_god_item_location_address);
+        this.bQt = (TextView) getView().findViewById(w.h.frs_god_reply_num);
+        this.bQs = (TextView) getView().findViewById(w.h.frs_god_item_location_address);
     }
 }

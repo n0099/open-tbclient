@@ -3,23 +3,22 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.pb.pb.main.a.f;
 /* loaded from: classes.dex */
 class p implements f.a {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.a.f.a
-    /* renamed from: do */
-    public void mo23do(boolean z) {
+    public void dy(boolean z) {
         ey eyVar;
         ey eyVar2;
-        this.ejU.im(z);
-        eyVar = this.ejU.eiS;
-        if (eyVar.aNJ() != null && z) {
-            eyVar2 = this.ejU.eiS;
-            eyVar2.iJ(false);
+        this.emk.iw(z);
+        eyVar = this.emk.eli;
+        if (eyVar.aOK() != null && z) {
+            eyVar2 = this.emk.eli;
+            eyVar2.iT(false);
         }
     }
 }

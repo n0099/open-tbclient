@@ -13,7 +13,7 @@ class aq extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            com.baidu.tieba.frs.smartsort.e.adl().adn();
+            com.baidu.tieba.frs.smartsort.e.aem().aeo();
         }
     }
 }

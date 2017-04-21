@@ -4,11 +4,11 @@ import android.content.Context;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class r extends com.baidu.tbadk.editortools.view.b {
-    LinkedList<p> ayY;
+    LinkedList<p> aza;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(LinkedList<p> linkedList) {
-        this.ayY = linkedList;
+        this.aza = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -20,13 +20,13 @@ public class r extends com.baidu.tbadk.editortools.view.b {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (e) this.ayY.get(i);
+        return (e) this.aza.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.b
     public int getCount() {
-        if (this.ayY != null) {
-            return this.ayY.size();
+        if (this.aza != null) {
+            return this.aza.size();
         }
         return 0;
     }
@@ -42,9 +42,9 @@ public class r extends com.baidu.tbadk.editortools.view.b {
 
     @Override // com.baidu.tbadk.editortools.view.b
     public void Dx() {
-        if (this.ayY != null) {
-            this.ayY.clear();
+        if (this.aza != null) {
+            this.aza.clear();
         }
-        this.ayY = null;
+        this.aza = null;
     }
 }

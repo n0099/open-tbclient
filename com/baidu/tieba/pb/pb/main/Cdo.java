@@ -10,15 +10,15 @@ import java.util.regex.Pattern;
 /* renamed from: com.baidu.tieba.pb.pb.main.do  reason: invalid class name */
 /* loaded from: classes.dex */
 public class Cdo {
-    private BaseActivity bcy;
-    private PbModel eif;
+    private BaseActivity bdG;
+    private PbModel ekv;
 
     public Cdo(PbModel pbModel, BaseActivity baseActivity) {
-        this.eif = pbModel;
-        this.bcy = baseActivity;
+        this.ekv = pbModel;
+        this.bdG = baseActivity;
     }
 
-    public String R(Intent intent) {
+    public String S(Intent intent) {
         int length;
         if (intent == null || intent.getData() == null) {
             return null;

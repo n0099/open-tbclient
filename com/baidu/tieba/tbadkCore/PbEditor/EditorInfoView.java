@@ -10,9 +10,9 @@ import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
     private int amZ;
-    private GradientDrawable fuN;
-    protected int fuO;
-    protected int fuP;
+    private GradientDrawable fxd;
+    protected int fxe;
+    protected int fxf;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -25,9 +25,9 @@ public class EditorInfoView extends TextView {
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.amZ = 3;
-        this.fuO = (int) context.getResources().getDimension(w.f.ds18);
-        this.fuP = (int) context.getResources().getDimension(w.f.ds6);
-        setPadding(this.fuO, this.fuP, this.fuO, this.fuP);
+        this.fxe = (int) context.getResources().getDimension(w.f.ds18);
+        this.fxf = (int) context.getResources().getDimension(w.f.ds6);
+        setPadding(this.fxe, this.fxf, this.fxe, this.fxf);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(w.f.ds24));
@@ -49,11 +49,11 @@ public class EditorInfoView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType() {
-        if (this.fuN == null) {
-            this.fuN = new GradientDrawable();
-            this.fuN.setCornerRadius(getContext().getResources().getDimension(w.f.ds24));
+        if (this.fxd == null) {
+            this.fxd = new GradientDrawable();
+            this.fxd.setCornerRadius(getContext().getResources().getDimension(w.f.ds24));
         }
         aq.c(this, w.e.cp_cont_c, 1);
-        this.fuN.setColor(aq.getColor(w.e.cp_bg_line_e));
+        this.fxd.setColor(aq.getColor(w.e.cp_bg_line_e));
     }
 }

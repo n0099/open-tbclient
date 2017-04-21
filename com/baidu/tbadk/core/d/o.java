@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
-    private static final AtomicLong acv = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> acw;
+    private static final AtomicLong acw = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final long acA;
     final Map<String, Object> acx;
-    final String acy;
-    final long acz;
+    final Map<String, Object> acy;
+    final String acz;
     final String cmd;
     final String method;
     final long start;
@@ -21,11 +21,11 @@ public class o {
     private o(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.acw = map;
-        this.acx = map2;
+        this.acx = map;
+        this.acy = map2;
         this.type = i;
-        this.acy = str3;
-        this.acz = j;
+        this.acz = str3;
+        this.acA = j;
         this.start = System.currentTimeMillis();
     }
 
@@ -78,19 +78,19 @@ public class o {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put("method", this.method);
         }
-        if (this.acw != null && !this.acw.isEmpty()) {
+        if (this.acx != null && !this.acx.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            a(this.acw, jSONObject2);
+            a(this.acx, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.acx != null && !this.acx.isEmpty()) {
+        if (this.acy != null && !this.acy.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            a(this.acx, jSONObject3);
+            a(this.acy, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
         jSONObject.put("messageType", uw());
-        if (!TextUtils.isEmpty(this.acy)) {
-            jSONObject.put("callbackId", this.acy);
+        if (!TextUtils.isEmpty(this.acz)) {
+            jSONObject.put("callbackId", this.acz);
         }
         return encode(jSONObject.toString());
     }
@@ -100,7 +100,7 @@ public class o {
     }
 
     private static String uy() {
-        return "TBCWebViewJsBridge_callback_ID_" + acv.getAndIncrement();
+        return "TBCWebViewJsBridge_callback_ID_" + acw.getAndIncrement();
     }
 
     private void a(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -119,7 +119,7 @@ public class o {
 
     /* loaded from: classes.dex */
     private static final class a extends o {
-        private final m acA;
+        private final m acB;
 
         /* synthetic */ a(int i, String str, String str2, Map map, Map map2, String str3, m mVar, long j, a aVar) {
             this(i, str, str2, map, map2, str3, mVar, j);
@@ -127,17 +127,17 @@ public class o {
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, m mVar, long j) {
             super(i, str, str2, map, map2, str3, j, null);
-            this.acA = mVar;
+            this.acB = mVar;
         }
 
         @Override // com.baidu.tbadk.core.d.o
         protected void j(JSONObject jSONObject) {
-            this.acA.a(this, jSONObject);
+            this.acB.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.d.o
         void a(int i, Throwable th) {
-            this.acA.a(i, th);
+            this.acB.a(i, th);
         }
     }
 }

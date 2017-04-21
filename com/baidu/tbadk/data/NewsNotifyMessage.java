@@ -14,10 +14,10 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         private int aqa = 0;
         private int apZ = 0;
         private int aqb = 0;
-        private int axI = 0;
-        private int axJ = 0;
-        private int aqc = 0;
         private int axK = 0;
+        private int axL = 0;
+        private int aqc = 0;
+        private int axM = 0;
 
         public a() {
         }
@@ -36,7 +36,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         this.mData.apY = i3;
         this.mData.apZ = i4;
         this.mData.aqb = i5;
-        this.mData.axI = i6;
+        this.mData.axK = i6;
     }
 
     public int getMsgReplyme() {
@@ -88,19 +88,19 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.axI = i;
+        this.mData.axK = i;
     }
 
     public int getMsgPrivateChat() {
-        return this.mData.axI;
+        return this.mData.axK;
     }
 
     public void setMsgStrangerChat(int i) {
-        this.mData.axJ = i;
+        this.mData.axL = i;
     }
 
     public int getMsgStrangerChat() {
-        return this.mData.axJ;
+        return this.mData.axL;
     }
 
     public void setMsgLiveVip(int i) {
@@ -112,10 +112,10 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     }
 
     public void setMsgOfficialMerge(int i) {
-        this.mData.axK = i;
+        this.mData.axM = i;
     }
 
     public int getMsgOfficialMerge() {
-        return this.mData.axK;
+        return this.mData.axM;
     }
 }

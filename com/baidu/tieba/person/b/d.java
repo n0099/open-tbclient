@@ -17,35 +17,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends y.a {
-    public TextView Rs;
-    public TbPageContext ajT;
+    public TextView Ru;
+    public TbPageContext ajU;
     public int amZ;
-    public View bAI;
-    public HTypeListView eAh;
-    public f eAi;
+    public View bCZ;
+    public HTypeListView eCx;
+    public f eCy;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
         this.amZ = 3;
         this.rootView = view;
-        this.ajT = tbPageContext;
-        this.bAI = view.findViewById(w.h.divider_view_under_photo_album);
-        this.Rs = (TextView) view.findViewById(w.h.text_view_photo_album);
-        this.eAh = (HTypeListView) view.findViewById(w.h.listview_photo_album);
-        this.eAi = new f(this.ajT, this.eAh);
+        this.ajU = tbPageContext;
+        this.bCZ = view.findViewById(w.h.divider_view_under_photo_album);
+        this.Ru = (TextView) view.findViewById(w.h.text_view_photo_album);
+        this.eCx = (HTypeListView) view.findViewById(w.h.listview_photo_album);
+        this.eCy = new f(this.ajU, this.eCx);
     }
 
     public void a(g gVar) {
         if (gVar != null) {
-            this.eAi.setDatas(cg(gVar.getPhotoAlbum()));
+            this.eCy.setDatas(ch(gVar.getPhotoAlbum()));
         }
     }
 
-    private List<v> cg(List<v> list) {
+    private List<v> ch(List<v> list) {
         if (x.p(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b(k.g(this.ajT.getPageActivity(), w.f.ds32), k.g(this.ajT.getPageActivity(), w.f.ds120));
+            com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b(k.g(this.ajU.getPageActivity(), w.f.ds32), k.g(this.ajU.getPageActivity(), w.f.ds120));
             x.a(arrayList, 0, bVar);
             x.b(arrayList, bVar);
             return arrayList;
@@ -53,13 +53,13 @@ public class d extends y.a {
         return list;
     }
 
-    public void aQp() {
+    public void aRq() {
         if (this.amZ != TbadkCoreApplication.m9getInst().getSkinType()) {
             this.amZ = TbadkCoreApplication.m9getInst().getSkinType();
             aq.k(this.rootView, w.e.cp_bg_line_d);
-            aq.k(this.bAI, w.e.cp_bg_line_c);
-            aq.c(this.Rs, w.e.cp_cont_d, 1);
-            this.eAi.notifyDataSetChanged();
+            aq.k(this.bCZ, w.e.cp_bg_line_c);
+            aq.c(this.Ru, w.e.cp_cont_d, 1);
+            this.eCy.notifyDataSetChanged();
         }
     }
 }

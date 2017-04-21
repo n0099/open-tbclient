@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements View.OnClickListener {
-    final /* synthetic */ z fAp;
+    final /* synthetic */ z fCF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(z zVar) {
-        this.fAp = zVar;
+        this.fCF = zVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,8 +21,8 @@ public class ak implements View.OnClickListener {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
         if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(SignAllForumActivityConfig.class)) {
-            mainTabActivity = this.fAp.fAi;
-            mainTabActivity2 = this.fAp.fAi;
+            mainTabActivity = this.fCF.fCy;
+            mainTabActivity2 = this.fCF.fCy;
             mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SignAllForumActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
             TiebaStatic.log("c10085");
         }

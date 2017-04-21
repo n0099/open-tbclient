@@ -6,7 +6,7 @@ public class g {
     }
 
     public static boolean Hk() {
-        return com.baidu.tbadk.core.util.l.dG() && com.baidu.adp.gif.e.dF();
+        return com.baidu.tbadk.core.util.l.dH() && com.baidu.adp.gif.e.dG();
     }
 
     public static boolean ge(String str) {
@@ -18,7 +18,7 @@ public class g {
         }
         int indexOf = str.indexOf("imgsrc");
         if (indexOf <= 0 || indexOf >= 20) {
-            return (com.baidu.adp.lib.b.e.eY().Y("portrait_cdn_open") != 0) && gg(str);
+            return (com.baidu.adp.lib.b.e.eZ().Y("portrait_cdn_open") != 0) && gg(str);
         }
         return true;
     }

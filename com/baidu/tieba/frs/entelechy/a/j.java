@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends cf<bi> {
-    final /* synthetic */ i bSg;
+    final /* synthetic */ i bUx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.bSg = iVar;
+        this.bUx = iVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,18 +22,18 @@ public class j extends cf<bi> {
         com.baidu.tieba.frs.entelechy.view.am amVar2;
         com.baidu.tieba.frs.entelechy.view.am amVar3;
         if (view != null) {
-            amVar = this.bSg.bSe;
+            amVar = this.bUx.bUv;
             if (amVar != null) {
-                amVar2 = this.bSg.bSe;
+                amVar2 = this.bUx.bUv;
                 if (amVar2.getView() != null) {
-                    amVar3 = this.bSg.bSe;
-                    if (amVar3.bTF != null && biVar != null && !StringUtils.isNull(biVar.getTid())) {
+                    amVar3 = this.bUx.bUv;
+                    if (amVar3.bVW != null && biVar != null && !StringUtils.isNull(biVar.getTid())) {
                         if (view.getId() == w.h.card_root_view) {
-                            com.baidu.tieba.frs.e.b.adp().a(i.bYW, biVar, 1);
+                            com.baidu.tieba.frs.e.b.aeq().a(i.cbn, biVar, 1);
                         } else if (view.getId() == w.h.avatar) {
-                            com.baidu.tieba.frs.e.b.adp().a(i.bYW, biVar, 2);
+                            com.baidu.tieba.frs.e.b.aeq().a(i.cbn, biVar, 2);
                         } else if (view.getId() == w.h.card_divider_tv) {
-                            com.baidu.tieba.frs.f.s.a(i.bYW, biVar.sM());
+                            com.baidu.tieba.frs.f.s.a(i.cbn, biVar.sM());
                         }
                     }
                 }

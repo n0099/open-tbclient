@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class d {
-    private static d aFC = null;
+    private static d aFE = null;
 
     private d() {
     }
@@ -22,10 +22,10 @@ public class d {
     public static synchronized d Gh() {
         d dVar;
         synchronized (d.class) {
-            if (aFC == null) {
-                aFC = new d();
+            if (aFE == null) {
+                aFE = new d();
             }
-            dVar = aFC;
+            dVar = aFE;
         }
         return dVar;
     }

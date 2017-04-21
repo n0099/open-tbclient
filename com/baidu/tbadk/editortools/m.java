@@ -4,17 +4,17 @@ import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements Comparator<x> {
-    final /* synthetic */ j azw;
+    final /* synthetic */ j azy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.azw = jVar;
+        this.azy = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(x xVar, x xVar2) {
-        return xVar.azJ - xVar2.azJ;
+        return xVar.azL - xVar2.azL;
     }
 }

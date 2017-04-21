@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class w extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static w bDt = new w();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> bDu;
+    private static w bFK = new w();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> bFL;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized w Vq() {
+    public static synchronized w Wr() {
         w wVar;
         synchronized (w.class) {
-            wVar = bDt;
+            wVar = bFK;
         }
         return wVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.bDu;
+        return this.bFL;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0039a interfaceC0039a) {
-        if (this.bDu == null || this.bDu.isEmpty()) {
-            this.bDu = new LinkedList<>();
+        if (this.bFL == null || this.bFL.isEmpty()) {
+            this.bFL = new LinkedList<>();
             if (TbFaceManager.EI().DA() > 0) {
                 v vVar = new v();
-                this.bDu.add(vVar);
+                this.bFL.add(vVar);
                 if (interfaceC0039a != null) {
                     interfaceC0039a.a(vVar);
                     return;
@@ -42,7 +42,7 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.bDu.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.bFL.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0039a != null) {
@@ -56,6 +56,6 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.bDu == null || this.bDu.size() == 0;
+        return this.bFL == null || this.bFL.size() == 0;
     }
 }

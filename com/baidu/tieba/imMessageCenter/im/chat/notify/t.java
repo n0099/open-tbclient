@@ -12,16 +12,16 @@ public class t extends ae {
     }
 
     @Override // com.baidu.tbadk.core.view.ab, com.baidu.adp.widget.ListView.d
-    public View le() {
-        View le = super.le();
-        this.alo.setVisibility(4);
-        return le;
+    public View lf() {
+        View lf = super.lf();
+        this.alp.setVisibility(4);
+        return lf;
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.tbadk.core.view.ab
     public void dk(int i) {
         super.dk(i);
-        aq.k(this.aln, w.e.cp_bg_line_d);
+        aq.k(this.alo, w.e.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.tbadk.core.view.ab, com.baidu.adp.widget.ListView.d
@@ -29,11 +29,11 @@ public class t extends ae {
     }
 
     @Override // com.baidu.tbadk.core.view.ab, com.baidu.adp.widget.ListView.d
-    public void lf() {
+    public void lg() {
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.tbadk.core.view.ab, com.baidu.adp.widget.ListView.d
-    public void lg() {
+    public void lh() {
     }
 
     @Override // com.baidu.tbadk.core.view.ae, com.baidu.tbadk.core.view.ab, com.baidu.adp.widget.ListView.d

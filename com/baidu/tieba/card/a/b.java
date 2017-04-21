@@ -3,11 +3,11 @@ package com.baidu.tieba.card.a;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class b implements TbImageView.a {
-    final /* synthetic */ a buH;
+    final /* synthetic */ a bwY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.buH = aVar;
+        this.bwY = aVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -15,9 +15,9 @@ class b implements TbImageView.a {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         if (z) {
-            tbImageView = this.buH.aTc;
+            tbImageView = this.bwY.aTe;
             if (tbImageView != null) {
-                tbImageView2 = this.buH.aTc;
+                tbImageView2 = this.bwY.aTe;
                 tbImageView2.setDefaultBgResource(0);
             }
         }

@@ -10,11 +10,11 @@ import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements a.InterfaceC0028a {
-    final /* synthetic */ NewSubPbActivity esV;
+    final /* synthetic */ NewSubPbActivity evm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(NewSubPbActivity newSubPbActivity) {
-        this.esV = newSubPbActivity;
+        this.evm = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0028a
@@ -33,51 +33,51 @@ public class l implements a.InterfaceC0028a {
         SubPbModel subPbModel5;
         com.baidu.tbadk.baseEditMark.a aVar4;
         if (z) {
-            aVar = this.esV.dFo;
+            aVar = this.evm.dHE;
             if (aVar != null) {
-                aVar4 = this.esV.dFo;
+                aVar4 = this.evm.dHE;
                 aVar4.ae(z2);
             }
-            aVar2 = this.esV.dFo;
+            aVar2 = this.evm.dHE;
             MarkData oh = aVar2.oh();
             com.baidu.tieba.pb.d dVar = new com.baidu.tieba.pb.d();
             dVar.setType(2);
             if (z2) {
                 dVar.setData(oh);
-                aVar3 = this.esV.dFo;
+                aVar3 = this.evm.dHE;
                 if (aVar3 != null) {
                     if (oh != null) {
-                        subPbModel3 = this.esV.esE;
-                        subPbModel3.iE(true);
-                        subPbModel4 = this.esV.esE;
-                        subPbModel5 = this.esV.esE;
-                        subPbModel4.nR(subPbModel5.DJ());
-                        this.esV.showToast(MessageFormat.format(this.esV.getPageContext().getString(w.l.add_mark_on_pb), Integer.valueOf(oh.getFloor())));
+                        subPbModel3 = this.evm.euV;
+                        subPbModel3.iO(true);
+                        subPbModel4 = this.evm.euV;
+                        subPbModel5 = this.evm.euV;
+                        subPbModel4.nS(subPbModel5.DJ());
+                        this.evm.showToast(MessageFormat.format(this.evm.getPageContext().getString(w.l.add_mark_on_pb), Integer.valueOf(oh.getFloor())));
                     } else {
-                        this.esV.showToast(this.esV.getPageContext().getString(w.l.add_mark));
+                        this.evm.showToast(this.evm.getPageContext().getString(w.l.add_mark));
                     }
-                    aoVar3 = this.esV.esG;
+                    aoVar3 = this.evm.euX;
                     if (aoVar3 != null) {
-                        aoVar4 = this.esV.esG;
-                        aoVar4.iY(true);
+                        aoVar4 = this.evm.euX;
+                        aoVar4.ji(true);
                     }
                 }
             } else {
                 dVar.setData(null);
-                subPbModel = this.esV.esE;
-                subPbModel.iE(false);
-                subPbModel2 = this.esV.esE;
-                subPbModel2.nR(null);
-                this.esV.showToast(this.esV.getPageContext().getString(w.l.remove_mark));
-                aoVar = this.esV.esG;
+                subPbModel = this.evm.euV;
+                subPbModel.iO(false);
+                subPbModel2 = this.evm.euV;
+                subPbModel2.nS(null);
+                this.evm.showToast(this.evm.getPageContext().getString(w.l.remove_mark));
+                aoVar = this.evm.euX;
                 if (aoVar != null) {
-                    aoVar2 = this.esV.esG;
-                    aoVar2.iY(false);
+                    aoVar2 = this.evm.euX;
+                    aoVar2.ji(false);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, dVar));
             return;
         }
-        this.esV.showToast(this.esV.getPageContext().getString(w.l.update_mark_failed));
+        this.evm.showToast(this.evm.getPageContext().getString(w.l.update_mark_failed));
     }
 }

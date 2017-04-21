@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ee implements View.OnClickListener {
-    final /* synthetic */ ed enY;
+    final /* synthetic */ ed eqq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ee(ed edVar) {
-        this.enY = edVar;
+        this.eqq = edVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -35,51 +35,51 @@ public class ee implements View.OnClickListener {
         TbPageContext tbPageContext4;
         com.baidu.tbadk.core.data.ar arVar12;
         com.baidu.tbadk.core.data.ar arVar13;
-        tbPageContext = this.enY.aaX;
-        if (com.baidu.tbadk.core.util.bg.aK(tbPageContext.getPageActivity()) && com.baidu.adp.lib.util.k.hA()) {
-            if (view == this.enY.enJ) {
-                arVar10 = this.enY.enV;
+        tbPageContext = this.eqq.aaY;
+        if (com.baidu.tbadk.core.util.bg.aK(tbPageContext.getPageActivity()) && com.baidu.adp.lib.util.k.hB()) {
+            if (view == this.eqq.eqb) {
+                arVar10 = this.eqq.eqn;
                 if (arVar10 != null) {
-                    arVar11 = this.enY.enV;
-                    if (!TextUtils.isEmpty(arVar11.Xd)) {
+                    arVar11 = this.eqq.eqn;
+                    if (!TextUtils.isEmpty(arVar11.Xe)) {
                         com.baidu.tbadk.core.util.bb wn = com.baidu.tbadk.core.util.bb.wn();
-                        tbPageContext4 = this.enY.aaX;
-                        arVar12 = this.enY.enV;
-                        wn.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext4.getPageActivity()), new String[]{arVar12.Xd});
+                        tbPageContext4 = this.eqq.aaY;
+                        arVar12 = this.eqq.eqn;
+                        wn.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext4.getPageActivity()), new String[]{arVar12.Xe});
                         com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c11410");
-                        arVar13 = this.enY.enV;
-                        TiebaStatic.log(asVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arVar13.Xd));
+                        arVar13 = this.eqq.eqn;
+                        TiebaStatic.log(asVar.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arVar13.Xe));
                     }
                 }
-            } else if (view == this.enY.enO) {
+            } else if (view == this.eqq.eqg) {
                 StringBuilder sb = new StringBuilder("link: ");
-                arVar5 = this.enY.enW;
-                BdLog.e(sb.append(arVar5.Xd).toString());
-                arVar6 = this.enY.enW;
+                arVar5 = this.eqq.eqo;
+                BdLog.e(sb.append(arVar5.Xe).toString());
+                arVar6 = this.eqq.eqo;
                 if (arVar6 != null) {
-                    arVar7 = this.enY.enW;
-                    if (!TextUtils.isEmpty(arVar7.Xd)) {
+                    arVar7 = this.eqq.eqo;
+                    if (!TextUtils.isEmpty(arVar7.Xe)) {
                         com.baidu.tbadk.core.util.bb wn2 = com.baidu.tbadk.core.util.bb.wn();
-                        tbPageContext3 = this.enY.aaX;
-                        arVar8 = this.enY.enW;
-                        wn2.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext3.getPageActivity()), new String[]{arVar8.Xd});
+                        tbPageContext3 = this.eqq.aaY;
+                        arVar8 = this.eqq.eqo;
+                        wn2.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext3.getPageActivity()), new String[]{arVar8.Xe});
                         com.baidu.tbadk.core.util.as asVar2 = new com.baidu.tbadk.core.util.as("c11409");
-                        arVar9 = this.enY.enW;
-                        TiebaStatic.log(asVar2.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arVar9.Xd));
+                        arVar9 = this.eqq.eqo;
+                        TiebaStatic.log(asVar2.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arVar9.Xe));
                     }
                 }
-            } else if (view == this.enY.enR) {
-                arVar = this.enY.enX;
+            } else if (view == this.eqq.eqj) {
+                arVar = this.eqq.eqp;
                 if (arVar != null) {
-                    arVar2 = this.enY.enX;
-                    if (!TextUtils.isEmpty(arVar2.Xd)) {
+                    arVar2 = this.eqq.eqp;
+                    if (!TextUtils.isEmpty(arVar2.Xe)) {
                         com.baidu.tbadk.core.util.bb wn3 = com.baidu.tbadk.core.util.bb.wn();
-                        tbPageContext2 = this.enY.aaX;
-                        arVar3 = this.enY.enX;
-                        wn3.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext2.getPageActivity()), new String[]{arVar3.Xd});
+                        tbPageContext2 = this.eqq.aaY;
+                        arVar3 = this.eqq.eqp;
+                        wn3.c((TbPageContext) com.baidu.adp.base.k.Z(tbPageContext2.getPageActivity()), new String[]{arVar3.Xe});
                         com.baidu.tbadk.core.util.as asVar3 = new com.baidu.tbadk.core.util.as("c11408");
-                        arVar4 = this.enY.enX;
-                        TiebaStatic.log(asVar3.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arVar4.Xd));
+                        arVar4 = this.eqq.eqp;
+                        TiebaStatic.log(asVar3.aa(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, arVar4.Xe));
                     }
                 }
             }

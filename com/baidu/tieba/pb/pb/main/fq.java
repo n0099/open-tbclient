@@ -5,12 +5,12 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fq implements View.OnClickListener {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
     private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fq(ey eyVar, String str) {
-        this.erv = eyVar;
+        this.etN = eyVar;
         this.val$url = str;
     }
 
@@ -21,15 +21,15 @@ public class fq implements View.OnClickListener {
         PbActivity pbActivity;
         PbActivity pbActivity2;
         PbActivity pbActivity3;
-        if (!com.baidu.adp.lib.util.k.hA()) {
-            pbActivity = this.erv.eig;
+        if (!com.baidu.adp.lib.util.k.hB()) {
+            pbActivity = this.etN.ekw;
             pbActivity.showToast(w.l.neterror);
             return;
         }
         com.baidu.tbadk.core.util.bb wn = com.baidu.tbadk.core.util.bb.wn();
-        pbActivity2 = this.erv.eig;
+        pbActivity2 = this.etN.ekw;
         wn.c(pbActivity2.getPageContext(), new String[]{this.val$url});
-        pbActivity3 = this.erv.eig;
+        pbActivity3 = this.etN.ekw;
         pbActivity3.finish();
     }
 }

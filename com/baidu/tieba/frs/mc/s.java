@@ -14,29 +14,29 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class s extends w {
     private final CustomMessageListener amd;
-    private boolean bVf;
-    private String bVg;
-    private bi bYr;
-    private PraiseModel bYs;
+    private boolean bXw;
+    private String bXx;
+    private bi caI;
+    private PraiseModel caJ;
 
     public s(FrsActivity frsActivity) {
         super(frsActivity);
         this.amd = new t(this, CmdConfigCustom.PB_ACTION_PRAISE);
-        this.bST.registerListener(this.amd);
-        this.bYs = acY();
+        this.bVk.registerListener(this.amd);
+        this.caJ = adZ();
     }
 
-    public final PraiseModel acY() {
-        if (this.bYs == null) {
-            this.bYs = new PraiseModel(this.bST.getPageContext(), new u(this));
+    public final PraiseModel adZ() {
+        if (this.caJ == null) {
+            this.caJ = new PraiseModel(this.bVk.getPageContext(), new u(this));
         }
-        return this.bYs;
+        return this.caJ;
     }
 
-    public void ii(int i) {
+    public void io(int i) {
         ArrayList<com.baidu.adp.widget.ListView.v> threadList;
-        com.baidu.tieba.tbadkCore.n Zr = this.bST.Zr();
-        if (Zr != null && this.bMD != null && (threadList = Zr.getThreadList()) != null) {
+        com.baidu.tieba.tbadkCore.n aas = this.bVk.aas();
+        if (aas != null && this.bOU != null && (threadList = aas.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.v> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -45,19 +45,19 @@ public class s extends w {
                 com.baidu.adp.widget.ListView.v next = it.next();
                 if (next instanceof bi) {
                     bi biVar = (bi) next;
-                    if (biVar == this.bYr) {
+                    if (biVar == this.caI) {
                         c(biVar, i);
-                        this.bYr = null;
+                        this.caI = null;
                         break;
-                    } else if (biVar.getId() != null && biVar.getId().equals(this.bVg)) {
+                    } else if (biVar.getId() != null && biVar.getId().equals(this.bXx)) {
                         c(biVar, i);
-                        this.bVg = null;
+                        this.bXx = null;
                         break;
                     }
                 }
             }
-            this.bMD.aae().b(threadList, Zr);
-            this.bMD.aae().notifyDataSetChanged();
+            this.bOU.abf().b(threadList, aas);
+            this.bOU.abf().notifyDataSetChanged();
         }
     }
 
@@ -101,7 +101,7 @@ public class s extends w {
         }
     }
 
-    public void eh(boolean z) {
-        this.bVf = z;
+    public void er(boolean z) {
+        this.bXw = z;
     }
 }

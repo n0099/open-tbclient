@@ -11,7 +11,7 @@ public class b {
 
     /* loaded from: classes.dex */
     public interface a {
-        int aIZ();
+        int aKa();
 
         void d(String str, String str2, String str3, String str4, String str5);
     }

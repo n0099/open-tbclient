@@ -13,7 +13,7 @@ import java.io.File;
 public class ap {
     public static void c(TbPageContext<?> tbPageContext) {
         try {
-            if (!l.dG()) {
+            if (!l.dH()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.uS());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -39,7 +39,7 @@ public class ap {
     public static void b(TbPageContext<?> tbPageContext, String str) {
         String str2;
         try {
-            if (!l.dG()) {
+            if (!l.dH()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.uS());
                     return;
@@ -51,7 +51,7 @@ public class ap {
                 }
             }
             boolean z = false;
-            if (l.cU(l.yq + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+            if (l.cU(l.yt + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                 File file = new File(String.valueOf(str2) + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();

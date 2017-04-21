@@ -15,7 +15,7 @@ class ak extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof by)) {
             by byVar = (by) customResponsedMessage.getData();
             com.baidu.tieba.frs.b.i iVar = new com.baidu.tieba.frs.b.i();
-            iVar.setTag(byVar.baI);
+            iVar.setTag(byVar.bbE);
             byVar.a(100, iVar);
         }
     }

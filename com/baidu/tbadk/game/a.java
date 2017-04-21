@@ -10,20 +10,20 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private static a aCh = new a();
-    private GameInfoData aCi;
-    private final e aCj = new b(this, 303009);
+    private static a aCj = new a();
+    private GameInfoData aCk;
+    private final e aCl = new b(this, 303009);
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.aCj);
+        MessageManager.getInstance().registerListener(this.aCl);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new c(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static a Ew() {
-        return aCh;
+        return aCj;
     }
 
     private GameInfoData Ex() {
@@ -37,7 +37,7 @@ public class a {
     }
 
     public GameInfoData Ey() {
-        return this.aCi == null ? Ex() : this.aCi;
+        return this.aCk == null ? Ex() : this.aCk;
     }
 
     public ShareFromGameCenterMsgData Ez() {

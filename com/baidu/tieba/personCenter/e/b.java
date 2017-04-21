@@ -10,10 +10,10 @@ import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends y.a {
     public int amZ;
-    public ImageView eAV;
-    public TextView eAW;
-    public ImageView eAX;
-    public LinearLayout eAY;
+    public ImageView eDl;
+    public TextView eDm;
+    public ImageView eDn;
+    public LinearLayout eDo;
 
     public b(View view) {
         super(view);
@@ -23,11 +23,11 @@ public class b extends y.a {
 
     private void Y(View view) {
         if (view != null) {
-            this.eAV = (ImageView) view.findViewById(w.h.person_center_list_item_icon_img);
-            this.eAW = (TextView) view.findViewById(w.h.person_center_list_item_title_txt);
-            this.eAX = (ImageView) view.findViewById(w.h.person_center_list_item_arrow_img);
-            this.eAY = (LinearLayout) view.findViewById(w.h.person_center_list_item_extra_container);
-            this.eAY.setTag(new c());
+            this.eDl = (ImageView) view.findViewById(w.h.person_center_list_item_icon_img);
+            this.eDm = (TextView) view.findViewById(w.h.person_center_list_item_title_txt);
+            this.eDn = (ImageView) view.findViewById(w.h.person_center_list_item_arrow_img);
+            this.eDo = (LinearLayout) view.findViewById(w.h.person_center_list_item_extra_container);
+            this.eDo.setTag(new c());
         }
     }
 }

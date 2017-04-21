@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements c.b {
-    final /* synthetic */ FrsActivity bNJ;
-    private final /* synthetic */ com.baidu.tbadk.core.data.bi bNM;
+    final /* synthetic */ FrsActivity bQa;
+    private final /* synthetic */ com.baidu.tbadk.core.data.bi bQd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(FrsActivity frsActivity, com.baidu.tbadk.core.data.bi biVar) {
-        this.bNJ = frsActivity;
-        this.bNM = biVar;
+        this.bQa = frsActivity;
+        this.bQd = biVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -29,37 +29,37 @@ public class y implements c.b {
         cVar.dismiss();
         switch (i) {
             case 0:
-                str3 = this.bNJ.mThreadId;
+                str3 = this.bQa.mThreadId;
                 if (str3 != null) {
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bNJ.getPageContext().getPageActivity());
-                    com.baidu.tbadk.core.data.bi biVar = this.bNM;
-                    String str4 = this.bNJ.bMu;
-                    z3 = this.bNJ.bMB;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.bQa.getPageContext().getPageActivity());
+                    com.baidu.tbadk.core.data.bi biVar = this.bQd;
+                    String str4 = this.bQa.bOL;
+                    z3 = this.bQa.bOS;
                     PbActivityConfig createFromThreadCfg = pbActivityConfig.createFromThreadCfg(biVar, str4, null, 18003, true, false, z3);
                     createFromThreadCfg.setVideo_source("frs");
-                    this.bNJ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
+                    this.bQa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
                     break;
                 }
                 break;
             case 1:
-                FrsActivity frsActivity = this.bNJ;
-                str2 = this.bNJ.mThreadId;
-                com.baidu.tbadk.core.data.bi biVar2 = this.bNM;
-                z2 = this.bNJ.bMB;
+                FrsActivity frsActivity = this.bQa;
+                str2 = this.bQa.mThreadId;
+                com.baidu.tbadk.core.data.bi biVar2 = this.bQd;
+                z2 = this.bQa.bOS;
                 com.baidu.tieba.frs.f.t.a(frsActivity, str2, biVar2, z2);
                 break;
             case 2:
-                FrsActivity frsActivity2 = this.bNJ;
-                str = this.bNJ.mThreadId;
-                com.baidu.tbadk.core.data.bi biVar3 = this.bNM;
-                z = this.bNJ.bMB;
+                FrsActivity frsActivity2 = this.bQa;
+                str = this.bQa.mThreadId;
+                com.baidu.tbadk.core.data.bi biVar3 = this.bQd;
+                z = this.bQa.bOS;
                 com.baidu.tieba.frs.f.t.b(frsActivity2, str, biVar3, z);
                 break;
         }
         com.baidu.tieba.tbadkCore.util.r readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory();
-        if (readThreadHistory != null && this.bNM != null && !readThreadHistory.qo(this.bNM.getId())) {
-            readThreadHistory.qn(this.bNM.getId());
+        if (readThreadHistory != null && this.bQd != null && !readThreadHistory.qp(this.bQd.getId())) {
+            readThreadHistory.qo(this.bQd.getId());
         }
-        this.bNJ.bMD.ZV();
+        this.bQa.bOU.aaW();
     }
 }

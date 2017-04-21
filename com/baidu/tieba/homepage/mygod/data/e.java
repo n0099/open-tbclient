@@ -10,7 +10,7 @@ import tbclient.GodFeed.DataReq;
 import tbclient.GodFeed.GodFeedReqIdl;
 /* loaded from: classes.dex */
 public class e implements h {
-    private long cwp;
+    private long cyG;
     private int pn;
     private int rn;
     private long tagCode;
@@ -23,7 +23,7 @@ public class e implements h {
     @Override // com.baidu.tbadk.mvc.b.k
     public Object bP(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.timeline = Long.valueOf(this.cwp);
+        builder.timeline = Long.valueOf(this.cyG);
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         builder.scr_w = Integer.valueOf(k.af(TbadkCoreApplication.m9getInst()));
@@ -49,7 +49,7 @@ public class e implements h {
     }
 
     public void bo(long j) {
-        this.cwp = j;
+        this.cyG = j;
     }
 
     public long getTagCode() {

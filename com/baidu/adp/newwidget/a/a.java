@@ -11,21 +11,21 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class a {
-    private static final Matrix.ScaleToFit[] Bs = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
-    private static final PorterDuffColorFilter Bt = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private static final Matrix.ScaleToFit[] Bv = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
+    private static final PorterDuffColorFilter Bw = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
     protected Paint mPaint = new Paint(6);
-    protected Paint Bu = new Paint();
-    protected Paint Bv = new Paint();
-    protected Matrix Bw = new Matrix();
-    protected RectF Bx = new RectF();
-    protected RectF By = new RectF();
-    private RectF Bz = new RectF();
-    private RectF BA = new RectF();
-    private RectF BB = new RectF();
-    protected e BC = new e();
-    private float[] BD = new float[9];
-    private PointF BE = new PointF();
-    protected RectF BF = new RectF();
+    protected Paint Bx = new Paint();
+    protected Paint By = new Paint();
+    protected Matrix Bz = new Matrix();
+    protected RectF BA = new RectF();
+    protected RectF BB = new RectF();
+    private RectF BC = new RectF();
+    private RectF BD = new RectF();
+    private RectF BE = new RectF();
+    protected e BF = new e();
+    private float[] BG = new float[9];
+    private PointF BH = new PointF();
+    protected RectF BI = new RectF();
 
     public abstract void a(Canvas canvas, ImageView imageView);
 
@@ -36,11 +36,11 @@ public abstract class a {
     public abstract void b(Canvas canvas, d dVar, ImageView imageView);
 
     public a() {
-        this.Bu.setStyle(Paint.Style.STROKE);
-        this.Bu.setAntiAlias(true);
+        this.Bx.setStyle(Paint.Style.STROKE);
+        this.Bx.setAntiAlias(true);
         this.mPaint.setAntiAlias(true);
-        this.Bv.setAntiAlias(true);
-        this.Bv.setStyle(Paint.Style.FILL);
+        this.By.setAntiAlias(true);
+        this.By.setStyle(Paint.Style.FILL);
     }
 
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
@@ -54,18 +54,18 @@ public abstract class a {
             int width2 = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
             int height2 = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
             if (scaleType == ImageView.ScaleType.MATRIX) {
-                this.Bx.set(0.0f, 0.0f, width, height);
+                this.BA.set(0.0f, 0.0f, width, height);
                 a(dVar, imageView);
                 return;
             }
             boolean z = (width <= 0 || width2 == width) && (height <= 0 || height2 == height);
-            this.Bw.reset();
+            this.Bz.reset();
             if (ImageView.ScaleType.FIT_XY == scaleType || z) {
-                this.Bx.set(0.0f, 0.0f, width2, height2);
+                this.BA.set(0.0f, 0.0f, width2, height2);
             } else {
-                this.Bx.set(0.0f, 0.0f, width, height);
+                this.BA.set(0.0f, 0.0f, width, height);
                 if (ImageView.ScaleType.CENTER == scaleType) {
-                    this.Bw.setTranslate((width2 - width) * 0.5f, (height2 - height) * 0.5f);
+                    this.Bz.setTranslate((width2 - width) * 0.5f, (height2 - height) * 0.5f);
                 } else if (ImageView.ScaleType.CENTER_CROP == scaleType) {
                     if (width * height2 > width2 * height) {
                         f = height2 / height;
@@ -75,20 +75,20 @@ public abstract class a {
                         f = width2 / width;
                         f2 = (height2 - (height * f)) * 0.5f;
                     }
-                    this.Bw.setScale(f, f);
-                    this.Bw.postTranslate(f3, f2);
+                    this.Bz.setScale(f, f);
+                    this.Bz.postTranslate(f3, f2);
                 } else if (ImageView.ScaleType.CENTER_INSIDE == scaleType) {
                     if (width <= width2 && height <= height2) {
                         min = 1.0f;
                     } else {
                         min = Math.min(width2 / width, height2 / height);
                     }
-                    this.Bw.setScale(min, min);
-                    this.Bw.postTranslate((width2 - (width * min)) * 0.5f, (height2 - (height * min)) * 0.5f);
+                    this.Bz.setScale(min, min);
+                    this.Bz.postTranslate((width2 - (width * min)) * 0.5f, (height2 - (height * min)) * 0.5f);
                 } else {
-                    this.Bz.set(0.0f, 0.0f, width, height);
-                    this.BA.set(0.0f, 0.0f, width2, height2);
-                    this.Bw.setRectToRect(this.Bz, this.BA, a(scaleType));
+                    this.BC.set(0.0f, 0.0f, width, height);
+                    this.BD.set(0.0f, 0.0f, width2, height2);
+                    this.Bz.setRectToRect(this.BC, this.BD, a(scaleType));
                 }
             }
             a(dVar, imageView);
@@ -96,7 +96,7 @@ public abstract class a {
     }
 
     public void a(Canvas canvas, d dVar, ImageView imageView) {
-        iB();
+        iC();
         int save = canvas.save();
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
@@ -111,26 +111,26 @@ public abstract class a {
         canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + right) - left) - paddingRight, ((scrollY + bottom) - top) - paddingBottom);
         canvas.translate(paddingLeft, paddingTop);
         int save2 = canvas.save();
-        if (this.BC.Cg != null) {
-            canvas.concat(this.BC.Cg);
+        if (this.BF.Cj != null) {
+            canvas.concat(this.BF.Cj);
         }
-        if (dVar.BX != null && dVar.BX.kY()) {
-            if ((dVar.BX.kR().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.BX.kR().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.Bw != null) {
-                canvas.concat(this.Bw);
+        if (dVar.Ca != null && dVar.Ca.kZ()) {
+            if ((dVar.Ca.kS().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.Ca.kS().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.Bz != null) {
+                canvas.concat(this.Bz);
             }
-            this.BB.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            dVar.BX.a(canvas, this.BB);
+            this.BE.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            dVar.Ca.a(canvas, this.BE);
         } else {
             b(canvas, dVar, imageView);
         }
         canvas.restoreToCount(save2);
-        if (this.BC.Ce && this.BC.Cf != null && dVar.ee()) {
-            if (!this.BC.Ci) {
-                this.BC.Cf.setBounds(0, 0, this.BC.Cf.getIntrinsicWidth(), this.BC.Cf.getIntrinsicHeight());
-                this.BC.Cf.draw(canvas);
+        if (this.BF.Ch && this.BF.Ci != null && dVar.ef()) {
+            if (!this.BF.Cl) {
+                this.BF.Ci.setBounds(0, 0, this.BF.Ci.getIntrinsicWidth(), this.BF.Ci.getIntrinsicHeight());
+                this.BF.Ci.draw(canvas);
             } else {
-                this.BC.Cf.setBounds((right - 15) - this.BC.Cf.getIntrinsicWidth(), (bottom - 15) - this.BC.Cf.getIntrinsicHeight(), right - 15, bottom - 15);
-                this.BC.Cf.draw(canvas);
+                this.BF.Ci.setBounds((right - 15) - this.BF.Ci.getIntrinsicWidth(), (bottom - 15) - this.BF.Ci.getIntrinsicHeight(), right - 15, bottom - 15);
+                this.BF.Ci.draw(canvas);
             }
         }
         b(canvas, imageView);
@@ -157,30 +157,30 @@ public abstract class a {
     }
 
     public void a(e eVar) {
-        this.BC = eVar;
+        this.BF = eVar;
     }
 
-    public Matrix iz() {
-        return this.Bw;
+    public Matrix iA() {
+        return this.Bz;
     }
 
     public void b(Matrix matrix) {
-        this.Bw = matrix;
+        this.Bz = matrix;
     }
 
-    public RectF iA() {
-        return this.Bx;
+    public RectF iB() {
+        return this.BA;
     }
 
-    private void iB() {
-        this.mPaint.setAlpha((int) (255.0f * this.BC.mAlpha));
-        if (this.BC.Cc) {
-            this.mPaint.setColorFilter(Bt);
+    private void iC() {
+        this.mPaint.setAlpha((int) (255.0f * this.BF.mAlpha));
+        if (this.BF.Cf) {
+            this.mPaint.setColorFilter(Bw);
         } else {
             this.mPaint.setColorFilter(null);
         }
-        this.Bu.setColor(this.BC.Cb);
-        this.Bu.setStrokeWidth(this.BC.Ca);
+        this.Bx.setColor(this.BF.Ce);
+        this.Bx.setStrokeWidth(this.BF.Cd);
     }
 
     private static Matrix.ScaleToFit a(ImageView.ScaleType scaleType) {
@@ -194,13 +194,13 @@ public abstract class a {
                 i = 4;
             }
         }
-        return Bs[i - 1];
+        return Bv[i - 1];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PointF a(float f, float f2, Matrix matrix) {
-        matrix.getValues(this.BD);
-        this.BE.set((int) ((this.BD[0] * f) + (this.BD[1] * f2) + this.BD[2]), (int) ((this.BD[3] * f) + (this.BD[4] * f2) + this.BD[5]));
-        return this.BE;
+        matrix.getValues(this.BG);
+        this.BH.set((int) ((this.BG[0] * f) + (this.BG[1] * f2) + this.BG[2]), (int) ((this.BG[3] * f) + (this.BG[4] * f2) + this.BG[5]));
+        return this.BH;
     }
 }

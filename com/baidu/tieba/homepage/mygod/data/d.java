@@ -7,9 +7,9 @@ import tbclient.BannerInfo;
 import tbclient.GodFeed.GodFeedResIdl;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
-    private long cwp;
-    private int cwq = -1;
-    private BannerInfo cwr = null;
+    private long cyG;
+    private int cyH = -1;
+    private BannerInfo cyI = null;
 
     @Override // com.baidu.tieba.homepage.recommendfrs.data.c, com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -17,13 +17,13 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         if ((message instanceof GodFeedResIdl) && (godFeedResIdl = (GodFeedResIdl) message) != null && godFeedResIdl.error != null && godFeedResIdl.error.errorno.intValue() == 0 && godFeedResIdl.data != null) {
             this.mHasMore = godFeedResIdl.data.has_more.intValue() == 1;
             this.pn = godFeedResIdl.data.pn.intValue();
-            this.cwp = godFeedResIdl.data.timeline.longValue();
+            this.cyG = godFeedResIdl.data.timeline.longValue();
             if (godFeedResIdl.data.thread_list != null) {
-                this.cAa = new ArrayList();
-                this.cAa.addAll(godFeedResIdl.data.thread_list);
+                this.cCr = new ArrayList();
+                this.cCr.addAll(godFeedResIdl.data.thread_list);
             }
-            this.cwq = godFeedResIdl.data.has_attention_god.intValue();
-            this.cwr = godFeedResIdl.data.banner_info;
+            this.cyH = godFeedResIdl.data.has_attention_god.intValue();
+            this.cyI = godFeedResIdl.data.banner_info;
         }
     }
 
@@ -37,15 +37,15 @@ public class d extends com.baidu.tieba.homepage.recommendfrs.data.c {
         return false;
     }
 
-    public long ajc() {
-        return this.cwp;
+    public long akd() {
+        return this.cyG;
     }
 
-    public int ajd() {
-        return this.cwq;
+    public int ake() {
+        return this.cyH;
     }
 
-    public BannerInfo aje() {
-        return this.cwr;
+    public BannerInfo akf() {
+        return this.cyI;
     }
 }

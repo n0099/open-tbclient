@@ -6,13 +6,13 @@ import com.baidu.tieba.personCenter.mode.PersonCenterMode;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a eAt;
+    final /* synthetic */ a eCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.eAt = aVar;
+        this.eCJ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         PersonCenterMode personCenterMode;
         if (customResponsedMessage != null) {
-            personCenterMode = this.eAt.eAp;
+            personCenterMode = this.eCJ.eCF;
             personCenterMode.FC();
         }
     }

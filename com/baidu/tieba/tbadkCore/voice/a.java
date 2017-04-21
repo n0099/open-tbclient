@@ -10,11 +10,11 @@ public interface a {
 
     void bz(String str);
 
-    void mm();
+    void mn();
 
-    boolean mn();
-
-    void mo();
+    boolean mo();
 
     void release();
+
+    void stopRecord();
 }

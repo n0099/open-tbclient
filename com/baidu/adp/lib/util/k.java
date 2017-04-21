@@ -24,13 +24,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float yW;
-    static int yX;
-    static int yY;
-    private static String zb;
-    static boolean yV = false;
-    private static Toast yZ = null;
-    private static a za = null;
+    private static float yZ;
+    static int za;
+    static int zb;
+    private static String ze;
+    static boolean yY = false;
+    private static Toast zc = null;
+    private static a zd = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
@@ -38,7 +38,7 @@ public class k {
     public interface a {
         void aH(String str);
 
-        View hG();
+        View hH();
     }
 
     public static void ae(Context context) {
@@ -47,67 +47,74 @@ public class k {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            yX = displayMetrics.heightPixels;
-            yY = displayMetrics.widthPixels;
+            za = displayMetrics.heightPixels;
+            zb = displayMetrics.widthPixels;
         } else {
-            yX = displayMetrics.widthPixels;
-            yY = displayMetrics.heightPixels;
+            za = displayMetrics.widthPixels;
+            zb = displayMetrics.heightPixels;
         }
-        yW = displayMetrics.density;
-        yV = true;
+        yZ = displayMetrics.density;
+        yY = true;
     }
 
     public static int af(Context context) {
-        if (!yV) {
+        if (!yY) {
             ae(context);
         }
-        return yX;
+        return za;
     }
 
     public static int ag(Context context) {
-        if (!yV) {
+        if (!yY) {
             ae(context);
         }
-        return yY;
+        return zb;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!yV) {
+        if (!yY) {
             ae(context);
         }
-        return (int) ((yW * f) + 0.5f);
+        return (int) ((yZ * f) + 0.5f);
     }
 
     public static float ah(Context context) {
-        if (!yV) {
+        if (!yY) {
             ae(context);
         }
-        return yW;
+        return yZ;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (yZ == null) {
-                if (za == null || za.hG() == null) {
-                    yZ = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (zc == null) {
+                if (zd == null || zd.hH() == null) {
+                    zc = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    yZ = new Toast(BdBaseApplication.getInst().getApp());
-                    yZ.setDuration(0);
-                    za.aH(str);
-                    yZ.setView(za.hG());
+                    zc = new Toast(BdBaseApplication.getInst().getApp());
+                    zc.setDuration(0);
+                    zd.aH(str);
+                    zc.setView(zd.hH());
                 }
-                yZ.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else if (!str.equals(zb)) {
-                if (za == null || za.hG() == null) {
-                    yZ.setText(str);
-                } else {
-                    za.aH(str);
+                zc.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else {
+                if (!str.equals(ze)) {
+                    if (zd == null || zd.hH() == null) {
+                        zc.setText(str);
+                    } else {
+                        zd.aH(str);
+                    }
                 }
+                int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
+                if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
+                    dip2px = 0;
+                }
+                zc.setGravity(17, 0, dip2px);
             }
-            zb = str;
+            ze = str;
             mHandler.postDelayed(mRunnable, i);
-            yZ.show();
+            zc.show();
         }
     }
 
@@ -304,9 +311,9 @@ public class k {
         return false;
     }
 
-    public static void hy() {
+    public static void hz() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (hz() ? false : true) {
+            if (hA() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -323,12 +330,12 @@ public class k {
         }
     }
 
-    public static boolean hz() {
+    public static boolean hA() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean hA() {
-        return i.hj();
+    public static boolean hB() {
+        return i.hk();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -340,7 +347,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String hB() {
+    public static String hC() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -373,7 +380,7 @@ public class k {
         return str;
     }
 
-    public static String hC() {
+    public static String hD() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -406,7 +413,7 @@ public class k {
         return str;
     }
 
-    public static boolean hD() {
+    public static boolean hE() {
         String aG;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (aG = aG(str)) != null && aG.length() >= 3) {
@@ -429,11 +436,11 @@ public class k {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a hE() {
-        return za;
+    public static a hF() {
+        return zd;
     }
 
     public static void a(a aVar) {
-        za = aVar;
+        zd = aVar;
     }
 }

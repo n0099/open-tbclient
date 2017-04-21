@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.download.d {
-    final /* synthetic */ u awc;
+    final /* synthetic */ u awe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(u uVar) {
-        this.awc = uVar;
+        this.awe = uVar;
     }
 
     @Override // com.baidu.tbadk.download.d
@@ -28,23 +28,23 @@ public class ae implements com.baidu.tbadk.download.d {
         ImageUrlData imageUrlData4;
         ImageUrlData imageUrlData5;
         if (downloadData != null) {
-            imageUrlData = this.awc.avU;
+            imageUrlData = this.awe.avW;
             if (imageUrlData != null) {
-                imageUrlData4 = this.awc.avU;
+                imageUrlData4 = this.awe.avW;
                 if (imageUrlData4.originalProcess != -1) {
-                    imageUrlData5 = this.awc.avU;
+                    imageUrlData5 = this.awe.avW;
                     imageUrlData5.originalProcess = downloadData.getProcess();
                 }
             }
-            imageUrlData2 = this.awc.avU;
+            imageUrlData2 = this.awe.avW;
             if (imageUrlData2 != null) {
-                imageUrlData3 = this.awc.avU;
+                imageUrlData3 = this.awe.avW;
                 if (imageUrlData3.originalProcess == -1) {
                     return;
                 }
             }
-            this.awc.avM.setText(String.valueOf(downloadData.getProcess()) + "%");
-            this.awc.avM.setCompoundDrawablesWithIntrinsicBounds(0, 0, w.g.icon_close_yuantu, 0);
+            this.awe.avO.setText(String.valueOf(downloadData.getProcess()) + "%");
+            this.awe.avO.setCompoundDrawablesWithIntrinsicBounds(0, 0, w.g.icon_close_yuantu, 0);
         }
     }
 
@@ -57,17 +57,17 @@ public class ae implements com.baidu.tbadk.download.d {
     public void onFileDownloadSucceed(DownloadData downloadData) {
         Runnable runnable;
         boolean bt;
-        this.awc.avM.setText(this.awc.getResources().getString(w.l.done));
-        this.awc.avM.setClickable(false);
-        this.awc.avM.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
-        runnable = this.awc.awa;
-        fR.postDelayed(runnable, 1500L);
-        this.awc.avW = false;
-        u uVar = this.awc;
-        bt = this.awc.bt(false);
-        uVar.avV = bt;
-        this.awc.BS();
+        this.awe.avO.setText(this.awe.getResources().getString(w.l.done));
+        this.awe.avO.setClickable(false);
+        this.awe.avO.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
+        runnable = this.awe.awc;
+        fS.postDelayed(runnable, 1500L);
+        this.awe.avY = false;
+        u uVar = this.awe;
+        bt = this.awe.bt(false);
+        uVar.avX = bt;
+        this.awe.BS();
     }
 
     @Override // com.baidu.tbadk.download.d
@@ -77,22 +77,22 @@ public class ae implements com.baidu.tbadk.download.d {
         String str2;
         String str3;
         ImageUrlData imageUrlData3;
-        this.awc.avW = false;
-        BdToast.a(this.awc.mContext, str).tW().tY();
-        imageUrlData = this.awc.avU;
+        this.awe.avY = false;
+        BdToast.a(this.awe.mContext, str).tW().tY();
+        imageUrlData = this.awe.avW;
         imageUrlData.originalProcess = -1;
-        imageUrlData2 = this.awc.avU;
+        imageUrlData2 = this.awe.avW;
         if (imageUrlData2.originalSize > 0) {
-            TextView textView = this.awc.avM;
-            str3 = u.avK;
+            TextView textView = this.awe.avO;
+            str3 = u.avM;
             StringBuilder append = new StringBuilder(String.valueOf(str3)).append("(");
-            imageUrlData3 = this.awc.avU;
+            imageUrlData3 = this.awe.avW;
             textView.setText(append.append(au.E(imageUrlData3.originalSize)).append(")").toString());
         } else {
-            TextView textView2 = this.awc.avM;
-            str2 = u.avK;
+            TextView textView2 = this.awe.avO;
+            str2 = u.avM;
             textView2.setText(str2);
         }
-        this.awc.avM.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        this.awe.avO.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }
 }

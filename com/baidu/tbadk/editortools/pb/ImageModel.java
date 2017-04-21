@@ -8,12 +8,12 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class ImageModel extends BdBaseModel {
-    private a aAJ;
+    private a aAL;
     private String filename;
 
     public ImageModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.aAJ = null;
+        this.aAL = null;
         this.filename = null;
     }
 
@@ -24,18 +24,18 @@ public class ImageModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (this.aAJ != null) {
-            this.aAJ.cancel();
+        if (this.aAL != null) {
+            this.aAL.cancel();
         }
-        this.aAJ = new a(this.filename);
-        this.aAJ.execute(new Object[0]);
+        this.aAL = new a(this.filename);
+        this.aAL.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.aAJ != null) {
-            this.aAJ.cancel();
+        if (this.aAL != null) {
+            this.aAL.cancel();
             return true;
         }
         return true;
@@ -64,7 +64,7 @@ public class ImageModel extends BdBaseModel {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.aAJ = null;
+            ImageModel.this.aAL = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.g(null);
             }
@@ -82,7 +82,7 @@ public class ImageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.aAJ = null;
+            ImageModel.this.aAL = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.g(bitmap);
             }

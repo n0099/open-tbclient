@@ -12,64 +12,64 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ek {
-    private boolean egB;
-    private int elA;
-    private String elj;
-    private com.baidu.tieba.pb.data.f elz;
-    private boolean eoo;
+    private boolean eiR;
+    private String enB;
+    private com.baidu.tieba.pb.data.f enR;
+    private int enS;
+    private boolean eqF;
     private boolean hasMore;
     private boolean isSquence;
     private String mPostId;
     private int mRequestType;
     private BdUniqueId mTag;
     private boolean isLoading = false;
-    private int aPP = 1;
-    private int bxO = 1;
-    private boolean eon = false;
-    private PbModel.a elF = null;
-    private com.baidu.adp.framework.listener.a dpb = new el(this, CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
+    private int aPR = 1;
+    private int bAf = 1;
+    private boolean eqE = false;
+    private PbModel.a enX = null;
+    private com.baidu.adp.framework.listener.a drs = new el(this, CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
 
     public ek() {
-        MessageManager.getInstance().registerListener(this.dpb);
+        MessageManager.getInstance().registerListener(this.drs);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dpb);
+        MessageManager.getInstance().unRegisterListener(this.drs);
     }
 
-    public boolean nD(String str) {
+    public boolean nE(String str) {
         if (str == null || !this.hasMore) {
             return false;
         }
-        this.elj = str;
-        return ol(1);
+        this.enB = str;
+        return or(1);
     }
 
-    public boolean aMH() {
-        this.eoo = !this.eoo;
-        this.mPostId = aKH();
-        ol(6);
+    public boolean aNI() {
+        this.eqF = !this.eqF;
+        this.mPostId = aLH();
+        or(6);
         return true;
     }
 
-    public boolean ol(int i) {
-        oq(i);
+    public boolean or(int i) {
+        ow(i);
         if (this.isLoading) {
             return false;
         }
         this.isLoading = true;
         PbPageRequestMessage pbPageRequestMessage = new PbPageRequestMessage();
         pbPageRequestMessage.setUpdateType(i);
-        pbPageRequestMessage.setLastids(com.baidu.tbadk.distribute.a.aya);
+        pbPageRequestMessage.setLastids(com.baidu.tbadk.distribute.a.ayc);
         try {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (this.elj == null || this.elj.length() == 0) {
+        if (this.enB == null || this.enB.length() == 0) {
             this.isLoading = false;
             return false;
         }
-        pbPageRequestMessage.set_kz(com.baidu.adp.lib.g.b.c(this.elj, 0L));
+        pbPageRequestMessage.set_kz(com.baidu.adp.lib.g.b.c(this.enB, 0L));
         pbPageRequestMessage.set_rn(30);
         pbPageRequestMessage.set_with_floor(1);
         int af = com.baidu.adp.lib.util.k.af(TbadkCoreApplication.m9getInst().getApp());
@@ -83,7 +83,7 @@ public class ek {
         if (!this.isSquence) {
             pbPageRequestMessage.set_r(1);
         }
-        if (this.eoo) {
+        if (this.eqF) {
             pbPageRequestMessage.set_lz(1);
         }
         switch (i) {
@@ -91,11 +91,11 @@ public class ek {
                 pbPageRequestMessage.set_back(0);
                 pbPageRequestMessage.set_banner(0);
                 if (!this.isSquence) {
-                    if (this.aPP - 1 > 0) {
-                        pbPageRequestMessage.set_pn(Integer.valueOf(this.aPP - 1));
+                    if (this.aPR - 1 > 0) {
+                        pbPageRequestMessage.set_pn(Integer.valueOf(this.aPR - 1));
                     }
-                } else if (this.aPP < this.bxO) {
-                    pbPageRequestMessage.set_pn(Integer.valueOf(this.aPP + 1));
+                } else if (this.aPR < this.bAf) {
+                    pbPageRequestMessage.set_pn(Integer.valueOf(this.aPR + 1));
                 }
                 if (this.mPostId != null && this.mPostId.length() > 0) {
                     pbPageRequestMessage.set_pid(com.baidu.adp.lib.g.b.c(this.mPostId, 0L));
@@ -112,41 +112,41 @@ public class ek {
                 pbPageRequestMessage.set_banner(0);
                 break;
         }
-        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(this.egB));
+        pbPageRequestMessage.setIsFromMark(Boolean.valueOf(this.eiR));
         pbPageRequestMessage.setTag(this.mTag);
         pbPageRequestMessage.setContext(TbadkCoreApplication.m9getInst().getContext());
         MessageManager.getInstance().sendMessage(pbPageRequestMessage);
         return true;
     }
 
-    private String aKH() {
-        if (this.elz == null || this.elz.aJz() == null) {
+    private String aLH() {
+        if (this.enR == null || this.enR.aKA() == null) {
             return "";
         }
-        ArrayList<PostData> aJz = this.elz.aJz();
-        if (com.baidu.tbadk.core.util.x.p(aJz) == 0) {
+        ArrayList<PostData> aKA = this.enR.aKA();
+        if (com.baidu.tbadk.core.util.x.p(aKA) == 0) {
             return "";
         }
-        Iterator<PostData> it = aJz.iterator();
+        Iterator<PostData> it = aKA.iterator();
         while (it.hasNext()) {
             PostData next = it.next();
-            if (next != null && next.getAuthor() != null && next.getAuthor().getUserId() != null && nB(next.getAuthor().getUserId())) {
+            if (next != null && next.getAuthor() != null && next.getAuthor().getUserId() != null && nC(next.getAuthor().getUserId())) {
                 return next.getId();
             }
         }
         return "";
     }
 
-    public boolean nB(String str) {
-        if (getPbData() == null || getPbData().aJx() == null || getPbData().aJx().getAuthor() == null || StringUtils.isNull(str)) {
+    public boolean nC(String str) {
+        if (getPbData() == null || getPbData().aKy() == null || getPbData().aKy().getAuthor() == null || StringUtils.isNull(str)) {
             return false;
         }
-        String userId = getPbData().aJx().getAuthor().getUserId();
+        String userId = getPbData().aKy().getAuthor().getUserId();
         return !StringUtils.isNull(userId) && userId.equals(str);
     }
 
     public void b(PbModel.a aVar) {
-        this.elF = aVar;
+        this.enX = aVar;
     }
 
     public void a(com.baidu.tieba.pb.data.f fVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
@@ -165,36 +165,36 @@ public class ek {
 
     protected void a(com.baidu.tieba.pb.data.f fVar, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
         ArrayList<PostData> arrayList;
-        or(i);
+        ox(i);
         if (fVar == null) {
-            if (this.elF != null) {
-                this.elF.a(false, i2, i, 0, null, str, 1);
+            if (this.enX != null) {
+                this.enX.a(false, i2, i, 0, null, str, 1);
                 return;
             }
             return;
         }
         if (fVar.rr() != null) {
-            this.aPP = fVar.rr().rl();
-            this.bxO = fVar.rr().ri();
+            this.aPR = fVar.rr().rl();
+            this.bAf = fVar.rr().ri();
             this.hasMore = fVar.rr().rn() != 0;
         }
-        this.bxO = this.bxO < 1 ? 1 : this.bxO;
-        if (this.elz != null && this.elz.aJz() != null) {
-            arrayList = this.elz.aJz();
+        this.bAf = this.bAf < 1 ? 1 : this.bAf;
+        if (this.enR != null && this.enR.aKA() != null) {
+            arrayList = this.enR.aKA();
         } else {
             arrayList = new ArrayList<>();
         }
         switch (i) {
             case 1:
-                this.elz.a(fVar.rr(), 1);
+                this.enR.a(fVar.rr(), 1);
                 b(fVar, arrayList);
                 break;
             case 6:
                 i(fVar);
                 break;
         }
-        if (this.elF != null) {
-            this.elF.a(true, i2, i, 0, this.elz, str, 1);
+        if (this.enX != null) {
+            this.enX.a(true, i2, i, 0, this.enR, str, 1);
         }
     }
 
@@ -204,12 +204,12 @@ public class ek {
 
     protected void b(com.baidu.tieba.pb.data.f fVar, ArrayList<PostData> arrayList) {
         String ak;
-        if (arrayList != null && fVar.aJz() != null) {
-            PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(fVar.aJz(), 0);
+        if (arrayList != null && fVar.aKA() != null) {
+            PostData postData = (PostData) com.baidu.tbadk.core.util.x.c(fVar.aKA(), 0);
             if (postData != null && (ak = ak(arrayList)) != null && ak.equals(postData.getId())) {
-                fVar.aJz().remove(postData);
+                fVar.aKA().remove(postData);
             }
-            arrayList.addAll(fVar.aJz());
+            arrayList.addAll(fVar.aKA());
         }
     }
 
@@ -232,58 +232,58 @@ public class ek {
     }
 
     public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.elz = fVar;
+        this.enR = fVar;
         if (fVar != null) {
-            this.elj = this.elz.getThreadId();
+            this.enB = this.enR.getThreadId();
         }
         if (fVar != null && fVar.rr() != null) {
-            this.aPP = fVar.rr().rl();
-            this.bxO = fVar.rr().ri();
+            this.aPR = fVar.rr().rl();
+            this.bAf = fVar.rr().ri();
             this.hasMore = fVar.rr().rn() != 0;
         }
     }
 
     public com.baidu.tieba.pb.data.f getPbData() {
-        return this.elz;
+        return this.enR;
     }
 
-    public boolean aMI() {
+    public boolean aNJ() {
         return this.isSquence;
     }
 
-    public void iD(boolean z) {
+    public void iN(boolean z) {
         this.isSquence = z;
     }
 
-    public boolean aMJ() {
-        return this.eoo;
+    public boolean aNK() {
+        return this.eqF;
     }
 
     public void setHostMode(boolean z) {
-        this.eoo = z;
+        this.eqF = z;
     }
 
-    public void oq(int i) {
+    public void ow(int i) {
         this.mRequestType = i;
     }
 
-    public void or(int i) {
-        this.elA = i;
+    public void ox(int i) {
+        this.enS = i;
     }
 
-    public void iE(boolean z) {
-        this.egB = z;
+    public void iO(boolean z) {
+        this.eiR = z;
     }
 
     public void setThreadId(String str) {
-        this.elj = str;
+        this.enB = str;
     }
 
     public void setPostId(String str) {
         this.mPostId = str;
     }
 
-    public void iF(boolean z) {
-        this.eon = z;
+    public void iP(boolean z) {
+        this.eqE = z;
     }
 }

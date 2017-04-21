@@ -6,11 +6,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 class v implements com.baidu.adp.widget.ListView.x {
-    final /* synthetic */ FrsActivity bNJ;
+    final /* synthetic */ FrsActivity bQa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(FrsActivity frsActivity) {
-        this.bNJ = frsActivity;
+        this.bQa = frsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.x
@@ -24,15 +24,15 @@ class v implements com.baidu.adp.widget.ListView.x {
                 if ((biVar instanceof AdvertAppInfo) && ((AdvertAppInfo) biVar).legoCard != null) {
                     return false;
                 }
-                this.bNJ.mThreadId = biVar.getId();
+                this.bQa.mThreadId = biVar.getId();
                 String sv = biVar.sv();
                 if (sv == null || sv.equals("")) {
-                    this.bNJ.bMB = false;
+                    this.bQa.bOS = false;
                 } else {
-                    this.bNJ.bMB = true;
+                    this.bQa.bOS = true;
                 }
-                this.bNJ.q(biVar);
-                this.bNJ.bMD.ZT();
+                this.bQa.q(biVar);
+                this.bQa.bOU.aaU();
             }
         }
         return true;

@@ -11,13 +11,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ h eEQ;
+    final /* synthetic */ h eHg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, int i) {
         super(i);
-        this.eEQ = hVar;
+        this.eHg = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,32 +39,32 @@ public class i extends com.baidu.adp.framework.listener.e {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
             if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
                 if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    blackListModel3 = this.eEQ.eEI;
+                    blackListModel3 = this.eHg.eGY;
                     blackListModel3.setMaskType(1);
                 } else {
-                    blackListModel = this.eEQ.eEI;
+                    blackListModel = this.eHg.eGY;
                     blackListModel.setMaskType(0);
                 }
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    blackListModel2 = this.eEQ.eEI;
+                    blackListModel2 = this.eHg.eGY;
                     if (blackListModel2.getMaskType() == 1) {
-                        tbPageContext3 = this.eEQ.ajT;
-                        tbPageContext4 = this.eEQ.ajT;
+                        tbPageContext3 = this.eHg.ajU;
+                        tbPageContext4 = this.eHg.ajU;
                         tbPageContext3.showToast(tbPageContext4.getString(w.l.chat_message_blocked));
                         return;
                     }
-                    tbPageContext = this.eEQ.ajT;
-                    tbPageContext2 = this.eEQ.ajT;
+                    tbPageContext = this.eHg.ajU;
+                    tbPageContext2 = this.eHg.ajU;
                     tbPageContext.showToast(tbPageContext2.getString(w.l.remove_succ));
                     return;
                 }
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    tbPageContext6 = this.eEQ.ajT;
+                    tbPageContext6 = this.eHg.ajU;
                     errorString = tbPageContext6.getResources().getString(w.l.neterror);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
-                tbPageContext5 = this.eEQ.ajT;
+                tbPageContext5 = this.eHg.ajU;
                 tbPageContext5.showToast(errorString);
             }
         }

@@ -16,26 +16,26 @@ import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class j {
     public static void a(TbPageContext tbPageContext, com.baidu.tieba.tbadkCore.n nVar, String str) {
-        if (tbPageContext != null && nVar != null && nVar.aJw() != null) {
-            if (nVar.aJw().getName() == null) {
+        if (tbPageContext != null && nVar != null && nVar.aKx() != null) {
+            if (nVar.aKx().getName() == null) {
                 tbPageContext.showToast(tbPageContext.getString(w.l.no_forum_data));
                 return;
             }
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "frs_share", "frsclick", 1, new Object[0]);
-            String name = nVar.aJw().getName();
+            String name = nVar.aKx().getName();
             String str2 = TbConfig.HTTPS_FRS_PREFIX + URLEncoder.encode(name);
-            Uri parse = nVar.aJw().getImage_url() == null ? null : Uri.parse(nVar.aJw().getImage_url());
-            String slogan = nVar.aJw().getSlogan();
-            com.baidu.tbadk.coreExtra.share.g gVar = new com.baidu.tbadk.coreExtra.share.g();
-            gVar.title = String.valueOf(name) + tbPageContext.getString(w.l.forum);
-            gVar.content = slogan;
-            gVar.linkUrl = str2;
-            gVar.asd = true;
-            gVar.extData = str;
+            Uri parse = nVar.aKx().getImage_url() == null ? null : Uri.parse(nVar.aKx().getImage_url());
+            String slogan = nVar.aKx().getSlogan();
+            com.baidu.tbadk.coreExtra.share.h hVar = new com.baidu.tbadk.coreExtra.share.h();
+            hVar.title = String.valueOf(name) + tbPageContext.getString(w.l.forum);
+            hVar.content = slogan;
+            hVar.linkUrl = str2;
+            hVar.asf = true;
+            hVar.extData = str;
             if (parse != null) {
-                gVar.imageUri = parse;
+                hVar.imageUri = parse;
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), gVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), hVar, true);
             shareDialogConfig.addOutsideTextView(w.l.forum_friend, w.g.icon_unite_share_baf, new k(tbPageContext, str));
             shareDialogConfig.setCopyLinkListener(new l(str2, tbPageContext));
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
@@ -48,16 +48,16 @@ public class j {
 
     private static ShareFromFrsMsgData f(com.baidu.tieba.tbadkCore.n nVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(nVar.aJw().getImage_url());
-        shareFromFrsMsgData.setName(nVar.aJw().getName());
-        shareFromFrsMsgData.setMemberNum(nVar.aJw().getMember_num());
-        shareFromFrsMsgData.setPostNum(nVar.aJw().getPost_num());
-        shareFromFrsMsgData.setContent(nVar.aJw().getSlogan());
+        shareFromFrsMsgData.setImageUrl(nVar.aKx().getImage_url());
+        shareFromFrsMsgData.setName(nVar.aKx().getName());
+        shareFromFrsMsgData.setMemberNum(nVar.aKx().getMember_num());
+        shareFromFrsMsgData.setPostNum(nVar.aKx().getPost_num());
+        shareFromFrsMsgData.setContent(nVar.aKx().getSlogan());
         return shareFromFrsMsgData;
     }
 
     private static void a(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.n nVar, ShareFromFrsMsgData shareFromFrsMsgData, long j, String str, String str2) {
-        if (nVar != null && nVar.aJw() != null) {
+        if (nVar != null && nVar.aKx() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsActivity.getPageContext().getPageActivity());
             com.baidu.tieba.frs.view.o oVar = new com.baidu.tieba.frs.view.o(frsActivity.getPageContext().getPageActivity());
             oVar.setData(shareFromFrsMsgData);
@@ -74,7 +74,7 @@ public class j {
     }
 
     public static void a(FrsActivity frsActivity, com.baidu.tieba.tbadkCore.n nVar, int i, String str, long j) {
-        if (nVar != null && nVar.aJw() != null) {
+        if (nVar != null && nVar.aKx() != null) {
             ShareFromFrsMsgData f = f(nVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsActivity.getPageContext().getPageActivity());
             com.baidu.tieba.frs.view.o oVar = new com.baidu.tieba.frs.view.o(frsActivity.getPageContext().getPageActivity());

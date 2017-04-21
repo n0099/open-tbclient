@@ -3,19 +3,19 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.e.c;
 /* loaded from: classes.dex */
 class ar implements c.a {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tieba.e.c.a
-    public void dd(boolean z) {
+    public void dn(boolean z) {
         if (z) {
-            com.baidu.tieba.pb.a.c.aKe();
+            com.baidu.tieba.pb.a.c.aLf();
         } else {
-            com.baidu.tieba.pb.a.c.aKd();
+            com.baidu.tieba.pb.a.c.aLe();
         }
     }
 }

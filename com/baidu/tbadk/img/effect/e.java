@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int aDw = 0;
+    private int aDy = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -23,7 +23,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.aDw = Integer.parseInt(str);
+            this.aDy = Integer.parseInt(str);
         }
     }
 
@@ -33,11 +33,11 @@ public class e extends b {
             return null;
         }
         com.baidu.tbadk.imageManager.c.EJ().eT(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.aDw == 0 || this.aDw == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.aDw);
+        if (this.aDy == 0 || this.aDy == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.aDy);
         }
-        if (this.aDw == 2 || this.aDw == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.aDw);
+        if (this.aDy == 2 || this.aDy == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.aDy);
         }
         return bitmap;
     }

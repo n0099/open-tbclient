@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class aa implements cd {
-    final /* synthetic */ FrsActivity bNJ;
+    final /* synthetic */ FrsActivity bQa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FrsActivity frsActivity) {
-        this.bNJ = frsActivity;
+        this.bQa = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.cd
@@ -15,18 +15,18 @@ class aa implements cd {
     @Override // com.baidu.tieba.frs.cd
     public void a(int i, int i2, cl clVar) {
         if (i != 1) {
-            com.baidu.tieba.card.cc.ST().cP(false);
+            com.baidu.tieba.card.cc.TV().cZ(false);
         }
-        this.bNJ.bMD.aaj();
+        this.bQa.bOU.abk();
         if (i == 1) {
-            this.bNJ.bMD.dF(true);
-            this.bNJ.bMD.dE(false);
+            this.bQa.bOU.dP(true);
+            this.bQa.bOU.dO(false);
         } else {
-            this.bNJ.bMD.dG(true);
-            this.bNJ.bMD.dE(true);
+            this.bQa.bOU.dQ(true);
+            this.bQa.bOU.dO(true);
         }
-        this.bNJ.Zp();
-        this.bNJ.bMO.a(i, i2, clVar);
+        this.bQa.aaq();
+        this.bQa.bPf.a(i, i2, clVar);
     }
 
     @Override // com.baidu.tieba.frs.cd
@@ -34,6 +34,6 @@ class aa implements cd {
     }
 
     @Override // com.baidu.tieba.frs.cd
-    public void Np() {
+    public void Nx() {
     }
 }

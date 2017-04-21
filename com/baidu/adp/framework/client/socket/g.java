@@ -25,7 +25,7 @@ public class g {
                 this.ov = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                k.a("SequenceManager", 0, 0, "setSequenceId", j.pE, "parser Seq-Id error");
+                k.a("SequenceManager", 0, 0, "setSequenceId", j.pG, "parser Seq-Id error");
                 if (this.ov == 0) {
                     this.ov = new Random().nextInt();
                 }

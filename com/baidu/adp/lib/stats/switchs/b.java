@@ -11,7 +11,7 @@ class b extends Handler {
         switch (message.what) {
             case 1:
                 if (message.obj instanceof BdUploadStatMsgData) {
-                    j.gJ().an(((BdUploadStatMsgData) message.obj).parentType);
+                    j.gK().an(((BdUploadStatMsgData) message.obj).parentType);
                     return;
                 }
                 return;

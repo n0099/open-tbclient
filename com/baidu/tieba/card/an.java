@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ al btc;
+    final /* synthetic */ al bvv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(al alVar) {
-        this.btc = alVar;
+        this.bvv = alVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,24 +27,24 @@ public class an implements View.OnClickListener {
         TbPageContext tbPageContext;
         com.baidu.tbadk.core.data.bi biVar6;
         com.baidu.tieba.card.data.p pVar;
-        biVar = this.btc.aiB;
+        biVar = this.bvv.aiC;
         if (biVar != null) {
-            biVar2 = this.btc.aiB;
+            biVar2 = this.bvv.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.btc.aiB;
+                biVar3 = this.bvv.aiC;
                 if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.btc.aiB;
+                    biVar4 = this.bvv.aiC;
                     if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.btc.aiB;
+                        biVar5 = this.bvv.aiC;
                         if (biVar5.st() != null) {
-                            if (this.btc.getOnSubCardOnClickListenner() != null) {
-                                cf<com.baidu.tieba.card.data.p> onSubCardOnClickListenner = this.btc.getOnSubCardOnClickListenner();
-                                pVar = this.btc.bsZ;
+                            if (this.bvv.getOnSubCardOnClickListenner() != null) {
+                                cf<com.baidu.tieba.card.data.p> onSubCardOnClickListenner = this.bvv.getOnSubCardOnClickListenner();
+                                pVar = this.bvv.bvs;
                                 onSubCardOnClickListenner.a(view, pVar);
                             }
-                            tbPageContext = this.btc.ajT;
+                            tbPageContext = this.bvv.ajU;
                             PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(tbPageContext.getPageActivity());
-                            biVar6 = this.btc.aiB;
+                            biVar6 = this.bvv.aiC;
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, personPolymericActivityConfig.createNormalConfig(com.baidu.adp.lib.g.b.c(biVar6.getAuthor().getUserId(), 0L), false)));
                         }
                     }

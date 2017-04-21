@@ -23,7 +23,7 @@ public class u {
         return i;
     }
 
-    public static String B(String str, int i) {
+    public static String C(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -33,7 +33,7 @@ public class u {
         return str;
     }
 
-    public static String C(String str, int i) {
+    public static String D(String str, int i) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -75,7 +75,7 @@ public class u {
         return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
-    public static String D(String str, int i) {
+    public static String u(String str, int i) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return sb.toString();

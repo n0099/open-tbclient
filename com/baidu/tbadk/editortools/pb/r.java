@@ -15,7 +15,7 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class r extends com.baidu.tbadk.editortools.d {
-    private boolean aBj = false;
+    private boolean aBl = false;
 
     @Override // com.baidu.tbadk.editortools.d
     protected com.baidu.tbadk.editortools.f aO(Context context) {
@@ -48,14 +48,14 @@ public class r extends com.baidu.tbadk.editortools.d {
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
         Dn.u(arrayList);
-        if (com.baidu.tieba.tbadkCore.voice.c.bjt() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Dn.getContext()), x.class)) != null && (xVar = (x) runTask.getData()) != null) {
-            xVar.azJ = 2;
+        if (com.baidu.tieba.tbadkCore.voice.c.bku() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Dn.getContext()), x.class)) != null && (xVar = (x) runTask.getData()) != null) {
+            xVar.azL = 2;
             Dn.b(xVar);
         }
         Dn.b(new com.baidu.tbadk.editortools.a.a(Dn.getContext(), 4));
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(Dn.getContext(), true);
-        if (aVar.ayX instanceof EditText) {
-            ((EditText) aVar.ayX).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        if (aVar.ayZ instanceof EditText) {
+            ((EditText) aVar.ayZ).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
         Dn.b(aVar);
         Dn.b(new com.baidu.tbadk.editortools.sendtool.a(Dn.getContext()));

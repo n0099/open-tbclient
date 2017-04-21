@@ -31,8 +31,8 @@ public class a {
     }
 
     public static void a(TbPageContext tbPageContext, FrsModelController frsModelController, List<com.baidu.adp.widget.ListView.v> list, int i) {
-        if (frsModelController != null && frsModelController.acy() != null) {
-            a(tbPageContext, frsModelController.acy().aJw(), list, false, i);
+        if (frsModelController != null && frsModelController.adz() != null) {
+            a(tbPageContext, frsModelController.adz().aKx(), list, false, i);
         }
     }
 
@@ -40,7 +40,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && com.baidu.tbadk.core.util.x.p(list) > 0 && com.baidu.tbadk.core.util.x.p(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.fvr) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.fxI) {
                 com.baidu.adp.widget.ListView.v vVar = (com.baidu.adp.widget.ListView.v) com.baidu.tbadk.core.util.x.c(list, i);
                 if (vVar != null && (indexOf = list2.indexOf(vVar)) >= 0) {
                     eVar.bn(i, indexOf);

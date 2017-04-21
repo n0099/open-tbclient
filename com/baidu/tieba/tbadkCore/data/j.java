@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String fvD;
-    private int fvE;
-    private String fvF;
-    private String fvG;
-    private String fvH;
+    private String fxU;
+    private int fxV;
+    private String fxW;
+    private String fxX;
+    private String fxY;
     private int height;
     private String subTitle;
     private int width;
 
     public j(Timgs timgs) {
-        this.fvD = null;
-        this.fvE = 0;
-        this.fvF = null;
-        this.fvG = null;
-        this.fvH = null;
+        this.fxU = null;
+        this.fxV = 0;
+        this.fxW = null;
+        this.fxX = null;
+        this.fxY = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.fvD = timgs.img_url;
-            this.fvE = timgs.flag.intValue();
-            this.fvF = timgs.url;
-            this.fvG = timgs.big_cdn_url;
-            this.fvH = timgs.des_main;
+            this.fxU = timgs.img_url;
+            this.fxV = timgs.flag.intValue();
+            this.fxW = timgs.url;
+            this.fxX = timgs.big_cdn_url;
+            this.fxY = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,20 +50,20 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.fvD;
+        return this.fxU;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String qr() {
-        return this.fvF;
+        return this.fxW;
     }
 
-    public String bhV() {
-        return this.fvD;
+    public String biW() {
+        return this.fxU;
     }
 
-    public String bhW() {
-        return this.fvH;
+    public String biX() {
+        return this.fxY;
     }
 
     public String getSubTitle() {
@@ -78,7 +78,7 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
         return this.width;
     }
 
-    public String bhX() {
-        return this.fvG;
+    public String biY() {
+        return this.fxX;
     }
 }

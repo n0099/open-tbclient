@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class x implements a.b {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -19,30 +19,30 @@ class x implements a.b {
         ey eyVar3;
         PbModel pbModel2;
         ey eyVar4;
-        this.ejU.Zq();
-        pbModel = this.ejU.eif;
-        com.baidu.tbadk.core.data.ap alU = pbModel.alU();
-        eyVar = this.ejU.eiS;
+        this.emk.aar();
+        pbModel = this.emk.ekv;
+        com.baidu.tbadk.core.data.ap amV = pbModel.amV();
+        eyVar = this.emk.eli;
         int pageNum = eyVar.getPageNum();
         if (pageNum <= 0) {
-            this.ejU.showToast(w.l.pb_page_error);
-        } else if (alU == null || pageNum <= alU.ri()) {
-            eyVar2 = this.ejU.eiS;
-            eyVar2.awH();
-            this.ejU.od(2);
-            this.ejU.Zp();
-            eyVar3 = this.ejU.eiS;
-            eyVar3.aNl();
-            if (com.baidu.adp.lib.util.i.hj()) {
-                pbModel2 = this.ejU.eif;
-                eyVar4 = this.ejU.eiS;
-                pbModel2.oh(eyVar4.getPageNum());
+            this.emk.showToast(w.l.pb_page_error);
+        } else if (amV == null || pageNum <= amV.ri()) {
+            eyVar2 = this.emk.eli;
+            eyVar2.axI();
+            this.emk.oj(2);
+            this.emk.aaq();
+            eyVar3 = this.emk.eli;
+            eyVar3.aOm();
+            if (com.baidu.adp.lib.util.i.hk()) {
+                pbModel2 = this.emk.ekv;
+                eyVar4 = this.emk.eli;
+                pbModel2.on(eyVar4.getPageNum());
             } else {
-                this.ejU.showToast(w.l.neterror);
+                this.emk.showToast(w.l.neterror);
             }
             aVar.dismiss();
         } else {
-            this.ejU.showToast(w.l.pb_page_error);
+            this.emk.showToast(w.l.pb_page_error);
         }
     }
 }

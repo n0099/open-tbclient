@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String aWj = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/getreason";
+    private static final String aWl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/getreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,25 +24,25 @@ public class g {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidReasonData> {
-        private String aWe;
-        private String aWf;
-        private WeakReference<b> aWi;
+        private String aWg;
+        private String aWh;
+        private WeakReference<b> aWk;
 
         public a(String str, String str2, b bVar) {
-            this.aWe = str;
-            this.aWf = str2;
-            this.aWi = new WeakReference<>(bVar);
+            this.aWg = str;
+            this.aWh = str2;
+            this.aWk = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: s */
+        /* renamed from: r */
         public ForbidReasonData doInBackground(String... strArr) {
-            z zVar = new z(g.aWj);
-            zVar.n("forum_id", this.aWe);
-            zVar.n("user_id", this.aWf);
+            z zVar = new z(g.aWl);
+            zVar.n("forum_id", this.aWg);
+            zVar.n("user_id", this.aWh);
             String uY = zVar.uY();
             if (zVar.vw().wq().isRequestSuccess()) {
                 try {
@@ -68,7 +68,7 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidReasonData forbidReasonData) {
             super.onPostExecute(forbidReasonData);
-            b bVar = this.aWi.get();
+            b bVar = this.aWk.get();
             if (bVar != null) {
                 if (forbidReasonData.error.errno == 0 && au.isEmpty(forbidReasonData.error.errMsg)) {
                     bVar.a(forbidReasonData);
