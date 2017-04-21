@@ -7,25 +7,25 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d EC;
-    private PluginNetConfigInfos ED = new PluginNetConfigInfos();
-    private b EE;
+    private static volatile d EF;
+    private PluginNetConfigInfos EG = new PluginNetConfigInfos();
+    private b EH;
 
-    public static d jU() {
-        if (EC == null) {
+    public static d jV() {
+        if (EF == null) {
             synchronized (d.class) {
-                if (EC == null) {
-                    EC = new d();
+                if (EF == null) {
+                    EF = new d();
                 }
             }
         }
-        return EC;
+        return EF;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, a aVar) {
         c c = c(pluginSettings);
-        if (this.EE != null) {
-            this.EE.a(z, c, new e(this, aVar));
+        if (this.EH != null) {
+            this.EH.a(z, c, new e(this, aVar));
         }
     }
 
@@ -44,11 +44,11 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos jV() {
-        return this.ED;
+    public PluginNetConfigInfos jW() {
+        return this.EG;
     }
 
     public void a(b bVar) {
-        this.EE = bVar;
+        this.EH = bVar;
     }
 }

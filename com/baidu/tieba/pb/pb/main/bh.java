@@ -10,32 +10,32 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bh implements a.b {
-    private final /* synthetic */ int cak;
-    private final /* synthetic */ String cal;
-    private final /* synthetic */ long cam;
-    final /* synthetic */ PbActivity ejU;
-    private final /* synthetic */ gq ekd;
-    private final /* synthetic */ ShareFromPBMsgData eke;
+    private final /* synthetic */ int ccB;
+    private final /* synthetic */ String ccC;
+    private final /* synthetic */ long ccD;
+    final /* synthetic */ PbActivity emk;
+    private final /* synthetic */ gq emt;
+    private final /* synthetic */ ShareFromPBMsgData emu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(PbActivity pbActivity, gq gqVar, int i, String str, long j, ShareFromPBMsgData shareFromPBMsgData) {
-        this.ejU = pbActivity;
-        this.ekd = gqVar;
-        this.cak = i;
-        this.cal = str;
-        this.cam = j;
-        this.eke = shareFromPBMsgData;
+        this.emk = pbActivity;
+        this.emt = gqVar;
+        this.ccB = i;
+        this.ccC = str;
+        this.ccD = j;
+        this.emu = shareFromPBMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        int aKw;
-        this.ejU.HidenSoftKeyPad((InputMethodManager) this.ejU.getSystemService("input_method"), this.ekd.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.ejU.getPageContext().getPageActivity(), this.cak, this.cal, this.cam, "from_share", this.ekd.getLeaveMsg(), this.eke.toChatMessageContent())));
+        int aLw;
+        this.emk.HidenSoftKeyPad((InputMethodManager) this.emk.getSystemService("input_method"), this.emt.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.emk.getPageContext().getPageActivity(), this.ccB, this.ccC, this.ccD, "from_share", this.emt.getLeaveMsg(), this.emu.toChatMessageContent())));
         aVar.dismiss();
-        aKw = this.ejU.aKw();
-        if (aKw == 1) {
-            this.ejU.aKB();
+        aLw = this.emk.aLw();
+        if (aLw == 1) {
+            this.emk.aLB();
         }
     }
 }

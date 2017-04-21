@@ -6,28 +6,28 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements c.b {
-    final /* synthetic */ d euY;
+    final /* synthetic */ d exo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d dVar) {
-        this.euY = dVar;
+        this.exo = dVar;
     }
 
     @Override // com.baidu.tieba.play.c.b
-    public void ayH() {
+    public void azI() {
         PbActivity pbActivity;
         Handler handler;
-        pbActivity = this.euY.eig;
+        pbActivity = this.exo.ekw;
         pbActivity.setSwipeBackEnabled(true);
-        handler = this.euY.mHandler;
+        handler = this.exo.mHandler;
         handler.postDelayed(new m(this), 50L);
     }
 
     @Override // com.baidu.tieba.play.c.b
-    public void ayG() {
+    public void azH() {
         PbActivity pbActivity;
-        pbActivity = this.euY.eig;
+        pbActivity = this.exo.ekw;
         pbActivity.setSwipeBackEnabled(false);
-        this.euY.euW = false;
+        this.exo.exm = false;
     }
 }

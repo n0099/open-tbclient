@@ -17,88 +17,88 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.mygod.data.a> {
-    private TbPageContext<?> aaX;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.flow.a.a> abI;
-    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> ccP;
-    private String cwA;
-    private String cwB;
-    private com.baidu.tieba.homepage.mygod.data.a cwC;
-    private final CustomMessageListener cwD;
-    private final CustomMessageListener cwE;
-    private View.OnClickListener cwF;
-    private View.OnClickListener cwG;
-    private LinearLayout cws;
-    private LinearLayout cwt;
-    private TextView cwu;
-    private TextView cwv;
-    private ImageView cww;
-    private ImageView cwx;
-    private View cwy;
-    private View cwz;
+    private TbPageContext<?> aaY;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.flow.a.a> abJ;
+    private CoverFlowView<com.baidu.tbadk.core.flow.a.a> cfg;
+    private LinearLayout cyJ;
+    private LinearLayout cyK;
+    private TextView cyL;
+    private TextView cyM;
+    private ImageView cyN;
+    private ImageView cyO;
+    private View cyP;
+    private View cyQ;
+    private String cyR;
+    private String cyS;
+    private com.baidu.tieba.homepage.mygod.data.a cyT;
+    private final CustomMessageListener cyU;
+    private final CustomMessageListener cyV;
+    private View.OnClickListener cyW;
+    private View.OnClickListener cyX;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.aaX = null;
-        this.ccP = null;
-        this.cws = null;
-        this.cwt = null;
-        this.cwu = null;
-        this.cwv = null;
-        this.cww = null;
-        this.cwx = null;
-        this.cwy = null;
-        this.cwz = null;
-        this.cwA = null;
-        this.cwB = null;
-        this.cwC = null;
-        this.cwD = new b(this, CmdConfigCustom.CMD_VIEW_PAGER_START_AUTO_SCROLL);
-        this.cwE = new c(this, CmdConfigCustom.CMD_VIEW_PAGER_END_AUTO_SCROLL);
-        this.abI = new d(this);
-        this.cwF = new e(this);
-        this.cwG = new f(this);
-        this.aaX = tbPageContext;
+        this.aaY = null;
+        this.cfg = null;
+        this.cyJ = null;
+        this.cyK = null;
+        this.cyL = null;
+        this.cyM = null;
+        this.cyN = null;
+        this.cyO = null;
+        this.cyP = null;
+        this.cyQ = null;
+        this.cyR = null;
+        this.cyS = null;
+        this.cyT = null;
+        this.cyU = new b(this, CmdConfigCustom.CMD_VIEW_PAGER_START_AUTO_SCROLL);
+        this.cyV = new c(this, CmdConfigCustom.CMD_VIEW_PAGER_END_AUTO_SCROLL);
+        this.abJ = new d(this);
+        this.cyW = new e(this);
+        this.cyX = new f(this);
+        this.aaY = tbPageContext;
         initUI();
     }
 
     private void initUI() {
         View view;
-        if (this.aaX != null && (view = getView()) != null) {
-            this.cwu = (TextView) view.findViewById(w.h.textview_rank);
-            this.cwv = (TextView) view.findViewById(w.h.textview_good);
-            this.cww = (ImageView) view.findViewById(w.h.image_rank);
-            this.cwx = (ImageView) view.findViewById(w.h.image_good);
-            this.cwy = view.findViewById(w.h.god_banner_bottom_margin);
-            this.cwz = view.findViewById(w.h.middle_separate_line);
-            this.ccP = (CoverFlowView) view.findViewById(w.h.god_banner_coverflowview);
+        if (this.aaY != null && (view = getView()) != null) {
+            this.cyL = (TextView) view.findViewById(w.h.textview_rank);
+            this.cyM = (TextView) view.findViewById(w.h.textview_good);
+            this.cyN = (ImageView) view.findViewById(w.h.image_rank);
+            this.cyO = (ImageView) view.findViewById(w.h.image_good);
+            this.cyP = view.findViewById(w.h.god_banner_bottom_margin);
+            this.cyQ = view.findViewById(w.h.middle_separate_line);
+            this.cfg = (CoverFlowView) view.findViewById(w.h.god_banner_coverflowview);
             g gVar = new g(this);
-            this.ccP.setDisableParentEvent(false);
-            this.ccP.setCoverFlowFactory(gVar);
-            this.ccP.setCallback(this.abI);
-            this.cws = (LinearLayout) view.findViewById(w.h.layout_rank);
-            this.cws.setOnClickListener(this.cwF);
-            this.cwt = (LinearLayout) view.findViewById(w.h.layout_good);
-            this.cwt.setOnClickListener(this.cwG);
+            this.cfg.setDisableParentEvent(false);
+            this.cfg.setCoverFlowFactory(gVar);
+            this.cfg.setCallback(this.abJ);
+            this.cyJ = (LinearLayout) view.findViewById(w.h.layout_rank);
+            this.cyJ.setOnClickListener(this.cyW);
+            this.cyK = (LinearLayout) view.findViewById(w.h.layout_good);
+            this.cyK.setOnClickListener(this.cyX);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jE(String str) {
+    public void jF(String str) {
         if (TextUtils.isEmpty(str)) {
-            k.showToast(this.aaX.getPageActivity(), w.l.url_is_null);
+            k.showToast(this.aaY.getPageActivity(), w.l.url_is_null);
         } else {
-            bb.wn().a(this.aaX, "", new String[]{str}, false, null, true);
+            bb.wn().a(this.aaY, "", new String[]{str}, false, null, true);
         }
     }
 
     public void xA() {
-        if (this.ccP != null) {
-            this.ccP.uf();
+        if (this.cfg != null) {
+            this.cfg.uf();
         }
     }
 
     public void xz() {
-        if (this.ccP != null) {
-            this.ccP.ue();
+        if (this.cfg != null) {
+            this.cfg.ue();
         }
     }
 
@@ -115,33 +115,33 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.mygod.dat
     @Override // com.baidu.tieba.card.a
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.homepage.mygod.data.a aVar) {
-        if (aVar != null && aVar != this.cwC) {
-            this.ccP.setData(aVar.ajb());
-            this.cwA = aVar.aiZ();
-            this.cwB = aVar.aja();
-            this.cwC = aVar;
+        if (aVar != null && aVar != this.cyT) {
+            this.cfg.setData(aVar.akc());
+            this.cyR = aVar.aka();
+            this.cyS = aVar.akb();
+            this.cyT = aVar;
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aq.j(this.cwy, w.e.cp_bg_line_c);
-            aq.j(this.cwz, w.e.cp_bg_line_a);
-            aq.c(this.cwu, w.e.cp_cont_b, 1);
-            aq.c(this.cwv, w.e.cp_cont_b, 1);
-            aq.c(this.cww, w.g.icon_god_rank);
-            aq.c(this.cwx, w.g.icon_god_good);
+            aq.j(this.cyP, w.e.cp_bg_line_c);
+            aq.j(this.cyQ, w.e.cp_bg_line_a);
+            aq.c(this.cyL, w.e.cp_cont_b, 1);
+            aq.c(this.cyM, w.e.cp_cont_b, 1);
+            aq.c(this.cyN, w.g.icon_god_rank);
+            aq.c(this.cyO, w.g.icon_god_good);
         }
         this.mSkinType = i;
     }
 
     public void i(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.cwD.setTag(bdUniqueId);
-            this.cwE.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.cwD);
-            MessageManager.getInstance().registerListener(this.cwE);
+            this.cyU.setTag(bdUniqueId);
+            this.cyV.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.cyU);
+            MessageManager.getInstance().registerListener(this.cyV);
         }
     }
 }

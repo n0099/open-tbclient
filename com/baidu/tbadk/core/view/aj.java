@@ -25,22 +25,22 @@ class aj extends CustomMessageListener {
         bi biVar5;
         bi biVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bi)) {
-            biVar = this.ame.aiB;
+            biVar = this.ame.aiC;
             if (biVar != null) {
-                biVar2 = this.ame.aiB;
+                biVar2 = this.ame.aiC;
                 if (biVar2.getId() != null) {
                     bi biVar7 = (bi) customResponsedMessage.getData();
                     if (!TextUtils.isEmpty(biVar7.getId()) && biVar7.se() != null) {
                         String id = biVar7.getId();
-                        biVar3 = this.ame.aiB;
+                        biVar3 = this.ame.aiC;
                         if (id.equals(biVar3.getId())) {
-                            biVar4 = this.ame.aiB;
+                            biVar4 = this.ame.aiC;
                             if (biVar4.se() != null) {
-                                biVar6 = this.ame.aiB;
+                                biVar6 = this.ame.aiC;
                                 biVar6.se().setNum(biVar7.se().getNum());
                             }
                             ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = this.ame;
-                            biVar5 = this.ame.aiB;
+                            biVar5 = this.ame.aiC;
                             threadCommentAndPraiseInfoLayout.f(biVar5);
                         }
                     }

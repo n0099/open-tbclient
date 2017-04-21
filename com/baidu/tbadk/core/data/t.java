@@ -4,8 +4,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class t implements com.baidu.tbadk.core.flow.a.a {
-    private String VB;
-    private boolean VC;
+    private String VD;
+    private boolean VE;
     private String mImageUrl;
     private String mLinkUrl;
     private String mSubTitle;
@@ -56,7 +56,7 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
         tVar.mLinkUrl = this.mLinkUrl;
         tVar.mTitle = this.mTitle;
         tVar.mSubTitle = this.mSubTitle;
-        tVar.VB = this.VB;
+        tVar.VD = this.VD;
         tVar.tagNameUrl = this.tagNameUrl;
         tVar.tagRatio = this.tagRatio;
         return tVar;
@@ -87,16 +87,16 @@ public class t implements com.baidu.tbadk.core.flow.a.a {
                 this.mSubTitle = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.VB = headImgs.btn_text.trim();
+                this.VD = headImgs.btn_text.trim();
             }
         }
     }
 
     public boolean qv() {
-        return this.VC;
+        return this.VE;
     }
 
     public void ao(boolean z) {
-        this.VC = z;
+        this.VE = z;
     }
 }

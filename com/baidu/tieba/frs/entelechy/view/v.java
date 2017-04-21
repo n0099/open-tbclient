@@ -14,11 +14,11 @@ import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ t bTs;
+    final /* synthetic */ t bVJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.bTs = tVar;
+        this.bVJ = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,29 +33,29 @@ public class v implements View.OnClickListener {
         bi biVar7;
         bi biVar8;
         bi biVar9;
-        biVar = this.bTs.aiB;
+        biVar = this.bVJ.aiC;
         if (biVar != null) {
-            biVar2 = this.bTs.aiB;
+            biVar2 = this.bVJ.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.bTs.aiB;
+                biVar3 = this.bVJ.aiC;
                 if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.bTs.aiB;
+                    biVar4 = this.bVJ.aiC;
                     if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.bTs.aiB;
+                        biVar5 = this.bVJ.aiC;
                         if (biVar5.st() != null) {
-                            if (this.bTs.getOnSubCardOnClickListenner() != null) {
-                                cf<bi> onSubCardOnClickListenner = this.bTs.getOnSubCardOnClickListenner();
-                                biVar9 = this.bTs.aiB;
+                            if (this.bVJ.getOnSubCardOnClickListenner() != null) {
+                                cf<bi> onSubCardOnClickListenner = this.bVJ.getOnSubCardOnClickListenner();
+                                biVar9 = this.bVJ.aiC;
                                 onSubCardOnClickListenner.a(view, biVar9);
                             }
                             MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.bTs.ajT;
+                            tbPageContext = this.bVJ.ajU;
                             Activity pageActivity = tbPageContext.getPageActivity();
-                            biVar6 = this.bTs.aiB;
+                            biVar6 = this.bVJ.aiC;
                             String userId = biVar6.getAuthor().getUserId();
-                            biVar7 = this.bTs.aiB;
+                            biVar7 = this.bVJ.aiC;
                             String name_show = biVar7.getAuthor().getName_show();
-                            biVar8 = this.bTs.aiB;
+                            biVar8 = this.bVJ.aiC;
                             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, biVar8.st(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }

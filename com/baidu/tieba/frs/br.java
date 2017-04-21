@@ -9,16 +9,16 @@ import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class br extends y.a {
     public int amZ;
-    public TbImageView bOX;
-    public FrameLayout bPI;
-    public PhotoLiveCardView bPJ;
+    public FrameLayout bRZ;
+    public TbImageView bRo;
+    public PhotoLiveCardView bSa;
 
     public br(View view) {
         super(view);
         this.amZ = 3;
-        this.bPI = (FrameLayout) view.findViewById(w.h.live_card_layout);
-        this.bOX = (TbImageView) view.findViewById(w.h.frs_single_livecard_theme_card);
-        this.bPJ = (PhotoLiveCardView) view.findViewById(w.h.item_live_card);
-        this.bPJ.setAllowGreyState(true);
+        this.bRZ = (FrameLayout) view.findViewById(w.h.live_card_layout);
+        this.bRo = (TbImageView) view.findViewById(w.h.frs_single_livecard_theme_card);
+        this.bSa = (PhotoLiveCardView) view.findViewById(w.h.item_live_card);
+        this.bSa.setAllowGreyState(true);
     }
 }

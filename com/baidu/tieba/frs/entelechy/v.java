@@ -8,11 +8,11 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.data.t> {
-    final /* synthetic */ t bRF;
+    final /* synthetic */ t bTW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.bRF = tVar;
+        this.bTW = tVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
@@ -21,12 +21,12 @@ public class v implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         bb wn = bb.wn();
-        tbPageContext = this.bRF.aaX;
+        tbPageContext = this.bTW.aaY;
         boolean c = wn.c(tbPageContext, new String[]{str});
-        frsActivity = this.bRF.bOf;
+        frsActivity = this.bTW.bQw;
         if (frsActivity != null && c) {
             as asVar = new as("c11677");
-            frsActivity2 = this.bRF.bOf;
+            frsActivity2 = this.bTW.bQw;
             TiebaStatic.log(asVar.aa("fid", frsActivity2.getForumId()));
         }
     }

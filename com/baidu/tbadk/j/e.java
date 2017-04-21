@@ -11,19 +11,19 @@ import com.baidu.tbadk.j.j;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends t {
-    private static CustomMessageTask aGa = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new h());
-    private ArrayList<String> aFP;
-    private ArrayList<String> aFQ;
+    private static CustomMessageTask aGc = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new h());
     private ArrayList<String> aFR;
-    private j aFV;
-    private com.baidu.tbadk.j.a aFW;
-    private int aFX;
-    private int aFS = 0;
-    private int aFT = 3;
+    private ArrayList<String> aFS;
+    private ArrayList<String> aFT;
+    private j aFX;
+    private com.baidu.tbadk.j.a aFY;
+    private int aFZ;
     private int aFU = 0;
-    private int aFY = 0;
-    private j.a aFZ = new f(this);
-    private a.InterfaceC0044a aFE = new g(this);
+    private int aFV = 3;
+    private int aFW = 0;
+    private int aGa = 0;
+    private j.a aGb = new f(this);
+    private a.InterfaceC0044a aFG = new g(this);
     private CustomMessageListener customNormalListener = new i(this, CmdConfigCustom.CMD_PERF_SAMPLE);
 
     public e() {
@@ -31,28 +31,28 @@ public class e extends t {
     }
 
     public void onDestroy() {
-        if (this.aFV != null) {
-            this.aFV.a((j.a) null);
+        if (this.aFX != null) {
+            this.aFX.a((j.a) null);
         }
-        if (this.aFW != null) {
-            this.aFW.a((a.InterfaceC0044a) null);
+        if (this.aFY != null) {
+            this.aFY.a((a.InterfaceC0044a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
     public void Gn() {
-        if (this.aFS < this.aFT) {
-            this.aFS++;
+        if (this.aFU < this.aFV) {
+            this.aFU++;
             Gp();
-            if (this.aFV == null) {
-                this.aFV = new j();
-                this.aFV.a(this.aFZ);
-                this.aFV.start();
+            if (this.aFX == null) {
+                this.aFX = new j();
+                this.aFX.a(this.aGb);
+                this.aFX.start();
             }
-            if (this.aFW == null) {
-                this.aFW = new com.baidu.tbadk.j.a(TbadkCoreApplication.m9getInst().getContext());
-                this.aFW.a(this.aFE);
-                this.aFW.start();
+            if (this.aFY == null) {
+                this.aFY = new com.baidu.tbadk.j.a(TbadkCoreApplication.m9getInst().getContext());
+                this.aFY.a(this.aFG);
+                this.aFY.start();
             }
         }
     }
@@ -72,45 +72,45 @@ public class e extends t {
     /* JADX INFO: Access modifiers changed from: private */
     public void fc(int i) {
         String valueOf = String.valueOf(i);
-        if (this.aFP == null) {
-            this.aFP = new ArrayList<>();
-        }
-        this.aFP.add(valueOf);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ga(String str) {
-        if (this.aFQ == null) {
-            this.aFQ = new ArrayList<>();
-        }
-        if (str != null) {
-            this.aFQ.add(str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void fd(int i) {
-        String valueOf = String.valueOf(i);
         if (this.aFR == null) {
             this.aFR = new ArrayList<>();
         }
         this.aFR.add(valueOf);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ga(String str) {
+        if (this.aFS == null) {
+            this.aFS = new ArrayList<>();
+        }
+        if (str != null) {
+            this.aFS.add(str);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void fd(int i) {
+        String valueOf = String.valueOf(i);
+        if (this.aFT == null) {
+            this.aFT = new ArrayList<>();
+        }
+        this.aFT.add(valueOf);
+    }
+
     public String Gq() {
-        return r(this.aFP);
+        return r(this.aFR);
     }
 
     public String Gr() {
-        return String.valueOf(this.aFX);
+        return String.valueOf(this.aFZ);
     }
 
     public String Gs() {
-        return r(this.aFQ);
+        return r(this.aFS);
     }
 
     public String Gt() {
-        return r(this.aFR);
+        return r(this.aFT);
     }
 
     private String r(ArrayList<String> arrayList) {
@@ -135,20 +135,20 @@ public class e extends t {
     /* JADX INFO: Access modifiers changed from: private */
     public void Gu() {
         ac acVar;
-        if (this.aFU == this.aFT && this.aFT == this.aFY && (acVar = (ac) aa.GG().fg(this.mSubType)) != null) {
+        if (this.aFW == this.aFV && this.aFV == this.aGa && (acVar = (ac) aa.GG().fg(this.mSubType)) != null) {
             acVar.g(this);
         }
     }
 
     static {
-        aGa.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        MessageManager.getInstance().registerTask(aGa);
+        aGc.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        MessageManager.getInstance().registerTask(aGc);
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String aGc;
-        public int aGd;
+        public String aGe;
+        public int aGf;
 
         public a() {
         }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ a ffB;
+    final /* synthetic */ a fhS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(a aVar, int i) {
         super(i);
-        this.ffB = aVar;
+        this.fhS = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,9 +29,9 @@ public class d extends CustomMessageListener {
                     booleanValue = false;
                 }
             }
-            this.ffB.ffr = true;
-            this.ffB.ffg = booleanValue;
-            this.ffB.baN();
+            this.fhS.fhI = true;
+            this.fhS.fhx = booleanValue;
+            this.fhS.bbO();
         }
     }
 }

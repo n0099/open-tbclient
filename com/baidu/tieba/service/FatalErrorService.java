@@ -383,7 +383,7 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(l.cX(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(l.cX(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                bbg();
+                bch();
                 if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.uL().getString("native_crash_dump_version", ""))) {
                     com.baidu.tbadk.core.sharedPref.b.uL().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
@@ -407,7 +407,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void bbg() {
+        private void bch() {
             File cX = l.cX(TbConfig.FATAL_ERROR_ALERT_FILE);
             if (cX != null) {
                 try {
@@ -492,7 +492,7 @@ public class FatalErrorService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.fr();
+                this.mNetwork.fs();
             }
             FatalErrorService.this.mTask = null;
             super.cancel(true);

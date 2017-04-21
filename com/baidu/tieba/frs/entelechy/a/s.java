@@ -11,30 +11,30 @@ import com.baidu.tieba.card.cf;
 import com.baidu.tieba.play.bb;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.widget.ListView.a<bi, a<com.baidu.tieba.frs.entelechy.view.q>> implements cd, com.baidu.tieba.frs.e.e {
-    private TbPageContext<?> ajT;
-    private cf<bi> bSf;
+    private TbPageContext<?> ajU;
+    private cf<bi> bUw;
     private String forumName;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bSf = new t(this);
-        this.ajT = tbPageContext;
+        this.bUw = new t(this);
+        this.ajU = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: y */
+    /* renamed from: A */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.frs.entelechy.view.q qVar = new com.baidu.tieba.frs.entelechy.view.q(this.ajT);
-        qVar.j(this.ajT.getUniqueId());
+        com.baidu.tieba.frs.entelechy.view.q qVar = new com.baidu.tieba.frs.entelechy.view.q(this.ajU);
+        qVar.j(this.ajU.getUniqueId());
         qVar.setForumName(this.forumName);
         return new a(qVar);
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0039: IGET  (r2v2 long A[REMOVE]) = 
-      (wrap: com.baidu.tbadk.core.data.bp : 0x0035: INVOKE  (r2v1 com.baidu.tbadk.core.data.bp A[REMOVE]) = (r7v0 com.baidu.tbadk.core.data.bi) type: VIRTUAL call: com.baidu.tbadk.core.data.bi.ts():com.baidu.tbadk.core.data.bp)
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003d: IGET  (r2v2 long A[REMOVE]) = 
+      (wrap: com.baidu.tbadk.core.data.bp : 0x0039: INVOKE  (r2v1 com.baidu.tbadk.core.data.bp A[REMOVE]) = (r7v0 com.baidu.tbadk.core.data.bi) type: VIRTUAL call: com.baidu.tbadk.core.data.bi.ts():com.baidu.tbadk.core.data.bp)
      com.baidu.tbadk.core.data.bp.channelId long)] */
     private bb j(bi biVar) {
         if (biVar == null) {
@@ -42,10 +42,11 @@ public class s extends com.baidu.adp.widget.ListView.a<bi, a<com.baidu.tieba.frs
         }
         bb bbVar = new bb();
         bbVar.mLocate = biVar.ti() ? TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE : "2";
-        bbVar.bqv = bYW.bYO;
-        bbVar.bqu = biVar.getTid();
+        bbVar.bsM = cbn.cbf;
+        bbVar.bsL = biVar.getTid();
+        bbVar.eXw = biVar.ZA;
         if (biVar.ts() != null && biVar.ts().channelId > 0) {
-            bbVar.VP = new StringBuilder().append(biVar.ts().channelId).toString();
+            bbVar.VR = new StringBuilder().append(biVar.ts().channelId).toString();
         }
         biVar.tm();
         return bbVar;
@@ -56,13 +57,13 @@ public class s extends com.baidu.adp.widget.ListView.a<bi, a<com.baidu.tieba.frs
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bi biVar, a aVar) {
-        if (aVar == null || aVar.Tz() == null) {
+        if (aVar == null || aVar.UB() == null) {
             return null;
         }
-        aVar.Tz().a(j(biVar));
-        aVar.Tz().onBindDataToView(biVar);
-        aVar.Tz().setOnSubCardOnClickListenner(this.bSf);
-        com.baidu.tieba.frs.e.b.adp().a(bYW, biVar);
+        aVar.UB().a(j(biVar));
+        aVar.UB().onBindDataToView(biVar);
+        aVar.UB().setOnSubCardOnClickListenner(this.bUw);
+        com.baidu.tieba.frs.e.b.aeq().a(cbn, biVar);
         return aVar.getView();
     }
 

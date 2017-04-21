@@ -1,11 +1,11 @@
 package com.baidu.tieba.homepage.framework;
 /* loaded from: classes.dex */
 class h extends com.baidu.tbadk.pageStayDuration.b {
-    final /* synthetic */ RecommendFrsControlFragment cuc;
+    final /* synthetic */ RecommendFrsControlFragment cwt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(RecommendFrsControlFragment recommendFrsControlFragment) {
-        this.cuc = recommendFrsControlFragment;
+        this.cwt = recommendFrsControlFragment;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b

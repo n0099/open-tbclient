@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ HeadPendantClickableView aiW;
+    final /* synthetic */ HeadPendantClickableView aiX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(HeadPendantClickableView headPendantClickableView) {
-        this.aiW = headPendantClickableView;
+        this.aiX = headPendantClickableView;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x0095  */
@@ -41,27 +41,27 @@ class d implements View.OnClickListener {
         Context context2;
         bi biVar10;
         bi biVar11;
-        biVar = this.aiW.aiB;
+        biVar = this.aiX.aiC;
         if (biVar != null) {
-            biVar2 = this.aiW.aiB;
+            biVar2 = this.aiX.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.aiW.aiB;
+                biVar3 = this.aiX.aiC;
                 if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.aiW.aiB;
+                    biVar4 = this.aiX.aiC;
                     if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.aiW.aiB;
+                        biVar5 = this.aiX.aiC;
                         if (biVar5.ts() != null) {
-                            biVar9 = this.aiW.aiB;
+                            biVar9 = this.aiX.aiC;
                             if (biVar9.ts().channelId > 0) {
                                 MessageManager messageManager = MessageManager.getInstance();
-                                context2 = this.aiW.mContext;
-                                biVar10 = this.aiW.aiB;
+                                context2 = this.aiX.mContext;
+                                biVar10 = this.aiX.aiC;
                                 long j = biVar10.ts().channelId;
-                                biVar11 = this.aiW.aiB;
+                                biVar11 = this.aiX.aiC;
                                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context2, j, biVar11.ts().mCurrentPage)));
-                                onClickListener = this.aiW.aiC;
+                                onClickListener = this.aiX.aiD;
                                 if (onClickListener == null) {
-                                    onClickListener2 = this.aiW.aiC;
+                                    onClickListener2 = this.aiX.aiD;
                                     onClickListener2.onClick(view);
                                     return;
                                 }
@@ -69,14 +69,14 @@ class d implements View.OnClickListener {
                             }
                         }
                         MessageManager messageManager2 = MessageManager.getInstance();
-                        context = this.aiW.mContext;
-                        biVar6 = this.aiW.aiB;
+                        context = this.aiX.mContext;
+                        biVar6 = this.aiX.aiC;
                         String userId = biVar6.getAuthor().getUserId();
-                        biVar7 = this.aiW.aiB;
+                        biVar7 = this.aiX.aiC;
                         String name_show = biVar7.getAuthor().getName_show();
-                        biVar8 = this.aiW.aiB;
+                        biVar8 = this.aiX.aiC;
                         messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, userId, name_show, biVar8.st(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
-                        onClickListener = this.aiW.aiC;
+                        onClickListener = this.aiX.aiD;
                         if (onClickListener == null) {
                         }
                     }

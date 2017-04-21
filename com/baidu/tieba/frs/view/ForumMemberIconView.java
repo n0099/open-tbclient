@@ -12,9 +12,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ForumMemberIconView extends LinearLayout {
-    private TextView aVF;
-    private View bGy;
-    private TbImageView bHx;
+    private TextView aVH;
+    private View bIP;
+    private TbImageView bJO;
     private Context context;
     private String mUrl;
 
@@ -31,7 +31,7 @@ public class ForumMemberIconView extends LinearLayout {
     }
 
     public void setIcon(String str) {
-        this.bHx.c(str, 10, false);
+        this.bJO.c(str, 10, false);
     }
 
     public void setUrl(String str) {
@@ -39,18 +39,18 @@ public class ForumMemberIconView extends LinearLayout {
     }
 
     private void bm(Context context) {
-        this.bGy = findViewById(w.h.forum_member_icon_layout);
+        this.bIP = findViewById(w.h.forum_member_icon_layout);
         LayoutInflater.from(context).inflate(w.j.frs_forum_member_view, this);
-        this.bHx = (TbImageView) findViewById(w.h.forum_member_image_icon);
-        this.aVF = (TextView) findViewById(w.h.forum_member_text);
-        this.bHx.setDefaultBgResource(w.g.transparent_bg);
-        this.bHx.setAutoChangeStyle(false);
-        this.bGy.setOnClickListener(new b(this, (TbPageContext) com.baidu.adp.base.k.Z(context)));
+        this.bJO = (TbImageView) findViewById(w.h.forum_member_image_icon);
+        this.aVH = (TextView) findViewById(w.h.forum_member_text);
+        this.bJO.setDefaultBgResource(w.g.transparent_bg);
+        this.bJO.setAutoChangeStyle(false);
+        this.bIP.setOnClickListener(new b(this, (TbPageContext) com.baidu.adp.base.k.Z(context)));
     }
 
     public void d(TbPageContext<?> tbPageContext, int i) {
-        aq.j(this.bGy, w.g.forum_member_icon_bg);
-        aq.i(this.aVF, w.e.common_color_10248);
-        this.bHx.invalidate();
+        aq.j(this.bIP, w.g.forum_member_icon_bg);
+        aq.i(this.aVH, w.e.common_color_10248);
+        this.bJO.invalidate();
     }
 }

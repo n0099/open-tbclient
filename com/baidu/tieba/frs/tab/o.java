@@ -15,11 +15,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
-    final /* synthetic */ n bZF;
+    final /* synthetic */ n cbW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.bZF = nVar;
+        this.cbW = nVar;
     }
 
     @Override // android.widget.Adapter
@@ -29,9 +29,9 @@ public class o extends BaseAdapter {
             view.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(w.f.ds80)));
             j.c cVar = new j.c();
             cVar.name = (TextView) view.findViewById(w.h.tab_menu_name);
-            cVar.bZz = (ImageView) view.findViewById(w.h.tab_menu_check);
-            cVar.bZA = view.findViewById(w.h.tab_menu_line_s);
-            cVar.bZB = view.findViewById(w.h.tab_menu_line_f);
+            cVar.cbQ = (ImageView) view.findViewById(w.h.tab_menu_check);
+            cVar.cbR = view.findViewById(w.h.tab_menu_line_s);
+            cVar.cbS = view.findViewById(w.h.tab_menu_line_f);
             view.setTag(cVar);
         }
         aq.j(view, w.e.cp_bg_line_d);
@@ -41,20 +41,20 @@ public class o extends BaseAdapter {
             cVar2.name.setText(item.name);
             if (item.isSelected) {
                 aq.c(cVar2.name, w.e.cp_link_tip_a, 1);
-                aq.c(cVar2.bZz, w.g.chx_tips_list_ok);
-                cVar2.bZz.setVisibility(0);
+                aq.c(cVar2.cbQ, w.g.chx_tips_list_ok);
+                cVar2.cbQ.setVisibility(0);
             } else {
                 aq.c(cVar2.name, w.e.cp_cont_c, 1);
-                cVar2.bZz.setVisibility(8);
+                cVar2.cbQ.setVisibility(8);
             }
             if (i >= 0 && i == getCount() - 1) {
-                cVar2.bZB.setVisibility(0);
-                cVar2.bZA.setVisibility(8);
-                aq.k(cVar2.bZB, w.e.cp_bg_line_b);
+                cVar2.cbS.setVisibility(0);
+                cVar2.cbR.setVisibility(8);
+                aq.k(cVar2.cbS, w.e.cp_bg_line_b);
             } else {
-                cVar2.bZA.setVisibility(0);
-                cVar2.bZB.setVisibility(8);
-                aq.k(cVar2.bZA, w.e.cp_bg_line_b);
+                cVar2.cbR.setVisibility(0);
+                cVar2.cbS.setVisibility(8);
+                aq.k(cVar2.cbR, w.e.cp_bg_line_b);
             }
         }
         return view;
@@ -67,13 +67,13 @@ public class o extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iA */
+    /* renamed from: iG */
     public cv getItem(int i) {
         List list;
         List list2;
-        list = this.bZF.aVD;
+        list = this.cbW.aVF;
         if (list != null) {
-            list2 = this.bZF.aVD;
+            list2 = this.cbW.aVF;
             return (cv) list2.get(i);
         }
         return null;
@@ -83,9 +83,9 @@ public class o extends BaseAdapter {
     public int getCount() {
         List list;
         List list2;
-        list = this.bZF.aVD;
+        list = this.cbW.aVF;
         if (list != null) {
-            list2 = this.bZF.aVD;
+            list2 = this.cbW.aVF;
             return list2.size();
         }
         return 0;

@@ -7,54 +7,54 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
 public class d extends w {
-    private final CustomMessageListener bKS;
-    public final com.baidu.adp.base.f bXI;
-    public final com.baidu.adp.base.f bXJ;
+    private final CustomMessageListener bNj;
+    public final com.baidu.adp.base.f bZZ;
+    public final com.baidu.adp.base.f caa;
 
     public d(FrsActivity frsActivity) {
         super(frsActivity);
-        this.bKS = new e(this, CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS);
-        this.bXI = new f(this);
-        this.bXJ = new g(this);
-        this.bST.registerListener(this.bKS);
+        this.bNj = new e(this, CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS);
+        this.bZZ = new f(this);
+        this.caa = new g(this);
+        this.bVk.registerListener(this.bNj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.tbadkCore.v vVar) {
         if (vVar != null) {
-            com.baidu.tieba.tbadkCore.n Zr = this.bST.Zr();
-            if (this.bMO != null && this.bMQ != null && this.bMP != null && this.bMD != null && Zr != null && Zr.aJw() != null && vVar.getFid() != null) {
+            com.baidu.tieba.tbadkCore.n aas = this.bVk.aas();
+            if (this.bPf != null && this.bPh != null && this.bPg != null && this.bOU != null && aas != null && aas.aKx() != null && vVar.getFid() != null) {
                 boolean z = vVar.isLike() == 1;
-                if (vVar.getFid().equals(Zr.aJw().getId())) {
-                    Zr.aJw().setLike(vVar.isLike());
+                if (vVar.getFid().equals(aas.aKx().getId())) {
+                    aas.aKx().setLike(vVar.isLike());
                     if (!StringUtils.isNULL(vVar.getLevelName())) {
-                        Zr.aJw().setLevelName(vVar.getLevelName());
+                        aas.aKx().setLevelName(vVar.getLevelName());
                     }
                     if (vVar.getUserLevel() >= 0) {
-                        Zr.aJw().setUser_level(vVar.getUserLevel());
+                        aas.aKx().setUser_level(vVar.getUserLevel());
                     }
                     if (z) {
-                        this.bMP.a(Zr, false);
-                        this.bMQ.dQ(true);
-                        TbadkCoreApplication.m9getInst().addLikeForum(this.bST.getForumName());
+                        this.bPg.a(aas, false);
+                        this.bPh.ea(true);
+                        TbadkCoreApplication.m9getInst().addLikeForum(this.bVk.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.c.bgh().V(this.bST.getForumName(), false);
-                    Zr.aJw().setLike(0);
-                    this.bMP.adU();
-                    this.bMQ.dQ(false);
-                    TbadkCoreApplication.m9getInst().delLikeForum(this.bST.getForumName());
+                    com.baidu.tieba.tbadkCore.c.bhj().V(this.bVk.getForumName(), false);
+                    aas.aKx().setLike(0);
+                    this.bPg.aeV();
+                    this.bPh.ea(false);
+                    TbadkCoreApplication.m9getInst().delLikeForum(this.bVk.getForumName());
                     return;
                 }
                 if (vVar.isLike() == 1) {
-                    Zr.pP(vVar.getFid());
-                    this.bMP.h(Zr);
-                    this.bMT.a(this.bMD.getListView(), Zr, this.bMO.acR());
+                    aas.pQ(vVar.getFid());
+                    this.bPg.h(aas);
+                    this.bPk.a(this.bOU.getListView(), aas, this.bPf.adS());
                 }
-                if (Zr.aJw().getBannerListData() != null) {
-                    Zr.aJw().getBannerListData().setFeedForumLiked(vVar.getFid(), vVar.isLike());
+                if (aas.aKx().getBannerListData() != null) {
+                    aas.aKx().getBannerListData().setFeedForumLiked(vVar.getFid(), vVar.isLike());
                 }
-                this.bMD.ZV();
+                this.bOU.aaW();
             }
         }
     }

@@ -5,15 +5,15 @@ import com.baidu.tbadk.coreExtra.view.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements j.a {
-    final /* synthetic */ NotLoginGuideActivity aVR;
+    final /* synthetic */ NotLoginGuideActivity aVT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NotLoginGuideActivity notLoginGuideActivity) {
-        this.aVR = notLoginGuideActivity;
+        this.aVT = notLoginGuideActivity;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public void j(AccountData accountData) {
-        this.aVR.p(accountData);
+        this.aVT.p(accountData);
     }
 }

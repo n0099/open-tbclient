@@ -23,31 +23,31 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
-    private LinearLayout aIy;
-    NavigationBar aYR;
-    BdListView bzP;
-    h dju;
-    private CustomMessageListener djv;
+    private LinearLayout aIA;
+    NavigationBar aYU;
+    BdListView bCg;
+    h dlL;
+    private CustomMessageListener dlM;
     private y mNoDataView;
     private HttpMessageListener httpListener = new a(this, CmdConfigHttp.CMD_GET_FRIEND_LIST);
-    private int djt = -1;
-    private CustomMessageListener djw = new b(this, CmdConfigCustom.CMD_QUERY_CONTACT_LIST);
-    private AdapterView.OnItemClickListener djx = new c(this);
+    private int dlK = -1;
+    private CustomMessageListener dlN = new b(this, CmdConfigCustom.CMD_QUERY_CONTACT_LIST);
+    private AdapterView.OnItemClickListener dlO = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.j.select_friend_main);
-        this.aIy = (LinearLayout) findViewById(w.h.select_friend_root_view);
-        this.aYR = (NavigationBar) findViewById(w.h.select_friend_nevigation_bar);
-        this.aYR.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-        this.aYR.setTitleText(w.l.select_friend_title);
-        this.bzP = (BdListView) findViewById(w.h.select_friend_listview);
-        this.dju = new h(getPageContext().getPageActivity());
-        this.bzP.setAdapter((ListAdapter) this.dju);
-        this.bzP.setOnItemClickListener(this.djx);
-        registerListener(this.djw);
+        this.aIA = (LinearLayout) findViewById(w.h.select_friend_root_view);
+        this.aYU = (NavigationBar) findViewById(w.h.select_friend_nevigation_bar);
+        this.aYU.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
+        this.aYU.setTitleText(w.l.select_friend_title);
+        this.bCg = (BdListView) findViewById(w.h.select_friend_listview);
+        this.dlL = new h(getPageContext().getPageActivity());
+        this.bCg.setAdapter((ListAdapter) this.dlL);
+        this.bCg.setOnItemClickListener(this.dlO);
+        registerListener(this.dlN);
         registerListener(this.httpListener);
         if (TbadkCoreApplication.m9getInst().getIntentClass(AddressListActivityConfig.class) == null) {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FRIEND_LIST));
@@ -55,11 +55,11 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
             MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
         }
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, k.g(getActivity(), w.f.ds220)), NoDataViewFactory.d.dh(w.l.select_friend_no_data_tip), null);
-        this.aIy.addView(this.mNoDataView, 1);
+        this.aIA.addView(this.mNoDataView, 1);
         if (bundle != null) {
-            this.djt = bundle.getInt("key_from_where");
+            this.dlK = bundle.getInt("key_from_where");
         } else if (getIntent() != null) {
-            this.djt = getIntent().getIntExtra("key_from_where", -1);
+            this.dlK = getIntent().getIntExtra("key_from_where", -1);
         }
     }
 
@@ -67,15 +67,15 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.djv != null) {
-            this.djv = null;
+        if (this.dlM != null) {
+            this.dlM = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aYR.onChangeSkinType(getPageContext(), i);
+        this.aYU.onChangeSkinType(getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }

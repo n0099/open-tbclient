@@ -23,14 +23,14 @@ public class w {
         switch (i) {
             case 1:
             case 2:
-                return (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+                return (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
             case 3:
             case 4:
-                return com.baidu.adp.lib.util.i.hk();
+                return com.baidu.adp.lib.util.i.hl();
             case 5:
-                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (com.baidu.tbadk.n.o.GZ() && com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
+                return TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2 || (com.baidu.tbadk.n.o.GZ() && com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0);
             default:
-                return (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+                return (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
         }
     }
 
@@ -39,7 +39,7 @@ public class w {
             if (TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 1) {
                 return false;
             }
-            return (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0) ? false : true;
+            return (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 0) ? false : true;
         }
         return fk(i);
     }

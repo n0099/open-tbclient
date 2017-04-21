@@ -9,15 +9,15 @@ import com.baidu.tieba.frs.f.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements a.b {
-    private final /* synthetic */ TbPageContext Rj;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.n caq;
-    private final /* synthetic */ PluginNetConfigInfos.PluginConfig car;
+    private final /* synthetic */ TbPageContext Rl;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.n ccH;
+    private final /* synthetic */ PluginNetConfigInfos.PluginConfig ccI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(TbPageContext tbPageContext, com.baidu.tieba.tbadkCore.n nVar, PluginNetConfigInfos.PluginConfig pluginConfig) {
-        this.Rj = tbPageContext;
-        this.caq = nVar;
-        this.car = pluginConfig;
+        this.Rl = tbPageContext;
+        this.ccH = nVar;
+        this.ccI = pluginConfig;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -27,22 +27,22 @@ public class v implements a.b {
         u.a aVar4;
         u.a aVar5;
         aVar.dismiss();
-        u.r(this.Rj);
-        aVar2 = u.cap;
+        u.r(this.Rl);
+        aVar2 = u.ccG;
         if (aVar2 == null) {
-            u.cap = new u.a(null);
+            u.ccG = new u.a(null);
         }
-        aVar3 = u.cap;
-        aVar3.d(this.caq, this.Rj);
-        if (PluginPackageManager.jx().bh(XiaoyingUtil.PKG_NAME_VIDEO)) {
-            PluginPackageManager jx = PluginPackageManager.jx();
-            aVar5 = u.cap;
-            jx.a(aVar5);
+        aVar3 = u.ccG;
+        aVar3.d(this.ccH, this.Rl);
+        if (PluginPackageManager.jy().bh(XiaoyingUtil.PKG_NAME_VIDEO)) {
+            PluginPackageManager jy = PluginPackageManager.jy();
+            aVar5 = u.ccG;
+            jy.a(aVar5);
             return;
         }
-        PluginPackageManager jx2 = PluginPackageManager.jx();
-        PluginNetConfigInfos.PluginConfig pluginConfig = this.car;
-        aVar4 = u.cap;
-        jx2.a(pluginConfig, aVar4);
+        PluginPackageManager jy2 = PluginPackageManager.jy();
+        PluginNetConfigInfos.PluginConfig pluginConfig = this.ccI;
+        aVar4 = u.ccG;
+        jy2.a(pluginConfig, aVar4);
     }
 }

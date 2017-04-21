@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ ReplyMessageActivity dlt;
+    final /* synthetic */ ReplyMessageActivity dnK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(ReplyMessageActivity replyMessageActivity) {
-        this.dlt = replyMessageActivity;
+        this.dnK = replyMessageActivity;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
         au auVar;
         au auVar2;
-        auVar = this.dlt.dls;
+        auVar = this.dnK.dnJ;
         if (auVar != null) {
-            auVar2 = this.dlt.dls;
+            auVar2 = this.dnK.dnJ;
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, Boolean.valueOf(auVar2.onBackPressed()));
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_REPLY_ME_BACK_EVENT, false);

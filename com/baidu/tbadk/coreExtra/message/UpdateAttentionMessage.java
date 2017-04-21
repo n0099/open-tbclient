@@ -10,7 +10,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean Cy;
+        public boolean CB;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -45,7 +45,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().Cy;
+        return getData().CB;
     }
 
     public boolean isAttention() {

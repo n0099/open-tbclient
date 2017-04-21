@@ -6,13 +6,13 @@ import com.baidu.tbadk.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends s<Object> {
-    private final /* synthetic */ int aaO;
-    final /* synthetic */ b czR;
+    private final /* synthetic */ int aaP;
+    final /* synthetic */ b cCi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar, int i) {
-        this.czR = bVar;
-        this.aaO = i;
+        this.cCi = bVar;
+        this.aaP = i;
     }
 
     @Override // com.baidu.tbadk.util.s
@@ -20,11 +20,11 @@ public class g extends s<Object> {
         String str;
         String str2;
         com.baidu.tbadk.core.c.a tM = com.baidu.tbadk.core.c.a.tM();
-        str = this.czR.cuy;
+        str = this.cCi.cwP;
         o<String> M = tM.M(str, TbadkCoreApplication.getCurrentAccount());
         if (M != null) {
-            str2 = this.czR.cuz;
-            M.a(str2, Integer.toString(this.aaO), 43200000L);
+            str2 = this.cCi.cwQ;
+            M.a(str2, Integer.toString(this.aaP), 43200000L);
             return null;
         }
         return null;

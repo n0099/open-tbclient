@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean qY;
-    private boolean qZ;
-    private boolean ra;
-    private DupLicateMode rb;
+    private boolean rd;
+    private boolean re;
+    private boolean rf;
+    private DupLicateMode rg;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -17,7 +17,7 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_WAITING,
         REMOVE_ALL;
 
-        /* JADX DEBUG: Replace access to removed values field (rc) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (rh) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DupLicateMode[] valuesCustom() {
             DupLicateMode[] valuesCustom = values();
@@ -30,10 +30,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.qY = false;
-        this.qZ = false;
-        this.ra = true;
-        this.rb = DupLicateMode.NONE;
+        this.rd = false;
+        this.re = false;
+        this.rf = true;
+        this.rg = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -42,19 +42,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void m(boolean z) {
-        this.qY = z;
-    }
-
-    public boolean dy() {
-        return this.qY;
+        this.rd = z;
     }
 
     public boolean dz() {
-        return this.qZ;
+        return this.rd;
+    }
+
+    public boolean dA() {
+        return this.re;
     }
 
     public void n(boolean z) {
-        this.qZ = z;
+        this.re = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -65,19 +65,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean dA() {
-        return this.ra;
+    public boolean dB() {
+        return this.rf;
     }
 
     public void o(boolean z) {
-        this.ra = z;
+        this.rf = z;
     }
 
-    public DupLicateMode dB() {
-        return this.rb;
+    public DupLicateMode dC() {
+        return this.rg;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.rb = dupLicateMode;
+        this.rg = dupLicateMode;
     }
 }

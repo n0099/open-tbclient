@@ -104,7 +104,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         this.mView.ah(this.mIsLogin);
         this.mView.ah(isNeedShowMenuItem());
         if (!this.mView.oE() && UtilHelper.canUseStyleImmersiveSticky()) {
-            bg.b(this.mView.Rr, w.e.cp_link_tip_b, false);
+            bg.b(this.mView.Rt, w.e.cp_link_tip_b, false);
         }
         adjustResizeForSoftInput();
     }
@@ -372,45 +372,45 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.tbadk.coreExtra.share.g createShareContent(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.share.g gVar = new com.baidu.tbadk.coreExtra.share.g();
+    public com.baidu.tbadk.coreExtra.share.h createShareContent(String str, String str2, String str3, String str4) {
+        com.baidu.tbadk.coreExtra.share.h hVar = new com.baidu.tbadk.coreExtra.share.h();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
-            gVar.title = getResources().getString(w.l.share_from_tieba);
+            hVar.title = getResources().getString(w.l.share_from_tieba);
         } else {
-            gVar.title = this.mUrlTitle;
+            hVar.title = this.mUrlTitle;
         }
-        gVar.linkUrl = this.mUrl;
+        hVar.linkUrl = this.mUrl;
         if (StringUtils.isNull(this.mSource, true)) {
-            gVar.content = this.mUrl;
+            hVar.content = this.mUrl;
         } else {
             String findSubString = findSubString(SHARE_CONTENT_START, SHARE_END);
             if (StringUtils.isNull(findSubString, true)) {
-                gVar.content = this.mUrl;
+                hVar.content = this.mUrl;
             } else {
-                gVar.content = findSubString;
+                hVar.content = findSubString;
             }
             String findSubString2 = findSubString(SHARE_IMG_START, SHARE_END);
             if (!StringUtils.isNull(findSubString2, true)) {
-                gVar.imageUri = Uri.parse(findSubString2);
+                hVar.imageUri = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString(SHARE_URL_START, SHARE_END);
             if (!StringUtils.isNull(findSubString3, true)) {
-                gVar.linkUrl = findSubString3;
+                hVar.linkUrl = findSubString3;
             }
         }
         if (!TextUtils.isEmpty(str)) {
-            gVar.title = str;
+            hVar.title = str;
         }
         if (!TextUtils.isEmpty(str2)) {
-            gVar.linkUrl = str2;
+            hVar.linkUrl = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            gVar.content = str3;
+            hVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            gVar.imageUri = Uri.parse(str4);
+            hVar.imageUri = Uri.parse(str4);
         }
-        return gVar;
+        return hVar;
     }
 
     private String findSubString(String str, String str2) {
@@ -545,9 +545,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (ce.mBduss != null) {
                 str3 = ce.mBduss;
             }
-            if (ce.SZ != null) {
+            if (ce.Tb != null) {
                 str = str3;
-                str2 = ce.SZ;
+                str2 = ce.Tb;
                 x.a aVar = new x.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;
@@ -576,7 +576,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         @JavascriptInterface
         public void getSource(String str) {
             BaseWebViewActivity.this.mSource = str;
-            com.baidu.adp.lib.g.h.fR().post(BaseWebViewActivity.this.mShareRunnable);
+            com.baidu.adp.lib.g.h.fS().post(BaseWebViewActivity.this.mShareRunnable);
         }
 
         @JavascriptInterface

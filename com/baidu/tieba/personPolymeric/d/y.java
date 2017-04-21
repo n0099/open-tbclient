@@ -14,18 +14,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class y extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.k> {
-    private ImageView bXo;
-    private TbImageView eHe;
-    private TextView eHf;
-    private com.baidu.tieba.personPolymeric.c.k eHg;
+    private ImageView bZF;
+    private TbImageView eJu;
+    private TextView eJv;
+    private com.baidu.tieba.personPolymeric.c.k eJw;
     private View mRootView;
 
     public y(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.eHe = (TbImageView) this.mRootView.findViewById(w.h.polymeric_vedio_pic);
-        this.eHf = (TextView) this.mRootView.findViewById(w.h.polymeric_vedio_des);
-        this.bXo = (ImageView) this.mRootView.findViewById(w.h.polymeric_vedio_play_icon);
+        this.eJu = (TbImageView) this.mRootView.findViewById(w.h.polymeric_vedio_pic);
+        this.eJv = (TextView) this.mRootView.findViewById(w.h.polymeric_vedio_des);
+        this.bZF = (ImageView) this.mRootView.findViewById(w.h.polymeric_vedio_play_icon);
         this.mRootView.setOnClickListener(this);
     }
 
@@ -34,8 +34,8 @@ public class y extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             aq.k(this.mRootView, w.e.cp_bg_line_d);
-            aq.c(this.eHf, w.e.cp_cont_b, 1);
-            aq.c(this.bXo, w.g.icon_play_video, i);
+            aq.c(this.eJv, w.e.cp_cont_b, 1);
+            aq.c(this.bZF, w.g.icon_play_video, i);
         }
     }
 
@@ -49,9 +49,9 @@ public class y extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* renamed from: a */
     public void onBindDataToView(com.baidu.tieba.personPolymeric.c.k kVar) {
         if (kVar != null) {
-            this.eHg = kVar;
-            this.eHe.c(kVar.We, 10, false);
-            this.eHf.setText(kVar.title);
+            this.eJw = kVar;
+            this.eJu.c(kVar.Wg, 10, false);
+            this.eJv.setText(kVar.title);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
@@ -59,7 +59,7 @@ public class y extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.mRootView == view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(this.eHg.WS, this.eHg.postId, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(this.eJw.WT, this.eJw.postId, "")));
         }
     }
 }

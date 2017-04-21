@@ -6,26 +6,26 @@ import android.widget.Scroller;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ScrollTextView extends TextView implements Runnable {
-    private Scroller aKr;
-    private float aKs;
-    private boolean aKt;
+    private Scroller aKt;
+    private float aKu;
+    private boolean aKv;
 
     public ScrollTextView(Context context) {
         super(context);
-        this.aKs = 15.0f;
-        this.aKt = true;
+        this.aKu = 15.0f;
+        this.aKv = true;
         setup(context);
     }
 
     private void setup(Context context) {
-        this.aKr = new Scroller(context, new LinearInterpolator());
-        setScroller(this.aKr);
+        this.aKt = new Scroller(context, new LinearInterpolator());
+        setScroller(this.aKt);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.aKr.isFinished()) {
+        if (this.aKt.isFinished()) {
             HR();
         }
     }
@@ -33,15 +33,15 @@ public class ScrollTextView extends TextView implements Runnable {
     private void HR() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
-        this.aKr.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aKs));
-        if (this.aKt) {
+        this.aKt.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aKu));
+        if (this.aKv) {
             post(this);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.aKr.isFinished()) {
+        if (this.aKt.isFinished()) {
             HR();
         } else {
             post(this);
@@ -49,14 +49,14 @@ public class ScrollTextView extends TextView implements Runnable {
     }
 
     public void setSpeed(float f) {
-        this.aKs = f;
+        this.aKu = f;
     }
 
     public float getSpeed() {
-        return this.aKs;
+        return this.aKu;
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.aKt = z;
+        this.aKv = z;
     }
 }

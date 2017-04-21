@@ -7,11 +7,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements Animation.AnimationListener {
-    final /* synthetic */ q ceu;
+    final /* synthetic */ q cgL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(q qVar) {
-        this.ceu = qVar;
+        this.cgL = qVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,11 +25,11 @@ public class t implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         List<View> list;
-        list = this.ceu.cet;
+        list = this.cgL.cgK;
         for (View view : list) {
             q.b bVar = (q.b) view.getTag();
             if (bVar != null) {
-                int i = bVar.cew;
+                int i = bVar.cgN;
             }
         }
         com.baidu.tbadk.core.sharedPref.b.uL().putLong("key_frs_videolive_last_popup_time", System.currentTimeMillis());

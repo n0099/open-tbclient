@@ -20,9 +20,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h {
-    private final String fNa = TbConfig.getTempDirName();
-    private a fNb;
-    private c fNc;
+    private final String fPw = TbConfig.getTempDirName();
+    private a fPx;
+    private c fPy;
     private final Context mContext;
 
     /* loaded from: classes.dex */
@@ -38,10 +38,10 @@ public class h {
         if (nVar == null) {
             return false;
         }
-        bnz();
-        this.fNb = new a(nVar);
-        this.fNb.setPriority(3);
-        this.fNb.execute(new Object[0]);
+        boA();
+        this.fPx = new a(nVar);
+        this.fPx.setPriority(3);
+        this.fPx.execute(new Object[0]);
         return true;
     }
 
@@ -49,49 +49,49 @@ public class h {
         if (apVar == null) {
             return false;
         }
-        bnA();
-        this.fNc = new c(str, apVar);
-        this.fNc.setPriority(3);
-        this.fNc.execute(new Void[0]);
+        boB();
+        this.fPy = new c(str, apVar);
+        this.fPy.setPriority(3);
+        this.fPy.execute(new Void[0]);
         return true;
     }
 
-    public void bnz() {
-        if (this.fNb != null) {
-            this.fNb.cancel();
-            this.fNb = null;
+    public void boA() {
+        if (this.fPx != null) {
+            this.fPx.cancel();
+            this.fPx = null;
         }
     }
 
-    public void bnA() {
-        if (this.fNc != null) {
-            this.fNc.cancel();
-            this.fNc = null;
+    public void boB() {
+        if (this.fPy != null) {
+            this.fPy.cancel();
+            this.fPy = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, List<d>> {
-        private final n fNd;
+        private final n fPz;
 
         public a(n nVar) {
-            this.fNd = nVar;
+            this.fPz = nVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public List<d> doInBackground(Object... objArr) {
-            return h.this.bnB();
+            return h.this.boC();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.fNd != null) {
-                this.fNd.lm();
+            if (this.fPz != null) {
+                this.fPz.ln();
             }
         }
 
@@ -100,14 +100,14 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(List<d> list) {
             super.onPostExecute((a) list);
-            if (this.fNd != null) {
-                this.fNd.cW(list);
+            if (this.fPz != null) {
+                this.fPz.cW(list);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<d> bnB() {
+    public List<d> boC() {
         HashSet<String> hashSet = new HashSet<>();
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
     }
@@ -147,8 +147,8 @@ public class h {
                             File file = new File(substring);
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String qY = qY(file2.getAbsolutePath());
-                                    if (qY != null && (matcher = compile.matcher(qY)) != null && matcher.matches()) {
+                                    String qZ = qZ(file2.getAbsolutePath());
+                                    if (qZ != null && (matcher = compile.matcher(qZ)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -156,8 +156,8 @@ public class h {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 d dVar = new d();
-                                dVar.qW(string);
-                                dVar.qX(sb);
+                                dVar.qX(string);
+                                dVar.qY(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 File file3 = new File(string3);
                                 if (file3.exists() && file3.isFile()) {
@@ -166,7 +166,7 @@ public class h {
                                 imageFileInfo.setFilePath(string3);
                                 dVar.f(imageFileInfo);
                                 dVar.setName(string2);
-                                if (string2 != null && string2.equals(this.fNa)) {
+                                if (string2 != null && string2.equals(this.fPw)) {
                                     list.add(0, dVar);
                                 } else {
                                     list.add(dVar);
@@ -200,7 +200,7 @@ public class h {
         }
     }
 
-    public String qY(String str) {
+    public String qZ(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;
@@ -233,16 +233,16 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-        private final ap fNf;
-        private final String fNg;
-        private String fNh;
-        private List<d> fNi;
-        private int fNj = 1;
-        private b fNk = new i(this);
+        private final ap fPB;
+        private final String fPC;
+        private String fPD;
+        private List<d> fPE;
+        private int fPF = 1;
+        private b fPG = new i(this);
 
         public c(String str, ap apVar) {
-            this.fNf = apVar;
-            this.fNg = str;
+            this.fPB = apVar;
+            this.fPC = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -250,23 +250,23 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.fNg)) {
+            if (TextUtils.isEmpty(this.fPC)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            if (this.fNg.equals("-1")) {
-                this.fNi = h.this.bnB();
-                if (this.fNi != null) {
-                    for (d dVar : this.fNi) {
+            if (this.fPC.equals("-1")) {
+                this.fPE = h.this.boC();
+                if (this.fPE != null) {
+                    for (d dVar : this.fPE) {
                         String albumId = dVar.getAlbumId();
                         if (!TextUtils.isEmpty(albumId)) {
-                            a(arrayList, this.fNk, albumId);
+                            a(arrayList, this.fPG, albumId);
                         }
                     }
                 }
                 return arrayList;
             }
-            a(arrayList, this.fNk, this.fNg);
+            a(arrayList, this.fPG, this.fPC);
             return arrayList;
         }
 
@@ -283,8 +283,8 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (this.fNf != null) {
-                this.fNf.lm();
+            if (this.fPB != null) {
+                this.fPB.ln();
             }
         }
 
@@ -294,8 +294,8 @@ public class h {
         /* renamed from: c */
         public void onProgressUpdate(List<ImageFileInfo>... listArr) {
             super.onProgressUpdate(listArr);
-            if (listArr.length > 0 && this.fNf != null) {
-                this.fNf.a(this.fNi, listArr[0], this.fNh);
+            if (listArr.length > 0 && this.fPB != null) {
+                this.fPB.a(this.fPE, listArr[0], this.fPD);
             }
         }
 
@@ -304,25 +304,25 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(List<ImageFileInfo> list) {
             super.onPostExecute((c) list);
-            if (this.fNf != null) {
-                this.fNf.a(this.fNi, list, this.fNh);
+            if (this.fPB != null) {
+                this.fPB.a(this.fPE, list, this.fPD);
             }
         }
 
         private void a(List<ImageFileInfo> list, b bVar) {
             if (list != null && bVar != null) {
-                if (this.fNj == 1 || this.fNj == 2) {
-                    if (list.size() / this.fNj > 50) {
+                if (this.fPF == 1 || this.fPF == 2) {
+                    if (list.size() / this.fPF > 50) {
                         if (bVar != null) {
                             bVar.cV(list);
                         }
-                        this.fNj++;
+                        this.fPF++;
                     }
-                } else if (list.size() / this.fNj > 500) {
+                } else if (list.size() / this.fPF > 500) {
                     if (bVar != null) {
                         bVar.cV(list);
                     }
-                    this.fNj++;
+                    this.fPF++;
                 }
             }
         }
@@ -339,7 +339,7 @@ public class h {
                                 int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
                                 do {
                                     String string = cursor.getString(columnIndex);
-                                    this.fNh = cursor.getString(columnIndex2);
+                                    this.fPD = cursor.getString(columnIndex2);
                                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                                     imageFileInfo.setAlbumnId(str);
                                     imageFileInfo.setFilePath(string);

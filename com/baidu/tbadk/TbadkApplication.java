@@ -129,10 +129,10 @@ public class TbadkApplication extends TbadkCoreApplication {
             boolean z = Hl && isXiaomiPushSdkShouldOpen;
             long currentTimeMillis = System.currentTimeMillis();
             String str = String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.jx().a(a.GR(), new com.baidu.tbadk.k.c(), Hl && isXiaomiPushSdkShouldOpen);
-            PluginSettings jX = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX();
-            if (jX != null) {
-                String containerVersion = jX.getContainerVersion();
+            PluginPackageManager.jy().a(a.GR(), new com.baidu.tbadk.k.c(), Hl && isXiaomiPushSdkShouldOpen);
+            PluginSettings jY = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY();
+            if (jY != null) {
+                String containerVersion = jY.getContainerVersion();
                 if (!TextUtils.isEmpty(containerVersion) && Util.I(containerVersion, str) == Util.VersionCompare.EQUAL) {
                     ab.GM().bZ(z);
                     ab.GM().V(System.currentTimeMillis() - currentTimeMillis);
@@ -316,12 +316,12 @@ public class TbadkApplication extends TbadkCoreApplication {
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
     public void loadPatchs() {
         super.loadPatchs();
-        PluginPackageManager.jx().d(String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
+        PluginPackageManager.jy().d(String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
         int i = b.uL().getInt("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.jx().aC(i);
-        if (checkSyncPatchBlacklist() && l.ji() && i == 0 && PluginPackageManager.jx().jB()) {
+        PluginPackageManager.jy().aC(i);
+        if (checkSyncPatchBlacklist() && l.jj() && i == 0 && PluginPackageManager.jy().jC()) {
             long currentTimeMillis = System.currentTimeMillis();
-            PluginPackageManager.jx().jC();
+            PluginPackageManager.jy().jD();
             ab.GM().U(System.currentTimeMillis() - currentTimeMillis);
         }
     }
@@ -331,11 +331,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         Map<String, PluginSetting> plugins;
         PluginSetting pluginSetting;
         try {
-            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX().getPlugins();
+            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY().getPlugins();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.ka().jX().hasPatch() || plugins == null || plugins.isEmpty()) {
+        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.kb().jY().hasPatch() || plugins == null || plugins.isEmpty()) {
             return false;
         }
         Iterator<PluginSetting> it = plugins.values().iterator();

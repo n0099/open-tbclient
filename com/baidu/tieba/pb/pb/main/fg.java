@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fg implements Animation.AnimationListener {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fg(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,23 +23,23 @@ public class fg implements Animation.AnimationListener {
         com.baidu.tbadk.editortools.j jVar2;
         View view;
         boolean z2;
-        z = this.erv.eqt;
+        z = this.etN.esK;
         if (!z) {
-            jVar = this.erv.KM;
+            jVar = this.etN.KO;
             if (jVar != null) {
-                jVar2 = this.erv.KM;
+                jVar2 = this.etN.KO;
                 jVar2.mp();
                 return;
             }
             return;
         }
-        view = this.erv.eqo;
+        view = this.etN.esF;
         if (view != null) {
-            z2 = this.erv.dpj;
+            z2 = this.etN.drA;
             if (z2) {
-                this.erv.gD(false);
+                this.etN.gN(false);
             } else {
-                this.erv.gE(false);
+                this.etN.gO(false);
             }
         }
     }

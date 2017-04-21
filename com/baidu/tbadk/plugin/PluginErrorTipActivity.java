@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private TextView aHI;
-    private TextView aHJ;
     private TextView aHK;
-    private PluginStatus aHL;
+    private TextView aHL;
+    private TextView aHM;
+    private PluginStatus aHN;
     private View aom;
     private NavigationBar mNavigationBar;
 
@@ -35,11 +35,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.aHL = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.aHN = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.aHL = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.aHN = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.aHL == null) {
+        if (this.aHN == null) {
             finish();
             return;
         }
@@ -52,24 +52,24 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         this.aom = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
         this.aom.setOnClickListener(this);
         this.mNavigationBar.setTitleText(w.l.pluginstatus_tip_title);
-        this.aHI = (TextView) findViewById(w.h.plugin_error_tip_msg);
-        this.aHJ = (TextView) findViewById(w.h.plugin_error_tip_resolve);
-        this.aHK = (TextView) findViewById(w.h.plugin_error_btn);
-        this.aHK.setOnClickListener(this);
-        this.aHI.setText(this.aHL.getErrorMsg());
-        this.aHJ.setText(this.aHL.kg());
-        if (this.aHL.getErrorCode() == 5 || this.aHL.getErrorCode() == 1 || this.aHL.getErrorCode() == 100) {
-            this.aHK.setText(w.l.pluginstatus_btn_restartapp);
-            this.aHK.setVisibility(0);
+        this.aHK = (TextView) findViewById(w.h.plugin_error_tip_msg);
+        this.aHL = (TextView) findViewById(w.h.plugin_error_tip_resolve);
+        this.aHM = (TextView) findViewById(w.h.plugin_error_btn);
+        this.aHM.setOnClickListener(this);
+        this.aHK.setText(this.aHN.getErrorMsg());
+        this.aHL.setText(this.aHN.kh());
+        if (this.aHN.getErrorCode() == 5 || this.aHN.getErrorCode() == 1 || this.aHN.getErrorCode() == 100) {
+            this.aHM.setText(w.l.pluginstatus_btn_restartapp);
+            this.aHM.setVisibility(0);
             return;
         }
-        this.aHK.setVisibility(8);
+        this.aHM.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aHL);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aHN);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -79,12 +79,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onClick(View view) {
         if (view == this.aom) {
             finish();
-        } else if (view == this.aHK) {
-            if (this.aHL != null && this.aHL.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.jk().M(true);
+        } else if (view == this.aHM) {
+            if (this.aHN != null && this.aHN.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.jl().M(true);
             }
             showLoadingDialog(getResources().getString(w.l.waiting));
-            h.fR().postDelayed(new a(this), 2000L);
+            h.fS().postDelayed(new a(this), 2000L);
         }
     }
 

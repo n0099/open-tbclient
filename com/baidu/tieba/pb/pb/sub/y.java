@@ -6,18 +6,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class y implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ NewSubPbActivity esV;
+    final /* synthetic */ NewSubPbActivity evm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(NewSubPbActivity newSubPbActivity) {
-        this.esV = newSubPbActivity;
+        this.evm = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Qf */
-    public ImageView fK() {
-        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.esV.getPageContext().getPageActivity());
+    /* renamed from: Rf */
+    public ImageView fL() {
+        ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.evm.getPageContext().getPageActivity());
         boolean pu = com.baidu.tbadk.core.q.po().pu();
         foreDrawableImageView.setDefaultBg(com.baidu.tbadk.core.util.aq.getDrawable(w.e.common_color_10220));
         if (pu) {

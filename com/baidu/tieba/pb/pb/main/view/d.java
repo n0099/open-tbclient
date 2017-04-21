@@ -6,25 +6,25 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class d {
-    public final View aIw;
-    private View.OnClickListener aRW = new e(this);
-    public final TextView aaF;
-    private PbActivity eig;
-    public final View esd;
+    public final View aIy;
+    private View.OnClickListener aRY = new e(this);
+    public final TextView aaG;
+    private PbActivity ekw;
+    public final View euv;
 
     public d(PbActivity pbActivity) {
-        this.eig = pbActivity;
-        this.aIw = this.eig.findViewById(w.h.manga_navigation_bar_back);
-        this.aaF = (TextView) this.eig.findViewById(w.h.manga_navigation_bar_title);
-        this.esd = this.eig.findViewById(w.h.manga_browser_navigation_bar);
-        this.aIw.setOnClickListener(this.aRW);
+        this.ekw = pbActivity;
+        this.aIy = this.ekw.findViewById(w.h.manga_navigation_bar_back);
+        this.aaG = (TextView) this.ekw.findViewById(w.h.manga_navigation_bar_title);
+        this.euv = this.ekw.findViewById(w.h.manga_browser_navigation_bar);
+        this.aIy.setOnClickListener(this.aRY);
     }
 
     public void setTitle(String str) {
-        this.aaF.setText(str);
+        this.aaG.setText(str);
     }
 
     public void show() {
-        this.esd.setVisibility(0);
+        this.euv.setVisibility(0);
     }
 }

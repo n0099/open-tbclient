@@ -9,29 +9,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static b QZ = null;
-    private static a Ra = null;
-    private static boolean Rb = false;
-    private static String Rc = "";
-    private static transient List<String> Rd = new ArrayList(5);
+    private static b Rb = null;
+    private static a Rc = null;
+    private static boolean Rd = false;
+    private static String Re = "";
+    private static transient List<String> Rf = new ArrayList(5);
 
     /* renamed from: com.baidu.tbadk.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0029a {
-        private static SparseIntArray Re = new SparseIntArray();
+        private static SparseIntArray Rg = new SparseIntArray();
 
         static {
-            Re.put(2, 1);
-            Re.put(4, 2);
-            Re.put(8, 3);
-            Re.put(12, 4);
-            Re.put(16, 5);
-            Re.put(20, 6);
-            Re.put(24, 7);
+            Rg.put(2, 1);
+            Rg.put(4, 2);
+            Rg.put(8, 3);
+            Rg.put(12, 4);
+            Rg.put(16, 5);
+            Rg.put(20, 6);
+            Rg.put(24, 7);
         }
 
         public static int aY(int i) {
-            return Re.get(i);
+            return Rg.get(i);
         }
     }
 
@@ -39,41 +39,41 @@ public class a {
     }
 
     public static a a(BaseFragmentActivity baseFragmentActivity) {
-        if (Ra == null) {
+        if (Rc == null) {
             synchronized (a.class) {
-                if (Ra == null) {
-                    Ra = new a();
-                    QZ = b.b(baseFragmentActivity);
+                if (Rc == null) {
+                    Rc = new a();
+                    Rb = b.b(baseFragmentActivity);
                 }
             }
-        } else if (QZ != null) {
-            QZ.a(baseFragmentActivity.getPageContext());
+        } else if (Rb != null) {
+            Rb.a(baseFragmentActivity.getPageContext());
         }
-        if (Rb && QZ != null) {
-            QZ.ot();
-            QZ.ou();
-            Rb = false;
+        if (Rd && Rb != null) {
+            Rb.ot();
+            Rb.ou();
+            Rd = false;
         }
-        return Ra;
+        return Rc;
     }
 
     public static a b(BaseActivity baseActivity) {
-        if (Ra == null) {
+        if (Rc == null) {
             synchronized (a.class) {
-                if (Ra == null) {
-                    Ra = new a();
-                    QZ = b.c(baseActivity);
+                if (Rc == null) {
+                    Rc = new a();
+                    Rb = b.c(baseActivity);
                 }
             }
-        } else if (QZ != null) {
-            QZ.a(baseActivity.getPageContext());
+        } else if (Rb != null) {
+            Rb.a(baseActivity.getPageContext());
         }
-        if (Rb && QZ != null) {
-            QZ.ot();
-            QZ.ou();
-            Rb = false;
+        if (Rd && Rb != null) {
+            Rb.ot();
+            Rb.ou();
+            Rd = false;
         }
-        return Ra;
+        return Rc;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
@@ -90,81 +90,81 @@ public class a {
 
     public void a(TbPageContext tbPageContext, String str, String str2, String str3) {
         oo();
-        if (QZ != null) {
-            QZ.a(tbPageContext, str, str2, str3);
+        if (Rb != null) {
+            Rb.a(tbPageContext, str, str2, str3);
         }
     }
 
     public void oi() {
         oo();
-        if (QZ != null) {
-            QZ.ot();
-            Rb = false;
+        if (Rb != null) {
+            Rb.ot();
+            Rd = false;
         }
     }
 
     public void oj() {
         oo();
-        if (QZ != null) {
-            QZ.ou();
-            Rb = false;
+        if (Rb != null) {
+            Rb.ou();
+            Rd = false;
         }
     }
 
     public void af(boolean z) {
         oo();
-        if (QZ != null) {
-            QZ.af(z);
+        if (Rb != null) {
+            Rb.af(z);
         }
     }
 
     public boolean ok() {
         oo();
-        if (QZ != null) {
-            return QZ.ok();
+        if (Rb != null) {
+            return Rb.ok();
         }
         return false;
     }
 
     public void a(b.a aVar) {
         oo();
-        if (QZ != null) {
-            QZ.c(aVar);
+        if (Rb != null) {
+            Rb.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
         oo();
-        if (QZ != null) {
-            if (QZ.oq()) {
-                QZ.c(aVar);
+        if (Rb != null) {
+            if (Rb.oq()) {
+                Rb.c(aVar);
             }
-            QZ.os();
+            Rb.os();
         }
     }
 
     public void a(int i, b.a aVar) {
         oo();
-        if (QZ != null) {
-            if (QZ.oq()) {
-                QZ.c(aVar);
+        if (Rb != null) {
+            if (Rb.oq()) {
+                Rb.c(aVar);
             }
-            QZ.aZ(i);
+            Rb.aZ(i);
         }
     }
 
     public void ol() {
         oo();
-        if (QZ != null) {
-            QZ.ol();
-            Rb = true;
+        if (Rb != null) {
+            Rb.ol();
+            Rd = true;
         }
     }
 
     public void om() {
         oo();
-        if (QZ != null) {
-            QZ.om();
+        if (Rb != null) {
+            Rb.om();
         }
     }
 
@@ -175,22 +175,22 @@ public class a {
     }
 
     private void oo() {
-        if (QZ == null) {
+        if (Rb == null) {
         }
     }
 
     public static void op() {
         try {
-            if (QZ != null) {
-                if (Ra != null) {
-                    Ra.on();
+            if (Rb != null) {
+                if (Rc != null) {
+                    Rc.on();
                 }
-                QZ.or();
-                QZ.ov();
-                QZ = null;
+                Rb.or();
+                Rb.ov();
+                Rb = null;
             }
-            if (Ra != null) {
-                Ra = null;
+            if (Rc != null) {
+                Rc = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

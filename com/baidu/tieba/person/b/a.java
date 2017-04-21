@@ -10,31 +10,31 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a extends y.a {
-    public TextView eAa;
-    public ImageView eAb;
-    public RelativeLayout ezX;
-    public ImageView ezY;
-    public TextView ezZ;
+    public RelativeLayout eCn;
+    public ImageView eCo;
+    public TextView eCp;
+    public TextView eCq;
+    public ImageView eCr;
     private int mSkinType;
 
     public a(View view) {
         super(view);
         this.mSkinType = 3;
-        this.ezX = (RelativeLayout) view.findViewById(w.h.book_info);
-        this.ezY = (ImageView) view.findViewById(w.h.person_book_icon);
-        this.ezZ = (TextView) view.findViewById(w.h.book_title);
-        this.eAa = (TextView) view.findViewById(w.h.book_hint);
-        this.eAb = (ImageView) view.findViewById(w.h.nav_indicator);
+        this.eCn = (RelativeLayout) view.findViewById(w.h.book_info);
+        this.eCo = (ImageView) view.findViewById(w.h.person_book_icon);
+        this.eCp = (TextView) view.findViewById(w.h.book_title);
+        this.eCq = (TextView) view.findViewById(w.h.book_hint);
+        this.eCr = (ImageView) view.findViewById(w.h.nav_indicator);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            aq.k(this.ezX, w.e.cp_bg_line_d);
-            aq.c(this.ezY, w.g.icon_mine_book);
-            aq.c(this.ezZ, w.e.cp_cont_b, 1);
-            aq.c(this.eAa, w.e.cp_cont_d, 1);
-            aq.c(this.eAb, w.g.icon_arrow_tab);
-            aq.c(this.ezY, w.g.icon_mine_book);
+            aq.k(this.eCn, w.e.cp_bg_line_d);
+            aq.c(this.eCo, w.g.icon_mine_book);
+            aq.c(this.eCp, w.e.cp_cont_b, 1);
+            aq.c(this.eCq, w.e.cp_cont_d, 1);
+            aq.c(this.eCr, w.g.icon_arrow_tab);
+            aq.c(this.eCo, w.g.icon_mine_book);
             this.mSkinType = i;
         }
     }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class QuickPlayerStatic {
-    private static final CustomMessageListener aQQ = new t(CmdConfigCustom.CMD_BACKGROUND_SWTICH);
+    private static final CustomMessageListener aQS = new t(CmdConfigCustom.CMD_BACKGROUND_SWTICH);
 
     private static void Kh() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, new u());
@@ -25,7 +25,7 @@ public class QuickPlayerStatic {
 
     static {
         Kh();
-        MessageManager.getInstance().registerListener(aQQ);
+        MessageManager.getInstance().registerListener(aQS);
         m.Kd();
     }
 }

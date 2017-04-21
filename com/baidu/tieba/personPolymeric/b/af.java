@@ -17,56 +17,56 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.f {
-    private CustomMessageListener aZX = new ag(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-    private TbPageContext aaX;
-    private ViewGroup aas;
-    private BaseActivity bcy;
-    private com.baidu.tbadk.coreExtra.c.a dSy;
-    private com.baidu.tieba.personPolymeric.d.af eFl;
-    public com.baidu.tieba.f.c eFm;
+    private TbPageContext aaY;
+    private ViewGroup aat;
+    private CustomMessageListener baa = new ag(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private BaseActivity bdG;
+    private com.baidu.tbadk.coreExtra.c.a dUO;
+    private com.baidu.tieba.personPolymeric.d.af eHB;
+    public com.baidu.tieba.f.c eHC;
     private boolean mIsLiked;
     private View.OnClickListener mOnClickListener;
     private UserData mUserData;
 
     public af(BaseActivity baseActivity, ViewGroup viewGroup, UserData userData) {
-        this.bcy = baseActivity;
-        this.aaX = baseActivity.getPageContext();
-        this.aas = viewGroup;
+        this.bdG = baseActivity;
+        this.aaY = baseActivity.getPageContext();
+        this.aat = viewGroup;
         this.mUserData = userData;
         this.mIsLiked = userData.getHave_attention() == 1;
-        this.dSy = new com.baidu.tbadk.coreExtra.c.a(this);
-        ago();
+        this.dUO = new com.baidu.tbadk.coreExtra.c.a(this);
+        ahp();
         initListener();
-        if (this.aas != null && this.eFl != null) {
-            this.eFm = new com.baidu.tieba.f.c(this.aaX.getPageActivity(), this.eFl, null);
+        if (this.aat != null && this.eHB != null) {
+            this.eHC = new com.baidu.tieba.f.c(this.aaY.getPageActivity(), this.eHB, null);
         }
     }
 
-    private void ago() {
+    private void ahp() {
         this.mOnClickListener = new ah(this);
-        this.eFl = new com.baidu.tieba.personPolymeric.d.af(this.aaX.getPageActivity(), this.mIsLiked, this.mOnClickListener);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.g(this.aaX.getPageActivity(), w.f.ds110));
-        this.eFl.setLayoutParams(layoutParams);
+        this.eHB = new com.baidu.tieba.personPolymeric.d.af(this.aaY.getPageActivity(), this.mIsLiked, this.mOnClickListener);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, com.baidu.adp.lib.util.k.g(this.aaY.getPageActivity(), w.f.ds110));
+        this.eHB.setLayoutParams(layoutParams);
         layoutParams.addRule(12);
-        this.eFl.setAlpha(0.9f);
-        this.eFl.setOrientation(0);
-        this.aas.addView(this.eFl);
+        this.eHB.setAlpha(0.9f);
+        this.eHB.setOrientation(0);
+        this.aat.addView(this.eHB);
     }
 
     public void onChangeSkinType(int i) {
-        this.eFl.onChangeSkinType(i);
+        this.eHB.onChangeSkinType(i);
     }
 
     private void initListener() {
-        this.aaX.registerListener(this.aZX);
+        this.aaY.registerListener(this.baa);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFf() {
+    public void aGg() {
         if (this.mUserData != null && this.mUserData.getUserId() != null && this.mUserData.getUserName() != null && !this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             try {
                 TiebaStatic.log(new as("c11593"));
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.aaX.getPageActivity(), Long.parseLong(this.mUserData.getUserId()), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getIsFriend())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.aaY.getPageActivity(), Long.parseLong(this.mUserData.getUserId()), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getIsFriend())));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -85,12 +85,12 @@ public class af extends com.baidu.adp.base.f {
     public void setData(UserData userData) {
         this.mUserData = userData;
         this.mIsLiked = userData.getHave_attention() == 1;
-        this.eFl.setData(this.mIsLiked);
+        this.eHB.setData(this.mIsLiked);
     }
 
     public void onDestroy() {
-        if (this.eFm != null) {
-            this.eFm.Xg();
+        if (this.eHC != null) {
+            this.eHC.Yh();
         }
     }
 }

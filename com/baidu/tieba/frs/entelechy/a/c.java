@@ -12,13 +12,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bSd;
+    final /* synthetic */ b bUu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bSd = bVar;
+        this.bUu = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,23 +36,23 @@ public class c extends CustomMessageListener {
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
                 if (aVar instanceof av) {
-                    frsActivity = this.bSd.bOf;
+                    frsActivity = this.bUu.bQw;
                     ((av) aVar).e(frsActivity);
                 }
             }
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(absDelegateAdapterList);
-            this.bSd.aq(arrayList);
-            list = this.bSd.mAdapters;
+            this.bUu.ar(arrayList);
+            list = this.bUu.mAdapters;
             if (list != null) {
-                list3 = this.bSd.mAdapters;
+                list3 = this.bUu.mAdapters;
                 list3.addAll(absDelegateAdapterList);
             }
-            bdTypeListView = this.bSd.mListView;
+            bdTypeListView = this.bUu.mListView;
             if (bdTypeListView != null) {
-                list2 = this.bSd.mAdapters;
+                list2 = this.bUu.mAdapters;
                 list2.addAll(arrayList);
-                bdTypeListView2 = this.bSd.mListView;
+                bdTypeListView2 = this.bUu.mListView;
                 bdTypeListView2.addAdapters(arrayList);
             }
         }

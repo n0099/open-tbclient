@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends cf<bi> {
-    final /* synthetic */ s bSB;
+    final /* synthetic */ s bUS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.bSB = sVar;
+        this.bUS = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,13 +19,13 @@ public class t extends cf<bi> {
     public void a(View view, bi biVar) {
         if (view != null && biVar != null) {
             if (view.getId() == w.h.frame_video) {
-                com.baidu.tieba.frs.e.b.adp().a(s.bYW, biVar, 4);
+                com.baidu.tieba.frs.e.b.aeq().a(s.cbn, biVar, 4);
             } else if (view.getId() == w.h.layout_root) {
-                com.baidu.tieba.frs.e.b.adp().a(s.bYW, biVar, 1);
+                com.baidu.tieba.frs.e.b.aeq().a(s.cbn, biVar, 1);
             } else if (view.getId() == w.h.image_user) {
-                com.baidu.tieba.frs.e.b.adp().a(s.bYW, biVar, 2);
+                com.baidu.tieba.frs.e.b.aeq().a(s.cbn, biVar, 2);
             } else if (view.getId() == w.h.card_divider_tv) {
-                com.baidu.tieba.frs.f.s.a(s.bYW, biVar.sM());
+                com.baidu.tieba.frs.f.s.a(s.cbn, biVar.sM());
             }
         }
     }

@@ -6,72 +6,72 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b aPp;
-    private long aPm;
-    private final int aPk = 2;
-    private final int aPl = 3;
-    private int aPq = -1;
-    private CustomMessageListener aPr = new c(this, CmdConfigCustom.CMD_HOT_SPLASH_SHOW);
-    private CustomMessageListener aPs = new d(this, CmdConfigCustom.CMD_APP_ENTER_BACKGROUND);
-    private CustomMessageListener aPt = new e(this, CmdConfigCustom.CMD_APP_ENTER_FOREGROUND);
-    private CustomMessageListener aPu = new f(this, CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED);
-    private boolean aPn = false;
-    private boolean aPo = false;
+    private static volatile b aPr;
+    private long aPo;
+    private final int aPm = 2;
+    private final int aPn = 3;
+    private int aPs = -1;
+    private CustomMessageListener aPt = new c(this, CmdConfigCustom.CMD_HOT_SPLASH_SHOW);
+    private CustomMessageListener aPu = new d(this, CmdConfigCustom.CMD_APP_ENTER_BACKGROUND);
+    private CustomMessageListener aPv = new e(this, CmdConfigCustom.CMD_APP_ENTER_FOREGROUND);
+    private CustomMessageListener aPw = new f(this, CmdConfigCustom.CMD_APP_SCREEN_LOCK_STATE_CHANGED);
+    private boolean aPp = false;
+    private boolean aPq = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b Jl() {
-        if (aPp == null) {
+        if (aPr == null) {
             synchronized (b.class) {
-                if (aPp == null) {
-                    aPp = new b();
+                if (aPr == null) {
+                    aPr = new b();
                 }
             }
         }
-        return aPp;
+        return aPr;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.aPs);
-        MessageManager.getInstance().registerListener(this.aPt);
-        MessageManager.getInstance().registerListener(this.aPr);
         MessageManager.getInstance().registerListener(this.aPu);
-        if (com.baidu.tieba.recapp.v.aZP().aZN() != null) {
-            com.baidu.tieba.recapp.v.aZP().aZN().aZE();
+        MessageManager.getInstance().registerListener(this.aPv);
+        MessageManager.getInstance().registerListener(this.aPt);
+        MessageManager.getInstance().registerListener(this.aPw);
+        if (com.baidu.tieba.recapp.v.baQ().baO() != null) {
+            com.baidu.tieba.recapp.v.baQ().baO().baF();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Jm() {
-        this.aPo = true;
-        this.aPm = System.currentTimeMillis() / 1000;
+        this.aPq = true;
+        this.aPo = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean Jn() {
         Jo();
-        this.aPo = false;
+        this.aPq = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.aPn) {
-            this.aPn = false;
+        if (this.aPp) {
+            this.aPp = false;
             return false;
-        } else if (currentTimeMillis - this.aPm <= 2 || currentTimeMillis - this.aPm <= this.aPq) {
+        } else if (currentTimeMillis - this.aPo <= 2 || currentTimeMillis - this.aPo <= this.aPs) {
             return false;
         } else {
-            com.baidu.tieba.recapp.q aZN = com.baidu.tieba.recapp.v.aZP().aZN();
-            return (aZN != null ? aZN.aZG() : 3) < 3;
+            com.baidu.tieba.recapp.q baO = com.baidu.tieba.recapp.v.baQ().baO();
+            return (baO != null ? baO.baH() : 3) < 3;
         }
     }
 
     private void Jo() {
         com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.m9getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.aPq = adAdSense.yk();
-            if (this.aPq <= 0) {
-                this.aPq = 86400;
+            this.aPs = adAdSense.yk();
+            if (this.aPs <= 0) {
+                this.aPs = 86400;
                 return;
             }
             return;
         }
-        this.aPq = 300;
+        this.aPs = 300;
     }
 }

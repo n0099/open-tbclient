@@ -8,23 +8,23 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.mygod.data.a, C0060a> {
-    private TbPageContext<?> aaX;
-    public BdUniqueId baI;
+    private TbPageContext<?> aaY;
+    public BdUniqueId bbE;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aaX = null;
-        this.baI = null;
-        this.aaX = tbPageContext;
+        this.aaY = null;
+        this.bbE = null;
+        this.aaY = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: Z */
     public C0060a onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.homepage.mygod.b.a aVar = new com.baidu.tieba.homepage.mygod.b.a(this.aaX);
-        aVar.i(this.baI);
+        com.baidu.tieba.homepage.mygod.b.a aVar = new com.baidu.tieba.homepage.mygod.b.a(this.aaY);
+        aVar.i(this.bbE);
         return new C0060a(aVar);
     }
 
@@ -34,9 +34,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.mygod.data.a aVar, C0060a c0060a) {
         if (c0060a != null) {
-            c0060a.cwc.onChangeSkinType(this.aaX, TbadkCoreApplication.m9getInst().getSkinType());
-            c0060a.cwc.onBindDataToView(aVar);
-            return c0060a.cwc.getView();
+            c0060a.cyt.onChangeSkinType(this.aaY, TbadkCoreApplication.m9getInst().getSkinType());
+            c0060a.cyt.onBindDataToView(aVar);
+            return c0060a.cyt.getView();
         }
         return null;
     }
@@ -44,11 +44,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: com.baidu.tieba.homepage.mygod.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0060a extends y.a {
-        public com.baidu.tieba.homepage.mygod.b.a cwc;
+        public com.baidu.tieba.homepage.mygod.b.a cyt;
 
         public C0060a(com.baidu.tieba.homepage.mygod.b.a aVar) {
             super(aVar.getView());
-            this.cwc = aVar;
+            this.cyt = aVar;
         }
     }
 }

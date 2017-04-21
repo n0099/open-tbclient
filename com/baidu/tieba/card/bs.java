@@ -12,11 +12,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs extends com.baidu.tieba.view.q {
-    final /* synthetic */ br buq;
+    final /* synthetic */ br bwI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(br brVar) {
-        this.buq = brVar;
+        this.bwI = brVar;
     }
 
     @Override // android.text.style.ClickableSpan
@@ -24,13 +24,13 @@ public class bs extends com.baidu.tieba.view.q {
         CardPersonDynamicThreadData cardPersonDynamicThreadData;
         CardPersonDynamicThreadData cardPersonDynamicThreadData2;
         CardPersonDynamicThreadData cardPersonDynamicThreadData3;
-        cardPersonDynamicThreadData = this.buq.bud;
+        cardPersonDynamicThreadData = this.bwI.bwv;
         if (cardPersonDynamicThreadData != null) {
-            cardPersonDynamicThreadData2 = this.buq.bud;
+            cardPersonDynamicThreadData2 = this.bwI.bwv;
             if (!StringUtils.isNull(cardPersonDynamicThreadData2.forumName)) {
                 MessageManager messageManager = MessageManager.getInstance();
-                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.buq.mContext);
-                cardPersonDynamicThreadData3 = this.buq.bud;
+                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bwI.mContext);
+                cardPersonDynamicThreadData3 = this.bwI.bwv;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createNormalCfg(cardPersonDynamicThreadData3.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
             }
         }
@@ -38,6 +38,6 @@ public class bs extends com.baidu.tieba.view.q {
 
     @Override // com.baidu.tieba.view.q
     public void a(TextPaint textPaint, boolean z) {
-        textPaint.setColor(z ? this.buq.mContext.getResources().getColor(w.e.cp_link_tip_c) : this.buq.mContext.getResources().getColor(w.e.cp_link_tip_a));
+        textPaint.setColor(z ? this.bwI.mContext.getResources().getColor(w.e.cp_link_tip_c) : this.bwI.mContext.getResources().getColor(w.e.cp_link_tip_a));
     }
 }

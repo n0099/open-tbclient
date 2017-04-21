@@ -7,17 +7,17 @@ import com.baidu.tieba.card.cf;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 /* loaded from: classes.dex */
 class n extends cf<CardPersonDynamicThreadData> {
-    final /* synthetic */ k eEm;
+    final /* synthetic */ k eGC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(k kVar) {
-        this.eEm = kVar;
+        this.eGC = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.cf
     public void a(View view, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
-        if (!cardPersonDynamicThreadData.bho) {
+        if (!cardPersonDynamicThreadData.bjz) {
             TiebaStatic.log(new as("c11595"));
         }
     }

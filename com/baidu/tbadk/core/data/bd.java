@@ -9,7 +9,7 @@ public class bd {
     protected String tagNameUrl;
     protected String img_url = null;
     protected String link = null;
-    protected String XQ = null;
+    protected String XR = null;
 
     public String qB() {
         return this.img_url;
@@ -74,10 +74,10 @@ public class bd {
     }
 
     public String rO() {
-        return this.XQ;
+        return this.XR;
     }
 
     public void cu(String str) {
-        this.XQ = str;
+        this.XR = str;
     }
 }

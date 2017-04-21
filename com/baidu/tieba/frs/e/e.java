@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes.dex */
 public interface e {
-    public static final a bYW = new a();
+    public static final a cbn = new a();
 }

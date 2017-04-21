@@ -9,7 +9,7 @@ public interface n<T> {
 
     void a(String str, String str2, T t, long j);
 
-    f ez();
+    f eA();
 
     T k(String str, String str2);
 

@@ -6,11 +6,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a {
-    final /* synthetic */ d asa;
+    final /* synthetic */ d asc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.asa = dVar;
+        this.asc = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a

@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ ClickableHeaderImageView aiK;
+    final /* synthetic */ ClickableHeaderImageView aiL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClickableHeaderImageView clickableHeaderImageView) {
-        this.aiK = clickableHeaderImageView;
+        this.aiL = clickableHeaderImageView;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c8  */
@@ -42,37 +42,37 @@ public class b implements View.OnClickListener {
         bi biVar8;
         bi biVar9;
         com.baidu.tbadk.d.a aVar2;
-        aVar = this.aiK.aiJ;
+        aVar = this.aiL.aiK;
         if (aVar != null) {
-            aVar2 = this.aiK.aiJ;
+            aVar2 = this.aiL.aiK;
             if (aVar2.s(view)) {
                 return;
             }
         }
-        biVar = this.aiK.aiB;
+        biVar = this.aiL.aiC;
         if (biVar != null) {
-            biVar2 = this.aiK.aiB;
+            biVar2 = this.aiL.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.aiK.aiB;
+                biVar3 = this.aiL.aiC;
                 if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.aiK.aiB;
+                    biVar4 = this.aiL.aiC;
                     if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.aiK.aiB;
+                        biVar5 = this.aiL.aiC;
                         long c = com.baidu.adp.lib.g.b.c(biVar5.getAuthor().getUserId(), 0L);
                         boolean z = c == com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                        biVar6 = this.aiK.aiB;
+                        biVar6 = this.aiL.aiC;
                         if (biVar6.ts() != null) {
-                            biVar7 = this.aiK.aiB;
+                            biVar7 = this.aiL.aiC;
                             if (biVar7.ts().channelId > 0) {
                                 MessageManager messageManager = MessageManager.getInstance();
-                                context2 = this.aiK.mContext;
-                                biVar8 = this.aiK.aiB;
+                                context2 = this.aiL.mContext;
+                                biVar8 = this.aiL.aiC;
                                 long j = biVar8.ts().channelId;
-                                biVar9 = this.aiK.aiB;
+                                biVar9 = this.aiL.aiC;
                                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChannelHomeActivityConfig(context2, j, biVar9.ts().mCurrentPage)));
-                                onClickListener = this.aiK.aiC;
+                                onClickListener = this.aiL.aiD;
                                 if (onClickListener == null) {
-                                    onClickListener2 = this.aiK.aiC;
+                                    onClickListener2 = this.aiL.aiD;
                                     onClickListener2.onClick(view);
                                     return;
                                 }
@@ -80,9 +80,9 @@ public class b implements View.OnClickListener {
                             }
                         }
                         MessageManager messageManager2 = MessageManager.getInstance();
-                        context = this.aiK.mContext;
+                        context = this.aiL.mContext;
                         messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(context).createNormalConfig(c, z)));
-                        onClickListener = this.aiK.aiC;
+                        onClickListener = this.aiL.aiD;
                         if (onClickListener == null) {
                         }
                     }

@@ -11,27 +11,27 @@ import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.b {
-    private final /* synthetic */ FrsActivity caf;
-    private final /* synthetic */ com.baidu.tieba.frs.view.o cag;
-    private final /* synthetic */ ShareFromFrsMsgData caj;
-    private final /* synthetic */ int cak;
-    private final /* synthetic */ String cal;
-    private final /* synthetic */ long cam;
+    private final /* synthetic */ ShareFromFrsMsgData ccA;
+    private final /* synthetic */ int ccB;
+    private final /* synthetic */ String ccC;
+    private final /* synthetic */ long ccD;
+    private final /* synthetic */ FrsActivity ccw;
+    private final /* synthetic */ com.baidu.tieba.frs.view.o ccx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsActivity frsActivity, com.baidu.tieba.frs.view.o oVar, int i, String str, long j, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.caf = frsActivity;
-        this.cag = oVar;
-        this.cak = i;
-        this.cal = str;
-        this.cam = j;
-        this.caj = shareFromFrsMsgData;
+        this.ccw = frsActivity;
+        this.ccx = oVar;
+        this.ccB = i;
+        this.ccC = str;
+        this.ccD = j;
+        this.ccA = shareFromFrsMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.caf.HidenSoftKeyPad((InputMethodManager) this.caf.getSystemService("input_method"), this.cag.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.caf.getPageContext().getPageActivity(), this.cak, this.cal, this.cam, "from_share", this.cag.getLeaveMsg(), this.caj.toChatMessageContent())));
+        this.ccw.HidenSoftKeyPad((InputMethodManager) this.ccw.getSystemService("input_method"), this.ccx.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupChatActivityConfig(this.ccw.getPageContext().getPageActivity(), this.ccB, this.ccC, this.ccD, "from_share", this.ccx.getLeaveMsg(), this.ccA.toChatMessageContent())));
         aVar.dismiss();
     }
 }

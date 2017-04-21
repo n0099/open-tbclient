@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(PbActivity pbActivity, int i) {
         super(i);
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,10 +18,10 @@ class j extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ey eyVar;
         ey eyVar2;
-        eyVar = this.ejU.eiS;
+        eyVar = this.emk.eli;
         if (eyVar != null) {
-            eyVar2 = this.ejU.eiS;
-            eyVar2.aNP();
+            eyVar2 = this.emk.eli;
+            eyVar2.aOQ();
         }
     }
 }

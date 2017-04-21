@@ -8,11 +8,11 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class q implements View.OnClickListener {
-    final /* synthetic */ j bRu;
+    final /* synthetic */ j bTL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(j jVar) {
-        this.bRu = jVar;
+        this.bTL = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,14 +22,14 @@ class q implements View.OnClickListener {
         FrsActivity frsActivity;
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
-        popupWindow = this.bRu.cdg;
-        tbPageContext = this.bRu.aaX;
+        popupWindow = this.bTL.cfx;
+        tbPageContext = this.bTL.aaY;
         com.baidu.adp.lib.g.j.a(popupWindow, tbPageContext.getPageActivity());
-        frsActivity = this.bRu.bOf;
-        frsActivity.bMq = false;
-        tbPageContext2 = this.bRu.aaX;
+        frsActivity = this.bTL.bQw;
+        frsActivity.bOH = false;
+        tbPageContext2 = this.bTL.aaY;
         String string = tbPageContext2.getResources().getString(w.l.experion_speed);
-        tbPageContext3 = this.bRu.aaX;
+        tbPageContext3 = this.bTL.aaY;
         com.baidu.tbadk.browser.f.a(tbPageContext3.getPageActivity(), string, String.valueOf(com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
     }
 }

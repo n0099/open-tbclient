@@ -4,17 +4,17 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements Runnable {
-    final /* synthetic */ ai afW;
-    private final /* synthetic */ String afX;
-    private final /* synthetic */ int afY;
-    private final /* synthetic */ String afZ;
+    final /* synthetic */ ai afX;
+    private final /* synthetic */ String afY;
+    private final /* synthetic */ int afZ;
+    private final /* synthetic */ String aga;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ai aiVar, String str, int i, String str2) {
-        this.afW = aiVar;
-        this.afX = str;
-        this.afY = i;
-        this.afZ = str2;
+        this.afX = aiVar;
+        this.afY = str;
+        this.afZ = i;
+        this.aga = str2;
     }
 
     @Override // java.lang.Runnable
@@ -22,17 +22,17 @@ public class ak implements Runnable {
         File vN;
         boolean d;
         boolean cK;
-        vN = this.afW.vN();
-        d = this.afW.d(vN, this.afX);
+        vN = this.afX.vN();
+        d = this.afX.d(vN, this.afY);
         if (d) {
-            this.afW.r(vN);
-            cK = this.afW.cK(this.afY);
+            this.afX.r(vN);
+            cK = this.afX.cK(this.afZ);
             if (cK) {
-                this.afW.vL();
+                this.afX.vL();
                 return;
             }
         }
-        this.afW.vP();
-        this.afW.c(this.afZ, this.afX, this.afY);
+        this.afX.vP();
+        this.afX.c(this.aga, this.afY, this.afZ);
     }
 }

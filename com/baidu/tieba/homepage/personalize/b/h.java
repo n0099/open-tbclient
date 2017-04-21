@@ -11,11 +11,11 @@ import com.baidu.tieba.homepage.personalize.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends cf {
-    final /* synthetic */ g cxU;
+    final /* synthetic */ g cAl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.cxU = gVar;
+        this.cAl = gVar;
     }
 
     @Override // com.baidu.tieba.card.cf
@@ -25,30 +25,30 @@ public class h extends cf {
         ap apVar2;
         ap apVar3;
         com.baidu.tieba.homepage.personalize.model.f fVar2;
-        cc.ST().cO(true);
-        apVar = this.cxU.cxS;
+        cc.TV().cY(true);
+        apVar = this.cAl.cAj;
         if (apVar != null && view != null && (bVar instanceof com.baidu.tieba.card.data.n)) {
-            fVar = this.cxU.cxT;
+            fVar = this.cAl.cAk;
             if (fVar != null) {
                 com.baidu.tieba.card.data.n nVar = (com.baidu.tieba.card.data.n) bVar;
                 if (nVar.threadData != null) {
                     if ((view.getTag() instanceof String) && nVar.Kn() != null && nVar.Kn().getId() != null && !aj.bq(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L))) {
                         aj.bp(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L));
-                        fVar2 = this.cxU.cxT;
-                        fVar2.a(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.SV(), nVar.SX(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
+                        fVar2 = this.cAl.cAk;
+                        fVar2.a(com.baidu.adp.lib.g.b.c(nVar.Kn().getTid(), 0L), nVar.getWeight(), nVar.getSource(), nVar.TX(), nVar.TZ(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
                     }
                     if (view instanceof TbImageView) {
                         TiebaStatic.log(new as("c11004").aa("tid", nVar.threadData.getTid()));
                         return;
                     }
                     int id = view.getId();
-                    apVar2 = this.cxU.cxS;
-                    if (id == apVar2.brw.getId()) {
+                    apVar2 = this.cAl.cAj;
+                    if (id == apVar2.btO.getId()) {
                         TiebaStatic.log(new as("c10803").s("obj_locate", 7).aa("tid", nVar.threadData.getTid()));
                         return;
                     }
                     int id2 = view.getId();
-                    apVar3 = this.cxU.cxS;
+                    apVar3 = this.cAl.cAj;
                     if (id2 == apVar3.getView().getId()) {
                         TiebaStatic.log(new as("c11004").aa("tid", nVar.threadData.getTid()));
                         TiebaStatic.log(new as("c10806").s("obj_locate", 1).aa("tid", nVar.threadData.getId()));

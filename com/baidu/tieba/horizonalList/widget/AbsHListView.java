@@ -41,87 +41,87 @@ import android.view.inputmethod.InputConnection;
 import android.widget.Checkable;
 import android.widget.ListAdapter;
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.horizonalList.a.a;
+import com.baidu.tieba.horizonalList.a.b;
 import com.baidu.tieba.horizonalList.widget.g;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.g<ListAdapter> implements ViewTreeObserver.OnGlobalLayoutListener, ViewTreeObserver.OnTouchModeChangeListener {
-    static final Interpolator cBV = new LinearInterpolator();
-    public static final int[] cBX = new int[1];
-    Drawable Hk;
-    a.AbstractC0062a cAD;
-    protected int cAE;
-    public Object cAF;
-    Object cAG;
-    int cAH;
-    protected SparseArrayCompat<Boolean> cAI;
-    LongSparseArray<Integer> cAJ;
-    protected int cAK;
-    protected a cAL;
-    boolean cAM;
-    boolean cAN;
-    int cAO;
-    protected Rect cAP;
-    protected final k cAQ;
-    int cAR;
-    int cAS;
-    int cAT;
-    int cAU;
-    protected Rect cAV;
-    protected int cAW;
-    View cAX;
-    View cAY;
-    protected boolean cAZ;
-    private int cBA;
-    private boolean cBB;
-    private int cBC;
-    private Runnable cBD;
-    protected Runnable cBE;
-    private float cBF;
-    protected final boolean[] cBG;
-    int cBH;
-    int cBI;
-    private EdgeEffectCompat cBJ;
-    private EdgeEffectCompat cBK;
-    private int cBL;
-    private int cBM;
-    private boolean cBN;
-    private int cBO;
-    private int cBP;
-    private g cBQ;
-    private int cBR;
-    private int cBS;
-    protected boolean cBT;
-    private int cBU;
-    private SavedState cBW;
-    private float cBY;
-    protected boolean cBa;
-    protected int cBb;
-    int cBc;
-    int cBd;
-    int cBe;
-    int cBf;
-    protected int cBg;
-    int cBh;
-    int cBi;
-    private e cBj;
-    protected j cBk;
-    protected int cBl;
-    protected boolean cBm;
-    private h cBn;
-    private boolean cBo;
-    private Rect cBp;
-    protected int cBq;
-    private ContextMenu.ContextMenuInfo cBr;
-    protected int cBs;
-    private int cBt;
-    private c cBu;
-    private Runnable cBv;
-    private b cBw;
-    private i cBx;
-    private Runnable cBy;
-    private int cBz;
+    static final Interpolator cEm = new LinearInterpolator();
+    public static final int[] cEo = new int[1];
+    Drawable Hm;
+    b.a cCU;
+    protected int cCV;
+    public Object cCW;
+    Object cCX;
+    int cCY;
+    protected SparseArrayCompat<Boolean> cCZ;
+    private e cDA;
+    protected j cDB;
+    protected int cDC;
+    protected boolean cDD;
+    private h cDE;
+    private boolean cDF;
+    private Rect cDG;
+    protected int cDH;
+    private ContextMenu.ContextMenuInfo cDI;
+    protected int cDJ;
+    private int cDK;
+    private c cDL;
+    private Runnable cDM;
+    private b cDN;
+    private i cDO;
+    private Runnable cDP;
+    private int cDQ;
+    private int cDR;
+    private boolean cDS;
+    private int cDT;
+    private Runnable cDU;
+    protected Runnable cDV;
+    private float cDW;
+    protected final boolean[] cDX;
+    int cDY;
+    int cDZ;
+    LongSparseArray<Integer> cDa;
+    protected int cDb;
+    protected a cDc;
+    boolean cDd;
+    boolean cDe;
+    int cDf;
+    protected Rect cDg;
+    protected final k cDh;
+    int cDi;
+    int cDj;
+    int cDk;
+    int cDl;
+    protected Rect cDm;
+    protected int cDn;
+    View cDo;
+    View cDp;
+    protected boolean cDq;
+    protected boolean cDr;
+    protected int cDs;
+    int cDt;
+    int cDu;
+    int cDv;
+    int cDw;
+    protected int cDx;
+    int cDy;
+    int cDz;
+    private EdgeEffectCompat cEa;
+    private EdgeEffectCompat cEb;
+    private int cEc;
+    private int cEd;
+    private boolean cEe;
+    private int cEf;
+    private int cEg;
+    private g cEh;
+    private int cEi;
+    private int cEj;
+    protected boolean cEk;
+    private int cEl;
+    private SavedState cEn;
+    private float cEp;
     private int mActivePointerId;
     protected ListAdapter mAdapter;
     private int mDirection;
@@ -148,38 +148,38 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         void adjustListItemSelectionBounds(Rect rect);
     }
 
-    protected abstract void fb(boolean z);
+    protected abstract void fl(boolean z);
 
-    protected abstract int kc(int i2);
+    protected abstract int ki(int i2);
 
     public abstract void setSelectionInt(int i2);
 
     public AbsHListView(Context context) {
         super(context);
-        this.cAE = 0;
-        this.cAK = 0;
-        this.cAN = false;
-        this.cAO = -1;
-        this.cAP = new Rect();
-        this.cAQ = new k();
-        this.cAR = 0;
-        this.cAS = 0;
-        this.cAT = 0;
-        this.cAU = 0;
-        this.cAV = new Rect();
-        this.cAW = 0;
-        this.cBg = -1;
-        this.cBl = 0;
-        this.cBo = true;
-        this.cBq = -1;
-        this.cBr = null;
-        this.cBt = -1;
-        this.cBC = 0;
-        this.cBF = 1.0f;
-        this.cBG = new boolean[1];
+        this.cCV = 0;
+        this.cDb = 0;
+        this.cDe = false;
+        this.cDf = -1;
+        this.cDg = new Rect();
+        this.cDh = new k();
+        this.cDi = 0;
+        this.cDj = 0;
+        this.cDk = 0;
+        this.cDl = 0;
+        this.cDm = new Rect();
+        this.cDn = 0;
+        this.cDx = -1;
+        this.cDC = 0;
+        this.cDF = true;
+        this.cDH = -1;
+        this.cDI = null;
+        this.cDK = -1;
+        this.cDT = 0;
+        this.cDW = 1.0f;
+        this.cDX = new boolean[1];
         this.mActivePointerId = -1;
         this.mDirection = 0;
-        akb();
+        alc();
     }
 
     public AbsHListView(Context context, AttributeSet attributeSet) {
@@ -197,30 +197,30 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         int i4;
         boolean z4 = true;
         int i5 = 0;
-        this.cAE = 0;
-        this.cAK = 0;
-        this.cAN = false;
-        this.cAO = -1;
-        this.cAP = new Rect();
-        this.cAQ = new k();
-        this.cAR = 0;
-        this.cAS = 0;
-        this.cAT = 0;
-        this.cAU = 0;
-        this.cAV = new Rect();
-        this.cAW = 0;
-        this.cBg = -1;
-        this.cBl = 0;
-        this.cBo = true;
-        this.cBq = -1;
-        this.cBr = null;
-        this.cBt = -1;
-        this.cBC = 0;
-        this.cBF = 1.0f;
-        this.cBG = new boolean[1];
+        this.cCV = 0;
+        this.cDb = 0;
+        this.cDe = false;
+        this.cDf = -1;
+        this.cDg = new Rect();
+        this.cDh = new k();
+        this.cDi = 0;
+        this.cDj = 0;
+        this.cDk = 0;
+        this.cDl = 0;
+        this.cDm = new Rect();
+        this.cDn = 0;
+        this.cDx = -1;
+        this.cDC = 0;
+        this.cDF = true;
+        this.cDH = -1;
+        this.cDI = null;
+        this.cDK = -1;
+        this.cDT = 0;
+        this.cDW = 1.0f;
+        this.cDX = new boolean[1];
         this.mActivePointerId = -1;
         this.mDirection = 0;
-        akb();
+        alc();
         TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, w.n.HListView, i2, 0);
         if (obtainStyledAttributes != null) {
             drawable = obtainStyledAttributes.getDrawable(0);
@@ -243,7 +243,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         if (drawable != null) {
             setSelector(drawable);
         }
-        this.cAN = z3;
+        this.cDe = z3;
         setStackFromRight(z2);
         setScrollingCacheEnabled(z);
         setTranscriptMode(i3);
@@ -252,7 +252,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         setChoiceMode(i5);
     }
 
-    private void akb() {
+    private void alc() {
         setClickable(true);
         setFocusableInTouchMode(true);
         setWillNotDraw(false);
@@ -262,22 +262,22 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         this.mTouchSlop = viewConfiguration.getScaledTouchSlop();
         this.mMinimumVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
         this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
-        this.cBH = viewConfiguration.getScaledOverscrollDistance();
-        this.cBI = viewConfiguration.getScaledOverflingDistance();
-        this.cAD = com.baidu.tieba.horizonalList.a.a.av(this);
+        this.cDY = viewConfiguration.getScaledOverscrollDistance();
+        this.cDZ = viewConfiguration.getScaledOverflingDistance();
+        this.cCU = com.baidu.tieba.horizonalList.a.b.av(this);
     }
 
     @Override // android.view.View
     public void setOverScrollMode(int i2) {
         if (i2 != 2) {
-            if (this.cBJ == null) {
+            if (this.cEa == null) {
                 Context context = getContext();
-                this.cBJ = new EdgeEffectCompat(context);
-                this.cBK = new EdgeEffectCompat(context);
+                this.cEa = new EdgeEffectCompat(context);
+                this.cEb = new EdgeEffectCompat(context);
             }
         } else {
-            this.cBJ = null;
-            this.cBK = null;
+            this.cEa = null;
+            this.cEb = null;
         }
         super.setOverScrollMode(i2);
     }
@@ -286,49 +286,49 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // com.baidu.tieba.horizonalList.widget.g
     public void setAdapter(ListAdapter listAdapter) {
         if (listAdapter != null) {
-            this.cAM = this.mAdapter.hasStableIds();
-            if (this.cAE != 0 && this.cAM && this.cAJ == null) {
-                this.cAJ = new LongSparseArray<>();
+            this.cDd = this.mAdapter.hasStableIds();
+            if (this.cCV != 0 && this.cDd && this.cDa == null) {
+                this.cDa = new LongSparseArray<>();
             }
         }
-        if (this.cAI != null) {
-            this.cAI.clear();
+        if (this.cCZ != null) {
+            this.cCZ.clear();
         }
-        if (this.cAJ != null) {
-            this.cAJ.clear();
+        if (this.cDa != null) {
+            this.cDa.clear();
         }
     }
 
     public int getCheckedItemCount() {
-        return this.cAH;
+        return this.cCY;
     }
 
     public boolean isItemChecked(int i2) {
-        if (this.cAE == 0 || this.cAI == null) {
+        if (this.cCV == 0 || this.cCZ == null) {
             return false;
         }
-        return this.cAI.get(i2, false).booleanValue();
+        return this.cCZ.get(i2, false).booleanValue();
     }
 
     public int getCheckedItemPosition() {
-        if (this.cAE == 1 && this.cAI != null && this.cAI.size() == 1) {
-            return this.cAI.keyAt(0);
+        if (this.cCV == 1 && this.cCZ != null && this.cCZ.size() == 1) {
+            return this.cCZ.keyAt(0);
         }
         return -1;
     }
 
     public SparseArrayCompat<Boolean> getCheckedItemPositions() {
-        if (this.cAE != 0) {
-            return this.cAI;
+        if (this.cCV != 0) {
+            return this.cCZ;
         }
         return null;
     }
 
     public long[] getCheckedItemIds() {
-        if (this.cAE == 0 || this.cAJ == null || this.mAdapter == null) {
+        if (this.cCV == 0 || this.cDa == null || this.mAdapter == null) {
             return new long[0];
         }
-        LongSparseArray<Integer> longSparseArray = this.cAJ;
+        LongSparseArray<Integer> longSparseArray = this.cDa;
         int size = longSparseArray.size();
         long[] jArr = new long[size];
         for (int i2 = 0; i2 < size; i2++) {
@@ -338,64 +338,64 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public void clearChoices() {
-        if (this.cAI != null) {
-            this.cAI.clear();
+        if (this.cCZ != null) {
+            this.cCZ.clear();
         }
-        if (this.cAJ != null) {
-            this.cAJ.clear();
+        if (this.cDa != null) {
+            this.cDa.clear();
         }
-        this.cAH = 0;
+        this.cCY = 0;
     }
 
     public void setItemChecked(int i2, boolean z) {
-        if (this.cAE != 0) {
-            if (Build.VERSION.SDK_INT >= 11 && z && this.cAE == 3 && this.cAF == null) {
-                if (this.cAG == null || !((com.baidu.tieba.horizonalList.a.a.b) this.cAG).aka()) {
+        if (this.cCV != 0) {
+            if (Build.VERSION.SDK_INT >= 11 && z && this.cCV == 3 && this.cCW == null) {
+                if (this.cCX == null || !((com.baidu.tieba.horizonalList.a.a.b) this.cCX).alb()) {
                     throw new IllegalStateException("AbsListView: attempted to start selection mode for CHOICE_MODE_MULTIPLE_MODAL but no choice mode callback was supplied. Call setMultiChoiceModeListener to set a callback.");
                 }
-                this.cAF = startActionMode((com.baidu.tieba.horizonalList.a.a.b) this.cAG);
+                this.cCW = startActionMode((com.baidu.tieba.horizonalList.a.a.b) this.cCX);
             }
-            if (this.cAE == 2 || (Build.VERSION.SDK_INT >= 11 && this.cAE == 3)) {
-                boolean booleanValue = this.cAI.get(i2, false).booleanValue();
-                this.cAI.put(i2, Boolean.valueOf(z));
-                if (this.cAJ != null && this.mAdapter.hasStableIds()) {
+            if (this.cCV == 2 || (Build.VERSION.SDK_INT >= 11 && this.cCV == 3)) {
+                boolean booleanValue = this.cCZ.get(i2, false).booleanValue();
+                this.cCZ.put(i2, Boolean.valueOf(z));
+                if (this.cDa != null && this.mAdapter.hasStableIds()) {
                     if (z) {
-                        this.cAJ.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
+                        this.cDa.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
                     } else {
-                        this.cAJ.delete(this.mAdapter.getItemId(i2));
+                        this.cDa.delete(this.mAdapter.getItemId(i2));
                     }
                 }
                 if (booleanValue != z) {
                     if (z) {
-                        this.cAH++;
+                        this.cCY++;
                     } else {
-                        this.cAH--;
+                        this.cCY--;
                     }
                 }
-                if (this.cAF != null) {
-                    ((com.baidu.tieba.horizonalList.a.a.b) this.cAG).onItemCheckedStateChanged((ActionMode) this.cAF, i2, this.mAdapter.getItemId(i2), z);
+                if (this.cCW != null) {
+                    ((com.baidu.tieba.horizonalList.a.a.b) this.cCX).onItemCheckedStateChanged((ActionMode) this.cCW, i2, this.mAdapter.getItemId(i2), z);
                 }
             } else {
-                boolean z2 = this.cAJ != null && this.mAdapter.hasStableIds();
+                boolean z2 = this.cDa != null && this.mAdapter.hasStableIds();
                 if (z || isItemChecked(i2)) {
-                    this.cAI.clear();
+                    this.cCZ.clear();
                     if (z2) {
-                        this.cAJ.clear();
+                        this.cDa.clear();
                     }
                 }
                 if (z) {
-                    this.cAI.put(i2, true);
+                    this.cCZ.put(i2, true);
                     if (z2) {
-                        this.cAJ.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
+                        this.cDa.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
                     }
-                    this.cAH = 1;
-                } else if (this.cAI.size() == 0 || !this.cAI.valueAt(0).booleanValue()) {
-                    this.cAH = 0;
+                    this.cCY = 1;
+                } else if (this.cCZ.size() == 0 || !this.cCZ.valueAt(0).booleanValue()) {
+                    this.cCY = 0;
                 }
             }
-            if (!this.mInLayout && !this.cDg) {
-                this.ajq = true;
-                akQ();
+            if (!this.mInLayout && !this.cFx) {
+                this.ajr = true;
+                alR();
                 requestLayout();
             }
         }
@@ -407,40 +407,40 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         boolean z2;
         boolean z3 = true;
         boolean z4 = false;
-        if (this.cAE != 0) {
-            if (this.cAE == 2 || (Build.VERSION.SDK_INT >= 11 && this.cAE == 3 && this.cAF != null)) {
-                boolean z5 = !this.cAI.get(i2, false).booleanValue();
-                this.cAI.put(i2, Boolean.valueOf(z5));
-                if (this.cAJ != null && this.mAdapter.hasStableIds()) {
+        if (this.cCV != 0) {
+            if (this.cCV == 2 || (Build.VERSION.SDK_INT >= 11 && this.cCV == 3 && this.cCW != null)) {
+                boolean z5 = !this.cCZ.get(i2, false).booleanValue();
+                this.cCZ.put(i2, Boolean.valueOf(z5));
+                if (this.cDa != null && this.mAdapter.hasStableIds()) {
                     if (z5) {
-                        this.cAJ.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
+                        this.cDa.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
                     } else {
-                        this.cAJ.delete(this.mAdapter.getItemId(i2));
+                        this.cDa.delete(this.mAdapter.getItemId(i2));
                     }
                 }
                 if (z5) {
-                    this.cAH++;
+                    this.cCY++;
                 } else {
-                    this.cAH--;
+                    this.cCY--;
                 }
-                if (this.cAF != null) {
-                    ((com.baidu.tieba.horizonalList.a.a.b) this.cAG).onItemCheckedStateChanged((ActionMode) this.cAF, i2, j2, z5);
+                if (this.cCW != null) {
+                    ((com.baidu.tieba.horizonalList.a.a.b) this.cCX).onItemCheckedStateChanged((ActionMode) this.cCW, i2, j2, z5);
                 } else {
                     z4 = true;
                 }
                 z2 = z4;
                 z4 = true;
-            } else if (this.cAE == 1) {
-                if (!this.cAI.get(i2, false).booleanValue()) {
-                    this.cAI.clear();
-                    this.cAI.put(i2, true);
-                    if (this.cAJ != null && this.mAdapter.hasStableIds()) {
-                        this.cAJ.clear();
-                        this.cAJ.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
+            } else if (this.cCV == 1) {
+                if (!this.cCZ.get(i2, false).booleanValue()) {
+                    this.cCZ.clear();
+                    this.cCZ.put(i2, true);
+                    if (this.cDa != null && this.mAdapter.hasStableIds()) {
+                        this.cDa.clear();
+                        this.cDa.put(this.mAdapter.getItemId(i2), Integer.valueOf(i2));
                     }
-                    this.cAH = 1;
-                } else if (this.cAI.size() == 0 || !this.cAI.valueAt(0).booleanValue()) {
-                    this.cAH = 0;
+                    this.cCY = 1;
+                } else if (this.cCZ.size() == 0 || !this.cCZ.valueAt(0).booleanValue()) {
+                    this.cCY = 0;
                 }
                 z4 = true;
                 z2 = true;
@@ -448,7 +448,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                 z2 = true;
             }
             if (z4) {
-                akc();
+                ald();
             }
             boolean z6 = z2;
             z = true;
@@ -462,41 +462,41 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         return z;
     }
 
-    private void akc() {
-        int i2 = this.cCL;
+    private void ald() {
+        int i2 = this.cFc;
         int childCount = getChildCount();
         boolean z = Build.VERSION.SDK_INT >= 11;
         for (int i3 = 0; i3 < childCount; i3++) {
             View childAt = getChildAt(i3);
             int i4 = i2 + i3;
             if (childAt instanceof Checkable) {
-                ((Checkable) childAt).setChecked(this.cAI.get(i4, false).booleanValue());
+                ((Checkable) childAt).setChecked(this.cCZ.get(i4, false).booleanValue());
             } else if (z) {
-                childAt.setActivated(this.cAI.get(i4, false).booleanValue());
+                childAt.setActivated(this.cCZ.get(i4, false).booleanValue());
             }
         }
     }
 
     public int getChoiceMode() {
-        return this.cAE;
+        return this.cCV;
     }
 
     public void setChoiceMode(int i2) {
-        this.cAE = i2;
-        if (Build.VERSION.SDK_INT >= 11 && this.cAF != null) {
+        this.cCV = i2;
+        if (Build.VERSION.SDK_INT >= 11 && this.cCW != null) {
             if (Build.VERSION.SDK_INT >= 11) {
-                ((ActionMode) this.cAF).finish();
+                ((ActionMode) this.cCW).finish();
             }
-            this.cAF = null;
+            this.cCW = null;
         }
-        if (this.cAE != 0) {
-            if (this.cAI == null) {
-                this.cAI = new SparseArrayCompat<>();
+        if (this.cCV != 0) {
+            if (this.cCZ == null) {
+                this.cCZ = new SparseArrayCompat<>();
             }
-            if (this.cAJ == null && this.mAdapter != null && this.mAdapter.hasStableIds()) {
-                this.cAJ = new LongSparseArray<>();
+            if (this.cDa == null && this.mAdapter != null && this.mAdapter.hasStableIds()) {
+                this.cDa = new LongSparseArray<>();
             }
-            if (Build.VERSION.SDK_INT >= 11 && this.cAE == 3) {
+            if (Build.VERSION.SDK_INT >= 11 && this.cCV == 3) {
                 clearChoices();
                 setLongClickable(true);
             }
@@ -505,23 +505,23 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
     public void setMultiChoiceModeListener(com.baidu.tieba.horizonalList.a.a.a aVar) {
         if (Build.VERSION.SDK_INT >= 11) {
-            if (this.cAG == null) {
-                this.cAG = new com.baidu.tieba.horizonalList.a.a.b(this);
+            if (this.cCX == null) {
+                this.cCX = new com.baidu.tieba.horizonalList.a.a.b(this);
             }
-            ((com.baidu.tieba.horizonalList.a.a.b) this.cAG).a(aVar);
+            ((com.baidu.tieba.horizonalList.a.a.b) this.cCX).a(aVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean akd() {
+    public boolean ale() {
         int childCount = getChildCount();
         if (childCount == 0) {
             return true;
         }
-        if (childCount != this.cCY) {
+        if (childCount != this.cFp) {
             return false;
         }
-        return getChildAt(0).getLeft() >= this.cAV.left && getChildAt(childCount + (-1)).getRight() <= getWidth() - this.cAV.right;
+        return getChildAt(0).getLeft() >= this.cDm.left && getChildAt(childCount + (-1)).getRight() <= getWidth() - this.cDm.right;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -531,18 +531,18 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public void setSmoothScrollbarEnabled(boolean z) {
-        this.cBo = z;
+        this.cDF = z;
     }
 
     public void setOnScrollListener(h hVar) {
-        this.cBn = hVar;
-        ake();
+        this.cDE = hVar;
+        alf();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ake() {
-        if (this.cBn != null) {
-            this.cBn.a(this, this.cCL, getChildCount(), this.cCY);
+    public void alf() {
+        if (this.cDE != null) {
+            this.cDE.a(this, this.cFc, getChildCount(), this.cFp);
         }
         onScrollChanged(0, 0, 0, 0);
     }
@@ -552,9 +552,9 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         if (i2 == 4096) {
             int firstVisiblePosition = getFirstVisiblePosition();
             int lastVisiblePosition = getLastVisiblePosition();
-            if (this.cBR != firstVisiblePosition || this.cBS != lastVisiblePosition) {
-                this.cBR = firstVisiblePosition;
-                this.cBS = lastVisiblePosition;
+            if (this.cEi != firstVisiblePosition || this.cEj != lastVisiblePosition) {
+                this.cEi = firstVisiblePosition;
+                this.cEj = lastVisiblePosition;
             } else {
                 return;
             }
@@ -584,7 +584,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
     public void setScrollingCacheEnabled(boolean z) {
         if (this.mScrollingCacheEnabled && !z) {
-            aks();
+            alt();
         }
         this.mScrollingCacheEnabled = z;
     }
@@ -600,20 +600,20 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         super.getFocusedRect(rect);
     }
 
-    private void akf() {
+    private void alg() {
         setSelector(getResources().getDrawable(17301602));
     }
 
     public void setStackFromRight(boolean z) {
-        if (this.cBm != z) {
-            this.cBm = z;
-            akg();
+        if (this.cDD != z) {
+            this.cDD = z;
+            alh();
         }
     }
 
-    void akg() {
+    void alh() {
         if (getChildCount() > 0) {
-            akh();
+            ali();
             requestLayout();
             invalidate();
         }
@@ -623,14 +623,14 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     /* loaded from: classes.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new com.baidu.tieba.horizonalList.widget.f();
-        long cCC;
-        long cCD;
-        int cCE;
-        String cCF;
-        boolean cCG;
-        int cCH;
-        SparseArrayCompat<Boolean> cCI;
-        LongSparseArray<Integer> cCJ;
+        long cET;
+        long cEU;
+        int cEV;
+        String cEW;
+        boolean cEX;
+        int cEY;
+        SparseArrayCompat<Boolean> cEZ;
+        LongSparseArray<Integer> cFa;
         int position;
         int width;
 
@@ -645,16 +645,16 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
         private SavedState(Parcel parcel) {
             super(parcel);
-            this.cCC = parcel.readLong();
-            this.cCD = parcel.readLong();
-            this.cCE = parcel.readInt();
+            this.cET = parcel.readLong();
+            this.cEU = parcel.readLong();
+            this.cEV = parcel.readInt();
             this.position = parcel.readInt();
             this.width = parcel.readInt();
-            this.cCF = parcel.readString();
-            this.cCG = parcel.readByte() != 0;
-            this.cCH = parcel.readInt();
-            this.cCI = h(parcel);
-            this.cCJ = g(parcel);
+            this.cEW = parcel.readString();
+            this.cEX = parcel.readByte() != 0;
+            this.cEY = parcel.readInt();
+            this.cEZ = h(parcel);
+            this.cFa = g(parcel);
         }
 
         private LongSparseArray<Integer> g(Parcel parcel) {
@@ -716,20 +716,20 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeLong(this.cCC);
-            parcel.writeLong(this.cCD);
-            parcel.writeInt(this.cCE);
+            parcel.writeLong(this.cET);
+            parcel.writeLong(this.cEU);
+            parcel.writeInt(this.cEV);
             parcel.writeInt(this.position);
             parcel.writeInt(this.width);
-            parcel.writeString(this.cCF);
-            parcel.writeByte((byte) (this.cCG ? 1 : 0));
-            parcel.writeInt(this.cCH);
-            a(this.cCI, parcel);
-            a(this.cCJ, parcel);
+            parcel.writeString(this.cEW);
+            parcel.writeByte((byte) (this.cEX ? 1 : 0));
+            parcel.writeInt(this.cEY);
+            a(this.cEZ, parcel);
+            a(this.cFa, parcel);
         }
 
         public String toString() {
-            return "AbsListView.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " selectedId=" + this.cCC + " firstId=" + this.cCD + " viewLeft=" + this.cCE + " position=" + this.position + " width=" + this.width + " filter=" + this.cCF + " checkState=" + this.cCI + "}";
+            return "AbsListView.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " selectedId=" + this.cET + " firstId=" + this.cEU + " viewLeft=" + this.cEV + " position=" + this.position + " width=" + this.width + " filter=" + this.cEW + " checkState=" + this.cEZ + "}";
         }
     }
 
@@ -737,59 +737,59 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     public Parcelable onSaveInstanceState() {
         boolean z = true;
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        if (this.cBW != null) {
-            savedState.cCC = this.cBW.cCC;
-            savedState.cCD = this.cBW.cCD;
-            savedState.cCE = this.cBW.cCE;
-            savedState.position = this.cBW.position;
-            savedState.width = this.cBW.width;
-            savedState.cCF = this.cBW.cCF;
-            savedState.cCG = this.cBW.cCG;
-            savedState.cCH = this.cBW.cCH;
-            savedState.cCI = this.cBW.cCI;
-            savedState.cCJ = this.cBW.cCJ;
+        if (this.cEn != null) {
+            savedState.cET = this.cEn.cET;
+            savedState.cEU = this.cEn.cEU;
+            savedState.cEV = this.cEn.cEV;
+            savedState.position = this.cEn.position;
+            savedState.width = this.cEn.width;
+            savedState.cEW = this.cEn.cEW;
+            savedState.cEX = this.cEn.cEX;
+            savedState.cEY = this.cEn.cEY;
+            savedState.cEZ = this.cEn.cEZ;
+            savedState.cFa = this.cEn.cFa;
             return savedState;
         }
-        boolean z2 = getChildCount() > 0 && this.cCY > 0;
+        boolean z2 = getChildCount() > 0 && this.cFp > 0;
         long selectedItemId = getSelectedItemId();
-        savedState.cCC = selectedItemId;
+        savedState.cET = selectedItemId;
         savedState.width = getWidth();
         if (selectedItemId >= 0) {
-            savedState.cCE = this.cBl;
+            savedState.cEV = this.cDC;
             savedState.position = getSelectedItemPosition();
-            savedState.cCD = -1L;
-        } else if (z2 && this.cCL > 0) {
-            savedState.cCE = getChildAt(0).getLeft();
-            int i2 = this.cCL;
-            if (i2 >= this.cCY) {
-                i2 = this.cCY - 1;
+            savedState.cEU = -1L;
+        } else if (z2 && this.cFc > 0) {
+            savedState.cEV = getChildAt(0).getLeft();
+            int i2 = this.cFc;
+            if (i2 >= this.cFp) {
+                i2 = this.cFp - 1;
             }
             savedState.position = i2;
-            savedState.cCD = this.mAdapter.getItemId(i2);
+            savedState.cEU = this.mAdapter.getItemId(i2);
         } else {
-            savedState.cCE = 0;
-            savedState.cCD = -1L;
+            savedState.cEV = 0;
+            savedState.cEU = -1L;
             savedState.position = 0;
         }
-        savedState.cCF = null;
-        savedState.cCG = (Build.VERSION.SDK_INT < 11 || this.cAE != 3 || this.cAF == null) ? false : false;
-        if (this.cAI != null) {
+        savedState.cEW = null;
+        savedState.cEX = (Build.VERSION.SDK_INT < 11 || this.cCV != 3 || this.cCW == null) ? false : false;
+        if (this.cCZ != null) {
             try {
-                savedState.cCI = this.cAI.m1clone();
+                savedState.cEZ = this.cCZ.m1clone();
             } catch (NoSuchMethodError e2) {
                 e2.printStackTrace();
-                savedState.cCI = new SparseArrayCompat<>();
+                savedState.cEZ = new SparseArrayCompat<>();
             }
         }
-        if (this.cAJ != null) {
+        if (this.cDa != null) {
             LongSparseArray<Integer> longSparseArray = new LongSparseArray<>();
-            int size = this.cAJ.size();
+            int size = this.cDa.size();
             for (int i3 = 0; i3 < size; i3++) {
-                longSparseArray.put(this.cAJ.keyAt(i3), this.cAJ.valueAt(i3));
+                longSparseArray.put(this.cDa.keyAt(i3), this.cDa.valueAt(i3));
             }
-            savedState.cCJ = longSparseArray;
+            savedState.cFa = longSparseArray;
         }
-        savedState.cCH = this.cAH;
+        savedState.cEY = this.cCY;
         return savedState;
     }
 
@@ -797,35 +797,35 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     public void onRestoreInstanceState(Parcelable parcelable) {
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        this.ajq = true;
-        this.cCP = savedState.width;
-        if (savedState.cCC >= 0) {
-            this.cCQ = true;
-            this.cBW = savedState;
-            this.cCO = savedState.cCC;
-            this.cCN = savedState.position;
-            this.cCM = savedState.cCE;
-            this.cCR = 0;
-        } else if (savedState.cCD >= 0) {
+        this.ajr = true;
+        this.cFg = savedState.width;
+        if (savedState.cET >= 0) {
+            this.cFh = true;
+            this.cEn = savedState;
+            this.cFf = savedState.cET;
+            this.cFe = savedState.position;
+            this.cFd = savedState.cEV;
+            this.cFi = 0;
+        } else if (savedState.cEU >= 0) {
             setSelectedPositionInt(-1);
             setNextSelectedPositionInt(-1);
-            this.cAO = -1;
-            this.cCQ = true;
-            this.cBW = savedState;
-            this.cCO = savedState.cCD;
-            this.cCN = savedState.position;
-            this.cCM = savedState.cCE;
-            this.cCR = 1;
+            this.cDf = -1;
+            this.cFh = true;
+            this.cEn = savedState;
+            this.cFf = savedState.cEU;
+            this.cFe = savedState.position;
+            this.cFd = savedState.cEV;
+            this.cFi = 1;
         }
-        if (savedState.cCI != null) {
-            this.cAI = savedState.cCI;
+        if (savedState.cEZ != null) {
+            this.cCZ = savedState.cEZ;
         }
-        if (savedState.cCJ != null) {
-            this.cAJ = savedState.cCJ;
+        if (savedState.cFa != null) {
+            this.cDa = savedState.cFa;
         }
-        this.cAH = savedState.cCH;
-        if (Build.VERSION.SDK_INT >= 11 && savedState.cCG && this.cAE == 3 && this.cAG != null) {
-            this.cAF = startActionMode((com.baidu.tieba.horizonalList.a.a.b) this.cAG);
+        this.cCY = savedState.cEY;
+        if (Build.VERSION.SDK_INT >= 11 && savedState.cEX && this.cCV == 3 && this.cCX != null) {
+            this.cCW = startActionMode((com.baidu.tieba.horizonalList.a.a.b) this.cCX);
         }
         requestLayout();
     }
@@ -834,38 +834,38 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.View
     public void onFocusChanged(boolean z, int i2, Rect rect) {
         super.onFocusChanged(z, i2, rect);
-        if (z && this.cjm < 0 && !isInTouchMode()) {
-            if (!this.cBT && this.mAdapter != null) {
-                this.ajq = true;
-                this.cCZ = this.cCY;
-                this.cCY = this.mAdapter.getCount();
+        if (z && this.clD < 0 && !isInTouchMode()) {
+            if (!this.cEk && this.mAdapter != null) {
+                this.ajr = true;
+                this.cFq = this.cFp;
+                this.cFp = this.mAdapter.getCount();
             }
-            akw();
+            alx();
         }
     }
 
     @Override // android.view.View, android.view.ViewParent
     public void requestLayout() {
-        if (!this.cDg && !this.mInLayout) {
+        if (!this.cFx && !this.mInLayout) {
             super.requestLayout();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void akh() {
+    public void ali() {
         removeAllViewsInLayout();
-        this.cCL = 0;
-        this.ajq = false;
-        this.cBE = null;
-        this.cCQ = false;
-        this.cBW = null;
-        this.cDb = -1;
-        this.cDc = Long.MIN_VALUE;
+        this.cFc = 0;
+        this.ajr = false;
+        this.cDV = null;
+        this.cFh = false;
+        this.cEn = null;
+        this.cFs = -1;
+        this.cFt = Long.MIN_VALUE;
         setSelectedPositionInt(-1);
         setNextSelectedPositionInt(-1);
-        this.cBl = 0;
-        this.cAO = -1;
-        this.cAP.setEmpty();
+        this.cDC = 0;
+        this.cDf = -1;
+        this.cDg.setEmpty();
         invalidate();
     }
 
@@ -873,7 +873,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     protected int computeHorizontalScrollExtent() {
         int childCount = getChildCount();
         if (childCount > 0) {
-            if (this.cBo) {
+            if (this.cDF) {
                 int i2 = childCount * 100;
                 View childAt = getChildAt(0);
                 int left = childAt.getLeft();
@@ -897,21 +897,21 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.View
     protected int computeHorizontalScrollOffset() {
         int i2 = 0;
-        int i3 = this.cCL;
+        int i3 = this.cFc;
         int childCount = getChildCount();
         if (i3 < 0 || childCount <= 0) {
             return 0;
         }
-        if (this.cBo) {
+        if (this.cDF) {
             View childAt = getChildAt(0);
             int left = childAt.getLeft();
             int width = childAt.getWidth();
             if (width > 0) {
-                return Math.max(((i3 * 100) - ((left * 100) / width)) + ((int) ((getScrollX() / getWidth()) * this.cCY * 100.0f)), 0);
+                return Math.max(((i3 * 100) - ((left * 100) / width)) + ((int) ((getScrollX() / getWidth()) * this.cFp * 100.0f)), 0);
             }
             return 0;
         }
-        int i4 = this.cCY;
+        int i4 = this.cFp;
         if (i3 != 0) {
             i2 = i3 + childCount == i4 ? i4 : (childCount / 2) + i3;
         }
@@ -920,14 +920,14 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
     @Override // android.view.View
     protected int computeHorizontalScrollRange() {
-        if (this.cBo) {
-            int max = Math.max(this.cCY * 100, 0);
+        if (this.cDF) {
+            int max = Math.max(this.cFp * 100, 0);
             if (getScrollX() != 0) {
-                return max + Math.abs((int) ((getScrollX() / getWidth()) * this.cCY * 100.0f));
+                return max + Math.abs((int) ((getScrollX() / getWidth()) * this.cFp * 100.0f));
             }
             return max;
         }
-        return this.cCY;
+        return this.cFp;
     }
 
     @Override // android.view.View
@@ -935,7 +935,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         int childCount = getChildCount();
         float leftFadingEdgeStrength = super.getLeftFadingEdgeStrength();
         if (childCount != 0) {
-            if (this.cCL > 0) {
+            if (this.cFc > 0) {
                 return 1.0f;
             }
             int left = getChildAt(0).getLeft();
@@ -949,7 +949,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         int childCount = getChildCount();
         float rightFadingEdgeStrength = super.getRightFadingEdgeStrength();
         if (childCount != 0) {
-            if ((this.cCL + childCount) - 1 < this.cCY - 1) {
+            if ((this.cFc + childCount) - 1 < this.cFp - 1) {
                 return 1.0f;
             }
             int right = getChildAt(childCount - 1).getRight();
@@ -966,19 +966,19 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        if (this.Hk == null) {
-            akf();
+        if (this.Hm == null) {
+            alg();
         }
-        Rect rect = this.cAV;
-        rect.left = this.cAR + getPaddingLeft();
-        rect.top = this.cAS + getPaddingTop();
-        rect.right = this.cAT + getPaddingRight();
-        rect.bottom = this.cAU + getPaddingBottom();
-        if (this.cBz == 1) {
+        Rect rect = this.cDm;
+        rect.left = this.cDi + getPaddingLeft();
+        rect.top = this.cDj + getPaddingTop();
+        rect.right = this.cDk + getPaddingRight();
+        rect.bottom = this.cDl + getPaddingBottom();
+        if (this.cDQ == 1) {
             int childCount = getChildCount();
             int width = getWidth() - getPaddingRight();
             View childAt = getChildAt(childCount - 1);
-            this.cBN = childCount + this.cCL >= this.cBU && (childAt != null ? childAt.getRight() : width) <= width;
+            this.cEe = childCount + this.cFc >= this.cEl && (childAt != null ? childAt.getRight() : width) <= width;
         }
     }
 
@@ -992,11 +992,11 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             for (int i6 = 0; i6 < childCount; i6++) {
                 getChildAt(i6).forceLayout();
             }
-            this.cAQ.akC();
+            this.cDh.alD();
         }
         layoutChildren();
         this.mInLayout = false;
-        this.cBs = (i4 - i2) / 3;
+        this.cDJ = (i4 - i2) / 3;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -1004,50 +1004,50 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aki() {
+    public void alj() {
         boolean z = true;
-        if (this.cAX != null) {
-            boolean z2 = this.cCL > 0;
+        if (this.cDo != null) {
+            boolean z2 = this.cFc > 0;
             if (!z2 && getChildCount() > 0) {
-                z2 = getChildAt(0).getLeft() < this.cAV.left;
+                z2 = getChildAt(0).getLeft() < this.cDm.left;
             }
-            this.cAX.setVisibility(z2 ? 0 : 4);
+            this.cDo.setVisibility(z2 ? 0 : 4);
         }
-        if (this.cAY != null) {
+        if (this.cDp != null) {
             int childCount = getChildCount();
-            boolean z3 = this.cCL + childCount < this.cCY;
+            boolean z3 = this.cFc + childCount < this.cFp;
             if (z3 || childCount <= 0) {
                 z = z3;
-            } else if (getChildAt(childCount - 1).getRight() <= getRight() - this.cAV.right) {
+            } else if (getChildAt(childCount - 1).getRight() <= getRight() - this.cDm.right) {
                 z = false;
             }
-            this.cAY.setVisibility(z ? 0 : 4);
+            this.cDp.setVisibility(z ? 0 : 4);
         }
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.g
     @ViewDebug.ExportedProperty
     public View getSelectedView() {
-        if (this.cCY <= 0 || this.cjm < 0) {
+        if (this.cFp <= 0 || this.clD < 0) {
             return null;
         }
-        return getChildAt(this.cjm - this.cCL);
+        return getChildAt(this.clD - this.cFc);
     }
 
     public int getListPaddingTop() {
-        return this.cAV.top;
+        return this.cDm.top;
     }
 
     public int getListPaddingBottom() {
-        return this.cAV.bottom;
+        return this.cDm.bottom;
     }
 
     public int getListPaddingLeft() {
-        return this.cAV.left;
+        return this.cDm.left;
     }
 
     public int getListPaddingRight() {
-        return this.cAV.right;
+        return this.cDm.right;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -1059,24 +1059,24 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         View view;
         f fVar;
         zArr[0] = false;
-        View kk = this.cAQ.kk(i2);
-        if (kk == null) {
-            View kl = this.cAQ.kl(i2);
-            if (kl != null) {
-                view = this.mAdapter.getView(i2, kl, this);
-                if (view != kl) {
-                    this.cAQ.r(kl, i2);
-                    if (this.cBA != 0) {
-                        view.setDrawingCacheBackgroundColor(this.cBA);
-                        kk = view;
+        View kq = this.cDh.kq(i2);
+        if (kq == null) {
+            View kr = this.cDh.kr(i2);
+            if (kr != null) {
+                view = this.mAdapter.getView(i2, kr, this);
+                if (view != kr) {
+                    this.cDh.r(kr, i2);
+                    if (this.cDR != 0) {
+                        view.setDrawingCacheBackgroundColor(this.cDR);
+                        kq = view;
                     }
                 } else {
                     zArr[0] = true;
                     view.onFinishTemporaryDetach();
-                    kk = view;
+                    kq = view;
                 }
-                if (this.cAM) {
-                    ViewGroup.LayoutParams layoutParams = kk.getLayoutParams();
+                if (this.cDd) {
+                    ViewGroup.LayoutParams layoutParams = kq.getLayoutParams();
                     if (layoutParams == null) {
                         fVar = (f) generateDefaultLayoutParams();
                     } else if (!checkLayoutParams(layoutParams)) {
@@ -1084,26 +1084,26 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     } else {
                         fVar = (f) layoutParams;
                     }
-                    fVar.cCk = this.mAdapter.getItemId(i2);
-                    kk.setLayoutParams(fVar);
+                    fVar.cEB = this.mAdapter.getItemId(i2);
+                    kq.setLayoutParams(fVar);
                 }
-                if (this.cDa.isEnabled() && this.cBQ == null) {
-                    this.cBQ = new g();
+                if (this.cFr.isEnabled() && this.cEh == null) {
+                    this.cEh = new g();
                 }
             } else {
                 view = this.mAdapter.getView(i2, null, this);
-                if (this.cBA != 0) {
-                    view.setDrawingCacheBackgroundColor(this.cBA);
+                if (this.cDR != 0) {
+                    view.setDrawingCacheBackgroundColor(this.cDR);
                 }
             }
-            kk = view;
-            if (this.cAM) {
+            kq = view;
+            if (this.cDd) {
             }
-            if (this.cDa.isEnabled()) {
-                this.cBQ = new g();
+            if (this.cFr.isEnabled()) {
+                this.cEh = new g();
             }
         }
-        return kk;
+        return kq;
     }
 
     /* loaded from: classes.dex */
@@ -1180,17 +1180,17 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(int i2, View view) {
         if (i2 != -1) {
-            this.cAO = i2;
+            this.cDf = i2;
         }
-        Rect rect = this.cAP;
+        Rect rect = this.cDg;
         rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
         if (view instanceof m) {
             ((m) view).adjustListItemSelectionBounds(rect);
         }
         j(rect.left, rect.top, rect.right, rect.bottom);
-        boolean z = this.cBB;
+        boolean z = this.cDS;
         if (view.isEnabled() != z) {
-            this.cBB = !z;
+            this.cDS = !z;
             if (getSelectedItemPosition() != -1) {
                 refreshDrawableState();
             }
@@ -1198,13 +1198,13 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     private void j(int i2, int i3, int i4, int i5) {
-        this.cAP.set(i2 - this.cAR, i3 - this.cAS, this.cAT + i4, this.cAU + i5);
+        this.cDg.set(i2 - this.cDi, i3 - this.cDj, this.cDk + i4, this.cDl + i5);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        boolean z = this.cAN;
+        boolean z = this.cDe;
         if (!z) {
             e(canvas);
         }
@@ -1218,13 +1218,13 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         if (getChildCount() > 0) {
-            this.ajq = true;
-            akQ();
+            this.ajr = true;
+            alR();
         }
     }
 
-    boolean akj() {
-        switch (this.cBg) {
+    boolean alk() {
+        switch (this.cDx) {
             case 1:
             case 2:
                 return true;
@@ -1234,20 +1234,20 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean akk() {
-        return (hasFocus() && !isInTouchMode()) || akj();
+    public boolean all() {
+        return (hasFocus() && !isInTouchMode()) || alk();
     }
 
     private void e(Canvas canvas) {
-        if (!this.cAP.isEmpty()) {
-            Drawable drawable = this.Hk;
-            drawable.setBounds(this.cAP);
+        if (!this.cDg.isEmpty()) {
+            Drawable drawable = this.Hm;
+            drawable.setBounds(this.cDg);
             drawable.draw(canvas);
         }
     }
 
     public void setDrawSelectorOnTop(boolean z) {
-        this.cAN = z;
+        this.cDe = z;
     }
 
     public void setSelector(int i2) {
@@ -1255,33 +1255,33 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public void setSelector(Drawable drawable) {
-        if (this.Hk != null) {
-            this.Hk.setCallback(null);
-            unscheduleDrawable(this.Hk);
+        if (this.Hm != null) {
+            this.Hm.setCallback(null);
+            unscheduleDrawable(this.Hm);
         }
-        this.Hk = drawable;
+        this.Hm = drawable;
         Rect rect = new Rect();
         drawable.getPadding(rect);
-        this.cAR = rect.left;
-        this.cAS = rect.top;
-        this.cAT = rect.right;
-        this.cAU = rect.bottom;
+        this.cDi = rect.left;
+        this.cDj = rect.top;
+        this.cDk = rect.right;
+        this.cDl = rect.bottom;
         drawable.setCallback(this);
-        akm();
+        aln();
     }
 
     public Drawable getSelector() {
-        return this.Hk;
+        return this.Hm;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void akl() {
+    public void alm() {
         if (isEnabled() && isClickable()) {
-            Drawable drawable = this.Hk;
-            Rect rect = this.cAP;
+            Drawable drawable = this.Hm;
+            Rect rect = this.cDg;
             if (drawable != null) {
-                if ((isFocused() || akj()) && !rect.isEmpty()) {
-                    View childAt = getChildAt(this.cjm - this.cCL);
+                if ((isFocused() || alk()) && !rect.isEmpty()) {
+                    View childAt = getChildAt(this.clD - this.cFc);
                     if (childAt != null) {
                         if (!childAt.hasFocusable()) {
                             childAt.setPressed(true);
@@ -1299,24 +1299,24 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                             ((TransitionDrawable) current).resetTransition();
                         }
                     }
-                    if (isLongClickable && !this.ajq) {
-                        if (this.cBw == null) {
-                            this.cBw = new b(this, null);
+                    if (isLongClickable && !this.ajr) {
+                        if (this.cDN == null) {
+                            this.cDN = new b(this, null);
                         }
-                        this.cBw.akH();
-                        postDelayed(this.cBw, ViewConfiguration.getLongPressTimeout());
+                        this.cDN.alI();
+                        postDelayed(this.cDN, ViewConfiguration.getLongPressTimeout());
                     }
                 }
             }
         }
     }
 
-    void akm() {
-        if (this.Hk != null) {
-            if (akk()) {
-                this.Hk.setState(getDrawableState());
+    void aln() {
+        if (this.Hm != null) {
+            if (all()) {
+                this.Hm.setState(getDrawableState());
             } else {
-                this.Hk.setState(cBX);
+                this.Hm.setState(cEo);
             }
         }
     }
@@ -1324,12 +1324,12 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.ViewGroup, android.view.View
     protected void drawableStateChanged() {
         super.drawableStateChanged();
-        akm();
+        aln();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected int[] onCreateDrawableState(int i2) {
-        if (this.cBB) {
+        if (this.cDS) {
             return super.onCreateDrawableState(i2);
         }
         int i3 = ENABLED_STATE_SET[0];
@@ -1354,14 +1354,14 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
     @Override // android.view.View
     public boolean verifyDrawable(Drawable drawable) {
-        return this.Hk == drawable || super.verifyDrawable(drawable);
+        return this.Hm == drawable || super.verifyDrawable(drawable);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void jumpDrawablesToCurrentState() {
         super.jumpDrawablesToCurrentState();
-        if (this.Hk != null) {
-            this.Hk.jumpToCurrentState();
+        if (this.Hm != null) {
+            this.Hm.jumpToCurrentState();
         }
     }
 
@@ -1369,43 +1369,43 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         getViewTreeObserver().addOnTouchModeChangeListener(this);
-        if (this.mAdapter != null && this.cAL == null) {
-            this.cAL = new a();
-            this.mAdapter.registerDataSetObserver(this.cAL);
-            this.ajq = true;
-            this.cCZ = this.cCY;
-            this.cCY = this.mAdapter.getCount();
+        if (this.mAdapter != null && this.cDc == null) {
+            this.cDc = new a();
+            this.mAdapter.registerDataSetObserver(this.cDc);
+            this.ajr = true;
+            this.cFq = this.cFp;
+            this.cFp = this.mAdapter.getCount();
         }
-        this.cBT = true;
+        this.cEk = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.horizonalList.widget.g, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.cAQ.clear();
+        this.cDh.clear();
         getViewTreeObserver().removeOnTouchModeChangeListener(this);
-        if (this.mAdapter != null && this.cAL != null) {
-            this.mAdapter.unregisterDataSetObserver(this.cAL);
-            this.cAL = null;
+        if (this.mAdapter != null && this.cDc != null) {
+            this.mAdapter.unregisterDataSetObserver(this.cDc);
+            this.cDc = null;
         }
-        if (this.cBj != null) {
-            removeCallbacks(this.cBj);
+        if (this.cDA != null) {
+            removeCallbacks(this.cDA);
         }
-        if (this.cBk != null) {
-            this.cBk.stop();
+        if (this.cDB != null) {
+            this.cDB.stop();
         }
-        if (this.cBD != null) {
-            removeCallbacks(this.cBD);
+        if (this.cDU != null) {
+            removeCallbacks(this.cDU);
         }
-        if (this.cBx != null) {
-            removeCallbacks(this.cBx);
+        if (this.cDO != null) {
+            removeCallbacks(this.cDO);
         }
-        if (this.cBy != null) {
-            removeCallbacks(this.cBy);
-            this.cBy = null;
+        if (this.cDP != null) {
+            removeCallbacks(this.cDP);
+            this.cDP = null;
         }
-        this.cBT = false;
+        this.cEk = false;
     }
 
     @Override // android.view.View
@@ -1414,31 +1414,31 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         int i2 = isInTouchMode() ? 0 : 1;
         if (!z) {
             setChildrenDrawingCacheEnabled(false);
-            if (this.cBj != null) {
-                removeCallbacks(this.cBj);
-                this.cBj.akA();
-                if (this.cBk != null) {
-                    this.cBk.stop();
+            if (this.cDA != null) {
+                removeCallbacks(this.cDA);
+                this.cDA.alB();
+                if (this.cDB != null) {
+                    this.cDB.stop();
                 }
                 if (getScrollX() != 0) {
-                    this.cAD.setScrollX(0);
-                    aky();
+                    this.cCU.setScrollX(0);
+                    alz();
                     invalidate();
                 }
             }
             if (i2 == 1) {
-                this.cBq = this.cjm;
+                this.cDH = this.clD;
             }
-        } else if (i2 != this.cBt && this.cBt != -1) {
+        } else if (i2 != this.cDK && this.cDK != -1) {
             if (i2 == 1) {
-                akw();
+                alx();
             } else {
-                akt();
-                this.cAK = 0;
+                alu();
+                this.cDb = 0;
                 layoutChildren();
             }
         }
-        this.cBt = i2;
+        this.cDK = i2;
     }
 
     ContextMenu.ContextMenuInfo b(View view, int i2, long j2) {
@@ -1448,7 +1448,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class n {
-        private int cCK;
+        private int cFb;
 
         private n() {
         }
@@ -1457,19 +1457,19 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             this();
         }
 
-        public void akH() {
-            this.cCK = AbsHListView.this.getWindowAttachCount();
+        public void alI() {
+            this.cFb = AbsHListView.this.getWindowAttachCount();
         }
 
-        public boolean akI() {
-            return AbsHListView.this.hasWindowFocus() && AbsHListView.this.getWindowAttachCount() == this.cCK;
+        public boolean alJ() {
+            return AbsHListView.this.hasWindowFocus() && AbsHListView.this.getWindowAttachCount() == this.cFb;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class i extends n implements Runnable {
-        int cCl;
+        int cEC;
 
         private i() {
             super(AbsHListView.this, null);
@@ -1482,10 +1482,10 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         @Override // java.lang.Runnable
         public void run() {
             View childAt;
-            if (!AbsHListView.this.ajq) {
+            if (!AbsHListView.this.ajr) {
                 ListAdapter listAdapter = AbsHListView.this.mAdapter;
-                int i = this.cCl;
-                if (listAdapter != null && AbsHListView.this.cCY > 0 && i != -1 && i < listAdapter.getCount() && akI() && (childAt = AbsHListView.this.getChildAt(i - AbsHListView.this.cCL)) != null) {
+                int i = this.cEC;
+                if (listAdapter != null && AbsHListView.this.cFp > 0 && i != -1 && i < listAdapter.getCount() && alJ() && (childAt = AbsHListView.this.getChildAt(i - AbsHListView.this.cFc)) != null) {
                     AbsHListView.this.performItemClick(childAt, i, listAdapter.getItemId(i));
                 }
             }
@@ -1505,15 +1505,15 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
         @Override // java.lang.Runnable
         public void run() {
-            View childAt = AbsHListView.this.getChildAt(AbsHListView.this.cBb - AbsHListView.this.cCL);
+            View childAt = AbsHListView.this.getChildAt(AbsHListView.this.cDs - AbsHListView.this.cFc);
             if (childAt != null) {
-                if ((!akI() || AbsHListView.this.ajq) ? false : AbsHListView.this.c(childAt, AbsHListView.this.cBb, AbsHListView.this.mAdapter.getItemId(AbsHListView.this.cBb))) {
-                    AbsHListView.this.cBg = -1;
+                if ((!alJ() || AbsHListView.this.ajr) ? false : AbsHListView.this.c(childAt, AbsHListView.this.cDs, AbsHListView.this.mAdapter.getItemId(AbsHListView.this.cDs))) {
+                    AbsHListView.this.cDx = -1;
                     AbsHListView.this.setPressed(false);
                     childAt.setPressed(false);
                     return;
                 }
-                AbsHListView.this.cBg = 2;
+                AbsHListView.this.cDx = 2;
             }
         }
     }
@@ -1530,10 +1530,10 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
         @Override // java.lang.Runnable
         public void run() {
-            if (AbsHListView.this.isPressed() && AbsHListView.this.cjm >= 0) {
-                View childAt = AbsHListView.this.getChildAt(AbsHListView.this.cjm - AbsHListView.this.cCL);
-                if (!AbsHListView.this.ajq) {
-                    if (akI() ? AbsHListView.this.c(childAt, AbsHListView.this.cjm, AbsHListView.this.cCX) : false) {
+            if (AbsHListView.this.isPressed() && AbsHListView.this.clD >= 0) {
+                View childAt = AbsHListView.this.getChildAt(AbsHListView.this.clD - AbsHListView.this.cFc);
+                if (!AbsHListView.this.ajr) {
+                    if (alJ() ? AbsHListView.this.c(childAt, AbsHListView.this.clD, AbsHListView.this.cFo) : false) {
                         AbsHListView.this.setPressed(false);
                         childAt.setPressed(false);
                         return;
@@ -1549,10 +1549,10 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     boolean c(View view, int i2, long j2) {
-        if (Build.VERSION.SDK_INT >= 11 && this.cAE == 3) {
-            if (this.cAF == null) {
-                ActionMode startActionMode = startActionMode((com.baidu.tieba.horizonalList.a.a.b) this.cAG);
-                this.cAF = startActionMode;
+        if (Build.VERSION.SDK_INT >= 11 && this.cCV == 3) {
+            if (this.cCW == null) {
+                ActionMode startActionMode = startActionMode((com.baidu.tieba.horizonalList.a.a.b) this.cCX);
+                this.cCW = startActionMode;
                 if (startActionMode != null) {
                     setItemChecked(i2, true);
                     performHapticFeedback(0);
@@ -1560,9 +1560,9 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             }
             return true;
         }
-        boolean b2 = this.cCU != null ? this.cCU.b(this, view, i2, j2) : false;
+        boolean b2 = this.cFl != null ? this.cFl.b(this, view, i2, j2) : false;
         if (!b2) {
-            this.cBr = b(view, i2, j2);
+            this.cDI = b(view, i2, j2);
             b2 = super.showContextMenuForChild(this);
         }
         if (b2) {
@@ -1574,16 +1574,16 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
     @Override // android.view.View
     protected ContextMenu.ContextMenuInfo getContextMenuInfo() {
-        return this.cBr;
+        return this.cDI;
     }
 
     public boolean a(float f2, float f3, int i2) {
         int pointToPosition = pointToPosition((int) f2, (int) f3);
         if (pointToPosition != -1) {
             long itemId = this.mAdapter.getItemId(pointToPosition);
-            View childAt = getChildAt(pointToPosition - this.cCL);
+            View childAt = getChildAt(pointToPosition - this.cFc);
             if (childAt != null) {
-                this.cBr = b(childAt, pointToPosition, itemId);
+                this.cDI = b(childAt, pointToPosition, itemId);
                 return super.showContextMenuForChild(this);
             }
         }
@@ -1595,9 +1595,9 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         int positionForView = getPositionForView(view);
         if (positionForView >= 0) {
             long itemId = this.mAdapter.getItemId(positionForView);
-            boolean b2 = this.cCU != null ? this.cCU.b(this, view, positionForView, itemId) : false;
+            boolean b2 = this.cFl != null ? this.cFl.b(this, view, positionForView, itemId) : false;
             if (!b2) {
-                this.cBr = b(getChildAt(positionForView - this.cCL), positionForView, itemId);
+                this.cDI = b(getChildAt(positionForView - this.cFc), positionForView, itemId);
                 return super.showContextMenuForChild(view);
             }
             return b2;
@@ -1618,10 +1618,10 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                 if (!isEnabled()) {
                     return true;
                 }
-                if (isClickable() && isPressed() && this.cjm >= 0 && this.mAdapter != null && this.cjm < this.mAdapter.getCount()) {
-                    View childAt = getChildAt(this.cjm - this.cCL);
+                if (isClickable() && isPressed() && this.clD >= 0 && this.mAdapter != null && this.clD < this.mAdapter.getCount()) {
+                    View childAt = getChildAt(this.clD - this.cFc);
                     if (childAt != null) {
-                        performItemClick(childAt, this.cjm, this.cCX);
+                        performItemClick(childAt, this.clD, this.cFo);
                         childAt.setPressed(false);
                     }
                     setPressed(false);
@@ -1637,17 +1637,17 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public int pointToPosition(int i2, int i3) {
-        Rect rect = this.cBp;
+        Rect rect = this.cDG;
         if (rect == null) {
-            this.cBp = new Rect();
-            rect = this.cBp;
+            this.cDG = new Rect();
+            rect = this.cDG;
         }
         for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
             View childAt = getChildAt(childCount);
             if (childAt.getVisibility() == 0) {
                 childAt.getHitRect(rect);
                 if (rect.contains(i2, i3)) {
-                    return this.cCL + childCount;
+                    return this.cFc + childCount;
                 }
             }
         }
@@ -1662,20 +1662,20 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         @Override // java.lang.Runnable
         public void run() {
             Drawable current;
-            if (AbsHListView.this.cBg == 0) {
-                AbsHListView.this.cBg = 1;
-                View childAt = AbsHListView.this.getChildAt(AbsHListView.this.cBb - AbsHListView.this.cCL);
+            if (AbsHListView.this.cDx == 0) {
+                AbsHListView.this.cDx = 1;
+                View childAt = AbsHListView.this.getChildAt(AbsHListView.this.cDs - AbsHListView.this.cFc);
                 if (childAt != null && !childAt.hasFocusable()) {
-                    AbsHListView.this.cAK = 0;
-                    if (!AbsHListView.this.ajq) {
+                    AbsHListView.this.cDb = 0;
+                    if (!AbsHListView.this.ajr) {
                         childAt.setPressed(true);
                         AbsHListView.this.setPressed(true);
                         AbsHListView.this.layoutChildren();
-                        AbsHListView.this.c(AbsHListView.this.cBb, childAt);
+                        AbsHListView.this.c(AbsHListView.this.cDs, childAt);
                         AbsHListView.this.refreshDrawableState();
                         int longPressTimeout = ViewConfiguration.getLongPressTimeout();
                         boolean isLongClickable = AbsHListView.this.isLongClickable();
-                        if (AbsHListView.this.Hk != null && (current = AbsHListView.this.Hk.getCurrent()) != null && (current instanceof TransitionDrawable)) {
+                        if (AbsHListView.this.Hm != null && (current = AbsHListView.this.Hm.getCurrent()) != null && (current instanceof TransitionDrawable)) {
                             if (isLongClickable) {
                                 ((TransitionDrawable) current).startTransition(longPressTimeout);
                             } else {
@@ -1683,69 +1683,69 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                             }
                         }
                         if (isLongClickable) {
-                            if (AbsHListView.this.cBu == null) {
-                                AbsHListView.this.cBu = new c(AbsHListView.this, null);
+                            if (AbsHListView.this.cDL == null) {
+                                AbsHListView.this.cDL = new c(AbsHListView.this, null);
                             }
-                            AbsHListView.this.cBu.akH();
-                            AbsHListView.this.postDelayed(AbsHListView.this.cBu, longPressTimeout);
+                            AbsHListView.this.cDL.alI();
+                            AbsHListView.this.postDelayed(AbsHListView.this.cDL, longPressTimeout);
                             return;
                         }
-                        AbsHListView.this.cBg = 2;
+                        AbsHListView.this.cDx = 2;
                         return;
                     }
-                    AbsHListView.this.cBg = 2;
+                    AbsHListView.this.cDx = 2;
                 }
             }
         }
     }
 
-    private boolean jY(int i2) {
-        int i3 = i2 - this.cBe;
+    private boolean ke(int i2) {
+        int i3 = i2 - this.cDv;
         int abs = Math.abs(i3);
         boolean z = getScrollX() != 0;
         if (z || abs > this.mTouchSlop) {
-            akr();
+            als();
             if (z) {
-                this.cBg = 5;
-                this.cBi = 0;
+                this.cDx = 5;
+                this.cDz = 0;
             } else {
-                this.cBg = 3;
-                this.cBi = i3 > 0 ? this.mTouchSlop : -this.mTouchSlop;
+                this.cDx = 3;
+                this.cDz = i3 > 0 ? this.mTouchSlop : -this.mTouchSlop;
             }
             Handler handler = getHandler();
             if (handler != null) {
-                handler.removeCallbacks(this.cBu);
+                handler.removeCallbacks(this.cDL);
             }
             setPressed(false);
-            View childAt = getChildAt(this.cBb - this.cCL);
+            View childAt = getChildAt(this.cDs - this.cFc);
             if (childAt != null) {
                 childAt.setPressed(false);
             }
-            ka(1);
+            kg(1);
             ViewParent parent = getParent();
             if (parent != null) {
                 parent.requestDisallowInterceptTouchEvent(true);
             }
-            jZ(i2);
+            kf(i2);
             return true;
         }
         return false;
     }
 
-    private void jZ(int i2) {
+    private void kf(int i2) {
         int i3;
         int childCount;
         ViewParent parent;
-        int i4 = i2 - this.cBe;
-        int i5 = i4 - this.cBi;
-        int i6 = this.cBh != Integer.MIN_VALUE ? i2 - this.cBh : i5;
-        if (this.cBg == 3) {
-            if (i2 != this.cBh) {
+        int i4 = i2 - this.cDv;
+        int i5 = i4 - this.cDz;
+        int i6 = this.cDy != Integer.MIN_VALUE ? i2 - this.cDy : i5;
+        if (this.cDx == 3) {
+            if (i2 != this.cDy) {
                 if (Math.abs(i4) > this.mTouchSlop && (parent = getParent()) != null) {
                     parent.requestDisallowInterceptTouchEvent(true);
                 }
-                if (this.cBb >= 0) {
-                    childCount = this.cBb - this.cCL;
+                if (this.cDs >= 0) {
+                    childCount = this.cDs - this.cFc;
                 } else {
                     childCount = getChildCount() / 2;
                 }
@@ -1757,37 +1757,37 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     int left2 = childAt2.getLeft();
                     if (ay) {
                         int i7 = (-i6) - (left2 - left);
-                        overScrollBy(i7, 0, getScrollX(), 0, 0, 0, this.cBH, 0, true);
-                        if (Math.abs(this.cBH) == Math.abs(getScrollX()) && this.mVelocityTracker != null) {
+                        overScrollBy(i7, 0, getScrollX(), 0, 0, 0, this.cDY, 0, true);
+                        if (Math.abs(this.cDY) == Math.abs(getScrollX()) && this.mVelocityTracker != null) {
                             this.mVelocityTracker.clear();
                         }
                         int overScrollMode = getOverScrollMode();
-                        if (overScrollMode == 0 || (overScrollMode == 1 && !akd())) {
+                        if (overScrollMode == 0 || (overScrollMode == 1 && !ale())) {
                             this.mDirection = 0;
-                            this.cBg = 5;
+                            this.cDx = 5;
                             if (i4 > 0) {
-                                this.cBJ.onPull(i7 / getWidth());
-                                if (!this.cBK.isFinished()) {
-                                    this.cBK.onRelease();
+                                this.cEa.onPull(i7 / getWidth());
+                                if (!this.cEb.isFinished()) {
+                                    this.cEb.onRelease();
                                 }
                                 invalidate();
                             } else if (i4 < 0) {
-                                this.cBK.onPull(i7 / getWidth());
-                                if (!this.cBJ.isFinished()) {
-                                    this.cBJ.onRelease();
+                                this.cEb.onPull(i7 / getWidth());
+                                if (!this.cEa.isFinished()) {
+                                    this.cEa.onRelease();
                                 }
                                 invalidate();
                             }
                         }
                     }
-                    this.cBe = i2;
+                    this.cDv = i2;
                 }
-                this.cBh = i2;
+                this.cDy = i2;
             }
-        } else if (this.cBg == 5 && i2 != this.cBh) {
+        } else if (this.cDx == 5 && i2 != this.cDy) {
             int scrollX = getScrollX();
             int i8 = scrollX - i6;
-            int i9 = i2 > this.cBh ? 1 : -1;
+            int i9 = i2 > this.cDy ? 1 : -1;
             if (this.mDirection == 0) {
                 this.mDirection = i9;
             }
@@ -1799,19 +1799,19 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                 i3 = i6 + i10;
             }
             if (i10 != 0) {
-                overScrollBy(i10, 0, getScrollX(), 0, 0, 0, this.cBH, 0, true);
+                overScrollBy(i10, 0, getScrollX(), 0, 0, 0, this.cDY, 0, true);
                 int overScrollMode2 = getOverScrollMode();
-                if (overScrollMode2 == 0 || (overScrollMode2 == 1 && !akd())) {
+                if (overScrollMode2 == 0 || (overScrollMode2 == 1 && !ale())) {
                     if (i4 > 0) {
-                        this.cBJ.onPull(i10 / getWidth());
-                        if (!this.cBK.isFinished()) {
-                            this.cBK.onRelease();
+                        this.cEa.onPull(i10 / getWidth());
+                        if (!this.cEb.isFinished()) {
+                            this.cEb.onRelease();
                         }
                         invalidate();
                     } else if (i4 < 0) {
-                        this.cBK.onPull(i10 / getWidth());
-                        if (!this.cBJ.isFinished()) {
-                            this.cBJ.onRelease();
+                        this.cEb.onPull(i10 / getWidth());
+                        if (!this.cEa.isFinished()) {
+                            this.cEa.onRelease();
                         }
                         invalidate();
                     }
@@ -1819,25 +1819,25 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             }
             if (i3 != 0) {
                 if (getScrollX() != 0) {
-                    this.cAD.setScrollX(0);
-                    akn();
+                    this.cCU.setScrollX(0);
+                    alo();
                 }
                 ay(i3, i3);
-                this.cBg = 3;
-                int kd = kd(i2);
-                this.cBi = 0;
-                View childAt3 = getChildAt(kd - this.cCL);
-                this.cBc = childAt3 != null ? childAt3.getLeft() : 0;
-                this.cBe = i2;
-                this.cBb = kd;
+                this.cDx = 3;
+                int kj = kj(i2);
+                this.cDz = 0;
+                View childAt3 = getChildAt(kj - this.cFc);
+                this.cDt = childAt3 != null ? childAt3.getLeft() : 0;
+                this.cDv = i2;
+                this.cDs = kj;
             }
-            this.cBh = i2;
+            this.cDy = i2;
             this.mDirection = i9;
         }
     }
 
-    protected void akn() {
-        if (this.cAD.isHardwareAccelerated() && (getParent() instanceof View)) {
+    protected void alo() {
+        if (this.cCU.isHardwareAccelerated() && (getParent() instanceof View)) {
             ((View) getParent()).invalidate();
         }
     }
@@ -1845,24 +1845,24 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.ViewTreeObserver.OnTouchModeChangeListener
     public void onTouchModeChanged(boolean z) {
         if (z) {
-            akt();
+            alu();
             if (getWidth() > 0 && getChildCount() > 0) {
                 layoutChildren();
             }
-            akm();
+            aln();
             return;
         }
-        int i2 = this.cBg;
+        int i2 = this.cDx;
         if (i2 == 5 || i2 == 6) {
-            if (this.cBj != null) {
-                this.cBj.akA();
+            if (this.cDA != null) {
+                this.cDA.alB();
             }
-            if (this.cBk != null) {
-                this.cBk.stop();
+            if (this.cDB != null) {
+                this.cDB.stop();
             }
             if (getScrollX() != 0) {
-                this.cAD.setScrollX(0);
-                aky();
+                this.cCU.setScrollX(0);
+                alz();
                 invalidate();
             }
         }
@@ -1883,27 +1883,27 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         if (!isEnabled()) {
             return isClickable() || isLongClickable();
         }
-        if (this.cBk != null) {
-            this.cBk.stop();
+        if (this.cDB != null) {
+            this.cDB.stop();
         }
-        if (this.cBT) {
+        if (this.cEk) {
             int action = motionEvent.getAction();
-            akp();
+            alq();
             this.mVelocityTracker.addMovement(motionEvent);
             switch (action & MotionEventCompat.ACTION_MASK) {
                 case 0:
-                    switch (this.cBg) {
+                    switch (this.cDx) {
                         case 6:
-                            this.cBj.akA();
-                            if (this.cBk != null) {
-                                this.cBk.stop();
+                            this.cDA.alB();
+                            if (this.cDB != null) {
+                                this.cDB.stop();
                             }
-                            this.cBg = 5;
-                            this.cBf = (int) motionEvent.getY();
+                            this.cDx = 5;
+                            this.cDw = (int) motionEvent.getY();
                             int x = (int) motionEvent.getX();
-                            this.cBh = x;
-                            this.cBe = x;
-                            this.cBi = 0;
+                            this.cDy = x;
+                            this.cDv = x;
+                            this.cDz = 0;
                             this.mActivePointerId = motionEvent.getPointerId(0);
                             this.mDirection = 0;
                             break;
@@ -1912,163 +1912,163 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                             int x2 = (int) motionEvent.getX();
                             int y = (int) motionEvent.getY();
                             int pointToPosition = pointToPosition(x2, y);
-                            if (!this.ajq) {
-                                if (this.cBg != 4 && pointToPosition >= 0 && getAdapter().isEnabled(pointToPosition)) {
-                                    this.cBg = 0;
-                                    if (this.cBv == null) {
-                                        this.cBv = new d();
+                            if (!this.ajr) {
+                                if (this.cDx != 4 && pointToPosition >= 0 && getAdapter().isEnabled(pointToPosition)) {
+                                    this.cDx = 0;
+                                    if (this.cDM == null) {
+                                        this.cDM = new d();
                                     }
-                                    postDelayed(this.cBv, ViewConfiguration.getTapTimeout());
+                                    postDelayed(this.cDM, ViewConfiguration.getTapTimeout());
                                     i2 = pointToPosition;
-                                } else if (this.cBg == 4) {
-                                    akr();
-                                    this.cBg = 3;
-                                    this.cBi = 0;
-                                    i2 = kc(x2);
-                                    this.cBj.akB();
+                                } else if (this.cDx == 4) {
+                                    als();
+                                    this.cDx = 3;
+                                    this.cDz = 0;
+                                    i2 = ki(x2);
+                                    this.cDA.alC();
                                 }
                                 if (i2 >= 0) {
-                                    this.cBc = getChildAt(i2 - this.cCL).getLeft();
+                                    this.cDt = getChildAt(i2 - this.cFc).getLeft();
                                 }
-                                this.cBe = x2;
-                                this.cBf = y;
-                                this.cBb = i2;
-                                this.cBh = ExploreByTouchHelper.INVALID_ID;
+                                this.cDv = x2;
+                                this.cDw = y;
+                                this.cDs = i2;
+                                this.cDy = ExploreByTouchHelper.INVALID_ID;
                                 break;
                             }
                             i2 = pointToPosition;
                             if (i2 >= 0) {
                             }
-                            this.cBe = x2;
-                            this.cBf = y;
-                            this.cBb = i2;
-                            this.cBh = ExploreByTouchHelper.INVALID_ID;
+                            this.cDv = x2;
+                            this.cDw = y;
+                            this.cDs = i2;
+                            this.cDy = ExploreByTouchHelper.INVALID_ID;
                     }
-                    if (o(motionEvent) && this.cBg == 0) {
-                        removeCallbacks(this.cBv);
+                    if (o(motionEvent) && this.cDx == 0) {
+                        removeCallbacks(this.cDM);
                         break;
                     }
                     break;
                 case 1:
-                    switch (this.cBg) {
+                    switch (this.cDx) {
                         case 0:
                         case 1:
                         case 2:
-                            int i3 = this.cBb;
-                            View childAt = getChildAt(i3 - this.cCL);
+                            int i3 = this.cDs;
+                            View childAt = getChildAt(i3 - this.cFc);
                             float x3 = motionEvent.getX();
-                            boolean z = x3 > ((float) this.cAV.left) && x3 < ((float) (getWidth() - this.cAV.right));
+                            boolean z = x3 > ((float) this.cDm.left) && x3 < ((float) (getWidth() - this.cDm.right));
                             if (childAt != null && !childAt.hasFocusable() && z) {
-                                if (this.cBg != 0) {
+                                if (this.cDx != 0) {
                                     childAt.setPressed(false);
                                 }
-                                if (this.cBx == null) {
-                                    this.cBx = new i(this, null);
+                                if (this.cDO == null) {
+                                    this.cDO = new i(this, null);
                                 }
-                                i iVar = this.cBx;
-                                iVar.cCl = i3;
-                                iVar.akH();
-                                this.cBq = i3;
-                                if (this.cBg == 0 || this.cBg == 1) {
+                                i iVar = this.cDO;
+                                iVar.cEC = i3;
+                                iVar.alI();
+                                this.cDH = i3;
+                                if (this.cDx == 0 || this.cDx == 1) {
                                     Handler handler = getHandler();
                                     if (handler != null) {
-                                        handler.removeCallbacks(this.cBg == 0 ? this.cBv : this.cBu);
+                                        handler.removeCallbacks(this.cDx == 0 ? this.cDM : this.cDL);
                                     }
-                                    this.cAK = 0;
-                                    if (!this.ajq && this.mAdapter.isEnabled(i3)) {
-                                        this.cBg = 1;
-                                        setSelectedPositionInt(this.cBb);
+                                    this.cDb = 0;
+                                    if (!this.ajr && this.mAdapter.isEnabled(i3)) {
+                                        this.cDx = 1;
+                                        setSelectedPositionInt(this.cDs);
                                         layoutChildren();
                                         childAt.setPressed(true);
-                                        c(this.cBb, childAt);
+                                        c(this.cDs, childAt);
                                         setPressed(true);
-                                        if (this.Hk != null && (current = this.Hk.getCurrent()) != null && (current instanceof TransitionDrawable)) {
+                                        if (this.Hm != null && (current = this.Hm.getCurrent()) != null && (current instanceof TransitionDrawable)) {
                                             ((TransitionDrawable) current).resetTransition();
                                         }
-                                        if (this.cBy != null) {
-                                            removeCallbacks(this.cBy);
+                                        if (this.cDP != null) {
+                                            removeCallbacks(this.cDP);
                                         }
-                                        this.cBy = new com.baidu.tieba.horizonalList.widget.a(this, childAt, iVar);
-                                        postDelayed(this.cBy, ViewConfiguration.getPressedStateDuration());
+                                        this.cDP = new com.baidu.tieba.horizonalList.widget.a(this, childAt, iVar);
+                                        postDelayed(this.cDP, ViewConfiguration.getPressedStateDuration());
                                     } else {
-                                        this.cBg = -1;
-                                        akm();
+                                        this.cDx = -1;
+                                        aln();
                                     }
                                     return true;
-                                } else if (!this.ajq && this.mAdapter.isEnabled(i3)) {
+                                } else if (!this.ajr && this.mAdapter.isEnabled(i3)) {
                                     iVar.run();
                                 }
                             }
-                            this.cBg = -1;
-                            akm();
+                            this.cDx = -1;
+                            aln();
                             break;
                         case 3:
                             int childCount = getChildCount();
                             if (childCount > 0) {
                                 int left = getChildAt(0).getLeft();
                                 int right = getChildAt(childCount - 1).getRight();
-                                int i4 = this.cAV.left;
-                                int width = getWidth() - this.cAV.right;
-                                if (this.cCL == 0 && left >= i4 && this.cCL + childCount < this.cCY && right <= getWidth() - width) {
-                                    this.cBg = -1;
-                                    ka(0);
+                                int i4 = this.cDm.left;
+                                int width = getWidth() - this.cDm.right;
+                                if (this.cFc == 0 && left >= i4 && this.cFc + childCount < this.cFp && right <= getWidth() - width) {
+                                    this.cDx = -1;
+                                    kg(0);
                                     break;
                                 } else {
                                     VelocityTracker velocityTracker = this.mVelocityTracker;
                                     velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                                    int xVelocity = (int) (velocityTracker.getXVelocity(this.mActivePointerId) * this.cBF);
-                                    if (Math.abs(xVelocity) > this.mMinimumVelocity && ((this.cCL != 0 || left != i4 - this.cBH) && (childCount + this.cCL != this.cCY || right != this.cBH + width))) {
-                                        if (this.cBj == null) {
-                                            this.cBj = new e();
+                                    int xVelocity = (int) (velocityTracker.getXVelocity(this.mActivePointerId) * this.cDW);
+                                    if (Math.abs(xVelocity) > this.mMinimumVelocity && ((this.cFc != 0 || left != i4 - this.cDY) && (childCount + this.cFc != this.cFp || right != this.cDY + width))) {
+                                        if (this.cDA == null) {
+                                            this.cDA = new e();
                                         }
-                                        ka(2);
-                                        this.cBj.ke(-xVelocity);
+                                        kg(2);
+                                        this.cDA.kk(-xVelocity);
                                         break;
                                     } else {
-                                        this.cBg = -1;
-                                        ka(0);
-                                        if (this.cBj != null) {
-                                            this.cBj.akA();
+                                        this.cDx = -1;
+                                        kg(0);
+                                        if (this.cDA != null) {
+                                            this.cDA.alB();
                                         }
-                                        if (this.cBk != null) {
-                                            this.cBk.stop();
+                                        if (this.cDB != null) {
+                                            this.cDB.stop();
                                             break;
                                         }
                                     }
                                 }
                             } else {
-                                this.cBg = -1;
-                                ka(0);
+                                this.cDx = -1;
+                                kg(0);
                                 break;
                             }
                             break;
                         case 5:
-                            if (this.cBj == null) {
-                                this.cBj = new e();
+                            if (this.cDA == null) {
+                                this.cDA = new e();
                             }
                             VelocityTracker velocityTracker2 = this.mVelocityTracker;
                             velocityTracker2.computeCurrentVelocity(1000, this.mMaximumVelocity);
                             int xVelocity2 = (int) velocityTracker2.getXVelocity(this.mActivePointerId);
-                            ka(2);
+                            kg(2);
                             if (Math.abs(xVelocity2) > this.mMinimumVelocity) {
-                                this.cBj.kf(-xVelocity2);
+                                this.cDA.kl(-xVelocity2);
                                 break;
                             } else {
-                                this.cBj.akz();
+                                this.cDA.alA();
                                 break;
                             }
                     }
                     setPressed(false);
-                    if (this.cBJ != null) {
-                        this.cBJ.onRelease();
-                        this.cBK.onRelease();
+                    if (this.cEa != null) {
+                        this.cEa.onRelease();
+                        this.cEb.onRelease();
                     }
                     invalidate();
                     Handler handler2 = getHandler();
                     if (handler2 != null) {
-                        handler2.removeCallbacks(this.cBu);
+                        handler2.removeCallbacks(this.cDL);
                     }
-                    akq();
+                    alr();
                     this.mActivePointerId = -1;
                     break;
                 case 2:
@@ -2078,48 +2078,48 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                         findPointerIndex = 0;
                     }
                     int x4 = (int) motionEvent.getX(findPointerIndex);
-                    if (this.ajq) {
+                    if (this.ajr) {
                         layoutChildren();
                     }
-                    switch (this.cBg) {
+                    switch (this.cDx) {
                         case 0:
                         case 1:
                         case 2:
-                            jY(x4);
+                            ke(x4);
                             break;
                         case 3:
                         case 5:
-                            jZ(x4);
+                            kf(x4);
                             break;
                     }
                 case 3:
-                    switch (this.cBg) {
+                    switch (this.cDx) {
                         case 5:
-                            if (this.cBj == null) {
-                                this.cBj = new e();
+                            if (this.cDA == null) {
+                                this.cDA = new e();
                             }
-                            this.cBj.akz();
+                            this.cDA.alA();
                             break;
                         case 6:
                             break;
                         default:
-                            this.cBg = -1;
+                            this.cDx = -1;
                             setPressed(false);
-                            View childAt2 = getChildAt(this.cBb - this.cCL);
+                            View childAt2 = getChildAt(this.cDs - this.cFc);
                             if (childAt2 != null) {
                                 childAt2.setPressed(false);
                             }
-                            aks();
+                            alt();
                             Handler handler3 = getHandler();
                             if (handler3 != null) {
-                                handler3.removeCallbacks(this.cBu);
+                                handler3.removeCallbacks(this.cDL);
                             }
-                            akq();
+                            alr();
                             break;
                     }
-                    if (this.cBJ != null) {
-                        this.cBJ.onRelease();
-                        this.cBK.onRelease();
+                    if (this.cEa != null) {
+                        this.cEa.onRelease();
+                        this.cEb.onRelease();
                     }
                     this.mActivePointerId = -1;
                     break;
@@ -2128,26 +2128,26 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     int pointerId = motionEvent.getPointerId(actionIndex);
                     int x5 = (int) motionEvent.getX(actionIndex);
                     int y2 = (int) motionEvent.getY(actionIndex);
-                    this.cBi = 0;
+                    this.cDz = 0;
                     this.mActivePointerId = pointerId;
-                    this.cBe = x5;
-                    this.cBf = y2;
+                    this.cDv = x5;
+                    this.cDw = y2;
                     int pointToPosition2 = pointToPosition(x5, y2);
                     if (pointToPosition2 >= 0) {
-                        this.cBc = getChildAt(pointToPosition2 - this.cCL).getLeft();
-                        this.cBb = pointToPosition2;
+                        this.cDt = getChildAt(pointToPosition2 - this.cFc).getLeft();
+                        this.cDs = pointToPosition2;
                     }
-                    this.cBh = x5;
+                    this.cDy = x5;
                     break;
                 case 6:
                     onSecondaryPointerUp(motionEvent);
-                    int i5 = this.cBe;
-                    int pointToPosition3 = pointToPosition(i5, this.cBf);
+                    int i5 = this.cDv;
+                    int pointToPosition3 = pointToPosition(i5, this.cDw);
                     if (pointToPosition3 >= 0) {
-                        this.cBc = getChildAt(pointToPosition3 - this.cCL).getLeft();
-                        this.cBb = pointToPosition3;
+                        this.cDt = getChildAt(pointToPosition3 - this.cFc).getLeft();
+                        this.cDs = pointToPosition3;
                     }
-                    this.cBh = i5;
+                    this.cDy = i5;
                     break;
             }
             return true;
@@ -2159,8 +2159,8 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     protected void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
         if (getScrollX() != i2) {
             onScrollChanged(i2, getScrollY(), getScrollX(), getScrollY());
-            this.cAD.setScrollX(i2);
-            akn();
+            this.cCU.setScrollX(i2);
+            alo();
             awakenScrollBars();
         }
     }
@@ -2170,7 +2170,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         if ((motionEvent.getSource() & 2) != 0) {
             switch (motionEvent.getAction()) {
                 case 8:
-                    if (this.cBg == -1) {
+                    if (this.cDx == -1) {
                         float axisValue = motionEvent.getAxisValue(10);
                         if (axisValue != 0.0f) {
                             int horizontalScrollFactor = (int) (axisValue * getHorizontalScrollFactor());
@@ -2186,42 +2186,42 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     protected float getHorizontalScrollFactor() {
-        if (this.cBY == 0.0f) {
+        if (this.cEp == 0.0f) {
             TypedValue typedValue = new TypedValue();
             if (getContext().getTheme().resolveAttribute(w.c.hlv_listPreferredItemWidth, typedValue, true)) {
-                this.cBY = typedValue.getDimension(getContext().getResources().getDisplayMetrics());
+                this.cEp = typedValue.getDimension(getContext().getResources().getDisplayMetrics());
             }
         }
-        return this.cBY;
+        return this.cEp;
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.cBJ != null) {
+        if (this.cEa != null) {
             int scrollX = getScrollX();
-            if (!this.cBJ.isFinished()) {
+            if (!this.cEa.isFinished()) {
                 int save = canvas.save();
-                int i2 = this.cAV.top + this.cBO;
-                int height = (getHeight() - i2) - (this.cAV.bottom + this.cBP);
-                int min = Math.min(0, this.cBL + scrollX);
+                int i2 = this.cDm.top + this.cEf;
+                int height = (getHeight() - i2) - (this.cDm.bottom + this.cEg);
+                int min = Math.min(0, this.cEc + scrollX);
                 canvas.rotate(-90.0f);
                 canvas.translate(i2 + (-getHeight()), min);
-                this.cBJ.setSize(height, height);
-                if (this.cBJ.draw(canvas)) {
+                this.cEa.setSize(height, height);
+                if (this.cEa.draw(canvas)) {
                     invalidate();
                 }
                 canvas.restoreToCount(save);
             }
-            if (!this.cBK.isFinished()) {
+            if (!this.cEb.isFinished()) {
                 int save2 = canvas.save();
-                int i3 = this.cAV.left + this.cBO;
-                int height2 = (getHeight() - i3) - (this.cAV.right + this.cBP);
-                int max = Math.max(getWidth(), scrollX + this.cBM);
+                int i3 = this.cDm.left + this.cEf;
+                int height2 = (getHeight() - i3) - (this.cDm.right + this.cEg);
+                int max = Math.max(getWidth(), scrollX + this.cEd);
                 canvas.rotate(90.0f);
                 canvas.translate(-i3, -max);
-                this.cBK.setSize(height2, height2);
-                if (this.cBK.draw(canvas)) {
+                this.cEb.setSize(height2, height2);
+                if (this.cEb.draw(canvas)) {
                     invalidate();
                 }
                 canvas.restoreToCount(save2);
@@ -2229,7 +2229,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         }
     }
 
-    private void ako() {
+    private void alp() {
         if (this.mVelocityTracker == null) {
             this.mVelocityTracker = VelocityTracker.obtain();
         } else {
@@ -2237,13 +2237,13 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         }
     }
 
-    private void akp() {
+    private void alq() {
         if (this.mVelocityTracker == null) {
             this.mVelocityTracker = VelocityTracker.obtain();
         }
     }
 
-    private void akq() {
+    private void alr() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.recycle();
             this.mVelocityTracker = null;
@@ -2253,7 +2253,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         if (z) {
-            akq();
+            alr();
         }
         super.requestDisallowInterceptTouchEvent(z);
     }
@@ -2261,51 +2261,51 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
-        if (this.cBk != null) {
-            this.cBk.stop();
+        if (this.cDB != null) {
+            this.cDB.stop();
         }
-        if (this.cBT) {
+        if (this.cEk) {
             switch (action & MotionEventCompat.ACTION_MASK) {
                 case 0:
-                    int i2 = this.cBg;
+                    int i2 = this.cDx;
                     if (i2 == 6 || i2 == 5) {
-                        this.cBi = 0;
+                        this.cDz = 0;
                         return true;
                     }
                     int x = (int) motionEvent.getX();
                     int y = (int) motionEvent.getY();
                     this.mActivePointerId = motionEvent.getPointerId(0);
-                    int kc = kc(x);
-                    if (i2 != 4 && kc >= 0) {
-                        this.cBc = getChildAt(kc - this.cCL).getLeft();
-                        this.cBe = x;
-                        this.cBf = y;
-                        this.cBb = kc;
-                        this.cBg = 0;
-                        aks();
+                    int ki = ki(x);
+                    if (i2 != 4 && ki >= 0) {
+                        this.cDt = getChildAt(ki - this.cFc).getLeft();
+                        this.cDv = x;
+                        this.cDw = y;
+                        this.cDs = ki;
+                        this.cDx = 0;
+                        alt();
                     }
-                    this.cBh = ExploreByTouchHelper.INVALID_ID;
-                    ako();
+                    this.cDy = ExploreByTouchHelper.INVALID_ID;
+                    alp();
                     this.mVelocityTracker.addMovement(motionEvent);
                     return i2 == 4;
                 case 1:
                 case 3:
-                    this.cBg = -1;
+                    this.cDx = -1;
                     this.mActivePointerId = -1;
-                    akq();
-                    ka(0);
+                    alr();
+                    kg(0);
                     return false;
                 case 2:
-                    switch (this.cBg) {
+                    switch (this.cDx) {
                         case 0:
                             int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                             if (findPointerIndex == -1) {
                                 this.mActivePointerId = motionEvent.getPointerId(0);
                                 findPointerIndex = 0;
                             }
-                            akp();
+                            alq();
                             this.mVelocityTracker.addMovement(motionEvent);
-                            return jY((int) motionEvent.getX(findPointerIndex));
+                            return ke((int) motionEvent.getX(findPointerIndex));
                         default:
                             return false;
                     }
@@ -2325,9 +2325,9 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         int action = (motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
         if (motionEvent.getPointerId(action) == this.mActivePointerId) {
             int i2 = action == 0 ? 1 : 0;
-            this.cBe = (int) motionEvent.getX(i2);
-            this.cBf = (int) motionEvent.getY(i2);
-            this.cBi = 0;
+            this.cDv = (int) motionEvent.getX(i2);
+            this.cDw = (int) motionEvent.getY(i2);
+            this.cDz = 0;
             this.mActivePointerId = motionEvent.getPointerId(i2);
         }
     }
@@ -2335,7 +2335,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     @Override // android.view.ViewGroup, android.view.View
     public void addTouchables(ArrayList<View> arrayList) {
         int childCount = getChildCount();
-        int i2 = this.cCL;
+        int i2 = this.cFc;
         ListAdapter listAdapter = this.mAdapter;
         if (listAdapter != null) {
             for (int i3 = 0; i3 < childCount; i3++) {
@@ -2349,95 +2349,95 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ka(int i2) {
-        if (i2 != this.cBC && this.cBn != null) {
-            this.cBC = i2;
-            this.cBn.a(this, i2);
+    public void kg(int i2) {
+        if (i2 != this.cDT && this.cDE != null) {
+            this.cDT = i2;
+            this.cDE.a(this, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class e implements Runnable {
-        private final o cCc;
-        private int cCd;
-        private final Runnable cCe = new com.baidu.tieba.horizonalList.widget.c(this);
+        private final o cEt;
+        private int cEu;
+        private final Runnable cEv = new com.baidu.tieba.horizonalList.widget.c(this);
 
         e() {
-            this.cCc = new o(AbsHListView.this.getContext());
+            this.cEt = new o(AbsHListView.this.getContext());
         }
 
-        void ke(int i) {
+        void kk(int i) {
             int i2 = i < 0 ? Integer.MAX_VALUE : 0;
-            this.cCd = i2;
-            this.cCc.setInterpolator(null);
-            this.cCc.fling(i2, 0, i, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
-            AbsHListView.this.cBg = 4;
-            AbsHListView.this.cAD.i(this);
+            this.cEu = i2;
+            this.cEt.setInterpolator(null);
+            this.cEt.fling(i2, 0, i, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+            AbsHListView.this.cDx = 4;
+            AbsHListView.this.cCU.i(this);
         }
 
-        void akz() {
-            if (this.cCc.springBack(AbsHListView.this.getScrollX(), 0, 0, 0, 0, 0)) {
-                AbsHListView.this.cBg = 6;
+        void alA() {
+            if (this.cEt.springBack(AbsHListView.this.getScrollX(), 0, 0, 0, 0, 0)) {
+                AbsHListView.this.cDx = 6;
                 AbsHListView.this.invalidate();
-                AbsHListView.this.cAD.i(this);
+                AbsHListView.this.cCU.i(this);
                 return;
             }
-            AbsHListView.this.cBg = -1;
-            AbsHListView.this.ka(0);
+            AbsHListView.this.cDx = -1;
+            AbsHListView.this.kg(0);
         }
 
-        void kf(int i) {
-            this.cCc.setInterpolator(null);
-            this.cCc.fling(AbsHListView.this.getScrollX(), 0, i, 0, ExploreByTouchHelper.INVALID_ID, Integer.MAX_VALUE, 0, 0, AbsHListView.this.getWidth(), 0);
-            AbsHListView.this.cBg = 6;
+        void kl(int i) {
+            this.cEt.setInterpolator(null);
+            this.cEt.fling(AbsHListView.this.getScrollX(), 0, i, 0, ExploreByTouchHelper.INVALID_ID, Integer.MAX_VALUE, 0, 0, AbsHListView.this.getWidth(), 0);
+            AbsHListView.this.cDx = 6;
             AbsHListView.this.invalidate();
-            AbsHListView.this.cAD.i(this);
+            AbsHListView.this.cCU.i(this);
         }
 
-        void kg(int i) {
-            this.cCc.notifyHorizontalEdgeReached(AbsHListView.this.getScrollX(), 0, AbsHListView.this.cBI);
+        void km(int i) {
+            this.cEt.notifyHorizontalEdgeReached(AbsHListView.this.getScrollX(), 0, AbsHListView.this.cDZ);
             int overScrollMode = AbsHListView.this.getOverScrollMode();
-            if (overScrollMode == 0 || (overScrollMode == 1 && !AbsHListView.this.akd())) {
-                AbsHListView.this.cBg = 6;
-                int currVelocity = (int) this.cCc.getCurrVelocity();
+            if (overScrollMode == 0 || (overScrollMode == 1 && !AbsHListView.this.ale())) {
+                AbsHListView.this.cDx = 6;
+                int currVelocity = (int) this.cEt.getCurrVelocity();
                 if (i > 0) {
-                    AbsHListView.this.cBJ.onAbsorb(currVelocity);
+                    AbsHListView.this.cEa.onAbsorb(currVelocity);
                 } else {
-                    AbsHListView.this.cBK.onAbsorb(currVelocity);
+                    AbsHListView.this.cEb.onAbsorb(currVelocity);
                 }
             } else {
-                AbsHListView.this.cBg = -1;
-                if (AbsHListView.this.cBk != null) {
-                    AbsHListView.this.cBk.stop();
+                AbsHListView.this.cDx = -1;
+                if (AbsHListView.this.cDB != null) {
+                    AbsHListView.this.cDB.stop();
                 }
             }
             AbsHListView.this.invalidate();
-            AbsHListView.this.cAD.i(this);
+            AbsHListView.this.cCU.i(this);
         }
 
         void d(int i, int i2, boolean z) {
             int i3 = i < 0 ? Integer.MAX_VALUE : 0;
-            this.cCd = i3;
-            this.cCc.setInterpolator(z ? AbsHListView.cBV : null);
-            this.cCc.startScroll(i3, 0, i, 0, i2);
-            AbsHListView.this.cBg = 4;
-            AbsHListView.this.cAD.i(this);
+            this.cEu = i3;
+            this.cEt.setInterpolator(z ? AbsHListView.cEm : null);
+            this.cEt.startScroll(i3, 0, i, 0, i2);
+            AbsHListView.this.cDx = 4;
+            AbsHListView.this.cCU.i(this);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void akA() {
-            AbsHListView.this.cBg = -1;
+        public void alB() {
+            AbsHListView.this.cDx = -1;
             AbsHListView.this.removeCallbacks(this);
-            AbsHListView.this.removeCallbacks(this.cCe);
-            AbsHListView.this.ka(0);
-            AbsHListView.this.aks();
-            this.cCc.abortAnimation();
+            AbsHListView.this.removeCallbacks(this.cEv);
+            AbsHListView.this.kg(0);
+            AbsHListView.this.alt();
+            this.cEt.abortAnimation();
             AbsHListView.this.overScrollBy(0, 0, 0, 0, 0, 0, 0, 0, false);
         }
 
-        void akB() {
-            AbsHListView.this.postDelayed(this.cCe, 40L);
+        void alC() {
+            AbsHListView.this.postDelayed(this.cEv, 40L);
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -2446,9 +2446,9 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             int max;
             boolean z = true;
             boolean z2 = false;
-            switch (AbsHListView.this.cBg) {
+            switch (AbsHListView.this.cDx) {
                 case 3:
-                    if (this.cCc.isFinished()) {
+                    if (this.cEt.isFinished()) {
                         return;
                     }
                     break;
@@ -2456,14 +2456,14 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     break;
                 case 5:
                 default:
-                    akA();
+                    alB();
                     return;
                 case 6:
-                    o oVar = this.cCc;
+                    o oVar = this.cEt;
                     if (oVar.computeScrollOffset()) {
                         int scrollX = AbsHListView.this.getScrollX();
                         int currX = oVar.getCurrX();
-                        if (AbsHListView.this.overScrollBy(currX - scrollX, 0, scrollX, 0, 0, 0, AbsHListView.this.cBI, 0, false)) {
+                        if (AbsHListView.this.overScrollBy(currX - scrollX, 0, scrollX, 0, 0, 0, AbsHListView.this.cDZ, 0, false)) {
                             boolean z3 = scrollX <= 0 && currX > 0;
                             if (scrollX >= 0 && currX < 0) {
                                 z2 = true;
@@ -2474,41 +2474,41 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                                     currVelocity = -currVelocity;
                                 }
                                 oVar.abortAnimation();
-                                ke(currVelocity);
+                                kk(currVelocity);
                                 return;
                             }
-                            akz();
+                            alA();
                             return;
                         }
                         AbsHListView.this.invalidate();
-                        AbsHListView.this.cAD.i(this);
+                        AbsHListView.this.cCU.i(this);
                         return;
                     }
-                    akA();
+                    alB();
                     return;
             }
-            if (AbsHListView.this.ajq) {
+            if (AbsHListView.this.ajr) {
                 AbsHListView.this.layoutChildren();
             }
-            if (AbsHListView.this.cCY == 0 || AbsHListView.this.getChildCount() == 0) {
-                akA();
+            if (AbsHListView.this.cFp == 0 || AbsHListView.this.getChildCount() == 0) {
+                alB();
                 return;
             }
-            o oVar2 = this.cCc;
+            o oVar2 = this.cEt;
             boolean computeScrollOffset = oVar2.computeScrollOffset();
             int currX2 = oVar2.getCurrX();
-            int i = this.cCd - currX2;
+            int i = this.cEu - currX2;
             if (i > 0) {
-                AbsHListView.this.cBb = AbsHListView.this.cCL;
-                AbsHListView.this.cBc = AbsHListView.this.getChildAt(0).getLeft();
+                AbsHListView.this.cDs = AbsHListView.this.cFc;
+                AbsHListView.this.cDt = AbsHListView.this.getChildAt(0).getLeft();
                 max = Math.min(((AbsHListView.this.getWidth() - AbsHListView.this.getPaddingRight()) - AbsHListView.this.getPaddingLeft()) - 1, i);
             } else {
                 int childCount = AbsHListView.this.getChildCount() - 1;
-                AbsHListView.this.cBb = AbsHListView.this.cCL + childCount;
-                AbsHListView.this.cBc = AbsHListView.this.getChildAt(childCount).getLeft();
+                AbsHListView.this.cDs = AbsHListView.this.cFc + childCount;
+                AbsHListView.this.cDt = AbsHListView.this.getChildAt(childCount).getLeft();
                 max = Math.max(-(((AbsHListView.this.getWidth() - AbsHListView.this.getPaddingRight()) - AbsHListView.this.getPaddingLeft()) - 1), i);
             }
-            View childAt = AbsHListView.this.getChildAt(AbsHListView.this.cBb - AbsHListView.this.cCL);
+            View childAt = AbsHListView.this.getChildAt(AbsHListView.this.cDs - AbsHListView.this.cFc);
             int left = childAt != null ? childAt.getLeft() : 0;
             boolean ay = AbsHListView.this.ay(max, max);
             if (!ay || max == 0) {
@@ -2516,48 +2516,48 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             }
             if (z) {
                 if (childAt != null) {
-                    AbsHListView.this.overScrollBy(-(max - (childAt.getLeft() - left)), 0, AbsHListView.this.getScrollX(), 0, 0, 0, AbsHListView.this.cBI, 0, false);
+                    AbsHListView.this.overScrollBy(-(max - (childAt.getLeft() - left)), 0, AbsHListView.this.getScrollX(), 0, 0, 0, AbsHListView.this.cDZ, 0, false);
                 }
                 if (computeScrollOffset) {
-                    kg(max);
+                    km(max);
                 }
             } else if (computeScrollOffset && !z) {
                 if (ay) {
                     AbsHListView.this.invalidate();
                 }
-                this.cCd = currX2;
-                AbsHListView.this.cAD.i(this);
+                this.cEu = currX2;
+                AbsHListView.this.cCU.i(this);
             } else {
-                akA();
+                alB();
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class j implements Runnable {
-        private int cCm;
-        private int cCn;
-        private int cCo;
-        private int cCp;
-        private final int cCq;
-        private int cCr;
+        private int cED;
+        private int cEE;
+        private int cEF;
+        private int cEG;
+        private final int cEH;
+        private int cEI;
         private int mMode;
 
         j() {
-            this.cCq = ViewConfiguration.get(AbsHListView.this.getContext()).getScaledFadingEdgeLength();
+            this.cEH = ViewConfiguration.get(AbsHListView.this.getContext()).getScaledFadingEdgeLength();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void ke(int i) {
+        public void kk(int i) {
             int i2;
             stop();
-            if (AbsHListView.this.ajq) {
-                AbsHListView.this.cBE = new com.baidu.tieba.horizonalList.widget.d(this, i);
+            if (AbsHListView.this.ajr) {
+                AbsHListView.this.cDV = new com.baidu.tieba.horizonalList.widget.d(this, i);
                 return;
             }
             int childCount = AbsHListView.this.getChildCount();
             if (childCount != 0) {
-                int i3 = AbsHListView.this.cCL;
+                int i3 = AbsHListView.this.cFc;
                 int i4 = (childCount + i3) - 1;
                 int max = Math.max(0, Math.min(AbsHListView.this.getCount() - 1, i));
                 if (max < i3) {
@@ -2571,14 +2571,14 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     return;
                 }
                 if (i2 > 0) {
-                    this.cCp = 200 / i2;
+                    this.cEG = 200 / i2;
                 } else {
-                    this.cCp = 200;
+                    this.cEG = 200;
                 }
-                this.cCm = max;
-                this.cCn = -1;
-                this.cCo = -1;
-                AbsHListView.this.cAD.i(this);
+                this.cED = max;
+                this.cEE = -1;
+                this.cEF = -1;
+                AbsHListView.this.cCU.i(this);
             }
         }
 
@@ -2587,13 +2587,13 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             int i3;
             stop();
             if (i2 == -1) {
-                ke(i);
-            } else if (AbsHListView.this.ajq) {
-                AbsHListView.this.cBE = new com.baidu.tieba.horizonalList.widget.e(this, i, i2);
+                kk(i);
+            } else if (AbsHListView.this.ajr) {
+                AbsHListView.this.cDV = new com.baidu.tieba.horizonalList.widget.e(this, i, i2);
             } else {
                 int childCount = AbsHListView.this.getChildCount();
                 if (childCount != 0) {
-                    int i4 = AbsHListView.this.cCL;
+                    int i4 = AbsHListView.this.cFc;
                     int i5 = (childCount + i4) - 1;
                     int max = Math.max(0, Math.min(AbsHListView.this.getCount() - 1, i));
                     if (max < i4) {
@@ -2629,23 +2629,23 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                         return;
                     }
                     if (i3 > 0) {
-                        this.cCp = 200 / i3;
+                        this.cEG = 200 / i3;
                     } else {
-                        this.cCp = 200;
+                        this.cEG = 200;
                     }
-                    this.cCm = max;
-                    this.cCn = i2;
-                    this.cCo = -1;
-                    AbsHListView.this.cAD.i(this);
+                    this.cED = max;
+                    this.cEE = i2;
+                    this.cEF = -1;
+                    AbsHListView.this.cCU.i(this);
                 }
             }
         }
 
         void w(int i, int i2, int i3) {
-            int i4 = AbsHListView.this.cCL;
+            int i4 = AbsHListView.this.cFc;
             int childCount = (AbsHListView.this.getChildCount() + i4) - 1;
-            int i5 = AbsHListView.this.cAV.left;
-            int width = AbsHListView.this.getWidth() - AbsHListView.this.cAV.right;
+            int i5 = AbsHListView.this.cDm.left;
+            int width = AbsHListView.this.getWidth() - AbsHListView.this.cDm.right;
             i2 = (i2 < i4 || i2 > childCount) ? -1 : -1;
             View childAt = AbsHListView.this.getChildAt(i - i4);
             int left = childAt.getLeft();
@@ -2679,37 +2679,37 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             int left;
             int i = 0;
             int width = AbsHListView.this.getWidth();
-            int i2 = AbsHListView.this.cCL;
+            int i2 = AbsHListView.this.cFc;
             switch (this.mMode) {
                 case 1:
                     int childCount = AbsHListView.this.getChildCount() - 1;
                     int i3 = i2 + childCount;
                     if (childCount >= 0) {
-                        if (i3 == this.cCo) {
-                            AbsHListView.this.cAD.i(this);
+                        if (i3 == this.cEF) {
+                            AbsHListView.this.cCU.i(this);
                             return;
                         }
                         View childAt = AbsHListView.this.getChildAt(childCount);
-                        AbsHListView.this.c((i3 < AbsHListView.this.cCY + (-1) ? Math.max(AbsHListView.this.cAV.right, this.cCq) : AbsHListView.this.cAV.right) + (childAt.getWidth() - (width - childAt.getLeft())), this.cCp, true);
-                        this.cCo = i3;
-                        if (i3 < this.cCm) {
-                            AbsHListView.this.cAD.i(this);
+                        AbsHListView.this.c((i3 < AbsHListView.this.cFp + (-1) ? Math.max(AbsHListView.this.cDm.right, this.cEH) : AbsHListView.this.cDm.right) + (childAt.getWidth() - (width - childAt.getLeft())), this.cEG, true);
+                        this.cEF = i3;
+                        if (i3 < this.cED) {
+                            AbsHListView.this.cCU.i(this);
                             return;
                         }
                         return;
                     }
                     return;
                 case 2:
-                    if (i2 == this.cCo) {
-                        AbsHListView.this.cAD.i(this);
+                    if (i2 == this.cEF) {
+                        AbsHListView.this.cCU.i(this);
                         return;
                     }
                     View childAt2 = AbsHListView.this.getChildAt(0);
                     if (childAt2 != null) {
-                        AbsHListView.this.c(childAt2.getLeft() - (i2 > 0 ? Math.max(this.cCq, AbsHListView.this.cAV.left) : AbsHListView.this.cAV.left), this.cCp, true);
-                        this.cCo = i2;
-                        if (i2 > this.cCm) {
-                            AbsHListView.this.cAD.i(this);
+                        AbsHListView.this.c(childAt2.getLeft() - (i2 > 0 ? Math.max(this.cEH, AbsHListView.this.cDm.left) : AbsHListView.this.cDm.left), this.cEG, true);
+                        this.cEF = i2;
+                        if (i2 > this.cED) {
+                            AbsHListView.this.cCU.i(this);
                             return;
                         }
                         return;
@@ -2717,23 +2717,23 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     return;
                 case 3:
                     int childCount2 = AbsHListView.this.getChildCount();
-                    if (i2 != this.cCn && childCount2 > 1 && childCount2 + i2 < AbsHListView.this.cCY) {
+                    if (i2 != this.cEE && childCount2 > 1 && childCount2 + i2 < AbsHListView.this.cFp) {
                         int i4 = i2 + 1;
-                        if (i4 == this.cCo) {
-                            AbsHListView.this.cAD.i(this);
+                        if (i4 == this.cEF) {
+                            AbsHListView.this.cCU.i(this);
                             return;
                         }
                         View childAt3 = AbsHListView.this.getChildAt(1);
                         int width2 = childAt3.getWidth();
                         int left2 = childAt3.getLeft();
-                        int max = Math.max(AbsHListView.this.cAV.right, this.cCq);
-                        if (i4 < this.cCn) {
-                            AbsHListView.this.c(Math.max(0, (left2 + width2) - max), this.cCp, true);
-                            this.cCo = i4;
-                            AbsHListView.this.cAD.i(this);
+                        int max = Math.max(AbsHListView.this.cDm.right, this.cEH);
+                        if (i4 < this.cEE) {
+                            AbsHListView.this.c(Math.max(0, (left2 + width2) - max), this.cEG, true);
+                            this.cEF = i4;
+                            AbsHListView.this.cCU.i(this);
                             return;
                         } else if (left2 > max) {
-                            AbsHListView.this.c(left2 - max, this.cCp, true);
+                            AbsHListView.this.c(left2 - max, this.cEG, true);
                             return;
                         } else {
                             return;
@@ -2744,38 +2744,38 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     int childCount3 = AbsHListView.this.getChildCount() - 2;
                     if (childCount3 >= 0) {
                         int i5 = i2 + childCount3;
-                        if (i5 == this.cCo) {
-                            AbsHListView.this.cAD.i(this);
+                        if (i5 == this.cEF) {
+                            AbsHListView.this.cCU.i(this);
                             return;
                         }
                         View childAt4 = AbsHListView.this.getChildAt(childCount3);
                         int width3 = childAt4.getWidth();
                         int left3 = childAt4.getLeft();
                         int i6 = width - left3;
-                        int max2 = Math.max(AbsHListView.this.cAV.left, this.cCq);
-                        this.cCo = i5;
-                        if (i5 > this.cCn) {
-                            AbsHListView.this.c(-(i6 - max2), this.cCp, true);
-                            AbsHListView.this.cAD.i(this);
+                        int max2 = Math.max(AbsHListView.this.cDm.left, this.cEH);
+                        this.cEF = i5;
+                        if (i5 > this.cEE) {
+                            AbsHListView.this.c(-(i6 - max2), this.cEG, true);
+                            AbsHListView.this.cCU.i(this);
                             return;
                         }
                         int i7 = width - max2;
                         int i8 = left3 + width3;
                         if (i7 > i8) {
-                            AbsHListView.this.c(-(i7 - i8), this.cCp, true);
+                            AbsHListView.this.c(-(i7 - i8), this.cEG, true);
                             return;
                         }
                         return;
                     }
                     return;
                 case 5:
-                    if (this.cCo == i2) {
-                        AbsHListView.this.cAD.i(this);
+                    if (this.cEF == i2) {
+                        AbsHListView.this.cCU.i(this);
                         return;
                     }
-                    this.cCo = i2;
+                    this.cEF = i2;
                     int childCount4 = AbsHListView.this.getChildCount();
-                    int i9 = this.cCm;
+                    int i9 = this.cED;
                     int i10 = (i2 + childCount4) - 1;
                     if (i9 < i2) {
                         i = (i2 - i9) + 1;
@@ -2784,15 +2784,15 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     }
                     float min = Math.min(Math.abs(i / childCount4), 1.0f);
                     if (i9 < i2) {
-                        AbsHListView.this.c((int) ((-AbsHListView.this.getWidth()) * min), (int) (min * this.cCp), true);
-                        AbsHListView.this.cAD.i(this);
+                        AbsHListView.this.c((int) ((-AbsHListView.this.getWidth()) * min), (int) (min * this.cEG), true);
+                        AbsHListView.this.cCU.i(this);
                         return;
                     } else if (i9 > i10) {
-                        AbsHListView.this.c((int) (AbsHListView.this.getWidth() * min), (int) (min * this.cCp), true);
-                        AbsHListView.this.cAD.i(this);
+                        AbsHListView.this.c((int) (AbsHListView.this.getWidth() * min), (int) (min * this.cEG), true);
+                        AbsHListView.this.cCU.i(this);
                         return;
                     } else {
-                        AbsHListView.this.c(AbsHListView.this.getChildAt(i9 - i2).getLeft() - this.cCr, (int) (this.cCp * (Math.abs(left) / AbsHListView.this.getWidth())), true);
+                        AbsHListView.this.c(AbsHListView.this.getChildAt(i9 - i2).getLeft() - this.cEI, (int) (this.cEG * (Math.abs(left) / AbsHListView.this.getWidth())), true);
                         return;
                     }
                 default:
@@ -2802,21 +2802,21 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public void setFriction(float f2) {
-        if (this.cBj == null) {
-            this.cBj = new e();
+        if (this.cDA == null) {
+            this.cDA = new e();
         }
-        this.cBj.cCc.setFriction(f2);
+        this.cDA.cEt.setFriction(f2);
     }
 
     public void setVelocityScale(float f2) {
-        this.cBF = f2;
+        this.cDW = f2;
     }
 
     public void smoothScrollToPosition(int i2, int i3) {
-        if (this.cBk == null) {
-            this.cBk = new j();
+        if (this.cDB == null) {
+            this.cDB = new j();
         }
-        this.cBk.aA(i2, i3);
+        this.cDB.aA(i2, i3);
     }
 
     public void smoothScrollBy(int i2, int i3) {
@@ -2824,42 +2824,42 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public void c(int i2, int i3, boolean z) {
-        if (this.cBj == null) {
-            this.cBj = new e();
+        if (this.cDA == null) {
+            this.cDA = new e();
         }
-        int i4 = this.cCL;
+        int i4 = this.cFc;
         int childCount = getChildCount();
         int i5 = i4 + childCount;
         int paddingLeft = getPaddingLeft();
         int width = getWidth() - getPaddingRight();
-        if (i2 == 0 || this.cCY == 0 || childCount == 0 || ((i4 == 0 && getChildAt(0).getLeft() == paddingLeft && i2 < 0) || (i5 == this.cCY && getChildAt(childCount - 1).getRight() == width && i2 > 0))) {
-            this.cBj.akA();
-            if (this.cBk != null) {
-                this.cBk.stop();
+        if (i2 == 0 || this.cFp == 0 || childCount == 0 || ((i4 == 0 && getChildAt(0).getLeft() == paddingLeft && i2 < 0) || (i5 == this.cFp && getChildAt(childCount - 1).getRight() == width && i2 > 0))) {
+            this.cDA.alB();
+            if (this.cDB != null) {
+                this.cDB.stop();
                 return;
             }
             return;
         }
-        ka(2);
-        this.cBj.d(i2, i3, z);
+        kg(2);
+        this.cDA.d(i2, i3, z);
     }
 
-    private void akr() {
-        if (this.mScrollingCacheEnabled && !this.cAZ && !this.cAD.isHardwareAccelerated()) {
+    private void als() {
+        if (this.mScrollingCacheEnabled && !this.cDq && !this.cCU.isHardwareAccelerated()) {
             setChildrenDrawnWithCacheEnabled(true);
             setChildrenDrawingCacheEnabled(true);
-            this.cBa = true;
-            this.cAZ = true;
+            this.cDr = true;
+            this.cDq = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aks() {
-        if (!this.cAD.isHardwareAccelerated()) {
-            if (this.cBD == null) {
-                this.cBD = new com.baidu.tieba.horizonalList.widget.b(this);
+    public void alt() {
+        if (!this.cCU.isHardwareAccelerated()) {
+            if (this.cDU == null) {
+                this.cDU = new com.baidu.tieba.horizonalList.widget.b(this);
             }
-            post(this.cBD);
+            post(this.cDU);
         }
     }
 
@@ -2873,7 +2873,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         }
         int left = getChildAt(0).getLeft();
         int right = getChildAt(childCount - 1).getRight();
-        Rect rect = this.cAV;
+        Rect rect = this.cDm;
         int i5 = 0 - left;
         int width = right - (getWidth() - 0);
         int width2 = (getWidth() - getPaddingRight()) - getPaddingLeft();
@@ -2887,29 +2887,29 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         } else {
             min2 = Math.min(width2 - 1, i3);
         }
-        int i6 = this.cCL;
+        int i6 = this.cFc;
         if (i6 == 0) {
-            this.cBL = left - rect.left;
+            this.cEc = left - rect.left;
         } else {
-            this.cBL += min2;
+            this.cEc += min2;
         }
-        if (i6 + childCount == this.cCY) {
-            this.cBM = rect.right + right;
+        if (i6 + childCount == this.cFp) {
+            this.cEd = rect.right + right;
         } else {
-            this.cBM += min2;
+            this.cEd += min2;
         }
         boolean z = i6 == 0 && left >= rect.left && min2 >= 0;
-        boolean z2 = i6 + childCount == this.cCY && right <= getWidth() - rect.right && min2 <= 0;
+        boolean z2 = i6 + childCount == this.cFp && right <= getWidth() - rect.right && min2 <= 0;
         if (z || z2) {
             return min2 != 0;
         }
         boolean z3 = min2 < 0;
         boolean isInTouchMode = isInTouchMode();
         if (isInTouchMode) {
-            akt();
+            alu();
         }
         int headerViewsCount = getHeaderViewsCount();
-        int footerViewsCount = this.cCY - getFooterViewsCount();
+        int footerViewsCount = this.cFp - getFooterViewsCount();
         int i7 = 0;
         if (z3) {
             int i8 = -min2;
@@ -2923,7 +2923,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                 int i10 = i4 + 1;
                 int i11 = i6 + i9;
                 if (i11 >= headerViewsCount && i11 < footerViewsCount) {
-                    this.cAQ.r(childAt, i11);
+                    this.cDh.r(childAt, i11);
                 }
                 i9++;
                 i4 = i10;
@@ -2939,48 +2939,48 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                 int i13 = i4 + 1;
                 int i14 = i6 + i12;
                 if (i14 >= headerViewsCount && i14 < footerViewsCount) {
-                    this.cAQ.r(childAt2, i14);
+                    this.cDh.r(childAt2, i14);
                 }
                 i4 = i13;
                 i7 = i12;
             }
         }
-        this.cBd = this.cBc + min;
-        this.cDg = true;
+        this.cDu = this.cDt + min;
+        this.cFx = true;
         if (i4 > 0) {
             detachViewsFromParent(i7, i4);
-            this.cAQ.akE();
+            this.cDh.alF();
         }
         if (!awakenScrollBars()) {
             invalidate();
         }
-        kb(min2);
+        kh(min2);
         if (z3) {
-            this.cCL = i4 + this.cCL;
+            this.cFc = i4 + this.cFc;
         }
         int abs = Math.abs(min2);
         if (i5 < abs || width < abs) {
-            fb(z3);
+            fl(z3);
         }
-        if (!isInTouchMode && this.cjm != -1) {
-            int i15 = this.cjm - this.cCL;
+        if (!isInTouchMode && this.clD != -1) {
+            int i15 = this.clD - this.cFc;
             if (i15 >= 0 && i15 < getChildCount()) {
-                c(this.cjm, getChildAt(i15));
+                c(this.clD, getChildAt(i15));
             }
-        } else if (this.cAO != -1) {
-            int i16 = this.cAO - this.cCL;
+        } else if (this.cDf != -1) {
+            int i16 = this.cDf - this.cFc;
             if (i16 >= 0 && i16 < getChildCount()) {
                 c(-1, getChildAt(i16));
             }
         } else {
-            this.cAP.setEmpty();
+            this.cDg.setEmpty();
         }
-        this.cDg = false;
-        ake();
+        this.cFx = false;
+        alf();
         return false;
     }
 
-    public void kb(int i2) {
+    public void kh(int i2) {
         int childCount = getChildCount();
         for (int i3 = 0; i3 < childCount; i3++) {
             getChildAt(i3).offsetLeftAndRight(i2);
@@ -2996,48 +2996,48 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void akt() {
-        if (this.cjm != -1) {
-            if (this.cAK != 4) {
-                this.cBq = this.cjm;
+    public void alu() {
+        if (this.clD != -1) {
+            if (this.cDb != 4) {
+                this.cDH = this.clD;
             }
-            if (this.cCV >= 0 && this.cCV != this.cjm) {
-                this.cBq = this.cCV;
+            if (this.cFm >= 0 && this.cFm != this.clD) {
+                this.cDH = this.cFm;
             }
             setSelectedPositionInt(-1);
             setNextSelectedPositionInt(-1);
-            this.cBl = 0;
+            this.cDC = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int aku() {
-        int i2 = this.cjm;
+    public int alv() {
+        int i2 = this.clD;
         if (i2 < 0) {
-            i2 = this.cBq;
+            i2 = this.cDH;
         }
-        return Math.min(Math.max(0, i2), this.cCY - 1);
+        return Math.min(Math.max(0, i2), this.cFp - 1);
     }
 
-    protected int kd(int i2) {
+    protected int kj(int i2) {
         int childCount = getChildCount();
         if (childCount == 0) {
             return -1;
         }
-        int kc = kc(i2);
-        return kc == -1 ? (this.cCL + childCount) - 1 : kc;
+        int ki = ki(i2);
+        return ki == -1 ? (this.cFc + childCount) - 1 : ki;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean akv() {
-        if (this.cjm >= 0 || !akw()) {
+    public boolean alw() {
+        if (this.clD >= 0 || !alx()) {
             return false;
         }
-        akm();
+        aln();
         return true;
     }
 
-    boolean akw() {
+    boolean alx() {
         int i2;
         int i3;
         boolean z;
@@ -3049,12 +3049,12 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         if (childCount <= 0) {
             return false;
         }
-        int i8 = this.cAV.left;
-        int right = (getRight() - getLeft()) - this.cAV.right;
-        int i9 = this.cCL;
-        int i10 = this.cBq;
+        int i8 = this.cDm.left;
+        int right = (getRight() - getLeft()) - this.cDm.right;
+        int i9 = this.cFc;
+        int i10 = this.cDH;
         if (i10 >= i9 && i10 < i9 + childCount) {
-            View childAt = getChildAt(i10 - this.cCL);
+            View childAt = getChildAt(i10 - this.cFc);
             int left = childAt.getLeft();
             int right2 = childAt.getRight();
             if (left < i8) {
@@ -3105,7 +3105,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                 }
             }
         } else {
-            int i15 = this.cCY;
+            int i15 = this.cFp;
             int i16 = (i9 + childCount) - 1;
             int i17 = childCount - 1;
             i2 = 0;
@@ -3142,40 +3142,40 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                 }
             }
         }
-        this.cBq = -1;
-        removeCallbacks(this.cBj);
-        if (this.cBk != null) {
-            this.cBk.stop();
+        this.cDH = -1;
+        removeCallbacks(this.cDA);
+        if (this.cDB != null) {
+            this.cDB.stop();
         }
-        this.cBg = -1;
-        aks();
-        this.cCM = i2;
+        this.cDx = -1;
+        alt();
+        this.cFd = i2;
         int q = q(i3, z);
         if (q < i9 || q > getLastVisiblePosition()) {
             q = -1;
         } else {
-            this.cAK = 4;
-            akm();
+            this.cDb = 4;
+            aln();
             setSelectionInt(q);
-            ake();
+            alf();
         }
-        ka(0);
+        kg(0);
         return q >= 0;
     }
 
-    void akx() {
+    void aly() {
         int i2;
         boolean z;
         boolean z2;
-        this.cAI.clear();
+        this.cCZ.clear();
         int i3 = 0;
         boolean z3 = false;
-        while (i3 < this.cAJ.size()) {
-            long keyAt = this.cAJ.keyAt(i3);
-            int intValue = this.cAJ.valueAt(i3).intValue();
+        while (i3 < this.cDa.size()) {
+            long keyAt = this.cDa.keyAt(i3);
+            int intValue = this.cDa.valueAt(i3).intValue();
             if (keyAt != this.mAdapter.getItemId(intValue)) {
                 int max = Math.max(0, intValue - 20);
-                int min = Math.min(intValue + 20, this.cCY);
+                int min = Math.min(intValue + 20, this.cFp);
                 while (true) {
                     if (max >= min) {
                         z2 = false;
@@ -3183,21 +3183,21 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     } else if (keyAt != this.mAdapter.getItemId(max)) {
                         max++;
                     } else {
-                        this.cAI.put(max, true);
-                        this.cAJ.setValueAt(i3, Integer.valueOf(max));
+                        this.cCZ.put(max, true);
+                        this.cDa.setValueAt(i3, Integer.valueOf(max));
                         z2 = true;
                         break;
                     }
                 }
                 if (!z2) {
-                    this.cAJ.delete(keyAt);
+                    this.cDa.delete(keyAt);
                     int i4 = i3 - 1;
-                    this.cAH--;
-                    if (Build.VERSION.SDK_INT <= 11 || this.cAF == null || this.cAG == null) {
+                    this.cCY--;
+                    if (Build.VERSION.SDK_INT <= 11 || this.cCW == null || this.cCX == null) {
                         i2 = i4;
                         z = true;
                     } else {
-                        ((com.baidu.tieba.horizonalList.a.a.b) this.cAG).onItemCheckedStateChanged((ActionMode) this.cAF, intValue, keyAt, false);
+                        ((com.baidu.tieba.horizonalList.a.a.b) this.cCX).onItemCheckedStateChanged((ActionMode) this.cCW, intValue, keyAt, false);
                         i2 = i4;
                         z = true;
                     }
@@ -3205,72 +3205,72 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     i3 = i2 + 1;
                 }
             } else {
-                this.cAI.put(intValue, true);
+                this.cCZ.put(intValue, true);
             }
             i2 = i3;
             z = z3;
             z3 = z;
             i3 = i2 + 1;
         }
-        if (z3 && this.cAF != null && Build.VERSION.SDK_INT > 11) {
-            ((ActionMode) this.cAF).invalidate();
+        if (z3 && this.cCW != null && Build.VERSION.SDK_INT > 11) {
+            ((ActionMode) this.cCW).invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.horizonalList.widget.g
     public void handleDataChanged() {
-        int i2 = this.cCY;
-        int i3 = this.cBU;
-        this.cBU = this.cCY;
-        if (this.cAE != 0 && this.mAdapter != null && this.mAdapter.hasStableIds()) {
-            akx();
+        int i2 = this.cFp;
+        int i3 = this.cEl;
+        this.cEl = this.cFp;
+        if (this.cCV != 0 && this.mAdapter != null && this.mAdapter.hasStableIds()) {
+            aly();
         }
-        this.cAQ.akD();
+        this.cDh.alE();
         if (i2 > 0) {
-            if (this.cCQ) {
-                this.cCQ = false;
-                this.cBW = null;
-                if (this.cBz == 2) {
-                    this.cAK = 3;
+            if (this.cFh) {
+                this.cFh = false;
+                this.cEn = null;
+                if (this.cDQ == 2) {
+                    this.cDb = 3;
                     return;
                 }
-                if (this.cBz == 1) {
-                    if (this.cBN) {
-                        this.cBN = false;
-                        this.cAK = 3;
+                if (this.cDQ == 1) {
+                    if (this.cEe) {
+                        this.cEe = false;
+                        this.cDb = 3;
                         return;
                     }
                     int childCount = getChildCount();
                     int width = getWidth() - getPaddingRight();
                     View childAt = getChildAt(childCount - 1);
                     int bottom = childAt != null ? childAt.getBottom() : width;
-                    if (childCount + this.cCL >= i3 && bottom <= width) {
-                        this.cAK = 3;
+                    if (childCount + this.cFc >= i3 && bottom <= width) {
+                        this.cDb = 3;
                         return;
                     }
                     awakenScrollBars();
                 }
-                switch (this.cCR) {
+                switch (this.cFi) {
                     case 1:
-                        this.cAK = 5;
-                        this.cCN = Math.min(Math.max(0, this.cCN), i2 - 1);
+                        this.cDb = 5;
+                        this.cFe = Math.min(Math.max(0, this.cFe), i2 - 1);
                         return;
                     case 0:
                         if (isInTouchMode()) {
-                            this.cAK = 5;
-                            this.cCN = Math.min(Math.max(0, this.cCN), i2 - 1);
+                            this.cDb = 5;
+                            this.cFe = Math.min(Math.max(0, this.cFe), i2 - 1);
                             return;
                         }
-                        int akP = akP();
-                        if (akP >= 0 && q(akP, true) == akP) {
-                            this.cCN = akP;
-                            if (this.cCP == getWidth()) {
-                                this.cAK = 5;
+                        int alQ = alQ();
+                        if (alQ >= 0 && q(alQ, true) == alQ) {
+                            this.cFe = alQ;
+                            if (this.cFg == getWidth()) {
+                                this.cDb = 5;
                             } else {
-                                this.cAK = 2;
+                                this.cDb = 2;
                             }
-                            setNextSelectedPositionInt(akP);
+                            setNextSelectedPositionInt(alQ);
                             return;
                         }
                         break;
@@ -3294,19 +3294,19 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     setNextSelectedPositionInt(q2);
                     return;
                 }
-            } else if (this.cBq >= 0) {
+            } else if (this.cDH >= 0) {
                 return;
             }
         }
-        this.cAK = this.cBm ? 3 : 1;
-        this.cjm = -1;
-        this.cCX = Long.MIN_VALUE;
-        this.cCV = -1;
-        this.cCW = Long.MIN_VALUE;
-        this.cCQ = false;
-        this.cBW = null;
-        this.cAO = -1;
-        akO();
+        this.cDb = this.cDD ? 3 : 1;
+        this.clD = -1;
+        this.cFo = Long.MIN_VALUE;
+        this.cFm = -1;
+        this.cFn = Long.MIN_VALUE;
+        this.cFh = false;
+        this.cEn = null;
+        this.cDf = -1;
+        alP();
     }
 
     public static int a(Rect rect, Rect rect2, int i2) {
@@ -3388,38 +3388,38 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public void setTranscriptMode(int i2) {
-        this.cBz = i2;
+        this.cDQ = i2;
     }
 
     public int getTranscriptMode() {
-        return this.cBz;
+        return this.cDQ;
     }
 
     @Override // android.view.View
     public int getSolidColor() {
-        return this.cBA;
+        return this.cDR;
     }
 
     public void setCacheColorHint(int i2) {
-        if (i2 != this.cBA) {
-            this.cBA = i2;
+        if (i2 != this.cDR) {
+            this.cDR = i2;
             int childCount = getChildCount();
             for (int i3 = 0; i3 < childCount; i3++) {
                 getChildAt(i3).setDrawingCacheBackgroundColor(i2);
             }
-            this.cAQ.setCacheColorHint(i2);
+            this.cDh.setCacheColorHint(i2);
         }
     }
 
     @ViewDebug.ExportedProperty(category = "drawing")
     public int getCacheColorHint() {
-        return this.cBA;
+        return this.cDR;
     }
 
-    private void aky() {
-        if (this.cBJ != null) {
-            this.cBJ.finish();
-            this.cBK.finish();
+    private void alz() {
+        if (this.cEa != null) {
+            this.cEa.finish();
+            this.cEb.finish();
         }
     }
 
@@ -3428,7 +3428,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
     }
 
     public void setRecyclerListener(l lVar) {
-        this.cAQ.cCu = lVar;
+        this.cDh.cEL = lVar;
     }
 
     /* loaded from: classes.dex */
@@ -3450,49 +3450,49 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
 
     /* loaded from: classes.dex */
     public static class f extends ViewGroup.LayoutParams {
-        public int cCg;
-        public boolean cCh;
-        public boolean cCi;
-        public int cCj;
-        public long cCk;
+        public int cEA;
+        public long cEB;
+        public int cEx;
+        public boolean cEy;
+        public boolean cEz;
 
         public f(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.cCk = -1L;
+            this.cEB = -1L;
         }
 
         public f(int i, int i2) {
             super(i, i2);
-            this.cCk = -1L;
+            this.cEB = -1L;
         }
 
         public f(int i, int i2, int i3) {
             super(i, i2);
-            this.cCk = -1L;
-            this.cCg = i3;
+            this.cEB = -1L;
+            this.cEx = i3;
         }
 
         public f(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.cCk = -1L;
+            this.cEB = -1L;
         }
     }
 
     /* loaded from: classes.dex */
     public class k {
-        private ArrayList<View> cCA;
-        private SparseArrayCompat<View> cCB;
-        private l cCu;
-        private int cCv;
-        private View[] cCw = new View[0];
-        private ArrayList<View>[] cCx;
-        private int cCy;
-        private ArrayList<View> cCz;
+        private l cEL;
+        private int cEM;
+        private View[] cEN = new View[0];
+        private ArrayList<View>[] cEO;
+        private int cEP;
+        private ArrayList<View> cEQ;
+        private ArrayList<View> cER;
+        private SparseArrayCompat<View> cES;
 
         public k() {
         }
 
-        public void kh(int i) {
+        public void kn(int i) {
             if (i < 1) {
                 throw new IllegalArgumentException("Can't have a viewTypeCount < 1");
             }
@@ -3500,80 +3500,80 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             for (int i2 = 0; i2 < i; i2++) {
                 arrayListArr[i2] = new ArrayList<>();
             }
-            this.cCy = i;
-            this.cCz = arrayListArr[0];
-            this.cCx = arrayListArr;
+            this.cEP = i;
+            this.cEQ = arrayListArr[0];
+            this.cEO = arrayListArr;
         }
 
-        public void akC() {
-            if (this.cCy == 1) {
-                ArrayList<View> arrayList = this.cCz;
+        public void alD() {
+            if (this.cEP == 1) {
+                ArrayList<View> arrayList = this.cEQ;
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).forceLayout();
                 }
             } else {
-                int i2 = this.cCy;
+                int i2 = this.cEP;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    ArrayList<View> arrayList2 = this.cCx[i3];
+                    ArrayList<View> arrayList2 = this.cEO[i3];
                     int size2 = arrayList2.size();
                     for (int i4 = 0; i4 < size2; i4++) {
                         arrayList2.get(i4).forceLayout();
                     }
                 }
             }
-            if (this.cCB != null) {
-                int size3 = this.cCB.size();
+            if (this.cES != null) {
+                int size3 = this.cES.size();
                 for (int i5 = 0; i5 < size3; i5++) {
-                    this.cCB.valueAt(i5).forceLayout();
+                    this.cES.valueAt(i5).forceLayout();
                 }
             }
         }
 
-        public boolean ki(int i) {
+        public boolean ko(int i) {
             return i >= 0;
         }
 
         public void clear() {
-            if (this.cCy == 1) {
-                ArrayList<View> arrayList = this.cCz;
+            if (this.cEP == 1) {
+                ArrayList<View> arrayList = this.cEQ;
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     AbsHListView.this.removeDetachedView(arrayList.remove((size - 1) - i), false);
                 }
             } else {
-                int i2 = this.cCy;
+                int i2 = this.cEP;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    ArrayList<View> arrayList2 = this.cCx[i3];
+                    ArrayList<View> arrayList2 = this.cEO[i3];
                     int size2 = arrayList2.size();
                     for (int i4 = 0; i4 < size2; i4++) {
                         AbsHListView.this.removeDetachedView(arrayList2.remove((size2 - 1) - i4), false);
                     }
                 }
             }
-            if (this.cCB != null) {
-                this.cCB.clear();
+            if (this.cES != null) {
+                this.cES.clear();
             }
         }
 
         public void aB(int i, int i2) {
-            if (this.cCw.length < i) {
-                this.cCw = new View[i];
+            if (this.cEN.length < i) {
+                this.cEN = new View[i];
             }
-            this.cCv = i2;
-            View[] viewArr = this.cCw;
+            this.cEM = i2;
+            View[] viewArr = this.cEN;
             for (int i3 = 0; i3 < i; i3++) {
                 View childAt = AbsHListView.this.getChildAt(i3);
                 f fVar = (f) childAt.getLayoutParams();
-                if (fVar != null && fVar.cCg != -2) {
+                if (fVar != null && fVar.cEx != -2) {
                     viewArr[i3] = childAt;
                 }
             }
         }
 
-        public View kj(int i) {
-            int i2 = i - this.cCv;
-            View[] viewArr = this.cCw;
+        public View kp(int i) {
+            int i2 = i - this.cEM;
+            View[] viewArr = this.cEN;
             if (i2 < 0 || i2 >= viewArr.length) {
                 return null;
             }
@@ -3582,29 +3582,29 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
             return view;
         }
 
-        View kk(int i) {
+        View kq(int i) {
             int indexOfKey;
-            if (this.cCB != null && (indexOfKey = this.cCB.indexOfKey(i)) >= 0) {
-                View valueAt = this.cCB.valueAt(indexOfKey);
-                this.cCB.removeAt(indexOfKey);
+            if (this.cES != null && (indexOfKey = this.cES.indexOfKey(i)) >= 0) {
+                View valueAt = this.cES.valueAt(indexOfKey);
+                this.cES.removeAt(indexOfKey);
                 return valueAt;
             }
             return null;
         }
 
-        void akD() {
-            if (this.cCB != null) {
-                this.cCB.clear();
+        void alE() {
+            if (this.cES != null) {
+                this.cES.clear();
             }
         }
 
-        View kl(int i) {
-            if (this.cCy == 1) {
-                return AbsHListView.a(this.cCz, i);
+        View kr(int i) {
+            if (this.cEP == 1) {
+                return AbsHListView.a(this.cEQ, i);
             }
             int itemViewType = AbsHListView.this.mAdapter.getItemViewType(i);
-            if (itemViewType >= 0 && itemViewType < this.cCx.length) {
-                return AbsHListView.a(this.cCx[itemViewType], i);
+            if (itemViewType >= 0 && itemViewType < this.cEO.length) {
+                return AbsHListView.a(this.cEO[itemViewType], i);
             }
             return null;
         }
@@ -3612,81 +3612,81 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         public void r(View view, int i) {
             f fVar = (f) view.getLayoutParams();
             if (fVar != null) {
-                fVar.cCj = i;
-                int i2 = fVar.cCg;
-                if (!ki(i2)) {
+                fVar.cEA = i;
+                int i2 = fVar.cEx;
+                if (!ko(i2)) {
                     if (i2 != -2) {
-                        if (this.cCA == null) {
-                            this.cCA = new ArrayList<>();
+                        if (this.cER == null) {
+                            this.cER = new ArrayList<>();
                         }
-                        this.cCA.add(view);
+                        this.cER.add(view);
                         return;
                     }
                     return;
                 }
                 view.onStartTemporaryDetach();
-                if (this.cCy == 1) {
-                    this.cCz.add(view);
+                if (this.cEP == 1) {
+                    this.cEQ.add(view);
                 } else {
-                    this.cCx[i2].add(view);
+                    this.cEO[i2].add(view);
                 }
                 if (Build.VERSION.SDK_INT >= 14) {
                     view.setAccessibilityDelegate(null);
                 }
-                if (this.cCu != null) {
-                    this.cCu.onMovedToScrapHeap(view);
+                if (this.cEL != null) {
+                    this.cEL.onMovedToScrapHeap(view);
                 }
             }
         }
 
-        public void akE() {
-            if (this.cCA != null) {
-                int size = this.cCA.size();
+        public void alF() {
+            if (this.cER != null) {
+                int size = this.cER.size();
                 for (int i = 0; i < size; i++) {
-                    AbsHListView.this.removeDetachedView(this.cCA.get(i), false);
+                    AbsHListView.this.removeDetachedView(this.cER.get(i), false);
                 }
-                this.cCA.clear();
+                this.cER.clear();
             }
         }
 
-        public void akF() {
-            View[] viewArr = this.cCw;
-            boolean z = this.cCu != null;
-            boolean z2 = this.cCy > 1;
-            ArrayList<View> arrayList = this.cCz;
+        public void alG() {
+            View[] viewArr = this.cEN;
+            boolean z = this.cEL != null;
+            boolean z2 = this.cEP > 1;
+            ArrayList<View> arrayList = this.cEQ;
             for (int length = viewArr.length - 1; length >= 0; length--) {
                 View view = viewArr[length];
                 if (view != null) {
                     f fVar = (f) view.getLayoutParams();
-                    int i = fVar.cCg;
+                    int i = fVar.cEx;
                     viewArr[length] = null;
-                    if (!ki(i)) {
+                    if (!ko(i)) {
                         if (i != -2) {
                             AbsHListView.this.removeDetachedView(view, false);
                         }
                     } else {
                         if (z2) {
-                            arrayList = this.cCx[i];
+                            arrayList = this.cEO[i];
                         }
                         view.onStartTemporaryDetach();
-                        fVar.cCj = this.cCv + length;
+                        fVar.cEA = this.cEM + length;
                         arrayList.add(view);
                         if (Build.VERSION.SDK_INT >= 14) {
                             view.setAccessibilityDelegate(null);
                         }
                         if (z) {
-                            this.cCu.onMovedToScrapHeap(view);
+                            this.cEL.onMovedToScrapHeap(view);
                         }
                     }
                 }
             }
-            akG();
+            alH();
         }
 
-        private void akG() {
-            int length = this.cCw.length;
-            int i = this.cCy;
-            ArrayList<View>[] arrayListArr = this.cCx;
+        private void alH() {
+            int length = this.cEN.length;
+            int i = this.cEP;
+            ArrayList<View>[] arrayListArr = this.cEO;
             for (int i2 = 0; i2 < i; i2++) {
                 ArrayList<View> arrayList = arrayListArr[i2];
                 int size = arrayList.size();
@@ -3699,32 +3699,32 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
                     i4--;
                 }
             }
-            if (this.cCB != null) {
-                for (int i6 = 0; i6 < this.cCB.size(); i6++) {
-                    this.cCB.valueAt(i6);
+            if (this.cES != null) {
+                for (int i6 = 0; i6 < this.cES.size(); i6++) {
+                    this.cES.valueAt(i6);
                 }
             }
         }
 
         void setCacheColorHint(int i) {
             View[] viewArr;
-            if (this.cCy == 1) {
-                ArrayList<View> arrayList = this.cCz;
+            if (this.cEP == 1) {
+                ArrayList<View> arrayList = this.cEQ;
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).setDrawingCacheBackgroundColor(i);
                 }
             } else {
-                int i3 = this.cCy;
+                int i3 = this.cEP;
                 for (int i4 = 0; i4 < i3; i4++) {
-                    ArrayList<View> arrayList2 = this.cCx[i4];
+                    ArrayList<View> arrayList2 = this.cEO[i4];
                     int size2 = arrayList2.size();
                     for (int i5 = 0; i5 < size2; i5++) {
                         arrayList2.get(i5).setDrawingCacheBackgroundColor(i);
                     }
                 }
             }
-            for (View view : this.cCw) {
+            for (View view : this.cEN) {
                 if (view != null) {
                     view.setDrawingCacheBackgroundColor(i);
                 }
@@ -3737,7 +3737,7 @@ public abstract class AbsHListView extends com.baidu.tieba.horizonalList.widget.
         if (size > 0) {
             for (int i3 = 0; i3 < size; i3++) {
                 View view = arrayList.get(i3);
-                if (((f) view.getLayoutParams()).cCj == i2) {
+                if (((f) view.getLayoutParams()).cEA == i2) {
                     arrayList.remove(i3);
                     return view;
                 }

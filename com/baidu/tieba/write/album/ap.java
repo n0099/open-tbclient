@@ -6,5 +6,5 @@ import java.util.List;
 public interface ap {
     void a(List<d> list, List<ImageFileInfo> list2, String str);
 
-    void lm();
+    void ln();
 }

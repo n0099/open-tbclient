@@ -7,11 +7,11 @@ import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.s;
 /* loaded from: classes.dex */
 class o implements s.a {
-    final /* synthetic */ n aQk;
+    final /* synthetic */ n aQm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aQk = nVar;
+        this.aQm = nVar;
     }
 
     @Override // com.baidu.tieba.s.a
@@ -22,19 +22,19 @@ class o implements s.a {
         LogoActivity.a aVar;
         LogoActivity logoActivity3;
         LogoActivity logoActivity4;
-        logoActivity = this.aQk.aQg;
+        logoActivity = this.aQm.aQi;
         JR = logoActivity.JR();
         if (JR) {
             MessageManager messageManager = MessageManager.getInstance();
-            logoActivity3 = this.aQk.aQg;
+            logoActivity3 = this.aQm.aQi;
             messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VR_LOGO_OPEN, logoActivity3.getPageContext()));
-            logoActivity4 = this.aQk.aQg;
+            logoActivity4 = this.aQm.aQi;
             logoActivity4.finish();
             return;
         }
-        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
-        logoActivity2 = this.aQk.aQg;
-        aVar = logoActivity2.aQa;
-        fR.post(aVar);
+        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
+        logoActivity2 = this.aQm.aQi;
+        aVar = logoActivity2.aQc;
+        fS.post(aVar);
     }
 }

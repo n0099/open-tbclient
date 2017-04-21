@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class t implements Handler.Callback {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // android.os.Handler.Callback
@@ -17,11 +17,11 @@ class t implements Handler.Callback {
         PbModel pbModel2;
         switch (message.what) {
             case 2:
-                pbModel = this.ejU.eif;
+                pbModel = this.emk.ekv;
                 if (pbModel != null) {
-                    pbModel2 = this.ejU.eif;
+                    pbModel2 = this.emk.ekv;
                     if (pbModel2.oe()) {
-                        this.ejU.aKE();
+                        this.emk.aLE();
                         break;
                     }
                 }

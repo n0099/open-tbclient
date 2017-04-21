@@ -7,13 +7,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends CustomMessageListener {
-    final /* synthetic */ t bsE;
+    final /* synthetic */ t buX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(t tVar, int i) {
         super(i);
-        this.bsE = tVar;
+        this.buX = tVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,17 +25,17 @@ public class w extends CustomMessageListener {
         com.baidu.tieba.card.data.m mVar4;
         com.baidu.tieba.card.data.m mVar5;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            mVar = this.bsE.bsw;
+            mVar = this.buX.buP;
             if (mVar != null) {
-                mVar2 = this.bsE.bsw;
-                if (mVar2.bbo != null) {
-                    mVar3 = this.bsE.bsw;
-                    if (mVar3.bbo.getTid() != null && this.bsE.mTextTitle != null) {
-                        mVar4 = this.bsE.bsw;
-                        if (((String) customResponsedMessage.getData()).equals(mVar4.bbo.getTid())) {
-                            TextView textView = this.bsE.mTextTitle;
-                            mVar5 = this.bsE.bsw;
-                            at.a(textView, mVar5.bbo.getId(), w.e.cp_cont_c, w.e.cp_cont_d);
+                mVar2 = this.buX.buP;
+                if (mVar2.bck != null) {
+                    mVar3 = this.buX.buP;
+                    if (mVar3.bck.getTid() != null && this.buX.mTextTitle != null) {
+                        mVar4 = this.buX.buP;
+                        if (((String) customResponsedMessage.getData()).equals(mVar4.bck.getTid())) {
+                            TextView textView = this.buX.mTextTitle;
+                            mVar5 = this.buX.buP;
+                            at.a(textView, mVar5.bck.getId(), w.e.cp_cont_c, w.e.cp_cont_d);
                         }
                     }
                 }

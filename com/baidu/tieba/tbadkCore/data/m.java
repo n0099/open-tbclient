@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.tbadk.util.h {
-    final /* synthetic */ k fvM;
+    final /* synthetic */ k fyd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(k kVar, Context context) {
         super(context);
-        this.fvM = kVar;
+        this.fyd = kVar;
     }
 
     @Override // com.baidu.tbadk.util.h, android.text.style.ClickableSpan
@@ -24,7 +24,7 @@ public class m extends com.baidu.tbadk.util.h {
         String str2;
         String str3;
         pattern = k.pbPattern0;
-        str = this.fvM.link;
+        str = this.fyd.link;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
@@ -35,8 +35,8 @@ public class m extends com.baidu.tbadk.util.h {
                 e.printStackTrace();
             }
         }
-        pattern2 = k.fvL;
-        str2 = this.fvM.link;
+        pattern2 = k.fyc;
+        str2 = this.fyd.link;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
@@ -47,7 +47,7 @@ public class m extends com.baidu.tbadk.util.h {
                 e2.printStackTrace();
             }
         }
-        str3 = this.fvM.link;
+        str3 = this.fyd.link;
         gh(str3);
     }
 }

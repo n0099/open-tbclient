@@ -4,45 +4,45 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes.dex */
 public class h {
-    private long VF = 0;
-    private String VG = "";
+    private long VH = 0;
+    private String VI = "";
     private String imgUrl = "";
-    private int egq = Integer.MAX_VALUE;
-    private String egr = "";
-    private String egs = "";
+    private int eiG = Integer.MAX_VALUE;
+    private String eiH = "";
+    private String eiI = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.VF = forumHeadlineImgInfo.img_user_id.longValue();
-            this.VG = forumHeadlineImgInfo.img_user_name;
+            this.VH = forumHeadlineImgInfo.img_user_id.longValue();
+            this.VI = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.egq = forumHeadlineImgInfo.rank_num.intValue();
-            this.egr = forumHeadlineImgInfo.rank_up_info;
-            this.egs = forumHeadlineImgInfo.rank_url;
+            this.eiG = forumHeadlineImgInfo.rank_num.intValue();
+            this.eiH = forumHeadlineImgInfo.rank_up_info;
+            this.eiI = forumHeadlineImgInfo.rank_url;
         }
     }
 
     public boolean qy() {
-        return StringUtils.isNull(this.VG, true) || this.VF <= 0;
+        return StringUtils.isNull(this.VI, true) || this.VH <= 0;
     }
 
-    public String aJR() {
-        return this.egs;
+    public String aKS() {
+        return this.eiI;
     }
 
     public String qA() {
-        return this.VG;
+        return this.VI;
     }
 
     public String qB() {
         return this.imgUrl;
     }
 
-    public int aJS() {
-        return this.egq;
+    public int aKT() {
+        return this.eiG;
     }
 
-    public String aJT() {
-        return this.egr;
+    public String aKU() {
+        return this.eiH;
     }
 }

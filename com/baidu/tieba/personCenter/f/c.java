@@ -13,31 +13,31 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private HeadImageView eBf;
-    private HeadImageView eBg;
-    private HeadImageView eBh;
+    private HeadImageView eDv;
+    private HeadImageView eDw;
+    private HeadImageView eDx;
     private View mRootView;
 
     public c(Context context, ViewGroup viewGroup) {
         this.mRootView = LayoutInflater.from(context).inflate(w.j.item_person_center_extra_img_view, (ViewGroup) null);
-        this.eBf = (HeadImageView) this.mRootView.findViewById(w.h.person_center_item_extra_img_one);
-        this.eBg = (HeadImageView) this.mRootView.findViewById(w.h.person_center_item_extra_img_two);
-        this.eBh = (HeadImageView) this.mRootView.findViewById(w.h.person_center_item_extra_img_three);
+        this.eDv = (HeadImageView) this.mRootView.findViewById(w.h.person_center_item_extra_img_one);
+        this.eDw = (HeadImageView) this.mRootView.findViewById(w.h.person_center_item_extra_img_two);
+        this.eDx = (HeadImageView) this.mRootView.findViewById(w.h.person_center_item_extra_img_three);
         viewGroup.addView(this.mRootView);
     }
 
-    public void ch(List<String> list) {
+    public void ci(List<String> list) {
         boolean z = !x.q(list);
         this.mRootView.setVisibility(z ? 0 : 8);
         if (z) {
             if (list.size() > 0) {
-                b(this.eBf, list.get(0));
+                b(this.eDv, list.get(0));
             }
             if (list.size() > 1) {
-                b(this.eBg, list.get(1));
+                b(this.eDw, list.get(1));
             }
             if (list.size() > 2) {
-                b(this.eBh, list.get(2));
+                b(this.eDx, list.get(2));
             }
         }
     }
@@ -53,8 +53,8 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        aq.d(this.eBf, w.g.person_center_item_extra_img_bg, i);
-        aq.d(this.eBg, w.g.person_center_item_extra_img_bg, i);
-        aq.d(this.eBh, w.g.person_center_item_extra_img_bg, i);
+        aq.d(this.eDv, w.g.person_center_item_extra_img_bg, i);
+        aq.d(this.eDw, w.g.person_center_item_extra_img_bg, i);
+        aq.d(this.eDx, w.g.person_center_item_extra_img_bg, i);
     }
 }

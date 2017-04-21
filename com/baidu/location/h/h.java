@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 /* loaded from: classes.dex */
 public final class h {
-    private static volatile h Qn = null;
+    private static volatile h Qp = null;
     public static String a = nS().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
@@ -194,14 +194,14 @@ public final class h {
     }
 
     public static h nS() {
-        if (Qn == null) {
+        if (Qp == null) {
             synchronized (h.class) {
-                if (Qn == null) {
-                    Qn = new h(com.baidu.location.f.getServiceContext());
+                if (Qp == null) {
+                    Qp = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return Qn;
+        return Qp;
     }
 
     public String b() {

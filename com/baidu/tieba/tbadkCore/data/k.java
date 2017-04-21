@@ -17,13 +17,13 @@ public class k {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern fvL = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern fyc = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String fvJ = null;
-    private SpannableStringBuilder fvK = null;
-    private boolean fvI = false;
+    private String fya = null;
+    private SpannableStringBuilder fyb = null;
+    private boolean fxZ = false;
 
     public static boolean bo(int i, int i2) {
         return i == 0 && i2 != 3;
@@ -45,20 +45,20 @@ public class k {
         return this.text;
     }
 
-    public String bhY() {
+    public String biZ() {
         return this.c;
     }
 
-    public SpannableStringBuilder bhZ() {
-        return this.fvK;
+    public SpannableStringBuilder bja() {
+        return this.fyb;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.fvK == null) {
-            this.fvK = new SpannableStringBuilder();
+        if (this.fyb == null) {
+            this.fyb = new SpannableStringBuilder();
         }
-        this.fvK.append((CharSequence) spannableString);
-        return this.fvK;
+        this.fyb.append((CharSequence) spannableString);
+        return this.fyb;
     }
 
     public SpannableString bK(Context context) {
@@ -77,9 +77,9 @@ public class k {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
                 com.baidu.adp.widget.a.a face = TbadkCoreApplication.m9getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable kT = face.kT();
-                    kT.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(kT, 1), 0, this.text.length(), 33);
+                    BitmapDrawable kU = face.kU();
+                    kU.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(kU, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -121,7 +121,7 @@ public class k {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.fvJ = jSONObject.optString("cdn_src", null);
+                    this.fya = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -136,7 +136,7 @@ public class k {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.fvI = true;
+                        this.fxZ = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");

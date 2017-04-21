@@ -14,15 +14,15 @@ import java.nio.channels.FileChannel;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class e {
-    private static String yp = "baidu";
-    public static final File yq = Environment.getExternalStorageDirectory();
-    private static final char yr = File.separatorChar;
+    private static String ys = "baidu";
+    public static final File yt = Environment.getExternalStorageDirectory();
+    private static final char yu = File.separatorChar;
 
-    public static boolean dG() {
+    public static boolean dH() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static int gS() {
+    public static int gT() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("mounted")) {
             return 0;
@@ -38,21 +38,21 @@ public class e {
 
     public static String aq(String str) {
         if (str != null) {
-            return yq + "/" + yp + "/" + str + "/";
+            return yt + "/" + ys + "/" + str + "/";
         }
-        return yq + "/" + yp + "/";
+        return yt + "/" + ys + "/";
     }
 
     public static String r(String str, String str2) {
         if (str != null) {
-            return yq + "/" + yp + "/" + str + "/" + str2;
+            return yt + "/" + ys + "/" + str + "/" + str2;
         }
-        return yq + "/" + yp + "/" + str2;
+        return yt + "/" + ys + "/" + str2;
     }
 
-    public static boolean gT() {
+    public static boolean gU() {
         try {
-            StatFs statFs = new StatFs(yq.getPath());
+            StatFs statFs = new StatFs(yt.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / IjkMediaMeta.AV_CH_SIDE_RIGHT) / IjkMediaMeta.AV_CH_SIDE_RIGHT > 2;
         } catch (Exception e) {
             return false;
@@ -65,7 +65,7 @@ public class e {
 
     public static boolean ar(String str) {
         String aq = aq(str);
-        if (dG()) {
+        if (dH()) {
             File file = new File(aq);
             return file.exists() || file.mkdirs();
         }
@@ -534,7 +534,7 @@ public class e {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (gU()) {
+        if (gV()) {
             return false;
         }
         if (file.getParent() != null) {
@@ -543,8 +543,8 @@ public class e {
         return !file.getCanonicalFile().equals(file.getAbsoluteFile());
     }
 
-    static boolean gU() {
-        return yr == '\\';
+    static boolean gV() {
+        return yu == '\\';
     }
 
     public static void k(File file) throws IOException {

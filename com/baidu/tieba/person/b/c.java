@@ -13,57 +13,57 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c extends y.a {
-    public TbImageView aOL;
-    private View.OnClickListener aRW;
-    private v eAe;
-    public TextView eAf;
-    public View eAg;
+    public TbImageView aON;
+    private View.OnClickListener aRY;
+    private v eCu;
+    public TextView eCv;
+    public View eCw;
     private int mSkinType;
 
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.aOL = (TbImageView) view.findViewById(w.h.photo_image_view);
-        this.aOL.setDefaultBgResource(w.e.cp_bg_line_e);
-        this.eAg = view.findViewById(w.h.normal_pic_click_bg);
-        this.eAf = (TextView) view.findViewById(w.h.tip_default_view);
+        this.aON = (TbImageView) view.findViewById(w.h.photo_image_view);
+        this.aON.setDefaultBgResource(w.e.cp_bg_line_e);
+        this.eCw = view.findViewById(w.h.normal_pic_click_bg);
+        this.eCv = (TextView) view.findViewById(w.h.tip_default_view);
     }
 
     public void e(v vVar) {
         if (vVar instanceof k) {
-            this.eAe = vVar;
+            this.eCu = vVar;
             k kVar = (k) vVar;
             if (kVar.CQ()) {
                 String dn = q.dn(kVar.getSmallUrl());
-                this.eAf.setVisibility(0);
+                this.eCv.setVisibility(0);
                 if (StringUtils.isNull(dn)) {
-                    this.aOL.setDefaultResource(w.g.pic_mycenter_avatar_def_i);
+                    this.aON.setDefaultResource(w.g.pic_mycenter_avatar_def_i);
                 } else {
-                    this.aOL.c(dn, 25, false);
+                    this.aON.c(dn, 25, false);
                 }
             } else {
-                this.aOL.setDefaultResource(w.g.img_default_100);
-                this.eAf.setVisibility(8);
-                this.aOL.c(kVar.getSmallUrl(), 10, false);
+                this.aON.setDefaultResource(w.g.img_default_100);
+                this.eCv.setVisibility(8);
+                this.aON.c(kVar.getSmallUrl(), 10, false);
             }
-            getView().setOnClickListener(this.aRW);
+            getView().setOnClickListener(this.aRY);
             onChangeSkinType(TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            aq.c(this.eAf, w.e.cp_cont_g, 1);
-            aq.k(this.eAf, w.e.black_alpha50);
+            aq.c(this.eCv, w.e.cp_cont_g, 1);
+            aq.k(this.eCv, w.e.black_alpha50);
             this.mSkinType = i;
         }
     }
 
     public v xx() {
-        return this.eAe;
+        return this.eCu;
     }
 
     public void u(View.OnClickListener onClickListener) {
-        this.aRW = onClickListener;
+        this.aRY = onClickListener;
     }
 }

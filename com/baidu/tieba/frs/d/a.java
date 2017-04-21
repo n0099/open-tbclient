@@ -12,9 +12,9 @@ import com.baidu.tieba.frs.entelechy.b.f;
 import com.baidu.tieba.frs.entelechy.b.g;
 /* loaded from: classes.dex */
 public class a implements g {
-    private C0056a bYw;
-    private f bYx;
-    private DrawerLayout.DrawerListener bYy = new b(this);
+    private C0056a caN;
+    private f caO;
+    private DrawerLayout.DrawerListener caP = new b(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.d.a$a  reason: collision with other inner class name */
@@ -48,65 +48,65 @@ public class a implements g {
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
     public ViewGroup t(Activity activity) {
-        if (this.bYw == null) {
-            this.bYw = new C0056a(activity);
-            this.bYw.setDrawerListener(this.bYy);
+        if (this.caN == null) {
+            this.caN = new C0056a(activity);
+            this.caN.setDrawerListener(this.caP);
         }
-        return this.bYw;
+        return this.caN;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
     public void a(Activity activity, View view, View view2) {
-        activity.setContentView(this.bYw);
-        this.bYw.addView(view);
-        this.bYw.addView(view2, new DrawerLayout.LayoutParams((int) (k.af(activity) * 0.72f), -1, GravityCompat.END));
+        activity.setContentView(this.caN);
+        this.caN.addView(view);
+        this.caN.addView(view2, new DrawerLayout.LayoutParams((int) (k.af(activity) * 0.72f), -1, GravityCompat.END));
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
-    public void abJ() {
-        this.bYw.openDrawer(GravityCompat.END);
-        if (this.bYx != null) {
-            this.bYx.abH();
+    public void acK() {
+        this.caN.openDrawer(GravityCompat.END);
+        if (this.caO != null) {
+            this.caO.acI();
         }
     }
 
-    public void adc() {
-        this.bYw.closeDrawer(GravityCompat.END);
-        if (this.bYx != null) {
-            this.bYx.abI();
+    public void aed() {
+        this.caN.closeDrawer(GravityCompat.END);
+        if (this.caO != null) {
+            this.caO.acJ();
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
-    public void dZ(boolean z) {
+    public void ej(boolean z) {
         if (z) {
-            this.bYw.setDrawerLockMode(0);
+            this.caN.setDrawerLockMode(0);
         } else {
-            this.bYw.setDrawerLockMode(1);
+            this.caN.setDrawerLockMode(1);
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
     public void a(f fVar) {
-        this.bYx = fVar;
+        this.caO = fVar;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
-    public boolean abK() {
-        return this.bYw.isDrawerOpen(GravityCompat.END);
+    public boolean acL() {
+        return this.caN.isDrawerOpen(GravityCompat.END);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
-    public void ea(boolean z) {
-        if (abK()) {
-            adc();
+    public void ek(boolean z) {
+        if (acL()) {
+            aed();
         } else {
-            abJ();
+            acK();
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.g
-    public void eb(boolean z) {
-        adc();
+    public void el(boolean z) {
+        aed();
     }
 }

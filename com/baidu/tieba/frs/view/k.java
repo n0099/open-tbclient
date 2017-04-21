@@ -9,11 +9,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ c cdO;
+    final /* synthetic */ c cgf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar) {
-        this.cdO = cVar;
+        this.cgf = cVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
@@ -45,6 +45,6 @@ public class k implements com.baidu.tbadk.core.flow.b {
 
     @Override // com.baidu.tbadk.core.flow.b
     public View ud() {
-        return this.cdO.ccQ;
+        return this.cgf.cfh;
     }
 }

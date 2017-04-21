@@ -213,7 +213,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.fJ();
+            headImageView = this.mUserPhotoPool.fK();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

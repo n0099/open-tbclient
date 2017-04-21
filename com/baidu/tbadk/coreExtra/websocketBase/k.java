@@ -5,25 +5,25 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements a.InterfaceC0037a {
-    final /* synthetic */ i awV;
-    private final /* synthetic */ String awW;
+    final /* synthetic */ i awX;
+    private final /* synthetic */ String awY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar, String str) {
-        this.awV = iVar;
-        this.awW = str;
+        this.awX = iVar;
+        this.awY = str;
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0037a
     public void Cc() {
         List list;
-        this.awV.currentIndex = 0;
-        this.awV.awi = a.BW().BZ();
-        list = this.awV.awi;
+        this.awX.currentIndex = 0;
+        this.awX.awk = a.BW().BZ();
+        list = this.awX.awk;
         if (list == null) {
-            this.awV.awT = false;
+            this.awX.awV = false;
         } else {
-            this.awV.eS(this.awW);
+            this.awX.eS(this.awY);
         }
     }
 }

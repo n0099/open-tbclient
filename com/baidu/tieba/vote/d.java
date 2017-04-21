@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a fKD;
+    final /* synthetic */ a fMZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.fKD = aVar;
+        this.fMZ = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,30 +32,30 @@ public class d implements View.OnClickListener {
         List list;
         VoteDataInfo voteDataInfo3;
         if (view.getId() == w.h.btn_pb_vote) {
-            pbActivity = this.fKD.eig;
+            pbActivity = this.fMZ.ekw;
             if (pbActivity != null) {
-                pbActivity2 = this.fKD.eig;
+                pbActivity2 = this.fMZ.ekw;
                 if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.fKD.fKy;
+                    voteDataInfo = this.fMZ.fMU;
                     if (voteDataInfo != null) {
-                        j = this.fKD.mForumId;
+                        j = this.fMZ.mForumId;
                         if (j > 0) {
-                            j2 = this.fKD.mThreadId;
+                            j2 = this.fMZ.mThreadId;
                             if (j2 > 0) {
-                                z = this.fKD.fKA;
+                                z = this.fMZ.fMW;
                                 if (!z) {
-                                    pbActivity3 = this.fKD.eig;
+                                    pbActivity3 = this.fMZ.ekw;
                                     AddVoteModel addVoteModel = new AddVoteModel(pbActivity3);
                                     StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.fKD.fKy;
+                                    voteDataInfo2 = this.fMZ.fMU;
                                     List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
                                     if (options != null) {
                                         for (com.baidu.tbadk.widget.vote.a aVar : options) {
                                             if (aVar != null && aVar.isSelected()) {
                                                 sb.append(aVar.getId()).append(",");
-                                                list = this.fKD.fKz;
+                                                list = this.fMZ.fMV;
                                                 list.add((f) aVar);
-                                                voteDataInfo3 = this.fKD.fKy;
+                                                voteDataInfo3 = this.fMZ.fMU;
                                                 if (voteDataInfo3.getIsMulti() != 1) {
                                                     break;
                                                 }
@@ -65,14 +65,14 @@ public class d implements View.OnClickListener {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
                                         if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.fKD.eig;
+                                            pbActivity4 = this.fMZ.ekw;
                                             UtilHelper.showToast(pbActivity4.getActivity(), w.l.vote_checked_less_one);
                                             return;
                                         }
-                                        j3 = this.fKD.mForumId;
-                                        j4 = this.fKD.mThreadId;
+                                        j3 = this.fMZ.mForumId;
+                                        j4 = this.fMZ.mThreadId;
                                         addVoteModel.a(j3, j4, sb.toString());
-                                        this.fKD.fKA = true;
+                                        this.fMZ.fMW = true;
                                     }
                                 }
                             }

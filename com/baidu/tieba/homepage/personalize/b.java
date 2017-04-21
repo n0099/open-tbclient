@@ -13,11 +13,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements o.a {
-    final /* synthetic */ a cxa;
+    final /* synthetic */ a czr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cxa = aVar;
+        this.czr = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.o.a

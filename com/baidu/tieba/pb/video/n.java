@@ -9,15 +9,15 @@ import com.baidu.tieba.play.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements c.d {
-    final /* synthetic */ d euY;
+    final /* synthetic */ d exo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(d dVar) {
-        this.euY = dVar;
+        this.exo = dVar;
     }
 
     @Override // com.baidu.tieba.play.c.d
-    public void aPx() {
+    public void aQy() {
         PbActivity pbActivity;
         bi biVar;
         bi biVar2;
@@ -26,21 +26,21 @@ public class n implements c.d {
         bi biVar4;
         bi biVar5;
         bi biVar6;
-        pbActivity = this.euY.eig;
+        pbActivity = this.exo.ekw;
         if (pbActivity != null) {
-            biVar = this.euY.euQ;
+            biVar = this.exo.exg;
             if (biVar != null) {
-                biVar2 = this.euY.euQ;
+                biVar2 = this.exo.exg;
                 if (!StringUtils.isNull(biVar2.getId())) {
-                    pbActivity2 = this.euY.eig;
-                    biVar3 = this.euY.euQ;
-                    pbActivity2.nt(biVar3.getId());
-                    biVar4 = this.euY.euP;
+                    pbActivity2 = this.exo.ekw;
+                    biVar3 = this.exo.exg;
+                    pbActivity2.nu(biVar3.getId());
+                    biVar4 = this.exo.exf;
                     if (biVar4 != null) {
                         long j = 0;
-                        biVar5 = this.euY.euP;
+                        biVar5 = this.exo.exf;
                         if (biVar5.ts() != null) {
-                            biVar6 = this.euY.euP;
+                            biVar6 = this.exo.exf;
                             j = biVar6.ts().channelId;
                         }
                         TiebaStatic.log(new as("c11921").g("obj_id", j));

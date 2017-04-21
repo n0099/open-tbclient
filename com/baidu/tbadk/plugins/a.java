@@ -14,11 +14,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private static final Pattern aIe = Pattern.compile("#.+?#", 2);
+    private static final Pattern aIg = Pattern.compile("#.+?#", 2);
 
     public static boolean ca(boolean z) {
         boolean appResponseToIntentClass;
-        if (PluginPackageManager.jx().aY("com.baidu.tieba.pluginHotTopic")) {
+        if (PluginPackageManager.jy().aY("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
                 appResponseToIntentClass = TbadkCoreApplication.m9getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
             } else {
@@ -30,11 +30,11 @@ public class a {
     }
 
     public static boolean GT() {
-        return PluginPackageManager.jx().be("com.baidu.tieba.pluginHotTopic");
+        return PluginPackageManager.jy().be("com.baidu.tieba.pluginHotTopic");
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
-        if (PluginPackageManager.jx().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
+        if (PluginPackageManager.jy().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
             String string = tbPageContext.getResources().getString(w.l.plugin_hottopic_not_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string, null);
@@ -85,7 +85,7 @@ public class a {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = aIe.matcher(str);
+        Matcher matcher = aIg.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             spannableString.setSpan(new e(18, ""), matcher.start(), matcher.end(), 33);

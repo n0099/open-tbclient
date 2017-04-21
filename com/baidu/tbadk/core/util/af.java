@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class af {
-    private static af afF;
-    private static final BdUniqueId afG = BdUniqueId.gen();
+    private static af afG;
+    private static final BdUniqueId afH = BdUniqueId.gen();
 
     public static synchronized af vH() {
         af afVar;
         synchronized (af.class) {
-            if (afF == null) {
-                afF = new af();
+            if (afG == null) {
+                afG = new af();
             }
-            afVar = afF;
+            afVar = afG;
         }
         return afVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String afH;
-        private final boolean afI;
+        private final String afI;
         private final boolean afJ;
         private final boolean afK;
+        private final boolean afL;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.afH = str2;
-            this.afI = z;
-            this.afJ = z2;
-            this.afK = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, af.afG));
+            this.afI = str2;
+            this.afJ = z;
+            this.afK = z2;
+            this.afL = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, af.afH));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,7 +44,7 @@ public class af {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             try {
-                af.this.b(this.imageUrl, this.afH, this.afI, this.afJ, this.afK);
+                af.this.b(this.imageUrl, this.afI, this.afJ, this.afK, this.afL);
             } catch (Throwable th) {
                 TiebaStatic.imgError(TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
             }

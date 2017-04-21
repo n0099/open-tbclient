@@ -4,26 +4,26 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ab;
 /* loaded from: classes.dex */
 class ai implements ab.b {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.b
     public void aN(boolean z) {
         PbModel pbModel;
         ey eyVar;
-        if (this.ejU.aKI()) {
-            this.ejU.finish();
+        if (this.emk.aLI()) {
+            this.emk.finish();
         }
-        pbModel = this.ejU.eif;
-        if (!pbModel.ip(true)) {
-            eyVar = this.ejU.eiS;
-            eyVar.aNo();
+        pbModel = this.emk.ekv;
+        if (!pbModel.iz(true)) {
+            eyVar = this.emk.eli;
+            eyVar.aOp();
             return;
         }
-        TiebaStatic.eventStat(this.ejU.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
+        TiebaStatic.eventStat(this.emk.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

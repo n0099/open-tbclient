@@ -13,49 +13,49 @@ import com.baidu.tieba.personPolymeric.mode.message.PersonPolymericReqMsg;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 /* loaded from: classes.dex */
 public class PersonPolymericModel extends BdBaseModel<BaseActivity> {
-    private int eEB;
-    private String eEC;
-    private b eGa;
-    private a eGb;
-    private com.baidu.adp.framework.listener.a eGc;
-    private CustomMessageListener ejx;
-    private CustomMessageListener ejy;
-    private CustomMessageListener ejz;
+    private int eGR;
+    private String eGS;
+    private b eIq;
+    private a eIr;
+    private com.baidu.adp.framework.listener.a eIs;
+    private CustomMessageListener elN;
+    private CustomMessageListener elO;
+    private CustomMessageListener elP;
     private n mPersonPolymericData;
     private int pageIndex;
 
     public PersonPolymericModel(BaseActivity baseActivity, boolean z) {
         super(baseActivity.getPageContext());
-        this.eEB = -1;
-        this.eEC = "";
+        this.eGR = -1;
+        this.eGS = "";
         this.pageIndex = 1;
-        this.eGc = new c(this, CmdConfigHttp.CMD_PERSON_POLYMERIC, 309408);
-        this.ejz = new d(this, CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE);
-        this.ejx = new e(this, CmdConfigCustom.CMD_USER_MUTE_ADD);
-        this.ejy = new f(this, CmdConfigCustom.CMD_USER_MUTE_DEL);
+        this.eIs = new c(this, CmdConfigHttp.CMD_PERSON_POLYMERIC, 309408);
+        this.elP = new d(this, CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE);
+        this.elN = new e(this, CmdConfigCustom.CMD_USER_MUTE_ADD);
+        this.elO = new f(this, CmdConfigCustom.CMD_USER_MUTE_DEL);
         if (!z) {
-            registerListener(this.ejz);
-            registerListener(this.ejx);
-            registerListener(this.ejy);
+            registerListener(this.elP);
+            registerListener(this.elN);
+            registerListener(this.elO);
         }
-        registerListener(this.eGc);
+        registerListener(this.eIs);
         this.mPersonPolymericData = new n(z);
     }
 
     public void a(b bVar) {
-        this.eGa = bVar;
+        this.eIq = bVar;
     }
 
     public void a(a aVar) {
-        this.eGb = aVar;
+        this.eIr = aVar;
     }
 
     public boolean hasData() {
-        return !x.q(this.mPersonPolymericData.alT());
+        return !x.q(this.mPersonPolymericData.amU());
     }
 
     public void co(long j) {
-        if (i.gX() && this.mPersonPolymericData.hasMore()) {
+        if (i.gY() && this.mPersonPolymericData.hasMore()) {
             PersonPolymericReqMsg personPolymericReqMsg = new PersonPolymericReqMsg();
             personPolymericReqMsg.setUid(j);
             personPolymericReqMsg.setPn(this.pageIndex);
@@ -65,7 +65,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseActivity> {
     }
 
     public void cp(long j) {
-        if (i.gX()) {
+        if (i.gY()) {
             long c = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (j != c && TbadkCoreApplication.isLogin()) {
                 UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_REQUEST);
@@ -91,10 +91,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseActivity> {
 
     public void resetData() {
         this.pageIndex = 1;
-        this.mPersonPolymericData.aRC();
+        this.mPersonPolymericData.aSD();
     }
 
-    public boolean QP() {
+    public boolean RR() {
         return this.mPersonPolymericData.hasMore();
     }
 }

@@ -8,6 +8,7 @@ public class SocketMessage extends Message<byte[]> {
     private static String GLOBAL_ENCODE_NAME = "toByteArray";
     private Object mData;
     private String mEncodeName;
+    private Object mExtraData;
     private int mRetryCount;
 
     public static void setGlobalEncodeName(String str) {
@@ -17,6 +18,7 @@ public class SocketMessage extends Message<byte[]> {
     public SocketMessage(int i) {
         super(i);
         this.mData = null;
+        this.mExtraData = null;
         this.mEncodeName = null;
         this.mRetryCount = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
@@ -26,9 +28,14 @@ public class SocketMessage extends Message<byte[]> {
         this.mData = obj;
     }
 
+    public void setExtraData(Object obj) {
+        this.mExtraData = obj;
+    }
+
     public SocketMessage(int i, Object obj) {
         super(i);
         this.mData = null;
+        this.mExtraData = null;
         this.mEncodeName = null;
         this.mRetryCount = 0;
         this.mData = obj;
@@ -38,6 +45,7 @@ public class SocketMessage extends Message<byte[]> {
     public SocketMessage(int i, BdUniqueId bdUniqueId) {
         super(i, bdUniqueId);
         this.mData = null;
+        this.mExtraData = null;
         this.mEncodeName = null;
         this.mRetryCount = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
@@ -65,6 +73,13 @@ public class SocketMessage extends Message<byte[]> {
             BdLog.detailException("SocketMessage encode error. cmd:" + getCmd(), th);
         }
         return null;
+    }
+
+    public byte[] encodeExtraDataInBackGround() {
+        if (this.mExtraData == null || !(this.mExtraData instanceof byte[])) {
+            return null;
+        }
+        return (byte[]) this.mExtraData;
     }
 
     @Override // com.baidu.adp.framework.message.Message

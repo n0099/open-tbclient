@@ -10,28 +10,28 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class y extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.tbadkCore.u, com.baidu.tbadk.mvc.d.b> {
-    final View.OnClickListener aRW;
-    private ViewEventCenter bEJ;
-    private TextView bGB;
-    private TextView bGC;
-    private TextView bGD;
-    private TbImageView bGE;
-    final View.OnLongClickListener bGF;
-    private View bGy;
+    final View.OnClickListener aRY;
+    private ViewEventCenter bHa;
+    private View bIP;
+    private TextView bIS;
+    private TextView bIT;
+    private TextView bIU;
+    private TbImageView bIV;
+    final View.OnLongClickListener bIW;
 
     public y(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aRW = new z(this);
-        this.bGF = new aa(this);
-        this.bEJ = viewEventCenter;
-        this.bGy = view.findViewById(w.h.container);
-        this.bGB = (TextView) view.findViewById(w.h.forum_icon_sign);
-        this.bGC = (TextView) view.findViewById(w.h.home_lv_like_forum);
-        this.bGD = (TextView) view.findViewById(w.h.forum_lv_like_grade);
-        this.bGE = (TbImageView) view.findViewById(w.h.home_lv_like_forum_icon);
-        this.bGE.setDefaultBgResource(w.e.cp_bg_line_e);
-        this.bGE.setDefaultResource(w.g.transparent_bg);
-        this.bGE.setDefaultErrorResource(w.g.icon_default_ba_120);
+        this.aRY = new z(this);
+        this.bIW = new aa(this);
+        this.bHa = viewEventCenter;
+        this.bIP = view.findViewById(w.h.container);
+        this.bIS = (TextView) view.findViewById(w.h.forum_icon_sign);
+        this.bIT = (TextView) view.findViewById(w.h.home_lv_like_forum);
+        this.bIU = (TextView) view.findViewById(w.h.forum_lv_like_grade);
+        this.bIV = (TbImageView) view.findViewById(w.h.home_lv_like_forum_icon);
+        this.bIV.setDefaultBgResource(w.e.cp_bg_line_e);
+        this.bIV.setDefaultResource(w.g.transparent_bg);
+        this.bIV.setDefaultErrorResource(w.g.icon_default_ba_120);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,31 +41,31 @@ public class y extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.tbadkCore.u, com.
         super.E(uVar);
         if (uVar != null) {
             int level = uVar.getLevel();
-            this.bGC.setText(uVar.getName());
-            if (uVar.bhw() == 0) {
-                this.bGB.setVisibility(8);
+            this.bIT.setText(uVar.getName());
+            if (uVar.bix() == 0) {
+                this.bIS.setVisibility(8);
             } else {
-                this.bGB.setVisibility(0);
+                this.bIS.setVisibility(0);
             }
             if (level == 0) {
-                this.bGD.setVisibility(4);
+                this.bIU.setVisibility(4);
             } else {
-                this.bGD.setVisibility(0);
-                aq.j(this.bGD, BitmapHelper.getGradeResourceIdNew(level));
+                this.bIU.setVisibility(0);
+                aq.j(this.bIU, BitmapHelper.getGradeResourceIdNew(level));
             }
-            this.bGE.c(uVar.getAvatar(), 10, false);
-            this.bGy.setOnClickListener(this.aRW);
-            this.bGy.setOnLongClickListener(this.bGF);
+            this.bIV.c(uVar.getAvatar(), 10, false);
+            this.bIP.setOnClickListener(this.aRY);
+            this.bIP.setOnLongClickListener(this.bIW);
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.m.a.a(tbPageContext, getRootView());
-        aq.j(this.bGy, w.g.addresslist_item_bg);
-        this.bGE.invalidate();
-        if (this.bGD.isShown() && getData() != null) {
-            aq.j(this.bGD, BitmapHelper.getGradeResourceIdNew(getData().getLevel()));
+        aq.j(this.bIP, w.g.addresslist_item_bg);
+        this.bIV.invalidate();
+        if (this.bIU.isShown() && getData() != null) {
+            aq.j(this.bIU, BitmapHelper.getGradeResourceIdNew(getData().getLevel()));
             return true;
         }
         return true;

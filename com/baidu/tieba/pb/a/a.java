@@ -5,40 +5,40 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0066a egF;
+    private InterfaceC0066a eiV;
     private int count = 0;
-    private long egD = 0;
-    private long egE = 0;
-    private long egG = 500;
+    private long eiT = 0;
+    private long eiU = 0;
+    private long eiW = 500;
     private Handler mHandler = new b(this);
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0066a {
-        void aas();
+        void abt();
 
-        void aat();
+        void abu();
     }
 
     public a(InterfaceC0066a interfaceC0066a) {
-        this.egF = interfaceC0066a;
+        this.eiV = interfaceC0066a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.egF == null) {
+            if (this.eiV == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.egD = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.egG);
+                this.eiT = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.eiW);
                 return true;
             } else if (this.count == 2) {
-                this.egE = System.currentTimeMillis();
-                if (this.egE - this.egD < this.egG) {
-                    this.egF.aat();
+                this.eiU = System.currentTimeMillis();
+                if (this.eiU - this.eiT < this.eiW) {
+                    this.eiV.abu();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

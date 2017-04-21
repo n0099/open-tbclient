@@ -24,217 +24,217 @@ import com.baidu.tieba.w;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class d {
-    private aj aSp;
-    private PbActivity eig;
-    private FrameLayout eoM;
-    private int eoN;
-    private com.baidu.tieba.play.c eoR;
-    private c.InterfaceC0070c euL;
-    private com.baidu.tieba.pb.pb.main.view.f euM;
-    private bb euO;
-    private bi euP;
-    private bi euQ;
-    private String euR;
-    private c.InterfaceC0070c euU;
-    private ValueAnimator euV;
+    private aj aSr;
+    private PbActivity ekw;
+    private FrameLayout erd;
+    private int ere;
+    private com.baidu.tieba.play.c eri;
+    private c.InterfaceC0070c exb;
+    private com.baidu.tieba.pb.pb.main.view.f exc;
+    private bb exe;
+    private bi exf;
+    private bi exg;
+    private String exh;
+    private c.InterfaceC0070c exk;
+    private ValueAnimator exl;
     private Handler mHandler;
     private String nameShow;
     private String mVideoUrl = null;
-    private VideoInfo euN = null;
-    private boolean euS = false;
-    private int euT = 0;
-    private boolean euW = true;
-    private Animation.AnimationListener duR = new e(this);
-    private au.a dxA = new i(this);
-    private c.e euX = new j(this);
+    private VideoInfo exd = null;
+    private boolean exi = false;
+    private int exj = 0;
+    private boolean exm = true;
+    private Animation.AnimationListener dxh = new e(this);
+    private au.a dzQ = new i(this);
+    private c.e exn = new j(this);
 
     public d(PbActivity pbActivity, com.baidu.tieba.play.c cVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.f fVar, int i) {
-        this.eig = pbActivity;
-        this.eoR = cVar;
-        this.euM = fVar;
-        this.eoM = frameLayout;
-        this.eoN = i;
-        if (this.eoR != null) {
-            this.eoR.kn(true);
+        this.ekw = pbActivity;
+        this.eri = cVar;
+        this.exc = fVar;
+        this.erd = frameLayout;
+        this.ere = i;
+        if (this.eri != null) {
+            this.eri.kx(true);
         }
         init();
     }
 
     private void init() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.eig.getActivity(), w.a.anim_alpha_1_to_0_duration_2000_accelerate);
-        if (this.euL == null) {
-            this.euL = new k(this, loadAnimation);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.ekw.getActivity(), w.a.anim_alpha_1_to_0_duration_2000_accelerate);
+        if (this.exb == null) {
+            this.exb = new k(this, loadAnimation);
         }
-        a(this.euL);
-        this.euT = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.eig.getActivity(), w.f.ds98);
+        a(this.exb);
+        this.exj = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.k.g(this.ekw.getActivity(), w.f.ds98);
         this.mHandler = new Handler();
     }
 
-    public void aPk() {
-        if (this.euM != null) {
-            this.nameShow = this.euM.esf.getText().toString();
+    public void aQl() {
+        if (this.exc != null) {
+            this.nameShow = this.exc.eux.getText().toString();
         }
     }
 
     public void a(VideoInfo videoInfo, bi biVar, String str) {
-        if (videoInfo != null && this.eoR != null && biVar != null) {
-            this.euN = videoInfo;
-            this.euP = biVar;
+        if (videoInfo != null && this.eri != null && biVar != null) {
+            this.exd = videoInfo;
+            this.exf = biVar;
             this.mVideoUrl = videoInfo.video_url;
-            this.eoR.stopPlay();
-            this.eoR.km(true);
-            this.aSp = new aj(this.eig.getActivity());
-            this.euO = new bb();
-            this.euO.mLocate = "pb";
-            this.euO.bqu = biVar.getTid();
-            this.euO.bqv = str;
-            this.euO.mUid = TbadkCoreApplication.getCurrentAccount();
-            this.euO.mSource = biVar.Zx;
-            this.euO.eVd = biVar.Zz;
-            this.euO.eVe = biVar.Zy;
-            this.euO.eVf = this.eig.aKo();
+            this.eri.stopPlay();
+            this.eri.kw(true);
+            this.aSr = new aj(this.ekw.getActivity());
+            this.exe = new bb();
+            this.exe.mLocate = "pb";
+            this.exe.bsL = biVar.getTid();
+            this.exe.bsM = str;
+            this.exe.mUid = TbadkCoreApplication.getCurrentAccount();
+            this.exe.mSource = biVar.Zy;
+            this.exe.eXu = biVar.Zz;
+            this.exe.eXv = this.ekw.aLp();
             if (biVar.ts() != null && biVar.ts().channelId > 0) {
-                this.euO.VP = new StringBuilder(String.valueOf(biVar.ts().channelId)).toString();
+                this.exe.VR = new StringBuilder(String.valueOf(biVar.ts().channelId)).toString();
             } else {
-                this.euO.VP = "0";
+                this.exe.VR = "0";
             }
-            this.aSp.a(this.euO);
-            this.eoR.Lg().setBusiness(this.aSp);
-            if (this.eoR.ayx()) {
-                this.eoR.ayv();
+            this.exe.eXw = biVar.ZA;
+            this.aSr.a(this.exe);
+            this.eri.Lg().setBusiness(this.aSr);
+            if (this.eri.azy()) {
+                this.eri.azw();
             }
-            this.eoR.b(this.euU);
-            if (this.eoR != null) {
-                this.eoR.nS(this.euR);
+            this.eri.b(this.exk);
+            if (this.eri != null) {
+                this.eri.nT(this.exh);
             }
-            this.euR = null;
-            this.euQ = null;
-            this.eoR.nS(this.euR);
-            this.eoR.ayr().setOnDragingListener(this.dxA);
-            this.eoR.a(new l(this));
-            this.eoR.a(new n(this));
-            this.eoR.a(new o(this));
-            this.eoR.a(new p(this));
-            this.eoR.a(new q(this));
-            this.eoR.lx(videoInfo.thumbnail_url);
-            this.eoR.bQ(videoInfo.play_count.intValue());
-            this.eoR.setVideoUrl(this.mVideoUrl);
-            this.eoR.oS(biVar.getTitle());
-            this.eoR.a(this.euX);
-            this.eoR.alk();
-            this.eoR.show();
+            this.exh = null;
+            this.exg = null;
+            this.eri.nT(this.exh);
+            this.eri.azs().setOnDragingListener(this.dzQ);
+            this.eri.a(new l(this));
+            this.eri.a(new n(this));
+            this.eri.a(new o(this));
+            this.eri.a(new p(this));
+            this.eri.a(new q(this));
+            this.eri.ly(videoInfo.thumbnail_url);
+            this.eri.bQ(videoInfo.play_count.intValue());
+            this.eri.setVideoUrl(this.mVideoUrl);
+            this.eri.oT(biVar.getTitle());
+            this.eri.a(this.exn);
+            this.eri.aml();
+            this.eri.show();
         }
     }
 
     public void a(c.InterfaceC0070c interfaceC0070c) {
-        this.euU = interfaceC0070c;
+        this.exk = interfaceC0070c;
     }
 
     public void G(bi biVar) {
-        this.euQ = biVar;
+        this.exg = biVar;
     }
 
-    public void nS(String str) {
-        this.euR = str;
-        if (this.eoR != null) {
-            this.eoR.nS(this.euR);
+    public void nT(String str) {
+        this.exh = str;
+        if (this.eri != null) {
+            this.eri.nT(this.exh);
         }
     }
 
     public void startPlay() {
-        if (this.eoR != null) {
-            this.eoR.oR(this.mVideoUrl);
+        if (this.eri != null) {
+            this.eri.oS(this.mVideoUrl);
         }
-        aPr();
+        aQs();
         KG();
     }
 
     public void destroy() {
-        if (this.eoR != null) {
-            this.eoR.destroy();
+        if (this.eri != null) {
+            this.eri.destroy();
         }
-        if (this.eoM != null) {
-            this.eoM.clearAnimation();
+        if (this.erd != null) {
+            this.erd.clearAnimation();
         }
-        if (this.euV != null) {
-            this.euV.cancel();
-            this.euV = null;
+        if (this.exl != null) {
+            this.exl.cancel();
+            this.exl = null;
         }
     }
 
     public void onPause() {
-        if (this.eoR != null) {
-            if (this.eoR.aXM()) {
-                this.euS = true;
-                this.eoR.pausePlay();
-            } else if (this.eoR.aXS() == 3) {
-                this.euS = false;
+        if (this.eri != null) {
+            if (this.eri.aYN()) {
+                this.exi = true;
+                this.eri.pausePlay();
+            } else if (this.eri.aYT() == 3) {
+                this.exi = false;
             } else {
-                this.euS = false;
-                this.eoR.pausePlay();
+                this.exi = false;
+                this.eri.pausePlay();
             }
         }
     }
 
     public void onResume() {
-        if (this.eoR != null && this.euS) {
-            this.eoR.ayA();
-            aPr();
+        if (this.eri != null && this.exi) {
+            this.eri.azB();
+            aQs();
         }
     }
 
-    public boolean ot(int i) {
-        if (this.eoR == null) {
+    public boolean oz(int i) {
+        if (this.eri == null) {
             return false;
         }
-        return this.eoR.qv(i);
+        return this.eri.qB(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void KG() {
-        if (this.euN != null) {
-            ab.a(this.euN.video_md5, "", "1", this.euO);
+        if (this.exd != null) {
+            ab.a(this.exd.video_md5, "", "1", this.exe);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPl() {
-        this.euW = true;
+    public void aQm() {
+        this.exm = true;
     }
 
-    public void aOd() {
-        if (this.euM != null) {
-            this.euM.aOd();
+    public void aPe() {
+        if (this.exc != null) {
+            this.exc.aPe();
         }
     }
 
-    public void aOc() {
-        if (this.euM != null) {
-            this.euM.aOc();
+    public void aPd() {
+        if (this.exc != null) {
+            this.exc.aPd();
         }
     }
 
-    public void ov(int i) {
-        if (this.euM != null) {
-            this.euM.ov(i);
-            if (this.eoR != null) {
-                if (this.eoR.aXM() || this.eoR.aXS() == 0) {
-                    this.euM.mNavigationBar.getBarBgView().setAlpha(0.0f);
+    public void oB(int i) {
+        if (this.exc != null) {
+            this.exc.oB(i);
+            if (this.eri != null) {
+                if (this.eri.aYN() || this.eri.aYT() == 0) {
+                    this.exc.mNavigationBar.getBarBgView().setAlpha(0.0f);
                 }
             }
         }
     }
 
-    public void aPm() {
-        C(-this.eoN, true);
+    public void aQn() {
+        C(-this.ere, true);
     }
 
-    public void aPn() {
-        aPo();
+    public void aQo() {
+        aQp();
     }
 
-    public void aPo() {
-        C(((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin, false);
+    public void aQp() {
+        C(((RelativeLayout.LayoutParams) this.erd.getLayoutParams()).topMargin, false);
     }
 
     public void C(int i, boolean z) {
@@ -245,159 +245,159 @@ public class d {
         ofInt.start();
     }
 
-    private void aPp() {
-        this.euV = ValueAnimator.ofInt(0, -this.eoN);
-        this.euV.addUpdateListener(new h(this));
-        this.euV.setDuration(300L);
-        this.euV.start();
+    private void aQq() {
+        this.exl = ValueAnimator.ofInt(0, -this.ere);
+        this.exl.addUpdateListener(new h(this));
+        this.exl.setDuration(300L);
+        this.exl.start();
     }
 
     public void a(AbsListView absListView, int i, TextView textView) {
         if (i == 1) {
-            int i2 = ((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin;
-            boolean z = this.eoR.aXS() == 1 || this.eoR.aXS() == 0;
+            int i2 = ((RelativeLayout.LayoutParams) this.erd.getLayoutParams()).topMargin;
+            boolean z = this.eri.aYT() == 1 || this.eri.aYT() == 0;
             if (absListView.getChildCount() > 0 && absListView.getChildAt(0) != textView && i2 == 0 && !z) {
-                aPp();
+                aQq();
             }
         }
     }
 
     public void b(AbsListView absListView, int i, TextView textView) {
-        if (absListView.getChildCount() > i && this.euW) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eoM.getLayoutParams();
-            if (this.eoR.aXS() == 1 || this.eoR.aXS() == 0) {
+        if (absListView.getChildCount() > i && this.exm) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.erd.getLayoutParams();
+            if (this.eri.aYT() == 1 || this.eri.aYT() == 0) {
                 layoutParams.topMargin = 0;
-                this.eoM.setLayoutParams(layoutParams);
+                this.erd.setLayoutParams(layoutParams);
                 return;
             }
             float y = textView.getY();
             if (absListView.getChildAt(i) == textView) {
                 layoutParams.topMargin = (int) y;
-                this.eoM.setLayoutParams(layoutParams);
-                if (this.euV != null) {
-                    this.euV.cancel();
+                this.erd.setLayoutParams(layoutParams);
+                if (this.exl != null) {
+                    this.exl.cancel();
                 }
             } else {
-                layoutParams.topMargin = -this.eoN;
-                this.eoM.setLayoutParams(layoutParams);
+                layoutParams.topMargin = -this.ere;
+                this.erd.setLayoutParams(layoutParams);
             }
-            oB(this.eoN - Math.abs(layoutParams.topMargin));
-            aPs();
+            oH(this.ere - Math.abs(layoutParams.topMargin));
+            aQt();
         }
     }
 
-    private void oB(int i) {
-        if (this.eoR.aXS() == 3) {
+    private void oH(int i) {
+        if (this.eri.aYT() == 3) {
             if (i == 0) {
                 TiebaStatic.log(new as("c11996").s("obj_type", 3));
             }
-        } else if (this.eoR.aXS() == 2) {
+        } else if (this.eri.aYT() == 2) {
             if (i == 0) {
                 TiebaStatic.log(new as("c11996").s("obj_type", 2));
             }
-        } else if (this.eoR.aXS() == 5 && i == 0) {
+        } else if (this.eri.aYT() == 5 && i == 0) {
             TiebaStatic.log(new as("c11996").s("obj_type", 2));
         }
-        if (this.eoN == i) {
+        if (this.ere == i) {
             TiebaStatic.log(new as("c11997").s("obj_type", 2));
         }
     }
 
-    public void aPq() {
+    public void aQr() {
         TiebaStatic.log(new as("c11997").s("obj_type", 1));
-        aPm();
+        aQn();
     }
 
-    public void aPr() {
-        if (this.eoM != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eoM.getLayoutParams();
+    public void aQs() {
+        if (this.erd != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.erd.getLayoutParams();
             layoutParams.topMargin = 0;
-            this.eoM.setLayoutParams(layoutParams);
-            aPs();
+            this.erd.setLayoutParams(layoutParams);
+            aQt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPs() {
-        int abs = this.eoN - Math.abs(((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin);
-        oE(abs);
-        oD(abs);
-        oF(abs);
-        oG(abs);
-        oC(abs);
+    public void aQt() {
+        int abs = this.ere - Math.abs(((RelativeLayout.LayoutParams) this.erd.getLayoutParams()).topMargin);
+        oK(abs);
+        oJ(abs);
+        oL(abs);
+        oM(abs);
+        oI(abs);
     }
 
-    private void oC(int i) {
-        if (i < this.euT * 2) {
-            this.eoR.aXQ();
-        } else if (this.eoR.ays().getVisibility() != 0 && this.eoR.aXS() != 3 && this.eoR.aXS() != 0) {
-            this.eoR.aXP();
+    private void oI(int i) {
+        if (i < this.exj * 2) {
+            this.eri.aYR();
+        } else if (this.eri.azt().getVisibility() != 0 && this.eri.aYT() != 3 && this.eri.aYT() != 0) {
+            this.eri.aYQ();
         }
     }
 
-    private void oD(int i) {
-        if (i < this.euT) {
-            if (this.euM.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
-                this.euM.mNavigationBar.getBarBgView().setAlpha(1.0f);
-                this.euM.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
+    private void oJ(int i) {
+        if (i < this.exj) {
+            if (this.exc.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
+                this.exc.mNavigationBar.getBarBgView().setAlpha(1.0f);
+                this.exc.mNavigationBar.getTopCoverBgView().setAlpha(0.0f);
             }
-        } else if (i >= this.euT && i <= this.euT * 2) {
-            float f = 1.0f - (((i - this.euT) * 1.0f) / this.euT);
-            this.euM.mNavigationBar.getBarBgView().setAlpha(f);
-            this.euM.mNavigationBar.getTopCoverBgView().setAlpha(1.0f - f);
-        } else if (i > this.euT * 2 && this.euM.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
-            this.euM.mNavigationBar.getBarBgView().setAlpha(0.0f);
-            this.euM.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
+        } else if (i >= this.exj && i <= this.exj * 2) {
+            float f = 1.0f - (((i - this.exj) * 1.0f) / this.exj);
+            this.exc.mNavigationBar.getBarBgView().setAlpha(f);
+            this.exc.mNavigationBar.getTopCoverBgView().setAlpha(1.0f - f);
+        } else if (i > this.exj * 2 && this.exc.mNavigationBar.getBarBgView().getAlpha() != 0.0f) {
+            this.exc.mNavigationBar.getBarBgView().setAlpha(0.0f);
+            this.exc.mNavigationBar.getTopCoverBgView().setAlpha(1.0f);
         }
     }
 
-    private void oE(int i) {
+    private void oK(int i) {
         if (Build.VERSION.SDK_INT >= 11) {
-            if (i < this.euT) {
+            if (i < this.exj) {
                 if (com.baidu.tbadk.core.util.au.dA(this.nameShow) > 10) {
                     String d = com.baidu.tbadk.core.util.au.d(this.nameShow, 10, "...");
-                    String string = this.eig.getPageContext().getString(w.l.bar);
+                    String string = this.ekw.getPageContext().getString(w.l.bar);
                     if (d.lastIndexOf(string) == -1) {
                         d = String.valueOf(d) + string;
                     }
-                    this.euM.esf.setText(d);
+                    this.exc.eux.setText(d);
                 } else {
-                    this.euM.esf.setText(this.nameShow);
+                    this.exc.eux.setText(this.nameShow);
                 }
-                this.euM.iV(true);
-                this.euM.esh.setVisibility(0);
+                this.exc.jf(true);
+                this.exc.euz.setVisibility(0);
                 return;
             }
-            this.euM.esf.setText(this.nameShow);
+            this.exc.eux.setText(this.nameShow);
         }
     }
 
-    private void oF(int i) {
-        if (i < this.euT) {
-            this.euM.aOa().setVisibility(0);
+    private void oL(int i) {
+        if (i < this.exj) {
+            this.exc.aPb().setVisibility(0);
         } else {
-            this.euM.aOa().setVisibility(8);
+            this.exc.aPb().setVisibility(8);
         }
     }
 
-    private void oG(int i) {
-        if (i < this.euT) {
-            if (this.eoR != null) {
-                this.eoR.kn(false);
+    private void oM(int i) {
+        if (i < this.exj) {
+            if (this.eri != null) {
+                this.eri.kx(false);
             }
-        } else if (this.eoR != null) {
-            this.eoR.kn(true);
+        } else if (this.eri != null) {
+            this.eri.kx(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aPt() {
-        return this.eoM != null && ((RelativeLayout.LayoutParams) this.eoM.getLayoutParams()).topMargin == 0;
+    public boolean aQu() {
+        return this.erd != null && ((RelativeLayout.LayoutParams) this.erd.getLayoutParams()).topMargin == 0;
     }
 
-    public void aPu() {
-        if (this.eoR != null) {
-            this.eoR.aPu();
+    public void aQv() {
+        if (this.eri != null) {
+            this.eri.aQv();
         }
     }
 }

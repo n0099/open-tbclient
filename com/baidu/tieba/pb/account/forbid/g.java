@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String eet = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
+    private static final String egJ = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,25 +24,25 @@ public class g {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String aWe;
-        private String aWf;
-        private WeakReference<b> aWi;
+        private String aWg;
+        private String aWh;
+        private WeakReference<b> aWk;
 
         public a(String str, String str2, b bVar) {
-            this.aWe = str;
-            this.aWf = str2;
-            this.aWi = new WeakReference<>(bVar);
+            this.aWg = str;
+            this.aWh = str2;
+            this.aWk = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: A */
+        /* renamed from: z */
         public ForbidTplData doInBackground(String... strArr) {
-            z zVar = new z(g.eet);
-            zVar.n("forum_id", this.aWe);
-            zVar.n("user_id", this.aWf);
+            z zVar = new z(g.egJ);
+            zVar.n("forum_id", this.aWg);
+            zVar.n("user_id", this.aWh);
             String uY = zVar.uY();
             if (zVar.vw().wq().isRequestSuccess()) {
                 try {
@@ -66,7 +66,7 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            b bVar = this.aWi.get();
+            b bVar = this.aWk.get();
             if (bVar != null) {
                 if (forbidTplData.error.errno == 0 && au.isEmpty(forbidTplData.error.errMsg)) {
                     bVar.a(forbidTplData);

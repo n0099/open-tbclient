@@ -28,22 +28,22 @@ public class u extends CustomMessageListener {
         com.baidu.tieba.homepage.personalize.b.ad adVar2;
         List list3;
         if (customResponsedMessage != null) {
-            builder = this.this$0.cxe;
+            builder = this.this$0.czv;
             if (builder != null) {
-                builder2 = this.this$0.cxe;
+                builder2 = this.this$0.czv;
                 if (com.baidu.tbadk.core.util.x.p(builder2.thread_list) != 0) {
-                    list = this.this$0.aSB;
+                    list = this.this$0.aSD;
                     if (com.baidu.tbadk.core.util.x.p(list) != 0) {
                         String str = (String) customResponsedMessage.getData();
                         n nVar = this.this$0;
-                        list2 = this.this$0.aSB;
+                        list2 = this.this$0.aSD;
                         nVar.f(str, list2);
-                        this.this$0.jF(str);
-                        adVar = this.this$0.cxj;
+                        this.this$0.jG(str);
+                        adVar = this.this$0.czA;
                         if (adVar != null) {
-                            adVar2 = this.this$0.cxj;
-                            list3 = this.this$0.aSB;
-                            adVar2.bc(new ArrayList(list3));
+                            adVar2 = this.this$0.czA;
+                            list3 = this.this$0.aSD;
+                            adVar2.bd(new ArrayList(list3));
                         }
                     }
                 }

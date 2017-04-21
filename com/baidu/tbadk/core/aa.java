@@ -18,13 +18,13 @@ public class aa implements k.a {
 
     @Override // com.baidu.adp.lib.util.k.a
     public void aH(String str) {
-        if (hG() instanceof TextView) {
-            ((TextView) hG()).setText(str);
+        if (hH() instanceof TextView) {
+            ((TextView) hH()).setText(str);
         }
     }
 
     @Override // com.baidu.adp.lib.util.k.a
-    public View hG() {
+    public View hH() {
         View view;
         View view2;
         view = this.this$0.mCustomToastView;

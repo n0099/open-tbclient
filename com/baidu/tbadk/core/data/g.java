@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
 public class g {
-    private int UF;
+    private int UH;
     private String badge_url;
     private String webview;
 
@@ -14,7 +14,7 @@ public class g {
     }
 
     public String pY() {
-        return String.valueOf(this.UF);
+        return String.valueOf(this.UH);
     }
 
     public String pZ() {
@@ -24,7 +24,7 @@ public class g {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.UF = jSONObject.optInt("badge_id", 0);
+                this.UH = jSONObject.optInt("badge_id", 0);
                 this.badge_url = jSONObject.optString("badge_url", "");
                 this.webview = jSONObject.optString("webview");
             } catch (Exception e) {
@@ -35,7 +35,7 @@ public class g {
 
     public void a(Badges badges) {
         if (badges != null) {
-            this.UF = badges.badge_id.intValue();
+            this.UH = badges.badge_id.intValue();
             this.badge_url = badges.badge_url;
             this.webview = badges.webview;
         }

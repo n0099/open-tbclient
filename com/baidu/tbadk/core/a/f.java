@@ -5,17 +5,17 @@ import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    private final /* synthetic */ SapiWebView Tb;
-    private final /* synthetic */ View Tc;
+    private final /* synthetic */ SapiWebView Td;
+    private final /* synthetic */ View Te;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SapiWebView sapiWebView, View view) {
-        this.Tb = sapiWebView;
-        this.Tc = view;
+        this.Td = sapiWebView;
+        this.Te = view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.Tb.post(new g(this, this.Tc, this.Tb));
+        this.Td.post(new g(this, this.Te, this.Td));
     }
 }

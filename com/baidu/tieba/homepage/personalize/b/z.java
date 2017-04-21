@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.homepage.personalize.b.y;
 /* loaded from: classes.dex */
 class z implements View.OnClickListener {
-    final /* synthetic */ y.a cyv;
+    final /* synthetic */ y.a cAM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(y.a aVar) {
-        this.cyv = aVar;
+        this.cAM = aVar;
     }
 
     @Override // android.view.View.OnClickListener

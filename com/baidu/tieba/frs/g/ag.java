@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements o.a {
-    final /* synthetic */ af cbO;
+    final /* synthetic */ af cef;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar) {
-        this.cbO = afVar;
+        this.cef = afVar;
     }
 
     @Override // com.baidu.tbadk.core.view.o.a

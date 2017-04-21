@@ -4,13 +4,13 @@ import com.baidu.tieba.e.a;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class aq implements a.InterfaceC0055a {
-    final int bkW;
-    final /* synthetic */ PbActivity ejU;
+    final int bnn;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PbActivity pbActivity) {
-        this.ejU = pbActivity;
-        this.bkW = (int) pbActivity.getResources().getDimension(w.f.ds98);
+        this.emk = pbActivity;
+        this.bnn = (int) pbActivity.getResources().getDimension(w.f.ds98);
     }
 
     @Override // com.baidu.tieba.e.a.InterfaceC0055a
@@ -21,16 +21,16 @@ class aq implements a.InterfaceC0055a {
         com.baidu.tieba.pb.pb.main.a.f fVar2;
         com.baidu.tieba.pb.pb.main.a.f fVar3;
         if (T(i2)) {
-            eyVar = this.ejU.eiS;
+            eyVar = this.emk.eli;
             if (eyVar != null) {
-                fVar = this.ejU.eiy;
+                fVar = this.emk.ekO;
                 if (fVar != null) {
-                    eyVar2 = this.ejU.eiS;
-                    eyVar2.aNG();
-                    fVar2 = this.ejU.eiy;
-                    fVar2.dm(false);
-                    fVar3 = this.ejU.eiy;
-                    fVar3.Xj();
+                    eyVar2 = this.emk.eli;
+                    eyVar2.aOH();
+                    fVar2 = this.emk.ekO;
+                    fVar2.dw(false);
+                    fVar3 = this.emk.ekO;
+                    fVar3.Yk();
                 }
             }
         }
@@ -46,23 +46,23 @@ class aq implements a.InterfaceC0055a {
         ey eyVar4;
         com.baidu.tieba.pb.pb.main.a.f fVar3;
         if (T(i2)) {
-            eyVar = this.ejU.eiS;
+            eyVar = this.emk.eli;
             if (eyVar != null) {
-                fVar = this.ejU.eiy;
+                fVar = this.emk.ekO;
                 if (fVar != null) {
-                    fVar2 = this.ejU.eiy;
-                    fVar2.dm(true);
-                    if (Math.abs(i2) > this.bkW) {
-                        eyVar4 = this.ejU.eiS;
-                        eyVar4.aNF();
-                        fVar3 = this.ejU.eiy;
-                        fVar3.Xi();
+                    fVar2 = this.emk.ekO;
+                    fVar2.dw(true);
+                    if (Math.abs(i2) > this.bnn) {
+                        eyVar4 = this.emk.eli;
+                        eyVar4.aOG();
+                        fVar3 = this.emk.ekO;
+                        fVar3.Yj();
                     }
-                    if (this.ejU.aKI()) {
-                        eyVar2 = this.ejU.eiS;
-                        eyVar2.aNb();
-                        eyVar3 = this.ejU.eiS;
-                        eyVar3.aNc();
+                    if (this.emk.aLI()) {
+                        eyVar2 = this.emk.eli;
+                        eyVar2.aOc();
+                        eyVar3 = this.emk.eli;
+                        eyVar3.aOd();
                     }
                 }
             }

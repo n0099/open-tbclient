@@ -28,8 +28,8 @@ public class d extends CustomMessageListener {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             UpdateAttentionMessage.a data = updateAttentionMessage.getData();
             if (this.amV.amO != null && !StringUtils.isNull(this.amV.amO.getUserId()) && data != null && this.amV.amO.getUserId().equals(data.toUid)) {
-                if (!data.Cy) {
-                    tbPageContext = this.amV.ajT;
+                if (!data.CB) {
+                    tbPageContext = this.amV.ajU;
                     tbPageContext.showToast(updateAttentionMessage.getData().errorString);
                     return;
                 }

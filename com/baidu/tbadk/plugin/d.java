@@ -10,16 +10,16 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private static Runnable aEI = new e();
-    private static boolean aHR = false;
+    private static Runnable aEK = new e();
+    private static boolean aHT = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final void GO() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.fR().removeCallbacks(aEI);
-            h.fR().postDelayed(aEI, 120000L);
-            if (!aHR) {
-                aHR = true;
+            h.fS().removeCallbacks(aEK);
+            h.fS().postDelayed(aEK, 120000L);
+            if (!aHT) {
+                aHT = true;
                 String string = TbadkCoreApplication.m9getInst().getResources().getString(w.l.plugin_tip_installing);
                 NotificationHelper.showNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
@@ -29,8 +29,8 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public static final void GP() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            aHR = false;
-            h.fR().removeCallbacks(aEI);
+            aHT = false;
+            h.fS().removeCallbacks(aEK);
             NotificationHelper.cancelNotification(TbadkCoreApplication.m9getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EMOTION_COLLECT_GROUPS, new ArrayList()));
         }
@@ -38,7 +38,7 @@ public class d {
 
     public static void init() {
         if (TbadkCoreApplication.m9getInst().isMainProcess(true)) {
-            h.fR().post(aEI);
+            h.fS().post(aEK);
             MessageManager.getInstance().registerListener(new f(2000993));
             MessageManager.getInstance().registerListener(new g(2000988));
         }

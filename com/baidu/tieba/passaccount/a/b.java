@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.relogin.ReloginManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements a.InterfaceC0030a {
-    final /* synthetic */ a edd;
+    final /* synthetic */ a eft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.edd = aVar;
+        this.eft = aVar;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a

@@ -6,8 +6,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class h {
-    private boolean awN = false;
-    private int awO = 0;
+    private boolean awP = false;
+    private int awQ = 0;
 
     public void eQ(String str) {
         int lastIndexOf;
@@ -17,8 +17,8 @@ public class h {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.awN = false;
-        this.awO = 0;
+        this.awP = false;
+        this.awQ = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -47,7 +47,7 @@ public class h {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.awN = true;
+                                this.awP = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -81,23 +81,23 @@ public class h {
                         throw th;
                     }
                 }
-                if (this.awN && i3 > 0) {
-                    this.awO = i5 / i3;
+                if (this.awP && i3 > 0) {
+                    this.awQ = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.awN;
+        return this.awP;
     }
 
     public int Co() {
-        return this.awO;
+        return this.awQ;
     }
 
     private int getTimeout() {
-        switch (com.baidu.adp.lib.util.i.hp()) {
+        switch (com.baidu.adp.lib.util.i.hq()) {
             case 1:
                 return 3000;
             case 2:

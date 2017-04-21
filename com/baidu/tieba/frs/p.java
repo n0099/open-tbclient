@@ -4,13 +4,13 @@ import android.widget.AbsListView;
 import com.baidu.tieba.frs.g.a;
 /* loaded from: classes.dex */
 class p implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity bNJ;
-    private int aRj = 0;
-    private int aRi = 0;
+    final /* synthetic */ FrsActivity bQa;
+    private int aRl = 0;
+    private int aRk = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsActivity frsActivity) {
-        this.bNJ = frsActivity;
+        this.bQa = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -29,41 +29,41 @@ class p implements AbsListView.OnScrollListener {
         a aVar2;
         com.baidu.tieba.frs.entelechy.b.d dVar2;
         com.baidu.tieba.frs.g.u uVar2;
-        dVar = this.bNJ.bMT;
+        dVar = this.bQa.bPk;
         if (dVar != null) {
-            dVar2 = this.bNJ.bMT;
-            uVar2 = this.bNJ.bMP;
-            dVar2.a(absListView, i, i2, i3, uVar2.aed());
+            dVar2 = this.bQa.bPk;
+            uVar2 = this.bQa.bPg;
+            dVar2.a(absListView, i, i2, i3, uVar2.afe());
         }
-        aVar = this.bNJ.bNc;
+        aVar = this.bQa.bPt;
         if (aVar != null) {
-            aVar2 = this.bNJ.bNc;
-            aVar2.ady();
+            aVar2 = this.bQa.bPt;
+            aVar2.aez();
         }
-        asVar = this.bNJ.bNd;
+        asVar = this.bQa.bPu;
         if (asVar != null) {
-            asVar2 = this.bNJ.bNd;
+            asVar2 = this.bQa.bPu;
             asVar2.a(absListView, i);
-            asVar3 = this.bNJ.bNd;
-            i4 = asVar3.aei();
+            asVar3 = this.bQa.bPu;
+            i4 = asVar3.afj();
         } else {
             i4 = 0;
         }
-        cVar = this.bNJ.bMW;
+        cVar = this.bQa.bPn;
         if (cVar != null) {
-            cVar2 = this.bNJ.bMW;
-            cVar2.adk();
+            cVar2 = this.bQa.bPn;
+            cVar2.ael();
         }
-        cgVar = this.bNJ.bMY;
+        cgVar = this.bQa.bPp;
         if (cgVar != null) {
-            cgVar2 = this.bNJ.bMY;
-            uVar = this.bNJ.bMP;
-            cgVar2.a(absListView, i + i4, i2, i3, uVar.aed() - i4, this.bNJ.Zh());
+            cgVar2 = this.bQa.bPp;
+            uVar = this.bQa.bPg;
+            cgVar2.a(absListView, i + i4, i2, i3, uVar.afe() - i4, this.bQa.aai());
         }
-        if (this.bNJ.bME != null && this.bNJ.bMD != null && this.bNJ.bMD.aae() != null) {
-            this.aRj = i;
-            this.aRi = (i + i2) - 1;
-            this.bNJ.bMD.ai(this.aRj, this.aRi);
+        if (this.bQa.bOV != null && this.bQa.bOU != null && this.bQa.bOU.abf() != null) {
+            this.aRl = i;
+            this.aRk = (i + i2) - 1;
+            this.bQa.bOU.ai(this.aRl, this.aRk);
         }
     }
 
@@ -79,48 +79,48 @@ class p implements AbsListView.OnScrollListener {
         com.baidu.tieba.frs.g.as asVar2;
         com.baidu.tieba.frs.g.as asVar3;
         com.baidu.tieba.frs.g.u uVar2;
-        uVar = this.bNJ.bMP;
+        uVar = this.bQa.bPg;
         if (uVar != null) {
-            uVar2 = this.bNJ.bMP;
+            uVar2 = this.bQa.bPg;
             uVar2.setScrollState(i);
         }
-        asVar = this.bNJ.bNd;
+        asVar = this.bQa.bPu;
         if (asVar != null) {
-            asVar2 = this.bNJ.bNd;
+            asVar2 = this.bQa.bPu;
             asVar2.onScrollStateChanged(absListView, i);
-            asVar3 = this.bNJ.bNd;
-            i2 = asVar3.aei();
+            asVar3 = this.bQa.bPu;
+            i2 = asVar3.afj();
         } else {
             i2 = 0;
         }
-        cgVar = this.bNJ.bMY;
+        cgVar = this.bQa.bPp;
         if (cgVar != null) {
-            cgVar2 = this.bNJ.bMY;
+            cgVar2 = this.bQa.bPp;
             cgVar2.a(absListView, i, i2);
         }
         if (i == 2 || i == 1) {
-            z = this.bNJ.bMK;
+            z = this.bQa.bPb;
             if (!z) {
-                this.bNJ.bMK = true;
-                this.bNJ.bMD.aah();
+                this.bQa.bPb = true;
+                this.bQa.bOU.abi();
             }
         }
-        if (this.bNJ.bML == null) {
-            this.bNJ.bML = new com.baidu.tbadk.j.e();
-            this.bNJ.bML.fe(1000);
+        if (this.bQa.bPc == null) {
+            this.bQa.bPc = new com.baidu.tbadk.j.e();
+            this.bQa.bPc.fe(1000);
         }
         if (i != 0) {
-            this.bNJ.bMD.setOnAdapterItemLongClickListener(null);
+            this.bQa.bOU.setOnAdapterItemLongClickListener(null);
         } else {
-            com.baidu.tieba.card.cc.ST().cP(true);
-            az azVar = this.bNJ.bMD;
-            xVar = this.bNJ.bNH;
+            com.baidu.tieba.card.cc.TV().cZ(true);
+            az azVar = this.bQa.bOU;
+            xVar = this.bQa.bPY;
             azVar.setOnAdapterItemLongClickListener(xVar);
-            this.bNJ.bMD.ah(this.aRj, this.aRi);
+            this.bQa.bOU.ah(this.aRl, this.aRk);
         }
-        this.bNJ.bML.Gn();
+        this.bQa.bPc.Gn();
         if (i == 0) {
-            com.baidu.tieba.frs.f.s.a(this.bNJ.bMD, this.bNJ.bME, this.bNJ.getForumId(), false, null);
+            com.baidu.tieba.frs.f.s.a(this.bQa.bOU, this.bQa.bOV, this.bQa.getForumId(), false, null);
         }
     }
 }

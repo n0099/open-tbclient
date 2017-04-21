@@ -24,7 +24,7 @@ public abstract class NetMessage {
         HTTP,
         AUTO;
 
-        /* JADX DEBUG: Replace access to removed values field (qC) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qH) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetType[] valuesCustom() {
             NetType[] valuesCustom = values();
@@ -41,6 +41,10 @@ public abstract class NetMessage {
     }
 
     protected abstract Object encode(boolean z);
+
+    public byte[] encodeExtraDataInBackGround() {
+        return null;
+    }
 
     public NetMessage(int i, int i2) {
         init(i, i2, null);
@@ -78,6 +82,7 @@ public abstract class NetMessage {
             this.mSocketMessage = new SocketMessage(this.socketCmd, this.tag);
             this.mSocketMessage.setData(encode(false));
             this.mSocketMessage.setExtra(this);
+            this.mSocketMessage.setExtraData(encodeExtraDataInBackGround());
             this.mSocketMessage.setClientLogID(this.clientLogID);
         }
         return this.mSocketMessage;

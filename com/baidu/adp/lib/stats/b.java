@@ -14,13 +14,13 @@ public class b implements a.InterfaceC0006a {
     }
 
     @Override // com.baidu.adp.lib.stats.switchs.a.InterfaceC0006a
-    public void fT() {
+    public void fU() {
         Handler handler;
         Handler handler2;
         Handler handler3;
         this.this$0.isSwitchReady = true;
         if (this.this$0.mIsMainProcess) {
-            j.gJ().gQ();
+            j.gK().gR();
         }
         handler = BdStatisticsManager.mHandler;
         handler.removeMessages(2);

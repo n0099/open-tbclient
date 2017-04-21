@@ -5,20 +5,20 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cj implements Animation.AnimationListener {
-    final /* synthetic */ cg bQf;
+    final /* synthetic */ cg bSw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cj(cg cgVar) {
-        this.bQf = cgVar;
+        this.bSw = cgVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
         ViewGroup viewGroup;
         ViewGroup viewGroup2;
-        viewGroup = this.bQf.bPZ;
+        viewGroup = this.bSw.bSq;
         if (viewGroup != null) {
-            viewGroup2 = this.bQf.bPZ;
+            viewGroup2 = this.bSw.bSq;
             viewGroup2.setVisibility(8);
         }
     }
@@ -31,11 +31,11 @@ public class cj implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         ViewGroup viewGroup;
         ViewGroup viewGroup2;
-        viewGroup = this.bQf.bPZ;
+        viewGroup = this.bSw.bSq;
         if (viewGroup != null) {
-            viewGroup2 = this.bQf.bPZ;
+            viewGroup2 = this.bSw.bSq;
             viewGroup2.clearAnimation();
-            this.bQf.dn(true);
+            this.bSw.dx(true);
         }
     }
 }

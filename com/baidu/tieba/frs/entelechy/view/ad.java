@@ -8,13 +8,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends CustomMessageListener {
-    final /* synthetic */ aa bTy;
+    final /* synthetic */ aa bVP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ad(aa aaVar, int i) {
         super(i);
-        this.bTy = aaVar;
+        this.bVP = aaVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,21 +29,21 @@ public class ad extends CustomMessageListener {
         bi biVar5;
         bi biVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            biVar = this.bTy.aiB;
+            biVar = this.bVP.aiC;
             if (biVar != null) {
-                biVar2 = this.bTy.aiB;
+                biVar2 = this.bVP.aiC;
                 if (biVar2 != null) {
-                    biVar3 = this.bTy.aiB;
+                    biVar3 = this.bVP.aiC;
                     if (biVar3.getTid() != null) {
-                        textView = this.bTy.mTitle;
-                        if (textView != null && this.bTy.brC != null) {
-                            biVar4 = this.bTy.aiB;
+                        textView = this.bVP.mTitle;
+                        if (textView != null && this.bVP.btU != null) {
+                            biVar4 = this.bVP.aiC;
                             if (((String) customResponsedMessage.getData()).equals(biVar4.getTid())) {
-                                textView2 = this.bTy.mTitle;
-                                biVar5 = this.bTy.aiB;
+                                textView2 = this.bVP.mTitle;
+                                biVar5 = this.bVP.aiC;
                                 com.baidu.tieba.card.at.a(textView2, biVar5.getId(), w.e.cp_cont_b, w.e.cp_cont_d);
-                                TextView textView3 = this.bTy.brC;
-                                biVar6 = this.bTy.aiB;
+                                TextView textView3 = this.bVP.btU;
+                                biVar6 = this.bVP.aiC;
                                 com.baidu.tieba.card.at.a(textView3, biVar6.getId(), w.e.cp_cont_c, w.e.cp_cont_d);
                             }
                         }

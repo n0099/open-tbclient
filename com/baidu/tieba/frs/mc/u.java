@@ -10,11 +10,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements PraiseModel.a {
-    final /* synthetic */ s bYt;
+    final /* synthetic */ s caK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(s sVar) {
-        this.bYt = sVar;
+        this.caK = sVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
@@ -23,16 +23,16 @@ public class u implements PraiseModel.a {
         bi biVar;
         bi biVar2;
         int i = 1;
-        z = this.bYt.bVf;
+        z = this.caK.bXw;
         if (z) {
-            biVar = this.bYt.bYr;
+            biVar = this.caK.caI;
             if (biVar != null) {
-                biVar2 = this.bYt.bYr;
+                biVar2 = this.caK.caI;
                 if (biVar2.se().getIsLike() == 1) {
                     i = 0;
                 }
             }
-            this.bYt.ii(i);
+            this.caK.io(i);
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
     }
@@ -40,12 +40,12 @@ public class u implements PraiseModel.a {
     @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
     public void w(int i, String str) {
         boolean z;
-        z = this.bYt.bVf;
+        z = this.caK.bXw;
         if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.rX(i)) {
-                AntiHelper.aq(this.bYt.bST.getPageContext().getPageActivity(), str);
+            if (AntiHelper.sd(i)) {
+                AntiHelper.aq(this.caK.bVk.getPageContext().getPageActivity(), str);
             } else {
-                this.bYt.bST.showToast(str);
+                this.caK.bVk.showToast(str);
             }
         }
     }

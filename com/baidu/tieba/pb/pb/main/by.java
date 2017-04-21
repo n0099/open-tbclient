@@ -14,11 +14,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class by implements a.b {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public by(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -27,13 +27,13 @@ public class by implements a.b {
         com.baidu.adp.base.g gVar2;
         if (Build.VERSION.SDK_INT < 11) {
             aVar.dismiss();
-            gVar2 = this.ejU.ejh;
+            gVar2 = this.emk.elx;
             ((TbPageContext) gVar2).showToast(w.l.frs_header_games_unavailable);
             return;
         }
         TiebaStatic.log("c10025");
         aVar.dismiss();
-        gVar = this.ejU.ejh;
+        gVar = this.emk.elx;
         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) gVar.getPageActivity(), 2, true, 4);
         if (!StringUtils.isNULL("4010001001")) {
             memberPayActivityConfig.setSceneId("4010001001");

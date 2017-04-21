@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.data.bi;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ s bYt;
+    final /* synthetic */ s caK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(s sVar, int i) {
         super(i);
-        this.bYt = sVar;
+        this.caK = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,10 +22,10 @@ public class t extends CustomMessageListener {
         String str;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bi)) {
             bi biVar = (bi) customResponsedMessage.getData();
-            this.bYt.bVg = biVar.getId();
-            str = this.bYt.bVg;
+            this.caK.bXx = biVar.getId();
+            str = this.caK.bXx;
             if (!TextUtils.isEmpty(str) && biVar.se() != null) {
-                this.bYt.ii(biVar.se().getIsLike());
+                this.caK.io(biVar.se().getIsLike());
             }
         }
     }

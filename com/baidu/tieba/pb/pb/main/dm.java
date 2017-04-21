@@ -6,13 +6,13 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dm extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbModel eme;
+    final /* synthetic */ PbModel eox;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dm(PbModel pbModel, int i, int i2) {
         super(i, i2);
-        this.eme = pbModel;
+        this.eox = pbModel;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -27,21 +27,21 @@ public class dm extends com.baidu.adp.framework.listener.a {
         boolean z5;
         long j2;
         BaseActivity baseActivity;
-        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.eme.getUniqueId()) {
-            if (responsedMessage.hasError() && responsedMessage.getError() != 4 && com.baidu.adp.lib.util.i.hj()) {
-                baseActivity = this.eme.bcy;
+        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.eox.getUniqueId()) {
+            if (responsedMessage.hasError() && responsedMessage.getError() != 4 && com.baidu.adp.lib.util.i.hk()) {
+                baseActivity = this.eox.bdG;
                 baseActivity.showToast(responsedMessage.getErrorString());
             }
             if (responsedMessage instanceof pbPageSocketResponseMessage) {
                 pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
-                this.eme.a(pbpagesocketresponsemessage);
+                this.eox.a(pbpagesocketresponsemessage);
                 pbpagesocketresponsemessage.getDownSize();
             }
             if (!(responsedMessage instanceof pbPageHttpResponseMessage)) {
                 z = false;
             } else {
                 pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
-                this.eme.a(pbpagehttpresponsemessage);
+                this.eox.a(pbpagehttpresponsemessage);
                 pbpagehttpresponsemessage.getDownSize();
                 z = true;
             }
@@ -65,27 +65,27 @@ public class dm extends com.baidu.adp.framework.listener.a {
                 objArr[5] = Long.valueOf(j2);
                 com.baidu.tbadk.core.e.a.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
             }
-            z2 = this.eme.elL;
+            z2 = this.eox.eod;
             if (z2) {
-                z5 = this.eme.elM;
+                z5 = this.eox.eoe;
                 if (z5) {
                     return;
                 }
             }
-            z3 = this.eme.elL;
+            z3 = this.eox.eod;
             if (!z3) {
-                this.eme.elL = true;
+                this.eox.eod = true;
             } else {
-                this.eme.elM = true;
+                this.eox.eoe = true;
             }
-            aVar = this.eme.elF;
+            aVar = this.eox.enX;
             if (aVar != null) {
-                aVar2 = this.eme.elF;
-                int aLz = this.eme.aLz();
-                z4 = this.eme.elN;
+                aVar2 = this.eox.enX;
+                int aMA = this.eox.aMA();
+                z4 = this.eox.eog;
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.eme.bXF;
-                aVar2.a(aLz, z, responsedMessage, z4, currentTimeMillis - j);
+                j = this.eox.bZW;
+                aVar2.a(aMA, z, responsedMessage, z4, currentTimeMillis - j);
             }
         }
     }

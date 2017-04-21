@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int bZp = 0;
-    public static int bZq = 1;
-    public static int bZr = 2;
-    private i bZs;
+    public static int cbG = 0;
+    public static int cbH = 1;
+    public static int cbI = 2;
+    private i cbJ;
     private int mState;
 
     public TabItemView(Context context, i iVar, int i) {
         super(context);
-        this.mState = bZp;
-        this.bZs = iVar;
+        this.mState = cbG;
+        this.cbJ = iVar;
         m(context, i);
     }
 
@@ -26,15 +26,15 @@ public class TabItemView extends TextView {
         setGravity(17);
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.bZs != null) {
-            setText(this.bZs.name);
+        if (this.cbJ != null) {
+            setText(this.cbJ.name);
         }
         xl();
     }
 
     public void setState(int i) {
-        if (this.bZs != null && this.bZs.bZo != null && this.bZs.bZo.bPS != null && this.bZs.bZo.bPS.size() > 0) {
-            if (i == bZr) {
+        if (this.cbJ != null && this.cbJ.cbF != null && this.cbJ.cbF.bSj != null && this.cbJ.cbF.bSj.size() > 0) {
+            if (i == cbI) {
                 Drawable drawable = aq.getDrawable(w.g.icon_toolbar_arrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable, null);
@@ -45,7 +45,7 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(w.f.ds16));
         }
-        if (i == bZq || i == bZr) {
+        if (i == cbH || i == cbI) {
             aq.c(this, w.e.cp_link_tip_a, 1);
         } else {
             aq.c(this, w.e.cp_cont_f, 1);
@@ -56,10 +56,10 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.bZs == null) {
+        if (this.cbJ == null) {
             return -1;
         }
-        return this.bZs.bZn;
+        return this.cbJ.cbE;
     }
 
     public int getState() {
@@ -99,10 +99,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.bZs == null) {
+        if (this.cbJ == null) {
             return null;
         }
-        return this.bZs.url;
+        return this.cbJ.url;
     }
 
     public int getDrawableWidth() {

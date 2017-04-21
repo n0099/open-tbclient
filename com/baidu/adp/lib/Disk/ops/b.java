@@ -11,7 +11,7 @@ import java.io.ByteArrayInputStream;
 public class b extends c {
     private Rect mRect;
 
-    public Rect ed() {
+    public Rect ee() {
         return this.mRect;
     }
 
@@ -41,15 +41,15 @@ public class b extends c {
     public boolean k(byte[] bArr) {
         ?? r2;
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.rS.l(bArr)) {
-            if (this.rS.rW == 0 || this.rS.rW >= System.currentTimeMillis()) {
-                if (this.rR == null) {
-                    this.rR = new BitmapFactory.Options();
-                    this.rR.inDither = false;
+        if (bArr != null && this.rX.l(bArr)) {
+            if (this.rX.sb == 0 || this.rX.sb >= System.currentTimeMillis()) {
+                if (this.rW == null) {
+                    this.rW = new BitmapFactory.Options();
+                    this.rW.inDither = false;
                     int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    this.rR.inScreenDensity = i;
-                    this.rR.inTargetDensity = i;
-                    r2 = this.rR;
+                    this.rW.inScreenDensity = i;
+                    this.rW.inTargetDensity = i;
+                    r2 = this.rW;
                     ((BitmapFactory.Options) r2).inDensity = i;
                 }
                 int headerSize = c.a.getHeaderSize();
@@ -57,7 +57,7 @@ public class b extends c {
                     try {
                         byteArrayInputStream = new ByteArrayInputStream(bArr, headerSize, bArr.length - headerSize);
                         try {
-                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.rR);
+                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.rW);
                             com.baidu.adp.lib.g.a.j(byteArrayInputStream);
                             r2 = byteArrayInputStream;
                         } catch (Error e) {

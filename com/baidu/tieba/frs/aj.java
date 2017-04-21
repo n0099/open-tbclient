@@ -14,7 +14,7 @@ class aj extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-            ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new a(null, com.baidu.tieba.frs.b.h.bXz));
+            ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new a(null, com.baidu.tieba.frs.b.h.bZQ));
         }
     }
 }

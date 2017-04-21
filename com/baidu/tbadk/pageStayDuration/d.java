@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean aFp = false;
-    private List<String> aFq;
-    private String aFr;
-    private long aFs;
-    public String aFt;
+    public boolean aFr = false;
+    private List<String> aFs;
+    private String aFt;
+    private long aFu;
+    public String aFv;
     private long fid;
     public String objParam1;
     private long pid;
     private long tid;
 
     public List<String> FY() {
-        return this.aFq;
+        return this.aFs;
     }
 
     public void z(List<String> list) {
-        this.aFq = list;
+        this.aFs = list;
     }
 
     public String getCurrentPageKey() {
-        return this.aFr;
+        return this.aFt;
     }
 
     public void fX(String str) {
-        this.aFr = str;
+        this.aFt = str;
     }
 
     public long getFid() {
@@ -51,17 +51,17 @@ public class d {
     }
 
     public long FZ() {
-        return this.aFs;
+        return this.aFu;
     }
 
     public void O(long j) {
-        this.aFs = j;
+        this.aFu = j;
     }
 
     public boolean Ga() {
-        if (StringUtils.isNull(this.aFr)) {
+        if (StringUtils.isNull(this.aFt)) {
             return true;
         }
-        return !this.aFp && this.aFs <= 0;
+        return !this.aFr && this.aFu <= 0;
     }
 }

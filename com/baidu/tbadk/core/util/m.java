@@ -30,13 +30,13 @@ public class m {
 
     public static void a(TbPageContext<?> tbPageContext, String str) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null && !StringUtils.isNull(str)) {
-            PluginPackageManager.PluginStatus bi = PluginPackageManager.jx().bi("com.baidu.tieba.pluginCookeryGod");
+            PluginPackageManager.PluginStatus bi = PluginPackageManager.jy().bi("com.baidu.tieba.pluginCookeryGod");
             if (TbadkCoreApplication.m9getInst().getIntentClass(CookeryGodHallActivityConfig.class) != null && bi != PluginPackageManager.PluginStatus.FORBIDDEN) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
             } else if (bi == PluginPackageManager.PluginStatus.NROMAL) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CookeryGodHallActivityConfig(tbPageContext.getPageActivity())));
             } else if (bi == PluginPackageManager.PluginStatus.UNINSTALLED || bi == PluginPackageManager.PluginStatus.DISABLE) {
-                if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jU().jV() != null && com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jU().jV().getPluginConfig("com.baidu.tieba.pluginCookeryGod") == null) {
+                if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jV().jW() != null && com.baidu.adp.plugin.packageManager.pluginServerConfig.d.jV().jW().getPluginConfig("com.baidu.tieba.pluginCookeryGod") == null) {
                     tbPageContext.showToast(w.l.plugin_config_no_tip);
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(tbPageContext.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));

@@ -25,9 +25,9 @@ class d implements Runnable {
             return;
         }
         hVar = this.anR.mPlayer;
-        int hN = hVar.hN();
+        int hO = hVar.hO();
         i = this.anR.mCurBeginSecond;
-        int i4 = hN + i;
+        int i4 = hO + i;
         i2 = this.anR.mElapsedTime;
         if (i4 != i2) {
             this.anR.mElapsedTime = i4;

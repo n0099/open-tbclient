@@ -10,17 +10,17 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.InterfaceC0030a {
-    final /* synthetic */ LoginActivity ecR;
+    final /* synthetic */ LoginActivity efh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(LoginActivity loginActivity) {
-        this.ecR = loginActivity;
+        this.efh = loginActivity;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
     public void cf(String str) {
-        if (this.ecR.getLoadingDialog() == null || !this.ecR.getLoadingDialog().isShowing()) {
-            this.ecR.showLoadingDialog(this.ecR.getPageContext().getString(w.l.sapi_logining), new g(this));
+        if (this.efh.getLoadingDialog() == null || !this.efh.getLoadingDialog().isShowing()) {
+            this.efh.showLoadingDialog(this.efh.getPageContext().getString(w.l.sapi_logining), new g(this));
         }
     }
 
@@ -28,20 +28,20 @@ public class f implements a.InterfaceC0030a {
     public void a(AccountData accountData) {
         int i;
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
-        this.ecR.closeLoadingDialog();
+        this.efh.closeLoadingDialog();
         if (!TextUtils.isEmpty(accountData.getAccount())) {
             q(accountData);
-            this.ecR.aIA();
-            i = this.ecR.mFrom;
+            this.efh.aJB();
+            i = this.efh.mFrom;
             if (i != 4) {
-                this.ecR.aIy();
+                this.efh.aJz();
                 return;
             } else {
-                this.ecR.Mb();
+                this.efh.Mb();
                 return;
             }
         }
-        this.ecR.k(accountData);
+        this.efh.k(accountData);
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
@@ -49,20 +49,20 @@ public class f implements a.InterfaceC0030a {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
         com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
-        this.ecR.closeLoadingDialog();
-        this.ecR.showToast(str2);
-        if (com.baidu.adp.lib.util.i.hj()) {
-            sapiWebView = this.ecR.ecJ;
+        this.efh.closeLoadingDialog();
+        this.efh.showToast(str2);
+        if (com.baidu.adp.lib.util.i.hk()) {
+            sapiWebView = this.efh.eeZ;
             if (sapiWebView != null) {
-                sapiWebView2 = this.ecR.ecJ;
+                sapiWebView2 = this.efh.eeZ;
                 sapiWebView2.loadLogin();
             }
         }
     }
 
     private void q(AccountData accountData) {
-        com.baidu.adp.lib.g.k.fS().e(new h(this, accountData));
-        TbadkCoreApplication.setCurrentAccount(accountData, this.ecR.getPageContext().getPageActivity());
+        com.baidu.adp.lib.g.k.fT().e(new h(this, accountData));
+        TbadkCoreApplication.setCurrentAccount(accountData, this.efh.getPageContext().getPageActivity());
         com.baidu.tbadk.browser.f.ar(TbadkCoreApplication.m9getInst());
     }
 }

@@ -12,9 +12,9 @@ public interface a {
 
     com.baidu.tieba.frs.view.c a(String str, FrsActivity frsActivity, int i);
 
-    g aaY();
+    g abZ();
 
-    b aaZ();
+    b aca();
 
     c b(FrsActivity frsActivity, NoPressedRelativeLayout noPressedRelativeLayout);
 

@@ -15,21 +15,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends w {
-    private l bNe;
+    private l bPv;
 
     public a(FrsActivity frsActivity) {
         super(frsActivity);
-        this.bNe = this.bST.YR();
+        this.bPv = this.bVk.ZS();
     }
 
-    private void acF() {
-        if (this.bNe == null) {
-            this.bNe = this.bST.YR();
+    private void adG() {
+        if (this.bPv == null) {
+            this.bPv = this.bVk.ZS();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        acF();
+        adG();
         if (i2 == -1) {
             c(i, intent);
         } else if (i2 == 0) {
@@ -46,33 +46,33 @@ public class a extends w {
     }
 
     private void c(int i, Intent intent) {
-        bi pR;
+        bi pS;
         PostWriteCallBackData postWriteCallBackData;
-        com.baidu.tieba.tbadkCore.n Zr = this.bST.Zr();
+        com.baidu.tieba.tbadkCore.n aas = this.bVk.aas();
         switch (i) {
             case 11001:
-                this.bST.hM(0);
+                this.bVk.hS(0);
                 return;
             case 11002:
-                this.bMP.el(true);
+                this.bPg.ev(true);
                 return;
             case 11011:
-                com.baidu.tieba.frs.f.t.a(this.bST, this.bST.getThreadId(), this.bST.aRV, this.bST.Zc());
+                com.baidu.tieba.frs.f.t.a(this.bVk, this.bVk.getThreadId(), this.bVk.aRX, this.bVk.aad());
                 return;
             case 11012:
-                com.baidu.tieba.frs.f.t.b(this.bST, this.bST.getThreadId(), this.bST.aRV, this.bST.Zc());
+                com.baidu.tieba.frs.f.t.b(this.bVk, this.bVk.getThreadId(), this.bVk.aRX, this.bVk.aad());
                 return;
             case 11014:
-                this.bMP.aeb();
+                this.bPg.afc();
                 return;
             case 11016:
-                this.bMD.ZX();
+                this.bOU.aaY();
                 return;
             case 11033:
             default:
                 return;
             case 11036:
-                this.bMP.Zu();
+                this.bPg.aav();
                 return;
             case 13003:
                 if (intent != null) {
@@ -81,56 +81,56 @@ public class a extends w {
                     } catch (Exception e) {
                         postWriteCallBackData = null;
                     }
-                    if (this.bNe != null) {
-                        this.bNe.a(postWriteCallBackData);
+                    if (this.bPv != null) {
+                        this.bPv.a(postWriteCallBackData);
                         return;
                     }
                     return;
                 }
                 return;
             case 18003:
-                this.bMD.aae().notifyDataSetChanged();
-                if (this.bMP != null) {
-                    this.bMP.aaW();
+                this.bOU.abf().notifyDataSetChanged();
+                if (this.bPg != null) {
+                    this.bPg.abX();
                 }
                 int intExtra = intent.getIntExtra("type", -1);
                 if (intExtra == 4) {
-                    this.bST.cj(6);
+                    this.bVk.cj(6);
                     return;
                 }
                 String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra != null && (pR = Zr.pR(stringExtra)) != null) {
+                if (stringExtra != null && (pS = aas.pS(stringExtra)) != null) {
                     if (intExtra == 2) {
-                        pR.bU(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
-                        pR.sW();
+                        pS.bU(intent.getIntExtra(PbActivityConfig.KEY_INTENT_GOOD_DATA, 0));
+                        pS.sW();
                     } else if (intExtra == 0) {
-                        Zr.I(pR);
-                        this.bMD.ZY();
-                        if (com.baidu.tieba.tbadkCore.c.bgh() != null) {
-                            com.baidu.tieba.tbadkCore.c.bgh().V(this.bST.getForumName(), false);
+                        aas.I(pS);
+                        this.bOU.aaZ();
+                        if (com.baidu.tieba.tbadkCore.c.bhj() != null) {
+                            com.baidu.tieba.tbadkCore.c.bhj().V(this.bVk.getForumName(), false);
                         }
                     }
-                    a(Zr, intent, stringExtra);
+                    a(aas, intent, stringExtra);
                     return;
                 }
                 return;
             case 18004:
-                com.baidu.tieba.frs.f.t.b(this.bST, Zr);
+                com.baidu.tieba.frs.f.t.b(this.bVk, aas);
                 return;
             case 23003:
-                if (intent != null && Zr != null) {
-                    com.baidu.tieba.frs.f.j.a(this.bST, Zr, intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                if (intent != null && aas != null) {
+                    com.baidu.tieba.frs.f.j.a(this.bVk, aas, intent.getIntExtra("group_id", 0), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                     return;
                 }
                 return;
             case 23007:
-                com.baidu.tieba.frs.f.j.a(this.bST, Zr, intent);
+                com.baidu.tieba.frs.f.j.a(this.bVk, aas, intent);
                 return;
             case 23013:
-                com.baidu.tieba.frs.f.t.E(this.bST);
+                com.baidu.tieba.frs.f.t.E(this.bVk);
                 return;
             case 23019:
-                com.baidu.tieba.frs.f.t.b(this.bST, this.bST.bMt);
+                com.baidu.tieba.frs.f.t.b(this.bVk, this.bVk.bOK);
                 return;
             case 24002:
                 if (intent != null) {
@@ -138,8 +138,8 @@ public class a extends w {
                     int intExtra3 = intent.getIntExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, 0);
                     int intExtra4 = intent.getIntExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, 0);
                     int intExtra5 = intent.getIntExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, 0);
-                    if (intExtra2 == com.baidu.adp.lib.g.b.g(this.bST.getForumId(), 0)) {
-                        this.bMP.t(intExtra3, intExtra4, intExtra5);
+                    if (intExtra2 == com.baidu.adp.lib.g.b.g(this.bVk.getForumId(), 0)) {
+                        this.bPg.t(intExtra3, intExtra4, intExtra5);
                         return;
                     }
                     return;
@@ -150,24 +150,24 @@ public class a extends w {
 
     private void a(com.baidu.tieba.tbadkCore.n nVar, Intent intent, String str) {
         ArrayList<com.baidu.adp.widget.ListView.v> dataList;
-        if (nVar != null && intent != null && !TextUtils.isEmpty(str) && this.bMO != null && this.bMQ != null) {
+        if (nVar != null && intent != null && !TextUtils.isEmpty(str) && this.bPf != null && this.bPh != null) {
             int intExtra = intent.getIntExtra(PbActivityConfig.KEY_SMART_FRS_POSITION, -1);
-            if (this.bMO.acW() && this.bMQ.aef() != null && this.bMQ.aef().aaK() != null && this.bMQ.aef().aaK().fU()) {
+            if (this.bPf.adX() && this.bPh.afg() != null && this.bPh.afg().abL() != null && this.bPh.afg().abL().fV()) {
                 Serializable serializableExtra = intent.getSerializableExtra(PbActivityConfig.KEY_INTENT_GUESS_LIKE_DATA);
-                if ((serializableExtra instanceof CardHListViewData) && (dataList = this.bYv.getDataList()) != null) {
+                if ((serializableExtra instanceof CardHListViewData) && (dataList = this.caM.getDataList()) != null) {
                     CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
                     cardHListViewData.threadId = str;
                     if (com.baidu.tieba.frs.smartsort.d.a(dataList, str, cardHListViewData, intExtra)) {
                         nVar.ax(dataList);
-                        this.bMD.a(dataList, nVar);
-                        aO(str, this.bST.getForumId());
+                        this.bOU.a(dataList, nVar);
+                        aN(str, this.bVk.getForumId());
                     }
                 }
             }
         }
     }
 
-    public static void aO(String str, String str2) {
+    public static void aN(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             as asVar = new as("c11959");
             asVar.aa("tid", str);

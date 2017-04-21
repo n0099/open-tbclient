@@ -39,7 +39,7 @@ public class i extends a {
     @Override // com.baidu.tbadk.core.util.c.a
     public com.baidu.adp.widget.a.a c(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a fO = com.baidu.tbadk.imageManager.c.EJ().fO(str);
-        if (fO == null || fO.kR() == null) {
+        if (fO == null || fO.kS() == null) {
             return null;
         }
         return fO;

@@ -21,4 +21,7 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         super(i);
         this.mRetry = 0;
     }
+
+    public void decodeExtraDataInBackGround(int i, byte[] bArr) throws Exception {
+    }
 }

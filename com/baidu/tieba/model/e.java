@@ -7,13 +7,13 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends HttpMessageListener {
-    final /* synthetic */ ReportUserInfoModel dRZ;
+    final /* synthetic */ ReportUserInfoModel dUp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(ReportUserInfoModel reportUserInfoModel, int i) {
         super(i);
-        this.dRZ = reportUserInfoModel;
+        this.dUp = reportUserInfoModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,15 +23,15 @@ public class e extends HttpMessageListener {
         ReportUserInfoModel.a aVar2;
         ReportUserInfoModel.a aVar3;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522) {
-            aVar = this.dRZ.dRX;
+            aVar = this.dUp.dUn;
             if (aVar != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                 ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                 if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    aVar3 = this.dRZ.dRX;
-                    aVar3.nz(responseReportUserInfoMessage.getTimeInterval());
+                    aVar3 = this.dUp.dUn;
+                    aVar3.nF(responseReportUserInfoMessage.getTimeInterval());
                     return;
                 }
-                aVar2 = this.dRZ.dRX;
+                aVar2 = this.dUp.dUn;
                 aVar2.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
             }
         }

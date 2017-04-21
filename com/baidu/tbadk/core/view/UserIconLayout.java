@@ -17,7 +17,7 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class UserIconLayout extends LinearLayout {
-    private bi aiB;
+    private bi aiC;
     private boolean amA;
     private View.OnClickListener amB;
     private View.OnClickListener amC;
@@ -119,7 +119,7 @@ public class UserIconLayout extends LinearLayout {
 
     public void setData(bi biVar) {
         if (biVar != null && biVar.getAuthor() != null) {
-            this.aiB = biVar;
+            this.aiC = biVar;
             this.ams.setOnClickListener(this.amC);
             this.amt.setOnClickListener(this.amB);
             this.amq.setOnClickListener(this.amD);
@@ -128,7 +128,7 @@ public class UserIconLayout extends LinearLayout {
                 AlaUserInfoData alaUserData = biVar.getAuthor().getAlaUserData();
                 if (this.amr != null) {
                     com.baidu.tbadk.ala.b bVar = new com.baidu.tbadk.ala.b();
-                    bVar.QP = alaUserData;
+                    bVar.QS = alaUserData;
                     bVar.type = 1;
                     this.amr.setTag(bVar);
                     if (alaUserData.anchor_live == 0 && alaUserData.enter_live == 0) {
@@ -139,8 +139,8 @@ public class UserIconLayout extends LinearLayout {
                 }
             }
             int i = 3;
-            if (this.aiB.ts() != null && this.aiB.ts().channelId > 0) {
-                this.amq.setText(com.baidu.tbadk.util.u.D(this.aiB.ts().channelName, 20));
+            if (this.aiC.ts() != null && this.aiC.ts().channelId > 0) {
+                this.amq.setText(com.baidu.tbadk.util.u.u(this.aiC.ts().channelName, 20));
                 this.amt.setVisibility(8);
                 this.ams.setVisibility(8);
                 if (this.amw) {
@@ -152,14 +152,14 @@ public class UserIconLayout extends LinearLayout {
                 return;
             }
             this.amu.setVisibility(8);
-            if (StringUtils.isNull(this.aiB.getAuthor().getName_show())) {
+            if (StringUtils.isNull(this.aiC.getAuthor().getName_show())) {
                 this.amq.setVisibility(8);
             } else {
                 this.amq.setVisibility(0);
-                String name_show = this.aiB.getAuthor().getName_show();
+                String name_show = this.aiC.getAuthor().getName_show();
                 if (this.amy) {
                     if (this.amA) {
-                        this.amq.setText(af(this.aiB.getAuthor().getSealPrefix(), com.baidu.tbadk.util.u.D(name_show, 20)));
+                        this.amq.setText(af(this.aiC.getAuthor().getSealPrefix(), com.baidu.tbadk.util.u.u(name_show, 20)));
                         int aF = com.baidu.adp.lib.util.j.aF(name_show);
                         if (aF >= 20) {
                             i = 1;
@@ -167,10 +167,10 @@ public class UserIconLayout extends LinearLayout {
                             i = 2;
                         }
                     } else {
-                        this.amq.setText(com.baidu.tbadk.util.u.D(name_show, 20));
+                        this.amq.setText(com.baidu.tbadk.util.u.u(name_show, 20));
                     }
                 } else if (this.amA) {
-                    this.amq.setText(af(this.aiB.getAuthor().getSealPrefix(), name_show));
+                    this.amq.setText(af(this.aiC.getAuthor().getSealPrefix(), name_show));
                 } else {
                     this.amq.setText(name_show);
                 }
@@ -204,8 +204,8 @@ public class UserIconLayout extends LinearLayout {
     }
 
     private void setUserTextColor(bi biVar) {
-        if (this.aiB != null && this.aiB.getAuthor() != null) {
-            if (!com.baidu.tbadk.core.util.x.q(this.aiB.getAuthor().getTShowInfoNew())) {
+        if (this.aiC != null && this.aiC.getAuthor() != null) {
+            if (!com.baidu.tbadk.core.util.x.q(this.aiC.getAuthor().getTShowInfoNew())) {
                 com.baidu.tbadk.core.util.aq.i(this.amq, w.e.cp_cont_h);
                 if (biVar.getAuthor() != null && biVar.getAuthor().getAlaUserData() != null) {
                     AlaUserInfoData alaUserData = biVar.getAuthor().getAlaUserData();
@@ -236,8 +236,8 @@ public class UserIconLayout extends LinearLayout {
     }
 
     public void onChangeSkinType() {
-        setUserTextColor(this.aiB);
-        if (this.aiB != null && this.aiB.ts() != null && this.aiB.ts().channelId > 0) {
+        setUserTextColor(this.aiC);
+        if (this.aiC != null && this.aiC.ts() != null && this.aiC.ts().channelId > 0) {
             com.baidu.tbadk.core.util.aq.i(this.amq, w.e.cp_cont_b);
         }
         if (this.amu != null) {

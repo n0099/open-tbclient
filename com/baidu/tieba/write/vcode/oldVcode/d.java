@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity fOR;
+    final /* synthetic */ VcodeActivity fRn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(VcodeActivity vcodeActivity) {
-        this.fOR = vcodeActivity;
+        this.fRn = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fOR.re(null);
+        this.fRn.rf(null);
     }
 }

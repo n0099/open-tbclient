@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 /* loaded from: classes.dex */
 class ag extends com.baidu.adp.base.f {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.adp.base.f
@@ -23,46 +23,46 @@ class ag extends com.baidu.adp.base.f {
         PbModel pbModel;
         boolean z = false;
         if (obj != null) {
-            forumManageModel2 = this.ejU.eiR;
+            forumManageModel2 = this.emk.elh;
             switch (forumManageModel2.getLoadDataMode()) {
                 case 0:
-                    pbModel = this.ejU.eif;
-                    pbModel.aLQ();
+                    pbModel = this.emk.ekv;
+                    pbModel.aMR();
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    if (bVar.clG || bVar.etI <= 0 || bVar.fxY == 0) {
+                    if (bVar.cnZ || bVar.evY <= 0 || bVar.fAo == 0) {
                         z = true;
                     } else {
-                        com.baidu.tieba.c.a.a(this.ejU.getPageContext(), 2, 1);
+                        com.baidu.tieba.c.a.a(this.emk.getPageContext(), 2, 1);
                     }
-                    this.ejU.a(bVar, z);
+                    this.emk.a(bVar, z);
                     return;
                 case 1:
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                    eyVar4 = this.ejU.eiS;
-                    eyVar4.a(1, dVar.AJ, dVar.fya, true);
+                    eyVar4 = this.emk.eli;
+                    eyVar4.a(1, dVar.AM, dVar.fAq, true);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    PbActivity pbActivity = this.ejU;
-                    forumManageModel3 = this.ejU.eiR;
+                    PbActivity pbActivity = this.emk;
+                    forumManageModel3 = this.emk.elh;
                     pbActivity.a(forumManageModel3.getLoadDataMode(), (ForumManageModel.f) obj);
                     return;
                 case 6:
                     ForumManageModel.f fVar = (ForumManageModel.f) obj;
-                    eyVar2 = this.ejU.eiS;
-                    forumManageModel4 = this.ejU.eiR;
-                    eyVar2.a(forumManageModel4.getLoadDataMode(), fVar.AJ, fVar.fya, false);
-                    eyVar3 = this.ejU.eiS;
-                    eyVar3.al(fVar.fyc);
+                    eyVar2 = this.emk.eli;
+                    forumManageModel4 = this.emk.elh;
+                    eyVar2.a(forumManageModel4.getLoadDataMode(), fVar.AM, fVar.fAq, false);
+                    eyVar3 = this.emk.eli;
+                    eyVar3.al(fVar.fAs);
                     return;
                 default:
                     return;
             }
         }
-        eyVar = this.ejU.eiS;
-        forumManageModel = this.ejU.eiR;
+        eyVar = this.emk.eli;
+        forumManageModel = this.emk.elh;
         eyVar.a(forumManageModel.getLoadDataMode(), false, (String) null, false);
     }
 }

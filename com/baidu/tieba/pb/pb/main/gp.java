@@ -4,11 +4,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes.dex */
 class gp implements PbModel.a {
-    final /* synthetic */ ReaderPbService erF;
+    final /* synthetic */ ReaderPbService etX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gp(ReaderPbService readerPbService) {
-        this.erF = readerPbService;
+        this.etX = readerPbService;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbModel.a
@@ -28,19 +28,19 @@ class gp implements PbModel.a {
         ek ekVar2;
         ek ekVar3;
         ek ekVar4;
-        z2 = this.erF.isAlive;
+        z2 = this.etX.isAlive;
         if (!z2) {
-            ehVar = this.erF.mReaderManager;
+            ehVar = this.etX.mReaderManager;
             if (ehVar != null) {
-                ekVar = this.erF.mReaderModel;
+                ekVar = this.etX.mReaderModel;
                 if (ekVar != null) {
-                    ehVar2 = this.erF.mReaderManager;
-                    ekVar2 = this.erF.mReaderModel;
+                    ehVar2 = this.etX.mReaderManager;
+                    ekVar2 = this.etX.mReaderModel;
                     com.baidu.tieba.pb.data.f pbData = ekVar2.getPbData();
-                    ekVar3 = this.erF.mReaderModel;
-                    boolean aMI = ekVar3.aMI();
-                    ekVar4 = this.erF.mReaderModel;
-                    ehVar2.b(pbData, aMI, i2, ekVar4.aMJ());
+                    ekVar3 = this.etX.mReaderModel;
+                    boolean aNJ = ekVar3.aNJ();
+                    ekVar4 = this.etX.mReaderModel;
+                    ehVar2.b(pbData, aNJ, i2, ekVar4.aNK());
                 }
             }
         }

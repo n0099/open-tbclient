@@ -10,7 +10,7 @@ public class m extends ae {
     }
 
     @Override // com.baidu.tbadk.core.view.ab, com.baidu.adp.widget.ListView.d
-    public View le() {
-        return super.le();
+    public View lf() {
+        return super.lf();
     }
 }

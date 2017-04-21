@@ -9,11 +9,11 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
-    final /* synthetic */ EnterForumModel bFp;
+    final /* synthetic */ EnterForumModel bHG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(EnterForumModel enterForumModel) {
-        this.bFp = enterForumModel;
+        this.bHG = enterForumModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,13 +30,13 @@ public class c extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null) {
                     bVar.a(forumRecommendResIdl.data);
-                    bVar.de(true);
+                    bVar.m18do(true);
                 }
             } catch (Exception e) {
                 bVar.aC(false);
             }
-            if (bVar.isSuccess() && !bVar.VC()) {
-                bVar.VB().VH();
+            if (bVar.isSuccess() && !bVar.WD()) {
+                bVar.WC().WI();
             }
         }
         return bVar;
@@ -52,13 +52,13 @@ public class c extends BdAsyncTask<Void, Void, com.baidu.tieba.enterForum.b.b> {
         EnterForumModel.a aVar = new EnterForumModel.a();
         aVar.type = 0;
         if (bVar != null && bVar.isSuccess()) {
-            aVar.bFr = true;
-            aVar.bFs = bVar;
+            aVar.bHI = true;
+            aVar.bHJ = bVar;
         } else {
-            aVar.bFr = false;
-            aVar.bFs = bVar;
+            aVar.bHI = false;
+            aVar.bHJ = bVar;
         }
-        bVar2 = this.bFp.bFj;
+        bVar2 = this.bHG.bHA;
         bVar2.a(aVar);
     }
 }

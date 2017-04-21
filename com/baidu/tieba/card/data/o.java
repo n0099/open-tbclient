@@ -8,11 +8,11 @@ import com.baidu.tieba.card.at;
 /* loaded from: classes.dex */
 public class o extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bi bbo;
-    private as bvj;
-    private as bvk;
-    private as bvl;
-    private as bvm;
+    public bi bck;
+    private as bxA;
+    private as bxB;
+    private as bxC;
+    private as bxD;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
@@ -20,7 +20,7 @@ public class o extends c {
     }
 
     public o(bi biVar) {
-        this.bbo = biVar;
+        this.bck = biVar;
     }
 
     public static boolean n(bi biVar) {
@@ -29,42 +29,42 @@ public class o extends c {
 
     @Override // com.baidu.tieba.card.data.c
     public bi Kn() {
-        return this.bbo;
+        return this.bck;
     }
 
-    public int Tr() {
-        return (this.bbo == null || StringUtils.isNull(this.bbo.getPhotoLiveCover())) ? 0 : 1;
+    public int Ut() {
+        return (this.bck == null || StringUtils.isNull(this.bck.getPhotoLiveCover())) ? 0 : 1;
     }
 
     public void b(as asVar) {
-        this.bvj = asVar;
+        this.bxA = asVar;
     }
 
     public void c(as asVar) {
-        this.bvk = asVar;
+        this.bxB = asVar;
     }
 
     public void d(as asVar) {
-        this.bvl = asVar;
+        this.bxC = asVar;
     }
 
     public void e(as asVar) {
-        this.bvm = asVar;
+        this.bxD = asVar;
     }
 
-    public as Ts() {
-        return this.bvj != null ? this.bvj.aa("obj_param3", at.SN()) : this.bvj;
+    public as Uu() {
+        return this.bxA != null ? this.bxA.aa("obj_param3", at.TP()) : this.bxA;
     }
 
-    public as Tt() {
-        return this.bvk != null ? this.bvk.aa("obj_param3", at.SN()) : this.bvk;
+    public as Uv() {
+        return this.bxB != null ? this.bxB.aa("obj_param3", at.TP()) : this.bxB;
     }
 
-    public as Tu() {
-        return this.bvm != null ? this.bvm.aa("obj_param3", at.SN()) : this.bvm;
+    public as Uw() {
+        return this.bxD != null ? this.bxD.aa("obj_param3", at.TP()) : this.bxD;
     }
 
-    public as Tv() {
-        return this.bvl != null ? this.bvl.aa("obj_param3", at.SN()) : this.bvl;
+    public as Ux() {
+        return this.bxC != null ? this.bxC.aa("obj_param3", at.TP()) : this.bxC;
     }
 }

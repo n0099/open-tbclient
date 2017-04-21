@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.z;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String eer = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
+    private static final String egH = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,9 +24,9 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String AC;
-        private WeakReference<b> aWi;
-        private String ees;
+        private String AF;
+        private WeakReference<b> aWk;
+        private String egI;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -38,25 +38,25 @@ public class f {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.ees = str6;
-            this.AC = str7;
+            this.egI = str6;
+            this.AF = str7;
             this.mPostId = str5;
-            this.aWi = new WeakReference<>(bVar);
+            this.aWk = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: z */
+        /* renamed from: y */
         public ForbidResultData doInBackground(String... strArr) {
-            z zVar = new z(f.eer);
-            zVar.n("day", this.ees);
+            z zVar = new z(f.egH);
+            zVar.n("day", this.egI);
             zVar.n("un", this.mUserName);
             zVar.n("fid", this.mForumId);
             zVar.n("word", this.mForumName);
             zVar.n("z", this.mThreadId);
-            zVar.n("reason", this.AC);
+            zVar.n("reason", this.AF);
             zVar.n("ntn", "banid");
             zVar.n("post_id", this.mPostId);
             zVar.vw().wp().mIsNeedTbs = true;
@@ -83,7 +83,7 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aWi.get();
+            b bVar = this.aWk.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && au.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

@@ -10,47 +10,47 @@ import com.baidu.tieba.card.cf;
 import com.baidu.tieba.play.bb;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.p, f<com.baidu.tieba.card.x>> {
-    private TbPageContext<?> ajT;
-    private o.a akc;
-    public BdUniqueId baI;
-    private cf cxP;
-    private com.baidu.tieba.homepage.personalize.model.f cxY;
-    private com.baidu.tieba.card.x cyd;
+    private TbPageContext<?> ajU;
+    private o.a akd;
+    public BdUniqueId bbE;
+    private cf cAg;
+    private com.baidu.tieba.homepage.personalize.model.f cAp;
+    private com.baidu.tieba.card.x cAu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akc = null;
-        this.cxP = new t(this);
-        this.ajT = tbPageContext;
-        ajA();
+        this.akd = null;
+        this.cAg = new t(this);
+        this.ajU = tbPageContext;
+        akB();
     }
 
-    private void ajA() {
-        com.baidu.tieba.card.data.p.bvp = "c10708";
-        com.baidu.tieba.card.data.p.bvq = "c10735";
-        com.baidu.tieba.card.data.p.bvr = "c10756";
-        com.baidu.tieba.card.data.p.bvs = "c10709";
-        com.baidu.tieba.card.data.p.bvt = "c10734";
-        com.baidu.tieba.card.data.p.bvu = "c11929";
-        com.baidu.tieba.card.data.p.bvv = "c11928";
+    private void akB() {
+        com.baidu.tieba.card.data.p.bxG = "c10708";
+        com.baidu.tieba.card.data.p.bxH = "c10735";
+        com.baidu.tieba.card.data.p.bxI = "c10756";
+        com.baidu.tieba.card.data.p.bxJ = "c10709";
+        com.baidu.tieba.card.data.p.bxK = "c10734";
+        com.baidu.tieba.card.data.p.bxL = "c11929";
+        com.baidu.tieba.card.data.p.bxM = "c11928";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ac */
+    /* renamed from: ae */
     public f onCreateViewHolder(ViewGroup viewGroup) {
-        this.cyd = new com.baidu.tieba.card.x(this.ajT);
-        if (this.cyd.bbc != null) {
-            this.cyd.bbc.setReplyTimeVisible(false);
-            this.cyd.bbc.setViewNumEnabled(true);
+        this.cAu = new com.baidu.tieba.card.x(this.ajU);
+        if (this.cAu.bbY != null) {
+            this.cAu.bbY.setReplyTimeVisible(false);
+            this.cAu.bbY.setViewNumEnabled(true);
         }
-        this.cyd.SK();
-        this.cyd.SI();
-        this.cyd.j(this.baI);
-        this.cyd.setOnSubCardOnClickListenner(this.cxP);
-        return new f(this.cyd);
+        this.cAu.TM();
+        this.cAu.TK();
+        this.cAu.j(this.bbE);
+        this.cAu.setOnSubCardOnClickListenner(this.cAg);
+        return new f(this.cAu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,14 +59,14 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.p pVar, f fVar) {
         if (pVar != null) {
-            pVar.gL(i + 1);
+            pVar.gR(i + 1);
             pVar.sourceType = 0;
         }
-        fVar.Tz().a(b(pVar));
-        fVar.Tz().onBindDataToView(pVar);
-        fVar.Tz().a(this.akc);
+        fVar.UB().a(b(pVar));
+        fVar.UB().onBindDataToView(pVar);
+        fVar.UB().a(this.akd);
         if (pVar != null) {
-            cc.ST().a(pVar.Tl());
+            cc.TV().a(pVar.Un());
         }
         return fVar.getView();
     }
@@ -81,27 +81,27 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (pVar != null) {
             bbVar = new bb();
             bbVar.mLocate = "1";
-            bbVar.bqu = pVar.WS;
+            bbVar.bsL = pVar.WT;
             if (pVar.Kn() != null) {
-                bbVar.bqv = String.valueOf(pVar.Kn().getFid());
+                bbVar.bsM = String.valueOf(pVar.Kn().getFid());
                 if (pVar.Kn().ts() != null && pVar.Kn().ts().channelId > 0) {
-                    bbVar.VP = new StringBuilder().append(pVar.Kn().ts().channelId).toString();
+                    bbVar.VR = new StringBuilder().append(pVar.Kn().ts().channelId).toString();
                 } else {
-                    bbVar.VP = "0";
+                    bbVar.VR = "0";
                 }
             }
             bbVar.mSource = pVar.getSource();
-            bbVar.eVd = pVar.SX();
-            bbVar.eVe = pVar.getWeight();
+            bbVar.eXw = pVar.TZ();
+            bbVar.eXu = pVar.getWeight();
         }
         return bbVar;
     }
 
     public void setEventCallback(o.a aVar) {
-        this.akc = aVar;
+        this.akd = aVar;
     }
 
     public void a(com.baidu.tieba.homepage.personalize.model.f fVar) {
-        this.cxY = fVar;
+        this.cAp = fVar;
     }
 }

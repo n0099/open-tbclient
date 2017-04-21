@@ -4,35 +4,35 @@ import com.baidu.tieba.person.listview.BdPersonListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements BdPersonListView.a {
-    final /* synthetic */ z eHj;
+    final /* synthetic */ z eJz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(z zVar) {
-        this.eHj = zVar;
+        this.eJz = zVar;
+    }
+
+    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
+    public void le() {
+        com.baidu.tieba.model.a aVar;
+        com.baidu.tieba.model.a aVar2;
+        if (com.baidu.adp.lib.util.i.hk()) {
+            aVar = this.eJz.fMh;
+            aVar.resetData();
+            aVar2 = this.eJz.fMh;
+            aVar2.Ol();
+            ((t) this.eJz.fMf).lc();
+            return;
+        }
+        ((t) this.eJz.fMf).aet();
     }
 
     @Override // com.baidu.tieba.person.listview.BdPersonListView.a
     public void ld() {
-        com.baidu.tieba.model.a aVar;
-        com.baidu.tieba.model.a aVar2;
-        if (com.baidu.adp.lib.util.i.hj()) {
-            aVar = this.eHj.fJL;
-            aVar.resetData();
-            aVar2 = this.eHj.fJL;
-            aVar2.Oc();
-            ((t) this.eHj.fJJ).lb();
-            return;
-        }
-        ((t) this.eHj.fJJ).ads();
-    }
-
-    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
-    public void lc() {
-        ((t) this.eHj.fJJ).ads();
+        ((t) this.eJz.fMf).aet();
     }
 
     @Override // com.baidu.tieba.person.listview.BdPersonListView.a
     public void G(float f) {
-        ((t) this.eHj.fJJ).F(f);
+        ((t) this.eJz.fMf).F(f);
     }
 }

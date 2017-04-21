@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class ac extends CustomMessageListener {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(PbActivity pbActivity, int i) {
         super(i);
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ class ac extends CustomMessageListener {
         ey eyVar3;
         ey eyVar4;
         PbModel pbModel5;
-        String aKH;
+        String aLH;
         boolean z3;
         PbModel pbModel6;
         PbModel pbModel7;
@@ -40,69 +40,69 @@ class ac extends CustomMessageListener {
         ey eyVar6;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.pb.b.a)) {
             com.baidu.tieba.pb.b.a aVar = (com.baidu.tieba.pb.b.a) customResponsedMessage.getData();
-            if (aVar.tag == this.ejU.getUniqueId()) {
-                switch (aVar.euq) {
+            if (aVar.tag == this.emk.getUniqueId()) {
+                switch (aVar.ewG) {
                     case 0:
-                        z3 = this.ejU.mIsLogin;
+                        z3 = this.emk.mIsLogin;
                         if (z3) {
-                            pbModel6 = this.ejU.eif;
-                            if (!pbModel6.io(false)) {
-                                pbModel7 = this.ejU.eif;
+                            pbModel6 = this.emk.ekv;
+                            if (!pbModel6.iy(false)) {
+                                pbModel7 = this.emk.ekv;
                                 if (pbModel7.getPbData() != null) {
-                                    eyVar5 = this.ejU.eiS;
-                                    eyVar5.aNB();
+                                    eyVar5 = this.emk.eli;
+                                    eyVar5.aOC();
                                     return;
                                 }
                                 return;
                             }
-                            eyVar6 = this.ejU.eiS;
-                            eyVar6.aNm();
+                            eyVar6 = this.emk.eli;
+                            eyVar6.aOn();
                             return;
                         }
                         return;
                     case 1:
-                        z2 = this.ejU.mIsLoading;
+                        z2 = this.emk.mIsLoading;
                         if (!z2) {
-                            this.ejU.mIsLoading = true;
-                            eyVar2 = this.ejU.eiS;
-                            eyVar2.eoV.esg.setEnabled(false);
-                            eyVar3 = this.ejU.eiS;
-                            eyVar3.ars();
-                            this.ejU.Zp();
-                            eyVar4 = this.ejU.eiS;
-                            eyVar4.aNl();
-                            pbModel5 = this.ejU.eif;
-                            aKH = this.ejU.aKH();
-                            pbModel5.nA(aKH);
+                            this.emk.mIsLoading = true;
+                            eyVar2 = this.emk.eli;
+                            eyVar2.erm.euy.setEnabled(false);
+                            eyVar3 = this.emk.eli;
+                            eyVar3.ast();
+                            this.emk.aaq();
+                            eyVar4 = this.emk.eli;
+                            eyVar4.aOm();
+                            pbModel5 = this.emk.ekv;
+                            aLH = this.emk.aLH();
+                            pbModel5.nB(aLH);
                             return;
                         }
                         return;
                     case 2:
-                        z = this.ejU.eiA;
+                        z = this.emk.ekQ;
                         if (z) {
-                            pbModel2 = this.ejU.eif;
+                            pbModel2 = this.emk.ekv;
                             boolean hostMode = pbModel2.getHostMode();
-                            pbModel3 = this.ejU.eif;
-                            boolean aLC = pbModel3.aLC();
-                            pbModel4 = this.ejU.eif;
+                            pbModel3 = this.emk.ekv;
+                            boolean aMD = pbModel3.aMD();
+                            pbModel4 = this.emk.ekv;
                             String threadID = pbModel4.getThreadID();
                             String str = aVar.postId;
-                            int i2 = aVar.eur;
-                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.ejU.getPageContext().getPageActivity());
-                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, aLC, null);
+                            int i2 = aVar.ewH;
+                            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.emk.getPageContext().getPageActivity());
+                            pbActivityConfig.createReaderServiceCfg(threadID, str, i2, hostMode, aMD, null);
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-                            this.ejU.eiY = false;
-                            this.ejU.finish();
+                            this.emk.elo = false;
+                            this.emk.finish();
                             return;
                         }
-                        int i3 = aVar.eur;
-                        pbModel = this.ejU.eif;
+                        int i3 = aVar.ewH;
+                        pbModel = this.emk.ekv;
                         if (pbModel.getHostMode()) {
                             i = i3 + 3;
                         } else {
                             i = i3 + 2;
                         }
-                        eyVar = this.ejU.eiS;
+                        eyVar = this.emk.eli;
                         eyVar.getListView().setSelection(i);
                         return;
                     default:

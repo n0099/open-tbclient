@@ -27,121 +27,121 @@ public class a extends av<bi, c> implements e {
         }
         if (this.mSkinType == 1) {
             aq.k(cVar.mRootView, w.e.cp_bg_line_d_1);
-            aq.k(cVar.ceJ, w.e.cp_bg_line_c_1);
-            aq.i(cVar.ceM, w.e.cp_cont_e);
-            aq.i(cVar.ceO, w.e.cp_cont_e);
-            aq.i(cVar.ceL, w.e.cp_cont_b);
-            aq.i(cVar.ceN, w.e.cp_cont_b);
+            aq.k(cVar.cha, w.e.cp_bg_line_c_1);
+            aq.i(cVar.chd, w.e.cp_cont_e);
+            aq.i(cVar.chf, w.e.cp_cont_e);
+            aq.i(cVar.chc, w.e.cp_cont_b);
+            aq.i(cVar.che, w.e.cp_cont_b);
             str = "#4f93ef";
         } else {
             aq.k(cVar.mRootView, w.e.cp_bg_line_d);
-            aq.k(cVar.ceJ, w.e.cp_bg_line_c);
-            aq.i(cVar.ceM, w.e.common_color_10139);
-            aq.i(cVar.ceO, w.e.common_color_10139);
-            aq.i(cVar.ceL, w.e.cp_bg_line_k);
-            aq.i(cVar.ceN, w.e.cp_bg_line_k);
+            aq.k(cVar.cha, w.e.cp_bg_line_c);
+            aq.i(cVar.chd, w.e.common_color_10139);
+            aq.i(cVar.chf, w.e.common_color_10139);
+            aq.i(cVar.chc, w.e.cp_bg_line_k);
+            aq.i(cVar.che, w.e.cp_bg_line_k);
             str = "#3385ff";
         }
         z zVar = (z) biVar;
-        String str3 = zVar.VY;
+        String str3 = zVar.Wa;
         if (!StringUtils.isNull(str3)) {
-            cVar.ceK.setVisibility(0);
-            cVar.bTu.setVisibility(8);
-            cVar.ceK.setIsRound(true);
-            cVar.ceK.setUserId(biVar.getAuthor().getUserId());
-            cVar.ceK.setImageDrawable(null);
-            cVar.ceK.c(str3, 10, false);
+            cVar.chb.setVisibility(0);
+            cVar.bVL.setVisibility(8);
+            cVar.chb.setIsRound(true);
+            cVar.chb.setUserId(biVar.getAuthor().getUserId());
+            cVar.chb.setImageDrawable(null);
+            cVar.chb.c(str3, 10, false);
         }
-        cVar.ceL.setText(zVar.userName);
-        cVar.ceM.setText(zVar.tips);
+        cVar.chc.setText(zVar.userName);
+        cVar.chd.setText(zVar.tips);
         if (StringUtils.isNull(zVar.type)) {
             str2 = zVar.title;
         } else {
             str2 = "<font color='" + str + "'>" + zVar.type + "·</font>" + zVar.title;
         }
-        cVar.ceN.setText(Html.fromHtml(str2));
-        cVar.ceO.setText(zVar.VZ);
+        cVar.che.setText(Html.fromHtml(str2));
+        cVar.chf.setText(zVar.Wb);
         if (zVar.pics != null) {
             int size = zVar.pics.size();
             if (size == 1) {
-                cVar.ceU.setVisibility(0);
-                cVar.ceP.setVisibility(8);
-                cVar.ceQ.setVisibility(8);
-                cVar.ceR.setVisibility(8);
-                cVar.ceS.setVisibility(8);
-                cVar.ceT.setVisibility(8);
-                cVar.ceU.c(zVar.pics.get(0), 10, false);
+                cVar.chl.setVisibility(0);
+                cVar.chg.setVisibility(8);
+                cVar.chh.setVisibility(8);
+                cVar.chi.setVisibility(8);
+                cVar.chj.setVisibility(8);
+                cVar.chk.setVisibility(8);
+                cVar.chl.c(zVar.pics.get(0), 10, false);
             } else if (size == 2) {
-                cVar.ceU.setVisibility(8);
-                cVar.ceP.setVisibility(8);
-                cVar.ceQ.setVisibility(8);
-                cVar.ceR.setVisibility(8);
-                cVar.ceS.setVisibility(0);
-                cVar.ceT.setVisibility(8);
-                cVar.cfe.c(zVar.pics.get(0), 10, false);
-                cVar.cff.c(zVar.pics.get(1), 10, false);
+                cVar.chl.setVisibility(8);
+                cVar.chg.setVisibility(8);
+                cVar.chh.setVisibility(8);
+                cVar.chi.setVisibility(8);
+                cVar.chj.setVisibility(0);
+                cVar.chk.setVisibility(8);
+                cVar.chv.c(zVar.pics.get(0), 10, false);
+                cVar.chw.c(zVar.pics.get(1), 10, false);
             } else if (size == 3) {
-                cVar.ceU.setVisibility(8);
-                cVar.ceP.setVisibility(0);
-                cVar.ceQ.setVisibility(8);
-                cVar.ceR.setVisibility(8);
-                cVar.ceS.setVisibility(8);
-                cVar.ceT.setVisibility(8);
-                cVar.ceV.c(zVar.pics.get(0), 10, false);
-                cVar.ceW.c(zVar.pics.get(1), 10, false);
-                cVar.ceX.c(zVar.pics.get(2), 10, false);
+                cVar.chl.setVisibility(8);
+                cVar.chg.setVisibility(0);
+                cVar.chh.setVisibility(8);
+                cVar.chi.setVisibility(8);
+                cVar.chj.setVisibility(8);
+                cVar.chk.setVisibility(8);
+                cVar.chm.c(zVar.pics.get(0), 10, false);
+                cVar.chn.c(zVar.pics.get(1), 10, false);
+                cVar.cho.c(zVar.pics.get(2), 10, false);
             } else if (size == 4) {
-                cVar.ceU.setVisibility(8);
-                cVar.ceP.setVisibility(8);
-                cVar.ceQ.setVisibility(8);
-                cVar.ceR.setVisibility(8);
-                cVar.ceS.setVisibility(0);
-                cVar.ceT.setVisibility(0);
-                cVar.cfe.c(zVar.pics.get(0), 10, false);
-                cVar.cff.c(zVar.pics.get(1), 10, false);
-                cVar.cfg.c(zVar.pics.get(2), 10, false);
-                cVar.cfh.c(zVar.pics.get(3), 10, false);
+                cVar.chl.setVisibility(8);
+                cVar.chg.setVisibility(8);
+                cVar.chh.setVisibility(8);
+                cVar.chi.setVisibility(8);
+                cVar.chj.setVisibility(0);
+                cVar.chk.setVisibility(0);
+                cVar.chv.c(zVar.pics.get(0), 10, false);
+                cVar.chw.c(zVar.pics.get(1), 10, false);
+                cVar.chx.c(zVar.pics.get(2), 10, false);
+                cVar.chy.c(zVar.pics.get(3), 10, false);
             } else if (size == 5) {
-                cVar.ceU.setVisibility(8);
-                cVar.ceP.setVisibility(0);
-                cVar.ceQ.setVisibility(8);
-                cVar.ceR.setVisibility(8);
-                cVar.ceS.setVisibility(0);
-                cVar.ceT.setVisibility(8);
-                cVar.cfe.c(zVar.pics.get(0), 10, false);
-                cVar.cff.c(zVar.pics.get(1), 10, false);
-                cVar.ceV.c(zVar.pics.get(2), 10, false);
-                cVar.ceW.c(zVar.pics.get(3), 10, false);
-                cVar.ceX.c(zVar.pics.get(4), 10, false);
+                cVar.chl.setVisibility(8);
+                cVar.chg.setVisibility(0);
+                cVar.chh.setVisibility(8);
+                cVar.chi.setVisibility(8);
+                cVar.chj.setVisibility(0);
+                cVar.chk.setVisibility(8);
+                cVar.chv.c(zVar.pics.get(0), 10, false);
+                cVar.chw.c(zVar.pics.get(1), 10, false);
+                cVar.chm.c(zVar.pics.get(2), 10, false);
+                cVar.chn.c(zVar.pics.get(3), 10, false);
+                cVar.cho.c(zVar.pics.get(4), 10, false);
             } else if (size >= 6 && size < 9) {
-                cVar.ceU.setVisibility(8);
-                cVar.ceP.setVisibility(0);
-                cVar.ceQ.setVisibility(0);
-                cVar.ceR.setVisibility(8);
-                cVar.ceS.setVisibility(8);
-                cVar.ceT.setVisibility(8);
-                cVar.ceV.c(zVar.pics.get(0), 10, false);
-                cVar.ceW.c(zVar.pics.get(1), 10, false);
-                cVar.ceX.c(zVar.pics.get(2), 10, false);
-                cVar.ceY.c(zVar.pics.get(3), 10, false);
-                cVar.ceZ.c(zVar.pics.get(4), 10, false);
-                cVar.cfa.c(zVar.pics.get(5), 10, false);
+                cVar.chl.setVisibility(8);
+                cVar.chg.setVisibility(0);
+                cVar.chh.setVisibility(0);
+                cVar.chi.setVisibility(8);
+                cVar.chj.setVisibility(8);
+                cVar.chk.setVisibility(8);
+                cVar.chm.c(zVar.pics.get(0), 10, false);
+                cVar.chn.c(zVar.pics.get(1), 10, false);
+                cVar.cho.c(zVar.pics.get(2), 10, false);
+                cVar.chp.c(zVar.pics.get(3), 10, false);
+                cVar.chq.c(zVar.pics.get(4), 10, false);
+                cVar.chr.c(zVar.pics.get(5), 10, false);
             } else if (size >= 9) {
-                cVar.ceU.setVisibility(8);
-                cVar.ceP.setVisibility(0);
-                cVar.ceQ.setVisibility(0);
-                cVar.ceR.setVisibility(0);
-                cVar.ceS.setVisibility(8);
-                cVar.ceT.setVisibility(8);
-                cVar.ceV.c(zVar.pics.get(0), 10, false);
-                cVar.ceW.c(zVar.pics.get(1), 10, false);
-                cVar.ceX.c(zVar.pics.get(2), 10, false);
-                cVar.ceY.c(zVar.pics.get(3), 10, false);
-                cVar.ceZ.c(zVar.pics.get(4), 10, false);
-                cVar.cfa.c(zVar.pics.get(5), 10, false);
-                cVar.cfb.c(zVar.pics.get(6), 10, false);
-                cVar.cfc.c(zVar.pics.get(7), 10, false);
-                cVar.cfd.c(zVar.pics.get(8), 10, false);
+                cVar.chl.setVisibility(8);
+                cVar.chg.setVisibility(0);
+                cVar.chh.setVisibility(0);
+                cVar.chi.setVisibility(0);
+                cVar.chj.setVisibility(8);
+                cVar.chk.setVisibility(8);
+                cVar.chm.c(zVar.pics.get(0), 10, false);
+                cVar.chn.c(zVar.pics.get(1), 10, false);
+                cVar.cho.c(zVar.pics.get(2), 10, false);
+                cVar.chp.c(zVar.pics.get(3), 10, false);
+                cVar.chq.c(zVar.pics.get(4), 10, false);
+                cVar.chr.c(zVar.pics.get(5), 10, false);
+                cVar.chs.c(zVar.pics.get(6), 10, false);
+                cVar.cht.c(zVar.pics.get(7), 10, false);
+                cVar.chu.c(zVar.pics.get(8), 10, false);
             }
         }
         cVar.mRootView.setOnClickListener(new b(this, zVar));
@@ -151,9 +151,9 @@ public class a extends av<bi, c> implements e {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Q */
+    /* renamed from: S */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(this.bcy, LayoutInflater.from(this.mContext).inflate(w.j.frs_wefan_item, (ViewGroup) null));
+        return new c(this.bdG, LayoutInflater.from(this.mContext).inflate(w.j.frs_wefan_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

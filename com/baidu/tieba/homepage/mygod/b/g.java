@@ -6,18 +6,18 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.core.flow.a.b {
-    final /* synthetic */ a cwH;
+    final /* synthetic */ a cyY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.cwH = aVar;
+        this.cyY = aVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.b
     public com.baidu.tbadk.core.flow.a.e uc() {
         TbPageContext tbPageContext;
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        tbPageContext = this.cwH.aaX;
+        tbPageContext = this.cyY.aaY;
         eVar.setHeight((int) (k.af(tbPageContext.getPageActivity()) / 3.5294118f));
         return eVar;
     }

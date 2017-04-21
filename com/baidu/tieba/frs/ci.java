@@ -6,12 +6,12 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ci implements a.InterfaceC0055a {
-    final /* synthetic */ cg bQf;
-    final int bkW = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds98);
+    final /* synthetic */ cg bSw;
+    final int bnn = (int) TbadkCoreApplication.m9getInst().getResources().getDimension(w.f.ds98);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ci(cg cgVar) {
-        this.bQf = cgVar;
+        this.bSw = cgVar;
     }
 
     @Override // com.baidu.tieba.e.a.InterfaceC0055a
@@ -19,13 +19,13 @@ public class ci implements a.InterfaceC0055a {
         az azVar;
         az azVar2;
         if (T(i2)) {
-            this.bQf.dm(false);
-            this.bQf.Xj();
+            this.bSw.dw(false);
+            this.bSw.Yk();
         }
-        azVar = this.bQf.bQa;
+        azVar = this.bSw.bSr;
         if (azVar != null) {
-            azVar2 = this.bQf.bQa;
-            azVar2.dK(true);
+            azVar2 = this.bSw.bSr;
+            azVar2.dU(true);
         }
     }
 
@@ -34,15 +34,15 @@ public class ci implements a.InterfaceC0055a {
         az azVar;
         az azVar2;
         if (T(i2)) {
-            this.bQf.dm(true);
-            if (Math.abs(i2) > this.bkW) {
-                this.bQf.Xi();
+            this.bSw.dw(true);
+            if (Math.abs(i2) > this.bnn) {
+                this.bSw.Yj();
             }
         }
-        azVar = this.bQf.bQa;
+        azVar = this.bSw.bSr;
         if (azVar != null) {
-            azVar2 = this.bQf.bQa;
-            azVar2.dK(false);
+            azVar2 = this.bSw.bSr;
+            azVar2.dU(false);
         }
     }
 

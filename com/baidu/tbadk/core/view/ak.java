@@ -24,7 +24,7 @@ public class ak implements c.b {
         String str = (String) com.baidu.tbadk.core.util.x.c(list, i);
         if (!StringUtils.isNull(str)) {
             bb wn = bb.wn();
-            tbPageContext = this.ame.ajT;
+            tbPageContext = this.ame.ajU;
             wn.c(tbPageContext, new String[]{str});
         }
         cVar.dismiss();

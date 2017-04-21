@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements Runnable {
-    final /* synthetic */ az bOO;
+    final /* synthetic */ az bRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(az azVar) {
-        this.bOO = azVar;
+        this.bRf = azVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,13 +19,13 @@ public class ba implements Runnable {
         FrameLayout frameLayout;
         TbImageView tbImageView;
         TbImageView tbImageView2;
-        viewStub = this.bOO.bOi;
+        viewStub = this.bRf.bQz;
         if (viewStub != null) {
-            frameLayout = this.bOO.bOj;
+            frameLayout = this.bRf.bQA;
             frameLayout.setVisibility(0);
-            tbImageView = this.bOO.bOl;
+            tbImageView = this.bRf.bQC;
             tbImageView.setVisibility(0);
-            tbImageView2 = this.bOO.bOk;
+            tbImageView2 = this.bRf.bQB;
             tbImageView2.setVisibility(8);
         }
     }

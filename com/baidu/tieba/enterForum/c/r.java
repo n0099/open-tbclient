@@ -18,15 +18,15 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r extends LinearLayout {
-    private ViewEventCenter bEJ;
-    private View bGo;
-    private ah bGp;
-    private TextView bGq;
-    private TextView bGr;
-    private BannerView bGs;
-    private TextView bGt;
-    private TextView bGu;
-    private View bGv;
+    private ViewEventCenter bHa;
+    private View bIF;
+    private ah bIG;
+    private TextView bIH;
+    private TextView bII;
+    private BannerView bIJ;
+    private TextView bIK;
+    private TextView bIL;
+    private View bIM;
 
     public r(Context context) {
         this(context, null);
@@ -38,68 +38,68 @@ public class r extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.bEJ = viewEventCenter;
+        this.bHa = viewEventCenter;
     }
 
     public void init() {
         LayoutInflater.from(getContext()).inflate(w.j.enter_forum_header_view, this);
         setOrientation(1);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        this.bGt = (TextView) findViewById(w.h.search_root);
-        this.bGt.setOnClickListener(new s(this));
-        this.bGu = (TextView) findViewById(w.h.attention_forum_title);
-        this.bGq = (TextView) findViewById(w.h.space_line);
-        this.bGr = (TextView) findViewById(w.h.space_line_bottom);
+        this.bIK = (TextView) findViewById(w.h.search_root);
+        this.bIK.setOnClickListener(new s(this));
+        this.bIL = (TextView) findViewById(w.h.attention_forum_title);
+        this.bIH = (TextView) findViewById(w.h.space_line);
+        this.bII = (TextView) findViewById(w.h.space_line_bottom);
     }
 
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         if (z) {
-            if (this.bGo == null) {
-                WR();
+            if (this.bIF == null) {
+                XS();
             }
-            com.baidu.tbadk.m.a.a(tbPageContext, this.bGo);
-            this.bGo.setVisibility(0);
-        } else if (this.bGo != null) {
-            this.bGo.setVisibility(8);
+            com.baidu.tbadk.m.a.a(tbPageContext, this.bIF);
+            this.bIF.setVisibility(0);
+        } else if (this.bIF != null) {
+            this.bIF.setVisibility(8);
         }
     }
 
-    public void WQ() {
+    public void XR() {
         ((ViewStub) findViewById(w.h.viewstub_frequently_foruminfo_view)).inflate();
-        this.bGp = new ah(getContext(), (LinearLayout) findViewById(w.h.frequently_forum_info_layout));
+        this.bIG = new ah(getContext(), (LinearLayout) findViewById(w.h.frequently_forum_info_layout));
     }
 
     public void a(TbPageContext<?> tbPageContext, com.baidu.tieba.enterForum.b.b bVar) {
-        if (bVar != null && bVar.Vy() != null) {
-            if (this.bGp == null) {
-                WQ();
+        if (bVar != null && bVar.Wz() != null) {
+            if (this.bIG == null) {
+                XR();
             }
-            this.bGp.onChangeSkinType();
-            if (bVar.Vy() != null && bVar.Vy().VD() != null && bVar.Vy().VD().size() > 0) {
-                this.bGp.setVisibility(0);
-                this.bGq.setVisibility(0);
-                this.bGp.d(bVar.Vy().VD(), tbPageContext);
+            this.bIG.onChangeSkinType();
+            if (bVar.Wz() != null && bVar.Wz().WE() != null && bVar.Wz().WE().size() > 0) {
+                this.bIG.setVisibility(0);
+                this.bIH.setVisibility(0);
+                this.bIG.d(bVar.Wz().WE(), tbPageContext);
                 return;
             }
-            this.bGq.setVisibility(8);
-            this.bGp.setVisibility(8);
+            this.bIH.setVisibility(8);
+            this.bIG.setVisibility(8);
         }
     }
 
     public void b(List<com.baidu.tbadk.data.e> list, TbPageContext<?> tbPageContext) {
         if (list == null || list.size() <= 0) {
-            this.bGq.setVisibility(8);
-            this.bGp.setVisibility(8);
+            this.bIH.setVisibility(8);
+            this.bIG.setVisibility(8);
             return;
         }
-        this.bGp.setVisibility(0);
-        this.bGq.setVisibility(0);
-        this.bGp.d(list, tbPageContext);
+        this.bIG.setVisibility(0);
+        this.bIH.setVisibility(0);
+        this.bIG.d(list, tbPageContext);
     }
 
-    public void WR() {
-        this.bGo = ((ViewStub) findViewById(w.h.viewstub_guide)).inflate();
-        View findViewById = this.bGo.findViewById(w.h.enterforum_guide_find_interest);
+    public void XS() {
+        this.bIF = ((ViewStub) findViewById(w.h.viewstub_guide)).inflate();
+        View findViewById = this.bIF.findViewById(w.h.enterforum_guide_find_interest);
         findViewById.setOnClickListener(new t(this));
         if (!TbadkCoreApplication.m9getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE)) {
             findViewById.setVisibility(8);
@@ -110,42 +110,42 @@ public class r extends LinearLayout {
 
     public void n(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.m.a.a(tbPageContext, this);
-        if (this.bGs != null) {
-            this.bGs.Bn();
+        if (this.bIJ != null) {
+            this.bIJ.Bn();
         }
-        if (this.bGv != null) {
-            com.baidu.tbadk.m.a.a(tbPageContext, this.bGv);
+        if (this.bIM != null) {
+            com.baidu.tbadk.m.a.a(tbPageContext, this.bIM);
         }
-        if (this.bGp != null) {
-            this.bGp.onChangeSkinType();
+        if (this.bIG != null) {
+            this.bIG.onChangeSkinType();
         }
     }
 
     public void setSearchHint(String str) {
-        this.bGt.setText(UtilHelper.getFixedText(str, 20));
+        this.bIK.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public View getBannerView() {
-        return this.bGv;
+        return this.bIM;
     }
 
     public void ae(View view) {
         if (view != null) {
-            if (this.bGv != null) {
-                removeView(this.bGv);
+            if (this.bIM != null) {
+                removeView(this.bIM);
             }
-            this.bGv = view;
+            this.bIM = view;
             addView(view, 0);
         }
     }
 
     public void setAttentionTitleVisibililty(boolean z) {
         if (z) {
-            this.bGu.setVisibility(0);
-            this.bGr.setVisibility(0);
+            this.bIL.setVisibility(0);
+            this.bII.setVisibility(0);
             return;
         }
-        this.bGu.setVisibility(8);
-        this.bGr.setVisibility(8);
+        this.bIL.setVisibility(8);
+        this.bII.setVisibility(8);
     }
 }

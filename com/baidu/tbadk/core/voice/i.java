@@ -10,7 +10,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class i {
     public static String xH() {
-        return r.hK();
+        return r.hL();
     }
 
     public static String dW(String str) {

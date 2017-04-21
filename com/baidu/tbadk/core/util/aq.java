@@ -26,19 +26,19 @@ import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class aq {
-    private static String SB;
-    private static int SC;
-    private static String agj;
-    private static Resources agk;
+    private static String SD;
+    private static int SE;
+    private static String agk;
     private static Resources agl;
-    private static String agm;
-    private static AssetManager agn;
+    private static Resources agm;
+    private static String agn;
+    private static AssetManager ago;
 
     static {
         MessageManager.getInstance().registerListener(new ar(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE));
-        agj = "skinType not support";
-        SB = null;
-        SC = 0;
+        agk = "skinType not support";
+        SD = null;
+        SE = 0;
     }
 
     public static void du(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
@@ -46,14 +46,14 @@ public class aq {
             try {
                 Resources resources = TbadkCoreApplication.m9getInst().getResources();
                 if (resources != null) {
-                    agn = (AssetManager) AssetManager.class.newInstance();
+                    ago = (AssetManager) AssetManager.class.newInstance();
                     File cX = l.cX(str);
                     if (cX == null || !cX.exists()) {
                         com.baidu.adp.lib.util.k.showToast(BdBaseApplication.getInst().getApp(), w.l.theme_skin_apk_error);
                     } else {
-                        agn.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(agn, cX.getAbsolutePath());
-                        agl = new Resources(agn, resources.getDisplayMetrics(), resources.getConfiguration());
-                        agm = l.cY(str);
+                        ago.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(ago, cX.getAbsolutePath());
+                        agm = new Resources(ago, resources.getDisplayMetrics(), resources.getConfiguration());
+                        agn = l.cY(str);
                     }
                 }
             } catch (Throwable th) {
@@ -161,7 +161,7 @@ public class aq {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(w.e.common_color_10004);
         }
-        throw new IllegalArgumentException(agj);
+        throw new IllegalArgumentException(agk);
     }
 
     public static int cM(int i) {
@@ -171,25 +171,25 @@ public class aq {
 
     public static int a(Resources resources, int i) {
         String str;
-        if (agk == null) {
-            agk = resources;
+        if (agl == null) {
+            agl = resources;
         }
         try {
             str = resources.getResourceName(i);
         } catch (Exception e) {
             str = null;
         }
-        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || agk == null) {
+        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || agl == null) {
             return 0;
         }
-        if (SC == 0) {
-            SB = BdBaseApplication.getInst().getPackageName();
-            SC = SB.length();
+        if (SE == 0) {
+            SD = BdBaseApplication.getInst().getPackageName();
+            SE = SD.length();
         }
-        if (str.length() > SC && str.charAt(SC) != ':' && str.startsWith(SB)) {
-            str = String.valueOf(SB) + str.substring(str.indexOf(":"));
+        if (str.length() > SE && str.charAt(SE) != ':' && str.startsWith(SD)) {
+            str = String.valueOf(SD) + str.substring(str.indexOf(":"));
         }
-        return agk.getIdentifier(String.valueOf(str) + "_1", null, null);
+        return agl.getIdentifier(String.valueOf(str) + "_1", null, null);
     }
 
     public static void b(ImageView imageView, int i, int i2) {
@@ -252,10 +252,10 @@ public class aq {
 
     private static int b(Resources resources, int i) {
         String str;
-        if (agl == null) {
-            agl = resources;
+        if (agm == null) {
+            agm = resources;
         }
-        if (agl == null) {
+        if (agm == null) {
             return 0;
         }
         try {
@@ -270,7 +270,7 @@ public class aq {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return agl.getIdentifier(String.valueOf(agm) + str.substring(str.indexOf(":")), null, null);
+        return agm.getIdentifier(String.valueOf(agn) + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void i(View view, int i) {
@@ -292,8 +292,8 @@ public class aq {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (agl != null) {
-            resources2 = agl;
+        } else if (agm != null) {
+            resources2 = agm;
         } else {
             resources2 = resources;
             b = i;
@@ -320,8 +320,8 @@ public class aq {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (agl != null) {
-            resources2 = agl;
+        } else if (agm != null) {
+            resources2 = agm;
         } else {
             resources2 = resources;
             b = i;
@@ -346,8 +346,8 @@ public class aq {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agl != null) {
-                resources2 = agl;
+            } else if (agm != null) {
+                resources2 = agm;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -357,8 +357,8 @@ public class aq {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agk != null) {
-                resources2 = agk;
+            } else if (agl != null) {
+                resources2 = agl;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -394,8 +394,8 @@ public class aq {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agl != null) {
-                resources2 = agl;
+            } else if (agm != null) {
+                resources2 = agm;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -405,8 +405,8 @@ public class aq {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agk != null) {
-                resources2 = agk;
+            } else if (agl != null) {
+                resources2 = agl;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -442,8 +442,8 @@ public class aq {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agl != null) {
-                resources2 = agl;
+            } else if (agm != null) {
+                resources2 = agm;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -453,8 +453,8 @@ public class aq {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (agk != null) {
-                resources2 = agk;
+            } else if (agl != null) {
+                resources2 = agl;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -508,13 +508,13 @@ public class aq {
             int a = a(resources, i);
             if (a == 0) {
                 a = i;
-            } else if (agk != null) {
-                Resources resources2 = agk;
+            } else if (agl != null) {
+                Resources resources2 = agl;
             } else {
                 a = i;
             }
             try {
-                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(agk, a, i, options);
+                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(agl, a, i, options);
                 if (nightCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
@@ -528,7 +528,7 @@ public class aq {
                 return BitmapHelper.getCashBitmap(i, options);
             }
             try {
-                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(agl, b, i, options);
+                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(agm, b, i, options);
                 if (themeCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }

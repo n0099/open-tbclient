@@ -10,13 +10,13 @@ import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cp extends CustomMessageListener {
-    final /* synthetic */ cn ekI;
+    final /* synthetic */ cn emZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cp(cn cnVar, int i) {
         super(i);
-        this.ekI = cnVar;
+        this.emZ = cnVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -32,9 +32,9 @@ public class cp extends CustomMessageListener {
         List<DownloadData> data;
         boolean z;
         if (customResponsedMessage != null) {
-            fVar = this.ekI.ehh;
+            fVar = this.emZ.ejx;
             if (fVar != null) {
-                pbActivity = this.ekI.eig;
+                pbActivity = this.emZ.ekw;
                 if (!com.baidu.adp.base.k.X(pbActivity.getActivity()).isScroll() && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
                     Iterator<DownloadData> it = data.iterator();
                     while (true) {
@@ -47,7 +47,7 @@ public class cp extends CustomMessageListener {
                         }
                     }
                     if (z) {
-                        com.baidu.adp.lib.g.h.fR().postDelayed(new cq(this), TimeUnit.SECONDS.toMillis(2L));
+                        com.baidu.adp.lib.g.h.fS().postDelayed(new cq(this), TimeUnit.SECONDS.toMillis(2L));
                     }
                 }
             }

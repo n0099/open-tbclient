@@ -4,10 +4,10 @@ import android.view.View;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
 /* loaded from: classes.dex */
 public final class c {
-    private static /* synthetic */ int[] aLx;
+    private static /* synthetic */ int[] aLz;
 
     static /* synthetic */ int[] Ic() {
-        int[] iArr = aLx;
+        int[] iArr = aLz;
         if (iArr == null) {
             iArr = new int[PullToRefreshBase.Orientation.valuesCustom().length];
             try {
@@ -18,7 +18,7 @@ public final class c {
                 iArr[PullToRefreshBase.Orientation.VERTICAL.ordinal()] = 1;
             } catch (NoSuchFieldError e2) {
             }
-            aLx = iArr;
+            aLz = iArr;
         }
         return iArr;
     }

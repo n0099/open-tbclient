@@ -4,23 +4,23 @@ import com.baidu.tieba.pb.pb.main.PbModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dk implements Runnable {
-    final /* synthetic */ dj emf;
-    private final /* synthetic */ PbPageReadLocalResponseMessage emg;
-    private final /* synthetic */ com.baidu.tieba.pb.data.f emh;
+    private final /* synthetic */ com.baidu.tieba.pb.data.f eoA;
+    final /* synthetic */ dj eoy;
+    private final /* synthetic */ PbPageReadLocalResponseMessage eoz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dk(dj djVar, PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage, com.baidu.tieba.pb.data.f fVar) {
-        this.emf = djVar;
-        this.emg = pbPageReadLocalResponseMessage;
-        this.emh = fVar;
+        this.eoy = djVar;
+        this.eoz = pbPageReadLocalResponseMessage;
+        this.eoA = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         PbModel pbModel;
         PbModel.a aVar;
-        pbModel = this.emf.eme;
-        aVar = pbModel.elF;
-        aVar.a(true, 0, this.emg.getUpdateType(), 0, this.emh, this.emg.getErrorString(), 0);
+        pbModel = this.eoy.eox;
+        aVar = pbModel.enX;
+        aVar.a(true, 0, this.eoz.getUpdateType(), 0, this.eoA, this.eoz.getErrorString(), 0);
     }
 }

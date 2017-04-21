@@ -5,24 +5,24 @@ import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.b {
-    final /* synthetic */ WriteLocationView fOT;
+    final /* synthetic */ WriteLocationView fRp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WriteLocationView writeLocationView) {
-        this.fOT = writeLocationView;
+        this.fRp = writeLocationView;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         LocationModel.a aVar2;
         LocationModel locationModel;
-        if (!com.baidu.adp.lib.util.i.hj()) {
-            aVar2 = this.fOT.aBc;
+        if (!com.baidu.adp.lib.util.i.hk()) {
+            aVar2 = this.fRp.aBe;
             aVar2.Ef();
         } else {
-            this.fOT.c(1, true, null);
-            locationModel = this.fOT.aAO;
-            locationModel.Qd();
+            this.fRp.c(1, true, null);
+            locationModel = this.fRp.aAQ;
+            locationModel.Rd();
         }
         aVar.dismiss();
     }

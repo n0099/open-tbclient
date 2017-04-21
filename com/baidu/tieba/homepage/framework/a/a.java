@@ -9,45 +9,45 @@ import java.util.List;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a cvR;
-    public BdUniqueId baI;
-    public boolean cvO;
-    public int cvL = -1;
-    public int cvM = 0;
-    public int cvN = -1;
-    public boolean cvP = false;
-    private CustomMessageListener cvQ = new b(this, CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED);
+    private static a cyi;
+    public BdUniqueId bbE;
+    public boolean cyf;
+    public int cyc = -1;
+    public int cyd = 0;
+    public int cye = -1;
+    public boolean cyg = false;
+    private CustomMessageListener cyh = new b(this, CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED);
     private CustomMessageListener amU = new c(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
 
-    public static synchronized a aiU() {
+    public static synchronized a ajV() {
         a aVar;
         synchronized (a.class) {
-            if (cvR == null) {
-                cvR = new a();
+            if (cyi == null) {
+                cyi = new a();
             }
-            aVar = cvR;
+            aVar = cyi;
         }
         return aVar;
     }
 
     public void onDestory() {
-        this.cvM = 0;
-        if (this.baI != null) {
-            MessageManager.getInstance().unRegisterListener(this.baI);
+        this.cyd = 0;
+        if (this.bbE != null) {
+            MessageManager.getInstance().unRegisterListener(this.bbE);
         }
     }
 
     public void m(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.baI = bdUniqueId;
-            this.cvQ.setTag(bdUniqueId);
+            this.bbE = bdUniqueId;
+            this.cyh.setTag(bdUniqueId);
             this.amU.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.cvQ);
+            MessageManager.getInstance().registerListener(this.cyh);
             MessageManager.getInstance().registerListener(this.amU);
         }
     }
 
-    public void aZ(List<TagInfo> list) {
+    public void ba(List<TagInfo> list) {
         if (!x.q(list)) {
             int i = 0;
             while (true) {
@@ -56,10 +56,10 @@ public class a {
                     TagInfo tagInfo = (TagInfo) x.c(list, i2);
                     if (tagInfo != null) {
                         if (tagInfo.tag_type.intValue() == 3) {
-                            this.cvL = i2;
+                            this.cyc = i2;
                             return;
                         }
-                        this.cvL = -1;
+                        this.cyc = -1;
                     }
                     i = i2 + 1;
                 } else {

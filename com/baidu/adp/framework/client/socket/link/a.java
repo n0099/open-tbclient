@@ -5,11 +5,11 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 /* loaded from: classes.dex */
 class a implements ServiceConnection {
-    final /* synthetic */ BdSocketDaemonService qe;
+    final /* synthetic */ BdSocketDaemonService qj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BdSocketDaemonService bdSocketDaemonService) {
-        this.qe = bdSocketDaemonService;
+        this.qj = bdSocketDaemonService;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,7 +23,7 @@ class a implements ServiceConnection {
         gVar = BdSocketDaemonService.sCallBack;
         if (gVar != null) {
             gVar2 = BdSocketDaemonService.sCallBack;
-            gVar2.dm();
+            gVar2.dn();
             return;
         }
         BdSocketLinkService.startService(false, "restart");

@@ -9,10 +9,10 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class db {
-    private PbModel eif;
+    private PbModel ekv;
 
     public db(PbModel pbModel) {
-        this.eif = pbModel;
+        this.ekv = pbModel;
         EC();
     }
 
@@ -22,11 +22,11 @@ public class db {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bK(String str, String str2) {
-        if (this.eif != null && this.eif.getPbData() != null) {
+    public void bJ(String str, String str2) {
+        if (this.ekv != null && this.ekv.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.eif.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.ekv.getPbData().getThreadId());
             httpMessage.addParam(PbActivityConfig.KEY_MSG_OP_TYPE, str2);
             MessageManager.getInstance().sendMessage(httpMessage);
         }

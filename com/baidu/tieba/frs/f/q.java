@@ -42,16 +42,16 @@ public class q {
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(FrsActivity frsActivity, String str) {
         Intent ai;
-        if (!TextUtils.isEmpty(str) && frsActivity != null && frsActivity.YX() != null && (ai = t.ai(frsActivity.getPageContext().getPageActivity(), str)) != null) {
+        if (!TextUtils.isEmpty(str) && frsActivity != null && frsActivity.ZY() != null && (ai = t.ai(frsActivity.getPageContext().getPageActivity(), str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
             intent.putExtra("android.intent.extra.shortcut.NAME", String.valueOf(str) + frsActivity.getPageContext().getString(w.l.bar));
             intent.putExtra("android.intent.extra.shortcut.INTENT", ai);
-            BarImageView aea = frsActivity.YX().aea();
-            if (aea != null && aea.getBdImage() != null && aea.getBdImage().kR() != null) {
-                Bitmap kR = aea.getBdImage().kR();
+            BarImageView afb = frsActivity.ZY().afb();
+            if (afb != null && afb.getBdImage() != null && afb.getBdImage().kS() != null) {
+                Bitmap kS = afb.getBdImage().kS();
                 Float valueOf = Float.valueOf(frsActivity.getResources().getDisplayMetrics().density);
-                intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gR().a(com.baidu.adp.lib.util.d.gR().resizeBitmap(kR, valueOf.intValue() * 48), valueOf.intValue() * 6));
+                intent.putExtra("android.intent.extra.shortcut.ICON", com.baidu.adp.lib.util.d.gS().a(com.baidu.adp.lib.util.d.gS().resizeBitmap(kS, valueOf.intValue() * 48), valueOf.intValue() * 6));
             } else {
                 intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(frsActivity.getPageContext().getPageActivity(), w.g.icon));
             }
@@ -61,20 +61,19 @@ public class q {
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final WeakReference<FrsActivity> can;
+        private final WeakReference<FrsActivity> ccE;
         private final String name;
 
         public a(FrsActivity frsActivity, String str) {
             this.name = str;
-            this.can = new WeakReference<>(frsActivity);
+            this.ccE = new WeakReference<>(frsActivity);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
-            FrsActivity frsActivity = this.can.get();
+            FrsActivity frsActivity = this.ccE.get();
             if (frsActivity == null) {
                 return false;
             }
@@ -85,7 +84,7 @@ public class q {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            FrsActivity frsActivity = this.can.get();
+            FrsActivity frsActivity = this.ccE.get();
             if (frsActivity != null) {
                 if (!bool.booleanValue()) {
                     q.c(frsActivity, this.name);

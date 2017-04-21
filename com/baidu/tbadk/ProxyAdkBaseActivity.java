@@ -172,7 +172,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     public void setActivityBgTransparent() {
-        this.mSwipeBackLayout.lQ();
+        this.mSwipeBackLayout.lR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

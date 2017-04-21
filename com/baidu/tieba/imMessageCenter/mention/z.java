@@ -6,20 +6,20 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends CustomMessageListener {
-    final /* synthetic */ l dkD;
+    final /* synthetic */ l dmU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(l lVar, int i) {
         super(i);
-        this.dkD = lVar;
+        this.dmU = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120) {
-            this.dkD.d((ResponsedMessage<?>) customResponsedMessage);
+            this.dmU.d((ResponsedMessage<?>) customResponsedMessage);
         }
     }
 }

@@ -8,28 +8,28 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements AdapterView.OnItemClickListener {
-    final /* synthetic */ i ezK;
+    final /* synthetic */ i eCa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.ezK = iVar;
+        this.eCa = iVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         h hVar;
         TbPageContext tbPageContext;
-        if (!com.baidu.adp.lib.util.i.gX()) {
-            tbPageContext = this.ezK.bID;
+        if (!com.baidu.adp.lib.util.i.gY()) {
+            tbPageContext = this.eCa.bKU;
             tbPageContext.showToast(w.l.neterror);
             return;
         }
-        hVar = this.ezK.ezJ;
+        hVar = this.eCa.eBZ;
         f.a item = hVar.getItem(i);
         if (item == null) {
             return;
         }
-        this.ezK.nU(item.ezt);
-        this.ezK.a(item);
+        this.eCa.nV(item.eBJ);
+        this.eCa.a(item);
     }
 }

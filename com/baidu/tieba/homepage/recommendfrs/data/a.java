@@ -19,22 +19,22 @@ import tbclient.Personalized.TagInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a {
-    private final TagInfo czS;
-    private DataRes czT;
-    private int czU;
-    private String czY;
-    private com.baidu.tieba.card.data.b czZ;
+    private final TagInfo cCj;
+    private DataRes cCk;
+    private int cCl;
+    private String cCp;
+    private com.baidu.tieba.card.data.b cCq;
     private boolean hasMore;
     private int pn;
-    private List<Object> aEY = new ArrayList();
-    private boolean cnc = false;
-    private boolean czV = false;
-    private boolean czW = false;
-    private int czX = 1;
-    private long cwp = 0;
+    private List<Object> aFa = new ArrayList();
+    private boolean cpu = false;
+    private boolean cCm = false;
+    private boolean cCn = false;
+    private int cCo = 1;
+    private long cyG = 0;
 
     public a(TagInfo tagInfo) {
-        this.czS = tagInfo;
+        this.cCj = tagInfo;
     }
 
     public int getPn() {
@@ -42,31 +42,31 @@ public class a {
     }
 
     public void c(DataRes dataRes) {
-        this.czT = dataRes;
+        this.cCk = dataRes;
     }
 
-    public void jX(int i) {
-        this.czU = i;
+    public void kd(int i) {
+        this.cCl = i;
     }
 
-    public int ajK() {
-        return this.czU;
+    public int akL() {
+        return this.cCl;
     }
 
-    public boolean ajL() {
-        return this.czV;
+    public boolean akM() {
+        return this.cCm;
     }
 
-    public boolean ajM() {
-        return this.czW;
+    public boolean akN() {
+        return this.cCn;
     }
 
-    public TagInfo ajN() {
-        return this.czS;
+    public TagInfo akO() {
+        return this.cCj;
     }
 
-    public String ajO() {
-        return this.czY;
+    public String akP() {
+        return this.cCp;
     }
 
     public boolean hasMore() {
@@ -75,21 +75,21 @@ public class a {
 
     public void a(boolean z, c cVar, boolean z2) {
         if (z) {
-            this.czW = true;
+            this.cCn = true;
         } else {
-            this.czV = true;
+            this.cCm = true;
         }
         if (cVar != null) {
             this.pn = cVar.getPn();
             this.hasMore = cVar.getHasMore();
             if (cVar instanceof com.baidu.tieba.homepage.mygod.data.d) {
-                this.cwp = ((com.baidu.tieba.homepage.mygod.data.d) cVar).ajc();
+                this.cyG = ((com.baidu.tieba.homepage.mygod.data.d) cVar).akd();
             }
             List<Object> a = a(z2, cVar);
             if (z2) {
-                this.aEY.addAll(a);
+                this.aFa.addAll(a);
             } else {
-                this.aEY = a;
+                this.aFa = a;
             }
         }
     }
@@ -110,7 +110,7 @@ public class a {
 
     private void a(List<Object> list, c cVar, boolean z) {
         if (list != null && cVar != null && cVar.getThreadList() != null && cVar.getThreadList().size() != 0) {
-            this.czX = 3;
+            this.cCo = 3;
             for (Object obj : cVar.getThreadList()) {
                 if (obj instanceof ICardInfo) {
                     list.add(obj);
@@ -118,20 +118,20 @@ public class a {
             }
             int size = list.size();
             if (size > 0) {
-                this.czY = ((ICardInfo) list.get(size - 1)).getFlipId();
+                this.cCp = ((ICardInfo) list.get(size - 1)).getFlipId();
             }
         }
     }
 
     private void b(List<Object> list, c cVar, boolean z) {
         if (list != null && cVar != null && cVar.getThreadList() != null && cVar.getThreadList().size() != 0) {
-            this.czX = 1;
+            this.cCo = 1;
             for (Object obj : cVar.getThreadList()) {
                 if ((obj instanceof ExcellentThreadInfo) && (!z || !a((ExcellentThreadInfo) obj))) {
                     e eVar = new e();
                     eVar.b((ExcellentThreadInfo) obj);
-                    eVar.setShowImage(cVar.ajQ());
-                    if (eVar.ajX() != 33) {
+                    eVar.setShowImage(cVar.akR());
+                    if (eVar.akY() != 33) {
                         list.add(eVar);
                     } else if (TbadkCoreApplication.m9getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                         list.add(eVar);
@@ -144,9 +144,9 @@ public class a {
     private void c(List<Object> list, c cVar, boolean z) {
         if (list != null && cVar != null && cVar.getThreadList() != null && cVar.getThreadList().size() != 0) {
             if (!z) {
-                this.czZ = null;
+                this.cCq = null;
             }
-            this.czX = 2;
+            this.cCo = 2;
             for (Object obj : cVar.getThreadList()) {
                 if ((obj instanceof ThreadInfo) && (!z || !b((ThreadInfo) obj))) {
                     bi biVar = new bi();
@@ -162,17 +162,17 @@ public class a {
                     } else if (!TextUtils.isEmpty(biVar.tj())) {
                         ah ahVar = new ah();
                         ahVar.co(biVar.tj());
-                        this.czZ = ahVar;
-                    } else if (biVar.Yz == 1) {
+                        this.cCq = ahVar;
+                    } else if (biVar.YA == 1) {
                         g gVar = new g();
-                        gVar.buR = fVar;
+                        gVar.bxi = fVar;
                         a(gVar);
-                        this.czZ = gVar;
+                        this.cCq = gVar;
                     } else {
                         a(fVar);
-                        this.czZ = fVar;
+                        this.cCq = fVar;
                     }
-                    list.add(this.czZ);
+                    list.add(this.cCq);
                 }
             }
             if (cVar instanceof com.baidu.tieba.homepage.mygod.data.d) {
@@ -186,9 +186,9 @@ public class a {
 
     private void a(c cVar, List<Object> list) {
         com.baidu.tieba.homepage.mygod.data.d dVar = (com.baidu.tieba.homepage.mygod.data.d) cVar;
-        if (this.pn == 1 && dVar.aje() != null) {
-            list.add(0, new com.baidu.tieba.homepage.mygod.data.a(dVar.aje()));
-        } else if (this.pn == 1 && dVar.ajd() == 0) {
+        if (this.pn == 1 && dVar.akf() != null) {
+            list.add(0, new com.baidu.tieba.homepage.mygod.data.a(dVar.akf()));
+        } else if (this.pn == 1 && dVar.ake() == 0) {
             list.add(0, new com.baidu.tieba.homepage.mygod.data.b());
         }
     }
@@ -197,14 +197,14 @@ public class a {
         if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) != null) {
             if (biVar.getThreadType() == 49) {
                 com.baidu.tieba.homepage.alalivelist.view.d dVar = new com.baidu.tieba.homepage.alalivelist.view.d();
-                dVar.bbo = biVar;
+                dVar.bck = biVar;
                 a(dVar);
-                this.czZ = dVar;
+                this.cCq = dVar;
             } else if (biVar.getThreadType() == 50) {
                 h hVar = new h();
-                hVar.bbo = biVar;
+                hVar.bck = biVar;
                 a(hVar);
-                this.czZ = hVar;
+                this.cCq = hVar;
             }
         }
     }
@@ -212,19 +212,19 @@ public class a {
     private void b(c cVar, List<Object> list) {
         if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) != null) {
             com.baidu.tieba.homepage.alalivelist.data.c cVar2 = (com.baidu.tieba.homepage.alalivelist.data.c) cVar;
-            if (cVar2.ctv != null && cVar2.ctv.type.intValue() != com.baidu.tieba.homepage.alalivelist.data.c.ctu && this.pn == 1) {
-                list.add(0, new com.baidu.tieba.homepage.alalivelist.a.c(cVar2.ctv));
+            if (cVar2.cvM != null && cVar2.cvM.type.intValue() != com.baidu.tieba.homepage.alalivelist.data.c.cvL && this.pn == 1) {
+                list.add(0, new com.baidu.tieba.homepage.alalivelist.a.c(cVar2.cvM));
             }
         }
     }
 
     private void a(com.baidu.tieba.card.data.b bVar) {
         if (bVar != null && bVar.getType() != null) {
-            if (this.czZ == null) {
+            if (this.cCq == null) {
                 bVar.needTopMargin = false;
-            } else if (this.czZ.getType() == null) {
+            } else if (this.cCq.getType() == null) {
                 bVar.needTopMargin = false;
-            } else if (this.czZ instanceof f) {
+            } else if (this.cCq instanceof f) {
                 if (bVar instanceof f) {
                     bVar.needTopMargin = false;
                 } else {
@@ -240,12 +240,12 @@ public class a {
         if (excellentThreadInfo == null || excellentThreadInfo.excid == null) {
             return false;
         }
-        int size = this.aEY.size();
+        int size = this.aFa.size();
         if (size <= 0) {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            Object obj = this.aEY.get(i);
+            Object obj = this.aFa.get(i);
             if ((obj instanceof ExcellentThreadInfo) && excellentThreadInfo.excid.equals(((ExcellentThreadInfo) obj).excid)) {
                 return true;
             }
@@ -257,22 +257,22 @@ public class a {
         if (threadInfo == null || threadInfo.id == null) {
             return false;
         }
-        int size = this.aEY.size();
+        int size = this.aFa.size();
         if (size <= 0) {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            Object obj = this.aEY.get(i);
+            Object obj = this.aFa.get(i);
             if (obj instanceof ThreadInfo) {
                 if (threadInfo.id.equals(((ThreadInfo) obj).id)) {
                     return true;
                 }
             } else if (obj instanceof com.baidu.tieba.homepage.alalivelist.view.d) {
                 com.baidu.tieba.homepage.alalivelist.view.d dVar = (com.baidu.tieba.homepage.alalivelist.view.d) obj;
-                if (dVar.bbo == null) {
+                if (dVar.bck == null) {
                     return false;
                 }
-                if (String.valueOf(threadInfo.id).equals(dVar.bbo.getId())) {
+                if (String.valueOf(threadInfo.id).equals(dVar.bck.getId())) {
                     return true;
                 }
             } else {
@@ -282,23 +282,23 @@ public class a {
         return false;
     }
 
-    public List<Object> ajP() {
-        return this.aEY;
+    public List<Object> akQ() {
+        return this.aFa;
     }
 
-    public void bg(List<Object> list) {
-        this.aEY = list;
+    public void bh(List<Object> list) {
+        this.aFa = list;
     }
 
-    public void fa(boolean z) {
-        this.cnc = z;
+    public void fk(boolean z) {
+        this.cpu = z;
     }
 
     public int getDataType() {
-        return this.czX;
+        return this.cCo;
     }
 
-    public long ajc() {
-        return this.cwp;
+    public long akd() {
+        return this.cyG;
     }
 }

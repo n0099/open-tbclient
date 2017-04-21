@@ -12,19 +12,19 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class at {
-    public static void hY(String str) {
+    public static void hZ(String str) {
         com.baidu.tieba.tbadkCore.util.r readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) != null && !readThreadHistory.qp(str)) {
-            readThreadHistory.qn(str);
+        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) != null && !readThreadHistory.qq(str)) {
+            readThreadHistory.qo(str);
         }
     }
 
-    public static boolean hZ(String str) {
+    public static boolean ia(String str) {
         com.baidu.tieba.tbadkCore.util.r readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) == null || !readThreadHistory.qo(str)) ? false : true;
+        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.m9getInst().getReadThreadHistory()) == null || !readThreadHistory.qp(str)) ? false : true;
     }
 
-    public static String SN() {
+    public static String TP() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
@@ -34,7 +34,7 @@ public class at {
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (hZ(str)) {
+            if (ia(str)) {
                 com.baidu.tbadk.core.util.aq.i(textView, i2);
             } else {
                 com.baidu.tbadk.core.util.aq.i(textView, i);
@@ -61,53 +61,53 @@ public class at {
 
     /* loaded from: classes.dex */
     public static class a {
-        public int btf;
-        public String btg;
-        public int bth;
-        public int bti;
-        public int btj;
+        public int bvA;
+        public int bvB;
+        public int bvC;
+        public int bvy;
+        public String bvz;
 
         public a(int i, int i2, int i3) {
-            this.btf = -1;
-            this.btg = "";
-            this.bth = w.e.cp_link_tip_a;
-            this.bti = w.g.pic_dot_title;
-            this.btj = 0;
-            this.btf = i;
-            this.bth = i2;
-            this.bti = i3;
+            this.bvy = -1;
+            this.bvz = "";
+            this.bvA = w.e.cp_link_tip_a;
+            this.bvB = w.g.pic_dot_title;
+            this.bvC = 0;
+            this.bvy = i;
+            this.bvA = i2;
+            this.bvB = i3;
         }
 
         public a(int i) {
-            this.btf = -1;
-            this.btg = "";
-            this.bth = w.e.cp_link_tip_a;
-            this.bti = w.g.pic_dot_title;
-            this.btj = 0;
-            this.btf = i;
+            this.bvy = -1;
+            this.bvz = "";
+            this.bvA = w.e.cp_link_tip_a;
+            this.bvB = w.g.pic_dot_title;
+            this.bvC = 0;
+            this.bvy = i;
         }
 
         public a(String str) {
-            this.btf = -1;
-            this.btg = "";
-            this.bth = w.e.cp_link_tip_a;
-            this.bti = w.g.pic_dot_title;
-            this.btj = 0;
-            this.btg = str;
+            this.bvy = -1;
+            this.bvz = "";
+            this.bvA = w.e.cp_link_tip_a;
+            this.bvB = w.g.pic_dot_title;
+            this.bvC = 0;
+            this.bvz = str;
         }
 
         public a(String str, int i) {
-            this.btf = -1;
-            this.btg = "";
-            this.bth = w.e.cp_link_tip_a;
-            this.bti = w.g.pic_dot_title;
-            this.btj = 0;
-            this.btg = str;
-            this.bti = i;
+            this.bvy = -1;
+            this.bvz = "";
+            this.bvA = w.e.cp_link_tip_a;
+            this.bvB = w.g.pic_dot_title;
+            this.bvC = 0;
+            this.bvz = str;
+            this.bvB = i;
         }
 
-        public void gJ(int i) {
-            this.btj = i;
+        public void gP(int i) {
+            this.bvC = i;
         }
     }
 
@@ -123,24 +123,24 @@ public class at {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                if (aVar.btf > 0) {
-                    aVar.btg = context.getString(aVar.btf);
+                if (aVar.bvy > 0) {
+                    aVar.bvz = context.getString(aVar.bvy);
                 }
-                if (!com.baidu.adp.lib.util.j.isEmpty(aVar.btg)) {
+                if (!com.baidu.adp.lib.util.j.isEmpty(aVar.bvz)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.btg);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.aq.getColor(aVar.bth)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.append((CharSequence) aVar.bvz);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.aq.getColor(aVar.bvA)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap cO = com.baidu.tbadk.core.util.aq.cO(aVar.bti);
+                    Bitmap cO = com.baidu.tbadk.core.util.aq.cO(aVar.bvB);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(cO);
                     if (cO != null) {
                         bitmapDrawable.setBounds(0, 0, cO.getWidth(), cO.getHeight());
                     }
                     com.baidu.tbadk.core.view.al alVar = new com.baidu.tbadk.core.view.al(bitmapDrawable);
-                    if (aVar.btj != 0) {
-                        alVar.setOffset(aVar.btj);
+                    if (aVar.bvC != 0) {
+                        alVar.setOffset(aVar.bvC);
                     }
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) " ");
@@ -162,7 +162,7 @@ public class at {
             return;
         }
         textView.setVisibility(0);
-        biVar.Ym = 0;
+        biVar.Yn = 0;
         biVar.sW();
         SpannableStringBuilder sO = biVar.sO();
         textView.setOnTouchListener(new com.baidu.tieba.view.x(sO));

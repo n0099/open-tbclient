@@ -11,11 +11,11 @@ import com.baidu.tieba.frs.cg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements ab.a {
-    final /* synthetic */ ah cbR;
+    final /* synthetic */ ah cei;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ah ahVar) {
-        this.cbR = ahVar;
+        this.cei = ahVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.a
@@ -26,18 +26,18 @@ public class am implements ab.a {
         com.baidu.tieba.frs.smartsort.c cVar;
         FrsActivity frsActivity;
         com.baidu.tieba.frs.smartsort.c cVar2;
-        azVar = this.cbR.bMD;
+        azVar = this.cei.bOU;
         if (azVar != null) {
-            cgVar = this.cbR.bYu;
+            cgVar = this.cei.caL;
             if (cgVar != null) {
-                uVar = this.cbR.bMP;
+                uVar = this.cei.bPg;
                 if (uVar != null) {
-                    cVar = this.cbR.bMW;
+                    cVar = this.cei.bPn;
                     if (cVar != null) {
-                        frsActivity = this.cbR.bST;
-                        frsActivity.dC(true);
-                        cVar2 = this.cbR.bMW;
-                        cVar2.adi();
+                        frsActivity = this.cei.bVk;
+                        frsActivity.dM(true);
+                        cVar2 = this.cei.bPn;
+                        cVar2.aej();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_NEGATIVE_FEED_BACK_WIN));
                     }
                 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ ForbidActivity eel;
+    final /* synthetic */ ForbidActivity egB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForbidActivity forbidActivity) {
-        this.eel = forbidActivity;
+        this.egB = forbidActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ class a implements View.OnClickListener {
         String str4;
         String str5;
         ForbidActivity.a aVar3;
-        aVar = this.eel.eej;
+        aVar = this.egB.egz;
         if (aVar != null) {
-            aVar2 = this.eel.eej;
-            if (!au.isEmpty(aVar2.aJa())) {
-                ForbidActivity forbidActivity = this.eel;
-                radioGroup = this.eel.eef;
-                str = this.eel.mForumId;
-                str2 = this.eel.mForumName;
-                str3 = this.eel.mThreadId;
-                str4 = this.eel.mUserName;
-                str5 = this.eel.mPostId;
-                aVar3 = this.eel.eej;
-                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.aJa(), new b(this));
+            aVar2 = this.egB.egz;
+            if (!au.isEmpty(aVar2.aKb())) {
+                ForbidActivity forbidActivity = this.egB;
+                radioGroup = this.egB.egv;
+                str = this.egB.mForumId;
+                str2 = this.egB.mForumName;
+                str3 = this.egB.mThreadId;
+                str4 = this.egB.mUserName;
+                str5 = this.egB.mPostId;
+                aVar3 = this.egB.egz;
+                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.aKb(), new b(this));
             }
         }
     }

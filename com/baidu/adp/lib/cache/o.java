@@ -15,18 +15,18 @@ public interface o<T> {
     /* loaded from: classes.dex */
     public static class c<T> {
         public String key;
-        public T sB;
-        public long tJ;
-        public long tu;
+        public T sG;
+        public long tO;
+        public long tz;
     }
 
     /* loaded from: classes.dex */
     public interface d<T> extends o<T> {
-        String eJ();
+        String eK();
 
-        n<T> eK();
+        n<T> eL();
 
-        void eL();
+        void eM();
     }
 
     c<T> P(String str);

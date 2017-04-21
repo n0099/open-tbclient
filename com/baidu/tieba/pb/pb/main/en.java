@@ -11,80 +11,80 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class en extends y.a {
-    private TbPageContext aaX;
-    View.OnClickListener akE;
+    private TbPageContext aaY;
+    View.OnClickListener akF;
     public View devider;
-    public TextView eoq;
-    public TextView eor;
-    public TbImageView eos;
-    public TextView eot;
-    public TextView eou;
-    public TextView eov;
-    public TextView eow;
-    public TbImageView eox;
-    public LinearLayout eoy;
-    private com.baidu.tbadk.core.data.as eoz;
+    public TextView eqH;
+    public TextView eqI;
+    public TbImageView eqJ;
+    public TextView eqK;
+    public TextView eqL;
+    public TextView eqM;
+    public TextView eqN;
+    public TbImageView eqO;
+    public LinearLayout eqP;
+    private com.baidu.tbadk.core.data.as eqQ;
 
     public en(TbPageContext tbPageContext, View view) {
         super(view);
-        this.akE = new eo(this);
-        this.aaX = tbPageContext;
-        this.eoq = (TextView) view.findViewById(w.h.textview_recommend_title);
-        this.eor = (TextView) view.findViewById(w.h.textview_recommend_option_btn);
-        this.eos = (TbImageView) view.findViewById(w.h.novel_cover);
-        this.eot = (TextView) view.findViewById(w.h.novel_title);
-        this.eou = (TextView) view.findViewById(w.h.novel_author);
-        this.eov = (TextView) view.findViewById(w.h.novel_read_number);
-        this.eow = (TextView) view.findViewById(w.h.novel_read_btn);
-        this.eoy = (LinearLayout) view.findViewById(w.h.novel_recommend_item_layout);
-        this.eox = (TbImageView) view.findViewById(w.h.novel_subscription);
-        this.eox.setDefaultResource(w.g.transparent_bg);
-        this.eox.setDefaultBgResource(w.g.transparent_bg);
-        this.eox.setDefaultErrorResource(w.g.transparent_bg);
+        this.akF = new eo(this);
+        this.aaY = tbPageContext;
+        this.eqH = (TextView) view.findViewById(w.h.textview_recommend_title);
+        this.eqI = (TextView) view.findViewById(w.h.textview_recommend_option_btn);
+        this.eqJ = (TbImageView) view.findViewById(w.h.novel_cover);
+        this.eqK = (TextView) view.findViewById(w.h.novel_title);
+        this.eqL = (TextView) view.findViewById(w.h.novel_author);
+        this.eqM = (TextView) view.findViewById(w.h.novel_read_number);
+        this.eqN = (TextView) view.findViewById(w.h.novel_read_btn);
+        this.eqP = (LinearLayout) view.findViewById(w.h.novel_recommend_item_layout);
+        this.eqO = (TbImageView) view.findViewById(w.h.novel_subscription);
+        this.eqO.setDefaultResource(w.g.transparent_bg);
+        this.eqO.setDefaultBgResource(w.g.transparent_bg);
+        this.eqO.setDefaultErrorResource(w.g.transparent_bg);
         this.devider = view.findViewById(w.h.recommend_devider);
-        this.eow.setOnClickListener(this.akE);
-        this.eoy.setOnClickListener(this.akE);
-        this.eor.setOnClickListener(this.akE);
+        this.eqN.setOnClickListener(this.akF);
+        this.eqP.setOnClickListener(this.akF);
+        this.eqI.setOnClickListener(this.akF);
     }
 
     public void a(com.baidu.tbadk.core.data.as asVar) {
         if (asVar != null) {
-            this.eoz = asVar;
-            this.eoq.setText(asVar.Xh);
-            this.eor.setText(asVar.Xi);
-            this.eox.c(asVar.Xm, 10, false);
-            this.eos.c(asVar.Vq, 10, false);
-            this.eow.setText(asVar.Xl);
-            this.eot.setText(asVar.Vp);
-            List<String> list = asVar.Xk;
+            this.eqQ = asVar;
+            this.eqH.setText(asVar.Xi);
+            this.eqI.setText(asVar.Xj);
+            this.eqO.c(asVar.Xn, 10, false);
+            this.eqJ.c(asVar.Vs, 10, false);
+            this.eqN.setText(asVar.Xm);
+            this.eqK.setText(asVar.Vr);
+            List<String> list = asVar.Xl;
             if (list != null) {
                 switch (list.size()) {
                     case 1:
                         if (list.get(0) != null) {
-                            this.eou.setText(list.get(0));
+                            this.eqL.setText(list.get(0));
                             break;
                         }
                         break;
                     case 2:
                         if (list.get(0) != null) {
-                            this.eou.setText(list.get(0));
+                            this.eqL.setText(list.get(0));
                         }
                         if (list.get(1) != null) {
-                            this.eov.setText(list.get(1));
+                            this.eqM.setText(list.get(1));
                             break;
                         }
                         break;
                 }
             }
-            com.baidu.tbadk.core.util.aq.c(this.eoq, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eor, w.e.cp_link_tip_a, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eot, w.e.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eou, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eov, w.e.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.aq.c(this.eow, w.e.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.aq.c(this.eqH, w.e.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.aq.c(this.eqI, w.e.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.aq.c(this.eqK, w.e.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.aq.c(this.eqL, w.e.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.aq.c(this.eqM, w.e.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.aq.c(this.eqN, w.e.cp_link_tip_a, 1);
             com.baidu.tbadk.core.util.aq.k(this.devider, w.e.cp_bg_line_b);
-            com.baidu.tbadk.core.util.aq.j(this.eow, w.g.btn_pb_novel_recommend_read);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11441").aa("obj_id", this.eoz.bookId));
+            com.baidu.tbadk.core.util.aq.j(this.eqN, w.g.btn_pb_novel_recommend_read);
+            TiebaStatic.log(new com.baidu.tbadk.core.util.as("c11441").aa("obj_id", this.eqQ.bookId));
         }
     }
 }

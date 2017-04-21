@@ -11,45 +11,45 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    private TbPageContext ajT;
-    private boolean caw;
-    private boolean cax;
-    private View cay;
-    private PopupWindow caz;
-    private int cav = w.l.attention_post_update_tip;
+    private TbPageContext ajU;
+    private boolean ccN;
+    private boolean ccO;
+    private View ccP;
+    private PopupWindow ccQ;
+    private int ccM = w.l.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable caA = new b(this);
+    private Runnable ccR = new b(this);
 
     public a(TbPageContext tbPageContext, boolean z) {
-        this.ajT = tbPageContext;
-        this.cax = z;
+        this.ajU = tbPageContext;
+        this.ccO = z;
     }
 
     public void aj(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (this.ajT != null && view != null && !StringUtils.isNull(currentAccount)) {
-            this.cay = view;
-            if (this.caw) {
-                this.cav = w.l.smart_frs_tip;
+        if (this.ajU != null && view != null && !StringUtils.isNull(currentAccount)) {
+            this.ccP = view;
+            if (this.ccN) {
+                this.ccM = w.l.smart_frs_tip;
                 String str = "smart_frs_smart_sort_tip_show_counts_" + currentAccount;
                 int i = com.baidu.tbadk.core.sharedPref.b.uL().getInt(str, 0);
                 if (i < 1) {
                     com.baidu.tbadk.core.sharedPref.b.uL().putInt(str, i + 1);
-                    this.mHandler.postDelayed(this.caA, 500L);
+                    this.mHandler.postDelayed(this.ccR, 500L);
                     return;
                 }
             }
-            if (this.cax) {
-                this.cav = w.l.attention_post_update_tip;
+            if (this.ccO) {
+                this.ccM = w.l.attention_post_update_tip;
                 String str2 = String.valueOf(currentAccount) + "frs_god_new_post_tip_count";
                 int i2 = com.baidu.tbadk.core.sharedPref.b.uL().getInt(str2, 0);
                 if (i2 >= 3) {
-                    this.cax = false;
+                    this.ccO = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.uL().putInt(str2, i2 + 1);
-                this.cax = false;
-                this.mHandler.postDelayed(this.caA, 500L);
+                this.ccO = false;
+                this.mHandler.postDelayed(this.ccR, 500L);
             }
         }
     }
@@ -72,22 +72,22 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ady();
+        aez();
     }
 
-    public void ady() {
-        if (this.caz != null) {
-            this.caz.dismiss();
-            this.caz = null;
+    public void aez() {
+        if (this.ccQ != null) {
+            this.ccQ.dismiss();
+            this.ccQ = null;
         }
     }
 
     public void cf(boolean z) {
-        this.caw = z;
+        this.ccN = z;
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        ady();
+        aez();
     }
 }

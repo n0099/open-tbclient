@@ -40,7 +40,7 @@ public class b {
         zVar.n("bdusstoken", String.valueOf(str2) + "|" + str3);
         zVar.n("channel_id", TbadkCoreApplication.m9getInst().getPushChannelId());
         zVar.n("channel_uid", TbadkCoreApplication.m9getInst().getPushChannelUserId());
-        zVar.vw().wp().ahh = false;
+        zVar.vw().wp().ahi = false;
         String uY = zVar.uY();
         if (zVar.vw().wq().isRequestSuccess() && uY != null) {
             ai aiVar = new ai();
@@ -64,20 +64,20 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, AccountData> {
-        private final String SZ;
-        private final String dRT;
-        private final a.InterfaceC0030a dRU;
-        private final boolean dRV;
+        private final String Tb;
+        private final String dUj;
+        private final a.InterfaceC0030a dUk;
+        private final boolean dUl;
         private final String mName;
         private volatile z mNetwork = null;
         private String mStoken;
 
         public a(String str, String str2, String str3, a.InterfaceC0030a interfaceC0030a, boolean z) {
             this.mName = str;
-            this.dRT = str2;
-            this.SZ = str3;
-            this.dRV = z;
-            this.dRU = interfaceC0030a == null ? new d(this) : interfaceC0030a;
+            this.dUj = str2;
+            this.Tb = str3;
+            this.dUl = z;
+            this.dUk = interfaceC0030a == null ? new d(this) : interfaceC0030a;
             setPriority(3);
         }
 
@@ -88,24 +88,24 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.dRU.cf(this.mName);
+            this.dUk.cf(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: y */
+        /* renamed from: x */
         public AccountData doInBackground(String... strArr) {
             a.b a;
             this.mNetwork = new z(TbConfig.LOGIN_FULL_ADDRESS);
             this.mNetwork.vw().wp().mIsUseCurrentBDUSS = false;
-            this.mNetwork.n("bdusstoken", String.valueOf(this.dRT) + "|" + this.SZ);
+            this.mNetwork.n("bdusstoken", String.valueOf(this.dUj) + "|" + this.Tb);
             if (!StringUtils.isNull(this.mStoken)) {
                 this.mNetwork.n("stoken", this.mStoken);
             }
             this.mNetwork.n("channel_id", TbadkCoreApplication.m9getInst().getPushChannelId());
             this.mNetwork.n("channel_uid", TbadkCoreApplication.m9getInst().getPushChannelUserId());
-            this.mNetwork.vw().wp().ahh = false;
+            this.mNetwork.vw().wp().ahi = false;
             String uY = this.mNetwork.uY();
             if (this.mNetwork.vw().wq().isRequestSuccess() && uY != null) {
                 ai aiVar = new ai();
@@ -114,9 +114,9 @@ public class b {
                 accountData.setAccount(aiVar.getUser().getUserName());
                 accountData.setPassword("");
                 accountData.setID(aiVar.getUser().getUserId());
-                String str = this.dRT;
-                if (this.dRV && (a = g.a(com.baidu.tbadk.core.a.a.pw().ce(str))) != null) {
-                    str = String.valueOf(a.mBduss) + "|" + a.SZ;
+                String str = this.dUj;
+                if (this.dUl && (a = g.a(com.baidu.tbadk.core.a.a.pw().ce(str))) != null) {
+                    str = String.valueOf(a.mBduss) + "|" + a.Tb;
                 }
                 accountData.setBDUSS(str);
                 accountData.setPortrait(aiVar.getUser().getPortrait());
@@ -141,7 +141,7 @@ public class b {
             ReloginManager.uG().aD(false);
             com.baidu.tbadk.core.e.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.mNetwork.vA(), this.mNetwork.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.dRU.a(accountData);
+                this.dUk.a(accountData);
                 return;
             }
             String str = null;
@@ -152,14 +152,14 @@ public class b {
             if (str == null) {
                 str = TbadkCoreApplication.m9getInst().getApp().getResources().getString(w.l.data_load_error);
             }
-            this.dRU.b(this.mName, i, str);
+            this.dUk.b(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
             if (this.mNetwork != null) {
-                this.mNetwork.fr();
+                this.mNetwork.fs();
             }
         }
     }

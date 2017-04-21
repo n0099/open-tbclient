@@ -9,23 +9,23 @@ import android.view.MotionEvent;
 import com.baidu.adp.widget.f;
 /* loaded from: classes.dex */
 public class ListViewPager extends ViewPager {
-    private float aKV;
-    private float aOq;
-    private float aOr;
+    private float aKX;
     private float aOs;
-    private boolean ajs;
-    private f.c aju;
+    private float aOt;
+    private float aOu;
+    private boolean ajt;
+    private f.c ajv;
     private GestureDetector mGestureDetector;
 
     public ListViewPager(Context context) {
         super(context);
-        this.ajs = false;
+        this.ajt = false;
         init();
     }
 
     public ListViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ajs = false;
+        this.ajt = false;
         init();
     }
 
@@ -45,8 +45,8 @@ public class ListViewPager extends ViewPager {
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            if (ListViewPager.this.aju != null) {
-                ListViewPager.this.aju.lT();
+            if (ListViewPager.this.ajv != null) {
+                ListViewPager.this.ajv.lU();
             }
             return Math.abs(f) > Math.abs(f2);
         }
@@ -57,7 +57,7 @@ public class ListViewPager extends ViewPager {
         if (k(motionEvent)) {
             return true;
         }
-        if (this.ajs) {
+        if (this.ajt) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -79,7 +79,7 @@ public class ListViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.ajs) {
+        if (this.ajt) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -93,31 +93,31 @@ public class ListViewPager extends ViewPager {
             case 0:
             case 5:
             case 6:
-                if (this.aju != null) {
-                    this.aju.lT();
+                if (this.ajv != null) {
+                    this.ajv.lU();
                 }
-                this.aKV = motionEvent.getX();
-                this.aOq = motionEvent.getY();
+                this.aKX = motionEvent.getX();
+                this.aOs = motionEvent.getY();
                 break;
             case 1:
             case 3:
-                if (this.aju != null) {
-                    this.aju.lT();
+                if (this.ajv != null) {
+                    this.ajv.lU();
                 }
-                this.aKV = 0.0f;
-                this.aOq = 0.0f;
-                this.aOr = 0.0f;
+                this.aKX = 0.0f;
                 this.aOs = 0.0f;
+                this.aOt = 0.0f;
+                this.aOu = 0.0f;
                 break;
             case 2:
-                if (this.aju != null) {
-                    this.aju.lT();
+                if (this.ajv != null) {
+                    this.ajv.lU();
                 }
-                this.aOr = motionEvent.getX() - this.aKV;
-                this.aOs = motionEvent.getY() - this.aOq;
-                this.aKV = motionEvent.getX();
-                this.aOq = motionEvent.getY();
-                if (getCurrentItem() != 0 && Math.abs(this.aOr) > Math.abs(this.aOs)) {
+                this.aOt = motionEvent.getX() - this.aKX;
+                this.aOu = motionEvent.getY() - this.aOs;
+                this.aKX = motionEvent.getX();
+                this.aOs = motionEvent.getY();
+                if (getCurrentItem() != 0 && Math.abs(this.aOt) > Math.abs(this.aOu)) {
                     aR(true);
                     break;
                 }
@@ -145,10 +145,10 @@ public class ListViewPager extends ViewPager {
     }
 
     public void setSwipeControlInterface(f.c cVar) {
-        this.aju = cVar;
+        this.ajv = cVar;
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.ajs = z;
+        this.ajt = z;
     }
 }

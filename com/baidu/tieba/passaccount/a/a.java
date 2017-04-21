@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a edb = null;
-    private final a.InterfaceC0030a edc = new b(this);
+    private static a efr = null;
+    private final a.InterfaceC0030a efs = new b(this);
 
     private a() {
     }
 
-    public static a aID() {
-        if (edb == null) {
-            edb = new a();
+    public static a aJE() {
+        if (efr == null) {
+            efr = new a();
         }
-        return edb;
+        return efr;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -33,7 +33,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                     try {
                         bVar.mBduss = split[0];
                         if (split.length >= 2) {
-                            bVar.SZ = split[1];
+                            bVar.Tb = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -55,8 +55,8 @@ public class a extends com.baidu.tbadk.core.a.a {
     public void px() {
         AccountData currentAccountObj;
         a.b ce;
-        if (i.hj() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ce = ce(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.mBduss, ce.SZ, currentAccountObj.getStoken(), this.edc);
+        if (i.hk() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ce = ce(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ce.mBduss, ce.Tb, currentAccountObj.getStoken(), this.efs);
         }
     }
 

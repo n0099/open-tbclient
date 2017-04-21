@@ -7,11 +7,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class gh implements View.OnClickListener {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gh(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,28 +26,28 @@ public class gh implements View.OnClickListener {
             boolean booleanValue2 = sparseArray.get(w.h.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_user_mute_visible)).booleanValue() : false;
             boolean booleanValue3 = sparseArray.get(w.h.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(w.h.tag_should_delete_visible)).booleanValue() : false;
             if (booleanValue) {
-                if (com.baidu.tieba.c.a.Sm()) {
-                    pbActivity3 = this.erv.eig;
+                if (com.baidu.tieba.c.a.To()) {
+                    pbActivity3 = this.etN.ekw;
                     Context baseContext = pbActivity3.getBaseContext();
-                    pbActivity4 = this.erv.eig;
-                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aKr().getThreadID(), (String) sparseArray.get(w.h.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue())) {
+                    pbActivity4 = this.etN.ekw;
+                    if (com.baidu.tieba.c.a.a(baseContext, pbActivity4.aLs().getThreadID(), (String) sparseArray.get(w.h.tag_subpb_main_floor_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue())) {
                         return;
                     }
                 }
                 if (booleanValue2) {
                     sparseArray.put(w.h.tag_from, 1);
-                    pbActivity2 = this.erv.eig;
+                    pbActivity2 = this.etN.ekw;
                     pbActivity2.d(sparseArray);
                     return;
                 }
-                this.erv.ba(view);
+                this.etN.ba(view);
             } else if (booleanValue2) {
                 sparseArray.put(w.h.tag_from, 0);
                 sparseArray.put(w.h.tag_check_mute_from, 1);
-                pbActivity = this.erv.eig;
+                pbActivity = this.etN.ekw;
                 pbActivity.d(sparseArray);
             } else if (booleanValue3) {
-                this.erv.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
+                this.etN.a(((Integer) sparseArray.get(w.h.tag_del_post_type)).intValue(), (String) sparseArray.get(w.h.tag_del_post_id), ((Integer) sparseArray.get(w.h.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(w.h.tag_del_post_is_self)).booleanValue());
             }
         }
     }

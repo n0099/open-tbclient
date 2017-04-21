@@ -5,6 +5,6 @@ public class co extends cl {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean bQi = true;
-    public boolean bQj = true;
+    public boolean bSz = true;
+    public boolean bSA = true;
 }

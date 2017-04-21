@@ -4,18 +4,18 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class bs implements com.baidu.adp.lib.e.c<LinearLayout> {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: aKW */
-    public LinearLayout fK() {
-        LinearLayout linearLayout = new LinearLayout(this.ejU.getPageContext().getPageActivity());
+    /* renamed from: aLW */
+    public LinearLayout fL() {
+        LinearLayout linearLayout = new LinearLayout(this.emk.getPageContext().getPageActivity());
         linearLayout.setId(w.h.pb_text_voice_layout);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         linearLayout.setLayoutParams(layoutParams);

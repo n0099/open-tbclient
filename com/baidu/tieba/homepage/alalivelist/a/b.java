@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.homepage.alalivelist.view.a;
 /* loaded from: classes.dex */
 class b implements a.InterfaceC0059a {
-    final /* synthetic */ a cth;
+    final /* synthetic */ a cvy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cth = aVar;
+        this.cvy = aVar;
     }
 
     @Override // com.baidu.tieba.homepage.alalivelist.view.a.InterfaceC0059a

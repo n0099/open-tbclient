@@ -5,7 +5,7 @@ import android.net.Uri;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    private SurfaceTexture aQs;
+    private SurfaceTexture aQu;
     private Map<String, String> headers;
     private Uri uri;
 
@@ -22,10 +22,10 @@ public class e {
     }
 
     public SurfaceTexture getSurfaceTexture() {
-        return this.aQs;
+        return this.aQu;
     }
 
     public void b(SurfaceTexture surfaceTexture) {
-        this.aQs = surfaceTexture;
+        this.aQu = surfaceTexture;
     }
 }

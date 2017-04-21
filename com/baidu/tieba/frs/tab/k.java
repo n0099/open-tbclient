@@ -5,17 +5,17 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ j bZx;
+    final /* synthetic */ j cbO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.bZx = jVar;
+        this.cbO = jVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MorePopupWindow morePopupWindow;
-        morePopupWindow = this.bZx.RA;
+        morePopupWindow = this.cbO.RC;
         com.baidu.adp.lib.g.j.a(morePopupWindow);
     }
 }

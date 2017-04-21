@@ -22,7 +22,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 class cm implements bb.a {
-    Pattern ekq = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+    Pattern emG = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
     @Override // com.baidu.tbadk.core.util.bb.a
     public int a(TbPageContext<?> tbPageContext, String[] strArr) {
@@ -39,7 +39,7 @@ class cm implements bb.a {
             return 3;
         }
         String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.ekq.matcher(lowerCase);
+        Matcher matcher = this.emG.matcher(lowerCase);
         String str3 = "";
         if (Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEARCH_JUMP_PB, lowerCase));

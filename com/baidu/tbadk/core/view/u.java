@@ -6,11 +6,11 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnTouchListener {
-    final /* synthetic */ o akn;
+    final /* synthetic */ o ako;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(o oVar) {
-        this.akn = oVar;
+        this.ako = oVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -21,7 +21,7 @@ public class u implements View.OnTouchListener {
         if (view == null || motionEvent == null) {
             return false;
         }
-        popupWindow = this.akn.ajU;
+        popupWindow = this.ako.ajV;
         if (popupWindow == null) {
             return false;
         }
@@ -29,15 +29,15 @@ public class u implements View.OnTouchListener {
         int y = (int) motionEvent.getY();
         if (motionEvent.getAction() == 0) {
             if (x >= 0) {
-                popupWindow2 = this.akn.ajU;
+                popupWindow2 = this.ako.ajV;
                 if (x < popupWindow2.getWidth() && y >= 0) {
-                    popupWindow3 = this.akn.ajU;
+                    popupWindow3 = this.ako.ajV;
                     if (y < popupWindow3.getHeight()) {
                         return false;
                     }
                 }
             }
-            this.akn.wS();
+            this.ako.wS();
             return true;
         }
         return false;

@@ -3,82 +3,82 @@ package com.baidu.tbadk.core;
 import com.baidu.tbadk.core.util.av;
 /* loaded from: classes.dex */
 public class q {
-    private static q SP;
-    private int SQ = 1;
+    private static q SR;
+    private int SS = 1;
     private int mIsAbstractOn = 1;
-    private int SR = 0;
-    private int SS = 0;
+    private int ST = 0;
+    private int SU = 0;
     private String forumName = null;
-    private boolean ST = true;
+    private boolean SV = true;
     private int mViewImageQuality = 0;
 
     public static q po() {
         q qVar;
-        if (SP == null) {
+        if (SR == null) {
             synchronized (q.class) {
-                if (SP == null) {
-                    SP = new q();
+                if (SR == null) {
+                    SR = new q();
                 }
-                qVar = SP;
+                qVar = SR;
             }
             return qVar;
         }
-        return SP;
+        return SR;
     }
 
     private q() {
     }
 
     public void initSetting() {
-        this.SR = com.baidu.tbadk.core.sharedPref.b.uL().getInt("image_quality", 0);
-        this.SQ = com.baidu.tbadk.core.sharedPref.b.uL().getInt("new_display_photo", 1);
+        this.ST = com.baidu.tbadk.core.sharedPref.b.uL().getInt("image_quality", 0);
+        this.SS = com.baidu.tbadk.core.sharedPref.b.uL().getInt("new_display_photo", 1);
         this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.uL().getInt("new_abstract_state", 0);
         this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.uL().getInt("view_image_quality", 0);
-        this.ST = com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("show_images", true);
+        this.SV = com.baidu.tbadk.core.sharedPref.b.uL().getBoolean("show_images", true);
     }
 
     public void bx(int i) {
-        this.SQ = i;
+        this.SS = i;
         com.baidu.tbadk.core.sharedPref.b.uL().putInt("new_display_photo", i);
     }
 
     public int pp() {
-        return this.SQ;
+        return this.SS;
     }
 
     public boolean pq() {
-        if (this.SQ == 0) {
-            if (com.baidu.adp.lib.util.i.hk()) {
+        if (this.SS == 0) {
+            if (com.baidu.adp.lib.util.i.hl()) {
                 return true;
             }
-        } else if (this.SQ == 1) {
+        } else if (this.SS == 1) {
             return true;
         }
         return false;
     }
 
     public void by(int i) {
-        if (this.SR != i) {
-            this.SR = i;
+        if (this.ST != i) {
+            this.ST = i;
             com.baidu.tbadk.core.sharedPref.b.uL().putInt("image_quality", i);
         }
     }
 
     public int pr() {
-        this.SR = com.baidu.tbadk.core.sharedPref.b.uL().getInt("image_quality", 0);
-        return this.SR;
+        this.ST = com.baidu.tbadk.core.sharedPref.b.uL().getInt("image_quality", 0);
+        return this.ST;
     }
 
     public void bz(int i) {
-        if (this.SS != i) {
-            this.SS = i;
+        if (this.SU != i) {
+            this.SU = i;
             com.baidu.tbadk.core.sharedPref.b.uL().putInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "add_image_water", i);
         }
     }
 
     public int ps() {
-        this.SS = com.baidu.tbadk.core.sharedPref.b.uL().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "add_image_water", 0);
-        return this.SS;
+        this.SU = com.baidu.tbadk.core.sharedPref.b.uL().getInt(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "add_image_water", 0);
+        return this.SU;
     }
 
     public void cd(String str) {
@@ -90,12 +90,12 @@ public class q {
     }
 
     public boolean pu() {
-        return this.ST;
+        return this.SV;
     }
 
     public void al(boolean z) {
-        if (this.ST != z) {
-            this.ST = z;
+        if (this.SV != z) {
+            this.SV = z;
             com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("show_images", z);
         }
     }
@@ -128,6 +128,6 @@ public class q {
     }
 
     public boolean pv() {
-        return this.SQ == 0 || this.SR == 0 || this.mViewImageQuality == 0;
+        return this.SS == 0 || this.ST == 0 || this.mViewImageQuality == 0;
     }
 }

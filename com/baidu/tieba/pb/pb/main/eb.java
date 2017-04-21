@@ -5,14 +5,14 @@ import com.baidu.tbadk.gif.GifInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class eb extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ dw ene;
-    private final /* synthetic */ ec eng;
+    final /* synthetic */ dw epw;
+    private final /* synthetic */ ec epy;
     private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public eb(dw dwVar, ec ecVar, String str) {
-        this.ene = dwVar;
-        this.eng = ecVar;
+        this.epw = dwVar;
+        this.epy = ecVar;
         this.val$url = str;
     }
 
@@ -21,21 +21,21 @@ public class eb extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.b
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         if (aVar == null) {
-            this.eng.enB.setVisibility(8);
-            this.eng.enC.setVisibility(8);
-        } else if (aVar.ee()) {
+            this.epy.epT.setVisibility(8);
+            this.epy.epU.setVisibility(8);
+        } else if (aVar.ef()) {
             GifInfo gifInfo = new GifInfo();
             gifInfo.mDynamicUrl = this.val$url;
             gifInfo.mSharpText = this.val$url;
-            this.eng.enC.setVisibility(0);
-            this.eng.enB.setVisibility(8);
-            this.eng.enC.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.eng.enC.a(gifInfo);
+            this.epy.epU.setVisibility(0);
+            this.epy.epT.setVisibility(8);
+            this.epy.epU.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.epy.epU.a(gifInfo);
         } else {
-            this.eng.enC.setVisibility(8);
-            this.eng.enB.setVisibility(0);
-            this.eng.enB.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.eng.enB.c(this.val$url, 17, false);
+            this.epy.epU.setVisibility(8);
+            this.epy.epT.setVisibility(0);
+            this.epy.epT.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.epy.epT.c(this.val$url, 17, false);
         }
     }
 }

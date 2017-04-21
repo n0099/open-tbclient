@@ -10,20 +10,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> deV = new HashMap<>();
+    protected HashMap<String, ChatSetting> dhm = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, com.baidu.tbadk.util.f<Void> fVar);
 
-    protected abstract o<String> atv();
+    protected abstract o<String> auw();
 
-    public abstract ChatSetting bg(String str, String str2);
+    public abstract ChatSetting bf(String str, String str2);
 
     public void m(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.deV) {
-            this.deV.clear();
+        synchronized (this.dhm) {
+            this.dhm.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -31,14 +31,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = String.valueOf(str2) + "@";
-            synchronized (this.deV) {
-                o<String> atv = atv();
-                List<o.c<String>> b = s.b(atv);
+            synchronized (this.dhm) {
+                o<String> auw = auw();
+                List<o.c<String>> b = s.b(auw);
                 if (b != null) {
                     for (o.c<String> cVar : b) {
                         String str4 = cVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = atv.get(str4)) != null) {
-                            this.deV.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = auw.get(str4)) != null) {
+                            this.dhm.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -47,27 +47,27 @@ public abstract class a {
     }
 
     public void h(String str, String str2, boolean z) {
-        ChatSetting bg = bg(str, str2);
-        if (bg != null) {
-            bg.setAcceptNotify(z);
-            a(bg);
+        ChatSetting bf = bf(str, str2);
+        if (bf != null) {
+            bf.setAcceptNotify(z);
+            a(bf);
         }
     }
 
     public void a(String str, String str2, boolean z, com.baidu.tbadk.util.f<Void> fVar) {
-        ChatSetting bg = bg(str, str2);
-        if (bg != null) {
-            bg.setAcceptNotify(z);
-            a(bg, fVar);
+        ChatSetting bf = bf(str, str2);
+        if (bf != null) {
+            bf.setAcceptNotify(z);
+            a(bf, fVar);
         }
     }
 
-    public boolean bh(String str, String str2) {
-        ChatSetting bg = bg(str, str2);
-        if (bg == null) {
+    public boolean bg(String str, String str2) {
+        ChatSetting bf = bf(str, str2);
+        if (bf == null) {
             return false;
         }
-        return bg.isAcceptNotify();
+        return bf.isAcceptNotify();
     }
 
     public void a(String str, String str2, com.baidu.tbadk.util.f<Boolean> fVar) {

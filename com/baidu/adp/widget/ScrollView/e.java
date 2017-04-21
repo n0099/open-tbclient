@@ -6,29 +6,29 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    private int IB;
-    private int IC;
-    private WeakReference<View> II;
-    private g Iq;
-    private int Io = 10;
-    private boolean IE = false;
+    private int IE;
+    private int IF;
+    private WeakReference<View> IK;
+    private g Is;
+    private int Iq = 10;
+    private boolean IG = false;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private Runnable IJ = new f(this);
+    private Runnable IL = new f(this);
 
     public e(int i, int i2, int i3) {
-        this.IB = 10;
-        float abs = Math.abs(i - i2) / this.Io;
-        this.IC = i2;
-        this.IB = (int) (i3 / abs);
+        this.IE = 10;
+        float abs = Math.abs(i - i2) / this.Iq;
+        this.IF = i2;
+        this.IE = (int) (i3 / abs);
     }
 
     public void a(g gVar) {
-        this.Iq = gVar;
+        this.Is = gVar;
     }
 
     public void r(View view) {
-        this.IE = false;
-        this.II = new WeakReference<>(view);
-        this.handler.post(this.IJ);
+        this.IG = false;
+        this.IK = new WeakReference<>(view);
+        this.handler.post(this.IL);
     }
 }

@@ -18,29 +18,26 @@ import java.util.Locale;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
 public class au extends com.baidu.adp.lib.util.j {
-    private static long agp = 86400000;
-    private static long agq = 3600000;
-    private static long agr = TbConfig.USE_TIME_INTERVAL;
-    private static long ags = 1000;
-    private static float agt = 1048576.0f;
-    private static float agu = 1024.0f;
-    private static String agv = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_hour_before);
-    private static String agw = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_min_before);
-    private static String agx = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_sec_before);
-    private static String agy = TbadkCoreApplication.m9getInst().getApp().getString(w.l.day);
-    private static String agz = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_hour);
-    private static String agA = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_minute);
-    private static String agB = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_second);
-    private static final SimpleDateFormat agC = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private static final SimpleDateFormat agD = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static Date agE = new Date();
+    private static long agq = 86400000;
+    private static long agr = 3600000;
+    private static long ags = TbConfig.USE_TIME_INTERVAL;
+    private static long agt = 1000;
+    private static float agu = 1048576.0f;
+    private static float agv = 1024.0f;
+    private static String agw = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_hour_before);
+    private static String agx = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_min_before);
+    private static String agy = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_sec_before);
+    private static String agz = TbadkCoreApplication.m9getInst().getApp().getString(w.l.day);
+    private static String agA = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_hour);
+    private static String agB = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_minute);
+    private static String agC = TbadkCoreApplication.m9getInst().getApp().getString(w.l.time_second);
+    private static final SimpleDateFormat agD = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final SimpleDateFormat agE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
+    private static Date agF = new Date();
 
     static {
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            yL.setTimeZone(timeZone);
-            yM.setTimeZone(timeZone);
-            yN.setTimeZone(timeZone);
             yO.setTimeZone(timeZone);
             yP.setTimeZone(timeZone);
             yQ.setTimeZone(timeZone);
@@ -48,6 +45,9 @@ public class au extends com.baidu.adp.lib.util.j {
             yS.setTimeZone(timeZone);
             yT.setTimeZone(timeZone);
             yU.setTimeZone(timeZone);
+            yV.setTimeZone(timeZone);
+            yW.setTimeZone(timeZone);
+            yX.setTimeZone(timeZone);
         }
     }
 
@@ -65,8 +65,8 @@ public class au extends com.baidu.adp.lib.util.j {
     public static String vX() {
         String format;
         Date date = new Date();
-        synchronized (yT) {
-            format = yT.format(date);
+        synchronized (yW) {
+            format = yW.format(date);
         }
         return format;
     }
@@ -186,13 +186,13 @@ public class au extends com.baidu.adp.lib.util.j {
                 return "1个月前";
             }
             if (date.getYear() == date2.getYear()) {
-                synchronized (yU) {
-                    format2 = yU.format(date2);
+                synchronized (yX) {
+                    format2 = yX.format(date2);
                 }
                 return format2;
             }
-            synchronized (yQ) {
-                format = yQ.format(date2);
+            synchronized (yT) {
+                format = yT.format(date2);
             }
             return format;
         } else {
@@ -208,15 +208,15 @@ public class au extends com.baidu.adp.lib.util.j {
         if (abs >= Long.MAX_VALUE) {
             return "一个月前";
         }
-        if (abs / agp != 0) {
-            if (abs / agp > 30) {
+        if (abs / agq != 0) {
+            if (abs / agq > 30) {
                 return "一个月前";
             }
-            return String.valueOf(abs / agp) + "天前";
-        } else if (abs / agq != 0) {
-            return String.valueOf(abs / agq) + "小时前";
+            return String.valueOf(abs / agq) + "天前";
+        } else if (abs / agr != 0) {
+            return String.valueOf(abs / agr) + "小时前";
         } else {
-            return String.valueOf(abs / agr) + "分钟前";
+            return String.valueOf(abs / ags) + "分钟前";
         }
     }
 
@@ -225,13 +225,13 @@ public class au extends com.baidu.adp.lib.util.j {
         if (abs <= 120000) {
             return "刚刚";
         }
-        if (abs >= Long.MAX_VALUE || abs / agp != 0) {
+        if (abs >= Long.MAX_VALUE || abs / agq != 0) {
             return "";
         }
-        if (abs / agq != 0) {
-            return String.valueOf(abs / agq) + "小时前";
+        if (abs / agr != 0) {
+            return String.valueOf(abs / agr) + "小时前";
         }
-        return String.valueOf(abs / agr) + "分钟前";
+        return String.valueOf(abs / ags) + "分钟前";
     }
 
     public static String ac(String str, String str2) {
@@ -262,18 +262,18 @@ public class au extends com.baidu.adp.lib.util.j {
 
     public static String q(long j) {
         String a;
-        synchronized (agE) {
-            agE.setTime(j);
-            a = a(agE, false);
+        synchronized (agF) {
+            agF.setTime(j);
+            a = a(agF, false);
         }
         return a;
     }
 
     public static String r(long j) {
         String a;
-        synchronized (agE) {
-            agE.setTime(j);
-            a = a(agE, true);
+        synchronized (agF) {
+            agF.setTime(j);
+            a = a(agF, true);
         }
         return a;
     }
@@ -283,18 +283,18 @@ public class au extends com.baidu.adp.lib.util.j {
             return "";
         }
         long time = new Date().getTime() - date.getTime();
-        if (time < agp && time > 0) {
-            if (time < agq) {
-                if (time < agr) {
-                    long j = time / ags;
+        if (time < agq && time > 0) {
+            if (time < agr) {
+                if (time < ags) {
+                    long j = time / agt;
                     if (j == 0) {
                         j = 1;
                     }
-                    return String.valueOf(String.valueOf(j)) + agx;
+                    return String.valueOf(String.valueOf(j)) + agy;
                 }
-                return String.valueOf(String.valueOf(time / agr)) + agw;
+                return String.valueOf(String.valueOf(time / ags)) + agx;
             }
-            return String.valueOf(String.valueOf(time / agq)) + agv;
+            return String.valueOf(String.valueOf(time / agr)) + agw;
         } else if (z) {
             return g(date);
         } else {
@@ -304,8 +304,8 @@ public class au extends com.baidu.adp.lib.util.j {
 
     public static String g(Date date) {
         String format;
-        synchronized (yU) {
-            format = yU.format(date);
+        synchronized (yX) {
+            format = yX.format(date);
         }
         return format;
     }
@@ -314,20 +314,20 @@ public class au extends com.baidu.adp.lib.util.j {
         if (j <= 0) {
             return "1秒";
         }
-        if (j < agp) {
-            if (j < agq) {
-                if (j < agr) {
-                    long j2 = j / ags;
+        if (j < agq) {
+            if (j < agr) {
+                if (j < ags) {
+                    long j2 = j / agt;
                     if (j2 == 0) {
                         j2 = 1;
                     }
-                    return String.valueOf(String.valueOf(j2)) + agB;
+                    return String.valueOf(String.valueOf(j2)) + agC;
                 }
-                return String.valueOf(String.valueOf(j / agr)) + agA;
+                return String.valueOf(String.valueOf(j / ags)) + agB;
             }
-            return String.valueOf(String.valueOf(j / agq)) + agz;
+            return String.valueOf(String.valueOf(j / agr)) + agA;
         }
-        return String.valueOf(String.valueOf(j / agp)) + agy;
+        return String.valueOf(String.valueOf(j / agq)) + agz;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
@@ -635,6 +635,28 @@ public class au extends com.baidu.adp.lib.util.j {
         return str;
     }
 
+    public static String u(String str, int i) {
+        int i2 = 0;
+        if (str == null || i <= 0) {
+            return String.valueOf("");
+        }
+        int length = str.length();
+        StringBuilder sb = new StringBuilder();
+        for (int i3 = 0; i3 < length; i3++) {
+            char charAt = str.charAt(i3);
+            if (isChinese(charAt)) {
+                i2 += 2;
+            } else {
+                i2++;
+            }
+            if (i2 > i) {
+                break;
+            }
+            sb.append(charAt);
+        }
+        return sb.toString();
+    }
+
     public static int dA(String str) {
         int i = 0;
         if (str != null) {
@@ -681,7 +703,7 @@ public class au extends com.baidu.adp.lib.util.j {
     }
 
     public static String E(long j) {
-        return ((float) j) >= agt ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / agt)) : ((float) j) >= agu / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / agu)) : TbadkCoreApplication.m9getInst().getString(w.l.less_than_zero_dot_one_k);
+        return ((float) j) >= agu ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / agu)) : ((float) j) >= agv / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / agv)) : TbadkCoreApplication.m9getInst().getString(w.l.less_than_zero_dot_one_k);
     }
 
     public static int dB(String str) {
@@ -783,8 +805,8 @@ public class au extends com.baidu.adp.lib.util.j {
     public static String H(long j) {
         String format;
         Date date = new Date(j);
-        synchronized (agD) {
-            format = agD.format(date);
+        synchronized (agE) {
+            format = agE.format(date);
         }
         return format;
     }

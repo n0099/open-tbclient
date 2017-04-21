@@ -3,7 +3,7 @@ package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class x implements com.baidu.adp.framework.client.socket.link.g {
     @Override // com.baidu.adp.framework.client.socket.link.g
-    public void dm() {
+    public void dn() {
         com.baidu.tbadk.util.c.Hh().a(new y(this));
     }
 }

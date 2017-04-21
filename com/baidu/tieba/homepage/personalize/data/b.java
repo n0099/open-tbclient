@@ -8,17 +8,17 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes.dex */
 public class b extends i implements t {
-    private CardForum cyR;
+    private CardForum cBi;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0088: IGET  (r6v1 java.lang.Long A[REMOVE]) = (r0v10 tbclient.Personalized.PersonalForum) tbclient.Personalized.PersonalForum.forum_id java.lang.Long)] */
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.cyR = cardForum;
+            this.cBi = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(String.valueOf(Tj()) + cardForum.position.intValue());
+                setYuelaouLocate(String.valueOf(Ul()) + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(String.valueOf(Tj()) + 0);
+                setYuelaouLocate(String.valueOf(Ul()) + 0);
             }
             if (x.p(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -37,24 +37,24 @@ public class b extends i implements t {
 
     @Override // com.baidu.tieba.card.data.t
     public int getPosition() {
-        if (this.cyR != null) {
-            return this.cyR.position.intValue();
+        if (this.cBi != null) {
+            return this.cBi.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public boolean Ta() {
+    public boolean Uc() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public void cR(boolean z) {
+    public void db(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.t
-    public void cS(boolean z) {
+    public void dc(boolean z) {
         this.showBottomDivider = z;
     }
 
@@ -65,7 +65,7 @@ public class b extends i implements t {
         return false;
     }
 
-    public static boolean jU(int i) {
+    public static boolean ka(int i) {
         return i == 1;
     }
 }

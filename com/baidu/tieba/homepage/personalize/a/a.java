@@ -12,44 +12,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public JSONArray cwI;
-    private HttpMessageListener cwJ;
-    private BdUniqueId cwK = BdUniqueId.gen();
-    private BdUniqueId cwL = BdUniqueId.gen();
-    private CustomMessageListener cwM = new b(this, 2000994);
-    private CustomMessageListener cwN = new c(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
+    public JSONArray cyZ;
+    private HttpMessageListener cza;
+    private BdUniqueId czb = BdUniqueId.gen();
+    private BdUniqueId czc = BdUniqueId.gen();
+    private CustomMessageListener czd = new b(this, 2000994);
+    private CustomMessageListener cze = new c(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
 
     public a() {
-        if (this.cwJ == null) {
-            this.cwJ = new d(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
+        if (this.cza == null) {
+            this.cza = new d(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
         }
-        this.cwJ.setTag(this.cwL);
-        MessageManager.getInstance().registerListener(this.cwJ);
-        MessageManager.getInstance().registerListener(this.cwM);
-        MessageManager.getInstance().registerListener(this.cwN);
+        this.cza.setTag(this.czc);
+        MessageManager.getInstance().registerListener(this.cza);
+        MessageManager.getInstance().registerListener(this.czd);
+        MessageManager.getInstance().registerListener(this.cze);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cwJ);
-        MessageManager.getInstance().unRegisterListener(this.cwM);
-        MessageManager.getInstance().unRegisterListener(this.cwN);
-        this.cwI = null;
+        MessageManager.getInstance().unRegisterListener(this.cza);
+        MessageManager.getInstance().unRegisterListener(this.czd);
+        MessageManager.getInstance().unRegisterListener(this.cze);
+        this.cyZ = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (i.gX()) {
+            if (i.gY()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.cwK);
+                a(jSONArray, this.czb);
                 return;
             }
-            if (this.cwI == null) {
-                this.cwI = new JSONArray();
+            if (this.cyZ == null) {
+                this.cyZ = new JSONArray();
             }
-            if (this.cwI.length() <= 100) {
-                this.cwI.put(jSONObject);
+            if (this.cyZ.length() <= 100) {
+                this.cyZ.put(jSONObject);
             }
         }
     }

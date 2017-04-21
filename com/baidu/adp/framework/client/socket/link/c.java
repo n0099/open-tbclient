@@ -74,7 +74,7 @@ class c extends l {
             eVar2 = BdSocketLinkService.connStateCallBack;
             z = eVar2.d(i, null);
         }
-        if (!z && i != 1 && com.baidu.adp.lib.util.k.hA()) {
+        if (!z && i != 1 && com.baidu.adp.lib.util.k.hB()) {
             hVar = BdSocketLinkService.reConnStra;
             hVar.start("onClose:" + i + ":" + str);
         }

@@ -10,62 +10,62 @@ import com.baidu.tbadk.core.view.o;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class af {
-    private TbPageContext ajT;
-    private com.baidu.tbadk.core.view.o bsC;
-    private ViewGroup cbM;
-    private o.a cbN = new ag(this);
+    private TbPageContext ajU;
+    private com.baidu.tbadk.core.view.o buV;
+    private ViewGroup ced;
+    private o.a cee = new ag(this);
 
     public af(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        this.ajT = tbPageContext;
-        this.cbM = viewGroup;
+        this.ajU = tbPageContext;
+        this.ced = viewGroup;
     }
 
     public void A(bi biVar) {
         int i = 0;
-        if (biVar != null && this.ajT != null && this.cbM != null) {
+        if (biVar != null && this.ajU != null && this.ced != null) {
             boolean z = (biVar.getAuthor() == null || biVar.getAuthor().getUserId() == null || !biVar.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (biVar.tr() && biVar.rg() != null && !z) {
-                if (this.bsC == null) {
-                    this.bsC = new com.baidu.tbadk.core.view.o(this.ajT);
-                    this.bsC.setId(w.h.negative_feedback_view);
-                    this.bsC.wQ();
-                    this.bsC.setDefaultReasonArray(new String[]{this.ajT.getString(w.l.bad_quality), "", ""});
-                    this.bsC.setEventCallback(this.cbN);
-                    this.cbM.addView(this.bsC);
+                if (this.buV == null) {
+                    this.buV = new com.baidu.tbadk.core.view.o(this.ajU);
+                    this.buV.setId(w.h.negative_feedback_view);
+                    this.buV.wQ();
+                    this.buV.setDefaultReasonArray(new String[]{this.ajU.getString(w.l.bad_quality), "", ""});
+                    this.buV.setEventCallback(this.cee);
+                    this.ced.addView(this.buV);
                 }
-                if (this.bsC.getVisibility() != 0) {
-                    this.bsC.setVisibility(0);
+                if (this.buV.getVisibility() != 0) {
+                    this.buV.setVisibility(0);
                 }
                 com.baidu.tbadk.core.data.al alVar = new com.baidu.tbadk.core.data.al();
                 alVar.cp(biVar.getTid());
                 alVar.setFid(biVar.getFid());
                 alVar.a(biVar.rg());
-                this.bsC.setData(alVar);
+                this.buV.setData(alVar);
             } else {
-                if (this.bsC != null && this.bsC.getVisibility() != 8) {
-                    this.bsC.setVisibility(8);
+                if (this.buV != null && this.buV.getVisibility() != 8) {
+                    this.buV.setVisibility(8);
                 }
-                i = com.baidu.adp.lib.util.k.g(this.ajT.getPageActivity(), w.f.ds32);
+                i = com.baidu.adp.lib.util.k.g(this.ajU.getPageActivity(), w.f.ds32);
             }
-            if (this.cbM.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cbM.getLayoutParams();
+            if (this.ced.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ced.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.cbM.setLayoutParams(layoutParams);
+                this.ced.setLayoutParams(layoutParams);
             }
-            if (this.cbM.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.cbM.getLayoutParams();
+            if (this.ced.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ced.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.cbM.setLayoutParams(layoutParams2);
+                this.ced.setLayoutParams(layoutParams2);
             }
-            if (this.bsC != null) {
-                this.bsC.wS();
+            if (this.buV != null) {
+                this.buV.wS();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.bsC != null) {
-            this.bsC.onChangeSkinType();
+        if (this.buV != null) {
+            this.buV.onChangeSkinType();
         }
     }
 }

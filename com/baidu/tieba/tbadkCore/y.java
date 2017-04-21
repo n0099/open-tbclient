@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends Handler {
-    final /* synthetic */ x fuM;
+    final /* synthetic */ x fxc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(x xVar) {
-        this.fuM = xVar;
+        this.fxc = xVar;
     }
 
     @Override // android.os.Handler
@@ -19,20 +19,20 @@ public class y extends Handler {
         x.a aVar;
         x.a aVar2;
         if (message.what == 2) {
-            this.fuM.count = 0;
-            this.fuM.egD = 0L;
-            this.fuM.egE = 0L;
+            this.fxc.count = 0;
+            this.fxc.eiT = 0L;
+            this.fxc.eiU = 0L;
         } else if (message.what == 1) {
-            i = this.fuM.count;
+            i = this.fxc.count;
             if (i == 1) {
-                aVar = this.fuM.fuL;
+                aVar = this.fxc.fxb;
                 if (aVar != null) {
-                    aVar2 = this.fuM.fuL;
-                    aVar2.aas();
+                    aVar2 = this.fxc.fxb;
+                    aVar2.abt();
                 }
-                this.fuM.count = 0;
-                this.fuM.egD = 0L;
-                this.fuM.egE = 0L;
+                this.fxc.count = 0;
+                this.fxc.eiT = 0L;
+                this.fxc.eiU = 0L;
             }
         }
     }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface q {
-    void aZE();
+    void baF();
 
-    void aZF();
+    void baG();
 
-    int aZG();
+    int baH();
 }

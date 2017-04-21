@@ -9,11 +9,11 @@ public class a extends ITrafficStatsNativeManager {
     public void a(String str, long j, long j2, String str2) {
         ArrayList arrayList;
         ArrayList arrayList2;
-        arrayList = ITrafficStatsNativeManager.Fy;
+        arrayList = ITrafficStatsNativeManager.FB;
         if (arrayList.size() >= 30) {
             return;
         }
-        arrayList2 = ITrafficStatsNativeManager.Fy;
+        arrayList2 = ITrafficStatsNativeManager.FB;
         arrayList2.add(new ITrafficStatsNativeManager.a(str, j, j2, str2));
     }
 }

@@ -6,23 +6,23 @@ import com.baidu.tieba.b.d.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements h.a {
-    final /* synthetic */ i cbv;
+    final /* synthetic */ i cdM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(i iVar) {
-        this.cbv = iVar;
+        this.cdM = iVar;
     }
 
     @Override // com.baidu.tieba.b.d.h.a
     public void j(MotionEvent motionEvent) {
         NoPressedRelativeLayout noPressedRelativeLayout;
         if (motionEvent != null) {
-            noPressedRelativeLayout = this.cbv.caD;
+            noPressedRelativeLayout = this.cdM.ccU;
             noPressedRelativeLayout.setNeedInterceptTouchEvent(false);
             if (motionEvent.getAction() == 0) {
-                this.cbv.cbb.setIsNeedIgnoreParentTouch(true);
+                this.cdM.cds.setIsNeedIgnoreParentTouch(true);
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                this.cbv.cbb.setIsNeedIgnoreParentTouch(false);
+                this.cdM.cds.setIsNeedIgnoreParentTouch(false);
             }
         }
     }

@@ -4,19 +4,19 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 class n implements Runnable {
-    final /* synthetic */ LogoActivity aQg;
+    final /* synthetic */ LogoActivity aQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(LogoActivity logoActivity) {
-        this.aQg = logoActivity;
+        this.aQi = logoActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         RelativeLayout relativeLayout;
-        TbPageContext pageContext = this.aQg.getPageContext();
+        TbPageContext pageContext = this.aQi.getPageContext();
         o oVar = new o(this);
-        relativeLayout = this.aQg.mRootView;
+        relativeLayout = this.aQi.mRootView;
         s.a(pageContext, oVar, relativeLayout);
     }
 }

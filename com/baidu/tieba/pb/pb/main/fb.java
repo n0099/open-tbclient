@@ -5,22 +5,22 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fb implements Runnable {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fb(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         LinearLayout linearLayout;
         ViewStub viewStub;
-        linearLayout = this.erv.epA;
+        linearLayout = this.etN.erR;
         if (linearLayout == null) {
-            this.erv.aMZ();
+            this.etN.aOa();
         }
-        viewStub = this.erv.eoY;
+        viewStub = this.etN.erp;
         viewStub.setVisibility(0);
     }
 }

@@ -6,19 +6,19 @@ import com.baidu.tieba.card.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements View.OnClickListener {
-    final /* synthetic */ aa bTy;
+    final /* synthetic */ aa bVP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(aa aaVar) {
-        this.bTy = aaVar;
+        this.bVP = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         bi biVar;
-        if (this.bTy.getOnSubCardOnClickListenner() != null) {
-            cf<bi> onSubCardOnClickListenner = this.bTy.getOnSubCardOnClickListenner();
-            biVar = this.bTy.aiB;
+        if (this.bVP.getOnSubCardOnClickListenner() != null) {
+            cf<bi> onSubCardOnClickListenner = this.bVP.getOnSubCardOnClickListenner();
+            biVar = this.bVP.aiC;
             onSubCardOnClickListenner.a(view, biVar);
         }
     }

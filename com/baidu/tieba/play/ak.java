@@ -4,30 +4,30 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements Runnable {
-    final /* synthetic */ aj eUG;
+    final /* synthetic */ aj eWW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar) {
-        this.eUG = ajVar;
+        this.eWW = ajVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean aYc;
+        boolean aZd;
         boolean z;
         String str;
         Context context;
         String str2;
-        aYc = this.eUG.aYc();
-        if (aYc) {
-            context = this.eUG.mContext;
-            str2 = this.eUG.eUy;
+        aZd = this.eWW.aZd();
+        if (aZd) {
+            context = this.eWW.mContext;
+            str2 = this.eWW.eWO;
             at.ae(context, str2);
             return;
         }
-        z = this.eUG.eUz;
+        z = this.eWW.eWP;
         if (!z) {
-            str = this.eUG.eUy;
+            str = this.eWW.eWO;
             at.gY(str);
         }
     }

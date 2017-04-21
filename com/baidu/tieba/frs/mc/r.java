@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends CustomMessageListener {
-    final /* synthetic */ p bYq;
+    final /* synthetic */ p caH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(p pVar, int i) {
         super(i);
-        this.bYq = pVar;
+        this.caH = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,29 +28,29 @@ public class r extends CustomMessageListener {
         y yVar9;
         y yVar10;
         if (customResponsedMessage != null) {
-            yVar = this.bYq.bOd;
+            yVar = this.caH.bQu;
             if (yVar != null) {
-                yVar2 = this.bYq.bOd;
-                if (yVar2.YT() != null) {
-                    yVar3 = this.bYq.bOd;
-                    if (yVar3.YT().acy() != null) {
+                yVar2 = this.caH.bQu;
+                if (yVar2.ZU() != null) {
+                    yVar3 = this.caH.bQu;
+                    if (yVar3.ZU().adz() != null) {
                         String str = (String) customResponsedMessage.getData();
-                        yVar4 = this.bYq.bOd;
-                        this.bYq.f(str, yVar4.YT().acy().aJw().getBannerListData().getAllAdvertList());
-                        p pVar = this.bYq;
-                        yVar5 = this.bYq.bOd;
-                        pVar.g(str, yVar5.Za().getListView().getData());
-                        p pVar2 = this.bYq;
-                        yVar6 = this.bYq.bOd;
-                        pVar2.g(str, yVar6.YW().acG().getDataList());
-                        yVar7 = this.bYq.bOd;
-                        yVar7.YT().iP(str);
-                        yVar8 = this.bYq.bOd;
-                        if (yVar8.Za() != null) {
-                            yVar9 = this.bYq.bOd;
-                            if (yVar9.Za().aae() != null) {
-                                yVar10 = this.bYq.bOd;
-                                yVar10.Za().aae().notifyDataSetChanged();
+                        yVar4 = this.caH.bQu;
+                        this.caH.f(str, yVar4.ZU().adz().aKx().getBannerListData().getAllAdvertList());
+                        p pVar = this.caH;
+                        yVar5 = this.caH.bQu;
+                        pVar.g(str, yVar5.aab().getListView().getData());
+                        p pVar2 = this.caH;
+                        yVar6 = this.caH.bQu;
+                        pVar2.g(str, yVar6.ZX().adH().getDataList());
+                        yVar7 = this.caH.bQu;
+                        yVar7.ZU().iQ(str);
+                        yVar8 = this.caH.bQu;
+                        if (yVar8.aab() != null) {
+                            yVar9 = this.caH.bQu;
+                            if (yVar9.aab().abf() != null) {
+                                yVar10 = this.caH.bQu;
+                                yVar10.aab().abf().notifyDataSetChanged();
                             }
                         }
                     }

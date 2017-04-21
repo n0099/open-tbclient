@@ -15,8 +15,8 @@ import com.baidu.tieba.w;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo eed;
-    private a.C0074a eee;
+    private SkinInfo egt;
+    private a.C0074a egu;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -44,16 +44,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.eed != skinInfo && c0074a != null) {
-            this.eee = c0074a;
-            this.eee.delete("action_type");
-            this.eee.cc("obj_id", skinInfo.obj_id);
-            this.eee.cc("obj_url", skinInfo.url);
-            this.eee.cc("obj_name", skinInfo.monitor_id);
-            this.eee.cc("action_type", "VIEW_TRUE");
-            this.eee.save();
+        if (this.egt != skinInfo && c0074a != null) {
+            this.egu = c0074a;
+            this.egu.delete("action_type");
+            this.egu.cb("obj_id", skinInfo.obj_id);
+            this.egu.cb("obj_url", skinInfo.url);
+            this.egu.cb("obj_name", skinInfo.monitor_id);
+            this.egu.cb("action_type", "VIEW_TRUE");
+            this.egu.save();
         }
-        this.eed = skinInfo;
+        this.egt = skinInfo;
         int af = k.af(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = af;
@@ -80,13 +80,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eed != null && !StringUtils.isNull(this.eed.url)) {
-            if (this.eee != null) {
-                this.eee.delete("action_type");
-                this.eee.cc("action_type", "CLICK");
-                this.eee.save();
+        if (this.egt != null && !StringUtils.isNull(this.egt.url)) {
+            if (this.egu != null) {
+                this.egu.delete("action_type");
+                this.egu.cb("action_type", "CLICK");
+                this.egu.save();
             }
-            bb.wn().c(this.mTbPageContext, new String[]{this.eed.url});
+            bb.wn().c(this.mTbPageContext, new String[]{this.egt.url});
         }
     }
 }

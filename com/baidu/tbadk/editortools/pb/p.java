@@ -6,20 +6,20 @@ import com.baidu.tieba.tbadkCore.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements z.a {
-    final /* synthetic */ n aBt;
+    final /* synthetic */ n aBv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.aBt = nVar;
+        this.aBv = nVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.z.a
     public void a(WriteData writeData) {
         String str;
         if (writeData != null && !StringUtils.isNull(writeData.getContent())) {
-            this.aBt.aAL = writeData.getContent();
-            n nVar = this.aBt;
-            str = this.aBt.aAL;
+            this.aBv.aAN = writeData.getContent();
+            n nVar = this.aBv;
+            str = this.aBv.aAN;
             nVar.fG(str);
         }
     }

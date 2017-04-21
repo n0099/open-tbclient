@@ -10,66 +10,80 @@ import com.baidu.adp.lib.util.v;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class b {
-    private static b pW = null;
+    private static b qb = null;
 
-    public static b di() {
-        if (pW == null) {
+    public static b dj() {
+        if (qb == null) {
             synchronized (b.class) {
-                if (pW == null) {
-                    pW = new b();
+                if (qb == null) {
+                    qb = new b();
                 }
             }
         }
-        return pW;
+        return qb;
     }
 
     private b() {
     }
 
     public byte[] a(SocketMessage socketMessage, int i, boolean z, boolean z2) throws CoderException {
+        boolean z3 = false;
         if (socketMessage == null) {
             return null;
         }
         try {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
+            byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
+            if (encodeExtraDataInBackGround != null) {
+                z3 = true;
+                ByteBuffer allocateDirect = ByteBuffer.allocateDirect(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.pQ);
+                if (encodeExtraDataInBackGround.length > Integer.MAX_VALUE) {
+                    throw new CoderException(j.pf);
+                }
+                allocateDirect.putInt(encodeExtraDataInBackGround.length);
+                allocateDirect.put(encodeExtraDataInBackGround);
+                allocateDirect.put(encodeInBackGround);
+                encodeInBackGround = allocateDirect.array();
+            }
             if (encodeInBackGround != null && z) {
                 encodeInBackGround = d(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = v.a(d.dj().getSecretKey(), encodeInBackGround);
+                encodeInBackGround = v.a(d.dk().getSecretKey(), encodeInBackGround);
             }
-            return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround);
+            return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         } catch (Throwable th) {
-            throw new CoderException(j.pj);
+            throw new CoderException(j.po);
         }
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.pX == null || cVar.pY == null) {
+        if (cVar == null || cVar.qc == null || cVar.qd == null) {
             throw new CoderException(j.oX);
         }
-        a aVar = cVar.pX;
-        if (aVar.df() && cVar.qa > 0) {
-            if (d.dj().getSecretKey() == null) {
-                throw new CoderException(j.pg);
-            }
-            try {
-                cVar.pY = v.a(d.dj().getSecretKey(), cVar.pY, cVar.pZ, cVar.qa);
-                cVar.pZ = 0;
-                cVar.qa = cVar.pY.length;
-            } catch (Exception e) {
+        a aVar = cVar.qc;
+        if (aVar.df() && cVar.qf > 0) {
+            if (d.dk().getSecretKey() == null) {
                 throw new CoderException(j.pi);
             }
-        }
-        if (aVar.dd() && cVar.qa > 0) {
             try {
-                cVar.pY = c(cVar.pY, cVar.pZ, cVar.qa);
-                cVar.pZ = 0;
-                cVar.qa = cVar.pY.length;
+                cVar.qd = v.a(d.dk().getSecretKey(), cVar.qd, cVar.qe, cVar.qf);
+                cVar.qe = 0;
+                cVar.qf = cVar.qd.length;
+            } catch (Exception e) {
+                throw new CoderException(j.pl);
+            }
+        }
+        if (aVar.dd() && cVar.qf > 0) {
+            try {
+                cVar.qd = c(cVar.qd, cVar.qe, cVar.qf);
+                cVar.qe = 0;
+                cVar.qf = cVar.qd.length;
             } catch (Exception e2) {
-                throw new CoderException(j.pf);
+                throw new CoderException(j.ph);
             }
         }
         return cVar;
@@ -85,10 +99,10 @@ public class b {
             throw new CoderException(j.oX);
         }
         c cVar = new c();
-        cVar.pX = h;
-        cVar.pY = bArr;
-        cVar.pZ = dc;
-        cVar.qa = bArr.length - dc;
+        cVar.qc = h;
+        cVar.qd = bArr;
+        cVar.qe = dc;
+        cVar.qf = bArr.length - dc;
         return cVar;
     }
 

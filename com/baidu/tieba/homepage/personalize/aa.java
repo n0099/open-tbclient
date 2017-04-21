@@ -13,15 +13,15 @@ public class aa extends com.baidu.tbadk.util.s<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.s
-    /* renamed from: aiJ */
+    /* renamed from: ajK */
     public String doInBackground() {
         String str;
         String str2;
         com.baidu.tbadk.core.c.a tM = com.baidu.tbadk.core.c.a.tM();
-        str = this.this$0.cxB;
+        str = this.this$0.czS;
         com.baidu.adp.lib.cache.o<String> M = tM.M(str, TbadkCoreApplication.getCurrentAccount());
         if (M != null) {
-            str2 = this.this$0.cxB;
+            str2 = this.this$0.czS;
             return M.get(str2);
         }
         return null;

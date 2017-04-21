@@ -3,12 +3,12 @@ package com.baidu.tieba.InjectPlugin.a;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class g {
-    protected int aPD;
+    protected int aPF;
     protected TbPageContext pageContext;
 
     public g(TbPageContext tbPageContext, int i) {
         this.pageContext = tbPageContext;
-        this.aPD = i;
+        this.aPF = i;
     }
 
     public TbPageContext getPageContext() {
@@ -16,6 +16,6 @@ public class g {
     }
 
     public int Jx() {
-        return this.aPD;
+        return this.aPF;
     }
 }

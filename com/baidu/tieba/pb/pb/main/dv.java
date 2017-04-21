@@ -16,7 +16,7 @@ public class dv extends cx<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.g>
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aY */
+    /* renamed from: ba */
     public com.baidu.tieba.pb.pb.a.g onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.pb.pb.a.g(LayoutInflater.from(this.mContext).inflate(w.j.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -28,8 +28,8 @@ public class dv extends cx<com.baidu.tieba.pb.data.i, com.baidu.tieba.pb.pb.a.g>
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.i iVar, com.baidu.tieba.pb.pb.a.g gVar) {
         super.onFillViewHolder(i, view, viewGroup, iVar, gVar);
         this.mSkinType = TbadkCoreApplication.m9getInst().getSkinType();
-        this.eig.getLayoutMode().aj(this.mSkinType == 1);
-        this.eig.getLayoutMode().t(view);
+        this.ekw.getLayoutMode().aj(this.mSkinType == 1);
+        this.ekw.getLayoutMode().t(view);
         return view;
     }
 }

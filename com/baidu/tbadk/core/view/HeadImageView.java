@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class HeadImageView extends com.baidu.tbadk.widget.d {
-    private int aiu;
     private int aiv;
+    private int aiw;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -24,8 +24,8 @@ public class HeadImageView extends com.baidu.tbadk.widget.d {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.aiu = w.g.transparent_bg;
-        this.aiv = w.e.cp_bg_line_e;
+        this.aiv = w.g.transparent_bg;
+        this.aiw = w.e.cp_bg_line_e;
         init();
     }
 
@@ -33,8 +33,8 @@ public class HeadImageView extends com.baidu.tbadk.widget.d {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.aiv);
-        setDefaultResource(this.aiu);
+        setDefaultBgResource(this.aiw);
+        setDefaultResource(this.aiv);
         setDefaultErrorResource(w.g.icon_default_avatar100);
     }
 
@@ -70,10 +70,10 @@ public class HeadImageView extends com.baidu.tbadk.widget.d {
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public void wJ() {
-        if (!this.aKE) {
-            this.aKE = true;
-        } else if (this.aKH != null && this.aKH.aGv) {
-            this.aKH.Gz();
+        if (!this.aKG) {
+            this.aKG = true;
+        } else if (this.aKJ != null && this.aKJ.aGx) {
+            this.aKJ.Gz();
         }
     }
 }

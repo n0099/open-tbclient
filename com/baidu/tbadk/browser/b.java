@@ -10,7 +10,7 @@ class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.coreExtra.share.g createShareContent = this.this$0.createShareContent(null, null, null, null);
+        com.baidu.tbadk.coreExtra.share.h createShareContent = this.this$0.createShareContent(null, null, null, null);
         if (createShareContent != null) {
             this.this$0.mView.a(createShareContent);
         }

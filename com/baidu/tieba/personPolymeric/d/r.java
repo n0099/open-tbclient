@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ q eGQ;
+    final /* synthetic */ q eJg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.eGQ = qVar;
+        this.eJg = qVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,14 +25,14 @@ public class r implements View.OnClickListener {
         com.baidu.tieba.personPolymeric.c.e eVar2;
         Context context;
         if (view != null) {
-            eVar = this.eGQ.eGP;
+            eVar = this.eJg.eJf;
             if (eVar != null) {
                 TiebaStatic.log(new as("c11594"));
-                eVar2 = this.eGQ.eGP;
+                eVar2 = this.eJg.eJf;
                 String str = eVar2.forumName;
                 if (au.aB(str)) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    context = this.eGQ.mContext;
+                    context = this.eJg.mContext;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(context).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
                 }
             }

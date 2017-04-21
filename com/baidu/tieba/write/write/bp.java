@@ -27,23 +27,23 @@ public class bp implements CompoundButton.OnCheckedChangeListener {
         LinearLayout linearLayout2;
         TextView textView2;
         if (z) {
-            radioButton = this.this$0.eBK;
+            radioButton = this.this$0.eEa;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.this$0.eBH;
+                horizontalScrollView2 = this.this$0.eDX;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.this$0.eBM;
+                linearLayout2 = this.this$0.eEc;
                 linearLayout2.setVisibility(8);
-                textView2 = this.this$0.bIG;
+                textView2 = this.this$0.bKX;
                 textView2.setText(this.this$0.getPageContext().getString(w.l.beautify));
                 return;
             }
-            radioButton2 = this.this$0.eBL;
+            radioButton2 = this.this$0.eEb;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.this$0.eBH;
+                horizontalScrollView = this.this$0.eDX;
                 horizontalScrollView.setVisibility(8);
-                linearLayout = this.this$0.eBM;
+                linearLayout = this.this$0.eEc;
                 linearLayout.setVisibility(0);
-                textView = this.this$0.bIG;
+                textView = this.this$0.bKX;
                 textView.setText(this.this$0.getPageContext().getString(w.l.rotate));
             }
         }

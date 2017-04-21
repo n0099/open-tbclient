@@ -4,11 +4,11 @@ import com.baidu.tieba.play.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements v.d {
-    final /* synthetic */ c eUa;
+    final /* synthetic */ c eWq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.eUa = cVar;
+        this.eWq = cVar;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -22,32 +22,32 @@ public class d implements v.d {
         int i;
         int i2;
         int i3;
-        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
-        runnable = this.eUa.duN;
-        fR.removeCallbacks(runnable);
-        com.baidu.adp.lib.g.h fR2 = com.baidu.adp.lib.g.h.fR();
-        runnable2 = this.eUa.duN;
-        fR2.postDelayed(runnable2, 20L);
-        com.baidu.adp.lib.g.h fR3 = com.baidu.adp.lib.g.h.fR();
-        runnable3 = this.eUa.duP;
-        fR3.removeCallbacks(runnable3);
-        if (this.eUa.aTb.aXW()) {
-            this.eUa.akR = 1;
-            this.eUa.aTb.setRecoveryState(1);
+        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
+        runnable = this.eWq.dxd;
+        fS.removeCallbacks(runnable);
+        com.baidu.adp.lib.g.h fS2 = com.baidu.adp.lib.g.h.fS();
+        runnable2 = this.eWq.dxd;
+        fS2.postDelayed(runnable2, 20L);
+        com.baidu.adp.lib.g.h fS3 = com.baidu.adp.lib.g.h.fS();
+        runnable3 = this.eWq.dxf;
+        fS3.removeCallbacks(runnable3);
+        if (this.eWq.aTd.aYX()) {
+            this.eWq.akS = 1;
+            this.eWq.aTd.setRecoveryState(1);
         }
         if (vVar != null) {
-            videoListMediaControllerView = this.eUa.dua;
+            videoListMediaControllerView = this.eWq.dwr;
             if (videoListMediaControllerView != null) {
-                c cVar = this.eUa;
-                az aYm = az.aYm();
-                str = this.eUa.mVideoUrl;
-                cVar.duu = aYm.oU(str);
-                videoListMediaControllerView2 = this.eUa.dua;
-                i = this.eUa.duu;
+                c cVar = this.eWq;
+                az aZn = az.aZn();
+                str = this.eWq.mVideoUrl;
+                cVar.dwL = aZn.oV(str);
+                videoListMediaControllerView2 = this.eWq.dwr;
+                i = this.eWq.dwL;
                 videoListMediaControllerView2.X(i, vVar.getDuration());
-                i2 = this.eUa.duu;
+                i2 = this.eWq.dwL;
                 if (i2 != 0) {
-                    i3 = this.eUa.duu;
+                    i3 = this.eWq.dwL;
                     vVar.seekTo(i3);
                 }
             }

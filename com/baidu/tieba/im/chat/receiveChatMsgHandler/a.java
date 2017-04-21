@@ -39,21 +39,21 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean jW(String str);
+        boolean jX(String str);
     }
 
     public static boolean a(ChatMessage chatMessage, int i) {
         if (chatMessage.getMsgType() == 11) {
-            SystemMsgData x = com.baidu.tieba.im.util.h.x(chatMessage);
-            return (x == null || x.getIsSelf()) ? false : true;
+            SystemMsgData z = com.baidu.tieba.im.util.h.z(chatMessage);
+            return (z == null || z.getIsSelf()) ? false : true;
         } else if (i == 4) {
-            return com.baidu.tieba.im.util.h.y(chatMessage);
+            return com.baidu.tieba.im.util.h.A(chatMessage);
         } else {
             return (chatMessage.getUserInfo() == null || chatMessage.getUserInfo().getUserId() == null || !chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
         }
     }
 
-    public static void jV(String str) {
+    public static void jW(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -169,7 +169,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.jW(valueOf)) {
+            if (cVar != null && cVar.jX(valueOf)) {
                 i3 = 0;
             }
             imMessageCenterPojo.setUnread_count(i3);

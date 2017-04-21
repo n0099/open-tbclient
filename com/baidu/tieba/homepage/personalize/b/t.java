@@ -9,11 +9,11 @@ import com.baidu.tieba.homepage.personalize.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends cf<com.baidu.tieba.card.data.p> {
-    final /* synthetic */ s cye;
+    final /* synthetic */ s cAv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.cye = sVar;
+        this.cAv = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,50 +32,50 @@ public class t extends cf<com.baidu.tieba.card.data.p> {
         com.baidu.tieba.card.x xVar10;
         com.baidu.tieba.card.x xVar11;
         com.baidu.tieba.homepage.personalize.model.f fVar2;
-        cc.ST().cO(true);
-        fVar = this.cye.cxY;
+        cc.TV().cY(true);
+        fVar = this.cAv.cAp;
         if (fVar != null && pVar != null && pVar.Kn() != null && !StringUtils.isNull(pVar.Kn().getTid())) {
-            xVar = this.cye.cyd;
+            xVar = this.cAv.cAu;
             if (xVar != null) {
-                xVar2 = this.cye.cyd;
+                xVar2 = this.cAv.cAu;
                 if (xVar2.getView() != null) {
                     if ((view.getTag() instanceof String) && !aj.bq(com.baidu.adp.lib.g.b.c(pVar.Kn().getTid(), 0L))) {
                         aj.bp(com.baidu.adp.lib.g.b.c(pVar.Kn().getTid(), 0L));
-                        fVar2 = this.cye.cxY;
-                        fVar2.a(com.baidu.adp.lib.g.b.c(pVar.Kn().getTid(), 0L), pVar.getWeight(), pVar.getSource(), pVar.SV(), pVar.SX(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
+                        fVar2 = this.cAv.cAp;
+                        fVar2.a(com.baidu.adp.lib.g.b.c(pVar.Kn().getTid(), 0L), pVar.getWeight(), pVar.getSource(), pVar.TX(), pVar.TZ(), com.baidu.adp.lib.g.b.g((String) view.getTag(), 1));
                     }
                     int id = view.getId();
-                    xVar3 = this.cye.cyd;
+                    xVar3 = this.cAv.cAu;
                     if (id != xVar3.getView().getId()) {
-                        xVar4 = this.cye.cyd;
-                        if (xVar4.bbc != null) {
-                            xVar10 = this.cye.cyd;
-                            if (xVar10.bbc.getBarNameTv() != null) {
+                        xVar4 = this.cAv.cAu;
+                        if (xVar4.bbY != null) {
+                            xVar10 = this.cAv.cAu;
+                            if (xVar10.bbY.getBarNameTv() != null) {
                                 int id2 = view.getId();
-                                xVar11 = this.cye.cyd;
-                                if (id2 == xVar11.bbc.getBarNameTv().getId()) {
-                                    TiebaStatic.log(pVar.Tn());
+                                xVar11 = this.cAv.cAu;
+                                if (id2 == xVar11.bbY.getBarNameTv().getId()) {
+                                    TiebaStatic.log(pVar.Up());
                                     return;
                                 }
                             }
                         }
-                        xVar5 = this.cye.cyd;
-                        if (xVar5.baZ != null) {
+                        xVar5 = this.cAv.cAu;
+                        if (xVar5.bbV != null) {
                             int id3 = view.getId();
-                            xVar9 = this.cye.cyd;
-                            if (id3 == xVar9.baZ.getId()) {
-                                TiebaStatic.log(pVar.p(pVar.bbo));
+                            xVar9 = this.cAv.cAu;
+                            if (id3 == xVar9.bbV.getId()) {
+                                TiebaStatic.log(pVar.p(pVar.bck));
                                 return;
                             }
                         }
-                        xVar6 = this.cye.cyd;
-                        if (xVar6.bbd != null) {
-                            xVar7 = this.cye.cyd;
-                            if (xVar7.bbd.amq != null) {
+                        xVar6 = this.cAv.cAu;
+                        if (xVar6.bbZ != null) {
+                            xVar7 = this.cAv.cAu;
+                            if (xVar7.bbZ.amq != null) {
                                 int id4 = view.getId();
-                                xVar8 = this.cye.cyd;
-                                if (id4 == xVar8.bbd.amq.getId()) {
-                                    TiebaStatic.log(pVar.p(pVar.bbo));
+                                xVar8 = this.cAv.cAu;
+                                if (id4 == xVar8.bbZ.amq.getId()) {
+                                    TiebaStatic.log(pVar.p(pVar.bck));
                                     return;
                                 }
                                 return;
@@ -84,7 +84,7 @@ public class t extends cf<com.baidu.tieba.card.data.p> {
                         }
                         return;
                     }
-                    TiebaStatic.log(pVar.o(pVar.bbo));
+                    TiebaStatic.log(pVar.o(pVar.bck));
                 }
             }
         }

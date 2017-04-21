@@ -16,17 +16,17 @@ public interface d {
 
     void a(cd cdVar);
 
-    View abA();
+    TabData acA();
 
-    View abB();
+    View acB();
 
-    TabData abz();
+    View acC();
 
     void ah(View view);
 
     void b(BdListView bdListView);
 
-    void dY(boolean z);
+    void ei(boolean z);
 
     void onChangeSkinType(int i);
 }

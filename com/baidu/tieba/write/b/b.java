@@ -3,15 +3,15 @@ package com.baidu.tieba.write.b;
 import android.view.View;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ a fOB;
+    final /* synthetic */ a fQX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.fOB = aVar;
+        this.fQX = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.fOB.b(new com.baidu.tbadk.editortools.a(18, -1, null));
+        this.fQX.b(new com.baidu.tbadk.editortools.a(18, -1, null));
     }
 }

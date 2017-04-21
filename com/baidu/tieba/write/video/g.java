@@ -15,11 +15,11 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
 class g implements NewWriteModel.d {
-    final /* synthetic */ WriteVideoActivity fOZ;
+    final /* synthetic */ WriteVideoActivity fRv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteVideoActivity writeVideoActivity) {
-        this.fOZ = writeVideoActivity;
+        this.fRv = writeVideoActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -28,17 +28,17 @@ class g implements NewWriteModel.d {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        this.fOZ.closeLoadingDialog();
+        this.fRv.closeLoadingDialog();
         if (postWriteCallBackData != null) {
-            writeData2 = this.fOZ.mData;
+            writeData2 = this.fRv.mData;
             if (writeData2 != null) {
                 boolean z2 = com.baidu.tbadk.core.sharedPref.b.uL().getBoolean(MotuVideoConfig.IS_SINGLE_GOD_USER, false);
-                writeData3 = this.fOZ.mData;
+                writeData3 = this.fRv.mData;
                 if (writeData3 != null) {
-                    writeData4 = this.fOZ.mData;
+                    writeData4 = this.fRv.mData;
                     if (writeData4.getVideoInfo() != null && writeData != null) {
                         if (!z2) {
-                            writeData5 = this.fOZ.mData;
+                            writeData5 = this.fRv.mData;
                             if (writeData5.getVideoInfo().getVideoDuration() > 8) {
                                 writeData.setVideoReviewType(1);
                             }
@@ -53,25 +53,25 @@ class g implements NewWriteModel.d {
                             writeData.setVcodeUrl(qVar.getVcode_pic_url());
                             writeData.setVcodeExtra(qVar.yH());
                             if (com.baidu.tbadk.o.a.gt(qVar.yG())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.fOZ.getPageContext().getPageActivity(), 12006, writeData, false, qVar.yG())));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.fRv.getPageContext().getPageActivity(), 12006, writeData, false, qVar.yG())));
                                 return;
                             } else {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fOZ.getPageContext().getPageActivity(), writeData, 12006)));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.fRv.getPageContext().getPageActivity(), writeData, 12006)));
                                 return;
                             }
                         } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.fOZ.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(this.fRv.getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.fOZ.a(false, postWriteCallBackData);
+                    this.fRv.a(false, postWriteCallBackData);
                     return;
                 }
-                this.fOZ.bob();
-                this.fOZ.a(true, postWriteCallBackData);
-                this.fOZ.b(postWriteCallBackData);
+                this.fRv.bpc();
+                this.fRv.a(true, postWriteCallBackData);
+                this.fRv.b(postWriteCallBackData);
             }
         }
     }

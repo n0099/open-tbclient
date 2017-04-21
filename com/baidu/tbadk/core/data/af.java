@@ -10,18 +10,18 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class af extends PostData {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private List<UserData> WA;
-    private int WB;
+    private List<UserData> WB;
     private int WC;
-    private boolean WD;
-    private int WG;
-    private int Wx;
+    private int WD;
+    private boolean WE;
+    private int WH;
     private int Wy;
+    private int Wz;
     private String mForumId;
     private String mThreadId;
-    private boolean WE = false;
     private boolean WF = false;
-    private List<ae> Wz = new ArrayList();
+    private boolean WG = false;
+    private List<ae> WA = new ArrayList();
 
     public void setThreadId(String str) {
         this.mThreadId = str;
@@ -40,83 +40,83 @@ public class af extends PostData {
     }
 
     public List<ae> getItems() {
-        return this.Wz;
+        return this.WA;
     }
 
     public void k(List<ae> list) {
-        this.Wz = list;
+        this.WA = list;
     }
 
     public int qS() {
-        return this.WB;
-    }
-
-    public int qT() {
         return this.WC;
     }
 
-    public boolean qU() {
+    public int qT() {
         return this.WD;
     }
 
-    public void ap(boolean z) {
-        this.WD = z;
-    }
-
-    public int getRole() {
-        return this.WG;
-    }
-
-    public void bG(int i) {
-        this.WG = i;
-    }
-
-    public boolean qV() {
+    public boolean qU() {
         return this.WE;
     }
 
-    public void aq(boolean z) {
+    public void ap(boolean z) {
         this.WE = z;
     }
 
-    public boolean qW() {
+    public int getRole() {
+        return this.WH;
+    }
+
+    public void bG(int i) {
+        this.WH = i;
+    }
+
+    public boolean qV() {
         return this.WF;
     }
 
-    public void ar(boolean z) {
+    public void aq(boolean z) {
         this.WF = z;
+    }
+
+    public boolean qW() {
+        return this.WG;
+    }
+
+    public void ar(boolean z) {
+        this.WG = z;
     }
 
     public void a(GraffitiRankListInfo graffitiRankListInfo) {
         if (graffitiRankListInfo != null) {
-            this.Wx = graffitiRankListInfo.has_more.intValue();
-            this.Wy = graffitiRankListInfo.total.intValue();
-            this.WB = graffitiRankListInfo.show_list_count.intValue();
-            this.WC = graffitiRankListInfo.quick_list_count.intValue();
-            this.WD = graffitiRankListInfo.has_state.intValue() == 1;
-            if (this.Wz == null) {
-                this.Wz = new ArrayList();
+            this.Wy = graffitiRankListInfo.has_more.intValue();
+            this.Wz = graffitiRankListInfo.total.intValue();
+            this.WC = graffitiRankListInfo.show_list_count.intValue();
+            this.WD = graffitiRankListInfo.quick_list_count.intValue();
+            this.WE = graffitiRankListInfo.has_state.intValue() == 1;
+            if (this.WA == null) {
+                this.WA = new ArrayList();
             }
-            this.Wz.clear();
+            this.WA.clear();
             List<GraffitiRankItem> list = graffitiRankListInfo.list;
             if (list != null) {
                 for (GraffitiRankItem graffitiRankItem : list) {
                     ae aeVar = new ae();
                     aeVar.a(graffitiRankItem);
                     if (aeVar.qR()) {
-                        this.Wz.add(aeVar);
+                        this.WA.add(aeVar);
                     }
                 }
             }
-            if (this.WA == null) {
-                this.WA = new ArrayList();
+            if (this.WB == null) {
+                this.WB = new ArrayList();
             }
-            this.WA.clear();
+            this.WB.clear();
             if (graffitiRankListInfo.consent_list != null) {
                 for (User user : graffitiRankListInfo.consent_list) {
                     UserData userData = new UserData();
                     userData.parserProtobuf(user);
-                    this.WA.add(userData);
+                    this.WB.add(userData);
                 }
             }
         }

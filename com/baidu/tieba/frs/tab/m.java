@@ -5,23 +5,23 @@ import com.baidu.tieba.frs.tab.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements PopupWindow.OnDismissListener {
-    final /* synthetic */ j bZx;
-    private final /* synthetic */ TabItemView bZy;
+    final /* synthetic */ j cbO;
+    private final /* synthetic */ TabItemView cbP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar, TabItemView tabItemView) {
-        this.bZx = jVar;
-        this.bZy = tabItemView;
+        this.cbO = jVar;
+        this.cbP = tabItemView;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
         j.a aVar;
         j.a aVar2;
-        aVar = this.bZx.bZi;
+        aVar = this.cbO.cbz;
         if (aVar != null) {
-            aVar2 = this.bZx.bZi;
-            aVar2.a(this.bZy);
+            aVar2 = this.cbO.cbz;
+            aVar2.a(this.cbP);
         }
     }
 }

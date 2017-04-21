@@ -5,11 +5,11 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements AbsListView.RecyclerListener {
-    final /* synthetic */ a cxa;
+    final /* synthetic */ a czr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar) {
-        this.cxa = aVar;
+        this.czr = aVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
@@ -18,16 +18,16 @@ public class l implements AbsListView.RecyclerListener {
         n nVar2;
         n nVar3;
         if (view != null) {
-            nVar = this.cxa.cwS;
+            nVar = this.czr.czj;
             if (nVar != null) {
-                nVar2 = this.cxa.cwS;
+                nVar2 = this.czr.czj;
                 if (nVar2.Lc() != null) {
-                    nVar3 = this.cxa.cwS;
+                    nVar3 = this.czr.czj;
                     nVar3.Lc().aN(view);
                 }
             }
             if (view.getTag() instanceof com.baidu.tieba.homepage.personalize.b.f) {
-                ((com.baidu.tieba.homepage.personalize.b.f) view.getTag()).Tz().stopPlay();
+                ((com.baidu.tieba.homepage.personalize.b.f) view.getTag()).UB().stopPlay();
             }
         }
     }

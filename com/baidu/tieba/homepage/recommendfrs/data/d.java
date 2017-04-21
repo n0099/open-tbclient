@@ -10,7 +10,7 @@ import tbclient.ExcFrsPage.DataReq;
 import tbclient.ExcFrsPage.ExcFrsPageReqIdl;
 /* loaded from: classes.dex */
 public class d implements h {
-    private long cAc;
+    private long cCt;
     private int pn;
     private long tagCode;
 
@@ -26,12 +26,12 @@ public class d implements h {
         this.tagCode = j;
     }
 
-    public long ajR() {
-        return this.cAc;
+    public long akS() {
+        return this.cCt;
     }
 
     public void bs(long j) {
-        this.cAc = j;
+        this.cCt = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -48,7 +48,7 @@ public class d implements h {
         builder.scr_dip = Double.valueOf(k.ah(TbadkCoreApplication.m9getInst()));
         builder.tag_code = Long.valueOf(this.tagCode);
         builder.q_type = Integer.valueOf(av.wa().wc() ? 2 : 1);
-        builder.last_rank = Long.valueOf(this.cAc);
+        builder.last_rank = Long.valueOf(this.cCt);
         ExcFrsPageReqIdl.Builder builder2 = new ExcFrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
         n.bindCommonParamsToProtobufData(builder2.data, true);

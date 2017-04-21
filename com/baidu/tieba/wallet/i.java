@@ -11,7 +11,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String qQ(String str) {
+    public static String qR(String str) {
         URL url;
         try {
             url = new URL(str);

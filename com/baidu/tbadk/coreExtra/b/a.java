@@ -17,7 +17,7 @@ public class a {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.u(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.dI()) {
+            if (dVar.dJ()) {
                 String content = dVar.getContent();
                 if (content != null) {
                     this.aou = Integer.parseInt(content);

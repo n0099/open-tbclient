@@ -17,35 +17,35 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private View.OnClickListener akE;
+    private View.OnClickListener akF;
     private BaseActivity mContext;
-    private List<AccountData> aVD = null;
-    private boolean aVC = false;
+    private List<AccountData> aVF = null;
+    private boolean aVE = false;
 
     public l(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.akE = onClickListener;
+        this.akF = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
-        this.aVD = list;
+        this.aVF = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.aVD != null) {
-            i = this.aVD.size();
+        if (this.aVF != null) {
+            i = this.aVF.size();
         }
         return i + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aVD == null || i < 0 || i >= this.aVD.size()) {
+        if (this.aVF == null || i < 0 || i >= this.aVF.size()) {
             return null;
         }
-        return this.aVD.get(i);
+        return this.aVF.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -76,34 +76,34 @@ public class l extends BaseAdapter {
                     } else if (getItemViewType(i) == 0) {
                         view2 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(w.j.account_item, (ViewGroup) null);
                         aVar = new a(this, null);
-                        aVar.aVE = (TextView) view2.findViewById(w.h.account);
-                        aVar.aVG = (ImageView) view2.findViewById(w.h.active);
-                        aVar.aVH = (Button) view2.findViewById(w.h.delete);
+                        aVar.aVG = (TextView) view2.findViewById(w.h.account);
+                        aVar.aVI = (ImageView) view2.findViewById(w.h.active);
+                        aVar.aVJ = (Button) view2.findViewById(w.h.delete);
                         aVar.arO = view2.findViewById(w.h.account_item_line_layout);
-                        aVar.aVH.setOnClickListener(this.akE);
+                        aVar.aVJ.setOnClickListener(this.akF);
                         view2.setTag(aVar);
                     } else {
                         view2 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(w.j.account_add_item, (ViewGroup) null);
                         aVar = new a(this, null);
-                        aVar.aVF = (TextView) view2.findViewById(w.h.add_text);
+                        aVar.aVH = (TextView) view2.findViewById(w.h.add_text);
                         view2.setTag(aVar);
                     }
                     if (getItemViewType(i) == 0) {
                         AccountData accountData = (AccountData) getItem(i);
-                        aVar.aVG.setVisibility(8);
-                        aVar.aVH.setVisibility(8);
-                        aVar.aVH.setTag(accountData);
+                        aVar.aVI.setVisibility(8);
+                        aVar.aVJ.setVisibility(8);
+                        aVar.aVJ.setTag(accountData);
                         if (accountData != null) {
                             if (StringUtils.isNull(accountData.getDisplayName())) {
-                                aVar.aVE.setText(accountData.getAccount());
+                                aVar.aVG.setText(accountData.getAccount());
                             } else {
-                                aVar.aVE.setText(accountData.getDisplayName());
+                                aVar.aVG.setText(accountData.getDisplayName());
                             }
                             if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                                aVar.aVG.setVisibility(0);
+                                aVar.aVI.setVisibility(0);
                             }
-                            if (this.aVC) {
-                                aVar.aVH.setVisibility(0);
+                            if (this.aVE) {
+                                aVar.aVJ.setVisibility(0);
                             }
                         }
                         if (i == getCount() - 2) {
@@ -143,11 +143,11 @@ public class l extends BaseAdapter {
     }
 
     public void setEditState(boolean z) {
-        this.aVC = z;
+        this.aVE = z;
     }
 
     public boolean Ma() {
-        return this.aVC;
+        return this.aVE;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -165,10 +165,10 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView aVE;
-        TextView aVF;
-        ImageView aVG;
-        Button aVH;
+        TextView aVG;
+        TextView aVH;
+        ImageView aVI;
+        Button aVJ;
         View arO;
 
         private a() {

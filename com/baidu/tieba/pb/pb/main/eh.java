@@ -11,26 +11,26 @@ import com.baidu.tieba.w;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class eh {
-    public PostData eod;
-    private a eoj;
+    private a eqA;
+    public PostData eqv;
     public int loadType;
     private com.baidu.tieba.pb.data.f pbData;
     private String threadTitle;
-    public int eoa = 0;
-    public int eob = 0;
-    public int eoe = 0;
+    public int eqs = 0;
+    public int eqt = 0;
+    public int eqw = 0;
     public boolean isSquence = true;
-    public boolean eog = false;
-    private boolean eoh = false;
-    private boolean eoi = false;
-    private CustomMessageListener eok = new ei(this, CmdConfigCustom.CMD_TTS_READ_FINISHED);
-    private CustomMessageListener eol = new ej(this, CmdConfigCustom.CMD_TTS_AUDIO_VIEW_OPTION);
+    public boolean eqx = false;
+    private boolean eqy = false;
+    private boolean eqz = false;
+    private CustomMessageListener eqB = new ei(this, CmdConfigCustom.CMD_TTS_READ_FINISHED);
+    private CustomMessageListener eqC = new ej(this, CmdConfigCustom.CMD_TTS_AUDIO_VIEW_OPTION);
 
     /* loaded from: classes.dex */
     public interface a {
-        void aMF();
+        void aNG();
 
-        void aMG();
+        void aNH();
 
         void aZ(int i, int i2);
     }
@@ -41,10 +41,10 @@ public class eh {
                 com.baidu.tbadk.core.data.be beVar = new com.baidu.tbadk.core.data.be();
                 beVar.bP(4);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar));
-                this.eoe = 5;
+                this.eqw = 5;
             }
-            this.eoa = i;
-            aMB();
+            this.eqs = i;
+            aNC();
         }
     }
 
@@ -56,45 +56,45 @@ public class eh {
         if (i < 0) {
             i = 0;
         }
-        if (this.eoi) {
-            this.eoa = d(i, arrayList);
-            this.eob = c(this.eoa, arrayList);
+        if (this.eqz) {
+            this.eqs = d(i, arrayList);
+            this.eqt = c(this.eqs, arrayList);
         } else {
-            this.eoa = i;
+            this.eqs = i;
         }
         int size = arrayList.size();
         int i2 = 0;
         int i3 = i;
         while (i2 < size) {
             PostData postData = arrayList.get(i2);
-            int i4 = (postData == null || postData.bio() != this.eob) ? i3 : i2;
+            int i4 = (postData == null || postData.bjp() != this.eqt) ? i3 : i2;
             i2++;
             i3 = i4;
         }
         if (i3 >= arrayList.size()) {
-            this.eoa = arrayList.size() - 1;
+            this.eqs = arrayList.size() - 1;
             return null;
         }
-        this.eoa = i3;
+        this.eqs = i3;
         com.baidu.tbadk.core.data.bf bfVar = new com.baidu.tbadk.core.data.bf();
-        if (arrayList.get(this.eoa) instanceof PostData) {
-            PostData postData2 = arrayList.get(this.eoa);
-            this.eob = c(this.eoa + 1, arrayList);
-            if (postData2.bio() == 1) {
+        if (arrayList.get(this.eqs) instanceof PostData) {
+            PostData postData2 = arrayList.get(this.eqs);
+            this.eqt = c(this.eqs + 1, arrayList);
+            if (postData2.bjp() == 1) {
                 bfVar.threadTitle = this.threadTitle;
-                if (!this.eoh) {
-                    bfVar.XR = true;
+                if (!this.eqy) {
+                    bfVar.XS = true;
                 } else {
-                    bfVar.XR = false;
+                    bfVar.XS = false;
                 }
             } else {
-                if (postData2.bio() != 0) {
-                    bfVar.XS = String.format(TbadkCoreApplication.m9getInst().getContext().getString(w.l.is_floor), Integer.valueOf(postData2.bio()));
+                if (postData2.bjp() != 0) {
+                    bfVar.XT = String.format(TbadkCoreApplication.m9getInst().getContext().getString(w.l.is_floor), Integer.valueOf(postData2.bjp()));
                 }
                 bfVar.threadTitle = this.threadTitle;
-                bfVar.XR = false;
+                bfVar.XS = false;
             }
-            bfVar.XU = postData2.awl();
+            bfVar.XV = postData2.axm();
             return bfVar;
         }
         return null;
@@ -104,18 +104,18 @@ public class eh {
         if (i < 0 || arrayList == null || arrayList.size() <= 0 || i >= arrayList.size() || arrayList.get(i) == null) {
             return -1;
         }
-        int bio = arrayList.get(i).bio();
-        if (i > 0 && bio == 0) {
-            return this.eob + 1;
+        int bjp = arrayList.get(i).bjp();
+        if (i > 0 && bjp == 0) {
+            return this.eqt + 1;
         }
-        return bio;
+        return bjp;
     }
 
     private int d(int i, ArrayList<PostData> arrayList) {
         if (i >= 0 && arrayList != null && arrayList.size() > 0 && i < arrayList.size()) {
             for (int i2 = i; i2 >= 0; i2--) {
                 PostData postData = arrayList.get(i2);
-                if (postData != null && postData.bio() > 0) {
+                if (postData != null && postData.bjp() > 0) {
                     return i2;
                 }
             }
@@ -124,32 +124,32 @@ public class eh {
         return i;
     }
 
-    private void aMB() {
+    private void aNC() {
         com.baidu.tbadk.core.data.be beVar = new com.baidu.tbadk.core.data.be();
         Object obj = null;
-        switch (this.eoe) {
+        switch (this.eqw) {
             case 0:
             case 5:
                 beVar.bP(1);
-                obj = b(this.eoa, this.pbData.aJz());
-                this.eoe = 1;
+                obj = b(this.eqs, this.pbData.aKA());
+                this.eqw = 1;
                 break;
             case 1:
                 beVar.bP(2);
-                this.eoe = 2;
+                this.eqw = 2;
                 break;
             case 2:
                 beVar.bP(3);
-                this.eoe = 3;
+                this.eqw = 3;
                 break;
             case 3:
                 beVar.bP(2);
-                this.eoe = 2;
+                this.eqw = 2;
                 break;
             case 4:
             default:
                 beVar.bP(1);
-                this.eoe = 1;
+                this.eqw = 1;
                 break;
         }
         beVar.setData(obj);
@@ -161,24 +161,24 @@ public class eh {
             com.baidu.tbadk.core.data.be beVar = new com.baidu.tbadk.core.data.be();
             beVar.bP(15);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar));
-            this.eoa = 0;
-            this.eoe = 5;
+            this.eqs = 0;
+            this.eqw = 5;
         } else if (i != 1 && i != 3 && i != 4) {
             if (i == 6) {
-                this.eoa = 0;
+                this.eqs = 0;
                 return;
             }
             com.baidu.tbadk.core.data.be beVar2 = new com.baidu.tbadk.core.data.be();
             beVar2.bP(4);
-            this.eoa = 0;
-            this.eoe = 5;
+            this.eqs = 0;
+            this.eqw = 5;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TTS_OPTION, beVar2));
         }
     }
 
     public eh() {
-        MessageManager.getInstance().registerListener(this.eok);
-        MessageManager.getInstance().registerListener(this.eol);
+        MessageManager.getInstance().registerListener(this.eqB);
+        MessageManager.getInstance().registerListener(this.eqC);
     }
 
     public void b(com.baidu.tieba.pb.data.f fVar, boolean z, int i, boolean z2) {
@@ -188,14 +188,14 @@ public class eh {
     public void a(com.baidu.tieba.pb.data.f fVar, boolean z, int i, boolean z2, boolean z3) {
         this.pbData = fVar;
         this.isSquence = z;
-        this.eog = z2;
+        this.eqx = z2;
         this.loadType = i;
-        if (fVar != null && fVar.aJx() != null) {
-            this.threadTitle = fVar.aJx().getTitle();
+        if (fVar != null && fVar.aKy() != null) {
+            this.threadTitle = fVar.aKy().getTitle();
             if (StringUtils.isNull(this.threadTitle)) {
-                this.threadTitle = fVar.aJx().sw();
+                this.threadTitle = fVar.aKy().sw();
             }
-            this.eoh = fVar.aJx().sD() == 1;
+            this.eqy = fVar.aKy().sD() == 1;
         }
         if (z3) {
             a(fVar, z, i, z2);
@@ -204,48 +204,48 @@ public class eh {
 
     public void clearData() {
         this.pbData = null;
-        this.eoa = 0;
-        this.eoe = 0;
+        this.eqs = 0;
+        this.eqw = 0;
         this.isSquence = true;
     }
 
     public void a(a aVar) {
-        this.eoj = aVar;
+        this.eqA = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.eok);
-        MessageManager.getInstance().unRegisterListener(this.eol);
+        MessageManager.getInstance().unRegisterListener(this.eqB);
+        MessageManager.getInstance().unRegisterListener(this.eqC);
     }
 
-    public int aMC() {
-        return this.eoe;
+    public int aND() {
+        return this.eqw;
     }
 
-    public void op(int i) {
-        this.eoe = i;
+    public void ov(int i) {
+        this.eqw = i;
     }
 
-    public int aMD() {
-        if (this.pbData == null || this.pbData.aJz() == null) {
+    public int aNE() {
+        if (this.pbData == null || this.pbData.aKA() == null) {
             return -1;
         }
-        if (this.eoa >= 0 && this.eoa < this.pbData.aJz().size()) {
-            this.eod = this.pbData.aJz().get(this.eoa);
+        if (this.eqs >= 0 && this.eqs < this.pbData.aKA().size()) {
+            this.eqv = this.pbData.aKA().get(this.eqs);
         }
-        if (this.eod != null) {
-            return this.eod.bio();
+        if (this.eqv != null) {
+            return this.eqv.bjp();
         }
         return -1;
     }
 
-    public PostData aME() {
-        if (this.pbData == null || this.pbData.aJz() == null) {
+    public PostData aNF() {
+        if (this.pbData == null || this.pbData.aKA() == null) {
             return null;
         }
-        if (this.eoa >= 0 && this.eoa < this.pbData.aJz().size()) {
-            this.eod = this.pbData.aJz().get(this.eoa);
+        if (this.eqs >= 0 && this.eqs < this.pbData.aKA().size()) {
+            this.eqv = this.pbData.aKA().get(this.eqs);
         }
-        return this.eod;
+        return this.eqv;
     }
 }

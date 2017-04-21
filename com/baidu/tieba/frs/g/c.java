@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.g;
 import android.widget.PopupWindow;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ b caC;
+    final /* synthetic */ b ccT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.caC = bVar;
+        this.ccT = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,11 +15,11 @@ class c implements Runnable {
         a aVar;
         PopupWindow popupWindow;
         a aVar2;
-        aVar = this.caC.caB;
-        popupWindow = aVar.caz;
+        aVar = this.ccT.ccS;
+        popupWindow = aVar.ccQ;
         if (popupWindow != null) {
-            aVar2 = this.caC.caB;
-            aVar2.ady();
+            aVar2 = this.ccT.ccS;
+            aVar2.aez();
         }
     }
 }

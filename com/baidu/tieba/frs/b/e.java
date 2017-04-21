@@ -9,23 +9,23 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements BaseWebView.d {
-    final /* synthetic */ d bXy;
+    final /* synthetic */ d bZP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.bXy = dVar;
+        this.bZP = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public void a(WebView webView, String str) {
         boolean z;
-        z = this.bXy.bXv;
+        z = this.bZP.bZM;
         if (!z) {
-            this.bXy.xg();
-            ViewGroup.LayoutParams layoutParams = this.bXy.getLayoutParams();
+            this.bZP.xg();
+            ViewGroup.LayoutParams layoutParams = this.bZP.getLayoutParams();
             layoutParams.height = (k.ag(TbadkCoreApplication.m9getInst()) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds100)) - TbadkCoreApplication.m9getInst().getResources().getDimensionPixelSize(w.f.ds90);
-            this.bXy.setLayoutParams(layoutParams);
+            this.bZP.setLayoutParams(layoutParams);
         }
-        this.bXy.bXx = false;
+        this.bZP.bZO = false;
     }
 }

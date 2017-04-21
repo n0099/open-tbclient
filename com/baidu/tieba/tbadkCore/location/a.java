@@ -10,23 +10,23 @@ public class a {
     private List<C0075a> poi_info;
     private String sn;
 
-    public String biQ() {
+    public String bjR() {
         return this.formatted_address;
     }
 
-    public List<C0075a> biR() {
+    public List<C0075a> bjS() {
         return this.poi_info;
     }
 
-    public void qe(String str) {
+    public void qf(String str) {
         this.formatted_address = str;
     }
 
-    public String biS() {
+    public String bjT() {
         return this.sn;
     }
 
-    public void qf(String str) {
+    public void qg(String str) {
         this.sn = str;
     }
 
@@ -60,11 +60,11 @@ public class a {
             this.name = str;
         }
 
-        public String biT() {
+        public String bjU() {
             return this.addr;
         }
 
-        public String biS() {
+        public String bjT() {
             return this.sn;
         }
 

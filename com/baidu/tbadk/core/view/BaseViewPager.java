@@ -7,8 +7,8 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.widget.TbViewPager;
 /* loaded from: classes.dex */
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
-    private a aiw;
     private a aix;
+    private a aiy;
     private GestureDetector mGestureDetector;
 
     /* loaded from: classes.dex */
@@ -19,25 +19,25 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     public BaseViewPager(Context context) {
         super(context);
         this.mGestureDetector = null;
-        this.aiw = null;
         this.aix = null;
+        this.aiy = null;
         init();
     }
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mGestureDetector = null;
-        this.aiw = null;
         this.aix = null;
+        this.aiy = null;
         init();
     }
 
     public void setOnFlipOutListener(a aVar) {
-        this.aiw = aVar;
+        this.aix = aVar;
     }
 
     public void setOnScrollOutListener(a aVar) {
-        this.aix = aVar;
+        this.aiy = aVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
@@ -60,12 +60,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.aiw != null) {
+        if (this.aix != null) {
             if (f < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.aiw.cY(0);
+                this.aix.cY(0);
                 return true;
             } else if (f > 0.0f && getCurrentItem() == 0) {
-                this.aiw.cY(1);
+                this.aix.cY(1);
                 return true;
             }
         }
@@ -78,12 +78,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.aix != null) {
+        if (this.aiy != null) {
             if (f > 10.0d && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.aix.cY(0);
+                this.aiy.cY(0);
                 return true;
             } else if (f < 0.0f && getCurrentItem() == 0) {
-                this.aix.cY(1);
+                this.aiy.cY(1);
                 return true;
             }
         }

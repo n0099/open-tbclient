@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class e {
-    private String Wv;
-    private int aNi;
-    private String aNj;
+    private String Ww;
     private int aNk;
-    private int aNl;
+    private String aNl;
+    private int aNm;
+    private int aNn;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class e {
     public void a(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.Wv = pbContent.src;
+            this.Ww = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aNi = pbContent.e_type.intValue();
-            this.aNj = pbContent.text;
+            this.aNk = pbContent.e_type.intValue();
+            this.aNl = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aNk = pbContent.count.intValue();
-            this.aNl = pbContent.origin_size.intValue();
+            this.aNm = pbContent.count.intValue();
+            this.aNn = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class e {
     }
 
     public String qP() {
-        return this.Wv;
+        return this.Ww;
     }
 
     public int getWidth() {
@@ -45,11 +45,11 @@ public class e {
     }
 
     public String IY() {
-        return this.aNj;
+        return this.aNl;
     }
 
     public boolean IZ() {
-        return this.aNi == 15;
+        return this.aNk == 15;
     }
 
     public boolean isAvaliable() {
@@ -57,10 +57,10 @@ public class e {
     }
 
     public int Ja() {
-        return this.aNk;
+        return this.aNm;
     }
 
     public void fz(int i) {
-        this.aNk = i;
+        this.aNm = i;
     }
 }

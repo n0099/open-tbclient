@@ -7,9 +7,6 @@ public class e {
     public String mCuid;
     public String mNetType;
     public String mUid;
-    public String wJ;
-    public String wK;
-    public String wL;
     public String wM;
     public String wN;
     public String wO;
@@ -17,4 +14,7 @@ public class e {
     public String wQ;
     public String wR;
     public String wS;
+    public String wT;
+    public String wU;
+    public String wV;
 }

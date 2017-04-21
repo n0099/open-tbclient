@@ -2,23 +2,23 @@ package com.baidu.tieba.VideoCacheClient;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Runnable {
-    final /* synthetic */ f aVm;
+    final /* synthetic */ f aVo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.aVm = fVar;
+        this.aVo = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
         Runnable runnable;
-        z = this.aVm.aQB;
+        z = this.aVo.aQD;
         if (!z) {
-            this.aVm.Ke();
-            com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
-            runnable = this.aVm.aQD;
-            fR.postDelayed(runnable, 1000L);
+            this.aVo.Ke();
+            com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
+            runnable = this.aVo.aQF;
+            fS.postDelayed(runnable, 1000L);
         }
     }
 }

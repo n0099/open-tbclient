@@ -16,11 +16,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements NewWriteModel.d {
-    final /* synthetic */ n aBt;
+    final /* synthetic */ n aBv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aBt = nVar;
+        this.aBv = nVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -32,16 +32,16 @@ public class o implements NewWriteModel.d {
         NewWriteModel newWriteModel3;
         DataModel dataModel;
         NewWriteModel.d dVar2;
-        dVar = this.aBt.aBs;
+        dVar = this.aBv.aBu;
         if (dVar != null) {
-            dVar2 = this.aBt.aBs;
+            dVar2 = this.aBv.aBu;
             dVar2.callback(z, postWriteCallBackData, qVar, writeData, antiData);
         }
         if (z) {
-            this.aBt.aAL = null;
-            this.aBt.aBo = null;
-            this.aBt.bK(true);
-            this.aBt.Ek();
+            this.aBv.aAN = null;
+            this.aBv.aBq = null;
+            this.aBv.bK(true);
+            this.aBv.Ek();
         }
         int i = -1;
         String str = "";
@@ -50,34 +50,34 @@ public class o implements NewWriteModel.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            newWriteModel = this.aBt.aAP;
+            newWriteModel = this.aBv.aAR;
             WriteData writeData2 = newWriteModel.getWriteData();
-            newWriteModel2 = this.aBt.aAP;
+            newWriteModel2 = this.aBv.aAR;
             newWriteModel2.setWriteData(null);
-            newWriteModel3 = this.aBt.aAP;
-            newWriteModel3.lo(false);
-            this.aBt.aAM = null;
+            newWriteModel3 = this.aBv.aAR;
+            newWriteModel3.ly(false);
+            this.aBv.aAO = null;
             if (writeData2 != null && writeData2 != null && writeData2.getType() == 2) {
-                dataModel = this.aBt.aBq;
+                dataModel = this.aBv.aBs;
                 dataModel.DI();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.rX(i)) {
-            this.aBt.l(i, str);
+        } else if (i == 230277 || i == 230278 || i == 340016 || i == 1990032 || AntiHelper.sd(i)) {
+            this.aBv.l(i, str);
         } else if (qVar != null && writeData != null && !StringUtils.isNull(qVar.getVcode_pic_url())) {
             writeData.setVcodeMD5(qVar.getVcode_md5());
             writeData.setVcodeUrl(qVar.getVcode_pic_url());
             writeData.setVcodeExtra(qVar.yH());
             if (com.baidu.tbadk.o.a.gt(qVar.yG())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.aBt.yp().getPageActivity(), 12006, writeData, false, qVar.yG())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.aBv.yp().getPageActivity(), 12006, writeData, false, qVar.yG())));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.aBt.yp().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.aBv.yp().getPageActivity(), writeData, 12006)));
             }
         } else if (postWriteCallBackData != null && i == 227001) {
             MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.aBt.aaX;
+            tbPageContext = this.aBv.aaY;
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(tbPageContext.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
         } else {
-            this.aBt.yp().showToast(str);
+            this.aBv.yp().showToast(str);
         }
     }
 }

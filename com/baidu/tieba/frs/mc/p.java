@@ -11,14 +11,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p {
-    private y bOd;
-    private CustomMessageListener bYo = new q(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
-    private CustomMessageListener bYp = new r(this, CmdConfigCustom.DELETE_AD_FROM_FEED);
+    private y bQu;
+    private CustomMessageListener caF = new q(this, CmdConfigCustom.NEG_FEED_BACK_DELETE);
+    private CustomMessageListener caG = new r(this, CmdConfigCustom.DELETE_AD_FROM_FEED);
 
     public p(TbPageContext tbPageContext, y yVar) {
-        this.bOd = yVar;
-        tbPageContext.registerListener(this.bYo);
-        tbPageContext.registerListener(this.bYp);
+        this.bQu = yVar;
+        tbPageContext.registerListener(this.caF);
+        tbPageContext.registerListener(this.caG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -43,7 +43,7 @@ public class p {
             Iterator<AdvertAppInfo> it = list.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                if (next != null && str.equals(next.TR)) {
+                if (next != null && str.equals(next.TT)) {
                     it.remove();
                 }
             }
@@ -58,7 +58,7 @@ public class p {
                 com.baidu.adp.widget.ListView.v next = it.next();
                 if (next instanceof com.baidu.tieba.InjectPlugin.a) {
                     Object Jq = ((com.baidu.tieba.InjectPlugin.a) next).Jq();
-                    if ((Jq instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) Jq).TR)) {
+                    if ((Jq instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) Jq).TT)) {
                         it.remove();
                     }
                 }

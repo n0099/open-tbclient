@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private a acg = null;
+    private a ach = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final h acs = new h();
+        private static final h act = new h();
     }
 
     public static h up() {
-        return c.acs;
+        return c.act;
     }
 
     public void a(int i, l lVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.acg = new a(i, lVar, null);
-                this.acg.ur();
+                this.ach = new a(i, lVar, null);
+                this.ach.ur();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a acg;
-        private final List<Long> acq = new ArrayList(240);
-        private final List<Integer> acr = new ArrayList(15);
+        protected a ach;
+        private final List<Long> acr = new ArrayList(240);
+        private final List<Integer> acs = new ArrayList(15);
 
         public b(a aVar) {
-            this.acg = aVar;
+            this.ach = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class h {
         }
 
         private void n(long j) {
-            this.acq.add(Long.valueOf(j));
-            this.acg.ur();
+            this.acr.add(Long.valueOf(j));
+            this.ach.ur();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.acg = null;
-            this.acq.clear();
+            this.ach = null;
             this.acr.clear();
+            this.acs.clear();
         }
     }
 
@@ -79,27 +79,27 @@ public class h {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> ach;
-        private final Object aci;
-        private final Class<?> acj;
-        private final Method ack;
-        private final Object acl;
-        private final Method acm;
-        private final b acn;
-        private final l aco;
+        private final Class<?> aci;
+        private final Object acj;
+        private final Class<?> ack;
+        private final Method acl;
+        private final Object acm;
+        private final Method acn;
+        private final b aco;
+        private final l acp;
         private int index;
 
         private a(int i, l lVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.acj = Class.forName("android.view.Choreographer");
-            this.ach = Class.forName("android.view.Choreographer$FrameCallback");
-            this.acn = new b(this);
-            this.aci = Proxy.newProxyInstance(this.ach.getClassLoader(), new Class[]{this.ach}, this.acn);
-            this.ack = this.acj.getMethod("getInstance", new Class[0]);
-            this.acl = this.ack.invoke(null, new Object[0]);
-            this.acm = this.acj.getMethod("postFrameCallback", this.ach);
+            this.ack = Class.forName("android.view.Choreographer");
+            this.aci = Class.forName("android.view.Choreographer$FrameCallback");
+            this.aco = new b(this);
+            this.acj = Proxy.newProxyInstance(this.aci.getClassLoader(), new Class[]{this.aci}, this.aco);
+            this.acl = this.ack.getMethod("getInstance", new Class[0]);
+            this.acm = this.acl.invoke(null, new Object[0]);
+            this.acn = this.ack.getMethod("postFrameCallback", this.aci);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.aco = lVar;
+            this.acp = lVar;
         }
 
         /* synthetic */ a(int i, l lVar, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
@@ -107,13 +107,13 @@ public class h {
         }
 
         private void uq() throws InvocationTargetException, IllegalAccessException {
-            this.acm.invoke(this.acl, this.aci);
+            this.acn.invoke(this.acm, this.acj);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void ur() {
             if (this.index >= this.MAX_FRAME_COUNT) {
-                com.baidu.adp.lib.g.h.fR().post(new i(this));
+                com.baidu.adp.lib.g.h.fS().post(new i(this));
                 return;
             }
             this.index++;
@@ -125,12 +125,12 @@ public class h {
         }
 
         private List<Long> us() {
-            return this.acn.acq;
+            return this.aco.acr;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.acn.destroy();
+            this.aco.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */

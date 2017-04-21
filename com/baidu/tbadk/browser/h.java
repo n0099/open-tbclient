@@ -30,16 +30,16 @@ public class h extends com.baidu.tbadk.core.d.p {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (com.baidu.adp.lib.util.i.hk()) {
+        if (com.baidu.adp.lib.util.i.hl()) {
             i = 1;
             str = "WIFI";
-        } else if (com.baidu.adp.lib.util.i.ho()) {
+        } else if (com.baidu.adp.lib.util.i.hp()) {
             i = 3;
             str = "2G";
-        } else if (com.baidu.adp.lib.util.i.hn()) {
+        } else if (com.baidu.adp.lib.util.i.ho()) {
             i = 4;
             str = "3G";
-        } else if (com.baidu.adp.lib.util.i.hm()) {
+        } else if (com.baidu.adp.lib.util.i.hn()) {
             i = 5;
             str = "4G";
         }

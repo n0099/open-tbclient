@@ -185,7 +185,7 @@ public class UserIconBox extends LinearLayout {
     private TbImageView aL(Context context) {
         TbImageView tbImageView = null;
         if (this.amf != null) {
-            tbImageView = this.amf.fJ();
+            tbImageView = this.amf.fK();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);

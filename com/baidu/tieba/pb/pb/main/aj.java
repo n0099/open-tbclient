@@ -4,15 +4,15 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class aj implements BdListView.e {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void ln() {
+    public void lo() {
         boolean z;
         boolean z2;
         PbModel pbModel;
@@ -25,41 +25,41 @@ class aj implements BdListView.e {
         PbModel pbModel6;
         ey eyVar3;
         ey eyVar4;
-        z = this.ejU.ejG;
-        if (z && this.ejU.aKI()) {
-            this.ejU.aKK();
+        z = this.emk.elW;
+        if (z && this.emk.aLI()) {
+            this.emk.aLK();
         }
-        z2 = this.ejU.mIsLogin;
+        z2 = this.emk.mIsLogin;
         if (z2) {
-            pbModel = this.ejU.eif;
-            if (!pbModel.io(false)) {
-                pbModel2 = this.ejU.eif;
+            pbModel = this.emk.ekv;
+            if (!pbModel.iy(false)) {
+                pbModel2 = this.emk.ekv;
                 if (pbModel2.getPbData() != null) {
-                    eyVar3 = this.ejU.eiS;
-                    eyVar3.aNB();
+                    eyVar3 = this.emk.eli;
+                    eyVar3.aOC();
                 }
-                pbModel3 = this.ejU.eif;
+                pbModel3 = this.emk.ekv;
                 if (pbModel3 != null) {
-                    eyVar = this.ejU.eiS;
+                    eyVar = this.emk.eli;
                     if (eyVar != null) {
-                        pbModel4 = this.ejU.eif;
-                        if (pbModel4.aLZ() != null) {
-                            pbModel5 = this.ejU.eif;
-                            if (pbModel5.aLZ().aLn()) {
-                                eyVar2 = this.ejU.eiS;
-                                eyVar2.aLw();
-                                pbModel6 = this.ejU.eif;
-                                pbModel6.aLZ().aLp();
+                        pbModel4 = this.emk.ekv;
+                        if (pbModel4.aNa() != null) {
+                            pbModel5 = this.emk.ekv;
+                            if (pbModel5.aNa().aMo()) {
+                                eyVar2 = this.emk.eli;
+                                eyVar2.aMx();
+                                pbModel6 = this.emk.ekv;
+                                pbModel6.aNa().aMq();
                             }
                         }
                     }
                 }
             } else {
-                eyVar4 = this.ejU.eiS;
-                eyVar4.aNm();
-                TiebaStatic.eventStat(this.ejU.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+                eyVar4 = this.emk.eli;
+                eyVar4.aOn();
+                TiebaStatic.eventStat(this.emk.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
             }
-            this.ejU.ejG = true;
+            this.emk.elW = true;
         }
     }
 }

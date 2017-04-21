@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
 class h implements c.b {
-    private final /* synthetic */ ImMessageCenterShowItemData dhQ;
-    final /* synthetic */ StrangerListActivity djV;
-    private final /* synthetic */ int djW;
+    private final /* synthetic */ ImMessageCenterShowItemData dkh;
+    final /* synthetic */ StrangerListActivity dmm;
+    private final /* synthetic */ int dmn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(StrangerListActivity strangerListActivity, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.djV = strangerListActivity;
-        this.djW = i;
-        this.dhQ = imMessageCenterShowItemData;
+        this.dmm = strangerListActivity;
+        this.dmn = i;
+        this.dkh = imMessageCenterShowItemData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -22,15 +22,15 @@ class h implements c.b {
         com.baidu.tieba.im.chat.a.a aVar;
         StrangerListModel strangerListModel2;
         cVar.dismiss();
-        if (this.djW == 1) {
-            strangerListModel2 = this.djV.djQ;
-            strangerListModel2.ava();
-            this.djV.finish();
+        if (this.dmn == 1) {
+            strangerListModel2 = this.dmm.dmh;
+            strangerListModel2.awb();
+            this.dmm.finish();
             return;
         }
-        strangerListModel = this.djV.djQ;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.dhQ;
-        aVar = this.djV.cQg;
+        strangerListModel = this.dmm.dmh;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.dkh;
+        aVar = this.dmm.cSx;
         strangerListModel.deleteItem(imMessageCenterShowItemData, aVar);
     }
 }

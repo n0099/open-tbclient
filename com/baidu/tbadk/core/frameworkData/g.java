@@ -10,7 +10,7 @@ public class g {
             if (az.loadStaticClasses()) {
                 BdLog.i("loadStaticClasses success");
             } else {
-                u.hL();
+                u.hM();
             }
         } catch (Exception e) {
             e.printStackTrace();

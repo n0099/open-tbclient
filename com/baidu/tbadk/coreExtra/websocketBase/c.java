@@ -4,11 +4,11 @@ public class c {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static c awp = new c(null);
+        private static c awr = new c(null);
     }
 
     public static c Ce() {
-        return a.awp;
+        return a.awr;
     }
 
     private c() {
@@ -31,6 +31,6 @@ public class c {
     }
 
     private void eP(String str) {
-        com.baidu.adp.framework.client.socket.k.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.n.SM, str);
+        com.baidu.adp.framework.client.socket.k.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.n.SO, str);
     }
 }

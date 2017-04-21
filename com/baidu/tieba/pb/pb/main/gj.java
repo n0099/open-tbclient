@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public abstract class gj {
-    protected BaseActivity bcy;
+    protected BaseActivity bdG;
     protected View mRootView;
 
     protected abstract void a(e eVar);
@@ -12,7 +12,7 @@ public abstract class gj {
     protected abstract void onChangeSkinType(int i);
 
     public gj(BaseActivity baseActivity, View view) {
-        this.bcy = baseActivity;
+        this.bdG = baseActivity;
         this.mRootView = view;
     }
 
@@ -21,7 +21,7 @@ public abstract class gj {
     }
 
     public void b(e eVar) {
-        if (this.bcy != null && this.mRootView != null) {
+        if (this.bdG != null && this.mRootView != null) {
             a(eVar);
         }
     }

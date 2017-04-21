@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.bi;
 /* loaded from: classes.dex */
 public class m extends c {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public bi bbo;
+    public bi bck;
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
@@ -13,7 +13,7 @@ public class m extends c {
     }
 
     public m(bi biVar) {
-        this.bbo = biVar;
+        this.bck = biVar;
     }
 
     public static boolean n(bi biVar) {
@@ -22,6 +22,6 @@ public class m extends c {
 
     @Override // com.baidu.tieba.card.data.c
     public bi Kn() {
-        return this.bbo;
+        return this.bck;
     }
 }

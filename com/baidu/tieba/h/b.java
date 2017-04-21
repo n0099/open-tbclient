@@ -1,7 +1,7 @@
 package com.baidu.tieba.h;
 /* loaded from: classes.dex */
 public interface b {
-    public static final b fsG = new a();
+    public static final b fuX = new a();
 
     void e(String str, long j);
 

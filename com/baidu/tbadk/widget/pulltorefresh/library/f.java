@@ -47,13 +47,13 @@ public class f extends PullToRefreshBase<HorizontalScrollView> {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
     protected boolean isReadyForPullStart() {
-        return ((HorizontalScrollView) this.aLB).getScrollX() == 0;
+        return ((HorizontalScrollView) this.aLD).getScrollX() == 0;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase
     protected boolean isReadyForPullEnd() {
-        View childAt = ((HorizontalScrollView) this.aLB).getChildAt(0);
-        return childAt != null && ((HorizontalScrollView) this.aLB).getScrollX() >= childAt.getWidth() - getWidth();
+        View childAt = ((HorizontalScrollView) this.aLD).getChildAt(0);
+        return childAt != null && ((HorizontalScrollView) this.aLD).getScrollX() >= childAt.getWidth() - getWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

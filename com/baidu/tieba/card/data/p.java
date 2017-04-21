@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class p extends c {
-    public static final BdUniqueId bvn = BdUniqueId.gen();
-    public static final BdUniqueId bvo = BdUniqueId.gen();
-    public static String bvp = "";
-    public static String bvq = "";
-    public static String bvr = "";
-    public static String bvs = "";
-    public static String bvt = "";
-    public static String bvu = "";
-    public static String bvv = "";
-    public bi bbo;
-    public boolean bvi = false;
-    public boolean bvw = true;
+    public static final BdUniqueId bxE = BdUniqueId.gen();
+    public static final BdUniqueId bxF = BdUniqueId.gen();
+    public static String bxG = "";
+    public static String bxH = "";
+    public static String bxI = "";
+    public static String bxJ = "";
+    public static String bxK = "";
+    public static String bxL = "";
+    public static String bxM = "";
+    public bi bck;
+    public boolean bxz = false;
+    public boolean bxN = true;
     public int sourceType = 0;
 
     public p(bi biVar) {
-        this.bbo = biVar;
+        this.bck = biVar;
     }
 
     public static boolean n(bi biVar) {
@@ -29,33 +29,33 @@ public class p extends c {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        if (this.bbo == null) {
-            return bvn;
+        if (this.bck == null) {
+            return bxE;
         }
-        if (this.bbo.sr() || this.bbo.ss()) {
-            return bvo;
+        if (this.bck.sr() || this.bck.ss()) {
+            return bxF;
         }
-        return bvn;
+        return bxE;
     }
 
     @Override // com.baidu.tieba.card.data.c
     public bi Kn() {
-        return this.bbo;
+        return this.bck;
     }
 
-    public as Tl() {
-        return ie(bvs);
+    public as Un() {
+        return A(bxJ, true);
     }
 
     public as o(bi biVar) {
-        return (biVar.ts() == null || biVar.ts().channelId <= 0) ? ie(bvt) : ie(bvu);
+        return (biVar.ts() == null || biVar.ts().channelId <= 0) ? A(bxK, true) : A(bxL, true);
     }
 
-    public as Tn() {
-        return ie(bvq);
+    public as Up() {
+        return A(bxH, true);
     }
 
     public as p(bi biVar) {
-        return (biVar.ts() == null || biVar.ts().channelId <= 0) ? ie(bvp) : ie(bvv);
+        return (biVar.ts() == null || biVar.ts().channelId <= 0) ? A(bxG, true) : A(bxM, true);
     }
 }

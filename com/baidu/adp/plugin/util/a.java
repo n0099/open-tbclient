@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0011a {
-        public boolean Fm;
+        public boolean Fp;
         public String mErrMsg;
     }
 
@@ -117,14 +117,14 @@ public class a {
             a(w, w.getClass(), "dexElements", d);
             Object d2 = d(y(w), y(w2));
             if (d2 instanceof File[]) {
-                Arrays.sort((File[]) d2, kj());
+                Arrays.sort((File[]) d2, kk());
                 list = d2;
             } else {
                 boolean z2 = d2 instanceof List;
                 list = d2;
                 if (z2) {
                     List list2 = (List) d2;
-                    Collections.sort(list2, kj());
+                    Collections.sort(list2, kk());
                     list = list2;
                 }
             }
@@ -239,7 +239,7 @@ public class a {
 
     private static C0011a a(boolean z, Throwable th) {
         C0011a c0011a = new C0011a();
-        c0011a.Fm = z;
+        c0011a.Fp = z;
         c0011a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0011a;
     }
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> kj() {
+    private static final Comparator<File> kk() {
         return new c();
     }
 

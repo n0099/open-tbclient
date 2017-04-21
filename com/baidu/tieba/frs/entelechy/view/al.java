@@ -14,7 +14,7 @@ import java.util.List;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class al extends as {
-    private VoteView bTD;
+    private VoteView bVU;
 
     public al(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -28,23 +28,23 @@ public class al extends as {
             findViewById = ((ViewStub) this.mRootView.findViewById(w.h.text_vote_view_stub)).inflate();
         }
         if (findViewById != null) {
-            this.bTD = (VoteView) findViewById;
-            this.bTD.setWidth(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds560));
-            this.bTD.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds20));
-            this.bTD.setDescTextColorResId(w.e.cp_cont_b);
-            this.bTD.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds8));
-            this.bTD.setDescTopMargin(0);
+            this.bVU = (VoteView) findViewById;
+            this.bVU.setWidth(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds560));
+            this.bVU.setProgressBarHeight(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds20));
+            this.bVU.setDescTextColorResId(w.e.cp_cont_b);
+            this.bVU.setProgressBarTopMargin(com.baidu.adp.lib.util.k.g(getContext(), w.f.ds8));
+            this.bVU.setDescTopMargin(0);
             try {
-                ((ViewGroup.MarginLayoutParams) this.bTM.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds38);
+                ((ViewGroup.MarginLayoutParams) this.bWd.getLayoutParams()).topMargin = com.baidu.adp.lib.util.k.g(getContext(), w.f.ds38);
             } catch (ClassCastException e) {
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.as
-    protected void ig(int i) {
-        if (this.bTD != null) {
-            this.bTD.onChangeSkinType(i);
+    protected void im(int i) {
+        if (this.bVU != null) {
+            this.bVU.onChangeSkinType(i);
         }
     }
 
@@ -62,18 +62,18 @@ public class al extends as {
                             break;
                         }
                         cz czVar = new cz();
-                        czVar.dU(true);
+                        czVar.ee(true);
                         czVar.a(linkedList.size() + 1, pollOption, j);
                         linkedList.add(czVar);
                     }
                 }
                 if (linkedList.size() > 0) {
-                    this.bTD.setBoallotsForListView(linkedList);
-                    this.bTD.onChangeSkinType(getSkinType());
-                    this.bTD.setVisibility(0);
+                    this.bVU.setBoallotsForListView(linkedList);
+                    this.bVU.onChangeSkinType(getSkinType());
+                    this.bVU.setVisibility(0);
                     return;
                 }
-                this.bTD.setVisibility(8);
+                this.bVU.setVisibility(8);
             }
         }
     }

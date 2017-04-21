@@ -149,7 +149,7 @@ public class a {
             a.this.aqz = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Cy = this.mNetwork.vw().wq().isRequestSuccess();
+                aVar.CB = this.mNetwork.vw().wq().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
@@ -165,7 +165,7 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetwork != null) {
-                this.mNetwork.fr();
+                this.mNetwork.fs();
                 this.mNetwork = null;
             }
             a.this.aqz = null;

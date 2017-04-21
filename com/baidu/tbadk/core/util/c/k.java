@@ -56,7 +56,7 @@ public class k extends a {
         cVar.k(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
-            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.ed());
+            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.ee());
         }
         return null;
     }

@@ -2,11 +2,11 @@ package com.baidu.tbadk.core.util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements Runnable {
-    final /* synthetic */ ai afW;
+    final /* synthetic */ ai afX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ai aiVar) {
-        this.afW = aiVar;
+        this.afX = aiVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,7 +15,7 @@ public class aj implements Runnable {
         com.baidu.tbadk.core.sharedPref.b.uL().remove("pull_image_num");
         com.baidu.tbadk.core.sharedPref.b.uL().remove("pullview_background_color_day");
         com.baidu.tbadk.core.sharedPref.b.uL().remove("pullview_background_color_night");
-        this.afW.vQ();
-        this.afW.vL();
+        this.afX.vQ();
+        this.afX.vL();
     }
 }

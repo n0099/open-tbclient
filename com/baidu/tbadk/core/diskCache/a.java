@@ -8,7 +8,7 @@ import com.baidu.adp.lib.g.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean abv = false;
+    private static boolean abw = false;
     private static Handler oz = new b();
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -21,7 +21,7 @@ public class a {
     }
 
     public static void aC(boolean z) {
-        abv = z;
+        abw = z;
     }
 
     public static void init() {

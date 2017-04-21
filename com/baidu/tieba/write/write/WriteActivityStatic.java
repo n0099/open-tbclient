@@ -27,8 +27,8 @@ import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.video.WriteVideoActivity;
 /* loaded from: classes.dex */
 public class WriteActivityStatic {
-    private static int fSt = 11;
-    private static int fSu = 18;
+    private static int fUP = 11;
+    private static int fUQ = 18;
 
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -39,7 +39,7 @@ public class WriteActivityStatic {
         TbadkCoreApplication.m9getInst().RegisterIntent(AtListActivityConfig.class, AtListActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteImageActivityConfig.class, WriteImageActivity.class);
         TbadkCoreApplication.m9getInst().RegisterIntent(WriteMulitImageActivityConfig.class, WriteMultiImgsActivity.class);
-        LocationModel.biZ();
+        LocationModel.bka();
         com.baidu.tbadk.core.util.bb.wn().a("feedback:", new bj());
         registerListener();
     }
@@ -47,7 +47,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void E(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= fSu && Build.VERSION.SDK_INT >= fSt) {
+        if (Build.VERSION.SDK_INT <= fUQ && Build.VERSION.SDK_INT >= fUP) {
             F(tbPageContext);
         } else {
             G(tbPageContext);

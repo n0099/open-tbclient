@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
 /* loaded from: classes.dex */
 public class a {
-    private static a aIR = null;
+    private static a aIT = null;
 
     private a() {
     }
@@ -13,10 +13,10 @@ public class a {
     public static synchronized a Hc() {
         a aVar;
         synchronized (a.class) {
-            if (aIR == null) {
-                aIR = new a();
+            if (aIT == null) {
+                aIT = new a();
             }
-            aVar = aIR;
+            aVar = aIT;
         }
         return aVar;
     }
@@ -24,7 +24,7 @@ public class a {
     public void Hd() {
         String He = He();
         if (!TextUtils.isEmpty(He)) {
-            com.baidu.adp.lib.f.c.fL().a(He, 10, null, 0, 0, null, new Object[0]);
+            com.baidu.adp.lib.f.c.fM().a(He, 10, null, 0, 0, null, new Object[0]);
         }
     }
 

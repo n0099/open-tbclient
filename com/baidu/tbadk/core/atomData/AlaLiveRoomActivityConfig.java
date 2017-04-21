@@ -31,6 +31,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String LIVE_INFO = "live_info_core";
     public static final String LIVE_INFO_LIST = "live_info_core_list";
     public static final String LIVE_IS_CREATE_LIVE_ROOM = "create_live_room";
+    public static final String LIVE_IS_FROM_GAME_FORUM = "live_is_open_from_game_forum";
     public static final String LIVE_IS_HOST = "live_is_host";
     public static final String LIVE_IS_REOPEN_FROM_CRASH = "live_is_reopen_from_crash";
     public static final String USER_ID = "user_id";
@@ -60,11 +61,12 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra(LIVE_FROM_TYPE, str3);
     }
 
-    public AlaLiveRoomActivityConfig(Context context, String str, String str2, String str3, boolean z) {
+    public AlaLiveRoomActivityConfig(Context context, String str, String str2, String str3, boolean z, boolean z2) {
         super(context);
         getIntent().putExtra(LIVE_FORUM_NAME, str);
         getIntent().putExtra(LIVE_FORUM_ID, str2);
         getIntent().putExtra(LIVE_IS_CREATE_LIVE_ROOM, true);
         getIntent().putExtra("user_id", str3);
+        getIntent().putExtra(LIVE_IS_FROM_GAME_FORUM, z2);
     }
 }

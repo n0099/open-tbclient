@@ -15,34 +15,34 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private String adm = null;
-    private SharedPreferences adn = null;
-    private String ado = null;
-    private String adq = null;
-    private static b adk = null;
+    private String adn = null;
+    private SharedPreferences ado = null;
+    private String adp = null;
+    private String adr = null;
+    private static b adl = null;
     private static ContentResolver mContentResolver = null;
-    public static boolean adl = true;
-    private static HashMap<String, String> adp = null;
+    public static boolean adm = true;
+    private static HashMap<String, String> adq = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        adp = new HashMap<>();
-        adp.put(a.acY, TbConfig.SETTINGFILE);
-        adp.put(a.acZ, "remote_settings");
-        adp.put(a.ada, "bdservice_settings");
-        adp.put(a.adb, a.adf);
-        adp.put(a.adc, a.adg);
-        adp.put(a.ade, a.adh);
+        adq = new HashMap<>();
+        adq.put(a.acZ, TbConfig.SETTINGFILE);
+        adq.put(a.ada, "remote_settings");
+        adq.put(a.adb, "bdservice_settings");
+        adq.put(a.adc, a.adg);
+        adq.put(a.ade, a.adh);
+        adq.put(a.adf, a.adi);
         mContentResolver = TbadkCoreApplication.m9getInst().getContentResolver();
     }
 
     public static synchronized b uL() {
         b bVar;
         synchronized (b.class) {
-            if (adk == null) {
-                adk = new b();
+            if (adl == null) {
+                adl = new b();
             }
-            bVar = adk;
+            bVar = adl;
         }
         return bVar;
     }
@@ -60,8 +60,8 @@ public class b {
             }
             return z;
         }
-        this.adn = getSharedPreferences();
-        return this.adn.getBoolean(str, z);
+        this.ado = getSharedPreferences();
+        return this.ado.getBoolean(str, z);
     }
 
     public boolean h(String str, boolean z) {
@@ -90,8 +90,8 @@ public class b {
             }
             return i;
         }
-        this.adn = getSharedPreferences();
-        return this.adn.getInt(str, i);
+        this.ado = getSharedPreferences();
+        return this.ado.getInt(str, i);
     }
 
     public long getLong(String str, long j) {
@@ -107,8 +107,8 @@ public class b {
             }
             return j;
         }
-        this.adn = getSharedPreferences();
-        return this.adn.getLong(str, j);
+        this.ado = getSharedPreferences();
+        return this.ado.getLong(str, j);
     }
 
     public String getString(String str, String str2) {
@@ -116,8 +116,8 @@ public class b {
             String value = getValue(str);
             return value != null ? value : str2;
         }
-        this.adn = getSharedPreferences();
-        return this.adn.getString(str, str2);
+        this.ado = getSharedPreferences();
+        return this.ado.getString(str, str2);
     }
 
     public void putBoolean(String str, boolean z) {
@@ -125,8 +125,8 @@ public class b {
             j(str, z);
             return;
         }
-        this.adn = getSharedPreferences();
-        EditorHelper.putBoolean(this.adn, str, z);
+        this.ado = getSharedPreferences();
+        EditorHelper.putBoolean(this.ado, str, z);
     }
 
     public void i(String str, boolean z) {
@@ -138,8 +138,8 @@ public class b {
             T(str, str2);
             return;
         }
-        this.adn = getSharedPreferences();
-        EditorHelper.putString(this.adn, str, str2);
+        this.ado = getSharedPreferences();
+        EditorHelper.putString(this.ado, str, str2);
     }
 
     public void putInt(String str, int i) {
@@ -147,8 +147,8 @@ public class b {
             q(str, i);
             return;
         }
-        this.adn = getSharedPreferences();
-        EditorHelper.putInt(this.adn, str, i);
+        this.ado = getSharedPreferences();
+        EditorHelper.putInt(this.ado, str, i);
     }
 
     public void putLong(String str, long j) {
@@ -156,8 +156,8 @@ public class b {
             f(str, j);
             return;
         }
-        this.adn = getSharedPreferences();
-        EditorHelper.putLong(this.adn, str, j);
+        this.ado = getSharedPreferences();
+        EditorHelper.putLong(this.ado, str, j);
     }
 
     public void remove(String str) {
@@ -165,17 +165,17 @@ public class b {
             removeValue(str);
             return;
         }
-        this.adn = getSharedPreferences();
-        EditorHelper.remove(this.adn, str);
+        this.ado = getSharedPreferences();
+        EditorHelper.remove(this.ado, str);
     }
 
     private boolean cO(String str) {
-        if (str == null || str.length() == 0 || !adl) {
+        if (str == null || str.length() == 0 || !adm) {
             return false;
         }
-        int length = a.adi.length;
+        int length = a.adj.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.adi[i])) {
+            if (str.equals(a.adj[i])) {
                 return true;
             }
         }
@@ -219,17 +219,17 @@ public class b {
     }
 
     protected synchronized SharedPreferences getSharedPreferences() {
-        if (this.ado == null || this.ado.length() == 0) {
-            if (this.adm == null || this.adm.length() == 0) {
-                this.adm = getProcessName();
+        if (this.adp == null || this.adp.length() == 0) {
+            if (this.adn == null || this.adn.length() == 0) {
+                this.adn = getProcessName();
             }
-            if (adp.containsKey(this.adm)) {
-                this.ado = adp.get(this.adm);
+            if (adq.containsKey(this.adn)) {
+                this.adp = adq.get(this.adn);
             } else {
-                this.ado = TbConfig.SETTINGFILE;
+                this.adp = TbConfig.SETTINGFILE;
             }
         }
-        return TbadkCoreApplication.m9getInst().getSharedPreferences(this.ado, 0);
+        return TbadkCoreApplication.m9getInst().getSharedPreferences(this.adp, 0);
     }
 
     private String getProcessName() {
@@ -251,7 +251,7 @@ public class b {
                 }
             }
         }
-        return a.acY;
+        return a.acZ;
     }
 
     public void uM() {
@@ -280,19 +280,19 @@ public class b {
     }
 
     protected String uN() {
-        if (this.adq == null) {
+        if (this.adr == null) {
             String packageName = TbadkCoreApplication.m9getInst().getContext().getPackageName();
             if (TbConfig.MAIN_PACKAGE_NAME.equals(packageName)) {
-                this.adq = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                this.adr = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
-                this.adq = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                this.adr = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
             }
         }
-        return this.adq;
+        return this.adr;
     }
 
     protected void a(Uri uri, ContentValues contentValues) {
-        if (k.hz()) {
+        if (k.hA()) {
             new c(this, uri, contentValues).execute(new Void[0]);
         } else {
             b(uri, contentValues);
@@ -318,7 +318,7 @@ public class b {
     }
 
     protected void d(Uri uri) {
-        if (k.hz()) {
+        if (k.hA()) {
             new d(this, uri).execute(new Void[0]);
         } else {
             e(uri);

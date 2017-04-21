@@ -8,11 +8,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class HeadPendantView extends FrameLayout {
-    private TbImageView aiX;
-    private HeadImageView aiY;
-    private boolean aiZ;
+    private TbImageView aiY;
+    private HeadImageView aiZ;
     private boolean aja;
     private boolean ajb;
+    private boolean ajc;
     private Context mContext;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
@@ -34,23 +34,23 @@ public class HeadPendantView extends FrameLayout {
     }
 
     public boolean wK() {
-        return this.ajb;
+        return this.ajc;
     }
 
     public void wL() {
-        this.aiZ = true;
-        if (this.aiX == null) {
-            this.aiX = new TbImageView(this.mContext);
-            this.aiX.setDefaultBgResource(0);
-            this.aiX.setDefaultResource(0);
-            this.aiX.setDefaultErrorResource(0);
-            this.aiX.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            addView(this.aiX);
+        this.aja = true;
+        if (this.aiY == null) {
+            this.aiY = new TbImageView(this.mContext);
+            this.aiY.setDefaultBgResource(0);
+            this.aiY.setDefaultResource(0);
+            this.aiY.setDefaultErrorResource(0);
+            this.aiY.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            addView(this.aiY);
         }
     }
 
     public void setHasPendantStyle(boolean z) {
-        this.aiZ = z;
+        this.aja = z;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -61,48 +61,48 @@ public class HeadPendantView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.aiZ && !this.aja) {
+        if (this.aja && !this.ajb) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.aja = true;
-            this.aiY.setPadding((int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f), (int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f));
+            this.ajb = true;
+            this.aiZ.setPadding((int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f), (int) (measuredWidth * 0.13f), (int) (measuredHeight * 0.13f));
         }
     }
 
     public void dU(String str) {
-        if (this.aiX != null) {
+        if (this.aiY != null) {
             if (!StringUtils.isNull(str)) {
-                this.ajb = true;
-                this.aiX.setVisibility(0);
-                this.aiX.c(str, 10, false);
+                this.ajc = true;
+                this.aiY.setVisibility(0);
+                this.aiY.c(str, 10, false);
                 return;
             }
-            this.aiX.setVisibility(8);
-            this.ajb = false;
+            this.aiY.setVisibility(8);
+            this.ajc = false;
         }
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.aiX.setAutoChangeStyle(z);
         this.aiY.setAutoChangeStyle(z);
+        this.aiZ.setAutoChangeStyle(z);
     }
 
     private void init() {
-        this.aiY = new HeadImageView(this.mContext);
-        this.aiY.setDefaultBgResource(w.g.transparent_bg);
-        this.aiY.setDefaultResource(w.e.cp_bg_line_e);
-        this.aiY.setDefaultErrorResource(w.g.icon_default_avatar100);
+        this.aiZ = new HeadImageView(this.mContext);
+        this.aiZ.setDefaultBgResource(w.g.transparent_bg);
+        this.aiZ.setDefaultResource(w.e.cp_bg_line_e);
+        this.aiZ.setDefaultErrorResource(w.g.icon_default_avatar100);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.aiY.setLayoutParams(layoutParams);
-        addView(this.aiY);
+        this.aiZ.setLayoutParams(layoutParams);
+        addView(this.aiZ);
     }
 
     public TbImageView getPendantView() {
-        return this.aiX;
+        return this.aiY;
     }
 
     public HeadImageView getHeadView() {
-        return this.aiY;
+        return this.aiZ;
     }
 }

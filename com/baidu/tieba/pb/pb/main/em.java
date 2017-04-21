@@ -15,9 +15,9 @@ public class em extends cx<com.baidu.tbadk.core.data.as, en> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bb */
+    /* renamed from: bd */
     public en onCreateViewHolder(ViewGroup viewGroup) {
-        return new en(this.eig.getPageContext(), LayoutInflater.from(this.mContext).inflate(w.j.pb_recommend_novel, viewGroup, false));
+        return new en(this.ekw.getPageContext(), LayoutInflater.from(this.mContext).inflate(w.j.pb_recommend_novel, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

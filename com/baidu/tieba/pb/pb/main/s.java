@@ -9,11 +9,11 @@ import com.baidu.tieba.pb.a.d;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class s implements d.a {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.a.d.a
@@ -30,33 +30,33 @@ class s implements d.a {
         ey eyVar6;
         ey eyVar7;
         com.baidu.tbadk.editortools.pb.c cVar3;
-        eyVar = this.ejU.eiS;
-        if (eyVar.aNS()) {
+        eyVar = this.emk.eli;
+        if (eyVar.aOT()) {
             return true;
         }
-        eyVar2 = this.ejU.eiS;
+        eyVar2 = this.emk.eli;
         if (eyVar2 == null) {
             return false;
         }
-        eyVar3 = this.ejU.eiS;
-        eyVar3.iI(false);
-        cVar = this.ejU.eje;
+        eyVar3 = this.emk.eli;
+        eyVar3.iS(false);
+        cVar = this.emk.elu;
         if (cVar != null) {
-            eyVar7 = this.ejU.eiS;
-            cVar3 = this.ejU.eje;
-            eyVar7.gB(cVar3.DU());
+            eyVar7 = this.emk.eli;
+            cVar3 = this.emk.elu;
+            eyVar7.gL(cVar3.DU());
         }
-        eyVar4 = this.ejU.eiS;
+        eyVar4 = this.emk.eli;
         eyVar4.aZ(view);
-        eyVar5 = this.ejU.eiS;
-        eyVar5.iI(true);
-        cVar2 = this.ejU.eje;
+        eyVar5 = this.emk.eli;
+        eyVar5.iS(true);
+        cVar2 = this.emk.elu;
         cVar2.DX();
-        fVar = this.ejU.eiy;
+        fVar = this.emk.ekO;
         if (fVar != null) {
-            fVar2 = this.ejU.eiy;
-            eyVar6 = this.ejU.eiS;
-            fVar2.iT(eyVar6.isFullScreen());
+            fVar2 = this.emk.ekO;
+            eyVar6 = this.emk.eli;
+            fVar2.jd(eyVar6.isFullScreen());
             return true;
         }
         return true;
@@ -68,7 +68,7 @@ class s implements d.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00b7, code lost:
-        if (r5 == r0.aNR()) goto L27;
+        if (r5 == r0.aOS()) goto L27;
      */
     @Override // com.baidu.tieba.pb.a.d.a
     /*
@@ -89,21 +89,21 @@ class s implements d.a {
             if (view.getId() != w.h.richText) {
                 if (view.getId() == w.h.pb_list_item_layout) {
                     if (view.getTag(w.h.tag_from) instanceof SparseArray) {
-                        this.ejU.e((SparseArray) view.getTag(w.h.tag_from));
+                        this.emk.e((SparseArray) view.getTag(w.h.tag_from));
                     }
                 } else if (!(view instanceof TbRichTextView) && view.getId() != w.h.pb_post_header_layout) {
-                    eyVar4 = this.ejU.eiS;
+                    eyVar4 = this.emk.eli;
                     if (eyVar4 != null) {
-                        eyVar5 = this.ejU.eiS;
-                        if (eyVar5.aKs()) {
+                        eyVar5 = this.emk.eli;
+                        if (eyVar5.aLt()) {
                             if (view.getId() != w.h.pb_head_user_info_root) {
-                                eyVar6 = this.ejU.eiS;
+                                eyVar6 = this.emk.eli;
                             }
                             if (view.getTag(w.h.tag_user_id) instanceof String) {
                                 TiebaStatic.log(new com.baidu.tbadk.core.util.as("c10630").aa("obj_id", (String) view.getTag(w.h.tag_user_id)));
                             }
-                            if (this.ejU.eiT != null && this.ejU.eiT.erI != null) {
-                                this.ejU.eiT.erI.onClick(view);
+                            if (this.emk.elj != null && this.emk.elj.eua != null) {
+                                this.emk.elj.eua.onClick(view);
                             }
                         }
                     }
@@ -115,27 +115,27 @@ class s implements d.a {
                     if (sparseArray == null) {
                         return false;
                     }
-                    this.ejU.e(sparseArray);
+                    this.emk.e(sparseArray);
                 }
             } else {
-                aV = this.ejU.aV(view);
+                aV = this.emk.aV(view);
                 if (aV) {
                     return true;
                 }
             }
         }
-        cVar = this.ejU.eje;
+        cVar = this.emk.elu;
         if (cVar != null) {
-            eyVar3 = this.ejU.eiS;
-            cVar3 = this.ejU.eje;
-            eyVar3.gB(cVar3.DU());
+            eyVar3 = this.emk.eli;
+            cVar3 = this.emk.elu;
+            eyVar3.gL(cVar3.DU());
         }
-        eyVar = this.ejU.eiS;
-        eyVar.aMT();
-        cVar2 = this.ejU.eje;
+        eyVar = this.emk.eli;
+        eyVar.aNU();
+        cVar2 = this.emk.elu;
         cVar2.DX();
-        eyVar2 = this.ejU.eiS;
-        eyVar2.awH();
+        eyVar2 = this.emk.eli;
+        eyVar2.axI();
         return true;
     }
 }

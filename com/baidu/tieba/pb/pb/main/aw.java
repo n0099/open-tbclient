@@ -10,19 +10,19 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements c.b {
-    final /* synthetic */ PbActivity ejU;
-    private final /* synthetic */ SparseArray ejV;
-    private final /* synthetic */ boolean ejW;
-    private final /* synthetic */ String ejX;
-    private final /* synthetic */ String ejY;
+    final /* synthetic */ PbActivity emk;
+    private final /* synthetic */ SparseArray eml;
+    private final /* synthetic */ boolean emm;
+    private final /* synthetic */ String emn;
+    private final /* synthetic */ String emo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str, String str2) {
-        this.ejU = pbActivity;
-        this.ejV = sparseArray;
-        this.ejW = z;
-        this.ejX = str;
-        this.ejY = str2;
+        this.emk = pbActivity;
+        this.eml = sparseArray;
+        this.emm = z;
+        this.emn = str;
+        this.emo = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -31,16 +31,16 @@ public class aw implements c.b {
         BdUniqueId bdUniqueId2;
         switch (i) {
             case 0:
-                String str = (String) this.ejV.get(w.h.tag_user_mute_mute_username);
+                String str = (String) this.eml.get(w.h.tag_user_mute_mute_username);
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_HANDLE_CLICK);
-                boolean z = this.ejW;
-                String str2 = this.ejX;
-                String str3 = this.ejY;
-                bdUniqueId = this.ejU.ejj;
-                userMuteAddAndDelCustomMessage.setData(z, str2, str, (String) this.ejV.get(w.h.tag_user_mute_thread_id), (String) this.ejV.get(w.h.tag_user_mute_post_id), 1, str3, bdUniqueId);
-                bdUniqueId2 = this.ejU.ejj;
+                boolean z = this.emm;
+                String str2 = this.emn;
+                String str3 = this.emo;
+                bdUniqueId = this.emk.elz;
+                userMuteAddAndDelCustomMessage.setData(z, str2, str, (String) this.eml.get(w.h.tag_user_mute_thread_id), (String) this.eml.get(w.h.tag_user_mute_post_id), 1, str3, bdUniqueId);
+                bdUniqueId2 = this.emk.elz;
                 userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
-                this.ejU.a(this.ejW, userMuteAddAndDelCustomMessage, this.ejY, str);
+                this.emk.a(this.emm, userMuteAddAndDelCustomMessage, this.emo, str);
                 break;
         }
         cVar.dismiss();

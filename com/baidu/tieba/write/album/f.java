@@ -8,11 +8,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class f implements View.OnClickListener {
-    final /* synthetic */ e fMZ;
+    final /* synthetic */ e fPv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.fMZ = eVar;
+        this.fPv = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,7 +25,7 @@ class f implements View.OnClickListener {
         o oVar2;
         j jVar3;
         int i2;
-        ImageFileInfo sN;
+        ImageFileInfo sT;
         o oVar3;
         AlbumActivity albumActivity2;
         ImageView imageView;
@@ -45,66 +45,66 @@ class f implements View.OnClickListener {
         int i6;
         j jVar4;
         int i7;
-        jVar = this.fMZ.fMX;
+        jVar = this.fPv.fPt;
         if (jVar != null) {
-            oVar = this.fMZ.fMH;
+            oVar = this.fPv.fPd;
             if (oVar != null) {
-                albumActivity = this.fMZ.fMV;
+                albumActivity = this.fPv.fPr;
                 if (albumActivity != null) {
-                    jVar2 = this.fMZ.fMX;
-                    i = this.fMZ.aBR;
-                    if (jVar2.sO(i)) {
-                        oVar2 = this.fMZ.fMH;
-                        if ("-1".equals(oVar2.bnD())) {
-                            jVar4 = this.fMZ.fMX;
-                            i7 = this.fMZ.aBR;
-                            sN = jVar4.sN(i7 + 1);
+                    jVar2 = this.fPv.fPt;
+                    i = this.fPv.aBT;
+                    if (jVar2.sU(i)) {
+                        oVar2 = this.fPv.fPd;
+                        if ("-1".equals(oVar2.boE())) {
+                            jVar4 = this.fPv.fPt;
+                            i7 = this.fPv.aBT;
+                            sT = jVar4.sT(i7 + 1);
                         } else {
-                            jVar3 = this.fMZ.fMX;
-                            i2 = this.fMZ.aBR;
-                            sN = jVar3.sN(i2);
+                            jVar3 = this.fPv.fPt;
+                            i2 = this.fPv.aBT;
+                            sT = jVar3.sT(i2);
                         }
-                        oVar3 = this.fMZ.fMH;
-                        if (oVar3.isAdded(sN)) {
-                            albumActivity6 = this.fMZ.fMV;
-                            if (albumActivity6.d(sN)) {
-                                e eVar = this.fMZ;
-                                imageView3 = this.fMZ.fMY;
+                        oVar3 = this.fPv.fPd;
+                        if (oVar3.isAdded(sT)) {
+                            albumActivity6 = this.fPv.fPr;
+                            if (albumActivity6.d(sT)) {
+                                e eVar = this.fPv;
+                                imageView3 = this.fPv.fPu;
                                 eVar.c(imageView3, false);
-                                oVar5 = this.fMZ.fMH;
-                                if ("-1".equals(oVar5.bnD())) {
-                                    albumActivity8 = this.fMZ.fMV;
-                                    i6 = this.fMZ.aBR;
+                                oVar5 = this.fPv.fPd;
+                                if ("-1".equals(oVar5.boE())) {
+                                    albumActivity8 = this.fPv.fPr;
+                                    i6 = this.fPv.aBT;
                                     albumActivity8.K(i6 + 1, false);
                                 } else {
-                                    albumActivity7 = this.fMZ.fMV;
-                                    i5 = this.fMZ.aBR;
+                                    albumActivity7 = this.fPv.fPr;
+                                    i5 = this.fPv.aBT;
                                     albumActivity7.K(i5, false);
                                 }
                             }
                         } else {
-                            albumActivity2 = this.fMZ.fMV;
-                            if (albumActivity2.c(sN)) {
-                                e eVar2 = this.fMZ;
-                                imageView = this.fMZ.fMY;
+                            albumActivity2 = this.fPv.fPr;
+                            if (albumActivity2.c(sT)) {
+                                e eVar2 = this.fPv;
+                                imageView = this.fPv.fPu;
                                 eVar2.c(imageView, true);
-                                oVar4 = this.fMZ.fMH;
-                                if ("-1".equals(oVar4.bnD())) {
-                                    albumActivity5 = this.fMZ.fMV;
-                                    i4 = this.fMZ.aBR;
+                                oVar4 = this.fPv.fPd;
+                                if ("-1".equals(oVar4.boE())) {
+                                    albumActivity5 = this.fPv.fPr;
+                                    i4 = this.fPv.aBT;
                                     albumActivity5.K(i4 + 1, true);
                                 } else {
-                                    albumActivity3 = this.fMZ.fMV;
-                                    i3 = this.fMZ.aBR;
+                                    albumActivity3 = this.fPv.fPr;
+                                    i3 = this.fPv.aBT;
                                     albumActivity3.K(i3, true);
                                 }
-                                albumActivity4 = this.fMZ.fMV;
+                                albumActivity4 = this.fPv.fPr;
                                 Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), w.a.album_choose_icon);
-                                imageView2 = this.fMZ.fMY;
+                                imageView2 = this.fPv.fPu;
                                 imageView2.startAnimation(loadAnimation);
                             }
                         }
-                        this.fMZ.bnw();
+                        this.fPv.box();
                     }
                 }
             }

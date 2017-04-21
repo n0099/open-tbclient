@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class a implements TextWatcher {
-    final /* synthetic */ AppealActivity aWa;
+    final /* synthetic */ AppealActivity aWc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AppealActivity appealActivity) {
-        this.aWa = appealActivity;
+        this.aWc = appealActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,16 +28,16 @@ class a implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        textView = this.aWa.aVV;
+        textView = this.aWc.aVX;
         int length = 150 - textView.getText().toString().length();
-        textView2 = this.aWa.aVW;
+        textView2 = this.aWc.aVY;
         textView2.setText(String.valueOf(length));
         if (length < 0) {
-            textView4 = this.aWa.aVW;
-            textView4.setTextColor(this.aWa.getResources().getColor(w.e.common_color_10253));
+            textView4 = this.aWc.aVY;
+            textView4.setTextColor(this.aWc.getResources().getColor(w.e.common_color_10253));
             return;
         }
-        textView3 = this.aWa.aVW;
+        textView3 = this.aWc.aVY;
         aq.c(textView3, w.e.common_color_10005, 1);
     }
 }

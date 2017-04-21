@@ -20,11 +20,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements cd {
-    final /* synthetic */ a bTc;
+    final /* synthetic */ a bVt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bTc = aVar;
+        this.bVt = aVar;
     }
 
     @Override // com.baidu.tieba.frs.cd
@@ -49,13 +49,13 @@ public class b implements cd {
         FrsActivity frsActivity8;
         FrsActivity frsActivity9;
         if (i > 100) {
-            if (clVar != null && (clVar.bQg instanceof String)) {
-                this.bTc.aM((String) clVar.bQg, "c10079");
+            if (clVar != null && (clVar.bSx instanceof String)) {
+                this.bVt.aL((String) clVar.bSx, "c10079");
             }
         } else {
             as asVar = new as("c10074");
             asVar.s("obj_type", i);
-            frsActivity = this.bTc.bST;
+            frsActivity = this.bVt.bVk;
             asVar.aa("fid", frsActivity.getForumId());
             TiebaStatic.log(asVar);
             if (i == 99) {
@@ -64,44 +64,44 @@ public class b implements cd {
                 TiebaStatic.log(asVar2);
             }
         }
-        if (HorizontalTabView.iy(i) && clVar != null) {
-            String str = (String) clVar.bQg;
+        if (HorizontalTabView.iE(i) && clVar != null) {
+            String str = (String) clVar.bSx;
             if (!StringUtils.isNull(str)) {
                 if ((str.contains("nohead:url") || str.contains("booktown")) && !TbadkCoreApplication.m9getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    frsActivity8 = this.bTc.bST;
+                    frsActivity8 = this.bVt.bVk;
                     k.showToast(frsActivity8.getPageContext().getPageActivity(), w.l.book_plugin_not_install_tip);
                     return;
                 }
                 bb wn = bb.wn();
-                frsActivity9 = this.bTc.bST;
+                frsActivity9 = this.bVt.bVk;
                 wn.c(frsActivity9.getPageContext(), new String[]{str});
             }
         } else if (i == 301) {
-            frsActivity2 = this.bTc.bST;
+            frsActivity2 = this.bVt.bVk;
             if (frsActivity2 != null) {
-                frsActivity3 = this.bTc.bST;
+                frsActivity3 = this.bVt.bVk;
                 if (frsActivity3.getPageContext() != null) {
-                    frsActivity4 = this.bTc.bST;
+                    frsActivity4 = this.bVt.bVk;
                     if (frsActivity4.getPageContext().getPageActivity() != null) {
-                        frsActivity5 = this.bTc.bST;
-                        frsActivity6 = this.bTc.bST;
+                        frsActivity5 = this.bVt.bVk;
+                        frsActivity6 = this.bVt.bVk;
                         FrsGoodActivityConfig frsGoodActivityConfig = new FrsGoodActivityConfig(frsActivity6.getPageContext().getPageActivity());
-                        frsActivity7 = this.bTc.bST;
-                        frsActivity5.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity7.bMu, FrsActivityConfig.FRS_FROM_LIKE)));
+                        frsActivity7 = this.bVt.bVk;
+                        frsActivity5.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity7.bOL, FrsActivityConfig.FRS_FROM_LIKE)));
                     }
                 }
             }
         } else {
             if (i == 1) {
-                aVar2 = this.bTc.bSV;
-                aVar2.abN();
+                aVar2 = this.bVt.bVm;
+                aVar2.acO();
             } else {
-                aVar = this.bTc.bSV;
-                aVar.abO();
+                aVar = this.bVt.bVm;
+                aVar.acP();
             }
-            cdVar = this.bTc.bSW;
+            cdVar = this.bVt.bVn;
             if (cdVar != null) {
-                cdVar2 = this.bTc.bSW;
+                cdVar2 = this.bVt.bVn;
                 cdVar2.a(i, i2, clVar);
             }
         }
@@ -112,6 +112,6 @@ public class b implements cd {
     }
 
     @Override // com.baidu.tieba.frs.cd
-    public void Np() {
+    public void Nx() {
     }
 }

@@ -4,17 +4,17 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ l dkD;
+    final /* synthetic */ l dmU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(l lVar) {
-        this.dkD = lVar;
+        this.dmU = lVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         BdListView bdListView;
-        bdListView = this.dkD.dhF;
+        bdListView = this.dmU.djW;
         bdListView.startPullRefresh();
     }
 }

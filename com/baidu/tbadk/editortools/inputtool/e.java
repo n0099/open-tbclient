@@ -5,17 +5,17 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableStringBuilder;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ InputView aAB;
-    private final /* synthetic */ SpannableStringBuilder aAE;
-    private final /* synthetic */ int aAF;
-    private final /* synthetic */ int aAG;
+    final /* synthetic */ InputView aAD;
+    private final /* synthetic */ SpannableStringBuilder aAG;
+    private final /* synthetic */ int aAH;
+    private final /* synthetic */ int aAI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(InputView inputView, SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        this.aAB = inputView;
-        this.aAE = spannableStringBuilder;
-        this.aAF = i;
-        this.aAG = i2;
+        this.aAD = inputView;
+        this.aAG = spannableStringBuilder;
+        this.aAH = i;
+        this.aAI = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,12 +24,12 @@ class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         super.onLoaded((e) aVar, str, i);
         if (aVar != null) {
-            Bitmap kR = aVar.kR();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(kR);
-            int width = (int) (0.5d * kR.getWidth());
+            Bitmap kS = aVar.kS();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(kS);
+            int width = (int) (0.5d * kS.getWidth());
             bitmapDrawable.setBounds(0, 0, width, width);
             bitmapDrawable.setGravity(119);
-            this.aAE.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), this.aAF, this.aAG, 33);
+            this.aAG.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), this.aAH, this.aAI, 33);
         }
     }
 }

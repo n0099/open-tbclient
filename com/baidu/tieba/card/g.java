@@ -12,13 +12,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ e brL;
+    final /* synthetic */ e bud;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.brL = eVar;
+        this.bud = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,30 +36,30 @@ public class g extends CustomMessageListener {
             com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a();
             aVar.setThreadId(historyMessage.threadId);
             aVar.setForumName(historyMessage.forumName);
-            aVar.mA(historyMessage.threadName);
-            aVar.mB(historyMessage.postID);
-            aVar.hG(historyMessage.isHostOnly);
-            aVar.hH(historyMessage.isSquence);
+            aVar.mB(historyMessage.threadName);
+            aVar.mC(historyMessage.postID);
+            aVar.hQ(historyMessage.isHostOnly);
+            aVar.hR(historyMessage.isSquence);
             aVar.setThreadType(historyMessage.threadType);
             if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
-                pbHistoryCacheModel = this.brL.brF;
+                pbHistoryCacheModel = this.bud.btX;
                 if (pbHistoryCacheModel == null) {
-                    this.brL.brF = new PbHistoryCacheModel(historyMessage.Activity.getPageContext());
+                    this.bud.btX = new PbHistoryCacheModel(historyMessage.Activity.getPageContext());
                 }
-                pbHistoryCacheModel2 = this.brL.brF;
-                bdUniqueId = this.brL.baI;
+                pbHistoryCacheModel2 = this.bud.btX;
+                bdUniqueId = this.bud.bbE;
                 pbHistoryCacheModel2.setUniqueId(bdUniqueId);
-                pbHistoryCacheModel3 = this.brL.brF;
+                pbHistoryCacheModel3 = this.bud.btX;
                 pbHistoryCacheModel3.a((PbHistoryCacheModel) aVar);
             }
-            nVar = this.brL.brG;
+            nVar = this.bud.btY;
             nVar.a(historyMessage.threadId, aVar);
-            at.hY(historyMessage.threadId);
-            e eVar = this.brL;
-            textView = this.brL.mTitle;
+            at.hZ(historyMessage.threadId);
+            e eVar = this.bud;
+            textView = this.bud.mTitle;
             eVar.j(textView, w.e.cp_cont_b);
-            e eVar2 = this.brL;
-            textView2 = this.brL.brC;
+            e eVar2 = this.bud;
+            textView2 = this.bud.btU;
             eVar2.j(textView2, w.e.cp_cont_c);
         }
     }

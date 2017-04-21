@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.pb.sub;
 /* loaded from: classes.dex */
 class ab extends com.baidu.tbadk.pageStayDuration.b {
-    final /* synthetic */ NewSubPbActivity esV;
+    final /* synthetic */ NewSubPbActivity evm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(NewSubPbActivity newSubPbActivity) {
-        this.esV = newSubPbActivity;
+        this.evm = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.b

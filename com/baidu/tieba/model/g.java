@@ -24,34 +24,34 @@ import org.json.JSONObject;
 public class g {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] aFc;
+        String[] aGd;
         if (bVar == null) {
             return null;
         }
         try {
-            aFc = aFc();
+            aGd = aGd();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aFc != null) {
+        if (aGd != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
-            arrayList.add(new BasicNameValuePair("clientip", aFd()));
-            arrayList.add(new BasicNameValuePair("cert_id", aFc[0]));
+            arrayList.add(new BasicNameValuePair("clientip", aGe()));
+            arrayList.add(new BasicNameValuePair("cert_id", aGd[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(SapiAccountManager.SESSION_BDUSS, bVar.mBduss);
-            jSONObject.put("ptoken", bVar.SZ);
+            jSONObject.put("ptoken", bVar.Tb);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.m9getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.m9getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aFc[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aGd[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
             z zVar = new z(TbConfig.PassConfig.LOGIN_BDUSS_URL);
             zVar.vw().wp().mIsNeedAddCommenParam = false;
             zVar.vw().wp().mIsUseCurrentBDUSS = false;
             zVar.k(arrayList);
-            zVar.vw().wp().ws().ahI = true;
+            zVar.vw().wp().ws().ahJ = true;
             zVar.vw().wp().ws().mIsBaiduServer = false;
             String uY = zVar.uY();
             if (zVar.vw().wq().isRequestSuccess() && !au.isEmpty(uY)) {
@@ -59,8 +59,8 @@ public class g {
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
                     bVar2.mBduss = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
-                    bVar2.SZ = jSONObject2.optString("ptoken");
-                    bVar2.Ta = jSONObject2.optString("uname");
+                    bVar2.Tb = jSONObject2.optString("ptoken");
+                    bVar2.Tc = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -70,7 +70,7 @@ public class g {
         return null;
     }
 
-    private static String[] aFc() {
+    private static String[] aGd() {
         try {
             z zVar = new z(TbConfig.PassConfig.GET_CERT_URL);
             zVar.vw().wp().mIsNeedAddCommenParam = false;
@@ -82,8 +82,8 @@ public class g {
         }
     }
 
-    private static String aFd() {
-        if (i.hk()) {
+    private static String aGe() {
+        if (i.hl()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.m9getInst().getApp());
         }
         return UtilHelper.getGprsIpAddress();

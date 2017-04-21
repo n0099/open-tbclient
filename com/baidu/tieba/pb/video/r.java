@@ -16,9 +16,9 @@ public class r extends cx<s, w> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
+    /* renamed from: be */
     public w onCreateViewHolder(ViewGroup viewGroup) {
-        return new w(this.eig.getPageContext(), LayoutInflater.from(this.mContext).inflate(w.j.pb_recommend_video_item_layout, viewGroup, false));
+        return new w(this.ekw.getPageContext(), LayoutInflater.from(this.mContext).inflate(w.j.pb_recommend_video_item_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

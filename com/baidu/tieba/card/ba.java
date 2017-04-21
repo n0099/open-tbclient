@@ -4,19 +4,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements View.OnClickListener {
-    final /* synthetic */ au btu;
+    final /* synthetic */ au bvM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(au auVar) {
-        this.btu = auVar;
+        this.bvM = auVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.card.data.n nVar;
-        if (this.btu.getOnSubCardOnClickListenner() != null) {
-            cf<com.baidu.tieba.card.data.n> onSubCardOnClickListenner = this.btu.getOnSubCardOnClickListenner();
-            nVar = this.btu.btp;
+        if (this.bvM.getOnSubCardOnClickListenner() != null) {
+            cf<com.baidu.tieba.card.data.n> onSubCardOnClickListenner = this.bvM.getOnSubCardOnClickListenner();
+            nVar = this.bvM.bvH;
             onSubCardOnClickListenner.a(view, nVar);
         }
     }

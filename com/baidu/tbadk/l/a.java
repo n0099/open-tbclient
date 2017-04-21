@@ -162,14 +162,14 @@ public class a extends com.baidu.adp.framework.a.d {
         ad.a vG = ad.vG();
         if (vG != null) {
             httpMessage.addParam("stTime", String.valueOf(vG.mTime));
-            httpMessage.addParam("stSize", String.valueOf(vG.afA));
-            httpMessage.addParam("stTimesNum", String.valueOf(vG.afB));
+            httpMessage.addParam("stSize", String.valueOf(vG.afB));
+            httpMessage.addParam("stTimesNum", String.valueOf(vG.afC));
             httpMessage.addParam("stMode", String.valueOf(vG.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(vG.afz));
+            httpMessage.addParam("stMethod", String.valueOf(vG.afA));
         }
         int cF = ad.cF(0);
         if (cF == 0 && vG != null) {
-            cF = vG.afB;
+            cF = vG.afC;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(cF));
     }

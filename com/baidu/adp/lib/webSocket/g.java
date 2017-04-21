@@ -21,7 +21,7 @@ public interface g {
 
         void e(Map<String, String> map);
 
-        void hW();
+        void hX();
 
         void r(byte[] bArr);
 

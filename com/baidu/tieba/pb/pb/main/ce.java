@@ -6,16 +6,16 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ce implements a.b {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ce(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        Toast.makeText(this.ejU.getPageContext().getPageActivity(), this.ejU.getPageContext().getResources().getString(w.l.channel_no_push), 1).show();
+        Toast.makeText(this.emk.getPageContext().getPageActivity(), this.emk.getPageContext().getResources().getString(w.l.channel_no_push), 1).show();
     }
 }

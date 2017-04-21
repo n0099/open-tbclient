@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.u;
 /* loaded from: classes.dex */
 public class n extends a {
-    private boolean aic;
+    private boolean aid;
     private int procType;
 
     public n(boolean z, int i) {
-        this.aic = true;
+        this.aid = true;
         this.procType = 0;
-        this.aic = z;
+        this.aid = z;
         this.procType = i;
     }
 
@@ -36,7 +36,7 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public boolean isFromCDN() {
-        return this.aic;
+        return this.aid;
     }
 
     @Override // com.baidu.tbadk.core.util.c.a
@@ -51,8 +51,8 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.c.a
     public com.baidu.adp.widget.a.a b(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        com.baidu.adp.lib.stats.c fM = u.fM();
-        fM.fV();
+        com.baidu.adp.lib.stats.c fN = u.fN();
+        fN.fW();
         byte[] bArr = new byte[0];
         com.baidu.adp.lib.Disk.ops.c dQ = dQ(aw.dD(str2));
         if (dQ == null) {
@@ -66,15 +66,15 @@ public class n extends a {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(dQ);
-            aVar.wc = dVar;
+            aVar.wg = dVar;
         }
-        boolean hk = com.baidu.adp.lib.util.i.hk();
-        if (!com.baidu.adp.lib.Disk.d.dH().c(dQ)) {
-            u.a(fM, str2, false, fM.fW(), hk);
+        boolean hl = com.baidu.adp.lib.util.i.hl();
+        if (!com.baidu.adp.lib.Disk.d.dI().c(dQ)) {
+            u.a(fN, str2, false, fN.fX(), hl);
             return null;
         }
         int i = 2000;
-        if (hk) {
+        if (hl) {
             i = 300;
         }
         synchronized (bArr) {
@@ -85,9 +85,9 @@ public class n extends a {
         }
         com.baidu.adp.widget.a.a a = dQ.isSuccess() ? a(dQ, str2) : null;
         if (a != null) {
-            u.a(fM, str2, true, fM.fW(), hk);
+            u.a(fN, str2, true, fN.fX(), hl);
         } else {
-            u.a(fM, str2, false, fM.fW(), hk);
+            u.a(fN, str2, false, fN.fX(), hl);
         }
         return a;
     }
@@ -102,11 +102,11 @@ public class n extends a {
             cVar.setData(bArr);
             cVar.v(z);
             cVar.u(false);
-            com.baidu.adp.lib.Disk.d.dH().c(cVar);
+            com.baidu.adp.lib.Disk.d.dI().c(cVar);
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.wc = dVar;
+                aVar.wg = dVar;
             }
         }
         return aVar2;

@@ -6,11 +6,11 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements Comparator<Map.Entry<String, az.a>> {
-    final /* synthetic */ az eVc;
+    final /* synthetic */ az eXs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(az azVar) {
-        this.eVc = azVar;
+        this.eXs = azVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

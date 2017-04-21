@@ -5,32 +5,32 @@ import com.baidu.tieba.b.d.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements g.a {
-    final /* synthetic */ d bpZ;
-    private final /* synthetic */ h bqa;
-    private final /* synthetic */ int bqb;
+    final /* synthetic */ d bsq;
+    private final /* synthetic */ h bsr;
+    private final /* synthetic */ int bss;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, h hVar, int i) {
-        this.bpZ = dVar;
-        this.bqa = hVar;
-        this.bqb = i;
+        this.bsq = dVar;
+        this.bsr = hVar;
+        this.bss = i;
     }
 
     @Override // com.baidu.tieba.b.b.g.a
-    public void cF(boolean z) {
+    public void cP(boolean z) {
         d.a aVar;
         d.a aVar2;
         if (z) {
-            this.bqa.setVisibility(8);
-            this.bqa.setClickable(false);
+            this.bsr.setVisibility(8);
+            this.bsr.setClickable(false);
             return;
         }
-        this.bqa.setVisibility(0);
-        this.bqa.setClickable(true);
-        aVar = this.bpZ.bpY;
+        this.bsr.setVisibility(0);
+        this.bsr.setClickable(true);
+        aVar = this.bsq.bsp;
         if (aVar != null) {
-            aVar2 = this.bpZ.bpY;
-            aVar2.k(this.bqb, true);
+            aVar2 = this.bsq.bsp;
+            aVar2.k(this.bss, true);
         }
     }
 }

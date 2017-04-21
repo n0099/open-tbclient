@@ -6,13 +6,13 @@ import com.baidu.tieba.pb.pb.main.cy;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cz extends HttpMessageListener {
-    final /* synthetic */ cy ekV;
+    final /* synthetic */ cy enn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cz(cy cyVar, int i) {
         super(i);
-        this.ekV = cyVar;
+        this.enn = cyVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class cz extends HttpMessageListener {
         cy.a aVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
             if (httpResponsedMessage.getStatusCode() != 200) {
-                aVar = this.ekV.ejO;
+                aVar = this.enn.eme;
                 aVar.h(-1, null, null);
                 return;
             }
@@ -33,7 +33,7 @@ public class cz extends HttpMessageListener {
             if (errorCode == 0) {
                 errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
             }
-            aVar2 = this.ekV.ejO;
+            aVar2 = this.enn.eme;
             aVar2.h(errorCode, errorMessage, tid);
         }
     }

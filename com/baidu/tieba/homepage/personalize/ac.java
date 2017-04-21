@@ -13,11 +13,11 @@ public class ac implements a.InterfaceC0055a {
 
     @Override // com.baidu.tieba.e.a.InterfaceC0055a
     public void V(int i, int i2) {
-        this.this$0.aRh = true;
+        this.this$0.aRj = true;
     }
 
     @Override // com.baidu.tieba.e.a.InterfaceC0055a
     public void W(int i, int i2) {
-        this.this$0.aRh = false;
+        this.this$0.aRj = false;
     }
 }

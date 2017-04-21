@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.base.f {
-    final /* synthetic */ h brZ;
+    final /* synthetic */ h bur;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.brZ = hVar;
+        this.bur = hVar;
     }
 
     @Override // com.baidu.adp.base.f
@@ -21,20 +21,20 @@ public class k extends com.baidu.adp.base.f {
         LikeModel likeModel3;
         LikeModel likeModel4;
         if (obj instanceof com.baidu.tieba.tbadkCore.v) {
-            likeModel4 = this.brZ.brQ;
+            likeModel4 = this.bur.bui;
             if (likeModel4.getErrorCode() == 0) {
                 return;
             }
         }
-        likeModel = this.brZ.brQ;
-        if (AntiHelper.rX(likeModel.getErrorCode())) {
-            Context context = this.brZ.getContext();
-            likeModel3 = this.brZ.brQ;
+        likeModel = this.bur.bui;
+        if (AntiHelper.sd(likeModel.getErrorCode())) {
+            Context context = this.bur.getContext();
+            likeModel3 = this.bur.bui;
             AntiHelper.aq(context, likeModel3.getErrorString());
             return;
         }
-        TbPageContext<?> tbPageContext = this.brZ.getTbPageContext();
-        likeModel2 = this.brZ.brQ;
+        TbPageContext<?> tbPageContext = this.bur.getTbPageContext();
+        likeModel2 = this.bur.bui;
         tbPageContext.showToast(likeModel2.getErrorString());
     }
 }

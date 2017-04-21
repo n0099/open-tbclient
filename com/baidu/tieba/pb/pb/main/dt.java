@@ -1,20 +1,20 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 public class dt {
-    public boolean emJ = false;
-    public boolean emK = false;
-    public boolean emL = false;
-    public boolean egB = false;
-    public boolean emM = false;
-    public boolean emN = false;
-    public boolean emO = false;
-    public boolean emP = false;
-    public boolean emQ = false;
-    public boolean emR = false;
-    public boolean emS = false;
-    public boolean emT = false;
-    public boolean emU = false;
-    public boolean emV = false;
-    public boolean emW = false;
+    public boolean epc = false;
+    public boolean epd = false;
+    public boolean epe = false;
+    public boolean eiR = false;
+    public boolean epf = false;
+    public boolean epg = false;
+    public boolean eph = false;
+    public boolean epi = false;
+    public boolean epj = false;
+    public boolean epk = false;
+    public boolean epl = false;
+    public boolean epm = false;
+    public boolean epn = false;
+    public boolean epo = false;
+    public boolean epp = false;
     public boolean isHostOnly = false;
 }

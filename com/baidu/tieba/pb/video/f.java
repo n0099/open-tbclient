@@ -6,11 +6,11 @@ import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements ValueAnimator.AnimatorUpdateListener {
-    final /* synthetic */ d euY;
+    final /* synthetic */ d exo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.euY = dVar;
+        this.exo = dVar;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -18,11 +18,11 @@ public class f implements ValueAnimator.AnimatorUpdateListener {
         FrameLayout frameLayout;
         FrameLayout frameLayout2;
         int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-        frameLayout = this.euY.eoM;
+        frameLayout = this.exo.erd;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
         layoutParams.topMargin = intValue;
-        frameLayout2 = this.euY.eoM;
+        frameLayout2 = this.exo.erd;
         frameLayout2.setLayoutParams(layoutParams);
-        this.euY.aPs();
+        this.exo.aQt();
     }
 }

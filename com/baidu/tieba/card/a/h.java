@@ -1,15 +1,15 @@
 package com.baidu.tieba.card.a;
 /* loaded from: classes.dex */
 class h implements Runnable {
-    final /* synthetic */ a buH;
+    final /* synthetic */ a bwY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.buH = aVar;
+        this.bwY = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.buH.Lh();
+        this.bwY.Lh();
     }
 }

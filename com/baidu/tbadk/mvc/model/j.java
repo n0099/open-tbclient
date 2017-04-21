@@ -23,14 +23,14 @@ public class j extends com.baidu.adp.framework.listener.e {
         NetModel.d dVar;
         NetModel.d dVar2;
         this.this$0.isLoading = false;
-        if (this.this$0.aEI != null) {
-            com.baidu.adp.lib.g.h.fR().removeCallbacks(this.this$0.aEI);
+        if (this.this$0.aEK != null) {
+            com.baidu.adp.lib.g.h.fS().removeCallbacks(this.this$0.aEK);
         }
         if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
             if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
-                dVar = this.this$0.aEA;
+                dVar = this.this$0.aEC;
                 if (dVar != null) {
-                    dVar2 = this.this$0.aEA;
+                    dVar2 = this.this$0.aEC;
                     dVar2.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
                 }
             } else if (TbadkCoreApplication.m9getInst().isDebugMode()) {

@@ -30,21 +30,21 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b PE = null;
-    private static Method PJ = null;
-    private static Method l = null;
-    private static Method PK = null;
+    private static b PG = null;
     private static Method PL = null;
+    private static Method l = null;
     private static Method PM = null;
-    private static Class<?> PN = null;
+    private static Method PN = null;
+    private static Method PO = null;
+    private static Class<?> PP = null;
     public static int a = 0;
     public static int b = 0;
-    private TelephonyManager PF = null;
+    private TelephonyManager PH = null;
     private Object e = null;
-    private com.baidu.location.f.a PG = new com.baidu.location.f.a();
-    private com.baidu.location.f.a PH = null;
+    private com.baidu.location.f.a PI = new com.baidu.location.f.a();
+    private com.baidu.location.f.a PJ = null;
     private List<com.baidu.location.f.a> h = null;
-    private a PI = null;
+    private a PK = null;
     private boolean j = false;
     private boolean q = false;
 
@@ -67,11 +67,11 @@ public class b extends d {
 
         @Override // android.telephony.PhoneStateListener
         public void onSignalStrengthsChanged(SignalStrength signalStrength) {
-            if (b.this.PG != null) {
-                if (b.this.PG.PD == 'g') {
-                    b.this.PG.h = signalStrength.getGsmSignalStrength();
-                } else if (b.this.PG.PD == 'c') {
-                    b.this.PG.h = signalStrength.getCdmaDbm();
+            if (b.this.PI != null) {
+                if (b.this.PI.PF == 'g') {
+                    b.this.PI.h = signalStrength.getGsmSignalStrength();
+                } else if (b.this.PI.PF == 'c') {
+                    b.this.PI.h = signalStrength.getCdmaDbm();
                 }
             }
         }
@@ -89,7 +89,7 @@ public class b extends d {
 
     private com.baidu.location.f.a a(CellLocation cellLocation, boolean z) {
         int i = 0;
-        if (cellLocation == null || this.PF == null) {
+        if (cellLocation == null || this.PH == null) {
             return null;
         }
         com.baidu.location.f.a aVar = new com.baidu.location.f.a();
@@ -98,12 +98,12 @@ public class b extends d {
         }
         aVar.g = System.currentTimeMillis();
         try {
-            String networkOperator = this.PF.getNetworkOperator();
+            String networkOperator = this.PH.getNetworkOperator();
             if (networkOperator != null && networkOperator.length() > 0) {
                 if (networkOperator.length() >= 3) {
                     int intValue = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
                     if (intValue < 0) {
-                        intValue = this.PG.c;
+                        intValue = this.PI.c;
                     }
                     aVar.c = intValue;
                 }
@@ -116,51 +116,51 @@ public class b extends d {
                 }
                 int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
                 if (intValue2 < 0) {
-                    intValue2 = this.PG.d;
+                    intValue2 = this.PI.d;
                 }
                 aVar.d = intValue2;
             }
-            a = this.PF.getSimState();
+            a = this.PH.getSimState();
         } catch (Exception e) {
             b = 1;
         }
         if (cellLocation instanceof GsmCellLocation) {
             aVar.a = ((GsmCellLocation) cellLocation).getLac();
             aVar.b = ((GsmCellLocation) cellLocation).getCid();
-            aVar.PD = 'g';
+            aVar.PF = 'g';
         } else if (cellLocation instanceof CdmaCellLocation) {
-            aVar.PD = 'c';
+            aVar.PF = 'c';
             if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 5) {
                 return aVar;
             }
-            if (PN == null) {
+            if (PP == null) {
                 try {
-                    PN = Class.forName("android.telephony.cdma.CdmaCellLocation");
-                    PJ = PN.getMethod("getBaseStationId", new Class[0]);
-                    l = PN.getMethod("getNetworkId", new Class[0]);
-                    PK = PN.getMethod("getSystemId", new Class[0]);
-                    PL = PN.getMethod("getBaseStationLatitude", new Class[0]);
-                    PM = PN.getMethod("getBaseStationLongitude", new Class[0]);
+                    PP = Class.forName("android.telephony.cdma.CdmaCellLocation");
+                    PL = PP.getMethod("getBaseStationId", new Class[0]);
+                    l = PP.getMethod("getNetworkId", new Class[0]);
+                    PM = PP.getMethod("getSystemId", new Class[0]);
+                    PN = PP.getMethod("getBaseStationLatitude", new Class[0]);
+                    PO = PP.getMethod("getBaseStationLongitude", new Class[0]);
                 } catch (Exception e2) {
-                    PN = null;
+                    PP = null;
                     b = 2;
                     return aVar;
                 }
             }
-            if (PN != null && PN.isInstance(cellLocation)) {
+            if (PP != null && PP.isInstance(cellLocation)) {
                 try {
-                    int intValue3 = ((Integer) PK.invoke(cellLocation, new Object[0])).intValue();
+                    int intValue3 = ((Integer) PM.invoke(cellLocation, new Object[0])).intValue();
                     if (intValue3 < 0) {
-                        intValue3 = this.PG.d;
+                        intValue3 = this.PI.d;
                     }
                     aVar.d = intValue3;
-                    aVar.b = ((Integer) PJ.invoke(cellLocation, new Object[0])).intValue();
+                    aVar.b = ((Integer) PL.invoke(cellLocation, new Object[0])).intValue();
                     aVar.a = ((Integer) l.invoke(cellLocation, new Object[0])).intValue();
-                    Object invoke = PL.invoke(cellLocation, new Object[0]);
+                    Object invoke = PN.invoke(cellLocation, new Object[0]);
                     if (((Integer) invoke).intValue() < Integer.MAX_VALUE) {
                         aVar.e = ((Integer) invoke).intValue();
                     }
-                    Object invoke2 = PM.invoke(cellLocation, new Object[0]);
+                    Object invoke2 = PO.invoke(cellLocation, new Object[0]);
                     if (((Integer) invoke2).intValue() < Integer.MAX_VALUE) {
                         aVar.f = ((Integer) invoke2).intValue();
                     }
@@ -187,7 +187,7 @@ public class b extends d {
             aVar.d = a(cellIdentity.getMnc());
             aVar.a = a(cellIdentity.getLac());
             aVar.b = a(cellIdentity.getCid());
-            aVar.PD = 'g';
+            aVar.PF = 'g';
             aVar.h = ((CellInfoGsm) cellInfo).getCellSignalStrength().getAsuLevel();
             z = true;
         } else if (cellInfo instanceof CellInfoCdma) {
@@ -197,7 +197,7 @@ public class b extends d {
             aVar.d = a(cellIdentity2.getSystemId());
             aVar.a = a(cellIdentity2.getNetworkId());
             aVar.b = a(cellIdentity2.getBasestationId());
-            aVar.PD = 'c';
+            aVar.PF = 'c';
             aVar.h = ((CellInfoCdma) cellInfo).getCellSignalStrength().getCdmaDbm();
             z = true;
         } else if (cellInfo instanceof CellInfoLte) {
@@ -206,7 +206,7 @@ public class b extends d {
             aVar.d = a(cellIdentity3.getMnc());
             aVar.a = a(cellIdentity3.getTac());
             aVar.b = a(cellIdentity3.getCi());
-            aVar.PD = 'g';
+            aVar.PF = 'g';
             aVar.h = ((CellInfoLte) cellInfo).getCellSignalStrength().getAsuLevel();
             z = true;
         }
@@ -218,7 +218,7 @@ public class b extends d {
                     aVar.d = a(cellIdentity4.getMnc());
                     aVar.a = a(cellIdentity4.getLac());
                     aVar.b = a(cellIdentity4.getCid());
-                    aVar.PD = 'g';
+                    aVar.PF = 'g';
                     aVar.h = ((CellInfoWcdma) cellInfo).getCellSignalStrength().getAsuLevel();
                 }
             } catch (Exception e) {
@@ -238,8 +238,8 @@ public class b extends d {
 
     private void d(com.baidu.location.f.a aVar) {
         if (aVar.b()) {
-            if (this.PG == null || !this.PG.a(aVar)) {
-                this.PG = aVar;
+            if (this.PI == null || !this.PI.a(aVar)) {
+                this.PI = aVar;
                 if (!aVar.b()) {
                     if (this.h != null) {
                         this.h.clear();
@@ -249,10 +249,10 @@ public class b extends d {
                 }
                 int size = this.h.size();
                 com.baidu.location.f.a aVar2 = size == 0 ? null : this.h.get(size - 1);
-                if (aVar2 != null && aVar2.b == this.PG.b && aVar2.a == this.PG.a) {
+                if (aVar2 != null && aVar2.b == this.PI.b && aVar2.a == this.PI.a) {
                     return;
                 }
-                this.h.add(this.PG);
+                this.h.add(this.PI);
                 if (this.h.size() > 3) {
                     this.h.remove(0);
                 }
@@ -267,7 +267,7 @@ public class b extends d {
         StringBuilder sb = new StringBuilder();
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
             try {
-                List<CellInfo> allCellInfo = this.PF.getAllCellInfo();
+                List<CellInfo> allCellInfo = this.PH.getAllCellInfo();
                 if (allCellInfo != null && allCellInfo.size() > 0) {
                     sb.append("&nc=");
                     for (CellInfo cellInfo : allCellInfo) {
@@ -426,12 +426,12 @@ public class b extends d {
     }
 
     private void i() {
-        if (this.h == null && this.PH == null) {
+        if (this.h == null && this.PJ == null) {
             return;
         }
-        if (this.h == null && this.PH != null) {
+        if (this.h == null && this.PJ != null) {
             this.h = new LinkedList();
-            this.h.add(this.PH);
+            this.h.add(this.PJ);
         }
         String f = com.baidu.location.h.i.f();
         if (f != null) {
@@ -460,9 +460,9 @@ public class b extends d {
                     randomAccessFile.writeInt(this.h.get(i2).d);
                     randomAccessFile.writeInt(this.h.get(i2).a);
                     randomAccessFile.writeInt(this.h.get(i2).b);
-                    if (this.h.get(i2).PD == 'g') {
+                    if (this.h.get(i2).PF == 'g') {
                         randomAccessFile.writeInt(1);
-                    } else if (this.h.get(i2).PD == 'c') {
+                    } else if (this.h.get(i2).PF == 'c') {
                         randomAccessFile.writeInt(2);
                     } else {
                         randomAccessFile.writeInt(3);
@@ -482,7 +482,7 @@ public class b extends d {
             d(nE);
         }
         if (nE == null || !nE.b()) {
-            com.baidu.location.f.a b2 = b(this.PF.getCellLocation());
+            com.baidu.location.f.a b2 = b(this.PH.getCellLocation());
             if ((b2 == null || !b2.b()) && (nC = nC()) != null) {
                 Log.i(com.baidu.location.h.b.a, "cell sim2 cell is valid");
                 a(nC, true);
@@ -511,10 +511,10 @@ public class b extends d {
     public static synchronized b nA() {
         b bVar;
         synchronized (b.class) {
-            if (PE == null) {
-                PE = new b();
+            if (PG == null) {
+                PG = new b();
             }
-            bVar = PE;
+            bVar = PG;
         }
         return bVar;
     }
@@ -604,7 +604,7 @@ public class b extends d {
         }
         try {
             try {
-                List<CellInfo> allCellInfo = this.PF.getAllCellInfo();
+                List<CellInfo> allCellInfo = this.PH.getAllCellInfo();
                 if (allCellInfo == null || allCellInfo.size() <= 0) {
                     return null;
                 }
@@ -641,13 +641,13 @@ public class b extends d {
     @Override // com.baidu.location.f.d
     public synchronized void b() {
         if (!this.j && com.baidu.location.f.isServing) {
-            this.PF = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
+            this.PH = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
             this.h = new LinkedList();
-            this.PI = new a();
+            this.PK = new a();
             h();
-            if (this.PF != null && this.PI != null) {
+            if (this.PH != null && this.PK != null) {
                 try {
-                    this.PF.listen(this.PI, 272);
+                    this.PH.listen(this.PK, 272);
                 } catch (Exception e) {
                 }
                 switch (n()) {
@@ -669,11 +669,11 @@ public class b extends d {
     @Override // com.baidu.location.f.d
     public synchronized void c() {
         if (this.j) {
-            if (this.PI != null && this.PF != null) {
-                this.PF.listen(this.PI, 0);
+            if (this.PK != null && this.PH != null) {
+                this.PH.listen(this.PK, 0);
             }
-            this.PI = null;
-            this.PF = null;
+            this.PK = null;
+            this.PH = null;
             this.h.clear();
             this.h = null;
             i();
@@ -687,11 +687,11 @@ public class b extends d {
 
     @Override // com.baidu.location.f.d
     public int e() {
-        if (this.PF == null) {
+        if (this.PH == null) {
             return 0;
         }
         try {
-            return this.PF.getNetworkType();
+            return this.PH.getNetworkType();
         } catch (Exception e) {
             return 0;
         }
@@ -707,7 +707,7 @@ public class b extends d {
             str = "";
         }
         if (str == null || str.equals("") || str.equals("&nc=")) {
-            List neighboringCellInfo = this.PF.getNeighboringCellInfo();
+            List neighboringCellInfo = this.PH.getNeighboringCellInfo();
             if (neighboringCellInfo != null && !neighboringCellInfo.isEmpty()) {
                 String str2 = "&nc=";
                 Iterator it = neighboringCellInfo.iterator();
@@ -761,7 +761,7 @@ public class b extends d {
     public String g(com.baidu.location.f.a aVar) {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
-        stringBuffer.append(aVar.PD);
+        stringBuffer.append(aVar.PF);
         stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(aVar.c), Integer.valueOf(aVar.d), Integer.valueOf(aVar.a), Integer.valueOf(aVar.b), Integer.valueOf(aVar.h)));
         if (aVar.e < Integer.MAX_VALUE && aVar.f < Integer.MAX_VALUE) {
             stringBuffer.append(String.format(Locale.CHINA, "&cdmall=%.6f|%.6f", Double.valueOf(aVar.f / 14400.0d), Double.valueOf(aVar.e / 14400.0d)));
@@ -802,20 +802,20 @@ public class b extends d {
 
     @Override // com.baidu.location.f.d
     public com.baidu.location.f.a nB() {
-        if ((this.PG == null || !this.PG.a() || !this.PG.b()) && this.PF != null) {
+        if ((this.PI == null || !this.PI.a() || !this.PI.b()) && this.PH != null) {
             try {
                 j();
             } catch (Exception e) {
             }
         }
-        if (this.PG.e()) {
-            this.PH = null;
-            this.PH = new com.baidu.location.f.a(this.PG.a, this.PG.b, this.PG.c, this.PG.d, this.PG.h, this.PG.PD);
+        if (this.PI.e()) {
+            this.PJ = null;
+            this.PJ = new com.baidu.location.f.a(this.PI.a, this.PI.b, this.PI.c, this.PI.d, this.PI.h, this.PI.PF);
         }
-        if (this.PG.d() && this.PH != null && this.PG.PD == 'g') {
-            this.PG.d = this.PH.d;
-            this.PG.c = this.PH.c;
+        if (this.PI.d() && this.PJ != null && this.PI.PF == 'g') {
+            this.PI.d = this.PJ.d;
+            this.PI.c = this.PJ.c;
         }
-        return this.PG;
+        return this.PI;
     }
 }

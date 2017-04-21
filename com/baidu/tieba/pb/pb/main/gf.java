@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class gf implements View.OnClickListener {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gf(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,31 +24,31 @@ public class gf implements View.OnClickListener {
         com.baidu.tbadk.editortools.j jVar3;
         a.InterfaceC0072a interfaceC0072a;
         String str;
-        pbActivity = this.erv.eig;
+        pbActivity = this.etN.ekw;
         if (pbActivity.checkUpIsLogin()) {
-            jVar = this.erv.KM;
+            jVar = this.etN.KO;
             if (jVar != null) {
-                this.erv.aNe();
+                this.etN.aOf();
             }
-            jVar2 = this.erv.KM;
+            jVar2 = this.etN.KO;
             if (jVar2 != null) {
-                this.erv.eqt = false;
-                pbActivity2 = this.erv.eig;
-                jVar3 = this.erv.KM;
-                interfaceC0072a = this.erv.eqR;
-                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) jVar3.eB(2).ayX, false, interfaceC0072a);
+                this.etN.esK = false;
+                pbActivity2 = this.etN.ekw;
+                jVar3 = this.etN.KO;
+                interfaceC0072a = this.etN.etj;
+                com.baidu.tieba.tbadkCore.b.a.a(pbActivity2, (View) jVar3.eB(2).ayZ, false, interfaceC0072a);
             }
-            view2 = this.erv.eqo;
+            view2 = this.etN.esF;
             if (view2 != null) {
-                view3 = this.erv.eqo;
+                view3 = this.etN.esF;
                 view3.setVisibility(8);
-                this.erv.eqt = false;
+                this.etN.esK = false;
             }
-            this.erv.aLx();
+            this.etN.aMy();
             return;
         }
         com.baidu.tbadk.core.util.as s = new com.baidu.tbadk.core.util.as("c10517").s("obj_locate", 2);
-        str = this.erv.mForumId;
+        str = this.etN.mForumId;
         TiebaStatic.log(s.aa("fid", str));
     }
 }

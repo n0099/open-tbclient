@@ -5,18 +5,18 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements j.a {
-    final /* synthetic */ f eso;
+    final /* synthetic */ f euG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.eso = fVar;
+        this.euG = fVar;
     }
 
     @Override // com.baidu.tbadk.core.view.j.a
     public void oL() {
         PbActivity pbActivity;
-        pbActivity = this.eso.eig;
-        pbActivity.aKx();
+        pbActivity = this.euG.ekw;
+        pbActivity.aLx();
     }
 
     @Override // com.baidu.tbadk.core.view.j.a

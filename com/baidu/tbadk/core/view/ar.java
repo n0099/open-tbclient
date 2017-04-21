@@ -29,16 +29,16 @@ class ar implements View.OnClickListener {
         Context context3;
         context = this.amF.mContext;
         if (bg.aK(context)) {
-            biVar = this.amF.aiB;
+            biVar = this.amF.aiC;
             if (biVar != null) {
-                biVar2 = this.amF.aiB;
+                biVar2 = this.amF.aiC;
                 if (biVar2.getAuthor() != null) {
-                    biVar3 = this.amF.aiB;
+                    biVar3 = this.amF.aiC;
                     if (biVar3.getAuthor().getTShowInfoNew() != null) {
-                        biVar4 = this.amF.aiB;
+                        biVar4 = this.amF.aiC;
                         ArrayList<IconData> tShowInfoNew = biVar4.getAuthor().getTShowInfoNew();
                         if (com.baidu.tbadk.core.util.x.p(tShowInfoNew) != 0 && com.baidu.tbadk.core.util.x.c(tShowInfoNew, 0) != null) {
-                            biVar5 = this.amF.aiB;
+                            biVar5 = this.amF.aiC;
                             String url = biVar5.getAuthor().getTShowInfoNew().get(0).getUrl();
                             if (url != null) {
                                 context2 = this.amF.mContext;

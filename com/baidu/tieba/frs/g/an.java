@@ -9,11 +9,11 @@ import com.baidu.tieba.view.BdExpandListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements BdExpandListView.a {
-    final /* synthetic */ ah cbR;
+    final /* synthetic */ ah cei;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(ah ahVar) {
-        this.cbR = ahVar;
+        this.cei = ahVar;
     }
 
     @Override // com.baidu.tieba.view.BdExpandListView.a
@@ -21,39 +21,39 @@ public class an implements BdExpandListView.a {
         az azVar;
         az azVar2;
         az azVar3;
-        azVar = this.cbR.bMD;
+        azVar = this.cei.bOU;
         if (azVar != null) {
-            azVar2 = this.cbR.bMD;
-            if (azVar2.ZK() instanceof com.baidu.tieba.frs.tab.h) {
-                azVar3 = this.cbR.bMD;
-                ((com.baidu.tieba.frs.tab.h) azVar3.ZK()).F(f);
+            azVar2 = this.cei.bOU;
+            if (azVar2.aaL() instanceof com.baidu.tieba.frs.tab.h) {
+                azVar3 = this.cei.bOU;
+                ((com.baidu.tieba.frs.tab.h) azVar3.aaL()).F(f);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.BdExpandListView.a
-    public void lc() {
+    public void ld() {
         az azVar;
         az azVar2;
         az azVar3;
-        azVar = this.cbR.bMD;
+        azVar = this.cei.bOU;
         if (azVar != null) {
-            azVar2 = this.cbR.bMD;
-            if (azVar2.ZK() instanceof com.baidu.tieba.frs.tab.h) {
-                azVar3 = this.cbR.bMD;
-                ((com.baidu.tieba.frs.tab.h) azVar3.ZK()).ads();
+            azVar2 = this.cei.bOU;
+            if (azVar2.aaL() instanceof com.baidu.tieba.frs.tab.h) {
+                azVar3 = this.cei.bOU;
+                ((com.baidu.tieba.frs.tab.h) azVar3.aaL()).aet();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0079, code lost:
-        if (((com.baidu.tieba.view.BdExpandListView) r0.getListView()).bhq() == false) goto L20;
+        if (((com.baidu.tieba.view.BdExpandListView) r0.getListView()).bir() == false) goto L20;
      */
     @Override // com.baidu.tieba.view.BdExpandListView.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void ld() {
+    public void le() {
         az azVar;
         FrsActivity frsActivity;
         az azVar2;
@@ -72,53 +72,53 @@ public class an implements BdExpandListView.a {
         az azVar9;
         az azVar10;
         az azVar11;
-        azVar = this.cbR.bMD;
+        azVar = this.cei.bOU;
         if (azVar != null) {
-            azVar10 = this.cbR.bMD;
+            azVar10 = this.cei.bOU;
             if (azVar10.Lc() != null) {
-                azVar11 = this.cbR.bMD;
-                azVar11.Lc().alF();
+                azVar11 = this.cei.bOU;
+                azVar11.Lc().amG();
             }
         }
-        cc.ST().cP(false);
-        frsActivity = this.cbR.bST;
-        com.baidu.tieba.tbadkCore.n Zr = frsActivity.Zr();
-        azVar2 = this.cbR.bMD;
-        if (azVar2 != null && Zr != null) {
-            frsModelController = this.cbR.bMO;
+        cc.TV().cZ(false);
+        frsActivity = this.cei.bVk;
+        com.baidu.tieba.tbadkCore.n aas = frsActivity.aas();
+        azVar2 = this.cei.bOU;
+        if (azVar2 != null && aas != null) {
+            frsModelController = this.cei.bPf;
             if (frsModelController != null) {
-                if (com.baidu.adp.lib.util.i.hj()) {
-                    azVar5 = this.cbR.bMD;
-                    if (azVar5.ZK() instanceof com.baidu.tieba.frs.tab.h) {
-                        azVar6 = this.cbR.bMD;
+                if (com.baidu.adp.lib.util.i.hk()) {
+                    azVar5 = this.cei.bOU;
+                    if (azVar5.aaL() instanceof com.baidu.tieba.frs.tab.h) {
+                        azVar6 = this.cei.bOU;
                         if (azVar6.getListView() instanceof BdExpandListView) {
-                            azVar9 = this.cbR.bMD;
+                            azVar9 = this.cei.bOU;
                         }
-                        azVar7 = this.cbR.bMD;
-                        ((com.baidu.tieba.frs.tab.h) azVar7.ZK()).lb();
-                        azVar8 = this.cbR.bMD;
+                        azVar7 = this.cei.bOU;
+                        ((com.baidu.tieba.frs.tab.h) azVar7.aaL()).lc();
+                        azVar8 = this.cei.bOU;
                         azVar8.cg(true);
                     }
-                    frsActivity4 = this.cbR.bST;
+                    frsActivity4 = this.cei.bVk;
                     TiebaStatic.eventStat(frsActivity4.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
-                    if (Zr.aJw() != null && Zr.ftt == 1) {
-                        frsModelController2 = this.cbR.bMO;
-                        com.baidu.tieba.frs.e.b.a(Zr, frsModelController2.acR(), 1);
+                    if (aas.aKx() != null && aas.fvK == 1) {
+                        frsModelController2 = this.cei.bPf;
+                        com.baidu.tieba.frs.e.b.a(aas, frsModelController2.adS(), 1);
                     }
-                    frsActivity5 = this.cbR.bST;
+                    frsActivity5 = this.cei.bVk;
                     frsActivity5.refresh();
                 } else {
-                    azVar3 = this.cbR.bMD;
-                    if (azVar3.ZK() instanceof com.baidu.tieba.frs.tab.h) {
-                        azVar4 = this.cbR.bMD;
-                        ((com.baidu.tieba.frs.tab.h) azVar4.ZK()).ads();
+                    azVar3 = this.cei.bOU;
+                    if (azVar3.aaL() instanceof com.baidu.tieba.frs.tab.h) {
+                        azVar4 = this.cei.bOU;
+                        ((com.baidu.tieba.frs.tab.h) azVar4.aaL()).aet();
                     }
                 }
                 com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as("c11749");
-                frsActivity2 = this.cbR.bST;
+                frsActivity2 = this.cei.bVk;
                 com.baidu.tbadk.core.util.as aa = asVar.aa("fid", frsActivity2.getFid());
-                frsActivity3 = this.cbR.bST;
-                TiebaStatic.log(aa.aa("obj_locate", frsActivity3.Zh() ? "2" : "1"));
+                frsActivity3 = this.cei.bVk;
+                TiebaStatic.log(aa.aa("obj_locate", frsActivity3.aai() ? "2" : "1"));
             }
         }
     }

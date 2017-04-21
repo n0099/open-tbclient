@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a ddM;
+    final /* synthetic */ a dge;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.ddM = aVar;
+        this.dge = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class b extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            list2 = this.ddM.mList;
+                            list2 = this.dge.mList;
                             if (list2 != null) {
-                                list3 = this.ddM.mList;
+                                list3 = this.dge.mList;
                                 list3.clear();
                             }
                             com.baidu.tbadk.coreExtra.messageCenter.a.zj().c(new com.baidu.tbadk.coreExtra.c.e());
@@ -37,23 +37,23 @@ public class b extends CustomMessageListener {
                             com.baidu.tbadk.coreExtra.messageCenter.a.zj().zx();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            list = this.ddM.mList;
+                            list = this.dge.mList;
                             if (list == null) {
                                 return;
                             }
-                            this.ddM.ds(false);
+                            this.dge.dC(false);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.ddM.f(customResponsedMessage);
+                    this.dge.f(customResponsedMessage);
                     return;
                 }
-                this.ddM.e(customResponsedMessage);
+                this.dge.e(customResponsedMessage);
                 return;
             }
-            this.ddM.d(customResponsedMessage);
+            this.dge.d(customResponsedMessage);
         }
     }
 }

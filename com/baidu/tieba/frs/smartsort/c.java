@@ -15,121 +15,121 @@ import com.baidu.tieba.frs.cq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class c {
-    private int bIW;
-    private final FrsActivity bST;
-    private cq bYE;
-    private TextView bYF;
-    private boolean bYG;
-    private int bYH = -1;
+    private int bLn;
+    private final FrsActivity bVk;
+    private cq caV;
+    private TextView caW;
+    private boolean caX;
+    private int caY = -1;
 
     public c(FrsActivity frsActivity) {
-        this.bIW = 0;
+        this.bLn = 0;
         if (frsActivity == null) {
             throw new NullPointerException("FrsActivity is null");
         }
-        this.bST = frsActivity;
+        this.bVk = frsActivity;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.bIW = UtilHelper.getStatusBarHeight();
+            this.bLn = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void adi() {
-        if (this.bYG && this.bYH >= 0) {
-            is(this.bYH);
+    public void aej() {
+        if (this.caX && this.caY >= 0) {
+            iy(this.caY);
         }
-        this.bYG = false;
+        this.caX = false;
     }
 
-    public void adj() {
-        if (this.bYE != null) {
-            this.bYE.hideTip();
+    public void aek() {
+        if (this.caV != null) {
+            this.caV.hideTip();
         }
     }
 
-    public void ir(int i) {
+    public void ix(int i) {
         if (i >= 0) {
-            ei(true);
-            it(i);
+            es(true);
+            iz(i);
             return;
         }
-        ei(false);
-        it(i);
+        es(false);
+        iz(i);
     }
 
-    private void is(int i) {
+    private void iy(int i) {
         String string;
-        com.baidu.tieba.frs.entelechy.b.d YY = this.bST.YY();
-        az Za = this.bST.Za();
-        if (Za != null && YY != null && YY.abB() != null && (Za.aaf() instanceof NoPressedRelativeLayout)) {
-            if (this.bYF == null) {
-                this.bYF = new TextView(this.bST.getPageContext().getPageActivity());
-                this.bYF.setTextSize(0, this.bST.getResources().getDimensionPixelSize(w.f.fontsize28));
-                this.bYF.setGravity(17);
+        com.baidu.tieba.frs.entelechy.b.d ZZ = this.bVk.ZZ();
+        az aab = this.bVk.aab();
+        if (aab != null && ZZ != null && ZZ.acC() != null && (aab.abg() instanceof NoPressedRelativeLayout)) {
+            if (this.caW == null) {
+                this.caW = new TextView(this.bVk.getPageContext().getPageActivity());
+                this.caW.setTextSize(0, this.bVk.getResources().getDimensionPixelSize(w.f.fontsize28));
+                this.caW.setGravity(17);
             }
             if (i > 0) {
                 string = String.format(TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_return), Integer.valueOf(i));
             } else {
                 string = TbadkCoreApplication.m9getInst().getString(w.l.recommend_frs_refresh_nodata);
             }
-            this.bYF.setText(string);
-            View abB = YY.abB();
-            BdTypeListView listView = Za.getListView();
-            if (abB != null && listView != null) {
-                int bottom = abB.getBottom();
-                aq.j(this.bYF, w.e.common_color_10260);
-                aq.i(this.bYF, w.e.cp_cont_g);
+            this.caW.setText(string);
+            View acC = ZZ.acC();
+            BdTypeListView listView = aab.getListView();
+            if (acC != null && listView != null) {
+                int bottom = acC.getBottom();
+                aq.j(this.caW, w.e.common_color_10260);
+                aq.i(this.caW, w.e.cp_cont_g);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, k.g(TbadkCoreApplication.m9getInst(), w.f.ds56));
                 layoutParams.addRule(6);
-                boolean z = Za.ZI() != null && (Za.ZI().getBottom() <= abB.getTop() || Za.ZI().getVisibility() != 0);
-                if (listView.indexOfChild(abB) >= 0 && z) {
+                boolean z = aab.aaJ() != null && (aab.aaJ().getBottom() <= acC.getTop() || aab.aaJ().getVisibility() != 0);
+                if (listView.indexOfChild(acC) >= 0 && z) {
                     layoutParams.topMargin = bottom;
-                    if (this.bYE == null) {
-                        this.bYE = new cq();
+                    if (this.caV == null) {
+                        this.caV = new cq();
                     }
-                    this.bYE.a(this.bYF, (NoPressedRelativeLayout) Za.aaf(), layoutParams, 2000);
+                    this.caV.a(this.caW, (NoPressedRelativeLayout) aab.abg(), layoutParams, 2000);
                 }
-                this.bYH = -1;
+                this.caY = -1;
             }
         }
     }
 
-    public void adk() {
-        if (this.bYF != null && this.bYF.getVisibility() == 0) {
-            com.baidu.tieba.frs.entelechy.b.d YY = this.bST.YY();
-            az Za = this.bST.Za();
-            if (Za != null && YY != null && YY.abB() != null && (Za.aaf() instanceof NoPressedRelativeLayout)) {
-                BdTypeListView listView = Za.getListView();
-                View abB = YY.abB();
+    public void ael() {
+        if (this.caW != null && this.caW.getVisibility() == 0) {
+            com.baidu.tieba.frs.entelechy.b.d ZZ = this.bVk.ZZ();
+            az aab = this.bVk.aab();
+            if (aab != null && ZZ != null && ZZ.acC() != null && (aab.abg() instanceof NoPressedRelativeLayout)) {
+                BdTypeListView listView = aab.getListView();
+                View acC = ZZ.acC();
                 if (listView != null) {
-                    boolean z = listView.indexOfChild(abB) >= 0;
-                    if (this.bYF.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bYF.getLayoutParams();
-                        if (z && abB.getBottom() > this.bIW) {
-                            layoutParams.topMargin = abB.getBottom();
+                    boolean z = listView.indexOfChild(acC) >= 0;
+                    if (this.caW.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.caW.getLayoutParams();
+                        if (z && acC.getBottom() > this.bLn) {
+                            layoutParams.topMargin = acC.getBottom();
                         } else {
-                            layoutParams.topMargin = this.bIW;
+                            layoutParams.topMargin = this.bLn;
                         }
-                        this.bYF.setLayoutParams(layoutParams);
+                        this.caW.setLayoutParams(layoutParams);
                     }
-                    if (this.bYE != null && !z && this.bYF.getTop() <= this.bIW) {
-                        this.bYE.hideTip();
+                    if (this.caV != null && !z && this.caW.getTop() <= this.bLn) {
+                        this.caV.hideTip();
                     }
                 }
             }
         }
     }
 
-    public void ei(boolean z) {
-        this.bYG = z;
+    public void es(boolean z) {
+        this.caX = z;
     }
 
-    public void it(int i) {
-        this.bYH = i;
+    public void iz(int i) {
+        this.caY = i;
     }
 
     public void onDestroy() {
-        if (this.bYE != null) {
-            this.bYE.onDestroy();
+        if (this.caV != null) {
+            this.caV.onDestroy();
         }
     }
 }

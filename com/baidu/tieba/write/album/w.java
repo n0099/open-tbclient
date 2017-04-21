@@ -3,17 +3,17 @@ package com.baidu.tieba.write.album;
 import android.widget.HorizontalScrollView;
 /* loaded from: classes.dex */
 class w implements Runnable {
-    final /* synthetic */ t fNS;
-    private final /* synthetic */ HorizontalScrollView fNU;
+    final /* synthetic */ t fQo;
+    private final /* synthetic */ HorizontalScrollView fQq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar, HorizontalScrollView horizontalScrollView) {
-        this.fNS = tVar;
-        this.fNU = horizontalScrollView;
+        this.fQo = tVar;
+        this.fQq = horizontalScrollView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.fNU.fullScroll(66);
+        this.fQq.fullScroll(66);
     }
 }

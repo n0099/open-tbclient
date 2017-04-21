@@ -18,9 +18,9 @@ public class PersonPolymericActivityStatic {
     static {
         TbadkCoreApplication.m9getInst().RegisterIntent(PersonPolymericActivityConfig.class, PersonPolymericActivity.class);
         Kj();
-        aRj();
-        aAu();
-        aRk();
+        aSk();
+        aBv();
+        aSl();
     }
 
     private static void Kj() {
@@ -35,16 +35,16 @@ public class PersonPolymericActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aRj() {
+    private static void aSk() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
-    private static void aAu() {
+    private static void aBv() {
         bb.wn().a(new a());
     }
 
-    private static void aRk() {
+    private static void aSl() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_USER_PICS, TbConfig.SET_USER_PICS);
         tbHttpMessageTask.setResponsedClass(SetUserPicsResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

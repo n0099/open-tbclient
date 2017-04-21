@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aKV;
+    private float aKX;
     private boolean amW;
     private int mTouchSlop;
 
@@ -68,15 +68,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 aR(true);
-                this.aKV = motionEvent.getX();
+                this.aKX = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 aR(false);
-                this.aKV = 0.0f;
+                this.aKX = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aKV;
+                float x = motionEvent.getX() - this.aKX;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         aR(false);

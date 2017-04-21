@@ -10,19 +10,19 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class o {
-    private static final byte[] aJe = new byte[1];
-    private static o aJf = null;
+    private static final byte[] aJg = new byte[1];
+    private static o aJh = null;
     private CustomMessageListener mNetworkChangedListener;
 
     public static o Ho() {
-        if (aJf == null) {
-            synchronized (aJe) {
-                if (aJf == null) {
-                    aJf = new o();
+        if (aJh == null) {
+            synchronized (aJg) {
+                if (aJh == null) {
+                    aJh = new o();
                 }
             }
         }
-        return aJf;
+        return aJh;
     }
 
     private o() {
@@ -48,16 +48,16 @@ public class o {
     /* JADX INFO: Access modifiers changed from: private */
     public void Hr() {
         try {
-            boolean hj = com.baidu.adp.lib.util.i.hj();
-            if (hj) {
-                if (com.baidu.adp.lib.util.i.hk()) {
+            boolean hk = com.baidu.adp.lib.util.i.hk();
+            if (hk) {
+                if (com.baidu.adp.lib.util.i.hl()) {
                     av.wa().aH(true);
-                    com.baidu.tieba.recapp.d.a.bau().pr(((WifiManager) TbadkCoreApplication.m9getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
-                } else if (com.baidu.adp.lib.util.i.hl()) {
+                    com.baidu.tieba.recapp.d.a.bbv().ps(((WifiManager) TbadkCoreApplication.m9getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.i.hm()) {
                     av.wa().aH(false);
                 }
             }
-            NoNetworkView.setIsHasNetwork(hj);
+            NoNetworkView.setIsHasNetwork(hk);
             CompatibleUtile.dealWebView(null);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

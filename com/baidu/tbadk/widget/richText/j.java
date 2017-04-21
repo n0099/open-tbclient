@@ -1,18 +1,18 @@
 package com.baidu.tbadk.widget.richText;
 /* loaded from: classes.dex */
 class j extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbRichTextView aOl;
+    final /* synthetic */ TbRichTextView aOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbRichTextView tbRichTextView) {
-        this.aOl = tbRichTextView;
+        this.aOn = tbRichTextView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        this.aOl.e(aVar);
+        this.aOn.e(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -65,7 +65,7 @@ public class TbLaunchStatic {
             public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ShareDialogConfig)) {
                     ShareDialogConfig data = customMessage.getData();
-                    d dVar = new d(data.getContext());
+                    d dVar = new d(data.getContext(), data.isLandscape);
                     dVar.a(data.shareItem, data.showLocation);
                     if (data.mtjStatistics != null) {
                         dVar.b(data.mtjStatistics);
@@ -75,6 +75,9 @@ public class TbLaunchStatic {
                     }
                     if (data.copyLinkListener != null) {
                         dVar.setCopyLinkListener(data.copyLinkListener);
+                    }
+                    if (data.onDismissListener != null) {
+                        dVar.a(data.onDismissListener);
                     }
                     if (data.textViewList != null && data.textViewList.size() > 0) {
                         Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
@@ -106,7 +109,7 @@ public class TbLaunchStatic {
                     long j = b.uL().getLong("clear_redundance_files_time", 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.jx().jO();
+                        PluginPackageManager.jy().jP();
                         b.uL().putLong("clear_redundance_files_time", currentTimeMillis);
                     }
                 }

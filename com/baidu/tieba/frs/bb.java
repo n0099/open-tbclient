@@ -9,20 +9,20 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements AbsListView.RecyclerListener {
-    final /* synthetic */ az bOO;
+    final /* synthetic */ az bRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(az azVar) {
-        this.bOO = azVar;
+        this.bRf = azVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
         com.baidu.tieba.play.ac acVar;
         com.baidu.tieba.play.ac acVar2;
-        acVar = this.bOO.aRf;
+        acVar = this.bRf.aRh;
         if (acVar != null) {
-            acVar2 = this.bOO.aRf;
+            acVar2 = this.bRf.aRh;
             acVar2.aN(view);
         }
         PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(w.h.abstract_voice);

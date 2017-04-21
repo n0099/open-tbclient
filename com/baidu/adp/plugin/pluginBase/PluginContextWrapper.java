@@ -45,7 +45,7 @@ public class PluginContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        PluginSetting findPluginSetting = c.ka().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.kb().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {
@@ -61,7 +61,7 @@ public class PluginContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        PluginSetting findPluginSetting = c.ka().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = c.kb().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 == null || !plugin2.isLoaded()) {

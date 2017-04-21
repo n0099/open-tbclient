@@ -8,24 +8,24 @@ import tbclient.BannerInfo;
 import tbclient.GodBanner;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId cwj = BdUniqueId.gen();
-    private List<com.baidu.tbadk.core.flow.a.a> cwk = new ArrayList();
-    private String cwl;
-    private String cwm;
+    public static final BdUniqueId cyA = BdUniqueId.gen();
+    private List<com.baidu.tbadk.core.flow.a.a> cyB = new ArrayList();
+    private String cyC;
+    private String cyD;
 
     public a(BannerInfo bannerInfo) {
-        this.cwl = null;
-        this.cwm = null;
+        this.cyC = null;
+        this.cyD = null;
         if (bannerInfo != null && !x.q(bannerInfo.god_banner_list)) {
-            this.cwl = bannerInfo.god_good_url;
-            this.cwm = bannerInfo.god_rank_url;
+            this.cyC = bannerInfo.god_good_url;
+            this.cyD = bannerInfo.god_rank_url;
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < bannerInfo.god_banner_list.size() && i2 < 3) {
                     GodBanner godBanner = bannerInfo.god_banner_list.get(i2);
                     if (godBanner != null) {
-                        this.cwk.add(new C0061a(godBanner.pic_url, godBanner.link_url));
+                        this.cyB.add(new C0061a(godBanner.pic_url, godBanner.link_url));
                     }
                     i = i2 + 1;
                 } else {
@@ -37,19 +37,19 @@ public class a extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return cwj;
+        return cyA;
     }
 
-    public String aiZ() {
-        return this.cwl;
+    public String aka() {
+        return this.cyC;
     }
 
-    public String aja() {
-        return this.cwm;
+    public String akb() {
+        return this.cyD;
     }
 
-    public List<com.baidu.tbadk.core.flow.a.a> ajb() {
-        return this.cwk;
+    public List<com.baidu.tbadk.core.flow.a.a> akc() {
+        return this.cyB;
     }
 
     /* renamed from: com.baidu.tieba.homepage.mygod.data.a$a  reason: collision with other inner class name */

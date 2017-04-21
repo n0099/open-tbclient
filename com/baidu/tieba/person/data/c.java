@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements v {
-    public static final BdUniqueId ezV = BdUniqueId.gen();
-    private List<com.baidu.tieba.personCenter.c.c> ezW;
-    private String ezs;
-    private String ezt;
-    private List<f.a> ezu;
+    public static final BdUniqueId eCl = BdUniqueId.gen();
+    private String eBI;
+    private String eBJ;
+    private List<f.a> eBK;
+    private List<com.baidu.tieba.personCenter.c.c> eCm;
     private String icon;
     private String name;
 
@@ -35,41 +35,41 @@ public class c implements v {
         this.icon = str;
     }
 
-    public String aQm() {
-        return this.ezs;
-    }
-
-    public void nV(String str) {
-        this.ezs = str;
-    }
-
-    public String aQn() {
-        return this.ezt;
+    public String aRn() {
+        return this.eBI;
     }
 
     public void nW(String str) {
-        this.ezt = str;
+        this.eBI = str;
     }
 
-    public List<f.a> aQo() {
-        return this.ezu;
+    public String aRo() {
+        return this.eBJ;
     }
 
-    public void ce(List<f.a> list) {
-        if (this.ezu == null) {
-            this.ezu = new ArrayList();
+    public void nX(String str) {
+        this.eBJ = str;
+    }
+
+    public List<f.a> aRp() {
+        return this.eBK;
+    }
+
+    public void cf(List<f.a> list) {
+        if (this.eBK == null) {
+            this.eBK = new ArrayList();
         } else {
-            this.ezu.clear();
+            this.eBK.clear();
         }
-        if (this.ezW == null) {
-            this.ezW = new ArrayList();
+        if (this.eCm == null) {
+            this.eCm = new ArrayList();
         } else {
-            this.ezW.clear();
+            this.eCm.clear();
         }
-        cf(list);
+        cg(list);
     }
 
-    private void cf(List<f.a> list) {
+    private void cg(List<f.a> list) {
         if (list != null) {
             for (f.a aVar : list) {
                 if (aVar != null && !StringUtils.isNull(aVar.title)) {
@@ -77,21 +77,21 @@ public class c implements v {
                         com.baidu.tieba.personCenter.c.c cVar = new com.baidu.tieba.personCenter.c.c();
                         cVar.iconId = w.g.icon_mine_buy;
                         cVar.title = TbadkCoreApplication.m9getInst().getString(w.l.consumption_records);
-                        cVar.eAU = new com.baidu.tieba.personCenter.d.a();
-                        cVar.eAU.bGX = 13;
-                        cVar.eAU.bGY = new Bundle();
-                        cVar.eAU.bGY.putString("type_center_consume_url", aVar.ezt);
-                        this.ezW.add(cVar);
+                        cVar.eDk = new com.baidu.tieba.personCenter.d.a();
+                        cVar.eDk.bJo = 13;
+                        cVar.eDk.bJp = new Bundle();
+                        cVar.eDk.bJp.putString("type_center_consume_url", aVar.eBJ);
+                        this.eCm.add(cVar);
                     } else if (aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.person_wallet_money)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.person_wallet_bankCard)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.person_wallet_card_coupons)) || aVar.title.equals(TbadkCoreApplication.m9getInst().getResources().getString(w.l.get_tdou))) {
-                        this.ezu.add(aVar);
+                        this.eBK.add(aVar);
                     }
                 }
             }
         }
     }
 
-    public com.baidu.tieba.personCenter.c.c nX(String str) {
-        for (com.baidu.tieba.personCenter.c.c cVar : this.ezW) {
+    public com.baidu.tieba.personCenter.c.c nY(String str) {
+        for (com.baidu.tieba.personCenter.c.c cVar : this.eCm) {
             if (cVar != null && str != null && str.equals(cVar.title)) {
                 return cVar;
             }
@@ -101,6 +101,6 @@ public class c implements v {
 
     @Override // com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return ezV;
+        return eCl;
     }
 }

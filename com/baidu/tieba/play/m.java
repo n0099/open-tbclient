@@ -12,11 +12,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements v.a {
-    final /* synthetic */ c eUa;
+    final /* synthetic */ c eWq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(c cVar) {
-        this.eUa = cVar;
+        this.eWq = cVar;
     }
 
     @Override // com.baidu.tieba.play.v.a
@@ -41,63 +41,63 @@ public class m implements v.a {
         TextView textView2;
         View view5;
         c.InterfaceC0070c interfaceC0070c2;
-        this.eUa.dup = false;
-        this.eUa.duu = 0;
-        this.eUa.aym();
-        view = this.eUa.dub;
+        this.eWq.dwG = false;
+        this.eWq.dwL = 0;
+        this.eWq.azn();
+        view = this.eWq.dws;
         view.setVisibility(0);
-        progressBar = this.eUa.eTO;
+        progressBar = this.eWq.eWe;
         progressBar.setVisibility(8);
-        progressBar2 = this.eUa.eTO;
-        progressBar3 = this.eUa.eTO;
+        progressBar2 = this.eWq.eWe;
+        progressBar3 = this.eWq.eWe;
         progressBar2.setProgress(progressBar3.getMax());
-        interfaceC0070c = this.eUa.eTW;
+        interfaceC0070c = this.eWq.eWm;
         if (interfaceC0070c != null) {
-            interfaceC0070c2 = this.eUa.eTW;
-            interfaceC0070c2.jd(false);
+            interfaceC0070c2 = this.eWq.eWm;
+            interfaceC0070c2.jn(false);
         }
-        if (this.eUa.cFE) {
-            view4 = this.eUa.duh;
+        if (this.eWq.cHV) {
+            view4 = this.eWq.dwy;
             view4.setVisibility(0);
-            imageView2 = this.eUa.dun;
+            imageView2 = this.eWq.dwE;
             imageView2.setVisibility(0);
-            textView2 = this.eUa.duo;
+            textView2 = this.eWq.dwF;
             textView2.setVisibility(0);
-            view5 = this.eUa.eTP;
+            view5 = this.eWq.eWf;
             view5.setVisibility(8);
         } else {
-            view2 = this.eUa.duh;
+            view2 = this.eWq.dwy;
             view2.setVisibility(8);
-            imageView = this.eUa.dun;
+            imageView = this.eWq.dwE;
             imageView.setVisibility(8);
-            textView = this.eUa.duo;
+            textView = this.eWq.dwF;
             textView.setVisibility(8);
-            view3 = this.eUa.eTP;
+            view3 = this.eWq.eWf;
             view3.setVisibility(8);
         }
-        this.eUa.eTQ.setVisibility(0);
-        str = this.eUa.euR;
+        this.eWq.eWg.setVisibility(0);
+        str = this.eWq.exh;
         if (TextUtils.isEmpty(str)) {
-            this.eUa.eTR.setVisibility(8);
-            this.eUa.eTS.setVisibility(8);
+            this.eWq.eWh.setVisibility(8);
+            this.eWq.eWi.setVisibility(8);
         } else {
-            this.eUa.eTR.setVisibility(0);
-            this.eUa.eTS.setVisibility(0);
-            TextView textView3 = this.eUa.eTS;
-            tbPageContext = this.eUa.aaX;
+            this.eWq.eWh.setVisibility(0);
+            this.eWq.eWi.setVisibility(0);
+            TextView textView3 = this.eWq.eWi;
+            tbPageContext = this.eWq.aaY;
             StringBuilder sb = new StringBuilder(String.valueOf(tbPageContext.getString(w.l.video_play_nextvideo)));
-            str2 = this.eUa.euR;
+            str2 = this.eWq.exh;
             textView3.setText(sb.append(str2).toString());
         }
-        az aYm = az.aYm();
-        str3 = this.eUa.mVideoUrl;
-        aYm.remove(str3);
-        aVar = this.eUa.eTT;
+        az aZn = az.aZn();
+        str3 = this.eWq.mVideoUrl;
+        aZn.remove(str3);
+        aVar = this.eWq.eWj;
         if (aVar != null) {
-            aVar2 = this.eUa.eTT;
+            aVar2 = this.eWq.eWj;
             aVar2.onCompletion(vVar);
         }
-        this.eUa.akR = 3;
-        this.eUa.aTb.setRecoveryState(3);
+        this.eWq.akS = 3;
+        this.eWq.aTd.setRecoveryState(3);
     }
 }

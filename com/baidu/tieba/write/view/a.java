@@ -22,12 +22,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends PopupWindow {
-    private ListView bNY;
-    private AlbumActivity fPj;
-    private ViewGroup fPk;
-    private l fPl;
-    private int fPm;
-    private InterfaceC0078a fPn;
+    private ListView bQp;
+    private AlbumActivity fRF;
+    private ViewGroup fRG;
+    private l fRH;
+    private int fRI;
+    private InterfaceC0078a fRJ;
 
     /* renamed from: com.baidu.tieba.write.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -36,12 +36,12 @@ public class a extends PopupWindow {
     }
 
     public void a(InterfaceC0078a interfaceC0078a) {
-        this.fPn = interfaceC0078a;
+        this.fRJ = interfaceC0078a;
     }
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext().getPageActivity());
-        this.fPj = albumActivity;
+        this.fRF = albumActivity;
         setWidth(-1);
         setHeight(-1);
         setContentView(f(new ArrayList(), "-1"));
@@ -53,20 +53,20 @@ public class a extends PopupWindow {
     }
 
     private View f(List<com.baidu.tieba.write.album.d> list, String str) {
-        BdListView bdListView = new BdListView(this.fPj.getPageContext().getPageActivity());
-        this.bNY = bdListView;
-        bdListView.setCacheColorHint(this.fPj.getResources().getColor(17170445));
+        BdListView bdListView = new BdListView(this.fRF.getPageContext().getPageActivity());
+        this.bQp = bdListView;
+        bdListView.setCacheColorHint(this.fRF.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.fPl = new l(this.fPj);
-        this.fPl.b(list, str);
-        bdListView.setAdapter((ListAdapter) this.fPl);
+        this.fRH = new l(this.fRF);
+        this.fRH.b(list, str);
+        bdListView.setAdapter((ListAdapter) this.fRH);
         bdListView.setOnItemClickListener(new b(this));
-        FrameLayout frameLayout = new FrameLayout(this.fPj.getPageContext().getPageActivity());
-        FrameLayout frameLayout2 = new FrameLayout(this.fPj.getPageContext().getPageActivity());
-        this.fPk = frameLayout2;
-        frameLayout2.setBackgroundColor(this.fPj.getResources().getColor(w.e.common_color_10175));
+        FrameLayout frameLayout = new FrameLayout(this.fRF.getPageContext().getPageActivity());
+        FrameLayout frameLayout2 = new FrameLayout(this.fRF.getPageContext().getPageActivity());
+        this.fRG = frameLayout2;
+        frameLayout2.setBackgroundColor(this.fRF.getResources().getColor(w.e.common_color_10175));
         frameLayout2.setOnClickListener(new c(this));
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
@@ -76,21 +76,21 @@ public class a extends PopupWindow {
     public void b(List<com.baidu.tieba.write.album.d> list, String str) {
         int i;
         if (list != null) {
-            this.fPm = g(list, str);
+            this.fRI = g(list, str);
             if (list.size() <= 5) {
                 i = -2;
             } else {
-                i = this.fPj.getResources().getDimensionPixelSize(w.f.ds618);
+                i = this.fRF.getResources().getDimensionPixelSize(w.f.ds618);
             }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bNY.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bQp.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new FrameLayout.LayoutParams(-1, i);
             } else {
                 layoutParams.height = i;
             }
-            this.bNY.setLayoutParams(layoutParams);
-            this.fPl.b(list, str);
-            this.fPl.notifyDataSetChanged();
+            this.bQp.setLayoutParams(layoutParams);
+            this.fRH.b(list, str);
+            this.fRH.notifyDataSetChanged();
         }
     }
 
@@ -109,38 +109,38 @@ public class a extends PopupWindow {
     }
 
     public void aH(View view) {
-        this.bNY.setSelection(this.fPm);
+        this.bQp.setSelection(this.fRI);
         if (j.showPopupWindowAsDropDown(this, view)) {
-            bom();
+            bpn();
         }
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        atR();
+        auS();
     }
 
-    public void atR() {
-        afL();
+    public void auS() {
+        agM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bol() {
+    public void bpm() {
         super.dismiss();
     }
 
-    private void bom() {
+    private void bpn() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.bNY.startAnimation(translateAnimation);
-        this.fPk.startAnimation(alphaAnimation);
+        this.bQp.startAnimation(translateAnimation);
+        this.fRG.startAnimation(alphaAnimation);
     }
 
-    private void afL() {
+    private void agM() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -149,7 +149,7 @@ public class a extends PopupWindow {
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         alphaAnimation.setAnimationListener(new d(this));
-        this.bNY.startAnimation(translateAnimation);
-        this.fPk.startAnimation(alphaAnimation);
+        this.bQp.startAnimation(translateAnimation);
+        this.fRG.startAnimation(alphaAnimation);
     }
 }

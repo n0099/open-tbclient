@@ -16,8 +16,8 @@ class al extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             int g = b.g(customResponsedMessage.getData().toString(), 1);
             if (g == 1 || g == 0) {
-                FrsActivityStatic.bNQ = false;
-                FrsActivityStatic.bNP = false;
+                FrsActivityStatic.bQh = false;
+                FrsActivityStatic.bQg = false;
             }
         }
     }

@@ -12,23 +12,23 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements View.OnClickListener {
-    final /* synthetic */ WriteActivity fSq;
+    final /* synthetic */ WriteActivity fUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(WriteActivity writeActivity) {
-        this.fSq = writeActivity;
+        this.fUM = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         WriteData writeData;
         List list;
-        writeData = this.fSq.mData;
+        writeData = this.fUM.mData;
         if (writeData.getType() == 7) {
             TiebaStatic.log("c12016");
         }
-        Activity pageActivity = this.fSq.getPageContext().getPageActivity();
-        list = this.fSq.mList;
+        Activity pageActivity = this.fUM.getPageContext().getPageActivity();
+        list = this.fUM.mList;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicChangeActivityConfig(pageActivity, 25005, list)));
     }
 }

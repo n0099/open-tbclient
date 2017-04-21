@@ -5,15 +5,15 @@ import com.baidu.tieba.imMessageCenter.RequestQueryUserInfoMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.tbadk.util.f<PersonalSettingItemData> {
-    private final /* synthetic */ long aYe;
-    final /* synthetic */ r dil;
-    private final /* synthetic */ PersonalTalkSettingActivity dim;
+    private final /* synthetic */ long aYh;
+    final /* synthetic */ r dkC;
+    private final /* synthetic */ PersonalTalkSettingActivity dkD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(r rVar, long j, PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.dil = rVar;
-        this.aYe = j;
-        this.dim = personalTalkSettingActivity;
+        this.dkC = rVar;
+        this.aYh = j;
+        this.dkD = personalTalkSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,10 +21,10 @@ public class v implements com.baidu.tbadk.util.f<PersonalSettingItemData> {
     /* renamed from: a */
     public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
         if (personalSettingItemData != null) {
-            this.dil.dih = personalSettingItemData.isAcceptNotify();
+            this.dkC.dky = personalSettingItemData.isAcceptNotify();
         }
         RequestQueryUserInfoMessage requestQueryUserInfoMessage = new RequestQueryUserInfoMessage();
-        requestQueryUserInfoMessage.setReqUserId(this.aYe);
-        this.dim.sendMessage(requestQueryUserInfoMessage);
+        requestQueryUserInfoMessage.setReqUserId(this.aYh);
+        this.dkD.sendMessage(requestQueryUserInfoMessage);
     }
 }

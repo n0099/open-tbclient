@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends Thread {
-    final /* synthetic */ b RT;
+    final /* synthetic */ b RV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.RT = bVar;
+        this.RV = bVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable

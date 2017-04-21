@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.InterfaceC0030a {
-    private final /* synthetic */ boolean aDA;
+    private final /* synthetic */ boolean aDC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(boolean z) {
-        this.aDA = z;
+        this.aDC = z;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
@@ -23,7 +23,7 @@ public class d implements a.InterfaceC0030a {
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0030a
     public void a(AccountData accountData) {
         if (TextUtils.isEmpty(accountData.getAccount())) {
-            if (this.aDA) {
+            if (this.aDC) {
                 if (k.Z(com.baidu.adp.base.a.ca().cb()) != null) {
                     a.a((TbPageContext) k.Z(com.baidu.adp.base.a.ca().cb()), accountData);
                     return;

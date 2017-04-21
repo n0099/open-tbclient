@@ -10,8 +10,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b aFD;
-    private InterfaceC0044a aFE = null;
+    private b aFF;
+    private InterfaceC0044a aFG = null;
     private WindowManager jn;
 
     /* renamed from: com.baidu.tbadk.j.a$a  reason: collision with other inner class name */
@@ -21,15 +21,15 @@ public class a extends com.baidu.adp.a.a.a {
     }
 
     public a(Context context) {
-        this.aFD = null;
+        this.aFF = null;
         this.jn = null;
-        this.aFD = new b(context);
+        this.aFF = new b(context);
         this.jn = (WindowManager) context.getSystemService("window");
     }
 
     private void Gk() {
         try {
-            this.jn.removeView(this.aFD);
+            this.jn.removeView(this.aFF);
         } catch (Throwable th) {
         }
     }
@@ -40,7 +40,7 @@ public class a extends com.baidu.adp.a.a.a {
             layoutParams.gravity = 51;
             layoutParams.height = 1;
             layoutParams.width = 1;
-            this.jn.addView(this.aFD, layoutParams);
+            this.jn.addView(this.aFF, layoutParams);
         } catch (Throwable th) {
         }
     }
@@ -62,14 +62,14 @@ public class a extends com.baidu.adp.a.a.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int aFG;
+        private int aFI;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.aFG = 0;
+            this.aFI = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -81,26 +81,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.aFG = 0;
+                this.aFI = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aFE != null) {
-                    a.this.aFE.fb(this.aFG);
+                if (a.this.aFG != null) {
+                    a.this.aFG.fb(this.aFI);
                 } else {
-                    com.baidu.adp.a.a.d.F(this.aFG);
+                    com.baidu.adp.a.a.d.F(this.aFI);
                 }
-                this.aFG = 0;
+                this.aFI = 0;
             }
-            this.aFG++;
+            this.aFI++;
         }
     }
 
     public void a(InterfaceC0044a interfaceC0044a) {
-        if (this.aFE == null) {
-            this.aFE = interfaceC0044a;
+        if (this.aFG == null) {
+            this.aFG = interfaceC0044a;
         }
     }
 }

@@ -137,11 +137,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.afD) {
+            if (!switchData.afE) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.afC) {
+            if (!switchData.afD) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -149,7 +149,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.afE) {
+            if (switchData.afF) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = 400;
@@ -174,25 +174,25 @@ public class NotificationHelper {
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
                 if (com.baidu.tbadk.coreExtra.messageCenter.c.zG().zP()) {
-                    aVar.afC = true;
+                    aVar.afD = true;
                     if (z || z2) {
-                        aVar.afC = false;
+                        aVar.afD = false;
                     }
                 }
                 if (com.baidu.tbadk.coreExtra.messageCenter.c.zG().zS()) {
-                    aVar.afD = true;
+                    aVar.afE = true;
                     if (z) {
-                        aVar.afD = false;
+                        aVar.afE = false;
                     }
                     if (z2) {
-                        aVar.afD = true;
+                        aVar.afE = true;
                     }
                 }
                 TbadkCoreApplication.m9getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
         if (com.baidu.tbadk.coreExtra.messageCenter.c.zG().zQ()) {
-            aVar.afE = true;
+            aVar.afF = true;
         }
         return aVar;
     }
@@ -222,9 +222,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean afC = false;
         boolean afD = false;
         boolean afE = false;
+        boolean afF = false;
 
         a() {
         }

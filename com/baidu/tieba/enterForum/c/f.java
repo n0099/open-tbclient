@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements ab.c {
-    final /* synthetic */ e bFP;
+    final /* synthetic */ e bIg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bFP = eVar;
+        this.bIg = eVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ab.c

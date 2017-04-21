@@ -4,18 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ a cwH;
+    final /* synthetic */ a cyY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.cwH = aVar;
+        this.cyY = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        a aVar = this.cwH;
-        str = this.cwH.cwB;
-        aVar.jE(str);
+        a aVar = this.cyY;
+        str = this.cyY.cyS;
+        aVar.jF(str);
     }
 }

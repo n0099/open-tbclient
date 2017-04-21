@@ -18,14 +18,14 @@ public class z implements View.OnTouchListener {
         com.baidu.tieba.e.a aVar;
         com.baidu.tieba.e.a aVar2;
         View.OnTouchListener onTouchListener2;
-        onTouchListener = this.this$0.cxq;
+        onTouchListener = this.this$0.czH;
         if (onTouchListener != null) {
-            onTouchListener2 = this.this$0.cxq;
+            onTouchListener2 = this.this$0.czH;
             onTouchListener2.onTouch(view, motionEvent);
         }
-        aVar = this.this$0.aRg;
+        aVar = this.this$0.aRi;
         if (aVar != null) {
-            aVar2 = this.this$0.aRg;
+            aVar2 = this.this$0.aRi;
             aVar2.onTouchEvent(motionEvent);
             return false;
         }

@@ -4,19 +4,19 @@ import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tieba.homepage.alalivelist.model.RecommendAlaLiveCacheModel;
 /* loaded from: classes.dex */
 public class a implements e {
-    private long ctt;
+    private long cvK;
 
     public a(long j) {
-        this.ctt = j;
+        this.cvK = j;
     }
 
-    public long air() {
-        return this.ctt;
+    public long ajs() {
+        return this.cvK;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
-        return new StringBuilder(String.valueOf(this.ctt)).toString();
+        return new StringBuilder(String.valueOf(this.cvK)).toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.e

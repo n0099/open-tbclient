@@ -3,8 +3,8 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c aDR = Fd();
-    protected FragmentTabIndicator aDS;
+    protected c aDT = Fd();
+    protected FragmentTabIndicator aDU;
 
     public abstract c Fd();
 
@@ -19,6 +19,6 @@ public abstract class b {
     }
 
     public c Fe() {
-        return this.aDR;
+        return this.aDT;
     }
 }

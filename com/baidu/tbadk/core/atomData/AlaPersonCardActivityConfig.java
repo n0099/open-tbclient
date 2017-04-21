@@ -42,7 +42,8 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_GROUP_ID, str6);
         getIntent().putExtra(PERSON_LIVE_ID, str7);
         getIntent().putExtra(PERSON_LIVE_OWNER_FLAG, z);
-        setIntentAction(IntentAction.Activity);
+        setRequestCode(25012);
+        setIntentAction(IntentAction.ActivityForResult);
     }
 
     public AlaPersonCardActivityConfig(Context context, String str, String str2, String str3, int i, int i2, String str4, String str5, int i3, long j, long j2, int i4) {
@@ -58,6 +59,7 @@ public class AlaPersonCardActivityConfig extends IntentConfig {
         getIntent().putExtra(PERSON_FANS_COUNT, j);
         getIntent().putExtra(PERSON_FOLLOWS_COUNT, j2);
         getIntent().putExtra(PERSON_FOLLOW_STATUS, i4);
-        setIntentAction(IntentAction.Activity);
+        setRequestCode(25012);
+        setIntentAction(IntentAction.ActivityForResult);
     }
 }

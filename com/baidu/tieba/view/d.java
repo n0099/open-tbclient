@@ -2,15 +2,15 @@ package com.baidu.tieba.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ CommonTipView fJo;
+    final /* synthetic */ CommonTipView fLK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(CommonTipView commonTipView) {
-        this.fJo = commonTipView;
+        this.fLK = commonTipView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.fJo.hideTip();
+        this.fLK.hideTip();
     }
 }

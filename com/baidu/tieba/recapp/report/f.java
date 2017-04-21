@@ -12,20 +12,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements d {
-    private TbHttpMessageTask fdT;
-    private HttpMessageListener bno = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
-    private ArrayList<a> fdU = new ArrayList<>();
+    private TbHttpMessageTask fgk;
+    private HttpMessageListener bpF = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
+    private ArrayList<a> fgl = new ArrayList<>();
 
     public f() {
-        aDW();
-        MessageManager.getInstance().registerListener(this.bno);
+        aEX();
+        MessageManager.getInstance().registerListener(this.bpF);
     }
 
-    private void aDW() {
-        this.fdT = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.fdT.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.fdT.setIsNeedAddCommenParam(true);
-        this.fdT.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void aEX() {
+        this.fgk = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.fgk.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.fgk.setIsNeedAddCommenParam(true);
+        this.fgk.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -33,16 +33,16 @@ public class f implements d {
         if (aVar != null) {
             com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.m9getInst().getAdAdSense();
             if (!(adAdSense == null || adAdSense.yd())) {
-                this.fdT.setUrl("http://als.baidu.com/clog/clog");
+                this.fgk.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            baC();
+            bbD();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void baB() {
-        baC();
+    public void bbC() {
+        bbD();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -52,15 +52,15 @@ public class f implements d {
         }
     }
 
-    private void baC() {
-        if (x.p(this.fdU) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fdU), this.fdT);
-            this.fdU.clear();
+    private void bbD() {
+        if (x.p(this.fgl) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.fgl), this.fgk);
+            this.fgl.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cz(List<a> list) {
+    public void cA(List<a> list) {
         if (x.p(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
@@ -72,10 +72,10 @@ public class f implements d {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (x.p(this.fdU) >= 20) {
-                this.fdU.remove(0);
+            if (x.p(this.fgl) >= 20) {
+                this.fgl.remove(0);
             }
-            this.fdU.add(aVar);
+            this.fgl.add(aVar);
         }
     }
 }

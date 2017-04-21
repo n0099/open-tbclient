@@ -66,7 +66,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo lt;
+        ICardInfo lu;
         this.legoCard = null;
         if (app == null) {
             this.id = null;
@@ -117,8 +117,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.e.eY().Y("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (lt = com.baidu.tieba.lego.card.b.lt(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = lt.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.e.eZ().Y("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (lu = com.baidu.tieba.lego.card.b.lu(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = lu.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -249,7 +249,7 @@ public class AppData extends OrmObject {
                     }
                 }
             }
-            this.lego_card = y.pi(goodsInfo.lego_card);
+            this.lego_card = y.pj(goodsInfo.lego_card);
             this.video_info = goodsInfo.video_info;
             this.tag_name = goodsInfo.tag_name;
             this.ad_source = goodsInfo.ad_source;
@@ -270,7 +270,7 @@ public class AppData extends OrmObject {
         }
 
         public boolean c(ICardInfo iCardInfo) {
-            int Y = com.baidu.adp.lib.b.e.eY().Y("is_support_lego_ad_style");
+            int Y = com.baidu.adp.lib.b.e.eZ().Y("is_support_lego_ad_style");
             if (!TextUtils.isEmpty(this.lego_card)) {
                 return (Y == 0 || iCardInfo == null) ? false : true;
             } else if (this.goods_style == 1001) {

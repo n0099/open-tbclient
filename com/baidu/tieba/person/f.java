@@ -6,9 +6,9 @@ import tbclient.UcCard;
 import tbclient.UcCardInfo;
 /* loaded from: classes.dex */
 public class f {
-    public String ezs;
-    public String ezt;
-    public List<a> ezu;
+    public String eBI;
+    public String eBJ;
+    public List<a> eBK;
     public String icon;
     public String name;
 
@@ -16,15 +16,15 @@ public class f {
         if (ucCard != null) {
             this.name = ucCard.name;
             this.icon = ucCard.icon;
-            this.ezs = ucCard.doc;
-            this.ezt = ucCard.jmp;
-            this.ezu = new ArrayList();
+            this.eBI = ucCard.doc;
+            this.eBJ = ucCard.jmp;
+            this.eBK = new ArrayList();
             if (ucCard.uc_cards != null) {
                 for (UcCardInfo ucCardInfo : ucCard.uc_cards) {
                     if (ucCardInfo != null) {
                         a aVar = new a();
                         aVar.a(ucCardInfo);
-                        this.ezu.add(aVar);
+                        this.eBK.add(aVar);
                     }
                 }
             }
@@ -33,10 +33,10 @@ public class f {
 
     /* loaded from: classes.dex */
     public static class a {
-        public long GX;
-        public String ezt;
-        public boolean ezv;
+        public String eBJ;
+        public boolean eBL;
         public String pic;
+        public long timeStamp;
         public String tip;
         public String title;
 
@@ -44,9 +44,9 @@ public class f {
             if (ucCardInfo != null) {
                 this.title = ucCardInfo.title;
                 this.pic = ucCardInfo.pic;
-                this.ezt = ucCardInfo.jmp;
+                this.eBJ = ucCardInfo.jmp;
                 this.tip = ucCardInfo.tip;
-                this.GX = ucCardInfo.st.intValue();
+                this.timeStamp = ucCardInfo.st.intValue();
             }
         }
     }

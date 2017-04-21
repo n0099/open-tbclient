@@ -14,11 +14,11 @@ import java.net.URLEncoder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a aVi;
+    final /* synthetic */ a aVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aVi = aVar;
+        this.aVk = aVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:3:0x0008 */
@@ -47,22 +47,22 @@ public class b implements Runnable {
         String str5;
         Object obj2;
         while (!z) {
-            obj = this.aVi.mLock;
+            obj = this.aVk.mLock;
             synchronized (obj) {
                 try {
-                    obj2 = this.aVi.mLock;
+                    obj2 = this.aVk.mLock;
                     obj2.wait();
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
             }
-            z2 = this.aVi.aVg;
+            z2 = this.aVk.aVi;
             if (z2) {
                 return;
             }
-            LO = this.aVi.LO();
+            LO = this.aVk.LO();
             if (LO != null && !LO.isEmpty()) {
-                File file = new File(String.valueOf(d.aUU) + c.gU(LO) + "/header_downloaded");
+                File file = new File(String.valueOf(d.aUW) + c.gU(LO) + "/header_downloaded");
                 if (file.exists()) {
                     str = a.TAG;
                     e.log(str, "header exists " + LO);
@@ -131,7 +131,7 @@ public class b implements Runnable {
                                             int i4 = i2;
                                             while (true) {
                                                 try {
-                                                    bArr = this.aVi.mBuffer;
+                                                    bArr = this.aVk.mBuffer;
                                                     int read = inputStream.read(bArr);
                                                     if (read == -1) {
                                                         i = i4;

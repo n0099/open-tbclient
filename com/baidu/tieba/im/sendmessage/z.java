@@ -10,13 +10,13 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements com.baidu.tbadk.util.f<LinkedHashMap<String, String>> {
-    final /* synthetic */ a deC;
-    private final /* synthetic */ ad deN;
+    final /* synthetic */ a dgT;
+    private final /* synthetic */ ad dhe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(a aVar, ad adVar) {
-        this.deC = aVar;
-        this.deN = adVar;
+        this.dgT = aVar;
+        this.dhe = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,6 +48,6 @@ public class z implements com.baidu.tbadk.util.f<LinkedHashMap<String, String>> 
                 }
             }
         }
-        this.deN.a(linkedHashMap2, hashMap);
+        this.dhe.a(linkedHashMap2, hashMap);
     }
 }

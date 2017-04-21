@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ RecPersonalizePageModel czo;
+    final /* synthetic */ RecPersonalizePageModel cBF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(RecPersonalizePageModel recPersonalizePageModel, int i) {
         super(i);
-        this.czo = recPersonalizePageModel;
+        this.cBF = recPersonalizePageModel;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -28,32 +28,32 @@ public class h extends CustomMessageListener {
         String str3;
         if (customResponsedMessage != null) {
             if (!(customResponsedMessage.getData() instanceof com.baidu.tieba.homepage.personalize.data.g)) {
-                this.czo.czh = null;
-                this.czo.czk = 0;
+                this.cBF.cBy = null;
+                this.cBF.cBB = 0;
                 return;
             }
             com.baidu.tieba.homepage.personalize.data.g gVar = (com.baidu.tieba.homepage.personalize.data.g) customResponsedMessage.getData();
-            if (gVar.cyX) {
-                str2 = this.czo.czh;
+            if (gVar.cBo) {
+                str2 = this.cBF.cBy;
                 if (!StringUtils.isNull(str2)) {
-                    str3 = this.czo.czh;
-                    if (str3.equals(gVar.Uu)) {
-                        this.czo.czk = 2;
-                        this.czo.czh = gVar.Uu;
+                    str3 = this.cBF.cBy;
+                    if (str3.equals(gVar.Uw)) {
+                        this.cBF.cBB = 2;
+                        this.cBF.cBy = gVar.Uw;
                         return;
                     }
                 }
-                this.czo.czk = 1;
-                this.czo.czh = gVar.Uu;
+                this.cBF.cBB = 1;
+                this.cBF.cBy = gVar.Uw;
                 return;
             }
-            str = this.czo.czh;
+            str = this.cBF.cBy;
             if (StringUtils.isNull(str)) {
-                this.czo.czk = 2;
+                this.cBF.cBB = 2;
             } else {
-                this.czo.czk = 1;
+                this.cBF.cBB = 1;
             }
-            this.czo.czh = null;
+            this.cBF.cBy = null;
         }
     }
 }

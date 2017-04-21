@@ -19,35 +19,35 @@ import com.baidu.tieba.w;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private GridView dGY;
+    private GridView dJo;
     private BaseActivity mBaseActivity;
     private Context mContext;
-    private com.baidu.tbadk.img.b aAc = new com.baidu.tbadk.img.b();
-    private j ayK = null;
-    private int aAf = 13;
-    private int fPp = 6;
-    private boolean fPq = false;
+    private com.baidu.tbadk.img.b aAe = new com.baidu.tbadk.img.b();
+    private j ayM = null;
+    private int aAh = 13;
+    private int fRL = 6;
+    private boolean fRM = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0077a fPr = new b(this);
+    private InterfaceC0077a fRN = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0077a {
-        void sV(int i);
+        void tb(int i);
     }
 
-    public void bon() {
+    public void bpo() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            boo();
-        } else if (this.chosedFiles.size() < this.fPp) {
+            bpp();
+        } else if (this.chosedFiles.size() < this.fRL) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                boo();
+                bpp();
             }
         }
     }
 
-    private void boo() {
+    private void bpp() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + w.g.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -58,14 +58,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean bop() {
+    public boolean bpq() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void boq() {
+    public void bpr() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -77,10 +77,10 @@ public class a extends BaseAdapter {
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
         this.mBaseActivity = null;
-        this.dGY = null;
+        this.dJo = null;
         this.mBaseActivity = baseActivity;
         this.mContext = this.mBaseActivity.getActivity();
-        this.dGY = gridView;
+        this.dJo = gridView;
     }
 
     @Override // android.widget.Adapter
@@ -108,7 +108,7 @@ public class a extends BaseAdapter {
     }
 
     public void setEditorTools(j jVar) {
-        this.ayK = jVar;
+        this.ayM = jVar;
     }
 
     public void c(WriteImagesInfo writeImagesInfo) {
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        bon();
+        bpo();
         notifyDataSetInvalidated();
     }
 
@@ -157,8 +157,8 @@ public class a extends BaseAdapter {
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
         }
         c cVar = new c(this, viewGroup);
-        if (imageFileInfo != null && this.aAc != null) {
-            aVar = this.aAc.a(imageFileInfo, cVar, true);
+        if (imageFileInfo != null && this.aAe != null) {
+            aVar = this.aAe.a(imageFileInfo, cVar, true);
         }
         if (aVar != null) {
             tbImageView.invalidate();
@@ -168,7 +168,7 @@ public class a extends BaseAdapter {
         return inflate;
     }
 
-    public void sU(int i) {
-        this.fPp = i;
+    public void ta(int i) {
+        this.fRL = i;
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tieba.pb.pb.main.cv;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cw extends HttpMessageListener {
-    final /* synthetic */ cv ekR;
+    final /* synthetic */ cv enj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cw(cv cvVar, int i) {
         super(i);
-        this.ekR = cvVar;
+        this.enj = cvVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,24 +23,24 @@ public class cw extends HttpMessageListener {
         cv.a aVar3;
         cv.a aVar4;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001803) {
-            aVar = this.ekR.ekP;
+            aVar = this.enj.enh;
             if (aVar != null) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
                 String errorString = httpResponsedMessage.getErrorString();
                 if (!(httpResponsedMessage instanceof HideChudianPostResponseMessage)) {
-                    aVar4 = this.ekR.ekP;
+                    aVar4 = this.enj.enh;
                     aVar4.onError(error, errorString);
                     return;
                 }
                 HideChudianPostResponseMessage hideChudianPostResponseMessage = (HideChudianPostResponseMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    aVar2 = this.ekR.ekP;
+                    aVar2 = this.enj.enh;
                     aVar2.onError(error, errorString);
                     return;
                 }
                 hideChudianPostResponseMessage.getResultFlag();
-                aVar3 = this.ekR.ekP;
+                aVar3 = this.enj.enh;
                 aVar3.i(hideChudianPostResponseMessage.getResultFlag(), hideChudianPostResponseMessage.getTemplateId());
             }
         }

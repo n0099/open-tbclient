@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class e extends RelativeLayout implements p {
-    private String ael;
-    private int ayG;
-    private TextView ayI;
-    private int ayJ;
+    private String aem;
+    private int ayI;
+    private TextView ayK;
+    private int ayL;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -23,26 +23,26 @@ public class e extends RelativeLayout implements p {
         if (i > 0 && i2 > 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, context.getResources().getDimensionPixelSize(w.f.ds144));
             setGravity(5);
-            this.ayI = new TextView(context);
+            this.ayK = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.ayI.setGravity(17);
-            this.ayI.setTextSize(0, context.getResources().getDimensionPixelSize(w.f.fontsize24));
-            this.ayJ = context.getResources().getDimensionPixelSize(w.f.ds12);
+            this.ayK.setGravity(17);
+            this.ayK.setTextSize(0, context.getResources().getDimensionPixelSize(w.f.fontsize24));
+            this.ayL = context.getResources().getDimensionPixelSize(w.f.ds12);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(w.f.ds16);
-            this.ayI.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-            addView(this.ayI, layoutParams);
+            this.ayK.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+            addView(this.ayK, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.ayI.setText(str);
+        this.ayK.setText(str);
     }
 
     public void setIcon(int i) {
-        this.ayG = i;
+        this.ayI = i;
     }
 
     @Override // com.baidu.tbadk.editortools.p
@@ -60,8 +60,8 @@ public class e extends RelativeLayout implements p {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = (this.ayI.getRight() - this.mTip.getMeasuredWidth()) - this.ayJ;
-                int top = this.ayI.getTop() + this.ayJ;
+                int right = (this.ayK.getRight() - this.mTip.getMeasuredWidth()) - this.ayL;
+                int top = this.ayK.getTop() + this.ayL;
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -76,7 +76,7 @@ public class e extends RelativeLayout implements p {
 
     private void fh(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.ael = str;
+            this.aem = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
@@ -97,7 +97,7 @@ public class e extends RelativeLayout implements p {
     }
 
     public void Dm() {
-        this.ael = null;
+        this.aem = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -126,12 +126,12 @@ public class e extends RelativeLayout implements p {
     @Override // com.baidu.tbadk.editortools.p
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        aq.d(this.ayI, w.g.btn_editor_selector, i);
-        aq.b(this.ayI, w.e.cp_cont_c, 1, i);
-        if (TextUtils.isEmpty(this.ayI.getText())) {
-            aq.d(this.ayI, this.ayG, i);
+        aq.d(this.ayK, w.g.btn_editor_selector, i);
+        aq.b(this.ayK, w.e.cp_cont_c, 1, i);
+        if (TextUtils.isEmpty(this.ayK.getText())) {
+            aq.d(this.ayK, this.ayI, i);
         } else {
-            this.ayI.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aq.x(i, this.ayG), (Drawable) null, (Drawable) null);
+            this.ayK.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, aq.x(i, this.ayI), (Drawable) null, (Drawable) null);
         }
         if (this.mTip != null) {
             aq.b(this.mTip, w.e.common_color_10225, 1, i);
@@ -145,6 +145,6 @@ public class e extends RelativeLayout implements p {
     }
 
     public String getText() {
-        return this.ael;
+        return this.aem;
     }
 }

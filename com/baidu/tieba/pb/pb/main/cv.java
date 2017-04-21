@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class cv {
-    private BaseActivity bcy;
-    private PbModel eif;
-    private a ekP = null;
-    private final HttpMessageListener ekQ = new cw(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
+    private BaseActivity bdG;
+    private PbModel ekv;
+    private a enh = null;
+    private final HttpMessageListener eni = new cw(this, CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,17 +22,17 @@ public class cv {
     }
 
     public cv(PbModel pbModel, BaseActivity baseActivity) {
-        this.eif = pbModel;
-        this.bcy = baseActivity;
-        aLi();
-        this.bcy.registerListener(this.ekQ);
+        this.ekv = pbModel;
+        this.bdG = baseActivity;
+        aMj();
+        this.bdG.registerListener(this.eni);
     }
 
     public void a(a aVar) {
-        this.ekP = aVar;
+        this.enh = aVar;
     }
 
-    public void aLi() {
+    public void aMj() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_HIDE_CHUDIAN_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/b/commit/tpointhide");
         tbHttpMessageTask.setIsNeedTbs(true);

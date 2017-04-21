@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends cf<bi> {
-    final /* synthetic */ z bSL;
+    final /* synthetic */ z bVc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar) {
-        this.bSL = zVar;
+        this.bVc = zVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,23 +22,23 @@ public class aa extends cf<bi> {
         cf cfVar2;
         if (view != null && biVar != null) {
             if (view.getId() == w.h.card_home_page_normal_thread_user_header) {
-                com.baidu.tieba.frs.e.b.adp().a(z.bYW, biVar, 2);
+                com.baidu.tieba.frs.e.b.aeq().a(z.cbn, biVar, 2);
             } else if (view.getId() == w.h.card_divider_tv) {
-                com.baidu.tieba.frs.f.s.a(z.bYW, biVar.sM());
+                com.baidu.tieba.frs.f.s.a(z.cbn, biVar.sM());
             } else if (view instanceof TbImageView) {
-                cfVar = this.bSL.baF;
-                if (cfVar.aPJ instanceof Boolean) {
-                    cfVar2 = this.bSL.baF;
-                    if (((Boolean) cfVar2.aPJ).booleanValue()) {
-                        com.baidu.tieba.frs.e.b.adp().a(z.bYW, biVar, 1);
+                cfVar = this.bVc.bbB;
+                if (cfVar.aPL instanceof Boolean) {
+                    cfVar2 = this.bVc.bbB;
+                    if (((Boolean) cfVar2.aPL).booleanValue()) {
+                        com.baidu.tieba.frs.e.b.aeq().a(z.cbn, biVar, 1);
                     } else {
-                        com.baidu.tieba.frs.e.b.adp().a(z.bYW, biVar, 3);
+                        com.baidu.tieba.frs.e.b.aeq().a(z.cbn, biVar, 3);
                     }
                 }
             } else if (view.getId() == w.h.card_home_page_normal_thread_abstract_voice) {
-                com.baidu.tieba.frs.e.b.adp().a(z.bYW, biVar, 5);
+                com.baidu.tieba.frs.e.b.aeq().a(z.cbn, biVar, 5);
             } else {
-                com.baidu.tieba.frs.e.b.adp().a(z.bYW, biVar, 1);
+                com.baidu.tieba.frs.e.b.aeq().a(z.cbn, biVar, 1);
             }
         }
     }

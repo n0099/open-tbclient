@@ -20,8 +20,8 @@ class e extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
             com.baidu.tbadk.core.sharedPref.b.uL().putBoolean("game_is_show_tip", booleanValue);
-            zVar = this.this$0.fzU;
-            zVar.eR(booleanValue);
+            zVar = this.this$0.fCk;
+            zVar.fb(booleanValue);
         }
     }
 }

@@ -228,26 +228,26 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         if (this.mPlayer instanceof k) {
             ((k) this.mPlayer).setOnCompletionListener(null);
         }
-        int hN = this.mPlayer.hN();
+        int hO = this.mPlayer.hO();
         Intent intent2 = new Intent("com.baidu.isStoped");
-        intent2.putExtra("com.baidu.msg.curr_time", hN);
+        intent2.putExtra("com.baidu.msg.curr_time", hO);
         sendBroadcast(intent2);
         this.mPlayer.xL();
     }
 
     private void stopAndReplay(Intent intent) {
         if (this.mVoice != null && this.mPlayer != null) {
-            long hN = this.mPlayer.hN();
-            if (hN >= 0) {
+            long hO = this.mPlayer.hO();
+            if (hO >= 0) {
                 this.mPlayer.xL();
                 this.mPlayer.xR();
                 long duration = this.mVoice.getDuration();
-                if (duration > 0 && hN <= duration) {
+                if (duration > 0 && hO <= duration) {
                     if (this.mPlayer instanceof k) {
                         ((k) this.mPlayer).setOnPreparedListener(null);
                     }
                     if (this.mPlayer.ed(this.mVoice.getName())) {
-                        this.mPlayer.dz((int) hN);
+                        this.mPlayer.dz((int) hO);
                         playVoice(null);
                     }
                 }

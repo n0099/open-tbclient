@@ -13,9 +13,9 @@ class s implements CustomMessageTask.CustomRunnable<r.a> {
             return null;
         }
         r.a data = customMessage.getData();
-        data.aGc = aa.GG().GI();
-        data.aGd = aa.GG().GK();
-        data.aGu = aa.GG().GJ();
+        data.aGe = aa.GG().GI();
+        data.aGf = aa.GG().GK();
+        data.aGw = aa.GG().GJ();
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, data);
     }
 }

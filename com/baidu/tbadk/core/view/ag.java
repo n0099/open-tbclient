@@ -17,6 +17,6 @@ class ag extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.alG.aln.setBackgroundColor(com.baidu.tbadk.core.util.ai.vJ().cJ(TbadkCoreApplication.m9getInst().getSkinType()));
+        this.alG.alo.setBackgroundColor(com.baidu.tbadk.core.util.ai.vJ().cJ(TbadkCoreApplication.m9getInst().getSkinType()));
     }
 }

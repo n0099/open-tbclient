@@ -21,39 +21,39 @@ import protobuf.NewpushGroupRepair;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes.dex */
 public class a {
-    private static a ddt = null;
-    private final CustomMessageListener dcG = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private Handler ddv;
-    private ConcurrentHashMap<Long, GroupMsgData> ddw;
-    private ConcurrentHashMap<Long, NewpushGroupRepair> ddx;
-    private ConcurrentHashMap<Long, Runnable> ddy;
-    private Vector<Long> ddz;
+    private static a dfM = null;
+    private final CustomMessageListener deZ = new b(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private Handler dfN;
+    private ConcurrentHashMap<Long, GroupMsgData> dfO;
+    private ConcurrentHashMap<Long, NewpushGroupRepair> dfP;
+    private ConcurrentHashMap<Long, Runnable> dfQ;
+    private Vector<Long> dfR;
     private Handler mHandler;
 
-    public static a asY() {
-        if (ddt == null) {
+    public static a atZ() {
+        if (dfM == null) {
             synchronized (a.class) {
-                if (ddt == null) {
-                    ddt = new a();
+                if (dfM == null) {
+                    dfM = new a();
                 }
             }
         }
-        return ddt;
+        return dfM;
     }
 
     private a() {
         this.mHandler = null;
-        this.ddv = null;
-        this.ddw = null;
-        this.ddx = null;
-        this.ddy = null;
-        this.ddz = null;
+        this.dfN = null;
+        this.dfO = null;
+        this.dfP = null;
+        this.dfQ = null;
+        this.dfR = null;
         this.mHandler = new c(this, Looper.getMainLooper());
-        this.ddv = new Handler(Looper.myLooper());
-        this.ddw = new ConcurrentHashMap<>();
-        this.ddx = new ConcurrentHashMap<>();
-        this.ddy = new ConcurrentHashMap<>();
-        this.ddz = new Vector<>();
+        this.dfN = new Handler(Looper.myLooper());
+        this.dfO = new ConcurrentHashMap<>();
+        this.dfP = new ConcurrentHashMap<>();
+        this.dfQ = new ConcurrentHashMap<>();
+        this.dfR = new Vector<>();
         this.mHandler.sendEmptyMessage(IjkMediaPlayer.PROP_FLOAT_VIDEO_OUTPUT_FRAMES_PER_SECOND);
     }
 
@@ -69,9 +69,9 @@ public class a {
         long j;
         if (groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
             long groupId = groupMsgData.getGroupInfo().getGroupId();
-            ImMessageCenterPojo U = j.apD().U(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            ImMessageCenterPojo U = j.aqE().U(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
             if (!(U != null)) {
-                if (!this.ddz.contains(Long.valueOf(groupId))) {
+                if (!this.dfR.contains(Long.valueOf(groupId))) {
                     a(groupMsgData, listMessage, groupId);
                     return;
                 }
@@ -79,10 +79,10 @@ public class a {
             }
             long sid = U.getSid();
             long bN = com.baidu.tieba.im.util.g.bN(U.getPulled_msgId());
-            GroupMsgData groupMsgData3 = this.ddw.get(Long.valueOf(groupId));
+            GroupMsgData groupMsgData3 = this.dfO.get(Long.valueOf(groupId));
             if (groupMsgData3 == null) {
                 GroupMsgData groupMsgData4 = new GroupMsgData(groupMsgData.getCmd());
-                this.ddw.put(Long.valueOf(groupId), groupMsgData4);
+                this.dfO.put(Long.valueOf(groupId), groupMsgData4);
                 groupMsgData2 = groupMsgData4;
             } else {
                 groupMsgData2 = groupMsgData3;
@@ -102,9 +102,9 @@ public class a {
                     j = listMessage.get(listMessage.size() - 1).getSid();
                     bN = listMessage.get(listMessage.size() - 1).getMsgId();
                     if (z) {
-                        this.ddz.remove(Long.valueOf(groupId));
+                        this.dfR.remove(Long.valueOf(groupId));
                     }
-                    if (this.ddz.contains(Long.valueOf(groupId))) {
+                    if (this.dfR.contains(Long.valueOf(groupId))) {
                         a(j, groupId, groupMsgData.getGroupInfo().getUserType(), bN);
                         return;
                     }
@@ -115,7 +115,7 @@ public class a {
             j = sid;
             if (z) {
             }
-            if (this.ddz.contains(Long.valueOf(groupId))) {
+            if (this.dfR.contains(Long.valueOf(groupId))) {
             }
         }
     }
@@ -126,7 +126,7 @@ public class a {
             bundle.putLong("groupId", j);
             bundle.putLong("lastMid", linkedList.get(0).getMsgId());
             if (linkedList.get(0).getSid() > 0) {
-                this.ddx.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
+                this.dfP.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
             bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
             Message message = new Message();
@@ -134,13 +134,13 @@ public class a {
             message.setData(bundle);
             this.mHandler.sendMessage(message);
             linkedList.clear();
-            this.ddz.add(Long.valueOf(j));
+            this.dfR.add(Long.valueOf(j));
             bG(j);
         }
     }
 
     private List<ChatMessage> bF(long j) {
-        GroupMsgData groupMsgData = this.ddw.get(Long.valueOf(j));
+        GroupMsgData groupMsgData = this.dfO.get(Long.valueOf(j));
         if (groupMsgData == null) {
             return null;
         }
@@ -168,12 +168,12 @@ public class a {
     }
 
     private void a(long j, long j2, int i, long j3) {
-        GroupMsgData groupMsgData = this.ddw.get(Long.valueOf(j2));
+        GroupMsgData groupMsgData = this.dfO.get(Long.valueOf(j2));
         if (groupMsgData != null) {
             LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
             if (listMessage == null || listMessage.size() == 0) {
                 bI(j2);
-            } else if (!this.ddy.containsKey(Long.valueOf(j2))) {
+            } else if (!this.dfQ.containsKey(Long.valueOf(j2))) {
                 b(j, j2, i, j3);
             }
         }
@@ -181,8 +181,8 @@ public class a {
 
     private void b(long j, long j2, int i, long j3) {
         d dVar = new d(this, j2, j, i, j3);
-        this.ddv.postDelayed(dVar, e.asZ().du().dv());
-        this.ddy.put(Long.valueOf(j2), dVar);
+        this.dfN.postDelayed(dVar, e.aua().dv().dw());
+        this.dfQ.put(Long.valueOf(j2), dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -196,17 +196,17 @@ public class a {
     }
 
     public NewpushGroupRepair bH(long j) {
-        if (this.ddx.containsKey(Long.valueOf(j))) {
-            return this.ddx.remove(Long.valueOf(j));
+        if (this.dfP.containsKey(Long.valueOf(j))) {
+            return this.dfP.remove(Long.valueOf(j));
         }
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bI(long j) {
-        Runnable remove = this.ddy.remove(Long.valueOf(j));
+        Runnable remove = this.dfQ.remove(Long.valueOf(j));
         if (remove != null) {
-            this.ddv.removeCallbacks(remove);
+            this.dfN.removeCallbacks(remove);
         }
     }
 
@@ -240,20 +240,20 @@ public class a {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.ddv != null) {
-            this.ddv.removeCallbacksAndMessages(null);
+        if (this.dfN != null) {
+            this.dfN.removeCallbacksAndMessages(null);
         }
-        if (this.ddy != null) {
-            for (Map.Entry<Long, Runnable> entry : this.ddy.entrySet()) {
+        if (this.dfQ != null) {
+            for (Map.Entry<Long, Runnable> entry : this.dfQ.entrySet()) {
                 bI(entry.getKey().longValue());
             }
-            this.ddy.clear();
+            this.dfQ.clear();
         }
-        if (this.ddw != null) {
-            this.ddw.clear();
+        if (this.dfO != null) {
+            this.dfO.clear();
         }
-        if (this.ddz != null) {
-            this.ddz.clear();
+        if (this.dfR != null) {
+            this.dfR.clear();
         }
     }
 }

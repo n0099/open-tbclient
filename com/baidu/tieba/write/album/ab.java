@@ -15,27 +15,27 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BaseAdapter {
-    private com.baidu.tbadk.img.b avZ;
-    private AlbumActivity fMV;
-    private o fNV;
-    private boolean fNW;
-    private boolean fNX;
-    private z fNY;
-    private x fNZ;
-    private aa fOa;
+    private com.baidu.tbadk.img.b awb;
+    private AlbumActivity fPr;
+    private o fQr;
+    private boolean fQs;
+    private boolean fQt;
+    private z fQu;
+    private x fQv;
+    private aa fQw;
     private List<ImageFileInfo> mList;
     private int mWidth;
 
     public ab(AlbumActivity albumActivity, o oVar) {
-        this.fMV = albumActivity;
-        this.avZ = albumActivity.aho();
-        this.fNV = oVar;
-        this.mWidth = (int) this.fMV.getResources().getDimension(w.f.ds220);
+        this.fPr = albumActivity;
+        this.awb = albumActivity.aip();
+        this.fQr = oVar;
+        this.mWidth = (int) this.fPr.getResources().getDimension(w.f.ds220);
     }
 
     public void setData(List<ImageFileInfo> list, boolean z) {
         this.mList = list;
-        this.fNW = z;
+        this.fQs = z;
         notifyDataSetChanged();
     }
 
@@ -66,7 +66,7 @@ public class ab extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sN */
+    /* renamed from: sT */
     public ImageFileInfo getItem(int i) {
         if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
@@ -81,7 +81,7 @@ public class ab extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.fNW && i == 0) {
+        if (this.fQs && i == 0) {
             return 1;
         }
         if (i < this.mList.size()) {
@@ -102,100 +102,100 @@ public class ab extends BaseAdapter {
         if (view == null) {
             bVar = new b(this, null);
             if (itemViewType == 0) {
-                view = LayoutInflater.from(this.fMV.getPageContext().getPageActivity()).inflate(w.j.album_image_item_view, viewGroup, false);
-                bVar.fOh = (HeadImageView) view.findViewById(w.h.pic);
-                bVar.fAL = (ImageView) view.findViewById(w.h.select_icon);
-                bVar.fAM = (RelativeLayout) view.findViewById(w.h.lay_select);
+                view = LayoutInflater.from(this.fPr.getPageContext().getPageActivity()).inflate(w.j.album_image_item_view, viewGroup, false);
+                bVar.fQD = (HeadImageView) view.findViewById(w.h.pic);
+                bVar.fDb = (ImageView) view.findViewById(w.h.select_icon);
+                bVar.fDc = (RelativeLayout) view.findViewById(w.h.lay_select);
                 view.setTag(bVar);
             } else if (itemViewType == 1) {
-                view = LayoutInflater.from(this.fMV.getPageContext().getPageActivity()).inflate(w.j.album_image_item_view_camera, viewGroup, false);
-                bVar.fOi = (ViewGroup) view.findViewById(w.h.item_camera);
+                view = LayoutInflater.from(this.fPr.getPageContext().getPageActivity()).inflate(w.j.album_image_item_view_camera, viewGroup, false);
+                bVar.fQE = (ViewGroup) view.findViewById(w.h.item_camera);
                 view.setTag(bVar);
             } else if (itemViewType == 2) {
-                view = new View(this.fMV.getActivity());
-                view.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.g(this.fMV.getActivity(), w.f.ds220), com.baidu.adp.lib.util.k.g(this.fMV.getActivity(), w.f.ds180)));
+                view = new View(this.fPr.getActivity());
+                view.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.util.k.g(this.fPr.getActivity(), w.f.ds220), com.baidu.adp.lib.util.k.g(this.fPr.getActivity(), w.f.ds180)));
             }
         } else {
             bVar = (b) view.getTag();
         }
         ImageFileInfo item = getItem(i);
         if (itemViewType == 0) {
-            bVar.fOh.setTag(null);
-            bVar.fOh.setRadius(1);
-            bVar.fOh.setDefaultResource(w.g.img_default_100);
-            bVar.fOh.c(null, 12, false);
+            bVar.fQD.setTag(null);
+            bVar.fQD.setRadius(1);
+            bVar.fQD.setDefaultResource(w.g.img_default_100);
+            bVar.fQD.c(null, 12, false);
             int i2 = i + 1;
-            if (this.fNW) {
+            if (this.fQs) {
                 i2 = i;
             }
-            bVar.fOh.setContentDescription(String.valueOf(view.getResources().getString(w.l.editor_image)) + i2 + " " + item.getModifyTime());
-            bVar.fOh.invalidate();
+            bVar.fQD.setContentDescription(String.valueOf(view.getResources().getString(w.l.editor_image)) + i2 + " " + item.getModifyTime());
+            bVar.fQD.invalidate();
             a aVar = new a(this, null);
-            aVar.fOg = true;
+            aVar.fQC = true;
             if (item != null) {
                 item.clearPageActions();
                 item.addPageAction(com.baidu.tbadk.img.effect.d.M(this.mWidth, this.mWidth));
-                bVar.fOh.setTag(item.toCachedKey(false));
-                if (this.avZ.a(item, false) != null) {
-                    bVar.fOh.invalidate();
+                bVar.fQD.setTag(item.toCachedKey(false));
+                if (this.awb.a(item, false) != null) {
+                    bVar.fQD.invalidate();
                 } else {
-                    this.avZ.a(item, new ac(this, viewGroup, aVar), false, this.fNX);
+                    this.awb.a(item, new ac(this, viewGroup, aVar), false, this.fQt);
                 }
             } else {
-                aVar.fOg = false;
+                aVar.fQC = false;
             }
             int skinType = TbadkCoreApplication.m9getInst().getSkinType();
-            if (this.fNV != null) {
-                if (this.fNV.isAdded(item)) {
-                    bVar.fAL.setContentDescription(this.fMV.getResources().getString(w.l.check_box_checked));
-                    aq.j(bVar.fAL, w.g.chx_camera_pic_s);
+            if (this.fQr != null) {
+                if (this.fQr.isAdded(item)) {
+                    bVar.fDb.setContentDescription(this.fPr.getResources().getString(w.l.check_box_checked));
+                    aq.j(bVar.fDb, w.g.chx_camera_pic_s);
                 } else {
-                    bVar.fAL.setContentDescription(this.fMV.getResources().getString(w.l.check_box_not_checked));
-                    aq.j(bVar.fAL, w.g.chx_camera_pic_n);
+                    bVar.fDb.setContentDescription(this.fPr.getResources().getString(w.l.check_box_not_checked));
+                    aq.j(bVar.fDb, w.g.chx_camera_pic_n);
                 }
-                a(bVar, aVar, i, item, skinType, this.fNV);
+                a(bVar, aVar, i, item, skinType, this.fQr);
             }
-            bVar.fOh.setOnClickListener(new ad(this, aVar, i, item));
+            bVar.fQD.setOnClickListener(new ad(this, aVar, i, item));
         } else if (itemViewType == 1) {
-            aq.j(bVar.fOi, w.g.icon_camera_pic);
-            bVar.fOi.setOnClickListener(new ae(this, i, item));
+            aq.j(bVar.fQE, w.g.icon_camera_pic);
+            bVar.fQE.setOnClickListener(new ae(this, i, item));
         }
         ak(view);
         return view;
     }
 
     public boolean isScroll() {
-        return this.fNX;
+        return this.fQt;
     }
 
-    public void lM(boolean z) {
-        this.fNX = z;
+    public void lW(boolean z) {
+        this.fQt = z;
     }
 
     private void ak(View view) {
-        this.fMV.getLayoutMode().aj(TbadkCoreApplication.m9getInst().getSkinType() == 1);
-        this.fMV.getLayoutMode().t(view);
+        this.fPr.getLayoutMode().aj(TbadkCoreApplication.m9getInst().getSkinType() == 1);
+        this.fPr.getLayoutMode().t(view);
     }
 
     public void a(z zVar) {
-        this.fNY = zVar;
+        this.fQu = zVar;
     }
 
     public void a(aa aaVar) {
-        this.fOa = aaVar;
+        this.fQw = aaVar;
     }
 
     public void a(x xVar) {
-        this.fNZ = xVar;
+        this.fQv = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        ImageView fAL;
-        RelativeLayout fAM;
-        HeadImageView fOh;
-        ViewGroup fOi;
+        ImageView fDb;
+        RelativeLayout fDc;
+        HeadImageView fQD;
+        ViewGroup fQE;
 
         private b() {
         }
@@ -208,7 +208,7 @@ public class ab extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        boolean fOg;
+        boolean fQC;
 
         private a() {
         }
@@ -219,6 +219,6 @@ public class ab extends BaseAdapter {
     }
 
     private void a(b bVar, a aVar, int i, ImageFileInfo imageFileInfo, int i2, o oVar) {
-        bVar.fAM.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
+        bVar.fDc.setOnClickListener(new af(this, aVar, oVar, imageFileInfo, i, bVar));
     }
 }

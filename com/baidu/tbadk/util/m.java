@@ -23,7 +23,7 @@ class m implements BdNativeCrash.NativeCrashCallback {
         boolean ap;
         List list3;
         try {
-            list2 = k.aJc;
+            list2 = k.aJe;
             if (list2.indexOf(str) >= 0) {
                 return false;
             }
@@ -39,11 +39,11 @@ class m implements BdNativeCrash.NativeCrashCallback {
             if (ap) {
                 return true;
             }
-            list3 = k.aJc;
+            list3 = k.aJe;
             list3.add(str);
             return false;
         } catch (Throwable th) {
-            list = k.aJc;
+            list = k.aJe;
             list.add(str);
             return false;
         }

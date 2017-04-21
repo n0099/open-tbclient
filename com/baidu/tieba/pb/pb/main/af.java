@@ -5,17 +5,17 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class af implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity ejU;
+    final /* synthetic */ PbActivity emk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(PbActivity pbActivity) {
-        this.ejU = pbActivity;
+        this.emk = pbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         int i2;
-        boolean ob;
+        boolean oh;
         ey eyVar;
         com.baidu.tieba.pb.pb.main.a.f fVar;
         com.baidu.tbadk.j.e eVar;
@@ -30,7 +30,7 @@ class af implements AbsListView.OnScrollListener {
         PbModel pbModel4;
         com.baidu.tbadk.j.e eVar5;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
-        boolean ob2;
+        boolean oh2;
         ey eyVar4;
         boolean z;
         ey eyVar5;
@@ -41,80 +41,80 @@ class af implements AbsListView.OnScrollListener {
         ey eyVar9;
         com.baidu.tbadk.editortools.pb.c cVar2;
         boolean z2 = true;
-        PbActivity pbActivity = this.ejU;
-        i2 = this.ejU.cBC;
-        ob = pbActivity.ob(i2);
-        if (!ob) {
-            ob2 = this.ejU.ob(i);
-            if (ob2) {
-                eyVar4 = this.ejU.eiS;
+        PbActivity pbActivity = this.emk;
+        i2 = this.emk.cDT;
+        oh = pbActivity.oh(i2);
+        if (!oh) {
+            oh2 = this.emk.oh(i);
+            if (oh2) {
+                eyVar4 = this.emk.eli;
                 if (eyVar4 != null) {
-                    eyVar6 = this.ejU.eiS;
-                    eyVar6.awH();
-                    cVar = this.ejU.eje;
+                    eyVar6 = this.emk.eli;
+                    eyVar6.axI();
+                    cVar = this.emk.elu;
                     if (cVar != null) {
-                        eyVar8 = this.ejU.eiS;
-                        if (!eyVar8.aMU()) {
-                            eyVar9 = this.ejU.eiS;
-                            cVar2 = this.ejU.eje;
-                            eyVar9.gB(cVar2.DU());
+                        eyVar8 = this.emk.eli;
+                        if (!eyVar8.aNV()) {
+                            eyVar9 = this.emk.eli;
+                            cVar2 = this.emk.elu;
+                            eyVar9.gL(cVar2.DU());
                         }
                     }
-                    eyVar7 = this.ejU.eiS;
-                    eyVar7.aMT();
+                    eyVar7 = this.emk.eli;
+                    eyVar7.aNU();
                 }
-                z = this.ejU.eiE;
+                z = this.emk.ekU;
                 if (!z) {
-                    this.ejU.eiE = true;
-                    eyVar5 = this.ejU.eiS;
-                    eyVar5.aNC();
+                    this.emk.ekU = true;
+                    eyVar5 = this.emk.eli;
+                    eyVar5.aOD();
                 }
             }
         }
-        eyVar = this.ejU.eiS;
+        eyVar = this.emk.eli;
         eyVar.onScrollStateChanged(absListView, i);
-        fVar = this.ejU.eiy;
+        fVar = this.emk.ekO;
         if (fVar != null) {
-            fVar2 = this.ejU.eiy;
+            fVar2 = this.emk.ekO;
             fVar2.onScrollStateChanged(absListView, i);
         }
-        eVar = this.ejU.eiF;
+        eVar = this.emk.ekV;
         if (eVar == null) {
-            this.ejU.eiF = new com.baidu.tbadk.j.e();
-            eVar5 = this.ejU.eiF;
+            this.emk.ekV = new com.baidu.tbadk.j.e();
+            eVar5 = this.emk.ekV;
             eVar5.fe(1001);
         }
         if (i == 0) {
-            pbModel = this.ejU.eif;
+            pbModel = this.emk.ekv;
             if (pbModel != null) {
-                pbModel2 = this.ejU.eif;
+                pbModel2 = this.emk.ekv;
                 if (pbModel2.getPbData() != null) {
-                    pbModel3 = this.ejU.eif;
-                    if (pbModel3.getPbData().aJx() != null) {
-                        pbModel4 = this.ejU.eif;
-                        if (pbModel4.getPbData().aJx().tb()) {
+                    pbModel3 = this.emk.ekv;
+                    if (pbModel3.getPbData().aKy() != null) {
+                        pbModel4 = this.emk.ekv;
+                        if (pbModel4.getPbData().aKy().tb()) {
                             z2 = false;
                         }
                     }
                 }
             }
-            eyVar2 = this.ejU.eiS;
-            if (eyVar2.aNg() != null && z2) {
-                eyVar3 = this.ejU.eiS;
-                eyVar3.aNg().notifyDataSetChanged();
+            eyVar2 = this.emk.eli;
+            if (eyVar2.aOh() != null && z2) {
+                eyVar3 = this.emk.eli;
+                eyVar3.aOh().notifyDataSetChanged();
             }
-            eVar4 = this.ejU.eiF;
+            eVar4 = this.emk.ekV;
             eVar4.Gn();
         } else if (i == 1) {
-            eVar3 = this.ejU.eiF;
+            eVar3 = this.emk.ekV;
             eVar3.Gn();
         } else {
-            eVar2 = this.ejU.eiF;
+            eVar2 = this.emk.ekV;
             eVar2.Gn();
         }
-        this.ejU.cBC = i;
+        this.emk.cDT = i;
         if (i == 0) {
-            this.ejU.a(false, (PostData) null);
+            this.emk.a(false, (PostData) null);
         }
     }
 
@@ -132,43 +132,43 @@ class af implements AbsListView.OnScrollListener {
         PbModel pbModel5;
         boolean z;
         com.baidu.tieba.pb.pb.main.a.f fVar2;
-        pbModel = this.ejU.eif;
+        pbModel = this.emk.ekv;
         if (pbModel != null) {
-            pbModel2 = this.ejU.eif;
+            pbModel2 = this.emk.ekv;
             if (pbModel2.getPbData() != null) {
-                eyVar = this.ejU.eiS;
+                eyVar = this.emk.eli;
                 if (eyVar != null) {
-                    eyVar2 = this.ejU.eiS;
-                    if (eyVar2.aNg() != null) {
-                        eyVar3 = this.ejU.eiS;
+                    eyVar2 = this.emk.eli;
+                    if (eyVar2.aOh() != null) {
+                        eyVar3 = this.emk.eli;
                         eyVar3.onScroll(absListView, i, i2, i3);
-                        fVar = this.ejU.eiy;
+                        fVar = this.emk.ekO;
                         if (fVar != null) {
-                            fVar2 = this.ejU.eiy;
+                            fVar2 = this.emk.ekO;
                             fVar2.onScroll(absListView, i, i2, i3);
                         }
-                        pbModel3 = this.ejU.eif;
-                        if (pbModel3.aLS()) {
-                            pbModel4 = this.ejU.eif;
-                            ArrayList<PostData> aJz = pbModel4.getPbData().aJz();
-                            if (aJz != null && !aJz.isEmpty()) {
-                                eyVar4 = this.ejU.eiS;
-                                int aLc = ((i + i2) - eyVar4.aNg().aLc()) - 1;
-                                pbModel5 = this.ejU.eif;
+                        pbModel3 = this.emk.ekv;
+                        if (pbModel3.aMT()) {
+                            pbModel4 = this.emk.ekv;
+                            ArrayList<PostData> aKA = pbModel4.getPbData().aKA();
+                            if (aKA != null && !aKA.isEmpty()) {
+                                eyVar4 = this.emk.eli;
+                                int aMd = ((i + i2) - eyVar4.aOh().aMd()) - 1;
+                                pbModel5 = this.emk.ekv;
                                 com.baidu.tieba.pb.data.f pbData = pbModel5.getPbData();
                                 if (pbData != null) {
-                                    if (pbData.aJA() != null && pbData.aJA().hasData()) {
-                                        aLc--;
+                                    if (pbData.aKB() != null && pbData.aKB().hasData()) {
+                                        aMd--;
                                     }
-                                    if (pbData.aJB() != null && pbData.aJB().hasData()) {
-                                        aLc--;
+                                    if (pbData.aKC() != null && pbData.aKC().hasData()) {
+                                        aMd--;
                                     }
-                                    z = this.ejU.eiH;
+                                    z = this.emk.ekX;
                                     if (z) {
-                                        aLc--;
+                                        aMd--;
                                     }
-                                    int size = aJz.size();
-                                    if (aLc < 0 || aLc >= size) {
+                                    int size = aKA.size();
+                                    if (aMd < 0 || aMd >= size) {
                                     }
                                 }
                             }

@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.b, com.baidu.tieba.person.b.a> {
-    private View.OnClickListener aRW;
-    private TbPageContext bID;
-    private com.baidu.tieba.person.data.b ezx;
+    private View.OnClickListener aRY;
+    private TbPageContext bKU;
+    private com.baidu.tieba.person.data.b eBN;
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aRW = new c(this);
-        this.bID = tbPageContext;
+        this.aRY = new c(this);
+        this.bKU = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bm */
+    /* renamed from: bo */
     public com.baidu.tieba.person.b.a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.person.b.a aVar = new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(w.j.personinfo_book_shelf, viewGroup, false));
-        aVar.onChangeSkinType(this.bID, TbadkCoreApplication.m9getInst().getSkinType());
+        aVar.onChangeSkinType(this.bKU, TbadkCoreApplication.m9getInst().getSkinType());
         return aVar;
     }
 
@@ -40,16 +40,16 @@ public class b extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.b, com.ba
     }
 
     private void a(com.baidu.tieba.person.b.a aVar, com.baidu.tieba.person.data.b bVar) {
-        if (bVar != null && aVar != null && this.bID != null) {
-            this.ezx = bVar;
-            aVar.ezZ.setText(bVar.ezP);
-            if (bVar.ezT > 0) {
-                aVar.eAa.setText(String.valueOf(bVar.ezT));
-            } else if (!StringUtils.isNull(bVar.ezS)) {
-                aVar.eAa.setText(bVar.ezS);
+        if (bVar != null && aVar != null && this.bKU != null) {
+            this.eBN = bVar;
+            aVar.eCp.setText(bVar.eCf);
+            if (bVar.eCj > 0) {
+                aVar.eCq.setText(String.valueOf(bVar.eCj));
+            } else if (!StringUtils.isNull(bVar.eCi)) {
+                aVar.eCq.setText(bVar.eCi);
             }
-            aVar.ezX.setOnClickListener(this.aRW);
-            aVar.onChangeSkinType(this.bID, TbadkCoreApplication.m9getInst().getSkinType());
+            aVar.eCn.setOnClickListener(this.aRY);
+            aVar.onChangeSkinType(this.bKU, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 }

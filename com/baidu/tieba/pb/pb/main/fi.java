@@ -8,11 +8,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class fi implements View.OnClickListener {
-    final /* synthetic */ ey erv;
+    final /* synthetic */ ey etN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public fi(ey eyVar) {
-        this.erv = eyVar;
+        this.etN = eyVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,12 +23,12 @@ public class fi implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         PbActivity pbActivity;
-        dialog = this.erv.epP;
+        dialog = this.etN.esg;
         if (dialog != null) {
-            dialog2 = this.erv.epP;
+            dialog2 = this.etN.esg;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.erv.epP;
-                pbActivity = this.erv.eig;
+                dialog3 = this.etN.esg;
+                pbActivity = this.etN.ekw;
                 com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
             }
         }
@@ -36,11 +36,11 @@ public class fi implements View.OnClickListener {
         if (sparseArray == null) {
             return;
         }
-        aVar = this.erv.ero;
+        aVar = this.etN.etG;
         if (aVar == null) {
             return;
         }
-        aVar2 = this.erv.ero;
+        aVar2 = this.etN.etG;
         aVar2.g(new Object[]{sparseArray.get(w.h.tag_manage_user_identity), sparseArray.get(w.h.tag_forbid_user_name), sparseArray.get(w.h.tag_forbid_user_post_id)});
     }
 }

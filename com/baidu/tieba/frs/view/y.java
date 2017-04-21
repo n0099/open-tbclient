@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnLongClickListener {
-    final /* synthetic */ w ceD;
+    final /* synthetic */ w cgU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(w wVar) {
-        this.ceD = wVar;
+        this.cgU = wVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -20,13 +20,13 @@ public class y implements View.OnLongClickListener {
         com.baidu.adp.widget.ListView.x xVar;
         List list;
         com.baidu.adp.widget.ListView.x xVar2;
-        xVar = this.ceD.ceB;
+        xVar = this.cgU.cgS;
         if (xVar == null || !(view.getTag() instanceof w.a)) {
             return false;
         }
         w.a aVar = (w.a) view.getTag();
-        list = this.ceD.aVD;
-        xVar2 = this.ceD.ceB;
+        list = this.cgU.aVF;
+        xVar2 = this.cgU.cgS;
         return xVar2.b(view, (bi) com.baidu.tbadk.core.util.x.c(list, aVar.position), BdUniqueId.gen(), null, aVar.position, 0L);
     }
 }

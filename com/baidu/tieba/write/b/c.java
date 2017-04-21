@@ -6,9 +6,9 @@ import com.baidu.tbadk.editortools.x;
 public class c extends x {
     public c(Context context) {
         super(context, (String) null, 15);
-        this.azL = false;
-        this.azK = 3;
-        this.ayX = new a(context);
-        this.azM = new int[]{9, 20, 19, 12, 13, 10, 11};
+        this.azN = false;
+        this.azM = 3;
+        this.ayZ = new a(context);
+        this.azO = new int[]{9, 20, 19, 12, 13, 10, 11};
     }
 }

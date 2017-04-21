@@ -8,20 +8,20 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.framework.client.socket.link.e {
-    final /* synthetic */ n axd;
+    final /* synthetic */ n axf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.axd = nVar;
+        this.axf = nVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
     public void a(m.a aVar) {
         com.baidu.adp.framework.client.socket.link.e eVar;
         com.baidu.adp.framework.client.socket.link.e eVar2;
-        eVar = this.axd.awZ;
+        eVar = this.axf.axb;
         if (eVar != null) {
-            eVar2 = this.axd.awZ;
+            eVar2 = this.axf.axb;
             eVar2.a(aVar);
         }
     }
@@ -30,9 +30,9 @@ public class o implements com.baidu.adp.framework.client.socket.link.e {
     public boolean d(int i, String str) {
         com.baidu.adp.framework.client.socket.link.e eVar;
         com.baidu.adp.framework.client.socket.link.e eVar2;
-        eVar = this.axd.awZ;
+        eVar = this.axf.axb;
         if (eVar != null) {
-            eVar2 = this.axd.awZ;
+            eVar2 = this.axf.axb;
             eVar2.d(i, str);
             return false;
         }
@@ -46,26 +46,26 @@ public class o implements com.baidu.adp.framework.client.socket.link.e {
         UpdateClientInfoMessage updateClientInfoMessage;
         int i;
         com.baidu.adp.framework.client.socket.link.e eVar2;
-        eVar = this.axd.awZ;
+        eVar = this.axf.axb;
         if (eVar != null) {
-            eVar2 = this.axd.awZ;
+            eVar2 = this.axf.axb;
             eVar2.d(map);
         }
         com.baidu.adp.framework.client.socket.k.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
         if (aa.GG().GH()) {
-            n nVar = this.axd;
-            i = nVar.axc;
+            n nVar = this.axf;
+            i = nVar.axe;
             int i2 = i + 1;
-            nVar.axc = i2;
+            nVar.axe = i2;
             if (i2 < 10) {
                 com.baidu.adp.framework.client.socket.k.db();
             }
         }
-        n nVar2 = this.axd;
-        Cu = this.axd.Cu();
-        nVar2.axa = Cu;
+        n nVar2 = this.axf;
+        Cu = this.axf.Cu();
+        nVar2.axc = Cu;
         MessageManager messageManager = MessageManager.getInstance();
-        updateClientInfoMessage = this.axd.axa;
+        updateClientInfoMessage = this.axf.axc;
         messageManager.sendMessage(updateClientInfoMessage);
     }
 
@@ -73,9 +73,9 @@ public class o implements com.baidu.adp.framework.client.socket.link.e {
     public void a(com.baidu.adp.lib.webSocket.c cVar) {
         com.baidu.adp.framework.client.socket.link.e eVar;
         com.baidu.adp.framework.client.socket.link.e eVar2;
-        eVar = this.axd.awZ;
+        eVar = this.axf.axb;
         if (eVar != null) {
-            eVar2 = this.axd.awZ;
+            eVar2 = this.axf.axb;
             eVar2.a(cVar);
         }
     }
@@ -84,9 +84,9 @@ public class o implements com.baidu.adp.framework.client.socket.link.e {
     public void x(String str) {
         com.baidu.adp.framework.client.socket.link.e eVar;
         com.baidu.adp.framework.client.socket.link.e eVar2;
-        eVar = this.axd.awZ;
+        eVar = this.axf.axb;
         if (eVar != null) {
-            eVar2 = this.axd.awZ;
+            eVar2 = this.axf.axb;
             eVar2.x(str);
         }
     }

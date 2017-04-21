@@ -86,30 +86,29 @@ public class FileDownloader extends Service {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String ado;
+        private final String adp;
         private final String mUrl;
         private z mNetWork = null;
         private volatile boolean mCanceled = false;
 
         public a(String str, String str2) {
             this.mUrl = str;
-            this.ado = str2;
+            this.adp = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
         public Boolean doInBackground(String... strArr) {
             File da;
             Boolean bool = false;
             while (!this.mCanceled) {
                 try {
                     this.mNetWork = new z(this.mUrl);
-                    bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.ado) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
+                    bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.adp) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
                     if (bool.booleanValue() || this.mNetWork.vA() == -2) {
                         break;
-                    } else if (!this.mNetWork.vw().wq().fs()) {
+                    } else if (!this.mNetWork.vw().wq().ft()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {
@@ -119,9 +118,9 @@ public class FileDownloader extends Service {
                 }
             }
             if (bool.booleanValue()) {
-                l.df(this.ado);
-                File cX = l.cX(String.valueOf(this.ado) + ".tmp");
-                if (cX != null && (da = l.da(this.ado)) != null) {
+                l.df(this.adp);
+                File cX = l.cX(String.valueOf(this.adp) + ".tmp");
+                if (cX != null && (da = l.da(this.adp)) != null) {
                     cX.renameTo(da);
                 }
             }
@@ -134,7 +133,7 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             this.mCanceled = true;
             if (this.mNetWork != null) {
-                this.mNetWork.fr();
+                this.mNetWork.fs();
             }
         }
 
@@ -146,7 +145,7 @@ public class FileDownloader extends Service {
             FileDownloader.this.mDowndingTask = null;
             if (bool.booleanValue()) {
                 NotificationHelper.cancelNotification(FileDownloader.this.getBaseContext(), 10);
-                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.ado), 100L);
+                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.adp), 100L);
                 return;
             }
             NotificationHelper.showProgressNotification(FileDownloader.this.getBaseContext(), 10, null, FileDownloader.this.progress, this.mUrl, FileDownloader.this.getString(w.l.error_sd_error), false);

@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ q bTr;
+    final /* synthetic */ q bVI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar) {
-        this.bTr = qVar;
+        this.bVI = qVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,24 +31,24 @@ public class s implements View.OnClickListener {
         bi biVar6;
         bi biVar7;
         bi biVar8;
-        biVar = this.bTr.aiB;
+        biVar = this.bVI.aiC;
         if (biVar != null) {
-            biVar2 = this.bTr.aiB;
+            biVar2 = this.bVI.aiC;
             if (biVar2.getAuthor() != null) {
-                biVar3 = this.bTr.aiB;
+                biVar3 = this.bVI.aiC;
                 if (!StringUtils.isNull(biVar3.getAuthor().getName_show())) {
-                    biVar4 = this.bTr.aiB;
+                    biVar4 = this.bVI.aiC;
                     if (!StringUtils.isNull(biVar4.getAuthor().getUserId())) {
-                        biVar5 = this.bTr.aiB;
+                        biVar5 = this.bVI.aiC;
                         if (biVar5.st() != null) {
                             MessageManager messageManager = MessageManager.getInstance();
-                            tbPageContext = this.bTr.ajT;
+                            tbPageContext = this.bVI.ajU;
                             Activity pageActivity = tbPageContext.getPageActivity();
-                            biVar6 = this.bTr.aiB;
+                            biVar6 = this.bVI.aiC;
                             String userId = biVar6.getAuthor().getUserId();
-                            biVar7 = this.bTr.aiB;
+                            biVar7 = this.bVI.aiC;
                             String name_show = biVar7.getAuthor().getName_show();
-                            biVar8 = this.bTr.aiB;
+                            biVar8 = this.bVI.aiC;
                             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, userId, name_show, biVar8.st(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                         }
                     }

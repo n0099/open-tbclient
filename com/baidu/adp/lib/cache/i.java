@@ -2,11 +2,9 @@ package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public class i {
     public int maxSize;
-    public String td;
-    public String tr;
-
-    /* renamed from: tv  reason: collision with root package name */
-    public String f0tv;
-    public int tw;
-    public long tx;
+    public String tA;
+    public int tB;
+    public long tC;
+    public String ti;
+    public String tw;
 }

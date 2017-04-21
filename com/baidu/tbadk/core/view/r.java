@@ -12,11 +12,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ o akn;
+    final /* synthetic */ o ako;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.akn = oVar;
+        this.ako = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,21 +27,21 @@ public class r implements View.OnClickListener {
         o.a aVar;
         o.a aVar2;
         com.baidu.tbadk.core.data.al alVar2;
-        alVar = this.akn.ajW;
+        alVar = this.ako.ajX;
         if (alVar != null) {
-            popupWindow = this.akn.ajU;
+            popupWindow = this.ako.ajV;
             if (popupWindow != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
-                l = this.akn.l(arrayList);
+                l = this.ako.l(arrayList);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.NEG_FEED_BACK_DELETE, l));
-                this.akn.wS();
+                this.ako.wS();
                 h hVar = new h();
-                hVar.ajy = 1500L;
-                hVar.d(this.akn.getResources().getString(w.l.reduce_related_thread_recommend));
-                aVar = this.akn.akc;
+                hVar.ajz = 1500L;
+                hVar.d(this.ako.getResources().getString(w.l.reduce_related_thread_recommend));
+                aVar = this.ako.akd;
                 if (aVar != null) {
-                    aVar2 = this.akn.akc;
-                    alVar2 = this.akn.ajW;
+                    aVar2 = this.ako.akd;
+                    alVar2 = this.ako.ajX;
                     aVar2.a(arrayList, alVar2);
                 }
             }

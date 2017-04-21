@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class bg implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity fSq;
+    final /* synthetic */ WriteActivity fUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(WriteActivity writeActivity) {
-        this.fSq = writeActivity;
+        this.fUM = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x006c, code lost:
@@ -44,60 +44,60 @@ class bg implements View.OnFocusChangeListener {
         WriteData writeData4;
         View view2;
         TextView textView2;
-        editText = this.fSq.fme;
+        editText = this.fUM.fow;
         if (view != editText) {
-            view2 = this.fSq.aom;
+            view2 = this.fUM.aom;
             if (view != view2) {
-                textView2 = this.fSq.mPost;
+                textView2 = this.fUM.mPost;
             }
         }
         if (!z) {
-            editText2 = this.fSq.fme;
+            editText2 = this.fUM.fow;
             if (view == editText2) {
-                textView = this.fSq.fmj;
+                textView = this.fUM.foB;
                 textView.setVisibility(0);
             }
         } else {
-            this.fSq.fSm = true;
-            this.fSq.bpb();
-            jVar = this.fSq.azd;
+            this.fUM.fUI = true;
+            this.fUM.bqc();
+            jVar = this.fUM.azf;
             if (jVar != null) {
-                jVar2 = this.fSq.azd;
+                jVar2 = this.fUM.azf;
                 jVar2.BC();
             }
-            Activity activity = this.fSq.getActivity();
-            editText3 = this.fSq.fme;
+            Activity activity = this.fUM.getActivity();
+            editText3 = this.fUM.fow;
             com.baidu.adp.lib.util.k.c(activity, editText3);
         }
-        editText4 = this.fSq.fmi;
+        editText4 = this.fUM.foA;
         if (view == editText4) {
             if (!z) {
-                writeData = this.fSq.mData;
+                writeData = this.fUM.mData;
                 if (writeData.getType() != 0) {
-                    writeData2 = this.fSq.mData;
+                    writeData2 = this.fUM.mData;
                     if (writeData2.getType() == 7) {
-                        editText5 = this.fSq.fmi;
+                        editText5 = this.fUM.foA;
                         editText5.setHint(w.l.bottle_input_hint);
                         return;
                     }
                     return;
                 }
-                editText6 = this.fSq.fmi;
+                editText6 = this.fUM.foA;
                 editText6.setHint(w.l.write_input_content);
                 return;
             }
-            this.fSq.fSm = false;
-            writeData3 = this.fSq.mData;
+            this.fUM.fUI = false;
+            writeData3 = this.fUM.mData;
             if (writeData3.getType() != 0) {
-                writeData4 = this.fSq.mData;
+                writeData4 = this.fUM.mData;
             }
-            editText7 = this.fSq.fmi;
+            editText7 = this.fUM.foA;
             editText7.setHint((CharSequence) null);
-            this.fSq.bpb();
-            jVar3 = this.fSq.azd;
+            this.fUM.bqc();
+            jVar3 = this.fUM.azf;
             jVar3.BC();
-            Activity activity2 = this.fSq.getActivity();
-            editText8 = this.fSq.fmi;
+            Activity activity2 = this.fUM.getActivity();
+            editText8 = this.fUM.foA;
             com.baidu.adp.lib.util.k.c(activity2, editText8);
         }
     }

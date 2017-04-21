@@ -14,9 +14,9 @@ import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> aXF;
-    private int aXI = w.e.cp_cont_b;
-    private int aXJ = w.e.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> aXI;
+    private int aXL = w.e.cp_cont_b;
+    private int aXM = w.e.cp_cont_c;
     private Context mContext;
 
     public h(Context context) {
@@ -24,26 +24,26 @@ public class h extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.aXF = list;
+        this.aXI = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aXF == null) {
+        if (this.aXI == null) {
             return 0;
         }
-        return this.aXF.size();
+        return this.aXI.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: fN */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.aXF == null || i < 0 || i >= this.aXF.size()) {
+        if (this.aXI == null || i < 0 || i >= this.aXI.size()) {
             return null;
         }
-        return this.aXF.get(i);
+        return this.aXI.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,37 +81,37 @@ public class h extends BaseAdapter {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                 view = LayoutInflater.from(this.mContext).inflate(w.j.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b(this, null);
-                bVar2.aXR = (TextView) view.findViewById(w.h.addresslist_group_item_key);
-                bVar2.abr = view.findViewById(w.h.addresslist_group_item_divider);
+                bVar2.aXU = (TextView) view.findViewById(w.h.addresslist_group_item_key);
+                bVar2.abt = view.findViewById(w.h.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             if (item.AX() != null) {
-                bVar.aXR.setText(item.AX());
+                bVar.aXU.setText(item.AX());
             }
-            aq.c(bVar.aXR, this.aXJ, 1);
-            aq.k(bVar.abr, w.e.cp_bg_line_b);
+            aq.c(bVar.aXU, this.aXM, 1);
+            aq.k(bVar.abt, w.e.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
                 a aVar2 = new a(this, null);
                 view = LayoutInflater.from(this.mContext).inflate(w.j.select_friend_child_item, (ViewGroup) null);
-                aVar2.aXG = (HeadImageView) view.findViewById(w.h.addresslist_child_item_icon);
-                aVar2.aXH = (TextView) view.findViewById(w.h.addresslist_child_item_name);
-                aVar2.abr = view.findViewById(w.h.addresslist_child_item_divider);
+                aVar2.aXJ = (HeadImageView) view.findViewById(w.h.addresslist_child_item_icon);
+                aVar2.aXK = (TextView) view.findViewById(w.h.addresslist_child_item_name);
+                aVar2.abt = view.findViewById(w.h.addresslist_child_item_divider);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
             if (item.getUserName() != null) {
-                aVar.aXH.setText(item.getUserName());
-                aVar.aXG.c(item.AW(), 12, false);
+                aVar.aXK.setText(item.getUserName());
+                aVar.aXJ.c(item.AW(), 12, false);
             }
-            aq.c(aVar.aXH, this.aXI, 1);
-            aq.j(aVar.abr, w.e.cp_bg_line_b);
+            aq.c(aVar.aXK, this.aXL, 1);
+            aq.j(aVar.abt, w.e.cp_bg_line_b);
             aq.j(view, w.g.select_friend_item_bg);
             return view;
         } else {
@@ -121,8 +121,8 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class b {
-        TextView aXR;
-        View abr;
+        TextView aXU;
+        View abt;
 
         private b() {
         }
@@ -134,9 +134,9 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        HeadImageView aXG;
-        TextView aXH;
-        View abr;
+        HeadImageView aXJ;
+        TextView aXK;
+        View abt;
 
         private a() {
         }

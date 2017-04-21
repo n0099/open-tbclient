@@ -6,11 +6,11 @@ import com.baidu.tieba.w;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextGraffitiInfo extends OrmObject {
-    static final int aMW = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds360);
-    static final int aMX = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds300);
+    static final int aMY = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds360);
+    static final int aMZ = com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst(), w.f.ds300);
     public long gid;
     public String url;
-    public int width = aMX;
+    public int width = aMZ;
     public int height = this.width;
 
     public void a(PbContent pbContent) {
@@ -28,10 +28,10 @@ public class TbRichTextGraffitiInfo extends OrmObject {
 
     public void fu(int i) {
         if (i == 1) {
-            this.width = aMW;
+            this.width = aMY;
             this.height = this.width;
-        } else if (this.width != this.height || this.width <= 0 || this.width > aMX) {
-            this.width = aMX;
+        } else if (this.width != this.height || this.width <= 0 || this.width > aMZ) {
+            this.width = aMZ;
             this.height = this.width;
         }
     }

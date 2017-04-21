@@ -4,11 +4,11 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class j implements View.OnTouchListener {
-    final /* synthetic */ FrsActivity bNJ;
+    final /* synthetic */ FrsActivity bQa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.bNJ = frsActivity;
+        this.bQa = frsActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -18,17 +18,17 @@ class j implements View.OnTouchListener {
         com.baidu.tieba.frs.g.as asVar2;
         cg cgVar2;
         cg cgVar3;
-        cgVar = this.bNJ.bMY;
+        cgVar = this.bQa.bPp;
         if (cgVar != null) {
-            cgVar2 = this.bNJ.bMY;
-            if (cgVar2.aaE() != null) {
-                cgVar3 = this.bNJ.bMY;
-                cgVar3.aaE().onTouchEvent(motionEvent);
+            cgVar2 = this.bQa.bPp;
+            if (cgVar2.abF() != null) {
+                cgVar3 = this.bQa.bPp;
+                cgVar3.abF().onTouchEvent(motionEvent);
             }
         }
-        asVar = this.bNJ.bNd;
+        asVar = this.bQa.bPu;
         if (asVar != null) {
-            asVar2 = this.bNJ.bNd;
+            asVar2 = this.bQa.bPu;
             if (asVar2.b(motionEvent, view)) {
                 return true;
             }

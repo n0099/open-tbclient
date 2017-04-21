@@ -20,12 +20,12 @@ import com.baidu.tieba.w;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static com.baidu.adp.lib.guide.d fvc;
+    private static com.baidu.adp.lib.guide.d fxt;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0072a {
-        void ld();
+        void le();
     }
 
     public static void a(BaseActivity<?> baseActivity, View view, boolean z, InterfaceC0072a interfaceC0072a) {
@@ -38,7 +38,7 @@ public class a {
                 TbadkCoreApplication.m9getInst().setDefaultBubble(null);
                 TbadkCoreApplication.m9getInst().setDefaultBubbleEndTime(0);
                 if (interfaceC0072a != null) {
-                    interfaceC0072a.ld();
+                    interfaceC0072a.le();
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
                 aVar.aw(false);
@@ -82,7 +82,7 @@ public class a {
                 gVar.a(new d(baseActivity, z, spannableString, i4));
                 gVar.y(true);
                 gVar.A(false);
-                fvc = gVar.fb();
+                fxt = gVar.fc();
                 new Handler().postDelayed(new f(baseActivity, z), 1000L);
                 com.baidu.tbadk.core.sharedPref.b.uL().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
@@ -91,8 +91,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity, boolean z) {
-        if (fvc != null) {
-            fvc.j(activity);
+        if (fxt != null) {
+            fxt.j(activity);
         }
         if (!z) {
             new Handler().postDelayed(new g(), TbConfig.NOTIFY_SOUND_INTERVAL);

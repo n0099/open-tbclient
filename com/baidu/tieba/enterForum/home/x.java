@@ -16,13 +16,13 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends CustomMessageListener {
-    final /* synthetic */ l bEU;
+    final /* synthetic */ l bHl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(l lVar, int i) {
         super(i);
-        this.bEU = lVar;
+        this.bHl = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,20 +32,20 @@ public class x extends CustomMessageListener {
         EnterForumModel enterForumModel2;
         EnterForumModel enterForumModel3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001391) {
-            enterForumModel = this.bEU.bEC;
-            if (enterForumModel.Wk() != null) {
-                enterForumModel2 = this.bEU.bEC;
-                com.baidu.tieba.enterForum.b.i VA = enterForumModel2.Wk().VA();
-                if (VA == null || VA.VL() == null || VA.VL().size() == 0) {
-                    enterForumModel3 = this.bEU.bEC;
-                    VA = enterForumModel3.Wk().Vz();
+            enterForumModel = this.bHl.bGT;
+            if (enterForumModel.Xl() != null) {
+                enterForumModel2 = this.bHl.bGT;
+                com.baidu.tieba.enterForum.b.i WB = enterForumModel2.Xl().WB();
+                if (WB == null || WB.WM() == null || WB.WM().size() == 0) {
+                    enterForumModel3 = this.bHl.bGT;
+                    WB = enterForumModel3.Xl().WA();
                 }
-                bd bdVar = (VA == null || VA.VL() == null || VA.VL().size() == 0) ? null : VA.VL().get(0);
+                bd bdVar = (WB == null || WB.WM() == null || WB.WM().size() == 0) ? null : WB.WM().get(0);
                 if (bdVar != null) {
                     String qB = bdVar.qB();
                     String link = bdVar.getLink();
                     if (!StringUtils.isNull(qB) && !StringUtils.isNull(link)) {
-                        View inflate = LayoutInflater.from(this.bEU.aXt.getBaseContext()).inflate(w.j.customer_enterforum_banner, (ViewGroup) null, true);
+                        View inflate = LayoutInflater.from(this.bHl.aXw.getBaseContext()).inflate(w.j.customer_enterforum_banner, (ViewGroup) null, true);
                         ImageView imageView = (ImageView) inflate.findViewById(w.h.bc_banner_cancel);
                         TbImageView tbImageView = (TbImageView) inflate.findViewById(w.h.bc_banner);
                         com.baidu.tieba.recapp.y.a(bdVar.qs(), (TbImageView) inflate.findViewById(w.h.bc_advert), bdVar.rN(), com.baidu.adp.lib.util.k.g(TbadkCoreApplication.m9getInst().getContext(), w.f.ds26));
@@ -53,8 +53,8 @@ public class x extends CustomMessageListener {
                         imageView.setOnClickListener(new y(this, inflate));
                         tbImageView.c(qB, 10, false);
                         tbImageView.setOnClickListener(new z(this, link));
-                        this.bEU.bEB.ae(inflate);
-                        this.bEU.bEF = true;
+                        this.bHl.bGS.ae(inflate);
+                        this.bHl.bGW = true;
                     }
                 }
             }

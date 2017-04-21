@@ -7,26 +7,26 @@ import android.os.RemoteException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class m {
-    private static m aQA;
-    private d aQC;
+    private static m aQC;
+    private d aQE;
     private Context mContext = TbadkCoreApplication.m9getInst();
-    private boolean aQB = false;
+    private boolean aQD = false;
     private ServiceConnection mServiceConnection = new n(this);
-    private Runnable aQD = new o(this);
+    private Runnable aQF = new o(this);
 
     private m() {
         Ke();
     }
 
     public static m Kd() {
-        if (aQA == null) {
+        if (aQC == null) {
             synchronized (m.class) {
-                if (aQA == null) {
-                    aQA = new m();
+                if (aQC == null) {
+                    aQC = new m();
                 }
             }
         }
-        return aQA;
+        return aQC;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -39,9 +39,9 @@ public class m {
     }
 
     public b JZ() {
-        if (this.aQB && this.aQC != null) {
+        if (this.aQD && this.aQE != null) {
             try {
-                return this.aQC.JZ();
+                return this.aQE.JZ();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }

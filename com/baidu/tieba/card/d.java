@@ -10,35 +10,35 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class d extends a<com.baidu.tieba.card.data.g> {
-    private TbPageContext<?> ajT;
-    private View brp;
-    private TextView brq;
-    public e brr;
+    private TbPageContext<?> ajU;
+    private View btH;
+    private TextView btI;
+    public e btJ;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.ajT = tbPageContext;
+        this.ajU = tbPageContext;
         LinearLayout linearLayout = (LinearLayout) getView();
-        this.brp = linearLayout.findViewById(w.h.card_god_feed_unfollowed_top_margin);
-        this.brq = (TextView) linearLayout.findViewById(w.h.card_god_feed_unfollowed_god_describe);
-        this.brr = new e(this.ajT);
-        this.brr.brs = true;
-        linearLayout.addView(this.brr.getView());
+        this.btH = linearLayout.findViewById(w.h.card_god_feed_unfollowed_top_margin);
+        this.btI = (TextView) linearLayout.findViewById(w.h.card_god_feed_unfollowed_god_describe);
+        this.btJ = new e(this.ajU);
+        this.btJ.btK = true;
+        linearLayout.addView(this.btJ.getView());
     }
 
-    public e SF() {
-        return this.brr;
+    public e TH() {
+        return this.btJ;
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.aq.k(this.brp, w.e.cp_bg_line_c);
-            com.baidu.tbadk.core.util.aq.i(this.brq, w.e.cp_cont_f);
-            com.baidu.tbadk.core.util.aq.k(this.brq, w.e.cp_bg_line_d);
-            this.brr.onChangeSkinType(tbPageContext, i);
+            com.baidu.tbadk.core.util.aq.k(this.btH, w.e.cp_bg_line_c);
+            com.baidu.tbadk.core.util.aq.i(this.btI, w.e.cp_cont_f);
+            com.baidu.tbadk.core.util.aq.k(this.btI, w.e.cp_bg_line_d);
+            this.btJ.onChangeSkinType(tbPageContext, i);
         }
         this.mSkinType = i;
     }
@@ -54,24 +54,24 @@ public class d extends a<com.baidu.tieba.card.data.g> {
     public void onBindDataToView(com.baidu.tieba.card.data.g gVar) {
         if (gVar != null) {
             if (gVar.needTopMargin) {
-                this.brp.setVisibility(0);
+                this.btH.setVisibility(0);
             } else {
-                this.brp.setVisibility(8);
+                this.btH.setVisibility(8);
             }
-            if (gVar.buR == null || gVar.buR.threadData == null || gVar.buR.threadData.getAuthor() == null || gVar.buR.threadData.getAuthor().getGodUserData() == null || StringUtils.isNull(gVar.buR.threadData.getAuthor().getGodUserData().getIntro())) {
-                this.brq.setVisibility(8);
+            if (gVar.bxi == null || gVar.bxi.threadData == null || gVar.bxi.threadData.getAuthor() == null || gVar.bxi.threadData.getAuthor().getGodUserData() == null || StringUtils.isNull(gVar.bxi.threadData.getAuthor().getGodUserData().getIntro())) {
+                this.btI.setVisibility(8);
             } else {
-                this.brq.setVisibility(0);
-                this.brq.setText(gVar.buR.threadData.getAuthor().getGodUserData().getIntro());
+                this.btI.setVisibility(0);
+                this.btI.setText(gVar.bxi.threadData.getAuthor().getGodUserData().getIntro());
             }
-            this.brr.onBindDataToView(gVar.buR);
-            onChangeSkinType(this.ajT, TbadkCoreApplication.m9getInst().getSkinType());
+            this.btJ.onBindDataToView(gVar.bxi);
+            onChangeSkinType(this.ajU, TbadkCoreApplication.m9getInst().getSkinType());
         }
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        if (this.brr != null) {
-            this.brr.j(bdUniqueId);
+        if (this.btJ != null) {
+            this.btJ.j(bdUniqueId);
         }
     }
 

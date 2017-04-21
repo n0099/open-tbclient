@@ -12,35 +12,35 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class m implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> cEs = new ArrayList<>();
-    ArrayList<HListView.b> HY;
-    ArrayList<HListView.b> HZ;
-    boolean Ia;
-    private final boolean Ib;
+    static final ArrayList<HListView.b> cGJ = new ArrayList<>();
+    ArrayList<HListView.b> Ia;
+    ArrayList<HListView.b> Ib;
+    boolean Ic;
+    private final boolean Id;
     private final ListAdapter mAdapter;
 
     public m(ArrayList<HListView.b> arrayList, ArrayList<HListView.b> arrayList2, ListAdapter listAdapter) {
         this.mAdapter = listAdapter;
-        this.Ib = listAdapter instanceof Filterable;
+        this.Id = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.HY = cEs;
+            this.Ia = cGJ;
         } else {
-            this.HY = arrayList;
+            this.Ia = arrayList;
         }
         if (arrayList2 == null) {
-            this.HZ = cEs;
+            this.Ib = cGJ;
         } else {
-            this.HZ = arrayList2;
+            this.Ib = arrayList2;
         }
-        this.Ia = e(this.HY) && e(this.HZ);
+        this.Ic = e(this.Ia) && e(this.Ib);
     }
 
     public int getHeadersCount() {
-        return this.HY.size();
+        return this.Ia.size();
     }
 
     public int getFootersCount() {
-        return this.HZ.size();
+        return this.Ib.size();
     }
 
     @Override // android.widget.Adapter
@@ -68,7 +68,7 @@ public class m implements Filterable, WrapperListAdapter {
     @Override // android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.Ia && this.mAdapter.areAllItemsEnabled();
+            return this.Ic && this.mAdapter.areAllItemsEnabled();
         }
         return true;
     }
@@ -77,28 +77,28 @@ public class m implements Filterable, WrapperListAdapter {
     public boolean isEnabled(int i) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.HY.get(i).isSelectable;
+            return this.Ia.get(i).isSelectable;
         }
         int i2 = i - headersCount;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.isEnabled(i2);
         }
-        return this.HZ.get(i2 - i3).isSelectable;
+        return this.Ib.get(i2 - i3).isSelectable;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.HY.get(i).data;
+            return this.Ia.get(i).data;
         }
         int i2 = i - headersCount;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.getItem(i2);
         }
-        return this.HZ.get(i2 - i3).data;
+        return this.Ib.get(i2 - i3).data;
     }
 
     @Override // android.widget.Adapter
@@ -123,14 +123,14 @@ public class m implements Filterable, WrapperListAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.HY.get(i).view;
+            return this.Ia.get(i).view;
         }
         int i2 = i - headersCount;
         int i3 = 0;
         if (this.mAdapter != null && i2 < (i3 = this.mAdapter.getCount())) {
             return this.mAdapter.getView(i2, view, viewGroup);
         }
-        return this.HZ.get(i2 - i3).view;
+        return this.Ib.get(i2 - i3).view;
     }
 
     @Override // android.widget.Adapter
@@ -167,7 +167,7 @@ public class m implements Filterable, WrapperListAdapter {
 
     @Override // android.widget.Filterable
     public Filter getFilter() {
-        if (this.Ib) {
+        if (this.Id) {
             return ((Filterable) this.mAdapter).getFilter();
         }
         return null;

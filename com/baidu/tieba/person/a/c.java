@@ -15,11 +15,11 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ b ezy;
+    final /* synthetic */ b eBO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.ezy = bVar;
+        this.eBO = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,19 +29,19 @@ public class c implements View.OnClickListener {
         TbPageContext tbPageContext;
         com.baidu.tieba.person.data.b bVar3;
         TbPageContext tbPageContext2;
-        bVar = this.ezy.ezx;
+        bVar = this.eBO.eBN;
         if (bVar != null) {
-            bVar2 = this.ezy.ezx;
-            if (!StringUtils.isNull(bVar2.ezR)) {
+            bVar2 = this.eBO.eBN;
+            if (!StringUtils.isNull(bVar2.eCh)) {
                 if (!TbadkCoreApplication.m9getInst().appResponseToIntentClass(MyBookrackActivityConfig.class)) {
-                    tbPageContext2 = this.ezy.bID;
+                    tbPageContext2 = this.eBO.bKU;
                     com.baidu.adp.lib.util.k.showToast(tbPageContext2.getPageActivity(), w.l.book_plugin_not_install_tip);
                     return;
                 }
-                tbPageContext = this.ezy.bID;
+                tbPageContext = this.eBO.bKU;
                 Activity pageActivity = tbPageContext.getPageActivity();
-                bVar3 = this.ezy.ezx;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyBookrackActivityConfig(pageActivity, 0, bVar3.ezR)));
+                bVar3 = this.eBO.eBN;
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyBookrackActivityConfig(pageActivity, 0, bVar3.eCh)));
                 TiebaStatic.log(new as("c11390").s("obj_type", 2));
             }
         }

@@ -17,20 +17,20 @@ import com.baidu.tieba.person.f;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class i extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.baidu.tieba.person.b.e> {
-    private TbPageContext bID;
-    private h ezJ;
+    private TbPageContext bKU;
+    private h eBZ;
     protected int mSkinType;
 
     public i(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
-        this.bID = tbPageContext;
+        this.bKU = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
+    /* renamed from: br */
     public com.baidu.tieba.person.b.e onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.person.b.e(LayoutInflater.from(this.mContext).inflate(w.j.personinfo_wallet_view, viewGroup, false));
     }
@@ -44,31 +44,31 @@ public class i extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.ba
         int skinType = TbadkCoreApplication.m9getInst().getSkinType();
         if (this.mSkinType != skinType) {
             this.mSkinType = skinType;
-            com.baidu.tbadk.m.a.a(this.bID, view);
+            com.baidu.tbadk.m.a.a(this.bKU, view);
         }
         return view;
     }
 
     private void a(com.baidu.tieba.person.b.e eVar, com.baidu.tieba.person.data.c cVar) {
         if (cVar != null) {
-            eVar.eAk.c(cVar.getIcon(), 10, false);
-            eVar.ceG.setText(cVar.getName());
-            eVar.eAl.setText(cVar.aQm());
-            this.ezJ = new h(this.bID);
-            this.ezJ.aB(cVar.aQo());
-            eVar.eAm.setAdapter((ListAdapter) this.ezJ);
-            eVar.eAj.setOnClickListener(new j(this, cVar));
-            eVar.eAm.setOnItemClickListener(new k(this));
+            eVar.eCA.c(cVar.getIcon(), 10, false);
+            eVar.cgX.setText(cVar.getName());
+            eVar.eCB.setText(cVar.aRn());
+            this.eBZ = new h(this.bKU);
+            this.eBZ.aC(cVar.aRp());
+            eVar.eCC.setAdapter((ListAdapter) this.eBZ);
+            eVar.eCz.setOnClickListener(new j(this, cVar));
+            eVar.eCC.setOnItemClickListener(new k(this));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nU(String str) {
+    public void nV(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                bb.wn().c(this.bID, new String[]{str.substring("tieba&".length())});
+                bb.wn().c(this.bKU, new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith("http:") || str.startsWith("https:")) {
-                com.baidu.tbadk.browser.f.b(this.bID.getPageActivity(), true, str);
+                com.baidu.tbadk.browser.f.b(this.bKU.getPageActivity(), true, str);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_WALLET_ITEM_CLICK, str));
             }
@@ -77,12 +77,12 @@ public class i extends com.baidu.tieba.a.a<com.baidu.tieba.person.data.c, com.ba
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(f.a aVar) {
-        if (aVar.ezv) {
-            aVar.ezv = false;
-            this.ezJ.notifyDataSetChanged();
+        if (aVar.eBL) {
+            aVar.eBL = false;
+            this.eBZ.notifyDataSetChanged();
             o<String> M = com.baidu.tbadk.core.c.a.tM().M("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount());
             if (M != null) {
-                M.l(aVar.title, new StringBuilder(String.valueOf(aVar.GX)).toString());
+                M.l(aVar.title, new StringBuilder(String.valueOf(aVar.timeStamp)).toString());
             }
         }
     }

@@ -36,7 +36,7 @@ public class t {
                             for (int i4 = 0; i4 < viewCount; i4++) {
                                 ICardInfo viewItem = ra.getViewItem(i4, i);
                                 if (viewItem != null) {
-                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dsu.get(viewItem.getCardType()));
+                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.duL.get(viewItem.getCardType()));
                                     arrayList.add(viewItem);
                                 }
                             }
@@ -84,7 +84,7 @@ public class t {
                         for (int i4 = 0; i4 < viewCount; i4++) {
                             ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.dsu.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.duL.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -113,16 +113,16 @@ public class t {
         }
     }
 
-    public static ArrayList<BdUniqueId> bhu() {
-        int size = com.baidu.tieba.lego.card.e.dsu.size();
+    public static ArrayList<BdUniqueId> biv() {
+        int size = com.baidu.tieba.lego.card.e.duL.size();
         ArrayList<BdUniqueId> arrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            arrayList.add(com.baidu.tieba.lego.card.e.dsu.valueAt(i));
+            arrayList.add(com.baidu.tieba.lego.card.e.duL.valueAt(i));
         }
         return arrayList;
     }
 
-    public static String pT(String str) {
+    public static String pU(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -137,7 +137,7 @@ public class t {
         }
     }
 
-    public static String pU(String str) {
+    public static String pV(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -152,7 +152,7 @@ public class t {
         }
     }
 
-    public static int pV(String str) {
+    public static int pW(String str) {
         if (TextUtils.isEmpty(str)) {
             return 2;
         }
@@ -171,7 +171,7 @@ public class t {
         }
     }
 
-    public static int pW(String str) {
+    public static int pX(String str) {
         if (TextUtils.isEmpty(str)) {
             return 30;
         }
@@ -190,7 +190,7 @@ public class t {
         }
     }
 
-    public static boolean pX(String str) {
+    public static boolean pY(String str) {
         return str != null && str.startsWith("tieba://deeplink?");
     }
 
@@ -217,13 +217,13 @@ public class t {
         return bb.wn().c(tbPageContext, strArr);
     }
 
-    public static boolean aPK() {
+    public static boolean aQL() {
         com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.m9getInst().getAdAdSense();
-        return !(adAdSense == null || adAdSense.yg()) ? com.baidu.adp.lib.util.i.hk() : (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+        return !(adAdSense == null || adAdSense.yg()) ? com.baidu.adp.lib.util.i.hl() : (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
     }
 
-    public static boolean bhv() {
+    public static boolean biw() {
         com.baidu.tbadk.coreExtra.data.a adAdSense = TbadkCoreApplication.m9getInst().getAdAdSense();
-        return !(adAdSense != null && adAdSense.yh()) ? com.baidu.adp.lib.util.i.hk() : (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hk() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
+        return !(adAdSense != null && adAdSense.yh()) ? com.baidu.adp.lib.util.i.hl() : (com.baidu.adp.lib.util.i.hm() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() == 2) || (com.baidu.adp.lib.util.i.hl() && TbadkCoreApplication.m9getInst().getVideoAutoPlay() != 1);
     }
 }

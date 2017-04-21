@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.s;
 /* loaded from: classes.dex */
 public class b {
-    private final i ahg = new i();
+    private final i ahh = new i();
     public boolean mIsNeedTbs = false;
-    public boolean ahh = true;
+    public boolean ahi = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean ahi = false;
-    public int ahj = 0;
+    public boolean ahj = false;
+    public int ahk = 0;
 
     public i ws() {
-        return this.ahg;
+        return this.ahh;
     }
 
     public void a(s sVar) {
@@ -91,17 +91,17 @@ public class b {
     }
 
     public String wt() {
-        if (this.ahg.mUrl == null) {
+        if (this.ahh.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.ahg.mUrl.startsWith(str)) {
-            int indexOf = this.ahg.mUrl.indexOf(63);
+        if (this.ahh.mUrl.startsWith(str)) {
+            int indexOf = this.ahh.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.ahg.mUrl.length();
+                indexOf = this.ahh.mUrl.length();
             }
-            return this.ahg.mUrl.substring(str.length(), indexOf);
+            return this.ahh.mUrl.substring(str.length(), indexOf);
         }
-        return this.ahg.mUrl;
+        return this.ahh.mUrl;
     }
 }

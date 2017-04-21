@@ -13,17 +13,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends c {
-    private c.b aaE;
-    private FrsActivity bTd;
-    private int bTm;
+    private c.b aaF;
+    private int bVD;
+    private FrsActivity bVu;
     private List<bv> mDatas;
 
     public a(FrsActivity frsActivity, c.b bVar) {
         super(frsActivity.getActivity());
-        this.bTm = 0;
+        this.bVD = 0;
         if (frsActivity != null && bVar != null) {
-            this.bTd = frsActivity;
-            this.aaE = bVar;
+            this.bVu = frsActivity;
+            this.aaF = bVar;
         }
     }
 
@@ -33,8 +33,8 @@ public class a extends c {
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 bv bvVar = new bv();
-                bvVar.name = this.bTd.getResources().getString(w.l.attention_users_thread);
-                bvVar.bPO = 6;
+                bvVar.name = this.bVu.getResources().getString(w.l.attention_users_thread);
+                bvVar.bSf = 6;
                 this.mDatas.add(bvVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,11 +44,11 @@ public class a extends c {
                 }
             }
             reset();
-            a(arrayList, this.aaE);
+            a(arrayList, this.aaF);
         }
     }
 
-    public List<bv> abP() {
+    public List<bv> acQ() {
         return this.mDatas;
     }
 

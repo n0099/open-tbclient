@@ -9,32 +9,32 @@ import java.io.InputStreamReader;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class aa {
-    private static String aHd = "tb_perfor_samllflow_time";
-    private static volatile aa aHg;
-    private long aHf;
-    private boolean aHb = false;
-    private long aHe = 86400;
-    private long aHc = com.baidu.tbadk.core.sharedPref.b.uL().getLong(aHd, 0);
+    private static String aHf = "tb_perfor_samllflow_time";
+    private static volatile aa aHi;
+    private long aHh;
+    private boolean aHd = false;
+    private long aHg = 86400;
+    private long aHe = com.baidu.tbadk.core.sharedPref.b.uL().getLong(aHf, 0);
 
     public static aa GG() {
-        if (aHg == null) {
+        if (aHi == null) {
             synchronized (aa.class) {
-                if (aHg == null) {
-                    aHg = new aa();
+                if (aHi == null) {
+                    aHi = new aa();
                 }
             }
         }
-        return aHg;
+        return aHi;
     }
 
     private aa() {
-        this.aHf = 0L;
-        this.aHf = this.aHe;
+        this.aHh = 0L;
+        this.aHh = this.aHg;
     }
 
     public boolean GH() {
-        if (!this.aHb || (System.currentTimeMillis() - this.aHc) / 1000 <= this.aHf) {
-            return this.aHb;
+        if (!this.aHd || (System.currentTimeMillis() - this.aHe) / 1000 <= this.aHh) {
+            return this.aHd;
         }
         return false;
     }
@@ -42,15 +42,15 @@ public class aa {
     public void bX(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aHc || currentTimeMillis - this.aHc >= this.aHf) {
-                this.aHc = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.uL().putLong(aHd, this.aHc);
+            if (0 == this.aHe || currentTimeMillis - this.aHe >= this.aHh) {
+                this.aHe = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.uL().putLong(aHf, this.aHe);
             }
         } else {
-            this.aHc = 0L;
-            com.baidu.tbadk.core.sharedPref.b.uL().putLong(aHd, this.aHc);
+            this.aHe = 0L;
+            com.baidu.tbadk.core.sharedPref.b.uL().putLong(aHf, this.aHe);
         }
-        this.aHb = z;
+        this.aHd = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
             ab.GM().GN();
         }
@@ -86,19 +86,19 @@ public class aa {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.hj()) {
+        if (!com.baidu.adp.lib.util.i.hk()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.hk()) {
+        if (com.baidu.adp.lib.util.i.hl()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.hm()) {
+        if (com.baidu.adp.lib.util.i.hn()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.hn()) {
+        if (com.baidu.adp.lib.util.i.ho()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.ho()) {
+        if (!com.baidu.adp.lib.util.i.hp()) {
             return "N";
         }
         return "2G";
@@ -153,7 +153,7 @@ public class aa {
 
     public void P(long j) {
         if (j > 0) {
-            this.aHf = j;
+            this.aHh = j;
         }
     }
 

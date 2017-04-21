@@ -479,7 +479,7 @@ public class a {
         if (bVar == null) {
             return null;
         }
-        ImMessageCenterPojo Y = com.baidu.tieba.im.memorycache.b.asc().Y(new StringBuilder(String.valueOf(bVar.arA)).toString(), bVar.userType);
+        ImMessageCenterPojo Y = com.baidu.tieba.im.memorycache.b.atd().Y(new StringBuilder(String.valueOf(bVar.arA)).toString(), bVar.userType);
         if (Y == null || Y.getLast_content() == null) {
             return null;
         }

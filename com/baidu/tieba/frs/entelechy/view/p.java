@@ -6,13 +6,13 @@ import com.baidu.tieba.card.divider.CardGroupDividerView;
 public class p {
     public static void a(bi biVar, CardGroupDividerView cardGroupDividerView) {
         if (cardGroupDividerView != null && biVar != null) {
-            if (biVar.needTopMargin && com.baidu.tieba.tbadkCore.util.s.bjm()) {
+            if (biVar.needTopMargin && com.baidu.tieba.tbadkCore.util.s.bkn()) {
                 String sM = biVar.sM();
                 cardGroupDividerView.setTitleText(sM);
                 cardGroupDividerView.B(sM, !biVar.isFirstFloor);
                 return;
             }
-            cardGroupDividerView.Ty();
+            cardGroupDividerView.UA();
         }
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.a.a azR;
-    private com.baidu.adp.widget.a.a azS;
-    private int azT;
+    private com.baidu.adp.widget.a.a azT;
+    private com.baidu.adp.widget.a.a azU;
+    private int azV;
     private int cols;
 
     public abstract boolean DB();
@@ -31,25 +31,25 @@ public abstract class c {
     public abstract int getWidth();
 
     public com.baidu.adp.widget.a.a DD() {
-        return this.azR;
+        return this.azT;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kR();
+            aVar.kS();
         }
-        this.azR = aVar;
+        this.azT = aVar;
     }
 
     public com.baidu.adp.widget.a.a DE() {
-        return this.azS;
+        return this.azU;
     }
 
     public void d(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.kR();
+            aVar.kS();
         }
-        this.azS = aVar;
+        this.azU = aVar;
     }
 
     public int getCols() {
@@ -62,11 +62,11 @@ public abstract class c {
     }
 
     public int DF() {
-        return this.azT;
+        return this.azV;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void eG(int i) {
-        this.azT = i;
+        this.azV = i;
     }
 }

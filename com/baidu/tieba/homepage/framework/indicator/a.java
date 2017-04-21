@@ -19,28 +19,28 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.TagInfo;
 /* loaded from: classes.dex */
 public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.a {
-    private BdUniqueId baI;
-    private com.baidu.tieba.homepage.personalize.a cux;
+    private BdUniqueId bbE;
+    private com.baidu.tieba.homepage.personalize.a cwO;
     private long lastResumeTime;
     private Context mContext;
     private com.baidu.tbadk.pageStayDuration.d pageStayDurationItem;
-    private String aFr = null;
-    private String cuy = "recommendFrsLastReadTabPositionNamespace";
-    private String cuz = "recommendFrsLastReadTabPositionKey";
-    private boolean cuA = false;
-    private com.baidu.tieba.homepage.framework.d cuB = new b(this);
-    private CustomMessageListener cuC = new c(this, CmdConfigCustom.CMD_RECOMMNED_FRS_TAB_ITEM_CLICK);
-    private CustomMessageListener cub = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
-    private int cuD = 0;
-    private ArrayList<com.baidu.tieba.homepage.recommendfrs.data.a> cuw = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.homepage.recommendfrs.b> bpX = new ArrayList<>();
+    private String aFt = null;
+    private String cwP = "recommendFrsLastReadTabPositionNamespace";
+    private String cwQ = "recommendFrsLastReadTabPositionKey";
+    private boolean cwR = false;
+    private com.baidu.tieba.homepage.framework.d cwS = new b(this);
+    private CustomMessageListener cwT = new c(this, CmdConfigCustom.CMD_RECOMMNED_FRS_TAB_ITEM_CLICK);
+    private CustomMessageListener cws = new d(this, CmdConfigCustom.CMD_UPDATE_ATTENTION);
+    private int cwU = 0;
+    private ArrayList<com.baidu.tieba.homepage.recommendfrs.data.a> cwN = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.homepage.recommendfrs.b> bso = new ArrayList<>();
 
     public void setRecommendFrsNavigationAnimDispatcher(com.baidu.tieba.homepage.framework.b.e eVar) {
-        if (this.cux != null) {
-            this.cux.setRecommendFrsNavigationAnimDispatcher(eVar);
+        if (this.cwO != null) {
+            this.cwO.setRecommendFrsNavigationAnimDispatcher(eVar);
         }
-        if (this.bpX != null) {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        if (this.bso != null) {
+            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.b next = it.next();
                 if (next != null) {
@@ -51,9 +51,9 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     public void onPause() {
-        jI(this.cuD);
-        this.cux.onPause();
-        Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        jO(this.cwU);
+        this.cwO.onPause();
+        Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.homepage.recommendfrs.b next = it.next();
             if (next != null) {
@@ -63,17 +63,17 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     public void onResume() {
-        if (this.cux != null) {
-            this.cux.onResume();
+        if (this.cwO != null) {
+            this.cwO.onResume();
         }
     }
 
     public void completePullRefresh() {
-        if (this.cux != null) {
-            this.cux.completePullRefresh();
+        if (this.cwO != null) {
+            this.cwO.completePullRefresh();
         }
-        if (this.bpX != null) {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        if (this.bso != null) {
+            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.b next = it.next();
                 if (next != null) {
@@ -84,14 +84,14 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.cux != null) {
-            this.cux.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.cwO != null) {
+            this.cwO.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     public void b(View view, int i, int i2, int i3, int i4) {
-        if (this.bpX != null) {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        if (this.bso != null) {
+            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.b next = it.next();
                 if (next != null) {
@@ -99,51 +99,51 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
                 }
             }
         }
-        if (this.cux != null) {
-            this.cux.b(view, i, i2, i3, i4);
+        if (this.cwO != null) {
+            this.cwO.b(view, i, i2, i3, i4);
         }
     }
 
     public a(Context context, com.baidu.tieba.homepage.framework.b bVar, com.baidu.tieba.homepage.framework.c cVar, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.baI = bdUniqueId;
-        this.bpX.add(a(bVar));
-        this.bpX.add(a(bVar));
-        this.bpX.add(a(bVar));
-        this.cux = new com.baidu.tieba.homepage.personalize.a(context);
-        this.cux.setPageUniqueId(bdUniqueId);
-        this.cux.setCallback(cVar);
-        this.cuC.setTag(bdUniqueId);
-        this.cub.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.cuC);
-        MessageManager.getInstance().registerListener(this.cub);
+        this.bbE = bdUniqueId;
+        this.bso.add(a(bVar));
+        this.bso.add(a(bVar));
+        this.bso.add(a(bVar));
+        this.cwO = new com.baidu.tieba.homepage.personalize.a(context);
+        this.cwO.setPageUniqueId(bdUniqueId);
+        this.cwO.setCallback(cVar);
+        this.cwT.setTag(bdUniqueId);
+        this.cws.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.cwT);
+        MessageManager.getInstance().registerListener(this.cws);
     }
 
     private com.baidu.tieba.homepage.recommendfrs.b a(com.baidu.tieba.homepage.framework.b bVar) {
         com.baidu.tieba.homepage.recommendfrs.b bVar2 = new com.baidu.tieba.homepage.recommendfrs.b(this.mContext);
-        bVar2.j(this.baI);
+        bVar2.j(this.bbE);
         bVar2.setCallback(bVar);
-        bVar2.setScrollCallback(this.cuB);
+        bVar2.setScrollCallback(this.cwS);
         return bVar2;
     }
 
-    public void aV(List<com.baidu.tieba.homepage.recommendfrs.data.a> list) {
-        if (this.cuw == null) {
-            this.cuw = new ArrayList<>();
+    public void aW(List<com.baidu.tieba.homepage.recommendfrs.data.a> list) {
+        if (this.cwN == null) {
+            this.cwN = new ArrayList<>();
         }
-        this.cuw.clear();
+        this.cwN.clear();
         if (list != null && list.size() > 0) {
-            this.cuw.addAll(list);
+            this.cwN.addAll(list);
         }
         notifyDataSetChanged();
-        aiB();
+        ajC();
     }
 
-    private void aiB() {
-        int size = this.bpX.size();
+    private void ajC() {
+        int size = this.bso.size();
         for (int i = 1; i < size; i++) {
-            com.baidu.tieba.homepage.recommendfrs.b bVar = this.bpX.get(i % size);
-            com.baidu.tieba.homepage.recommendfrs.data.a aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) com.baidu.tbadk.core.util.x.c(this.cuw, i);
+            com.baidu.tieba.homepage.recommendfrs.b bVar = this.bso.get(i % size);
+            com.baidu.tieba.homepage.recommendfrs.data.a aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) com.baidu.tbadk.core.util.x.c(this.cwN, i);
             if (bVar != null && aVar != null) {
                 bVar.a(aVar, true, false);
             }
@@ -151,11 +151,11 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     public void a(boolean z, long j, com.baidu.tieba.homepage.recommendfrs.data.c cVar, boolean z2) {
-        if (this.cuw != null && !this.cuw.isEmpty()) {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.data.a> it = this.cuw.iterator();
+        if (this.cwN != null && !this.cwN.isEmpty()) {
+            Iterator<com.baidu.tieba.homepage.recommendfrs.data.a> it = this.cwN.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.data.a next = it.next();
-                if (next != null && next.ajN() != null && j == next.ajN().tag_code.longValue()) {
+                if (next != null && next.akO() != null && j == next.akO().tag_code.longValue()) {
                     next.a(z, cVar, z2);
                     notifyDataSetChanged();
                     a(j, next, z2);
@@ -166,10 +166,10 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     public void a(long j, String str, int i) {
-        if (j == this.cux.getTagCode()) {
-            this.cux.M(str, i);
-        } else if (this.bpX != null) {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        if (j == this.cwO.getTagCode()) {
+            this.cwO.M(str, i);
+        } else if (this.bso != null) {
+            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.b next = it.next();
                 if (next != null && next.br(j)) {
@@ -180,16 +180,16 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
         }
     }
 
-    public void aiC() {
-        if (this.cux != null) {
-            this.cux.aiC();
-            aiD();
+    public void ajD() {
+        if (this.cwO != null) {
+            this.cwO.ajD();
+            ajE();
         }
     }
 
     private void a(long j, com.baidu.tieba.homepage.recommendfrs.data.a aVar, boolean z) {
-        if (this.bpX != null) {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        if (this.bso != null) {
+            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.b next = it.next();
                 if (next != null && next.br(j)) {
@@ -202,61 +202,61 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.cuw == null) {
+        if (this.cwN == null) {
             return 0;
         }
-        return this.cuw.size();
+        return this.cwN.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (com.baidu.tieba.homepage.framework.a.a.aiU().cvN != i) {
-            eN(true);
-            com.baidu.tieba.homepage.framework.a.a.aiU().cvN = i;
-            aiD();
-            aiH();
+        if (com.baidu.tieba.homepage.framework.a.a.ajV().cye != i) {
+            eX(true);
+            com.baidu.tieba.homepage.framework.a.a.ajV().cye = i;
+            ajE();
+            ajI();
             VoiceManager bO = com.baidu.tieba.tbadkCore.voice.b.bO(this.mContext);
             if (bO != null) {
                 bO.stopPlay();
             }
             if (obj instanceof com.baidu.tieba.homepage.recommendfrs.b) {
                 com.baidu.tieba.homepage.recommendfrs.b bVar = (com.baidu.tieba.homepage.recommendfrs.b) obj;
-                bVar.ajg();
-                bVar.Xj();
-                if (i == com.baidu.tieba.homepage.framework.a.a.aiU().cvL) {
+                bVar.akh();
+                bVar.Yk();
+                if (i == com.baidu.tieba.homepage.framework.a.a.ajV().cyc) {
                     TiebaStatic.log(new as("c10952"));
-                    if (com.baidu.tieba.homepage.framework.a.a.aiU().cvM != 0 || com.baidu.tieba.homepage.framework.a.a.aiU().cvP) {
-                        com.baidu.tieba.homepage.framework.a.a.aiU().cvP = false;
-                        eO(false);
+                    if (com.baidu.tieba.homepage.framework.a.a.ajV().cyd != 0 || com.baidu.tieba.homepage.framework.a.a.ajV().cyg) {
+                        com.baidu.tieba.homepage.framework.a.a.ajV().cyg = false;
+                        eY(false);
                     }
                 }
             } else if (obj instanceof com.baidu.tieba.homepage.personalize.a) {
                 com.baidu.tieba.homepage.personalize.a aVar = (com.baidu.tieba.homepage.personalize.a) obj;
-                aVar.ajg();
-                aVar.Xj();
+                aVar.akh();
+                aVar.Yk();
             }
         }
-        this.cuD = i;
+        this.cwU = i;
     }
 
     public void c(long j, DataRes dataRes, boolean z) {
         com.baidu.tieba.homepage.recommendfrs.data.a aVar;
-        if (com.baidu.tbadk.core.util.x.p(this.cuw) <= 0) {
-            if (this.cux != null) {
-                this.cux.a(dataRes, z);
+        if (com.baidu.tbadk.core.util.x.p(this.cwN) <= 0) {
+            if (this.cwO != null) {
+                this.cwO.a(dataRes, z);
             }
-        } else if (j == 0 && (aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) com.baidu.tbadk.core.util.x.c(this.cuw, 0)) != null) {
+        } else if (j == 0 && (aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) com.baidu.tbadk.core.util.x.c(this.cwN, 0)) != null) {
             aVar.c(dataRes);
-            this.cux.a(dataRes, z);
+            this.cwO.a(dataRes, z);
         } else {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.data.a> it = this.cuw.iterator();
+            Iterator<com.baidu.tieba.homepage.recommendfrs.data.a> it = this.cwN.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.data.a next = it.next();
-                if (next != null && next.ajN() != null && j == next.ajN().tag_code.longValue()) {
+                if (next != null && next.akO() != null && j == next.akO().tag_code.longValue()) {
                     next.c(dataRes);
-                    next.fa(z);
-                    this.cux.a(dataRes, z);
+                    next.fk(z);
+                    this.cwO.a(dataRes, z);
                     return;
                 }
             }
@@ -264,13 +264,13 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     public int bj(long j) {
-        if (this.cuw == null) {
+        if (this.cwN == null) {
             return -1;
         }
         int count = getCount();
         for (int i = 0; i < count; i++) {
-            com.baidu.tieba.homepage.recommendfrs.data.a aVar = this.cuw.get(i);
-            if (aVar != null && aVar.ajN() != null && aVar.ajN().tag_code.longValue() == j) {
+            com.baidu.tieba.homepage.recommendfrs.data.a aVar = this.cwN.get(i);
+            if (aVar != null && aVar.akO() != null && aVar.akO().tag_code.longValue() == j) {
                 return i;
             }
         }
@@ -280,23 +280,23 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == 0) {
-            if (this.cux.getParent() != null) {
-                viewGroup.removeView(this.cux);
+            if (this.cwO.getParent() != null) {
+                viewGroup.removeView(this.cwO);
             }
-            com.baidu.tieba.homepage.recommendfrs.data.a aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) com.baidu.tbadk.core.util.x.c(this.cuw, i);
+            com.baidu.tieba.homepage.recommendfrs.data.a aVar = (com.baidu.tieba.homepage.recommendfrs.data.a) com.baidu.tbadk.core.util.x.c(this.cwN, i);
             if (aVar != null) {
-                this.cux.setTagInfo(aVar.ajN());
+                this.cwO.setTagInfo(aVar.akO());
             }
-            viewGroup.addView(this.cux);
-            return this.cux;
+            viewGroup.addView(this.cwO);
+            return this.cwO;
         }
-        com.baidu.tieba.homepage.recommendfrs.b bVar = this.bpX.get(i % 3);
+        com.baidu.tieba.homepage.recommendfrs.b bVar = this.bso.get(i % 3);
         if (bVar.getParent() != null) {
             viewGroup.removeView(bVar);
         }
-        bVar.a(this.cuw.get(i), true, false);
+        bVar.a(this.cwN.get(i), true, false);
         viewGroup.addView(bVar);
-        if (i - 1 == com.baidu.tieba.homepage.framework.a.a.aiU().cvL) {
+        if (i - 1 == com.baidu.tieba.homepage.framework.a.a.ajV().cyc) {
             bVar.setEnableLastReadPosition(true);
             return bVar;
         }
@@ -304,50 +304,50 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
         return bVar;
     }
 
-    private void aiD() {
+    private void ajE() {
         this.lastResumeTime = System.currentTimeMillis();
-        if (!aiF() && !aiE() && com.baidu.tieba.homepage.framework.a.a.aiU().cvN >= 0) {
-            if (com.baidu.tieba.homepage.framework.a.a.aiU().cvN == 0) {
-                this.aFr = "a002";
-            } else if (com.baidu.tieba.homepage.framework.a.a.aiU().cvN == com.baidu.tieba.homepage.framework.a.a.aiU().cvL) {
-                this.aFr = "a003";
+        if (!ajG() && !ajF() && com.baidu.tieba.homepage.framework.a.a.ajV().cye >= 0) {
+            if (com.baidu.tieba.homepage.framework.a.a.ajV().cye == 0) {
+                this.aFt = "a002";
+            } else if (com.baidu.tieba.homepage.framework.a.a.ajV().cye == com.baidu.tieba.homepage.framework.a.a.ajV().cyc) {
+                this.aFt = "a003";
             } else {
-                this.aFr = "a004";
+                this.aFt = "a004";
             }
         }
     }
 
-    private boolean aiE() {
-        int i = com.baidu.tieba.homepage.framework.a.a.aiU().cvN;
+    private boolean ajF() {
+        int i = com.baidu.tieba.homepage.framework.a.a.ajV().cye;
         if (i >= getCount() || i < 0) {
             return false;
         }
-        com.baidu.tieba.homepage.recommendfrs.data.a aVar = this.cuw.get(i);
+        com.baidu.tieba.homepage.recommendfrs.data.a aVar = this.cwN.get(i);
         if (aVar == null) {
             return false;
         }
-        TagInfo ajN = aVar.ajN();
-        if (ajN == null || ajN.tag_type.intValue() != 7) {
+        TagInfo akO = aVar.akO();
+        if (akO == null || akO.tag_type.intValue() != 7) {
             return false;
         }
-        this.aFr = "c11825";
+        this.aFt = "c11825";
         return true;
     }
 
-    private boolean aiF() {
-        int i = com.baidu.tieba.homepage.framework.a.a.aiU().cvN;
+    private boolean ajG() {
+        int i = com.baidu.tieba.homepage.framework.a.a.ajV().cye;
         if (i >= getCount() || i < 0) {
             return false;
         }
-        com.baidu.tieba.homepage.recommendfrs.data.a aVar = this.cuw.get(i);
+        com.baidu.tieba.homepage.recommendfrs.data.a aVar = this.cwN.get(i);
         if (aVar == null) {
             return false;
         }
-        TagInfo ajN = aVar.ajN();
-        if (ajN == null || ajN.tag_type.intValue() != 5) {
+        TagInfo akO = aVar.akO();
+        if (akO == null || akO.tag_type.intValue() != 5) {
             return false;
         }
-        this.aFr = com.baidu.tieba.tbadkCore.t.pU(ajN.lego_qs);
+        this.aFt = com.baidu.tieba.tbadkCore.t.pV(akO.lego_qs);
         return true;
     }
 
@@ -361,10 +361,10 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
         if (i < 0 || i >= count) {
             return null;
         }
-        if (this.cuw == null || this.cuw.get(i) == null || this.cuw.get(i).ajN() == null) {
+        if (this.cwN == null || this.cwN.get(i) == null || this.cwN.get(i).akO() == null) {
             return null;
         }
-        return this.cuw.get(i).ajN().tag_name;
+        return this.cwN.get(i).akO().tag_name;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -373,12 +373,12 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m19do(int i) {
-        if (this.bpX != null) {
-            if (this.cux != null) {
-                this.cux.onChangeSkinType(i);
+    public void m20do(int i) {
+        if (this.bso != null) {
+            if (this.cwO != null) {
+                this.cwO.onChangeSkinType(i);
             }
-            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.b next = it.next();
                 if (next != null) {
@@ -389,51 +389,51 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
     }
 
     public void setItemForeGround(int i) {
-        aiD();
+        ajE();
         if (i == 0) {
-            this.cux.ajg();
+            this.cwO.akh();
             return;
         }
-        com.baidu.tieba.homepage.recommendfrs.b bVar = (com.baidu.tieba.homepage.recommendfrs.b) com.baidu.tbadk.core.util.x.c(this.bpX, i % 3);
+        com.baidu.tieba.homepage.recommendfrs.b bVar = (com.baidu.tieba.homepage.recommendfrs.b) com.baidu.tbadk.core.util.x.c(this.bso, i % 3);
         if (bVar != null) {
-            if (i == com.baidu.tieba.homepage.framework.a.a.aiU().cvL) {
+            if (i == com.baidu.tieba.homepage.framework.a.a.ajV().cyc) {
                 TiebaStatic.log(new as("c10952"));
             }
-            if (i == com.baidu.tieba.homepage.framework.a.a.aiU().cvL && com.baidu.tieba.homepage.framework.a.a.aiU().cvP) {
-                com.baidu.tieba.homepage.framework.a.a.aiU().cvP = false;
-                eO(false);
+            if (i == com.baidu.tieba.homepage.framework.a.a.ajV().cyc && com.baidu.tieba.homepage.framework.a.a.ajV().cyg) {
+                com.baidu.tieba.homepage.framework.a.a.ajV().cyg = false;
+                eY(false);
                 return;
             }
-            bVar.ajg();
+            bVar.akh();
         }
     }
 
-    public void eO(boolean z) {
-        int i = com.baidu.tieba.homepage.framework.a.a.aiU().cvN;
+    public void eY(boolean z) {
+        int i = com.baidu.tieba.homepage.framework.a.a.ajV().cye;
         if (i == 0) {
-            if (this.cux != null) {
-                this.cux.reload();
+            if (this.cwO != null) {
+                this.cwO.reload();
                 return;
             }
             return;
         }
-        com.baidu.tieba.homepage.recommendfrs.b bVar = (com.baidu.tieba.homepage.recommendfrs.b) com.baidu.tbadk.core.util.x.c(this.bpX, i % 3);
+        com.baidu.tieba.homepage.recommendfrs.b bVar = (com.baidu.tieba.homepage.recommendfrs.b) com.baidu.tbadk.core.util.x.c(this.bso, i % 3);
         if (bVar != null) {
-            bVar.eZ(z);
+            bVar.fj(z);
         }
     }
 
-    private View aiG() {
-        int i = com.baidu.tieba.homepage.framework.a.a.aiU().cvN;
+    private View ajH() {
+        int i = com.baidu.tieba.homepage.framework.a.a.ajV().cye;
         if (i == 0) {
-            return this.cux;
+            return this.cwO;
         }
-        return (View) com.baidu.tbadk.core.util.x.c(this.bpX, i % 3);
+        return (View) com.baidu.tbadk.core.util.x.c(this.bso, i % 3);
     }
 
     public void onDestroy() {
-        this.cux.onDestroy();
-        Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        this.cwO.onDestroy();
+        Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.homepage.recommendfrs.b next = it.next();
             if (next != null) {
@@ -442,74 +442,74 @@ public class a extends PagerAdapter implements com.baidu.tbadk.pageStayDuration.
         }
     }
 
-    public void aiH() {
-        View aiG = aiG();
-        if (this.cux != null) {
-            this.cux.setTabInForeBackgroundState(this.cux != aiG);
+    public void ajI() {
+        View ajH = ajH();
+        if (this.cwO != null) {
+            this.cwO.setTabInForeBackgroundState(this.cwO != ajH);
         }
-        if (this.bpX != null) {
-            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bpX.iterator();
+        if (this.bso != null) {
+            Iterator<com.baidu.tieba.homepage.recommendfrs.b> it = this.bso.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.homepage.recommendfrs.b next = it.next();
                 if (next != null) {
-                    next.setTabInForeBackgroundState(next != aiG);
+                    next.setTabInForeBackgroundState(next != ajH);
                 }
             }
         }
     }
 
-    public void eN(boolean z) {
+    public void eX(boolean z) {
         if (this.lastResumeTime != 0 && z) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.O(currentTimeMillis);
             com.baidu.tbadk.pageStayDuration.e.Gb().a(this.mContext, pageStayDurationItem);
         }
-        View aiG = aiG();
-        if (aiG instanceof com.baidu.tieba.homepage.recommendfrs.b) {
-            ((com.baidu.tieba.homepage.recommendfrs.b) aiG).ajh();
-        } else if (aiG instanceof com.baidu.tieba.homepage.personalize.a) {
-            ((com.baidu.tieba.homepage.personalize.a) aiG).ajh();
+        View ajH = ajH();
+        if (ajH instanceof com.baidu.tieba.homepage.recommendfrs.b) {
+            ((com.baidu.tieba.homepage.recommendfrs.b) ajH).aki();
+        } else if (ajH instanceof com.baidu.tieba.homepage.personalize.a) {
+            ((com.baidu.tieba.homepage.personalize.a) ajH).aki();
         }
     }
 
-    public void aiI() {
-        int i = com.baidu.tieba.homepage.framework.a.a.aiU().cvN;
+    public void ajJ() {
+        int i = com.baidu.tieba.homepage.framework.a.a.ajV().cye;
         if (i == 0) {
-            if (this.cux != null) {
-                this.cux.setViewForeground(true);
+            if (this.cwO != null) {
+                this.cwO.setViewForeground(true);
                 return;
             }
             return;
         }
-        com.baidu.tieba.homepage.recommendfrs.b bVar = (com.baidu.tieba.homepage.recommendfrs.b) com.baidu.tbadk.core.util.x.c(this.bpX, i % 3);
+        com.baidu.tieba.homepage.recommendfrs.b bVar = (com.baidu.tieba.homepage.recommendfrs.b) com.baidu.tbadk.core.util.x.c(this.bso, i % 3);
         if (bVar != null) {
-            bVar.ajg();
+            bVar.akh();
         }
     }
 
-    public void jH(int i) {
-        if (i == 0 && this.cux != null) {
-            this.cux.aji();
-        } else if (i == com.baidu.tieba.homepage.framework.a.a.aiU().cvL && (aiG() instanceof com.baidu.tieba.homepage.recommendfrs.b)) {
-            ((com.baidu.tieba.homepage.recommendfrs.b) aiG()).ajx();
+    public void jN(int i) {
+        if (i == 0 && this.cwO != null) {
+            this.cwO.akj();
+        } else if (i == com.baidu.tieba.homepage.framework.a.a.ajV().cyc && (ajH() instanceof com.baidu.tieba.homepage.recommendfrs.b)) {
+            ((com.baidu.tieba.homepage.recommendfrs.b) ajH()).aky();
         }
     }
 
-    public void jI(int i) {
+    public void jO(int i) {
         com.baidu.tbadk.util.t.a(new e(this, i), null);
     }
 
     public void a(com.baidu.tieba.homepage.framework.x xVar) {
-        if (!this.cuA) {
-            this.cuA = true;
+        if (!this.cwR) {
+            this.cwR = true;
             com.baidu.tbadk.util.t.a(new f(this), new g(this, xVar));
         }
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.a
     public String getCurrentPageKey() {
-        return this.aFr;
+        return this.aFt;
     }
 
     @Override // com.baidu.tbadk.pageStayDuration.a

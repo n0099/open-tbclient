@@ -8,13 +8,13 @@ import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class av extends bi {
-    public static final BdUniqueId Xt = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Xu;
-    private int Xv = 0;
+    public static final BdUniqueId Xu = BdUniqueId.gen();
+    private List<PhotoLiveCardData> Xv;
+    private int Xw = 0;
     private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
 
     public void m(List<PhotoLiveCardData> list) {
-        this.Xu = list;
+        this.Xv = list;
     }
 
     public void a(bi biVar, int i) {
@@ -37,11 +37,11 @@ public class av extends bi {
             setShowExpressionViewIndexList(biVar.sH());
             setId(biVar.getId());
             a(biVar.rg());
-            this.ZA = biVar.sK();
-            this.ZB = biVar.sL();
-            this.ZC = biVar.sM();
+            this.ZB = biVar.sK();
+            this.ZC = biVar.sL();
+            this.ZD = biVar.sM();
             if (getShowStyle() < 0) {
-                this.Xv = getRandom(3, i);
+                this.Xw = getRandom(3, i);
             }
         }
     }
@@ -67,7 +67,7 @@ public class av extends bi {
             setPost_num(zhiBoInfoTW.post_num.intValue());
             setTitle(zhiBoInfoTW.title);
             setShowExpressionViewIndexList(n(zhiBoInfoTW.labelInfo));
-            this.Xv = getRandom(3, i);
+            this.Xw = getRandom(3, i);
             cp(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             setThreadType(33);
@@ -140,11 +140,11 @@ public class av extends bi {
     }
 
     public int getShowStyle() {
-        return this.Xv;
+        return this.Xw;
     }
 
     @Override // com.baidu.tbadk.core.data.bi, com.baidu.adp.widget.ListView.v
     public BdUniqueId getType() {
-        return Xt;
+        return Xu;
     }
 }

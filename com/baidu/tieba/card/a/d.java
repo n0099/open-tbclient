@@ -6,11 +6,11 @@ import com.baidu.tieba.play.v;
 import com.baidu.tieba.view.AudioAnimationView;
 /* loaded from: classes.dex */
 class d implements v.d {
-    final /* synthetic */ a buH;
+    final /* synthetic */ a bwY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.buH = aVar;
+        this.bwY = aVar;
     }
 
     @Override // com.baidu.tieba.play.v.d
@@ -24,17 +24,17 @@ class d implements v.d {
             vVar.setLooping(true);
             vVar.setVolume(0.0f, 0.0f);
         }
-        audioAnimationView = this.buH.aTi;
+        audioAnimationView = this.bwY.aTk;
         audioAnimationView.start();
-        frameLayout = this.buH.aTg;
+        frameLayout = this.bwY.aTi;
         frameLayout.setVisibility(8);
-        tbImageView = this.buH.aTc;
+        tbImageView = this.bwY.aTe;
         tbImageView.setVisibility(8);
-        com.baidu.adp.lib.g.h fR = com.baidu.adp.lib.g.h.fR();
-        runnable = this.buH.aTs;
-        fR.postDelayed(runnable, 3000L);
-        com.baidu.adp.lib.g.h fR2 = com.baidu.adp.lib.g.h.fR();
-        runnable2 = this.buH.aTv;
-        fR2.removeCallbacks(runnable2);
+        com.baidu.adp.lib.g.h fS = com.baidu.adp.lib.g.h.fS();
+        runnable = this.bwY.aTu;
+        fS.postDelayed(runnable, 3000L);
+        com.baidu.adp.lib.g.h fS2 = com.baidu.adp.lib.g.h.fS();
+        runnable2 = this.bwY.aTx;
+        fS2.removeCallbacks(runnable2);
     }
 }

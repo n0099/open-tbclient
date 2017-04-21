@@ -8,7 +8,7 @@ public interface w {
 
     void a(Context context, NavigationBar navigationBar);
 
-    void bmn();
+    void bno();
 
     void c(float f, boolean z);
 

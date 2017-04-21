@@ -97,7 +97,7 @@ public class TiebaSyncService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: D */
+        /* renamed from: C */
         public com.baidu.tbadk.coreExtra.c.d doInBackground(String... strArr) {
             com.baidu.tbadk.coreExtra.c.d dVar;
             Exception e;
@@ -171,7 +171,7 @@ public class TiebaSyncService extends BdBaseService {
         public void cancel() {
             TiebaSyncService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.fr();
+                this.mNetWork.fs();
             }
             super.cancel(true);
         }

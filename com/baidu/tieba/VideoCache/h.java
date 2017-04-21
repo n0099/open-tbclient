@@ -66,12 +66,12 @@ public class h implements Runnable {
         synchronized (this) {
             k.log(TAG, "merge ...");
             String gU = o.gU(this.mVideoUrl);
-            if (gU != null && !gU.isEmpty() && ((file = new File(String.valueOf(j.aUU) + gU + "/completed")) == null || !file.exists())) {
-                File file2 = new File(String.valueOf(j.aUU) + gU + "/completed.temp");
+            if (gU != null && !gU.isEmpty() && ((file = new File(String.valueOf(j.aUW) + gU + "/completed")) == null || !file.exists())) {
+                File file2 = new File(String.valueOf(j.aUW) + gU + "/completed.temp");
                 if (file2 != null && file2.exists()) {
                     file2.delete();
                 }
-                File file3 = new File(String.valueOf(j.aUU) + gU + "/segments");
+                File file3 = new File(String.valueOf(j.aUW) + gU + "/segments");
                 if (file3 != null && file3.exists()) {
                     gO = gO(gU);
                     File[] listFiles = file3.listFiles();
@@ -259,7 +259,7 @@ public class h implements Runnable {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream = null;
-        File file = new File(String.valueOf(j.aUU) + str + "/content_length");
+        File file = new File(String.valueOf(j.aUW) + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

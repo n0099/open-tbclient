@@ -11,12 +11,12 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    com.baidu.tieba.f.b fKc = new com.baidu.tieba.f.b();
-    final /* synthetic */ PersonHeaderAttentionView fKd;
+    com.baidu.tieba.f.b fMy = new com.baidu.tieba.f.b();
+    final /* synthetic */ PersonHeaderAttentionView fMz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonHeaderAttentionView personHeaderAttentionView) {
-        this.fKd = personHeaderAttentionView;
+        this.fMz = personHeaderAttentionView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00ac, code lost:
@@ -43,56 +43,56 @@ public class s implements View.OnClickListener {
         UserData userData10;
         m mVar2;
         Context context;
-        userData = this.fKd.mUserData;
+        userData = this.fMz.mUserData;
         if (userData != null && view != null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                context = this.fKd.mContext;
+                context = this.fMz.mContext;
                 bg.aI(context);
                 return;
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            userData2 = this.fKd.mUserData;
+            userData2 = this.fMz.mUserData;
             boolean equals = currentAccount.equals(userData2.getUserId());
-            userData3 = this.fKd.mUserData;
+            userData3 = this.fMz.mUserData;
             boolean z = userData3.getIsFriend() == 1;
             int id = view.getId();
             if (w.h.person_header_attention_container == id) {
-                this.fKc.bGX = 4;
+                this.fMy.bJo = 4;
             } else if (w.h.person_header_fans_container == id) {
-                this.fKc.bGX = 5;
+                this.fMy.bJo = 5;
             } else if (w.h.person_header_post_container == id) {
-                userData7 = this.fKd.mUserData;
+                userData7 = this.fMz.mUserData;
                 if (userData7.getPersonPrivate().CK() != 1 && !equals) {
                     if (z) {
-                        userData9 = this.fKd.mUserData;
+                        userData9 = this.fMz.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView = this.fKd;
-                    userData8 = this.fKd.mUserData;
-                    personHeaderAttentionView.hx(userData8.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView = this.fMz;
+                    userData8 = this.fMz.mUserData;
+                    personHeaderAttentionView.hD(userData8.getSex());
                     return;
                 }
-                this.fKc.bGX = 6;
+                this.fMy.bJo = 6;
             } else if (w.h.person_header_bar_container == id) {
-                userData4 = this.fKd.mUserData;
+                userData4 = this.fMz.mUserData;
                 if (userData4.getPersonPrivate().CI() != 1 && !equals) {
                     if (z) {
-                        userData6 = this.fKd.mUserData;
+                        userData6 = this.fMz.mUserData;
                     }
-                    PersonHeaderAttentionView personHeaderAttentionView2 = this.fKd;
-                    userData5 = this.fKd.mUserData;
-                    personHeaderAttentionView2.hx(userData5.getSex());
+                    PersonHeaderAttentionView personHeaderAttentionView2 = this.fMz;
+                    userData5 = this.fMz.mUserData;
+                    personHeaderAttentionView2.hD(userData5.getSex());
                     return;
                 }
-                this.fKc.bGX = 7;
+                this.fMy.bJo = 7;
             }
-            mVar = this.fKd.eAx;
+            mVar = this.fMz.eCN;
             if (mVar != null) {
-                this.fKc.bGY = new Bundle();
-                Bundle bundle = this.fKc.bGY;
-                userData10 = this.fKd.mUserData;
+                this.fMy.bJp = new Bundle();
+                Bundle bundle = this.fMy.bJp;
+                userData10 = this.fMz.mUserData;
                 bundle.putSerializable(UserData.TYPE_USER, userData10);
-                mVar2 = this.fKd.eAx;
-                mVar2.a(view, this.fKc);
+                mVar2 = this.fMz.eCN;
+                mVar2.a(view, this.fMy);
             }
         }
     }

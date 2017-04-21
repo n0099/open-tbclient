@@ -8,11 +8,11 @@ import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements Runnable {
-    final /* synthetic */ q eEZ;
+    final /* synthetic */ q eHp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(q qVar) {
-        this.eEZ = qVar;
+        this.eHp = qVar;
     }
 
     @Override // java.lang.Runnable
@@ -22,15 +22,15 @@ public class t implements Runnable {
         com.baidu.tieba.personPolymeric.c.n nVar2;
         PersonPolymericModel personPolymericModel2;
         PersonPolymericModel personPolymericModel3;
-        personPolymericModel = this.eEZ.eET;
+        personPolymericModel = this.eHp.eHj;
         if (personPolymericModel != null) {
-            nVar = this.eEZ.mPersonPolymericData;
+            nVar = this.eHp.mPersonPolymericData;
             if (nVar != null) {
-                nVar2 = this.eEZ.mPersonPolymericData;
-                if (nVar2.NH()) {
-                    personPolymericModel2 = this.eEZ.eET;
+                nVar2 = this.eHp.mPersonPolymericData;
+                if (nVar2.NP()) {
+                    personPolymericModel2 = this.eHp.eHj;
                     personPolymericModel2.resetData();
-                    personPolymericModel3 = this.eEZ.eET;
+                    personPolymericModel3 = this.eHp.eHj;
                     personPolymericModel3.co(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
                 }
             }
